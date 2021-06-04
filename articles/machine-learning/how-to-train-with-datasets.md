@@ -296,11 +296,27 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
   * If you are using `azureml-sdk<1.12.0`, upgrade to the latest version.
   * If you have outbound NSG rules, make sure there is an outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
 
-### Overloaded AzureFile storage
+### AzureFile storage
 
-If you receive an error `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, apply following workarounds.
+**Unable to upload project files to working directory in AzureFile because the storage is overloaded**:
 
-If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.
+* If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs.
+
+* Another option is to split the workload between two different workspaces.
+
+**ConfigException: Could not create a connection to the AzureFileService due to missing credentials. Either an Account Key or SAS token needs to be linked the default workspace blob store.**
+
+To ensure your storage access credentials are linked to the workspace and the associated file datastore, complete the following steps:
+
+1. Navigate to your workspace in the [Azure Portal](https://ms.portal.azure.com).
+1. Select the storage link on the workspace **Overview** page.
+1. On the storage page, select **Access keys** on the left side menu. 
+1. Copy the key.
+1. Navigate to the [Azure Machine Learning studio](https://ml.azure.com) for your workspace.
+1. In the studio, select the file datastore for which you want to provide authentication credentials. 
+1. Select **Update authentication** .
+1. Paste the key from the previous steps. 
+1. Select **Save**. 
 
 ### Passing data as input
 
