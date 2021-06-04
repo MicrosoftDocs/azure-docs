@@ -30,7 +30,7 @@ landingContent:
           - text: Best practices
             url: template-best-practices.md
           - text: Frequently asked questions
-            url: frequently-asked-questions.yml
+            url: frequently-asked-questions.md
           - text: Template specs
             url: template-specs.md
           - text: Deployment modes
