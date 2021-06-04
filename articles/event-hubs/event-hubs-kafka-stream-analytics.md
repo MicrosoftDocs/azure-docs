@@ -10,7 +10,7 @@ This article shows how to stream data into Event Hubs and process it with Azure 
 
 1. Create an Event Hubs namespace.
 2. Create a Kafka client that sends messages to the event hub.
-3. Create a Stream Analytics job that copies data from the event hub into an Azure blob storage. 
+3. Create a Stream Analytics job that copies data from the event hub into an Azure Blob Storage. 
 
 You do not need to change your protocol clients or run your own clusters when you use the Kafka endpoint exposed by an event hub. Azure Event Hubs supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html) and above. 
 
@@ -23,7 +23,7 @@ To complete this quickstart, make sure you have the following prerequisites:
 * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
-* An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-account-create.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
+* An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-account-create.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure Blob Storage. 
 
 
 ## Create an Event Hubs namespace
@@ -75,7 +75,7 @@ When you create an Event Hubs namespace, the Kafka endpoint for the namespace is
     ![Event hub - messages](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## Process event data using a Stream Analytics job
-In this section, you create an Azure Stream Analytics job. The Kafka client sends events to the event hub. You create a Stream Analytics job that takes event data as input and outputs it to an Azure blob storage. If you don't have  an **Azure Storage account**, [create one](../storage/common/storage-account-create.md).
+In this section, you create an Azure Stream Analytics job. The Kafka client sends events to the event hub. You create a Stream Analytics job that takes event data as input and outputs it to an Azure Blob Storage. If you don't have  an **Azure Storage account**, [create one](../storage/common/storage-account-create.md).
 
 The query in the Stream Analytics job passes through the data without performing any analytics. You can create a query that transforms the input data to produce output data in a different format or with gained insights.  
 
@@ -153,7 +153,7 @@ After you have a Stream Analytics job setup to read an incoming data stream, the
     ```shell
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
-1. Confirm that you see **output data** is generated in the **Azure blob storage**. You see a JSON file in the container with 100 rows that look like the following sample rows: 
+1. Confirm that you see **output data** is generated in the **Azure Blob Storage**. You see a JSON file in the container with 100 rows that look like the following sample rows: 
 
     ```
     {"eventData":"Test Data 0","EventProcessedUtcTime":"2018-08-30T03:27:23.1592910Z","PartitionId":0,"EventEnqueuedUtcTime":"2018-08-30T03:27:22.9220000Z"}
@@ -161,7 +161,7 @@ After you have a Stream Analytics job setup to read an incoming data stream, the
     {"eventData":"Test Data 2","EventProcessedUtcTime":"2018-08-30T03:27:23.3936511Z","PartitionId":0,"EventEnqueuedUtcTime":"2018-08-30T03:27:22.9220000Z"}
     ```
 
-    The Azure Stream Analytics job received input data from the event hub and stored it in the Azure blob storage in this scenario. 
+    The Azure Stream Analytics job received input data from the event hub and stored it in the Azure Blob Storage in this scenario. 
 
 
 
