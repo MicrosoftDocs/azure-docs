@@ -58,12 +58,12 @@
       href: cms-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
       href: carin-implementation-guide-bb-tutorial.md
-    - name: $member-match operation
-      href: tutorial-$member-match.md
     - name: DaVinci Drug Formulary
       href: davinci-drug-formulary-tutorial.md
     - name: DaVinci PDex
       href: davinci-pdex-tutorial.md
+    - name: $member-match operation
+      href: tutorial-$member-match.md
 - name: How-to guides
   expanded: false
   items:

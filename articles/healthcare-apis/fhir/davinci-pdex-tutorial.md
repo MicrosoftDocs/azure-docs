@@ -25,7 +25,7 @@ The first set of tests that we'll focus on is testing the Azure API for FHIR aga
 
 1. The first test just validates the basic capability statement against the IG requirements and will pass without any updates.
 
-2. The second test validates all the profiles have been added for US Core. This test will pass without updates but will include a bunch of warnings. To have these warnings removed, you need to [load the US Core profiles](validation-against-profiles.md). We've created a [sample HTTP file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/PDex_Sample_Data.http) that walks through creating all the profiles. You can also get the [profiles](http://hl7.org/fhir/us/core/STU3.1.1/profiles.html#profiles) from the HL7 site directly, which will have the most current versions.
+2. The second test validates all the profiles have been added for US Core. This test will pass without updates but will include a bunch of warnings. To have these warnings removed, you need to [load the US Core profiles](validation-against-profiles.md). We've created a [sample HTTP file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) that walks through creating all the profiles. You can also get the [profiles](http://hl7.org/fhir/us/core/STU3.1.1/profiles.html#profiles) from the HL7 site directly, which will have the most current versions.
 
 3. The third test validates that the patient-everything operation is supported. Right now, this test will fail. The operation will be available in mid-June 2021 in the Azure API for FHIR and is available now in the open-source FHIR server on Cosmos DB. However, it is missing from the capability statement, so this test will fail until we release a fix to bug [1989](https://github.com/microsoft/fhir-server/issues/1989). 
 
@@ -42,7 +42,7 @@ In this test, you’ll need to load some sample data for the test to pass. We ha
 
 ## Touchstone Patient by Reference
 
-The next tests we'll review is the [patient by reference](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PayerExchange/02-PatientByReference&activeOnly=false&contentEntry=TEST_SCRIPTS) tests. This set of tests validate that you can find a patient based on various search criteria. The best way to test the patient by reference will be to test against your own data, but we have uploaded a sample resource file that you can load to use as well.
+The next tests we'll review is the [patient by reference](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PayerExchange/02-PatientByReference&activeOnly=false&contentEntry=TEST_SCRIPTS) tests. This set of tests validate that you can find a patient based on various search criteria. The best way to test the patient by reference will be to test against your own data, but we have uploaded a [sample resource file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/PDex_Sample_Data.http) that you can load to use as well.
 
 :::image type="content" source="media/cms-tutorials/davinci-pdex-test-execution-passed.png" alt-text="DaVinci PDex execution passed.":::
 

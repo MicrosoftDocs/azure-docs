@@ -61,7 +61,7 @@ The HL7 US Core Implementation Guide (US Core IG) is the backbone for the PDex I
 
 Part D Medicare Advantage plans have to make formulary information available via the Patient API. They do this using the PDex US Drug Formulary Implementation Guide (USDF IG). The USDF IG defines a FHIR interface to a health insurer’s drug formulary information, which is a list of brand-name and generic prescription drugs that a health insurer agrees to pay for. The main use case of this is so that patients can understand if there are alternative drug available to one that has been prescribed to them and to compare drug costs.
 
-### [Provider Directory API Implementation Guide](https://build.fhir.org/ig/HL7/davinci-epdx/)
+## Provider Directory API Implementation Guide
 
 The Provider Directory API describes adherence to one implementation guide.
 
