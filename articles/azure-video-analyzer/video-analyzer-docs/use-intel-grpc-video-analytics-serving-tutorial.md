@@ -112,12 +112,12 @@ Right-click the Azure Video Analyzer device and select **Start Monitoring Built-
 ![Start monitoring](./media/quickstarts/start-monitoring-iot-hub-events.png) 
 
 ### Run the sample program to detect vehicles, persons or bike
-If you open the [pipeline topology](https://raw.githubusercontent.com/Azure/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json) for this tutorial in a browser, you will see that the value of `grpcExtensionAddress` has been set to `tcp://avaExtension:5001`, compared to the *httpExtensionOpenVINO* tutorial you do not need to change the url to the gRPC Server. Instead you instruct the module to run a specific pipeline by the `extensionConfiguration` in the operations file. When not provided it defaults to "object_detection" for "person_vehicle_bike_detection". You can experiment with other supported pipelines.
+If you open the [pipeline topology](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json) for this tutorial in a browser, you will see that the value of `grpcExtensionAddress` has been set to `tcp://avaExtension:5001`, compared to the *httpExtensionOpenVINO* tutorial you do not need to change the url to the gRPC Server. Instead you instruct the module to run a specific pipeline by the `extensionConfiguration` in the operations file. When not provided it defaults to "object_detection" for "person_vehicle_bike_detection". You can experiment with other supported pipelines.
 
 1. Edit the *operations.json* file:
     * Change the link to the live pipeline topology:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
+        `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
 
     * Under `pipelineTopologySet`, edit the name of the live pipeline topology to match the value in the preceding link:
 

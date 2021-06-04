@@ -112,6 +112,15 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use `PipelineParameter` for `mini_batch_size` and `Process_count_per_node` and you will change these values when you resubmit another run. 
 
+#### CUDA devices visibility
+For compute targets equipped with GPUs, the environment variable `CUDA_VISIBLE_DEVICES` will be set in worker processes. In AmlCompute, you can find the total number of GPU devices in the environment variable `AZ_BATCHAI_GPU_COUNT_FOUND`, which is set automatically. If you want each worker process to have a dedicated GPU, set `process_count_per_node` equal to the number of GPU devices on a machine. Each worker process will assign a unique index to `CUDA_VISIBLE_DEVICES`. If a worker process stops for any reason, the next started worker process will use the released GPU index.
+
+If the total number of GPU devices is less than `process_count_per_node`, the worker processes will be assigned GPU index until all have been used. 
+
+Given the total GPU devices is 2 and `process_count_per_node = 4` as an example, process 0 and process 1 will have index 0 and 1. Process 2 and 3 won't have an environment variable. For a library using this environment variable for GPU assignment, process 2 and 3 won't have GPUs and won't try to acquire GPU devices. If process 0 stops, it will release GPU index 0. The next process, which is process 4, will have GPU index 0 assigned.
+
+For more information, see [CUDA Pro Tip: Control GPU Visibility with CUDA_VISIBLE_DEVICES](https://developer.nvidia.com/blog/cuda-pro-tip-control-gpu-visibility-cuda_visible_devices/).
+
 ### Parameters for creating the ParallelRunStep
 
 Create the ParallelRunStep by using the script, environment configuration, and parameters. Specify the compute target that you already attached to your workspace as the target of execution for your inference script. Use `ParallelRunStep` to create the batch inference pipeline step, which takes all the following parameters:
@@ -221,6 +230,7 @@ If no `stdout` or `stderr` specified, a subprocess will inherit the setting of t
 ### How could I write to a file to show up in the portal?
 Files in `logs` folder will be uploaded and show up in the portal.
 You can get the folder `logs/user/entry_script_log/<node_id>` like below and compose your file path to write:
+
 ```python
 from pathlib import Path
 def init():
@@ -231,7 +241,23 @@ def init():
     fil_path = Path(folder) / "<file_name>"
 ```
 
-### How could I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?
+### How do I write a file to the output directory, and then view it in the portal?
+
+You can get the output directory from the `EntryScript` class and write to it. To view the written files, in the step Run view in the Azure Machine Learning portal, select the **Outputs + logs** tab. Select the **Data outputs** link, and then complete the steps that are described in the dialog. 
+
+Use `EntryScript` in your entry script like in this example:
+
+```python
+from pathlib import Path
+from azureml_user.parallel_run import EntryScript
+
+def run(mini_batch):
+    output_dir = Path(entry_script.output_dir)
+    (Path(output_dir) / res1).write...
+    (Path(output_dir) / res2).write...
+```
+
+### How can I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?
 
 User can pass reference data to script using side_inputs parameter of ParalleRunStep. All datasets provided as side_inputs will be mounted on each worker node. User can get the location of mount by passing argument.
 
@@ -261,7 +287,6 @@ labels_path = args.labels_dir
 ```
 
 ### How to use input datasets with service principal authentication?
-
 User can pass input datasets with service principal authentication used in workspace. Using such dataset in ParallelRunStep requires that dataset to be registered for it to construct ParallelRunStep configuration.
 
 ```python
@@ -281,6 +306,38 @@ default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore
 ds = Dataset.File.from_files(default_blob_store, '**path***')
 registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
+
+## How to Check Progress and Analyze it
+This section is about how to check the progress of a ParallelRunStep job and check the cause of unexpected behavior.
+
+### How to check job progress?
+Besides looking at the overall status of the StepRun, the count of scheduled/processed mini-batches and the progress of generating output can be viewed in `~/logs/job_progress_overview.<timestamp>.txt`. The file rotates on daily basis, you can check the one with the largest timestamp for the latest information.
+
+### What should I check if there is no progress for a while?
+You can go into `~/logs/sys/errror` to see if there's any exception. If there is none, it's likely that your entry script is taking a long time, you can print out progress information in your code to locate the time-consuming part, or add `"--profiling_module", "cProfile"` to the `arguments` of `ParallelRunStep` to generate a profile file named as `<process_name>.profile` under `~/logs/sys/node/<node_id>` folder.
+
+### When will a job stop?
+if not canceled, the job will stop with status:
+- Completed. If all mini-batches have been processed and output has been generated for `append_row` mode.
+- Failed. If `error_threshold` in [`Parameters for ParallelRunConfig`](#parameters-for-parallelrunconfig)  is exceeded, or system error occurred during the job.
+
+### Where to find the root cause of failure?
+You can follow the lead in `~logs/job_result.txt` to find the cause and detailed error log.
+
+### Will node failure impact the job result?
+Not if there are other available nodes in the designated compute cluster. The orchestrator will start a new node as replacement, and ParallelRunStep is resilient to such operation.
+
+### What happens if `init` function in entry script fails?
+ParallelRunStep has mechanism to retry for a certain times to give chance for recovery from transient issues without delaying the job failure for too long, the mechanism is as follows:
+1. If after a node starts, `init` on all agents keeps failing, we will stop trying after `3 * process_count_per_node` failures.
+2. If after job starts, `init` on all agents of all nodes keeps failing, we will stop trying if job runs more than 2 minutes and there're `2 * node_count * process_count_per_node` failures.
+3. If all agents are stuck on `init` for more than `3 * run_invocation_timeout + 30` seconds, the job would fail because of no progress for too long.
+
+### What will happen on OutOfMemory? How can I check the cause?
+ParallelRunStep will set the current attempt to process the mini-batch to failure status and try to restart the failed process. You can check `~logs/perf/<node_id>` to find the memory-consuming process.
+
+### Why do I have a lot of processNNN files?
+ParallelRunStep will start new worker processes in replace of the ones exited abnormally, and each process will generate a `processNNN` file as log. However, if the process failed because of exception during the `init` function of user script, and that the error repeated continuously for `3 * process_count_per_node` times, no new worker process will be started.
 
 ## Next steps
 

@@ -304,6 +304,14 @@ Your old data can't be recovered. Create a new QnA Maker resource and create you
 </details>
 
 <details>
+<summary><b>I am receiving the following error: Please check if QnA Maker App service's CORS settings allow https://www.qnamaker.ai or if there are any organization specific network restrictions. How can I resolve this?</b></summary>
+
+**Answer**:
+In the API section of the App service blade, update the CORS setting to * or "https://www.qnamaker.ai". If this doesn't resolve the issue, check for any organization specific restrictions.
+
+</details>
+
+<details>
 <summary><b>When should I refresh my endpoint keys?</b></summary>
 
 **Answer**:

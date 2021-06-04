@@ -4,7 +4,7 @@ description: In this tutorial, you build the environment needed to deploy verifi
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: identity
+ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
 ms.date: 05/18/2021

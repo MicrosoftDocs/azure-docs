@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 5/20/2021
+ms.date: 5/25/2021
 ms.custom: how-to
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
@@ -59,14 +59,14 @@ az upgrade
 Add and configure the Azure ML extension:
 
 ```azurecli
-az extension add  ml
+az extension add -n ml
 ```
 
 For more on configuring the ML extension, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
 
 * The example repository
 
-Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli-preview/experiment/using-cli/assets/endpoints/batch`.
+Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli/endpoints/batch`.
 
 ## Create a compute target
 
@@ -88,7 +88,7 @@ az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpo
 
 Below is the YAML file defining the MLFlow batch endpoint:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/create-batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/create-batch-endpoint.yml":::
 
 | Key | Description |
 | --- | ----------- |
@@ -97,7 +97,7 @@ Below is the YAML file defining the MLFlow batch endpoint:
 | type | Type of the endpoint. Use `batch` for batch endpoint. |
 | auth_mode | Use `aad_token` for Azure token-based authentication. |
 | traffic | Percentage traffic routed to this deployment. For batch endpoints, the only valid values for `traffic` are `0` or `100`. The deployment with a value of `100` traffic is active. When invoked, all data is sent to the active deployment. |
-| deployments | A list of deployments to be created in the batch endpoint. The example only has one deployment named `autolog_deployment`. |
+| deployments | A list of deployments to be created in the batch endpoint. The example only has one deployment named `autolog-deployment`. |
 
 Deployment Attributes:
 
@@ -180,7 +180,7 @@ Some settings can be overwritten when you start a batch scoring job to make best
 
 * Use `--mini-batch-size` to overwrite `mini_batch_size` if different size of input data is used. 
 * Use `--instance-count` to overwrite `instance_count` if different compute resource is needed for this job. 
-* Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold`, and `logging_level`.
+* Use `--set` to overwrite other settings including `max_retries`, `timeout`, and `error_threshold`.
 
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
@@ -239,7 +239,7 @@ az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpo
 
 This sample uses a non-MLflow model. When using non-MLflow, you'll need to specify the environment and a scoring script in the YAML file:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/add-deployment.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/add-deployment.yml" :::
 
 More deployment attributes for the non-MLflow model:
 
@@ -260,7 +260,7 @@ az ml endpoint show --name mybatchedp --type batch
 For batch inference, you must send 100% of inquiries to the wanted deployment. To set your newly created deployment as the target, use:
 
 ```azurecli
-az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
+az ml endpoint update --name mybatchedp --type batch --traffic mnist-deployment:100
 ```
 
 If you re-examine the details of your deployment, you will see your changes:
@@ -288,7 +288,7 @@ scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring
 2. Get the access token:
 
 ```azurecli
-auth_token=$(az account get-access-token --resource https://ml.azure.com --query accessToken -o tsv)
+auth_token=$(az account get-access-token --query accessToken -o tsv)
 ```
 
 3. Use the `scoring_uri`, the access token, and JSON data to POST a request and start a batch scoring job:

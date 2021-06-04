@@ -6,7 +6,7 @@ services: media-services
 author: Juliako
 manager: femila
 ms.topic: article
-ms.date: 05/06/2021
+ms.date: 05/25/2021
 ms.author: juliako
 ---
 
@@ -97,6 +97,12 @@ If you want to get insights on your new video, index it with Video Analyzer for 
 
 If there are multiple audio streams, Video Analyzer for Media takes the first one it encounters and will process only this stream. In any audio stream Video Analyzer for Media processes, it takes the different channels (if present) and processes them together as mono. For streams/channels manipulation you can use ffmpeg commands on the file before indexing it.
 
+### Can a storage account connected to the Media Services account be behind a firewall?
+
+Your paid Video Analyzer for Media account uses the specified Media Services account that is connected to a storage account. Currently, the connected storage account cannot be behind a firewall.
+
+When calling the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API, you can provide a URL to a video for Video Analyzer for Media to download from. If the URL is based on a storage account in the same region as the Video Analyzer for Media account and it has a firewall, it will not work.<br/>If the storage account is in another region, you can whitelist Video Analyzer for Media IPs and it will work.
+
 ### What is the SLA for Video Analyzer for Media?
 
 Azure Media Service’s SLA covers Video Analyzer for Media and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Video Analyzer for Media paid accounts and does not apply to the free trial.
@@ -129,7 +135,7 @@ Per the [Azure Online Services Terms](https://www.microsoftvolumelicensing.com/D
     
 ### Is the content indexed by Video Indexer kept within the Azure region where I am using Video Indexer?
 
-Yes, the content and its insights are kept within the Azure region (except for Signapore and Brazil South regions) unless you have a manual configuration in your Azure subscription that uses multiple Azure regions.
+Yes, the content and its insights are kept within the Azure region (except for Singapore and Brazil South regions) unless you have a manual configuration in your Azure subscription that uses multiple Azure regions.
 
 Customer data in a region is replicated for BCDR reasons to the [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs).
 

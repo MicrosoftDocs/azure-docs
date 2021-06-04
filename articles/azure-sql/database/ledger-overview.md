@@ -61,7 +61,7 @@ A ledger database is a database, in which all user data is tamper evident and st
 
 [Updatable ledger tables](ledger-updatable-ledger-tables.md) track the history of changes to any rows in your database when transactions that perform updates or deletes occur. An updatable ledger table is a system-versioned table that contains a reference to another table with a mirrored schema. The system uses this table to automatically store the previous version of the row each time a row in the ledger table gets updated or deleted. This other table is referred to as the history table. The history table is automatically created when you create an updatable ledger table. The values contained in the updatable ledger table and its corresponding history table provide a chronicle of the values of your database over time. In order to easily query this chronicle of your database, a system-generated ledger view is created, which joins the updatable ledger table and the history table.
 
-For more information on how to create and use updatable ledger tables, see [Create updatable ledger tables](ledger-how-to-updatable-ledger-tables.md).
+For more information on how to create and use updatable ledger tables, see [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md).
 
 ### Append-only ledger tables
 

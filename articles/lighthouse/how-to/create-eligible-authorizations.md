@@ -1,13 +1,13 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 05/25/2021
+ms.date: 05/26/2021
 ms.topic: how-to
 ---
 
 # Create eligible authorizations
 
-When onboarding customers to Azure Lighthouse, you create authorizations to grant specified Azure built-in roles to users in your managing tenant. You can also create eligible authorizations that use [Azure Active Directory (Azure AD) Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to let users in your managing tenant temporarily elevate their role. This lets you grant additional permissions on a just-in-time basis so that users only have those permissions for a set duration at a time.
+When onboarding customers to Azure Lighthouse, you create authorizations to grant specified Azure built-in roles to users in your managing tenant. You can also create eligible authorizations that use [Azure Active Directory (Azure AD) Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to let users in your managing tenant temporarily elevate their role. This lets you grant additional permissions on a just-in-time basis so that users only have those permissions for a set duration.
 
 Creating eligible authorizations lets you minimize the number of permanent assignments of users to privileged roles, helping to reduce security risks related to privileged access by users in your tenant.
 
@@ -40,7 +40,7 @@ Administrators in the managing tenant can review all Privileged Identity Managem
 
 When creating an eligible authorization, you define three elements: the user, the role, and the access policy.
 
-- The **user** can be either an individual user in the managing tenant, or an Azure AD group in the managing tenant. If a group is defined, any member of that group will be able to elevate their own individual access to the role per the access policy. You can't use eligible authorizations with service principals.
+- The **user** can be either an individual user or an Azure AD group in the managing tenant. If a group is defined, any member of that group will be able to elevate their own individual access to the role per the access policy. You can't use eligible authorizations with service principals.
 - The **role** can be any Azure built-in role that is supported for Azure delegated resource management except for User Access Administrator.
 - The **access policy** defines the multi-factor authorization (MFA) requirements and the length of time a user will be activated in the role before it expires. The maximum amount you can specify for any role is 8 hours.
 
@@ -54,7 +54,6 @@ To onboard your customer to Azure Lighthouse, you use an [Azure Resource Manager
 > While you can also onboard customers using Managed Service offers in Azure Marketplace, you can't currently include eligible authorizations in those offers.
 
 To include eligible authorizations when you onboard a customer, use one of the templates from the [delegated-resource-management-eligible-authorizations section of our samples repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations).
-
 
 |To onboard this (with eligible authorizations)  |Use this Azure Resource Manager template  |And modify this parameter file |
 |---------|---------|---------|

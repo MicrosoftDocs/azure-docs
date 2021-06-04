@@ -2,7 +2,7 @@
 title: What are Azure Applied AI Services?
 titleSuffix: Azure Applied AI Services
 description: Applied AI Services description.
-keywords: applied ai services, artifical intelligence, applied ai, ai services, cognitive search, applied ai features
+keywords: applied ai services, artificial intelligence, applied ai, ai services, cognitive search, applied ai features
 author: jeffme
 manager: nitinme
 ms.service: applied-ai-services
@@ -18,7 +18,7 @@ Azure Applied AI Services are high-level services focused on empowering develope
 
 ## Azure Form Recognizer
 
-Enabling organizations in all industries to consume information hidden within documents to increase productivity, automate business process and generate knowledge and insights.  Azure Form Recognizer is a service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents' search capabilities.  Azure Form Recognizer is built using OCR, Text Analytics and Custom Text from Azure Cognitive Services.
+Enabling organizations in all industries to consume information hidden within documents to increase productivity, automate business processes and generate knowledge and insights.  Azure Form Recognizer is a service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents' search capabilities.  Azure Form Recognizer is built using OCR, Text Analytics and Custom Text from Azure Cognitive Services.
 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts, IDs and business cards, and the layout model. 
 
@@ -26,7 +26,7 @@ Form Recognizer is composed of custom document processing models, prebuilt model
 
 ## Azure Metrics Advisor
 
-Protecting organization’s growth by enabling them to make the right decision based on intelligence from metrics of businesses, services and physical assets.  Azure Metrics Advisor uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitoring applications on top of the service.  Azure Metrics Advisor is built using Anomaly Detector from Azure Cognitive Services.​
+Protecting organization’s growth by enabling them to make the right decision based on intelligence from metrics of businesses, services and physical assets.  Azure Metrics Advisor uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predictive maintenance, and business monitoring applications on top of the service.  Azure Metrics Advisor is built using Anomaly Detector from Azure Cognitive Services.​
 
 [Learn more about Azure Metrics Advisor](../cognitive-services/metrics-advisor/index.yml)
 
