@@ -15,7 +15,10 @@ In this tutorial, you create a .NET Core console application to send messages to
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
+- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. 
+
+    > [!IMPORTANT]
+    > Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created. You'll use them later in this tutorial. 
 - [Visual Studio 2019](https://www.visualstudio.com/vs)
 
 ## Send messages to a queue
@@ -50,7 +53,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue. 
-1. Declare the following static properties in the `Program` class. See the code comments for details. 
+1. Declare the following static properties in the `Program` class. See code comments for details. 
 
     ```csharp
         // the client that owns the connection and can be used to create senders and receivers
@@ -72,52 +75,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             return messages;
         }
     ```
-1. Directly after the `Main()` method, add the following `SendMessages()` method that does the work of sending a batch of messages:
-
-    ```csharp
-        static async Task SendMessages()
-        {
-            // get the messages to be sent to the Service Bus queue
-            Queue<ServiceBusMessage> messages = CreateMessages();
-
-            // total number of messages to be sent to the Service Bus queue
-            int messageCount = messages.Count;
-
-            // while all messages are not sent to the Service Bus queue
-            while (messages.Count > 0)
-            {
-                // start a new batch 
-                using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
-
-                // add the first message to the batch
-                if (messageBatch.TryAddMessage(messages.Peek()))
-                {
-                    // dequeue the message from the .NET queue once the message is added to the batch
-                    messages.Dequeue();
-                }
-                else
-                {
-                    // if the first message can't fit, then it is too large for the batch
-                    throw new Exception($"Message {messageCount - messages.Count} is too large and cannot be sent.");
-                }
-
-                // add as many messages as possible to the current batch
-                while (messages.Count > 0 && messageBatch.TryAddMessage(messages.Peek()))
-                {
-                    // dequeue the message from the .NET queue as it has been added to the batch
-                    messages.Dequeue();
-                }
-
-                // now, send the batch
-                await sender.SendMessagesAsync(messageBatch);
-
-                // if there are any remaining messages in the .NET queue, the while loop repeats 
-            }
-
-            Console.WriteLine($"Sent a batch of {messageCount} messages to the topic: {queueName}");
-        }
-    ```
-1. Add a method named `SendMessages` to the `Program` class, and add the following code. This method takes a queue of messages, and prepares one or more batches to send to the Service Bus queue. 
+1. Directly after the `Main()` method, add a method named `SendMessages` to the `Program` class as shown below. This method takes a queue of messages, and prepares one or more batches to send to the Service Bus queue.
 
     ```csharp
         static async Task SendMessages()
@@ -193,7 +151,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         }
     ```
 
-### Full code
+### Full code (send messages)
 
 ```csharp
 using System;
@@ -303,10 +261,10 @@ namespace SBusQueueSender
 
 ### Test the app
 
-1. Run the application. You should see the following messages. 
+1. Run the application. You should see the following messages. Press any key to end the application. 
     ```console
-    Press any key to end the application
     Sent a batch of messages to the queue: myqueue
+    Press any key to end the application
     ```       
 1. In the Azure portal, follow these steps:
     1. Navigate to your Service Bus namespace. 
@@ -316,18 +274,16 @@ namespace SBusQueueSender
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Messages received with count and size" lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
 
     Notice the following values:
-    - The **Active message count** value for the queue is now **3**. Each time you run this sender app without retrieving the messages, this value increases by 3.
-    - The current size of the queue increments the **CURRENT** value in **Essentials**  each time the app adds messages to the queue.
-    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are four incoming messages for the queue. 
+    - The **Active** message count value for the queue is now **3**. Each time you run this sender app without retrieving the messages, this value increases by 3.
+    - The **current size** of the queue increments each time the app adds messages to the queue.
+    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the queue. 
 
 ## Receive messages from a queue
 In this section, you'll create another .NET Core console application that receives messages from the queue. 
 
-### Create a console application
-Create another .NET Core console app project for C#. 
+### Create a console application and add Service Bus NuGet package
 
-### Add the Service Bus NuGet package
-
+1. Create another C# .NET Core console application project. 
 1. Right-click the newly created project and select **Manage NuGet Packages**.
 1. Select **Browse**. Search for and select **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)**.
 1. Select **Install** to complete the installation, then close the NuGet Package Manager.
@@ -439,7 +395,7 @@ In this section, you'll add code to retrieve messages from the queue.
         }
     ```
 
-### Full code 
+### Full code (receive messages)
 
 ```csharp
 using System;
@@ -545,7 +501,7 @@ Stopped receiving messages
 
 Check the portal again. 
 
-- The **Active message count** and **CURRENT** values are now **0**.
+- The **Active** message count and **Current size** values are now **0**.
 - In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages for the queue. 
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
