@@ -25,16 +25,41 @@ This topic includes overall security guidelines that help establish secure acces
 
 Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a virtual machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+In addition to the practices described in this topic, we recommend that you review and implement the security best practices from both traditional on-premises security practices, as well as virtual machine security best practices. 
 
-## Manage in the portal
+## SQL vulnerability assessment
 
-You can configure a number of security settings using the [SQL virtual machines resource in the Azure portal](manage-sql-vm-portal.md), such as enabling Azure Key Vault integration, or viewing Security Center recommendations. 
+SQL vulnerability assessment is a capability of [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) that provides visibility into your security state. Vulnerability assessment includes actionable steps to resolve security issues and enhance your database security. It can help you to monitor a dynamic database environment where changes are difficult to track and improve your SQL security posture.
 
-## Azure Defender for SQL 
+The rules are based on Microsoft's best practices and focus on the security issues that present the biggest risks to your database and its valuable data. They cover database-level issues and server-level security issues, like server firewall settings and server-level permissions.
+
+Results of the scan include actionable steps to resolve each issue and provide customized remediation scripts where applicable. You can customize an assessment report for your environment by setting an acceptable baseline for:
+
+- Permission configurations
+- Feature configurations
+- Database settings
+
+See [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) to learn more. 
+
+## Advanced Threat Protection
+
+Advanced Threat Protection is a capability of [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) that provides a new layer of security. Advanced Threat Protection enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Advanced Threat Protection integrates alerts with Azure Security Center, which include details of suspicious activity and recommend action on how to investigate and mitigate the threat. Advanced Threat Protection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
+
+See [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) to learn more. 
+
+## Portal management
+
+After you've [registered your SQL Server VM with the SQL IaaS extension](sql-agent-extension-manually-register-single-vm.md), you can configure a number of security settings using the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as enabling Azure Key Vault integration, or enabling SQL authentication. 
+
+Additionally, after you've enabled [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) you can view Security Center alerts directly within the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal. This includes both SQL vulnerability assessments and Advanced Threat Protection notifications. 
+
+See [manage SQL VM in the portal](manage-sql-vm-portal.md) to learn more. 
 
 ## Azure Key Vault integration 
 
+There are multiple SQL Server encryption features, such as transparent data encryption (TDE), column level encryption (CLE), and backup encryption. These forms of encryption require you to manage and store the cryptographic keys you use for encryption. The Azure Key Vault service is designed to improve the security and management of these keys in a secure and highly available location. The SQL Server Connector enables SQL Server to use these keys from Azure Key Vault.
+
+See [Azure Key Vault integration](azure-key-vault-integration-configure.md) to learn more.
 
 
 ## Access control 
@@ -68,7 +93,7 @@ Finally, consider enabling encrypted connections for the instance of the SQL Ser
 
 Managed disks offer Server-Side Encryption, and Azure Disk Encryption. [Server-Side Encryption](../../../virtual-machines/disk-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) uses either Bitlocker or DM-Crypt technology, and integrates with Azure Key Vault to encrypt both the OS and data disks. 
 
-## Use a non-default port
+## Non-default port
 
 By default, SQL Server listens on a well-known port, 1433. For increased security, configure SQL Server to listen on a non-default port, such as 1401. If you provision a SQL Server gallery image in the Azure portal, you can specify this port in the **SQL Server settings** blade.
 
@@ -104,13 +129,6 @@ You don't want attackers to easily guess account names or passwords. Use the fol
 
   - If you must use the **SA** login, enable the login after provisioning and assign a new strong password.
 
-## Additional best practices
-
-In addition to the practices described in this topic, we recommend that you review and implement the security best practices from both traditional on-premises security practices, as well as virtual machine security best practices. 
-
-For more information about on-premises security practices, see [Security Considerations for a SQL Server Installation](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) and the [Security center](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
-
-For more information about virtual machine security, see the [virtual machines security overview](../../../security/fundamentals/virtual-machines-overview.md).
 
 
 ## Next steps
@@ -118,3 +136,7 @@ For more information about virtual machine security, see the [virtual machines s
 If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server on Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md).
 
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+
+
+
+For more information about virtual machine security, see the [virtual machines security overview](../../../security/fundamentals/virtual-machines-overview.md).
