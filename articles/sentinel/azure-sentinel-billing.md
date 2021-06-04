@@ -24,7 +24,7 @@ Azure Sentinel offers a flexible and predictable pricing model. For more informa
 
 There are two ways to pay for the Azure Sentinel service: Pay-As-You-Go and Commitment Tiers.
 
-Pay-As-You-Go is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10\\^9 bytes).
+Pay-As-You-Go is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10^9 bytes).
 
 Log Analytics and Azure Sentinel also have Commitment Tier pricing, formerly called Capacity Reservations, which is more predictable and saves as much as 65% compared to Pay-As-You-Go pricing. With Commitment Tier pricing, you can buy a commitment starting at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100GB/day bills you for the committed 100GB/day data volume, plus any additional GB/day at the discounted rate for that tier.
 
@@ -32,12 +32,7 @@ You can increase your commitment tier anytime, and decrease it every 31 days, to
 
 To set and change your Commitment Tier, see [Set or change pricing tier](#set-or-change-pricing-tier).
 
-![Screenshot showing the Pricing page in Azure Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
-
-> [!NOTE]
-> Azure Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
-
-### Integration with other services
+### Costs for other services
 
 Azure Sentinel integrates with many other Azure services to provide enhanced capabilities. These services include Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services may have additional charges. Some of Azure Sentinel's data connectors and solutions use Azure Functions for data ingestion, which also has a separate associated cost.
 
@@ -58,7 +53,7 @@ You can specify different retention settings for individual data types. For more
 
 ### Free trial
 
-You can enable Azure Sentinel on a new or existing Log Analytics workspace at no additional cost for the first 31 days. Usage beyond the first 31 days is charged at standard [Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) prices. Charges related to Log Analytics, Automation, and BYOML still apply during the free trial.
+You can enable Azure Sentinel on a new or existing Log Analytics workspace at no additional cost for the first 31 days. Charges related to Log Analytics, Automation, and BYOML still apply during the free trial. Usage beyond the first 31 days is charged per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel). 
 
 ### Free data sources
 
@@ -143,6 +138,11 @@ To see your current Azure Sentinel pricing tier, select **Settings** in the Azur
 
 To change your pricing tier commitment, select one of the other tiers on the pricing page, and then select **Apply**. You must have **Contributor** or **Owner** role in Azure Sentinel to change the pricing tier.
 
+![Screenshot showing the Pricing page in Azure Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
+
+> [!NOTE]
+> Azure Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
+
 The Azure Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](/azure/azure-monitor/logs/manage-cost-storage#changing-pricing-tier).
 
 #### Define a data volume cap in Log Analytics
@@ -160,7 +160,7 @@ The **Usage and estimated costs** screen also shows your ingested data volume tr
 
 #### Optimize Log Analytics costs with dedicated clusters
 
-If you ingest at least 1TB/day into your Azure Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that ingest a total of 1TB/day.
+If you ingest at least 1TB/day into your Azure Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 1TB/day or more.
 
 Log Analytics dedicated clusters don't apply to Azure Sentinel Commitment Tiers. Azure Sentinel costs still apply per workspace in the dedicated cluster.
 
@@ -168,7 +168,7 @@ You can add multiple Azure Sentinel workspaces to a Log Analytics dedicated clus
 
 - Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](/azure/azure-monitor/log-query/cross-workspace-query) for inclusion in a single cross-workspace query.
 
-- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 1Tb ingestion per day.
+- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 1 TB ingestion per day.
 
 Here are some other considerations for moving to a dedicated cluster for cost optimization:
 
