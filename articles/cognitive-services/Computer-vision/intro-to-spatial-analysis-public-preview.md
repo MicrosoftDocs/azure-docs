@@ -49,4 +49,4 @@ To learn how to use Spatial Analysis technology responsibly, see the [transparen
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Spatial Analysis container](spatial-analysis-container.md)''''''''''''
+> [Quickstart: Spatial Analysis container](spatial-analysis-container.md)
