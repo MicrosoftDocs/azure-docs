@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 06/04/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -186,10 +186,10 @@ On your Azure Stack Edge Pro device:
     - **Custom Microsoft `Qlogic` Cavium 25G NDC adapter** - Port 1 through port 4.
     - **Mellanox dual port 25G ConnectX-4 channel network adapter** - Port 5 and port 6.
 
-For a full list of supported cables, switches, and transceivers for these network cards, go to:
+For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
 
 - [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
+- 25 GbE and 10 GbE ccables and modules in [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
 Take the following steps to cable your device for power and network.
