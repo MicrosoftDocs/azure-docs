@@ -1,6 +1,6 @@
 ---
 title: Maintenance control for OS image upgrades on Azure virtual machine scale sets using Azure Portal
-description: Learn how to control when automatic OS image upgrades are rolled out to your Azure virtual machine scale sets using Maintenance control and Azure Portal.
+description: Learn how to control when automatic OS image upgrades are rolled out to your Azure virtual machine scale sets using Maintenance control and Azure portal.
 author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
@@ -11,9 +11,9 @@ ms.custom: devx-track-azurepowershell
 #pmcontact: shants
 ---
 
-# Preview: Maintenance control for OS image upgrades on Azure virtual machine scale sets using Azure Portal
+# Preview: Maintenance control for OS image upgrades on Azure virtual machine scale sets using Azure portal
 
-Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. This topic covers the Azure Portal options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. This topic covers the Azure portal options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
 
 > [!IMPORTANT]
 > Maintenance control for OS image upgrades on Azure virtual machine scale sets is currently in Public Preview.
@@ -37,7 +37,7 @@ Maintenance control lets you decide when to apply automatic guest OS image upgra
     
     :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-basics.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
-1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence. Once you create a scheduled window you no longer have to apply the updates manually. Click **Next**. 
+1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence. Once you create a scheduled window, you no longer have to apply the updates manually. Click **Next**. 
 
     > [!IMPORTANT]
     > Maintenance window **duration** must be *5 hours* or longer. Maintenance **recurrence** must be set to repeat at least once a day. 
