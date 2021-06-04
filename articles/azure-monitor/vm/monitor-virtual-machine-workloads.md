@@ -89,7 +89,7 @@ Performance data configured by the workspace are stored in the [Perf](/azure/azu
 
 ### Sample log queries
 
-See [Log queries with Performance records](../../agents/data-sources-performance-counters.md#log-queries-with-performance-records) For example of log queries using custom performance counters.
+See [Log queries with Performance records](../agents/data-sources-performance-counters.md#log-queries-with-performance-records) For example of log queries using custom performance counters.
 
 ### Sample alerts
 
@@ -124,7 +124,7 @@ Events from the text log are stored in a table named similar to **MyTable_CL**. 
 ## IIS logs
 Events logged by IIS on the virtual machine.
 
-Configure Log Analytics workspace to collect [IIS logs](../agents/data-sources-iis.md). There is a cost for the ingestion and retention of this data in the workspace.
+Configure Log Analytics workspace to collect [IIS logs](../agents/data-sources-iis-logs.md). There is a cost for the ingestion and retention of this data in the workspace.
 
 Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) table in the Log Analytics workspace.
 

@@ -9,7 +9,7 @@ ms.date: 05/26/2021
 
 ---
 
-# Monitoring virtual machines with Azure Monitor - Security
+# Monitor virtual machines with Azure Monitor - Security monitoring
 Azure Monitor was not designed for security monitoring. Though the operational data stored in Azure Monitor may be useful during security incident investigations. Security monitoring data collected from Windows and Linux servers may include event logs, log files, IIS logs, Linux facilities, Syslog, Event Tracing for Windows (ETW), and configuration sources like registry settings and WMI. Because security monitoring is required in addition to the availability and performance monitoring provided by Azure Monitor, this article provides a description of the services required to monitor the security of virtual machines and their relationship and integration with Azure Monitor.
 
 
@@ -41,5 +41,6 @@ Security monitoring in Azure is performed by Azure Security Center and Azure Sen
 
 ## Next steps
 
-* [Learn how to analyze data in Azure Monitor logs using log queries.](../logs/get-started-queries.md)
-* [Learn about alerts using metrics and logs in Azure Monitor.](../alerts/alerts-overview.md)
+* [Analyze monitoring data collected for virtual machines.](monitor-virtual-machine-analyze.md)
+* [Create alerts from collected data.](monitor-virtual-machine-alerts.md)
+* [Monitor workloads running on virtual machines.](monitor-virtual-machine-workloads.md)
