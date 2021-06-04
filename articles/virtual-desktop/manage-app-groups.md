@@ -129,7 +129,7 @@ To edit or remove an app from an app group:
    >[!NOTE]
    >If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us) instead.
 
-2. Search for and select **Windows Virtual Desktop**.
+2. Search for and select **Azure Virtual Desktop**.
 
 3. You can either add an application group directly or from an existing host pool by choosing one of the following options:
 

@@ -61,7 +61,7 @@ Here's what's new for May 2021:
 
 ### Smart card authentication
 
-We've now officially released the Key Distribution Center (KDC) Proxy Remote Desktop Protocol (RDP) properties. These properties enable Kerberos authentication for the RDP portion of a Windows Virtual Desktop session, which includes permitting Network Level Authentication without a password. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/new-feature-smart-card-authentication-for-windows-virtual/m-p/2323226).
+We've now officially released the Key Distribution Center (KDC) Proxy Remote Desktop Protocol (RDP) properties. These properties enable Kerberos authentication for the RDP portion of a Azure Virtual Desktop session, which includes permitting Network Level Authentication without a password. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/new-feature-smart-card-authentication-for-windows-virtual/m-p/2323226).
 
 ### The web client now supports file transfer
 
@@ -73,11 +73,11 @@ Start VM on connect (preview) now supports pooled host pools and the Azure Gover
 
 ### Latency improvements for the United Arab Emirates region
 
-We've expanded our Azure control plane presence to the United Arab Emirates (UAE), so customers in that region can now experience improved latency. Learn more at our [Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop&searchterms=64545).
+We've expanded our Azure control plane presence to the United Arab Emirates (UAE), so customers in that region can now experience improved latency. Learn more at our [Azure Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop&searchterms=64545).
 
 ### Ending Internet Explorer 11 support
 
-On September 30th, 2021, the Windows Virtual Desktop web client will no longer support Internet Explorer 11. We recommend you start using the [Microsoft Edge](https://www.microsoft.com/edge?form=MY01R2&OCID=MY01R2&r=1) browser for your web client and remote sessions instead. For more information, see the announcement in [this blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-web-client-to-end-support-for-internet/m-p/2369007).
+On September 30th, 2021, the Azure Virtual Desktop web client will no longer support Internet Explorer 11. We recommend you start using the [Microsoft Edge](https://www.microsoft.com/edge?form=MY01R2&OCID=MY01R2&r=1) browser for your web client and remote sessions instead. For more information, see the announcement in [this blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-web-client-to-end-support-for-internet/m-p/2369007).
 
 ### Microsoft Endpoint Manager public preview
 
@@ -87,15 +87,15 @@ We've started the public preview for Microsoft Endpoint Manager support in Windo
 
 We have released a public preview of the latest version of the FSLogix agent. Check out our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/public-preview-fslogix-release-2105-is-now-available-in-public/m-p/2380996/thread-id/7105) for more information and to submit the form you'll need to access the preview.
 
-### May 2021 updates for Teams for Windows Virtual Desktop
+### May 2021 updates for Teams for Azure Virtual Desktop
 
-For this update, we resolved an issue that caused the screen to remain black while sharing video. We also fixed a mismatch in video resolutions between the session client and the Teams server. Teams on Windows Virtual Desktop should now change resolution and bit rates based on input from the Teams server.
+For this update, we resolved an issue that caused the screen to remain black while sharing video. We also fixed a mismatch in video resolutions between the session client and the Teams server. Teams on Azure Virtual Desktop should now change resolution and bit rates based on input from the Teams server.
 
 ### Azure portal deployment updates
 
 We've made the following updates to the deployment process in the Azure portal:
 
-- Added new images (including GEN2) to the drop-down list box of "image" when creating a new Windows Virtual Desktop session host VM.
+- Added new images (including GEN2) to the drop-down list box of "image" when creating a new Azure Virtual Desktop session host VM.
 - You can now configure boot diagnostics for virtual machines when creating a host pool.
 - Added a tool tip to the RDP proxy in the advanced host pool RDP properties tab.
 - Added an information bubble for the icon path when adding an application from an MSIX package.
@@ -104,15 +104,15 @@ We've made the following updates to the deployment process in the Azure portal:
 
 ### Single sign-on using Active Directory Federation Services public preview
 
-We've started a public preview for Active Directory Federation Services (AD FS) support for single sign-on (SSO) per host pool. Learn more at [Configure AD FS single sign-on for Windows Virtual Desktop](configure-adfs-sso.md). 
+We've started a public preview for Active Directory Federation Services (AD FS) support for single sign-on (SSO) per host pool. Learn more at [Configure AD FS single sign-on for Azure Virtual Desktop](configure-adfs-sso.md). 
 
 ### Enterprise-scale support
 
-We've released an updated section of the Cloud Adoption framework for Enterprise-scale support for Windows Virtual Desktop. For more information, see [Enterprise-scale support for the Windows Virtual Desktop construction set](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone).
+We've released an updated section of the Cloud Adoption framework for Enterprise-scale support for Azure Virtual Desktop. For more information, see [Enterprise-scale support for the Azure Virtual Desktop construction set](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone).
 
 ### Customer adoption kit
 
-We've recently released the Windows Virtual Desktop Customer adoption kit to help customers and partners set up Windows Virtual Desktop for their customers. You can download the kit [here](https://www.microsoft.com/azure/partners/resources/customer-adoption-kit-windows-virtual-desktop).
+We've recently released the Azure Virtual Desktop Customer adoption kit to help customers and partners set up Azure Virtual Desktop for their customers. You can download the kit [here](https://www.microsoft.com/azure/partners/resources/customer-adoption-kit-windows-virtual-desktop).
 
 ## April 2021
 
