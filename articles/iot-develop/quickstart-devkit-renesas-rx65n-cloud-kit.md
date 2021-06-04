@@ -225,7 +225,7 @@ Keep Termite open to monitor device output in the following steps.
 To view the device status in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to **Provisioned**.
-1. Confirm that the **Device template** is updated to **Getting Started Guide**.
+1. Confirm that the **Device template** is updated to **RX65N Cloud Kit Getting Started Guide**.
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
 
