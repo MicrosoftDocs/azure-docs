@@ -61,9 +61,9 @@ When you add a guest user to your directory by [using the Azure portal](./b2b-qu
 
 ## Redemption limitation with conflicting Contact object
 Sometimes the invited external guest user's email may conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), resulting in the guest user being created without a proxyAddress. This is a known limitation that prevents guest users from: 
--Redeeming an invitation through a direct link using [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation), [Microsoft Accounts](/azure/active-directory/external-identities/microsoft-account), [Google Federation](/azure/active-directory/external-identities/google-federation), or [Email One-Time Passcode](/azure/active-directory/external-identities/one-time-passcode) accounts. 
--Redeeming an invitation through an invitation email redemption link using [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) and [Email One-Time Passcode](/azure/active-directory/external-identities/one-time-passcode) accounts.
--Signing back into an application after redemption using [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) and [Google Federation](/azure/active-directory/external-identities/google-federation) accounts.
+- Redeeming an invitation through a direct link using [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation), [Microsoft Accounts](/azure/active-directory/external-identities/microsoft-account), [Google Federation](/azure/active-directory/external-identities/google-federation), or [Email One-Time Passcode](/azure/active-directory/external-identities/one-time-passcode) accounts. 
+- Redeeming an invitation through an invitation email redemption link using [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) and [Email One-Time Passcode](/azure/active-directory/external-identities/one-time-passcode) accounts.
+- Signing back into an application after redemption using [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) and [Google Federation](/azure/active-directory/external-identities/google-federation) accounts.
 
 To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), follow these steps:
 1. Delete the conflicting Contact object.
