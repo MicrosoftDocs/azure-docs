@@ -319,6 +319,8 @@
       - name: Migrate apps from ADAL to MSAL
         href: msal-migration.md
         displayName: migration
+      - name: List all apps running on ADAL
+        href: howto-get-list-of-all-active-directory-auth-library-apps.md
       - name: National clouds and MSAL
         href: msal-national-cloud.md
         displayName: china, germany, gov, 21vianet
