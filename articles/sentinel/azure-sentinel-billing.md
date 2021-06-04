@@ -14,7 +14,7 @@ ms.date: 06/03/2021
 
 Azure Sentinel uses an extensive query language to analyze, interact with, and derive insights from huge volumes of operational data in seconds. Azure Sentinel stores its data for analysis in Azure Monitor Log Analytics workspaces.
 
-When enabled on a Log Analytics workspace, Azure Sentinel automatically analyzes all the data that workspace ingests, and bills on the volume of data that workspace ingests and stores. This article describes ways you can monitor, understand, and save on usage and costs for Azure Sentinel and its Log Analytics workspaces.
+When enabled on a Log Analytics workspace, Azure Sentinel automatically analyzes all the data that workspace ingests, and bills on the volume of data that workspace ingests and stores. This article describes ways you can monitor, understand, and save on usage and costs for Azure Sentinel and associated Log Analytics workspaces.
 
 ## Azure Sentinel pricing model
 
@@ -271,7 +271,7 @@ To see your Azure bill, select **Cost Analysis** in the left navigation of **Cos
 
 ![Screenshot showing the Azure Sentinel section of a sample Azure bill.](media/billing/sample-bill.png)
 
-Azure Sentinel and Log Analytics charges appear on your Azure bill as separate line items based on your selected pricing plan. If you exceed your workspace's Commitment Tier usage in a given month, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the ingestion beyond the Commitment Tier, at the same Commitment Tier rate you selected.
+Azure Sentinel and Log Analytics charges appear on your Azure bill as separate line items based on your selected pricing plan. If you exceed your workspace's Commitment Tier usage in a given month, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the ingestion beyond the Commitment Tier, billed at your same Commitment Tier rate.
 
 The following table shows how Azure Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure invoice:
 
