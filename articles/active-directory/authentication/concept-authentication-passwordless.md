@@ -120,25 +120,30 @@ A security key **MUST** implement the following features and extensions from the
 
 The following providers offer FIDO2 security keys of different form factors that are known to be compatible with the passwordless experience. We encourage you to evaluate the security properties of these keys by contacting the vendor as well as FIDO Alliance.
 
-| Provider | Contact |
-| --- | --- |
-| Yubico | [https://www.yubico.com/solutions/passwordless/](https://www.yubico.com/solutions/passwordless/) |
-| Feitian | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
-| HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
-| Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
-| TrustKey Solutions | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
-| AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
-| Gemalto (Thales Group) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
-| OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
-| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) |
-| Hypersecu | [https://www.hypersecu.com/hyperfido](https://www.hypersecu.com/hyperfido) |
-| VinCSS | [https://passwordless.vincss.net](https://passwordless.vincss.net) |
-| KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
-| Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
-| Token2 Switzerland | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
-| GoTrustID Inc. | [https://www.gotrustid.com/idem-key](https://www.gotrustid.com/idem-key) |
-| Kensington | [https://www.kensington.com/solutions/product-category/why-biometrics/](https://www.kensington.com/solutions/product-category/why-biometrics/) |
-| Nymi | [https://www.nymi.com/product](https://www.nymi.com/product) |
+| Provider                  |     Biometric     | USB | NFC | BLE | FIPS Certified | Contact                                                                                             |
+|---------------------------|:-----------------:|:---:|:---:|:---:|:--------------:|-----------------------------------------------------------------------------------------------------|
+| AuthenTrend               | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://authentrend.com/about-us/#pg-35-3                                                           |
+| Ensurity                  | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.ensurity.com/contact                                                                    |
+| Excelsecu                 | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://www.excelsecu.com/productdetail/esecufido2secu.html                                         |
+| Feitian                   | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://ftsafe.us/                                                                   |
+| Gemalto (Thales Group)    | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://safenet.gemalto.com/access-management/authenticators/fido-devices                           |
+| GoTrustID Inc.            | ![n]              | ![y]| ![y]| ![y]| ![n]           | https://www.gotrustid.com/idem-key                                                                  |
+| HID                       | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://www.hidglobal.com/contact-us                                                                |
+| Hypersecu                 | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://www.hypersecu.com/hyperfido                                                                 |
+| IDmelon Technologies Inc. | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://www.idmelon.com/#idmelon                                                                    |
+| Kensington                | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.kensington.com/solutions/product-category/why-biometrics/                               |
+| KONA I                    | ![y]              | ![n]| ![y]| ![y]| ![n]           | https://konai.com/business/security/fido                                                            |
+| Nymi                      | ![y]              | ![n]| ![y]| ![y]| ![n]           | https://www.nymi.com/product                                                                        | 
+| OneSpan Inc.              | ![y]              | ![n]| ![n]| ![y]| ![n]           | https://www.onespan.com/products/fido                                                               |
+| Token2 Switzerland        | ![y]              | ![y]| ![y]| ![n]| ![n]           | https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key               |
+| TrustKey Solutions        | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.trustkeysolutions.com/security-keys/                                                    |
+| VinCSS                    | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://passwordless.vincss.net                                                                     |
+| Yubico                    | ![n]              | ![y]| ![y]| ![n]| ![y]           | https://www.yubico.com/solutions/passwordless/                                                      |
+
+
+<!--Image references-->
+[y]: ./media/fido2-compatibility/yes.png
+[n]: ./media/fido2-compatibility/no.png
 
 > [!NOTE]
 > If you purchase and plan to use NFC-based security keys, you need a supported NFC reader for the security key. The NFC reader isn't an Azure requirement or limitation. Check with the vendor for your NFC-based security key for a list of supported NFC readers.

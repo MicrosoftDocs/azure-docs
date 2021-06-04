@@ -117,12 +117,12 @@ az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az ad gr
 # However it cannot permanently delete (purge) keys
 az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az vm identity show --name "vmname" --resource-group "ContosoAppRG" --query objectId -o tsv) --scope / --role "Managed HSM Crypto Auditor"
 
-# Assign "Managed HSM Crypto Service Encryption" role to the Storage account ID
+# Assign "Managed HSM Crypto Service Encryption User" role to the Storage account ID
 storage_account_principal=$(az storage account show --id $storageresource --query identity.principalId -o tsv)
 # (if no identity exists), then assign a new one
 [ "$storage_account_principal" ] || storage_account_principal=$(az storage account update --assign-identity --id $storageresource)
 
-az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption" --assignee $storage_account_principal
+az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption User" --assignee $storage_account_principal
 ```
 
 This tutorial only shows actions relevant to the access control for most part. Other actions and operations related to deploying application in your VM, turning on encryption with customer managed key for a storage account, creating managed HSM are not shown here to keep the example focused on access control and role management.

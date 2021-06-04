@@ -16,6 +16,24 @@ In this article, learn about Azure Data Science Virtual Machine releases. For a 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## 2021-06-01
+
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+
+Version: 21.06.01
+
+Main changes are:
+
+- Docker is enabled by default
+- JupyterHub is using JupyterLab by default
+- Updated Python versions to fix [CVE-2020-15523](https://nvd.nist.gov/vuln/detail/CVE-2020-15523)
+- Updated IntelliJ IDEA to version 2021.1 to fix [CVE-2021-25758](https://nvd.nist.gov/vuln/detail/CVE-2021-25758)
+- Updated PyCharm Community to 2021.1
+- Updated TensorFlow to version 2.5.0
+
+<br/>
+Removed several icons from desktop.
+
 ## 2021-05-22
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
@@ -57,9 +75,7 @@ Enabled the image for use in a Gen2 virtual machine.
 
 ## 2021-05-12
 
-New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview). 
-
-**Ubuntu 18.04**
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
 Selected version updates are:
 - CUDA 11.3, cuDNN 8, NCCL2
