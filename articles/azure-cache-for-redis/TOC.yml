@@ -111,7 +111,7 @@
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
     - name: Planning FAQs
-      href: cache-planning-faq.yml
+      href: cache-planning-faq.md
   - name: Build
     items:
     - name: Development FAQs

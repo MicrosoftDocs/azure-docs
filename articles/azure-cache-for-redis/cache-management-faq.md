@@ -170,4 +170,4 @@ For more information about the different connections limits for each tier, see [
 
 ## Next steps
 
-Learn about other [Azure Cache for Redis FAQs](cache-faq.md).
+Learn about other [Azure Cache for Redis FAQs](cache-faq.yml).
