@@ -69,7 +69,7 @@ Use the following tips to make sure that your input images give the most accurat
 
 Input data with orientation information:
 * Some input images with JPEG format might contain orientation information in Exchangeable image file format (Exif) metadata. If Exif orientation is available, images will be automatically rotated to the correct orientation before sending for face detection. The face rectangle, landmarks, and head pose for each detected face will be estimated based on the rotated image.
-* To properly display the face rectangle and landmarks, you need to make sure the image is rotated correctly. Most of image visualization tools will auto-rotate the image according to its Exif orientation by default. For other tools, you might need to apply the rotation using your own code.
+* To properly display the face rectangle and landmarks, you need to make sure the image is rotated correctly. Most of image visualization tools will auto-rotate the image according to its Exif orientation by default. For other tools, you might need to apply the rotation using your own code. The following examples show a face rectangle on a rotated image (left) and a non-rotated image (right).
 
 ![Two face images with/without rotation](../Images/image-rotation.png)
 
