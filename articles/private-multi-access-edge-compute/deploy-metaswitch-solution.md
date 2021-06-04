@@ -9,11 +9,11 @@ ms.date: 05/26/2021
 ms.author: drichards
 
 ---
-# Deploy Fusion Core on an Azure Stack Edge (ASE) device
+# Deploy Fusion Core on an Azure Stack Edge device
 
-This article provides a high-level overview of the process of deploying Fusion Core on an ASE device.
+This article provides a high-level overview of the process of deploying Fusion Core on an Azure Stack Edge device.
 
-## Collecting required Azure resources
+## Collect required Azure resources
 
 You must have the following:
 
@@ -29,7 +29,7 @@ You must have the following:
 
 - A configured **Azure Network Function Manager - Device** object representing the ASE device.
 
-## Deploying Fusion Core
+## Deploy Fusion Core
 
 The following diagram shows the process of deploying Fusion Core, including the objects you will create and the methods for ongoing management after installation.
 
@@ -51,8 +51,8 @@ In addition to coordinating the installation of Fusion Core, the Metaswitch Serv
 
 
 ## Next steps
-- Download the Private 5G Edge Fusion Core Solution Guide - Azure Stack Edge (ASE) for step-by-step instructions for deploying Fusion Core on an ASE device.
-- Learn more about the [Metaswitch solution](metaswitch-overview.md)
+- For step-by-step instructions about deploying Fusion Core on an Azure Stack Edge device, [Download the Private 5G Edge Fusion Core Solution Guide](https://go.microsoft.com/fwlink/?linkid=2165096).
+- Learn more about [Private 5G Edge Fusion Core](metaswitch-overview.md)
 
 
 
