@@ -1,5 +1,5 @@
 ---
-title: Tutorial - DaVinci Drug Formulary
+title: Tutorial - DaVinci Drug Formulary - Azure API for FHIR
 description: This tutorial walks through setting up the Azure API for FHIR to pass the Touchstone tests against the DaVinci Drug Formulary  implementation guide.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -34,7 +34,7 @@ capability statement.
 
 The rest of the search parameters needed for the DaVinci Drug Formulary IG are defined by the base specification and are already available in the Azure API for FHIR without any more updates.
 
-### Store Profiles
+### Store profiles
 
 Outside of defining search parameters, the only other update you need to make to pass this test is to load the [required profiles](validation-against-profiles.md). There are two profiles used as part of the DaVinci Drug Formulary IG.
 
@@ -54,7 +54,7 @@ To assist with creation of these search parameters and profiles, we have the [Da
 
 The second test is the [query capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). This test validates that you can search for specific Coverage Plan and Drug resources using various parameters. The best path would be to test against resources that you already have in your database, but we also have the [DaVinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) HTTP file available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
 
-:::image type="content" source="media/cms-tutorials/davinic-test-execution-results.png" alt-text="DaVinci test execution results.":::
+:::image type="content" source="media/cms-tutorials/davinci-test-execution-results.png" alt-text="DaVinci test execution results.":::
 
 ## Next steps
 
