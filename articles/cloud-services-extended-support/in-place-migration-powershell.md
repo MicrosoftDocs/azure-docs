@@ -84,7 +84,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 
 Check the status of registration using the following:  
 ```powershell
-Get-AzProviderFeature -FeatureName CloudServices
+Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
 
 Make sure that RegistrationState is `Registered` for both before you proceed.
