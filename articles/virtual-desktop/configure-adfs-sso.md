@@ -29,9 +29,9 @@ This article will walk you through the process of configuring Active Directory F
 
 Before configuring AD FS single sign-on, you must have the following setup running in your environment:
 
-* You must deploy the **Active Directory Certificate Services (CA)** role. All servers running the role must be domain-joined, have the latest Windows updates installed, and be configured as [enterprise certificate authorities](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29).
+* You must deploy the **Active Directory Certificate Services (CA)** role. All servers running the role must be domain-joined, have the latest Windows updates installed, and be configured as [enterprise certificate authorities](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29).
 * You must deploy the **Active Directory Federation Services (AD FS)** role. All servers running this role must be domain-joined, have the latest Windows updates installed, and be running Windows Server 2016 or later. See our [federation tutorial](../active-directory/hybrid/tutorial-federation.md) to get started setting up this role.
-* We recommend setting up the **Web Application Proxy** role to secure your environment's connection to the AD FS servers. All servers running this role must have the latest Windows updates installed, and be running Windows Server 2016 or later. See this [Web Application Proxy guide](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) to get started setting up this role.
+* We recommend setting up the **Web Application Proxy** role to secure your environment's connection to the AD FS servers. All servers running this role must have the latest Windows updates installed, and be running Windows Server 2016 or later. See this [Web Application Proxy guide](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) to get started setting up this role.
 * You must deploy **Azure AD Connect** to sync users to Azure AD. Azure AD Connect must be configured in [federation mode](../active-directory/connect/active-directory-aadconnect-get-started-custom.md).
 * [Set up your PowerShell environment](powershell-module.md) for Azure Virtual Desktop on the AD FS server.
 * When using Windows 10 20H1 or 20H2 to connect to Azure Virtual Desktop, you must install the **2021-04 Cumulative Update for Windows 10 (KB5001330)** or later for single sign-on to function properly.
@@ -56,7 +56,7 @@ You must properly create the following certificate templates so that AD FS can u
 After you create these certificate templates, you'll need to enable the templates on the certificate authority so AD FS can request them.
 
 > [!NOTE]
-> This solution generates new short term certificates for every user logon which can fill up the Certificate Authority database over time if you have a lot of users. You can avoid this by [setting up a CA for non-persistent certificate processing](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff934598(v=ws.10)).
+> This solution generates new short term certificates for every user logon which can fill up the Certificate Authority database over time if you have a lot of users. You can avoid this by [setting up a CA for non-persistent certificate processing](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff934598(v=ws.10)).
 
 ### Create the enrollment agent certificate template
 
@@ -262,7 +262,7 @@ To retrieve the settings from your existing host pool, open a PowerShell window 
 Get-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" | fl *
 ```
 
-You can follow the steps to [Configure your Azure Virtual Desktop host pool](#configure-your-windows-virtual-desktop-host-pool) using the same *SsoClientId*, *SsoClientSecretKeyVaultPath*, *SsoSecretType*, and *SsoadfsAuthority* values.
+You can follow the steps to [Configure your Azure Virtual Desktop host pool](#configure-your-azure-virtual-desktop-host-pool) using the same *SsoClientId*, *SsoClientSecretKeyVaultPath*, *SsoSecretType*, and *SsoadfsAuthority* values.
 
 ## Removing SSO
 
