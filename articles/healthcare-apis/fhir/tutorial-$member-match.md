@@ -46,9 +46,9 @@ If a single match is found, you'll receive a 200 response with another identifie
 
 If the $member-match can't find a unique match, you'll receive a 422 response with an error code.
 
-## Next Step
+## Next steps
 
 In this guide, you've learned about the $member-match operation. Next, you can learn about testing the Da Vinci Payer Data Exchange IG in Touchstone, which requires the $member-match operation.
 
->[ !div class="nextstepaction"]
+>[!div class="nextstepaction"]
 >[DaVinci PDex](davinci-pdex-tutorial.md)
