@@ -17,7 +17,7 @@ Azure Cognitive Search's performance depends on a [variety of factors](search-pe
 To cover a range of different use cases, we ran benchmarks for two main scenarios:
 
 * **E-commerce search** - This benchmark emulates a real e-commerce scenario and is based on the Nordic e-commerce company [CDON](https://cdon.com).
-* **Document search** - This scenario is comprised of keyword search over full text documents from [Semantic Scholar](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/download/). This emulates a typical document search solution.
+* **Document search** - This scenario is comprised of keyword search over full text documents from [Semantic Scholar](https://www.aclweb.org/anthology/2020.acl-main.447/). This emulates a typical document search solution.
 
 While these scenarios reflect different use cases, every scenario is different so we always recommend performance testing your individual workload. We've published a [performance testing solution using JMeter](https://github.com/Azure-Samples/azure-search-performance-testing) so you can run similar tests against your own service.
 

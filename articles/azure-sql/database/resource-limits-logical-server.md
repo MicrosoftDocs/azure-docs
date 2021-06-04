@@ -3,13 +3,13 @@ title: Resource limits for logical servers in Azure
 description: This article provides an overview of the resource limits for the logical server in Azure used by Azure SQL Database and Azure Synapse Analytics. It also provides information regarding what happens when those resource limits are hit or exceeded.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom:
 ms.devlang: 
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan,moslake,josack
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 04/16/2021
 ---
 

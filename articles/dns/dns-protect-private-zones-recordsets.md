@@ -6,7 +6,8 @@ ms.service: dns
 author: twooley
 ms.author: twooley
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 05/07/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to protect private DNS zones and records

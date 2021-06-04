@@ -90,6 +90,19 @@ The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place
 >
 > A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, this version is in preview and is only intended to be used in test clusters. These preview releases are also announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) and will have details on the features included. Please use one of the options listed above to provide feedback.
 
+
+## Stay informed of updates and new releases
+
+<div class='icon is-large'>
+    <img alt='Stay informed' src='./media/logos/i-blog.svg'>
+</div>
+
+Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?product=service-fabric).
+
+For the latest releases and updates to the Service Fabric runtime and SDKs, see [Service Fabric releases](release-notes.md)
+
+
+
 ## Next steps
 
 [Supported Service Fabric versions](service-fabric-versions.md)

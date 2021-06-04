@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files
