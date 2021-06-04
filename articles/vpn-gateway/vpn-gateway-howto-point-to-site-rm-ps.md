@@ -1,5 +1,5 @@
 ---
-title: 'Connect to a VNet from a computer - P2S VPN and native Azure certificate authentication: PowerShell'
+title: 'Connect to a VNet from a computer - P2S VPN and Azure certificate authentication: PowerShell'
 description: Learn how to connect Windows and macOS clients securely to Azure virtual network using P2S and self-signed or CA issued certificates.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
@@ -12,7 +12,7 @@ ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: PowerShell
+# Configure a Point-to-Site VPN connection to a VNet using Azure certificate authentication: PowerShell
 
 This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. Point-to-site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
 
@@ -197,8 +197,7 @@ Make sure the client certificate was exported as a .pfx along with the entire ce
 
 ## <a name="clientconfig"></a>Configure the VPN client
 
-To connect to the virtual network gateway using P2S, each computer uses the VPN client that natively installed as a part of their operating system. For example, when you go to VPN settings on your Windows computer, you can add VPN connections. Each VPN client must be configured using a VPN client configuration package. The client configuration package contains settings that are specific to the VPN gateway that you created. These steps help you create a package with the specific settings your native VPN client needs to be able connect to the virtual network over a point-to-site connection.
-
+To connect to the virtual network gateway using P2S, each computer uses the VPN client that is natively installed as a part of the operating system. For example, when you go to VPN settings on your Windows computer, you can add VPN connections without installing a separate VPN client. Each VPN client must be configured using a VPN client configuration package. The client configuration package contains settings that are specific to the VPN gateway that you created. 
 
 You can use the following quick examples to generate and install the client configuration package. For more information about package contents and additional instructions about to generate and install VPN client configuration files, see [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md).
 
