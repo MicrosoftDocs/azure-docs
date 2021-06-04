@@ -105,7 +105,7 @@
         - name: Directory Readers role
           href: database/authentication-aad-directory-readers-role.md
         - name: Azure AD-only Authentication
-          href: database/authentication-aad-only-auth.md
+          href: database/authentication-azure-ad-only-authentication.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -200,7 +200,7 @@
         - name: Assign Directory Readers role to groups
           href: database/authentication-aad-directory-readers-role-tutorial.md
         - name: Enable Azure AD-only authentication
-          href: database/authentication-aad-only-auth-tutorial.md
+          href: database/authentication-azure-ad-only-authentication-tutorial.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Always Encrypted

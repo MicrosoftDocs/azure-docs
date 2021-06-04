@@ -24,7 +24,7 @@ Azure AD-only authentication can be enabled or disabled using the Azure portal, 
 For more information on Azure SQL authentication, see [Authentication and authorization](logins-create-manage.md#authentication-and-authorization).
 
 > [!IMPORTANT]
-> Currently, you cannot manage Azure AD-only authentication in the Azure portal for Azure SQL Managed Instance. For a tutorial on different methods to enable Azure AD-only authentication, see [Tutorial: Enable Azure Active Directory only authentication with Azure SQL](authentication-aad-only-auth-tutorial.md).
+> Currently, you cannot manage Azure AD-only authentication in the Azure portal for Azure SQL Managed Instance. For a tutorial on different methods to enable Azure AD-only authentication, see [Tutorial: Enable Azure Active Directory only authentication with Azure SQL](authentication-azure-ad-only-authetication-tutorial.md).
 
 ## Feature description
 
@@ -382,7 +382,7 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 
 - A [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) can set or remove an Azure AD admin, but can't set the **Azure Active Directory authentication only** setting. The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) can't set or remove an Azure AD admin, but can set the **Azure Active Directory authentication only** setting. Only accounts with higher Azure RBAC roles or custom roles that contain both permissions can set or remove an Azure AD admin and set the **Azure Active Directory authentication only** setting. One such role is the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role.
 - After enabling or disabling **Azure Active Directory authentication only** in the Azure portal, an **Activity log** entry can be seen in the **SQL server** menu.
-    :::image type="content" source="media/authentication-aad-only-auth/aad-only-auth-portal-sql-server-activity-log.png" alt-text="Activity log entry in the Azure portal":::
+    :::image type="content" source="media/authentication-azure-ad-only-authetication/azure-ad-only-authetication-portal-sql-server-activity-log.png" alt-text="Activity log entry in the Azure portal":::
 - The **Azure Active Directory authentication only** setting can only be enabled or disabled by users with the right permissions if the **Azure Active Directory admin** is specified. If the Azure AD admin isn't set, the **Azure Active Directory authentication only** setting remains inactive and cannot be enabled or disabled. Using APIs to enable Azure AD-only authentication will also fail if the Azure AD admin hasn't been set.
 - Changing an Azure AD admin when Azure AD-only authentication is enabled is supported for users with the appropriate permissions.
 - Changing an Azure AD admin and enabling or disabling Azure AD-only authentication is allowed in the Azure portal for users with the appropriate permissions. Both operations can be completed with one **Save** in the Azure portal. The Azure AD admin must be set in order to enable Azure AD-only authentication.
@@ -400,4 +400,4 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Enable Azure Active Directory only authentication with Azure SQL](authentication-aad-only-auth-tutorial.md)
+> [Tutorial: Enable Azure Active Directory only authentication with Azure SQL](authentication-azure-ad-only-authetication-tutorial.md)
