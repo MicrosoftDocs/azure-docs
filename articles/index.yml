@@ -338,7 +338,7 @@ productDirectory:
     # Card
     - title: Azure Video Analyzer for Media
       summary: Unlock video insights
-      imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
+      imageSrc: ./media/index/video-analyzer.svg
       azureCategories:
         - ai-machine-learning
         - media
@@ -1244,7 +1244,7 @@ productDirectory:
     # Card
     - title: Azure Video Analyzer (preview)
       summary: Build intelligent video-based applications using the AI of your choice
-      imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
+      imageSrc: ./media/index/video-analyzer.svg
       azureCategories:
         - media
       url: azure-video-analyzer/video-analyzer-docs/overview.md
