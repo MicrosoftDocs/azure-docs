@@ -127,11 +127,11 @@ public static async Task TracedSample()
 
 ## Funneling Telemetry Data to Application Insights
 
-After the SDK calls have been wrapped with Activities, you can add the OpenTelemetry trace exporter and funnel the data into the Application Insights instance.
+After the SDK calls have been wrapped with Activities, you can add the OpenTelemetry trace exporter and funnel the data into the Application Insights resource.
 
 You have the option of defining a dictionary with some resource attributes that will show up in Application Insights.
 Then, call `AddSource` and use the same Activity Source name that was defined in `TracedSample`.
-You will also need to grab the connection string from your Application Insights Resource and pass it to `AddAzureMonitorTraceExporter`. which will funnel the telemetry data to your Application Insights Resource.
+You will also need to grab the connection string from your Application Insights resource and pass it to `AddAzureMonitorTraceExporter()`. This will funnel the telemetry data to your Application Insights resource.
 
 Lastly, call and await the `TracedSample()` function where we have our SDK calls.
 
