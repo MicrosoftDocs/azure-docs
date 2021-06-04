@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 06/04/2021
 ms.author: alkohli
 ---
 # Troubleshoot activation issues on your Azure Stack Edge Pro GPU device 
@@ -31,4 +31,4 @@ The following table summarizes the errors related to device activation and the c
 
 ## Next steps
 
-- Learn more on how to [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot.md).
+- [Install Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-install.md).
