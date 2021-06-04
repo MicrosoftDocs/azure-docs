@@ -1,7 +1,7 @@
 
 # Configure provisioning using Microsoft Graph APIs
 
-The Azure portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with the Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso).
+The Azure Portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with the Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso).
 
 **Overview of steps for using Microsoft Graph APIs to automate provisioning configuration**
 
@@ -27,31 +27,9 @@ Applications in the Azure AD application gallery each have an [application templ
 
 #### Request
 
-
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "get_applicationtemplates"
-}-->
-
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/applicationTemplates
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/get-applicationtemplates-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/get-applicationtemplates-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/get-applicationtemplates-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
-
-
 #### Response
 
 <!-- {
@@ -95,12 +73,6 @@ Use the template ID retrieved for your application in the last step to [create a
 #### Request
 
 
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "applicationtemplate_instantiate"
-}-->
-
 ```msgraph-interactive
 POST https://graph.microsoft.com/beta/applicationTemplates/{id}/instantiate
 Content-type: application/json
@@ -108,29 +80,8 @@ Content-type: application/json
   "displayName": "AWS Contoso"
 }
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/applicationtemplate-instantiate-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/applicationtemplate-instantiate-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/applicationtemplate-instantiate-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
-
 
 #### Response
-
-
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.applicationServicePrincipal"
-} -->
 
 ```http
 HTTP/1.1 201 OK
@@ -176,38 +127,11 @@ Applications in the gallery that are enabled for provisioning have templates to 
 
 #### Request
 
-
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "get_synchronizationtemplate"
-}-->
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/templates
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/get-synchronizationtemplate-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/get-synchronizationtemplate-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/get-synchronizationtemplate-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
-
-
 
 #### Response
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.synchronizationTemplate",
-  "isCollection": true
-} -->
 ```http
 HTTP/1.1 200 OK
 {
@@ -229,11 +153,6 @@ To enable provisioning, you'll first need to [create a job](/graph/api/synchroni
 
 #### Request
 
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "create_synchronizationjob_from_synchronization"
-}-->
 ```msgraph-interactive
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 Content-type: application/json
@@ -241,27 +160,8 @@ Content-type: application/json
     "templateId": "aws"
 }
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/create-synchronizationjob-from-synchronization-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/create-synchronizationjob-from-synchronization-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/create-synchronizationjob-from-synchronization-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
-
 
 #### Response
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.synchronizationJob"
-} -->
 ```http
 HTTP/1.1 201 OK
 Content-type: application/json
@@ -306,11 +206,6 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
 }
 ```
 #### Response
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.None"
-} -->
 ```http
 HTTP/1.1 204 No Content
 ```
@@ -332,11 +227,6 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 ```
 
 #### Response
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.None"
-} -->
 ```http
 HTTP/1.1 204 No Content
 ```
@@ -347,35 +237,12 @@ Now that the provisioning job is configured, use the following command to [start
 
 #### Request
 
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "synchronizationjob_start"
-}-->
 ```http
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/start
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/synchronizationjob-start-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/synchronizationjob-start-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/synchronizationjob-start-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
 
 
 #### Response
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.None"
-} -->
 ```http
 HTTP/1.1 204 No Content
 ```
@@ -388,36 +255,11 @@ HTTP/1.1 204 No Content
 Now that the provisioning job is running, use the following command to track the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system. 
 
 #### Request
-
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "get_synchronizationjob"
-}-->
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/get-synchronizationjob-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/get-synchronizationjob-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/get-synchronizationjob-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
-
 
 #### Response
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.synchronizationJob"
-} -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -462,13 +304,6 @@ In addition to monitoring the status of the provisioning job, you can use the [p
 GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```
 #### Response
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.provisioningObjectSummary",
-  "name": "list_provisioningobjectsummary_error"
-} -->
-
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
