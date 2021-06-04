@@ -76,7 +76,7 @@ You need a permanent account for testing with at least two users registered.
 
 **How to get Azure AD for developers?**
 
-You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program.
+You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
 ## Step 1 - Choose the right single sign-on standard for your app
 
