@@ -83,7 +83,7 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
     ![Screenshot that shows the Access control screen.](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Assign the Owner role to the **Azure Spring Cloud Resource Provider**.
+1. Assign the *Owner* role to the **Azure Spring Cloud Resource Provider**.
 
 1. Assign the [Owner](../role-based-access-control/built-in-roles.md#owner) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
 
