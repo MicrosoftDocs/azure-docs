@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 Release date: June 4th 2021
 
-* Minor bugfixes to issues which prevent the proxy and DC agents from running successfully in certain environments.
+* Minor bugfixes to issues which prevented the proxy and DC agents from running successfully in certain environments.
 
 ## 1.2.172.0
 
