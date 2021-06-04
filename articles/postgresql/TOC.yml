@@ -719,6 +719,9 @@
       - name: Troubleshoot connection errors
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: connection errors, hyperscale
+      - name: Troubleshoot read-only access
+        href: howto-hyperscale-troubleshoot-read-only.md
+        displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: howto-hyperscale-useful-diagnostic-queries.md
   - name: API Reference
