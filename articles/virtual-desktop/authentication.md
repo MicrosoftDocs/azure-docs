@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -41,6 +41,14 @@ These are the currently supported sign-in methods:
 ## Hybrid identity
 
 Windows Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure Active Directory (AD), including those federated using Active Directory Federation Services (ADFS). Since users must be discoverable through Azure AD, Windows Virtual Desktop doesn't support standalone Active Directory deployments with ADFS.
+
+## Cloud-only identity
+
+Windows Virtual Desktop supports cloud-only identities when using [Azure AD joined VMs](deploy-azure-ad-joined-vm.md).
+
+## External identity
+
+Windows Virtual Desktop does not support [external identities](../active-directory/external-identities/index.yml).
 
 ## Single sign-on (SSO)
 
