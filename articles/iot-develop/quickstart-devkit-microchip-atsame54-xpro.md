@@ -75,8 +75,7 @@ To install the tools:
     ```
 To install the remaining tools:
 
-* Install [Atmel Studio 7](https://www.microchip.com/mplab/avr-support/atmel-studio-7). Atmel Studio is a device development environment that includes the tools to program and flash the Microchip E54. For this tutorial, you use Atmel Studio only to flash the Microchip E54. The installation takes several minutes, and prompts you several times to approve the installation of components.
-
+* Install [Microchip Studio for AVR and SAM devices](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices#). Microchip Studio is a device development environment that includes the tools to program and flash the Microchip E54. For this tutorial, you use Microchip Studio only to flash the Microchip E54. The installation takes several minutes, and prompts you several times to approve the installation of components.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -142,7 +141,7 @@ After the build completes, confirm that the binary file was created in the follo
 
 ### Flash the image
 
-1. Open the **Windows Start > Atmel Studio 7.0 Command Prompt** console and go to the folder of the Microchip E54 binary file that you built.
+1. Open the **Windows Start > Microchip Studio Command Prompt** console and go to the folder of the Microchip E54 binary file that you built.
 
     > *getting-started\Microchip\ATSAME54-XPRO\build\app*
 
