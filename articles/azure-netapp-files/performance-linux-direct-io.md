@@ -40,7 +40,7 @@ The following are some databases that support direct I/O:
 * SQL Server for Linux (this database supports write-through, although not direct I/O itself)
 * Teradata
 
-## Best Practice 
+## Best Practices 
 
 Testing with `directio` is an excellent way to understand the limits of the storage service and client.  To get a better understanding for how the application itself will behave (if the application does not use `directio`),  you should also run tests through the filesystem cache.
 
