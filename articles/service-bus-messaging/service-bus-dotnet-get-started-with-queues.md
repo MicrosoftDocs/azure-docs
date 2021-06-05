@@ -24,6 +24,9 @@ In this tutorial, you create a .NET Core console application to send messages to
 ## Send messages to a queue
 In this section, you'll create a C# .NET Core console application to send messages to the queue.
 
+> [!NOTE]
+> If you want to see and use the full code instead of going through the following step-by-step instructions, see [Full code (send messages)](#full-code-send-messages)
+
 ### Create a console application
 Launch Visual Studio and create a new **Console App (.NET Core)** project for C#. 
 
@@ -290,6 +293,9 @@ In this section, you'll create another .NET Core console application that receiv
 
 ### Add code to receive messages from the queue
 In this section, you'll add code to retrieve messages from the queue.
+
+> [!NOTE]
+> If you want to see and use the full code instead of going through the following step-by-step instructions, see [Full code (send messages)](#full-code-receive-messages)
 
 1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
 
