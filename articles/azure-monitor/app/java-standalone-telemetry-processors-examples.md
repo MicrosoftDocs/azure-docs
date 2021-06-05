@@ -487,7 +487,7 @@ The following sample shows how to change the span name to `{operation_website}`.
 
 ### Update log message body
 
-The following sample specifies the values of attributes `LoggerName` and `SourceType`. It forms the new body of the log by using those attributes, in that order, separated by the value `::`.
+The following sample specifies the values of attributes `applicationinsights.internal.logger_name` and `applicationinsights.internal.log_level`. It forms the new body of the log by using those attributes, in that order, separated by the value `::`.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -497,8 +497,8 @@ The following sample specifies the values of attributes `LoggerName` and `Source
         "type": "log",
         "body": {
           "fromAttributes": [
-            "LoggerName",
-            "SourceType"
+            "applicationinsights.internal.logger_name",
+            "applicationinsights.internal.log_level"
           ],
           "separator": "::"
         }
