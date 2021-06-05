@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/07/2021
+ms.date: 06/04/2021
 
 ---
 
@@ -73,6 +73,7 @@ Any [web, mobile, gaming, and IoT application](use-cases.md) that needs to handl
 
 Get started with Azure Cosmos DB with one of our quickstarts:
 
+- Learn [how to choose an API](choose-api) in Azure Cosmos DB
 - [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
 - [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
 - [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
