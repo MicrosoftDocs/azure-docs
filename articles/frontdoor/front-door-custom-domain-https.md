@@ -205,7 +205,7 @@ The following table shows the operation progress that occurs when you enable HTT
 | | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS won't be enabled on your domain. * |
 | | Domain ownership validation request was rejected by the customer. HTTPS won't be enabled on your domain. * |
 | 3 Certificate provisioning | The certificate authority is currently issuing the certificate needed to enable HTTPS on your domain. |
-| | The certificate has been issued and is currently being deployed for your Front Door. This process could take up to 1 hour. |
+| | The certificate has been issued and is currently being deployed for your Front Door. This process could take from several minutes to an hour to complete. |
 | | The certificate has been successfully deployed for your Front Door. |
 | 4 Complete | HTTPS has been successfully enabled on your domain. |
 
