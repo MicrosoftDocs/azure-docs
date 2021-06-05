@@ -1261,28 +1261,28 @@ groups:
     title: Facility Ontology 1.0 
   - id: facility-ontology-v2
     title: Facility Ontology 2.0 
-# Owner: barclayn (identity)
-- id: identity-method-mi
+# Owner: barclayn
+- id: identity-mi-methods
   title: Managed identities methods
   prompt: Choose an option
   pivots:
   - id: identity-mi-methods-azp
     title: Azure portal
-  - id: identity-mi-method-azcli
+  - id: identity-mi-methods-azcli
     title: Azure CLI
-  - id: identity-mi-method-powershell
+  - id: identity-mi-methods-powershell
     title: PowerShell
-  - id: identity-mi-method-arm
+  - id: identity-mi-methods-arm
     title: Azure resource manager
-  - id: identity-mi-method-rest
+  - id: identity-mi-methods-rest
     title: REST
-- id: identity-method-mi-min
+- id: identity-mi-method-sub
   title: Managed identities method subset
   prompt: Choose an option
   pivots:
-  - id: identity-mi-methods-azp
+  - id: identity-mi-methods-sub-azp
     title: Azure portal
-  - id: identity-mi-method-azcli
+  - id: identity-mi-methods-sub-azcli
     title: Azure CLI
-  - id: identity-mi-method-powershell
+  - id: identity-mi-methods-sub-powershell
     title: PowerShell
