@@ -160,15 +160,17 @@
       items:
       - name: Overview
         href: vm/monitor-virtual-machine.md
-      - name: Enable and configure
+      - name: Configure monitoring
         href: vm/monitor-virtual-machine-onboard.md
       - name: Analyze data
         href: vm/monitor-virtual-machine-analyze.md
-      - name: Alert
+      - name: Monitor security
+        href: vm/monitor-virtual-machine-security.md
+      - name: Alerts
         href: vm/monitor-virtual-machine-alerts.md
       - name: Monitor workloads
         href: vm/monitor-virtual-machine-workloads.md
-      - name: Convert management packs
+      - name: Convert management pack logic
         href: vm/monitor-virtual-machine-scom.md
       displayname: VM
   - name: Deploy
