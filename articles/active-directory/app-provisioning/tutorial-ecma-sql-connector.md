@@ -332,6 +332,6 @@ GO
 ## Next Steps
 
 - [Troubleshoot on-premises application provisioning](on-premises-ecma-troubleshoot.md)
-- [Review known limitations](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues#on-premises-application-provisioning)
+- [Review known limitations](known-issues#on-premises-application-provisioning.md)
 - [On-premises provisioning prerequisites](on-premises-ecma-prerequisites.md)
 - [Review prerequisites for on-premises provisioning](on-premises-ecma-prerequisites.md)
