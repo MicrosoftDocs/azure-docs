@@ -78,7 +78,7 @@ There are two stages in every replication cycle that ensures data integrity betw
 1. First, we validate if every sector that has changed in the source disk is replicated to the target disk. Validation is performed using bitmaps.
 Source disk is divided into sectors of 512 bytes. Every sector in the source disk is mapped to a bit in the bitmap. When data replication starts, bitmap is created for all the changed blocks (in delta cycle) in the source disk that needs to be replicated. Similarly, when the data is transferred to the target Azure disk, a bitmap is created. Once the data transfer completes successfully, the cloud service compares the two bitmaps to ensure no changed block is missed. In case there's any mismatch between the bitmaps, the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
 
-1. Next we ensure that the data that's transferred to the Azure disks is same as the data that was replicated from the source disks. Every changed block that is uploaded is compressed and encrypted before it's written as a blob in the log storage account. We compute the checksum of this block before compression. This checksum is stored as metadata along with the compressed data. Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there's a mismatch, the data is not written to the Azure disks, and the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
+1. Next we ensure that the data that's transferred to the Azure disks is the same as the data that was replicated from the source disks. Every changed block that is uploaded is compressed and encrypted before it's written as a blob in the log storage account. We compute the checksum of this block before compression. This checksum is stored as metadata along with the compressed data. Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there's a mismatch, the data is not written to the Azure disks, and the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
 
 ## Security
 
@@ -90,7 +90,7 @@ The Azure Migrate appliance compresses data and encrypts before uploading. Data 
 
 When a VM undergoes replication, there are few states that are possible:
 
-- **Initial Replication (Queued):** The VM is queued for replication (or migration)when there are other VMs that are consuming the on-premises resources during replication (or migration). Once the resources are free, this VM will be processed.
+- **Initial Replication (Queued):** The VM is queued for replication (or migration) when there are other VMs that are consuming the on-premises resources during replication (or migration). Once the resources are free, this VM will be processed.
 - **Initial replication:** The VM is undergoing initial replication. When the VM is undergoing initial replication, you cannot proceed with test migration and migration. You can only stop replication at this stage.
 - **Test migration pending:** The VM is in delta replication phase, and you can now perform test migration (or migration).
 - **Migration in progress (Queued):** The VM is queued for migration when there are other VMs that are consuming the on-premises resources during replication (or migration). Once the resources are free, the VM will be processed for migration.
@@ -129,7 +129,7 @@ That is, whenever a migrate operation is triggered, the on-demand cycle for the 
 We use the following constraints to ensure that we don't exceed the IOPS limits on the SANs.
 
 - Each Azure Migrate appliance supports replication of 52 disks in parallel
-- Each ESXi host supports eight disks Every ESXi host has a 32-MB NFC buffer. So, we can schedule eight disks on the host (Each disk takes up 4 MB of buffer for IR, DR).
+- Each ESXi host supports eight disks. Every ESXi host has a 32-MB NFC buffer. So, we can schedule eight disks on the host (Each disk takes up 4 MB of buffer for IR, DR).
 - Each datastore can have a maximum of 15 disk snapshots. The only exception is when a VM has more than 15 disks attached to it.
 
 ## Scale-out replication

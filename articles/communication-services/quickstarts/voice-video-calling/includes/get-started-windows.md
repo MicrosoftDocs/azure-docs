@@ -81,11 +81,17 @@ namespace CallingQuickstart
         public MainPage()
         {
             this.InitializeComponent();
+            this.InitCallAgent();
         }
-
+        
+        private async void InitCallAgent()
+        {
+            // Create Call Client and initialize Call Agent
+        }
+        
         private async void CallButton_ClickAsync(object sender, RoutedEventArgs e)
         {
-            // Authenticate the client and start call
+            // Start call
         }
 
         private async void HangupButton_Click(object sender, RoutedEventArgs e)
@@ -113,7 +119,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. Add the following code to the `CallButton_ClickAsync` function. 
+Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. Add the following code to the `InitCallAgent` function. 
 
 ```C#
 CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");

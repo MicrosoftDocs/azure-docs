@@ -104,6 +104,8 @@
           href: database/authentication-aad-service-principal.md
         - name: Directory Readers role
           href: database/authentication-aad-directory-readers-role.md
+        - name: Azure AD-only Authentication
+          href: database/authentication-azure-ad-only-authentication.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -161,7 +163,7 @@
     - name: Job automation with elastic jobs
       href: database/job-automation-overview.md
     - name: Job automation with SQL Agent 
-      href: database/job-automation-managed-instances.md
+      href: managed-instance/job-automation-managed-instance.md
     - name: Connect and query from apps
       items:
       - name: .NET with Visual Studio
@@ -197,6 +199,8 @@
           href: database/authentication-aad-guest-users.md
         - name: Assign Directory Readers role to groups
           href: database/authentication-aad-directory-readers-role-tutorial.md
+        - name: Enable Azure AD-only authentication
+          href: database/authentication-azure-ad-only-authentication-tutorial.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Always Encrypted
