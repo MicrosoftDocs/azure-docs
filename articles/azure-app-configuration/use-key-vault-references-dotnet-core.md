@@ -214,7 +214,8 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     ![Quickstart local app launch](./media/key-vault-reference-launch-local.png)
 
 
-Using `DefaultAzureCredential` allows your application to run in both local and Azure environments. If your application is deployed to an Azure host with Managed Identity enabled, DefaultAzureCredential can fallback to using Managed Identity credentials. For this scenario, you can leverage the same Managed Identity to authenticate with both App Configuration and Key Vault. For more information, see [How to use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md).
+ > [!NOTE]
+> Using `DefaultAzureCredential` allows your application to run in both local and Azure environments. If your application is deployed to an Azure host with Managed Identity enabled, DefaultAzureCredential can fallback to using Managed Identity credentials. For this scenario, you can leverage the same Managed Identity to authenticate with both App Configuration and Key Vault. For more information, see [How to use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md).
 
 
 ## Clean up resources
