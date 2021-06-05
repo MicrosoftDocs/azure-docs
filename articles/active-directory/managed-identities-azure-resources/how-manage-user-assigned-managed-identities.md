@@ -10,15 +10,15 @@ ms.subservice: msi
 ms.devlang: 
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/03/2021
+ms.date: 06/05/2021
 ms.author: barclayn
-zone_pivot_groups: platform-identity
+zone_pivot_groups: identity-mi-methods
 ---
 
 # Manage user-assigned managed identities
 
 
-::: zone pivot="platform-idazp"
+::: zone pivot="identity-mi-methods-azp"
 
 Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
@@ -28,7 +28,7 @@ In this article, you learn how to create, list, delete, or assign a role to a us
 
 ::: zone-end
 
-::: zone pivot="platform-idazcli"
+::: zone pivot="identity-mi-methods-azcli"
 
 Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without having to store credentials in your code. 
 
@@ -39,20 +39,20 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 ::: zone-end
 
-::: zone pivot="platform-idpowershell"
+::: zone pivot="identity-mi-methods-powershell"
 
 [!INCLUDE [PowerShell](includes/create-user-assigned-managed-identities-powershell.md)]
 
 ::: zone-end
 
 
-::: zone pivot="platform-azarm"
+::: zone pivot="identity-mi-methods-arm"
 
 [!INCLUDE [Azure resource manager](includes/create-user-assigned-managed-identities-arm.md)]
 
 ::: zone-end
 
-::: zone pivot="platform-rest"
+::: zone pivot="identity-mi-methods-rest"
 
 [!INCLUDE [REST](includes/create-user-assigned-managed-identities-rest.md)]
 
