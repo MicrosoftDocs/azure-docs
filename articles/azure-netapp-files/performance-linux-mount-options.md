@@ -133,5 +133,6 @@ When no close-to-open consistency (`nocto`) is used, the client will trust the f
 
 ## Next steps  
 
+* [Linux direct I/O best practices for Azure NetApp Files](performance-linux-direct-io.md)
 * [Linux concurrency best practices for Azure NetApp Files](performance-linux-concurrency-session-slots.md)
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 

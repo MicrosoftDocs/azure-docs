@@ -261,5 +261,6 @@ The following example shows Packet 14 (server maximum requests):
 
 ## Next steps  
 
+* [Linux direct I/O best practices for Azure NetApp Files](performance-linux-direct-io.md)
 * [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 
