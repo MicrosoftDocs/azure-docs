@@ -195,6 +195,13 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     You access the value of the Key Vault reference **TestApp:Settings:KeyVaultMessage** in the same way as for the configuration value of **TestApp:Settings:Message**.
 
+
+## Grant your app access to Key Vault
+
+Azure App Configuration won't access your Key Vault. Your app will read from Key Vault directly, so you need to grant your app read access to the secrets in your Key Vault. This way, the secret always stays with your app. The access can be granted using either the [Vault access policy ](azure/key-vault/general/assign-access-policy-portal) or [Azure role-based access control]( azure/key-vault/general/rbac-guide).
+
+You use `DefaultAzureCredential` in your code above. It is an aggregated token credential that tries a number of credential types such as `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCredential`, etc. automatically. See [DefaultAzureCredential Class](dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for more information. You can replace it with any credential type explicitly. However, using `DefaultAzureCredential` enables you to have the same code that runs in both local and Azure environments. For example, you grant your own credential access to your Key Vault. The `DefaultAzureCredential` will fall back to `SharedTokenCacheCredential` or `VisualStudioCredential` automatically when you use Visual Studio for local development. After your app is deployed to one of Azure services with managed identity enabled, such as App Service, Azure Kubernetes Service, or Azure Container Instance, you grant the managed identity of the Azure service permission to access to your Key Vault. The `DefaultAzureCredential` will use `ManagedIdentityCredential` automatically when your app is running in Azure. You can leverage the same managed identity to authenticate with both App Configuration and Key Vault. For more information, see [how to use managed identities to access App Configuration](azure/azure-app-configuration/howto-integrate-azure-managed-service-identity).
+
 ## Build and run the app locally
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
