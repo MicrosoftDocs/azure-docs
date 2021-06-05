@@ -26,7 +26,6 @@ The following tutorials are included in the getting started guide:
 |Quickstart|Device|
 |---------------|-----|
 |[Getting started with the Microchip ATSAME54-XPRO Evaluation kit](https://go.microsoft.com/fwlink/p/?linkid=2129537) |[Microchip ATSAME54-XPRO](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro)|
-|[Getting started with the Renesas Starter Kit+ for RX65N-2MB](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RSK_RX65N_2MB) |[Renesas Starter Kit+ for RX65N-2MB](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-2mb-starter-kit-plus-renesas-starter-kit-rx65n-2mb)|
 
 ## Next steps
 After you complete a device-specific quickstart in this guide, explore the other device-specific articles and samples in the Azure RTOS getting started repo:

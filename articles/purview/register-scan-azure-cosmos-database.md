@@ -62,7 +62,6 @@ On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following
 4. Select a collection or create a new one (Optional).
 5. Select **Register** to register the data source.
 
-
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="register sources options" border="true":::
 
 
@@ -82,7 +81,7 @@ To create and run a new scan, do the following:
 
 1. You can scope your scan to specific databases by choosing the appropriate items in the list.
 
-   :::image type="content" source="media/register-scan-azure-cosmos-database/cosmosdb-scope-your-scan.png" alt-text="Scope your scan":::
+   :::image type="content" source="media/register-scan-azure-cosmos-database/cosmos-database-scope-your-scan.png" alt-text="Scope your scan":::
 
 1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
 

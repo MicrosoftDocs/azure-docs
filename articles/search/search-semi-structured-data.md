@@ -41,7 +41,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, and Azure Blob storage to provide the data. 
+This tutorial uses Azure Cognitive Search for indexing and queries, and Azure Blob Storage to provide the data. 
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
@@ -85,7 +85,7 @@ After the upload completes, the files should appear in their own subfolder insid
 
 The next resource is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
 
-As with Azure Blob storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
+As with Azure Blob Storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
 
 ### Get a key and URL
 
