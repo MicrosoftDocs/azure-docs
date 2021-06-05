@@ -31,9 +31,9 @@ The following table depicts the type of default share-level permissions and how 
 |Supported default share-level permission  |Description  |
 |---------|---------|
 |None (Default setting)     |Doesn't allow access to files and directories in Azure file shares.         |
-|Storage File Data SMB Share Reader     |Allows for read access to files and directories in Azure file shares. This role is analogous to a file share ACL of read on Windows File servers. Learn more.         |
-|Storage File Data SMB Share Contributor     |Allows for read, write, and delete access on files and directories in Azure file shares. Learn more.         |
-|Storage File Data SMB Share Elevated Contributor     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers. Learn more.         |
+|[Storage File Data SMB Share Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader)     |Allows for read access to files and directories in Azure file shares. This role is analogous to a file share ACL of read on Windows File servers. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
+|[Storage File Data SMB Share Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-contributor)     |Allows for read, write, and delete access on files and directories in Azure file shares. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
+|[Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor)     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
 
 ## Individual or group-level permissions
 
