@@ -73,6 +73,11 @@ To install the tools:
     ```shell
     cmake --version
     ```
+To install the remaining tools:
+
+* Install [Atmel Studio 7](https://www.microchip.com/mplab/avr-support/atmel-studio-7). Atmel Studio is a device development environment that includes the tools to program and flash the Microchip E54. For this tutorial, you use Atmel Studio only to flash the Microchip E54. The installation takes several minutes, and prompts you several times to approve the installation of components.
+
+
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
 ## Prepare the device
@@ -180,35 +185,33 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing DHCP
-    	IP address: 10.0.0.123
-    	Mask: 255.255.255.0
-    	Gateway: 10.0.0.1
+	    IP address: 192.168.0.21
+	    Mask: 255.255.255.0
+	    Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-    	DNS address: 10.0.0.1
+	    DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-    	SNTP IP address: 185.242.56.3
-    	SNTP time update: Nov 16, 2020 23:47:35.385 UTC 
+	    SNTP server 0.pool.ntp.org
+	    SNTP IP address: 45.55.58.103
+	    SNTP time update: Jun 5, 2021 20:2:46.32 UTC 
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-    	DPS endpoint: global.azure-devices-provisioning.net
-    	DPS ID scope: ***
-    	Registration ID: ***
+	    DPS endpoint: global.azure-devices-provisioning.net
+	    DPS ID scope: 0ne002E8D25
+	    Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-    	Hub hostname: ***
-    	Device id: ***
-    	Model id: dtmi:azurertos:devkit:gsg;1
-    Connected to IoTHub
+	    Hub hostname: ***.azure-devices.net
+	    Device id: mydevice
+	    Model id: dtmi:azurertos:devkit:gsg;1
+    Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-
-    Starting Main loop
     ```
 
 Keep Termite open to monitor device output in the following steps.
@@ -244,11 +247,11 @@ You can also use IoT Central to call a direct method that you have implemented o
 To call a method in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
-1. Select **State** and select **Run**.  The LED light should turn on.
+1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
 
-1. Unselect **State** and select **Run**. The LED light should turn off.
+1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
 ## View device information
 
