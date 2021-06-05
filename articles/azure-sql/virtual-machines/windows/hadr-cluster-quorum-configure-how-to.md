@@ -94,15 +94,15 @@ Use the Quorum Configuration Wizard built into Failover Cluster Manager to confi
 
 2. Right-click the cluster -> **More Actions** -> **Configure Cluster Quorum Settings**. This launches the Configure Cluster Quorum wizard.
 
-    ![Snapshot of the menu path to Configure Cluster Quorum Settings in the Failover Cluster Manager UI](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness_7.png)
+    ![Snapshot of the menu path to Configure Cluster Quorum Settings in the Failover Cluster Manager UI](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness-7.png)
     
 3. On the **Select Quorum Configurations** page, select **Select the quorum witness**.
 
-    ![Snapshot of the 'select the quorum witness' radio button in the Cluster Quorum wizard](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness_8.png)
+    ![Snapshot of the 'select the quorum witness' radio button in the Cluster Quorum wizard](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness-8.png)
    
 4. On the **Select Quorum Witness** page, select **Configure a cloud witness**.
 
-    ![Snapshot of the appropriate radio button to select a cloud witness](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness_9.png)
+    ![Snapshot of the appropriate radio button to select a cloud witness](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness-9.png)
     
 5. On the **Configure Cloud Witness** page, enter the Azure Storage Account information. For help with finding this information, see the [cloud witness documentation](/windows-server/failover-clustering/deploy-cloud-witness). 
    1. (Required parameter) Azure Storage Account Name.
@@ -111,12 +111,12 @@ Use the Quorum Configuration Wizard built into Failover Cluster Manager to confi
        2. When rotating the Primary Access Key, use Secondary Access Key
    3. (Optional parameter) If you intend to use a different Azure service endpoint (for example the Microsoft Azure service in China), then update the endpoint server name.
 
-    ![Snapshot of the Cloud Witness configuration pane in the Cluster Quorum wizard](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness_10.png)
+    ![Snapshot of the Cloud Witness configuration pane in the Cluster Quorum wizard](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness-10.png)
       
 
 6. Upon successful configuration of the cloud witness, you can view the newly created witness resource in the Failover Cluster Manager snap-in.
 
-    ![Successful configuration of Cloud Witness](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness_11.png)
+    ![Successful configuration of Cloud Witness](./media/hadr-create-quorum-windows-failover-cluster-how-to/cloud-witness-11.png)
     
 
 
