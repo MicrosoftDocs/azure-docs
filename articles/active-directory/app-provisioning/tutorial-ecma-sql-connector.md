@@ -322,6 +322,6 @@ GO
 ## Next Steps
 
 - [Troubleshoot on-premises application provisioning](on-premises-ecma-troubleshoot.md)
-- [Review known limitations](known-issues#on-premises-application-provisioning.md)
+- [Review known limitations](known-issues.md)
 - [On-premises provisioning prerequisites](on-premises-ecma-prerequisites.md)
 - [Review prerequisites for on-premises provisioning](on-premises-ecma-prerequisites.md)
