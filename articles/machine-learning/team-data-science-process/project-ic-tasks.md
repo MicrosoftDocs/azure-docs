@@ -37,14 +37,14 @@ This tutorial assumes that the following resources and permissions have been set
 - Azure **file storage** set up for shared assets for your team or project, if applicable
 - **Permissions** for you to clone from and push back to your project repository 
 
-To clone repositories and modify content on your local machine or DSVM, or mount Azure file storage to your DSVM, you need to consider this checklist:
+To clone repositories and modify content on your local machine or DSVM, or mount Azure File Storage to your DSVM, you need to consider this checklist:
 
 - An Azure subscription.
 - Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
 - If you want to use a DSVM, the Windows or Linux DSVM created and configured in Azure. For more information and instructions, see the [Data Science Virtual Machine Documentation](../data-science-virtual-machine/index.yml).
 - For a Windows DSVM, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the *README.md* file, scroll down to the **Download and Install** section and select the **latest installer**. Download the *.exe* installer from the installer page and run it. 
 - For a Linux DSVM, an SSH public key set up on your DSVM and added in Azure DevOps. For more information and instructions, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix). 
-- The Azure file storage information for any Azure file storage you need to mount to your DSVM. 
+- The Azure File Storage information for any Azure File Storage you need to mount to your DSVM. 
 
 ## Clone repositories
 
@@ -87,9 +87,9 @@ To work with repositories locally and push your changes up to the shared team an
    
    ![Three local repository folders](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-## Mount Azure file storage to your DSVM
+## Mount Azure File Storage to your DSVM
 
-If your team or project has shared assets in Azure file storage, mount the file storage to your local machine or DSVM. Follow the instructions at [Mount Azure file storage on your local machine or DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
+If your team or project has shared assets in Azure File Storage, mount the file storage to your local machine or DSVM. Follow the instructions at [Mount Azure File Storage on your local machine or DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
 
 ## Next steps
 
