@@ -82,28 +82,29 @@ See the following table to learn more about supported series and restrictions.
 
 | **Supported VM series**  | **Restrictions** | **Category** | **Supported by** |
 |------------|------------|------------|------------|
-| D | None. | General purpose | Compute clusters and instance |
-| DDSv4 | None. | General purpose | Compute clusters and instance |
-| Dv2 | None. | General purpose | Compute clusters and instance |
-| Dv3 | None.| General purpose | Compute clusters and instance |
-| DSv2 | None. | General purpose | Compute clusters and instance |
-| DSv3 | None.| General purpose | Compute clusters and instance |
-| EAv4 | None. | Memory optimized | Compute clusters and instance |
-| Ev3 | None. | Memory optimized | Compute clusters and instance |
-| FSv2 | None. | Compute optimized | Compute clusters and instance |
-| H | None. | High performance compute | Compute clusters and instance |
-| HB | Requires approval. | High performance compute | Compute clusters and instance |
-| HBv2 | Requires approval. |  High performance compute | Compute clusters and instance |
-| HCS | Requires approval. |  High performance compute | Compute clusters and instance |
-| M | Requires approval. | Memory optimized | Compute clusters and instance |
-| NC | None. |  GPU | Compute clusters and instance |
-| NC Promo | None. | GPU | Compute clusters and instance |
-| NCsv2 | Requires approval. | GPU | Compute clusters and instance |
-| NCsv3 | Requires approval. | GPU | Compute clusters and instance |
-| NDs | Requires approval. | GPU | Compute clusters and instance |
-| NDv2 | Requires approval. | GPU | Compute clusters and instance |
-| NV | None. | GPU | Compute clusters and instance |
-| NVv3 | Requires approval. | GPU | Compute clusters and instance |
+| [DDSv4](https://docs.microsoft.com/azure/virtual-machines/ddv4-ddsv4-series#ddsv4-series) | None. | General purpose | Compute clusters and instance |
+| [Dv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dv2-series) | None. | General purpose | Compute clusters and instance |
+| [Dv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series#dv3-series) | None.| General purpose | Compute clusters and instance |
+| [DSv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series) | None. | General purpose | Compute clusters and instance |
+| [DSv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series#dsv3-series) | None.| General purpose | Compute clusters and instance |
+| [EAv4](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) | None. | Memory optimized | Compute clusters and instance |
+| [Ev3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) | None. | Memory optimized | Compute clusters and instance |
+| [FSv2](https://docs.microsoft.com/azure/virtual-machines/fsv2-series) | None. | Compute optimized | Compute clusters and instance |
+| [H](https://docs.microsoft.com/azure/virtual-machines/h-series) | None. | High performance compute | Compute clusters and instance |
+| [HB](https://docs.microsoft.com/azure/virtual-machines/hb-series) | Requires approval. | High performance compute | Compute clusters and instance |
+| [HBv2](https://docs.microsoft.com/azure/virtual-machines/hbv2-series) | Requires approval. |  High performance compute | Compute clusters and instance |
+| [HC](https://docs.microsoft.com/azure/virtual-machines/hc-series) | Requires approval. |  High performance compute | Compute clusters and instance |
+| [M](https://docs.microsoft.com/azure/virtual-machines/m-series) | Requires approval. | Memory optimized | Compute clusters and instance |
+| [NC](https://docs.microsoft.com/azure/virtual-machines/nc-series) | None. |  GPU | Compute clusters and instance |
+| [NC Promo](https://docs.microsoft.com/azure/virtual-machines/nc-series) | None. | GPU | Compute clusters and instance |
+| [NCv2](https://docs.microsoft.com/azure/virtual-machines/ncv2-series) | Requires approval. | GPU | Compute clusters and instance |
+| [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series) | Requires approval. | GPU | Compute clusters and instance |
+| [ND](https://docs.microsoft.com/azure/virtual-machines/nd-series) | Requires approval. | GPU | Compute clusters and instance |
+| [NDv2](https://docs.microsoft.com/azure/virtual-machines/ndv2-series) | Requires approval. | GPU | Compute clusters and instance |
+| [NV](https://docs.microsoft.com/azure/virtual-machines/nv-series) | None. | GPU | Compute clusters and instance |
+| [NVv3](https://docs.microsoft.com/azure/virtual-machines/nvv3-series) | Requires approval. | GPU | Compute clusters and instance |
+| [NCT4_v3](https://docs.microsoft.com/azure/virtual-machines/nct4-v3-series) | Requires approval. | GPU | Compute clusters and instance |
+| [NDA100_v4](https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series) | Requires approval. | GPU | Compute clusters and instance |
 
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -113,6 +114,21 @@ While Azure Machine Learning supports these VM series, they might not be availab
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
 > * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
 >
+
+If using the GPU-enabled compute targets, it is important to ensure that the correct CUDA drivers are installed in the training environment. Use the following table to determine the correct CUDA version to use:
+| **GPU Architecture**  | **Azure VM Series** | **Supported CUDA versions** |
+|------------|------------|------------|
+| Ampere | NDA100_v4 | 11.0+ |
+| Turing | NCT4_v3 | 10.0+ |
+| Volta | NCv3, NDv2 | 9.0+ |
+| Pascal | NCv2, ND | 9.0+ |
+| Maxwell | NV, NVv3 | 9.0+ |
+| Kepler | NC, NC Promo| 9.0+ |
+
+In addition to ensuring the CUDA version and hardware are compatible, also ensure that the CUDA version is compatible with the version of the machine learning framework being used: 
+
+- For PyTorch, check the compatibility [here](https://pytorch.org/get-started/previous-versions/). 
+- For Tensorflow, check the compatibility [here](https://www.tensorflow.org/install/source#gpu).
 
 ### Compute isolation
 
