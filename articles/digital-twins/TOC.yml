@@ -41,6 +41,8 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md
+  - name: Querying with Azure Data Explorer
+    href: concepts-data-explorer-plugin.md   
   - name: Developer interfaces
     items:
     - name: Azure Digital Twins Explorer
