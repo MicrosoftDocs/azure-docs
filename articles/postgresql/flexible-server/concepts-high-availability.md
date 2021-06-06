@@ -92,11 +92,13 @@ Flexible server provides two methods for you to perform on-demand failover to th
 > It is recommended to perform planned failover during low activity period.
 
 >[!IMPORTANT] 
-> Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
+> 1. Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
+> 
+> 2. The overall end-to-end operation time may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
 
 See [this guide](how-to-manage-high-availability-portal.md) for step-by-step instructions.
 
-Note that the overall end-to-end operation time as reported on the portal may be longer than the actual downtime experienced by the application. You may want to measure the downtime from the application perspective.
+
 
 ## Point-in-time restore 
 
