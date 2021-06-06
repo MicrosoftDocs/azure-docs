@@ -54,7 +54,7 @@ A cycle is said to be complete once the disks are consolidated.
 | Service Bus | Target region | Azure Migrate project's subscription | Used for communication between cloud service and Azure Migrate appliance |
 | Log storage account | Target region | Project's subscription | Used to store replication data, which is read by the service and applied on customer's managed disk |
 | Appliance storage account | Target region | Project's subscription | Used to store machine states during replication |
-| Key vault | Target region | Project's subscription | Manages the log storage account, stores the service bus connection strings |
+| Key vault | Target region | Project's subscription | Manages connection strings for service bus and access keys for the log storage account |
 | Azure Virtual Machine | Target region | Target subscription | VM created in Azure when you migrate |
 | Azure Managed Disks | Target region | Target subscription | Managed disks attached to Azure VMs |
 | Network interface cards | Target region | Target subscription | The NICs attached to the VMs created in Azure |
@@ -98,7 +98,7 @@ When a VM undergoes replication, there are few states that are possible:
 - **Not applicable:** When the VM has successfully migrated and/or when you have stopped replication, the status changes to not applicable. Once you stop replication and the operation finishes successfully, the VM will be removed from the list of replicating machines. You can find the VM in the virtual machines tab in the Replicate wizard.
 
 > [!Note]
->Some VMs are put in queued state to ensure minimal impact on the source environment due to IOPS consumption. These VMs are processed based on the scheduling logic as described in the next section.
+>Some VMs are put in queued state to ensure minimal impact on the source environment due to storage IOPS consumption. These VMs are processed based on the scheduling logic as described in the next section.
 
 ## Scheduling logic
 
@@ -113,23 +113,23 @@ max [(Previous delta replication cycle time/2), 1 hour]
 That is, next delta replication will be scheduled no sooner than one hour. For example, if a VM takes four hours for a delta replication cycle, the next delta replication cycle is scheduled in two hours, and not in the next hour.
 
 > [!Note]
-> The process is different immediately after initial replication, when the first delta cycle is scheduled immediately.
+> The process is different after initial replication, when the first delta cycle is scheduled immediately.
 
 - When you trigger migration, an on-demand delta replication cycle (pre-failover delta replication cycle) is performed for the VM prior to migration.
 
 **Prioritization of VMs for various stages of replication**
 
 - Ongoing VM replications are prioritized over scheduled replications (new replications)
-- Pre-migrate (on-demand delta replication) cycle has the highest priority followed by initial replication cycle. Delta replication cycle has the least priority.
+- Pre-failover (on-demand delta replication) cycle has the highest priority followed by initial replication cycle. Delta replication cycle has the least priority.
 
-That is, whenever a migrate operation is triggered, the on-demand cycle for the VM is scheduled and other ongoing replications take back seat if they are competing for resources.
+That is, whenever a migrate operation is triggered, the on-demand replication cycle for the VM is scheduled and other ongoing replications take back seat if they are competing for resources.
 
 **Constraints:**
 
 We use the following constraints to ensure that we don't exceed the IOPS limits on the SANs.
 
 - Each Azure Migrate appliance supports replication of 52 disks in parallel
-- Each ESXi host supports eight disks. Every ESXi host has a 32-MB NFC buffer. So, we can schedule eight disks on the host (Each disk takes up 4 MB of buffer for IR, DR).
+- Each ESXi host supports 8 disks. Every ESXi host has a 32-MB NFC buffer. So, we can schedule 8 disks on the host (Each disk takes up 4 MB of buffer for IR, DR).
 - Each datastore can have a maximum of 15 disk snapshots. The only exception is when a VM has more than 15 disks attached to it.
 
 ## Scale-out replication
@@ -139,11 +139,11 @@ Azure Migrate supports concurrent replication of 500 virtual machines. When you 
 ![Scale-out configuration.](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
 
 
-You can deploy the scale-out appliance anytime after configuring the primary appliance until there are 300 VMs replicating concurrently. When there are 300 VMs replicating concurrently, you must deploy the scale-out appliance to proceed.
+You can deploy the scale-out appliance anytime after configuring the primary appliance, but isn't required until there are 300 VMs replicating concurrently. When there are 300 VMs replicating concurrently, you must deploy the scale-out appliance to proceed.
 
 ## Stop replication
 
-When you stop replication, the intermediate disks (seed disks) created during replication will be deleted. The VM for which the replication is stopped can be replicated and migrated again following the usual steps.
+When you stop replication, the intermediate managed disks (seed disks) created during replication will be deleted. The VM for which the replication is stopped can be replicated and migrated again following the usual steps.
 
 You can stop replication at two stages:
 
@@ -175,7 +175,7 @@ You can also increase and decrease replication bandwidth based on a schedule usi
 
 ### Blackout window
 
-Azure Migrate provides a configuration-based mechanism through which customers can specify the time interval during which they don't want any replications to proceed. This time interval is called the blackout window. The need for a blackout window can arise in multiple scenarios such as when the source environment is resource constrained, when customers want replication to go through only non-business hours, etc.
+Azure Migrate provides a configuration-based mechanism through which customers can specify the time interval during which they don't want any replications to proceed. This time interval is called the blackout window. The need for a blackout window can arise in multiple scenarios such as when the source environment is resource constrained or when customers want replication to go through only during non-business hours, etc.
 
 > [!NOTE]
 > The existing replication cycles at the start of the blackout window will complete before the replication pauses.
