@@ -84,17 +84,17 @@ After the failover, while a new standby server is being provisioned, application
 
 Flexible server provides two methods for you to perform on-demand failover to the standby server. These are useful if you want to test the failover time and downtime impact for your applications and if you want to failover to the preferred availability zone. 
 
-1. **Forced failover**: You can use this option to simulate an unplanned outage scenario. This triggers a fault in the primary server and brings the primary server down. Applications loses connectivity to the server. The failover workflow is triggered which initiates the standby promotion opreation. Once the standby is all caught up with all transactions, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background.
+* **Forced failover**: You can use this option to simulate an unplanned outage scenario. This triggers a fault in the primary server and brings the primary server down. Applications loses connectivity to the server. The failover workflow is triggered which initiates the standby promote operation. Once the standby is all caught up with all transactions, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background.
 
-2. **Planned failover**: This option is for failing over to the standby server with reduced downtime. The standby server is first prepared to make sure it is caught up with recent transactions. The standby is then promoted and the connections to the primary is severed. DNS record is updated and the applications can connect to the  newly promoted server.  Your application can continue to write to the primary while a new standby server is established in the background. As the application continues to write to the primary server while the standby is being prepared, this method of failover provides reduced downtime experience. 
+* **Planned failover**: This option is for failing over to the standby server with reduced downtime. The standby server is first prepared to make sure it is caught up with recent transactions. The standby is then promoted and the connections to the primary is severed. DNS record is updated and the applications can connect to the  newly promoted server.  Your application can continue to write to the primary while a new standby server is established in the background. As the application continues to write to the primary server while the standby is being prepared, this method of failover provides reduced downtime experience. 
 
 >[!NOTE]
 > It is recommended to perform planned failover during low activity period.
 
 >[!IMPORTANT] 
-> 1. Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
+> * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
 > 
-> 2. The overall end-to-end operation time may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
+> * The overall end-to-end operation time may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
 
 See [this guide](how-to-manage-high-availability-portal.md) for step-by-step instructions.
 

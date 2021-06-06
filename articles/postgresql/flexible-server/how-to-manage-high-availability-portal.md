@@ -111,9 +111,9 @@ Follow these steps to force failover your primary to the standby flexible server
     :::image type="content" source="./media/how-to-manage-high-availability-portal/ha-forced-failover.png" alt-text="On-demand forced failover"::: 
 
 >[!IMPORTANT] 
-> 1. Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
+> * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
 >
-> 2. The overall end-to-end operation time as reported on the portal may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective. 
+> * The overall end-to-end operation time as reported on the portal may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective. 
 
 ## Planned failover
 
@@ -129,11 +129,11 @@ Follow these steps to perform a planned failover from your primary to the standb
 
 >[!IMPORTANT] 
 >
-> 1. Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
+> * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
 >
-> 2. It is recommended to perform planned failover during low activity period.
+> * It is recommended to perform planned failover during low activity period.
 >
-> 3. The overall end-to-end operation time may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
+> * The overall end-to-end operation time may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
 
 
 ## Next steps
