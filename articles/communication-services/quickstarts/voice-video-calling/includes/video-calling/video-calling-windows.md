@@ -6,8 +6,8 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload. 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service.
 
 ## Setting up
 
@@ -15,7 +15,7 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 In Visual Studio, create a new project with the **Blank App (Universal Windows)** template to set up a single-page Universal Windows Platform (UWP) app.
 
-:::image type="content" source="../media/windows/create-a-new-project.png" alt-text="Screenshot showing the New Project window within Visual Studio.":::
+:::image type="content" source="../../media/windows/create-a-new-project.png" alt-text="Screenshot showing the New Project window within Visual Studio.":::
 
 ### Install the package
 

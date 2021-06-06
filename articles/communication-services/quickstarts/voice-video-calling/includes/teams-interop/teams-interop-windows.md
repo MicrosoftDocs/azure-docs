@@ -12,7 +12,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 ## Prerequisites
 
-- A working [Communication Services calling Windows app](../getting-started-with-calling.md).
+- A working [Communication Services calling Windows app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
 
@@ -46,7 +46,7 @@ Replace code in MainPage.xaml with following snippet. The text box will be used 
 
 Replace the content of `MainPage.xaml.cs` with following snippet:
 
-```c
+```csharp
 using System;
 using System.Threading.Tasks;
 

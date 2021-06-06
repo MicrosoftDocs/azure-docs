@@ -13,10 +13,10 @@ In this quickstart, you'll learn how to start a call using the Azure Communicati
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../../access-tokens.md)
 - Any edition of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with the `Universal Windows Platform development` workload alongside with Windows SDK `10.0.17134` or greater installed. Additionally, the `NuGet package manager` and `NuGet targets and build tasks` components should also be installed.
-- Optional: Complete the quick start for [getting started with adding calling to your application](../getting-started-with-calling.md)
+- Optional: Complete the quick start for [getting started with adding calling to your application](../../getting-started-with-calling.md)
 
 ## Setting up
 
@@ -144,7 +144,7 @@ catch (Exception)
 }
 ```
 
-`<USER ACCESS TOKEN>` must be replaced by a valid credential token for your resource. Refer to the [user access token](../../../quickstarts/access-tokens.md) documentation if a credential token has to be sourced.
+`<USER ACCESS TOKEN>` must be replaced by a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/access-tokens.md) documentation if a credential token has to be sourced.
 
 ## Create CallAgent and place a call
 
