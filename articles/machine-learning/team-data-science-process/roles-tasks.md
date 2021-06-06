@@ -72,7 +72,7 @@ The Team Lead or a designated project administrator completes the following task
 - Creates a team **project** in the group's Azure DevOps organization.
 - Creates the **project template repository** in the project, and seeds it from the group project template repository set up by the Group Manager or delegate.
 - Creates the **team utility repository**, seeds it from the group utility repository, and adds team-specific utilities to the repository.
-- Optionally creates [Azure file storage](https://azure.microsoft.com/services/storage/files/) to store useful data assets for the team. Other team members can mount this shared cloud file store on their analytics desktops.
+- Optionally creates [Azure File Storage](https://azure.microsoft.com/services/storage/files/) to store useful data assets for the team. Other team members can mount this shared cloud file store on their analytics desktops.
 - Optionally mounts the Azure file storage on the team's **DSVM** and adds team data assets to it.
 - Sets up **security control** by adding team members and configuring their permissions.
 
