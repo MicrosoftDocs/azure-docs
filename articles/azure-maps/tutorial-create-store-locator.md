@@ -57,7 +57,7 @@ This section lists the features that are supported in the Contoso Coffee store l
 * Map supports panning and zooming
 * A My Location button to search over the user's current location.
 * The page layout adjusts based on the width of the device screen.  
-* A search box and search button, to search a location, such as an address, postal code, or city.
+* A search box and a search button
 
 ### Functionality features
 
