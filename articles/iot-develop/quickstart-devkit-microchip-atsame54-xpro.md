@@ -53,7 +53,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### Install the tools
 
-The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another embeeded device quickstart, you don't need to do it again.
+The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another embedded device quickstart, you don't need to do it again.
 
 > [!NOTE]
 > The setup script installs the following tools:
@@ -117,7 +117,7 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
 
 1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54 as shown in the following photo:
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mkcroBUS Xplained Pro adapter on the Microchip ES4":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mikroBUS Xplained Pro adapter on the Microchip ES4":::
 
 1. Reopen the configuration file you edited previously:
 
@@ -164,10 +164,10 @@ After the build completes, confirm that the binary file was created in the follo
 ### Confirm device connection details
 
 You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
+
+1. Start **Termite**.    
     > [!TIP]
     > If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md) for additional steps.
-
-1. Start **Termite**.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
