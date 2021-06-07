@@ -24,6 +24,8 @@ ms.author: yelevin
 
 The Windows Security Events connector lets you stream all security events from any Windows systems (servers and workstations, physical and virtual) connected to your Azure Sentinel workspace. This enables you to view Windows security events in your dashboards, to use them in creating custom alerts, and to rely on them to improve your investigations, giving you more insight into your organization's network and expanding your security operations capabilities. 
 
+There are now two versions of this connector: **Security events** is the legacy version, based on the Log Analytics Agent (sometimes known as the MMA or OMS agent), and **Windows Security Events** is the new version, currently in **preview** and based on the new Azure Monitor Agent (AMA). This document presents information on both connectors. You can choose from the tabs below to see the information relevant to your chosen connector.
+
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 
 You can select which events to stream from among the following sets: <a name="event-sets"></a>
@@ -37,13 +39,6 @@ You can select which events to stream from among the following sets: <a name="ev
 
 - **None** - No security or AppLocker events. (This setting is used to disable the connector.)
 
-    The following list provides a complete breakdown of the Security and App Locker event IDs for each set:
-
-    | Event set | Collected event IDs |
-    | --- | --- |
-    | **Minimal** | 1102, 4624, 4625, 4657, 4663, 4688, 4700, 4702, 4719, 4720, 4722, 4723, 4724, 4727, 4728, 4732, 4735, 4737, 4739, 4740, 4754, 4755, 4756, 4767, 4799, 4825, 4946, 4948, 4956, 5024, 5033, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222 |
-    | **Common** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137, 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
-
 > [!NOTE]
 > Security Events collection within the context of a single workspace can be configured from either Azure Security Center or Azure Sentinel, but not both. If you are onboarding Azure Sentinel in a workspace that is already getting Azure Defender alerts from Azure Security Center, and is set to collect Security Events, you have two options:
 > - Leave the Security Events collection in Azure Security Center as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
@@ -56,7 +51,7 @@ You can select which events to stream from among the following sets: <a name="ev
 >
 > - The Windows Security Events data connector based on the Azure Monitor Agent (AMA) is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In addition to the [pre-selected sets of events](#event-sets) (Minimal, Common, and All) that you could choose to ingest with the old connector, the new Azure Monitor Agent-based connector lets you build your own custom sets of events to ingest. You do this by creating **data collection rules** that filter and ingest only the events you want, while leaving everything else behind. This can save you a lot of money in data ingestion costs!
+In addition to the pre-selected sets of events (Minimal, Common, and All) that you could choose to ingest with the old connector, the new Azure Monitor Agent-based connector lets you build your own custom sets of events to ingest. You do this by creating **data collection rules** that filter and ingest only the events you want, while leaving everything else behind. This can save you a lot of money in data ingestion costs!
 
 When creating a **data collection rule**, you can choose **All events**, **Minimal**, or **Common** - just like with the old connector - or you can choose **Custom** and then define expressions for the event IDs you want to ingest. See the detailed instructions below.
 
@@ -93,7 +88,7 @@ To collect your Windows security events in Azure Sentinel:
 
     For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/agents/agent-windows.md).
 
-1. Select which event set ([All, Common, or Minimal](#event-sets)) you want to stream.
+1. Select which event set (All, Common, or Minimal) you want to stream. See the [lists of event IDs included](#event-id-reference) in the Minimal and Common event sets.
 
 1. Click **Update**.
 
@@ -115,12 +110,12 @@ To collect your Windows security events in Azure Sentinel:
 
 1. In the **Resources** tab, select **+Add resource(s)** to add machines to which the Data Collection Rule will apply. The **Select a scope** dialog will open, and you will see a list of available subscriptions. Expand a subscription to see its resource groups, and expand a resource group to see the available machines. You will see Azure virtual machines and Azure Arc-enabled servers in the list. You can mark the check boxes of subscriptions or resource groups to select all the machines they contain, or you can select individual machines. Select **Apply** when you've chosen all your machines. At the end of this process, the Azure Monitor Agent will be installed on any selected machines that don't already have it installed.
 
-1. On the **Collect** tab, choose the [set of events](#event-sets) you would like to collect, or select **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries). Enter expressions in the box that evaluate to specific event IDs to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
+1. On the **Collect** tab, choose the [set of events](#event-id-reference) you would like to collect, or select **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries). Enter expressions in the box that evaluate to specific event IDs to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
 
     Learn more about [data collection rules](../azure-monitor/agents/data-collection-rule-overview.md#create-a-dcr) from the Azure Monitor documentation.
 
     > [!NOTE]
-    > Make sure to query only Windows Security logs. Events from other Windows logs, or from security logs from other environments, may not adhere to the Windows Security Events schema and won't be parsed properly, in which case they won’t be ingested to your workspace.
+    > Make sure to query only Windows Security and AppLocker logs. Events from other Windows logs, or from security logs from other environments, may not adhere to the Windows Security Events schema and won't be parsed properly, in which case they won’t be ingested to your workspace.
 
 1. When you've added all the filter expressions you want, select **Next: Review + create**.
 
@@ -151,12 +146,22 @@ Azure Sentinel can apply machine learning (ML) to Security events data to identi
 
 **Configuration instructions**
 
-1. You must be collecting RDP login data (Event ID 4624) through the **Security events** or **Windows Security Events** data connectors. Make sure you have selected an [event set](#event-sets) besides "None", or created a data collection rule that includes this event ID, to stream into Azure Sentinel.
+1. You must be collecting RDP login data (Event ID 4624) through the **Security events** or **Windows Security Events** data connectors. Make sure you have selected an [event set](#event-id-reference) besides "None", or created a data collection rule that includes this event ID, to stream into Azure Sentinel.
 
 1. From the Azure Sentinel portal, click **Analytics**, and then click the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
 
     > [!NOTE]
     > As the machine learning algorithm requires 30 days' worth of data to build a baseline profile of user behavior, you must allow 30 days of Windows Security events data to be collected before any incidents can be detected.
+
+## Event ID reference
+
+The following list provides a complete breakdown of the Security and App Locker event IDs for each set:
+
+| Event set | Collected event IDs |
+| --- | --- |
+| **Minimal** | 1102, 4624, 4625, 4657, 4663, 4688, 4700, 4702, 4719, 4720, 4722, 4723, 4724, 4727, 4728, 4732, 4735, 4737, 4739, 4740, 4754, 4755, 4756, 4767, 4799, 4825, 4946, 4948, 4956, 5024, 5033, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222 |
+| **Common** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137, 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
+|
 
 ## Next steps
 In this document, you learned how to connect Windows security events to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
