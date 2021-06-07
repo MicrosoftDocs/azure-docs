@@ -6,7 +6,8 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 # Troubleshoot Azure Files problems in Windows (SMB)
 
