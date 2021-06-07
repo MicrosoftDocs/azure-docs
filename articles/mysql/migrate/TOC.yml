@@ -38,9 +38,5 @@
         href: summary.md
    - name: Appendix
      items:
-      - name: Appendix A - Environment Setup
-        href: appendix-a-environment-setup.md
-      - name: Appendix B - ARM Templates
-        href: appendix-b-arm-templates.md
-      - name: Appendix C - Default server parameters MySQL 5.5 and Azure Database for MySQL
-        href: appendix-c-default-server-parameters-mysql-55-and-azure-database-for-mysql.md
+      - name: Appendix
+        href: appendix.md

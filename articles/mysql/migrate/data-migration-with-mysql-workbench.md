@@ -51,7 +51,7 @@ mysql --host {servername}.mysql.database.azure.com --database mysql --user
 -A -e "SHOW GLOBAL VARIABLES;" \> c:\\temp\\settings\_azure.txt
 ```
 
-In the new \`settings\_azure.txt\` file, you will see the default Azure Database for MySQL server parameters as shown in Appendix A.
+In the new \`settings\_azure.txt\` file, you will see the default Azure Database for MySQL server parameters as shown in the [appendix](appendix.md#environment-setup).
 
 To support the migration, set the target MySQL instance parameters to allow for a faster ingress. The following server parameters should be set before starting the data migration:
 

@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide ssessment"
+title: "MySQL on-premises to Azure Database for MySQL migration guide assessment"
 description: "Before jumping right into migrating a MySQL workload, there's a fair amount of due diligence that must be performed."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -51,7 +51,7 @@ Examples that may influence the migration path and version:
   - 8.0: Support for NoSQL Document Store, atomic, and crash-safe DDL and JSON table functions
 
     > [!NOTE]
-    > MySQL 5.6 will lose general support in February of 2021. MySQL workloads will need to migrate to MySQL version of 5.7 or greater.
+    > MySQL 5.6 loses general support in February of 2021. MySQL workloads needs to migrate to MySQL version of 5.7 or greater.
 
 To check the MySQL server version:
 
@@ -61,11 +61,11 @@ SHOW VARIABLES LIKE "%version%";
 
 #### Database storage engines
 
-Azure Database for MySQL only supports [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) and [Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-storage-engine.html) database storage engines. Other storage engines, like [MyISAM,](https://dev.mysql.com/doc/refman/8.0/en/myisam-storage-engine.html) will need to be migrated to a supported storage engine. The differences between MyISAM and InnoDB are the operational features and performance output. The higher-level tables and schema structure typically don't change between the engines, but the index and table column types may change for storage and performance reasons. Although InnoDB is known to have large data file sizes, these storage details are managed by the Azure Database for MySQL service.
+Azure Database for MySQL only supports [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) and [Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-storage-engine.html) database storage engines. Other storage engines, like [MyISAM,](https://dev.mysql.com/doc/refman/8.0/en/myisam-storage-engine.html) need to be migrated to a supported storage engine. The differences between MyISAM and InnoDB are the operational features and performance output. The higher-level tables and schema structure typically don't change between the engines, but the index and table column types may change for storage and performance reasons. Although InnoDB is known to have large data file sizes, these storage details are managed by the Azure Database for MySQL service.
 
 ##### Migrating from MyISAM to InnoDB
 
-The MyISAM database and tables will need to be converted to InnoDB tables. After conversion, applications should be tested for compatibility and performance. In most cases, testing requires recreating the table and changing the target storage engine via DDL statements. It's unlikely this change will need to be performed during migration as it will occur during the schema creation in the Azure target. For more details, review the [converting tables developers documentation](https://dev.mysql.com/doc/refman/5.6/en/converting-tables-to-innodb.html) on the MySQL website.
+The MyISAM database and tables needs to be converted to InnoDB tables. After conversion, applications should be tested for compatibility and performance. In most cases, testing requires recreating the table and changing the target storage engine via DDL statements. It's unlikely this change needs to be performed during migration as it occurs during the schema creation in the Azure target. For more details, review the [converting tables developers documentation](https://dev.mysql.com/doc/refman/5.6/en/converting-tables-to-innodb.html) on the MySQL website.
 
 To find useful table information, use this query:
 
@@ -100,7 +100,7 @@ ALTER TABLE {table\_name} ENGINE=InnoDB;
 ```
 
 > [!NOTE]
-> This conversion approach will cause the table to lock, and all applications will wait until the operation is complete. The table locking will make the database appear offline for a short period.
+> This conversion approach causes the table to lock, and all applications can wait until the operation is complete. The table locking makes the database appear offline for a short period.
 
 Instead, the table can be created with the same structure but with a different storage engine. Once created, copy the rows into the new table:
 
@@ -109,7 +109,7 @@ INSERT INTO {table\_name} SELECT * FROM {myisam\_table} ORDER BY {primary\_key\_
 ```
 
 > [!NOTE]
-> For this approach to be successful, the original table would need to be deleted, then the new table renamed. This task will cause a short downtime period.
+> For this approach to be successful, the original table would need to be deleted, then the new table renamed. This task causes a short downtime period.
 
 #### Database data and objects
 
@@ -157,11 +157,11 @@ Migrating databases from cloud services providers such as Amazon Web Services (A
 
 #### On-premises
 
-Like cloud providers, if the MySQL data workload is behind firewalls or other network security layers, a path will need to be created between the on-premises instance and Azure Database for MySQL.
+Like cloud providers, if the MySQL data workload is behind firewalls or other network security layers, a path needs to be created between the on-premises instance and Azure Database for MySQL.
 
 ### Tools
 
-Many tools and methods can be used to assess the MySQL data workloads and environments. Each tool will provide a different set of assessment and migration features and functionality. As part of this guide, we review the most commonly used tools for assessing MySQL data workloads.
+Many tools and methods can be used to assess the MySQL data workloads and environments. Each tool provides a different set of assessment and migration features and functionality. As part of this guide, we review the most commonly used tools for assessing MySQL data workloads.
 
 #### Azure Migrate
 
@@ -190,36 +190,36 @@ The tier decision can be influenced by the RTO and RPO requirements of the data 
 > [!NOTE]
 > Contact the MySQL team (AskAzureDBforMySQL@service.microsoft.com) for regions that don't support your storage requirements.
 
-Typically, the decision-making will focus on the storage and IOPS, or Input/output Operations Per Second, needs. Thus, the target system will always need at least as much storage as in the source system. Additionally, since IOPS are allocated 3/GB, it's important to match up the IOPs needs to the final storage size.
+Typically, the decision-making focuses on the storage and IOPS, or Input/output Operations Per Second, needs. Thus, the target system always needs at least as much storage as in the source system. Additionally, since IOPS are allocated 3/GB, it's important to match up the IOPs needs to the final storage size.
 
-| Factors          | Tier                                                                                                                                                                                                            |
-|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Basic**            | Development machine, no need for high performance with less than 1 TB storage                                                                                                                                    |
-| **General Purpose**  | Needs for IOPS more than what basic tier can provide, but for storage less than 16 TB, and less than 4 GB of memory                                                                                               |
-| **Memory Optimized** | Data workloads that utilize high memory or high cache and buffer-related server configuration such as high concurrency innodb_buffer_pool_instances, large BLOB sizes, systems with many replication targets |
+| Factors | Tier |
+|---------|------|
+| **Basic** | Development machine, no need for high performance with less than 1 TB storage. |
+| **General Purpose** | Needs for IOPS more than what basic tier can provide, but for storage less than 16 TB, and less than 4 GB of memory. |
+| **Memory Optimized** | Data workloads that utilize high memory or high cache and buffer-related server configuration such as high concurrency innodb_buffer_pool_instances, large BLOB sizes, systems with many slaves for replication. |
 
 #### Costs
 
 After evaluating the entire WWI MySQL data workloads, WWI determined they would need at least 4 vCores and 20 GB of memory and at least 100 GB of storage space with an IOP capacity of 450 IOPS. Because of the 450 IOPS requirement, they need to allocate at least 150 GB of storage because of [Azure Database for MySQL IOPs allocation method.](/azure/mysql/concepts-pricing-tiers#storage) Additionally, they require at least up to 100% of your provisioned server storage as backup storage and one read replica. They don't anticipate an outbound egress of more than 5 GB.
 
-Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/en-us/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database:
+Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database:
 
-| Resource                  | Description                       | Quantity                                                    | Cost          |
-|---------------------------|-----------------------------------|-------------------------------------------------------------|---------------|
-| **Compute (General Purpose)** | 4 vCores, 20 GB                    | 1 @ $0.351/hr                                               | $3074.76 / yr |
-| **Storage**                   | 5 GB                               | 12 x 150 @ $0.115                                           | $207 / yr     |
-| **Backup**                    | Up to 100% of provisioned storage | No extra cost up to 100% of provisioned server storage | $0.00 / yr    |
+| Resource | Description | Quantity | Cost |
+|----------|-------------|----------|------|
+| **Compute (General Purpose)** | 4 vCores, 20 GB                   | 1 @ $0.351/hr                                               | $3074.76 / yr |
+| **Storage**                   | 5 GB                              | 12 x 150 @ $0.115                                           | $207 / yr     |
+| **Backup**                    | Up to 100% of provisioned storage | No extra cost up to 100% of provisioned server storage      | $0.00 / yr    |
 | **Read Replica**              | 1-second region replica           | compute + storage                                           | $3281.76 / yr |
 | **Network**                   | < 5GB/month egress                | Free                                                        |               |
 | **Total**                     |                                   |                                                             | $6563.52 / yr |
 
 After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a period much longer than 3 years. They decided to use 3-year [reserve instances](/azure/mysql/concept-reserved-pricing) to save an extra \~$4K/yr:
 
-| Resource                  | Description                       | Quantity                                                     | Cost         |
-|---------------------------|-----------------------------------|--------------------------------------------------------------|--------------|
+| Resource | Description | Quantity | Cost |
+|----------|-------------|----------|------|
 | **Compute (General Purpose)** | 4 vCores                          | 1 @ $0.1375/hr                                               | $1204.5 / yr |
-| **Storage**                   | 5 GB                               | 12 x 150 @ $0.115                                            | $207 / yr    |
-| **Backup**                    | Up to 100% of provisioned storage | No extra cost up to 100% of provisioned server storage | $0.00 / yr   |
+| **Storage**                   | 5 GB                              | 12 x 150 @ $0.115                                            | $207 / yr    |
+| **Backup**                    | Up to 100% of provisioned storage | No extra cost up to 100% of provisioned server storage       | $0.00 / yr   |
 | **Network**                   | < 5GB/month egress                | Free                                                         |              |
 | **Read Replica**              | 1-second region replica           | compute + storage                                            | $1411.5 / yr |
 | **Total**                     |                                   |                                                              | $2823 / yr   |
@@ -229,11 +229,11 @@ As the table above shows, backups, network egress, and any read replicas must be
 > [!NOTE]
 > The estimates above don't include any [ExpressRoute,](/azure/expressroute/expressroute-introduction) [Azure App Gateway,](/azure/application-gateway/overview) [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) or [App Service](/azure/app-service/overview) costs for the application layers.
 >
-> The above pricing can change at any time and will vary based on region.
+> The above pricing can change at any time and varies based on region.
 
 #### Application Implications
 
-When moving to Azure Database for MySQL, the conversion to secure sockets layer (SSL) based communication is likely to be one of the most significant changes for your applications. SSL is enabled by default in Azure Database for MySQL, and it's likely the on-premises application and data workload is not set up to connect to MySQL using SSL. When enabled, SSL usage will add some extra processing overhead and should be monitored.
+When moving to Azure Database for MySQL, the conversion to secure sockets layer (SSL) based communication is likely to be one of the most significant changes for your applications. SSL is enabled by default in Azure Database for MySQL, and it's likely the on-premises application and data workload is not set up to connect to MySQL using SSL. When enabled, SSL usage adds some extra processing overhead and should be monitored.
 
 > [!NOTE]
 > Although SSL is enabled by default, you do have the option to disable it.
@@ -246,15 +246,15 @@ Lastly, modify the server name in the application connection strings or switch t
 
 WWI started the assessment by gathering information about their MySQL data estate. They were able to compile the following:
 
-| Name         | Source      | Db Engine | Size | IOPS | Version | Owner          | Downtime |
-|--------------|-------------|-----------|------|------|---------|----------------|----------|
-| **WwwDB**        | AWS (PaaS)  | InnoDB    | 1 GB  | 150  | 5.7     | Marketing Dept | 1 hr     |
-| **BlogDB**       | AWS (PaaS)  | InnoDB    | 1 GB  | 100  | 5.7     | Marketing Dept | 4 hrs    |
-| **ConferenceDB** | On-premises | InnoDB    | 5 GB  | 50   | 5.5     | Sales Dept     | 4 hrs    |
-| **CustomerDB**   | On-premises |           | 10 GB | 75   | 5.5     | Sales Dept     | 2 hrs    |
-| **SalesDB**      | On-premises | InnoDB    | 20 GB | 75   | 5.5     | Sales Dept     | 1 hr     |
+| Name | Source | Db Engine | Size | IOPS | Version | Owner | Downtime |
+|------|--------|-----------|------|------|---------|-------|----------|
+| **WwwDB**        | AWS (PaaS)  | InnoDB | 1 GB  | 150 | 5.7 | Marketing Dept | 1 hr  |
+| **BlogDB**       | AWS (PaaS)  | InnoDB | 1 GB  | 100 | 5.7 | Marketing Dept | 4 hrs |
+| **ConferenceDB** | On-premises | InnoDB | 5 GB  | 50  | 5.5 | Sales Dept     | 4 hrs |
+| **CustomerDB**   | On-premises | InnoDB | 10 GB | 75  | 5.5 | Sales Dept     | 2 hrs |
+| **SalesDB**      | On-premises | InnoDB | 20 GB | 75  | 5.5 | Sales Dept     | 1 hr  |
 
-Each database owner was contacted to determine the acceptable downtime period. The planning and migration method selected was based on the acceptable database downtime.
+Each database owner was contacted to determine the acceptable downtime period. The planning and migration method selected were based on the acceptable database downtime.
 
 For the first phase, WWI focused solely on the ConferenceDB database. The team needed the migration experience to help the proceeding data workload migrations. The ConferenceDB database was selected because of the simple database structure and the large acceptable downtime. Once the database was migrated, the team focused on migrating the application into the secure Azure landing zone.
 
@@ -271,7 +271,6 @@ For the first phase, WWI focused solely on the ConferenceDB database. The team n
   - Understand the downtime requirements.
 
   - Be prepared to make application changes.
-
 
 > [!div class="nextstepaction"]
 > [Planning](./planning.md)
