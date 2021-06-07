@@ -42,7 +42,7 @@ Check `Internet (Client & Server)` to gain inbound and outbound access to the In
 ### Set up the app framework
 
 We need to configure a basic layout to attach our logic. In order to place an outbound call we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button. 
-Open the `MainPage.xaml` of your project and replace the content with following implementation. 
+Open the `MainPage.xaml` of your project and add the `StackPanel` node to your `Page`: 
 
 ```C#
 <Page
