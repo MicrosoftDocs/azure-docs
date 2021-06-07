@@ -115,15 +115,15 @@ When the allowRDPAccess property is set to true, the following NSG rule will be 
 Service Fabric managed clusters automatically creates inbound NAT rules for each instance in a node type. 
 To find the port mappings to reach specific instances (cluster nodes) follow the steps below:
 
-Using Azure Portal, locate the managed cluster created inbound NAT rules for Remote Desktop Protocol (RDP).
+Using Azure portal, locate the managed cluster created inbound NAT rules for Remote Desktop Protocol (RDP).
 
 1. Navigate to the managed cluster resource group within your subscription named with the following format: SFC_{cluster-id}
 
 2. Select the load balancer for the cluster with the following format: LB-{cluster-name}
 
-3. On the page for your load balancer, select Inbound NAT rules:
+3. On the page for your load balancer, select Inbound NAT rules. Review the inbound NAT rules to confirm the inbound Frontend port to target port mapping for a node. 
 
-Review the inbound NAT rules to confirm the inbound Frontend port to target port mapping for a node. The following screenshot shows the inbound NAT rules for three different node types:
+The following screenshot shows the inbound NAT rules for three different node types:
 
 ![Inbound Nat Rules][Inbound-NAT-Rules]
 
