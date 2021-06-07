@@ -16,7 +16,7 @@ ms.author: aahi
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Offline containers enable you to use these APIs completely disconnected from the internet. 
 
-You must meet the following prerequisites before using offline containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+You must meet the following prerequisites before using offline containers.
 
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
@@ -33,7 +33,7 @@ You must meet the following prerequisites before using offline containers. If yo
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended specifications for the Text Analytics containers. At least 2 gigabytes (GB) of memory are required, and each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Section (TPS) are also listed.
+The following table describes the minimum and recommended specifications for the available offline containers. At least 2 gigabytes (GB) of memory are required, and each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Section (TPS) are also listed.
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
@@ -52,14 +52,11 @@ The form requests information about you, your company, and the user scenario for
 
 > [!IMPORTANT]
 > * On the form, you must use an email address associated with an Azure subscription ID.
-> * The Text Analytics resource (billing endpoint and apikey) you use to run the container must have been created with the approved Azure subscription ID. 
+> * The Azure resource (billing endpoint and apikey) you use to run the container must have been created with the approved Azure subscription ID. 
 > * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
-> * This container URL has changed, see the examples below. The container will not be available for download from `containerpreview.azurecr.io` starting April 26th 2021.
-
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the Microsoft Container Registry.
 
-For a full description of available tags for the <service> containers, see the [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757) container on the Docker Hub.
 <!-- the following docker pull command is for Text Analytics, update it to the correct container image location for your service -->
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase:latest
@@ -130,7 +127,7 @@ The <service> containers send billing information to Azure, using a <service> re
 
 In this article, you learned concepts and workflow for downloading, installing, and running <service> containers. In summary:
 
-* <service> provides three Linux containers for Docker, encapsulating various capabilities:
+* There are TBD offline Linux containers for Docker, encapsulating various capabilities:
    * Container 1
    * Container 2. 
    * ...
@@ -147,4 +144,3 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * link 1
 * link 2
-]
