@@ -201,7 +201,7 @@ The following procedure walks you through converting an existing standard domain
 
   ```powershell
   $dom = "contoso.com" 
-  $BrandName - "Sample SAML 2.0 IDP" 
+  $BrandName = "Sample SAML 2.0 IDP" 
   $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" 
   $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" 
   $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" 
