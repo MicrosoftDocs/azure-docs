@@ -12,7 +12,7 @@ ms.service: azure-government
 
 U.S. Department of Defense (DoD) customers who deploy workloads to Azure have asked for guidance to set up secure virtual networks and configure the security tools and services that are stipulated by DoD standards and practice. 
 
-The Defense Information System Agency (DISA) published the [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document (FRD)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/SCCA_FRD_v2-9.pdf) in 2017. SCCA describes the functional objectives for securing the Defense Information System Network’s (DISN) and commercial cloud provider connection points. SCCA also describes how mission owners secure cloud applications at the connection boundary. Every DoD entity that connects to the commercial cloud must follow the guidelines set forth in the SCCA FRD.
+The Defense Information System Agency (DISA) published the [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document (FRD)](https://rmf.org/wp-content/uploads/2018/05/SCCA_FRD_v2-9.pdf) in 2017. SCCA describes the functional objectives for securing the Defense Information System Network’s (DISN) and commercial cloud provider connection points. SCCA also describes how mission owners secure cloud applications at the connection boundary. Every DoD entity that connects to the commercial cloud must follow the guidelines set forth in the SCCA FRD.
  
 The SCCA has four components:
  
@@ -70,7 +70,7 @@ This individual is appointed by the authorizing official. The BCAP, VDSS, and VD
 
 ## SACA components and planning considerations 
 
-The SACA reference architecture is designed to deploy the VDSS and VDMS components in Azure and to enable the TCCM. This architecture is modular. All of the pieces of VDSS and VDMS can live in a centralized hub. Some of the controls can be met in the mission-owner space or even on-premises. Microsoft recommends that you co-locate the VDSS and VDMS components into a central virtual network that all mission owners can connect through. The following diagram shows this architecture: 
+The SACA reference architecture is designed to deploy the VDSS and VDMS components in Azure and to enable the TCCM. This architecture is modular. All of the pieces of VDSS and VDMS can live in a centralized hub, or multiple Virtual Networks. Some of the controls can be met in the mission-owner space or even on-premises. The following diagram shows this architecture: 
 
 
 ![Architecture diagram that shows the VDSS and VDMS components co-located into a central virtual network.](media/sacav2generic.png)
@@ -99,10 +99,10 @@ When you plan your SCCA compliancy strategy and technical architecture, consider
 - SACA is a modular architecture:
     - Use only the components you need for your environment. 
       - Deploy network virtual appliances in a single tier or multi-tier.
-      - Use integrated IPS or bring-your-own IPS.
+      - Use cloud native IPS or bring-your-own IPS.
 
-#### Which network virtual appliance vendor will you use for VDSS?
-As mentioned earlier, you can build this SACA reference by using a variety of appliances and Azure services. Microsoft has automated solution templates to deploy the SACA architecture with Palo Alto Networks, F5, and Citrix. These solutions are covered in the following section.
+#### Which automated solution will you use to deploy VDSS?
+As mentioned earlier, you can build this SACA reference by using a variety of appliances and Azure services. Microsoft has automated solution templates to deploy the SACA architecture with Native services, or partners like Palo Alto Networks, F5, and Citrix. These solutions are covered in the following section.
 
 #### Which Azure services will you use?
 - There are Azure services that can meet requirements for log analytics, host-based protection, and IDS functionality. It's possible that some services aren’t generally available in Microsoft Azure DoD regions. In this case, you might need to use third-party tools if these Azure services can’t meet your requirements. Look at the tools you're comfortable with and the feasibility of using Azure native tooling.
@@ -146,19 +146,30 @@ We recommend this architecture because it meets SCCA requirements. It’s highly
 - SACA virtual network
      - VDMS subnet
             - This subnet is where VMs and services used for VDMS are deployed, including the jump box VMs.
-     - Untrusted, trusted, and management subnets
-            - These subnets are where virtual appliances are deployed.
+     - Untrusted, trusted, management, or AzureFirewallSubnet subnets
+            - These subnets are where virtual appliances or Azure Firewall are deployed.
 - Management jump box virtual machines
     - They're used for out-of-band management of the environment.
 - Network virtual appliances
+- Bastion
+    - Bastion is used to securely connect to VMs over SSL
 - Public IPs
     - They're used for the front end until ExpressRoute is brought online. These IPs translate to the back-end Azure private address space.
 - Route tables 
     - Applied during automation, these route tables force tunnel all traffic through the virtual appliance via the internal load balancer.
 - Azure load balancers - Standard SKU
-    - They're used to load balance traffic across the appliances.
+    - They're used to load balance traffic across the 3rd party appliances.
 - Network security groups
     - They're used to control which types of traffic can traverse to certain endpoints.
+
+### Azure SACA Deployment
+
+The Mission Landing Zone deployment template allows you to deploy into one, or multiple subscriptions depending on the requirements of your environment. It utilizes built in Azure serices with no dependencies on 3rd party licenses. It utilizes Azure Firewall along with other security services in order to deploy an architecture that is SCCA compliant. 
+
+![MLZ SACA diagram](media/missionlandingzone.png)
+
+For the Azure documentation and deployment scripts, see [this GitHub link](https://github.com/Azure/missionlz).
+
 
 ### Palo Alto Networks SACA deployment
 
@@ -170,9 +181,9 @@ The Palo Alto Networks deployment template deploys one to many VM-Series applian
 For the Palo Alto Networks documentation and deployment script, see [this GitHub link](https://github.com/PaloAltoNetworks/Palo-Azure-SACA).
 
 
- ### F5 SACA deployment
+ ### F5 Networks SACA deployment
 
-Two separate F5 deployment templates cover two different architectures. The first template has only one layer of F5 appliances in an active-active highly available configuration. This architecture meets the requirements for VDSS. The second template adds a second layer of active-active highly available F5s. This second layer allows customers to add their own IPS separate from F5 in between the F5 layers. Not all DoD components have specific IPS prescribed for use. If that's the case, the single layer of F5 appliances works for most because that architecture includes IPS on the F5 devices.
+Two separate F5 deployment templates cover two different architectures. The first template has only one layer of F5 appliances in an active-active highly available configuration. This architecture meets the requirements of SCCA. The second template adds a second layer of active-active highly available F5s. This second layer allows customers to add their own IPS separate from F5 in between the F5 layers. Not all DoD components have specific IPS prescribed for use. If that's the case, the single layer of F5 appliances works for most because that architecture includes IPS on the F5 devices.
 
 ![F5 SACA diagram](media/f5saca.png)
 
