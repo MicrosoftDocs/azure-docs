@@ -83,7 +83,7 @@ namespace TelemetryAppInsightsQuickstart
     }
 }
 ```
-## Setting up the Telemetry Tracer with Communication Identity SDK calls
+## Setting up the telemetry tracer with communication identity SDK calls
 
 Initialize a `CommunicationIdentityClient` with your connection string. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
@@ -125,7 +125,7 @@ public static async Task TracedSample()
 }
 ```
 
-## Funneling Telemetry Data to Application Insights
+## Funneling telemetry data to Application Insights
 
 After the SDK calls have been wrapped with Activities, you can add the OpenTelemetry trace exporter and funnel the data into the Application Insights resource.
 

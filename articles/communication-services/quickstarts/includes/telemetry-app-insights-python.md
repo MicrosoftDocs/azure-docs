@@ -58,7 +58,7 @@ pip install azure-communication-identity
 pip install azure-monitor-opentelemetry-exporter --pre
 ```
 
-## Setting up the Telemetry Tracer with Communication Identity SDK calls
+## Setting up the telemetry tracer with communication identity SDK calls
 
 Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 

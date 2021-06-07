@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Using Azure OpenTelemetry Exporter to Export SDK Telemetry Data to Application Insights
+# Quickstart: Using Azure OpenTelemetry Exporter to export SDK telemetry data to Application Insights
 
 The Azure OpenTelemetry Exporter is an SDK within [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). It allows you to export tracing data using OpenTelemetry and send the data to [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). OpenTelemetry provides a standardized way for applications and frameworks to collect telemetry information.
 
@@ -42,7 +42,7 @@ Issued an access token with 'chat' scope that expires at <expiry-data>
 ```
 <!---cSpell:enable --->
 
-## View the Telemetry Data in Application Insights
+## View the telemetry data in Application Insights
 In order to analyze the telemetry data from the SDK, go to the `Performance` tab and then go to `Dependencies`. You will be able to see the `Create User Activity` and `Get Token Activity` that we’ve tracked.
 
 :::image type="content" source="media/application-insights-dependencies.png" alt-text="Screenshot showing telemetry data entries in Application Insights.":::

@@ -82,7 +82,7 @@ public class App
     }
 }
 ```
-## Setting up the Telemetry Tracer with Communication Identity SDK calls
+## Setting up the telemetry tracer with communication identity SDK calls
 
 Initialize a `CommunicationIdentityClient` with your connection string. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
@@ -126,8 +126,8 @@ Once the tracer has been initialized, you can create the span that will be in ch
     } finally {
         span.end();
         scope.close();
-    } 
-    Thread.sleep(10000);         
+    }
+    Thread.sleep(10000);
 ```
 
 ## Run the code

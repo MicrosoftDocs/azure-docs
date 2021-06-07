@@ -1,3 +1,18 @@
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: orwatson
+manager: vravikumar
+
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 06/01/2021
+ms.topic: include
+ms.custom: include file
+ms.author: orwatson
+---
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -26,7 +41,7 @@ npm init -y
 
 ### Install dependencies
 
-Use the `npm install` command to install the dependencies our app will use. 
+Use the `npm install` command to install the dependencies our app will use.
 
 ```bash
 npm install @azure/communication-identity @azure/monitor-opentelemetry-exporter @opentelemetry/node@^0.14.0 @opentelemetry/plugins-node-core --save
@@ -48,7 +63,7 @@ const { CommunicationIdentityClient } = require("@azure/communication-identity")
 async function main() {
   const ACS_CONNECTION_STRING = "<your-acs-connection-string>"
   const client = new CommunicationIdentityClient(ACS_CONNECTION_STRING);
-  
+
   console.log("Creating user...")
   const user = await client.createUser();
   console.log(`User ${user.communicationUserId} was created successfully.\n`);
@@ -145,7 +160,7 @@ tracer.withSpan(rootSpan, async function() {
 
 ## Run the code
 
-Ensure you replace the placeholder texts with valid connection string values. 
+Ensure you replace the placeholder texts with valid connection string values.
 
 Use the node command to run the code you added to the **token.js** file.
 
