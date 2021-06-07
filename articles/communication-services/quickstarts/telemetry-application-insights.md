@@ -65,4 +65,5 @@ In this quickstart, you learned how to:
 > * View exported data in Application Insights
 
 You may also want to:
+
 - [Learn more about Analyzing Data in Application Insights](https://docs.microsoft.com/powerapps/maker/canvas-apps/application-insights)
