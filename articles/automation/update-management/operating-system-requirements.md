@@ -67,7 +67,7 @@ Software Requirements:
 
 - The machine requires access to an update repository, either private or public.
 - TLS 1.1 or TLS 1.2 is required to interact with Update Management.
-- The Update Management feature depends on the system Hybrid Runbook Worker role, and you should confirm its [system requirements](../automation-linux-hrw-install.md#prerequisites). Because Update Management uses Automation runbooks to initiate assessment and update of your machines, review the [version of Python required](automation-linux-hrw-install.md#supported-runbook-types) for your supported Linux distro.
+- The Update Management feature depends on the system Hybrid Runbook Worker role, and you should confirm its [system requirements](../automation-linux-hrw-install.md#prerequisites). Because Update Management uses Automation runbooks to initiate assessment and update of your machines, review the [version of Python required](../automation-linux-hrw-install.md#supported-runbook-types) for your supported Linux distro.
 
 > [!NOTE]
 > Update assessment of Linux machines is only supported in certain regions. See the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).

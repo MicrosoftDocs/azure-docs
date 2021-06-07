@@ -3,7 +3,7 @@ title: Azure Automation Update Management Deployment Plan
 description: This article describes the considerations and decisions to be made to prepare deployment of Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/03/2021
+ms.date: 06/07/2021
 ms.topic: conceptual
 ---
 
