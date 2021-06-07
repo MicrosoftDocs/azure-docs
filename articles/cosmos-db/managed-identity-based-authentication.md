@@ -5,7 +5,7 @@ author: j-patrick
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 06/02/2021
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
@@ -156,6 +156,9 @@ namespace Monitor
         private static string containerName =
         "<container to store the temperature in>";
 
+        // HttpClient is intended to be instantiated once, rather than per-use.
+        static readonly HttpClient httpClient = new HttpClient();
+
         [FunctionName("FishTankTemperatureService")]
         public static async Task Run([TimerTrigger("0 * * * * *")]TimerInfo myTimer, ILogger log)
         {
@@ -170,8 +173,7 @@ namespace Monitor
             // Setup the List Keys API to get the Azure Cosmos DB keys.
             string endpoint = $"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys?api-version=2019-12-12";
 
-            // Setup an HTTP Client and add the access token.
-            HttpClient httpClient = new HttpClient();
+            // Add the access token to request headers.
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
             // Post to the endpoint to get the keys result.
