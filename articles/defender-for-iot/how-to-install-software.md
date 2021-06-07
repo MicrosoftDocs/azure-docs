@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 06/01/2021
+ms.date: 06/07/2021
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ The Defender for IoT appliance sensor connects to a SPAN port or network TAP and
 
 The following rack mount appliances are available:
 
-| **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |**Line** |
 |--|--|--|--|--|
 | **Model** | HPE ProLiant DL360 | Dell PowerEdge R340 XL | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 9 RJ45 or 6 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
@@ -46,13 +46,12 @@ The following rack mount appliances are available:
 
 The following virtual appliances are available:
 
-| **Deployment type** | **Enterprise** | **SMB** | **Line** |
-|--|--|--|--|
-| **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
-| **Max Bandwidth\*** | 150 Mb/sec | 15 Mb/sec | 3 Mb/sec |
-| **Max protected devices** | 3,000 | 300 | 100 |
-| **Deployment Type** | Enterprise | SMB | Line |
-| **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
+|--|--|--|--|--|
+| **Description** | Virtual appliance for corporate deployments | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
+| **Max Bandwidth\*** | 2.5 Gb/Sec | 800 Mb/sec | 160 Mb/sec | 3 Mb/sec |
+| **Max protected devices** | 30,000 | 10,000 | 2,500 | 100 |
+| **Deployment Type** | Corporate | Enterprise | SMB | Line |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 
@@ -60,7 +59,7 @@ The following virtual appliances are available:
 
  | Item | Description |
  |----|--|
- **Description** | In a multitier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks, including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
+ **Description** | In a multi-tier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks, including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
  **Deployment type** | Enterprise |
  **Appliance type**  | Dell R340, VM |
  **Number of managed sensors** | Unlimited |

@@ -157,7 +157,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | Compute instance | \*.instances.azureml.ms |  |  |
 
 > [!IMPORTANT]
-> Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ port __18881__.
+> Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ ports __18881, 443, and 8787__.
 
 **Associated resources used by Azure Machine Learning**
 
