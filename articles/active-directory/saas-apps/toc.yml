@@ -37,6 +37,8 @@
         href: accredible-tutorial.md
       - name: Achieve3000
         href: achieve3000-tutorial.md
+      - name: A Cloud Guru
+        href: a-cloud-guru-tutorial.md
       - name: ACLP
         href: aclp-tutorial.md
       - name: AcquireIO
@@ -341,7 +343,7 @@
         href: check-point-harmony-connect-tutorial.md
       - name: Check Point Identity Awareness
         href: check-point-identity-awareness-tutorial.md
-      - name: CheckPoint Infinity Portal
+      - name: Check Point Infinity Portal
         href: checkpoint-infinity-portal-tutorial.md
       - name: Check Point Remote Access VPN
         href: check-point-remote-access-vpn-tutorial.md
@@ -774,6 +776,8 @@
         href: github-enterprise-managed-user-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: Glint Inc
+        href: glint-inc-tutorial.md  
       - name: GlobalOne
         href: globalone-tutorial.md
       - name: GlobeSmart
@@ -1114,7 +1118,7 @@
         href: learning-at-work-tutorial.md
       - name: Learning Seat LMS
         href: learningseatlms-tutorial.md
-      - name: Learningpool Act
+      - name: Learning Pool LMS
         href: learningpool-tutorial.md
       - name: LearnUpon
         href: learnupon-tutorial.md
@@ -1462,6 +1466,8 @@
         href: poolparty-semantic-suite-tutorial.md
       - name: PostBeyond
         href: postbeyond-tutorial.md
+      - name: Postman
+        href: postman-tutorial.md  
       - name: Powerschool Performance Matters
         href: powerschool-performance-matters-tutorial.md
       - name: Predictix Assortment Planning
@@ -1542,6 +1548,8 @@
         href: raketa-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
+      - name: ReadCube Papers
+        href: readcube-papers-tutorial.md  
       - name: Real Links
         href: real-links-tutorial.md
       - name: Recognize
