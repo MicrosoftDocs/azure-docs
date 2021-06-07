@@ -18,7 +18,6 @@ Once you've enabled Active Directory Domain Services (AD DS) authentication on y
 
 Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), are not supported with AD DS authentication. This article demonstrates how to assign share-level permissions for a file share to an identity or storage account.
 
-
 ## Share-level permissions
 
 > [!IMPORTANT]
@@ -31,7 +30,6 @@ Generally, we recommend using share level permissions for high-level access mana
 If you prefer, you can assign permissions to both your storage accounts and your specific users/groups. With this configuration, the user/group will have the superset of permissions allowed from the default share-level permission and RBAC assignment. The following example helps you understand how this works: A user is granted **Storage File Data SMB Reader** role on the target file share. The file share's storage account already has the default share-level permission **Storage File Data SMB Share Elevated Contributor**. With this configuration, the user will have **Storage File Data SMB Share Elevated Contributor** level of access to the file share. Higher level permissions always take precedence.
 
 The following table lists the share-level permissions and how they align with the built-in RBAC roles:
-
 
 |Supported default share-level permission  |Description  |
 |---------|---------|
