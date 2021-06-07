@@ -17,7 +17,7 @@ Understanding the existing MySQL workload is one of the best investments that ca
 
 Creating baselines of query performance is vital to a migration project. The performance baselines can be used to verify the Azure landing zone configuration for the migrated data workloads. Most systems will be run 24/7 and have different peak load times. It's important to capture the peak workloads for the baseline. Metrics are captured several times. Later in the document, we explore the source server parameters and how they're essential to the overall performance baseline picture. The server parameters should not be overlooked during a migration project.
 
-### Tools
+## Tools
 
 Below are tools used to gather server metrics and database workload information. Use the captured metrics to determine the appropriate Azure Database for MySQL tier and the associated scaling options.
 
@@ -25,7 +25,7 @@ Below are tools used to gather server metrics and database workload information.
 
   - [Percona Monitoring and Management (PMM)](https://www.percona.com/software/database-tools/percona-monitoring-and-management) : a best-of-breed open-source database monitoring solution. It helps to reduce complexity, optimize performance, and improve the security of business-critical database environments, no matter the deployed location.
 
-### Server Parameters
+## Server parameters
 
 MySQL server default configurations may not adequately support a workload. There is a plethora of server parameters in MySQL, but in most cases the migration team should focus on a handful. The following parameters should be evaluated in the **source** and **target** environments. Incorrect configurations can affect the speed of the migration. We will revisit these parameters again when we execute the migration steps.
 
@@ -63,7 +63,7 @@ Before migration begins, export the source MySQL configuration settings. Compare
 
 For a list of server parameters that cannot be configured, reference [Non-configurable server parameters.](/azure/mysql/concepts-server-parameters#non-configurable-server-parameters)
 
-#### Egress and Ingress
+### Egress and Ingress
 
 For each respective data migration tool and path, the source and the target MySQL server parameters will need to be modified to support the fastest possible egress and ingress. Depending on the tool, the parameters could be different. For example, a tool that performs a migration in parallel may need more connections on the source and the target versus a single threaded tool.
 
@@ -80,7 +80,7 @@ Additionally, review any parameters that will affect maximums:
 > [!NOTE]
 > A common migration error is `MySQL server has gone away`. The parameters mentioned here are the typical culprits for resolving this error.
 
-### WWI Scenario
+## WWI scenario
 
 WWI reviewed their Conference database workload and determined it had a very small load. Although a basic tier server would work for them, they did not want to perform work later to migrate to another tier. The server being deployed will eventually host the other MySQL data workloads and so they picked the `General Performance` tier.
 
