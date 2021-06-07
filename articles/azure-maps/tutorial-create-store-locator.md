@@ -35,7 +35,7 @@ For more information about Azure Maps authentication, see [manage authentication
 
 This tutorial uses the [Visual Studio Code](https://code.visualstudio.com/) application, but you can use a different coding environment.
 
-## Sample Code
+## Sample code
 
 In this tutorial, we'll create a store locator for a fictional company called Contoso Coffee. In addition, the tutorial includes some tips to help you learn about extending the store locator with other optional functionalities.
 
