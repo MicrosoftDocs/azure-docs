@@ -97,9 +97,7 @@ Storage auto-grow is not yet available for Azure Database for MySQL Flexible Ser
 
 Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time.
 
-The minimum IOPS is 100 across all compute sizes and the maximum IOPS is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
-
-To learn more about the maximum IOPS per compute size is shown below:
+The minimum IOPS is 100 across all compute sizes and the maximum IOPS is determined by the selected compute size. To learn more about the maximum IOPS per compute size is shown below:
 
 | Compute size         | Maximum IOPS        |
 |----------------------|---------------------|
@@ -129,9 +127,7 @@ The maximum IOPS is dependent on the maximum available IOPS per compute size. Re
 > [!Important]
 > **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, storage provisioned in GiB * 3)<br>
 > **Minimum IOPS** is 100 across all compute sizes<br>
-> **Maximum IOPS** is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
-
-You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS then the max IOPS based on compute then you need to scale your server's compute.
+> **Maximum IOPS** is determined by the selected compute size. You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS then the max IOPS based on compute then you need to scale your server's compute.
 
 ## Backup
 

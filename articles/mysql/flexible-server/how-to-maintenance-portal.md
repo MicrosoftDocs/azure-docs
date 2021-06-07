@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL - Flexible Server (Preview) - Scheduled maintenance - Azure portal
+title: Azure Database for MySQL - Flexible Server - Scheduled maintenance - Azure portal
 description: Learn how to configure scheduled maintenance settings for an Azure Database for MySQL - Flexible server from the Azure portal.
 author: niklarin
 ms.author: nlarin

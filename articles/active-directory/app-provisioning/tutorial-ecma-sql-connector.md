@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 06/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: arvinh
@@ -23,18 +23,7 @@ ms.collection: M365-identity-device-management
 
 This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into a SQL DB.  For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-This tutorial covers how to setup and use the generic SQL connector with the Azure AD ECMA Connector Host. Your test environment should mirror the environment presented below before attempting this tutorial.
-
-![Architecure](.\media\tutorial-ecma-sql-connector\sql-1.png)
-
-- This tutorial uses 2 virtual machines.  One is the domain controller (DC1.contoso.com) and the second is an application server(APP1.contoso.com).
-- SQL Server 2019 and SQL Server Management Studio is installed on APP1.  
-- Both VMs have connectivity to the internet.
-- SQL Server Agent has been started
-- You have an Azure AD tenant to test with.  This tutorial uses ecmabmcontoso.onmicrosoft.com.  Substitute your tenant with this one.
-- You have 3 or 4 users created in your tenant for testing.
-
-For additional information on setting up this environment, see [Tutorial: Basic Active Directory environment](../../active directory/cloud sync/tutorial-basic-ad-azure.md)
+This tutorial covers how to setup and use the generic SQL connector with the Azure AD ECMA Connector Host. 
 
 ## Step 1 - Prepare the sample database
 On a server running SQL Server, run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name CONTOSO.  This is the database that we will be provisioning users in to.
@@ -332,4 +321,7 @@ GO
 
 ## Next Steps
 
-- [App provisioning](user-provisioning.md)
+- [Troubleshoot on-premises application provisioning](on-premises-ecma-troubleshoot.md)
+- [Review known limitations](known-issues.md)
+- [On-premises provisioning prerequisites](on-premises-ecma-prerequisites.md)
+- [Review prerequisites for on-premises provisioning](on-premises-ecma-prerequisites.md)
