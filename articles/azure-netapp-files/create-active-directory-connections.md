@@ -208,7 +208,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
     * **Encrypted SMB connection to domain controller**   
 
-        Select this checkbox to enable SMB encryption for communication between the Azure NetApp Files service and the domain controller (DC). When you enable this functionality, SMB3 protocol will be used for encrypted DC connections, because encryption is supported only by SMB3. SMB, Kerberos, and LDAP enabled volume creation will fail if DC doesn't support SMB3 protocol. 
+        Select this checkbox to enable SMB encryption for communication between the Azure NetApp Files service and the domain controller (DC). When you enable this functionality, SMB3 protocol will be used for encrypted DC connections, because encryption is supported only by SMB3. SMB, Kerberos, and LDAP enabled volume creation will fail if the DC doesn't support SMB3 protocol. 
 
         ![Snapshot that shows the option for encrypted SMB connection to domain controller.](../media/azure-netapp-files/encrypted-smb-domain-controller.png)         
 
