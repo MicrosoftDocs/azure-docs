@@ -41,17 +41,17 @@ The following list describes features and capabilities that are available in the
 
   You can choose which fields appear in reports. Choose from a list of supported fields. That list appears later in this article. 
 
-- **CSV and Apache Parquet output format per rule**
+- **CSV and Apache Parquet output format**
 
-  For each rule, you can generate an inventory report in either CSV or Apache Parquet output format. 
+  You can generate an inventory report in either CSV or Apache Parquet output format. 
 
-- **Manifest file and Azure Event Grid event per rule**
+- **Manifest file and Azure Event Grid event per inventory report**
 
-  For each rule, a manifest file and an Azure Event Grid event are generated. Previously, only a single manifest and Azure Event Grid event was generated across all rules. 
+  A manifest file and an Azure Event Grid event are generated per inventory report. These are described later in this article.
 
 ## Enabling inventory reports
 
-Enable blob inventory reports by adding a policy to your storage account. Add, edit, or remove a policy by using the [Azure portal](https://portal.azure.com/).
+Enable blob inventory reports by adding a policy with one or more rules to your storage account. Add, edit, or remove a policy by using the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to the [Azure portal](https://portal.azure.com/).
 
@@ -135,7 +135,7 @@ The global **Blob inventory enabled** flag takes precedence over the *enabled* p
 | Parameter name | Parameter type | Notes | Required |
 |--|--|--|--|
 | filters | json | Filters decide whether a blob or container is part of inventory or not. | Yes |
-| format | string | Determines the output of the inventory file. Acceptable values are `csv` (For CSV format) and `parquet` (For Apache Parquet format).| Yes |
+| format | string | Determines the output of the inventory file. Valid values are `csv` (For CSV format) and `parquet` (For Apache Parquet format).| Yes |
 | objectType | string | Denotes whether this is an inventory rule for blobs or containers. Valid values are `blob` and `container`. |Yes |
 | schemaFields | Json array | List of Schema fields to be part of inventory. | Yes |
 
@@ -146,7 +146,7 @@ Several filters are available for customizing a blob inventory report:
 | Filter name         | Filter type                     | Notes | Required? |
 |---------------------|---------------------------------|-------|-----------|
 | blobTypes           | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType: `container`). | Yes |
-| prefixMatch         | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container` `container1/foo`| No |
+| prefixMatch         | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container`, `container1/foo`.| No |
 | includeSnapshots    | boolean                         | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`).| No |
 | includeBlobVersions | boolean                         | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`).| No |
 
@@ -154,7 +154,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ```json
 {
-	"destination": "inventorydestinationContainer",
+	"destination": "inventory-destination-container",
 	"enabled": true,
 	"rules": [
                              {
@@ -210,9 +210,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - Group
 - Permissions
 - Acl
-- Snapshot (Required if you choose to include snapshots in your report)
-- VersionId (Required if you choose to include blob versions in your report)
-- IsCurrentVersion (Required if you choose to include blob versions in your report)
+- Snapshot (Available and required when you choose to include snapshots in your report)
+- VersionId (Available and required when you choose to include blob versions in your report)
+- IsCurrentVersion (Available and required when you choose to include blob versions in your report)
 - Metadata
 - Tags
 - LastAccessTime
@@ -221,6 +221,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ### Custom schema fields supported for container inventory
 
+- Name (Required)
 - Last-Modified
 - LeaseStatus
 - LeaseState
@@ -351,7 +352,7 @@ This section describes limitations and known issues of the Azure Storage blob in
 
 ### Inventory job fails to complete for hierarchical namespace enabled accounts
 
-The inventory job may not complete within 24 hours for an account with millions of blobs and hierarchical namespaces enabled. If this happens, no inventory file is created.
+The inventory job may not complete within 24 hours for an account with hundreds of millions of blobs and hierarchical namespace enabled. If this happens, no inventory file is created.
 
 ### Inventory job cannot write inventory reports
 
