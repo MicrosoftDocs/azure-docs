@@ -142,10 +142,7 @@ export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n
 
 ## Assign permissions for the managed identity
 
-> [!NOTE]
-> For ARM based deployments the "Managed Identity Operator" role must be granted to the given pod identity Managed Identity.
-
-The *IDENTITY_CLIENT_ID* managed identity must have Reader permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
+The *IDENTITY_CLIENT_ID* managed identity must have Managed Identity Operator permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
 
 ```azurecli-interactive
 NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
