@@ -17,7 +17,6 @@ To build resilient and successful client applications, it's critical to understa
 - How to build a resilient client application
 
 ## What is a failover?
-
 Let's start with an overview of failover for Azure Cache for Redis.
 
 ### A quick summary of cache architecture
