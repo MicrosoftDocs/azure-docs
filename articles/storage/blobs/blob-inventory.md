@@ -57,21 +57,28 @@ Enable blob inventory reports by adding a policy to your storage account. Add, e
 
 2. Select one of your storage accounts.
 
-3. Under **Blob service**, select **Blob inventory**.
+3. Under **Data management**, select **Blob inventory (preview)**.
 
-4. Make sure that **Blob inventory enabled** is selected.
+4. Select **Add your first inventory rule**.
 
-5. Select **Add a rule**.
+   The **Add a rule** page appears.
 
-6. Name your new rule.
+5. In the **Add a rule** page, name your new rule.
 
-7. Select the **Blob types** for your inventory report.
+6. Choose a container.
 
-8. Add a prefix match to filter your inventory report.
+7. Under **Object type to inventory**, choose whether to create a report for blobs or containers.
 
-9. Select whether to **Include blob versions** and **Include snapshots** in your inventory report. 
+   If you select **Blob**, then under **Blob subtype**, choose the types of blobs that you want to include in your report, and whether to include blob versions and/or snapshots in your inventory report. 
 
-   Versions and snapshots must be enabled on the account to save a new rule with the corresponding option enabled.
+   > [!NOTE]
+   > Versions and snapshots must be enabled on the account to save a new rule with the corresponding option enabled.
+
+8. Select the fields that you would like to include in your report, and the format of your reports.
+
+9. Choose how often you want to generate reports.
+
+9. Optionally, add a prefix match to filter blobs in your inventory report.
 
 10. Select **Save**.
 
@@ -136,7 +143,7 @@ The global **Blob inventory enabled** flag takes precedence over the *enabled* p
 |--|--|--|--|
 | filters | json | Filters decide whether a blob or container is part of inventory or not. | Yes |
 | format | string | Determines the output of the inventory file. Acceptable values are `csv` (For CSV format) and `parquet` (For Apache Parquet format).| Yes |
-| objectType | string | Denotes whether this is an inventory rule for blobs or containers. Valid values are `blob` and `container`. |Yes |
+| objectType | string | Denotes whether the rule is an inventory rule for blobs or containers. Valid values are `blob` and `container`. |Yes |
 | schemaFields | Json array | List of Schema fields to be part of inventory. | Yes |
 
 ### Rule filters
