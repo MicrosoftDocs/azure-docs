@@ -202,7 +202,7 @@ Typically, the decision-making focuses on the storage and IOPS, or Input/output 
 
 After evaluating the entire WWI MySQL data workloads, WWI determined they would need at least 4 vCores and 20 GB of memory and at least 100 GB of storage space with an IOP capacity of 450 IOPS. Because of the 450 IOPS requirement, they need to allocate at least 150 GB of storage because of [Azure Database for MySQL IOPs allocation method.](/azure/mysql/concepts-pricing-tiers#storage) Additionally, they require at least up to 100% of your provisioned server storage as backup storage and one read replica. They don't anticipate an outbound egress of more than 5 GB.
 
-Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/en-us/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database:
+Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database:
 
 | Resource | Description | Quantity | Cost |
 |----------|-------------|----------|------|

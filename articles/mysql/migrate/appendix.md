@@ -13,17 +13,18 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide appendix
 
-## Environment Setup
+This article explains how to deploy a sample application with an end-to-end MySQL migration guide and to review available server parameters.
+## Environment setup
 
 [Download more documentation](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1%20Appendix%20A.pdf) we created for this Migration Guide and learn how to configure an environment to perform the guide’s migration steps for the sample [conference demo application.](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/sample-app).
 
-## ARM Templates
+## ARM templates
 
 ### Secure
 
 The ARM template deploys all resources with private endpoints. The ARM template effectively removes any access to the PaaS services from the internet.
 
-[ARM Template](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigration)
+[ARM template](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigration)
 
 ### Non-Secure
 

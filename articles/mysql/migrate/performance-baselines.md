@@ -4,7 +4,7 @@ description: "Understanding the existing MySQL workload is one of the best inves
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: arunkumarthiags 
+author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
@@ -15,7 +15,7 @@ ms.date: 05/26/2021
 
 Understanding the existing MySQL workload is one of the best investments that can be made to ensure a successful migration. Excellent system performance depends on adequate hardware and great application design. Items such as CPU, memory, disk, and networking need to be sized and configured appropriately for the anticipated load. Hardware and configuration are part of the system performance equation. The developer must understand the database query load and the most expensive queries to execute. Focusing on the most expensive queries can make a substantial difference in the overall performance metrics.
 
-Creating baselines of query performance is vital to a migration project. The performance baselines can be used to verify the Azure landing zone configuration for the migrated data workloads. Most systems will be run 24/7 and have different peak load times. It's important to capture the peak workloads for the baseline. Metrics should captured several times. Later in the document, we explore the source server parameters and how they're essential to the overall performance baseline picture. The server parameters should not be overlooked during a migration project.
+Creating baselines of query performance is vital to a migration project. The performance baselines can be used to verify the Azure landing zone configuration for the migrated data workloads. Most systems will be run 24/7 and have different peak load times. It's important to capture the peak workloads for the baseline. Metrics are captured several times. Later in the document, we explore the source server parameters and how they're essential to the overall performance baseline picture. The server parameters should not be overlooked during a migration project.
 
 ### Tools
 
@@ -53,7 +53,7 @@ MySQL server default configurations may not adequately support a workload. There
 
   - **skip\_name\_resolve**: user to perform client hostname resolution. If the DNS is slow, the connection will be slow. When disabling name resolution, the GRANT statements must use IP addresses only. Any GRANT statements made previously would need to be redone to use the IP.
 
-Run the following command to export the server parameters to a file for review. Using some simple parsing, the output can be used to reapply the same server parameters after the migration, if appropriate to the Azure Database for MySQL server. Reference [Configure server parameters in Azure Database for MySQL using the Azure portal.](/azure/mysql/howto-server-parameters)
+Run the following command to export the server parameters to a file for review. Using some simple parsing, the output can be used to reapply the same server parameters after the migration, if appropriate to the Azure Database for MySQL server. Reference [Configure server parameters in Azure Database for MySQL using the Azure Portal.](/azure/mysql/howto-server-parameters)
 
 `mysql -u root -p -A -e "SHOW GLOBAL VARIABLES;" > settings.txt`
 

@@ -23,7 +23,7 @@ Application architecture and design can provide strong indicators as to the leve
 
 In the end, several tools exist in the marketplace ranging from free to commercial. This document covered the steps required if the team plans a database migration using one of the more popular open-source tool options. Whichever path that is chosen, Microsoft and the MySQL community have the tools and expertise to make the database migration successful.
 
-### Questions and Feedback
+## Questions and Feedback
 
 For any questions or suggestions about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team (AskAzureDBforMySQL@service.microsoft.com). 
 
@@ -36,7 +36,7 @@ In addition, consider these points of contact as appropriate:
 
   - To provide feedback or to request new features, create an entry via [UserVoice.](https://feedback.azure.com/forums/597982-azure-database-for-mysql)
 
-### Find a partner to help migrating
+## Find a partner to help migrating
 
 This guide can be overwhelming, but don’t fret\! There are many experts in the community with a proven migration track record. [Search for a Microsoft Partner](https://www.microsoft.com/solution-providers/home) or [Microsoft MVP](https://mvp.microsoft.com/MvpSearch) to help with finding the most appropriate migration strategy. You aren't alone\!
 
