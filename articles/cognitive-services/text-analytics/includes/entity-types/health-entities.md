@@ -152,7 +152,7 @@ See more information and examples below.
 
 **SYMPTOM_OR_SIGN** – Subjective or objective evidence of disease or other diagnoses. For example, chest pain, headache, dizziness, rash, SOB, abdomen was soft, good bowel sounds, well nourished.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="An example of a medical condition sign or symptom entity." lightbox="../../media/ta-for-health/medical-condition-symptom-entity.png:::
+:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="An example of a medical condition sign or symptom entity." lightbox="../../media/ta-for-health/medical-condition-symptom-entity.png":::
 
 **CONDITION_QUALIFIER** - Qualitative terms that are used to describe a medical condition. All the following subcategories are considered qualifiers:
 
