@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 06/07/2021
 ms.author: rogarana 
 ms.custom: devx-track-azurepowershell
 ---
@@ -21,9 +21,12 @@ Share-level permissions must be assigned to the Azure AD identity representing t
 
 ## Share-level permissions
 
-There are two ways you can assign RBAC permissions. You can either assign them to specific individual users/user groups and you can assign them to the storage account itself. If you assign them to the storage account, they'll act as default share-level permissions.
+> [!IMPORTANT]
+> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
-If you prefer, you can assign permissions to both your storage accounts and your specific individual users/groups. With this configuration the user/group will have the superset of permissions allowed from the default share-level permission and RBAC assignment. For example, user A is granted Storage File Data SMB Reader role on the target file share. The file share has a default share-level permission configured as Storage File Data SMB Share Elevated Contributor. Because of this, User A will have the Storage File Data SMB Share Elevated Contributor access to the file share. The higher level permission will always take precedence.
+There are two ways you can assign share-level permissions. You can assign them to specific individual users/user groups and you can assign them to the storage account itself. If you assign them to the storage account, they'll act as default share-level permissions. Generally, we recommend using share level permissions for high-level access management to an Azure AD group representing a group of users and identities, then leveraging Windows ACLs for granular access control to the directory/file level.
+
+If you prefer, you can assign permissions to both your storage accounts and your specific individual users/groups. With this configuration the user/group will have the superset of permissions allowed from the default share-level permission and RBAC assignment. For example, user A is granted **Storage File Data SMB Reader** role on the target file share. The file share has a default share-level permission configured as **Storage File Data SMB Share Elevated Contributor**. Because of this, User A will have the **Storage File Data SMB Share Elevated Contributor** access to the file share. The higher level permission will always take precedence.
 
 The following table depicts the type of default share-level permissions and how they align with the built-in RBAC roles:
 
@@ -35,14 +38,10 @@ The following table depicts the type of default share-level permissions and how 
 |[Storage File Data SMB Share Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-contributor)     |Allows for read, write, and delete access on files and directories in Azure file shares. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
 |[Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor)     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers. [Learn more](storage-files-identity-auth-active-directory-enable.md).         |
 
-## Individual or group-level permissions
+## Share-level permissions for individuals or groups
 
-> [!IMPORTANT]
-> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
-You can use the Azure portal, Azure PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
-
-## Assign an Azure role
+You can use the Azure portal, Azure PowerShell module, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
 
 # [Portal](#tab/azure-portal)
 
@@ -81,7 +80,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ```
 ---
 
-### Storage account-level permissions
+### Share-level permissions for storage accounts
 
 You can add a default share-level permission on your storage account itself, instead of configuring share-level permissions per Azure AD user or group. A share-level permission assigned to the storage account will apply to file shares contained in the storage account. 
 
