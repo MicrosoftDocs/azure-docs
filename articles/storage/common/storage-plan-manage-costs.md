@@ -1,6 +1,6 @@
 ---
-title: Plan and manage costs for Azure Blob storage
-description: Learn how to plan for and manage costs for Azure Blob storage by using cost analysis in Azure portal.
+title: Plan and manage costs for Azure Blob Storage
+description: Learn how to plan for and manage costs for Azure Blob Storage by using cost analysis in Azure portal.
 services: storage
 author: normesta
 ms.service: storage
@@ -11,11 +11,11 @@ ms.subservice: common
 ms.custom: subject-cost-optimization
 ---
 
-# Plan and manage costs for Azure Blob storage
+# Plan and manage costs for Azure Blob Storage
 
-This article helps you plan and manage costs for Azure Blob storage. First, estimate costs by using the Azure pricing calculator. After you create your storage account, optimize the account so that you pay only for what you need. Use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
+This article helps you plan and manage costs for Azure Blob Storage. First, estimate costs by using the Azure pricing calculator. After you create your storage account, optimize the account so that you pay only for what you need. Use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
 
-Keep in mind that costs for Blob storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Blob storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Blob storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
+Keep in mind that costs for Blob Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Blob Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Blob Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
 ## Estimate costs
 
@@ -35,8 +35,78 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their affect on your estimate.
 
-   > [!NOTE]
-   > You can pay for Azure Blob storage charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+## Understand the full billing model for Azure Blob Storage
+
+Azure Blob Storage runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
+
+### How you're charged for Azure Blob Storage
+
+| Meter | Unit | Options that impact unit price |
+|---|---|---|
+| Data storage | Per GB | Access tier, performance tier, and the number of TB stored |
+| Operations | Per transaction | Operation type, access tier, performance tier |
+| Data transfer | Per GB | Data redundancy |
+| Metadata | Per GB, per month | Access tier, performance tier <br>Applies only to accounts that have a hierarchical namespace. | 
+
+### Understanding unit price
+
+To determine specific unit prices, open the appropriate pricing page. You might have to make selections on the page. 
+
+#### Accounts that have a hierarchical namespace
+
+If you've enabled the hierarchical namespace feature on your account, refer to the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
+
+#### Accounts that do not have a hierarchical namespace
+
+If you have not enabled the hierarchical namespace feature on your account, unit pricing will depend on which [storage endpoint](storage-account-overview.md#storage-account-endpoints) an operation uses. 
+
+**Blob Storage endpoint**
+
+For operations that use the Blob Storage endpoint (For example: `https://<storage-account>.blob.core.windows.net`), refer to the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. Operations that use the Blob Storage endpoint can originate from any of the following sources:
+
+- Workloads that use the Windows Azure Storage Blob driver or [WASB driver](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+- [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json) commands
+- [Azure PowerShell](/powershell/module/az.storage)
+- [Azure CLI](/cli/azure/storage)
+- REST calls that use the [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)
+- Applications that use Blob Storage APIs in Azure Storage client library.  
+  See [About Blob storage](../blobs/storage-blobs-introduction.md#about-blob-storage) for a complete list.
+
+**Data Lake Storage endpoint**
+
+For operations that use the Data Lake Storage Gen2 endpoint (For example: `https://<storage-account>.dfs.core.windows.net`), open the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. Then, select **Flat Namespace** in the **File Structure** dropdown list.
+
+  > [!div class="mx-imgBorder"]
+  > ![flat namespace option](media/storage-plan-manage-costs/select-flat-namespace.png)
+
+Operations that use the Data Lake Storage Gen2 endpoint can originate from any of the following sources:
+
+- Workloads that use the Azure Blob File System driver or [ABFS driver](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
+- REST calls that use the [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)
+- Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library.  
+  See [About Blob storage](../blobs/storage-blobs-introduction.md#about-blob-storage) for a complete list.
+
+At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
+
+### Other costs that might accrue with Azure Blob Storage
+
+When you create resources for Azure Blob Storage, resources for other Azure services are also created. They include:
+
+- Logs in Azure Monitor
+- <OtherAzureService2>
+
+Something here about networking costs
+
+### Costs might accrue after resource deletion
+
+After you delete <AzureServiceName> resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
+
+- <OtherServiceResource1>
+- <OtherServiceResource2>
+
+### Using Azure Prepayment with <AzureServiceName>
+
+You can pay for Azure Blob Storage charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Optimize costs
 
@@ -54,19 +124,19 @@ This section covers each option in more detail.
 
 You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. 
 
-To learn more, see [Optimize costs for Blob storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
+To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 
 #### Organize data into access tiers
 
 You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data.    
 
-To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
+To learn more, see [Azure Blob Storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 
 #### Automatically move data between access tiers
 
 Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
-To learn more, see [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
+To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
 ## Create budgets
 
@@ -105,7 +175,7 @@ You can also [export your cost data](../../cost-management-billing/costs/tutoria
 ## Next steps
 
 - Learn more on how pricing works with Azure Storage. See [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/).
-- [Optimize costs for Blob storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
+- [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 - Learn [how to optimize your cloud investment with Azure Cost Management](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
