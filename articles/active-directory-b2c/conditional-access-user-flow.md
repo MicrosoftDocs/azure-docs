@@ -376,7 +376,9 @@ To review the result of a Conditional Access event:
    - **ConditionalAccessResult**: The grant required by the conditional policy evaluation.
    - **AppliedPolicies**: A list of all the Conditional Access policies where the conditions were met and the policies are ON.
    - **ReportingPolicies**: A list of the Conditional Access policies that were set to report-only mode and where the conditions were met.
+   
 ## Next steps
+
 [Customize the user interface in an Azure AD B2C user flow](customize-ui-with-html.md)
 
 
