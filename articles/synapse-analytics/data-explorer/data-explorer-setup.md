@@ -1,5 +1,5 @@
 ---
-title: Setting up Data Explorer in Azure Synapse Analytics
+title: Set up Data Explorer in Azure Synapse Analytics
 description: This article provides information for setting up Data Explorer in Azure Synapse Analytics.
 ms.topic: how-to
 ms.date: 05/23/2021
@@ -11,6 +11,6 @@ ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# Setting up Data Explorer in Azure Synapse Analytics
+# Set up Data Explorer in Azure Synapse Analytics
 
 ## Next steps

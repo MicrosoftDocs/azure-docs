@@ -572,6 +572,8 @@ items:
     items:
     - name: Data Explorer overview
       href: data-explorer/data-explorer-overview.md
+    - name: Set up Data Explorer in Azure Synapse Analytics
+      href: data-explorer/data-explorer-setup.md
   - name: Quickstarts
     items:
     - name: Create a Data Explorer pool using the Azure portal
@@ -589,7 +591,7 @@ items:
     - name: Monitor and diagnose pools
       href: data-explorer/data-explorer-monitor-diagnose-pools.md
   - name: Kusto Query Language
-    href: data-explorer/kql/toc.yml
+    href: data-explorer/kusto-query-language/toc.yml
   - name: Reference
     items:
     - name: Management
