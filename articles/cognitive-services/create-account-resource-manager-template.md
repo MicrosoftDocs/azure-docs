@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.date: 06/04/2021
 ms.author: aahi
 ms.custom: subject-armqs
 ---
@@ -131,6 +131,8 @@ az group delete --name $resourceGroupName
 ```
 
 ---
+
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
 
 ## See also
 

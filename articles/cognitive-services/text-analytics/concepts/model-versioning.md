@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 06/03/2021
 ms.author: aahi
 ---
 
@@ -28,8 +28,8 @@ Use the table below to find which model versions are supported by each hosted en
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
 | `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`  | `2021-01-15`   |
 | `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
-| `/entities/health`              | `2021-03-01`                           | `2021-03-01`   |
-| `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
+| `/entities/health`              | `2021-05-15`                           | `2021-05-15`   |
+| `/keyphrases`                   | `2019-10-01`, `2020-07-01`, `2021-06-01`  | `2021-06-01`   |
 
 
 You can find details about the updates for these models in [What's new](../whats-new.md).
