@@ -76,7 +76,7 @@ To create an account with free tier using Azure PowerShell, set the `-EnableFree
 
 ```powershell-interactive
 # Create a free tier account for SQL API. 
-New-AzCosmosDBAccount -ResourceGroupName MyResourcegroup" `
+New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
     -Name "Myaccount" `
     -ApiKind "sql" `
     -EnableFreeTier true `

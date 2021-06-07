@@ -13,7 +13,8 @@ ms.subservice: management
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Change the license model for a SQL virtual machine in Azure

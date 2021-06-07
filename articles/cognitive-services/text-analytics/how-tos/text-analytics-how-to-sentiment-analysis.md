@@ -291,7 +291,7 @@ In this article, you learned concepts and workflow for sentiment analysis using 
 + Sentiment Analysis and Opinion Mining is available for select languages.
 + JSON documents in the request body include an ID, text, and language code.
 + The POST request is to a `/sentiment` endpoint by using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that's valid for your subscription.
-+ Use `opinionMining=true` in Sentient Analysis requests to get Opinion Mining results.
++ Use `opinionMining=true` in Sentiment Analysis requests to get Opinion Mining results.
 + Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON. For example, Excel and Power BI.
 
 ## See also

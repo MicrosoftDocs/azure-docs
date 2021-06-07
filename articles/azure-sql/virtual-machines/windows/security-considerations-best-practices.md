@@ -42,6 +42,7 @@ See [manage SQL Server VM in the portal](manage-sql-vm-portal.md) to learn more.
 ## Azure Key Vault integration 
 
 There are multiple SQL Server encryption features, such as transparent data encryption (TDE), column level encryption (CLE), and backup encryption. These forms of encryption require you to manage and store the cryptographic keys you use for encryption. The Azure Key Vault service is designed to improve the security and management of these keys in a secure and highly available location. The SQL Server Connector enables SQL Server to use these keys from Azure Key Vault.
+For comprehensive details, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Storage](performance-guidelines-best-practices-storage.md), [HADR configuration](hadr-cluster-best-practices.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
 
 See [Azure Key Vault integration](azure-key-vault-integration-configure.md) to learn more.
 
@@ -120,5 +121,14 @@ If you are also interested in best practices around performance, see [Performanc
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 
 
+To learn more, see the other articles in this series:
 
-For more information about virtual machine security, see the [virtual machines security overview](../../../security/fundamentals/virtual-machines-overview.md).
+- [Quick checklist](performance-guidelines-best-practices-checklist.md)
+- [VM size](performance-guidelines-best-practices-vm-size.md)
+- [Storage](performance-guidelines-best-practices-storage.md)
+- [Security](security-considerations-best-practices.md)
+- [HADR settings](hadr-cluster-best-practices.md)
+- [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+

@@ -3,11 +3,11 @@ title: Redundancy options for Azure managed disks
 description: Learn about zone-redundant storage and locally-redundant storage for Azure managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 03/02/2021
+ms.date: 05/26/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Redundancy options for managed disks
@@ -45,7 +45,9 @@ During the preview, ZRS for managed disks has the following restrictions:
 
 - Only supported with premium solid-state drives (SSD) and standard SSDs.
 - Currently available only in the West US 2, West Europe, North Europe, and France Central regions.
-- ZRS disks can only be created with Azure Resource Manager templates using the `2020-12-01` API in the public preview. 
+- ZRS disks can only be created with one of the following methods:
+    -  Azure Resource Manager templates using the `2020-12-01` API in the public preview.
+    - The latest Azure CLI
 
 
 ### Create ZRS managed disks
@@ -239,6 +241,7 @@ New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
 -osDiskType "StandardSSD_LRS" `
 -dataDiskType "Premium_ZRS" `
 ```
+---
 
 ## Next steps
 

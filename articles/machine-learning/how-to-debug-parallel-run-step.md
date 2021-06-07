@@ -112,6 +112,15 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use `PipelineParameter` for `mini_batch_size` and `Process_count_per_node` and you will change these values when you resubmit another run. 
 
+#### CUDA devices visibility
+For compute targets equipped with GPUs, the environment variable `CUDA_VISIBLE_DEVICES` will be set in worker processes. In AmlCompute, you can find the total number of GPU devices in the environment variable `AZ_BATCHAI_GPU_COUNT_FOUND`, which is set automatically. If you want each worker process to have a dedicated GPU, set `process_count_per_node` equal to the number of GPU devices on a machine. Each worker process will assign a unique index to `CUDA_VISIBLE_DEVICES`. If a worker process stops for any reason, the next started worker process will use the released GPU index.
+
+If the total number of GPU devices is less than `process_count_per_node`, the worker processes will be assigned GPU index until all have been used. 
+
+Given the total GPU devices is 2 and `process_count_per_node = 4` as an example, process 0 and process 1 will have index 0 and 1. Process 2 and 3 won't have an environment variable. For a library using this environment variable for GPU assignment, process 2 and 3 won't have GPUs and won't try to acquire GPU devices. If process 0 stops, it will release GPU index 0. The next process, which is process 4, will have GPU index 0 assigned.
+
+For more information, see [CUDA Pro Tip: Control GPU Visibility with CUDA_VISIBLE_DEVICES](https://developer.nvidia.com/blog/cuda-pro-tip-control-gpu-visibility-cuda_visible_devices/).
+
 ### Parameters for creating the ParallelRunStep
 
 Create the ParallelRunStep by using the script, environment configuration, and parameters. Specify the compute target that you already attached to your workspace as the target of execution for your inference script. Use `ParallelRunStep` to create the batch inference pipeline step, which takes all the following parameters:
@@ -310,7 +319,7 @@ You can go into `~/logs/sys/errror` to see if there's any exception. If there is
 ### When will a job stop?
 if not canceled, the job will stop with status:
 - Completed. If all mini-batches have been processed and output has been generated for `append_row` mode.
-- Failed. If `error_threshold` in [`Parameters for ParallelRunConfig`](#parameters-for-parallelrunronfig)  is exceeded, or system error occurred during the job.
+- Failed. If `error_threshold` in [`Parameters for ParallelRunConfig`](#parameters-for-parallelrunconfig)  is exceeded, or system error occurred during the job.
 
 ### Where to find the root cause of failure?
 You can follow the lead in `~logs/job_result.txt` to find the cause and detailed error log.
@@ -322,7 +331,7 @@ Not if there are other available nodes in the designated compute cluster. The or
 ParallelRunStep has mechanism to retry for a certain times to give chance for recovery from transient issues without delaying the job failure for too long, the mechanism is as follows:
 1. If after a node starts, `init` on all agents keeps failing, we will stop trying after `3 * process_count_per_node` failures.
 2. If after job starts, `init` on all agents of all nodes keeps failing, we will stop trying if job runs more than 2 minutes and there're `2 * node_count * process_count_per_node` failures.
-3. If all agents stucks on `init` for more than `3 * run_invocation_timeout + 30` seconds, the job would fail because of no progress for too long.
+3. If all agents are stuck on `init` for more than `3 * run_invocation_timeout + 30` seconds, the job would fail because of no progress for too long.
 
 ### What will happen on OutOfMemory? How can I check the cause?
 ParallelRunStep will set the current attempt to process the mini-batch to failure status and try to restart the failed process. You can check `~logs/perf/<node_id>` to find the memory-consuming process.

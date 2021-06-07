@@ -13,7 +13,7 @@ ms.custom: seodec18
 [Azure App Service](overview.md) enables continuous deployment from [GitHub](https://help.github.com/articles/create-a-repo), [BitBucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), and [Azure Repos](/azure/devops/repos/git/creatingrepo) repositories by pulling in the latest updates.
 
 > [!NOTE]
-> The **Development Center (Classic)** page in the Azure portal, which is the old deployment experience, will be deprecated in March, 2021. This change will not affect any existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page.
+> The **Development Center (Classic)** page in the Azure portal, an earlier version of the deployment experience, was deprecated in March 2021. This change doesn't affect existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page in the portal.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
