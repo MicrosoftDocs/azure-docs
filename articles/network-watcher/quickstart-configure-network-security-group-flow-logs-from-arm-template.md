@@ -7,7 +7,7 @@ ms.author: damendo
 ms.date: 01/07/2021
 ms.topic: quickstart
 ms.service: network-watcher
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - subject-armqs
   - mode-arm
 # Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
@@ -79,7 +79,7 @@ For a complete overview of the NSG flow logs object properties, see [Microsoft.N
 
 If you're using ARM templates for the first time, see the following articles to learn more about ARM templates:
 
-- [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
+- [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
 - [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 The following example is a complete template. It's also the simplest version of the template. The example contains the minimum parameters that are passed to set up NSG flow logs. For more examples, see the overview article [Configure NSG flow logs from an Azure Resource Manager template](network-watcher-nsg-flow-logging-azure-resource-manager.md).

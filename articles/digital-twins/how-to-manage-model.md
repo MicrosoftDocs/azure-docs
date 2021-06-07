@@ -25,6 +25,10 @@ This article describes how to manage the [models](concepts-models.md) in your Az
 
 [!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer showing a sample model graph." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png":::
+
 ## Create models
 
 Models for Azure Digital Twins are written in DTDL, and saved as .json files. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL documents.

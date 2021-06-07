@@ -32,7 +32,9 @@ Migration of unstructured data includes following scenarios:
 
 A full migration consists of several different phases: discovery, assessment, and migration.
 
-![Diagram that shows the discovery, assessment, and migration phases of migration](./media/storage-migration-overview/migration-phases.png)
+| Discovery | Assessment | Migration |
+| --------- | ---------- | --------- |
+| - Discover sources to be migrated | - Assess applicable target service <br> - Technical vs. cost considerations | - Initial migration <br> - Resync <br> - Final switch over |
 
 #### Discovery phase
 

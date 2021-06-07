@@ -11,7 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/15/2021
-ms.author: amverma
+ms.author: amverma 
+ms.custom: devx-track-azurepowershell
 
 ---
 # NVIDIA GPU Driver Extension for Windows

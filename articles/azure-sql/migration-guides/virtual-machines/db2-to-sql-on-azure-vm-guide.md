@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: mathoma
+ms.reviewer: chadam
 ms.date: 05/14/2021
 ---
 # Migration guide: IBM Db2 to SQL Server on Azure VM

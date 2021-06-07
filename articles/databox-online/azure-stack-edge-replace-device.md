@@ -1,5 +1,5 @@
 ---
-title: Replace your Azure Stack Edge device | Microsoft Docs 
+title: Azure Stack Edge device replacement 
 description: Describes how to get a replacement Azure Stack Edge device.
 services: databox
 author: alkohli

@@ -107,6 +107,8 @@
               href: import-soap-api.md
             - name: Import a SOAP API and convert to REST
               href: restify-soap-api.md
+            - name: Import a WebSocket API
+              href: websocket-api.md
             - name: Import a Web App
               href: import-app-service-as-api.md
             - name: Import a Function App
@@ -136,6 +138,8 @@
               href: zone-redundancy.md
             - name: Provision a self-hosted gateway
               href: api-management-howto-provision-self-hosted-gateway.md
+            - name: Deploy an Azure API Management gateway on Azure Arc
+              href: how-to-deploy-self-hosted-gateway-azure-arc.md
             - name: Deploy a self-hosted gateway to Azure Kubernetes Service
               href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
             - name: Deploy a self-hosted gateway to Kubernetes

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro FPGA compute management | Microsoft Docs 
+title: Azure Stack Edge Pro FPGA compute management 
 description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Stack Edge Pro FPGA.
 services: databox
 author: alkohli

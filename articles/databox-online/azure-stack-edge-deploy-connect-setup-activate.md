@@ -1,5 +1,5 @@
 ---
-title: Tutorial to connect to, configure, activate Azure Stack Edge Pro FPGA device in Azure portal | Microsoft Docs
+title: Tutorial to connect to, configure, activate Azure Stack Edge Pro FPGA device in Azure portal
 description: Tutorial to deploy Azure Stack Edge Pro FPGA instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
