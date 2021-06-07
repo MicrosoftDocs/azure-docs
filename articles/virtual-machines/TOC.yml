@@ -206,6 +206,8 @@
         href: ncv3-series.md
       - name: NCasT4_v3-series
         href: nct4-v3-series.md
+      - name: NDasrA100_v4-series
+        href: nda100-v4-series.md
       - name: ND-series
         href: nd-series.md
       - name: NDv2-series
@@ -1768,6 +1770,8 @@
   - name: Overview
     displayName: Infrastrucure automation overview
     href: infrastructure-automation.md
+  - name: User data
+    href: user-data.md
   - name: Custom data
     href: custom-data.md
   - name: Ansible

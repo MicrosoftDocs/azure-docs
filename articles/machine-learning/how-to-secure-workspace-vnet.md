@@ -90,6 +90,9 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 
    [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+> [!TIP]
+> When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+
 ## Secure Azure storage accounts with private endpoints
 
 Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. If the storage account uses private endpoints, you must configure two private endpoints for your default storage account:
@@ -102,6 +105,8 @@ To configure a private endpoint for a storage account that is **not** the defaul
 
 For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
 
+> [!TIP]
+> When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 ## Secure datastores and datasets
 
 In this section, you learn how to use datastore and datasets in the SDK experience with a virtual network. For more information on the studio experience, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md).
@@ -234,6 +239,8 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     
     For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
+> [!TIP]
+> When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
 ## Next steps
 
 This article is part two of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:

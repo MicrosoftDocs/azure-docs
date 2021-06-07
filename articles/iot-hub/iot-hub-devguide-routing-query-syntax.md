@@ -51,6 +51,7 @@ System properties help identify contents and source of the messages.
 | contentType | string | The user specifies the content type of the message. To allow query on the message body, this value should be set application/JSON. |
 | contentEncoding | string | The user specifies the encoding type of the message. Allowed values are UTF-8, UTF-16, UTF-32 if the contentType is set to application/JSON. |
 | iothub-connection-device-id | string | This value is set by IoT Hub and identifies the ID of the device. To query, use `$connectionDeviceId`. |
+| iothub-connection-module-id | string | This value is set by IoT Hub and identifies the ID of the edge module. To query, use `$connectionModuleId`. |
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
 | dt-dataschema | string |  This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. To query, use `$dt-dataschema`. |
 | dt-subject | string | The name of the component that is sending the device-to-cloud messages. To query, use `$dt-subject`. |

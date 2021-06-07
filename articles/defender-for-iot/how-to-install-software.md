@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 05/04/2021
+ms.date: 06/07/2021
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ The Defender for IoT appliance sensor connects to a SPAN port or network TAP and
 
 The following rack mount appliances are available:
 
-| **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |**Line** |
 |--|--|--|--|--|
 | **Model** | HPE ProLiant DL360 | Dell PowerEdge R340 XL | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 9 RJ45 or 6 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
@@ -46,13 +46,12 @@ The following rack mount appliances are available:
 
 The following virtual appliances are available:
 
-| **Deployment type** | **Enterprise** | **SMB** | **Line** |
-|--|--|--|--|
-| **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
-| **Max Bandwidth\*** | 150 Mb/sec | 15 Mb/sec | 3 Mb/sec |
-| **Max protected devices** | 3,000 | 300 | 100 |
-| **Deployment Type** | Enterprise | SMB | Line |
-| **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
+|--|--|--|--|--|
+| **Description** | Virtual appliance for corporate deployments | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
+| **Max Bandwidth\*** | 2.5 Gb/Sec | 800 Mb/sec | 160 Mb/sec | 3 Mb/sec |
+| **Max protected devices** | 30,000 | 10,000 | 2,500 | 100 |
+| **Deployment Type** | Corporate | Enterprise | SMB | Line |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 
@@ -60,7 +59,7 @@ The following virtual appliances are available:
 
  | Item | Description |
  |----|--|
- **Description** | In a multitier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks, including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
+ **Description** | In a multi-tier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks, including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
  **Deployment type** | Enterprise |
  **Appliance type**  | Dell R340, VM |
  **Number of managed sensors** | Unlimited |
@@ -471,7 +470,7 @@ To install the software:
 
     | Parameter | Configuration |
     | ----------| ------------- |
-    | **Hardware profile** | Select **Enterprise** or **Office** for SMB deployments. |
+    | **Hardware profile** | Select **Enterprise**, or **SMB** deployments. |
     | **Management interface** | **eno2** |
     | **Default network parameters (usually the parameters are provided by the customer)** | **management network IP address:** <br/> <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
     | **input interfaces:** | The system generates the list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator: **eno5, eno3, eno1, eno6, eno4**<br/><br/>**For HPE DL20: Do not list eno1, enp1s0f4u4 (iLo interfaces)**<br/><br/>**BRIDGE**: There's no need to configure the bridge interface. This option is used for special use cases only. Press **Enter** to continue. |
@@ -637,7 +636,7 @@ To configure the BIOS:
 
 1. Select your language.
 
-1. Select **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8GB RAM, 100GB STORAGE**.
+1. Select **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8 GB RAM, 100 GB STORAGE**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-select-screen.png" alt-text="Select the sensor version as shown.":::
 
@@ -853,11 +852,13 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 ### Add a secondary NIC
 
-You can enhance security to your on-premises management console by adding a secondary NIC. By adding a secondary NIC you will have one dedicated for your users, and the other will support the configuration of a gateway for routed networks. The second NIC is dedicated to all attached sensors within an IP address range.
+You can enhance security to your on-premises management console by adding a secondary NIC. This could be used for high availability. By adding a secondary NIC, you may also have one dedicated for your users while using the other to support the configuration of a gateway for routed networks. The second NIC is then dedicated to all attached sensors within an IP address range.
 
-Both NICs have the user interface (UI) enabled. When routing is not necessary, all of the features that are supported by the UI, will be available on the secondary NIC. High Availability will run on the secondary NIC.
+:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
 
-If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
+Both NICs will support the user interface (UI). 
+
+If you choose not to deploy a secondary NIC, all of the above features will be available through the primary NIC. 
 
 If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
 
@@ -1231,7 +1232,7 @@ Post-installation validation must include the following tests:
 
   - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-### Checking system health by using the GUI
+### Check system health by using the GUI
 
 :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 
@@ -1283,7 +1284,7 @@ To access the tool:
 
     :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
-### Checking system health by using the CLI
+### Check system health by using the CLI
 
 **Test 1: Sanity**
 

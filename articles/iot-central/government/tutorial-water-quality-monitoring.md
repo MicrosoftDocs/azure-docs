@@ -52,8 +52,6 @@ In this section, you use the Azure IoT Central **Water quality monitoring** temp
     * **URL**: You can enter any URL you want or change the URL value later.
     * If you have an Azure subscription, enter values for **Directory**, **Azure subscription**, and **Location**. If you don't have a subscription, you can turn on **7-day free trial** and complete the required contact information.
 
-    For more information about directories and subscriptions, see the [Create an application](../core/quick-deploy-iot-central.md) quickstart.
-
 1. Select the **Create** button on the lower-left part of the page.
 
     ![The Azure IoT Central new-application page](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)

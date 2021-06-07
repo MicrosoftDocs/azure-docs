@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/13/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -25,9 +25,8 @@ The following scope is specific for the registering and scanning Amazon S3 bucke
 
 |Scope  |Description  |
 |---------|---------|
-|**Data limits**     |    The Purview scanner service currently supports scanning Amazon S3 buckets for up to 100 GB of data per tenant.     |
 |**File types**     | The Purview scanner service currently supports the following file types: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed in the AWS **US East (Ohio)**, **US East (N. Virginia)**, **Europe (Ireland)**, and **Europe (Frankfurt)**, and **Asia Pacific (Sydney)** regions. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
+|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed in specific regions only. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
 |     |         |
 
 For more information, see the documented Purview limits at:
@@ -48,24 +47,24 @@ The following table maps the regions where you data is stored to the region wher
 | ------------------------------- | ------------------------------------- |
 | US East (Ohio)                  | US East (Ohio)                        |
 | US East (N. Virginia)           | US East (N. Virginia)                       |
-| US West (N. California)         | US East (Ohio)                        |
-| US West (Oregon)                | US East (Ohio)                        |
+| US West (N. California)         | US East (Ohio) or US West (N. California)                        |
+| US West (Oregon)                | US East (Ohio)  or US West (Oregon)                      |
 | Africa (Cape Town)              | Europe (Frankfurt)                    |
-| Asia Pacific (Hong Kong)        | Asia Pacific (Sydney)                   |
-| Asia Pacific (Mumbai)           | Asia Pacific (Sydney)                   |
-| Asia Pacific (Osaka-Local)      | Asia Pacific (Sydney)                   |
-| Asia Pacific (Seoul)            | Asia Pacific (Sydney)                   |
-| Asia Pacific (Singapore)        | Asia Pacific (Sydney)                   |
+| Asia Pacific (Hong Kong)        | Asia Pacific (Sydney)   or Asia Pacific (Singapore)                |
+| Asia Pacific (Mumbai)           | Asia Pacific (Sydney)   or Asia Pacific (Singapore)                |
+| Asia Pacific (Osaka-Local)      | Asia Pacific (Sydney)  or Asia Pacific (Tokyo)                 |
+| Asia Pacific (Seoul)            | Asia Pacific (Sydney)  or Asia Pacific (Tokyo)                 |
+| Asia Pacific (Singapore)        | Asia Pacific (Sydney)  or Asia Pacific (Singapore)                 |
 | Asia Pacific (Sydney)           | Asia Pacific (Sydney)                  |
-| Asia Pacific (Tokyo)            | Asia Pacific (Sydney)                 |
+| Asia Pacific (Tokyo)            | Asia Pacific (Sydney) or Asia Pacific (Tokyo)                |
 | Canada (Central)                | US East (Ohio)                        |
 | China (Beijing)                 | Not supported                    |
 | China (Ningxia)                 | Not supported                   |
 | Europe (Frankfurt)              | Europe (Frankfurt)                    |
 | Europe (Ireland)                | Europe (Ireland)                   |
-| Europe (London)                 | Europe (Ireland)                   |
+| Europe (London)                 | Europe (Ireland)  or Europe (London)                 |
 | Europe (Milan)                  | Europe (Frankfurt)                    |
-| Europe (Paris)                  | Europe (Frankfurt)                    |
+| Europe (Paris)                  | Europe (Frankfurt) or Europe (Paris)                   |
 | Europe (Stockholm)              | Europe (Frankfurt)                    |
 | Middle East (Bahrain)           | Europe (Frankfurt)                    |
 | South America (São Paulo)       | US East (Ohio)                        |

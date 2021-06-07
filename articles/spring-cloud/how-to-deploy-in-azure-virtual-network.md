@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
 
 # Deploy Azure Spring Cloud in a virtual network
 
-**This article applies to:** âœ”ï¸ Java âœ”ï¸ C#
+**This article applies to:** ✔️ Java ✔️ C#
 
 This tutorial explains how to deploy an Azure Spring Cloud instance in your virtual network. This deployment is sometimes called VNet injection.
 
@@ -83,7 +83,7 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
     ![Screenshot that shows the Access control screen.](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Assign the [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
+1. Assign the [Owner](../role-based-access-control/built-in-roles.md#owner) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
 
     For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
