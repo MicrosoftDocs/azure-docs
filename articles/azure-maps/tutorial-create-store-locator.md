@@ -433,7 +433,7 @@ The next step is to define the CSS styles. CSS styles define how the application
 
 Run the application. You'll see the header, search box, and search button. However, the map isn't visible because it hasn't been loaded yet. If you try to do a search, nothing happens. We need to set up the JavaScript logic, which is described in the next section. This logic accesses all the functionality of the store locator.
 
-## Wire the application with JavaScript
+## Add JavaScript code
 
 The JavaScript code in the Contoso Coffee shop locator app enables the following processes:
 
