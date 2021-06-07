@@ -9,4 +9,4 @@ ms.date: 06/03/2021
 ms.author: pafarley
 ---
 
-Before you create a Face, Text Analytics, or Computer Vision resource, you must agree to the terms and conditions listed in the Azure Portal. These terms and conditions may be different for each service. Even if you're creating a resource using the Azure SDK, Azure CLI, or ARM template, you must agree to the terms and conditions in the Azure Portal and create the resource using the portal. After that, you can create subsequent resources using the SDK, CLI, or ARM template under the same subscription without using the Azure portal.
+You must create your first Face, Text Analytics or Computer Vision resources from the Azure Portal to review and acknowledge the terms and conditions. You can do so here: [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace), [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics), [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision). After that, you can create subsequent resources using any deployment tool (SDK, CLI, or ARM template, etc) under the same Azure subscription.
