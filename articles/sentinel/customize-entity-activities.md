@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2021
+ms.date: 06/07/2021
 ms.author: yelevin
 
 ---
@@ -149,9 +149,6 @@ You can add the following parameters:
 - Count – use this parameter to summarize the count of the KQL query output. The bucket size is determined in the entity page.
 - StartTimeUTC – Start time of the activity in UTC.
 - EndTimeUTC – End time of the activity in UTC.
-- StartTimeISO - TBD
-- EndTimeISO - TBD
-- ReferenceTime - TBD
 
 :::image type="content" source="./media/customize-entity-activities/new-activity-title.png" alt-text="Screenshot - See the available values for your activity title":::
 
