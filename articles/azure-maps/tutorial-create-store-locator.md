@@ -31,7 +31,7 @@ This tutorial guides you through the process of creating a simple store locator 
 1. [Make an Azure Maps account in Gen 1 (S1) or Gen 2 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+For more information about Azure Maps authentication, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 This tutorial uses the [Visual Studio Code](https://code.visualstudio.com/) application, but you can use a different coding environment.
 
