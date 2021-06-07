@@ -62,8 +62,8 @@ The _Analysis widget_ shows the number and percentage of provisioned and assigne
 
 The _License Distribution_ widget shows the distribution of licenses across different countries and regions. The colored regions show where the user licenses are distributed. To revert to the default view, select the **Reset zoom** button (Home icon) in the widget.
 
-:::image type="content" source="./media/license-dashboard/license-distribution.png" alt-text="Screenshot of the Analysis widget on the License dashboard in Partner Center.":::
+:::image type="content" source="./media/license-dashboard/license-distribution.png" alt-text="Screenshot of the License Distribution widget on the License dashboard in Partner Center.":::
 
 ## Next steps
 
-- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics).
+- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).
