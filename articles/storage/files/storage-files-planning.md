@@ -20,11 +20,27 @@ ms.custom: references_regions
 This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. To plan for an Azure File Sync deployment, see [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
 
 ## Available protocols
+Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](files-smb-protocol.md) protocol and the [Network File System (NFS)](files-nfs-protocol.md) protocol (preview). Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares do not support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account. NFS 4.1 is currently only supported within new **FileStorage** storage account type (premium file shares only).
 
-Azure Files offers two protocols that may be used when mounting your file shares, SMB and Network File System (NFS). For details on these protocols, see [Azure file share protocols](storage-files-compare-protocols.md).
+With both SMB and NFS file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
-> [!IMPORTANT]
-> Most of the content of this article only applies to SMB shares. Anything that applies to NFS shares will specifically state it is applicable.
+| Feature | SMB | NFS (preview) |
+|---------|-----|---------------|
+| Supported protocol versions | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
+| Recommended OS | <ul><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+ |
+| [Available tiers](storage-files-planning.md#storage-tiers)  | Premium, transaction optimized, hot, and cool | Premium |
+| Billing model | <ul><li>[Provisioned capacity for premium file shares](./understanding-billing.md#provisioned-model)</li><li>[Pay-as-you-go for standard file shares](./understanding-billing.md#pay-as-you-go-model)</li></ul> | [Provisioned capacity](./understanding-billing.md#provisioned-model) |
+| [Redundancy](storage-files-planning.md#redundancy) | LRS, ZRS, GRS, GZRS | LRS, ZRS |
+| File system semantics | Win32 | POSIX |
+| Authentication | Identity-based authentication (Kerberos), shared key authentication (NTLMv2) | Host-based authentication |
+| Authorization | Win32-style access control lists (ACLs) | UNIX-style permissions |
+| Case sensitivity | Case insensitive, case preserving | Case sensitive |
+| Deleting or modifying open files | With lock only | Yes |
+| File sharing | [Windows sharing mode](/windows/win32/fileio/creating-and-opening-files) | Byte-range advisory network lock manager |
+| Hard link support | Not supported | Supported |
+| Symbolic link support | Not supported | Supported |
+| Optionally internet accessible | Yes (SMB 3.0+ only) | No |
+| Supports FileREST | Yes | Subset: <br /><ul><li>[Operations on the `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Operations on `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Operations on `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Operations on `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
 
 ## Management concepts
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -73,7 +89,7 @@ Azure Files supports two different types of encryption: encryption in transit, w
 ### Encryption in transit
 
 > [!IMPORTANT]
-> This section covers encryption in transit details for SMB shares. For details regarding encryption in transit with NFS shares, see [Security](storage-files-compare-protocols.md#security).
+> This section covers encryption in transit details for SMB shares. For details regarding encryption in transit with NFS shares, see [Security](files-nfs-protocol.md#security).
 
 By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB or access it via the FileREST protocol (such as through the Azure portal, PowerShell/CLI, or Azure SDKs), Azure Files will only allow the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that do not support SMB 3.x or clients that support SMB 3.x but not SMB encryption will not be able to mount the Azure file share if encryption in transit is enabled. For more information about which operating systems support SMB 3.x with encryption, see our detailed documentation for [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md). All current versions of the PowerShell, CLI, and SDKs support HTTPS.  
 

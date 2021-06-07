@@ -29,5 +29,5 @@ Also, the following Azure Files features are not available with NFS shares:
 - Azure Backup support
 - Snapshots
 - Soft delete
-- Full encryption-in-transit support (for details see [NFS security](../articles/storage/files/storage-files-compare-protocols.md#security))
+- Full encryption-in-transit support (for details see [NFS security](../articles/storage/files/files-nfs-protocol.md#security))
 - Azure File Sync (only available for Windows clients, which NFS 4.1 does not support)
