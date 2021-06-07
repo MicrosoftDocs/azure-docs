@@ -13,7 +13,7 @@
 
 ## Create a managed identity using the Azure portal
 
-Managed identities for Azure resources free you from having to manage credentials in code and resource configuration when building applications on Azure. There are two types of managed identities – system-assigned and user-assigned. Managed identities allow you to get an Azure active directory token your applications can use for authentication when accessing other resources. Azure manages the identity so you don't have to.You can learn more about managed identities in the managed identities overview. For more information about managed identities, see [What are managed identities for Azure resources?](overview.md). In this article, you learn how to create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal
+Managed identities for Azure resources free you from having to manage credentials in code and resource configuration when building applications on Azure. There are two types of managed identities – system-assigned and user-assigned. Managed identities allow you to get an Azure active directory token your applications can use for authentication when accessing other resources. Azure manages the identity so you don't have to.You can learn more about managed identities in the managed identities overview. For more information about managed identities, review the [managed identities for Azure resources overview](../overview.md). In this article, you learn how to create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal
 
 ## Prerequisites
 
