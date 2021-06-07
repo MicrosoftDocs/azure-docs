@@ -133,8 +133,8 @@
       href: patient-everything.md
     - name: $member-match operation
       href: tutorial-member-match.md
-    - name: Find identity object IDs
-      href: find-identity-object-ids.md
+  - name: Find identity object IDs
+    href: find-identity-object-ids.md
   - name: Diagnostic logging and metrics
     expanded: false
     items:
