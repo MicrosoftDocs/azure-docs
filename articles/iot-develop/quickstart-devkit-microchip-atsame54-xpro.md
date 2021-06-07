@@ -201,7 +201,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
     Initializing Azure IoT DPS client
 	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: 0ne002E8D25
+	    DPS ID scope: ***
 	    Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
