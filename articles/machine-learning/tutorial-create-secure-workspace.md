@@ -306,33 +306,50 @@ Use the following steps create a network security group (NSG) and add rules requ
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-private-endpoint-dns.png" alt-text="IP and FQDN entries":::
 
-## Create a jump box (VM)
+> [!IMPORTANT]
+> There are still some configuration steps needed before you can fully use the workspace. However, these require you to connect to the workspace.
+## Connect to the workspace
 
-1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Data science virtual machine__. Select either the Data science virtual machine __Windows__ or __Linux__ entry, and then select __Create__.
-1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide a unique __Virtual machine name__, and use the following values for other fields:
+There are several ways that you can connect to the workspace. The steps in this article use a jump box, which is a virtual machine in the VNet. You can connect to it using your web browser and Azure Bastion. The following table lists several other ways that you might connect to the secure workspace:
 
-    * For a __Windows__ Data Science Virtual Machine, provide a __Username__ and __Password__.
-    * For a __Linux__ Data Science Virtual Machine, select to use either an __SSH public key__ (recommended), or a __Password__ and provide a __Username__. 
+| Method | Description |
+| [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) | Connects on-premises networks to the VNet over a private connection. Connection is made over the public internet. |
+| [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. |
+| Enable public internet access | Enables access to the workspace from the public internet. Communication between the workspace and other resources in the VNet are still secured. |
 
-        If you select __SSH public key__, provide or create an __SSH public key__.
+> [!IMPORTANT]
+> When using a __VPN gateway__ or __ExpressRoute__, you will need to plan how name resolution works between your on-premises resources and those in the VNet. For more information, see [Use a custom DNS server](how-to-custom-dns.md).
 
-        If you select __Password__, provide a __Password__.
+### Create a jump box (VM)
 
-    * Leave other fields at the default values.
+Use the following steps to create a Data Science Virtual Machine for use as a jump box:
+
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Data science virtual machine__. Select the __Data science virtual machine - Windows__ entry, and then select __Create__.
+1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide a unique __Virtual machine name__, __Username__, and __Password__. Leave other fields at the default values.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-virtual-machine-basic.png" alt-text="Image of VM basic configuration":::
 
 1. Select __Networking__, and then select the __Virtual network__ you created earlier. Use the following information to set the remaining fields:
 
     * Select the __Training__ subnet.
     * Set the __Public IP__ to __None__.
-    * Set the __Network security group__ to the one you created previously.
     * Leave the other fields at the default value.
 
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-virtual-machine-network.png" alt-text="Image of VM network configuration":::
+
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
+
 
 ### Connect to the jump box
 
 1. Once the workspace has been created, select __Go to resource__.
-1. From the top of the page, select __Connect__, __Bastion__, and then __Use Bastion__. Provide your authentication information for the virtual machine, and a connection will be established in your browser.
+1. From the top of the page, select __Connect__ and then __Bastion__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-connect.png" alt-text="Image of the connect/bastion UI":::
+
+1. Select __Use Bastion__, and then provide your authentication information for the virtual machine, and a connection will be established in your browser.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/use-bastion.png" alt-text="Image of use bastion dialog":::
 ## Configure image builds
 
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, configure the workspace to use an Azure Machine Learning compute cluster to build images. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
@@ -340,4 +357,12 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
 > [!NOTE]
 > You can use the same compute cluster to train models.
 
-TBD steps.
+1. Connect to the jump box using Bastion, if you are not already connected.
+1. 
+
+## Stop jump box
+
+> [!WARNING]
+> While it is running (started), the jump box will continue charging your subscription. To avoid excess cost, __stop__ the VM when it is not in use.
+>
+> Once it has been created, select the virtual machine in the Azure portal and then use the __Stop__ button. When you are ready to use it again, use the __Start__ button to start it.
