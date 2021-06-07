@@ -34,9 +34,9 @@ You can migrate data between the Azure Cosmos DB Emulator and the Azure Cosmos D
 
 Because the Azure Cosmos DB Emulator provides an emulated environment that runs on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos account in the cloud:
 
-* Currently the **Data Explorer** pane in the emulator fully supports SQL API clients only. The **Data Explorer** view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
+* Currently the **Data Explorer** pane in the emulator fully supports SQL API clients only. The **Data Explorer** view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported (ex. currently, the Cosmos DB Table API Emulator does not support querying partition keys that have a slash "/").
 
-* The emulator supports only a single fixed account and a well-known primary key. You can't regenerate key when using the Azure Cosmos DB Emulator, however you can change the default key by using the [command-line](emulator-command-line-parameters.md) option.
+* The emulator supports only a single fixed account and a well-known primary key. You can't regenerate key when using the Azure Cosmos DB Emulator, however you can change the default key by using the [command-line](emulator-command-line-parameters.md) option. 
 
 * With the emulator, you can create an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
