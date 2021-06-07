@@ -85,7 +85,7 @@ When you build a Next.js site using `npm run build`, the app is built as a tradi
     ```json
     "scripts": {
       "dev": "next dev",
-      "build": "next build && next export",
+      "build": "next build && next export"
     },
     ```
 
