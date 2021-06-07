@@ -26,7 +26,7 @@ You must have the following:
 
   - The Azure private Multi-access Edge Compute service. This has the resource provider namespace Microsoft.HybridNetwork. For more information, see [What is Azure private Multi-access Edge Compute?](overview.md).
   - The Fusion Core - 5G packet core managed application. You must request access by visiting [https://azuremarketplace.microsoft.com/en-us/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) and using the **CONTACT ME** button. Our sales representatives will provide you with information on how you can evaluate or buy Fusion Core. Once you have selected one of these options, we will provide you with access to the managed application.
-
+- The built-in **Owner** role at the subscription scope. If this is not possible at your organization, contact your Metaswitch support representative.
 - A configured **Azure Network Function Manager - Device** object representing the ASE device.
 
 ## Deploy Fusion Core

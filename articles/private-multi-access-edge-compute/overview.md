@@ -18,10 +18,10 @@ Azure private MEC is an evolution of Private Edge Zone, expanding the scope of p
 - Enterprise customers:
     - Access to growing portfolio of  Azure services, ISVs & developer ecosystem.
     - Choice of trusted, industry-tailored solutions.
-    - Fully integrated starting with 1U footprint 
+    - Fully integrated technology stack starting with a 1U footprint.
 
 - Telco and System Integrator partners:
-    - Simple to procure, deploy, manage & monetize 5G & Edge.
+    - Simple to procure, deploy, manage & monetize 5G & Edge for their customer.
     - Choice of curated ecosystem of products, cloud services, and applications.
     - Access to Azure developer ecosystem.
 
@@ -31,19 +31,19 @@ Azure private MEC is an evolution of Private Edge Zone, expanding the scope of p
     - Scale distribution via Microsoft  Marketplace
 
 ## Microsoft capabilities
-Azure private MEC includes several capabilities from Microsoft. These include a combination of Network Function products, management services, and hardware infrastructure. 
+Azure private MEC includes several capabilities from Microsoft. These include a combination of Network Function products, management services, and hardware infrastructure and services. 
 
 ### Azure Network Functions offered via Marketplace
 
-**Metaswitch Fusion Core**: Fusion Core is a fully containerized 5G Core solution that supports all network functions needed for connectivity between IoT devices connected over 4G or 5G radio to the data network. The solution delivers key benefits - easily deployed and provisioned from the Azure Marketplace portal on the Azure Stack Edge; high performance of 25 Gbps of throughput in an exceptionally low compute footprint of four physical cores; support for both 4G and 5G standalone access types; and offers built-in tooling for enterprise-centric service assurance and KPI dashboards. Fusion enables ISVs to deploy applications on the same Azure Stack Edge node for IoT Edge applications like live video analytics. 
+**Metaswitch Fusion Core**: Fusion Core is a fully containerized 5G Core solution that supports all network functions needed for connectivity between IoT devices connected over 4G or 5G radio to the data network. The solution delivers key benefits - easily deployed and provisioned from the Azure Marketplace portal on the Azure Stack Edge; high performance of 25 Gbps of throughput in an exceptionally low compute footprint of four physical cores; support for both 4G and 5G standalone access types; and offers built-in tooling for enterprise-centric service assurance and KPI dashboards. Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge node for IoT Edge applications like live video analytics. 
 
-**Affirmed Private Network Service**: Affirmed Private Network Service (APNS): Affirmed Private Network Service is an Azure marketplace offering of a managed private network service for Mobile Network Operators and managed services provider who want to provide 4G and 5G managed service offerings to Enterprises. APNS enables operators to provide enterprises with a carrier-grade private mobile network allowing them to run and operate business critical applications requiring low-latency, high-bandwidth and end-to-end security. It is mobile network operator integrated providing full mobility between private and public operator networks. With its automation and simplified operations, APNS delivers scalability across 1000s of enterprise edge locations and uses Azure to deliver enhanced security across private networks & enterprise applications. It offers the flexibility to deploy the entire mobile core at the edge of the network, all in cloud or in a hybrid mode with control plane on cloud and user plane on enterprise edge. 
+**Affirmed Private Network Service**:  Affirmed Private Network Service is an Azure marketplace that offers a managed private network service for Mobile Network Operators and managed services provider who want to provide 4G and 5G managed service offerings to Enterprises. APNS enables operators to provide enterprises with a carrier-grade private mobile network allows them to run and operate business critical applications requiring low-latency, high-bandwidth and end-to-end security. It is mobile network operator integrated providing full mobility between private and public operator networks. With its automation and simplified operations, APNS delivers scalability across 1000s of enterprise edge locations and uses Azure to deliver enhanced security across private networks & enterprise applications. It offers the flexibility to deploy the entire mobile core at the edge of the network, all in cloud or in a hybrid mode with control plane on cloud and user plane on enterprise edge. 
 
 ### Azure Management services
 
-**Azure Network Functions Manager (NFM)**: Azure NFM enables the deployment of network functions to the edge using consistent Azure tools and interfaces. Use this service to deploy packet core and SD-WAN network functions to Azure Stack Edge. 
+**Azure Network Functions Manager (NFM)**: Azure NFM enables the deployment of network functions to the edge using consistent Azure tools and interfaces. Use this service to deploy packet core and SD-WAN network functions to Azure Stack Edge. For more information, see [Azure Network Function Manager](../network-functions-manager/overview.md).
 
-**Arc Enabled Kubernetes**: With Azure Arc enabled Kubernetes, you can attach and configure Kubernetes clusters located either inside or outside Azure. You can monitor and manage at scale with policy-based deployments and apply consistent security configurations at scale. Azure Arc enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. For more information, see [Azure Arc](https://azure.microsoft.com/en-us/services/azure-arc/).
+**Arc Enabled Kubernetes**: With Azure Arc enabled Kubernetes, you can attach and configure Kubernetes clusters located either inside or outside Azure. You can monitor and manage at scale with policy-based deployments and apply consistent security configurations at scale. Azure Arc enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. For more information, see [Azure Arc](https://azure.microsoft.com/services/azure-arc/).
 
 ### Azure Stack hardware and services
 **Azure Stack Edge**: Azure Stack Edge offers a portfolio of devices that bring compute, storage and intelligence to the edge right where data is created. These are 1U rack-mountable appliance that come with 1-2 NVIDIA T4 GPUs. Azure loT Edge allows you to deploy and manage containers from loT Hub and integrate with Azure loT solutions on the Azure Stack Edge. The Azure Stack Edge Pro SKU is certified to run Network Functions at the edge. For more information, see [Azure Stack Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/).
