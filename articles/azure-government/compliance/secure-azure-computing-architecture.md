@@ -102,9 +102,11 @@ When you plan your SCCA compliancy strategy and technical architecture, consider
       - Use cloud-native IPS or bring-your-own IPS.
 
 #### Which automated solution will you use to deploy VDSS?
+
 As mentioned earlier, you can build this SACA reference by using a variety of appliances and Azure services. Microsoft has automated solution templates to deploy the SACA architecture with native services or by partners like Palo Alto Networks, F5, and Citrix. These solutions are covered in the following section.
 
 #### Which Azure services will you use?
+
 - There are Azure services that can meet requirements for log analytics, host-based protection, and IDS functionality. It's possible that some services aren’t generally available in Microsoft Azure DoD regions. In this case, you might need to use third-party tools if these Azure services can’t meet your requirements. Look at the tools you're comfortable with and the feasibility of using Azure native tooling.
 - We recommend that you use as many Azure native tools as possible. They're built with cloud security in mind and seamlessly integrate with the rest of the Azure platform. Use the Azure native tools in the following list to meet various requirements of SCCA:
 
@@ -145,9 +147,9 @@ As previously mentioned, Microsoft has partnered with vendors to create automate
 
 - SACA virtual network
      - VDMS subnet
-            - This subnet is where VMs and services used for VDMS are deployed, including the jump box VMs.
+        - This subnet is where VMs and services used for VDMS are deployed, including the jump box VMs.
      - Untrusted, trusted, management, or AzureFirewallSubnet subnets
-            - These subnets are where virtual appliances or Azure Firewall are deployed.
+        - These subnets are where virtual appliances or Azure Firewall are deployed.
 - Management jump box virtual machines
     - They're used for out-of-band management of the environment.
 - Network virtual appliances
@@ -164,7 +166,7 @@ As previously mentioned, Microsoft has partnered with vendors to create automate
 
 ### Azure SACA Deployment
 
-You can use the Mission Landing Zone deployment template you to deploy into one or multiple subscriptions, depending on the requirements of your environment. It uses built-in Azure services that have no dependencies on third-party licenses. It uses Azure Firewall and other security services to deploy an architecture that is SCCA-compliant. 
+You can use the Mission Landing Zone deployment template to deploy into one or multiple subscriptions, depending on the requirements of your environment. It uses built-in Azure services that have no dependencies on third-party licenses. The template uses Azure Firewall and other security services to deploy an architecture that is SCCA-compliant. 
 
 ![Diagram of the Mission Landing Zone SACA template.](media/mission-landing-zone.png)
 
@@ -181,7 +183,7 @@ The Palo Alto Networks deployment template deploys one to many VM-Series applian
 For the Palo Alto Networks documentation and deployment script, see [this GitHub link](https://github.com/PaloAltoNetworks/Palo-Azure-SACA).
 
 
- ### F5 Networks SACA deployment
+### F5 Networks SACA deployment
 
 Two separate F5 deployment templates cover two different architectures. The first template has only one layer of F5 appliances in an active-active highly available configuration. This architecture meets the requirements of SCCA. The second template adds a second layer of active-active highly available F5s. This second layer allows customers to add their own IPS separate from F5 in between the F5 layers. Not all DoD components have specific IPS prescribed for use. If that's the case, the single layer of F5 appliances works for most because that architecture includes IPS on the F5 devices.
 
