@@ -10,7 +10,7 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
 # Tutorial: Run your first script in Azure Machine Learning (part 1 of 3)
