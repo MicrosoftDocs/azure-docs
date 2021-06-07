@@ -16,7 +16,7 @@ Before you begin this article, make sure you've completed the previous article, 
 
 Once you've enabled Active Directory Domain Services (AD DS) authentication on your storage account, you must configure share-level permissions in order to get access to your file shares. The identity you want to access Azure file share resources with must be a hybrid identity that exists in both AD DS and Azure AD. For example, say you have a user in your AD DS that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. To allow this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals. Because of this, you must sync the users and groups from your AD DS to Azure AD using Azure AD Connect sync. 
 
-Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), are not supported with AD DS authentication. This article demonstrates how to assign share-level permissions for a file share to an identity.
+Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), are not supported with AD DS authentication. This article demonstrates how to assign share-level permissions for a file share to an identity or storage account.
 
 
 ## Share-level permissions
@@ -24,9 +24,11 @@ Share-level permissions must be assigned to the Azure AD identity representing t
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
-There are two ways you can assign share-level permissions. You can assign them to specific individual users/user groups and you can assign them to the storage account itself. If you assign them to the storage account, they'll act as default share-level permissions. Generally, we recommend using share level permissions for high-level access management to an Azure AD group representing a group of users and identities, then leveraging Windows ACLs for granular access control to the directory/file level.
+There are two ways you can assign share-level permissions. You can assign them to specific users/user groups and you can assign them to the storage account itself. If you assign them to the storage account, they'll act as default share-level permissions.
 
-If you prefer, you can assign permissions to both your storage accounts and your specific individual users/groups. With this configuration the user/group will have the superset of permissions allowed from the default share-level permission and RBAC assignment. For example, user A is granted **Storage File Data SMB Reader** role on the target file share. The file share has a default share-level permission configured as **Storage File Data SMB Share Elevated Contributor**. Because of this, User A will have the **Storage File Data SMB Share Elevated Contributor** access to the file share. The higher level permission will always take precedence.
+Generally, we recommend using share level permissions for high-level access management to an Azure AD group representing a group of users and identities, then leveraging Windows ACLs for granular access control to the directory/file level.
+
+If you prefer, you can assign permissions to both your storage accounts and your specific users/groups. With this configuration the user/group will have the superset of permissions allowed from the default share-level permission and RBAC assignment. For example, user A is granted **Storage File Data SMB Reader** role on the target file share. The file share has a default share-level permission configured as **Storage File Data SMB Share Elevated Contributor**. Because of this, User A will have the **Storage File Data SMB Share Elevated Contributor** access to the file share. The higher level permission will always take precedence.
 
 The following table depicts the type of default share-level permissions and how they align with the built-in RBAC roles:
 
