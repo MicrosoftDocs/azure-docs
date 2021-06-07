@@ -31,9 +31,23 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
+### The device code flow UX will now include an app confirmation prompt
+
+**Effective date**: June 2021.
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: The [device code flow](v2-oauth2-device-code.md)
+
+As a security improvement, the device code flow has been updated to add an additional prompt, which validates that the user is signing into the app they expect. This is added to help prevent phishing attacks.
+
+The prompt that appears looks like this:
+
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
+
 ### Conditional Access will only trigger for explicitly requested scopes
 
-**Effective date**: May 2021, with gradual rollout starting in April. 
+**Effective date**: August 2021, with gradual rollout starting in April. 
 
 **Endpoints impacted**: v2.0
 
@@ -54,20 +68,6 @@ An app has consent for `user.read`, `files.readwrite`, and `tasks.read`. `files.
 If the app then requests `scope=files.readwrite`, the Conditional Access required by the tenant will trigger, forcing the app to show an interactive auth prompt where the Conditional Access policy can be satisfied.  The token returned will have all three scopes in it. 
 
 If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Azure AD will see that the user has already completed the Conditional access policies needed for `files.readwrite`, and again issue a token with all three permissions in it. 
-
-
-### The device code flow UX will now include an app confirmation prompt
-
-**Effective date**: June 2021.
-
-**Endpoints impacted**: v2.0 and v1.0
-
-**Protocol impacted**: The [device code flow](v2-oauth2-device-code.md)
-
-As a security improvement, the device code flow has been updated to add an additional prompt, which validates that the user is signing into the app they expect. This is added to help prevent phishing attacks.
-
-The prompt that appears looks like this:
-:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
 
 ## May 2020
 
