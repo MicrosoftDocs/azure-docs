@@ -94,7 +94,7 @@ In this section, you specify the tunnel type and the authentication type. If you
 
 On the **Point-to-site configuration** page, select the **Tunnel type**. When selecting the tunnel type, note the following:
 
-* The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and maxOS will use only the IKEv2 tunnel type to connect.
+* The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and macOS will use only the IKEv2 tunnel type to connect.
 * Windows clients will try IKEv2 first and if that doesn't connect, they fall back to SSTP.
 * You can use the OpenVPN client to connect to the OpenVPN tunnel type.
 
