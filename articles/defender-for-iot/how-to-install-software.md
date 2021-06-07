@@ -49,7 +49,7 @@ The following virtual appliances are available:
 | **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
 |--|--|--|--|--|
 | **Description** | Virtual appliance for corporate deployments | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
-| **Max Bandwidth\*** | 2.5 Gb/Sec | 500 Mb/sec | 30 Mb/sec | 3 Mb/sec |
+| **Max Bandwidth\*** | 2.5 Gb/Sec | 800 Mb/sec | 160 Mb/sec | 3 Mb/sec |
 | **Max protected devices** | 30,000 | 10,000 | 2,500 | 100 |
 | **Deployment Type** | Corporate | Enterprise | SMB | Line |
 

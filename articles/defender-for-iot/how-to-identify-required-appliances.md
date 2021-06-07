@@ -53,7 +53,7 @@ This section provides an overview of the virtual sensors that are available.
 
 | Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
-| Maximum bandwidth | 2.5 Gb/sec | 500 Mb/sec | 30 Mb/sec |
+| Maximum bandwidth | 2.5 Gb/sec | 800 Mb/sec | 160 Mb/sec |
 | Maximum protected devices | 30,000 | 10,000 | 2,500 |
 
 ## On-premises management console appliance
