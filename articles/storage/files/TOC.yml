@@ -25,8 +25,10 @@
   items:
   - name: Planning for an Azure Files deployment
     href: storage-files-planning.md
-  - name: Available file share protocols
-    href: storage-files-compare-protocols.md
+  - name: SMB file shares
+    href: files-smb-protocol.md
+  - name: NFS file shares
+    href: files-nfs-protocol.md
   - name: Identity-based authentication and authorization
     href: storage-files-active-directory-overview.md
   - name: Networking considerations for direct access
