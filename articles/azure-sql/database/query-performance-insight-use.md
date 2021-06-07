@@ -7,7 +7,6 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: danimir
 author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
