@@ -168,7 +168,7 @@ As previously mentioned, Microsoft has partnered with vendors to create automate
 
 You can use the Mission Landing Zone deployment template to deploy into one or multiple subscriptions, depending on the requirements of your environment. It uses built-in Azure services that have no dependencies on third-party licenses. The template uses Azure Firewall and other security services to deploy an architecture that is SCCA-compliant. 
 
-![Diagram of the Mission Landing Zone SACA template.](media/mission-landing-zone.png)
+[ ![Diagram of the Mission Landing Zone SACA template.](media/mission-landing-zone.png) ](media/mission-landing-zone.png#lightbox)
 
 For the Azure documentation and deployment scripts, see [this GitHub link](https://github.com/Azure/missionlz).
 
