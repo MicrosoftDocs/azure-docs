@@ -10,14 +10,18 @@
         href: ./apache-kafka-confluent-cloud/overview.md
     - name: Quickstarts
       items:
-      - name: Create a Confluent Cloud resource - portal
+      - name: Azure portal
         href: ./apache-kafka-confluent-cloud/create.md
+      - name: Azure CLI
+        href: ./apache-kafka-confluent-cloud/create.md
+        displayName: Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show
     - name: How to
       items:
       - name: Add connectors
         href: ./apache-kafka-confluent-cloud/add-connectors.md
       - name: Manage
         href: ./apache-kafka-confluent-cloud/manage.md
+        displayName: Azure CLI, az confluent organization delete
       - name: Troubleshoot
         items:
         - name: Get support

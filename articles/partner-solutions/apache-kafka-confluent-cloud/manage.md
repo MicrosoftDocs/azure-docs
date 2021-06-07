@@ -36,6 +36,8 @@ For information about setting up your cluster, see [Create a Cluster in Confluen
 
 When you no longer need your Confluent Cloud resource, delete the resource in Azure and Confluent Cloud.
 
+### [Portal](#tab/azure-portal)
+
 To delete the resources in Azure:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -47,6 +49,26 @@ To delete the resources in Azure:
 1. To confirm the deletion, type the resource name and select **Delete**.
 
     :::image type="content" source="media/delete-resources-prompt.png" alt-text="Prompt to confirm resource deletion.":::
+
+### [Azure CLI](#tab/azure-cli)
+
+Start by preparing your environment for the Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+After you sign in, use the [az confluent organization delete](/cli/azure/confluent#az_confluent_organization_delete) command to delete the organization resource by name:
+
+```azurecli
+az confluent organization delete --name "myOrganization" --resource-group "myResourceGroup"
+```
+
+Or, by resource ID:
+
+```azurecli
+az confluent organization delete --id "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Confluent/organizations/{myOrganization}"
+```
+
+---
 
 To delete the resource on Confluent Cloud, see the documentation for [Confluent Cloud Environments - Confluent Documentation](https://docs.confluent.io/current/cloud/using/environments.html) and [Confluent Cloud Basics - Confluent Documentation](https://docs.confluent.io/current/cloud/using/cloud-basics.html).
 
