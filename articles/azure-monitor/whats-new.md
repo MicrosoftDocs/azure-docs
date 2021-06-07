@@ -75,15 +75,3 @@ Welcome to what's new in the Azure Monitor docs from May, 2021. This article lis
 
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
 
-## Community contributors
-
-The following people contributed to the Azure Monitor docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
-
-- [amitchauhan-msgit](https://github.com/amitchauhan-msgit) (1)
-- [changeworld](https://github.com/changeworld) - Takashi Takebayashi (1)
-- [llaagg](https://github.com/llaagg) - Paweł Gałęzowski (1)
-- [LukeHornibrookHaventec](https://github.com/LukeHornibrookHaventec) - Luke (1)
-- [PrateekKumarSingh](https://github.com/PrateekKumarSingh) - Prateek Singh (1)
-- [sbonds](https://github.com/sbonds) - Steve Bonds (1)
-- [toddfoust](https://github.com/toddfoust) - Todd Foust (1)
-- [tshepang](https://github.com/tshepang) - Tshepang Lekhonkhobe (1)
