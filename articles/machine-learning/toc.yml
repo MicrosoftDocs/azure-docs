@@ -655,7 +655,7 @@
       href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
     - name: 2.0 CLI
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
-      href: /cli/azure/ml
+      href: /cli/azure/ml/
     - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
