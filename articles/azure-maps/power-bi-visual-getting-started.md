@@ -106,6 +106,7 @@ The **Map settings** section of the Format pane provide options for customizing 
 | Style picker        | Adds a button to the map that allows the report readers to change the style of the map. |
 | Navigation controls | Adds buttons to the map as another method to allow the report readers to zoom, rotate, and change the pitch of the map. For more information, see this document on [Navigating the map](map-accessibility.md#navigating-the-map) for details on all the different ways users can navigate the map. |
 | Map style           | The style of the map. For more information, see this document for more information on [supported map styles](supported-map-styles.md). |
+| Selection control   | Adds a button that allows the user to choose between different modes to select data on the map; circle, rectangle, polygon (lasso), or travel time or distance. When drawing a polygon, to complete the drawing; click on the first point, or double click the map on the last point, or press the `c` key. |
 
 ### Map view settings
 

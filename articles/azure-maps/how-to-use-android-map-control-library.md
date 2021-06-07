@@ -70,12 +70,12 @@ companion object {
 The second option is to pass the language and view information into the map control XML.
 
 ```XML
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_language="fr-FR"
-    app:mapcontrol_view="Auto"
+    app:azure_maps_language="fr-FR"
+    app:azure_maps_view="Auto"
     />
 ```
 
@@ -159,6 +159,44 @@ AzureMaps.setDomain("atlas.azure.us")
 ::: zone-end
 
 Be sure to use Azure Maps authentication details from the Azure Government cloud platform when authenticating the map and services.
+
+## Migrating from a preview version
+
+With the move from preview to general availability, some breaking changes were introduced into the Azure Maps Android SDK. The following are the key details:
+
+* The maven identifier changed from `"com.microsoft.azure.maps:mapcontrol:0.7"` to `"com.azure.android:azure-maps-control:1.0.0"`. The namespace changed as well as the major version number.
+* The import namespace has changed from `com.microsoft.azure.maps.mapcontrol` to `com.azure.android.maps.control`
+* Resource names for XML options, color and image resources have had the text `mapcontrol_` replaced with `azure_maps_`.
+
+    **Before:**
+
+    ```xml
+    <com.microsoft.azure.maps.mapcontrol.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mapcontrol_language="fr-FR"
+        app:mapcontrol_view="Auto"
+        app:mapcontrol_centerLat="47.602806"
+        app:mapcontrol_centerLng="-122.329330"
+        app:mapcontrol_zoom="12"
+    />
+    ```
+
+    **After:**
+
+    ```xml
+    <com.azure.android.maps.control.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:azure_maps_language="fr-FR"
+        app:azure_maps_view="Auto"
+        app:azure_maps_centerLat="47.602806"
+        app:azure_maps_centerLng="-122.329330"
+        app:azure_maps_zoom="12"
+    />
+    ```
 
 ## Next steps
 

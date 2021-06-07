@@ -119,7 +119,7 @@ The screenshot below is of a traffic control loaded on a map.
 
 ![Traffic control added to map](media/map-add-controls-android/android-traffic-control.jpg)
 
-## A Map with all controls
+## A map with all controls
 
 Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following adds the standard navigation controls to the map using this approach.
 
