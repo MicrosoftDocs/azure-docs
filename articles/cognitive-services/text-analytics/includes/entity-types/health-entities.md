@@ -88,41 +88,44 @@ See more information and examples below.
 
 :::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="An example of a medication frequency attribute." lightbox="../../media/ta-for-health/medication-form.png":::
 
+
+**TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition, examination, treatment, medication, or administrative event. 
+
+<!--:::image type="content" source="../../media/ta-for-health/time-entity.png" alt-text="An example of a time entity." lightbox="../../media/ta-for-health/time-entity.png":::-->
+
+**MEASUREMENT_UNIT** – The unit of measurement related to an examination or a medical condition measurement.
+
 **MEASUREMENT_VALUE** – The value related to an examination or a medical condition measurement.
 
 :::image type="content" source="../../media/ta-for-health/measurement-value-entity.png" alt-text="An example of a measurement value entity." lightbox="../../media/ta-for-health/measurement-value-entity.png":::
 
-**MEASUREMENT_UNIT** – The unit of measurement related to an examination or a medical condition measurement.
-
-:::image type="content" source="../../media/ta-for-health/measurement-unit.png" alt-text="An example of a measurement unit entity." lightbox="../../media/ta-for-health/measurement-unit.png":::
-
 **RELATIONAL_OPERATOR** - Phrases that express the quantitative relation between an entity and some additional information.
 
-:::image type="content" source="../../media/ta-for-health/relational-operator-entity.png" alt-text="An example of a relational operator entity." lightbox="../../media/ta-for-health/relational-operator-entity.png":::
+<!--:::image type="content" source="../../media/ta-for-health/relational-operator-entity.png" alt-text="An example of a relational operator entity." lightbox="../../media/ta-for-health/relational-operator-entity.png":::-->
 
-**TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition, examination, treatment, medication, or administrative event. 
-
-:::image type="content" source="../../media/ta-for-health/time-entity.png" alt-text="An example of a time entity." lightbox="../../media/ta-for-health/time-entity.png":::
+:::image type="content" source="../../media/ta-for-health/measurement-unit.png" alt-text="An example of a measurement unit entity." lightbox="../../media/ta-for-health/measurement-unit.png"::: 
 
 ## Genomics
 
 ### Entities
 
-**GENE_OR_PROTEIN** – All mentions of names and symbols of human genes as well as chromosomes and parts of chromosomes and proteins. For example, MTRR, F2.
+**VARIANT** - All mentions of gene variations and mutations. For example, `c.524C>T`, `(MTRR):r.1462_1557del96`
+  
+<!-- :::image type="content" source="../../media/ta-for-health/gene-variant.png" alt-text="An example of a gene variant entity." lightbox="../../media/ta-for-health/gene-variant.png"::: -->
 
-:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity." lightbox="../../media/ta-for-health/genomics-entities.png":::
+**GENE_OR_PROTEIN** – All mentions of names and symbols of human genes as well as chromosomes and parts of chromosomes and proteins. For example, MTRR, F2.
 
 **MUTATION_TYPE** - Description of the mutation, including its type, effect, and location. For example, trisomy, germline mutation, loss of function.
 
-:::image type="content" source="../../media/ta-for-health/mutation-type.png" alt-text="An example of a gene mutation entity." lightbox="../../media/ta-for-health/mutation-type.png":::
+:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity." lightbox="../../media/ta-for-health/genomics-entities.png":::
+
+
+<!--:::image type="content" source="../../media/ta-for-health/mutation-type.png" alt-text="An example of a gene mutation entity." lightbox="../../media/ta-for-health/mutation-type.png":::-->
 
 **EXPRESSION** - Gene expression level. For example, positive for-, negative for-, overexpressed, detected in high/low levels, elevated.
 
 :::image type="content" source="../../media/ta-for-health/expression.png" alt-text="An example of a gene expression entity." lightbox="../../media/ta-for-health/expression.png":::
 
-**VARIANT** - All mentions of gene variations and mutations. For example, `c.524C>T`, `(MTRR):r.1462_1557del96`
-  
-:::image type="content" source="../../media/ta-for-health/gene-variant.png" alt-text="An example of a gene variant entity." lightbox="../../media/ta-for-health/gene-variant.png":::
 
 ## Healthcare
 
@@ -138,7 +141,7 @@ See more information and examples below.
 
 **HEALTHCARE_PROFESSION** – A healthcare practitioner licensed or non-licensed. For example, dentist, pathologist, neurologist, radiologist, pharmacist, nutritionist, physical therapist, chiropractor.
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="This screenshot shows another example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-profession-entity.png":::
+<!--:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="This screenshot shows another example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-profession-entity.png":::-->
 
 :::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Another example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-profession-entity-2.png":::
 
@@ -148,11 +151,12 @@ See more information and examples below.
 
 **DIAGNOSIS** – Disease, syndrome, poisoning. For example, breast cancer, Alzheimer’s, HTN, CHF, spinal cord injury.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-entity.png" alt-text="An example of a medical condition entity." lightbox="../../media/ta-for-health/medical-condition-entity.png":::
-
 **SYMPTOM_OR_SIGN** – Subjective or objective evidence of disease or other diagnoses. For example, chest pain, headache, dizziness, rash, SOB, abdomen was soft, good bowel sounds, well nourished.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="An example of a medical condition sign or symptom entity." lightbox="../../media/ta-for-health/medical-condition-symptom-entity.png":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-entity.png" alt-text="An example of a medical condition entity." lightbox="../../media/ta-for-health/medical-condition-entity.png":::
+
+
+<!-- :::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="An example of a medical condition sign or symptom entity." lightbox="../../media/ta-for-health/medical-condition-symptom-entity.png":::-->
 
 **CONDITION_QUALIFIER** - Qualitative terms that are used to describe a medical condition. All the following subcategories are considered qualifiers:
 
@@ -185,19 +189,19 @@ See more information and examples below.
 
 **MEDICATION_NAME** – Medication mentions, including copyrighted brand names, and non-brand names. For example, Ibuprofen.
 
-:::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="An example of a medication name entity." lightbox="../../media/ta-for-health/medication-entities-name.png":::
+<!-- :::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="An example of a medication name entity." lightbox="../../media/ta-for-health/medication-entities-name.png"::: -->
 
 **DOSAGE** - Amount of medication ordered. For example, Infuse Sodium Chloride solution *1000 mL*.
 
-:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="An example of a medication dosage attribute." lightbox="../../media/ta-for-health/medication-dosage.png":::
-
 **MEDICATION_FORM** - The form of the medication. For example, solution, pill, capsule, tablet, patch, gel, paste, foam, spray, drops, cream, syrup.
 
-:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="An example of a medication form attribute." lightbox="../../media/ta-for-health/medication-form.png":::
+:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="An example of a medication dosage attribute." lightbox="../../media/ta-for-health/medication-dosage.png":::
 
-**MEDICATION_ROUTE** - The administration method of medication. For example, oral, vaginal, IV, epidural, topical, inhaled.
+**MEDICATION_ROUTE** - The administration method of medication. For example, oral, topical, inhaled.
 
-:::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="An example of a medication route attribute." lightbox="../../media/ta-for-health/medication-route.png":::
+:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="An example of a medication form attribute." lightbox="../../media/ta-for-health/medication-form.png"::: 
+
+<!-- :::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="An example of a medication route attribute." lightbox="../../media/ta-for-health/medication-route.png"::: -->
 
 ## Social
 
