@@ -112,20 +112,20 @@
       href: how-to-run-a-reindex.md
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
- - name: Operations
+  - name: Operations
     expand: false
     items:  
     - name: Profile validation
       href: validation-against-profiles.md
     - name: Export data
-       expanded: false
-       items:
-       - name: Export data
-         href: export-data.md
-       - name: De-identified export
-         href: de-identified-export.md
-       - name: Move data to Synapse
-         href: move-to-synapse.md
+      expanded: false
+      items:
+      - name: Export data
+        href: export-data.md
+      - name: De-identified export
+        href: de-identified-export.md
+      - name: Move data to Synapse
+        href: move-to-synapse.md
     - name: Convert data
       expanded: false
       items:
@@ -135,8 +135,8 @@
       href: patient-everything.md
     - name: $member-match operation
       href: tutorial-member-match.md
-  - name: Find identity object IDs
-    href: find-identity-object-ids.md
+    - name: Find identity object IDs
+      href: find-identity-object-ids.md
   - name: Diagnostic logging and metrics
     expanded: false
     items:
