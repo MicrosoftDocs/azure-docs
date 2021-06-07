@@ -11,6 +11,7 @@ ms.date: 05/23/2021
 
 # Cloud feature availability for US Government customers
 
+
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
 - [Azure Sentinel](#azure-sentinel)
