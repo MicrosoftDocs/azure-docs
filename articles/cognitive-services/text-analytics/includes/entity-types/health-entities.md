@@ -37,7 +37,7 @@ See more information and examples below.
 
 **BODY_STRUCTURE** - Body systems, anatomic locations or regions, and body sites. For example, arm, knee, abdomen, nose, liver, head, respiratory system, lymphocytes.
 
-:::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure.png" alt-text="An example of the body structure entity.":::
+:::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure.png" alt-text="An example of the body structure entity." lightbox="../../media/ta-for-health/anatomy-entities-body-structure.png":::
 
 ## Demographics
 
@@ -45,14 +45,11 @@ See more information and examples below.
 
 **AGE** - All age terms and phrases, including ones for patients, family members, and others. For example, 40-year-old, 51 yo, 3 months old, adult, infant, elderly, young, minor, middle-aged.
 
-:::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="An example of an age entity.":::
-
-:::image type="content" source="../../media/ta-for-health/age-entity-2.png" alt-text="Another example of an age entity.":::
-
+:::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="An example of an age entity." lightbox="../../media/ta-for-health/age-entity.png":::
 
 **GENDER** - Terms that disclose the gender of the subject. For example, male, female, woman, gentleman, lady.
 
-:::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="An example of a gender entity.":::
+:::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="An example of a gender entity." lightbox="../../media/ta-for-health/gender-entity.png":::
 
 ## Examinations
 
@@ -60,7 +57,7 @@ See more information and examples below.
 
 **EXAMINATION_NAME** – Diagnostic procedures and tests, including vital signs and body measurements. For example, MRI, ECG, HIV test, hemoglobin, platelets count, scale systems such as *Bristol stool scale*.
 
-:::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="An example of an exam entity.":::
+:::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="An example of an exam entity." lightbox="../../media/ta-for-health/exam-name-entities.png":::
 
 ## External Influence
 
@@ -68,7 +65,7 @@ See more information and examples below.
 
 **ALLERGEN** – an antigen triggering an allergic reaction. For example, cats, peanuts.
 
-:::image type="content" source="../../media/ta-for-health/external-influence-allergen.png" alt-text="An example of an exam entity.":::
+:::image type="content" source="../../media/ta-for-health/external-influence-allergen.png" alt-text="An example of an exam entity." lightbox="../../media/ta-for-health/external-influence-allergen.png":::
 
 
 ## General attributes
@@ -77,35 +74,35 @@ See more information and examples below.
 
 **COURSE** - Description of a change in another entity over time, such as condition progression (e.g., improvement, worsening, resolution, remission), a course of treatment or medication (e.g., increase in medication dosage). 
 
-:::image type="content" source="../../media/ta-for-health/course-entity.png" alt-text="An example of a course entity.":::
+:::image type="content" source="../../media/ta-for-health/course-entity.png" alt-text="An example of a course entity." lightbox="../../media/ta-for-health/course-entity.png":::
 
 **DATE** - Full date relating to a medical condition, examination, treatment, medication, or administrative event.
 
-:::image type="content" source="../../media/ta-for-health/date-entity.png" alt-text="An example of a date entity.":::
+:::image type="content" source="../../media/ta-for-health/date-entity.png" alt-text="An example of a date entity." lightbox="../../media/ta-for-health/date-entity.png":::
 
 **DIRECTION** – Directional terms that may relate to a body structure, medical condition, examination, or treatment, such as: left, lateral, upper, posterior.
 
-:::image type="content" source="../../media/ta-for-health/direction-entity.png" alt-text="An example of a direction entity.":::
+:::image type="content" source="../../media/ta-for-health/direction-entity.png" alt-text="An example of a direction entity." lightbox="../../media/ta-for-health/direction-entity.png":::
 
 **FREQUENCY** - Describes how often a medical condition, examination, treatment, or medication occurred, occurs, or should occur.
 
-:::image type="content" source="../../media/ta-for-health/frequency-entity.png" alt-text="An example of a frequency entity.":::
+:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="An example of a medication frequency attribute." lightbox="../../media/ta-for-health/medication-form.png":::
 
 **MEASUREMENT_VALUE** – The value related to an examination or a medical condition measurement.
 
-:::image type="content" source="../../media/ta-for-health/measurement-value-entity.png" alt-text="An example of a measurement value entity.":::
+:::image type="content" source="../../media/ta-for-health/measurement-value-entity.png" alt-text="An example of a measurement value entity." lightbox="../../media/ta-for-health/measurement-value-entity.png":::
 
 **MEASUREMENT_UNIT** – The unit of measurement related to an examination or a medical condition measurement.
 
-:::image type="content" source="../../media/ta-for-health/measurement-unit.png" alt-text="An example of a measurement unit entity.":::
+:::image type="content" source="../../media/ta-for-health/measurement-unit.png" alt-text="An example of a measurement unit entity." lightbox="../../media/ta-for-health/measurement-unit.png":::
 
 **RELATIONAL_OPERATOR** - Phrases that express the quantitative relation between an entity and some additional information.
 
-:::image type="content" source="../../media/ta-for-health/relational-operator-entity.png" alt-text="An example of a relational operator entity.":::
+:::image type="content" source="../../media/ta-for-health/relational-operator-entity.png" alt-text="An example of a relational operator entity." lightbox="../../media/ta-for-health/relational-operator-entity.png":::
 
 **TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition, examination, treatment, medication, or administrative event. 
 
-:::image type="content" source="../../media/ta-for-health/time-entity.png" alt-text="An example of a time entity.":::
+:::image type="content" source="../../media/ta-for-health/time-entity.png" alt-text="An example of a time entity." lightbox="../../media/ta-for-health/time-entity.png":::
 
 ## Genomics
 
@@ -113,19 +110,19 @@ See more information and examples below.
 
 **GENE_OR_PROTEIN** – All mentions of names and symbols of human genes as well as chromosomes and parts of chromosomes and proteins. For example, MTRR, F2.
 
-:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity.":::
+:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity." lightbox="../../media/ta-for-health/genomics-entities.png":::
 
 **MUTATION_TYPE** - Description of the mutation, including its type, effect, and location. For example, trisomy, germline mutation, loss of function.
 
-:::image type="content" source="../../media/ta-for-health/mutation-type.png" alt-text="An example of a gene mutation entity.":::
+:::image type="content" source="../../media/ta-for-health/mutation-type.png" alt-text="An example of a gene mutation entity." lightbox="../../media/ta-for-health/mutation-type.png":::
 
 **EXPRESSION** - Gene expression level. For example, positive for-, negative for-, overexpressed, detected in high/low levels, elevated.
 
-:::image type="content" source="../../media/ta-for-health/expression.png" alt-text="An example of a gene expression entity.":::
+:::image type="content" source="../../media/ta-for-health/expression.png" alt-text="An example of a gene expression entity." lightbox="../../media/ta-for-health/expression.png":::
 
 **VARIANT** - All mentions of gene variations and mutations. For example, `c.524C>T`, `(MTRR):r.1462_1557del96`
   
-:::image type="content" source="../../media/ta-for-health/gene-variant.png" alt-text="An example of a gene variant entity.":::
+:::image type="content" source="../../media/ta-for-health/gene-variant.png" alt-text="An example of a gene variant entity." lightbox="../../media/ta-for-health/gene-variant.png":::
 
 ## Healthcare
 
@@ -133,17 +130,17 @@ See more information and examples below.
   
 **ADMINISTRATIVE_EVENT** – Events that relate to the healthcare system but of an administrative/semi-administrative nature. For example, registration, admission, trial, study entry, transfer, discharge, hospitalization, hospital stay. 
 
-:::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="An example of a healthcare event entity.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="An example of a healthcare event entity." lightbox="../../media/ta-for-health/healthcare-event-entity.png" :::
 
 **CARE_ENVIRONMENT** – An environment or location where patients are given care. For example, emergency room, physician’s office, cardio unit, hospice, hospital.
 
-:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="This screenshot shows an example of a healthcare environment entity.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="This screenshot shows an example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-environment-entity.png":::
 
 **HEALTHCARE_PROFESSION** – A healthcare practitioner licensed or non-licensed. For example, dentist, pathologist, neurologist, radiologist, pharmacist, nutritionist, physical therapist, chiropractor.
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="This screenshot shows another example of a healthcare environment entity.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="This screenshot shows another example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-profession-entity.png":::
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Another example of a healthcare environment entity.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Another example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-profession-entity-2.png":::
 
 ## Medical condition
 
@@ -151,11 +148,11 @@ See more information and examples below.
 
 **DIAGNOSIS** – Disease, syndrome, poisoning. For example, breast cancer, Alzheimer’s, HTN, CHF, spinal cord injury.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-entity.png" alt-text="An example of a medical condition entity.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-entity.png" alt-text="An example of a medical condition entity." lightbox="../../media/ta-for-health/medical-condition-entity.png":::
 
 **SYMPTOM_OR_SIGN** – Subjective or objective evidence of disease or other diagnoses. For example, chest pain, headache, dizziness, rash, SOB, abdomen was soft, good bowel sounds, well nourished.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="An example of a medical condition sign or symptom entity.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="An example of a medical condition sign or symptom entity." lightbox="../../media/ta-for-health/medical-condition-symptom-entity.png:::
 
 **CONDITION_QUALIFIER** - Qualitative terms that are used to describe a medical condition. All the following subcategories are considered qualifiers:
 
@@ -164,7 +161,7 @@ See more information and examples below.
 3.	Severity expressions: severe, mild, a bit, uncontrolled.
 4.	Extensivity expressions: local, focal, diffuse.
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="This screenshot shows another example of a condition qualifier attribute with a diagnosis entity.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="This screenshot shows another example of a condition qualifier attribute with a diagnosis entity." lightbox="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" :::
 
 <!--
 :::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis.png" alt-text="An example of a condition qualifier attribute and a diagnosis entity.":::
@@ -176,7 +173,7 @@ See more information and examples below.
 
 **CONDITION_SCALE** – Qualitative terms that characterize the condition by a scale, which is a finite ordered list of values.
 
-:::image type="content" source="../../media/ta-for-health/condition-scale-example.png" alt-text="Another example of a condition qualifier attribute and a diagnosis entity.":::
+:::image type="content" source="../../media/ta-for-health/condition-scale-example.png" alt-text="Another example of a condition qualifier attribute and a diagnosis entity." lightbox="../../media/ta-for-health/condition-scale-example.png":::
 
 ## Medication
 
@@ -184,23 +181,23 @@ See more information and examples below.
 
 **MEDICATION_CLASS** – A set of medications that have a similar mechanism of action, a related mode of action, a similar chemical structure, and/or are used to treat the same disease. For example, ACE inhibitor, opioid, antibiotics, pain relievers.
 
-:::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="An example of a medication class entity.":::
+:::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="An example of a medication class entity." lightbox="../../media/ta-for-health/medication-entities-class.png":::
 
 **MEDICATION_NAME** – Medication mentions, including copyrighted brand names, and non-brand names. For example, Ibuprofen.
 
-:::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="An example of a medication name entity.":::
+:::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="An example of a medication name entity." lightbox="../../media/ta-for-health/medication-entities-name.png":::
 
 **DOSAGE** - Amount of medication ordered. For example, Infuse Sodium Chloride solution *1000 mL*.
 
-:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="An example of a medication dosage attribute.":::
+:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="An example of a medication dosage attribute." lightbox="../../media/ta-for-health/medication-dosage.png":::
 
 **MEDICATION_FORM** - The form of the medication. For example, solution, pill, capsule, tablet, patch, gel, paste, foam, spray, drops, cream, syrup.
 
-:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="An example of a medication form attribute.":::
+:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="An example of a medication form attribute." lightbox="../../media/ta-for-health/medication-form.png":::
 
 **MEDICATION_ROUTE** - The administration method of medication. For example, oral, vaginal, IV, epidural, topical, inhaled.
 
-:::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="An example of a medication route attribute.":::
+:::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="An example of a medication route attribute." lightbox="../../media/ta-for-health/medication-route.png":::
 
 ## Social
 
@@ -208,7 +205,7 @@ See more information and examples below.
 
 **FAMILY_RELATION** – Mentions of family relatives of the subject. For example, father, daughter, siblings, parents.
 
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Example of a family relation entity.":::
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Example of a family relation entity." lightbox="../../media/ta-for-health/family-relation.png":::
 
 ## Treatment
 
@@ -216,7 +213,7 @@ See more information and examples below.
 
 **TREATMENT_NAME** – Therapeutic procedures. For example, knee replacement surgery, bone marrow transplant, TAVI, diet.
 
-:::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="An example of a treatment name entity.":::
+:::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="An example of a treatment name entity." lightbox="../../media/ta-for-health/treatment-entities-name.png":::
 
 
 ## Supported Assertions
