@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Exporting SDK Telemetry Data to Application Insights
+title: Quickstart - Exporting SDK telemetry data to Application Insights
 titleSuffix: An Azure Communication Services quickstart
 description: Learn how to export Azure Communication Services SDK Telemetry Data to Application Insights.
 author: peiliu
