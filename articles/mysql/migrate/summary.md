@@ -36,7 +36,7 @@ In addition, consider these points of contact as appropriate:
 
   - To provide feedback or to request new features, create an entry via [UserVoice.](https://feedback.azure.com/forums/597982-azure-database-for-mysql)
 
-## Find a partner to help migrating
+## Find a partner to help migrate
 
 This guide can be overwhelming, but don’t fret\! There are many experts in the community with a proven migration track record. [Search for a Microsoft Partner](https://www.microsoft.com/solution-providers/home) or [Microsoft MVP](https://mvp.microsoft.com/MvpSearch) to help with finding the most appropriate migration strategy. You aren't alone\!
 

@@ -13,17 +13,17 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Data Migration with MySQL Workbench
 
-### Setup
+## Setup
 
 Follow all the steps in the Setup guide to create an environment to support the following steps.
 
-### Configuring Server Parameters (Source)
+## Configuring server parameters (Source)
 
-Depending on the type of migration you have chosen (offline vs. online), you will want to evaluate if you are going to modify the server parameters to support a fast egress of the data. If you are doing online, it may not be necessary to do anything to server parameters as you will likely be performing `binlog` replication and have the data syncing on its own. However, if you are doing an offline migration, once you stop application traffic, you can switch the server parameters from supporting the workload to supporting the export.
+Depending on the type of migration You've chosen (offline vs. online), you want to evaluate if you are going to modify the server parameters to support a fast egress of the data. If you are doing online, it may not be necessary to do anything to server parameters as you are likely to perform a `binlog` replication and have the data syncing on its own. However, if you are doing an offline migration, once you stop application traffic, you can switch the server parameters from supporting the workload to supporting the export.
 
-### Configuring Server Parameters (Target)
+## Configuring server parameters (Target)
 
-Review the server parameters before starting the import process into Azure Database for MySQL. Server parameters can be retrieved and set using the [Azure Portal](/azure/mysql/howto-server-parameters) or by calling the [Azure PowerShell for MySQL cmdlets](/azure/mysql/howto-configure-server-parameters-using-powershell) to make the changes.
+Review the server parameters before starting the import process into Azure Database for MySQL. Server parameters can be retrieved and set using the [Azure portal](/azure/mysql/howto-server-parameters) or by calling the [Azure PowerShell for MySQL cmdlets](/azure/mysql/howto-configure-server-parameters-using-powershell) to make the changes.
 
 Execute the following PowerShell script to get all parameters:
 
@@ -51,11 +51,11 @@ mysql --host {servername}.mysql.database.azure.com --database mysql --user
 -A -e "SHOW GLOBAL VARIABLES;" \> c:\\temp\\settings\_azure.txt
 ```
 
-In the new \`settings\_azure.txt\` file, you will see the default Azure Database for MySQL server parameters as shown in the [appendix](appendix.md#environment-setup).
+In the new \`settings\_azure.txt\` file, you can see the default Azure Database for MySQL server parameters as shown in the [appendix](appendix.md#environment-setup).
 
 To support the migration, set the target MySQL instance parameters to allow for a faster ingress. The following server parameters should be set before starting the data migration:
 
-  - `max\_allowed\_packet` – set the parameter to `1073741824` (i.e. 1GB) or the largest size of a row in the database to prevent any overflow issue due to long rows. Consider adjusting this parameter if there are large BLOB rows that need to be pulled out (or read).
+  - `max\_allowed\_packet` – set the parameter to `1073741824` (that is, 1 GB) or the largest size of a row in the database to prevent any overflow issue due to long rows. Consider adjusting this parameter if there are large BLOB rows that need to be pulled out (or read).
 
   - `innodb\_buffer\_pool\_size` – Scale up the server to 32 vCore Memory Optimized SKU from the Pricing tier of the portal during migration to increase the innodb\_buffer\_pool\_size. Innodb\_buffer\_pool\_size can only be increased by scaling up compute for Azure Database for MySQL server. Reference [Server parameters in Azure Database for MySQL](/azure/mysql/concepts-server-parameters#innodb_buffer_pool_size) for the max value for the tier. The maximum value in a Memory Optimized 32 vCore system is `132070244352`.
 
@@ -64,7 +64,7 @@ To support the migration, set the target MySQL instance parameters to allow for 
   - `max\_connections` - If using a tool that generates multiple threads to increase throughput, increase the connections to support that tool. Default is `151`, max is `5000`.
 
     > [!NOTE] 
-    > Take care when performing scaling. Some operations cannot be undone, such as storage scaling.
+    > Take care when performing scaling. Some operations can't be undone, such as storage scaling.
 
 These settings can be updated using the Azure PowerShell cmdlets below:
 
@@ -83,18 +83,18 @@ $rgna me -ServerName $serverName -Value 9000
 Update-AzMySqlConfiguration -Name innodb\_io\_capacity\_max -ResourceGroupName 
 $ rgname -ServerName $serverName -Value 9000
 
-\#required if you have functions
+\#required if You've functions
 
 Update-AzMySqlConfiguration -Name log\_bin\_trust\_function\_creators 
 -ResourceGr oupName $rgname -ServerName $serverName -Value ON
 ```
-### Data
+## Data
 
-#### Tool Choice
+### Tool choice
 
-With the database objects and users from the source system migrated, the migration can begin. Databases running on MySQL version 8.0 cannot use Azure DMS to migrate the workload. Instead, migration users should use MySQL Workbench.
+With the database objects and users from the source system migrated, the migration can begin. Databases running on MySQL version 8.0 can't use Azure DMS to migrate the workload. Instead, migration users should use MySQL Workbench.
 
-#### Manual Import and Export Steps
+### Manual import and export steps
 
   - Open MySQL Workbench and connect as the local database’s root user.
 
@@ -110,7 +110,7 @@ With the database objects and users from the source system migrated, the migrati
 
     **Test**
 
-  - If any of these options appear unavailable, they are likely obstructed by the Output pane. Just change the editor layout.
+  - If any of these options appear unavailable, they're likely obstructed by the Output pane. Just change the editor layout.
 
     ![editor layout](./media/image7.jpg)
 
@@ -125,7 +125,7 @@ With the database objects and users from the source system migrated, the migrati
   - Find any `DEFINER` statements and either change to a valid user or remove them completely.
 
     > [!NOTE] 
-    > This can be done by passing the `--skip-definer` in the mysqldump command. This is not an option in the MySQL Workbench; therefore, the lines will need to be manually removed in the export commands. Although we point out four items to remove here, there can be other items that could fail when migrating from one MySQL version to another (such as new reserved words).
+    > This can be done by passing the `--skip-definer` in the mysqldump command. This is not an option in the MySQL Workbench; therefore, the lines need to be manually removed in the export commands. Although we point out four items to remove here, there can be other items that could fail when migrating from one MySQL version to another (such as new reserved words).
 
   - Find `SET GLOBAL` statements and either change to a valid user or remove them completely.
 
@@ -157,7 +157,7 @@ With the database objects and users from the source system migrated, the migrati
 
   - Select **Execute**.
 
-### Update Applications to support SSL
+## Update applications to support SSL
 
   - Switch to the Java Server API in Visual Studio code.
 
@@ -169,9 +169,9 @@ With the database objects and users from the source system migrated, the migrati
 
   - Start the debug configuration, and ensure that the application works locally with the new database.
 
-### Revert Server Parameters
+## Revert server parameters
 
-The following parameters can be changed on the Azure Database for MySQL target instance. These parameters can be set through the Azure Portal or by using the [Azure PowerShell for MySQL cmdlets.](/azure/mysql/howto-configure-server-parameters-using-powershell)
+The following parameters can be changed on the Azure Database for MySQL target instance. These parameters can be set through the Azure portal or by using the [Azure PowerShell for MySQL cmdlets.](/azure/mysql/howto-configure-server-parameters-using-powershell)
 
 ```
 $rgName = "YourRGName";
@@ -185,7 +185,7 @@ me -ServerName $serverName -Value 200
 Update-AzMySqlConfiguration -Name innodb\_io\_capacity\_max -ResourceGroupName 
 $ rgname -ServerName $serverName -Value 2000
 ```
-### Change Connection String for the Java API
+## Change connection string for the Java API
 
   - Use the following commands to change the connection string for the App Service Java API
 
@@ -204,7 +204,7 @@ az webapp config appsettings set -g $rgName -n $app_name
 ```
 az webapp restart -g $rgName -n $app\_name
 ```
-You have successfully completed an on-premises to Azure Database for MySQL migration\!  
+You've successfully completed an on-premises to Azure Database for MySQL migration\!  
 
 
 > [!div class="nextstepaction"]  

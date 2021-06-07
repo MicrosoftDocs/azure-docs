@@ -11,11 +11,11 @@ ms.custom:
 ms.date: 05/25/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Assessment
+# MySQL on-premises to Azure Database for MySQL migration guide assessment
 
 Before jumping right into migrating a MySQL workload, there's a fair amount of due diligence that must be performed. This includes analyzing the data, hosting environment, and application workloads to validate the Azure Landing zone is configured correctly and prepared to host the soon-to-be migrated workloads.
 
-### Limitations
+## Limitations
 
 Azure Database for MySQL is a fully supported version of the MySQL community edition running as a platform as a service. However, there are [some limitations](/azure/mysql/concepts-limits) to become familiar with when doing an initial assessment.
 
@@ -31,9 +31,9 @@ The most important of which include:
 
   - When using [MySQL Server User-Defined Functions (UDFs),](https://dev.mysql.com/doc/refman/5.7/en/server-udfs.html) the only viable hosting option is Azure Hosted VMs, as there's no capability to upload the `so` or `dll` component to Azure Database for MySQL.
 
-Many of the other items are operational aspects that administrators should become familiar with as part of the operational data workload lifecycle management. This guide will explore many of these operational aspects in the Post Migration Management section.
+Many of the other items are operational aspects that administrators should become familiar with as part of the operational data workload lifecycle management. This guide explores many of these operational aspects in the Post Migration Management section.
 
-### MySQL Versions
+## MySQL versions
 
 MySQL has a rich history starting in 1995. Since then, it has evolved into a widely used database management system. Azure Database for MySQL started with the support of MySQL version 5.6 and has continued to 5.7 and recently 8.0. For the latest on Azure Database for MySQL version support, reference [Supported Azure Database for MySQL server versions.](/azure/mysql/concepts-supported-versions) In the Post Migration Management section, we review how upgrades (such as 5.7.20 to 5.7.21) are applied to the MySQL instances in Azure.
 
@@ -59,11 +59,11 @@ To check the MySQL server version:
 SHOW VARIABLES LIKE "%version%";
 ```
 
-#### Database storage engines
+### Database storage engines
 
 Azure Database for MySQL only supports [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) and [Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-storage-engine.html) database storage engines. Other storage engines, like [MyISAM,](https://dev.mysql.com/doc/refman/8.0/en/myisam-storage-engine.html) need to be migrated to a supported storage engine. The differences between MyISAM and InnoDB are the operational features and performance output. The higher-level tables and schema structure typically don't change between the engines, but the index and table column types may change for storage and performance reasons. Although InnoDB is known to have large data file sizes, these storage details are managed by the Azure Database for MySQL service.
 
-##### Migrating from MyISAM to InnoDB
+#### Migrating from MyISAM to InnoDB
 
 The MyISAM database and tables needs to be converted to InnoDB tables. After conversion, applications should be tested for compatibility and performance. In most cases, testing requires recreating the table and changing the target storage engine via DDL statements. It's unlikely this change needs to be performed during migration as it occurs during the schema creation in the Azure target. For more details, review the [converting tables developers documentation](https://dev.mysql.com/doc/refman/5.6/en/converting-tables-to-innodb.html) on the MySQL website.
 
@@ -111,7 +111,7 @@ INSERT INTO {table\_name} SELECT * FROM {myisam\_table} ORDER BY {primary\_key\_
 > [!NOTE]
 > For this approach to be successful, the original table would need to be deleted, then the new table renamed. This task causes a short downtime period.
 
-#### Database data and objects
+### Database data and objects
 
 Data is one component of database migration. The database supporting objects must be migrated and validated to ensure the applications continue to run reliably.
 
@@ -131,7 +131,7 @@ Here's a list of items you should inventory before and after the migration:
 
   - Views
 
-#### User-Defined Functions
+### User-Defined functions
 
 MySQL allows for the usage of functions that call external code. Unfortunately, data workloads using User-Defined Functions (UDFs) with external code cannot be migrated to Azure Database for MySQL. This is because the required MySQL function's backing so or dll code cannot be uploaded to the Azure server.
 
@@ -141,7 +141,7 @@ Run the following query to find any UDFs that may be installed:
 SELECT * FROM mysql.func;
 ```
 
-### Source Systems
+## Source systems
 
 The amount of migration preparation can vary depending on the source system and its location. In addition to the database objects, consider how to get the data from the source system to the target system. Migrating data can become challenging when firewalls and other networking components are between the source and target.
 
@@ -151,29 +151,29 @@ If ExpressRoute is already present, it's likely that connection is being used by
 
 Lastly, disk space must be evaluated. When exporting a large database, consider the size of the data. Ensure the system where the tool is running, and ultimately the export location has enough disk space to perform the export operation.
 
-#### Cloud Providers
+### Cloud providers
 
 Migrating databases from cloud services providers such as Amazon Web Services (AWS) may require an extra networking configuration step in order to access the cloud-hosted MySQL instances. Migration tools, like Data Migration Services, require access from outside IP ranges and maybe otherwise blocked.
 
-#### On-premises
+### On-premises
 
 Like cloud providers, if the MySQL data workload is behind firewalls or other network security layers, a path needs to be created between the on-premises instance and Azure Database for MySQL.
 
-### Tools
+## Tools
 
 Many tools and methods can be used to assess the MySQL data workloads and environments. Each tool provides a different set of assessment and migration features and functionality. As part of this guide, we review the most commonly used tools for assessing MySQL data workloads.
 
-#### Azure Migrate
+### Azure migrate
 
-Although [Azure Migrate](/azure/migrate/migrate-services-overview) doesn't support migrating MySQL database workloads directly, it can be used when administrators are unsure of what users and applications are consuming the data, whether hosted in a virtual or hardware-based machine. [Dependency analysis](/azure/migrate/concepts-dependency-visualization) can be accomplished by installing and running the monitoring agent on the machine hosting the MySQL workload. The agent will gather the information over a set period, such as a month. The dependency data can be analyzed to find unknown connections being made to the database. The connection data can help identify application owners that need to be notified of the pending migration.
+Although [Azure Migrate](/azure/migrate/migrate-services-overview) doesn't support migrating MySQL database workloads directly, it can be used when administrators are unsure of what users and applications are consuming the data, whether hosted in a virtual or hardware-based machine. [Dependency analysis](/azure/migrate/concepts-dependency-visualization) can be accomplished by installing and running the monitoring agent on the machine hosting the MySQL workload. The agent gathers the information over a set period, such as a month. The dependency data can be analyzed to find unknown connections being made to the database. The connection data can help identify application owners that need to be notified of the pending migration.
 
 In addition to the dependency analysis of applications and user connectivity data, Azure Migrate can also be used to analyze the [Hyper-V, VMware, or physical servers](/azure/migrate/migrate-appliance-architecture) to provide utilization patterns of the database workloads to help suggest the proper target environment.
 
-#### Telgraf for Linux
+### Telgraf for Linux
 
 Linux workloads can utilize the [Microsoft Monitoring Agent (MMA)](/azure/azure-monitor/platform/agent-linux) to gather data on your virtual and physical machines. Additionally, consider using the [Telegraf agent](/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf) and its wide array of plugins to gather your performance metrics.
 
-#### Service Tiers
+### Service tiers
 
 Equipped with the assessment information (CPU, memory, storage, etc.), the migration user's next choice is to decide on which Azure Database for MySQL [pricing tier](/azure/mysql/concepts-pricing-tiers) to start using.
 
@@ -198,7 +198,7 @@ Typically, the decision-making focuses on the storage and IOPS, or Input/output 
 | **General Purpose** | Needs for IOPS more than what basic tier can provide, but for storage less than 16 TB, and less than 4 GB of memory. |
 | **Memory Optimized** | Data workloads that utilize high memory or high cache and buffer-related server configuration such as high concurrency innodb_buffer_pool_instances, large BLOB sizes, systems with many slaves for replication. |
 
-#### Costs
+### Costs
 
 After evaluating the entire WWI MySQL data workloads, WWI determined they would need at least 4 vCores and 20 GB of memory and at least 100 GB of storage space with an IOP capacity of 450 IOPS. Because of the 450 IOPS requirement, they need to allocate at least 150 GB of storage because of [Azure Database for MySQL IOPs allocation method.](/azure/mysql/concepts-pricing-tiers#storage) Additionally, they require at least up to 100% of your provisioned server storage as backup storage and one read replica. They don't anticipate an outbound egress of more than 5 GB.
 
@@ -227,11 +227,11 @@ After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a p
 As the table above shows, backups, network egress, and any read replicas must be considered in the total cost of ownership (TCO). As more databases are added, the storage and network traffic generated would be the only extra cost-based factor to consider.
 
 > [!NOTE]
-> The estimates above don't include any [ExpressRoute,](/azure/expressroute/expressroute-introduction) [Azure App Gateway,](/azure/application-gateway/overview) [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) or [App Service](/azure/app-service/overview) costs for the application layers.
+> The estimates above don't include any [ExpressRoute](/azure/expressroute/expressroute-introduction), [Azure App Gateway](/azure/application-gateway/overview), [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or [App Service](/azure/app-service/overview) costs for the application layers.
 >
 > The above pricing can change at any time and varies based on region.
 
-#### Application Implications
+### Application implications
 
 When moving to Azure Database for MySQL, the conversion to secure sockets layer (SSL) based communication is likely to be one of the most significant changes for your applications. SSL is enabled by default in Azure Database for MySQL, and it's likely the on-premises application and data workload is not set up to connect to MySQL using SSL. When enabled, SSL usage adds some extra processing overhead and should be monitored.
 
@@ -242,7 +242,7 @@ Follow the activities in [Configure SSL connectivity in your application to secu
 
 Lastly, modify the server name in the application connection strings or switch the DNS to point to the new Azure Database for MySQL server.
 
-### WWI Scenario
+## WWI scenario
 
 WWI started the assessment by gathering information about their MySQL data estate. They were able to compile the following:
 
@@ -258,7 +258,7 @@ Each database owner was contacted to determine the acceptable downtime period. T
 
 For the first phase, WWI focused solely on the ConferenceDB database. The team needed the migration experience to help the proceeding data workload migrations. The ConferenceDB database was selected because of the simple database structure and the large acceptable downtime. Once the database was migrated, the team focused on migrating the application into the secure Azure landing zone.
 
-### Assessment Checklist
+## Assessment checklist
 
   - Test the workload runs successfully on the target system.
 
