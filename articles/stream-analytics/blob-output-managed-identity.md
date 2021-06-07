@@ -163,7 +163,7 @@ There are two levels of access you can choose to give your Stream Analytics job:
 Unless you need the job to create containers on your behalf, you should choose **Container level access** since this option will grant the job the minimum level of access required. Both options are explained below for the Azure portal and the command-line.
 
 > [!NOTE]
-> Due to global replication/notification/caching latency, there may be a delay when permissions are revoked/granted. Changes should be reflected within 8 minutes.
+> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.
 
 ### Grant access via the Azure portal
 
