@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure xMatters OnDemand SSO
 
-1. In a different web browser window, sign in to your XMatters OnDemand company site as an administrator.
+1. In a different web browser window, sign in to your xMatters OnDemand company site as an administrator.
 
 2. Click on **Admin**, and then click **Company Details**.
 
@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create xMatters OnDemand test user
 
-1. Sign in to your **XMatters OnDemand** tenant.
+1. Sign in to your **xMatters OnDemand** tenant.
 
 2. Go to the **Users Icon** > **Users** and then click **Add Users**.
 
