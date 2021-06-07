@@ -30,7 +30,7 @@ The ARM template deploys all resources with private endpoints. The ARM template 
 
 The ARM template deploys resources using standard deployment where all resources are available from the internet.
 
-[ARM Template](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigrationSecure)
+[ARM template](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigrationSecure)
 
 ## Default server parameters MySQL 5.5 and Azure Database for MySQL
 
