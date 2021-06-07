@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 06/04/2021
+ms.date: 06/07/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
@@ -69,7 +69,7 @@ Before you deploy, make sure that following prerequisites are in place:
 
 12. **Configure compute**: In the Azure portal, go to **Overview > Device**. Verify that the device is **Online**. In the left-pane, go to **Edge compute > Get started > Configure Edge compute > Compute**. Provide an existing or new IoT Hub service and wait for about 20 minutes for the compute to configure. See more information on [Tutorial: Configure compute on Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-configure-compute.md)
 
-You are ready to deploy compute workloads on your device [via IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [via `kubectl`],(azure-stack-edge-gpu-create-kubernetes-cluster.md) or [via Azure Arc enabled Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)! If you experience any issues during the setup, see troubleshooting for <!-- WHY? - [ordering issues](azure-stack-edge-troubleshoot-ordering.md),--> [certificate issues](azure-stack-edge-gpu-certificate-troubleshooting.md)<!--,--> or [IoT Edge issues](azure-stack-edge-gpu-troubleshoot-iot-edge.md). 
+You are ready to deploy compute workloads on your device [via IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [via `kubectl`],(azure-stack-edge-gpu-create-kubernetes-cluster.md) or [via Azure Arc enabled Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)! If you experience any issues during the setup, see troubleshooting for [Azure Stack Edge Pro GPU devices](azure-stack-edge-gpu-troubleshoot.md), [certificate issues](azure-stack-edge-gpu-certificate-troubleshooting.md), or [IoT Edge issues](azure-stack-edge-gpu-troubleshoot-iot-edge.md). 
 
 ## Next steps
 
