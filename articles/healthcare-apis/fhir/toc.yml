@@ -62,6 +62,10 @@
       href: davinci-drug-formulary-tutorial.md
     - name: DaVinci PDex
       href: davinci-pdex-tutorial.md
+    - name: $member-match operation
+      href: tutorial-member-match.md
+    - name: Patient-everything in FHIR
+      href: patient-everything.md
 - name: How-to guides
   expanded: false
   items:
@@ -108,28 +112,22 @@
       href: how-to-run-a-reindex.md
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
-  - name: Operations
-    expand: false
-    - name: $validate and store profiles
-      href: validation-against-profiles.md
-    - name: $patient-everything operation
-      href: patient-everything.md
+  - name: Profile validation
+    href: validation-against-profiles.md
+  - name: Export data
+    expanded: false
+    items:
     - name: Export data
-      expanded: false
-      items:
-      - name: Export data
-        href: export-data.md
-      - name: De-identified export
-        href: de-identified-export.md
-      - name: Move data to Synapse
-        href: move-to-synapse.md
-    - name: Convert data
-      expanded: false
-      items:
-      - name: $convert-data and FHIR Converter Extension Templates
-        href: convert-data.md
-    - name: $member-match operation
-    href: tutorial-member-match.md
+      href: export-data.md
+    - name: De-identified export
+      href: de-identified-export.md
+    - name: Move data to Synapse
+      href: move-to-synapse.md
+  - name: Convert data
+    expanded: false
+    items:
+    - name: $convert-data and FHIR Converter Extension Templates
+      href: convert-data.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Diagnostic logging and metrics
