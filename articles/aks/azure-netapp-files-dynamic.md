@@ -148,7 +148,7 @@ If your AKS cluster is running a Kubernetes version 1.20 execute the following c
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
-## Install volume snapshot controller and RBAC
+# Install volume snapshot controller and RBAC
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
 ```
@@ -184,106 +184,41 @@ The next step is to confirm your selections. Once that is done, Astra will disco
 
 ![Astra compute status](media/az-netappfiles-dynamic/astra-cluster-available.png)
 
-## Dynamically provision ANF volumes using Trident
+## Deploy an app and create volumes
 
 You can now deploy applications and create ANF volumes directly through Kubernetes. As part of onboarding an AKS cluster to Astra, [Trident](https://netapp-trident.readthedocs.io/), NetApp's dynamic storage provisioner for Kubernetes, is installed for you. Users can create PersistentVolumeClaim (PVC) objects, which are requests for storage by a user. Upon the creation of a PersistentVolumeClaim, Trident automatically creates an ANF volume and makes it available for Kubernetes workloads to consume.
 
-Create a file named `anf-pvc.yaml` and provide the following manifest. In this example, a 1-TiB volume is created that is *ReadWriteMany*.
-
-```yaml
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: nginx-pvc
-  namespace: nginx
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 1Ti
-  storageClassName: netapp-anf-perf-premium
-```
-
-Create the persistent volume claim with the [kubectl apply][kubectl-apply] command:
+In this example, you will be deploying WordPress using the [Helm chart][https://bitnami.com/stack/wordpress/helm].
 
 ```console
-$  kubectl create ns nginx
-namespace/nginx created
-$  kubectl apply -f anf-pvc.yaml
-
-persistentvolumeclaim/nginx-pvc created
-
-$  kubectl get pvc
-kubectl get pvc -n nginx
-NAME      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS              AGE
-nginx-pvc Bound    pvc-bffa315d-3f44-4770-86eb-c922f567a075   1Ti        RWO            netapp-anf-perf-premium   62s
+$  helm repo add bitnami https://charts.bitnami.com/bitnami
+$  helm install wordpress bitnami/wordpress -n wordpress --create-namespace
 ```
 
-## Use the persistent volume
-
-After the PVC is created, a pod can be spun up to access the ANF volume. The manifest below can be used to define a NGINX pod that mounts the ANF volume that was created in the previous step. In this example, the volume is mounted at `/mnt/data`.
-
-Create a file named `anf-nginx-pod.yaml` which contains the following manifest:
-
-```yml
-kind: Pod
-apiVersion: v1
-metadata:
-  name: nginx-pod
-  namespace: nginx
-spec:
-  containers:
-  - name: nginx
-    image: mcr.microsoft.com/oss/nginx/nginx:latest1.15.5-alpine
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi
-    volumeMounts:
-    - mountPath: "/mnt/data"
-      name: volume
-  volumes:
-    - name: volume
-      persistentVolumeClaim:
-        claimName: nginx-pvc
-```
-
-Create the pod with the [kubectl apply][kubectl-apply] command:
+The application is made up of multiple components such as the WordPress and MariaDB services, statefulsets, and the PVCs to store data. Trident **automatically** creates ANF volumes for the PVCs and mounts them for the application to read/write into.
 
 ```console
-$  kubectl apply -f anf-nginx-pod.yaml
+$   kubectl get all,pvc -n wordpress
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/wordpress-7dbb7bcfff-vb9fv   1/1     Running   1          13m
+pod/wordpress-mariadb-0          1/1     Running   0          13m
 
-pod/nginx-pod created
-```
+NAME                        TYPE           CLUSTER-IP   EXTERNAL-IP     PORT(S)                      AGE
+service/wordpress           LoadBalancer   10.1.0.25    20.94.168.202   80:31364/TCP,443:32359/TCP   13m
+service/wordpress-mariadb   ClusterIP      10.1.0.114   <none>          3306/TCP                     13m
 
-Kubernetes has now created a pod with the ANF volume mounted and accessible within the `nginx` container at `/mnt/data`. This can be confirmed by looking at the event logs for the pod using `kubectl describe`:
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wordpress   1/1     1            1           13m
 
-```console
-$  kubectl describe pod nginx-pod -n nginx
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/wordpress-7dbb7bcfff   1         1         1       13m
 
-[...]
-Volumes:
-  volume:
-    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
-    ClaimName:  anf-pvc
-    ReadOnly:   false
-  default-token-k7952:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-k7952
-    Optional:    false
-[...]
-Events:
-  Type    Reason                  Age   From                     Message
-  ----    ------                  ----  ----                     -------
-  Normal  Scheduled               15s   default-scheduler        Successfully assigned trident/nginx-pod to brameshb-non-root-test
-  Normal  SuccessfulAttachVolume  15s   attachdetach-controller  AttachVolume.Attach succeeded for volume "pvc-bffa315d-3f44-4770-86eb-c922f567a075"
-  Normal  Pulled                  12s   kubelet                  Container image "mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine" already present on machine
-  Normal  Created                 11s   kubelet                  Created container nginx
-  Normal  Started                 10s   kubelet                  Started container nginx
+NAME                                 READY   AGE
+statefulset.apps/wordpress-mariadb   1/1     13m
+
+NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS              AGE
+persistentvolumeclaim/data-wordpress-mariadb-0   Bound    pvc-9c56d5d6-9bb8-4789-bf29-c423cb5d9980   100Gi      RWO            netapp-anf-perf-premium   13m
+persistentvolumeclaim/wordpress                  Bound    pvc-762e1b48-964a-4bfa-8dd4-eacb0333b6ce   100Gi      RWO            netapp-anf-perf-premium   13m
 ```
 
 Trident supports a number of features with ANF, such as:
@@ -294,9 +229,14 @@ Trident supports a number of features with ANF, such as:
 
 ## Discover Kubernetes applications with Astra
 
-Once applications are deployed, Astra will automatically identify them and provide administrators the ability to manage them. This will  tasks such as backups, establish snapshot policies for volumes, and so on.
+Once applications are deployed, Astra will automatically identify them and provide administrators the ability to manage them. Once an app is managed, you can:
 
-Open the "Apps" tab under the "Manage Your Apps" section. This window contains three types of applications: Managed, Discovered, and Ignored. You will be able to find the "nginx" app deployed in the previous step. Select the drop-down menu in the "Actions" column to manage the app. 
+* identify the Kubernetes resources that make up the app.
+* take point-in-time snapshots of the app.
+* clone the application (and its constituent resources) to a different namespace.
+* establish protection policies that continuously back up your application on a schedule (daily/weekly/monthly/custom).
+
+Open the **"Apps"** tab under the **"Manage Your Apps"** section. This window contains three types of applications: Managed, Discovered, and Ignored. You will be able to find the **"wordpress"** app deployed in the previous step. Select the drop-down menu in the **"Actions"** column to manage the app. 
 
 ![Astra apps status](media/az-netappfiles-dynamic/astra-apps-status.png)
 
