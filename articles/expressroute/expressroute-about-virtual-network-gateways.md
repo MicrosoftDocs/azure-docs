@@ -57,7 +57,7 @@ The following table shows the gateway types and the estimated performance scale 
 
  This table applies to both the Resource Manager and classic deployment models.
  
-|**Gateway SKU**|**Connections per second**|**Mega-Bits per second**|**Packets per second**|**Supported number of NM Agents**|
+|**Gateway SKU**|**Connections per second**|**Mega-Bits per second**|**Packets per second**|**Supported number of VMs in the Virtual Network**|
 | --- | --- | --- | --- | --- |
 |**Standard**|7,000|>1,000|>100,000|>2,000|
 |**High Performance**|14,000|>2,000|>250,000|>4,500|
