@@ -68,7 +68,7 @@ API_VERSION="2021-03-01-preview"
 Running machine learning jobs requires compute resources. You can list your workspace's compute resources:
 
 ```bash
-curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION \
+curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION" \
 --header "Authorization: Bearer $TOKEN"
 ```
 
