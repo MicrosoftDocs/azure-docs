@@ -6,18 +6,24 @@
     items:
     - name: Overview
       items:
-      - name: What is Apache Kafka for Confluent Cloud?
+      - name: What is Confluent Cloud on Azure?
         href: ./apache-kafka-confluent-cloud/overview.md
     - name: Quickstarts
       items:
-      - name: Create Apache Kafka for Confluent Cloud
+      - name: Create a Confluent Cloud resource - portal
         href: ./apache-kafka-confluent-cloud/create.md
     - name: How to
       items:
+      - name: Add connectors
+        href: ./apache-kafka-confluent-cloud/add-connectors.md
       - name: Manage
         href: ./apache-kafka-confluent-cloud/manage.md
       - name: Troubleshoot
-        href: ./apache-kafka-confluent-cloud/troubleshoot.md
+        items:
+        - name: Get support
+          href: ./apache-kafka-confluent-cloud/get-support.md
+        - name: Fix common errors
+          href: ./apache-kafka-confluent-cloud/troubleshoot.md
     - name: Reference
       items:
       - name: Azure CLI
