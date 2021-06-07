@@ -44,9 +44,9 @@ Sign in to the Azure portal at <https://portal.azure.com>.
 1. Type **Backup vaults** in the search box.
 2. Under **Services**, select **Backup vaults**.
 3. On the **Backup vaults** page, select **Add**.
-4. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose **Create new** resource group. Type *myResourceGroup* for the name.
+4. On the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose **Create new** resource group. Type *myResourceGroup* for the name.
 
-  ![Create new resource group](./media/backup-vault-overview/new-resource-group.png)
+    ![Create new resource group](./media/backup-vault-overview/new-resource-group.png)
 
 5. Under **Instance details**, type *myVault* for the **Backup vault name** and choose your region of choice, in this case *East US* for your **Region**.
 6. Now choose your **Storage redundancy**. Storage redundancy cannot be changed after protecting items to the vault.

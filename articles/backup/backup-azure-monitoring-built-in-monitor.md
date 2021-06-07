@@ -203,7 +203,7 @@ To configure notifications for Azure Monitor alerts, you must create an action r
 
 8. Finally, save the action rule.
 
-[Learn more about Action Rules in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-action-rules?tabs=portal)
+[Learn more about Action Rules in Azure Monitor](../azure-monitor/alerts/alerts-action-rules.md)
 
 
 ## Next steps
