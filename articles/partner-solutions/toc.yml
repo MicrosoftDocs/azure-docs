@@ -13,7 +13,7 @@
       - name: Azure portal
         href: ./apache-kafka-confluent-cloud/create.md
       - name: Azure CLI
-        href: ./apache-kafka-confluent-cloud/create.md
+        href: ./apache-kafka-confluent-cloud/create-cli.md
         displayName: Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show
     - name: How to
       items:
