@@ -59,18 +59,7 @@ Do the following steps to create a Linux VM image:
 
 1. Create a Linux virtual machine. For more information, see [Quickstart: Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
 
-   You can use these fully tested Azure Marketplace images to create Linux custom images for a Gen1 VM with a fixed-size VHD:
-
-   |Item name  |Description  |Publisher  |
-   |---------|---------|---------|
-   |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu Server is the world's most popular Linux for cloud environments.|Canonical|
-   |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux is one of the most popular Linux distributions.     |credativ|
-
-   For a full list of Azure Marketplace images that could work (presently not tested), see [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
-
-   If you're using Red Hat Enterprise Linux (RHEL) images, you must use Red Hat Enterprise Linux Bring Your Own Subscription (RHEL BYOS) images, also known as the Red Hat gold images. For steps to get a supported RHEL image, see [Using RHEL BYOS images](#using-rhel-byos-images), below. 
-
-If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bring Your Own Subscription (RHEL BYOS) images, also known as the Red Hat gold images, are supported and can be used to create your VM image. The standard pay-as-you-go RHEL images on Azure Marketplace are not supported on Azure Stack Edge. 
+   You can use any Gen1 VM with a fixed-size VHD in Azure Marketplace to create Linux custom images, with the exception of Red Hat Enterprise Linux (RHEL) images, which require extra steps. For a list of Azure Marketplace images that could work, see [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true). For guidance on RHEL images, see [Using RHEL BYOS images](#using-rhel-byos-images), below. 
 
 1. Deprovision the VM. Use the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see [Understanding and using Azure Linux Agent](../virtual-machines/extensions/agent-linux.md).
 
@@ -88,7 +77,6 @@ If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Lin
 
 
 ### Using RHEL BYOS images
-<!--Link issue raised on 06/04.-->
 
 If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bring Your Own Subscription (RHEL BYOS) images, also known as the Red Hat gold images, are supported and can be used to create your VM image. The standard pay-as-you-go RHEL images on Azure Marketplace are not supported on Azure Stack Edge.
 
