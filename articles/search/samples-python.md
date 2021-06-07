@@ -49,4 +49,4 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill)  | Source code for [Example: Create a custom skill using Python](cognitive-search-custom-skill-python.md). This article demonstrates indexer and skillset integration with deep learning models in Azure Machine Learning. |
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=python&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?languages=python&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.

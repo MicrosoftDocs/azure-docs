@@ -4,7 +4,7 @@ description: Learn how to set up Azure App Service and Azure Functions to use Az
 author: mattchenderson
 
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 05/25/2021
 ms.author: mahender
 ms.custom: seodec18
 
@@ -74,7 +74,7 @@ If a version is not specified in the reference, then the app will use the latest
 
 Key Vault references can be used as values for [Application Settings](configure-common.md#configure-app-settings), allowing you to keep secrets in Key Vault instead of the site config. Application Settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
 
-To use a Key Vault reference for an application setting, set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
+To use a Key Vault reference for an [application setting](configure-common.md#add-or-edit), set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
 
 > [!TIP]
 > Most application settings using Key Vault references should be marked as slot settings, as you should have separate vaults for each environment.
@@ -158,8 +158,8 @@ An example pseudo-template for a function app might look like the following:
                 //...
                 "accessPolicies": [
                     {
-                        "tenantId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').tenantId]",
-                        "objectId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').principalId]",
+                        "tenantId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.tenantId]",
+                        "objectId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.principalId]",
                         "permissions": {
                             "secrets": [ "get" ]
                         }
@@ -176,7 +176,7 @@ An example pseudo-template for a function app might look like the following:
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
                     ],
                     "properties": {
-                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2015-05-01-preview').key1)]"
+                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2019-09-01').key1)]"
                     }
                 },
                 {
@@ -188,7 +188,7 @@ An example pseudo-template for a function app might look like the following:
                         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
                     ],
                     "properties": {
-                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2019-09-01').InstrumentationKey]"
                     }
                 }
             ]

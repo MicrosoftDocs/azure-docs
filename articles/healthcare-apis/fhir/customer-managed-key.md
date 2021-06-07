@@ -7,7 +7,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 05/04/2021
-ms.author: ginle
+ms.author: ginle 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure customer-managed keys at rest

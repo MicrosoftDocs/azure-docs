@@ -249,8 +249,7 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
 
 ## Event Hubs limits
-
-[!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
+[!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]
 
 ## IoT Central limits
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
@@ -360,6 +359,8 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 ## SQL Database limits
 
 For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
+
+The maximum number of private endpoints per Azure SQL Database logical server is 250.
 
 ## Azure Synapse Analytics limits
 

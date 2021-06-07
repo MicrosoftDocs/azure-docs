@@ -104,6 +104,9 @@ If you want to use headers to control caching, see [Control Azure CDN caching be
 
 If you plan to host a website in multiple geographies, we recommend that you use a [Content Delivery Network](../../cdn/index.yml) for regional caching. Use [Azure Front Door](../../frontdoor/index.yml) if you want to serve different content in each region. It also provides failover capabilities. [Azure Traffic Manager](../../traffic-manager/index.yml) is not recommended if you plan to use a custom domain. Issues can arise because of how Azure Storage verifies custom domain names.
 
+## Permissions
+
+The permission to be able to enable static website is Microsoft.Storage/storageAccounts/blobServices/write or shared key.  Built in roles that provide this access include Storage Account Contributor.  
 
 ## Pricing
 

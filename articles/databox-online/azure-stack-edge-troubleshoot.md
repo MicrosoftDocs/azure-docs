@@ -1,5 +1,5 @@
 ---
-title: Use the Azure portal to troubleshoot Azure Stack Edge Pro FPGA | Microsoft Docs 
+title: Troubleshoot Azure Stack Edge Pro FPGA via the Azure portal 
 description: Learn how to troubleshoot issues on your Azure Stack Edge Pro FPGA. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
 services: databox
 author: alkohli

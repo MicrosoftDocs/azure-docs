@@ -598,6 +598,9 @@ The Functions Python worker requires a specific set of libraries. You can also u
 > [!NOTE]
 > If your function app's requirements.txt contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in requirements.txt may cause unexpected issues.
 
+> [!NOTE]
+>  If your package contains certain libraries that may collide with worker's dependencies (e.g. protobuf, tensorflow, grpcio), please configure `PYTHON_ISOLATE_WORKER_DEPENDENCIES` to `1` in app settings to prevent your application from referring worker's dependencies.
+
 ### Azure Functions Python library
 
 Every Python worker update includes a new version of [Azure Functions Python library (azure.functions)](https://github.com/Azure/azure-functions-python-library). This approach makes it easier to continuously update your Python function apps, because each update is backwards-compatible. A list of releases of this library can be found in [azure-functions PyPi](https://pypi.org/project/azure-functions/#history).

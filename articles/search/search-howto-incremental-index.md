@@ -122,7 +122,7 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-After the indexer runs, you can find the cache in Azure Blob storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
+After the indexer runs, you can find the cache in Azure Blob Storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
 > [!NOTE]
 > A reset and rerun of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be rerun on all documents.

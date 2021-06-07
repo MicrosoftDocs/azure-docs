@@ -34,10 +34,10 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) | Source code for [Tutorial: Create a custom analyzer for phone numbers](tutorial-create-custom-analyzer.md). This article explains how to use analyzers to preserve patterns and special characters in searchable content.|
 | [knowledge-store](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) | Source code for [Create a knowledge store using REST and Postman](knowledge-store-create-rest.md). This article explains the necessary steps for populating a knowledge store used for knowledge mining workflows. |
 | [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | Source code for [How to shape and export enrichments](knowledge-store-projections-examples.md). This article explains how to specify the physical data structures in a knowledge store.|
-| [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | Source code for [How to index encrypted blobs using blob indexers and skillsets](search-howto-index-encrypted-blobs.md). This article shows how to index documents in Azure Blob storage that have been previously encrypted using Azure Key Vault. |
+| [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | Source code for [How to index encrypted blobs using blob indexers and skillsets](search-howto-index-encrypted-blobs.md). This article shows how to index documents in Azure Blob Storage that have been previously encrypted using Azure Key Vault. |
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples
 

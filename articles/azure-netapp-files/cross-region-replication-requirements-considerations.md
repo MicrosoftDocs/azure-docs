@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 06/04/2021
 ms.author: b-juche
 ---
 
@@ -35,7 +35,7 @@ Note the following requirements and considerations about [using the volume cross
 * Configuring volume replication for source volumes created from snapshot is not supported at this time.
 * After you set up cross-region replication, the replication process creates *snapmirror snapshots* to provide references between the source volume and the destination volume. Snapmirror snapshots are cycled automatically when a new one is created for every incremental transfer. You cannot delete snapmirror snapshots until replication relationship and volume is deleted. 
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
-* You cannot revert to a snapshot that was taken before the replication destination volume was created.
+* You cannot revert a source or destination volume of cross-region replication to a snapshot. The snapshot revert functionality is greyed out for volumes in a replication relationship. 
 
 ## Next steps
 * [Create volume replication](cross-region-replication-create-peering.md)
