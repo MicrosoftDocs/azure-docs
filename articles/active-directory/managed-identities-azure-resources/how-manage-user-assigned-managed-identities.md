@@ -26,11 +26,6 @@ zone_pivot_groups: identity-mi-methods
 
 ::: zone pivot="identity-mi-methods-azcli"
 
-Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without having to store credentials in your code. 
-
-In this article, you learn how to create, list, and delete a user-assigned managed identity using Azure CLI.
-
-
 [!INCLUDE [Azure CLI](includes/create-user-assigned-managed-identities-cli.md)]
 
 ::: zone-end
