@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/04/2021
+ms.date: 06/07/2021
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -219,7 +219,7 @@ We recommend that your documentation on your site at a minimum include the follo
 When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](../saas-apps/tutorial-list.md). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
 
 
-## Step 6 - Request Apps by sharing ISV App team contact
+## Step 6 - Submit your app
 
 After you've tested that your application integration works with Azure AD, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
@@ -311,6 +311,7 @@ For any escalations, send email to the [Azure AD SSO Integration Team](mailto:Sa
 ## Step 7 - Join the Microsoft partner network
 The Microsoft Partner Network provides instant access to exclusive resources, programs, tools, and connections. To join the network and create your go to market plan, see [Reach commercial customers](https://partner.microsoft.com/explore/commercial#gtm).
 
+## Request Apps by sharing ISV App team contact
 
 ## Next steps
 * [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md)
