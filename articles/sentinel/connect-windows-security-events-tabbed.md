@@ -44,6 +44,12 @@ You can select which events to stream from among the following sets: <a name="ev
     | **Minimal** | 1102, 4624, 4625, 4657, 4663, 4688, 4700, 4702, 4719, 4720, 4722, 4723, 4724, 4727, 4728, 4732, 4735, 4737, 4739, 4740, 4754, 4755, 4756, 4767, 4799, 4825, 4946, 4948, 4956, 5024, 5033, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222 |
     | **Common** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137, 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
+> [!NOTE]
+> Security Events collection within the context of a single workspace can be configured from either Azure Security Center or Azure Sentinel, but not both. If you are onboarding Azure Sentinel in a workspace that is already getting Azure Defender alerts from Azure Security Center, and is set to collect Security Events, you have two options:
+> - Leave the Security Events collection in Azure Security Center as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
+>
+> - [Disable Security Events collection](../security-center/security-center-enable-data-collection.md) in Azure Security Center, and only then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
+
 # [Azure Monitor Agent (New)](#tab/AMA)
 
 In addition to the [pre-selected sets of events](#event-sets) (Minimal, Common, and All) that you could choose to ingest with the old connector, the new Azure Monitor Agent-based connector lets you build your own custom sets of events to ingest. You do this by creating **data collection rules** that filter and ingest only the events you want, while leaving everything else behind. This can save you a lot of money in data ingestion costs!
@@ -51,12 +57,6 @@ In addition to the [pre-selected sets of events](#event-sets) (Minimal, Common, 
 When creating a **data collection rule**, you can choose **All events**, **Minimal**, or **Common** - just like with the old connector - or you can choose **Custom** and then define expressions for the event IDs you want to ingest. See the detailed instructions below.
 
 ---
-
-> [!NOTE]
-> Security Events collection within the context of a single workspace can be configured from either Azure Security Center or Azure Sentinel, but not both. If you are onboarding Azure Sentinel in a workspace that is already getting Azure Defender alerts from Azure Security Center, and is set to collect Security Events, you have two options:
-> - Leave the Security Events collection in Azure Security Center as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
->
-> - [Disable Security Events collection](../security-center/security-center-enable-data-collection.md) in Azure Security Center, and only then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
 
 ## Set up the Windows Security Events connector
 
