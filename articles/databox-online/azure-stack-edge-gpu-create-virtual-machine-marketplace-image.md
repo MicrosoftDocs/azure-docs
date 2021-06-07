@@ -35,20 +35,8 @@ For more information, go to [Deploy a VM on your Azure Stack Edge Pro device usi
 
 Before you can use Azure Marketplace images for Azure Stack Edge, make sure that you are connected to Azure in either of the following ways.
 
-1.	Using the Azure Cloud Shell terminal available on the Azure portal. 
-2.	Using a client machine with Azure CLI and Azure PowerShell installed. If you have previously connected to an Azure Stack Edge device via the Azure Resource Manager from this client, run the `Disconnect-AzureRmAccount` command before you proceed.
+[!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-
-## Connect to Azure
-
-[!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment.md)]
-
-### Using Azure Cloud Shell
-Click the button in the Azure Portal toolbar to launch Azure Cloud Shell in PowerShell mode.
- 
-
-### Using Azure CLI
-With Azure CLI installed on your client machine, run the command az login. This will open a browser window where you will log in to your Azure account.
 
 ## Search for Azure Marketplace images
 
