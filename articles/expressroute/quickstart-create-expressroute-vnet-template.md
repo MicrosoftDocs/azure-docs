@@ -8,7 +8,7 @@ manager: kumud
 ms.date: 10/12/2020
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - subject-armqs
   - mode-arm
 ---

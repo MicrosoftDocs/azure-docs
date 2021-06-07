@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
@@ -78,6 +78,8 @@ To view all of the resources under your Azure account (across all resource group
 The following function deletes the specified resource from the given resource group.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_delete)]
+
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
 
 ## Call management functions
 

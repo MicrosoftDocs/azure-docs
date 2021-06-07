@@ -3,7 +3,7 @@ title: Use the REST API to manage devices in Azure IoT Central
 description: How to use the IoT Central REST API to control devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 06/01/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -25,7 +25,7 @@ A device can group the properties, telemetry, and commands it supports into _com
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
-For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](https://docs.microsoft.com/rest/api/iotcentral/).
+For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 ## Components and modules
 
@@ -158,6 +158,9 @@ The response to this request looks like the following example:
   }
 }
 ```
+
+> [!TIP]
+> To access the telemetry from a component in a module, use `/api/devices/{deviceId}/modules/{moduleName}/components/{componentName}/telemetry/{telemetryName}`.
 
 ## Read properties
 
@@ -293,6 +296,9 @@ The response to this request looks like the following example:
 }
 ```
 
+> [!TIP]
+> To access the properties from a component in a module, use `/devices/{deviceId}/modules/{moduleName}/components/{componentName}/properties`.
+
 ## Write properties
 
 Some properties are writable. For example, in the thermostat model the `targetTemperature` property is a writable property.
@@ -384,6 +390,20 @@ The response to this request looks like the following example:
 > [!TIP]
 > To update all the properties on a module, use `PUT` instead of `PATCH`.
 
+### Update module properties
+
+If you're using an IoT Edge device, use the following request to retrieve property values from a module:
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modules/{moduleName}/properties?api-version=1.0
+```
+
+If you're using an IoT Edge device, use the following request to retrieve property values from a component in a module:
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modules/{moduleName}/components/{componentName}/properties?api-version=1.0
+```
+
 ## Call commands
 
 You can use the REST API to call device commands and retrieve the device history.
@@ -455,6 +475,9 @@ To view the history for this command, use the following request:
 ```http
 GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/commands/getMaxMinReport?api-version=1.0
 ```
+
+> [!TIP]
+> To call commands in a component in a module, use `/devices/{deviceId}/modules/{moduleName}/components/{componentName}/commands/{commandName}`.
 
 ## Next steps
 

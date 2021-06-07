@@ -21,6 +21,9 @@ The Azure SQL database connector lets you stream your databases' auditing and di
 
 Learn more about [Azure SQL Database diagnostic telemetry](../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and about [Azure SQL server auditing](../azure-sql/database/auditing-overview.md).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+
 ## Prerequisites
 
 - You must have read and write permissions on the Azure Sentinel workspace.

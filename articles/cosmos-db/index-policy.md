@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 05/25/2021
 ms.author: tisande
 ---
 
@@ -92,7 +92,7 @@ When including and excluding paths, you may encounter the following attributes:
 
 - `dataType` can be either `String` or `Number`. This indicates the types of JSON properties which will be indexed.
 
-When not specified, these properties will have the following default values:
+It is no longer necessary to set these properties. When not specified, these properties will have the following default values:
 
 | **Property Name**     | **Default Value** |
 | ----------------------- | -------------------------------- |

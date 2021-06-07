@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 05/25/2021
 ms.custom: designer
 ---
 
@@ -52,8 +52,8 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
     * **Web Service Input** and **Web Service Output** modules are added. These modules show where user data enters the pipeline and where data is returned.
 
     > [!NOTE]
-    > By default, the **Web Service Input** will expect the same data schema as the training data used to create the predictive pipeline. In this scenario, price is included in the schema. However, price isn't used as a factor during prediction.
-    >
+    > By default, the **Web Service Input** will expect the same data schema as the module output data which connects to the same downstream port as it. In this sample, **Web Service Input** and **Automobile price data (Raw)** connect to the same downstream module, hence **Web Service Input** expect the same data schema as **Automobile price data (Raw)** and target variable column `price` is included in the schema.
+    > However, usually When you score the data, you won't know the target variable values. For such case, you can remove the target variable column in the inference pipeline using **Select Columns in Dataset** module. Make sure that the output of **Select Columns in Dataset** removing target variable column is connected to the same port as the output of the **Web Service Intput** module.
 
 1. Select **Submit**, and use the same compute target and experiment that you used in part one.
 
