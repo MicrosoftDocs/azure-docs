@@ -18,9 +18,9 @@ In this series of tutorials, we'll cover a high-level summary of the Center for 
 
 ## Rule overview
 
-The CMS released the [Interoperability and Patient Access rule](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index) on May 1, 2020. This rule ensures free and secure data flow between all parties involved in patient care (patients, providers, and payers) to allow patients to access their health information when they need it. Interoperability has plagued the healthcare industry for decades, resulting in siloed data that causes negative health outcomes with higher and unpredictable costs for care. CMS is using their authority to regulate Medicare Advantage (MA), Medicaid, Children's Health Insurance Program (CHIP), and Qualified Health Plan (QHP) issuers on the Federally Facilitated Exchanges (FFEs) to enforce this rule. 
+The CMS released the [Interoperability and Patient Access rule](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index) on May 1, 2020. This rule requires free and secure data flow between all parties involved in patient care (patients, providers, and payers) to allow patients to access their health information when they need it. Interoperability has plagued the healthcare industry for decades, resulting in siloed data that causes negative health outcomes with higher and unpredictable costs for care. CMS is using their authority to regulate Medicare Advantage (MA), Medicaid, Children's Health Insurance Program (CHIP), and Qualified Health Plan (QHP) issuers on the Federally Facilitated Exchanges (FFEs) to enforce this rule. 
 
-In August 2020, CMS detailed how organizations can meet the mandate. To ensure that data can be exchanged securely and in a standardized manner, CMS identified FHIR version R4 as the foundational standard required for the data exchange. 
+In August 2020, CMS detailed how organizations can meet the mandate. To ensure that data can be exchanged securely and in a standardized manner, CMS identified FHIR version release 4 (R4) as the foundational standard required for the data exchange. 
 
 There are three main pieces to the Interoperability and Patient Access ruling:
 
@@ -32,14 +32,14 @@ There are three main pieces to the Interoperability and Patient Access ruling:
 
 ## Key FHIR concepts
 
-As mentioned above, FHIR version R4 is required to meet this mandate. In addition, there have been several implementation guides developed that provide guidance for the rule. [Implementation guides](https://www.hl7.org/fhir/implementationguide.html) provide extra context on top of the base FHIR specification. This includes defining additional search parameters, profiles, extensions, operations, value sets, and code systems.
+As mentioned above, FHIR R4 is required to meet this mandate. In addition, there have been several implementation guides developed that provide guidance for the rule. [Implementation guides](https://www.hl7.org/fhir/implementationguide.html) provide extra context on top of the base FHIR specification. This includes defining additional search parameters, profiles, extensions, operations, value sets, and code systems.
 
 The Azure API for FHIR has the following capabilities to help you configure your database for the various implementation guides:
 
 * [Support for RESTful interactions](fhir-features-supported.md)
-*  [Storing and validating profiles](validation-against-profiles.md)
-*  [Defining and indexing custom search parameters](how-to-do-custom-search.md)
-*  [Converting data](convert-data.md)
+* [Storing and validating profiles](validation-against-profiles.md)
+* [Defining and indexing custom search parameters](how-to-do-custom-search.md)
+* [Converting data](convert-data.md)
 
 ## Patient Access API Implementation Guides
 
@@ -71,12 +71,11 @@ This implementation guide defines a FHIR interface to a health insurer’s insur
 
 ## Touchstone
 
-To test adherence to the various implementation guides, [Touchstone](https://touchstone.aegis.net/touchstone/) is a great
-resource. Throughout the upcoming tutorials, we'll focus on ensuring that the Azure API for FHIR is configured to successfully pass various Touchstone tests. The Touchstone site has a lot of great documentation to help you get up and running.
+To test adherence to the various implementation guides, [Touchstone](https://touchstone.aegis.net/touchstone/) is a great resource. Throughout the upcoming tutorials, we'll focus on ensuring that the Azure API for FHIR is configured to successfully pass various Touchstone tests. The Touchstone site has a lot of great documentation to help you get up and running.
 
 ## Next steps
 
-Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the CARIN Blue Button IG. 
+Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the CARIN IG for Blue Button. 
 
 >[!div class="nextstepaction"]
->[CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html)  
+>[CARIN Implementation Guide for Blue Button](carin-implementation-guide-blue-button-tutorial.md)  
