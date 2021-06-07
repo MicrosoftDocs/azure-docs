@@ -31,7 +31,7 @@ In addition to the PaaS offering, it's still possible to run MySQL in Azure VMs.
 
 ![Comparison of MySQL environments](./media/image3.jpg)
 
-**Comparison of MySQL environments.**
+**Comparison of MySQL environments**
 
 This guide focuses entirely on migrating the on-premises MySQL workloads to the Platform as a Service Azure Database for MySQL offering due to its various advantages over Infrastructure as a Service (IaaS) such as scale-up and scale-out, pay-as-you-go, high availability, security, and manageability features.  
 
