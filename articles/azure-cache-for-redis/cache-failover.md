@@ -12,8 +12,8 @@ ms.date: 10/18/2019
 
 To build resilient and successful client applications, it's critical to understand failover in the Azure Cache for Redis service. A failover can be a part of planned management operations, or it might be caused by unplanned hardware or network failures. A common use of cache failover comes when the management service patches the Azure Cache for Redis binaries. This article covers:  
 
-- What a failover is 
-- How it occurs during patching 
+- What a failover is
+- How it occurs during patching
 - How to build a resilient client application
 
 ## What is a failover?
@@ -33,7 +33,7 @@ In a Basic cache, the single node is always a primary. In a Standard or Premium 
 
 A failover occurs when a replica node promotes itself to become a primary node, and the old primary node closes existing connections. After the primary node comes back up, it notices the change in roles and demotes itself to become a replica. It then connects to the new primary and synchronizes data. A failover might be planned or unplanned.
 
-A *planned failover* takes place at two different times: 
+A *planned failover* takes place at two different times:
 
 1. During system updates, such as Redis patching or OS upgrades  
 1. And, during management operations, such as scaling and rebooting
