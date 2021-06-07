@@ -1,5 +1,5 @@
 ---
-title: Clustering point data on a map | Microsoft Azure Maps
+title: Clustering point data in the Android SDK | Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps Android SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
 author: rbrundritt
 ms.author: richbrun
@@ -11,7 +11,7 @@ manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
-# Clustering point data
+# Clustering point data in the Android SDK
 
 When visualizing many data points on the map, data points may overlap over each other. The overlap may cause the map may become unreadable and difficult to use. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. When you work with large number of data points, use the clustering processes to improve your user experience.
 
@@ -333,7 +333,7 @@ map.layers.add(
 
 For this sample, the following image are loaded into the drawable folder of the app.
 
-| ![Weather icon image of rain showers](media/clustering-point-data-android-sdk/earthquake-icon.png) | ![Weather icon image of rain showers](media/clustering-point-data-android-sdk/warning-triangle-icon.png) |
+| ![Earthquake icon image](media/clustering-point-data-android-sdk/earthquake-icon.png) | ![Weather icon image of rain showers](media/clustering-point-data-android-sdk/warning-triangle-icon.png) |
 |:-----------------------:|:--------------------------:|
 | earthquake_icon.png     | warning_triangle_icon.png  |
 
@@ -832,9 +832,9 @@ The following shows the above code displaying the area of all points within a cl
 
 ## Aggregating data in clusters
 
-Often clusters are represented using a symbol with the number of points that are within the cluster. But, sometimes it's desirable to customize the style of clusters with additional metrics. With cluster aggregates, custom properties can be created and populated using an [aggregate expression](data-driven-style-expressions-android-sdk.md#aggregate-expression) calculation. Cluster aggregates can be defined in `clusterProperties` option of the `DataSource`.
+Often clusters are represented using a symbol with the number of points that are within the cluster. But, sometimes it's desirable to customize the style of clusters with additional metrics. With cluster properties, custom properties can be created and equal to a calculation based on the properties within each point with a cluster. Cluster properties can be defined in `clusterProperties` option of the `DataSource`.
 
-The following sample uses an aggregate expression. The code calculates a count based on the entity type property of each data point in a cluster. When a user clicks on a cluster, a popup shows with additional information about the cluster.
+The following code calculates a count based on the entity type property of each data point in a cluster. When a user clicks on a cluster, a popup shows with additional information about the cluster.
 
 ::: zone pivot="programming-language-java-android"
 
