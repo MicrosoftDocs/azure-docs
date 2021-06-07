@@ -32,9 +32,9 @@ For an alternative connectivity option for customers that are on SQL Server 2019
 
 Before you complete the steps in this article, you should already have:
 
-- Decided that Azure Load Balancer is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
+- Decided that Azure Load Balancer is the appropriate [connectivity option for your availability group](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn).
 - Configured your [availability group listener](availability-group-overview.md).
-- Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
+- Installed the latest version of [PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). 
 
 
 ## Create load balancer
@@ -120,7 +120,7 @@ To set the cluster probe port parameter, update the variables in the following s
 
 ```powershell
 $ClusterNetworkName = "<Cluster Network Name>"
-$IPResourceName = "<SQL Server FCI / AG Listener IP Address Resource Name>" 
+$IPResourceName = "<Availability group Listener IP Address Resource Name>" 
 $ILBIP = "<n.n.n.n>" 
 [int]$ProbePort = <nnnnn>
 
@@ -147,12 +147,28 @@ After you set the cluster probe, you can see all the cluster parameters in Power
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
 
+## Modify connection string 
+
+For clients that support it, add the `MultiSubnetFailover=True` to the connection string. While the MultiSubnetFailover connection option is not required, it does provide the benefit of a faster subnet failover. This is because the client driver will attempt to open up a TCP socket for each IP address in parallel. The client driver will wait for the first IP to respond with success and once it does, will then use it for the connection.
+
+If your client does not support the MultiSubnetFailover parameter, you can modify the RegisterAllProvidersIP and HostRecordTTL settings to prevent connectivity delays post-failover. 
+
+Use PowerShell to modify the RegisterAllProvidersIp and HostRecordTTL settings: 
+
+```powershell
+Get-ClusterResource yourListenerName | Set-ClusterParameter RegisterAllProvidersIP 0  
+Get-ClusterResource yourListenerName|Set-ClusterParameter HostRecordTTL 300 
+```
+
+To learn more, see the SQL Server [listener connection timeout](/troubleshoot/sql/availability-groups/listener-connection-times-out) documentation. 
+
+> [!TIP]
+> - Set the MultiSubnetFailover parameter = true in the connection string even for HADR solutions that span a single subnet to support future spanning of subnets without the need to update connection strings.  
+> - By default, clients cache cluster DNS records for 20 minutes. By reducing HostRecordTTL you reduce the Time to Live (TTL) for the cached record, legacy clients may reconnect more quickly. As such, reducing the HostRecordTTL setting may result in increased traffic to the DNS servers.
 
 ## Test failover
 
-
 Test failover of the clustered resource to validate cluster functionality. 
-
 
 Take the following steps:
 
@@ -173,7 +189,14 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 ## Next steps
 
-To learn more about SQL Server HADR features in Azure, see [Availability groups](availability-group-overview.md) and [Failover cluster instance](failover-cluster-instance-overview.md). You can also learn [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
+Once the VNN is created, consider optimizing the [cluster settings for SQL Server VMs](hadr-cluster-best-practices.md). 
+
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)
 
 
 

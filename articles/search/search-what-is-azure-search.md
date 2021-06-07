@@ -20,12 +20,12 @@ Search is foundational to any app that surfaces content to users, with common sc
 When you create a search service, you'll work with the following capabilities:
 
 + A search engine for full text search
-+ Persistent storage of searchable, user-owned indexed content
-+ An indexing layer that supports text analysis
-+ APIs for indexing and querying content using simple or rich query syntax
-+ Optional [AI enrichment](cognitive-search-concept-intro.md) that creates text-searchable content out of images, raw unstructured text, application files
-+ Optional integration with other Azure services for data, machine learning/AI, monitoring, and security
-+ Optional implementation of [semantic search (preview)](semantic-search-overview.md) for improved relevance
++ Persistent storage of user-owned content in a search index
++ Rich indexing, with text analysis and optional [AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
++ Rich query capabilities, including simple syntax, full Lucene syntax, and typeahead search
++ Programmability through REST APIs and client libraries in Azure SDKs for .NET, Python, Java, and JavaScript
++ Azure integration at the data layer, machine learning layer, and AI (Cognitive Services)
++ State-of-art ranking algorithms through [semantic search (preview)](semantic-search-overview.md)
 
 Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and your client app that sends query requests to a search index and handles the response.
 
@@ -55,7 +55,7 @@ Azure Cognitive Search is well suited for the following application scenarios:
 
 + Easily implement search-related features: relevance tuning, faceted navigation, filters (including geo-spatial search), synonym mapping, and autocomplete.
 
-+ Transform large undifferentiated text or image files, or application files stored in Azure Blob storage or Cosmos DB, into searchable JSON documents. This is achieved during index through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
++ Transform large undifferentiated text or image files, or application files stored in Azure Blob Storage or Cosmos DB, into searchable JSON documents. This is achieved during index through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
 
 + Add linguistic or custom text analysis. If you have non-English content, Azure Cognitive Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics, or recognizing and preserving patterns in strings.
 

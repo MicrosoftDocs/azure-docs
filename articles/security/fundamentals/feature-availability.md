@@ -11,6 +11,7 @@ ms.date: 05/23/2021
 
 # Cloud feature availability for US Government customers
 
+
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
 - [Azure Sentinel](#azure-sentinel)
@@ -97,7 +98,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Akamai Security Events](/azure/sentinel/connect-akamai-security-events)                           | Public Preview | Public Preview |
 | - [Alcide kAudit](/azure/sentinel/connect-alcide-kaudit)                                   | Public Preview | Not Available      |
 | - [Alsid for Active Directory](/azure/sentinel/connect-alsid-active-directory)                      | Public Preview | Not Available      |
-| - [Apache HHTP Server](/azure/sentinel/connect-apache-http-server)                               | Public Preview | Not Available      |
+| - [Apache HTTP Server](/azure/sentinel/connect-apache-http-server)                               | Public Preview | Not Available      |
 | - [Aruba ClearPass](/azure/sentinel/connect-aruba-clearpass)                                  | Public Preview | Public Preview |
 | - [AWS](/azure/sentinel/connect-data-sources)                                             | GA             | GA             |
 | - [Barracuda CloudGen Firewall](/azure/sentinel/connect-barracuda-cloudgen-firewall)                      | GA             | GA             |

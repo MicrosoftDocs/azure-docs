@@ -87,5 +87,5 @@ App Configuration uses the [AACHttpRequest Table](/azure/azure-monitor/refere
 ## See Also
 
 * See [Monitoring Azure App Configuration](monitor-app-configuration.md) for a description of monitoring Azure App Configuration.
-* See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+* See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
 

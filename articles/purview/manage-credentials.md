@@ -28,8 +28,7 @@ In Azure Purview, there are few options to use as authentication method to scan 
 - SQL Authentication (using Key Vault)
 - Service Principal (using Key Vault)
 
-Before setting up any credentials and to identify which authentication method is needed, you need to consider few factors, such as the type of your data sources or networking requirements. Review the following decision tree to find what credential is most suitable for your scenario:
-
+Before creating any credentials, consider your data source types and networking requirements to decide which authentication method is needed for your scenario. Review the following decision tree to find which credential is most suitable:
 
    :::image type="content" source="media/manage-credentials/manage-credentials-decision-tree-small.png" alt-text="Manage credentials decision tree" lightbox="media/manage-credentials/manage-credentials-decision-tree.png":::
 
@@ -83,7 +82,7 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
 3. Select **Add Access Policy**.
 
-   :::image type="content" source="media/manage-credentials/add-msi-to-akv.png" alt-text="Add Purview MSI to AKV":::
+   :::image type="content" source="media/manage-credentials/add-msi-to-akv-2.png" alt-text="Add Purview MSI to AKV":::
 
 4. In the **Secrets permissions** dropdown, select **Get** and **List** permissions.
 

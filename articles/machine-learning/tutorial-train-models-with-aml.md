@@ -74,7 +74,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 ### <a name="open"></a> Open the cloned notebook
 
-1. Open the **tutorials** folder that was closed into your **User files** section.
+1. Open the **tutorials** folder that was cloned into your **User files** section.
 
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you can't run a notebook from there. To run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
@@ -121,7 +121,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Connect to a workspace
 
-Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named `ws`:
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named `ws`.  The compute instance has a copy of this file saved in its root directory.  If you run the code elsewhere, you'll need to [create the file](how-to-configure-environment.md#workspace).
 
 ```python
 # load workspace configuration from the config.json file in the current folder.
