@@ -185,7 +185,6 @@ The route tables to which your custom vnet is associated must meet the following
 * You can associate your Azure route tables with your vnet only when you create a new Azure Spring Cloud service instance. You cannot change to use another route table after Azure Spring Cloud has been created.
 * Both the microservice application subnet and the service runtime subnet must associate with different route tables or neither of them.
 * Permissions must be assigned before instance creation. Be sure to grant **Azure Spring Cloud Resource Provider** the *Owner* permission to your route tables.
-* Grant Azure *Spring Cloud Owner* permission to your route tables.
 * The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
 * You cannot reuse a route table with multiple instances due to potential conflicting routing rules.
 
