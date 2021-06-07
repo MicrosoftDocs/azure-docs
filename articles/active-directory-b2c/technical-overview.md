@@ -79,7 +79,7 @@ You can also extend the Azure AD schema to store additional information about yo
 * [User profile attributes](user-profile-attributes.md)
 * [Add user attributes and customize user input in](configure-user-input.md)
 
-## Sing-in with external identity providers
+## Sign-in with external identity providers
 
 You can configure Azure AD B2C to allow users to sign in to your application with credentials from social and enterprise identity providers. Azure AD B2C can federate with identity providers that support OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols. For example, Facebook, Microsoft account, Google, Twitter, and AD-FS.
 
