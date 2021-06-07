@@ -3,7 +3,7 @@ title: 'Troubleshooting issues with the ECMA Connector Host and Azure AD'
 description: Describes how to troubleshoot various issues you may encounter when installing and using the ECMCA connector host.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

@@ -17,8 +17,6 @@
         href: quickstart-send-telemetry-iot-hub.md
     - name: Embedded device development
       items:
-      - name: Embedded device development quickstarts
-        href: quickstart-device-development.md
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
       - name: Microchip ATSAME54-XPro

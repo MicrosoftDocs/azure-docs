@@ -3,7 +3,7 @@ title:  Azure AD ECMA Connector Host Generic SQL Connector tutorial
 description: This tutorial describes how to use the On-premises application provisioning generic SQL connector.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
