@@ -110,7 +110,6 @@ Azure Migrate completes these actions automatically for these versions
 - Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
 - Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
-- Ubuntu 18.04LTS, 16.04LTS
 - Debian 9, 8, 7
 - Oracle Linux 6, 7.7, 7.7-CI 
 
