@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 6/04/2021
+ms.date: 6/07/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -26,7 +26,7 @@ There's a required workflow for preparing a custom VM image. For the image sourc
 
 Complete the following prerequisite before you create your VM image:
 
-- [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy gives you a fast way to copy an OS disk to an Azure Storage account.
+- [Download AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy gives you a fast way to copy an OS disk to an Azure Storage account.
 
 ---
 
@@ -59,9 +59,7 @@ Do the following steps to create a Linux VM image:
 
 1. Create a Linux virtual machine. For more information, see [Quickstart: Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
 
-   The virtual machine must be a Gen1 VM with a fixed-size VHD.
-
-   You can use these fully tested Azure Marketplace images to create Linux custom images:
+   You can use these fully tested Azure Marketplace images to create Linux custom images for a Gen1 VM with a fixed-size VHD:
 
    |Item name  |Description  |Publisher  |
    |---------|---------|---------|
@@ -70,7 +68,9 @@ Do the following steps to create a Linux VM image:
 
    For a full list of Azure Marketplace images that could work (presently not tested), see [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
-   If you're using Red Hat Enterprise Linux (RHEL) images, you'll need to use standard pay-as-you-go RHEL images, which are not supported on Azure Marketplace. For steps to get a supported RHEL image, see [Using RHEL BYOS images](#using-rhel-byos-images), below.  
+   If you're using Red Hat Enterprise Linux (RHEL) images, you must use Red Hat Enterprise Linux Bring Your Own Subscription (RHEL BYOS) images, also known as the Red Hat gold images. For steps to get a supported RHEL image, see [Using RHEL BYOS images](#using-rhel-byos-images), below. 
+
+If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bring Your Own Subscription (RHEL BYOS) images, also known as the Red Hat gold images, are supported and can be used to create your VM image. The standard pay-as-you-go RHEL images on Azure Marketplace are not supported on Azure Stack Edge. 
 
 1. Deprovision the VM. Use the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see [Understanding and using Azure Linux Agent](../virtual-machines/extensions/agent-linux.md).
 
@@ -117,7 +117,7 @@ To download the OS disk for the VM to an Azure storage account, do the following
    
    - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#copy-vhd-to-storage-account-using-azcopy), below. 
 
-   - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time, and you'll need to [upload the VHD to your Azure storage account](../articles/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md) to be able to create VMs using the portal.**
+   - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time, and you'll need to [upload the VHD to your Azure storage account](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload) to be able to create VMs using the portal.**
 
 You can now use this VHD to create and deploy VMs on your Azure Stack Edge Pro GPU device.
 
