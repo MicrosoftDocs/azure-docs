@@ -53,7 +53,7 @@ This section lists the features that are supported in the Contoso Coffee store l
 
 ### User interface features
 
-* A header that shows the store logo.
+* Store logo on the header
 * The map supports panning and zooming
 * A My Location button to search over the user's current location.
 * The page layout adjusts based on the width of the device screen.  
