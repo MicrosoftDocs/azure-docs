@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/26/2021
+ms.date: 06/04/2021
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -113,9 +113,9 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 ## Use the Copy Data tool to create a pipeline
 
-1. On the **Let's get started** page, select **Copy Data** to launch the Copy Data tool.
+1. On the Azure Data Factory home page, select **Ingest** to launch the Copy Data tool.
 
-   ![Get started page](./media/doc-common-process/get-started-page.png)
+   ![ADF home page](./media/doc-common-process/get-started-page.png)
 
 1. On the **Properties** page of the Copy Data tool, under **Task name**, enter **CopyFromOnPremSqlToAzureBlobPipeline**. Then select **Next**. The Copy Data tool creates a pipeline with the name you specify for this field.
   ![Task name](./media/tutorial-hybrid-copy-data-tool/properties-page.png)

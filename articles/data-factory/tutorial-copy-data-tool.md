@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 06/04/2021
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
@@ -108,9 +108,9 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 ## Use the Copy Data tool to create a pipeline
 
-1. On the **Let's get started** page, select the **Copy Data** tile to launch the Copy Data tool.
+1. On the home page of Azure Data Factory, select the **Ingest** tile to launch the Copy Data tool.
 
-   ![Copy Data tool tile](./media/doc-common-process/get-started-page.png)
+   ![Ingest tile](./media/doc-common-process/get-started-page.png)
 
 1. On the **Properties** page, under **Task name**, enter **CopyFromBlobToSqlPipeline**. Then select **Next**. The Data Factory UI creates a pipeline with the specified task name.
 

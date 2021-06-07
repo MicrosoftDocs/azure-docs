@@ -5,7 +5,7 @@ author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 06/04/2021
 ---
 
 # Quickstart: Use the Copy Data tool to copy data
@@ -56,9 +56,9 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
     
 ## Start the Copy Data tool
 
-1. On the **Let's get started** page, select the **Copy Data** tile to start the Copy Data tool.
+1. On the home page of Azure Data Factory, select the **Ingest** tile to start the Copy Data tool.
 
-   !["Copy Data" tile](./media/doc-common-process/get-started-page.png)
+   !["Ingest" tile](./media/doc-common-process/get-started-page.png)
 
 1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, then select **Next**.
 

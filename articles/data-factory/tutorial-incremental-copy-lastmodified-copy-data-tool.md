@@ -6,7 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 06/04/2021
 ---
 
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
@@ -72,9 +72,9 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
 ## Use the Copy Data tool to create a pipeline
 
-1. On the **Let's get started** page, select the **Copy Data** tile to open the Copy Data tool:
+1. On the Azure Data Factory home page, select the **Ingest** tile to open the Copy Data tool:
 
-   ![Copy Data tile](./media/doc-common-process/get-started-page.png)
+   ![Ingest tile](./media/doc-common-process/get-started-page.png)
 
 2. On the **Properties** page, take the following steps:
 

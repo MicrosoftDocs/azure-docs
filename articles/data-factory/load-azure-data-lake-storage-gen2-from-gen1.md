@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 06/04/2021
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
@@ -54,9 +54,9 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 ## Load data into Azure Data Lake Storage Gen2
 
-1. On the **Get started** page, select the **Copy Data** tile to launch the copy data tool. 
+1. On the home page, select the **Ingest** tile to launch the copy data tool. 
 
-   ![Copy data tool tile](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
+   ![Ingest tile](./media/doc-common-process/get-started-page.png )
 2. On the **Properties** page, specify **CopyFromADLSGen1ToGen2** for the **Task name** field. Select **Next**.
 
     ![Properties page](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)

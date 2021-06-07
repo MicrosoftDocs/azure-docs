@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
+ms.date: 06/04/2021
 ms.author: jianleishen
 ---
 
@@ -115,9 +115,9 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 
 In this tutorial, you start by creating a pipeline. Then you create linked services and datasets when you need them to configure the pipeline.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page, select **Orchestrate**.
 
-   ![Screenshot that shows creating a pipeline.](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows Orchestrate tile.](./media/doc-common-process/get-started-page.png)
 1. In the properties pane for the pipeline, enter **CopyPipeline** for the pipeline name.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag the **Copy data** activity from the tool box to the pipeline designer surface. Enter **CopyFromBlobToSql** for the name.

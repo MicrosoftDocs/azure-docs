@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 06/04/2021
 ms.author: jianleishen
 ---
 
@@ -103,7 +103,7 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 
 In this tutorial, you start with creating the pipeline. Then you create linked services and datasets when you need them to configure the pipeline.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page, select **Orchestrate**.
 
    ![Create pipeline](./media/doc-common-process/get-started-page.png)
 

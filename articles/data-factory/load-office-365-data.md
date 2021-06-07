@@ -4,7 +4,7 @@ description: 'Use Azure Data Factory to copy data from Office 365'
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 06/04/2021
 ms.author: jianleishen
 ---
 
@@ -39,9 +39,9 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
 ## Create a pipeline
 
-1. On the "Let's get started" page, select **Create pipeline**.
+1. On the home page, select **Orchestrate**.
  
-    ![Create pipeline](./media/load-office-365-data/create-pipeline-entry.png)
+    ![Create pipeline](./media/doc-common-process/get-started-page.png)
 
 2. In the **General tab** for the pipeline, enter "CopyPipeline" for **Name** of the pipeline.
 

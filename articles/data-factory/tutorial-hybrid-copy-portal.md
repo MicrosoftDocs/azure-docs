@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/18/2021
+ms.date: 06/04/2021
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage
@@ -131,9 +131,9 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 ## Create a pipeline
 
-1. On the **Let's get started** page, select **Create pipeline**. A pipeline is automatically created for you. You see the pipeline in the tree view, and its editor opens.
+1. On the Azure Data Factory home page, select **Orchestrate**. A pipeline is automatically created for you. You see the pipeline in the tree view, and its editor opens.
 
-   ![Let's get started page](./media/doc-common-process/get-started-page.png)
+   ![ADF home page](./media/doc-common-process/get-started-page.png)
 
 1. In the General panel under **Properties**, specify **SQLServerToBlobPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 

@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 04/16/2021
+ms.date: 06/04/2021
 ---
 
 # Transform data in delta lake using mapping data flows
@@ -48,7 +48,7 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
 In this step, you'll create a pipeline that contains a data flow activity.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page, select **Orchestrate**.
 
    ![Create pipeline](./media/doc-common-process/get-started-page.png)
 

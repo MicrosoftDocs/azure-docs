@@ -5,7 +5,7 @@ ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 06/07/2021
 ---
 
 # Incrementally load data from Azure SQL Managed Instance to Azure Storage using change data capture (CDC)
@@ -124,9 +124,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
    ![Screenshot shows the data factory that you deployed.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
-11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image:
+11. In the home page, switch to the **Manage** tab in the left panel as shown in the following image:
 
-    ![Create pipeline button](./media/tutorial-incremental-copy-change-data-capture-feature-portal/get-started-page.png)
+    ![Manage button](media/doc-common-process/get-started-page-manage-button.png)
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL MI.

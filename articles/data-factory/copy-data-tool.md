@@ -5,7 +5,7 @@ author: dearandyxu
 
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/04/2021
 ms.author: yexu
 ---
 # Copy Data tool in Azure Data Factory
@@ -25,9 +25,9 @@ The following table provides guidance on when to use the Copy Data tool vs. per-
 | You want to easily build a data loading task without learning about Azure Data Factory entities (linked services, datasets, pipelines, etc.) | You want to implement complex and flexible logic for loading data into lake. |
 | You want to quickly load a large number of data artifacts into a data lake. | You want to chain Copy activity with subsequent activities for cleansing or processing data. |
 
-To start the Copy Data tool, click the **Copy Data** tile on the home page of your data factory.
+To start the Copy Data tool, click the **Ingest** tile on the home page of your data factory.
 
-![Get started page - link to Copy Data tool](./media/doc-common-process/get-started-page.png)
+![Home page - link to Copy Data tool](./media/doc-common-process/get-started-page.png)
 
 
 ## Intuitive flow for loading data into a data lake
