@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 06/07/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -159,15 +159,19 @@ Create new authentication context definitions by selecting **New authentication 
 - **Publish to apps** checkbox when checked, advertises the authentication context to apps and makes them available to be assigned. If not checked the authentication context will be unavailable to downstream resources. 
 - **ID** is read-only and used in tokens and apps for request-specific authentication context definitions. It is listed here for troubleshooting and development use cases. 
 
-Administrators can then select published authentication contexts in their Conditional Access policies under **Assignments** > **Cloud apps or actions** > **Authentication context**.
+#### Add to Conditional Access policy
+
+Administrators can select published authentication contexts in their Conditional Access policies under **Assignments** > **Cloud apps or actions** and selecting **Authentication context** from the **Select what this policiy applies to** menu.
+
+:::image type="content" source="media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-in-policy.png" alt-text="Adding a Conditional Access authentication context to a policy":::
 
 ### Tag resources with authentication contexts 
 
 For more information about authentication context use in applications, see the following articles.
 
-- [SharePoint Online](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Microsoft Information Protection sensitivity labels to protect SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
-- Custom applications
+- [Custom applications](../develop/developer-guide-conditional-access-authentication-context.md)
 
 ## Next steps
 
