@@ -166,7 +166,7 @@ The following template can be used to create a Conditional Access policy with di
 ## Template 2: User risk-based Conditional Access
 Identity Protection can calculate what it believes is normal for a user's behavior and use that to base decisions for their risk. User risk is a calculation of probability that an identity has been compromised. B2C tenants with P2 licenses can create Conditional Access policies incorporating user risk. When a user is detected as at risk, you can require that they securely change their password to remediate the risk and gain access to their account. We highly recommend setting up a user risk policy to require a secure password change so users can self-remediate.
 Learn more about [user risk in Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#user-risk), taking into account the [limitations on Identity Protection detections for B2C](identity-protection-investigate-risk.md#service-limitations-and-considerations).
-Configure Conditional Access through Azure Portal or Microsoft Graph APIs to enable a user risk-based Conditional Access policy requiring multi-factor authentication (MFA) and password change when user risk is medium OR high.
+Configure Conditional Access through Azure portal or Microsoft Graph APIs to enable a user risk-based Conditional Access policy requiring multi-factor authentication (MFA) and password change when user risk is medium OR high.
 To configure your user based conditional access:
 1. Sign in to the **Azure portal**.
 2. Browse to **Azure AD B2C** > **Security** > **Conditional Access**.
@@ -220,7 +220,7 @@ The following template can be used to create a Conditional Access policy with di
 ## Template 3: Block locations with Conditional Access
 With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. More information about the location condition in Conditional Access can be found in the article,
 [Using the location condition in a Conditional Access policy](../active-directory/conditional-access/location-condition.md
-Configure Conditional Access through Azure Portal or Microsoft Graph APIs to enable a Conditional Access policy blocking access to specific locations.
+Configure Conditional Access through Azure portal or Microsoft Graph APIs to enable a Conditional Access policy blocking access to specific locations.
 ### Define locations
 1. Sign in to the **Azure portal**.
 2. Browse to **Azure AD B2C** > **Security** > **Conditional Access** > **Named Locations**.
