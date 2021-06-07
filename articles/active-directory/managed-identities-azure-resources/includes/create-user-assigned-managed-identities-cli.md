@@ -12,15 +12,14 @@
 ---
 
 
+Managed identities for Azure resources eliminate the need to manage credentials in code when building applications using Azure. There are two types of managed identities – system-assigned and user-assigned. Managed identities allow you to get an Azure active directory token your applications can use for authentication when accessing other resources. Azure manages the identity so you don't have to. You can learn more about managed identities in the managed identities overview. For more information about managed identities, review the [managed identities for Azure resources overview](../overview.md). In this article, you learn how to create, list, delete, or assign a role to a user-assigned managed identity using the Azure CLI.
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](../overview.md). To learn about system-assigned and user-assigned managed identity types, see [Managed identity types](../overview.md#managed-identity-types).
-
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!NOTE]	
-> In order to modify user permissions when using an app service principal using CLI you must provide the service principal additional permissions in Azure AD Graph API as portions of CLI perform GET requests against the Graph API. Otherwise, you may end up receiving a 'Insufficient privileges to complete the operation' message. To do this you will need to go into the App registration in Azure Active Directory, select your app, click on API permissions, scroll down and select Azure Active Directory Graph. From there select Application permissions, and then add the appropriate permissions. 
+> [!IMPORTANT]	
+> To modify user permissions when using an app service principal using CLI you must provide the service principal additional permissions in Azure AD Graph API as portions of CLI perform GET requests against the Graph API. Otherwise, you may end up receiving a 'Insufficient privileges to complete the operation' message. To do this you will need to go into the App registration in Azure Active Directory, select your app, click on API permissions, scroll down and select Azure Active Directory Graph. From there select Application permissions, and then add the appropriate permissions. 
 
 ## Create a user-assigned managed identity 
 

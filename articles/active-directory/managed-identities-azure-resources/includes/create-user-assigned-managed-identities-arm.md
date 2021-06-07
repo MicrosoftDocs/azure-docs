@@ -6,13 +6,13 @@
  ms.service: active-directory
  ms.subservice: msi
  ms.topic: include
- ms.date: 06/03/2021
+ ms.date: 06/07/2021
  ms.author: barclayn
  ms.custom: include
 ---
 
 
-Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
+Managed identities for Azure resources eliminate the need to manage credentials in code when building applications using Azure. There are two types of managed identities – system-assigned and user-assigned. Managed identities allow you to get an Azure active directory token your applications can use for authentication when accessing other resources. Azure manages the identity so you don't have to. You can learn more about managed identities in the managed identities overview. For more information about managed identities, review the [managed identities for Azure resources overview](../overview.md).
 
 In this article, you create a user-assigned managed identity using an Azure Resource Manager.
 

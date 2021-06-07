@@ -10,7 +10,7 @@ ms.subservice: msi
 ms.devlang: 
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/05/2021
+ms.date: 06/07/2021
 ms.author: barclayn
 zone_pivot_groups: identity-mi-methods
 ---
@@ -19,10 +19,6 @@ zone_pivot_groups: identity-mi-methods
 
 
 ::: zone pivot="identity-mi-methods-azp"
-
-Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
-
-In this article, you learn how to create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal
 
 [!INCLUDE [Portal](includes/create-user-assigned-managed-identities-portal.md)]
 
