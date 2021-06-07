@@ -52,9 +52,9 @@ A cycle is said to be complete once the disks are consolidated.
 | --- | --- | --- | --- |
 | Recovery services vault | Azure Migrate project's region | Azure Migrate project's subscription | Used to orchestrate data replication |
 | Service Bus | Target region | Azure Migrate project's subscription | Used for communication between cloud service and Azure Migrate appliance |
-| Log storage account | Target region | Project's subscription | Used to store replication data, which is read by the service and applied on customer's managed disk |
-| Appliance storage account | Target region | Project's subscription | Used to store machine states during replication |
-| Key vault | Target region | Project's subscription | Manages connection strings for service bus and access keys for the log storage account |
+| Log storage account | Target region | Azure Migrate project's subscription | Used to store replication data, which is read by the service and applied on customer's managed disk |
+| Appliance storage account | Target region | Azure Migrate project's subscription | Used to store machine states during replication |
+| Key vault | Target region | Azure Migrate project's subscription | Manages connection strings for service bus and access keys for the log storage account |
 | Azure Virtual Machine | Target region | Target subscription | VM created in Azure when you migrate |
 | Azure Managed Disks | Target region | Target subscription | Managed disks attached to Azure VMs |
 | Network interface cards | Target region | Target subscription | The NICs attached to the VMs created in Azure |
