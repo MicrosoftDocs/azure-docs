@@ -207,17 +207,25 @@ See how to enable MFA in user flows in [Enable multi-factor authentication in Az
 
 ## Conditional Access
 
-Azure AD Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine remediation actions and enforce organizational policies. See [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
+Azure AD Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine remediation actions and enforce organizational policies. 
+
+![Conditional access flow](media/technical-overview/conditional-access-flow.png)
+
+Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. Risky users or sign-ins may be blocked, or challenged with a specific remediation like multi-factor authentication (MFA). For more information, see [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
 
 ## Password complexity
 
 During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use.
 
-You can configure password complexity requirements in both [user flows](password-complexity.md) and [custom policies](password-complexity.md).
+![Screenshot of password complexity user experience](media/technical-overview/password-complexity.png)
+
+For more information, see [Configure complexity requirements for passwords in Azure AD B2C](password-complexity.md).
 
 ## Force password reset
 
-As an Azure AD B2C tenant administrator, you can [reset a user's password](manage-users-portal.md#reset-a-users-password) if the user forgets their password. Or you would like to force them to reset the password periodically. For more information, see [Set up a force password reset flow](force-password-reset.md)
+As an Azure AD B2C tenant administrator, you can [reset a user's password](manage-users-portal.md#reset-a-users-password) if the user forgets their password. Or you would like to force them to reset the password periodically. For more information, see [Set up a force password reset flow](force-password-reset.md).
+
+![Force password reset flow](media/technical-overview/force-password-reset-flow.png)
 
 ## Smart account lockout
 
