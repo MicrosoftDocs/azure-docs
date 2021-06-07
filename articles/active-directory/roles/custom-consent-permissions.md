@@ -60,14 +60,15 @@ To delegate the creation, update and deletion of [app consent policies](../manag
 
 ## Full list of permissions
 
-Permission | Description
----------- | -----------
-microsoft.directory/servicePrincipals/managePermissionGrantsForSelf.{id} | Grants the ability to consent to apps on behalf of self (user consent), subject to app consent policy `{id}`.
-microsoft.directory/servicePrincipals/managePermissionGrantsForAll.{id} | Grants the permission to consent to apps on behalf of all (tenant-wide admin consent), subject to app consent policy `{id}`.
-microsoft.directory/permissionGrantPolicies/standard/read | Grants the ability to read app consent policies.
-microsoft.directory/permissionGrantPolicies/basic/update | Grants the ability to update basic properties on existing app consent policies.
-microsoft.directory/permissionGrantPolicies/create | Grants the ability to create app consent policies.
-microsoft.directory/permissionGrantPolicies/delete | Grants the ability to delete app consent policies.
+> [!div class="mx-tableFixed"]
+> | Permission | Description |
+> | ---------- | ----------- |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForSelf.{id} | Grants the ability to consent to apps on behalf of self (user consent), subject to app consent policy `{id}`. |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.{id} | Grants the permission to consent to apps on behalf of all (tenant-wide admin consent), subject to app consent policy `{id}`. |
+> | microsoft.directory/permissionGrantPolicies/standard/read | Grants the ability to read app consent policies. |
+> | microsoft.directory/permissionGrantPolicies/basic/update | Grants the ability to update basic properties on existing app consent policies. |
+> | microsoft.directory/permissionGrantPolicies/create | Grants the ability to create app consent policies. |
+> | microsoft.directory/permissionGrantPolicies/delete | Grants the ability to delete app consent policies. |
 
 ## Next steps
 

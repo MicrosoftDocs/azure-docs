@@ -144,13 +144,18 @@
     href: app-objects-and-service-principals.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
+  - name: App security
+    displayName: least privilege, secure app configuration, conditional access
+    items:
+    - name: Best practices for least privileged access for apps
+      href: secure-least-privileged-access.md
+    - name: Conditional access
+      href: v2-conditional-access-dev-guide.md
+    - name: Authentication context
+      href: developer-guide-conditional-access-authentication-context.md
   - name: Permissions and consent
     displayName: Scopes
     href: v2-permissions-and-consent.md
-  - name: Conditional access
-    href: v2-conditional-access-dev-guide.md
-  - name: Authentication context
-    href: developer-guide-conditional-access-authentication-context.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to

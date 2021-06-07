@@ -4,6 +4,8 @@
   items:
     - name: Welcome to Azure Cosmos DB
       href: introduction.md
+    - name: Choose an API
+      href: choose-api.md
     - name: NoSQL vs. relational databases
       href: relational-nosql.md
 - name: Concepts
@@ -834,8 +836,6 @@
               href: visualize-qlik-sense.md
         - name: Built-in analytics with Apache Spark
           items:
-            - name: Azure Databricks Spark 2 OLTP connector
-              href: spark-connector.md
             - name: Streaming with Apache Kafka and Cosmos DB
               href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Migrate data to Cosmos DB

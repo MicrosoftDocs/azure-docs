@@ -44,7 +44,7 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 * **Gender**. The estimated gender of the given face. Possible values are male, female, and genderless.
 * **Glasses**. Whether the given face has eyeglasses. Possible values are NoGlasses, ReadingGlasses, Sunglasses, and Swimming Goggles.
 * **Hair**. The hair type of the face. This attribute shows whether the hair is visible, whether baldness is detected, and what hair colors are detected.
-* **Head pose**. The face's orientation in 3D space. This attribute is described by the pitch, roll, and yaw angles in degrees. The value ranges are -90 degrees to 90 degrees, -90 degrees to 90 degrees, and -90 degrees to 90 degrees, respectively. See the following diagram for angle mappings:
+* **Head pose**. The face's orientation in 3D space. This attribute is described by the roll, yaw, and pitch angles in degrees, which are defined according to the [right-hand rule](https://en.wikipedia.org/wiki/Right-hand_rule). The order of three angles is roll-yaw-pitch, and each angle's value range is from -180 degrees to 180 degrees. 3D orientation of the face is estimated by the roll, yaw, and pitch angles in order. See the following diagram for angle mappings:
 
     ![A head with the pitch, roll, and yaw axes labeled](../Images/headpose.1.jpg)
 * **Makeup**. Whether the face has makeup. This attribute returns a Boolean value for eyeMakeup and lipMakeup.

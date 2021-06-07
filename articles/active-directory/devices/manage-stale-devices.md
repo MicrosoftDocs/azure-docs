@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 06/02/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -152,8 +152,8 @@ Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} 
 Using the same commands we can pipe the output to the set command to disable the devices over a certain age.
 
 ```powershell
-$dt = [datetime]’2017/01/01’
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice
+$dt = (Get-Date).AddDays(-90)
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice -AccountEnabled $false
 ```
 
 ## What you should know

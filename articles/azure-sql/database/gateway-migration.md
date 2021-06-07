@@ -3,12 +3,12 @@ title: Gateway traffic migration notice
 description: Article provides notice to users about the migration of Azure SQL Database gateway IP addresses
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 07/01/2019
 ---
 # Azure SQL Database traffic migration to newer Gateways

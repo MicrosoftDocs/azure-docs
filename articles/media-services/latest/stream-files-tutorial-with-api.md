@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/17/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
 ---
 
@@ -52,13 +52,13 @@ Clone a GitHub repository that has the streaming .NET sample to your machine usi
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
-The sample is located in the [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles) folder.
+The sample is located in the [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/UploadEncodeAndStreamFiles) folder.
 
-Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) in your downloaded project. Replace the values with credentials that you got from [accessing APIs](./access-api-howto.md).
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) in your downloaded project. Replace the values with credentials that you got from [accessing APIs](./access-api-howto.md).
 
 ## Examine the code that uploads, encodes, and streams
 
-This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) file of the *UploadEncodeAndStreamFiles* project.
+This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) file of the *UploadEncodeAndStreamFiles* project.
 
 The sample performs the following actions:
 
@@ -70,11 +70,19 @@ The sample performs the following actions:
 6. Creates a **Streaming Locator**.
 7. Builds streaming URLs.
 
-### Start using Media Services APIs with .NET SDK
+### Start using Media Services APIs with the .NET SDK
 
-To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you must supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file.
+To start using Media Services APIs with .NET, you need to create an `AzureMediaServicesClient` object. To create the object, you need to supply credentials for the client to connect to Azure by using Azure Active Directory. Another option is to use interactive authentication, which is implemented in `GetCredentialsInteractiveAuthAsync`.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateMediaServicesClient)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
+
+In the code that you cloned at the beginning of the article, the `GetCredentialsAsync` function creates the `ServiceClientCredentials` object based on the credentials supplied in the local configuration file (*appsettings.json*) or through the *.env* environment variables file in the root of the repository.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
+
+In the case of interactive authentication, the `GetCredentialsInteractiveAuthAsync` function creates the `ServiceClientCredentials` object based on an interactive authentication and the connection parameters supplied in the local configuration file (*appsettings.json*) or through the *.env* environment variables file in the root of the repository. In that case, AADCLIENTID and AADSECRET are not needed in the configuration or environment variables file.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 
 ### Create an input asset and upload a local file into it
 
