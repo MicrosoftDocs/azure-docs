@@ -1,7 +1,7 @@
 ---
-title: Use AutoML to create models & deploy 
+title: Set up Auto ML with the studio UI
 titleSuffix: Azure Machine Learning
-description: Create, review, and deploy automated machine learning models with the Azure Machine Learning studio.
+description: Learn how to set up Auto ML training runs without a single line of code with the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,12 @@ author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: how-to
-ms.custom: automl
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Create, review, and deploy automated machine learning models with Azure Machine Learning
+# Set up no-code Auto ML training with the studio UI 
 
-
-In this article, you learn how to create, explore, and deploy automated machine learning models without a single line of code in Azure Machine Learning studio.
+In this article, you learn how to set up Auto ML training runs without a single line of code in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
 
 Automated machine learning is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about automated machine learning](concept-automated-ml.md).
  

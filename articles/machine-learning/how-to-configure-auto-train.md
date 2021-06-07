@@ -1,7 +1,7 @@
 ---
-title: Create automated ML experiments
+title: Set up Auto ML with Python
 titleSuffix: Azure Machine Learning
-description: Learn how to define data sources, computes, and configuration settings for your automated machine learning experiments.
+description: Learn how to set up an Auto ML training run with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -10,15 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: how-to
-ms.custom: devx-track-python,contperf-fy21q1, automl
+ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
 ---
 
-# Configure automated ML experiments in Python
+# Set up Auto ML training with Python
 
+In this guide, learn how to set up an Auto ML training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure these types of experiments.
 
-In this guide, learn how to define various configuration settings of your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments.
-
-For an end to end example of an automated machine learning experiment, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md).
+For an end to end example of an automated machine learning experiment, see [Tutorial: Train a regression model with automated machine learning](tutorial-auto-train-models.md).
 
 Configuration options available in automated machine learning:
 
