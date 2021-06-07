@@ -4,9 +4,9 @@ description: "Migration guide from MySQL on-premises to Azure Data base for MySQ
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: arthiaga
+author: arunkumarthiags
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
 ms.date: 05/25/2021
 ---

@@ -51,7 +51,7 @@ landingContent:
             url: search-what-is-data-import.md
       - linkListType: how-to-guide
         links:
-          - text: Index from Azure Blob storage
+          - text: Index from Azure Blob Storage
             url: search-blob-storage-integration.md
           - text: Index from Azure SQL Database
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
