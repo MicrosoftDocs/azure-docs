@@ -227,6 +227,7 @@ async function sendMultiSlotRank(rankRequest) {
             throw err.response.data
         }
         console.log(err)
+        throw err;
     }
 }
 ```
@@ -239,6 +240,7 @@ async function sendMultiSlotReward(rewardRequest, eventId) {
     }
     catch (err) {
         console.log(err);
+        throw err;
     }
 }
 ```
@@ -318,6 +320,7 @@ let runLoop = true;
         }
         catch (err) {
             console.log(err);
+            throw err;
         }
 
 
@@ -366,6 +369,7 @@ try {
 }
 catch (err) {
     console.log(err);
+    throw err;
 }
 ```
 
