@@ -3,7 +3,7 @@
    - name: Overview
      items:
       - name: Introduction
-        href: index.md
+        href: mysql-migration-guide-index.md
       - name: Representative Use Case
         href: representative-use-case.md
    - name: Pre-Migration
