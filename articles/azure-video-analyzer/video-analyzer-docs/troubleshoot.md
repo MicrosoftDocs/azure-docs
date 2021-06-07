@@ -22,6 +22,10 @@ As part of your Video Analyzer deployment, you set up Azure resources such as Io
 1. [Restart containers](../../iot-edge/troubleshoot.md#restart-containers).
 1. [Check your firewall and port configuration rules](../../iot-edge/troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
+### Issues when using ARM template
+
+If you encounter issues when using the ARM template (the Deploy to Azure button), use the steps in this [quickstart](get-started-detect-motion-emit-events-portal.md) to manually deploy the necessary resources. 
+
 ### Pre-deployment issues
 
 If the edge infrastructure is fine, you can look for issues with the deployment manifest file. To deploy the Video Analyzer module on the IoT Edge device alongside any other IoT modules, you use a deployment manifest that contains the IoT Edge hub, IoT Edge agent, and other modules and their properties. You can use the following command to deploy the manifest file:

@@ -37,6 +37,8 @@
         href: accredible-tutorial.md
       - name: Achieve3000
         href: achieve3000-tutorial.md
+      - name: A Cloud Guru
+        href: a-cloud-guru-tutorial.md
       - name: ACLP
         href: aclp-tutorial.md
       - name: AcquireIO
@@ -61,7 +63,7 @@
         href: adpfederatedsso-tutorial.md
       - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
-      - name: Agiloft
+      - name: Agiloft Contract Management Suite
         href: agiloft-tutorial.md
       - name: Aha!
         href: aha-tutorial.md
@@ -123,6 +125,8 @@
         href: appian-tutorial.md
       - name: Appinux
         href: appinux-tutorial.md
+      - name: Applied Mental Health
+        href: applied-mental-health-tutorial.md
       - name: AppNeta Performance Monitor
         href: appneta-tutorial.md
       - name: Appraisd
@@ -163,6 +167,8 @@
         href: assetbank-tutorial.md
       - name: AssetSonar
         href: assetsonar-tutorial.md
+      - name: Astra Schedule
+        href: astra-schedule-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-tutorial.md
       - name: Atlassian Jira and Confluence
@@ -249,6 +255,8 @@
         href: bomgarremotesupport-tutorial.md
       - name: Bonusly
         href: bonus-tutorial.md
+      - name: Bonos
+        href: bonos-tutorial.md
       - name: Boomi
         href: boomi-tutorial.md
       - name: BorrowBox
@@ -335,7 +343,9 @@
         href: check-point-harmony-connect-tutorial.md
       - name: Check Point Identity Awareness
         href: check-point-identity-awareness-tutorial.md
-      - name: Check Point Remote Secure Access VPN
+      - name: Check Point Infinity Portal
+        href: checkpoint-infinity-portal-tutorial.md
+      - name: Check Point Remote Access VPN
         href: check-point-remote-access-vpn-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
@@ -401,6 +411,8 @@
         href: cloud-service-picco-tutorial.md
       - name: CloudSign
         href: cloudsign-tutorial.md
+      - name: cloudtamer.io
+        href: cloudtamer-io-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
       - name: Coda
@@ -541,6 +553,8 @@
         href: dowjones-factiva-tutorial.md
       - name: Darwinbox
         href: darwinbox-tutorial.md
+      - name: Draup, Inc
+        href: draup-inc-tutorial.md  
       - name: Drift
         href: drift-tutorial.md
       - name: Dropbox Business
@@ -762,6 +776,8 @@
         href: github-enterprise-managed-user-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: Glint Inc
+        href: glint-inc-tutorial.md  
       - name: GlobalOne
         href: globalone-tutorial.md
       - name: GlobeSmart
@@ -896,6 +912,8 @@
         href: idrive-tutorial.md
       - name: Igloo Software
         href: igloo-software-tutorial.md
+      - name: iHASCO Training
+        href: ihasco-training-tutorial.md
       - name: Illusive Networks
         href: illusive-networks-tutorial.md
       - name: iLMS
@@ -1022,8 +1040,6 @@
         href: jostle-tutorial.md
       - name: Juno Journey
         href: juno-journey-tutorial.md
-      - name: JustLogin
-        href: justlogin-tutorial.md
       - name: JuriBlox
         href: juriblox-tutorial.md  
       - name: Kallidus
@@ -1102,7 +1118,7 @@
         href: learning-at-work-tutorial.md
       - name: Learning Seat LMS
         href: learningseatlms-tutorial.md
-      - name: Learningpool Act
+      - name: Learning Pool LMS
         href: learningpool-tutorial.md
       - name: LearnUpon
         href: learnupon-tutorial.md
@@ -1292,6 +1308,8 @@
         href: new-relic-limited-release-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
+      - name: Nexsure
+        href: nexsure-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
       - name: Nintex Promapp
@@ -1448,6 +1466,8 @@
         href: poolparty-semantic-suite-tutorial.md
       - name: PostBeyond
         href: postbeyond-tutorial.md
+      - name: Postman
+        href: postman-tutorial.md  
       - name: Powerschool Performance Matters
         href: powerschool-performance-matters-tutorial.md
       - name: Predictix Assortment Planning
@@ -1500,7 +1520,7 @@
         href: pulse-secure-pcs-tutorial.md
       - name: Pulse Secure Virtual Traffic Manager
         href: pulse-secure-virtual-traffic-manager-tutorial.md
-      - name: PureCloud by Genesys
+      - name: Genesys Cloud for Azure
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
         href: purelyhr-tutorial.md
@@ -1530,6 +1550,8 @@
         href: rally-software-tutorial.md
       - name: raum]für[raum
         href: raumfurraum-tutorial.md  
+      - name: ReadCube Papers
+        href: readcube-papers-tutorial.md  
       - name: Real Links
         href: real-links-tutorial.md
       - name: Recognize
@@ -1876,6 +1898,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: Teamgo
+        href: teamgo-tutorial.md
       - name: Teamphoria
         href: teamphoria-tutorial.md
       - name: TeamSeer
@@ -2090,8 +2114,6 @@
         href: workplacebyfacebook-tutorial.md
       - name: Workrite
         href: workrite-tutorial.md
-      - name: Workshop
-        href: workshop-tutorial.md
       - name: Workspot Control
         href: workspotcontrol-tutorial.md
       - name: Workstars

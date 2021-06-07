@@ -1,6 +1,6 @@
 ---
 title: Edge Managed Certification Requirements
-description: Edge Managed Certification program requirements
+description: Edge Managed Certification Requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
@@ -9,7 +9,7 @@ ms.custom: Edge Managed Certification Requirements
 ms.service: certification
 ---
 
-# Azure Certification Edge Managed 
+# Edge Managed Certification Requirements
 
 This document outlines the device specific capabilities that will be represented in the Azure Certified Device catalog. A capability is singular device attribute that may describe the device. 
 

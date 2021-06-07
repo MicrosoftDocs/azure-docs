@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 04/29/2021
+ms.date: 05/27/2021
 ms.author: zxue
 ---
 
@@ -29,17 +29,14 @@ Before creating a private endpoint, there are some Azure resources that you'll n
 
 For more information, see [Private Link Documentation](../../private-link/index.yml).
 
-## Disable public network access
-
-Creating a private endpoint for your FHIR resource doesn't automatically disable public traffic to it. To do this, you'll have to update your FHIR resource to set a new “Public access” property from “Enabled” to “Disabled”. Be careful when disabling public network access as all requests to your FHIR service that are not coming from a properly configured private endpoint will be denied. Only traffic from your private endpoints will be allowed.
-
-:::image type="content" source="media/private-link/private-link-disable.png" alt-text="Disable Public Network Access.":::
-
 ## Create private endpoint
 
 To create a private endpoint, a developer with Role-based access control (RBAC) permissions on the FHIR resource can use the Azure portal, [Azure PowerShell](../../private-link/create-private-endpoint-powershell.md), or [Azure CLI](../../private-link/create-private-endpoint-cli.md). This article will guide you through the steps on using Azure portal. Using the Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. For more information, see [Private Link Quick Start Guides](../../private-link/create-private-endpoint-portal.md).
 
 There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the FHIR resource to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the FHIR resource to request a private endpoint to be approved by owners of the FHIR resource.
+
+> [!NOTE]
+> When an approved private endpoint is created for Azure API for FHIR, public traffic to it is automatically disabled. 
 
 ### Auto approval
 
