@@ -22,7 +22,7 @@ You can determine the version of ADE with which a VM was encrypted via Azure CLI
 
 # [CLI](#tab/CLI)
 
-To determine the ADE version, run the Azure CLI [az vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view) command.
+To determine the ADE version, run the Azure CLI [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) command.
 
 ```azurecli-interactive
 az vm get-instance-view --resource-group  <ResourceGroupName> --name <VMName> 
@@ -32,7 +32,7 @@ Locate the AzureDiskEncryption extension in the output and identify the version 
 
 # [PowerShell](#tab/PowerShell)
 
-To determine the ADE version, run the Azure PowerShell [az vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view) command.
+To determine the ADE version, run the Azure PowerShell [Get-AzVM](/powershell/module/az.compute/get-azvm) command.
 
 ```azurepowershell-interactive
 Get-AzVM -ResourceGroupName <ResourceGroupName> -Name <VMName> -Status
@@ -44,17 +44,14 @@ Locate the AzureDiskEncryption extension in the output and identify the version 
 
 Go to the "Extensions" blade of your VM in the Azure Portal.
 
-:::image type="content" source="../media/disk-encryption/ade-version-1.png" alt-text="<alt text>":::
+:::image type="content" source="../media/disk-encryption/ade-version-1.png" alt-text="finding ADE version portal screenshot 1":::
 
 Choose the "AzureDiskEncryption" extension for Windows or "AzureDiskEncryptionForLinux" extension for Linux, and locate the version number in the "Version"" field.
 
-:::image type="content" source="../media/disk-encryption/ade-version-2.png" alt-text="<alt text>":::
+:::image type="content" source="../media/disk-encryption/ade-version-2.png" alt-text="finding ADE version portal screenshot 2":::
 
 ---
 
-
-
- 
 ## How to migrate
 
 Migration from Azure Disk Encryption (with AAD) to Azure Disk Encryption (without AAD) is only available through Azure PowerShell. Ensure you have the latest version of Azure PowerShell and at least the [Azure PowerShell Az module version 5.9.0](/powershell/azure/new-azureps-module-az) installed .
