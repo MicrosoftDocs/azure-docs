@@ -325,7 +325,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="when-to-use-nfs"></a>
 **When should I use Azure Files NFS?**
 
-    See [NFS shares (preview)](files-nfs-protocol.md#nfs-shares-preview).
+    See [NFS shares (preview)](files-nfs-protocol.md).
 
 * <a id="backup-nfs-data"></a>
 **How do I backup data stored in NFS shares?**
