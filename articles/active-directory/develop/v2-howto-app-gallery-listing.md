@@ -282,17 +282,6 @@ You can update or remove an existing gallery app in the [Microsoft Application N
 > [!NOTE]
 > If you have any issues with access, review the previous section on creating your account. If that doesn't work, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-### List requests by customers
-
-Customers can request application by sharing the Application and ISV contact information.
-
-![Shows the customer-requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
-
-Here's the flow of customer-requested applications.
-
-![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
-
-
 ### Timelines
 
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7 to 10 business days.
@@ -313,6 +302,15 @@ The Microsoft Partner Network provides instant access to exclusive resources, pr
 
 ## Request Apps by sharing ISV App team contact
 
+Customers can request application by sharing the Application and ISV contact information.
+
+![Shows the customer-requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Here's the flow of customer-requested applications.
+
+![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
+
 ## Next steps
+
 * [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md)
