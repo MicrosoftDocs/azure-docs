@@ -52,6 +52,10 @@ You can select which events to stream from among the following sets: <a name="ev
 
 # [Azure Monitor Agent (New)](#tab/AMA)
 
+> [!IMPORTANT]
+>
+> - The Windows Security Events data connector based on the Azure Monitor Agent (AMA) is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 In addition to the [pre-selected sets of events](#event-sets) (Minimal, Common, and All) that you could choose to ingest with the old connector, the new Azure Monitor Agent-based connector lets you build your own custom sets of events to ingest. You do this by creating **data collection rules** that filter and ingest only the events you want, while leaving everything else behind. This can save you a lot of money in data ingestion costs!
 
 When creating a **data collection rule**, you can choose **All events**, **Minimal**, or **Common** - just like with the old connector - or you can choose **Custom** and then define expressions for the event IDs you want to ingest. See the detailed instructions below.
@@ -97,13 +101,40 @@ To collect your Windows security events in Azure Sentinel:
 
 # [Azure Monitor Agent (New)](#tab/AMA)
 
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Windows Security Events (Preview)**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
+
+1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
+
+    1. You must have read and write permissions on your workspace and on all data sources from which you will be ingesting Windows security events.
+
+    1. To collect events from Windows machines that are not Azure VMs, the machines (physical or virtual) must have Azure Arc installed and enabled. [Learn more](../azure-monitor/agents/azure-monitor-agent-install.md?tabs=ARMAgentPowerShell%2CPowerShellWindows%2CPowerShellWindowsArc%2CCLIWindows%2CCLIWindowsArc).
+
+1. Under **Configuration**, select **+Add data collection rule**. The **Create data collection rule** wizard will open to the right.
+
+1. Under **Basics**, enter a **Rule name** and specify a **Subscription** and **Resource group** where the data collection rule (DCR) will be created. This *does not* have to be the same resource group or subscription the monitored machines and their associations are in, as long as they are in the same tenant.
+
+1. In the **Resources** tab, select **+Add resource(s)** to add machines to which the Data Collection Rule will apply. The **Select a scope** dialog will open, and you will see a list of available subscriptions. Expand a subscription to see its resource groups, and expand a resource group to see the available machines. You will see Azure virtual machines and Azure Arc-enabled servers in the list. You can mark the check boxes of subscriptions or resource groups to select all the machines they contain, or you can select individual machines. Select **Apply** when you've chosen all your machines. At the end of this process, the Azure Monitor Agent will be installed on any selected machines that don't already have it installed.
+
+1. On the **Collect** tab, choose the [set of events](#event-sets) you would like to collect, or select **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries). Enter expressions in the box that evaluate to specific event IDs to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
+
+    Learn more about [data collection rules](../azure-monitor/agents/data-collection-rule-overview.md#create-a-dcr) from the Azure Monitor documentation.
+
+    > [!NOTE]
+    > Make sure to query only Windows Security logs. Events from other Windows logs, or from security logs from other environments, may not adhere to the Windows Security Events schema and won't be parsed properly, in which case they won’t be ingested to your workspace.
+
+1. When you've added all the filter expressions you want, select **Next: Review + create**.
+
+1. When you see the "Validation passed" message, select **Create**. 
+
+You'll see all your data collection rules under **Configuration** on the connector page. From there you can edit or delete existing rules.
+
 ---
 
 ## Validate connectivity
 
 It may take around 20 minutes until your logs start to appear in Log Analytics. 
 
-### Configure the Security events connector for anomalous RDP login detection
+### Configure the Security events / Windows Security Events connector for anomalous RDP login detection
 
 > [!IMPORTANT]
 > Anomalous RDP login detection is currently in public preview.
@@ -120,15 +151,15 @@ Azure Sentinel can apply machine learning (ML) to Security events data to identi
 
 **Configuration instructions**
 
-1. You must be collecting RDP login data (Event ID 4624) through the **Security events** data connector. Make sure you have selected an [event set](#event-sets) besides "None" to stream into Azure Sentinel.
+1. You must be collecting RDP login data (Event ID 4624) through the **Security events** or **Windows Security Events** data connectors. Make sure you have selected an [event set](#event-sets) besides "None", or created a data collection rule that includes this event ID, to stream into Azure Sentinel.
 
 1. From the Azure Sentinel portal, click **Analytics**, and then click the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
 
     > [!NOTE]
-    > As the machine learning algorithm requires 30 days' worth of data to build a baseline profile of user behavior, you must allow 30 days of Security events data to be collected before any incidents can be detected.
+    > As the machine learning algorithm requires 30 days' worth of data to build a baseline profile of user behavior, you must allow 30 days of Windows Security events data to be collected before any incidents can be detected.
 
 ## Next steps
 In this document, you learned how to connect Windows security events to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
 - Get started detecting threats with Azure Sentinel, using [built-in](tutorial-detect-threats-built-in.md) or [custom](tutorial-detect-threats-custom.md) rules.
 
