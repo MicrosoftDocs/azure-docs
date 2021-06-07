@@ -233,19 +233,19 @@ provides information regarding the presence (present vs. absent) of the concept 
 
 **Negative**: the concept does not exist now or never happened.
 
-:::image type="content" source="../../media/ta-for-health/negative-entity.png" alt-text="An example of a negative entity.":::
+:::image type="content" source="../../media/ta-for-health/negative-entity.png" alt-text="An example of a negative entity." lightbox="../../media/ta-for-health/negative-entity.png:::
 
 **Positive_Possible**: the concept likely exists but there is some uncertainty.
 
-:::image type="content" source="../../media/ta-for-health/positive-possible-entity.png" alt-text="An example of a positive possible entity.":::
+:::image type="content" source="../../media/ta-for-health/positive-possible-entity.png" alt-text="An example of a positive possible entity." lightbox="../../media/ta-for-health/positive-possible-entity.png" :::
 
 **Negative_Possible**: the concept’s existence is unlikely but there is some uncertainty.
 
-:::image type="content" source="../../media/ta-for-health/negative-possible-entity.png" alt-text="An example of a negative possible entity.":::
+:::image type="content" source="../../media/ta-for-health/negative-possible-entity.png" alt-text="An example of a negative possible entity." lightbox="../../media/ta-for-health/negative-possible-entity.png" :::
 
 **Neutral_Possible**: the concept may or may not exist without a tendency to either side.
 
-:::image type="content" source="../../media/ta-for-health/neutral-possible-entity.png" alt-text="An example of a neutral possible entity.":::
+:::image type="content" source="../../media/ta-for-health/neutral-possible-entity.png" alt-text="An example of a neutral possible entity." lightbox="../../media/ta-for-health/neutral-possible-entity.png":::
 
 ### Conditionality
 
@@ -255,11 +255,11 @@ provides information regarding whether the existence of a concept depends on cer
 
 **Hypothetical**: the concept may develop or occur in the future.
 
-:::image type="content" source="../../media/ta-for-health/hypothetical-entity.png" alt-text="An example of a hypothetical entity.":::
+:::image type="content" source="../../media/ta-for-health/hypothetical-entity.png" alt-text="An example of a hypothetical entity." lightbox="../../media/ta-for-health/hypothetical-entity.png":::
 
 **Conditional**: the concept exists or occurs only under certain conditions.
 
-:::image type="content" source="../../media/ta-for-health/conditional-entity.png" alt-text="An example of a conditional entity.":::
+:::image type="content" source="../../media/ta-for-health/conditional-entity.png" alt-text="An example of a conditional entity." lightbox="../../media/ta-for-health/conditional-entity.png":::
 
 ### Association
 
@@ -269,5 +269,5 @@ describes whether the concept is associated with the subject of the text or some
 
 **Someone_Else**: the concept is associated with someone who is not the subject of the text.
 
-:::image type="content" source="../../media/ta-for-health/association-entity.png" alt-text="An example of an association entity.":::
+:::image type="content" source="../../media/ta-for-health/association-entity.png" alt-text="An example of an association entity." lightbox="../../media/ta-for-health/association-entity.png":::
 
