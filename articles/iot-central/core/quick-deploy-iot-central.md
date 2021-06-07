@@ -9,9 +9,11 @@ ms.service: iot-central
 services: iot-central
 ---
 
-# Quickstart - Create and use an Azure IoT Central application
+# Quickstart - Create an Azure IoT Central application and use your smartphone to send telemetry
 
-This quickstart shows you how to create an Azure IoT Central application and connect your first device. To get you started quickly, you install an app on your smartphone to act as the device. The app app sends telemetry, reports properties, and responds to commands.
+This quickstart shows you how to create an Azure IoT Central application and connect your first device. To get you started quickly, you install an app on your smartphone to act as the device. The app app sends telemetry, reports properties, and responds to commands:
+
+:::image type="content" source="media/quick-deploy-iot-central/overview.png" alt-text="Overview of quickstart scenario connecting a smartphone app to IoT Central." border="false":::
 
 ## Prerequisites
 
@@ -21,6 +23,7 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 > You should have at least **Contributor** access in your Azure subscription. If you created the subscription yourself, you're automatically an administrator with sufficient access. To learn more, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
 
 An Android or iOS phone on which you're able to install a free app from one of the official app stores.
+
 ## Create an application
 
 Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with the Microsoft personal, work, or school account associated with your Azure subscription.
