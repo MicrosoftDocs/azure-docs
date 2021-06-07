@@ -60,7 +60,7 @@ For the Stream Analytics job to access your Event Hub using managed identity, th
 You can also grant this role at the Event Hub Namespace level, which will naturally propagate the permissions to all Event Hubs created under it. That is, all Event Hubs under a Namespace can be used as a managed-identity-authenticating resource in your Stream Analytics job.
 
 > [!NOTE]
-> Due to global replication/notification/caching latency, there may be a delay when permissions are revoked/granted. Changes should be reflected within 8 minutes.
+> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.
 
 ## Create an Event Hub input or output  
 
