@@ -206,6 +206,29 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
+    * **Encrypted SMB connection to domain controller**   
+
+        Select this checkbox to enable SMB encryption for communication between the Azure NetApp Files service and the domain controller (DC). When you enable this functionality, SMB3 protocol will be used for encrypted DC connections, because encryption is supported only by SMB3. SMB, Kerberos, and LDAP enabled volume creation will fail if DC doesn't support SMB3 protocol. 
+
+        ![Snapshot that shows the option for encrypted SMB connection to domain controller.](../media/azure-netapp-files/encrypted-smb-domain-controller.png)         
+
+        The **Encrypted SMB connection to domain controller** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEncryptedSMBConnectionsToDC
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEncryptedSMBConnectionsToDC
+        ```
+        
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
      * **Security privilege users**   <!-- SMB CA share feature -->   
         You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
 

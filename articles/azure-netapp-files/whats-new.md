@@ -21,6 +21,12 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## July 2021
+
+* [Encrypted SMB connection to domain controller](create-active-directory-connections.md#create-an-active-directory-connection) 
+
+
+
 ## May 2021
 
 * Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
