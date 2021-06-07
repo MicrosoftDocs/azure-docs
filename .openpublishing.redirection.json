@@ -37001,6 +37001,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-cli.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-rbac-role",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-portal.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-rbac-role",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-powershell.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-rbac-role",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/storage-azure-cli.md",
       "redirect_url": "/azure/storage/common/storage-azure-cli",
       "redirect_document_id": true
