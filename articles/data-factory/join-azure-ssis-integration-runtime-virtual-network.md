@@ -5,7 +5,8 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/02/2020
 author: swinarko
-ms.author: sawinark
+ms.author: sawinark 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Join an Azure-SSIS integration runtime to a virtual network

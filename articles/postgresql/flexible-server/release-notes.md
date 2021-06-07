@@ -6,7 +6,7 @@ ms.author: srranga
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/26/2021
+ms.date: 05/25/2021
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -15,6 +15,12 @@ This page provides latest news and updates regarding feature additions, engine v
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
+
+## Release: May 25, 2021
+
+* Support for [PostgreSQL major version 13](./concepts-supported-versions.md).
+* Support for extensions including pg_partman, pg_cron, and pgaudit. See the [extensions page](./concepts-extensions.md) for versions supported with each major version.
+* Several bug fixes, stability, and performance improvements.
 
 ## Release: April 26, 2021
 

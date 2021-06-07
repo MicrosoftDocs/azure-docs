@@ -1,13 +1,15 @@
 ---
-title: Lifecycle management of Azure VMware Solution VMs
+title: Monitor and manage Azure VMware Solution VMs
 description: Learn to manage all aspects of the lifecycle of your Azure VMware Solution VMs with Microsoft Azure native tools.
-ms.topic: conceptual
-ms.date: 02/08/2021
+ms.topic: how-to
+ms.date: 05/04/2021
 ---
 
-# Lifecycle management of Azure VMware Solution VMs
+# Monitor and manage Azure VMware Solution VMs
 
-Microsoft Azure native tools allow you to monitor and manage your virtual machines (VMs) in the Azure environment. Yet they also allow you to monitor and manage your VMs on Azure VMware Solution and your on-premises VMs. In this overview, we'll look at the integrated monitoring architecture Azure offers, and how you can use its native tools to manage your Azure VMware Solution VMs throughout their lifecycle.
+
+
+Microsoft Azure native tools allow you to monitor and manage your virtual machines (VMs) in the Azure environment. Yet they also allow you to monitor and manage your VMs on Azure VMware Solution and your on-premises VMs. In this article, we'll look at the integrated monitoring architecture Azure offers, and how you can use its native tools to manage your Azure VMware Solution VMs throughout their lifecycle.
 
 ## Benefits
 
@@ -31,7 +33,7 @@ Microsoft Azure native tools allow you to monitor and manage your virtual machin
 
 ## Integrated Azure monitoring architecture
 
-The following diagram shows the integrated monitoring architecture for Azure VMware Solution VMs.
+The diagram shows the integrated monitoring architecture for Azure VMware Solution VMs.
 
 ![Integrated Azure monitoring architecture](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
@@ -46,7 +48,7 @@ If you are new to Azure or unfamiliar with any of the services previously mentio
 - [What is Azure Arc enabled servers?](../azure-arc/servers/overview.md) and [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
 - [Update Management overview](../automation/update-management/overview.md)
 
-## Integrating and deploying Azure native services
+## Integrate and deploy Azure native services
 
 ### Enable Azure Update Management
 

@@ -51,27 +51,27 @@
         href: 8-secure-access-sensitivity-labels.md
       - name: 9 Secure access to Teams, SharePoint, and OneDrive
         href: 9-secure-access-teams-sharepoint.md
-    - name: Secure Service Accounts
+    - name: Secure service accounts
       items:
       - name: Introduction to Azure service accounts
         href: service-accounts-introduction-azure.md
-      - name: Securing managed identities
+      - name: Secure managed identities
         href: service-accounts-managed-identities.md
-      - name: Securing service principals
+      - name: Secure service principals
         href: service-accounts-principal.md
-      - name: Governing Azure service accounts
+      - name: Govern Azure service accounts
         href: service-accounts-governing-azure.md       
       - name: Introduction to on-premises service accounts
         href: service-accounts-on-premises.md
-      - name: Securing group MSAs
+      - name: Secure group MSAs
         href: service-accounts-group-managed.md
-      - name: Securing standalone MSAs
+      - name: Secure standalone MSAs
         href: service-accounts-standalone-managed.md
-      - name: Securing computer accounts
+      - name: Secure computer accounts
         href: service-accounts-computer.md
-      - name: Securing user-based service accounts
+      - name: Secure on-premises user service accounts
         href: service-accounts-user-on-premises.md
-      - name: Govern on-premises service accounts
+      - name: Govern on-premises user service accounts
         href: service-accounts-govern-on-premises.md
     - name: Enable MFA
       href: concept-fundamentals-mfa-get-started.md
@@ -168,7 +168,7 @@
         - name: Daemon applications
           href: resilience-daemon-app.md
         - name: OpenID Connect metadata refresh
-          href: ../develop/howto-build-services-resilent-to-metadata-refresh.md
+          href: ../develop/howto-build-services-resilient-to-metadata-refresh.md
       - name: Monitor application health for resilience
         href: monitor-sign-in-health-for-resilience.md
     - name: Certificate authorities used in Azure
@@ -256,4 +256,4 @@
   - name: Get support for Azure Active Directory
     href: active-directory-troubleshooting-support-howto.md
   - name: Azure Active Directory FAQ
-    href: active-directory-faq.md
+    href: active-directory-faq.yml

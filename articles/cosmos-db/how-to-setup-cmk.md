@@ -5,7 +5,8 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/23/2021
-ms.author: thweiss
+ms.author: thweiss 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault

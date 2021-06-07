@@ -1,15 +1,15 @@
 ---
 title: Manage and find Azure Blob data with blob index tags (preview)
 description: Learn how to use blob index tags to categorize, manage, and query for blob objects.
-author: twooley
+author: normesta
 
-ms.author: twooley
-ms.date: 03/18/2021
+ms.author: normesta
+ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Manage and find Azure Blob data with blob index tags (preview)
@@ -110,6 +110,7 @@ The following criteria applies to blob index filtering:
 - Filters are applied with lexicographic sorting on strings
 - Same sided range operations on the same key are invalid (for example, `"Rank" > '10' AND "Rank" >= '15'`)
 - When using REST to create a filter expression, characters should be URI encoded
+- Tag queries are optimized for equality match using a single tag (e.g. StoreID = "100").  Range queries using a single tag involving >, >=, <, <= are also efficient. Any query using AND with more than one tag will not be as efficient.  For example, Cost > "01" AND Cost <= "100" is efficient. Cost > "01 AND StoreID = "2" is not as efficient.
 
 The below table shows all the valid operators for `Find Blobs by Tags`:
 
@@ -277,11 +278,11 @@ The following table summarizes the differences between metadata and blob index t
 
 ## Pricing
 
-Blob index pricing is in public preview and subject to change for general availability. You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to `Set Blob Tags`, `Get Blob Tags`, and `Find Blobs by Tags` are charged in accordance to their respective operation types. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Blob index pricing is in public preview and subject to change for general availability. You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blog Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Regional availability and storage account support
 
-Blob index tags are only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts aren't supported but you can upgrade any GPv1 account to a GPv2 account.
+Blob index tags are only available on general-purpose v2 accounts with hierarchical namespace (HNS) disabled. General-purpose v1 accounts aren't supported, but you can upgrade any general-purpose v1 account to a general-purpose v2 account.
 
 Index tags aren't supported on Premium storage accounts. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
@@ -315,7 +316,7 @@ az provider register --namespace 'Microsoft.Storage'
 This section describes known issues and conditions in the public preview of blob index tags. This feature shouldn't be used for production workloads until it reaches general availability (GA) as behavior may change.
 
 - For preview, you must first register your subscription before you can use blob index for your storage account in the preview regions.
-- Only GPv2 accounts are supported in preview. Blob, BlockBlobStorage, and HNS enabled DataLake Gen2 accounts aren't supported. GPv1 accounts won't be supported.
+- Only general-purpose v2 accounts are supported in preview. Premium block blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 - When filtering is scoped to a single container, the `@container` can only be passed if all the index tags in the filter expression are equality checks (key=value).
 - When using the range operator with the `AND` condition, you can only specify the same index tag key name (`"Age" > '013' AND "Age" < '100'`).

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/22/2021
+ms.date: 05/28/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -213,4 +213,4 @@ When you activate a role in Privileged Identity Management, your activation migh
 
 ## Next steps
 
-- [Activate my Azure AD roles in Privileged Identity Management](pim-how-to-activate-role.md)
+- [View audit history for Azure AD roles](pim-how-to-use-audit-log.md)

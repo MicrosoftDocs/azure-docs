@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
+# This article applies to device developers and solution builders.
 ---
 
 # What are device templates?
-
-_This article applies to device developers and solution builders._
 
 A device template in Azure IoT Central is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types.
 
@@ -30,7 +29,9 @@ A device template includes the following sections:
 
 ## Device models
 
-A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines the device model into a device template, or use the web UI in IoT Central to create or edit a device model. Changes to a device model made using the Web UI require the [device template to be versioned](./howto-version-device-template.md).
+A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines the device model into a device template, or use the web UI in IoT Central to create or edit a device model.
+
+To learn more about editing a device model, see [Edit an existing device template](howto-edit-device-template.md)
 
 A solution developer can also export a JSON file that contains the device model. A device developer can use this JSON document to understand how the device should communicate with the IoT Central application.
 
@@ -336,6 +337,4 @@ The telemetry, properties, and commands that you can add to a view are determine
 
 ## Next steps
 
-As a device developer, now that you've learned about device templates, a suggested next steps is to read [Telemetry, property, and command payloads](./concepts-telemetry-properties-commands.md) to learn more about the data a device exchanges with IoT Central.
-
-As a solution developer, a suggested next step is to read [Define a new IoT device type in your Azure IoT Central application](./howto-set-up-template.md) to learn more about how to create a device template.
+Now that you've learned about device templates, a suggested next steps is to read [Telemetry, property, and command payloads](./concepts-telemetry-properties-commands.md) to learn more about the data a device exchanges with IoT Central.

@@ -27,7 +27,7 @@ ms.collection: M365-identity-device-management
 
 A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. Whoever creates the catalog becomes the first catalog owner. A catalog owner can add additional catalog owners.
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog creator
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog creator
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -114,7 +114,7 @@ The user that created a catalog becomes the first catalog owner. To delegate man
 
 Follow these steps to assign a user to the catalog owner role:
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -132,7 +132,7 @@ Follow these steps to assign a user to the catalog owner role:
 
 You can edit the name and description for a catalog. Users see this information in an access package's details.
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -150,7 +150,7 @@ You can edit the name and description for a catalog. Users see this information 
 
 You can delete a catalog, but only if it does not have any access packages.
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

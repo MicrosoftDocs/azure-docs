@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 04/07/2021
+  ms.date: 05/21/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -33,16 +33,16 @@ landingContent:
       links:
 #      - text: Access subscriptions (placeholder)
 #        url: ../manage/create-subscription.md
-      - text: Transfer billing ownership from PAYG to MCA
+      - text: Transfer billing ownership from MOSA to MCA
         url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
       - text: Transfer billing ownership from EA to MCA
         url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-      - text: Set up administrator to manage subscription users
-        url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-      - text: Create new subscriptions
-        url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-      - text: Troubleshoot subscription access
-        url: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - linkListType: reference
+      links:
+      - text: APIs overview - Migrating from EA to MCA
+        url: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: API differences between EA and MCA
+        url: /rest/api/billing/
 
 
 
@@ -67,8 +67,6 @@ landingContent:
         url: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
       - text: Start billing for my agreement
         url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-      - text: Find my subscription owner
-        url: ../manage/add-change-subscription-administrator.md#assign-a-subscription-administrator
     - linkListType: video
       links:
       - text: Organize costs
@@ -77,6 +75,8 @@ landingContent:
         url: https://www.youtube.com/watch?v=9sqglBlKkho
       - text: Understand your invoice
         url: https://www.youtube.com/watch?v=e2LGZZ7GubA
+      - text: Transition billing for Azure subscriptions from MOSA to MCA
+        url: https://www.youtube.com/watch?v=gfiUI2YLsgc
 
 
   # Card (optional)
@@ -88,6 +88,13 @@ landingContent:
         url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
       - text: Manage tenants
         url: manage-tenants.md
+      - text: Add, change, or find subscription administrators
+        url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Create new subscriptions
+        url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Troubleshoot subscription access
+        url: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+
 #      - text: Manage subscriptions in multiple tenants (placeholder)
 #        url: ../manage/create-subscription.md
 

@@ -9,7 +9,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ---
 
 # Creating and configuring a key vault for Azure Disk Encryption

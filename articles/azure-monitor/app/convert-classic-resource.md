@@ -2,7 +2,8 @@
 title: Migrate an Azure Monitor Application Insights classic resource to a workspace-based resource | Microsoft Docs
 description: Learn about the steps required to upgrade your Azure Monitor Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 09/23/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -36,7 +37,7 @@ The migration process is **permanent, and cannot be reversed**. Once you migrate
 
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
 
-## Pre-requisites 
+## Pre-requisites
 
 - A Log Analytics workspace with the access control mode set to the **`use resource or workspace permissions`** setting. 
 
@@ -71,6 +72,9 @@ Once your resource is migrated, you will see the corresponding workspace info in
 ![Workspace Name](./media/create-workspace-resource/workspace-name.png)
 
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
+
+> [!NOTE]
+> After migrating to a workspace-based Application Insights resource we recommend using the [workspace's daily cap](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) to limit ingestion and costs instead of the cap in Application Insights.
 
 ## Understanding log queries
 

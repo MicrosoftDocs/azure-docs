@@ -1,12 +1,12 @@
 ---
 title: Azure VPN Gateway FAQ
-description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways.
+description: Learn about frequently asked questions for VPN Gateway cross-premises connections, hybrid configuration connections, and virtual network gateways. This FAQ contains comprehensive information about point-to-site, site-to-site, and VNet-to-VNet configuration settings.
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/04/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -171,17 +171,13 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## How do I change the authentication type for my point-to-site connections?
-
-You can change the authentication method for your point-to-site connections by going to the **Point-to-site configuration** section under the VPN Gateway and checking the desired radio button. Current options are **Azure certificate, RADIUS authentication and Azure Active Directory**. Please note that current clients **may not be able to connect** after the change until the new profile has been downloaded and configured on the client.
-
-## <a name="P2S"></a>Point-to-Site using native Azure certificate authentication
+## <a name="P2S"></a>Point-to-Site - Certificate authentication
 
 This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Point-to-Site using RADIUS authentication
+## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
 
 This section applies to the Resource Manager deployment model.
 
@@ -214,6 +210,10 @@ No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gate
 ### Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
 
 Yes, but you must configure BGP on both tunnels to the same location.
+
+### Does Azure VPN Gateway honor AS Path prepending to influence routing decisions between multiple connections to my on-premises sites?
+
+Yes, Azure VPN gateway will honor AS Path prepending to help make routing decisions when BGP is enabled. A shorter AS Path will be preferred in BGP path selection.
 
 ### Can I use Point-to-Site VPNs with my virtual network with multiple VPN tunnels?
 
@@ -253,7 +253,7 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 
 ## <a name="faq"></a>Virtual Network FAQ
 
-You view additional virtual network information in the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
+You can view additional virtual network information in the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
 
 ## Next steps
 

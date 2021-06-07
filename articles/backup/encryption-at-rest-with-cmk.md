@@ -2,7 +2,8 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 05/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Encryption of backup data using customer-managed keys
@@ -148,6 +149,9 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 1. Once done, select **Add** to add the new access policy.
 
 1. Select **Save** to save changes made to the access policy of the Azure Key Vault.
+
+>[!NOTE] 
+>You can also assign an RBAC role to the Recovery Services vault that contains the above mentioned permissions, such as the _[Key Vault Crypto Officer](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations)_ role.<br><br>These roles may contain additional permissions other than the ones discussed above.
 
 ## Enable soft-delete and purge protection on the Azure Key Vault
 

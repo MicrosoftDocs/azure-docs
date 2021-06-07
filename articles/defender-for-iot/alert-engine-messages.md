@@ -1,17 +1,20 @@
 ---
 title: Alert types and descriptions
 description: Review Defender for IoT Alert descriptions.
-ms.date: 4/8/2021
+ms.date: 04/28/2021
 ms.topic: how-to
 ---
 
 # Alert types and descriptions
 
-This article describes all of the alert types, that may be generated from the Defender for IoT engines. Alerts appear in the Alerts window, which allows you to manage the alert event. 
+This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to help map alerts into playbooks, define forwarding rules, exclusion rules, and custom alerts as well as define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event. 
 
 ## Policy engine alerts
 
 Policy engine alerts describe detected deviations from learned baseline behavior.
+
+>[!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 | Title  | Description | Severity |
 |--|--|--|

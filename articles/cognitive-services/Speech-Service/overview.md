@@ -14,7 +14,7 @@ ms.author: trbye
 
 # What is the Speech service?
 
-The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Devices SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](https://speech.microsoft.com/), or [REST APIs](#reference-docs).
+The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Devices SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](speech-studio-overview.md), or [REST APIs](#reference-docs).
 
 > [!IMPORTANT]
 > The Speech service has replaced Bing Speech API and Translator Speech. See the _Migration_ section for migration instructions.
@@ -59,8 +59,8 @@ To add a Speech service resource (free or paid tier) to your Azure account:
 1. In the **New** window, type "speech" in the search box and press ENTER.
 
 1. In the search results, select **Speech**.
-
-   ![speech search results](media/index/speech-search.png)
+   
+   :::image type="content" source="media/index/speech-search.png" alt-text="Create Speech resource in Azure portal.":::
 
 1. Select **Create**,  then:
 
@@ -138,7 +138,7 @@ Other products offer speech models tuned for specific purposes like healthcare o
 * Standard Text-to-speech
 * Neural Text-to-speech
 * Custom Text-to-speech (preview)
-* Speech Language Detection (preview)
+* Speech Language Identification (preview)
 
 ## Reference docs
 

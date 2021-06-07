@@ -68,8 +68,8 @@ Use this format to encode the **SharedKey** signature string:
 ```
 StringToSign = VERB + "\n" +
                   Content-Length + "\n" +
-               Content-Type + "\n" +
-                  x-ms-date + "\n" +
+                  Content-Type + "\n" +
+                  "x-ms-date:" + x-ms-date + "\n" +
                   "/api/logs";
 ```
 

@@ -6,7 +6,8 @@ ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/27/2021
-ms.author: jingwang
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 
@@ -21,7 +22,7 @@ This quickstart describes how to use .NET SDK to create an Azure Data Factory. T
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Visual Studio
 

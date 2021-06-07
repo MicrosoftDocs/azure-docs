@@ -104,6 +104,8 @@
           href: database/authentication-aad-service-principal.md
         - name: Directory Readers role
           href: database/authentication-aad-directory-readers-role.md
+        - name: Azure AD-only Authentication
+          href: database/authentication-azure-ad-only-authentication.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -161,7 +163,7 @@
     - name: Job automation with elastic jobs
       href: database/job-automation-overview.md
     - name: Job automation with SQL Agent 
-      href: database/job-automation-managed-instances.md
+      href: managed-instance/job-automation-managed-instance.md
     - name: Connect and query from apps
       items:
       - name: .NET with Visual Studio
@@ -197,6 +199,8 @@
           href: database/authentication-aad-guest-users.md
         - name: Assign Directory Readers role to groups
           href: database/authentication-aad-directory-readers-role-tutorial.md
+        - name: Enable Azure AD-only authentication
+          href: database/authentication-azure-ad-only-authentication-tutorial.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Always Encrypted
@@ -300,6 +304,8 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+      - name: vCore
+        href: database/service-tiers-sql-database-vcore.md
     - name: Plan and manage costs 
       href: database/cost-management.md
 
@@ -313,6 +319,9 @@
       - name: ARM template
         displayName: Resource Manager
         href: database/single-database-create-arm-template-quickstart.md
+      - name: With ledger and digest storage
+        displayName: Create Azure SQL Database with ledger
+        href: database/ledger-create-a-single-database-with-ledger-enabled.md
     - name: Configure
       items:
       - name: Server-level IP firewall rules
@@ -458,14 +467,32 @@
           href: database/auditing-overview.md
         - name: Audit log format
           href: database/audit-log-format.md
-        - name: Network access controls
-          href: database/network-access-controls-overview.md
         - name: DNS aliases
           href: database/dns-alias-overview.md
-        - name: VNet endpoints
-          href: database/vnet-service-endpoint-rule-overview.md
+        - name: Ledger
+          items:
+          - name: Ledger
+            href: database/ledger-landing.yml
+          - name: Ledger overview
+            href: database/ledger-overview.md
+          - name: Database ledger
+            href: database/ledger-database-ledger.md
+          - name: Updatable ledger tables
+            href: database/ledger-updatable-ledger-tables.md
+          - name: Append-only ledger tables
+            href: database/ledger-append-only-ledger-tables.md
+          - name: Digest management and database verification
+            href: database/ledger-digest-management-and-database-verification.md
+          - name: Ledger auditing
+            href: database/ledger-audit.md
+          - name: Ledger limitations
+            href: database/ledger-limits.md
+        - name: Network access controls
+          href: database/network-access-controls-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
+        - name: VNet endpoints
+          href: database/vnet-service-endpoint-rule-overview.md
 
     - name: Database sharding
       items:
@@ -549,6 +576,17 @@
         href: database/dynamic-data-masking-configure-portal.md
       - name: IP-based firewall
         href: database/firewall-configure.md
+      - name: Ledger
+        items:
+        - name: Create append-only ledger tables
+          href: database/ledger-how-to-append-only-ledger-tables.md
+        - name: Create updatable ledger tables
+          href: database/ledger-how-to-updatable-ledger-tables.md
+        - name: Access Azure Confidential Ledger digest
+          displayName: Access Azure Confidential Ledger digest
+          href: database/ledger-how-to-access-acl-digest.md
+        - name: Verify ledger database for tampering
+          href: database/ledger-verify-database.md
       - name: vNet endpoints - PowerShell
         href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
 
@@ -820,6 +858,8 @@
     items:
     - name: Resource limits
       href: managed-instance/resource-limits.md
+    - name: Compute Hardware
+      href: managed-instance/service-tiers-managed-instance-vcore.md
     - name: Connectivity architecture
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
@@ -1105,6 +1145,7 @@
         items:
         - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
         - name: Backup and restore
           href: virtual-machines/windows/backup-restore.md
         - name: Azure Storage for backup
@@ -1113,24 +1154,26 @@
           href: virtual-machines/windows/availability-group-overview.md
         - name: Failover cluster instance (FCI)
           href: virtual-machines/windows/failover-cluster-instance-overview.md
+        - name: Windows Server Failover Cluster
+          href: virtual-machines/windows/hadr-windows-server-failover-cluster-overview.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
       - name: Best practices
         items:
+        - name: Quick checklist
+          href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+        - name: VM size
+          href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+        - name: Storage
+          href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
-        - name: Cluster configuration
+        - name: HADR configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
+        - name: Collect baseline 
+          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
-        - name: Performance
-          items: 
-          - name: Quick checklist
-            href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
-          - name: VM size
-            href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
-          - name: Storage
-            href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
-          - name: Collect baseline 
-            href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension
@@ -1170,8 +1213,8 @@
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Enable SQL Vulnerability Assessment
-          href: virtual-machines/windows/sql-vulnerability-assessment-enable.md
+        - name: Enable SQL vulnerability assessments
+          href: ../security-center/defender-for-sql-on-machines-vulnerability-assessment.md
         - name: Install SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:
@@ -1190,6 +1233,8 @@
           href: virtual-machines/windows/move-sql-vm-different-region.md
       - name: Business continuity
         items:
+        - name: Configure cluster quorum 
+          href: virtual-machines/windows/hadr-cluster-quorum-configure-how-to.md
         - name: Backup and restore
           items:
           - name: Automated backup (SQL 2016+)
@@ -1324,15 +1369,21 @@
   
   - name: Migration guides
     items: 
-      - name: Overview
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
       - name: From Db2
         href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
       - name: From Oracle
         href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md
       - name: From SQL Server
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
-
+        items: 
+        - name: Overview
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
+        - name: Migration guide
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+        - name: Availability group (AG)
+          href: migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md 
+        - name: Failover cluster instance (FCI)
+          href: migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md 
+         
         
 - name: Reference
   items:
@@ -1414,6 +1465,8 @@
       href: database/troubleshoot-common-connectivity-issues.md
     - name: Import/Export service hangs
       href: database/database-import-export-hang.md
+    - name: Transaction log errors
+      href: database/troubleshoot-transaction-log-errors-issues.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring

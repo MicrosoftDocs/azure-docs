@@ -13,7 +13,7 @@ ms.date: 02/02/2021
 
 # Use AI to process and analyze Blob content in Azure Cognitive Search
 
-Content in Azure Blob storage that's composed of images or long undifferentiated text can undergo deep learning analysis to reveal and extract valuable information useful for downstream applications. By using [AI enrichment](cognitive-search-concept-intro.md), you can:
+Content in Azure Blob Storage that's composed of images or long undifferentiated text can undergo deep learning analysis to reveal and extract valuable information useful for downstream applications. By using [AI enrichment](cognitive-search-concept-intro.md), you can:
 
 + Extract text from images using optical character recognition (OCR)
 + Produce a scene description or tags from a photo
@@ -30,7 +30,7 @@ In this article, we view AI enrichment through a wide lens so that you can quick
 
 *AI enrichment* is part of the indexing architecture of Azure Cognitive Search that integrates machine learning models from Microsoft or custom learning models that you provide. It helps you implement end-to-end scenarios where you need to process blobs (both existing ones and new ones as they come in or are updated), crack open all file formats to extract images and text, extract the desired information using various AI capabilities, and index them in a search index for fast search, retrieval and exploration. 
 
-Inputs are your blobs, in a single container, in Azure Blob storage. Blobs can be almost any kind of text or image data. 
+Inputs are your blobs, in a single container, in Azure Blob Storage. Blobs can be almost any kind of text or image data. 
 
 Output is always a search index, used for fast text search, retrieval, and exploration in client applications. Additionally, output can also be a [*knowledge store*](knowledge-store-concept-intro.md) that projects enriched documents into Azure blobs or Azure tables for downstream analysis in tools like Power BI or in data science workloads.
 
@@ -38,7 +38,7 @@ In between is the pipeline architecture itself. The pipeline is based on the [*i
 
 ## Required resources
 
-In addition to Azure Blob storage and Azure Cognitive Search, you need a third service or mechanism that provides the AI:
+In addition to Azure Blob Storage and Azure Cognitive Search, you need a third service or mechanism that provides the AI:
 
 + For built-in AI, Cognitive Search integrates with Azure Cognitive Services vision and natural language processing APIs. You can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to add Optical Character Recognition (OCR), image analysis, or natural language processing (language detection, text translation, entity recognition, key phrase extraction). 
 
@@ -92,7 +92,7 @@ In Azure Storage, a knowledge store has two manifestations: a blob container, or
 
 + A blob container captures enriched documents in their entirety, which is useful if you want to feed into other processes. 
 
-+ In contrast, Table storage can accommodate physical projections of enriched documents. You can create slices or layers of enriched documents that include or exclude specific parts. For analysis in Power BI, the tables in Azure Table storage become the data source for further visualization and exploration.
++ In contrast, Table storage can accommodate physical projections of enriched documents. You can create slices or layers of enriched documents that include or exclude specific parts. For analysis in Power BI, the tables in Azure Table Storage become the data source for further visualization and exploration.
 
 An enriched document at the end of the pipeline differs from its original input version by the presence of additional fields containing new information that was extracted or generated during enrichment. As such, you can work with a combination of original and created content, regardless of which output structure you use.
 

@@ -18,12 +18,14 @@ ms.custom: contperf-fy21q2
 
 # Query the Azure Digital Twins twin graph
 
-This article offers query examples and more detailed instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language and a full list of its features, see [*Concepts: Query language*](concepts-query-language.md).)
+This article offers query examples and instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language, see [Concepts: Query language](concepts-query-language.md).)
 
-This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
+It contains sample queries that illustrate the query language structure and common query operations for digital twins. It also describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](concepts-apis-sdks.md#overview-data-plane-apis).
 
 > [!NOTE]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
+
+[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
 ## Show all digital twins
 
@@ -60,7 +62,7 @@ You can also get twins based on the **type of a property**. Here is a query that
 
 ## Query by model
 
-The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md).
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [model](concepts-models.md).
 
 It considers [inheritance](concepts-models.md#model-inheritance) and model [versioning](how-to-manage-model.md#update-models), and evaluates to **true** for a given twin if the twin meets either of these conditions:
 
@@ -115,11 +117,11 @@ Here is a sample relationship-based query. This code snippet selects all digital
 
 You can use the relationship query structure to identify a digital twin that's the source or the target of a relationship.
 
-For instance, you can start with a source twin and follow its relationships to find the target twins of the relationships. Here is an example of a query that finds the target twins of the *feeds* relationships coming from the twin *source-twin*.
+For instance, you can start with a source twin and follow its relationships to find the target twins of the relationships. Here is an example of a query that finds the target twins of the *feeds* relationships coming from the twin source-twin.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationshipSource":::
 
-You can also start with the target of the relationship and trace the relationship back to find the source twin. Here's an example of a query that finds the source twin of a *feeds* relationship to the twin *target-twin*.
+You can also start with the target of the relationship and trace the relationship back to find the source twin. Here's an example of a query that finds the source twin of a *feeds* relationship to the twin target-twin.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationshipTarget":::
 
@@ -150,7 +152,7 @@ You can count the number of items in a result set using the `Select COUNT` claus
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount1":::
 
-Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [*Query by model*](#query-by-model) below):
+Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [Query by model](#query-by-model) below):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount2":::
 
@@ -166,20 +168,17 @@ You can select the several "top" items in a query using the `Select TOP` clause.
 
 ## Filter results: specify return set with projections
 
-By using projections in the `SELECT` statement, you can choose which columns a query will return.
+By using projections in the `SELECT` statement, you can choose which columns a query will return. Projection is now supported for both primitive and complex properties. For more information about projections with Azure Digital Twins, see the [SELECT clause reference documentation](reference-query-clause-select.md#select-columns-with-projections).
 
->[!NOTE]
->At this time, complex properties are not supported. To make sure that projection properties are valid, combine the projections with an `IS_PRIMITIVE` check.
-
-Here is an example of a query that uses projection to return twins and relationships. The following query projects the *Consumer*, *Factory* and *Edge* from a scenario where a *Factory* with an ID of *ABC* is related to the *Consumer* through a relationship of *Factory.customer*, and that relationship is presented as the *Edge*.
+Here is an example of a query that uses projection to return twins and relationships. The following query projects the Consumer, Factory and Edge from a scenario where a Factory with an ID of *ABC* is related to the Consumer through a relationship of *Factory.customer*, and that relationship is presented as the *Edge*.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections1":::
 
-You can also use projection to return a property of a twin. The following query projects the *Name* property of the *Consumers* that are related to the *Factory* with an ID of *ABC* through a relationship of *Factory.customer*.
+You can also use projection to return a property of a twin. The following query projects the *Name* property of the Consumers that are related to the Factory with an ID of *ABC* through a relationship of *Factory.customer*.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections2":::
 
-You can also use projection to return a property of a relationship. Like in the previous example, the following query projects the *Name* property of the *Consumers* related to the *Factory* with an ID of *ABC* through a relationship of *Factory.customer*; but now it also returns two properties of that relationship, *prop1* and *prop2*. It does this by naming the relationship *Edge* and gathering its properties.  
+You can also use projection to return a property of a relationship. Like in the previous example, the following query projects the *Name* property of the Consumers related to the Factory with an ID of *ABC* through a relationship of *Factory.customer*; but now it also returns two properties of that relationship, *prop1* and *prop2*. It does this by naming the relationship *Edge* and gathering its properties.  
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections3":::
 
@@ -189,7 +188,7 @@ The following query does the same operations as the previous example, but it ali
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections4":::
 
-Here is a similar query that queries the same set as above, but projects only the *Consumer.name* property as `consumerName`, and projects the complete *Factory* as a twin.
+Here is a similar query that queries the same set as above, but projects only the *Consumer.name* property as `consumerName`, and projects the complete Factory as a twin.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections5":::
 
@@ -197,13 +196,13 @@ Here is a similar query that queries the same set as above, but projects only th
 
 You can significantly reduce the number of queries you need by building an array of twins and querying with the `IN` operator. 
 
-For example, consider a scenario in which *Buildings* contain *Floors* and *Floors* contain *Rooms*. To search for rooms within a building that are hot, one way is to follow these steps.
+For example, consider a scenario in which Buildings contain Floors and Floors contain Rooms. To search for rooms within a building that are hot, one way is to follow these steps.
 
 1. Find floors in the building based on the `contains` relationship.
 
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="INOperatorWithout":::
 
-2. To find rooms, instead of considering the floors one-by-one and running a `JOIN` query to find the rooms for each one, you can query with a collection of the floors in the building (named *Floor* in the query below).
+2. To find rooms, instead of considering the floors one-by-one and running a `JOIN` query to find the rooms for each one, you can query with a collection of the floors in the building (named Floor in the query below).
 
     In client app:
     
@@ -219,24 +218,24 @@ For example, consider a scenario in which *Buildings* contain *Floors* and *Floo
 
 You can **combine** any of the above types of query using combination operators to include more detail in a single query. Here are some additional examples of compound queries that query for more than one type of twin descriptor at once.
 
-* Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator
+* Out of the devices that Room 123 has, return the MxChip devices that serve the role of Operator
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples1":::
 * Get twins that have a relationship named *Contains* with another twin that has an ID of *id1*
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples2":::
-* Get all the rooms of this room model that are contained by *floor11*
+* Get all the rooms of this room model that are contained by floor11
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples3":::
 
 ## Run queries with the API
 
-Once you have decided on a query string, you execute it by making a call to the [**Query API**](/rest/api/digital-twins/dataplane/query).
+Once you have decided on a query string, you execute it by making a call to the [Query API](/rest/api/digital-twins/dataplane/query).
 
-You can call the API directly, or use one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
+You can call the API directly, or use one of the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
 
-The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) call from a client app:
+The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call from a client app:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
+The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
 * Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects, or other custom digital twin types that you may have created).
 * Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` will return a dictionary with keys `<A>`, `<B>`, and `<C>`.
 * Other formats of `SELECT` statements can be crafted to return custom data. You might consider creating your own classes to handle very customized result sets. 
@@ -249,4 +248,4 @@ Query calls support paging. Here is a complete example using `BasicDigitalTwin` 
 
 ## Next steps
 
-Learn more about the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), including the Query API that is used to run the queries from this article.
+Learn more about the [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), including the Query API that is used to run the queries from this article.

@@ -9,7 +9,7 @@ ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
+ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 
 # Monitoring Azure Queue Storage
@@ -103,7 +103,7 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
    > ![Diagnostic settings page archive storage](media/monitor-queue-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then select the **Save** button.
- 
+
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
    > [!NOTE]
@@ -333,7 +333,7 @@ You can read the metric values of your storage account or the Queue Storage serv
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### [.NET](#tab/azure-portal)
+### [.NET SDK](#tab/azure-portal)
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/microsoft.azure.management.monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
 
@@ -548,7 +548,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list the 10 most common errors over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by StatusText
@@ -557,7 +557,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list the top 10 operations that caused the most errors over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by OperationName
@@ -566,7 +566,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list the top 10 operations with the longest end-to-end latency over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | top 10 by DurationMs desc
@@ -575,7 +575,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list all operations that caused server-side throttling errors over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
@@ -583,7 +583,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To list all requests with anonymous access over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
@@ -591,7 +591,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 
 - To create a pie chart of operations used over the last three days.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName

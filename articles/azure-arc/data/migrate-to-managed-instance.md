@@ -4,8 +4,8 @@ description: Migrate database from SQL Server to Azure Arc enabled SQL Managed I
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
@@ -17,7 +17,7 @@ This scenario walks you through the steps for migrating a database from a SQL Se
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Use Azure blob storage 
+## Use Azure blob storage
 
 Use Azure blob storage for migrating to Azure Arc enabled SQL Managed Instance.
 
@@ -128,10 +128,10 @@ This method shows you how to take a backup file that you create via any method a
 
 Backup the SQL Server database to your local file path like any typical SQL Server backup to disk:
 
- ```sql
+```sql
 BACKUP DATABASE Test
 TO DISK = 'c:\tmp\test.bak'
-WITH FORMAT, MEDIANAME = 'Test’ ;
+WITH FORMAT, MEDIANAME = 'Test' ;
 GO
 ```
 
@@ -141,7 +141,7 @@ Find the name of the pod where the sql instance is deployed. Typically it should
 
 Get the list of all pods by running:
 
- ```console
+```console
 kubectl get pods -n <namespace of data controller>
 ```
 
@@ -149,7 +149,7 @@ Example:
 
 Copy the backup file from the local storage to the sql pod in the cluster.
 
- ```console
+```console
 kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
 
 #Example:
@@ -181,7 +181,6 @@ WITH MOVE 'test' to '/var/opt/mssql/data/test.mdf'
 ,STATS = 5;  
 GO
 ```
-
 
 ## Next steps
 
