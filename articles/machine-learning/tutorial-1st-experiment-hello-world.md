@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Run a "Hello world!" Python script'
+title: 'Tutorial: Run your first Python script in the cloud'
 titleSuffix: Azure Machine Learning
-description: Part 1 of the Azure Machine Learning get-started series shows how to submit a trivial "Hello world!" Python script to the cloud.
+description: Part 1 of the Azure Machine Learning get-started series shows how to run a Python script in the cloud.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,11 +13,11 @@ ms.date: 04/27/2021
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Run a "Hello world!" Python script (part 1 of 3)
+# Tutorial: Run your first script in Azure Machine Learning (part 1 of 3)
 
-In this tutorial, you learn how to use the Azure Machine Learning SDK for Python to submit and run a Python "Hello world!" script.
+In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
-This tutorial is *part 1 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. 
+This tutorial avoids the complexity of training a machine learning model. You will run a "Hello World" Python script in the cloud. You will learn how a control script is used to configure and create a run in Azure Machine Learning.
 
 In this tutorial, you will:
 
