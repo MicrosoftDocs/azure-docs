@@ -97,7 +97,7 @@ To use your custom VM image to deploy VMs on your device, you must download the 
 
 To download the OS disk for the VM to an Azure storage account, do the following steps:
 
-1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). 
+1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). You need to do this to deallocate the OS disk even if your Windows VM was shut down after you ran `sysprep` to generalize it.
 
 1. [Generate a download URL for the OS disk](/azure/virtual-machines/windows/download-vhd#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
       
