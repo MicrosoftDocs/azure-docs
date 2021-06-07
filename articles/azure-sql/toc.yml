@@ -1153,6 +1153,7 @@
         items:
         - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
         - name: Backup and restore
           href: virtual-machines/windows/backup-restore.md
         - name: Azure Storage for backup
@@ -1161,24 +1162,26 @@
           href: virtual-machines/windows/availability-group-overview.md
         - name: Failover cluster instance (FCI)
           href: virtual-machines/windows/failover-cluster-instance-overview.md
+        - name: Windows Server Failover Cluster
+          href: virtual-machines/windows/hadr-windows-server-failover-cluster-overview.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
       - name: Best practices
         items:
+        - name: Quick checklist
+          href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+        - name: VM size
+          href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+        - name: Storage
+          href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
-        - name: Cluster configuration
+        - name: HADR configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
+        - name: Collect baseline 
+          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
-        - name: Performance
-          items: 
-          - name: Quick checklist
-            href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
-          - name: VM size
-            href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
-          - name: Storage
-            href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
-          - name: Collect baseline 
-            href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension
@@ -1238,6 +1241,8 @@
           href: virtual-machines/windows/move-sql-vm-different-region.md
       - name: Business continuity
         items:
+        - name: Configure cluster quorum 
+          href: virtual-machines/windows/hadr-cluster-quorum-configure-how-to.md
         - name: Backup and restore
           items:
           - name: Automated backup (SQL 2016+)
