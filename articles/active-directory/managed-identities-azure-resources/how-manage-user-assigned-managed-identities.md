@@ -26,7 +26,7 @@ zone_pivot_groups: identity-mi-methods
 
 ::: zone pivot="identity-mi-methods-azcli"
 
-[!INCLUDE [Azure CLI](includes/create-user-assigned-managed-identities-cli.md)]
+[!INCLUDE [CLI](includes/create-user-assigned-managed-identities-cli.md)]
 
 ::: zone-end
 
@@ -39,7 +39,7 @@ zone_pivot_groups: identity-mi-methods
 
 ::: zone pivot="identity-mi-methods-arm"
 
-[!INCLUDE [Azure resource manager](includes/create-user-assigned-managed-identities-arm.md)]
+[!INCLUDE [Resource Manager](includes/create-user-assigned-managed-identities-arm.md)]
 
 ::: zone-end
 
