@@ -82,6 +82,9 @@ Before Google puts these changes into place in the second half of 2021, Microsof
 
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
 
+If applications are not migrated to an allowed web-view for authentication, then affected Gmail users will see the following screen.
+![Screenshot that shows what customers will see if they don't move to system browsers by the second half of 2021](media/google-federation/google-sign-in-error-ewv.png)
+
 We will update this document as dates and further details are shared by Google.
 
 ### Distinguishing between CEF/Electron and embedded web-views
