@@ -16,6 +16,45 @@ ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 The first version of Azure Disk Encryption (ADE) relied on Azure Active Directory (AAD) for authentication; the current version does not.  We strongly encourage the use of the newest version.
 
+## Determine ADE version
+
+You can determine the version of ADE with which a VM was encrypted via Azure CLI, Azure PowerShell, or the Azure portal.
+
+# [CLI](#tab/CLI)
+
+To determine the ADE version, run the Azure CLI [az vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view) command.
+
+```azurecli-interactive
+az vm get-instance-view --resource-group  <ResourceGroupName> --name <VMName> 
+```
+
+Locate the AzureDiskEncryption extension in the output and identify the version number from the "TypeHandlerVersion" field in the output.
+
+# [PowerShell](#tab/PowerShell)
+
+To determine the ADE version, run the Azure PowerShell [az vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view) command.
+
+```azurepowershell-interactive
+Get-AzVM -ResourceGroupName <ResourceGroupName> -Name <VMName> -Status
+```
+
+Locate the AzureDiskEncryption extension in the output and identify the version number from the "TypeHandlerVersion" field in the output.
+
+# [Portal](#tab/Portal)
+
+Go to the "Extensions" blade of your VM in the Azure Portal.
+
+:::image type="content" source="../media/disk-encryption/ade-version-1.png" alt-text="<alt text>":::
+
+Choose the "AzureDiskEncryption" extension for Windows or "AzureDiskEncryptionForLinux" extension for Linux, and locate the version number in the "Version"" field.
+
+:::image type="content" source="../media/disk-encryption/ade-version-2.png" alt-text="<alt text>":::
+
+---
+
+
+
+ 
 ## How to migrate
 
 Migration from Azure Disk Encryption (with AAD) to Azure Disk Encryption (without AAD) is only available through Azure PowerShell. Ensure you have the latest version of Azure PowerShell and at least the [Azure PowerShell Az module version 5.9.0](/powershell/azure/new-azureps-module-az) installed .
@@ -63,7 +102,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 
 > [!IMPORTANT]
-> The upgrade will take at least 10 - 15 minutes to complete. Do not cancel the cmdlet while the upgrade is in progress. Doing so puts the health of the health at risk.
+> The upgrade will take at least 10 - 15 minutes to complete. Do not cancel the cmdlet while the upgrade is in progress. Doing so puts the health of the VM at risk.
 
 ## Next steps
 
