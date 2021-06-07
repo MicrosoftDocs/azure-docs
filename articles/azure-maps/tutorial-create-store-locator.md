@@ -44,7 +44,7 @@ You can view the [Live simple store locator sample here](https://azuremapscodesa
 To more easily follow and engage this tutorial, you'll need to download the following resources:
 
 * [Full source code for simple store locator sample](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-* [Store location data to import into the store locator dataset](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data).
+* [Store location data to import into the store locator dataset](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)
 * [Map images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/images)
 
 ## Store locator features
