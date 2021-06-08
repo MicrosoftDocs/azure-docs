@@ -122,7 +122,7 @@ You should now see the restored app in the Azure portal.
 
 ## A guest user was invited succesfully but the email attribute is not populating
 
-When there is contact object in the directory, the mail address in contact object would conflict with external user object. To avoid conflict, an external user object will be created without mail & proxyAddresses property populated instead the email address will be added otherMail property.  You can search for a conflicting contact object in your Azure AD tenant using PowerShell steps below
+Let's say you inadvertently invite a guest user with an email address that matches a user object already in your directory. The guest user object is created, but the email address is added to the otherMail property instead of the mail or proxyAddresses properties. To avoid this issue, you can search for conflicting user objects in your Azure AD directory with these PowerShell steps:
 
 1. Launch the Azure AD PowerShell module and run `Connect-AzureAD`.
 1. Sign in as a global administrator for the Azure AD tenant that you want to check for duplicate contact objects in.
