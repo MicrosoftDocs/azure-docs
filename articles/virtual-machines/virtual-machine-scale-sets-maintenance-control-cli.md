@@ -63,7 +63,7 @@ az maintenance configuration create \
 
 ## Assign the configuration
 
-Use `az maintenance assignment create` to assign the configuration to your isolated VM or Azure Dedicated Host.
+Use `az maintenance assignment create` to assign the configuration to your virtual machine scale set.
 
 
 ## Enable automatic OS upgrade
