@@ -97,7 +97,7 @@ You can create an Azure Machine Learning compute cluster from the command line. 
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
 
-Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [plan and manage cost for AmlCompute](concept-plan-manage-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [plan and manage cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
 Use `az ml compute create -h` for more details on compute create options.
 
