@@ -48,7 +48,7 @@ You can switch between the views using the tabs at the top of the workbook.
 
 # [Devices](#tab/devices)
 
-[![Devices view](./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif)](./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif" alt-text="The devices section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif":::
 
 See the overview of active devices sending metrics in the **Devices** view. This view shows devices associated with the current IoT Hub.
 
@@ -58,7 +58,7 @@ On the left, the hive cell visualization shows which devices are healthy or unhe
 
 # [Alerts](#tab/alerts)
 
-[![Alerts view](./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif)](./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif" alt-text="The alerts section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif":::
 
 See the generated alerts from [pre-created alert rules](how-to-create-alerts.md) in the **Alerts** view. This view lets you see alerts from multiple IoT Hubs.
 
@@ -82,7 +82,7 @@ The device details workbook also integrates with the IoT Edge portal-based troub
 
 # [Messaging](#tab/messaging)
 
-[![Messaging details](./media/how-to-explore-curated-visualizations/how-to-explore-messaging-details.gif)](./media/how-to-explore-curated-visualizations/how-to-explore-messaging-details.gif#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-messaging-details.gif" alt-text="The messaging section of the device details workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-messaging-details.gif":::
 
 The **Messaging** view includes three subsections: routing details, a routing graph, and messaging health. Drag and let go on any time chart to adjust the global time range to the selected range.
 
@@ -94,7 +94,7 @@ The **Health** section presents various metrics related to overall health of the
 
 # [Modules](#tab/modules)
 
-[![Module details](./media/how-to-explore-curated-visualizations/how-to-explore-module-details.gif)](./media/how-to-explore-curated-visualizations/how-to-explore-module-details.gif#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-module-details.gif" alt-text="The modules section of the device details workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-module-details.gif":::
 
 The **Modules** view presents metrics collected from the edgeAgent module, which reports on the status of all running modules on the device. It includes information such as:
 
@@ -105,7 +105,7 @@ The **Modules** view presents metrics collected from the edgeAgent module, which
 
 # [Host](#tab/host)
 
-[![Host details](./media/how-to-explore-curated-visualizations/how-to-explore-host-details.gif)](./media/how-to-explore-curated-visualizations/how-to-explore-host-details.gif#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-host-details.gif" alt-text="The host section of the device details workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-host-details.gif":::
 
 The **Host** view presents metrics from the edgeAgent module. It includes information such as:
 
@@ -115,7 +115,7 @@ The **Host** view presents metrics from the edgeAgent module. It includes inform
 
 # [Live logs](#tab/livelogs)
 
-[![Troubleshoot on-demand](./media/how-to-explore-curated-visualizations/how-to-troubleshoot-live.gif)](./media/how-to-explore-curated-visualizations/how-to-troubleshoot-live.gif#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-troubleshoot-live.gif" alt-text="Access live logs through the device details workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-troubleshoot-live.gif":::
 
 This workbook integrates directly with the portal-based troubleshooting experience. Click on the **Troubleshoot live** button to go to the troubleshoot screen. Here, you can easily view module logs pulled from the device, on-demand. The time range is automatically set to the workbook's time range, so you're immediately in temporal context. You can also restart any module from this experience.
 
@@ -125,7 +125,7 @@ This workbook integrates directly with the portal-based troubleshooting experien
 
 The health snapshot workbook can be accessed from within the fleet view workbook. The fleet view workbook passes in some parameters required to initialize the health snapshot view. Select a device name in the hive cell to see the health snapshot of that device.
 
-[![How to access IoT Edge Health Snapshot workbook](./media/how-to-explore-curated-visualizations/how-to-access-health-snapshot.png)](./media/how-to-explore-curated-visualizations/how-to-access-health-snapshot.png#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-access-health-snapshot.png" alt-text="Access the health snapshot workbook by selecting a device in the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-access-health-snapshot.png":::
 
 Out of the box, the health snapshot is made up of six signals:
 
@@ -138,7 +138,7 @@ Out of the box, the health snapshot is made up of six signals:
 
 These signals are measured against configurable thresholds to determine if a device is healthy or not. The thresholds can be adjusted or new signals can be added by editing the workbook. See the next section to learn about workbook customizations.
 
-[![Explore health snapshot](./media/how-to-explore-curated-visualizations/how-to-explore-health-snapshot.gif)](./media/how-to-explore-curated-visualizations/how-to-explore-health-snapshot.gif#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-health-snapshot.gif" alt-text="View the health snapshot workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-health-snapshot.gif":::
 
 ## Customize workbooks
 
@@ -146,7 +146,7 @@ These signals are measured against configurable thresholds to determine if a dev
 
 To begin customizing a workbook, first enter editing mode. Select the **Edit** button in the menu bar of the workbook.
 
-[![How to enter editing mode](./media/how-to-explore-curated-visualizations/how-to-access-edit-mode.png)](./media/how-to-explore-curated-visualizations/how-to-access-edit-mode.png#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-access-edit-mode.png" alt-text="Enter the editing mode of a workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-access-edit-mode.png":::
 
 Curated workbooks make extensive use of workbook groups. You may need to click **Edit** on several nested groups before being able to view a visualization query.
 
@@ -154,8 +154,8 @@ Save your changes as a new workbook. You can [share](../azure-monitor/visualize/
 
 For example, you may want to change the thresholds for when a device is considered healthy or unhealthy. You could do so by drilling into the fleet view workbook template until you get to the **device-health-graph** query item which includes all the metric thresholds that this workbook compares a device against.
 
-[![Example: change health thresholds](./media/how-to-explore-curated-visualizations/how-to-edit-thresholds.gif)](./media/how-to-explore-curated-visualizations/how-to-edit-thresholds.gif#lightbox)
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-edit-thresholds.gif" alt-text="Continue opening the edit mode of nested components until you reach the query item." lightbox="./media/how-to-explore-curated-visualizations/how-to-edit-thresholds.gif":::
 
 ## Next steps
 
-Customize your monitoring solution with [alert rules](how-to-create-alerts.md) and [metrics from custom modules](how-to-collect-custom-metrics.md).
+Customize your monitoring solution with [alert rules](how-to-create-alerts.md) and [metrics from custom modules](how-to-add-custom-metrics.md).

@@ -29,7 +29,7 @@ To access the example alert queries, use the following steps:
 1. Select **Logs** from the **Monitoring** section of the menu.
 1. Select **Queries** to open the example query browser.
 
-:::image type="content" source="./media/how-to-create-alerts/example-alerts.png" alt-text="Access example alert queries." lightbox="image-file-expanded.png":::
+:::image type="content" source="./media/how-to-create-alerts/example-alerts.png" alt-text="Access example alert queries." lightbox="./media/how-to-create-alerts/example-alerts.png":::
 
 The [metrics-collector module](how-to-collect-and-transport-metrics.md#metrics-collector-module) ingests all data into the standard [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. You can create alert rules based on metrics data from custom modules by querying the same table.
 
@@ -49,7 +49,7 @@ Using the guidance in the previous section creates an alert rule scoped to a sin
 1. Select **Logs** from the **Monitoring** section of the menu.
 1. Select **Select scope** to change the scope of an alert rule.
 
-:::image type="content" source="./media/how-to-create-alerts/change-scope.png" alt-text="Change alerts scope" lightbox="image-file-expanded.png":::
+:::image type="content" source="./media/how-to-create-alerts/change-scope.png" alt-text="Change alerts scope" lightbox="./media/how-to-create-alerts/change-scope.png":::
 
 Aggregate values by the `_ResourceId` field and choose it as the *Resource ID column* when creating the alert rule. This approach will associate an alert with the correct resource for convenience.
 

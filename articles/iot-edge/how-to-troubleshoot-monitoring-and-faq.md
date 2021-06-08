@@ -81,7 +81,7 @@ See the [custom metrics](how-to-add-custom-metrics.md) article.
 
 ## How can I tell which device a particular metric belongs to?
 
-Encode device information in the metric labels. For more information, see [include context in metric name and labels](how-to-add-custom-metrics.md#include-context-in-metric-name-and-labels).
+Encode device information in the metric labels. For more information, see [Naming conventions](how-to-add-custom-metrics.md#naming-conventions).
 
 :::zone-end
 
