@@ -208,8 +208,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
       - Developer portal CAPTCHA
 
 ## <a name="troubleshooting"> </a>Troubleshooting
-* **Initial Setup:**  
-  For unsuccessful initial deployment of API Management service into a subnet: 
+* **Unsuccessful initial deployment of API Management service into a subnet:** 
   * Deploy a virtual machine into the same subnet. 
   * Remote desktop into the virtual machine and validate connectivity to one of each of the following resources in your Azure subscription:
     * Azure Storage blob
@@ -225,7 +224,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
    :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verify network connectivity status in the portal":::
 
-  |  |  |
+  | Filter | Description |
   | ----- | ----- |
   | **Required** | Select to review the required Azure services connectivity for API Management. Failure indicates that the instance is unable to perform core operations to manage APIs |
   | **Optional** | Select to review the optional services connectivity. Failure indicates only that the specific functionality will not work (for example, SMTP). Failure may lead to degradation in using and monitoring the API Management instance and providing the committed SLA. |
