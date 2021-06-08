@@ -16,7 +16,7 @@ ms.date: 05/11/2021
 Indexers in an Azure Cognitive Search service that access data in Azure Storage accounts can make use of the [trusted service exception](../storage/common/storage-network-security.md#exceptions) capability to securely access data. This mechanism offers customers who are unable to grant [indexer access using IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, secure, and free alternative for accessing data in storage accounts.
 
 > [!NOTE]
-> Support for accessing data in storage accounts through a trusted service exception is limited to Azure Blob storage and Azure Data Lake Gen2 storage. Azure Table storage is not supported.
+> Support for accessing data in storage accounts through a trusted service exception is limited to Azure Blob Storage and Azure Data Lake Gen2 storage. Azure Table Storage is not supported.
 
 ## Step 1: Configure a connection using a managed identity
 
