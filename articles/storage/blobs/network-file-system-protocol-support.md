@@ -107,7 +107,7 @@ The status of items that appear in this tables will change over time as support 
 |  [Azure Storage blob inventory](blob-inventory.md) |	✔️  |	✔️ | [Change Feed](storage-blob-change-feed.md) |	⛔ |	⛔ |
 | [Azure Monitor](monitor-blob-storage.md) |	✔️ |	✔️ | [Blob versioning](versioning-enable.md) | ⛔ |	⛔ |
 | [Blob snapshots](snapshots-overview.md) |	✔️  |	✔️ | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | ⛔ |	⛔ |
-| [Private endpoints](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  |	✔️ | [Azure Backup integration](/azure/backup/blob-backup-overview) | ⛔ |	⛔ |
+| [Private endpoints](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  |	✔️ | [Azure Backup integration](../../backup/blob-backup-overview.md) | ⛔ |	⛔ |
 | [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  |	✔️ | [Soft delete for containers](soft-delete-container-overview.md) |	⛔ |	⛔ |
 | [Firewall rules](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  |	✔️ | [Soft delete for blobs](soft-delete-blob-overview.md) |	⛔ |	⛔ |
 | [Disallow shared key authorization](../common/shared-key-authorization-prevent.md)  | ✔️ |	✔️ | [Last access time tracking for lifecycle management](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview) |	⛔|	⛔ |

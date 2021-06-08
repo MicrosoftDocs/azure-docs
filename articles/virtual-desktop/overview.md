@@ -115,7 +115,7 @@ To learn more about URLs you must unblock to use the clients, see the [Safe URL 
 
 ## Supported virtual machine OS images
 
-Windows Virtual Desktop follows the [Microsoft Lifecycle Policy](https://docs.microsoft.com/lifecycle/) and supports the following x64 operating system images:
+Windows Virtual Desktop follows the [Microsoft Lifecycle Policy](/lifecycle/) and supports the following x64 operating system images:
 
 * Windows 10 Enterprise multi-session
 * Windows 10 Enterprise
