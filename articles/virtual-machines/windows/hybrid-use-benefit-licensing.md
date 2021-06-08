@@ -8,7 +8,8 @@ ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
-ms.author: xujing
+ms.author: xujing 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Azure Hybrid Benefit for Windows Server

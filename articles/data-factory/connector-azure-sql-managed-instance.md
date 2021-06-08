@@ -633,8 +633,6 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 
 When transforming data in mapping data flow, you can read and write to tables from Azure SQL Managed Instance. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
 
-> [!NOTE]
-> Azure SQL Managed Instance connector in Mapping Data Flow is currently available as public preview. You can connect to SQL Managed Instance public endpoint but not private endpoint yet.
 
 ### Source transformation
 

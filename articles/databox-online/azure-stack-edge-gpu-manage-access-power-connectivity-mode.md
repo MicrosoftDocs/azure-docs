@@ -8,7 +8,8 @@ ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: alkohli
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage access, power, and connectivity mode for your Azure Stack Edge Pro GPU
