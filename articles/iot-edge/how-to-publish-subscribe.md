@@ -27,118 +27,22 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This a
 - An Azure account with a valid subscription
 - [Azure CLI](/cli/azure/) with the `azure-iot` CLI extension installed. For more information, see [the Azure IoT extension installation steps for Azure Azure CLI](/cli/azure/azure-cli-reference-for-iot).
 - An **IoT Hub** of SKU either F1, S1, S2, or S3.
-- Have an **IoT Edge device with version 1.2 or above, including edgeAgent and edgeHub modules version 1.2 or above deployed, with the MQTT broker feature turned on and the edgeHub port 1883 bound to the host to enable non TLS connections**. You can deploy IoT Edge 1.2 automatically in an Azure VM using this [iotedge-vm-deploy script](https://github.com/Azure/iotedge-vm-deploy/tree/1.2.0). Since IoT Edge MQTT broker is currently in public preview, you need to also set the following environment variables to true on the edgeHub module to enable the MQTT broker:
+- Have an **IoT Edge device with version 1.2 or above, including edgeAgent and edgeHub modules version 1.2 or above deployed, with the MQTT broker feature turned on and the edgeHub port 1883 bound to the host** to enable non TLS connections. You can deploy IoT Edge 1.2 automatically in an Azure VM by following [the steps described in this article](how-to-install-iot-edge-ubuntuvm.md). Since IoT Edge MQTT broker is currently in public preview, you need to also set the following environment variables to true on the edgeHub module to enable the MQTT broker:
 
    | Name | Value |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
-   To quickly create a deployment that includes the the edgeAgent and edgeHub versions 1.2 with the MQTT broker enabled, and edgeHub port 1883 enabled along with an open authorization policy on the `test_topic`:
+   To quickly create an IoT Edge deployment that meets these criteria along with an open authorization policy on the `test_topic`, you can use this [sample deployment manifest](#appendix---sample-deployment-manifest) in appendix:
 
-   - Save the following JSON deployment file in your working folder:
+   - Save the deployment file in your working folder
 
-```json
-{
-   "modulesContent":{
-      "$edgeAgent":{
-         "properties.desired":{
-            "schemaVersion":"1.1",
-            "runtime":{
-               "type":"docker",
-               "settings":{
-                  "minDockerVersion":"v1.25",
-                  "loggingOptions":"",
-                  "registryCredentials":{
-                     
-                  }
-               }
-            },
-            "systemModules":{
-               "edgeAgent":{
-                  "type":"docker",
-                  "settings":{
-                     "image":"mcr.microsoft.com/azureiotedge-agent:1.2",
-                     "createOptions":"{}"
-                  }
-               },
-               "edgeHub":{
-                  "type":"docker",
-                  "status":"running",
-                  "restartPolicy":"always",
-                  "settings":{
-                     "image":"mcr.microsoft.com/azureiotedge-hub:1.2",
-                     "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"1883/tcp\":[{\"HostPort\":\"1883\"}]}}}"
-                  },
-                  "env":{
-                     "experimentalFeatures__mqttBrokerEnabled":{
-                        "value":"true"
-                     },
-                     "experimentalFeatures__enabled":{
-                        "value":"true"
-                     },
-                     "RuntimeLogLevel":{
-                        "value":"debug"
-                     }
-                  }
-               }
-            },
-            "modules":{
-               
-            }
-         }
-      },
-      "$edgeHub":{
-         "properties.desired":{
-            "schemaVersion":"1.2",
-            "routes":{
-               "Upstream":"FROM /messages/* INTO $upstream"
-            },
-            "storeAndForwardConfiguration":{
-               "timeToLiveSecs":7200
-            },
-            "mqttBroker":{
-               "authorizations":[
-                  {
-                     "identities":[
-                        "{{iot:identity}}"
-                     ],
-                     "allow":[
-                        {
-                           "operations":[
-                              "mqtt:connect"
-                           ]
-                        }
-                     ]
-                  },
-                  {
-                     "identities":[
-                        "{{iot:identity}}"
-                     ],
-                     "allow":[
-                        {
-                           "operations":[
-                              "mqtt:publish",
-                              "mqtt:subscribe"
-                           ],
-                           "resources":[
-                              "test_topic"
-                           ]
-                        }
-                     ]
-                  }
-               ]
-            }
-         }
-      }
-   }
-}
-```
    - Apply this deployment to your IoT Edge device using the following Azure CLI command. For more info about this command, please see [Deploy Azure IoT Edge modules with Azure CLI](how-to-deploy-modules-cli.md).
 
-```azurecli
-az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [deployment file path]
-```
+    ```azurecli
+    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [deployment file path]
+    ```
 
 - **Mosquitto clients** installed on the IoT Edge device. This article uses the popular Mosquitto clients [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) and [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Other MQTT clients could be used instead. To install the Mosquitto clients on an Ubuntu device, run the following command:
 
@@ -562,3 +466,104 @@ Other notes on the IoT Edge hub MQTT bridge:
 ## Next steps
 
 [Understand the IoT Edge hub](iot-edge-runtime.md#iot-edge-hub)
+
+## Appendix - Sample deployment manifest
+
+Below is the complete deployment manifest that you can use to enable the MQTT Broker in IoT Edge. It deploys IoT Edge version 1.2 with the MQTT broker feature enabled, edgeHub port 1883 enabled and an open authorization policy on the `test_topic`.
+
+```json
+{
+   "modulesContent":{
+      "$edgeAgent":{
+         "properties.desired":{
+            "schemaVersion":"1.1",
+            "runtime":{
+               "type":"docker",
+               "settings":{
+                  "minDockerVersion":"v1.25",
+                  "loggingOptions":"",
+                  "registryCredentials":{
+                     
+                  }
+               }
+            },
+            "systemModules":{
+               "edgeAgent":{
+                  "type":"docker",
+                  "settings":{
+                     "image":"mcr.microsoft.com/azureiotedge-agent:1.2",
+                     "createOptions":"{}"
+                  }
+               },
+               "edgeHub":{
+                  "type":"docker",
+                  "status":"running",
+                  "restartPolicy":"always",
+                  "settings":{
+                     "image":"mcr.microsoft.com/azureiotedge-hub:1.2",
+                     "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"1883/tcp\":[{\"HostPort\":\"1883\"}]}}}"
+                  },
+                  "env":{
+                     "experimentalFeatures__mqttBrokerEnabled":{
+                        "value":"true"
+                     },
+                     "experimentalFeatures__enabled":{
+                        "value":"true"
+                     },
+                     "RuntimeLogLevel":{
+                        "value":"debug"
+                     }
+                  }
+               }
+            },
+            "modules":{
+               
+            }
+         }
+      },
+      "$edgeHub":{
+         "properties.desired":{
+            "schemaVersion":"1.2",
+            "routes":{
+               "Upstream":"FROM /messages/* INTO $upstream"
+            },
+            "storeAndForwardConfiguration":{
+               "timeToLiveSecs":7200
+            },
+            "mqttBroker":{
+               "authorizations":[
+                  {
+                     "identities":[
+                        "{{iot:identity}}"
+                     ],
+                     "allow":[
+                        {
+                           "operations":[
+                              "mqtt:connect"
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "identities":[
+                        "{{iot:identity}}"
+                     ],
+                     "allow":[
+                        {
+                           "operations":[
+                              "mqtt:publish",
+                              "mqtt:subscribe"
+                           ],
+                           "resources":[
+                              "test_topic"
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   }
+}
+```
