@@ -48,9 +48,11 @@ To change the user-managed identity assigned to the lab, remove the identity att
 1. After creating an identity, note the resource ID of this identity. It should look like the following sample: 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
-1. Perform a PUT HTTPS method on the lab resource to add a user assigned identity or enable a system assigned identity on the lab
-> [!NOTE]
-> Regardless of creating a user assigned identity, the lab automatically creates a system assigned identity on creation of the first lab environment. However, in the case where > there is already a user assigned identity configured on the lab, the DevTest Lab service will continue to use that identity to deploy lab environments. 
+
+1. Perform a PUT HTTPS method on the lab resource to add a user-assigned identity or enable a system-assigned identity for the lab.
+
+   > [!NOTE]
+   > Regardless of whether you create a user-assigned identity, the lab automatically creates a system-assigned identity the first time a lab environment is created. However, if a user-assigned identity is already configured for the lab, the DevTest Lab service continues to use that identity to deploy lab environments. 
  
     ```json
     
