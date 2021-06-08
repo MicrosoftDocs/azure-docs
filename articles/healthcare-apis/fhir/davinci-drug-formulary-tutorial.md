@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 06/01/2021
+ms.date: 06/07/2021
 ---
 
 # Da Vinci Drug Formulary
