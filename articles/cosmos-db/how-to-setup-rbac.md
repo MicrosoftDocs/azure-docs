@@ -110,7 +110,7 @@ When creating a custom role definition, you need to provide:
 > [!NOTE]
 > The operations described below are available in:
 > - Azure PowerShell: [Az.CosmosDB version 1.2.0](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) or higher
-> - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli): version 2.24.0 or higher
+> - [Azure CLI](/cli/azure/install-azure-cli): version 2.24.0 or higher
 
 ### Using Azure PowerShell
 
@@ -296,7 +296,7 @@ You can associate built-in or custom role definitions with your Azure AD identit
 > [!NOTE]
 > The operations described below are available in:
 > - Azure PowerShell: [Az.CosmosDB version 1.2.0](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) or higher
-> - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli): version 2.24.0 or higher
+> - [Azure CLI](/cli/azure/install-azure-cli): version 2.24.0 or higher
 
 ### Using Azure PowerShell
 
