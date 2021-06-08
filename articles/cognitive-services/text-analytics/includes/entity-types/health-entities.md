@@ -63,7 +63,7 @@ See more information and examples below.
 
 **ALLERGEN** – an antigen triggering an allergic reaction. For example, cats, peanuts.
 
-:::image type="content" source="../../media/ta-for-health/external-influence-allergen.png" alt-text="An example of an exam entity." lightbox="../../media/ta-for-health/external-influence-allergen.png":::
+:::image type="content" source="../../media/ta-for-health/external-influence-allergen.png" alt-text="An example of an external influence entity." lightbox="../../media/ta-for-health/external-influence-allergen.png":::
 
 
 ## General attributes
