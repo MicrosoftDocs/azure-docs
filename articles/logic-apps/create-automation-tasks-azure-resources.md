@@ -49,7 +49,7 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
 ## Pricing
 
-Because an automation task is really just a multi-tenant based logic app resource underneath, automation tasks follow the [*Consumption* (pay for use) pricing model](logic-apps-pricing.md). So, you can create an automation task without incurring any charges. However, when workflow operations run and perform storage transactions, these events are metered and billed following the [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
+Because an automation task is really a multi-tenant based logic app resource underneath, the [Consumption (pay for use) pricing model](logic-apps-pricing.md) applies when your automation task runs. So, just creating an automation task doesn't automatically start incurring charges because metering and billing are based on the trigger and action executions in a workflow, regardless whether runs are successful or unsuccessful. For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created. Workflow operations also make storage transactions, which means that these events are also metered and billed based on [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## Prerequisites
 
