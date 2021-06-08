@@ -583,16 +583,16 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## Validate client certificate
 
-Use the `validate-client-certificate` policy to enforce that a certificate presented by a client to an API Management instance matches specified validation rules and claims such as subject or issuer for one or more identities.
+Use the `validate-client-certificate` policy to enforce that a certificate presented by a client to an API Management instance matches specified validation rules and claims such as subject or issuer for one or more certificate identities.
 
 To be considered valid, a client certificate must match all the validation rules defined by the attributes at the top-level element and match all defined claims for at least one of the defined identities. 
 
 Use this policy to check incoming certificate properties against desired properties. Also use this policy to override default validation of client certificates in these cases:
 
 * If you have uploaded custom CA certificates to validate client requests to the managed gateway
-* If you configured custom certificate authorities to validate client requests to a self-managed gateway.
+* If you configured custom certificate authorities to validate client requests to a self-managed gateway
 
-For more information, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md). 
+For more information about custom CA certificates and certificate authorities, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md). 
 
 ### Policy statement
 
@@ -619,7 +619,7 @@ For more information, see [How to add a custom CA certificate in Azure API Manag
 
 ### Example
 
-The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer match specified values    .
+The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer match specified values.
 
 ```xml
 <validate-client-certificate> 
@@ -630,7 +630,8 @@ The following example validates a client certificate to match the policy's defau
     ignore-error="false"
     <identities> 
         <identity 
-            thumbprint="BEFC6215108D7CA1DAD7A01AFBDC74F13E8681BC" /> 
+            subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
+            issuer="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
     </identities> 
 </validate-client-certificate> 
 ```

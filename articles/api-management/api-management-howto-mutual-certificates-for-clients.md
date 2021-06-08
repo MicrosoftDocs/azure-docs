@@ -36,7 +36,7 @@ For information about securing access to the back-end service of an API using cl
 
 Use the [validate-client-certificate](api-management-access-restriction-policies.md#validate-client-certificate) policy to validate one or more attributes of a client certificate used to access APIs hosted in your API Management instance.
 
-You can configure the policy to validate attributes including certificate issuer, subject, thumbprint, whether the certificate is validated against online revocation list, and others.
+Configure the policy to validate one or more attributes including certificate issuer, subject, thumbprint, whether the certificate is validated against online revocation list, and others.
 
 For more information, see [API Management access restriction policies](api-management-access-restriction-policies.md).
 
