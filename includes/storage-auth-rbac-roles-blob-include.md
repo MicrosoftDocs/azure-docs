@@ -17,7 +17,7 @@ Azure RBAC provides a number of built-in roles for authorizing access to blob da
 - [Storage Blob Data Reader](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader): Use to grant read-only permissions to Blob storage resources.
 - [Storage Blob Delegator](../articles/role-based-access-control/built-in-roles.md#storage-blob-delegator): Get a user delegation key to use to create a shared access signature that is signed with Azure AD credentials for a container or blob.
 
-To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../../role-based-access-control/role-definitions-list.md).
+To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../articles/role-based-access-control/role-definitions-list.md).
 
 > [!IMPORTANT]
 > Only roles explicitly defined for data access permit a security principal to access blob data. Built-in roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the blob data within that account via Azure AD. However, if a role includes **Microsoft.Storage/storageAccounts/listKeys/action**, then a user to whom that role is assigned can access data in the storage account via Shared Key authorization with the account access keys. For more information, see [Use the Azure portal to access blob data](../articles/storage/blobs/authorize-data-operations-portal.md).

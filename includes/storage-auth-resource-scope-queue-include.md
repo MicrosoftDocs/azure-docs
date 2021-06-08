@@ -18,4 +18,4 @@ The following list describes the levels at which you can scope access to Azure q
 - **The subscription.** At this scope, a role assignment applies to all of the queues in all of the storage accounts in all of the resource groups in the subscription.
 - **A management group.** At this scope, a role assignment applies to all of the queues in all of the storage accounts in all of the resource groups in all of the subscriptions in the management group.
 
-For more information about Azure role assignments and scope, see [What is Azure role-based access control (Azure RBAC)?](../articles/role-based-access-control/overview.md).
+For more information about scope for Azure RBAC role assignments, see [Understand scope for Azure RBAC](../articles/role-based-access-control/scope-overview).

@@ -17,7 +17,7 @@ Azure RBAC provides a number of built-in roles for authorizing access to queue d
 - [Storage Queue Data Message Processor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Use to grant peek, retrieve, and delete permissions to messages in Azure Storage queues.
 - [Storage Queue Data Message Sender](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Use to grant add permissions to messages in Azure Storage queues.
 
-To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../../role-based-access-control/role-definitions-list.md).
+To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../articles/role-based-access-control/role-definitions-list.md).
 
 > [!IMPORTANT]
 > Only roles explicitly defined for data access permit a security principal to access queue data. Built-in roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the queue data within that account via Azure AD. However, if a role includes **Microsoft.Storage/storageAccounts/listKeys/action**, then a user to whom that role is assigned can access data in the storage account via Shared Key authorization with the account access keys. For more information, see [Use the Azure portal to access queue data](../articles/storage/queues/authorize-data-operations-portal.md).
