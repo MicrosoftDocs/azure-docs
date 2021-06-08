@@ -50,6 +50,10 @@ Before you start pulling data from one of the supported data sources, you'll wan
 ## Getting started using the Azure portal
 The Azure portal provides support for the Power Query connectors. By sampling data and reading metadata on the container, the Import data wizard in Azure Cognitive Search can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
 
+ The following video shows how to set up a Power Query connector in Azure Cognitive Search.
+ 
+> [!VIDEO https://www.youtube.com/embed/uy-l4xFX1EE]
+
 ### Step 1 – Prepare source data
 Make sure your data source contains data. The Import data wizard reads metadata and performs data sampling to infer an index schema, but it also loads data from your data source. If the data is missing, the wizard will stop and return and error. 
 
