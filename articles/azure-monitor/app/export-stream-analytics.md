@@ -16,7 +16,7 @@ In this example, we'll create an adaptor that takes data from Application Insigh
 > There are much better and easier [recommended ways to display Application Insights data in Power BI](./export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
 
 > [!IMPORTANT]
-> Continuous export has been deprecated and is only supported for classic Application Insights resources. [Migrate to a workspace-based Application Insights resource](convert-classic-resource.md) to use [diagnostic settings](#diagnostic-settings-based-export) for exporting telemetry.
+> Continuous export has been deprecated and is only supported for classic Application Insights resources. [Migrate to a workspace-based Application Insights resource](convert-classic-resource.md) to use [diagnostic settings](export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry.
 
 
 ![Block diagram for export through SA to PBI](./media/export-stream-analytics/020.png)
