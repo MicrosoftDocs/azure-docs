@@ -46,6 +46,47 @@ For installation, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * * *
 
+
+## Automatic key rotation
+
+Automatic rotation for the TDE Protector can be enabled when configuring the TDE Protector for the server, from the Azure Portal or via the below PowerShell or CLI commands. Once enabled, the server will continuously check the key vault for any new versions of the key being used as TDE Protector. If a new version of the key is detected, within 60 minutes the TDE Protector on the server will be automatically rotated to the latest key version. 
+
+
+# [Portal](#tab/azure-portal)
+
+1. Browse to the **Transparent Data Encryption** blade for an existing server. 
+ 
+2. Select the **Customer-managed key** option and select the key vault and key to be used as the TDE Protector.
+
+3. Check the **Auto-rotate key** checkbox.
+
+4. Click **Save**.
+
+
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.
+
+```powershell
+  
+# set the AutoRotation parameter to true to enable auto-rotation of the TDE protector
+Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <keyVaultKeyId> `
+   -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName> `
+    -AutoRotation <boolean>
+```
+
+
+# [The Azure CLI](#tab/azure-cli)
+
+Use the [az sql server tde-key set](/cli/azure/sql/server/tde-key#az-sql-server-tde-key-set) command.
+
+```azurecli
+
+# set the AutoRotation parameter to true to enable auto-rotation of the TDE protector
+az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <logicalServerName> --auto-rotation <boolean>
+```
+
 ## Manual key rotation
 
 Manual key rotation uses the following commands to add a completely new key, which could be under a new key name or even another key vault. Using this approach supports adding the same key to different key vaults to support high-availability and geo-dr scenarios.

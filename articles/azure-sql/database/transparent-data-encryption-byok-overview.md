@@ -73,9 +73,15 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - Key vault and SQL Database/managed instance must belong to the same Azure Active Directory tenant. Cross-tenant key vault and server interactions are not supported. To move resources afterwards, TDE with AKV will have to be reconfigured. Learn more about [moving resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- [Soft-delete](../../key-vault/general/soft-delete-overview.md) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) or [the CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). It cannot be enabled via the Azure portal.  
+- [Soft-delete](../../key-vault/general/soft-delete-overview.md) and [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) features must be enabled on the key vault, to protect from data loss due to accidental key (or key vault) deletion happening. 
+    - Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature can be enabled via the Azure Portal, [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) or [the CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
+    - Purge protection can be turned on via [CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli) or [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell). When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. The default retention period is 90 days, but is configurable from 7 to 90 days through the Azure portal. 
+    
+> [!IMPORTANT]
+> Purge protection is now required to be enabled on the key vault prior to adding a new encryption key to the server or managed instance. 
 
-- Grant the server or managed instance access to the key vault (get, wrapKey, unwrapKey) using its Azure Active Directory identity. When using the Azure portal, the Azure AD identity gets automatically created. When using PowerShell or the CLI, the Azure AD identity must be explicitly created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
+- Grant the server or managed instance access to the key vault (get, wrapKey, unwrapKey) using its Azure Active Directory identity(system-assigned managed identity) or by using a user-assigned managed identity assigned to the server. When using the Azure portal, the Azure AD identity gets automatically created. When using PowerShell or the CLI, the Azure AD identity must be explicitly created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
+    - Depending on the permission model of the key vault (access policy or RBAC), key vault access can be granted either by creating an access policy on the key vault, or by creating a new RBAC role assignment with the role "Key Vault Crypto Service Encryption User" 
 
 - When using firewall with AKV, you must enable option *Allow trusted Microsoft services to bypass the firewall*.
 
@@ -119,6 +125,30 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 - Keep all previously used keys in AKV even after switching to service-managed keys. It ensures database backups can be restored with the TDE protectors stored in AKV.  TDE protectors created with Azure Key Vault have to be maintained until all remaining stored backups have been created with service-managed keys. Make recoverable backup copies of these keys using [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/backup-azkeyvaultkey).
 
 - To remove a potentially compromised key during a security incident without the risk of data loss, follow the steps from the [Remove a potentially compromised key](transparent-data-encryption-byok-remove-tde-protector.md).
+
+
+## Rotation of TDE protector
+
+Rotating the logical TDE Protector for a server means switching to a new asymmetric key that protects the databases on the server. Key rotation is an online operation and should only take a few seconds to complete, because this only decrypts and re-encrypts the database's data encryption key, not the entire database.
+
+Rotation of the TDE Protector can either be done manually or by optional auto-rotation feature. 
+
+**Automatic rotation of the TDE Protector** can be enabled when configuring the TDE Protector for the server. Automatic rotation is disabled by default. When enabled, the server will continuously check the key vault for any new versions of the key being used as TDE Protector. If a new version of the key is detected, within 60 minutes the TDE Protector on the server will be automatically rotated to the latest key version. 
+
+> [!NOTE]
+> Automatic rotation of TDE Protector feature is currently in **public preview** for Azure SQL Database and Managed Instance.
+
+### GeoDR considerations when enabling Auto Rotation of TDE Protector
+
+To avoid issues while establishing or during geo-replication when automatic rotation of the TDE Protector is enabled on the primary or secondary server, it's important to follow these rules when configuring geo-replication:
+
+- Both primary and secondary servers must be connected to the same key vault.
+
+- For a server with auto-rotation enabled, prior to initiating geo-replication, the encryption key and key vault being used as TDE Protector on the primary server must be set as the TDE Protector on the secondary server too.
+
+- For an existing geo-replication setup, prior to enabling auto-rotation on the primary server, the secondary server's TDE Protector must be updated to use the same encryption key and key vault being used as TDE Protector on the primary. 
+
+
 
 ## Inaccessible TDE protector
 
