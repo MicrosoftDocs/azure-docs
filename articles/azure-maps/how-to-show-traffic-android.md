@@ -180,9 +180,9 @@ The following screenshot shows the above code rendering real-time traffic inform
 
 ## Filter traffic incidents
 
-On a typical day in most major cities there can be an overwhelming number of traffic incidents, however, depending on your scenario, it may be desirable to filter and display a subset of these incidents. When setting traffic options there are `incidentCategoryFilter` and `incidentMagnitudeFilter` options that take in an array of incident categories or magnitude enumerators or string values.
+On a typical day in most major cities, there can be an overwhelming number of traffic incidents, however, depending on your scenario, it may be desirable to filter and display a subset of these incidents. When setting traffic options, there are `incidentCategoryFilter` and `incidentMagnitudeFilter` options that take in an array of incident categories or magnitude enumerators or string values.
 
-The following is all traffic incident categories that can be used within the `incidentCategoryFilter` option.
+The following table shows all the traffic incident categories that can be used within the `incidentCategoryFilter` option.
 
 | Category enum | String value | Description |
 |--------------------|--------------|-------------|
@@ -199,16 +199,16 @@ The following is all traffic incident categories that can be used within the `in
 | `IncidentCategory.WIND` | `"wind"` | High winds that may make driving difficult for vehicles with a large side profile or high center of gravity. |
 | `IncidentCategory.FLOODING` | `"flooding"` | Flooding occurring on road. |
 | `IncidentCategory.DETOUR` | `"detour"` | Traffic being directed to take a detour. |
-| `IncidentCategory.CLUSTER` | `"cluster"` | A cluster of traffic incidents of different categories. Zooming the map in will result in the cluster breaking apart into it's individual incidents. |
+| `IncidentCategory.CLUSTER` | `"cluster"` | A cluster of traffic incidents of different categories. Zooming in the map will result in the cluster breaking apart into its individual incidents. |
 | `IncidentCategory.BROKEN_DOWN_VEHICLE` | `"brokenDownVehicle"` | Broken down vehicle on or beside road. |
 
-The following is all traffic incident magnitudes that can be used within the `incidentMagnitudeFilter` option.
+The following table shows all the traffic incident magnitudes that can be used within the `incidentMagnitudeFilter` option.
 
 | Magnitude enum | String value | Description |
 |--------------------|--------------|-------------|
 | `IncidentMagnitude.UNKNOWN` | `"unknown"` | An incident who's magnitude hasn't yet been classified. |
 | `IncidentMagnitude.MINOR` | `"minor"` | A minor traffic issue that is often just for information and has minimal impact to traffic flow. |
-| `IncidentMagnitude.MODERATE` | `"moderate"` | A moderate traffic issue that has some impact impact on traffic flow. |
+| `IncidentMagnitude.MODERATE` | `"moderate"` | A moderate traffic issue that has some impact on traffic flow. |
 | `IncidentMagnitude.MAJOR` | `"major"` |  A major traffic issue that has a significant impact to traffic flow. |
 
 The following filters traffic incidents such that only moderate traffic jams and incidents with dangerous conditions are displayed on the map.

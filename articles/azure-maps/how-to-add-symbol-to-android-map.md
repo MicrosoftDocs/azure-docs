@@ -243,7 +243,7 @@ val layer = SymbolLayer(source,
 
 ::: zone-end
 
-The table below lists all of the built-in icon image names available. All of these markers pull its colors from color resources that you can override. In addition to overriding the main fill color of this marker. However, note that overriding the color of one of these markers would be apply to all layers that use that icon image.
+The table below lists all of the built-in icon image names available. All of these markers pull its colors from color resources that you can override. In addition to overriding the main fill color of this marker. However, overriding the color of one of these markers would apply to all layers that use that icon image.
 
 | Icon image name | Color resource name |
 |-----------------|---------------------|
@@ -263,7 +263,7 @@ You can also override the border color of all markers using the `azure_maps_mark
 </resources>
 ```
 
-The following is a modified version of the default marker vector XML that you can modify to create additional custom versions of the default marker. The modified version can be added to the `drawable` folder of your app and added to the maps image sprite using `map.images.add`, then used with a symbol layer.
+The following code is a modified version of the default marker vector XML that you can modify to create custom versions of the default marker. The modified version can be added to the `drawable` folder of your app and added to the maps image sprite using `map.images.add`, then used with a symbol layer.
 
 ```xml
 <vector xmlns:android="http://schemas.android.com/apk/res/android"

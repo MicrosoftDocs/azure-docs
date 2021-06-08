@@ -23,7 +23,7 @@ Be sure to complete the steps in the [Quickstart: Create an Android app](quick-a
 
 The Azure Maps Android SDK provides three different ways of setting the language and regional view of the map. The following code shows how to set the language to French ("fr-FR") and the regional view to "Auto".
 
-The first option is to pass the language and view regional information into the `AzureMaps` class using the static `setLanguage` and `setView` methods globally. This will set the default language and regional view across all Azure Maps controls loaded in your app.
+The first option is to pass the language and view regional information into the `AzureMaps` class using the static `setLanguage` and `setView` methods globally. This code will set the default language and regional view across all Azure Maps controls loaded in your app.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -79,7 +79,7 @@ The second option is to pass the language and view information into the map cont
     />
 ```
 
-The third option is to programmatically set the language and regional view of the map using the maps `setStyle` method. This can be done at any time to change the language and regional view of the map.
+The third option is to programmatically set the language and regional view of the map using the maps `setStyle` method. This method of changing the language and regional view of the map can be done at any time.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -164,9 +164,9 @@ Be sure to use Azure Maps authentication details from the Azure Government cloud
 
 With the move from preview to general availability, some breaking changes were introduced into the Azure Maps Android SDK. The following are the key details:
 
-* The maven identifier changed from `"com.microsoft.azure.maps:mapcontrol:0.7"` to `"com.azure.android:azure-maps-control:1.0.0"`. The namespace changed as well as the major version number.
+* The maven identifier changed from `"com.microsoft.azure.maps:mapcontrol:0.7"` to `"com.azure.android:azure-maps-control:1.0.0"`. The namespace and the major version number has changed.
 * The import namespace has changed from `com.microsoft.azure.maps.mapcontrol` to `com.azure.android.maps.control`
-* Resource names for XML options, color and image resources have had the text `mapcontrol_` replaced with `azure_maps_`.
+* Resource names for XML options, color resources, and image resources have had the text `mapcontrol_` replaced with `azure_maps_`.
 
     **Before:**
 

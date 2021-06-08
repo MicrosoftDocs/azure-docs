@@ -28,7 +28,7 @@ This tutorial guides you through the process of importing a GeoJSON file of loca
 
 ### Import GeoJSON data from web or assets folder
 
-Most GeoJSON files wrap all data within a `FeatureCollection`. With this in mind, if the GeoJSON files are loaded into the application as a string, they can be passed into the feature collection's static `fromJson` method, which will deserialize the string into a GeoJSON `FeatureCollection` object that can be added to the map.
+Most GeoJSON files wrap all data within a `FeatureCollection`. With this scenario in mind, if the GeoJSON files are loaded into the application as a string, they can be passed into the feature collection's static `fromJson` method, which will deserialize the string into a GeoJSON `FeatureCollection` object that can be added to the map.
 
 The following steps show you how to import a GeoJSON file into the application and deserialize it as a GeoJSON `FeatureCollection` object.
 
@@ -38,7 +38,7 @@ The following steps show you how to import a GeoJSON file into the application a
 
 ::: zone pivot="programming-language-java-android"
 
-4. Go into the **MainActivity.java** file and add the following code inside the callback for the `mapControl.onReady` event, this is located inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
+4. Go into the **MainActivity.java** file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
 
 ```java
 //Create a data source and add it to the map.
@@ -55,7 +55,7 @@ map.sources.add(source);
 
 ::: zone pivot="programming-language-kotlin"
 
-4. Go into the **MainActivity.kt** file and add the following code inside the callback for the `mapControl.onReady` event, this is located inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
+4. Go into the **MainActivity.kt** file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
 
 ```kotlin
 //Create a data source and add it to the map.
@@ -93,7 +93,7 @@ map.layers.add(layer)
 ::: zone-end
 
 6. In the project panel of Android studio, right-click on the **layout** folder under the path `app > res > layout` and go to `New > File`. Create a new file called **popup_text.xml**.
-7. Open the **popup_text.xml** file. If the file opens in a designer view, right click on the screen and select "Go to XML". Copy and paste the following XML into this file. This XML creates a simple layout that can be used with a popup and contains a text view.
+7. Open the **popup_text.xml** file. If the file opens in a designer view, right-click on the screen and select "Go to XML". Copy and paste the following XML into this file. This XML creates a simple layout that can be used with a popup and contains a text view.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
