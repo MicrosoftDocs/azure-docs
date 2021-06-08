@@ -38,11 +38,7 @@ You can install the app from one of the app stores:
 
 ### Connect
 
-The app supports three connection scenarios:
-
-- You can connect to an IoT Central application by scanning a QR code in IoT Central.
-- You can use the Device Provisioning Service (DPS) to connect to an IoT hub.
-- You can use a connection-string to connect directly to an IoT hub.
+You can connect to an IoT Central application by scanning a QR code in IoT Central.
 
 To learn more, see [Connect the app](#connect-the-app) later in this guide.
 
