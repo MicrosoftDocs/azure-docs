@@ -46,6 +46,10 @@ Deletion detection is also supported by default. This means that if a document i
 ## Setting up SharePoint Online indexing
 To set up the SharePoint Online Indexer, you will need to perform some actions in the Azure portal and some actions using the preview REST API. This preview isn’t supported by the SDK.
 
+ The following video shows how to set up the SharePoint Online indexer.
+ 
+> [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
+
 ### Step 1: Enable system assigned managed identity
 When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer.
 
@@ -83,7 +87,7 @@ The SharePoint Online indexer will use this AAD application for authentication.
 
 1.	Give admin consent (Only required for certain tenants).
 
-    Some tenants are locked down in such a way that admin consent is required for these delegated API permissions. If that is the case, you’ll need to have an admin grant admin consent for this AAD application before creating the indexer. 
+    Some tenants are locked down in such a way that admin consent is required for these delegated API permissions. If that is the case, you’ll need to have an admin grant admin consent for this AAD application before creating the indexer.
 
     Because not all tenant have this requirement, we recommend first skipping this step and continuing on with the instructions. You’ll know if you need admin consent if when creating the indexer, the authentication fails telling you that you need an admin to approve the authentication. In that case, have a tenant admin grant consent using the button below.
 
