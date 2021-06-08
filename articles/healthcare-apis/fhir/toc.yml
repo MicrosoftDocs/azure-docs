@@ -51,6 +51,21 @@
     items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md
+  - name: Interoperability and Patient Access
+    expanded: false
+    items:
+    - name: CMS Interoperability and Patient Access rule introduction
+      href: cms-tutorial-introduction.md
+    - name: CARIN Implementation Guide for Blue Button
+      href: carin-implementation-guide-blue-button-tutorial.md
+    - name: DaVinci Drug Formulary
+      href: davinci-drug-formulary-tutorial.md
+    - name: DaVinci PDex
+      href: davinci-pdex-tutorial.md
+    - name: $member-match operation
+      href: tutorial-member-match.md
+    - name: Patient-everything in FHIR
+      href: patient-everything.md
 - name: How-to guides
   expanded: false
   items:

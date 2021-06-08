@@ -142,7 +142,7 @@ The following are best practices for network monitoring and available tools.
 Use the following DevOps best practices to ensure that your enterprise and teams are productive and efficient.
 
 **Best practice**: Automate the build and deployment of services.  
-**Detail**: [Infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code) is a set of techniques and practices that help IT pros remove the burden of day-to-day build and management of modular infrastructure. It enables IT pros to build and maintain their modern server environment in a way that’s like how software developers build and maintain application code.
+**Detail**: [Infrastructure as code](/devops/deliver/what-is-infrastructure-as-code) is a set of techniques and practices that help IT pros remove the burden of day-to-day build and management of modular infrastructure. It enables IT pros to build and maintain their modern server environment in a way that’s like how software developers build and maintain application code.
 
 You can use [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) to provision your applications by using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application in every stage of the application lifecycle.
 
