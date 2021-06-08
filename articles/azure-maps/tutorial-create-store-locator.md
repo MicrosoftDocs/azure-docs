@@ -37,9 +37,9 @@ This tutorial uses the [Visual Studio Code](https://code.visualstudio.com/) appl
 
 ## Sample code
 
-In this tutorial, we'll create a store locator for a fictional company called Contoso Coffee. In addition, the tutorial includes some tips to help you learn about extending the store locator with other optional functionalities.
+In this tutorial, we'll create a store locator for a fictional company called Contoso Coffee. Also, the tutorial includes some tips to help you learn about extending the store locator with other optional functionalities.
 
-You can view the [Live simple store locator sample here](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator).
+You can view the [Live store locator sample here](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator).
 
 To more easily follow and engage this tutorial, you'll need to download the following resources:
 
@@ -92,7 +92,7 @@ Looking at the screenshot of the data, we can make the following observations:
 
 * Location information is stored by using the **AddressLine**, **City**, **Municipality** (county), **AdminDivision** (state/province), **PostCode** (postal code), and **Country** columns.  
 * The **Latitude** and **Longitude** columns contain the coordinates for each Contoso Coffee location. If you don't have coordinates information, you can use the Search services in Azure Maps to determine the location coordinates.
-* Some additional columns contain metadata that's related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that's more relevant to your location data.
+* Some other columns contain metadata that's related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that's more relevant to your location data.
 
 > [!NOTE]
 > Azure Maps renders data in the spherical Mercator projection "EPSG:3857" but reads data in "EPSG:4326" that use the WGS84 datum.
@@ -136,7 +136,7 @@ If you open the text file in Notepad, it looks similar to the following text:
 
 3. Create a new folder and name it "ContosoCoffee".
 
-4. Select **CONTOSOCOFFEE** in the the explorer.
+4. Select **CONTOSOCOFFEE** in the explorer.
 
 5. Create the following three files that define the layout, style, and logic for the application:
 
@@ -380,7 +380,7 @@ The next step is to define the CSS styles. CSS styles define how the application
         margin-right: 5px;
     }
 
-    /* Adjust the layout of the page when the screen width is less than 700 pixels. */
+    /* Adjust the layout of the page when the screen width is fewer than 700 pixels. */
     @media screen and (max-width: 700px) {
         .searchPanel {
             width: 100vw;
@@ -439,7 +439,7 @@ The JavaScript code in the Contoso Coffee shop locator app enables the following
 
 1. Adds an [event listener](/javascript/api/azure-maps-control/atlas.map#events) called `ready` to wait until the page has completed its loading process. When the page loading is complete, the event handler creates more event listeners to monitor the loading of the map, and give functionality to the search and **My location** buttons.
 
-2. When the user selects the search button, or types a location in the search box then presses enter, a fuzzy search against the user's query is initiated. The code passes in an array of country/region ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned.
+2. When the user selects the search button, or types a location in the search box then presses enter, a fuzzy search against the user's query is started. The code passes in an array of country/region ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned.
   
 3. Once the search is finished, the first location result is used as the center focus of the map camera. When the user selects the My Location button, the code retrieves the user's location using the *HTML5 Geolocation API* that's built into the browser. After retrieving the location, the code centers the map over the user's location.  
 
@@ -887,7 +887,7 @@ To add the JavaScript:
     }
     ```
 
-9. When the user selects an item in the list panel, the shape to which the item is related is retrieved from the data source. A pop-up window is generated that's based on the property information stored in the shape. The map centers over the shape. If the map is less than 700 pixels wide, the map view is offset so the pop-up window is visible.
+9. When the user selects an item in the list panel, the shape to which the item is related is retrieved from the data source. A pop-up window is generated that's based on the property information stored in the shape. The map centers over the shape. If the map is fewer than 700 pixels wide, the map view is offset so the pop-up window is visible.
 
     ```JavaScript
     //When a user selects a result in the side panel, look up the shape by its ID value and display the pop-up window.
@@ -900,7 +900,7 @@ To add the JavaScript:
         var center = shape.getCoordinates();
         var offset;
 
-        //If the map is less than 700 pixels wide, then the layout is set for small screens.
+        //If the map is fewer than 700 pixels wide, then the layout is set for small screens.
         if (map.getCanvas().width < 700) {
             //When the map is small, offset the center of the map relative to the shape so that there is room for the popup to appear.
             offset = [0, -80];
@@ -993,7 +993,7 @@ When you zoom in close enough in an area that has coffee shop locations, the clu
 
 ![Screenshot of the finished store locator](./media/tutorial-create-store-locator/finished-simple-store-locator.png)
 
-If you resize the browser window to less than 700 pixels wide or open the application on a mobile device, the layout changes to be better suited for smaller screens.
+If you resize the browser window to fewer than 700 pixels wide or open the application on a mobile device, the layout changes to be better suited for smaller screens.
 
 ![Screenshot of the small-screen version of the store locator](./media/tutorial-create-store-locator/finished-simple-store-locator-mobile.png)
 
@@ -1003,7 +1003,7 @@ In this tutorial, you learned how to create a basic store locator by using Azure
  * Add [support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
  * Allow the user to [filter locations along a route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
  * Add the ability to [set filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
- * Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
+ * Add support to specify an initial search value by using a query string. When you include this option in your store locator, users are then able to bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
  * Deploy your store locator as an [Azure App Service Web App](../app-service/quickstart-html.md). 
  * Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) and [Query spatial data for the nearest neighbor](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
 
