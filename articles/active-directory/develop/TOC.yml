@@ -337,7 +337,13 @@
       - name: Integrate with ADFS
         href: msal-net-adfs-support.md
       - name: Migrate to MSAL.NET
-        href: msal-net-migration.md
+        items:
+        - name: Migrate from ADAL.NET to MSAL.NET
+          href: msal-net-migration.md
+        - name: Migrate confidential client apps to MSAL.NET
+          href: msal-net-migration-confidential-client.md
+        - name: Differences betweeen ADAL.NET and MSAL.NET
+          href: msal-net-differences-adal-net.md
       - name: Migrate Xamarin Android app using broker to MSAL.NET
         href: msal-net-migration-android-broker.md
       - name: Migrate Xamarin iOS app using broker to MSAL.NET
