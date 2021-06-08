@@ -18,14 +18,14 @@ ms.author: janders
 > [!NOTE]
 > Azure SQL Database ledger is currently in **public preview**.
 
-This article shows you how to access an [Azure SQL Database ledger](ledger-overview.md) digest stored in [Azure Confidential Ledger (ACL)](/azure/confidential-ledger/) to get end-to-end security and integrity guarantees. Through this article, we'll explain how to access and verify integrity of the stored information.
+This article shows you how to access an [Azure SQL Database ledger](ledger-overview.md) digest stored in [Azure Confidential Ledger (ACL)](../../confidential-ledger/index.yml) to get end-to-end security and integrity guarantees. Through this article, we'll explain how to access and verify integrity of the stored information.
 
 ## Prerequisites
 
 - Python 2.7, 3.5.3, or later
 - Have an existing Azure SQL Database with ledger enabled. See [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md) if you haven't already created an Azure SQL Database.
 - [Azure Confidential Ledger client library for Python](https://github.com/Azure/azure-sdk-for-python/blob/b42651ae4791aca8c9fbe282832b81badf798aa9/sdk/confidentialledger/azure-confidentialledger/README.md#create-a-client)
-- A running instance of [Azure Confidential Ledger](/azure/confidential-ledger/).
+- A running instance of [Azure Confidential Ledger](../../confidential-ledger/index.yml).
 
 ## How does the integration work?
 
