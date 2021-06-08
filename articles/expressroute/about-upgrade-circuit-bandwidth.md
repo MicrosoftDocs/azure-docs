@@ -29,6 +29,8 @@ If capacity is available, you can upgrade the circuit using the following method
 
 An ExpressRoute circuit is created on a physical connection between Microsoft and a ExpressRoute Partner. The physical connection has a fixed capacity. If you're unable to increase your circuit size that means that the underlying physical connection for your existing circuit doesn’t have capacity for the upgrade. You'll need to create a new circuit if you want to change the circuit size.
 
+After you've successfully created the new ExpressRoute circuit you should link your existing virtual networks to this circuit. You can then test and validate the connectivity of the new ExpressRoute circuit before you deprovision the old circuit. These are the recommended migration steps to minimize down time and disruption to your production work load.
+
 ### <a name="bandwidth"></a>Insufficient ExpressRoute partner bandwidth
 
 If you're unable to create a new ExpressRoute circuit because of a capacity error. It means this ExpressRoute partner doesn’t have capacity to connect to Microsoft at this peering location. Contact your ExpressRoute partner to request for more capacity.
