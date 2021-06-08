@@ -8,8 +8,8 @@ ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
 ms.date: 06/07/2021
-author: ajagarw
-ms.author: ajagarw
+author: AjAgr
+ms.author: AjAgr
 ---
 
 # Tutorial: ADLS read/write using FSSPEC & Linked Service in Synapse Analytics for dedicated Spark pools
