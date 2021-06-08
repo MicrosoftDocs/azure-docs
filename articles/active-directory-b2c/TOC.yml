@@ -249,6 +249,8 @@
         href: multi-factor-authentication.md
       - name: Partner integration
         items:
+        - name: BlokSec
+          href: partner-bloksec.md
         - name: HYPR
           href: partner-hypr.md
         - name: Keyless
