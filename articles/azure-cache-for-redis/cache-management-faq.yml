@@ -82,7 +82,7 @@ sections:
           * Ensure that the load testing client and the Azure Cache for Redis are in the same region.
           * Use redis-cli.exe and monitor the cache using the INFO command.
           * If your load is causing high memory fragmentation, you should scale up to a larger cache size.
-          * For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#how-can-i-run-redis-commands-) section.
+          * For instructions on downloading the Redis tools, see the [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-) section.
           
           Here are some examples of using redis-benchmark.exe. Run these commands from a VM in the same region as your cache for accurate results.cache-development-faq.yml
           
