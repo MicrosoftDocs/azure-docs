@@ -57,24 +57,21 @@ To enable Azure Security Center, see [Integrate Azure Security Center with Azure
 
 ## Onboard VMs to Azure Arc enabled servers
 
-- [What is Azure Arc enabled servers?](../azure-arc/servers/overview.md) and [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
-
-Azure Arc extends Azure management to any infrastructure, including Azure VMware Solution, on-premises, or other cloud platforms.
+Azure Arc extends Azure management to any infrastructure, including Azure VMware Solution and on-premises.  [Azure Arc enabled servers](../azure-arc/servers/overview.md) lets you manage your Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or another cloud provider.
 
 For information on enabling Azure Arc enabled servers for multiple Windows or Linux VMs, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md).
 
 ## Onboard hybrid Kubernetes clusters with Arc enabled Kubernetes
 
-You can attach a Kubernetes cluster hosted in your Azure VMware Solution environment using Azure Arc enabled Kubernetes. 
+[Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) lets you attach a Kubernetes cluster hosted in your Azure VMware Solution environment. 
 
 For more information, see [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 ## Deploy the Log Analytics agent
 
-Azure VMware Solution VMs can be monitored through the Log Analytics agent (also referred to as Microsoft Monitoring Agent (MMA) or OMS Linux agent). You already created a Log Analytics workspace while enabling Azure Automation Update Management.
+You can monitor Azure VMware Solution VMs through the Log Analytics agent. Machines connected to the Log Analytics workspace use the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers. When data is available, the agent sends it to Azure Monitor Logs for processing. Azure Monitor Logs applies logic to the received data, records it, and makes it available for analysis.
 
 Deploy the Log Analytics agent by using [Azure Arc enabled servers VM extension support](../azure-arc/servers/manage-vm-extensions.md).
-
 
 ## Enable Azure Monitor
 
