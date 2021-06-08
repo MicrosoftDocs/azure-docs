@@ -17,6 +17,8 @@ ms.date: 05/25/2021
 
 [Representative Use Case](02-representative-use-case.md)
 
+## Overview
+
 Before jumping right into migrating a MySQL workload, there's a fair amount of due diligence that must be performed. This includes analyzing the data, hosting environment, and application workloads to validate the Azure Landing zone is configured correctly and prepared to host the soon-to-be migrated workloads.
 
 ## Limitations

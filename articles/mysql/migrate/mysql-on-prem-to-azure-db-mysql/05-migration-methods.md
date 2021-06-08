@@ -17,6 +17,8 @@ ms.date: 05/26/2021
 
 [Planning](04-planning.md)
 
+## Overview
+
 Getting the data from the source to target requires using tools or features of MySQL to accomplish the migration.
 
 It's important to complete the entire assessment and planning stages before starting the next stages. The decisions and data collected are migration path and tool selection dependencies.
