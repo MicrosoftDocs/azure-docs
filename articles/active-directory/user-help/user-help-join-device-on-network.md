@@ -66,7 +66,7 @@ You can make sure that you're joined by looking at your settings.
 If you've had your device for a while and it's already been set up, you can follow these steps to join your device to the network.
 
 > [!NOTE]
-> When an already configured Windows 10 device join to Azure AD, need to use account of the local administrators group.
+> When you join an already configured Windows 10 device to Azure AD, you must use an account that's a member of the local administrators group.
 
 1. Open **Settings**, and then select **Accounts**.
 
