@@ -45,24 +45,24 @@
       href: fusion.md
     - name: Incident metrics
       href: manage-soc-with-incident-metrics.md
-  - name: Investigation and orchestration
+  - name: Threat intelligence
     items:
-    - name: Automation rules
-      href: automate-incident-handling-with-automation-rules.md
-    - name: Playbooks
-      href: automate-responses-with-playbooks.md
+    - name: Threat intelligence integration
+      href: threat-intelligence-integration.md
     - name: UEBA
       href: identify-threats-with-entity-behavior-analytics.md
     - name: Use SOC-ML anomalies to detect threats
       href: soc-ml-anomalies.md
     - name: Import threat intelligence into Azure Sentinel
       href: import-threat-intelligence.md
-    - name: Threat intelligence integration
-      href: import-threat-intelligence.md
+  - name: Investigation and orchestration
+    items:
+    - name: Automation rules
+      href: automate-incident-handling-with-automation-rules.md
+    - name: Playbooks
+      href: automate-responses-with-playbooks.md
     - name: Bring your own machine learning
       href: bring-your-own-ml.md
-    - name: Hunting
-      href: hunting.md
     - name: Watchlists
       href: watchlists.md
     - name: Azure Sentinel solutions
@@ -71,6 +71,8 @@
         href: sentinel-solutions.md
       - name: Solutions catalog
         href: sentinel-solutions-catalog.md
+  - name: Hunting
+    href: hunting.md
   - name: Compare Azure Sentinel and Azure Security Center
     href: difference-sentinel-security-center.md
 - name: How-Tos
