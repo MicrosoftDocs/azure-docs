@@ -75,7 +75,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
 1. Select the appropriate export frequency:
-    - **Streaming** – assessments will be sent in real-time when a resource’s health state is updated (if no updates occur, no data will be sent).
+    - **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
     - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
 
 1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
