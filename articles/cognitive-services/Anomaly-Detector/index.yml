@@ -105,13 +105,13 @@ landingContent:
   
 - title: Help and feedback
   linkLists:
-    - linkListType: community
+    - linkListType: learn
       links:
         - text: Join the Anomaly Detector Advisors group on Microsoft Teams
           url: https://aka.ms/adadvisorsjoin
         - text: Featured user-generated content
           url: user-generated-content.md
-    - linkListType: help
+    - linkListType: reference
       links:
         - text: Troubleshooting multivariate
           url: concepts/troubleshoot.md
@@ -120,7 +120,7 @@ landingContent:
 
 - title: Reference
   linkLists:
-    - linkListType: univariate
+    - linkListType: reference
       links:
         - text: Univariate REST API
           url: https://aka.ms/anomaly-detector-rest-api-ref
@@ -136,7 +136,7 @@ landingContent:
           url: /powershell/module/az.cognitiveservices/#cognitive_services
         - text: Azure CLI
           url: /cli/azure/cognitiveservices#az_cognitiveservices_list
-    - linkListType: multivariate
+    - linkListType: reference
       links:
         - text: Multivariate REST API
           url: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
