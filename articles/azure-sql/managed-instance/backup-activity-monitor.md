@@ -51,7 +51,7 @@ STATE = start;
 
 ### Verbose tracking
 
-Configure a more verbose XEvent session to track more details about your backup activity. This script captures start and finish of both full, differential and log backups. Since this script is much more verbose, it will fill up the ring buffer faster, so entries may recycle faster than with the simple script. 
+Configure a verbose XEvent session to track greater details about your backup activity. This script captures start and finish of both full, differential and log backups. Since this script is more verbose, it fills up the ring buffer faster, so entries may recycle faster than with the simple script. 
 
 Use Transact-SQL (T-SQL) to configure the verbose XEvent session: 
 
@@ -79,7 +79,7 @@ After the XEvent session is created, you can use Transact-SQL (T-SQL) to query r
 
 ### Simple tracking
 
-The following Transact-SQL (T-SQL) queries the simple XEvent session and returns the name of the database, the total number of bytes processed, and the time the backup completed: 
+The following Transact-SQL (T-SQL) code queries the simple XEvent session and returns the name of the database, the total number of bytes processed, and the time the backup completed: 
 
 ```sql 
 WITH
@@ -107,7 +107,7 @@ In this example, five databases were automatically backed up over the course of 
 
 ### Verbose tracking 
 
-The following Transact-SQL (T-SQL) queries the verbose XEvent session and returns the name of the database, and the start and finish of both full, differential and log backups. 
+The following Transact-SQL (T-SQL) code queries the verbose XEvent session and returns the name of the database, as well as the start and finish of both full, differential and log backups. 
 
 
 ```sql
@@ -130,11 +130,11 @@ SELECT * FROM b
 
 The following screenshot shows an example of a full backup in the XEvent session:
 
-![XEvent output showing full backups](./media/backup-activity-monitor/output-with-full.png)
+:::image type="content" source="media/backup-activity-monitor/output-with-full.png" alt-text="XEvent output showing full backups":::
 
 The following screenshot shows an example of an output of a differential backup in the XEvent session:
 
-![XEvent output showing differential backups](./media/backup-activity-monitor/output-with-differential.png)
+:::image type="content" source="media/backup-activity-monitor/output-with-differential.png" alt-text="XEvent output showing differential backups":::
 
 
 ## Next steps
