@@ -5,7 +5,7 @@ ms.service: vnf-manager
 author: djrmetaswitch
 ms.author: drichards
 ms.topic: overview
-ms.date: 05/26/2021
+ms.date: 06/16/2021
 ---
 
 # What is Fusion Core?
@@ -37,11 +37,11 @@ It also implements the following Network Functions when interworking with a 4G n
 
 The following diagram shows each of these Network Functions and the interfaces they use to interoperate with third party components.
 
-:::image type="content" source="./media/metaswitch-overview/fusioncorearchitecture.png" alt-text="Fusion Core architecture":::
+:::image type="content" source="./media/metaswitch-overview/fusion-core-architecture.png" alt-text="Fusion Core architecture":::
 
 Fusion Core is delivered on a Virtual Machine (VM) known as the Fusion Core Base VM. The Fusion Core Base VM is designed to be deployed as an Azure managed application on an Azure Stack Edge (ASE). The Network Functions and infrastructure components required to deliver Fusion Core function are deployed as containers on the Fusion Core Base VM and orchestrated by Kubernetes.
 
-:::image type="content" source="./media/metaswitch-overview/fusioncorebasevmasewithnetworking.png" alt-text="Fusion Core Base VM on ASE":::
+:::image type="content" source="./media/metaswitch-overview/fusion-core-base-vm-azure-stack-edge-with-networking.png" alt-text="Fusion Core Base VM on Azure Stack Edge":::
 
 ## Why use Fusion Core?
 
@@ -55,7 +55,7 @@ Deploying Fusion Core at the enterprise edge ensures that it is as close as poss
 - **Telemetry** - telemetry data for health assessment and the operation of automated systems can be processed in real time to prevent accidents and ensure on-site safety.
 - **Analytics** - huge amounts of operational and diagnostics data can be transported at minimal expense, ensuring that vital actions are not delayed.
 
-:::image type="content" source="./media/metaswitch-overview/enterpriseedgelatency.png" alt-text="Fusion Core at the Private 5G Edge":::
+:::image type="content" source="./media/metaswitch-overview/enterprise-edge-latency.png" alt-text="Fusion Core at the Private 5G Edge":::
 
 Fusion Core is able to leverage this low latency along with the security and high bandwidth offered by private 5G networks, putting it in the optimal position to support Industry 4.0 use cases such as the following.
 
@@ -77,13 +77,13 @@ Fusion Core is integrated with **Metaswitch's Service Assurance Server (SAS)**, 
 
 The Service Assurance Server offers a Web GUI you can use to collect detailed traces for signaling flows involving Fusion Core. These can be used to diagnose many common configuration, network and interoperability problems affecting user service.
 
-:::image type="content" source="./media/metaswitch-overview/SASDetailedTimeline.png" alt-text="Detailed Timeline view in the Service Assurance Server Web GUI":::
+:::image type="content" source="./media/metaswitch-overview/service-assurance-server-detailed-timeline.png" alt-text="Detailed Timeline view in the Service Assurance Server Web GUI":::
 
 Fusion Core is also integrated with **Metaswitch ServiceIQ Monitoring**, which provides industry standard cloud native monitoring tools, such as Prometheus and Grafana, allowing for real-time analysis of system performance, fault identification and troubleshooting.
 
 ServiceIQ Monitoring runs on the Fusion Core VM and allows you to access a number of Fusion Core dashboards, which provide a flexible way to monitor key metrics relating to your Fusion Core deployment. They also allow you to view information on firing alerts, ensuring you can react quickly to emerging issues.
 
-:::image type="content" source="./media/metaswitch-overview/FusionCoreOverviewDashboard.png" alt-text="Fusion Core Overview Dashboard":::
+:::image type="content" source="./media/metaswitch-overview/fusion-core-overview-dashboard.png" alt-text="Fusion Core Overview Dashboard":::
 
 ### Other features
 

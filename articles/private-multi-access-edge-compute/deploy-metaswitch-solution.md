@@ -1,11 +1,11 @@
 ---
-title: 'Deploy Metaswitch solution'
+title: 'Deploy Fusion Core on an Azure Stack Edge device'
 description: Learn how to deploy cloud solutions from Microsoft Azure and Metaswitch Networks that can help future-proof your network, drive down costs, and create new business models and revenue streams.
 services: vnf-manager
 author: djrmetaswitch
 ms.service: vnf-manager
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 06/16/2021
 ms.author: drichards
 
 ---
@@ -26,14 +26,14 @@ You must have the following:
 
   - The Azure private Multi-access Edge Compute service. This has the resource provider namespace Microsoft.HybridNetwork. For more information, see [What is Azure private Multi-access Edge Compute?](overview.md).
   - The Fusion Core - 5G packet core managed application. You must request access by visiting [https://azuremarketplace.microsoft.com/en-us/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) and using the **CONTACT ME** button. Our sales representatives will provide you with information on how you can evaluate or buy Fusion Core. Once you have selected one of these options, we will provide you with access to the managed application.
-- The built-in **Owner** role at the subscription scope. If this is not possible at your organization, contact your Metaswitch support representative.
-- A configured **Azure Network Function Manager - Device** object representing the ASE device.
+  - The built-in **Owner** role at the subscription scope. If this is not possible at your organization, contact your Metaswitch support representative.
+- A configured **Azure Network Function Manager - Device** object representing the Azure Stack Edge device.
 
 ## Deploy Fusion Core
 
 The following diagram shows the process of deploying Fusion Core, including the objects you will create and the methods for ongoing management after installation.
 
-:::image type="content" source="./media/deploy-metaswitch-solution/fusioncoreonasedeploymentprocess.png" alt-text="Fusion Core deployment process":::  
+:::image type="content" source="./media/deploy-metaswitch-solution/fusion-core-on-azure-stack-edge-deployment-process.png" alt-text="Fusion Core deployment process":::  
 
 After selecting Fusion Core for ASE from the Azure Marketplace, you will deploy a named instance of the Fusion Core Managed Application in the Resource Group of your choice in your Azure Subscription.
 

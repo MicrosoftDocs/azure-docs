@@ -5,7 +5,7 @@ services: vnf-manager
 author: KumudD
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 05/28/2021
+ms.date: 06/16/2021
 ms.author: kumud
 
 ---
