@@ -466,6 +466,6 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
 * Review the [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
-* Refer to the [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) for details about the methods supported by the container.
+* Refer to the [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

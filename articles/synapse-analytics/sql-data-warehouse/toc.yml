@@ -368,6 +368,8 @@
       href: sql-data-warehouse-restore-from-geo-backup.md 
     - name: Disable geo-backups
       href: disable-geo-backup.md
+    - name: Configure single region residency
+      href: single-region-residency.md
   - name: Integrate
     items:
     - name: Use machine learning

@@ -20,7 +20,7 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 Nvidia NVLink Interconnect: Not Supported<br>
 
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ Nvidia NVLink Interconnect: Not Supported<br>
 |---|---|---|---|---|---|---|---|---|
 | Standard_ND6s    | 6  | 112 | 736  | 1 | 24 | 12 | 20000/200 | 4 |
 | Standard_ND12s   | 12 | 224 | 1474 | 2 | 48 | 24 | 40000/400 | 8 |
-| Standard_ND24s   | 24 | 448 | 2948 | 4 | 24 | 32 | 80000/800 | 8 |
+| Standard_ND24s   | 24 | 448 | 2948 | 4 | 96 | 32 | 80000/800 | 8 |
 | Standard_ND24rs* | 24 | 448 | 2948 | 4 | 96 | 32 | 80000/800 | 8 |
 
 1 GPU = one P40 card.

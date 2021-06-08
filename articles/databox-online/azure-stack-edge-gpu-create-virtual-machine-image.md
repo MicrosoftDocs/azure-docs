@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 05/28/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -75,7 +75,19 @@ Use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device. 
 
 For a full list of Azure Marketplace images that could work (presently not tested), go to [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
+### Using RHEL BYOS image
 
+If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bring Your Own Subscription(RHEL BYOS) images, also known as the Red Hat gold images are supported and can be used to create your VM image. The standard pay-as-you-go RHEL images are not supported on Azure Marketplace.
+
+To create a VM image using the RHEL BYOS image, follow these steps:
+
+1. Log in to the [Red Hat Subscription Management](https://access.redhat.com/management). Navigate to the [Cloud Access Dashboard](https://access.redhat.com/management/cloud) from the top menu bar.
+1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access#proc_enabling-sub-new-ccsp_cloud-access). This will allow you to access the Red Hat Gold Images. 
+1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access). 
+
+You can now use the VM that you provisioned to [Create a Linux VM custom image](#create-a-linux-custom-vm-image).
+ 
+ 
 ## Next steps
 
 [Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).

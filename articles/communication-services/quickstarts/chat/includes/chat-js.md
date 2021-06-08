@@ -12,6 +12,9 @@ ms.custom: include file
 ms.author: mikben
 ---
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat)
+
 ## Prerequisites
 Before you get started, make sure to:
 
@@ -166,7 +169,7 @@ async function createChatThread() {
   const createChatThreadOptions = {
     participants: [
       {
-        id: '<USER_ID>',
+        id: { communicationUserId: '<USER_ID>' },
         displayName: '<USER_DISPLAY_NAME>'
       }
     ]
@@ -250,6 +253,7 @@ let sendMessageOptions =
 };
 const sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 const messageId = sendChatMessageResult.id;
+console.log(`Message sent!, message id:${messageId}`);
 ```
 
 Add this code in place of the `<SEND MESSAGE TO A CHAT THREAD>` comment in **client.js**, refresh your browser tab and check the console.

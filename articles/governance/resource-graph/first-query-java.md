@@ -100,7 +100,7 @@ install the required Maven packages.
 
    ```java
    package com.Fabrikam;
-   
+
    import java.util.Arrays;
    import java.util.List;
    import com.azure.core.management.AzureEnvironment;
@@ -111,22 +111,22 @@ install the required Maven packages.
    import com.azure.resourcemanager.resourcegraph.models.QueryRequestOptions;
    import com.azure.resourcemanager.resourcegraph.models.QueryResponse;
    import com.azure.resourcemanager.resourcegraph.models.ResultFormat;
-   
+
    public class App
    {
        public static void main( String[] args )
        {
            List<String> listSubscriptionIds = Arrays.asList(args[0]);
            String strQuery = args[1];
-   
+
            ResourceGraphManager manager = ResourceGraphManager.authenticate(new DefaultAzureCredentialBuilder().build(), new AzureProfile(AzureEnvironment.AZURE));
-   
+
            QueryRequest queryRequest = new QueryRequest()
                .withSubscriptions(listSubscriptionIds)
                .withQuery(strQuery);
-           
+
            QueryResponse response = manager.resourceProviders().resources(queryRequest);
-   
+
            System.out.println("Records: " + response.totalRecords());
            System.out.println("Data:\n" + response.data());
        }

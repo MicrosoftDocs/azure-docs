@@ -21,6 +21,8 @@ ms.author: yelevin
 
 ## Introduction to threat intelligence
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 Cyber threat intelligence (CTI) is information describing known existing or potential threats to systems and users. This type of information takes many forms, from written reports detailing a particular threat actor’s motivations, infrastructure, and techniques, to specific observations of IP addresses, domains, and file hashes associated with cyber threats. CTI is used by organizations to provide essential context to unusual activity, so that security personnel can quickly take action to protect their people and assets. CTI can be sourced from many places, such as open-source data feeds, threat intelligence-sharing communities, commercial intelligence feeds, and local intelligence gathered in the course of security investigations within an organization.
 
 Within a Security Information and Event Management (SIEM) solution like Azure Sentinel, the most utilized form of CTI is threat indicators, often referred to as Indicators of Compromise or IoCs. Threat indicators are data that associate observations such as URLs, file hashes, or IP addresses with known threat activity such as phishing, botnets, or malware. This form of threat intelligence is often called tactical threat intelligence because it can be applied to security products and automation in large scale to protect and detect potential threats to an organization. In Azure Sentinel, you can use threat indicators to help detect malicious activity observed in your environment and provide context to security investigators to help inform response decisions.
@@ -36,7 +38,9 @@ Threat Intelligence also provides useful context within other Azure Sentinel exp
 
 ## Azure Sentinel data connectors for threat intelligence
 
-Just like all the other event data in Azure Sentinel, threat indicators are imported using data connectors. There are two data connectors in Azure Sentinel provided specifically for threat indicators, **Threat Intelligence - TAXII** and **Threat Intelligence Platforms**. You can use either data connector alone, or both connectors together, depending on where your organization sources threat indicators. Let’s talk about each of the data connectors.
+Just like all the other event data in Azure Sentinel, threat indicators are imported using data connectors. There are two data connectors in Azure Sentinel provided specifically for threat indicators, **Threat Intelligence - TAXII** and **Threat Intelligence Platforms**. You can use either data connector alone, or both connectors together, depending on where your organization sources threat indicators. 
+
+See this catalog of [threat intelligence integrations](threat-intelligence-integration.md) available with Azure Sentinel.
 
 ### Adding threat indicators to Azure Sentinel with the Threat Intelligence Platforms data connector
 
@@ -423,4 +427,5 @@ There is also a rich community of [Azure Monitor workbooks on GitHub](https://gi
 In this document, you learned about the threat intelligence capabilities of Azure Sentinel, and the new Threat Intelligence blade. For practical guidance on using Azure Sentinel's threat intelligence capabilities, see the following articles:
 
 - [Connect threat intelligence data](./connect-threat-intelligence.md) to Azure Sentinel.
+- [Integrate TIP platforms, TAXII feeds, and enrichments](threat-intelligence-integration.md) with Azure Sentinel.
 - Create [built-in](./tutorial-detect-threats-built-in.md) or [custom](./tutorial-detect-threats-custom.md) alerts, and [investigate](./tutorial-investigate-cases.md) incidents, in Azure Sentinel.

@@ -15,7 +15,10 @@ This article explains how to generate and collect structured application log dat
 
 ## Log schema requirements
 
-To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Cloud uses this schema to parse your application and stream to Log Analytics. 
+To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Cloud uses this schema to parse your application and stream to Log Analytics.
+
+> [!NOTE]
+> Enabling the JSON log format makes it difficult to read the log streaming output from console. To get human readable output, append the `--format-json` argument to the `az spring-cloud app logs` CLI command. See [Format JSON structured logs](./how-to-log-streaming.md#format-json-structured-logs).
 
 **JSON schema requirements:**
 
@@ -42,6 +45,12 @@ To improve log query experience, an application log is required to be in JSON fo
  ```
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
+
+## Limitations
+
+Each line of JSON logs may have at most **16K bytes**. If the JSON output of a single log record exceeds this limit, it will be forcibly broken into multiple lines, and each raw line will be collected into the `Log` column, without being parsed structurally.
+
+Generally, this happens on exception logging with deep stacktrace, especially when the [AppInsights In-Process Agent](./how-to-application-insights.md) is enabled.  Apply limit settings to the stacktrace output (see the below configuration samples) to ensure the final output gets parsed properly.
 
 ## Generate schema-compliant JSON log  
 
@@ -89,6 +98,12 @@ The procedure:
                     </nestedField>
                     <stackTrace>
                         <fieldName>stackTrace</fieldName>
+                        <!-- maxLength - limit the length of the stack trace -->
+                        <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                            <maxDepthPerThrowable>200</maxDepthPerThrowable>
+                            <maxLength>14000</maxLength>
+                            <rootCauseFirst>true</rootCauseFirst>
+                        </throwableConverter>
                     </stackTrace>
                     <message />
                     <throwableClassName>
@@ -202,7 +217,8 @@ The procedure:
     <configuration>
         <appenders>
             <console name="Console" target="SYSTEM_OUT">
-                <JsonTemplateLayout eventTemplateUri="classpath:jsonTemplate.json" />
+                <!-- maxStringLength - limit the length of the stack trace -->
+                <JsonTemplateLayout eventTemplateUri="classpath:jsonTemplate.json" maxStringLength="14000" />
             </console>
         </appenders>
         <loggers>

@@ -3,7 +3,7 @@ title: Create a new Azure Monitor Application Insights workspace-based resource 
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
 ms.topic: conceptual
 ms.date: 10/06/2020 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
@@ -61,10 +61,10 @@ For code-based application monitoring, you would just install the appropriate Ap
 For detailed documentation on setting up an Application Insights SDK for code-based monitoring consult the language/framework specific documentation:
 
 - [ASP.NET](./asp-net.md)
-- [ASP.NET Core ](./asp-net-core.md)
+- [ASP.NET Core](./asp-net-core.md)
 - [Background tasks & modern console applications (.NET/.NET Core)](./worker-service.md)
 - [Classic console applications (.NET)](./console.md) 
-- [Java ](./java-get-started.md?tabs=maven)
+- [Java](./java-in-process-agent.md)
 - [JavaScript](./javascript.md)
 - [Node.js](./nodejs.md)
 - [Python](./opencensus-python.md)

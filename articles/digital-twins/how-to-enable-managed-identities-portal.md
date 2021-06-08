@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: subject-rbac-steps, contperf-fy21q4
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -45,7 +46,7 @@ The system-managed identity option is located in the **Advanced** tab of instanc
 
 In this tab, select the **On** option for **System managed identity** to turn on this feature.
 
-:::image type="content" source="media/how-to-enable-managed-identities/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. There's a highlight around the tab name, the On option for System managed identity, and the navigation buttons (Review + create, Previous, Next: Advanced).":::
+:::image type="content" source="media/how-to-enable-managed-identities/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. System managed identity is turned on.":::
 
 You can then use the bottom navigation buttons to continue with the rest of instance setup.
 
@@ -61,9 +62,9 @@ In this section, you'll add a system-managed identity to an Azure Digital Twins 
 
 1. On this page, select the **On** option to turn on this feature.
 
-1. Hit the **Save** button, and **Yes** to confirm.
+1. Select the **Save** button, and **Yes** to confirm.
 
-    :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity (preview) page for an Azure Digital Twins instance. There's a highlight around the page name in the Azure Digital Twins instance menu, the On option for Status, the Save button, and the Yes confirmation button.":::
+    :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity (preview) page for an Azure Digital Twins instance.":::
 
 After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
@@ -95,26 +96,20 @@ For more about endpoints, routes, and the types of destinations supported for ro
 To assign a role to the identity, start by opening the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your endpoint resource (your event hub, Service Bus topic, or storage container) by searching for its name in the portal search bar. 
-1. Select **Access control (IAM)** in the left-hand menu.
-1. Select the **+ Add** button to add a new role assignment.
 
-    :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal showing the Access control (IAM) page for an event hub. The + Add button is highlighted." lightbox="media/how-to-enable-managed-identities/add-role-assignment-1.png":::
+1. Select **Access control (IAM)**.
 
-1. On the following **Add role assignment** page, fill in the values:
-    * **Role**: Select the desired role from the dropdown menu.
-    * **Assign access to**: Under **System assigned managed identity**, select **Digital Twins**.
-    * **Subscription**: Select your subscription. This will display all the Azure Digital Twins managed identities within the selected subscription.
-    * **Select**: Here, you'll select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. When you select it, the identity for the instance will show up in the **Selected members** section at the bottom of the pane.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-2.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
-
-When you're finished entering the details, select **Save**.
+1. Assign the desired role to the managed identity of your Azure Digital Twins instance, using the information below. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Select the desired role from the dropdown menu. |
+    | Assign access to | Under **System assigned managed identity**, select **Digital Twins**. |
+    | Members | Select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. |
+    
+    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Create an endpoint with identity-based authentication
 

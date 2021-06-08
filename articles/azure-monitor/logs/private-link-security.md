@@ -201,7 +201,7 @@ This zone covers workspace-specific mapping to the agent service automation endp
 This zone configures connectivity to the global agents' solution packs storage account. Through it, agents can download new or updated solution packs (also known as management packs). Only one entry is required to handle to Log Analytics agents, no matter how many workspaces are used.
 [![Screenshot of Private DNS zone blob-core-windows-net.](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
 > [!NOTE]
-> This entry is only added to Private Links setups created at or after April 19, 2021.
+> This entry is only added to Private Links setups created at or after April 19, 2021 (or starting June, 2021 on Azure Sovereign clouds).
 
 
 ### Validating you are communicating over a Private Link
@@ -224,7 +224,7 @@ Go to the Azure portal. In your Log Analytics workspace resource menu, there's a
 All scopes connected to the workspace show up in this screen. Connecting to scopes (AMPLSs) allows network traffic from the virtual network connected to each AMPLS to reach this workspace. Creating a connection through here has the same effect as setting it up on the scope, as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Note that a workspace can connect to 5 AMPLS objects, as mentioned in [Restrictions and limitations](#restrictions-and-limitations). 
 
 ### Manage access from outside of private links scopes
-The settings on the bottom part of this page control access from public networks, meaning networks not connected through the listed scopes (AMPLSs). Setting **Allow public network access for ingestion** to **No** blocks ingestion of logs from machines outside of the connected scopes. Setting **Allow public network access for queries** to **No** blocks queries coming from machines outside of the scopes. That includes queries run via workbooks, dashboards, API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal, and that query Log Analytics data also have to be running within the private-linked VNET.
+The settings on the bottom part of this page control access from public networks, meaning networks not connected to the listed scopes (AMPLSs). Setting **Allow public network access for ingestion** to **No** blocks ingestion of logs from machines outside of the connected scopes. Setting **Allow public network access for queries** to **No** blocks queries coming from machines outside of the scopes. That includes queries run via workbooks, dashboards, API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal, and that query Log Analytics data also have to be running within the private-linked VNET.
 
 ### Exceptions
 Restricting access as explained above doesn't apply to the Azure Resource Manager and therefore has the following limitations:
@@ -235,7 +235,7 @@ Restricting access as explained above doesn't apply to the Azure Resource Manage
 > Logs and metrics uploaded to a workspace via [Diagnostic Settings](../essentials/diagnostic-settings.md) go over a secure private Microsoft channel, and are not controlled by these settings.
 
 ### Log Analytics solution packs download
-Log Analytics agents need to access a global storage account to download solution packs. Private Link setups created at or after April 19, 2021 can reach the agents' solution packs storage over the private link. This is made possible through the new DNS zone created for [blob.core.windows.net](#privatelink-blob-core-windows-net).
+Log Analytics agents need to access a global storage account to download solution packs. Private Link setups created at or after April 19, 2021 (or starting June, 2021 on Azure Sovereign clouds) can reach the agents' solution packs storage over the private link. This is made possible through the new DNS zone created for [blob.core.windows.net](#privatelink-blob-core-windows-net).
 
 If your Private Link setup was created before April 19, 2021, it won't reach the solution packs storage over a private link. To handle that you can do one of the following:
 * Re-create your AMPLS and the Private Endpoint connected to it

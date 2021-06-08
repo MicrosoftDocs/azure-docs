@@ -32,7 +32,7 @@ You can use the Azure Digital Twins query language to retrieve digital twins acc
 * relationships
   - properties of the relationships
 
-To submit a query to the service from a client app, you will use the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) for Azure Digital Twins.
+To submit a query to the service from a client app, you will use the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs for Azure Digital Twins](concepts-apis-sdks.md#overview-data-plane-apis).
 
 [!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
@@ -43,6 +43,8 @@ When writing queries for Azure Digital Twins, keep the following considerations 
 * **Escape single quotes**: If your query text includes a single quote character in the data, the quote will need to be escaped with the `\` character. Here is an example that deals with a property value of *D'Souza*:
 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
+
+* **Consider possible latency**: After making a change to the data in your graph, there may be a latency of up to 10 seconds before the changes will be reflected in queries. The [GetDigitalTwin API](how-to-manage-twin.md#get-data-for-a-digital-twin) does not experience this delay, so if you need an instant response, use the API call instead of querying to see your change reflected immediately.
 
 ## Next steps
 
