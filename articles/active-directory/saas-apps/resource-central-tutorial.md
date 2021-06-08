@@ -57,8 +57,8 @@ To configure and test Azure AD SSO with Resource Central – SAML SSO for Meetin
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-    1. **[Create Resource Central - SAML SSO for Meeting Room Booking System test user](#create-resource-central---saml-sso-for-meeting-room-booking-system-test-user)** - to have a counterpart of B.Simon in Resource Central – SAML SSO for Meeting Room Booking System that is linked to the Azure AD representation of user.
-1. **[Configure Resource Central – SAML SSO for Meeting Room Booking System SSO](#configure-resource-central---saml-sso-for-meeting-room-booking-system-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Resource Central–SAML SSO for Meeting Room Booking System test user](#create-resource-central-saml-sso-for-meeting-room-booking-system-test-user)** - to have a counterpart of B.Simon in Resource Central – SAML SSO for Meeting Room Booking System that is linked to the Azure AD representation of user.
+1. **[Configure Resource Central–SAML SSO for Meeting Room Booking System SSO](#configure-resource-central-saml-sso-for-meeting-room-booking-system-sso)** - to configure the single sign-on settings on application side.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -114,7 +114,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it in **Select a role**. If no role has been set up for this app, you see **Default Access** role selected.
 1. In the **Add Assignment** pane, click the **Assign** button.
 
-### Create Resource Central – SAML SSO for Meeting Room Booking System test user
+### Create Resource Central–SAML SSO for Meeting Room Booking System test user
 
 In this section, a user called **B.Simon** is created in **Resource Central – SAML SSO for Meeting Room Booking System**.
 
@@ -126,7 +126,7 @@ In this section, a user called **B.Simon** is created in **Resource Central – 
 
     :::image type="content" source="./media/resource-central/person.png" alt-text="Screenshot that shows the Person Details pane in Resource Central.":::
 
-## Configure Resource Central – SAML SSO for Meeting Room Booking System SSO
+## Configure Resource Central–SAML SSO for Meeting Room Booking System SSO
 
 In this section, you'll configure single sign-on in **Resource Central System Administrator**.
 
