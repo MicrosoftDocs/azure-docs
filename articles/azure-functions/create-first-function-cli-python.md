@@ -183,6 +183,16 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     The [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet signs you into your Azure account.
 
     ---
+    
+1. When using the Azure CLI, you can turn on the `param-persist` option that automatically tracks the names of your created resources. To learn more, see [Azure CLI persisted parameter](/cli/azure/param-persist-howto).  
+
+    # [Azure CLI](#tab/azure-cli)
+    ```azurecli
+    az config param-persist on
+    ```
+    # [Azure PowerShell](#tab/azure-powershell) 
+    This feature isn't available in Azure PowerShell.
+    ---
 
 1. Create a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region. 
 
@@ -212,7 +222,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+    az storage account create --name <STORAGE_NAME> --sku Standard_LRS
     ```
 
     The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account. 
@@ -236,7 +246,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
         
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME> --os-type linux
+    az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --os-type linux
     ```
     
     The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. If you are using Python 3.7 or 3.6, change `--runtime-version` to `3.7` or `3.6`, respectively.
