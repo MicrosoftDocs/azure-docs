@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Regression with automated machine learning'
+title: 'Tutorial: Regression model with AutoML'
 titleSuffix: Azure Machine Learning
-description: Write code with the Python SDK to create an automated machine learning experiment that generates a regression model for you.
+description: Create a regression model to predict NYC taxi fares with Azure Machine Learning automated ML and the Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: aniththa
-ms.author: anumamah
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
 ---
 
-# Tutorial: Use automated machine learning to predict taxi fares
+# Tutorial: Predict taxi fares with AutoML
 
-In this tutorial, you use automated machine learning in the Azure Machine Learning SDK to create a [regression model](concept-automated-ml.md#regression) to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
+In this tutorial, you create a [regression model](concept-automated-ml.md#regression) to predict NYC taxi fare with Azure Machine Learning automated ML and the Azure Machine Learning Python SDK. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
 ![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
@@ -26,10 +26,11 @@ You'll write code using the Python SDK in this tutorial.  You'll learn the follo
 > * Train an automated machine learning regression model
 > * Calculate model accuracy
 
-Also try automated machine learning for these other model types: 
+For no-code AutoML, try the following tutorials: 
 
-* [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md) - a no-code example.
-* [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) - a no-code example.
+* [Tutorial: Create a classification model with no-code AutoML](tutorial-first-experiment-automated-ml.md)
+
+* [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md)
 
 ## Prerequisites
 

@@ -1,7 +1,7 @@
 ---
-title: Auto-train a time-series forecast model
+title: Set up AutoML for time-series forecasting
 titleSuffix: Azure Machine Learning
-description: Learn how to use Azure Machine Learning to train a time-series forecasting regression model using automated machine learning.
+description: Set up Azure Machine Learning automated ML to train a time series forecasting with the Azure Machine Learning Python SDK.
 services: machine-learning
 author: nibaccam
 ms.author: nibaccam
@@ -12,10 +12,9 @@ ms.custom: contperf-fy21q1, automl
 ms.date: 08/20/2020
 ---
 
-# Auto-train a time-series forecast model
+# Set up AutoML to train a time-series forecasting model with Python
 
-
-In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning, AutoML, in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/). 
+In this article, you learn how to set up Azure Machine Learning automated ML to train a time-series forecasting model with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/). 
 
 To do so, you: 
 
@@ -24,7 +23,7 @@ To do so, you:
 > * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object.
 > * Run predictions with time-series data.
 
-For a low code experience, see the [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated machine learning in the [Azure Machine Learning studio](https://ml.azure.com/).
+For a low code experience, see the [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated ML in the [Azure Machine Learning studio](https://ml.azure.com/).
 
 Unlike classical time series methods, in automated ML, past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach incorporates multiple contextual variables and their relationship to one another during training. Since multiple factors can influence a forecast, this method aligns itself well with real world forecasting scenarios. For example, when forecasting sales, interactions of historical trends, exchange rate, and price all jointly drive the sales outcome. 
 
@@ -38,7 +37,7 @@ For this article you need,
 
 ## Preparing data
 
-The most important difference between a forecasting regression task type and regression task type within AutoML is including a feature in your data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. 
+The most important difference between a forecasting regression task type and regression task type within automated ML is including a feature in your data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. 
 
 Consider the following snapshot of a file `sample.csv`.
 This data set is of daily sales data for a company that has two different stores, A, and B. 
