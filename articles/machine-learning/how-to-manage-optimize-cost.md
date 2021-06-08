@@ -8,7 +8,7 @@ ms.custom: subject-cost-optimization
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 05/15/2021
+ms.date: 06/08/2021
 ---
 
 # Manage and optimize Azure Machine Learning costs
