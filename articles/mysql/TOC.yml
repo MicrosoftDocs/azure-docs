@@ -480,7 +480,7 @@
       - name: Data-in replication
         href: flexible-server/concepts-data-in-replication.md
         displayName: replication, read replica
-            - name: Read replicas
+      - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
     - name: Backup & Restore
       items:
