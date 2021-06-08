@@ -20,12 +20,9 @@ This article outlines the goals, tasks, and deliverables associated with the cus
    2. **Data acquisition and understanding**
    3. **Modeling**
    4. **Deployment**
-   5. **Customer acceptance**
+   5. **Customer acceptance** (this article)
 
-Here is a visual representation of the TDSP lifecycle: 
-
-![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png) 
-
+For an overview and visual representation of the TDSP lifecycle, see ![The Team Data Science Process lifecycle](./lifecycle.md).
 
 ## Goal
 **Finalize project deliverables**: Confirm that the pipeline, the model, and their deployment in a production environment satisfy the customer's objectives.
