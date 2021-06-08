@@ -12,17 +12,17 @@ ms.date: 05/06/2021
 
 This tutorial provides steps for using the Azure portal to setup Private Link Service and access on-premises SQL Server from Managed VNet using Private Endpoint.
 
-> [!NOTE]
-> The solution presented in this article isn't limited to SQL Server connectivity. You can use this approach to connect to and query any available on-premises connector that's supported in Azure Data Factory. 
+> ![Note]
+> The solution presented in this article describes SQL Server connectivity, but you can use a similar approach to connect and query other available [on-premises connectors](connector-overview.md) that are supported in Azure Data Factory.
 
-:::image type="content" source="./media/tutorial-managed-virtual-network/sql-server-access-model.png" alt-text="Screenshot that shows the access model of S Q L server." lightbox="./media/tutorial-managed-virtual-network/sql-server-access-model-expanded.png":::
+:::image type="content" source="./media/tutorial-managed-virtual-network/sql-server-access-model.png" alt-text="Screenshot that shows the access model of SQL server." lightbox="./media/tutorial-managed-virtual-network/sql-server-access-model-expanded.png":::
 
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **Virtual Network**. If you don’t have a Virtual Network, create one following [Create Virtual Network](../virtual-network/quick-create-portal.md).
+* **Virtual Network**. If you don't have a Virtual Network, create one following [Create Virtual Network](../virtual-network/quick-create-portal.md).
 * **Virtual network to on-premises network**. Create a connection between virtual network and on-premises network either using [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=/azure/virtual-network/toc.json) or [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/virtual-network/toc.json).
-* **Data Factory with Managed VNet enabled**. If you don’t have a Data Factory or Managed VNet is not enabled, create one following [Create Data Factory with Managed VNet](tutorial-copy-data-portal-private.md).
+* **Data Factory with Managed VNet enabled**. If you don't have a Data Factory or Managed VNet is not enabled, create one following [Create Data Factory with Managed VNet](tutorial-copy-data-portal-private.md).
 
 ## Create subnets for resources
 
@@ -217,7 +217,7 @@ the page.
     <FQDN/IP> is your target SQL Server IP.<br/>
     
     > [!Note] 
-    > FQDN doesn’t work for on-premises SQL Server unless you add a record in Azure DNS zone.
+    > FQDN doesn't work for on-premises SQL Server unless you add a record in Azure DNS zone.
     
 3. Run below command and check the iptables in your backend server VMs. You can see one record in your iptables with your target IP.<br/>
     **sudo iptables -t nat -v -L PREROUTING -n --line-number**
