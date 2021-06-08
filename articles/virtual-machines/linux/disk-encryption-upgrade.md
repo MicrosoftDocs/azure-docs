@@ -46,7 +46,7 @@ Locate the AzureDiskEncryption extension in the output and identify the version 
 
 # [Portal](#tab/Portal)
 
-Go to the "Extensions" blade of your VM in the Azure Portal.
+Go to the "Extensions" blade of your VM in the Azure portal.
 
 :::image type="content" source="../media/disk-encryption/ade-version-1.png" alt-text="finding ADE version portal screenshot 1":::
 
