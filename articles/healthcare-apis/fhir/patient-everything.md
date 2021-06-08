@@ -24,7 +24,7 @@ The Azure API for FHIR validates that it can find the patient matching the provi
 * [Patient resource](https://www.hl7.org/fhir/patient.html) 
 *  Resources that are directly referenced by the Patient resource (except link) 
 *  Resources in the Patient's [compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
-*  [Device resources](https://www.hl7.org/fhir/device.html) that reference the Patient resource  
+*  [Device resources](https://www.hl7.org/fhir/device.html) that reference the Patient resource. Note that this is limited to 100 devices. If the patient has more than 100 devices linked to them, only 100 will be returned. 
 
  
 > [!Note]
