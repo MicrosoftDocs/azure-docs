@@ -845,7 +845,13 @@ The following limitations apply to tags:
    >
    > * Azure Front Door doesn't support the use of `#` in the tag name.
    >
-   > * Azure Automation and Azure CDN only support 15 tags on resources.
+   > * The follow Azure resources only support 15 tags:
+   >     * Azure Automation 
+   >     * Azure CDN
+   >     * Azure DNS (Zone and A records)
+   >     * Azure Private DNS (Zone, A records, and virtual network link)
+  
+* Azure Automation and Azure CDN only support 15 tags on resources.
 
 ## Next steps
 
