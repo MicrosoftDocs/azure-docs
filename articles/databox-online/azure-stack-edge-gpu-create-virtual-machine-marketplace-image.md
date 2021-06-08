@@ -176,10 +176,7 @@ Here is an example output:
 
 ```output
 PS /home/user> $urn = “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
-PS /home/user> $diskName = "NewManagedDisk1"
-PS /home/user> $diskRG = "NewRG1"
-PS /home/user> az disk create -g $diskRG -n $diskName --image-reference $urn
-(ResourceGroupNotFound) Resource group 'NewRG1' could not be found.
+PS /home/user> $diskName = "newmanageddisk1"
 PS /home/user> $diskRG = "newrgmd1"
 PS /home/user> az disk create -g $diskRG -n $diskName --image-reference $urn
 {
@@ -309,7 +306,6 @@ BytesCopied             : 136367309312
 TotalBytes              : 136367309312
 StatusDescription       :
 DestinationSnapshotTime :
-
 ```
 
 ## Clean up the managed disk
