@@ -16,16 +16,19 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
 
 ## Before you get started
 
-- [Review the requirements](./tutorial-discover-vmware.md#prerequisites) to discover servers running in VMware environment with Azure Migrate: Discovery and assessment tool.  
-- Prepare [VMware vCenter](./tutorial-discover-vmware.md#prepare-vmware) for usage and review the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory. Software inventory must be complete to start onboarding discovered servers to Azure Arc.   
-- Review [application discovery requirements](migrate-support-matrix-vmware.md#application-discovery-requirements) before initiating software inventory on servers. Windows servers must have PowerShell version 3.0 or later installed.
-- Be sure to verify the [prerequisites for Azure Arc](../azure-arc/servers/agent-overview.md#prerequisites) and review the following considerations:
-    - Onboarding to Azure Arc can only be initiated after the vCenter Server discovery and software inventory is completed. It may take up to 6 hours for software inventory to complete after it is turned on
-    -  The [Azure Arc Hybrid Connected Machine agent](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) will be installed on the discovered servers during the Arc onboarding process. Make sure you provide credentials with administrator permissions on the servers to install and configure the agent. On Linux, provide the root account, and on Windows, provide an account that is a member of the Local Administrators group. 
-    - Verify that the servers are running [a supported operating system](../azure-arc/servers/agent-overview.md#supported-operating-systems).
-    - Ensure that the Azure account is granted assignment to the [required Azure roles](../azure-arc/servers/agent-overview.md#required-permissions).
-    - Make sure [the required URLs](../azure-arc/servers/agent-overview.md#networking-configuration) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
-    - Review the [regions supported](../azure-arc/servers/overview.md#supported-regions) for Azure Arc. 
+- [Review the requirements](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#prerequisites) to discover servers running in VMware environment with Azure Migrate: Discovery and assessment tool.  
+- Prepare [VMware vCenter](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#prepare-vmware) for usage and review the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory. Software inventory must be complete to start onboarding discovered servers to Azure Arc.   
+- Review [application discovery requirements](migrate-support-matrix-vmware.md#application-discovery-requirements) before initiating software inventory on servers. Windows servers must have PowerShell version 3.0 or later installed. 
+- Verify the port access requirements to allow remote connections to the inventory of discovered servers. 
+    - **Windows:** Inbound connection on WinRM port 5985 (HTTP). <br/>
+    - **Linux:**  Inbound connections on port 22 (TCP). 
+- Be sure to verify the [prerequisites for Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#prerequisites) and review the following considerations:
+    - Onboarding to Azure Arc can only be initiated after the vCenter Server discovery and software inventory is completed. It may take up to 6 hours for software inventory to complete after it is turned on.
+    -  The [Azure Arc Hybrid Connected Machine agent](https://docs.microsoft.com/azure/azure-arc/servers/learn/quick-enable-hybrid-vm) will be installed on the discovered servers during the Arc onboarding process. Make sure you provide credentials with administrator permissions on the servers to install and configure the agent. On Linux, provide the root account, and on Windows, provide an account that is a member of the Local Administrators group. 
+    - Verify that the servers are running [a supported operating system](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#supported-operating-systems).
+    - Ensure that the Azure account is granted assignment to the [required Azure roles](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#required-permissions).
+    - Make sure [the required URLs](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#networking-configuration) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
+    - Review the [regions supported](https://docs.microsoft.com/azure/azure-arc/servers/overview#supported-regions) for Azure Arc. 
     - Azure Arc enabled servers supports up to 5,000 machine instances in a resource group.
 
 
@@ -124,7 +127,8 @@ If you don't see the error code listed below or if the error code starts with **
 Either the [prerequisites](./migrate-support-matrix-physical.md) to connect to the server have not been met or there are network issues in connecting to the server, for instance some proxy settings.
 
 **Recommended actions**   
-- Ensure that the server meets the prerequisites for discovery and assessment as documented [here](./migrate-support-matrix-physical.md). 
+- Ensure that the server meets the prerequisites and port access requirements as documented [here](https://go.microsoft.com/fwlink/?linkid=2134728). 
+- Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Migrate appliance, and retry the operation. 
 - Ensure that you have chosen the correct authentication method on the appliance to connect to the server. 
    > [!Note] 
    > Azure Migrate supports both password-based and SSH key based authentication for Linux servers.
