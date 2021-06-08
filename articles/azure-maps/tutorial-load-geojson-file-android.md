@@ -40,16 +40,16 @@ The following steps show you how to import a GeoJSON file into the application a
 
 4. Go into the **MainActivity.java** file and add the following code inside the callback for the `mapControl.onReady` event, this is located inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
 
-    ```java
-    //Create a data source and add it to the map.
-    DataSource source = new DataSource();
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
 
-    //Import the geojson data and add it to the data source.
-    source.importDataFromUrl("asset://SamplePoiDataSet.json");
-    
-    //Add data source to the map.
-    map.sources.add(source);
-    ```
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("asset://SamplePoiDataSet.json");
+
+//Add data source to the map.
+map.sources.add(source);
+```
 
 ::: zone-end
 
@@ -57,16 +57,16 @@ The following steps show you how to import a GeoJSON file into the application a
 
 4. Go into the **MainActivity.kt** file and add the following code inside the callback for the `mapControl.onReady` event, this is located inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
 
-    ```kotlin
-    //Create a data source and add it to the map.
-    DataSource source = new DataSource();
+```kotlin
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
 
-    //Import the geojson data and add it to the data source.
-    source.importDataFromUrl("asset://SamplePoiDataSet.json");
-    
-    //Add data source to the map.
-    map.sources.add(source);
-    ```
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("asset://SamplePoiDataSet.json");
+
+//Add data source to the map.
+map.sources.add(source);
+```
 
 ::: zone-end
 
@@ -74,21 +74,21 @@ The following steps show you how to import a GeoJSON file into the application a
 
 ::: zone pivot="programming-language-java-android"
 
-    ```java
-    //Create a layer and add it to the map.
-    BubbleLayer layer = new BubbleLayer(source);
-    map.layers.add(layer);
-    ```
+```java
+//Create a layer and add it to the map.
+BubbleLayer layer = new BubbleLayer(source);
+map.layers.add(layer);
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-kotlin"
 
-    ```kotlin
-    //Create a layer and add it to the map.
-    val layer = new BubbleLayer(source)
-    map.layers.add(layer)
-    ```
+```kotlin
+//Create a layer and add it to the map.
+val layer = new BubbleLayer(source)
+map.layers.add(layer)
+```
 
 ::: zone-end
 
@@ -122,14 +122,14 @@ The following steps show you how to import a GeoJSON file into the application a
 
 8. Go back into the  **MainActivity.java** file and after the code for the bubble layer, add the following code to create a reusable popup.
 
-    ```java
-    //Create a popup and add it to the map.
-    Popup popup = new Popup();
-    map.popups.add(popup);
-    
-    //Close it initially.
-    popup.close();
-    ```
+```java
+//Create a popup and add it to the map.
+Popup popup = new Popup();
+map.popups.add(popup);
+
+//Close it initially.
+popup.close();
+```
 
 ::: zone-end
 
@@ -152,85 +152,85 @@ The following steps show you how to import a GeoJSON file into the application a
 
 ::: zone pivot="programming-language-java-android"
 
-    ```java
-    //Add a click event to the layer.
-    map.events.add((OnFeatureClick)(feature) -> {
-        //Get the first feature and it's properties.
-        Feature f = feature.get(0);
-        JsonObject props = f.properties();
-    
-        //Retrieve the custom layout for the popup.
-        View customView = LayoutInflater.from(this).inflate(R.layout.popup_text, null);
-    
-        //Display the name and entity type information of the feature into the text view of the popup layout.
-        TextView tv = customView.findViewById(R.id.message);
-        tv.setText("%s\n%s",
-            f.getStringProperty("Name"),
-            f.getStringProperty("EntityType")
-        );
-    
-        //Get the position of the clicked feature.
-        Position pos = MapMath.getPosition((Point)f.geometry());
-    
-        //Set the options on the popup.
-        popup.setOptions(
-                //Set the popups position.
-                position(pos),
-    
-                //Set the anchor point of the popup content.
-                anchor(AnchorType.BOTTOM),
-    
-                //Set the content of the popup.
-                content(customView)
-        );
-    
-        //Open the popup.
-        popup.open();
-    
-        //Return a boolean indicating if event should be consumed or continue to bubble up.
-        return false;
-    }, layer);
-    ```
+```java
+//Add a click event to the layer.
+map.events.add((OnFeatureClick)(feature) -> {
+    //Get the first feature and it's properties.
+    Feature f = feature.get(0);
+    JsonObject props = f.properties();
+
+    //Retrieve the custom layout for the popup.
+    View customView = LayoutInflater.from(this).inflate(R.layout.popup_text, null);
+
+    //Display the name and entity type information of the feature into the text view of the popup layout.
+    TextView tv = customView.findViewById(R.id.message);
+    tv.setText("%s\n%s",
+        f.getStringProperty("Name"),
+        f.getStringProperty("EntityType")
+    );
+
+    //Get the position of the clicked feature.
+    Position pos = MapMath.getPosition((Point)f.geometry());
+
+    //Set the options on the popup.
+    popup.setOptions(
+            //Set the popups position.
+            position(pos),
+
+            //Set the anchor point of the popup content.
+            anchor(AnchorType.BOTTOM),
+
+            //Set the content of the popup.
+            content(customView)
+    );
+
+    //Open the popup.
+    popup.open();
+
+    //Return a boolean indicating if event should be consumed or continue to bubble up.
+    return false;
+}, layer);
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-kotlin"
 
-    ```kotlin
-    //Add a click event to the layer.
-    map.events.add(OnFeatureClick { feature: List<Feature> ->
-        //Get the first feature and it's properties.
-        val f = feature[0]
-        val props = f.properties()
-    
-        //Retrieve the custom layout for the popup.
-        val customView: View = LayoutInflater.from(this).inflate(R.layout.popup_text, null)
-    
-        //Display the name and entity type information of the feature into the text view of the popup layout.
-        val tv = customView.findViewById<TextView>(R.id.message)
-        tv.text = String.format(
-            "%s\n%s",
-            f.getStringProperty("Name"),
-            f.getStringProperty("EntityType")
-        )
-    
-        //Get the position of the clicked feature.
-        val pos = MapMath.getPosition(f.geometry() as Point?)
-    
-        //Set the options on the popup.
-        popup.setOptions( //Set the popups position.
-            position(pos),  //Set the anchor point of the popup content.
-            anchor(AnchorType.BOTTOM),  //Set the content of the popup.
-            content(customView)
-        )
-    
-        //Open the popup.
-        popup.open()
-    
-        //Return a boolean indicating if event should be consumed or continue to bubble up.
-        false
-    } as OnFeatureClick, layer)
-    ```
+```kotlin
+//Add a click event to the layer.
+map.events.add(OnFeatureClick { feature: List<Feature> ->
+    //Get the first feature and it's properties.
+    val f = feature[0]
+    val props = f.properties()
+
+    //Retrieve the custom layout for the popup.
+    val customView: View = LayoutInflater.from(this).inflate(R.layout.popup_text, null)
+
+    //Display the name and entity type information of the feature into the text view of the popup layout.
+    val tv = customView.findViewById<TextView>(R.id.message)
+    tv.text = String.format(
+        "%s\n%s",
+        f.getStringProperty("Name"),
+        f.getStringProperty("EntityType")
+    )
+
+    //Get the position of the clicked feature.
+    val pos = MapMath.getPosition(f.geometry() as Point?)
+
+    //Set the options on the popup.
+    popup.setOptions( //Set the popups position.
+        position(pos),  //Set the anchor point of the popup content.
+        anchor(AnchorType.BOTTOM),  //Set the content of the popup.
+        content(customView)
+    )
+
+    //Open the popup.
+    popup.open()
+
+    //Return a boolean indicating if event should be consumed or continue to bubble up.
+    false
+} as OnFeatureClick, layer)
+```
 
 ::: zone-end
 
