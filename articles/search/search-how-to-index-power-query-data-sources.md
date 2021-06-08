@@ -52,7 +52,7 @@ The Azure portal provides support for the Power Query connectors. By sampling da
 
  The following video shows how to set up a Power Query connector in Azure Cognitive Search.
  
-> [!VIDEO https://www.youtube.com/watch?v=uy-l4xFX1EE]
+> [!VIDEO https://www.youtube.com/embed/uy-l4xFX1EE]
 
 ### Step 1 – Prepare source data
 Make sure your data source contains data. The Import data wizard reads metadata and performs data sampling to infer an index schema, but it also loads data from your data source. If the data is missing, the wizard will stop and return and error. 

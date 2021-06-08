@@ -48,7 +48,7 @@ To set up the SharePoint Online Indexer, you will need to perform some actions i
 
  The following video shows how to set up the SharePoint Online indexer.
  
-> [!VIDEO https://www.youtube.com/watch?v=QmG65Vgl0JI]
+> [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
 ### Step 1: Enable system assigned managed identity
 When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer.
