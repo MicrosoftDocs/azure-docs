@@ -77,7 +77,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 ## Run DAB with a header-based application
 
-1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided to you to download and use. Log in to the container registry to download the images of DAB and the header-based application. Contact [Datawiza](contact@datawiza.com) for access.
+1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided to you to download and use. Log in to the container registry to download the images of DAB and the header-based application. Contact [Datawiza](https://contact@datawiza.com) for access.
 
    ```YML
    version: '3'
