@@ -113,7 +113,7 @@ landingContent:
             url: entities-reference.md
           - text: UEBA enrichments
             url: ueba-enrichments.md
-        
+
  # Card (optional)
   - title: Threat hunting
     linkLists:
@@ -122,6 +122,7 @@ landingContent:
           - text: Hunt for threats
             url: hunting.md
       - linkListType: how-to-guide
+        links:
           - text: Hunt with Jupyter notebooks
             url: notebooks.md
           - text: Hunt with bookmarks
