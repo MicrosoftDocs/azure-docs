@@ -110,16 +110,20 @@ To add a Conditional Access policy:
 
 
 1. Under **Access controls**, select **Grant**. Then select whether to block or grant access:
-    |Option  |License |Note  |
-    |---------|---------|---------|
-    |**Block access**|P1, P2| Prevents access based on the conditions specified in this conditional access policy.|
-    |**Grant access** with **Require multi-factor authentication**|P1, P2|Based on the conditions specified in this conditional access policy, the user is required to go through Azure AD B2C multi-factor authentication.|
+
+|Option   | License  | Note  |
+|---|---|---|
+| **Block access**  |P1, P2| Prevents access based on the conditions specified in this conditional access policy.  |   |
+| **Grant access** with **Require multi-factor authentication**  | P1, P2| Based on the conditions specified in this conditional access policy, the user is required to go through Azure AD B2C multi-factor authentication. |   |
+
 1. Under **Enable policy**, select one of the following:
-    |Option  |License |Note  |
-    |---------|---------|---------|
-    |**Report-only**|P1, P2| Report-only allows administrators to evaluate the impact of Conditional Access policies before enabling them in their environment. We recommend you check policy with this state, and determine the impact to end users without requiring multi-factor authentication or blocking users. For more information, see [Review Conditional Access outcomes in the audit report](#review-conditional-access-outcomes-in-the-audit-report)|
-    | **On**| P1, P2| The access policy is evaluated and not enforced. |
-    | **Off** | P1, P2| The access policy is not activated and has no effect on the users. |
+
+| Option  | License  | Note  |
+|---|---|---|
+|**Report-only**    | P1, P2  | Report-only allows administrators to evaluate the impact of Conditional Access policies before enabling them in their environment. We recommend you check policy with this state, and determine the impact to end users without requiring multi-factor authentication or blocking users. For more information, see [Review Conditional Access outcomes in the audit report](#review-conditional-access-outcomes-in-the-audit-report)  |
+|**On**   |  P1, P2 |The access policy is evaluated and not enforced.   |
+|**Off**    | P1, P2  | The access policy is not activated and has no effect on the users.  |
+
 1. Enable your test Conditional Access policy by selecting **Create**.
 
 ## Template 1: Sign-in risk-based Conditional Access
