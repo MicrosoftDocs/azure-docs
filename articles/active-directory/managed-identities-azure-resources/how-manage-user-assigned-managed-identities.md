@@ -18,7 +18,7 @@ zone_pivot_groups: identity-mi-methods
 # Manage user-assigned managed identities
 
 
-Managed identities for Azure resources eliminate the need to manage credentials in code. They allow you to get an Azure active directory token your applications can use when accessing resources that support Azure Active Directory authentication. Azure manages the identity so you don't have to. There are two types of managed identities – system-assigned and user-assigned. The main difference between the two types is that system assigned managed identities have their lifecycle linked to the resource where they are used. User assigned managed identities may be used on multiple resources. You can learn more about managed identities in the managed identities [overview](../overview.md). 
+Managed identities for Azure resources eliminate the need to manage credentials in code. They allow you to get an Azure active directory token your applications can use when accessing resources that support Azure Active Directory authentication. Azure manages the identity so you don't have to. There are two types of managed identities – system-assigned and user-assigned. The main difference between the two types is that system assigned managed identities have their lifecycle linked to the resource where they are used. User assigned managed identities may be used on multiple resources. You can learn more about managed identities in the managed identities [overview](overview.md). 
 
 ::: zone pivot="identity-mi-methods-azp"
 
@@ -68,7 +68,7 @@ Deleting a user assigned identity does not remove it from the VM or resource it 
 
 ## Assign a role to a user-assigned managed identity 
 
-To assign a role to a user-assigned managed identity, your account needs the [User Access Administrator](../../../role-based-access-control/built-in-roles.md#user-access-administrator) role assignment.
+To assign a role to a user-assigned managed identity, your account needs the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role assignment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user-assigned managed identities.
 2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
