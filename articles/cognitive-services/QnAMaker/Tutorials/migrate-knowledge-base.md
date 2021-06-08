@@ -46,15 +46,17 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    2. **Synonyms**: You can export Synonyms that have been added to the knowledge base.
    3. **Knowledge Base Replica**: If you want to download the entire knowledge base with synoyms and other settings, you should choose this option.
 
-1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation.
-
-    Configure the knowledge base. Set the new knowledge base name only. Duplicate names are supported and special characters are supported as well.
+1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation. Set the new knowledge base name only. Duplicate names are supported and special characters are supported as well.
 
     Do not select anything from Step 4 because those values will be overwritten when you import the file.
 
 1. In Step 5, select **Create**.
 
-1. In this new knowledge base, open the **Settings** tab and select Import **QnAs**. This imports the questions, answers, metadata, follow-up prompts, and retains the data source names from which they were extracted. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. This helps you create an exact replica of the knowledge base.
+1. In this new knowledge base, open the **Settings** tab and select either of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
+
+   1. **QnAs**: This imports the questions, answers, metadata, follow-up prompts, and retains the data source names from which they were extracted. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer the following sample to import QnAs:.
+   2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer the following sample to import synonyms:.
+   3. **Knowledge Base Replica**: if you want to import the complete knowledge base replica, you can zip QnAs, synonyms and settings file and import the zipped folder. You can refer the following sample to import Knowledge Base replica:
 
    > [!div class="mx-imgBorder"]
    > [![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
