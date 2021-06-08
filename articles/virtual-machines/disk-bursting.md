@@ -10,13 +10,10 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 # Managed disk bursting
-<<<<<<< HEAD
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
-=======
->>>>>>> f1b1df0c1bd15a016e614cd7d9f0b43e291c688b
 
 Azure offers the ability to boost disk storage IOPS and MB/s performance, this is referred to as bursting for both virtual machines (VM) and disks. You can effectively use VM and disk bursting to achieve better bursting performance on both your VMs and disk.
 
