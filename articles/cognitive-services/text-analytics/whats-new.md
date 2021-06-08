@@ -25,12 +25,14 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ### Text Analytics for health updates
 
+* You do not need an application to use Text Analytics for health.
 * A new model version `2021-05-15` for the `/health` endpoint and on-premise container which provides
     * 5 new entity types: `ALLERGEN`, `CONDITION_SCALE`, `COURSE`, `EXPRESSION` and `MUTATION_TYPE`,
     * 14 new relation types,
     * Assertion detection expanded for new entity types and
     * Linking support for ALLERGEN entity type
 
+ 
 ## May 2021
 
 * [Custom question answering](../qnamaker/custom-question-answering.md) (previously QnA maker) can now be accessed using a Text Analytics resource. 
