@@ -1042,6 +1042,8 @@
           href: ./linux/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
           href: ./linux/disk-encryption-faq.md
+        - name: Upgrade from previous to current version
+          href: ./linux/disk-encryption-upgrade.md
         - name: Disk encryption - previous version
           items:
           - name: Overview
