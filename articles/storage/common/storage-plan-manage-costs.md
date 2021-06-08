@@ -41,70 +41,50 @@ Azure Blob Storage runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Azure Blob Storage
 
-| Meter | Unit | Options that impact unit price |
-|---|---|---|
-| Data storage | Per GB | Access tier, performance tier, and the number of TB stored |
-| Operations | Per transaction | Operation type, access tier, performance tier |
-| Data transfer | Per GB | Data redundancy |
-| Metadata | Per GB, per month | Access tier, performance tier <br>Applies only to accounts that have a hierarchical namespace. | 
+When you create or use Blob storage resources, you'll be charged for the following meters: 
 
-### Understanding unit price
+| Meter | Unit | 
+|---|---|
+| Data storage | Per GB, per month| 
+| Operations | Per transaction | 
+| Data transfer | Per GB |
+| Metadata | Per GB, per month. Applies only to accounts that have a hierarchical namespace. | 
 
-To determine specific unit prices, open the appropriate pricing page. You might have to make selections on the page. 
+Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-#### Accounts that have a hierarchical namespace
+The following table shows billing meters for **optional** Blob Storage features.
 
-If you've enabled the hierarchical namespace feature on your account, refer to the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
+| Meter | Unit |
+|---|---|
+| Blob index tags | Per tag |
+| Change feed | Per logged change |
+| Encryption scopes | Per month |
+| Query acceleration | Per GB scanned & Per GB returned|
 
-#### Accounts that do not have a hierarchical namespace
+The unit price for most meters depend on the account region, access tier, performance tier, redundancy setting, and the type of namespace that your account has (flat or hierarchical). 
 
-If you have not enabled the hierarchical namespace feature on your account, unit pricing will depend on which [storage endpoint](storage-account-overview.md#storage-account-endpoints) an operation uses. 
+For hierarchical namespace enabled accounts, see the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
-**Blob Storage endpoint**
+For flat namespace accounts, see the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. 
 
-For operations that use the Blob Storage endpoint (For example: `https://<storage-account>.blob.core.windows.net`), refer to the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. Operations that use the Blob Storage endpoint can originate from any of the following sources:
+The transaction price that appears in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page does not apply to requests that use the Data Lake Storage Gen2 endpoint (For example: `https://<storage-account>.dfs.core.windows.net`). 
 
-- Workloads that use the Windows Azure Storage Blob driver or [WASB driver](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
-- [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json) commands
-- [Azure PowerShell](/powershell/module/az.storage)
-- [Azure CLI](/cli/azure/storage)
-- REST calls that use the [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)
-- Applications that use Blob Storage APIs in Azure Storage client library.  
-  See [About Blob storage](../blobs/storage-blobs-introduction.md#about-blob-storage) for a complete list.
-
-**Data Lake Storage endpoint**
-
-For operations that use the Data Lake Storage Gen2 endpoint (For example: `https://<storage-account>.dfs.core.windows.net`), open the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. Then, select **Flat Namespace** in the **File Structure** dropdown list.
+For the transaction price of those requests, open the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page and select the **Flat Namespace** option. 
 
   > [!div class="mx-imgBorder"]
   > ![flat namespace option](media/storage-plan-manage-costs/select-flat-namespace.png)
 
-Operations that use the Data Lake Storage Gen2 endpoint can originate from any of the following sources:
+Requests to the Data Lake Storage Gen2 endpoint can originate from any of the following sources:
 
 - Workloads that use the Azure Blob File System driver or [ABFS driver](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
+
 - REST calls that use the [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)
+
 - Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library.  
-  See [About Blob storage](../blobs/storage-blobs-introduction.md#about-blob-storage) for a complete list.
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
 
-### Other costs that might accrue with Azure Blob Storage
-
-When you create resources for Azure Blob Storage, resources for other Azure services are also created. They include:
-
-- Logs in Azure Monitor
-- <OtherAzureService2>
-
-Something here about networking costs
-
-### Costs might accrue after resource deletion
-
-After you delete <AzureServiceName> resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
-
-- <OtherServiceResource1>
-- <OtherServiceResource2>
-
-### Using Azure Prepayment with <AzureServiceName>
+### Using Azure Prepayment with Azure Blob Storage
 
 You can pay for Azure Blob Storage charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
