@@ -1,6 +1,6 @@
 ---
-title: Use Azure marketplace image to create VM image for Azure Stack Edge Pro GPU device
-description: Describes how to use an Azure marketplace image to create a VM image to use on your Azure Stack Edge Pro GPU device.
+title: Use Azure Marketplace image to create VM image for Azure Stack Edge Pro GPU device
+description: Describes how to use an Azure Marketplace image to create a VM image to use on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
@@ -40,14 +40,14 @@ Before you can use Azure Marketplace images for Azure Stack Edge, make sure that
 
 ## Search for Azure Marketplace images
 
-You will now identify a specific Azure Marketplace image which you wish to use. Azure Marketplace hosts thousands of VM images. 
+You will now identify a specific Azure Marketplace image that you wish to use. Azure Marketplace hosts thousands of VM images. 
 
 To find some of the most common Marketplace images that match your search criteria, run the following command.  
 
 ```azurecli
 az vm image list --all [--publisher <Publisher>] [--offer <Offer>] [--sku <SKU>]
 ```
-The last three flags are optional but excluding them returns a very long list.
+The last three flags are optional but excluding them returns a long list.
 
 Some example queries are:
 
@@ -134,7 +134,7 @@ In this example, we will select Windows Server 2019 Datacenter Core, version 201
  
 :::image type="content" source="media/azure-stack-edge-create-virtual-machine-marketplace-image/marketplace-image-1.png" alt-text="List of marketplace images":::
 
-Below is a list of URNs for some of the most common images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
+Below is a list of URNs for some of the most common images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
 
 
 | OS              | SKU                                     | Version               | URN                                                                                       |
