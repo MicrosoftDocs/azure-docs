@@ -113,8 +113,8 @@ To add a Conditional Access policy:
 
 |Option   | License  | Note  |
 |---|---|---|
-| **Block access**  |P1, P2| Prevents access based on the conditions specified in this conditional access policy.  |   |
-| **Grant access** with **Require multi-factor authentication**  | P1, P2| Based on the conditions specified in this conditional access policy, the user is required to go through Azure AD B2C multi-factor authentication. |   |
+| **Block access**  |P1, P2| Prevents access based on the conditions specified in this conditional access policy.  |  
+| **Grant access** with **Require multi-factor authentication**  | P1, P2| Based on the conditions specified in this conditional access policy, the user is required to go through Azure AD B2C multi-factor authentication. |  
 
 1. Under **Enable policy**, select one of the following:
 
