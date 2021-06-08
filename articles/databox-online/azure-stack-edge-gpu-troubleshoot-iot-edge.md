@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/02/2021
+ms.date: 06/08/2021
 ms.author: alkohli
 ---
 # Troubleshoot IoT Edge issues on your Azure Stack Edge Pro GPU device 
@@ -25,4 +25,5 @@ This article describes how to troubleshoot compute-related errors on an Azure St
 
 ## Next steps
 
-- Learn more on how to [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).<!--List not yet updated.-->
+- [Debug Kubernetes issues related to IoT Edge]azure-stack-edge-gpu-connect-powershell.md-interface#debug-kubernetes-issues-related-to-iot-edge).
+- [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot.md).
