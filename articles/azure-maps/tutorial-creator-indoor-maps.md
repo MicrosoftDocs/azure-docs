@@ -246,7 +246,7 @@ The following JSON fragment displays a sample conversion warning:
 
 ## Create a dataset
 
-A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/v2/dataset/createpreview). The Dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset.
+A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/v2/dataset). The Dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset.
 
 To create a dataset:
 
@@ -260,7 +260,7 @@ To create a dataset:
 
 5. Select the **POST** HTTP method.
 
-6. Enter the following URL to the [Dataset API](/rest/api/maps/v2/dataset/createpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{conversionId`} with the `conversionId` obtained in [Check Drawing package conversion status](#check-the-drawing-package-conversion-status)):
+6. Enter the following URL to the [Dataset API](/rest/api/maps/v2/dataset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{conversionId`} with the `conversionId` obtained in [Check Drawing package conversion status](#check-the-drawing-package-conversion-status)):
 
     ```http
     https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -318,7 +318,7 @@ To create a tileset:
 
 5. Select the **POST** HTTP method.
 
-6. Enter the following URL to the [Tileset API](/rest/api/maps/v2/tileset/createpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-the-dataset-creation-status):
+6. Enter the following URL to the [Tileset API](/rest/api/maps/v2/tileset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-the-dataset-creation-status):
 
     ```http
     https://us.atlas.microsoft.com/tilesets?api-version=2.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
