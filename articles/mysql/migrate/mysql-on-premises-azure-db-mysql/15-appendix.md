@@ -25,19 +25,19 @@ This article explains how to deploy a sample application with an end-to-end MySQ
 
 [Download more documentation](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1%20Appendix%20A.pdf) we created for this Migration Guide and learn how to configure an environment to perform the guide’s migration steps for the sample [conference demo application.](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/sample-app).
 
-## ARM templates
+## Azure Resource Manager (ARM) templates
 
 ### Secure
 
 The ARM template deploys all resources with private endpoints. The ARM template effectively removes any access to the PaaS services from the internet.
 
-[ARM template](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigration)
+[Secure ARM template](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigration)
 
-### Non-Secure
+### Non-secure
 
 The ARM template deploys resources using standard deployment where all resources are available from the internet.
 
-[ARM template](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigrationSecure)
+[Non-secure ARM template](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigrationSecure)
 
 ## Default server parameters MySQL 5.5 and Azure Database for MySQL
 
