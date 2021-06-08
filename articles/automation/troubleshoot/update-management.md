@@ -509,7 +509,7 @@ The default maintenance window for updates is 120 minutes. You can increase the 
 
 To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
 
-You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 
