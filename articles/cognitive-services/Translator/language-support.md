@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
 ---
-# Language and region support for text and speech translation
+# Language support for text and speech translation
 
 Use Translator to translate to and from any of the 90 text translation languages and dialects. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
 

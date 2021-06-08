@@ -1,6 +1,6 @@
 ---
-title: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTO1A to Azure IoT Central quickstart
-description: Use Azure RTOS embedded software to connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTO1A device to Azure IoT and send telemetry.
+title: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOT01A to Azure IoT Central quickstart
+description: Use Azure RTOS embedded software to connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOT01A device to Azure IoT and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 06/02/2021
 ---
 
-# Quickstart: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTO1A Discovery kit to IoT Central
+# Quickstart: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOT01A Discovery kit to IoT Central
 
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
