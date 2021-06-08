@@ -67062,42 +67062,42 @@
     },
     {
       "source_path_from_root": "/articles/mysql/migrate/index.md",
-      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/01-mysql-migration-guide-intro",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/mysql/migrate/representative-use-case.md",
-      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/02-representative-use-case",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/02-representative-use-case",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/mysql/migrate/assessment.md",
-      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/03-assessment",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/03-assessment",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/mysql/migrate/planning.md",
-      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/04-planning",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/04-planning",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/mysql/migrate/migration-methods.md",
-      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/05-migration-methods",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/05-migration-methods",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/mysql/migrate/test-plans.md",
-      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/06-test-plans",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/06-test-plans",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/mysql/migrate/performance-baselines.md",
-      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/07-performance-baselines",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/07-performance-baselines",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/mysql/migrate/data-migration.md",
-      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/08-data-migration",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/08-data-migration",
       "redirect_document_id": false
     },
     {
