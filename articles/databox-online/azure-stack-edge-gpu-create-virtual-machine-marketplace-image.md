@@ -128,7 +128,7 @@ PS /home/user>
 ```
 
 >[!IMPORTANT]
-> Use only the Gen 1 images. Any images specified as Gen 2, do not work on Azure Stack Edge.
+> Use only the Gen 1 images. Any images specified as Gen 2 (usually the sku has a "-g2" suffix), do not work on Azure Stack Edge.
 
 In this example, we will select Windows Server 2019 Datacenter Core, version 2019.0.20190410. We will identify this image by its Universal Resource Number (“URN”). 
  
