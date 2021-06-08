@@ -68,47 +68,31 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [Logging and diagnostics in Azure Spatial Anchors](./concepts/logging-diagnostics.md).
 
-## Legal FAQs (make it part of privacy FAQ)
+## Legal FAQs 
+(_Editor Note: Should this be part of privacy FAQ?_)
 
-**Q: What terms and conditions apply when using ASA in my app?**
+**Q: What terms and conditions apply when using ASA in my app or SDK?**
 
-**A:** Needs a better host: https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/2.9.0/License
+**A:** The following [terms](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/2.9.0/License) apply as well as any terms embedded in that license.
 
-### I want to release an app that includes ASA:
+(_Editor Note: This needs a better host. Check with AOA, Remote rendering, Mesh, etc how they're hosting their ToU_)
+
+### I want to release an app or SDK that includes ASA::
 **Q: Do I need to agree to any additional terms?**
 
-**A:** dunno lol
+**A:** No. By using ASA you agree to the above linked ToU and the embedded terms. No additional terms are required.
 
-**Q: Do I have to disclose the use of ASA in my application to my users?**
+**Q: Does Microsoft require the disclosure of ASA in my application or SDK to my users?**
 
-**A:** dunno lol
+**A:** Microsoft does not require disclosure unless it is required by your local law to meet privacy or other requirements.  You should work with your own legal advisers to determine whether disclosing the use of ASA or Microsoft’s privacy practices is required by your local law.
 
 **Q: Do my users need to agree to any specific terms?**
 
-**A:** dunno lol
+**A:** No. The contractual relationship is between Microsoft and the developer of the app or the SDK.  You should work with your own legal advisers to determine whether consent to the use of ASA or Microsoft’s privacy practices is required by your local law.
 
-**Q: What is the recommended interface to notify my users?**
+**Q: I want to notify my users that my app/sdk is using ASA, what is the recommended interface to notify my users?**
 
-**A:** dunno lol
-<!-- //https://developers.google.com/ar/distribute/privacy-requirements-->
-
-
-### I want to release an SDK that includes ASA:
-**Q: Do I need to agree to any additional terms?**
-
-**A:** dunno lol
-
-**Q: Do I have to disclose the use of ASA in my application to my users?**
-
-**A:** dunno lol
-
-**Q: Do my users need to agree to any specific terms?**
-
-**A:** dunno lol
-
-**Q: What is the recommended interface to notify my users?**
-
-**A:** dunno lol
+**A:** “This app is using Microsoft’s Azure Spatial Anchors.  For more information on Azure Spatial Anchors go to: [Azure Spatial Anchors | Microsoft Azure](https://azure.microsoft.com/en-us/services/spatial-anchors/)”
 <!-- //https://developers.google.com/ar/distribute/privacy-requirements-->
 
 ## Availability and Pricing FAQs
