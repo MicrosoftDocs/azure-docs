@@ -17,7 +17,7 @@ Azure private MEC solution partners include managed service providers, platform 
 - **Managed Service Providers** include Operators and SIs that are responsible for planning, deployment, operation of a customer’s Azure private MEC implementation. These providers bring assets and expertise such as spectrum, RF planning, installation, maintenance, and support. Operators and SIs enable customers to rapidly deploy the Azure private MEC solution without requiring in-house expertise in complexities surrounding mobile network technologies. 
 - **Platform Partners** bring critical hardware and software components to the Azure private MEC ecosystem, such as Network Functions, Radio Access Network (RAN) technologies, SIMs & Devices, and Operational Support Systems (OSS/BSS). Customers can deploy the mix of platform technologies that fit their specific environment and requirements. 
 - **Application ISV Partners** bring ready to deploy software solutions built for Azure private MEC. These applications leverage the low latency edge computing capabilities of Azure private MEC to deliver a customer’s specific use-cases within industries such as manufacturing or retail, along with cross-industry capabilities such as computer vision or analytics.
-### Managed Solution Providers (MSPs)
+### Managed Solution Providers
 Our operator partners include:
 
 |Americas |EMEA |Asia & Australia |
@@ -29,7 +29,7 @@ Our operator partners include:
 |    |         |         |
 
 
-Our system integrators and non-operator MSPs partners include:
+Our system integrators and non-operator Microsoft Solution Provider partners include:
 - Accenture
 - Amdocs
 - American Tower
@@ -83,10 +83,10 @@ Microsoft partners with Application ISVs to make their software available throug
 Azure private MEC, as a solution that supports multiple platforms, applications that run on supported platforms can deploy to Azure private MEC with few code changes required. This means that application ISV solutions for Azure Stack Edge, Azure Stack HCI, and Azure IoT Edge can also run on the Azure private MEC solution. 
 
 ## Next steps
-- System integrators and operators interested in partnering with Microsoft to deploy and manage customers’ Azure private MEC solutions can get started by joining the Azure private MEC MSP program.
-- Platform partners, such as VNF and hardware vendors, interested in integrating with the Azure private MEC can get started by reaching out to the Azure private MEC team.
-- Application ISVs interested in deploying their industry or horizontal solutions on Azure should begin by onboarding their applications to the Azure Marketplace and pre-registering for the forthcoming Azure private MEC ISV or developer program. 
-- Learn more about [Metaswitch Fusion Core solution](metaswitch-overview.md)
-- Learn more about [Affirmed Private Network Service solution](affirmed-overview.md)
+- If you are a system integrator and operator interested in partnering with Microsoft to deploy and manage customers’ Azure private MEC solutions, join the Azure private MEC Managed Solution Providers program to get started.
+- If you are a Platform partner, such as VNF and hardware vendors, who is interested in integrating with the Azure private MEC, contact the Azure private MEC team.
+- If you are an Application ISV interested in deploying their industry or horizontal solutions on Azure, you can begin by onboarding your applications to the Azure Marketplace, and then pre-register for the forthcoming Azure private MEC ISV or developer program.
+- Learn more about [Metaswitch Fusion Core solution](metaswitch-overview.md).
+- Learn more about [Affirmed Private Network Service solution](affirmed-overview.md).
 
 
