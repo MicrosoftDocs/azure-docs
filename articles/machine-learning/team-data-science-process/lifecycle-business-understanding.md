@@ -22,7 +22,7 @@ This article outlines the goals, tasks, and deliverables associated with the bus
    4. **Deployment**
    5. **Customer acceptance**
 
-For an overview and visual representation of the TDSP lifecycle, see ![Team Data Science Process lifecycle](./lifecycle.md).
+For an overview and visual representation of the TDSP lifecycle, see [Team Data Science Process lifecycle](./lifecycle.md).
 
 ## Goals
 * Specify the key variables that are to serve as the model targets and whose related metrics are used determine the success of the project.
