@@ -24,6 +24,4 @@ Follow these steps to create a blob container for your storage account:
 
 After creating a container, follow the instructions in [Configure file uploads using the Azure portal](../articles/iot-hub/iot-hub-configure-file-upload.md). Make sure that a blob container is associated with your IoT hub and that file notifications are enabled
 
-Follow the instructions in [Configure file uploads using the Azure portal](../articles/iot-hub/iot-hub-configure-file-upload.md). Make sure that a blob container is associated with your IoT hub and that file notifications are enabled.
-
 ![Enable File Notifications in portal](./media/iot-hub-associate-storage/file-notifications-vs2019.png)
