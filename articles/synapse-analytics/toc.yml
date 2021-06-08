@@ -42,7 +42,7 @@ items:
   - name: 8 Monitor
     href: get-started-monitor.md
     displayName: get, started
-  - name: 9 Explore the Knowledge Center
+  - name: 9 Explore the Knowledge center
     href: get-started-knowledge-center.md
     displayName: get, started
   - name: 10 Add an administrator
@@ -66,6 +66,7 @@ items:
         href: quickstart-create-workspace-powershell.md
         displayName: quickstart
       - name: ARM template
+        displayname: Resource Manager
         href: quickstart-deployment-template-workspaces.md
       displayName: quickstart
     - name: Link a Power BI workspace

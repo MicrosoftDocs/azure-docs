@@ -11,6 +11,7 @@ Public IP is a feature in Azure VMware Solution connectivity. It makes resources
 You enable public internet access in two ways. 
 
 - Host and publish applications under the Application Gateway load balancer for HTTP/HTTPS traffic.
+
 - Publish through public IP features in Azure Virtual WAN.
 
 As a part of Azure VMware Solution private cloud deployment, upon enabling public IP functionality, the required components with automation get created and enabled:
@@ -26,7 +27,9 @@ This article details how you can use the public IP functionality in Virtual WAN.
 ## Prerequisites
 
 - Azure VMware Solution environment
+
 - A webserver running in Azure VMware Solution environment.
+
 - A new non-overlapping IP range for the Virtual WAN hub deployment, typically a `/24`.
 
 ## Reference architecture
