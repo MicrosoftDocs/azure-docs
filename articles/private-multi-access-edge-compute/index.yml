@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure private multi-access edge compute documentation
-summary: The Azure private multi-access edge compute (MEC) solution brings together Microsoft compute, networking and application services managed from the cloud and enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
+summary: The Azure private multi-access edge compute (MEC) solution enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
 
 metadata:
   title: Azure private multi-access edge compute documentation
-  description:  The Azure private multi-access edge compute (MEC) solution brings together Microsoft compute, networking and application services managed from the cloud and enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
+  description:  The Azure private multi-access edge compute (MEC) solution enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
 
   services: vnf-manager
   ms.service: vnf-manager
