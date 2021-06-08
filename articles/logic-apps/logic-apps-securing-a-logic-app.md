@@ -12,7 +12,7 @@ ms.date: 03/09/2021
 
 Azure Logic Apps relies on [Azure Storage](../storage/index.yml) to store and automatically [encrypt data at rest](../security/fundamentals/encryption-atrest.md). This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
-To further control access and protect sensitive data in Azure Logic Apps, you can set up additional security in these areas:
+To further control access and protect sensitive data in Azure Logic Apps, you can set up more security in these areas:
 
 * [Access for inbound calls to request-based triggers](#secure-inbound-requests)
 * [Access to logic app operations](#secure-operations)
@@ -46,7 +46,7 @@ Inbound calls support these cipher suites:
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-Here are additional ways that you can limit access to triggers that receive inbound calls to your logic app so that only authorized clients can call your logic app:
+The following list includes more ways that you can limit access to triggers that receive inbound calls to your logic app so that only authorized clients can call your logic app:
 
 * [Generate shared access signatures (SAS)](#sas)
 * [Enable Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth)
@@ -854,7 +854,11 @@ Based on the target endpoint's capability, outbound calls sent by the [HTTP trig
 
 Here is information about TLS/SSL self-signed certificates:
 
-* For logic apps in the global, multi-tenant Azure environment, the HTTP connector doesn't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
+* For logic apps in the global, multi-tenant Azure Logic Apps environment, HTTP operations don't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
+
+* For logic apps in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TSL/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tsl-ssl-certificate-authentication).
+
+  If you want to use client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
 
 * For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Logic Apps REST API, and install the public certificate at the `TrustedRoot` location.
 
@@ -997,6 +1001,14 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 }
 ```
 
+> [!IMPORTANT]
+> If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, 
+> and you want to use an HTTP operation with a TSL/SSL certificate, client certificate, 
+> or Azure Active Directory Open Authentication (Azure AD OAuth) with the `Certificate` 
+> credential type, make sure to complete the extra setup steps for this authentication type. 
+> Otherwise, the call fails. For more information, review 
+> [Authentication in single-tenant environment](../connectors/connectors-native-http.md#single-tenant-authentication).
+
 For more information about securing services by using client certificate authentication, see these topics:
 
 * [Improve security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
@@ -1045,6 +1057,14 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 }
 ```
 
+> [!IMPORTANT]
+> If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, 
+> and you want to use an HTTP operation with a TSL/SSL certificate, client certificate, 
+> or Azure Active Directory Open Authentication (Azure AD OAuth) with the `Certificate` 
+> credential type, make sure to complete the extra setup steps for this authentication type. 
+> Otherwise, the call fails. For more information, review 
+> [Authentication in single-tenant environment](../connectors/connectors-native-http.md#single-tenant-authentication).
+
 <a name="raw-authentication"></a>
 
 #### Raw authentication
@@ -1092,7 +1112,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 #### Managed identity authentication
 
-When the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on the [trigger or action that supports managed identity authentication](#add-authentication-outbound), your logic app can use the system-assigned identity or a *single* manually created user-assigned identity for authenticating access to Azure resources that are protected by Azure Active Directory (Azure AD), rather than credentials, secrets, or Azure AD tokens. Azure manages this identity for you and helps you secure your credentials because you don't have manage secrets or directly use Azure AD tokens. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+When the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on the [trigger or action that supports managed identity authentication](#add-authentication-outbound), your logic app can use the system-assigned identity or a *single* manually created user-assigned identity for authenticating access to Azure resources that are protected by Azure Active Directory (Azure AD), rather than credentials, secrets, or Azure AD tokens. Azure manages this identity for you and helps you secure your credentials because you don't have to manage secrets or directly use Azure AD tokens. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 

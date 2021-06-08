@@ -77,13 +77,13 @@ openssl x509 -req -days 365 -in device2.csr -signkey device2.key -out device2.cr
 ## Step 7 - Retrieve the thumbprint for certificate 1
 
 ```bash
-openssl x509 -in device.crt -text -fingerprint
+openssl x509 -in device.crt -noout -fingerprint
 ```
 
 ## Step 8 - Retrieve the thumbprint for certificate 2
 
 ```bash
-openssl x509 -in device2.crt -text -fingerprint
+openssl x509 -in device2.crt -noout -fingerprint
 ```
 
 ## Step 9 - Create a new IoT device

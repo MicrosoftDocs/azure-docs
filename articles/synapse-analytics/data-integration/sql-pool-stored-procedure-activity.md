@@ -12,6 +12,8 @@ ms.date: 05/13/2021
 
 # Transform data by using SQL Pool Stored Procedure activity in Azure Synapse Analytics
 
+<Token>**APPLIES TO:** ![not supported](../media/applies-to/no.png)Azure Data Factory ![supported](../media/applies-to/yes.png)Azure Synapse Analytics </Token> 
+
 You use data transformation activities in a [pipeline](../../data-factory/concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. This article builds on the [transform data](../../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 In Azure Synapse Analytics, you can use the SQL Pool Stored Procedure Activity to invoke a stored procedure in a dedicated SQL pool.

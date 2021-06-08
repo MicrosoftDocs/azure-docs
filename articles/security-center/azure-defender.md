@@ -37,6 +37,7 @@ When you enable Azure Defender from the **Pricing and settings** area of Azure S
 - [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
 - [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Azure Defender for DNS](defender-for-dns-introduction.md)
+- [Azure Defender for open-source relational databases](defender-for-databases-introduction.md)
 
 Each of these plans is explained separately in the Security Center documentation.
 

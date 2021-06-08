@@ -42,9 +42,9 @@ To connect to TAXII threat intelligence feeds, use the [Threat intelligence - TA
 - [Learn about Cybersixgill integration with Azure Sentinel @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
 - To connect Azure Sentinel to Cybersixgill TAXII Server and get access to Darkfeed, [contact Cybersixgill](mailto://azuresentinel@cybersixgill.com) to obtain the API Root, Collection ID, Username and Password.
 
-### Financial services intelligence sharing community (FS-ISAC)
+### Financial Services Information Sharing and Analysis Center (FS-ISAC)
 
-- [Join the FS-ISAC](https://www.fsisac.com/intelligenceexchange) to get the credentials to access this feed.
+- Join [FS-ISAC](https://www.fsisac.com/membership?utm_campaign=ThirdParty&utm_source=MSFT&utm_medium=ThreatFeed-Join) to get the credentials to access this feed.
 
 ### Health intelligence sharing community (H-ISAC)
 

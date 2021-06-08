@@ -2,7 +2,7 @@
 title: Authenticate an application to access Azure Event Hubs resources
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Event Hubs resources
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 05/10/2021
 ---
 
 # Authenticate an application with Azure Active Directory to access Event Hubs resources
@@ -63,7 +63,7 @@ The application needs a client secret to prove its identity when requesting a to
 
 
 ## Assign Azure roles using the Azure portal  
-After you register the application, you assign the application's service principal to an Event Hubs Azure AD role described in the [Build-in roles for Azure Event Hubs](#built-in-roles-for-azure-event-hubs) section. 
+After you register the application, you assign the application's service principal to an Event Hubs Azure AD role described in the [Built-in roles for Azure Event Hubs](#built-in-roles-for-azure-event-hubs) section. 
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your Event Hubs namespace.
 2. On the **Overview** page, select the event hub for which you want to assign a role.

@@ -1,6 +1,6 @@
 ---
 title: 'Enable and work with Azure Bastion resource logs'
-description: In this article, learn how to enable and work with Azure Bastion diagnostic logs.
+description: Learn how to enable and work with Azure Bastion diagnostic logs.
 services: bastion
 author: charwen
 

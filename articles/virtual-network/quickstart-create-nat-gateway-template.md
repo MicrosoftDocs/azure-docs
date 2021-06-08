@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a NAT gateway - ARM template
