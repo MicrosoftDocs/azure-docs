@@ -471,7 +471,9 @@
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
     - name: Connection pooling (PgBouncer)
-      href: flexible-server/concepts-pgbouncer.md      
+      href: flexible-server/concepts-pgbouncer.md   
+    - name: Server parameters
+      href: flexible-server/concepts-server-parameters.md      
     - name: Business continuity
       items:
       - name: Business continuity overview
@@ -717,6 +719,9 @@
       - name: Troubleshoot connection errors
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: connection errors, hyperscale
+      - name: Troubleshoot read-only access
+        href: howto-hyperscale-troubleshoot-read-only.md
+        displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: howto-hyperscale-useful-diagnostic-queries.md
   - name: API Reference
