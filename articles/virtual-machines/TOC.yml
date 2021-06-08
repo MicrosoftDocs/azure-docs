@@ -811,7 +811,7 @@
       href: managed-disk-from-image-version.md
     - name: Purchase plan information
       href: marketplace-images.md
-  - name: Image builder (Preview)
+  - name: Image builder
     items:
     - name: Overview
       displayName: Image builder, images, building
