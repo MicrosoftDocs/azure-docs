@@ -66,7 +66,7 @@ If you don't already have an Azure AD tenant or if you want to create a new one 
 You'll provide the following information to create your new tenant:
 
 - **Organization name**
-- **Initial domain** - Initial domain '<domainname>.onmicrosoft.com' can not be edited or deleted. Customized domain name can be added later.
+- **Initial domain** - Initial domain `<domainname>.onmicrosoft.com` can't be edited or deleted. You can add a customized domain name later.
 - **Country or region**
 
 > [!NOTE]
