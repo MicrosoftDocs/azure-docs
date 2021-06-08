@@ -40,13 +40,10 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).
 1. Select the knowledge base you want to migrate.
 
-1. On the **Settings** page, you can **Export QnAs**, **Export Synonyms**, **Export Knowledge Base Replica**. 
-
-
-4. you select  to download a .tsv/.xlsx file that contains the content of your origin knowledge base - questions, answers, metadata, follow-up prompts, and the data source names from which they were extracted. 
-
-
-The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
+1. On the **Settings** page, you can Export **QnAs**, **Synonyms**, or **Knowledge Base Replica**. You can chooose to download in .tsv/.xlsx.
+  **QnAs**: When exporting QnAs, the content of your original knowledge base - questions, answers, metadata, follow-up prompts, and the data source names from which they were extracted - will be downloaded. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
+  **Synonyms**: You can export Synonyms that have been added to the knowledge base.
+  **Knowledge Base Replica**: If you want to download the entire knowledge base with synoyms and other settings, you should choose this option.
 
 1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation.
 
@@ -56,7 +53,7 @@ The QnA IDs that are exported with the questions and answers may be used to upda
 
 1. In Step 5, select **Create**.
 
-1. In this new knowledge base, open the **Settings** tab and select **Import knowledge base**. This imports the questions, answers, metadata, follow-up prompts, and retains the data source names from which they were extracted. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. This helps you create an exact replica of the knowledge base.
+1. In this new knowledge base, open the **Settings** tab and select Import **QnAs**. This imports the questions, answers, metadata, follow-up prompts, and retains the data source names from which they were extracted. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. This helps you create an exact replica of the knowledge base.
 
    > [!div class="mx-imgBorder"]
    > [![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
