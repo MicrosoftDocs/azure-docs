@@ -47,7 +47,7 @@ ALTER EVENT SESSION [Backup trace] ON SERVER
 STATE = start;
 ```
 
-This T-SQL snippet stores the XEvent session in the ring buffer, but it's also possible to write to [Azure Blob Storage](../database/xevent-code-event-file.md). 
+This T-SQL snippet stores the XEvent session in the ring buffer, but it's also possible to write to [Azure Blob Storage](../database/xevent-code-event-file.md). XEvent sessions storing data in the ring buffer have a limit of about 1000 messages so should only be used to track automated backups taken recently. Additionally, ring buffer data is lost upon failover. As such, for a historical record of backups, write to event file instead. 
 
 ### Verbose tracking
 
@@ -98,7 +98,7 @@ SELECT * FROM b
 
 The following screenshot shows an example of the output of the above query: 
 
-![Screenshot of the xEvent output](./media/monitor-backup-activity/present-xevents-output.png)
+![Screenshot of the xEvent output](./media/backup-activity-monitor/present-xevents-output.png)
 
 In this example, five databases were automatically backed up over the course of 2 hours and 30 minutes, and there are 130 entries in the XEvent session. 
 
@@ -127,11 +127,11 @@ SELECT * FROM b
 
 The following screenshot shows an example of a full backup in the XEvent session:
 
-![Screenshot of the xEvent output](./media/monitor-backup-activity/output-with-full.png)
+![Screenshot of the xEvent output](./media/backup-activity-monitor/output-with-full.png)
 
 The following screenshot shows an example of an output of a differential backup in the XEvent session:
 
-![Screenshot of the xEvent output](./media/monitor-backup-activity/output-with-differential.png)
+![Screenshot of the xEvent output](./media/backup-activity-monitor/output-with-differential.png)
 
 
 ## Next steps
