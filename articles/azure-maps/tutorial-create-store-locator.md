@@ -61,12 +61,12 @@ This section lists the features that are supported in the Contoso Coffee store l
 
 ### Functionality features
 
-* A `keypress` event added to the search box triggers a search if the user presses the *Enter* key.
-* When the map moves, the distance to each location from the center of the map is calculated. The results list is updated to display the closest locations at the top of the map.  
+* A `keypress` event added to the search box triggers a search when the user presses **Enter**.
+* When the map moves, the distance to each location from the center of the map calculates. The results list updates to display the closest locations at the top of the map.  
 * When the user selects a result in the results list, the map is centered over the selected location and information about the location appears in a pop-up window.  
 * When the user selects a specific location, the map triggers a pop-up window.
-* When the user zooms out, locations are grouped in clusters. Clusters are represented by a circle with a number inside the circle. Clusters form and separate as the user changes the zoom level.
-* Selecting a cluster zooms in on the map two levels and centers over the location of the cluster.
+* When the user zooms out, locations are grouped in clusters. Each cluster is represented by a circle with a number inside the circle. Clusters form and separate as the user changes the zoom level.
+* Selecting a cluster zooms in two levels on the map and centers over the location of the cluster.
 
 ## Store locator design
 
@@ -82,7 +82,7 @@ To maximize the usefulness of this store locator, we include a responsive layout
 
 ## Create the store location dataset
 
-This section shows you how to create a dataset of the stores you want to display on the map. The dataset for the Contoso Coffee locator is created inside an Excel workbook. The dataset contains 10,213 Contoso Coffee coffee shop locations spread across nine countries or regions: the United States, Canada, the United Kingdom, France, Germany, Italy, the Netherlands, Denmark, and Spain. Here's a screenshot of what the data looks like:
+This section describes how to create a dataset of the stores that you want to display on the map. The dataset for the Contoso Coffee locator is created inside an Excel workbook. The dataset contains 10,213 Contoso Coffee coffee shop locations spread across nine countries or regions: the United States, Canada, the United Kingdom, France, Germany, Italy, the Netherlands, Denmark, and Spain. Here's a screenshot of what the data looks like:
 
 :::image type="content" source="./media/tutorial-create-store-locator/store-locator-data-spreadsheet.png" alt-text="Screenshot of the store locator data in an Excel workbook.":::
 
@@ -92,14 +92,14 @@ Looking at the screenshot of the data, we can make the following observations:
 
 * Location information is stored by using the **AddressLine**, **City**, **Municipality** (county), **AdminDivision** (state/province), **PostCode** (postal code), and **Country** columns.  
 * The **Latitude** and **Longitude** columns contain the coordinates for each Contoso Coffee location. If you don't have coordinates information, you can use the Search services in Azure Maps to determine the location coordinates.
-* Some additional columns contain metadata related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that's more relevant to your location data.
+* Some additional columns contain metadata that's related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that's more relevant to your location data.
 
 > [!NOTE]
 > Azure Maps renders data in the spherical Mercator projection "EPSG:3857" but reads data in "EPSG:4326" that use the WGS84 datum.
 
 ## Load the store location dataset
 
- Since the Contoso Coffee shop locator dataset is small, we'll convert the Excel worksheet into a tab-delimited text file. This file can then be downloaded by the browser when the application loads.
+ The Contoso Coffee shop locator dataset is small, so we'll convert the Excel worksheet into a tab-delimited text file. This file can then be downloaded by the browser when the application loads.
 
  >[!TIP]
 >If your dataset is too large for client download, or is updated frequently, you might consider storing your dataset in a database. After your data is loaded into a database, you can then set up a web service that accepts queries for the data, and then sends the results to the user's browser.
@@ -132,7 +132,7 @@ If you open the text file in Notepad, it looks similar to the following text:
 
 1. Open the Visual Studio Code app.
 
-2. Select **File**, and then select **Open Workspace...*.
+2. Select **File**, and then select **Open Workspace...**.
 
 3. Create a new folder and name it "ContosoCoffee".
 
@@ -215,7 +215,7 @@ To create the HTML:
     </main>
     ```
 
-When you're finished, *index.html* should look like [this example index.html file](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
+After you finish, *index.html* should look like [this example index.html file](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
 
 ## Define the CSS Styles
 
@@ -605,7 +605,7 @@ To add the JavaScript:
     loadStoreData();
     ```
 
-6. After the dataset loads in the map's `ready` event listener, define a set of layers to render the data. A bubble layer is used to render clustered data points. A symbol layer is used to render the number of points in each cluster above the bubble layer. A second symbol layer renders a custom icon for individual locations on the map.
+6. After the dataset loads in the map's `ready` event listener, define a set of layers to render the data. A bubble layer renders clustered data points. A symbol layer renders the number of points in each cluster above the bubble layer. A second symbol layer renders a custom icon for individual locations on the map.
 
    Add `mouseover` and `mouseout` events to the bubble and icon layers to change the mouse cursor when the user hovers over a cluster or icon on the map. Add a `click` event to the cluster bubble layer. This `click` event zooms in the map two levels and centers the map over a cluster when the user selects any cluster. Add a `click` event to the icon layer. This `click` event displays a pop-up window that shows the details of a coffee shop when a user selects an individual location icon. Add an event to the map to monitor when the map is finished moving. When this event fires, update the items in the list panel.  
 
