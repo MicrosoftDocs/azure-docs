@@ -133,7 +133,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. On the Azure Data Factory home page, select **Orchestrate**. A pipeline is automatically created for you. You see the pipeline in the tree view, and its editor opens.
 
-   ![ADF home page](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
 1. In the General panel under **Properties**, specify **SQLServerToBlobPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
