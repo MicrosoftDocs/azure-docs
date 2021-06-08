@@ -65,7 +65,7 @@ This section lists the features that are supported in the Contoso Coffee store l
 * When the map moves, the distance to each location from the center of the map calculates. The results list updates to display the closest locations at the top of the map.  
 * When the user selects a result in the results list, the map is centered over the selected location and information about the location appears in a pop-up window.  
 * When the user selects a specific location, the map triggers a pop-up window.
-* When the user zooms out, locations are grouped in clusters. Clusters are represented by a circle with a number inside the circle. Clusters form and separate as the user changes the zoom level.
+* When the user zooms out, locations are grouped in clusters. Each cluster is represented by a circle with a number inside the circle. Clusters form and separate as the user changes the zoom level.
 * Selecting a cluster zooms in on the map two levels and centers over the location of the cluster.
 
 ## Store locator design
