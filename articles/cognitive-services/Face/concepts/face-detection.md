@@ -67,6 +67,12 @@ Use the following tips to make sure that your input images give the most accurat
 * Faces outside the size range of 36 x 36 to 4096 x 4096 pixels will not be detected.
 * Some faces might not be detected because of technical challenges. Extreme face angles (head pose) or face occlusion (objects such as sunglasses or hands that block part of the face) can affect detection. Frontal and near-frontal faces give the best results.
 
+Input data with orientation information:
+* Some input images with JPEG format might contain orientation information in Exchangeable image file format (Exif) metadata. If Exif orientation is available, images will be automatically rotated to the correct orientation before sending for face detection. The face rectangle, landmarks, and head pose for each detected face will be estimated based on the rotated image.
+* To properly display the face rectangle and landmarks, you need to make sure the image is rotated correctly. Most of image visualization tools will auto-rotate the image according to its Exif orientation by default. For other tools, you might need to apply the rotation using your own code. The following examples show a face rectangle on a rotated image (left) and a non-rotated image (right).
+
+![Two face images with/without rotation](../Images/image-rotation.png)
+
 If you're detecting faces from a video feed, you may be able to improve performance by adjusting certain settings on your video camera:
 
 * **Smoothing**: Many video cameras apply a smoothing effect. You should turn this off if you can because it creates a blur between frames and reduces clarity.
