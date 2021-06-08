@@ -1,5 +1,5 @@
 ---
-title: Migrating to MSAL.NET
+title: Differences between ADAL.NET and MSAL.NET
 titleSuffix: Microsoft identity platform
 description: Learn about the differences between the Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) and how to migrate to MSAL.NET.
 services: active-directory
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"

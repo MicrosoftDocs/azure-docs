@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
@@ -39,7 +39,7 @@ The code using ADAL in confidential client application instantiates an `Authenti
 
 The confidential client scenarios are the following:
 - [Daemon scenarios](#how-to-migrate-daemon-scenarios) supported by web apps, web APIs and daemon console applications.
-- [On behalf of](#how-to-migrate-on-behalf-of-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
+- [On behalf of](#how-to-migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
 - [Authorization code flow](#how-to-migrate-auth-code-flow-in-web-apps) supported by Web apps that sign-in users and call a downstream web API.
 
 Most of you provided a wrapper around ADAL.NET. Therefore, in this document, we illustrate migrating scenarios using code such a wrapper, but this is only to show equivalent code (we are not suggesting that you copy/paste these wrapper or integrate them in your code)
@@ -154,7 +154,7 @@ Resilience is ensured in the following way:
 - Tokens are automatically renewed by MSAL.NET
 
 ##### Security
-`.WithSendX5C` helps your rotate the certificate credentials by leveraging [Subject/Name issuer](http://aka.ms/msal-net-sni)
+`.WithSendX5C` helps your rotate the certificate credentials by leveraging [Subject/Name issuer](https://aka.ms/msal-net-sni)
 
 ##### Performance and scalability
 - The Instance of `IConfidentialClientApplication` needs to be kept in member variable in order to benefit from the in-memory cache. If you re-create the confidential client application each time you request a token you won't benefit from the cache.
@@ -198,7 +198,7 @@ Resilience is ensured in the following way:
 - Tokens are automatically renewed by MSAL.NET
 
 ##### Security
-`.WithSendX5C` helps your rotate the certificate credentials by leveraging [Subject/Name issuer](http://aka.ms/msal-net-sni)
+`.WithSendX5C` helps your rotate the certificate credentials by leveraging [Subject/Name issuer](https://aka.ms/msal-net-sni)
 
 ##### Performance and scalability
 
