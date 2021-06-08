@@ -116,7 +116,7 @@ For the EA purchaser role, use the same steps for the enrollment reader. Specify
 
 ## Assign the department reader role to the SPN
 
-1. Read the [Enrollment Department Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put) REST API article. While you read the article, select **Try it**.
+1. Read the [Enrollment Department Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put) REST API article. While you read the article, select **Try it**.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Department Role Assignments Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
@@ -136,7 +136,7 @@ For the EA purchaser role, use the same steps for the enrollment reader. Specify
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/department-id.png" alt-text="Screenshot showing an example department ID." lightbox="./media/assign-roles-azure-service-principals/department-id.png" :::
 
-   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put](/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put).
+   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put](/billing/2019-10-01-preview/enrollment-department-role-assignments/put).
 
       The request body has JSON code with three parameters that you need to use.
 
@@ -180,7 +180,7 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/account-id.png" alt-text="Screenshot showing the account ID." lightbox="./media/assign-roles-azure-service-principals/account-id.png" :::
 
-   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put#putenrollmentdepartmentadministratorroleassignment).
+   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put#examples).
 
       The request body has JSON code with three parameters that you need to use.
 
