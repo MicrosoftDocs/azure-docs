@@ -37,6 +37,8 @@ The entire workflow comes down to these steps:
 You can create and manage maintenance configurations using any of the following options:
 
 - [Azure PowerShell](virtual-machine-scale-sets-maintenance-control-powershell.md)
+- [Azure CLI](virtual-machine-scale-sets-maintenance-control-cli.md)
+- [Azure Portal](virtual-machine-scale-sets-maintenance-control-portal.md)
 
 
 ## Next steps
