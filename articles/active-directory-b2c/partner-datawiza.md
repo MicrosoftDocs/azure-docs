@@ -16,7 +16,7 @@ ms.subservice: B2C
 # Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid access
 
 In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C with [Datawiza](https://www.datawiza.com/).
-Datawiza's [Datawiza Access Broker (DAB)](https://www.datawiza.com/access-broker) enables Single Sign-on (SSO) and granular access control extending Azure AD B2C to protect your on-premises applications. Using this solution enterprises can quickly transition from legacy to Azure AD B2C without rewriting applications.
+Datawiza's [Datawiza Access Broker (DAB)](https://www.datawiza.com/access-broker) enables Single Sign-on (SSO) and granular access control extending Azure AD B2C to protect on-premises legacy applications. Using this solution enterprises can quickly transition from legacy to Azure AD B2C without rewriting applications.
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 ## Run DAB with a header-based application
 
-1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided to you to download and use. Log in to the container registry to download the images of DAB and the header-based application. Contact [Datawiza](https://contact@datawiza.com) for access.
+1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided for you to download and use. Log in to the container registry to download the images of DAB and the header-based application. Contact [Datawiza](https://contact@datawiza.com) for access.
 
    ```YML
    version: '3'
