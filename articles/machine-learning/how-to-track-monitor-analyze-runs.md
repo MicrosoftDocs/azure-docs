@@ -193,7 +193,7 @@ In the **All runs'** page, you can filter the runs list by tags, experiments, co
 
 1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views2.gif" alt-text="Screenshot: create a custom view":::
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Screenshot: create a custom view":::
     
 
 ## Run description 
@@ -202,7 +202,7 @@ A run description can be added to a run to provide more context and information 
 
 Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit, or delete descriptions for your run. To persist the changes to the runs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for run descriptions, which allows images to be embedded and deep linking as shown below.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description2.gif" alt-text="Screenshot: create a run description"::: 
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Screenshot: create a run description"::: 
 
 ## Tag and find runs
 
