@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/08/2021
+ms.date: 06/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -509,10 +509,15 @@ Detailed documentation on deploying Always On with SQL Server in Azure VMs lists
 >[!NOTE]
 > If you are configuring the Azure load balancer for the virtual IP address of the Availability Group listener, make sure that the DirectServerReturn is configured. configuring this option will reduce the network round trip latency between the SAP application layer and the DBMS layer. 
 
+>[!NOTE]
+>Reading [Introducing SQL Server Always On availability groups on Azure virtual machines](../../../azure-sql/virtual-machines/windows/availability-group-overview.md), you are going to read about SQL Server's [Direct Network Name (DNN) listener](../../../azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure). This new functionality got introduced with SQL Server 2019 CU8. This new functionality makes the usage of an Azure load balancer handling the virtual IP address of the Availability Group Listener obsolete.
+
+
 SQL Server Always On is the most common used high availability and disaster recovery functionality used in Azure for SAP workload deployments. Most customers use Always On for high availability within a single Azure Region. If the deployment is restricted to two nodes only, you have two choices for connectivity:
 
-- Using the Availability Group Listener. With the Availability Group Listener, you are required to deploy an Azure load balancer. This way is the default method of deployment. SAP applications would be configured to connect against the Availability Group listener and not against a single node
-- Using the connectivity parameters of SQL Server Database Mirroring. In this case, you need to configure the connectivity of the SAP applications in a way where both node names are named. Exact details of such an SAP side configuration is documented in SAP Note [#965908](https://launchpad.support.sap.com/#/notes/965908). By using this option, you would have no need to configure an Availability Group listener. And with that no Azure load balancer for the SQL Server high availability. As a result, the network latency between the SAP application layer and the DBMS layer is lower since the incoming traffic to the SQL Server instance is not routed through the Azure load balancer. But recall, this option only works if you restrict your Availability Group to span two instances. 
+- Using the Availability Group Listener. With the Availability Group Listener, you are required to deploy an Azure load balancer. 
+- Using SQL Server 2019 CU8 or more recent releases where you can use the [Direct Network Name (DNN) listener](../../../azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure) instead. That will eliminate the requirement to us an Azure load balancer.
+- Using the connectivity parameters of SQL Server Database Mirroring. In this case, you need to configure the connectivity of the SAP applications in a way where both node names are named. Exact details of such an SAP side configuration is documented in SAP Note [#965908](https://launchpad.support.sap.com/#/notes/965908). By using this option, you would have no need to configure an Availability Group listener. And with that no Azure load balancer for the SQL Server high availability. But recall, this option only works if you restrict your Availability Group to span two instances. 
 
 Quite a few customers are leveraging the SQL Server Always On functionality for disaster recovery functionality between Azure regions. Several customers also use the ability to perform backups from a secondary replica. 
 
