@@ -40,7 +40,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 1. Under **External connections**, select **Linked services**.
 1. To add a linked service, select **New**.
 1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
-1. Enter your authentication credentials. Account key, service principal, and managed identity are currently supported authentication types. Select test connection to verify your credentials are correct. Select **Create** when finished.
+1. Enter your authentication credentials. Account key is currently supported authentication type. Select test connection to verify your credentials are correct. Select **Create** when finished.
 
    ![Create Linked Service Using ADLS Gen2 Storage Access Key](media/tutorial-spark-pool-fsspec-usage/tutorial-spark-pool-fsspec-usage-001a.png)
 
