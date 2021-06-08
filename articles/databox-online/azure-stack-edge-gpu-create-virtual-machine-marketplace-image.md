@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 06/07/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -55,11 +55,76 @@ Some example queries are:
 #Returns all images of type “Windows Server”
 az vm image list --all --publisher "MicrosoftWindowsserver" --offer "WindowsServer" 
 
-#Returns all Windows Server 2019 Datacenter images
-az vm image list --all --publisher "MicrosoftWindowsserver" --offer "WindowsServer" --sku "2019-Datacenter" 
+#Returns all Windows Server 2019 Datacenter images from West US published by Microsoft
+az vm image list --all --location "westus" --publisher "MicrosoftWindowsserver" --offer "WindowsServer" --sku "2019-Datacenter"
 
-#Returns all VM images from publisher 
+#Returns all VM images from a publisher  
 az vm image list --all --publisher "Canonical" 
+```
+
+Here is an example output when VM images of a certain publisher, offer, and SKU were queried.
+
+```output
+PS /home/user> az vm image list --all --publisher "Canonical" --offer "UbuntuServer" --sku "12.04.4-LTS"
+[
+  {
+    "offer": "UbuntuServer",
+    "publisher": "Canonical",
+    "sku": "12.04.4-LTS",
+    "urn": "Canonical:UbuntuServer:12.04.4-LTS:12.04.201402270",
+    "version": "12.04.201402270"
+  },
+  {
+    "offer": "UbuntuServer",
+    "publisher": "Canonical",
+    "sku": "12.04.4-LTS",
+    "urn": "Canonical:UbuntuServer:12.04.4-LTS:12.04.201404080",
+    "version": "12.04.201404080"
+  },
+  {
+    "offer": "UbuntuServer",
+    "publisher": "Canonical",
+    "sku": "12.04.4-LTS",
+    "urn": "Canonical:UbuntuServer:12.04.4-LTS:12.04.201404280",
+    "version": "12.04.201404280"
+  },
+  {
+    "offer": "UbuntuServer",
+    "publisher": "Canonical",
+    "sku": "12.04.4-LTS",
+    "urn": "Canonical:UbuntuServer:12.04.4-LTS:12.04.201405140",
+    "version": "12.04.201405140"
+  },
+  {
+    "offer": "UbuntuServer",
+    "publisher": "Canonical",
+    "sku": "12.04.4-LTS",
+    "urn": "Canonical:UbuntuServer:12.04.4-LTS:12.04.201406060",
+    "version": "12.04.201406060"
+  },
+  {
+    "offer": "UbuntuServer",
+    "publisher": "Canonical",
+    "sku": "12.04.4-LTS",
+    "urn": "Canonical:UbuntuServer:12.04.4-LTS:12.04.201406190",
+    "version": "12.04.201406190"
+  },
+  {
+    "offer": "UbuntuServer",
+    "publisher": "Canonical",
+    "sku": "12.04.4-LTS",
+    "urn": "Canonical:UbuntuServer:12.04.4-LTS:12.04.201407020",
+    "version": "12.04.201407020"
+  },
+  {
+    "offer": "UbuntuServer",
+    "publisher": "Canonical",
+    "sku": "12.04.4-LTS",
+    "urn": "Canonical:UbuntuServer:12.04.4-LTS:12.04.201407170",
+    "version": "12.04.201407170"
+  }
+]
+PS /home/user>
 ```
 
 >[!IMPORTANT]
@@ -107,7 +172,80 @@ Create an Azure Managed Disk from your chosen Marketplace image.
     $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas 
     ```
 
-## Export a VHD from the managed disk to a cloud storage account
+Here is an example output:
+
+```azurecli
+PS /home/user> $urn = “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
+PS /home/user> $diskName = "NewManagedDisk1"
+PS /home/user> $diskRG = "NewRG1"
+PS /home/user> az disk create -g $diskRG -n $diskName --image-reference $urn
+(ResourceGroupNotFound) Resource group 'NewRG1' could not be found.
+PS /home/user> $diskRG = "newrgmd1"
+PS /home/user> az disk create -g $diskRG -n $diskName --image-reference $urn
+{
+  "burstingEnabled": null,
+  "creationData": {
+    "createOption": "FromImage",
+    "galleryImageReference": null,
+    "imageReference": {
+      "id": "/Subscriptions/db4e2fdb-6d80-4e6e-b7cd-736098270664/Providers/Microsoft.Compute/Locations/eastus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2019-Datacenter/Versions/17763.1935.2105080716",
+      "lun": null
+    },
+    "logicalSectorSize": null,
+    "sourceResourceId": null,
+    "sourceUniqueId": null,
+    "sourceUri": null,
+    "storageAccountId": null,
+    "uploadSizeBytes": null
+  },
+  "diskAccessId": null,
+  "diskIopsReadOnly": null,
+  "diskIopsReadWrite": 500,
+  "diskMBpsReadOnly": null,
+  "diskMBpsReadWrite": 100,
+  "diskSizeBytes": 136367308800,
+  "diskSizeGb": 127,
+  "diskState": "Unattached",
+  "encryption": {
+    "diskEncryptionSetId": null,
+    "type": "EncryptionAtRestWithPlatformKey"
+  },
+  "encryptionSettingsCollection": null,
+  "extendedLocation": null,
+  "hyperVGeneration": "V1",
+  "id": "/subscriptions/db4e2fdb-6d80-4e6e-b7cd-736098270664/resourceGroups/newrgmd1/providers/Microsoft.Compute/disks/NewManagedDisk1",
+  "location": "eastus",
+  "managedBy": null,
+  "managedByExtended": null,
+  "maxShares": null,
+  "name": "NewManagedDisk1",
+  "networkAccessPolicy": "AllowAll",
+  "osType": "Windows",
+  "propertyUpdatesInProgress": null,
+  "provisioningState": "Succeeded",
+  "purchasePlan": null,
+  "resourceGroup": "newrgmd1",
+  "securityProfile": null,
+  "shareInfo": null,
+  "sku": {
+    "name": "Premium_LRS",
+    "tier": "Premium"
+  },
+  "supportsHibernation": null,
+  "tags": {},
+  "tier": "P10",
+  "timeCreated": "2021-06-08T00:39:34.205982+00:00",
+  "type": "Microsoft.Compute/disks",
+  "uniqueId": "1a649ad4-3b95-471e-89ef-1d2ed1f51525",
+  "zones": null
+}
+
+PS /home/user> $sas = az disk grant-access --duration-in-seconds 36000 --access-level Read --name $diskName --resource-group $diskRG
+PS /home/user>  $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
+PS /home/user>
+```
+
+## Export a VHD from the managed disk to Azure Storage 
 
 This step will export a VHD from the managed disk to your preferred Azure blob storage account. This VHD can then be used to create VM images on Azure Stack Edge.
 
@@ -133,6 +271,47 @@ This step will export a VHD from the managed disk to your preferred Azure blob s
     Get-AzureStorageBlobCopyState –Container $containerName –Context $destContext -Blob $destBlobName 
     ```
 
+Here is an example output:
+
+```azurecli
+PS /home/user> $storageAccountName = "edgeazurevmeus"
+PS /home/user> $containerName = "azurevmmp"
+PS /home/user> $destBlobName = "newblobmp.vhd"
+PS /home/user> $storageAccountKey = "n9sCytWLdTBz0F4Sco9SkPGWp6BJBtf7BJBk79msf1PfxJGQdqSfu6TboZWZ10xyZdc4y+Att08cC9B79jB0YA=="
+
+PS /home/user> $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+PS /home/user> Start-AzureStorageBlobCopy -AbsoluteUri $diskAccessSAS -DestContainer $containerName -DestContext $destContext -DestBlob $destBlobName
+
+   AccountName: edgeazurevmeus, ContainerName: azurevmmp
+
+Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotTime                 IsDeleted  VersionId
+----                 --------  ------          -----------                    ------------         ---------- ------------                 ---------  ---------
+newblobmp.vhd        PageBlob  -1                                             2021-06-08 00:50:10Z                                         False
+
+PS /home/user> Get-AzureStorageBlobCopyState –Container $containerName –Context $destContext -Blob $destBlobName
+
+CopyId                  : 24a1e3f5-886a-490d-9dd7-562bb4acff58
+CompletionTime          :
+Status                  : Pending
+Source                  : https://md-lfn221fppr2c.blob.core.windows.net/d4tb2hp5ff2q/abcd?sv=2018-03-28&sr=b&si=4f588db1-9aac-44d9-9607-35497cc08a7f
+BytesCopied             : 696254464
+TotalBytes              : 136367309312
+StatusDescription       :
+DestinationSnapshotTime :
+
+PS /home/user> Get-AzureStorageBlobCopyState –Container $containerName –Context $destContext -Blob $destBlobName
+
+CopyId                  : 24a1e3f5-886a-490d-9dd7-562bb4acff58
+CompletionTime          : 6/8/2021 12:57:26 AM +00:00
+Status                  : Success
+Source                  : https://md-lfn221fppr2c.blob.core.windows.net/d4tb2hp5ff2q/abcd?sv=2018-03-28&sr=b&si=4f588db1-9aac-44d9-9607-35497cc08a7f
+BytesCopied             : 136367309312
+TotalBytes              : 136367309312
+StatusDescription       :
+DestinationSnapshotTime :
+
+```
+
 ## Clean up the managed disk
 
 To delete the managed disk you created, follow these steps:
@@ -141,7 +320,7 @@ To delete the managed disk you created, follow these steps:
 az disk revoke-access --name $diskName --resource-group $diskRG 
 az disk delete --name $diskName --resource-group $diskRG --yes 
 ```
-
+The deletion takes a couple minutes to complete.
 
 ## Next steps
 
