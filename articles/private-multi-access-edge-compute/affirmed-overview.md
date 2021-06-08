@@ -26,6 +26,8 @@ Affirmed has combined its mobile core-technology with Azure’s capabilities to 
 - **Azure Stack Edge**: A cloud-managed, hardware-as-a-service solution shipped by Microsoft. It brings the Azure cloud’s power to a local and robust server that can be deployed virtually anywhere local AI and advanced computing tasks need to be performed.
 
 
+:::image type="content" source="./media/affirmed-overview/affirmed-private-network-service-solution.png" alt-text="Affirmed private network service solution":::
+
 ## Why use the Affirmed Private Network Solution?
 APNS provides the following key benefits to operators and their customers:
 
