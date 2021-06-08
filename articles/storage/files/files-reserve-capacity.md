@@ -19,6 +19,13 @@ Azure Files reserved capacity can significantly reduce your capacity costs for s
 
 For pricing information about reservation capacity for Azure Files, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Reservation terms for Azure Files
 The following sections describe the terms of an Azure Files capacity reservation.
 

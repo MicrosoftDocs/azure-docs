@@ -14,6 +14,13 @@ services: storage
 # Enable soft delete on Azure file shares
 Azure Files offers soft delete for file shares so that you can more easily recover your data when it's mistakenly deleted by an application or other storage account user. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Prerequisites
 - If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).

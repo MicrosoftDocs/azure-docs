@@ -14,6 +14,13 @@ ms.custom: devx-track-azurepowershell
 
 Azure FileStorage accounts support SMB Multichannel (preview), which increases the performance from an SMB 3.x client by establishing multiple network connections to your premium file shares. This article provides step-by-step guidance to enable SMB Multichannel on an existing storage account. For detailed information on Azure Files SMB Multichannel, see [SMB Multichannel performance](storage-files-smb-multichannel-performance.md).
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Limitations
 
 [!INCLUDE [storage-files-smb-multi-channel-restrictions](../../../includes/storage-files-smb-multi-channel-restrictions.md)]

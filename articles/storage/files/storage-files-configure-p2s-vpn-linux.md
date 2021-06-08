@@ -16,6 +16,13 @@ We strongly recommend that you read [Azure Files networking overview](storage-fi
 
 The article details the steps to configure a Point-to-Site VPN on Linux to mount Azure file shares directly on-premises. If you're looking to route Azure File Sync traffic over a VPN, please see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
 ## Prerequisites
 - The most recent version of the Azure CLI. For more information on how to install the Azure CLI, see [Install the Azure PowerShell CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module on Linux, you may, however the instructions below are presented for Azure CLI.
 
