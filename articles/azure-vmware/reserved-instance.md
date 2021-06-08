@@ -134,5 +134,5 @@ Now that you've covered reserved instance of Azure VMware Solution, you may want
 
 - [Creating an Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).
-- [Monitor and manage Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md).
  
