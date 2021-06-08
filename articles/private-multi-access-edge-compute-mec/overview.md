@@ -57,9 +57,12 @@ Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge nod
 **Azure Stack HCI**: Azure Stack HCI is a new hyper-converged infrastructure (HCI) operating system delivered as an Azure service that provides the latest security, performance, and feature updates. Deploy and run Windows and Linux virtual machines (VMs) in your datacenter, or, at the edge using your existing tools and processes. Extend your datacenter to the cloud with Azure Backup, Azure Monitor, and Azure Security Center. For more information, see [Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/).
 
 ### Application services 
-**Azure IoT Edge Runtime**: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Edge Runtime](https://docs.microsoft.com/windows/ai/windows-ml-container/iot-edge-runtime).
+**Azure IoT Edge Runtime**: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Edge Runtime](https://go.microsoft.com/fwlink/?linkid=2165375).
+
 **Azure IoT Hub** Azure IoT Edge Runtime: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/).
+
 **Azure IoT Central**: Azure IoT Central is a managed application platform that enables device management and data ingestion as a service with a predictable pricing model and global scale built in. For more information, see [Azure IoT Central](https://azure.microsoft.com/services/iot-central/).
+
 **Azure Digital Twins**: Azure Digital Twins enables device sensors to be modeled in their business context considering spatial relationships, usage patterns, and other business context that turns a fleet of devices into a digital replica of a physical asset or environment. For more information, see [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/).
 
 ## Next steps
