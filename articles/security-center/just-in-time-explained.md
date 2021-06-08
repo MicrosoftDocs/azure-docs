@@ -15,7 +15,7 @@ ms.author: memildin
 
 This page explains the principles behind Azure Security Center's just-in-time (JIT) VM access feature and the logic behind the recommendation.
 
-To learn how to apply JIT to your VMs using the Azure portal (either Security Center or Azure Virtual Machines) or programatically, see [How to secure your management ports with JIT](security-center-just-in-time.md).
+To learn how to apply JIT to your VMs using the Azure portal (either Security Center or Azure Virtual Machines) or programmatically, see [How to secure your management ports with JIT](security-center-just-in-time.md).
 
 
 ## The risk of open management ports on a virtual machine

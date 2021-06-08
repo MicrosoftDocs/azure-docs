@@ -339,6 +339,8 @@
         href: chatwork-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
+      - name: Check Point CloudGuard Posture Management
+        href: dome9arc-tutorial.md
       - name: Check Point Harmony Connect
         href: check-point-harmony-connect-tutorial.md
       - name: Check Point Identity Awareness
@@ -539,8 +541,6 @@
         href: documo-tutorial.md
       - name: DocuSign
         href: docusign-tutorial.md
-      - name: Check Point CloudGuard Posture Management
-        href: dome9arc-tutorial.md
       - name: Domo
         href: domo-tutorial.md
       - name: Dossier
@@ -1442,6 +1442,10 @@
         href: perimeterx-tutorial.md
       - name: Periscope Data
         href: periscope-data-tutorial.md
+      - name: Pexip
+        href: pexip-tutorial.md
+      - name: PetroVue
+        href: petrovue-tutorial.md
       - name: Phraseanet
         href: phraseanet-tutorial.md
       - name: Picturepark
@@ -1548,6 +1552,8 @@
         href: raketa-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
+      - name: raum]für[raum
+        href: raumfurraum-tutorial.md  
       - name: ReadCube Papers
         href: readcube-papers-tutorial.md  
       - name: Real Links
@@ -1670,6 +1676,8 @@
         href: qualtrics-tutorial.md
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
+      - name: Saviynt
+        href: saviynt-tutorial.md  
       - name: ScaleX Enterprise
         href: scalex-enterprise-tutorial.md
       - name: SCC LifeCycle
@@ -2435,6 +2443,8 @@
         href: sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
       - name: SAP SuccessFactors Writeback
         href: sap-successfactors-writeback-tutorial.md
+      - name: SECURE DELIVER
+        href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin
         href: secure-login-provisioning-tutorial.md
       - name: ServiceNow
@@ -2443,6 +2453,8 @@
         href: segment-provisioning-tutorial.md
       - name: Shopify Plus
         href: shopify-plus-provisioning-tutorial.md
+      - name: Sigma Computing
+        href: sigma-computing-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Snowflake
@@ -2481,6 +2493,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
+      - name: Twingate
+        href: twingate-provisioning-tutorial.md
       - name: UNIFI
         href: unifi-provisioning-tutorial.md
       - name: Velpic
