@@ -37,7 +37,7 @@ After you've created a storage account, go to the **Access Control (IAM)** in th
 
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
-It is here that you'll add the role [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) to our service name, and then select **Save**.
+It is here that you'll add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to our service name, and then select **Save**.
 
 ![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
