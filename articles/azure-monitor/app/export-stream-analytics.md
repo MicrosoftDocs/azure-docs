@@ -34,7 +34,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
 ## Start continuous export to Azure storage
 
-[Continuous export](export-telemetry.md) moves data from Application Insights into Azure storage.
+[Continuous export](export-telemetry.md) moves data from Application Insights into Azure storage. (!Important: Continuous export has been deprecated. Migrate to a [workspace-based Application Insights resource](https://docs.microsoft.com/en-us/azure/azure-monitor/app/convert-classic-resource) to use diagnostic settings for exporting telemetry.)
 
 1. In the Azure portal, browse to the Application Insights resource you created for your application.
    
