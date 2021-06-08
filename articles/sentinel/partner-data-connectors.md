@@ -15,11 +15,9 @@ ms.author: bagol
 
 This article lists the data connectors Azure Sentinel supports for non-Microsoft, Partner organizations, in alphabetical order. If you know the connector you're looking for, scroll to or search for its name on this page, or use the links at the right or top of the article.
 
-To enable and configure the connectors, see [Connect data sources](connect-data-sources.md), and the links in the individual listings.
-
-For information about Microsoft-authored and service-to-service data connectors, see [Service to service integration](connect-data-sources.md#service-to-service-integration).
-
-For information about Azure Sentinel support models and the **Supported by** field, see [Data connector support](connect-data-sources.md#data-connector-support).
+- To enable and configure the listed connectors, see [Connect data sources](connect-data-sources.md), and the links in the individual listings.
+- For information about Microsoft-authored and service-to-service data connectors, see [Service to service integration](connect-data-sources.md#service-to-service-integration).
+- For information about Azure Sentinel support models and the **Supported by** field, see [Data connector support](connect-data-sources.md#data-connector-support).
 
 > [!IMPORTANT]
 > Many of the following Azure Sentinel Partner data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
