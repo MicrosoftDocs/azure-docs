@@ -4,8 +4,8 @@ description: Set up automated tasks that help you manage Azure resources and mon
 services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
-ms.topic: conceptual
-ms.date: 06/08/2021
+ms.topic: how-to
+ms.date: 06/09/2021
 ---
 
 # Manage Azure resources and monitor costs by creating automation tasks (preview)
