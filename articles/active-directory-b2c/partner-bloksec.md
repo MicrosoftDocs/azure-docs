@@ -37,7 +37,7 @@ BlokSec integration includes the following components:
 
 - **BlokSec Decentralized Identity Router** – Acts as a gateway for services that wish to apply BlokSec’s DIaaS™ to route authentication/authorization requests to end users’ Personal Identity Provider (PIdP) applications; configured as an OpenID Connect (OIDC) identity provider in Azure AD B2C 
 
-- **BlokSec SDK-based mobile app** – Acts as the users’ PIdP in the decentralized authentication scenario. The freely downloadable BlokSec yuID application can be used if your organization prefers not to develop your own mobile applications using the BlokSec SDKs.
+- **BlokSec SDK-based mobile app** – Acts as the users’ PIdP in the decentralized authentication scenario. The freely downloadable [BlokSec yuID application](https://bloksec.com/developers/getting-started-with-the-yuid-app/) can be used if your organization prefers not to develop your own mobile applications using the BlokSec SDKs.
 
 The following architecture diagram shows the implementation.
 
