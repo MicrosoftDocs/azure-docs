@@ -38,7 +38,11 @@ Add a **Source dataset** for your Power Query mash-up. You can either choose an 
 
 Click **Create** to open the Power Query Online mashup editor.
 
+First, you will choose a dataset source for the mashup editor.
+
 ![Power Query source.](media/wrangling-data-flow/pq-new-source.png)
+
+Once you have completed building your Power Query, you can save it and add the mashup as an activity to your pipeline. That is when you will set the sink dataset properties.
 
 ![Power Query sink.](media/wrangling-data-flow/pq-new-sink.png)
 
