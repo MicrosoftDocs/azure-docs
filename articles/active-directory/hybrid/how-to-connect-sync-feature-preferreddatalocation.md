@@ -31,29 +31,8 @@ By setting the attribute **preferredDataLocation**, you can define a user's geo.
 >
 >
 
-A list of all geos for Microsoft 365 can be found in [Where is your data located?](/microsoft-365/enterprise/o365-data-locations).
+A list of all geos for Microsoft 365 can be found in [Where is your data located?](/microsoft-365/enterprise/o365-data-locations).  Azure AD Connect supports all the geos in Microsoft 365.
 
-The geos in Microsoft 365 available for Multi-Geo are:
-
-| Geo | preferredDataLocation value |
-| --- | --- |
-| Asia Pacific | APC |
-| Australia | AUS |
-| Canada | CAN |
-| European Union | EUR |
-| France | FRA |
-| India | IND |
-| Japan | JPN |
-| Korea | KOR |
-| South Africa | ZAF |
-| Switzerland | CHE |
-| United Arab Emirates | ARE |
-| United Kingdom | GBR |
-| United States | NAM |
-
-* If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
-
-* Not all Microsoft 365 workloads support the use of setting a user's geo.
 
 ### Azure AD Connect support for synchronization
 
