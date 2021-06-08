@@ -1,5 +1,5 @@
 ---
-title: Manage user assigned managed identities
+title: Manage user assigned managed identities - Azure AD
 description: Create user assigned managed identities
 services: active-directory
 author: barclayn
