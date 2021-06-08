@@ -66,7 +66,7 @@ This section lists the features that are supported in the Contoso Coffee store l
 * When the user selects a result in the results list, the map is centered over the selected location and information about the location appears in a pop-up window.  
 * When the user selects a specific location, the map triggers a pop-up window.
 * When the user zooms out, locations are grouped in clusters. Each cluster is represented by a circle with a number inside the circle. Clusters form and separate as the user changes the zoom level.
-* Selecting a cluster zooms in on the map two levels and centers over the location of the cluster.
+* Selecting a cluster zooms in two levels on the map and centers over the location of the cluster.
 
 ## Store locator design
 
