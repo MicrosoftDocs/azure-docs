@@ -1,6 +1,6 @@
 ---
 title: Connect an MXCHIP AZ3166 to Azure IoT Hub quickstart
-description: Use Azure RTOS embedded software to connect an MXCHIP AZ3166 device to Azure IoT Huub and send telemetry.
+description: Use Azure RTOS embedded software to connect an MXCHIP AZ3166 device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -16,7 +16,9 @@ ms.date: 06/08/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. You'll also use IoT Explorer and IoT Plug and Play to manage the MXCHIP DevKit. IoT Plug and Play provides an open device model that lets applications programmatically query a device's capabilities and interact with it. A device uses this model to broadcast its capabilities to an IoT Plug and Play-enabled application. By using this model, you can streamline and enhance the tasks of adding, configuring, and managing devices. For more information see the [IoT Plug and Play documentation](https://docs.microsoft.com/azure/iot-pnp/).
+In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. 
+
+You'll also use IoT Explorer and IoT Plug and Play to manage the MXCHIP DevKit. IoT Plug and Play provides an open device model that lets applications programmatically query a device's capabilities and interact with it. A device uses this model to broadcast its capabilities to an IoT Plug and Play-enabled application. By using this model, you can streamline and enhance the tasks of adding, configuring, and managing devices. For more information, see the [IoT Plug and Play documentation](/azure/iot-pnp).
 
 You'll complete the following tasks:
 
@@ -88,7 +90,7 @@ To create an IoT hub:
 
 1. Launch your CLI app.  To run the CLI commands in the rest of this quickstart, copy the command syntax, paste it into your CLI app, edit variable values, and press Enter.
     - If you prefer to use Cloud Shell, you can select the **Try It** button on the CLI commands to launch Cloud Shell in a split browser window. Or to open Cloud Shell in a separate window, right-click the link for [Cloud Shell](https://shell.azure.com/bash) and select the option to open in a new tab.
-    - If you're using Azure CLI locally, start your CLI console app and log in to Azure CLI.
+    - If you're using Azure CLI locally, start your CLI console app and sign in to Azure CLI.
 
 1. From your CLI app, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *centralus* region.
 
@@ -261,7 +263,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Initializing SNTP client
 	    SNTP server 0.pool.ntp.org
 	    SNTP IP address: 157.245.166.169
-	    SNTP time update: Jun 2, 2021 20:18:58.687 UTC 
+	    SNTP time update: Jun 8, 2021 18:16:50.807 UTC
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT Hub client
@@ -276,7 +278,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use the Azure IoT Explorer to view and manage the properties of your devices. In this section and the following sections, you'll use the Plug and Play capabilities surfaced in IoT Explorer to manage and interact with the MXCHIP DevKit. These capabilities rely on the device model published for the MXCHIP DevKit in the public model repository. You configured your instance of IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by merely selecting the same action from the left side menu of your device pane in IoT Explorer, but using plug and play often provides an enhanced experience because IoT Explorer can read the device model and present information specific to the MXCHIP DevKit.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In this section and the following sections, you'll use the Plug and Play capabilities surfaced in IoT Explorer to manage and interact with the MXCHIP DevKit. These capabilities rely on the device model published for the MXCHIP DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting the same action from the left side menu of your device pane in IoT Explorer; however, using plug and play often provides an enhanced experience. This is because IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -337,7 +339,7 @@ To view telemetry in Azure IoT Explorer:
 
 1. Select the **Show modeled events** checkbox to view the events in the data format specified by the device model.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer device":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-evemts.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer device":::
 
 1. Select **Stop** to end receiving events.
 
