@@ -1442,6 +1442,8 @@
         href: perimeterx-tutorial.md
       - name: Periscope Data
         href: periscope-data-tutorial.md
+      - name: Pexip
+        href: pexip-tutorial.md
       - name: PetroVue
         href: petrovue-tutorial.md
       - name: Phraseanet
@@ -2441,6 +2443,8 @@
         href: sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
       - name: SAP SuccessFactors Writeback
         href: sap-successfactors-writeback-tutorial.md
+      - name: SECURE DELIVER
+        href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin
         href: secure-login-provisioning-tutorial.md
       - name: ServiceNow
@@ -2449,6 +2453,8 @@
         href: segment-provisioning-tutorial.md
       - name: Shopify Plus
         href: shopify-plus-provisioning-tutorial.md
+      - name: Sigma Computing
+        href: sigma-computing-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Snowflake
