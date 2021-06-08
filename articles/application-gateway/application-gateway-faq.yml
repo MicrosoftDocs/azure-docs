@@ -179,7 +179,7 @@ sections:
           $AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name "<IPConfigurationName>" -Subnet $Subnet
           Set-AzApplicationGateway -ApplicationGateway $AppGw
           ```
-          [Details of the PowerShell commands](../powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).
+          [Details of the PowerShell commands](.../powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).
          
           ```azurecli-interactive
           az network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>
