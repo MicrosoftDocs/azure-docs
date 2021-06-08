@@ -3,22 +3,19 @@ title: Create automation tasks to manage and monitor Azure resources
 description: Set up automated tasks that help you manage Azure resources and monitor costs by creating workflows that run on Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 04/05/2021
+ms.reviewer: azla
+ms.topic: how-to
+ms.date: 06/09/2021
 ---
 
 # Manage Azure resources and monitor costs by creating automation tasks (preview)
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, 
-> and is not recommended for production workloads. Certain features might not be supported 
-> or might have constrained capabilities. For more information, see 
+> This capability is in preview, is not recommended for production workloads, and is excluded from service level agreements. 
+> Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
-
-Behind the scenes, an automation task is actually a workflow that runs on the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service and is billed using the same [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps/) and [pricing model](../logic-apps/logic-apps-pricing.md). After you create the task, you can view and edit the underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
 
 Here are the currently available task templates in this preview:
 
@@ -43,9 +40,15 @@ This article shows you how to complete the following tasks:
 
 ## How do automation tasks differ from Azure Automation?
 
-Currently, you can create an automation task only at the resource level, view the task's runs history, and edit the task's underlying logic app workflow, which is powered by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md).
+Behind the scenes, an automation task is actually a logic app resource, which runs a workflow and is powered by the [*multi-tenant* Azure Logic Apps service](../logic-apps/logic-apps-overview.md). Currently, you can create an automation task only at the resource level. After you create the automation task, you can view and edit the underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the task's status, workflow run history, inputs, and outputs for each run. Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md).
 
 By comparison, Azure Automation is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking/overview.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
+
+<a name="pricing"></a>
+
+## Pricing
+
+Because an automation task is really a multi-tenant based logic app resource underneath, the [Consumption (pay for use) pricing model](logic-apps-pricing.md) applies when your automation task runs. So, just creating an automation task doesn't automatically start incurring charges because metering and billing are based on the trigger and action executions in a workflow, regardless whether runs are successful or unsuccessful. For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created. Workflow operations also make storage transactions, which means that these events are also metered and billed based on [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## Prerequisites
 
