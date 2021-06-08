@@ -34,8 +34,7 @@ You must have Contributor + User Access Administrator or Owner permissions on th
 **Migration** | Perform [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md) or use the agent-based approach to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider. | Azure Migrate: Server Migration
 
 >[!Note]
->
-> [Agentless VMware migrations](./tutorial-migrate-vmware.md) require internet access or connectivity via ExpressRoute Microsoft peering. Learn how to use [private endpoints to perform replications over ExpressRoute private peering or a S2S VPN connection](./replicate-using-expressroute.md). <br/><br/>
+> [Agentless VMware migrations](./tutorial-migrate-vmware.md) require internet access or connectivity via ExpressRoute Microsoft peering. Learn how to use [private endpoints to perform replications over ExpressRoute private peering or a S2S VPN connection](./replicate-using-expressroute.md).
 
 #### Other integrated tools
 
@@ -170,7 +169,6 @@ After the prerequisites check has completed, follow the steps to register the ap
 - [AWS VMs](./tutorial-discover-aws.md#register-the-appliance-with-azure-migrate)
 - [GCP VMs](./tutorial-discover-gcp.md#register-the-appliance-with-azure-migrate)
 
-
 >[!Note]
 > If you get DNS resolution issues during appliance registration or at the time of starting discovery, ensure that Azure Migrate resources created during the **Generate key** step in the portal are reachable from the on-premises server that hosts the Azure Migrate appliance. Learn more about how to verify [network connectivity](./troubleshoot-network-connectivity.md).
 
@@ -243,7 +241,7 @@ You can find the details of the Recovery Services vault on the Azure Migrate: Se
  To the managed identity of the vault, you must grant the following role permissions on the storage account required for replication. In this case, you must create the storage account in advance.
 
 >[!Note]
-> For migrating Hyper-V VMs to Azure by using Private Link, you must grant access to both the replication storage account and the cache storage account.
+> When you migrate Hyper-V VMs to Azure by using Private Link, you must grant access to both the replication storage account and the cache storage account.
 
 The role permissions for the Azure Resource Manager vary depending on the type of storage account.
 
@@ -267,13 +265,11 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 
    ![Screenshot that shows the Allow trusted Microsoft services to access this storage account option.](./media/how-to-use-azure-migrate-with-private-endpoints/exceptions.png)
 
-
 ### Create a private endpoint for the storage account (optional)
 
 To replicate by using ExpressRoute with private peering, [create a private endpoint](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) for the cache/replication storage accounts (target subresource: _blob_).
 
 >[!Note]
->
 > You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 Create the private endpoint for the storage account in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network.
@@ -291,10 +287,9 @@ After you've created the private endpoint, use the dropdown list in **Replicate*
 Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. Learn more about how to verify [network connectivity](./troubleshoot-network-connectivity.md).
 
 >[!Note]
->
-> - For Hyper-V VM migrations to Azure, if the replication storage account is of _Premium_ type, you must select another storage account of _Standard_ type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
+> For Hyper-V VM migrations to Azure, if the replication storage account is of _Premium_ type, you must select another storage account of _Standard_ type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
-Next, follow these instructions to [review and start replication](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) and [perform migrations](./tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
+Next, follow the instructions to [review and start replication](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) and [perform migrations](./tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
 
 
 ## Next steps
