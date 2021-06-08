@@ -171,6 +171,8 @@ sections:
         answer: |
           You can move an Application Gateway across subnets within the same virtual network only. It is also important to note that the Application Gateway should be in a *Stopped* state to perform this action. This operation can only be done using Azure PowerShell and Azure CLI by running the following commands:
           
+          **Azure PowerShell**
+
           ```azurepowershell-interactive
           $VNet = Get-AzVirtualNetwork -Name "<VNetName>" -ResourceGroupName "<ResourceGroup>"
           $Subnet = Get-AzVirtualNetworkSubnetConfig -Name "<NewSubnetName>" -VirtualNetwork $VNet
@@ -179,8 +181,10 @@ sections:
           $AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name "<IPConfigurationName>" -Subnet $Subnet
           Set-AzApplicationGateway -ApplicationGateway $AppGw
           ```
-          [Details of the PowerShell commands](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).
+          For more information, see [Set-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).
          
+          **Azure CLI**
+          
           ```azurecli-interactive
           az network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>
           az network application-gateway update -g <ResourceGroup> -n <ApplicationGatewayName> --set gatewayIpConfigurations[0].subnet.id=<subnetID>
