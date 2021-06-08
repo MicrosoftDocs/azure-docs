@@ -68,20 +68,20 @@ For more information, see [Drawing package warnings and errors](drawing-conversi
 
 Azure Maps Creator provides the following services that support map creation:
 
-- [Dataset service](/rest/api/maps/v2/dataset/createpreview).
-- [Tileset service](/rest/api/maps/v2/tileset/createpreview).
+- [Dataset service](/rest/api/maps/v2/dataset).
+- [Tileset service](/rest/api/maps/v2/tileset).
 Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
 - [Feature State service](/rest/api/maps/v2/featurestate). Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
 
 ### Datasets
 
-A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted Drawing package. After you create a dataset with the [Dataset service](/rest/api/maps/v2/dataset/createpreview), you can create any number of [tilesets](#tilesets) or [feature statesets](#feature-statesets).
+A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted Drawing package. After you create a dataset with the [Dataset service](/rest/api/maps/v2/dataset), you can create any number of [tilesets](#tilesets) or [feature statesets](#feature-statesets).
 
-At any time, developers can use the [Dataset service](/rest/api/maps/v2/dataset/createpreview) to add or remove facilities to an existing dataset. For more information about how to update an existing dataset using the API, see the append options in [Dataset service](/rest/api/maps/v2/dataset/createpreview). For an example of how to update a dataset, see [Data maintenance](#data-maintenance).
+At any time, developers can use the [Dataset service](/rest/api/maps/v2/dataset) to add or remove facilities to an existing dataset. For more information about how to update an existing dataset using the API, see the append options in [Dataset service](/rest/api/maps/v2/dataset). For an example of how to update a dataset, see [Data maintenance](#data-maintenance).
 
 ### Tilesets
 
-A tileset is a collection of vector data that represents a set of uniform grid tiles. Developers can use the [Tileset service](/rest/api/maps/v2/tileset/createpreview) to create tilesets from a dataset.
+A tileset is a collection of vector data that represents a set of uniform grid tiles. Developers can use the [Tileset service](/rest/api/maps/v2/tileset) to create tilesets from a dataset.
 
 To reflect different content stages, you can create multiple tilesets from the same dataset. For example, you can make one tileset with furniture and equipment, and another tileset without furniture and equipment. You might choose to generate one tileset with the most recent data updates, and another tileset without the most recent data updates.
 
@@ -149,8 +149,8 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
 The following example shows how to update a dataset, create a new tileset, and delete an old tileset:
 
 1. Follow steps in the [Upload a Drawing package](#upload-a-drawing-package) and [Convert a Drawing package](#convert-a-drawing-package) sections to upload and convert the new Drawing package.
-2. Use the [Dataset Create API](/rest/api/maps/v2/dataset/createpreview) to append the converted data to the existing dataset.
-3. Use the [Tileset Create API](/rest/api/maps/v2/tileset/createpreview) to generate a new tileset out of the updated dataset.
+2. Use the [Dataset Create API](/rest/api/maps/v2/dataset) to append the converted data to the existing dataset.
+3. Use the [Tileset Create API](/rest/api/maps/v2/tileset) to generate a new tileset out of the updated dataset.
 4. Save the new **tilesetId** for the next step.
 5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer used, you can delete it.
 
