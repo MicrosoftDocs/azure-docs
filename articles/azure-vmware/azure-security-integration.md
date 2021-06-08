@@ -214,4 +214,4 @@ Now that you've covered how to protect your Azure VMware Solution VMs, you may w
 
 - [Using the Azure Defender dashboard](../security-center/azure-defender-dashboard.md)
 - [Advanced multistage attack detection in Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md)
-- [Integrating and deploying Azure native services](deploy-integrate-azure-native-tools.md)
+- [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
