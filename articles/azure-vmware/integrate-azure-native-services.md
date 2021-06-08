@@ -76,11 +76,16 @@ Deploy the Log Analytics agent by using [Azure Arc enabled servers VM extension 
 ## Enable Azure Monitor
 
 [Azure Monitor](../azure-monitor/overview.md) is a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Some of the added benefits of Azure Monitor include: 
-    - Seamless monitoring 
-    - Better infrastructure visibility 
-    - Instant notifications 
-    - Automatic resolution 
-    - Cost efficiency 
+
+   - Seamless monitoring 
+
+   - Better infrastructure visibility 
+
+   - Instant notifications 
+
+   - Automatic resolution 
+
+   - Cost efficiency 
 
 You can collect data from different sources to monitor and analyze. For more information, see [Sources of monitoring data for Azure Monitor](../azure-monitor/agents/data-sources.md).  You can also collect different types of data for analysis, visualization, and alerting. For more information, see [Azure Monitor data platform](../azure-monitor/data-platform.md). 
 
