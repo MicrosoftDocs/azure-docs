@@ -45,7 +45,7 @@ Your principal ID is shown in the "ObjectId" column.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/micmicrosoft.confidentialledger/confidential-ledger-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.confidentialledger/confidential-ledger-create/azuredeploy.json":::
 
 Azure resources defined in the template:
 
