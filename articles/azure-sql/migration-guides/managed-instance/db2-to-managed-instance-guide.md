@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 05/14/2021
 ---
 # Migration guide: IBM Db2 to Azure SQL Managed Instance
@@ -151,8 +151,8 @@ For additional assistance, see the following resources, which were developed in 
 |Asset  |Description  |
 |---------|---------|
 |[Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
-|[Db2 zOS data assets discovery and assessment package](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|After running the SQL script on a database, you can export the results to a file on the file system. Several file formats are supported, including *.csv, so that you can capture the results in external tools such as spreadsheets. This method can be useful if you want to easily share results with teams that do not have the workbench installed.|
-|[IBM Db2 LUW inventory scripts and artifacts](https://github.com/microsoft/DataMigrationTeam/blob/master/IBM%20DB2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|This asset includes a SQL query that hits IBM Db2 LUW version 11.1 system tables and provides a count of objects by schema and object type, a rough estimate of "raw data" in each schema, and the sizing of tables in each schema, with results stored in a CSV format.|
+|[Db2 zOS data assets discovery and assessment package](https://www.microsoft.com/download/details.aspx?id=103108)|After running the SQL script on a database, you can export the results to a file on the file system. Several file formats are supported, including \*.csv, so that you can capture the results in external tools such as spreadsheets. This method can be useful if you want to easily share results with teams that do not have the workbench installed.|
+|[IBM Db2 LUW inventory scripts and artifacts](https://www.microsoft.com/download/details.aspx?id=103109)|This asset includes a SQL query that hits IBM Db2 LUW version 11.1 system tables and provides a count of objects by schema and object type, a rough estimate of "raw data" in each schema, and the sizing of tables in each schema, with results stored in a CSV format.|
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 

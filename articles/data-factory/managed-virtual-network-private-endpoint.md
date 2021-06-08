@@ -5,7 +5,7 @@ ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions]
+ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell]
 ms.date: 07/15/2020
 ---
 
@@ -58,7 +58,7 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 > [!WARNING]
 > If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using a managed private endpoint. If a private endpoint does not already exist, you must create one in such scenarios. 
 
-A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
+A private endpoint connection is created in a "Pending" state when you create a managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 
 ![Manage private endpoint](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
 
@@ -138,6 +138,16 @@ Below data sources have native Private Endpoint support and can be connected thr
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
+- Azure Machine Learning
+
+> [!Note]
+> You still can access all data sources that are supported by Data Factory through public network.
+
+> [!NOTE]
+> Because Azure SQL Managed Instance doesn't support native Private Endpoint right now, you can access it from managed Virtual Network using Private Linked Service and Load Balancer. Please see [How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint](tutorial-managed-virtual-network-sql-managed-instance.md).
+
+### On premises Data Sources
+To access on premises data sources from managed Virtual Network using Private Endpoint, please see this tutorial [How to access on premises SQL Server from Data Factory Managed VNET using Private Endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md).
 
 ### Azure Data Factory Managed Virtual Network is available in the following Azure regions:
 - Australia East
@@ -147,12 +157,15 @@ Below data sources have native Private Endpoint support and can be connected thr
 - Canada East
 - Central India
 - Central US
+- East Asia
 - East US
 - East US2
 - France Central
+- Germany West Central
 - Japan East
 - Japan West
 - Korea Central
+- North Central US
 - North Europe
 - Norway East
 - South Africa North
