@@ -1,6 +1,6 @@
 ---
-title: 'Deploy the Affirmed Networks solution with Azure private multi-access edge compute'
-description: Learn how to deploy cloud solutions from Microsoft Azure and Affirmed Networks that can help future-proof your network, drive down costs, and create new business models and revenue streams.
+title: 'Deploy Affirmed Private Network Service on Azure Stack Edge'
+description: Learn how to deploy the Affirmed Private Network Service solution 
 services: vnf-manager
 author: KumudD
 ms.service: vnf-manager
@@ -13,13 +13,13 @@ ms.author: hollycl
 This article provides a high-level overview of the process of deploying Affirmed Private Network Service (APNS) on an Azure Stack Edge device via the Microsoft Azure Marketplace. Further details and optional deployment methods are provided in the Affirmed Private Network Service Deployment Guide. 
 
 ## Collect required information
-You must have the following:
-- A suitable management network to join. This includes:
+To deploy APNS, you must have the following resources and information:
+- A suitable management network to join that includes:
     - Virtual network.
     - Virtual subnet.
     - Network security group.
 - A valid SAS Token provided by Affirmed Release Engineering.
-- Appropriate permissions within your subscription. This includes:
+- Appropriate permissions within your subscription that includes:
     - Managed Application Contributor Role for your subscription.
     - Owner/Contributor role for your resource group.
 - An Administrative user and password to program during the deployment.
@@ -29,8 +29,9 @@ You must have the following:
     
 ## Deploying APNS
 To automatically deploy the APNS Managed application with all required resources and relevant information necessary, select the APNS Managed Application from the Microsoft Azure Marketplace. When you deploy, all of the required resources are automatically created for you and are contained in a Managed Resource Group. 
+
 Complete the following procedure to deploy APNS:
-1.	Open the Azure Portal and select **Create a resource**.
+1.	Open the Azure portal and select **Create a resource**.
 2.	Enter *APNS* in the search bar and press Enter.
 3.	Select **View Private Offers**. 
     > [!NOTE]
@@ -41,5 +42,5 @@ Complete the following procedure to deploy APNS:
 
 ## Next steps
 
-- For step-by-step instructions for deploying APNS and configuring Netfoundry settings on an ASE device, view the Affirmed Private Network Service Deployment guide.
+- For step-by-step instructions for deploying APNS and configuring Netfoundry settings on an Azure Stack Edge device, view the Affirmed Private Network Service Deployment guide.
 - For information regarding the programmatic GUI-driven portal that operators used to deploy, monitor, and manage private mobile core networks, Affirmed Private Network Service Manager User guide. 
