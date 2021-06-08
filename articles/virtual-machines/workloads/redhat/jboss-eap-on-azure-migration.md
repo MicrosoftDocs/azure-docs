@@ -12,7 +12,7 @@ ms.date: 06/08/2021
 
 # How to migrate Java applications to JBoss EAP on Azure VMs and virtual machine scale sets
 
-This guide provides information on how to migrate your enterprise Java applications on [Red Hat JBoss Enterprise Application Platform (EAP)](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) from a traditional on-premises server to Azure Red Hat Enterprise Linux (RHEL) Virtual Machines (VM) and VM Scale Sets (VMSS) if your cloud strategy is to "Lift and Shift" Java applications as-is. However, if you want to "Lift and Optimize" then alternatively you can migrate your containerized applications to [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/) with JBoss EAP images from the Red Hat Gallery, or drop your Java app code directly into a JBoss EAP on Azure App Service instance.
+This guide provides information on how to migrate your enterprise Java applications on [Red Hat JBoss Enterprise Application Platform (EAP)](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) from a traditional on-premises server to Azure Red Hat Enterprise Linux (RHEL) Virtual Machines (VM) and virtual machine scale sets if your cloud strategy is to "Lift and Shift" Java applications as-is. However, if you want to "Lift and Optimize" then alternatively you can migrate your containerized applications to [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/) with JBoss EAP images from the Red Hat Gallery, or drop your Java app code directly into a JBoss EAP on Azure App Service instance.
 
 ## Best practice starting with Azure marketplace offers and quickstarts
 
@@ -25,14 +25,14 @@ If none of the existing offers is a good starting point, you can manually reprod
 Red Hat in partnership with Microsoft has published the following offerings in Azure Marketplace. You can access these offers from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) or from the [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Check out the article on how to [Deploy Red Hat JBoss EAP on Azure VM and VM Scale Sets Using the Azure Marketplace Offer](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-azure-marketplace/) for more details.
 
 This Marketplace offer includes various combinations of JBoss EAP and RHEL versions with flexible support subscription models. JBoss EAP is available as Bring-Your-Own-Subscription (BYOS) but for RHEL you can choose between BYOS or Pay-As-You-Go (PAYG). 
-The Azure Marketplace offer includes plan options for JBoss EAP on RHEL as stand-alone VMs, clustered VMs, and clustered VMSS. The 6 plans include:
+The Azure Marketplace offer includes plan options for JBoss EAP on RHEL as stand-alone VMs, clustered VMs, and clustered virtual machine scale sets. The 6 plans include:
 
-- JBoss EAP 7.3 on RHEL 8.3 Stand-alone VM **(PAYG)**
-- JBoss EAP 7.3 on RHEL 8.3 Stand-alone VM **(BYOS)**
-- JBoss EAP 7.3 on RHEL 8.3 Clustered VM **(PAYG)**
-- JBoss EAP 7.3 on RHEL 8.3 Clustered VM **(BYOS)**
-- JBoss EAP 7.3 on RHEL 8.3 Clustered VMSS **(PAYG)**
-- JBoss EAP 7.3 on RHEL 8.3 Clustered VMSS **(BYOS)**
+- JBoss EAP 7.3 on RHEL 8.3 Stand-alone VM (PAYG)
+- JBoss EAP 7.3 on RHEL 8.3 Stand-alone VM (BYOS)
+- JBoss EAP 7.3 on RHEL 8.3 Clustered VM (PAYG)
+- JBoss EAP 7.3 on RHEL 8.3 Clustered VM (BYOS)
+- JBoss EAP 7.3 on RHEL 8.3 Clustered virtual machine scale sets (PAYG)
+- JBoss EAP 7.3 on RHEL 8.3 Clustered virtual machine scale sets (BYOS)
 
 ### Azure quickstart templates
 
@@ -40,7 +40,7 @@ Along with Azure Marketplace offers, there are Quickstart templates made availab
 
 - JBoss EAP on RHEL Stand-alone VM
 - JBoss EAP on RHEL Clustered VMs
-- JBoss EAP on RHEL Clustered VMSS
+- JBoss EAP on RHEL Clustered virtual machine scale sets
 
 To quickly get started, select one of the Quickstart template that closely matches your JBoss EAP on RHEL version combination. Check out the [JBoss EAP on Azure Quickstart](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-on-rhel) documentation to learn more. 
 
@@ -124,11 +124,11 @@ java -version
 
 JBoss EAP is supported on RHEL, Windows Server, and Oracle Solaris. JBoss EAP runs in either a stand-alone server operating mode for managing discrete instances or managed domain operating mode for managing groups of instances from a single control point.
 
-JBoss EAP managed domains are not supported in Microsoft Azure. Only stand-alone JBoss EAP server instances are supported. Note that configuring JBoss EAP clusters using stand-alone JBoss EAP servers is supported in Azure and this is how the Azure Marketplace offer create your clustered VMs or VMSS.
+JBoss EAP managed domains are not supported in Microsoft Azure. Only stand-alone JBoss EAP server instances are supported. Note that configuring JBoss EAP clusters using stand-alone JBoss EAP servers is supported in Azure and this is how the Azure Marketplace offer create your clustered VMs or virtual machine scale sets.
 
 ### Inventory server capacity
 
-Document the hardware (memory, CPU, disk, etc) of the current production server(s) as well as the average and peak request counts and resource utilization. You'll need this information regardless of the migration path you choose. For additional information on the sizes, visit [Sizes for Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs).
+Document the hardware (memory, CPU, disk, etc.) of the current production server(s) as well as the average and peak request counts and resource utilization. You'll need this information regardless of the migration path you choose. For additional information on the sizes, visit [Sizes for Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs).
 
 ### Inventory all secrets
 
