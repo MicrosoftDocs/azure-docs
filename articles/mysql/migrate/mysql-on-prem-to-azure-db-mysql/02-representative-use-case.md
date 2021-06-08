@@ -15,7 +15,7 @@ ms.date: 05/25/2021
 
 ## Prerequisites
 
-[MySQL on-premises to Azure Database for MySQL migration guide Introduction](01-mysql-migration-guide-index.md)
+[Introduction](01-mysql-migration-guide-index.md)
 
 ## Overview
 
