@@ -168,9 +168,9 @@ sections:
         answer: No. But you can deploy other application gateways in the subnet.
         
       - question: Can I change the Virtual Network or Subnet for an existing Application Gateway?
-        answer:  |
+        answer: |
            You can move an Application Gateway across subnets within the same Virtual Network only. It is also important to note that the Application Gateway should be in a Stopped state to perform this action. This operation can only be carried out through PowerShell and CLI by running the following commands:
-        
+           
           ```azurepowershell-interactive
           $VNet = Get-AzVirtualNetwork -Name "<VNetName>" -ResourceGroupName "<ResourceGroup>"
           $Subnet = Get-AzVirtualNetworkSubnetConfig -Name "<NewSubnetName>" -VirtualNetwork $VNet
