@@ -71,6 +71,12 @@ The server admin user account can be used to create additional users and grant t
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```
+   Whenever a table "role" is created by a user, the table belongs to that user. So if another user needs access on that table, we will need to grant the privileges to that user on table level.
+For example: 
+
+    ```sql
+    GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <db_user>;
+    ```
 
 5. Log in to your server, specifying the designated database, using the new user name and password. This example shows the psql command line. With this command, you are prompted for the password for the user name. Replace your own server name, database name, and user name.
 
