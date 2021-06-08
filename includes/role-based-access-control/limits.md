@@ -12,9 +12,9 @@
 
 | Resource | Limit |
 | --- | --- |
-| [Number of Azure role assignments per Azure subscription](../../articles/role-based-access-control/overview.md) | 2,000 |
-| [Number of Azure role assignments per management group](../../articles/role-based-access-control/overview.md) | 500 |
+| [Azure role assignments per Azure subscription](../../articles/role-based-access-control/overview.md) | 2,000 |
+| [Azure role assignments per management group](../../articles/role-based-access-control/overview.md) | 500 |
 | [Size of description for Azure role assignments](../../articles/role-based-access-control/conditions-faq.md) | 2 KB |
 | [Size of condition for Azure role assignments](../../articles/role-based-access-control/conditions-overview.md) | 8 KB |
-| [Number of Azure custom roles per tenant](../../articles/role-based-access-control/custom-roles.md) | 5,000 |
-| [Number of Azure custom roles per tenant](../../articles/role-based-access-control/custom-roles.md)<br/>(for Azure Germany and Azure China 21Vianet) | 2,000 |
+| [Azure custom roles per tenant](../../articles/role-based-access-control/custom-roles.md) | 5,000 |
+| [Azure custom roles per tenant](../../articles/role-based-access-control/custom-roles.md)<br/>(for Azure Germany and Azure China 21Vianet) | 2,000 |
