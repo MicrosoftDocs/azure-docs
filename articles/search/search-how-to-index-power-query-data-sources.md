@@ -44,11 +44,15 @@ Before you start pulling data from one of the supported data sources, you'll wan
 + Azure Cognitive Search service
     + Azure Cognitive Search service set up in a [supported region](search-how-to-index-power-query-data-sources.md#regional-availability).
     + Ensure that the Azure Cognitive Search team has enabled your search service for the preview. You can sign up for the preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
-+ Azure Blob storage account
-    + A Blob storage account is required for the preview to be used as an intermediary for your data. The data will flow from your data source, then to Blob storage, then to the index. This requirement only exists with the initial gated preview.
++ Azure Blob Storage account
+    + A Blob Storage account is required for the preview to be used as an intermediary for your data. The data will flow from your data source, then to Blob Storage, then to the index. This requirement only exists with the initial gated preview.
 
 ## Getting started using the Azure portal
 The Azure portal provides support for the Power Query connectors. By sampling data and reading metadata on the container, the Import data wizard in Azure Cognitive Search can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
+
+ The following video shows how to set up a Power Query connector in Azure Cognitive Search.
+ 
+> [!VIDEO https://www.youtube.com/embed/uy-l4xFX1EE]
 
 ### Step 1 – Prepare source data
 Make sure your data source contains data. The Import data wizard reads metadata and performs data sampling to infer an index schema, but it also loads data from your data source. If the data is missing, the wizard will stop and return and error. 

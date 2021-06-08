@@ -104,6 +104,8 @@
           href: database/authentication-aad-service-principal.md
         - name: Directory Readers role
           href: database/authentication-aad-directory-readers-role.md
+        - name: Azure AD-only Authentication
+          href: database/authentication-azure-ad-only-authentication.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -161,7 +163,7 @@
     - name: Job automation with elastic jobs
       href: database/job-automation-overview.md
     - name: Job automation with SQL Agent 
-      href: database/job-automation-managed-instances.md
+      href: managed-instance/job-automation-managed-instance.md
     - name: Connect and query from apps
       items:
       - name: .NET with Visual Studio
@@ -197,6 +199,8 @@
           href: database/authentication-aad-guest-users.md
         - name: Assign Directory Readers role to groups
           href: database/authentication-aad-directory-readers-role-tutorial.md
+        - name: Enable Azure AD-only authentication
+          href: database/authentication-azure-ad-only-authentication-tutorial.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Always Encrypted
@@ -300,6 +304,8 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+      - name: vCore
+        href: database/service-tiers-sql-database-vcore.md
     - name: Plan and manage costs 
       href: database/cost-management.md
 
@@ -852,6 +858,8 @@
     items:
     - name: Resource limits
       href: managed-instance/resource-limits.md
+    - name: Compute Hardware
+      href: managed-instance/service-tiers-managed-instance-vcore.md
     - name: Connectivity architecture
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
@@ -1137,6 +1145,7 @@
         items:
         - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
         - name: Backup and restore
           href: virtual-machines/windows/backup-restore.md
         - name: Azure Storage for backup
@@ -1145,24 +1154,26 @@
           href: virtual-machines/windows/availability-group-overview.md
         - name: Failover cluster instance (FCI)
           href: virtual-machines/windows/failover-cluster-instance-overview.md
+        - name: Windows Server Failover Cluster
+          href: virtual-machines/windows/hadr-windows-server-failover-cluster-overview.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
       - name: Best practices
         items:
+        - name: Quick checklist
+          href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+        - name: VM size
+          href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+        - name: Storage
+          href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
-        - name: Cluster configuration
+        - name: HADR configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
+        - name: Collect baseline 
+          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
-        - name: Performance
-          items: 
-          - name: Quick checklist
-            href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
-          - name: VM size
-            href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
-          - name: Storage
-            href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
-          - name: Collect baseline 
-            href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension
@@ -1222,6 +1233,8 @@
           href: virtual-machines/windows/move-sql-vm-different-region.md
       - name: Business continuity
         items:
+        - name: Configure cluster quorum 
+          href: virtual-machines/windows/hadr-cluster-quorum-configure-how-to.md
         - name: Backup and restore
           items:
           - name: Automated backup (SQL 2016+)
@@ -1452,6 +1465,8 @@
       href: database/troubleshoot-common-connectivity-issues.md
     - name: Import/Export service hangs
       href: database/database-import-export-hang.md
+    - name: Transaction log errors
+      href: database/troubleshoot-transaction-log-errors-issues.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring

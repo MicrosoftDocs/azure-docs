@@ -243,10 +243,10 @@ sections:
         answer: Clusters can scale between three (minimum) and 16 (maximum) ESXi hosts. Trial clusters are limited to three hosts.
 
       - question: Can I scale my private cloud clusters?
-        answer: Yes, clusters scale between three (minimum) and 16 (maximum) ESXi hosts. Trial clusters are limited to three hosts.
+        answer: Yes, clusters scale between three (minimum) and 16 (maximum) ESXi hosts. 
 
       - question: What are trial clusters?
-        answer: Trial clusters are three host clusters used for one-month evaluations of Azure VMware Solution private clouds.
+        answer: Trial clusters are limited to three hosts used for one-month evaluations of Azure VMware Solution private clouds.
 
 
   - name: Identity management
