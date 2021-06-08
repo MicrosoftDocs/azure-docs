@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli"
+ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 
 # Monitoring Azure Blob Storage
@@ -293,7 +293,7 @@ For a list of all Azure Monitor support metrics, which includes Azure Blob Stora
 > [!TIP]
 > To view Azure CLI or .NET examples, choose the corresponding tabs listed here.
 
-### [.NET](#tab/azure-portal)
+### [.NET SDK](#tab/azure-portal)
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
  
@@ -537,7 +537,7 @@ You can access logs sent to a Log Analytics workspace by using Azure Monitor log
 
 For more information, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
 
-Data is stored in the **StorageBlobLog** table. Logs for Data Lake Storage Gen2 do not appear in a dedicated table. That's because Data Lake Storage Gen2 is not service. It's a set of capabilities that you can enable in your storage account. If you've enabled those capabilities, logs will continue to appear in the StorageBlobLogs table. 
+Data is stored in the **StorageBlobLog** table. Logs for Data Lake Storage Gen2 do not appear in a dedicated table. That's because Data Lake Storage Gen2 is not service. It's a set of capabilities that you can enable in your storage account. If you've enabled those capabilities, logs will continue to appear in the StorageBlobLog table. 
 
 #### Sample Kusto queries
 

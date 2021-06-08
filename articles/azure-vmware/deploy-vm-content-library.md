@@ -13,7 +13,7 @@ In this article, we'll walk through the procedure for creating a content library
 
 ## Prerequisites
 
-An NSX-T segment (logical switch) and a managed DHCP service are required to complete this tutorial.  For more information, see the [How to manage DHCP in Azure VMware Solution](configure-dhcp-l2-stretched-vmware-hcx-networks.md) article.
+An NSX-T segment (logical switch) and a managed DHCP service are required to complete this tutorial.  For more information, see the [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md) article.  
 
 ## Create a content library
 

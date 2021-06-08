@@ -21,7 +21,7 @@ The Get supported glossary formats method returns a list of supported glossary f
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/glossaries/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/glossaries/formats
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -86,38 +86,44 @@ The following is an example of a successful response.
 
 ```JSON
 {
-  "value": [
-    {
-      "format": "XLIFF",
-      "fileExtensions": [
-        ".xlf"
-      ],
-      "contentTypes": [
-        "application/xliff+xml"
-      ],
-      "defaultVersion": "1.2",
-      "versions": [
-        "1.0",
-        "1.1",
-        "1.2"
-      ]
-    },
-    {
-      "format": "TMX",
-      "fileExtensions": [
-        ".tmx"
-      ],
-      "contentTypes": [],
-      "versions": [
-        "1.0",
-        "1.1",
-        "1.2",
-        "1.3",
-        "1.4"
-      ]
-    }
-  ]
+    "value": [
+        {
+            "format": "XLIFF",
+            "fileExtensions": [
+                ".xlf"
+            ],
+            "contentTypes": [
+                "application/xliff+xml"
+            ],
+            "defaultVersion": "1.2",
+            "versions": [
+                "1.0",
+                "1.1",
+                "1.2"
+            ]
+        },
+        {
+            "format": "TSV",
+            "fileExtensions": [
+                ".tsv",
+                ".tab"
+            ],
+            "contentTypes": [
+                "text/tab-separated-values"
+            ]
+        },
+        {
+            "format": "CSV",
+            "fileExtensions": [
+                ".csv"
+            ],
+            "contentTypes": [
+                "text/csv"
+            ]
+        }
+    ]
 }
+
 ```
 
 ### Example error response

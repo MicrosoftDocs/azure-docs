@@ -37,7 +37,7 @@ By sending your time series data at once, the API will generate a model using th
 
 To continuously detect anomalies on streaming data, use the following request URI with your latest data point: 
 
-`/timeseries/last/detect'`. 
+`/timeseries/last/detect`. 
 
 By sending new data points as you generate them, you can monitor your data in real time. A model will be generated with the data points you send, and the API will determine if the latest point in the time series is an anomaly.
 

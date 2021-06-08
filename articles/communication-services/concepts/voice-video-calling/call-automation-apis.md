@@ -31,12 +31,19 @@ Call Automation APIs enable organizations to connect with their customers or emp
   "name": "create-call"
 }-->
 ```
-POST /calls
+POST /calling/calls?api-version={api-version}
 Content-Type: application/json
 
 {
+ "source: {
+    "communicationUser": {
+        "id": "string"
+      }
+  },
   "targets": [
-    null
+    "communicationUser": {
+        "id": "string"
+      }
   ],
   "subject": "string",
   "callbackUri": "string",
@@ -125,7 +132,7 @@ Content-Type: application/json
   "name": "hangup-call"
 }-->
 ```
-POST /calls/{callId}/Hangup
+POST /calling/calls/{callId}/Hangup?api-version={api-version}
 Content-Type: application/json
 
 ```
@@ -181,7 +188,7 @@ Content-Type: application/json
   "name": "play-audio"
 }-->
 ```
-POST /calls/{callId}/PlayAudio
+POST /calling/calls/{callId}/PlayAudio?api-version={api-version}
 Content-Type: application/json
 
 {
@@ -263,7 +270,7 @@ Content-Type: application/json
   "name": "cancel-media-processing"
 }-->
 ```
-POST /calls/{callId}/CancelMediaProcessing
+POST /calling/calls/{callId}/CancelMediaProcessing?api-version={api-version}
 Content-Type: application/json
 
 {
@@ -332,12 +339,24 @@ Content-Type: application/json
   "name": "invite-participant "
 }-->
 ```
-POST /calls/{callId}/participants
+POST /calling/calls/{callId}/participants?api-version={api-version}
 Content-Type: application/json
 
 {
+  "alternateCallerId": {
+      "value": "<phone-number>"
+  }
   "participants": [
-    null
+    {
+      "communicationUser": {
+        "id": "<communication-user-identity>"
+      }
+    },
+    {
+      "phoneNumber": {
+        "value": "<phone-number>"
+      }
+    }
   ],
   "operationContext": "string"
 }
@@ -350,7 +369,10 @@ var invitedParticipants = new List<CommunicationIdentifier>()
     new PhoneNumberIdentifier("<phone-number>")
 }; 
 
-await callClient.InviteParticipantsAsync("<call-leg-id>", invitedParticipants, "<operation-context>").ConfigureAwait(false);
+//Alternate phone number required when inviting phone number
+var alernateCallerId = "<phone-number>";
+
+await callClient.InviteParticipantsAsync("<call-leg-id>", invitedParticipants, "<operation-context>", alernateCallerId).ConfigureAwait(false);
 
 ```
 #### Response
@@ -400,7 +422,7 @@ Content-Type: application/json
   "name": "remove-participant "
 }-->
 ```
-DELETE /calls/{callId}/participants/{participantId}
+DELETE /calling/calls/{callId}/participants/{participantId}?api-version={api-version}
 Content-Type: application/json
 
 ```
@@ -656,6 +678,229 @@ Event notifications are sent as JSON payloads to the calling application via the
     "eventTime": "2021-04-16T06:26:37.9121542Z",
     "metadataVersion": null,
     "dataVersion": null
+}
+```
+## Out-of-Call APIs
+
+> [!NOTE] 
+> The conversationID in all Out-of-Call APIs can be either conversationID gotten from client, or the groupID of a group call.
+
+### Join call
+#### Request
+**HTTP**
+<!-- {
+  "blockType": "request",
+  "name": "join-call"
+}-->
+```
+POST /calling/conversations/{conversationId}/join?api-version={api-version}
+Content-Type: application/json
+
+{
+  "source: {
+    "communicationUser": {
+        "id": "string"
+      }
+  },
+  "subject": "string",
+  "callbackUri": "string",
+  "requestedModalities": [
+    "audio"
+  ],
+  "requestedCallEvents": [
+    "participantsUpdated"
+  ]
+}
+```
+**C# SDK**
+
+```C#
+// Create conversation client 
+var connectionString = "YOUR_CONNECTION_STRING";
+var conversationClient = new ConversationClient(connectionString);
+
+//Preparing request data
+var source = new CommunicationUserIdentifier("<source-identity e.g. 8:acs:guid_guid>");
+var createCallOptions = new CreateCallOptions(
+    new Uri("<callback-url>"), 
+    new List<CallModality> { CallModality.Audio }, 
+    new List<EventSubscritionType> { EventSubscritionType.ParticipantsUpdated, EventSubscritionType.DtmfReceived });
+
+//Conversation id for the call. Can be a conversation id or a group id.
+var conversationId = "<group-id or base64-encoded-conversation-url>";
+
+//Starting the call
+var call = await conversationClient.JoinCallAsync(conversationId, source, createCallOption).ConfigureAwait(false);
+string callLegId = call.Value.CallLegId;
+```
+#### Response
+**HTTP**
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+} -->
+
+```http
+HTTP/1.1 200 Success
+Content-Type: application/json
+
+{
+  "callLegId": "string"
+}
+```
+```
+HTTP/1.1 400 Bad request
+Content-Type: application/json
+
+{
+  "code": "<error-code>",
+  "message": "<error-message>",
+}
+```
+```
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+  "code": "<error-code>",
+  "message": "<error-message>",
+}
+```
+```
+HTTP/1.1 500 	Internal server error
+Content-Type: application/json
+
+{
+  "code": "<error-code>",
+  "message": "<error-message>",
+}
+```
+
+### Invite participants
+#### Request
+**HTTP**
+<!-- {
+  "blockType": "request",
+  "name": "invite-participant "
+}-->
+```
+POST /calling/conversations/{conversationId}/participants?api-version={api-version}
+Content-Type: application/json
+
+{
+  "participants": [
+    {
+      "communicationUser": {
+        "id": "string"
+      }
+    }
+  ],
+  "operationContext": "string"
+}
+```
+**C# SDK**
+```C#
+var invitedParticipants = new List<CommunicationIdentifier>()
+{
+    new CommunicationUserIdentifier("<communication-user-identity>")
+}; 
+
+await conversationClient.InviteParticipantsAsync("<conversation-id>", invitedParticipants, new Uri("<callback-url>"), "<operation-context>").ConfigureAwait(false);
+
+```
+#### Response
+**HTTP**
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+} -->
+
+```http
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+
+```
+```
+HTTP/1.1 400 Bad request
+Content-Type: application/json
+
+{
+  "code": "<error-code>",
+  "message": "<error-message>",
+}
+```
+```
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+  "code": "<error-code>",
+  "message": "<error-message>",
+}
+```
+```
+HTTP/1.1 500 	Internal server error
+Content-Type: application/json
+
+{
+  "code": "<error-code>",
+  "message": "<error-message>",
+}
+```
+### Remove participant
+#### Request
+**HTTP**
+<!-- {
+  "blockType": "request",
+  "name": "remove-participant "
+}-->
+```
+DELETE /calling/conversations/{conversationId}/participants/{participantId}?api-version={api-version}
+Content-Type: application/json
+
+```
+**C# SDK**
+
+```C#
+await conversationClient.RemoveParticipantAsync("<conversationId>", "<participant-id>").ConfigureAwait(false);
+
+```
+#### Response
+**HTTP**
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+} -->
+
+```http
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+```
+```
+HTTP/1.1 400 Bad request
+Content-Type: application/json
+
+{
+  "code": "<error-code>",
+  "message": "<error-message>",
+}
+```
+```
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+  "code": "<error-code>",
+  "message": "<error-message>",
+}
+```
+```
+HTTP/1.1 500 	Internal server error
+Content-Type: application/json
+
+{
+  "code": "<error-code>",
+  "message": "<error-message>",
 }
 ```
 

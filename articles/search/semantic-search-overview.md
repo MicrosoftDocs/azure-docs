@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 05/25/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
@@ -21,7 +21,7 @@ Semantic search is a collection of query-related capabilities that add semantic 
 Semantic search is a premium feature. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 1. [Check regional and service tier requirements](#availability-and-pricing).
-1. [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup).
+1. [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup). It can take up to two business days to process the request.
 1. Upon acceptance, create or modify queries to return [semantic captions and highlights](semantic-how-to-query-request.md).
 1. Add a few more query properties to also return [semantic answers](semantic-answers.md).
 1. Optionally, include a [spell check](speller-how-to-add.md) property to maximize precision and recall.
@@ -79,11 +79,11 @@ In Cognitive Search, mechanisms that might be helpful for the above scenarios in
 
 ## Availability and pricing
 
-Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early June, semantic features are offered free of charge.
+Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early July, semantic features are offered free of charge.
 
 | Feature | Tier | Region | Sign up | Projected pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | Starting June 1, expected pricing is USD $500/month for the first 250,000 queries, and $2 for each additional 1,000 queries.  |
+| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | Starting in early July, expected pricing is USD $500/month for the first 250,000 queries, and $2 for each additional 1,000 queries.  |
 | Spell check | Any | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | None (free) |
 
 There is one [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup) for both semantic features and spell check. 
@@ -96,4 +96,4 @@ Final pricing information will be documented in the [Cognitive Search pricing pa
 
 [Sign-up](https://aka.ms/SemanticSearchPreviewSignup) for the preview on a search service that meets the tier and regional requirements noted in the previous section.
 
-When your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.
+It can take up to two business days to process the request. Once your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.

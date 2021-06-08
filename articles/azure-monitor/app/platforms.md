@@ -10,7 +10,7 @@ ms.reviewer: olegan
 # Supported languages
 
 * [C#|VB (.NET)](./asp-net.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [JavaScript](./javascript.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
@@ -28,7 +28,7 @@ ms.reviewer: olegan
 * [ASP.NET Core](./asp-net-core.md)
 * [Android](../app/mobile-center-quickstart.md) (App Center)
 * [iOS](../app/mobile-center-quickstart.md) (App Center)
-* [Java EE](./java-get-started.md)
+* [Java EE](./java-in-process-agent.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [Python](./opencensus-python.md)
 * [Universal Windows app](../app/mobile-center-quickstart.md) (App Center)
@@ -39,7 +39,7 @@ ms.reviewer: olegan
 ## Logging frameworks
 * [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Java, Log4J, or Logback](./java-trace-logs.md)
+* [Java, Log4J, or Logback](java-2x-trace-logs.md)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 

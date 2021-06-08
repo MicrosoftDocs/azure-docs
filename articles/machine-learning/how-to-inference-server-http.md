@@ -50,7 +50,7 @@ python -m pip install azureml-inference-server-http
     source myenv/bin/activate
     ```
 
-1. Install the `azureml-inference-server-http` package from the pypi feed:
+1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/) feed:
 
     ```bash
     python -m pip install azureml-inference-server-http
@@ -68,18 +68,6 @@ python -m pip install azureml-inference-server-http
     def run(input_data):
         return {"message":"Hello, World!"}
     ' > score.py
-    ```
-
-    The directory structure should look like the following tree structure:
-
-    ```text
-    server_quickstart/
-    ├── score.py
-    └── myenv/lib/python3.7/site-packages
-                            ├── pip
-                            ├── setuptools
-                            ├── ...
-                            └── azureml-inference-server-http
     ```
 
 1. Start the server and set `score.py` as the entry script:

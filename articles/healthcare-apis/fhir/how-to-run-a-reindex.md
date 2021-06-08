@@ -1,7 +1,7 @@
 ---
 title:  How to run a reindex job in Azure API for FHIR 
 description: This article describes how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.   
-author: stevewohl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
@@ -85,7 +85,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 ```
 
 > [!NOTE]
-> To check the status of or to cancel a reindex job, you’ll need the reindex ID. This is the ID of the resulting Parameters resource (shown above). Reindex ID can also be found at the end of the Content-Location string. In the example above, it would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
+> To check the status of or to cancel a reindex job, you’ll need the reindex ID. This is the ID of the resulting Parameters resource. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
  ## How to check the status of a reindex job
 

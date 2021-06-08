@@ -21,7 +21,7 @@ Log alerts are one of the alert types that are supported in [Azure Alerts](./ale
 
 ## Prerequisites
 
-Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples article](../logs/example-queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
+Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples article](../logs/queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
 
 [Azure Monitoring Contributor](../roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
