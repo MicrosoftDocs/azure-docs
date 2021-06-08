@@ -81,7 +81,7 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# [Text Analytics for health (preview)](#tab/healthcare)
+# [Text Analytics for health](#tab/healthcare)
 
 [!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
 
@@ -115,7 +115,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# [Text Analytics for health (preview)](#tab/healthcare)
+# [Text Analytics for health](#tab/healthcare)
 
 [!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
@@ -159,8 +159,8 @@ In this article, you learned concepts and workflow for downloading, installing, 
    * *Sentiment Analysis*
    * *Key Phrase Extraction (preview)* 
    * *Language Detection*
-   * *Text Analytics for health (preview)*
-* Container images are downloaded from the Microsoft Container Registry (MCR) or preview container repository.
+   * *Text Analytics for health*
+* Container images are downloaded from the Microsoft Container Registry (MCR)
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.

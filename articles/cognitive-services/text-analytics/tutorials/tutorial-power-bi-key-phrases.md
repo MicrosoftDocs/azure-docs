@@ -221,7 +221,7 @@ The Sentiment Analysis function below returns a label indicating how positive th
 // Returns the sentiment label of the text, for example, positive, negative or mixed.
 (text) => let
     apikey = "YOUR_API_KEY_HERE",
-    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1-preview.5/sentiment",
+    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/sentiment",
     jsontext = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody = Text.ToBinary(jsonbody),

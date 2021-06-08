@@ -71,7 +71,7 @@ See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for 
 
 ### Example asynchronous request object
 
-Starting in `v3.1-preview.3`, You can send NER requests asynchronously using the `/analyze` endpoint.
+Starting in `v3.1`, You can send NER requests asynchronously using the `/analyze` endpoint.
 
 
 ```json
@@ -126,7 +126,7 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
-An example of the output for key phrase extraction from the v3.1-preview endpoint is shown here:
+An example of the output for key phrase extraction from the v3.1 endpoint is shown here:
 
 ### Synchronous result
 

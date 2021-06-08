@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 06/08/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -33,7 +33,7 @@ ms.author: aahi
 | Spanish               |     `es`      |     ✓      |         2019-10-01         |                    |
 | Turkish               |     `tr`      |     ✓       |         2020-04-01        |                    |
 
-### Opinion mining (v3.1-preview only)
+### Opinion mining (v3.1 only)
 
 | Language              | Language code | Starting with v3 model version: |              Notes |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
