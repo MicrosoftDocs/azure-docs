@@ -138,7 +138,7 @@
         href: connect-windows-security-events.md
       - name: Windows Virtual Desktop
         href: connect-windows-virtual-desktop.md
-    - name: Connect external solutions
+    - name: Connect partner data sources
       items:
       - name: Agari Phishing Defense and Brand Protection
         href: connect-agari-phishing-defense.md

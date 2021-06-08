@@ -6,7 +6,7 @@ documentationcenter: na
 author: batamig
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 06/07/2021
 ms.author: bagol
 
 ---
@@ -14,6 +14,8 @@ ms.author: bagol
 # Azure Sentinel partner data connectors
 
 This article lists the data connectors Azure Sentinel supports for non-Microsoft, Partner organizations, in alphabetical order. If you know the connector you're looking for, scroll to or search for its name on this page, or use the links at the right or top of the article.
+
+To enable and configure the connectors, see [Connect data sources](connect-data-sources.md), and the links in the individual listings.
 
 For information about Microsoft-authored and service-to-service data connectors, see [Service to service integration](connect-data-sources.md#service-to-service-integration).
 
