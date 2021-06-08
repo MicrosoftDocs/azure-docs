@@ -1,6 +1,7 @@
 ---
 title: Deploy SAP S/4HANA or BW/4HANA on an Azure VM | Microsoft Docs
 description: Deploy SAP S/4HANA or BW/4HANA on an Azure VM
+ms.service: virtual-machines-sap
 author: hobru
 manager: maordish
 editor: ''
