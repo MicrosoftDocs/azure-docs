@@ -74,7 +74,7 @@ Change feed is available for each logical partition key within the container, an
 
 * Only the most recent change for a given item is included in the change log. Intermediate changes may not be available.
 
-* Each change included in the chang log appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. [using change feed with change feed processor](change-feed-processor.md).
+* Each change included in the change log appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. [using change feed with change feed processor](change-feed-processor.md).
 
 * The change feed is sorted by the order of modification within each logical partition key value. There is no guaranteed order across the partition key values.
 
