@@ -16,8 +16,6 @@ zone_pivot_groups: how-to-troubleshoot-monitoring-and-faq-zpg
 #  title: What does your question relate to?
 #  prompt: What does your question relate to?
 #  pivots:
-#  - id: troubleshoot
-#    title: Troubleshooting
 #  - id: metrics-collection
 #    title: Metrics collection
 #  - id: custom-metrics

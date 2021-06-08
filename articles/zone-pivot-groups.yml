@@ -1263,8 +1263,8 @@ groups:
     title: Facility Ontology 2.0 
 # Owner: veyalla
 - id: how-to-troubleshoot-monitoring-and-faq-zpg
-  title: what-does-your-question-relate-to
-  prompt: What does your question relate to?
+  title: Azure Monitor for IoT Edge FAQ
+  prompt: Choose a topic
   pivots:
   - id: metrics-collection
     title: Metrics collection
@@ -1274,5 +1274,28 @@ groups:
     title: Alerts
   - id: workbooks
     title: Workbooks
-
-    
+# Owner: barclayn
+- id: identity-mi-methods
+  title: Managed identities methods
+  prompt: Choose an option
+  pivots:
+  - id: identity-mi-methods-azp
+    title: Azure portal
+  - id: identity-mi-methods-azcli
+    title: Azure CLI
+  - id: identity-mi-methods-powershell
+    title: PowerShell
+  - id: identity-mi-methods-arm
+    title: Resource Manager
+  - id: identity-mi-methods-rest
+    title: REST
+- id: identity-mi-method-sub
+  title: Managed identities method subset
+  prompt: Choose an option
+  pivots:
+  - id: identity-mi-methods-sub-azp
+    title: Azure portal
+  - id: identity-mi-methods-sub-azcli
+    title: Azure CLI
+  - id: identity-mi-methods-sub-powershell
+    title: PowerShell

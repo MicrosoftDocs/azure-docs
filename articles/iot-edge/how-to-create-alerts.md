@@ -31,7 +31,7 @@ To access the example alert queries, use the following steps:
 
 :::image type="content" source="./media/how-to-create-alerts/example-alerts.png" alt-text="Access example alert queries." lightbox="image-file-expanded.png":::
 
-The [metrics-collector module](how-to-collect-and-transport-metrics.md#metrics-collector-module) ingests all data into the standard [InsightsMetrics](https://docs.microsoft.com/azure/azure-monitor/reference/tables/insightsmetrics) table. You can create alert rules based on metrics data from custom modules by querying the same table.
+The [metrics-collector module](how-to-collect-and-transport-metrics.md#metrics-collector-module) ingests all data into the standard [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. You can create alert rules based on metrics data from custom modules by querying the same table.
 
 ### Split by device dimension
 
