@@ -10,7 +10,7 @@ ms.author: jushiman
 #pmcontact: shants
 ---
 
-# Preview: Maintenance control for Azure virtual machine scale sets 
+# Maintenance control for Azure virtual machine scale sets 
 
 Manage [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for your virtual machine scale sets using maintenance control.
 
@@ -22,11 +22,6 @@ The entire workflow comes down to these steps:
 - Create a maintenance configuration.
 - Associate a virtual machine scale set to a maintenance configuration.
 - Enable automatic OS upgrades.
-
-> [!IMPORTANT]
-> Maintenance control for OS image upgrades on Azure virtual machine scale sets is currently in Public Preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Limitations
