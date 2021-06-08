@@ -36,7 +36,7 @@ Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances 
 > Starting mid-late May 2021, a minimum subnet size of /24 (256 IPs) per Application Gateway v2 SKU (Standard_v2 or WAF_v2) will be required for new deployments. Existing deployments will not be affected by this requirement but are encouraged to move to a subnet with at least 256 IPs per v2 gateway. This requirement will ensure the subnet has sufficient IP addresses for the gateway to undergo maintenance updates without impact on available capacity.
 
 > [!TIP]
-> It is possible to change the subnet of an existing Application Gateway within the same Virtual Network. You can do so through PowerShell or CLI by following the [steps given here](./blob/master/articles/application-gateway/application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway). 
+> It is possible to change the subnet of an existing Application Gateway within the same virtual network. You can do this using Azure PowerShell or Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway)
 
 ## Network security groups
 
