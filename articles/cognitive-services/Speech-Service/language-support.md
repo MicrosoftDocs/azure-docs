@@ -474,6 +474,7 @@ Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based
 | Portuguese (Brazil) | `pt-BR` | Yes | Yes |
 | Spanish (Mexico) | `es-MX` | Yes | Yes |
 | Spanish (Spain) | `es-ES` | Yes | Yes |
+| Norwegian (Bokmål, Norway) | `nb-NO` | Yes | No |
 
 Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 
