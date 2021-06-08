@@ -41,9 +41,9 @@ New theme is available: 'Azure' along with the 'light' and 'dark themes. To sele
 
 Three new Git-Hub projects are available at our [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer):
 
-1. Code to help you leverage the newly added [widget customization](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets).
-1. Solution to help you add [custom search](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/VideoSearchWithAutoMLVision) to your video libraries.
-1. Solution to help you add [de-duplication](https://github.com/Azure-Samples/media-services-video-indexer/commit/6b828f598f5bf61ce1b6dbcbea9e8b87ba11c7b1) to your video libraries.
+* Code to help you leverage the newly added [widget customization](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets).
+* Solution to help you add [custom search](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/VideoSearchWithAutoMLVision) to your video libraries.
+* Solution to help you add [de-duplication](https://github.com/Azure-Samples/media-services-video-indexer/commit/6b828f598f5bf61ce1b6dbcbea9e8b87ba11c7b1) to your video libraries.
  
 ### New option to toggle bounding boxes (for observed people) on the player  
 
@@ -208,7 +208,7 @@ New list view with ability to sort and manage video archive with multiple files.
 
 Side panel for easy selection and user configuration was added, allowing simple and quick account creation and sharing as well as setting configuration.
 
-Side panel is also used for user preferences and helps.
+Side panel is also used for user preferences and help.
 
 ## June 2020
 
