@@ -191,7 +191,9 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az config param-persist on
     ```
     # [Azure PowerShell](#tab/azure-powershell) 
+    
     This feature isn't available in Azure PowerShell.
+    
     ---
 
 1. Create a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region. 
