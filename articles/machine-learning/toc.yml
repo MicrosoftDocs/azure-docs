@@ -492,7 +492,9 @@
             - name: Use managed online endpoints in studio
               href: how-to-use-managed-online-endpoint-studio.md
             - name: Viewing managed online endpoint costs
-              href: how-to-view-online-endpoints-costs.md              
+              href: how-to-view-online-endpoints-costs.md
+            - name: Use REST to deploy a model as a managed online endpoint
+              href: how-to-deploy-with-rest.md
             - name: Managed online endpoints VM SKU list
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Monitoring managed online endpoints
@@ -651,7 +653,10 @@
     - name: R SDK
       displayName: api, core, package, R, class
       href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
-    - name: CLI
+    - name: 2.0 CLI
+      displayName: extension, command line, command-line, az, ci/cd, automate, automated
+      href: /cli/azure/ml/
+    - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
     - name: REST API
@@ -661,6 +666,8 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
+    - name: Managed online endpoint YAML reference
+      href: reference-online-endpoint-yaml.md
     - name: Machine learning pipeline YAML reference
       href: reference-pipeline-yaml.md
     - name: Sovereign cloud parity

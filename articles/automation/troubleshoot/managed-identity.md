@@ -4,7 +4,6 @@ description: This article tells how to troubleshoot and resolve issues when usin
 services: automation
 ms.subservice:
 ms.date: 04/28/2021
-ms.author: v-dturcaso
 ms.topic: troubleshooting
 ---
 

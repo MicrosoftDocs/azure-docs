@@ -291,7 +291,7 @@ After machines are replicated, they are ready for migration. To migrate your ser
 
     ![Replicating servers](../../../migrate/media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
-2. To ensure the migrated server is synchronized with the source server, stop the SQL Server service on every replica in the availability group, starting with secondary replicas (in **SQL Server Configuration Manager** > **Services) while ensuring the disks hosting SQL data are online.   
+2. To ensure the migrated server is synchronized with the source server, stop the SQL Server service on every replica in the availability group, starting with secondary replicas (in **SQL Server Configuration Manager** > **Services**) while ensuring the disks hosting SQL data are online.   
 3. In **Replicating machines** > select server name > **Overview**, ensure that the last synchronized timestamp is after you have stopped the SQL Server service on the servers to be migrated before you move onto the next step. This should only take a few minutes. 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
