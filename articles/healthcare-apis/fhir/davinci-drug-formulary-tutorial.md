@@ -26,11 +26,9 @@ missing search parameters and missing profiles.
 As part of the Da Vinci Drug Formulary IG, you'll need to define three [new search parameters](how-to-do-custom-search.md) for the FormularyDrug resource. All three of these are tested in the
 capability statement.
 
--   [DrugTier](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugTier.json.html)
-
--   [DrugPlan](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugPlan.json.html)
-
--   [DrugName](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugName.json.html)
+* [DrugTier](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugTier.json.html)
+* [DrugPlan](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugPlan.json.html)
+* [DrugName](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugName.json.html)
 
 The rest of the search parameters needed for the Da Vinci Drug Formulary IG are defined by the base specification and are already available in the Azure API for FHIR without any more updates.
 
@@ -38,11 +36,8 @@ The rest of the search parameters needed for the Da Vinci Drug Formulary IG are 
 
 Outside of defining search parameters, the only other update you need to make to pass this test is to load the [required profiles](validation-against-profiles.md). There are two profiles used as part of the Da Vinci Drug Formulary IG.
 
--   [Formulary
-    Drug](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/StructureDefinition-usdf-FormularyDrug.html)
-
--   [Formulary Coverage
-    Plan](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/StructureDefinition-usdf-CoveragePlan.html)
+* [Formulary Drug](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/StructureDefinition-usdf-FormularyDrug.html)
+* [Formulary Coverage Plan](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/StructureDefinition-usdf-CoveragePlan.html)
 
 ### Sample rest file
 
