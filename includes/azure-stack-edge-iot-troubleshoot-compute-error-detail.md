@@ -6,26 +6,11 @@ ms.topic: include
 ms.date: 06/08/2021
 ---
 
-Use the IoT Edge agent runtime responses to troubleshoot compute-related errors. Here is a list of possible responses:
-
-* 200 - OK
-* 400 - The deployment configuration is malformed or invalid.
-* 417 - The device doesn't have a deployment configuration set.
-* 412 - The schema version in the deployment configuration is invalid.
-* 406 - The IoT Edge device is offline or not sending status reports.
-* 500 - An error occurred in the IoT Edge runtime.
-
-For more information, see [IoT Edge Agent](../articles/iot-edge/iot-edge-runtime.md?preserve-view=true&view=iotedge-2018-06#iot-edge-agent).
-
-<!--MOVE THE REST TO SEPARATE TOPIC: azure-stack-edge-troubleshoot-compute-error-detail.md
-
-The following error is related to the IoT Edge service on your Azure Stack Edge Pro device.
-
 ### Compute modules have Unknown status and can't be used
 
 #### Error description
 
-All modules on the device show Unknown status and can't be used. The Unknown status persists through a reboot.
+All modules on the device show Unknown status and can't be used. The Unknown status persists through a reboot.<!--Original Support ticket relates to trying to deploy a container app on a Hub. Based on the work item, I assume the error description should not be that specific, and that the error applies to Azure Stack Edge Devices, which is the focus of this troubleshooting.-->
 
 #### Suggested solution
 
@@ -88,7 +73,7 @@ You can specify fixed IP addresses for your IoT Edge modules via the K8s-experim
 
 #### Problem description
 
-By default, the IoT service type is of type load balancer and assigned externally facing IP addresses. You may not want an external-facing IP address for your application. You may need to expose the pods within the Kubernetes cluster for access as other pods and not as an externally exposed load balancer service. 
+By default, the IoT service type is of type load balancer and assigned externally facing IP addresses. You may not want an external-facing IP address for your application. You may need to expose the pods within the KUbernetes cluster for access as other pods and not as an externally exposed load balancer service. 
 
 #### Suggested solution
 
@@ -103,4 +88,3 @@ You can use the create options via the K8s-experimental section. The following s
   }
 }
 ```
--->

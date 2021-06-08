@@ -14,12 +14,11 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-and-gateway-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-databox-gateway-sku.md)]
 
-
-This article describes how to troubleshoot issues with Blob storage on your Azure Stack Edge Pro GPU or Data Box Gateway device. 
+This article describes how to troubleshoot issues with Blob storage for your Azure Stack Edge Pro GPU or Data Box Gateway device. 
 
 ## Errors for Blob storage on device 
 
-Here are the errors related to Blob storage on an Azure Stack Edge Pro or Data Box Gateway device.
+Here are the errors related to Blob storage for an Azure Stack Edge Pro GPU or Data Box Gateway device.
 
 | **Issue / Errors** |  **Resolution** | 
 |--------------------|-----------------|
@@ -39,4 +38,5 @@ Here are the errors related to Blob storage on an Azure Stack Edge Pro or Data B
 
 ## Next steps
 
+- [Additional Blob storage issues for Data Box Gateway](data-box-gateway-troubleshoot.md#use-logs-to-troubleshoot).
 - [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md).
