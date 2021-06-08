@@ -70,7 +70,7 @@ Modify the cache object to include the following required and optional propertie
 ```
 
 > [!NOTE]
-> The indexer cache requires a general purpose v2 storage account. For more information, review the [different types of storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+> The indexer cache requires a general purpose v2 storage account. For more information, review the [different types of storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 ### Step 3: Reset the indexer
 
@@ -122,7 +122,7 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-After the indexer runs, you can find the cache in Azure Blob storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
+After the indexer runs, you can find the cache in Azure Blob Storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
 > [!NOTE]
 > A reset and rerun of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be rerun on all documents.

@@ -25270,6 +25270,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-pnp/concepts-common-interfaces.md",
       "redirect_url": "/azure/iot-pnp/",
       "redirect_document_id": false
@@ -29476,103 +29506,158 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/azure-app-apis.md",
+      "redirect_url": "/azure/marketplace/azure-app-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-test-publish.md",
+      "redirect_url": "/azure/marketplace/azure-app-test-publish",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-technical.md",
+      "redirect_url": "/azure/marketplace/azure-app-technical-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-properties.md",
+      "redirect_url": "/azure/marketplace/azure-app-properties",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-solution.md",
+      "redirect_url": "/azure/marketplace/azure-app-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-preview.md",
+      "redirect_url": "/azure/marketplace/azure-app-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-plans.md",
+      "redirect_url": "/azure/marketplace/azure-app-plans",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-marketing.md",
+      "redirect_url": "/azure/marketplace/azure-app-marketing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-managed.md",
+      "redirect_url": "/azure/marketplace/azure-app-managed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-listing.md",
+      "redirect_url": "/azure/marketplace/azure-app-offer-listing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer.md",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/managed-application-author-marketplace.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/managed-application-consume-marketplace.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/managed-applications/publish-marketplace-app.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-testdrive-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-azure-apps-offer.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-pre-requisites.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-push-to-production.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-push-to-staging.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-solution-template-creation.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-solution-template-creation-prerequisites.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-solution-template-test-in-staging.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -29851,33 +29936,73 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/ratings-reviews.md",
+      "redirect_url": "/azure/marketplace/ratings-reviews",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/downloads-dashboard.md",
+      "redirect_url": "/azure/marketplace/downloads-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/azure-app-metered-billing.md",
+      "redirect_url": "/azure/marketplace/azure-app-metered-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/marketplace-metering-service-authentication.md",
+      "redirect_url": "/azure/marketplace/marketplace-metering-service-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/marketplace-metering-service-apis-faq.md",
+      "redirect_url": "/azure/marketplace/marketplace-metering-service-apis-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/marketplace-metering-service-apis.md",
+      "redirect_url": "/azure/marketplace/marketplace-metering-service-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/azure-apps-review-feedback.md",
+      "redirect_url": "/azure/marketplace/azure-app-review-feedback",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/analytics.md",
+      "redirect_url": "/azure/marketplace/analytics",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/portal-tour/cpp-insights-page.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/si-changes.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/si-getting-started.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/si-Insights-definitions-v4.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/web-analytics.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-apps-review-feedback",
+      "redirect_url": "/azure/marketplace/azure-apps-review-feedback",
       "redirect_document_id": false
     },
     {
@@ -30162,32 +30287,32 @@
     },
     {
       "source_path_from_root": "/articles/managed-applications/publish-marketplace-app.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-powershell-setup.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -41673,6 +41798,11 @@
     {
       "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md",
       "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cloud-services-extended-support/cses-support-help.md",
+      "redirect_url": "/azure/cloud-services-extended-support/support-help",
       "redirect_document_id": false
     },
     {
@@ -66891,6 +67021,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
+      "redirect_url": "/azure/virtual-desktop/teams-on-avd",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure/media-services/video-indexer/",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
       "redirect_document_id": false
@@ -66918,6 +67053,11 @@
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-download-sign-in-report.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-download-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
+      "redirect_url": "/azure/iot-develop/",
       "redirect_document_id": false
     }
   ]

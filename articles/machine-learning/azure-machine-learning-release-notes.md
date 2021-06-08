@@ -24,6 +24,28 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
 
+## 2021-06-07
+
+### Azure Machine Learning SDK for Python v1.30.0
++ **Bug fixes and improvements**
+  + **azureml-core**
+    + Pin dependency `ruamel-yaml` to < 0.17.5 as a breaking change was released in 0.17.5.
+    + `aml_k8s_config` property is being replaced with `namespace`, `default_instance_type`, and `instance_types` parameters for `KubernetesCompute` attach.
+    + Workspace sync keys was changed to a long running operation.
+  + **azureml-automl-runtime**
+    + Fixed problems where runs with big data may fail with `Elements of y_test cannot be NaN`.
+  + **azureml-mlflow**
+    + MLFlow deployment plugin bugfix for models with no signature.
+  + **azureml-pipeline-steps**
+    + ParallelRunConfig: update doc for process_count_per_node.
+  + **azureml-train-automl-runtime**
+    + Support for custom defined quantiles during MM inference
+    + Support for forecast_quantiles during batch inference.
+  + **azureml-contrib-automl-pipeline-steps**
+    + Support for custom defined quantiles during MM inference
+    + Support for forecast_quantiles during batch inference.
+
+
 ### Azure Machine Learning SDK for Python v1.29.0
 + **Bug fixes and improvements**
   + **Breaking changes**

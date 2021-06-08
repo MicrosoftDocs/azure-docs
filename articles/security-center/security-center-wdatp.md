@@ -84,7 +84,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 ### Enable the integration
 1. From Security Center's menu, select **Pricing & settings** and select the subscription you want to change.
-1. Select **Threat detection**.
+1. Select **Integrations**.
 1. Select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Enable the integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
