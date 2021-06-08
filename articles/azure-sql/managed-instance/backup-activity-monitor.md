@@ -30,7 +30,7 @@ Use the extended event `backup_restore_progress_trace` to record the progress of
 
 ### Simple tracking
 
-Configure a simple XEvent session to capture simple events about complete full backups. This scripts collects the name of the database, the total number of bytes processed, and the time the backup completed.
+Configure a simple XEvent session to capture simple events about complete full backups. This script collects the name of the database, the total number of bytes processed, and the time the backup completed.
 
 Use Transact-SQL (T-SQL) to configure the simple XEvent session: 
 
