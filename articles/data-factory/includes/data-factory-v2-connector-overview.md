@@ -1,9 +1,9 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/1/2021
-ms.author: jingwang
+ms.date: 06/01/2021
+ms.author: jianleishen
 ---
 
 | Category              | Data store                                                   | [Copy activity](../copy-activity-overview.md)  (source/sink) | [Mapping Data Flow](../concepts-data-flow-overview.md) (source/sink) | [Lookup Activity](../control-flow-lookup-activity.md) | [Get Metadata Activity](../control-flow-get-metadata-activity.md)/[Validation Activity](../control-flow-validation-activity.md) | [Delete Activity](../delete-activity.md) |
