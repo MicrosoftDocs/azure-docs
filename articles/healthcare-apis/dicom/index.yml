@@ -8,7 +8,7 @@ metadata:
   description: DICOM documentation section for Azure Healthcare APIs
   services: healthcare-apis
   ms.service: healthcare-apis
-  ms.subservice: dicom
+  ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
   author: ginalee-dotcom
@@ -23,5 +23,5 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Placeholder
-            url: placeholder-dicom.md
+          - text: DICOM overview
+            url: dicom-overview.md

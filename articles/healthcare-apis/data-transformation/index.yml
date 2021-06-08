@@ -21,7 +21,7 @@ landingContent:
 
   - title: Start with Data Transformation
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
-          - text: Placeholder
-            url: placeholder-data-transformation.md
+          - text: C-CDA to FHIR Conversion
+            url: ccda-to-fhir-conversion.md

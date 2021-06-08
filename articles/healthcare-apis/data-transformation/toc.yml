@@ -1,6 +1,8 @@
+items:
 - name: Data Transformation
   href: index.yml
-- name: Overview
+- name: How-to Guides
+  expanded: true
   items:
-  - name: About Data Transformation
-    href: placeholder-data-transformation.md
+    - name: C-CDA to FHIR Conversion
+      href: ccda-to-fhir-conversion.md
