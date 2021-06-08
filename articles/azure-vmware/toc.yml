@@ -40,14 +40,14 @@
   items:
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
-  - name: Private cloud networking and interconnectivity
+  - name: Networking and interconnectivity
     href: concepts-networking.md
-  - name: Storage in private clouds
+  - name: Storage 
     href: concepts-storage.md
-  - name: Access and identity for private clouds
+  - name: Access and identity
     href: concepts-identity.md
-  - name: Monitor and repair private clouds
-    href: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+  - name: Monitor and protection
+    href: concepts-monitor-protection.md
   - name: API Management
     href: concepts-api-management.md
   - name: Hub and spoke
@@ -104,10 +104,8 @@
         href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
   - name: Azure native integration
     items:
-    - name: Protect VMs with Azure Security Center
-      href: azure-security-integration.md
-    - name: Monitor and manage VMs
-      href: lifecycle-management-of-azure-vmware-solution-vms.md
+    - name: Protect, monitor, and manage VMs
+      href: integrate-azure-native-services.md
     - name: Integrate Azure NetApp Files
       href: netapp-files-with-azure-vmware-solution.md
     - name: Protect web apps with Azure Application Gateway

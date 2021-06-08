@@ -27,14 +27,14 @@ landingContent:
         links:
           - text: Private cloud and clusters
             url: concepts-private-clouds-clusters.md
-          - text: Private cloud networking and interconnectivity
+          - text: Networking and interconnectivity
             url: concepts-networking.md
-          - text: Storage in private clouds
+          - text: Storage 
             url: concepts-storage.md
-          - text: Access and identity for private clouds
+          - text: Access and identity 
             url: concepts-identity.md
-          - text: Monitor and repair private clouds
-            url: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+          - text: Monitor and protection
+            url: concepts-monitor-protection.md
           - text: API Management
             url: concepts-api-management.md
           - text: Hub and spoke
@@ -142,10 +142,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Protect VMs with Azure Security Center
-            url: azure-security-integration.md
-          - text: Monitor and manage VMs
-            url: lifecycle-management-of-azure-vmware-solution-vms.md
+          - text: Protect, monitor, and manage VMs
+            url: integrate-azure-native-services.md
           - text: Integrate Azure NetApp Files
             url: netapp-files-with-azure-vmware-solution.md
           - text: Protect web apps with Azure Application Gateway
