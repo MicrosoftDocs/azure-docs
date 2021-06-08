@@ -42,7 +42,7 @@ Azure Digital Twins can send data to connected **endpoints**. Supported endpoint
 
 Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal. Learn more about how to attach an endpoint to Azure Digital Twins in [How-to: Manage endpoints and routes](how-to-manage-routes-apis-cli.md).
 
-There are many other services where you may want to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md), or [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). To send your data to services like these, attach the destination service to an endpoint.
+There are many other services where you may want to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md), [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), or [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). To send your data to services like these, attach the destination service to an endpoint.
 
 For example, if you are also using Azure Maps and want to correlate location with your Azure Digital Twins [twin graph](concepts-twins-graph.md), you can use Azure Functions with Event Grid to establish communication between all the services in your deployment. Learn more about this in [How-to: Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md)
 

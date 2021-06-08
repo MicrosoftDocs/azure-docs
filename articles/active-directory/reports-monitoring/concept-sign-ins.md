@@ -35,7 +35,7 @@ This article gives you an overview of the sign-ins report.
 
 ## What can you do with it?
 
-You can use the the sign-ins log to find answers to questions like:
+You can use the sign-ins log to find answers to questions like:
 
 - What is the sign-in pattern of a user?
 
