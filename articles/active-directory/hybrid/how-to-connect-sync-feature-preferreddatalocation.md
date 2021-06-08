@@ -4,7 +4,7 @@ description: Describes how to put your Microsoft 365 user resources close to the
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid:
 ms.service: active-directory
