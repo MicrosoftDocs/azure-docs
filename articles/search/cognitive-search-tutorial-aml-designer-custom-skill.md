@@ -14,7 +14,7 @@ ms.date: 04/16/2021
 
 [Azure Machine Learning designer](../machine-learning/concept-designer.md) is an easy to use interactive canvas to create machine learning models for tasks like regression and classification. Invoking the model created by the designer in a Cognitive Search enrichment pipeline requires a few additional steps. In this example, you will create a simple regression model to predict the price of an automobile and invoke the inferencing endpoint as an AML skill. 
 
-Follow the [Regression - Automobile Price Prediction (Advanced)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) tutorial in the [examples pipelines & datasets](../machine-learning/samples-designer.md) documentation page to create a model that predicts the price of an automobile given the different features.
+Follow the [Regression - Automobile Price Prediction (Advanced)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) tutorial in the [examples pipelines & datasets](../machine-learning/concept-designer.md) documentation page to create a model that predicts the price of an automobile given the different features.
 
 > [!IMPORTANT] 
 > Deploying the model following the real time inferencing process will result in a valid endpoint, but not one that you can use with the AML skill in Cognitive Search. 
@@ -206,7 +206,7 @@ Select the model and select on the `Deploy` action. The deployment step assumes 
 
 To integrate the newly created endpoint with Cognitive Search
 1. Add a JSON file containing a single automobile record to a blob container
-2. Configure a AI enrichment pipeline using the [import data workflow](./cognitive-search-quickstart-blob.md). Be sure to select `JSON` as the `parsing mode`
+2. Configure a AI enrichment pipeline using the [import data workflow](cognitive-search-quickstart-blob.md). Be sure to select `JSON` as the `parsing mode`
 3. On the `Add Enrichments` tab, select a single skill `Extract people names` as a placeholder.
 4. Add a new field to the index called `predicted_price` of type `Edm.Double`, set the Retrievable property to true.
 5. Complete the import data process

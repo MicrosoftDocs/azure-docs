@@ -22,6 +22,7 @@ Create a resource using an Azure Resource Manager template (ARM template). This 
 
 * Access multiple Azure Cognitive Services with a single key and endpoint.
 * Consolidate billing from the services you use.
+* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
