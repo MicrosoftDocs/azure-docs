@@ -25,5 +25,5 @@ This article describes how to troubleshoot compute-related errors on an Azure St
 
 ## Next steps
 
-- [Debug Kubernetes issues related to IoT Edge]azure-stack-edge-gpu-connect-powershell.md-interface#debug-kubernetes-issues-related-to-iot-edge).
+- [Debug Kubernetes issues related to IoT Edge](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge).
 - [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot.md).
