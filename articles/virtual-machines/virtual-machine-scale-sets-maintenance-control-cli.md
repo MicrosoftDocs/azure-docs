@@ -65,69 +65,6 @@ az maintenance configuration create \
 
 Use `az maintenance assignment create` to assign the configuration to your isolated VM or Azure Dedicated Host.
 
-### Isolated VM
-
-Apply the configuration to a VM using the ID of the configuration. Specify `--resource-type virtualMachines` and supply the name of the VM for `--resource-name`, and the resource group for to the VM in `--resource-group`, and the location of the VM for `--location`. 
-
-```azurecli-interactive
-az maintenance assignment create \
-   --resource-group myMaintenanceRG \
-   --location eastus \
-   --resource-name myVM \
-   --resource-type virtualMachines \
-   --provider-name Microsoft.Compute \
-   --configuration-assignment-name myConfig \
-   --maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
-```
-
-### Dedicated host
-
-To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`. 
-
-The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view) to get the ID of your dedicated host.
-
-```azurecli-interactive
-az maintenance assignment create \
-   -g myDHResourceGroup \
-   --resource-name myHost \
-   --resource-type hosts \
-   --provider-name Microsoft.Compute \
-   --configuration-assignment-name myConfig \
-   --maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myDhResourceGroup/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig" \
-   -l eastus \
-   --resource-parent-name myHostGroup \
-   --resource-parent-type hostGroups 
-```
-
-## Check configuration
-
-You can verify that the configuration was applied correctly, or check to see what configuration is currently applied using `az maintenance assignment list`.
-
-### Isolated VM
-
-```azurecli-interactive
-az maintenance assignment list \
-   --provider-name Microsoft.Compute \
-   --resource-group myMaintenanceRG \
-   --resource-name myVM \
-   --resource-type virtualMachines \
-   --query "[].{resource:resourceGroup, configName:name}" \
-   --output table
-```
-
-### Dedicated host 
-
-```azurecli-interactive
-az maintenance assignment list \
-   --resource-group myDHResourceGroup \
-   --resource-name myHost \
-   --resource-type hosts \
-   --provider-name Microsoft.Compute \
-   --resource-parent-name myHostGroup \
-   --resource-parent-type hostGroups 
-   --query "[].{ResourceGroup:resourceGroup,configName:name}" \
-   -o table
-```
 
 ## Enable automatic OS upgrade
 
