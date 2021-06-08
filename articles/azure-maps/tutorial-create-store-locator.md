@@ -156,7 +156,7 @@ If you open the text file in Notepad, it looks similar to the following text:
 
     Your workspace folder should now look like the following screenshot:
 
-    :::image type="content" source="./media/tutorial-create-store-locator/store-locator-vscode-workspace.png" alt-text="Screenshot of the Simple Store Locator workspace folder.":::
+    :::image type="content" source="./media/tutorial-create-store-locator/store-locator-workspace.png" alt-text="Screenshot of the Simple Store Locator workspace folder.":::
 
 ## Create the HTML
 
