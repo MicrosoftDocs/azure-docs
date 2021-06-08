@@ -1,6 +1,6 @@
 ---
 title: Azure marketplace offer for Red Hat JBoss EAP on Azure Red Hat Enterprise Linux Virtual Machine (VM) and virtual machine scale sets
-description: How to deploy Red Hat JBoss EAP on Azure Red Hat Enterpise Linux (RHEL) VM and virtual machine scale sets using Azure marketplace offer.
+description: How to deploy Red Hat JBoss EAP on Azure Red Hat Enterprise Linux (RHEL) VM and virtual machine scale sets using Azure marketplace offer.
 author: theresa-nguyen
 ms.author: bicnguy
 ms.topic: article
@@ -40,8 +40,8 @@ The six available plans are:
 - JBoss EAP 7.3 on RHEL 8.3 Stand-alone VM (BYOS)
 - JBoss EAP 7.3 on RHEL 8.3 Clustered VM (PAYG)
 - JBoss EAP 7.3 on RHEL 8.3 Clustered VM (BYOS)
-- JBoss EAP 7.3 on RHEL 8.3 Clustered VMSS (PAYG)
-- JBoss EAP 7.3 on RHEL 8.3 Clustered VMSS (BYOS)
+- JBoss EAP 7.3 on RHEL 8.3 Clustered virtual machine scale set (PAYG)
+- JBoss EAP 7.3 on RHEL 8.3 Clustered virtual machine scale set (BYOS)
 
 ## Using RHEL OS with PAYG model
 
