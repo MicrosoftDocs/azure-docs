@@ -16,14 +16,14 @@ ms.date: 06/02/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. You'll also use IoT Explorer and IoT Plug and Play to manage the MXCHIP DevKit. IoT Plug and Play provides an open device model that lets applications programmatically query a device's capabilities and interact with it. A device uses this model to broadcast its capabilities to an IoT Plug and Play-enabled application. By using this model, you can streamline and enhance the tasks of adding, configuring, and managing devices. For more information see the [IoT Plug and Play documentation](https://docs.microsoft.com/azure/iot-pnp/).
 
 You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming the MXChip DevKit in C
 * Build an image and flash it onto the MXCHIP DevKit
 * Use Azure CLI to create and manage an Azure IoT hub that the MXCHIP DevKit will securely connect to
-* Use Azure IoT Explorer to view properties, view device telemetry, and call direct commands
+* Use Azure IoT Explorer to register a device with your IoT hub, view device properties, view device telemetry, and call direct commands on the device
 
 ## Prerequisites
 
@@ -95,7 +95,7 @@ To create an IoT hub:
     > [!NOTE] 
     > You can optionally set an alternate `location`. To see available locations, run [az account list-locations](/cli/azure/account#az-account-list-locations). For this quickstart we recommend using `centralus` as in the example CLI command. The IoT Plug and Play feature that you use later in the quickstart, is currently only available in three regions, including `centralus`.
 
-    ```azurecli-interactive
+    ```azurecli
     az group create --name MyResourceGroup --location centralus
     ```
 
@@ -111,25 +111,53 @@ To create an IoT hub:
 
     `{Your IoT hub name}.azure-devices.net`
 
+### Configure IoT Explorer
+
+In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send a command to your device to turn on an LED. In this section, you configure IoT Explorer to connect to the IoT hub you just created and to read PnP models from the public model repository. 
+
+To add a connection to your IoT hub:
+
+1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) command to get the connection string for your IoT hub.
+
+    ```azurecli
+    az iot hub connection-string  show --hub-name {YourIoTHubName}
+    ```
+
+1. Copy the connection string without the surrounding quotation characters.
+1. In Azure IoT Explorer, select **IoT hubs** on the left menu, then select **+ Add connection**.
+1. Paste the connection string into the **Connection string** box.
+1. Select **Save**.
+
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-connection.png" alt-text="Azure IoT Explorer connection string":::
+
+    If the connection succeeds, IoT Explorer switches to a **Devices** view.
+
+To add the public model repository:
+
+1. In IoT Explorer, select **Home** to return to the home view.
+1. On the left menu, select **IoT Plug and Play Settings**, then select **+Add** and select **Public repository** from the drop-down menu.
+1. An entry appears for the public model repository at `https://devicemodels.azure.com`.
+
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-connection.png" alt-text="Azure IoT Explorer connection string":::
+
+1. Select **Save**.
+
 ### Register a device
 
 In this section, you create a new device instance and register it with the IoT hub you created. You will use the connection information for the newly registered device to securely connect your physical device in a later section.
 
 To register a device:
 
-1. In your CLI app, run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command. This creates the simulated device identity.
+1. From the home view in IoT Explorer, select **IoT hubs**.
+1. The connection you previously added should appear. Select **View devices in this hub** below the connection properties.
+1. Select **+ New** and enter a device ID for your device; for example, *mydevice*. Leave all other properties the same.
+1. Select **Create**.
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity pane":::
 
-    *mydevice*. You can use this name directly for the device in CLI commands in this quickstart. Optionally, use a different name.
+1. Use the copy buttons to copy and note down the **Device ID** and **Primary key** fields.
 
-    ```azurecli
-    az iot hub device-identity create --device-id mydevice --hub-name {YourIoTHubName}
-    ```
-
-1. After the device is created, view the JSON output in the console, and copy the `deviceId` and `primaryKey` values to use in a later step.
-
-Confirm that you've copied the following values from the JSON output from the previous sections:
+Before continuing to the next section, confirm that you've copied the following values:
 
 > * `hostName`
 > * `deviceId`
@@ -248,30 +276,11 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-> [!NOTE]
-> From this point in the quickstart, you can continue these steps, or you can optionally follow the same steps using the IoT Plug and Play preview. IoT Plug and Play provides a standard device model that lets a compatible device advertise its capabilities to an application. This approach simplifies the process of adding, configuring, and interacting with devices. To try IoT Plug and Play with your device, see [Using IoT Plug and Play with Azure RTOS](https://github.com/azure-rtos/getting-started/tree/master/docs/plugandplay.md).
-
-You can use the Azure IoT Explorer to view and manage the properties of your devices. In the following steps, you'll add a connection to your IoT hub in IoT Explorer. With the connection, you can view properties for devices associated with the IoT hub. Optionally, you can perform the same task using Azure CLI.
-
-To add a connection to your IoT hub:
-
-1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) command to get the connection string for your IoT hub.
-
-    ```azurecli
-    az iot hub connection-string  show --hub-name {YourIoTHubName}
-    ```
-
-1. Copy the connection string without the surrounding quotation characters.
-1. In Azure IoT Explorer, select **IoT hubs > Add connection**.
-1. Paste the connection string into the **Connection string** box.
-1. Select **Save**.
-
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-connection.png" alt-text="Azure IoT Explorer connection string":::
-
-If the connection succeeds, the Azure IoT Explorer switches to a **Devices** view and lists your device.
+You can use the Azure IoT Explorer to view and manage the properties of your devices. 
 
 To view device properties using Azure IoT Explorer:
 
+1. From the home view in IoT Explorer, select **IoT hubs** then select **View devices in this hub**. 
 1. Select the link for your device identity. IoT Explorer displays details for the device.
 
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-identity.png" alt-text="Azure IoT Explorer device identity":::
