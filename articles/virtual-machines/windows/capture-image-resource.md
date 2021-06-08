@@ -28,7 +28,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 >
 >Sysprep requires the drives to be fully decrypted. If you have enabled encryption on your VM, disable encryption from Azure before you run Sysprep. 
 >
->To disable Azure Disk Encryption with PowerShell, use Disable-AzVMDiskEncryption followed by Remove-AzVMDiskEncryptionExtension. Running Remove-AzVMDiskEncryptionExtension before the encryption is disabled will fail. The higher level commands not only unencrypt the disk from within the VM, but outside of the VM they also update important platform level encryption settings and extension settings associated with the VM. If these are not kept in alignment, the platform will not be able to report encryption status or provision the VM properly.
+>To disable Azure Disk Encryption with PowerShell, use Disable-AzVMDiskEncryption followed by Remove-AzVMDiskEncryptionExtension. Running Remove-AzVMDiskEncryptionExtension before the encryption is disabled fails. The higher-level commands not only unencrypt the disk from within the VM, but outside the VM, they also update important platform-level encryption settings and extension settings that are associated with the VM. If these settings aren't kept in alignment, the platform can't report encryption status or provision the VM properly.
 >
 > If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md).  
 > 
