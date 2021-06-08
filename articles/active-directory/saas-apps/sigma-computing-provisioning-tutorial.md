@@ -38,7 +38,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * An admin account in your Sigma organization.
-* An existing [SSO](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sigma-computing-tutorial) integration with Sigma Computing.
+* An existing [SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/sigma-computing-tutorial) integration with Sigma Computing.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
@@ -63,11 +63,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 7. Enter a Token name and click **Next**.
 
-   ![Token](media/sigma-computing-provisioning-tutorial/sigma-create-token.png)
+   ![Next](media/sigma-computing-provisioning-tutorial/sigma-create-token.png)
 
 8. Sigma will provide you with a **Bearer Token** and **Directory Base URL**. Copy and save these values in a secure location. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Sigma Computing application in the Azure portal. Click **Done**.
 
-   ![Copy](media/sigma-computing-provisioning-tutorial/sigma-copy-keys.png)
+   ![Sigma](media/sigma-computing-provisioning-tutorial/sigma-copy-keys.png)
    
 ## Step 3. Add Sigma Computing from the Azure AD application gallery
 
@@ -106,7 +106,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input your Sigma Computing Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Sigma Computing. If the connection fails, ensure your Sigma Computing account has Admin permissions and try again.
 
-   ![Token](common/provisioning-testconnection-tenanturltoken.png)
+   ![Auth](common/provisioning-testconnection-tenanturltoken.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
