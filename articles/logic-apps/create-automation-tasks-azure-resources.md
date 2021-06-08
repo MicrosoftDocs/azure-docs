@@ -5,15 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: conceptual
-ms.date: 05/01/2021
+ms.date: 06/08/2021
 ---
 
 # Manage Azure resources and monitor costs by creating automation tasks (preview)
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, 
-> and is not recommended for production workloads. Certain features might not be supported 
-> or might have constrained capabilities. For more information, see 
+> This capability is in preview, is not recommended for production workloads, and is excluded from service level agreements. 
+> Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
