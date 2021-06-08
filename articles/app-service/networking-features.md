@@ -20,6 +20,9 @@ There are two main deployment types for Azure App Service:
 
 The features you use will depend on whether you're in the multitenant service or in an ASE. 
 
+> [!NOTE]
+> Networking features are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
+
 ## Multitenant App Service networking features 
 
 Azure App Service is a distributed system. The roles that handle incoming HTTP or HTTPS requests are called *front ends*. The roles that host the customer workload are called *workers*. All the roles in an App Service deployment exist in a multitenant network. Because there are many different customers in the same App Service scale unit, you can't connect the App Service network directly to your network. 

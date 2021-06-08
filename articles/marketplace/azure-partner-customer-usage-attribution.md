@@ -5,7 +5,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/12/2021
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurepowershell
 ---
 
 # Azure customer usage attribution
@@ -27,7 +27,7 @@ There are secondary use cases for customer usage attribution outside of the comm
 
 ## Commercial marketplace Azure apps
 
-Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
+Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](./azure-app-solution.md#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
 
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center on your plan's Technical Configuration page. 
 

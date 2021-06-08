@@ -533,7 +533,7 @@ The following Azure Security Center **features are not currently available** in 
 
 **Azure Security Center FAQ**
 
-For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.md). Additional FAQ for Azure Security Center in Azure Government are listed below.
+For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.yml). Additional FAQ for Azure Security Center in Azure Government are listed below.
 
 **What will customers be charged for Azure Security Center in Azure Government?**</br>
 Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Azure Defender is free for the first 30 days. Should you choose to continue to use public preview or generally available features of Azure Defender beyond 30 days, we automatically start to charge for the service.

@@ -21,7 +21,7 @@ The **Overview** page in the Azure portal includes a brief view of the resource 
 > ![Monitoring on the Overview Page](./media/monitoring-overview-page.png)
 
 ## Monitoring data 
-App Configuration collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). See [Monitoring App Configuration data reference](/monitor-app-configuration-reference.md) for detailed information on the metrics and logs metrics created by App Configuration.
+App Configuration collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). See [Monitoring App Configuration data reference](/azure/azure-app-configuration/monitor-app-configuration-reference) for detailed information on the metrics and logs metrics created by App Configuration.
 
 ## Collection and routing
 Platform metrics and the activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.
@@ -90,7 +90,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 ---
 For more information on creating a diagnostic setting using the Azure portal, CLI, or PowerShell, see [create a diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings). 
 
-When you create a diagnostic setting, you specify which categories of logs to collect. For further information on the categories of logs for App Configuration, reference [App Configuration monitoring data reference](/monitor-app-configuration-reference.md#resource-logs).
+When you create a diagnostic setting, you specify which categories of logs to collect. For further information on the categories of logs for App Configuration, reference [App Configuration monitoring data reference](/azure/azure-app-configuration/monitor-app-configuration-reference#resource-logs).
 
 ## Analyzing metrics
 
@@ -105,13 +105,13 @@ In the portal, navigate to the **Metrics** section and select the **Metric Names
 > [!div class="mx-imgBorder"]
 > ![How to use App Config Metrics](./media/monitoring-analyze-metrics.png)
 
-For a list of the platform metrics collected for App Configuration, see [Monitoring App Configuration data reference metrics](/monitor-app-configuration-reference#metrics). For reference, you can also see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For a list of the platform metrics collected for App Configuration, see [Monitoring App Configuration data reference metrics](/azure/azure-app-configuration/monitor-app-configuration-reference#metrics). For reference, you can also see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Analyzing logs
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema). 
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
-For a list of the types of resource logs collected for App Configuration, see [Monitoring App Configuration data reference](/monitor-app-configuration-reference#logs). For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring App Configuration data reference](/monitor-app-configuration-reference#azuremonitorlogstables)  
+For a list of the types of resource logs collected for App Configuration, see [Monitoring App Configuration data reference](/azure/azure-app-configuration/monitor-app-configuration-reference#logs). For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring App Configuration data reference](/azure/azure-app-configuration/monitor-app-configuration-reference#azuremonitorlogstables)  
 
 >[!IMPORTANT]
 > When you select **Logs** from the App Configuration menu, Log Analytics is opened with the query scope set to the current app configuration resource. This means that log queries will only include data from that resource. 
@@ -174,13 +174,13 @@ The following table lists common and recommended alert rules for App C
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-|Rate Limit on Http Requests | Status Code = 429  | The configuration store has exceeded the [hourly request quota](/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade to a standard store or follow the [best practices](/howto-best-practices#reduce-requests-made-to-app-configuration) to optimize your usage. |
+|Rate Limit on Http Requests | Status Code = 429  | The configuration store has exceeded the [hourly request quota](/azure/azure-app-configuration/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade to a standard store or follow the [best practices](/azure/azure-app-configuration/howto-best-practices#reduce-requests-made-to-app-configuration) to optimize your usage. |
 
 
 
 ## Next steps
 
-* See [Monitoring App Configuration data reference](/monitor-app-configuration-reference.md) for a reference of the metrics, logs, and other important values created by App Configuration.
+* See [Monitoring App Configuration data reference](/azure/azure-app-configuration/monitor-app-configuration-reference) for a reference of the metrics, logs, and other important values created by App Configuration.
 
 * See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
 

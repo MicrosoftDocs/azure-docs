@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 05/20/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -140,7 +140,7 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 
 Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, custom line of business (LOB) applications, applications like SharePoint, or applications protected by Microsoft Cloud App Security (MCAS). 
 
-For example, an organization may keep different files in SharePoint like the lunch menu or their secret BBQ sauce recipe. Everyone may have access to the lunch menu, but users who have access to the secret BBQ sauce recipe may need to access from a managed device and agree to specific terms of use.
+For example, an organization may keep files in SharePoint sites like the lunch menu or their secret BBQ sauce recipe. Everyone may have access to the lunch menu site, but users who have access to the secret BBQ sauce recipe site may need to access from a managed device and agree to specific terms of use.
 
 ### Configure authentication contexts
 

@@ -63,6 +63,8 @@
       href: remote-work-support.md
     - name: FQDN in network rules
       href: fqdn-filtering-network-rules.md
+    - name: DNS Proxy details
+      href: dns-details.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
     - name: Active FTP support
