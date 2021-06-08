@@ -6,7 +6,7 @@ ms.author: apimpm
 ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 06/08/2021
 ---
 
 
@@ -49,9 +49,14 @@ You can pay for API Management charges with your Azure Prepayment (previously ca
 
 ## Monitor costs
 
-As you use Azure resources with API Management, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). As soon as API Management use starts, costs are incurred and you can see the costs in [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+As you use Azure resources with API Management, you incur costs, or billable meters. Azure resource usage unit costs vary by:
+* Time intervals (seconds, minutes, hours, and days)
+* Unit usage (bytes, megabytes, and so on)
+* Number of transactions
 
-When you use cost analysis, you view API Management costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
+As soon as API Management use starts, costs are incurred. You can see the costs in [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) or via the Azure Pricing Calculator.
+
+When you use cost analysis, you view API Management costs in graphs and tables for different time intervals (day, current and prior month, and year). You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
 
 > [!NOTE]
 > The costs shown in this example are for demonstration purposes only. Your costs will vary depending on resource usage and current pricing.
