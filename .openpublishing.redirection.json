@@ -67059,6 +67059,81 @@
       "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
       "redirect_url": "/azure/iot-develop/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/index.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/representative-use-case.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/02-representative-use-case.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/assessment.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/03-assessment.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/planning.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/04-planning.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/migration-methods.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/05-migration-methods.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/test-plans.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/06-test-plans.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/performance-baselines.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/07-performance-baselines.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/data-migration.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/08-data-migration.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/data-migration-with-mysql-workbench.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/09-data-migration-with-mysql-workbench.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/post-migration-management.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/10-post-migration-management.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/11-optimization.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/11-optimization.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/business-continuity-and-disaster-recovery.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/12-business-continuity-and-disaster-recovery.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/security.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/13-security.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/summary.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/14-summary.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/appendix.md",
+      "redirect_url": "/azure/mysql/mysql-on-premises-azure-db/15-appendix.md",
+      "redirect_document_id": false
     }
   ]
 }
