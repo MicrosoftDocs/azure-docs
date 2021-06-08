@@ -374,7 +374,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 
 ## Delete a user-assigned managed identity
 
-To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
+To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
 > [!NOTE]
 > Deleting a user-assigned managed identity will not remove the reference from any resource it was assigned to. To remove a user-assigned managed identity from a VM using CURL see [Remove a user-assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned-managed-identity-from-an-azure-vm).
