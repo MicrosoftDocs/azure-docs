@@ -1112,7 +1112,7 @@
       - name: Restore to a point in time
         href: managed-instance/point-in-time-restore.md
       - name: Monitor back up
-        href: managed-instance/monitor-backup-activity.md
+        href: managed-instance/backup-activity-monitor.md
       - name: Manually initiate a failover on managed instance
         href: managed-instance/user-initiated-failover.md
   - name: Samples
