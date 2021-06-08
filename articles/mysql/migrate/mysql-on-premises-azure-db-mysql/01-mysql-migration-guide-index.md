@@ -8,7 +8,7 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 05/25/2021
+ms.date: 06/09/2021
 ---
 
 # MySQL on-premises to Azure Database for MySQL migration guide Introduction
