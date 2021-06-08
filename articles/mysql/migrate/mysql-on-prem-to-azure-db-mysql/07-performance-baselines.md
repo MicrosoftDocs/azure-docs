@@ -63,7 +63,7 @@ Run the following command to export the server parameters to a file for review. 
 
 `mysql -u root -p -A -e "SHOW GLOBAL VARIABLES;" > settings.txt`
 
-The MySQL 5.5.60 default installed server parameters can be found in the [appendix](appendix.md#default-server-parameters-mysql-55-and-azure-database-for-mysql).
+The MySQL 5.5.60 default installed server parameters can be found in the [appendix](15-appendix.md#default-server-parameters-mysql-55-and-azure-database-for-mysql).
 
 Before migration begins, export the source MySQL configuration settings. Compare those values to the Azure landing zone instance settings after the migration. If any settings were modified from the default in the target Azure landing zone instance, ensure that these are set back after the migration. Also, the migration user should verify the server parameters can be set before the migration.
 
@@ -90,7 +90,7 @@ Additionally, review any parameters that will affect maximums:
 
 WWI reviewed their Conference database workload and determined it had a very small load. Although a basic tier server would work for them, they did not want to perform work later to migrate to another tier. The server being deployed will eventually host the other MySQL data workloads and so they picked the `General Performance` tier.
 
-In reviewing the MySQL database, the MySQL 5.5 server is running with the defaults server parameters that are set during the initial install.  
+In reviewing the MySQL database, the MySQL 5.5 server is running with the defaults server parameters that are set during the initial install.
 
 > [!div class="nextstepaction"]
 > [Data Migration](./08-data-migration.md)
