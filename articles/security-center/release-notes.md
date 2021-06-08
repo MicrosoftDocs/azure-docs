@@ -105,9 +105,6 @@ The new vulnerability scanning feature for container images, utilizing Trivy, he
 
 Container scan reports are summarized in Azure Security Center, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
 
-> [!IMPORTANT]
-> In the first stages of this preview, access is only available through the [preview URL](https://ms.portal.azure.com/?feature.cicd=true#blade/Microsoft_Azure_Security/SecurityMenuBlade/5/0/).
-
 Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-container-registries-cicd.md).
 
 ### More Resource Graph queries available for some recommendations
@@ -186,7 +183,7 @@ To access this information, you can use any of the methods in the table below.
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | REST API call        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates |
 | Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
-| Workflow automation  | The two dedicated fields will be available the Log Analytics workspace data                                                                                            |
+| Continuous export    | The two dedicated fields will be available the Log Analytics workspace data                                                                                            |
 | [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                                        |
 |                      |                                                                                                                                                                        |
 
@@ -849,7 +846,7 @@ When you define a continuous export, set the export frequency:
 
 :::image type="content" source="media/release-notes/export-frequency.png" alt-text="Choosing the frequency of your continuous export":::
 
-- **Streaming** – assessments will be sent in real time when a resource’s health state is updated (if no updates occur, no data will be sent).
+- **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
 - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
 
 Learn more about the full capabilities of this feature in [Continuously export Security Center data](continuous-export.md).

@@ -6,8 +6,8 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 10/14/2020
-ms.author: akjosh
+ms.date: 6/8/2021
+ms.author: olayemio
 ms.reviewer: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
@@ -70,7 +70,7 @@ The following are other parameters that can be set on your image definition so t
 - Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application pre-installed.
 - Eula - can be used to point to an end-user license agreement specific to the image definition.
 - Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
-- End-of-life date - attach an end-of-life date to your image definition to be able to use automation to delete old image definitions.
+- End-of-life date - establish a default end-of-life dates for all image versions in the image definition. End-of-life dates are informational; users will still be able to create VMs from images and versions past the end-of-life date.
 - Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../azure-resource-manager/management/tag-resources.md)
 - Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
@@ -86,7 +86,7 @@ The properties of an image version are:
 - Version number. This is used as the name of the image version. It is always in the format: MajorVersion.MinorVersion.Patch. When you specify to use **latest** when creating a VM, the latest image is chosen based on the highest MajorVersion, then MinorVersion, then Patch. 
 - Source. The source can be a VM, managed disk, snapshot, managed image, or another image version. 
 - Exclude from latest. You can keep a version from being used as the latest image version. 
-- End of life date. Date after which VMs can't be created from this image.
+- End of life date. Indicate the end-of-life date for the image version. End-of-life dates are informational; users will still be able to create VMs from versions past the end-of-life date.
 
 
 ## Generalized and specialized images
