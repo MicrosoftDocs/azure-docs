@@ -64,9 +64,9 @@ npm install readline-sync uuid axios --save
 
 ## Object model
 
-To ask for the single best item of the content for each slot, create a **rankRequest**, then send a post request to the **multislot/rank** endpoint (https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Rank). The response is then parsed into a **rankResponse**.
+To ask for the single best item of the content for each slot, create a **rankRequest**, then send a post request to [multislot/rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Rank). The response is then parsed into a **rankResponse**.
 
-To send a reward score to Personalizer, create a **rewards**, then send a post request to [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Events_Reward).
+To send a reward score to Personalizer, create a **rewards**, then send a post request to [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Events_Reward).
 
 Determining the reward score, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
 
