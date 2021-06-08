@@ -17,7 +17,7 @@ ms.custom: references_regions
 > [!IMPORTANT] 
 > Power Query connector support is currently in a **gated public preview**. [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to request access.
 
-If you are using an indexer to crawl external data sources for indexing, you can now use select [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) connectors for your data source connection in Azure Cognitive Search.
+If you are using an indexer to crawl external data sources for indexing, you can now use select [Power Query](/power-query/power-query-what-is-power-query) connectors for your data source connection in Azure Cognitive Search.
 
 Power Query connectors can reach a broader range of data sources, including those on other cloud providers. New data sources supported in this preview include:
 
