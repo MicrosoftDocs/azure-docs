@@ -25,7 +25,7 @@ By using Azure AD B2C as an identity management service, you can customize and c
 
 ## Supported app types and scenarios
 
-MSAL.js enables [single-page applications](https://docs.microsoft.com/azure/active-directory-b2c/application-types#single-page-applications) to sign-in users with Azure AD B2C using the [authorization code flow with PKCE](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) grant. With MSAL.js and Azure AD B2C:
+MSAL.js enables [single-page applications](../../active-directory-b2c/application-types.md#single-page-applications) to sign-in users with Azure AD B2C using the [authorization code flow with PKCE](../../active-directory-b2c/authorization-code-flow.md) grant. With MSAL.js and Azure AD B2C:
 
 - Users **can** authenticate with their social and local identities.
 - Users **can** be authorized to access Azure AD B2C protected resources (but not Azure AD protected resources).
