@@ -30,7 +30,9 @@ This article helps you evaluate the impact on workloads, applications, costs, se
 
 ## Impact on workloads and applications
 
-Bob APIs work with accounts that have a hierarchical namespace, so most applications that interact with your account by using these APIs continue to work without modification.
+Blob APIs work with accounts that have a hierarchical namespace, so most applications that interact with your account by using these APIs continue to work without modification.
+
+For a complete list of issues and workarounds, see [Known issues with Blob Storage APIs](data-lake-storage-known-issues.md#blob-storage-apis).
 
 Any Hadoop workloads that use Windows Azure Storage Blob driver or [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, must be modified to use the the Azure Blob File System driver or [ABFS driver](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html). 
 
@@ -94,24 +96,6 @@ While most of Blob storage features will continue to work after you've enable th
 
 See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) to understand the current support for Blob storage features with Data Lake Storage Gen2. 
 
-### Storage Explorer
-
-The following buttons don't yet appear in the Ribbon of Azure Storage Explorer.
-
-|Button|Reason|
-|--|--|
-|Copy URL|Not yet implemented|
-|Manage snapshots|Not yet implemented|
-|Undelete|Depends on Blob storage features not yet supported with Data Lake Storage Gen2 |
-
-
-The following buttons behave differently in your new account.
-
-|Button|Blob storage behavior|Data Lake Storage Gen2 behavior|
-|---|---|---|
-|Folder|Folder is virtual and disappears if you don't add files to it. |Folder exists even with no files added to it.| 
-|Rename|Results in a copy and then a delete of the source blob|Renames the same blob. Far more efficient.|
-
 ### Diagnostic logs
 
 If you enable [Storage analytics logging](../common/storage-analytics-logging.md), you now have the option to use the version 2.0 log format.  
@@ -136,9 +120,23 @@ The following JSON shows the url of a blob that appears in the event response wh
 
 If your applications use the Event Grid, you might have to modify those applications to take this into account. 
 
-### Other known issues and workarounds
+### Storage Explorer
 
-For a complete list of issues and workarounds, see [Known issues with Blob Storage APIs](data-lake-storage-known-issues.md#blob-storage-apis).
+The following buttons don't yet appear in the Ribbon of Azure Storage Explorer.
+
+|Button|Reason|
+|--|--|
+|Copy URL|Not yet implemented|
+|Manage snapshots|Not yet implemented|
+|Undelete|Depends on Blob storage features not yet supported with Data Lake Storage Gen2 |
+
+
+The following buttons behave differently in your new account.
+
+|Button|Blob storage behavior|Data Lake Storage Gen2 behavior|
+|---|---|---|
+|Folder|Folder is virtual and disappears if you don't add files to it. |Folder exists even with no files added to it.| 
+|Rename|Results in a copy and then a delete of the source blob|Renames the same blob. Far more efficient.|
 
 ### Documentation
 
