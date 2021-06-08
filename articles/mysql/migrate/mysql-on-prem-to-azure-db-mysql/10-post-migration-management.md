@@ -13,6 +13,10 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Post Migration Management
 
+## Prerequisites
+
+[Data migration with MySQL Workbench](09-data-migration-with-mysql-workbench.md)
+
 ## Monitoring and alerts
 
 Once the migration has been successfully completed, the next phase it to manage the new cloud-based data workload resources. Management operations include both control plane and data plane activities. Control plane activities are those related to the Azure resources versus data plane, which is **inside** the Azure resource (in this case MySQL).
@@ -106,5 +110,5 @@ The MySQL DBAs installed the Azure Database for [MySQL Azure PowerShell cmdlets]
   - Set up notifications for maintenance events such as upgrades and patches. Notify users as necessary.  
 
 
-> [!div class="nextstepaction"]  
-> [Optimization](./optimization.md)
+> [!div class="nextstepaction"]
+> [Optimization](./11-optimization.md)

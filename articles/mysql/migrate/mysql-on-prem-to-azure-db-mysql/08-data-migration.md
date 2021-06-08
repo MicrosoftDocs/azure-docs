@@ -13,6 +13,10 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Data Migration
 
+## Prerequisites
+
+[Performance baselines](07-performance-baselines.md)
+
 ## Back up the database
 
 As a prudent step before upgrade or migrate data, export the database before the upgrade using MySQL Workbench or manually via the `mysqldump` command.
@@ -314,4 +318,4 @@ With the basic migration components in place, it's now possible to proceed with 
 
 
 > [!div class="nextstepaction"]
-> [Data Migration with MySQL Workbench](./data-migration-with-mySQL-workbench.md)
+> [Data Migration with MySQL Workbench](./09-data-migration-with-mySQL-workbench.md)

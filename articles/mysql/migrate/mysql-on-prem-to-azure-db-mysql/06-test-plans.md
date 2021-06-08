@@ -13,6 +13,10 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Test Plans
 
+## Prerequisites
+
+[Migration methods](05-migration-methods.md)
+
 ## Overview
 
 WWI created a test plan that included a set of IT and the Business tasks. Successful migrations require all the tests to be executed.
@@ -179,4 +183,4 @@ The source database schema information was used to verify the target migration o
 
 
 > [!div class="nextstepaction"]
-> [Performance Baselines](./performance-baselines.md)
+> [Performance Baselines](./07-performance-baselines.md)

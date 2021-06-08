@@ -13,6 +13,12 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Summary
 
+## Prerequisites
+
+[Security](13-security.md)
+
+## Overview
+
 This document has covered several topics related to migrating an application from on-premises MySQL to Azure Database for MySQL. We covered how to begin and assess the project all the way to application cut over.
 
 The migration team needs to review the topics carefully as the choices made can have project timeline effects. The total cost of ownership is enticing given the many enterprise ready features provided.
@@ -56,4 +62,4 @@ You can also browse the technical forums and social groups for more detailed rea
 
 ## Next steps
 
-To deploy a sample application with an end-to-end MySQL migration guide and to review available server parameters, visit the [appendix](appendix.md).
+To deploy a sample application with an end-to-end MySQL migration guide and to review available server parameters, visit the [appendix](15-appendix.md).

@@ -13,6 +13,10 @@ ms.date: 05/25/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Representative Use Case
 
+## Prerequisites
+
+[MySQL on-premises to Azure Database for MySQL migration guide Introduction](01-mysql-migration-guide-index.md)
+
 ## Overview
 
 The following use case is based on a real-world customer scenario of an enterprise that migrated their MySQL workload to Azure Database for MySQL.
@@ -56,4 +60,4 @@ They would also like to ensure that their data workloads are safe and available 
 WWI wants to start with a simple application for the first migration and then move to more business-critical applications in a later phase. This provides the team with the knowledge and experience they need to prepare and plan for those future migrations.  
 
 > [!div class="nextstepaction"]
-> [Assessment](./assessment.md)
+> [Assessment](./03-assessment.md)

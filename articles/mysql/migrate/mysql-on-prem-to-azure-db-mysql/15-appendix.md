@@ -13,7 +13,14 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide appendix
 
+## Prerequisites
+
+[Summary](14-summary.md)
+
+## Overview
+
 This article explains how to deploy a sample application with an end-to-end MySQL migration guide and to review available server parameters.
+
 ## Environment setup
 
 [Download more documentation](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1%20Appendix%20A.pdf) we created for this Migration Guide and learn how to configure an environment to perform the guide’s migration steps for the sample [conference demo application.](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/sample-app).

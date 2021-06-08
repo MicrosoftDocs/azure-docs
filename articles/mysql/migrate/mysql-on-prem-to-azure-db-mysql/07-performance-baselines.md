@@ -13,6 +13,12 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Performance Baselines
 
+## Prerequisites
+
+[Test plans](06-test-plans.md)
+
+## Overview
+
 Understanding the existing MySQL workload is one of the best investments that can be made to ensure a successful migration. Excellent system performance depends on adequate hardware and great application design. Items such as CPU, memory, disk, and networking need to be sized and configured appropriately for the anticipated load. Hardware and configuration are part of the system performance equation. The developer must understand the database query load and the most expensive queries to execute. Focusing on the most expensive queries can make a substantial difference in the overall performance metrics.
 
 Creating baselines of query performance is vital to a migration project. The performance baselines can be used to verify the Azure landing zone configuration for the migrated data workloads. Most systems will be run 24/7 and have different peak load times. It's important to capture the peak workloads for the baseline. Metrics are captured several times. Later in the document, we explore the source server parameters and how they're essential to the overall performance baseline picture. The server parameters should not be overlooked during a migration project.
@@ -87,4 +93,4 @@ WWI reviewed their Conference database workload and determined it had a very sma
 In reviewing the MySQL database, the MySQL 5.5 server is running with the defaults server parameters that are set during the initial install.  
 
 > [!div class="nextstepaction"]
-> [Data Migration](./data-migration.md)
+> [Data Migration](./08-data-migration.md)

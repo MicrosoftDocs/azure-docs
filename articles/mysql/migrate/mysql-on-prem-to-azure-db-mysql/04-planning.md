@@ -13,6 +13,10 @@ ms.date: 05/25/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Planning
 
+## Prerequisites
+
+[Assessment](03-assessment.md)
+
 ## Landing zone
 
 An [Azure Landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) is the target environment defined as the final resting place of a cloud migration project. In most projects, the landing zone should be scripted via ARM templates for its initial setup. Finally, it should be customized with PowerShell or the Azure portal to fit the workloads needs.
@@ -88,4 +92,4 @@ WWI originally wanted to test an online migration, but the required network setu
 
 
 > [!div class="nextstepaction"]
-> [Migration Methods](./migration-methods.md)
+> [Migration Methods](./05-migration-methods.md)

@@ -13,6 +13,10 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Migration Methods
 
+## Prerequisites
+
+[Planning](04-planning.md)
+
 Getting the data from the source to target requires using tools or features of MySQL to accomplish the migration.
 
 It's important to complete the entire assessment and planning stages before starting the next stages. The decisions and data collected are migration path and tool selection dependencies.
@@ -89,13 +93,13 @@ The fastest and most complete path is to use `binlog` replication (either direct
 
 There are many paths WWI can take to migrate their MySQL workloads. We've provided a table of the potential paths and the advantages and disadvantages of each:
 
-| Objective                           | Description                                | Tool                             | Prerequisites        | Advantages          | Disadvantages                                   |
-|-------------------------------------|--------------------------------------------|----------------------------------|----------------------|---------------------|-------------------------------------------------|
-| **Fastest migration possible**          | Parallel approach                          | mydumper and myloader            | Linux                | Highly parallelized | Target throttling                               |
-| **Online migration**                    | Keep the source up for as long as possible | binlog                           | None                 | Seamless            | Extra processing and storage                    |
-| **Offline migration**                    | Keep the source up for as long as possible | Database Migration Service (DMS) | None                 | Repeatable process  | Limited to data only, supports all MySQL versions |
-| **Highly Customized Offline Migration** | Selectively export objects                 | mysqldump                        | None                 | Highly customizable | Manual                                          |
-| **Offline Migration Semi-automated**    | UI-based export and import                 | MySQL Workbench                  | Download and Install | Semi-automated      | Only common sets of switches are supported      |
+| Objective | Description | Tool | Prerequisites | Advantages | Disadvantages |
+|-----------|-------------|------|---------------|------------|---------------|
+| **Fastest migration possible** | Parallel approach | mydumper and myloader | Linux | Highly parallelized | Target throttling |
+| **Online migration** | Keep the source up for as long as possible | binlog | None | Seamless | Extra processing and storage  |
+| **Offline migration** | Keep the source up for as long as possible | Database Migration Service (DMS) | None | Repeatable process  | Limited to data only, supports all MySQL versions |
+| **Highly Customized Offline Migration** | Selectively export objects | mysqldump | None | Highly customizable | Manual |
+| **Offline Migration Semi-automated** | UI-based export and import | MySQL Workbench | Download and Install | Semi-automated | Only common sets of switches are supported |
 
 ### WWI Scenario
 
@@ -111,4 +115,4 @@ WWI has selected its conference database as its first migration workload. The wo
 
 
 > [!div class="nextstepaction"]
-> [Test Plans](./test-plans.md)
+> [Test Plans](./06-test-plans.md)

@@ -13,6 +13,12 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Security
 
+## Prerequisites
+
+[Business continuity and disaster recovery](12-business-continuity-and-disaster-recovery.md)
+
+## Overview
+
 Moving to a cloud-based service doesn’t mean the entire internet has access to it always. Azure provides best in class security that ensures data workloads are continually protected from bad actors and rouge programs.
 
 ## Authentication
@@ -86,4 +92,4 @@ Review a set of potential [security baseline](/azure/mysql/security-baseline) ta
 
 
 > [!div class="nextstepaction"]
-> [Summary](./summary.md)
+> [Summary](./14-summary.md)

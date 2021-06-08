@@ -13,6 +13,10 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Data Migration with MySQL Workbench
 
+## Prerequisites
+
+[Data migration](08-data-migration.md)
+
 ## Setup
 
 Follow all the steps in the Setup guide to create an environment to support the following steps.
@@ -207,5 +211,5 @@ az webapp restart -g $rgName -n $app\_name
 You've successfully completed an on-premises to Azure Database for MySQL migration\!  
 
 
-> [!div class="nextstepaction"]  
-> [Post Migration Management](./post-migration-management.md)
+> [!div class="nextstepaction"]
+> [Post Migration Management](./10-post-migration-management.md)

@@ -13,6 +13,10 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Optimization
 
+## Prerequisites
+
+[Post migration management](10-post-migration-management.md)
+
 ## Monitoring hardware and query performance
 
 In addition to the audit and activity logs, the server performance can also be monitored with [Azure Metrics.](/azure/azure-monitor/platform/data-platform-metrics) Azure metrics are provided in a one-minute frequency and alerts can be configured from them. For more information, reference [Monitoring in Azure Database for MySQL](/azure/mysql/concepts-monitoring) for specifics on what kind of metrics that can be monitored.
@@ -75,5 +79,5 @@ They elected to monitor any potential issues for now and implement Azure Automat
   - Consider moving regions of the users or application needs change.  
 
 
-> [!div class="nextstepaction"]  
-> [Business Continuity and Disaster Recovery (BCDR)](./business-continuity-and-disaster-recovery.md)
+> [!div class="nextstepaction"]
+> [Business Continuity and Disaster Recovery (BCDR)](./12-business-continuity-and-disaster-recovery.md)

@@ -3,40 +3,40 @@
    - name: Overview
      items:
       - name: Introduction
-        href: mysql-migration-guide-index.md
+        href: 01-mysql-migration-guide-index.md
       - name: Representative Use Case
-        href: representative-use-case.md
+        href: 02-representative-use-case.md
    - name: Pre-Migration
      items:
       - name: Assessment
-        href: assessment.md
+        href: 03-assessment.md
       - name: Planning
-        href: planning.md
+        href: 04-planning.md
       - name: Migration Methods
-        href: migration-methods.md
+        href: 05-migration-methods.md
       - name: Test Plans
-        href: test-plans.md
+        href: 06-test-plans.md
       - name: Performance Baselines
-        href: performance-baselines.md
+        href: 07-performance-baselines.md
    - name: Data Migration
      items:
       - name: Data Migration
-        href: data-migration.md
+        href: 08-data-migration.md
       - name: Data Migration with MySQL Workbench
-        href: data-migration-with-mysql-workbench.md
+        href: 09-data-migration-with-mysql-workbench.md
    - name: Post-Migration Management
      items:
       - name: Post Migration Management
-        href: post-migration-management.md
+        href: 10-post-migration-management.md
       - name: Optimization
-        href: optimization.md
+        href: 11-optimization.md
       - name: Business Continuity and Disaster Recovery (BCDR)
-        href: business-continuity-and-disaster-recovery.md
+        href: 12-business-continuity-and-disaster-recovery.md
       - name: Security
-        href: security.md
+        href: 13-security.md
       - name: Summary
-        href: summary.md
+        href: 14-summary.md
    - name: Appendix
      items:
       - name: Appendix
-        href: appendix.md
+        href: 15-appendix.md

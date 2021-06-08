@@ -40,4 +40,4 @@ This guide focuses entirely on migrating the on-premises MySQL workloads to the 
 Once you've completed this guide, you can try to [deploy a sample application and review server parameters](summary.md#next-steps) on your own.
 
 > [!div class="nextstepaction"]
-> [Representative Use Case](./representative-use-case.md)
+> [Representative Use Case](./02-representative-use-case.md)

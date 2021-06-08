@@ -13,6 +13,10 @@ ms.date: 05/26/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Business Continuity and Disaster Recovery (BCDR)
 
+## Prerequisites
+
+[Optimization](11-optimization.md)
+
 ## Back up and restore
 
 As with any mission critical system, having a backup and restore and a disaster recovery (BCDR) strategy is an important part of your overall system design. If an unforeseen event occurs, you should have the ability to restore your data to a point in time (Recovery Point Objective) in a reasonable amount of time (Recovery Time Objective).
@@ -113,4 +117,4 @@ Failover Steps:
 
 
 > [!div class="nextstepaction"]
-> [Security](./security.md)
+> [Security](./13-security.md)
