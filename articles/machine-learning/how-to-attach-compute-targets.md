@@ -225,8 +225,10 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 
 Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 
-> [!IMPORTANT}
-> Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspacee. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
+> [!IMPORTANT]
+> Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspace. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
+>
+> __The Azure Databricks workspace must be in the same Azure subscription as the Azure Machine Learning workspace__.
 
 To attach Azure Databricks as a compute target, provide the following information:
 
@@ -234,7 +236,7 @@ To attach Azure Databricks as a compute target, provide the following informatio
 * __Databricks workspace name__: The name of the Azure Databricks workspace.
 * __Databricks access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](/azure/databricks/dev-tools/api/latest/authentication) document.
 
-The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK (__The Databricks workspace need to be present in the same subscription as your AML workspace__):
+The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK:
 
 ```python
 import os
