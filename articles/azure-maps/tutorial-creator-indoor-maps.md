@@ -84,7 +84,7 @@ To upload the Drawing package:
 
 15. Select **Send**.
 
-16. In the response window, select the **Headers** tab. 
+16. In the response window, select the **Headers** tab.
 
 17. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the Drawing package upload.
 
