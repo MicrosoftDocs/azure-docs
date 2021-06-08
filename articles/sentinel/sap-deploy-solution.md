@@ -45,7 +45,7 @@ In order to deploy the Azure Sentinel SAP data connector and security content as
 
 |Area  |Description  |
 |---------|---------|
-|**Azure prerequisites**     |  **Access to Azure Sentinel**. Make a note of your Azure Sentinel workspace ID and key to use in this tutorial when [deploying your SAP data connector](#deploy-your-sap-data-connector). <br>To view these details from Azure Sentinel, go to **Settings** > **Workspace settings** > **Agents management**. <br><br>**Ability to create Azure resources**. For more information, see the [Azure Resource Manager documentation](/azure/azure-resource-manager/management/manage-resources-portal). <br><br>**Access to Azure Key Vault**. This tutorial describes the recommended steps for using Azure Key Vault to store your credentials. For more information, see the [Azure Key Vault documentation](/azure/key-vault/).       |
+|**Azure prerequisites**     |  **Access to Azure Sentinel**. Make a note of your Azure Sentinel workspace ID and key to use in this tutorial when [deploying your SAP data connector](#deploy-your-sap-data-connector). <br>To view these details from Azure Sentinel, go to **Settings** > **Workspace settings** > **Agents management**. <br><br>**Ability to create Azure resources**. For more information, see the [Azure Resource Manager documentation](../azure-resource-manager/management/manage-resources-portal.md). <br><br>**Access to Azure Key Vault**. This tutorial describes the recommended steps for using Azure Key Vault to store your credentials. For more information, see the [Azure Key Vault documentation](../key-vault/index.yml).       |
 |**System prerequisites**     |   **Software**. The SAP data connector deployment script automatically installs software prerequisites. For more information, see [Automatically installed software](#automatically-installed-software). <br><br> **System connectivity**. Ensure that the VM serving as your SAP data connector host has access to: <br>- Azure Sentinel <br>- Azure Key Vault <br>- The SAP environment host, via the following TCP ports: *32xx*, *5xx13*, and *33xx*, where *xx* is the SAP instance number. <br><br>Make sure that you also have an SAP user account in order to access the SAP software download page.<br><br>**System architecture**. The SAP solution is deployed on a VM as a Docker container, and each SAP client requires its own container instance. <br>Your VM and the Azure Sentinel workspace can be in different Azure subscriptions, and even different Azure AD tenants.|
 |**SAP prerequisites**     |   **Supported SAP versions**. We recommend using [SAP_BASIS versions 750 SP13](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) or higher. <br>Select steps in this tutorial provide alternate instructions if you are working on SAP version [SAP_BASIS 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows).<br><br> **SAP system details**. Make a note of the following SAP system details for use in this tutorial:<br>    - SAP system IP address<br>- SAP system number, such as `00`<br>    - SAP System ID, from the SAP NetWeaver system. For example, `NPL`. <br>- SAP client ID, such as`001`.<br><br>**SAP NetWeaver instance access**. Access to your SAP instances must use one of the following options: <br>- [SAP ABAP user/password](#configure-your-sap-system). <br>- A user with an X509 certificate, using SAP CRYPTOLIB PSE. This option may require expert manual steps.<br><br>**Support from your SAP team**.  You'll need the support of your SAP team in order to ensure that your SAP system is [configured correctly](#configure-your-sap-system) for the solution deployment.   |
 |     |         |
@@ -116,7 +116,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 ## Deploy a Linux VM for your SAP data connector
 
-This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.04 LTS VM and assign it with a [system-managed identity](/azure/active-directory/managed-identities-azure-resources/).
+This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.04 LTS VM and assign it with a [system-managed identity](../active-directory/managed-identities-azure-resources/index.yml).
 
 > [!TIP]
 > You can also deploy the data connector on RHEL, versions 7.7 and higher or SUSE versions 15 and higher. Note that any OS and patch levels must be completely up to date.
@@ -139,11 +139,11 @@ This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.
 > Make sure that you apply any security best practices for your organization, just as you would any other VM.
 >
 
-For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
+For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
 
 ## Create key vault for your SAP credentials
 
-This tutorial uses a newly created or dedicated [Azure Key Vault](/azure/key-vault/) to store credentials for your SAP data connector.
+This tutorial uses a newly created or dedicated [Azure Key Vault](../key-vault/index.yml) to store credentials for your SAP data connector.
 
 **To create or dedicate an Azure Key Vault**:
 
@@ -166,7 +166,7 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](/azure/key-vau
 
     In Azure Key Vault, select to **Access Policies** > **Add Access Policy - Secret Permissions: Get, List, and Set** > **Select Principal**. Enter your [VM's name](#deploy-a-linux-vm-for-your-sap-data-connector), and then select **Add** > **Save**.
 
-    For more information, see the [Key Vault documentation](/azure/key-vault/general/assign-access-policy-portal).
+    For more information, see the [Key Vault documentation](../key-vault/general/assign-access-policy-portal.md).
 
 1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector), entering the name of your Azure resource group:
 

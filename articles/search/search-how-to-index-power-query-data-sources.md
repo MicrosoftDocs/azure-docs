@@ -17,7 +17,7 @@ ms.custom: references_regions
 > [!IMPORTANT] 
 > Power Query connector support is currently in a **gated public preview**. [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to request access.
 
-If you are using an indexer to crawl external data sources for indexing, you can now use select [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) connectors for your data source connection in Azure Cognitive Search.
+If you are using an indexer to crawl external data sources for indexing, you can now use select [Power Query](/power-query/power-query-what-is-power-query) connectors for your data source connection in Azure Cognitive Search.
 
 Power Query connectors can reach a broader range of data sources, including those on other cloud providers. New data sources supported in this preview include:
 
@@ -69,9 +69,9 @@ Once you've selected your data source, select **Next: Configure your data** to m
 ### Step 4 – Configure your data
 Once you've selected your data source, you'll configure your connection. Each data source will require different information. For a few data sources, the Power Query documentation provides additional details on how to connect to your data. 
 
-+ [PostgreSQL](https://docs.microsoft.com/power-query/connectors/postgresql)
-+ [Salesforce Objects](https://docs.microsoft.com/power-query/connectors/salesforceobjects)
-+ [Salesforce Reports](https://docs.microsoft.com/power-query/connectors/salesforcereports)
++ [PostgreSQL](/power-query/connectors/postgresql)
++ [Salesforce Objects](/power-query/connectors/salesforceobjects)
++ [Salesforce Reports](/power-query/connectors/salesforcereports)
 
 Once you've provided your connection credentials, select **Next**.
 
@@ -89,7 +89,7 @@ It's not required that you transform your data before importing it into Azure Co
 
 ![Transform your data](./media/search-power-query-connectors/power-query-transform-your-data.png "Transform your data") 
 
-For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](https://docs.microsoft.com/power-query/power-query-quickstart-using-power-bi). 
+For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](/power-query/power-query-quickstart-using-power-bi). 
 
 Once you're done transforming your data, select **Next**.
 
