@@ -22,9 +22,17 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-The Windows Security Events connector lets you stream all security events from any Windows systems (servers and workstations, physical and virtual) connected to your Azure Sentinel workspace. This enables you to view Windows security events in your dashboards, to use them in creating custom alerts, and to rely on them to improve your investigations, giving you more insight into your organization's network and expanding your security operations capabilities. 
+The Windows Security Events connector lets you stream security events from any Windows server (physical or virtual, on-premises or in any cloud) connected to your Azure Sentinel workspace. This enables you to view Windows security events in your dashboards, to use them in creating custom alerts, and to rely on them to improve your investigations, giving you more insight into your organization's network and expanding your security operations capabilities. 
 
 There are now two versions of this connector: **Security events** is the legacy version, based on the Log Analytics Agent (sometimes known as the MMA or OMS agent), and **Windows Security Events** is the new version, currently in **preview** and based on the new Azure Monitor Agent (AMA). This document presents information on both connectors. You can choose from the tabs below to see the information relevant to your chosen connector.
+
+> [!NOTE]
+> To collect security events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable either of these connectors.
+>
+> This includes:
+> - Windows servers installed on physical machines
+> - Windows servers installed on on-premises virtual machines
+> - Windows servers installed on virtual machines in non-Azure clouds
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 
@@ -51,9 +59,16 @@ You can select which events to stream from among the following sets: <a name="ev
 >
 > - The Windows Security Events data connector based on the Azure Monitor Agent (AMA) is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In addition to the pre-selected sets of events (Minimal, Common, and All) that you could choose to ingest with the old connector, the new Azure Monitor Agent-based connector lets you build your own custom sets of events to ingest. You do this by creating **data collection rules** that filter and ingest only the events you want, while leaving everything else behind. This can save you a lot of money in data ingestion costs!
+The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) uses **Data collection rules (DCR)** to define the data to collect from each agent. Data collection rules let you manage collection settings at scale while still allowing unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which means they can be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
 
-When creating a **data collection rule**, you can choose **All events**, **Minimal**, or **Common** - just like with the old connector - or you can choose **Custom** and then define expressions for the event IDs you want to ingest. See the detailed instructions below.
+Besides the pre-selected sets of events (**All events**, **Minimal**, or **Common**) that you could choose to ingest with the old connector, **data collection rules** let you build custom filters to choose the exact events you want to ingest. The Azure Monitor Agent uses these rules to filter the data *at the source* and ingest only the events you want, while leaving everything else behind. This can save you a lot of money in data ingestion costs!
+
+This document shows you how to create data collection rules.
+
+> [!NOTE]
+> **Coexistence with other agents**
+> 
+> The Azure Monitor agent can coexist with the existing agents, so you can continue to use the legacy connector during evaluation or migration. This is particularly important while the new connector is in preview,due to the limited support for existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
 
 ---
 
@@ -102,7 +117,7 @@ To collect your Windows security events in Azure Sentinel:
 
     1. You must have read and write permissions on your workspace and on all data sources from which you will be ingesting Windows security events.
 
-    1. To collect events from Windows machines that are not Azure VMs, the machines (physical or virtual) must have Azure Arc installed and enabled. [Learn more](../azure-monitor/agents/azure-monitor-agent-install.md?tabs=ARMAgentPowerShell%2CPowerShellWindows%2CPowerShellWindowsArc%2CCLIWindows%2CCLIWindowsArc).
+    1. To collect events from Windows machines that are not Azure VMs, the machines (physical or virtual) must have Azure Arc installed and enabled. [Learn more](../azure-monitor/agents/azure-monitor-agent-install.md).
 
 1. Under **Configuration**, select **+Add data collection rule**. The **Create data collection rule** wizard will open to the right.
 
@@ -121,7 +136,69 @@ To collect your Windows security events in Azure Sentinel:
 
 1. When you see the "Validation passed" message, select **Create**. 
 
-You'll see all your data collection rules under **Configuration** on the connector page. From there you can edit or delete existing rules.
+You'll see all your data collection rules (including those created through the API) under **Configuration** on the connector page. From there you can edit or delete existing rules.
+
+> [!TIP]
+> Use the PowerShell cmdlet **Get-WinEvent** with the *-FilterXPath* parameter to test the validity of an XPath query. The following script shows an example:
+> ```powershell
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
+> ```
+> - If events are returned, the query is valid.
+> - If you receive the message No events were found that match the specified selection criteria., the query may be valid, but there are no matching events on the local machine.
+> - If you receive the message The specified query is invalid , the query syntax is invalid.
+
+### Create data collection rules using the API
+
+You can also create data collection rules using the API, which can make life easier if you're creating a lot of rules (if you're an MSSP, for example). Here's an example you can use as a template for creating a rule:
+
+**Request URL and header**
+
+```http
+PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule?api-version=2019-11-01-preview
+```
+**Request URL and header**
+
+```json
+{
+    "location": "eastus",
+    "properties": {
+        "dataSources": {
+            "windowsEventLogs": [
+                {
+                    "streams": [
+                        "Microsoft-SecurityEvent"
+                    ],
+                    "xPathQueries": [
+                        "Security!*[System[(EventID=) or (EventID=4688) or (EventID=4663) or (EventID=4624) or (EventID=4657) or (EventID=4100) or (EventID=4104) or (EventID=5140) or (EventID=5145) or (EventID=5156)]]"
+                    ],
+                    "name": "eventLogsDataSource"
+                }
+            ]
+        },
+        "destinations": {
+            "logAnalytics": [
+                {
+                    "workspaceResourceId": "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+                    "name": "centralWorkspace"
+                }
+            ]
+        },
+        "dataFlows": [
+            {
+                "streams": [
+                    "Microsoft-SecurityEvent"
+                ],
+                "destinations": [
+                    "centralWorkspace"
+                ]
+            }
+        ]
+    }
+}
+```
+
+
 
 ---
 
