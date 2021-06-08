@@ -73,7 +73,7 @@ node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx   1/1     Running   0     
 
 In the above example, *node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx* is the name of the pod started by `kubectl debug`.
 
-Using portforwarding you can open a connnection to the pod deployed above:
+Using port forwarding, you can open a connnection to the deployed pod:
 
 ```
 kubectl port-forward node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx 2022:22
@@ -114,7 +114,7 @@ azureuser@aksnpwin000000 C:\Users\azureuser>
 
 ## Remove SSH access
 
-When done, `exit` the SSH session, type `ctrl-c` in the port-forwarding terminal (for Windows) and type `exit` in the debug container. When this container session closes, the pod used for SSH access from the AKS cluster is deleted.
+When done, enter `exit` in the SSH session, select **Ctrl+C** in the port forwarding terminal (for Windows), and enter `exit` in the debug container. When this container session closes, the pod used for SSH access from the AKS cluster is deleted.
 
 ## Next steps
 
