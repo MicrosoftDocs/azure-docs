@@ -557,7 +557,8 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
  - **Message**: `Failed to connect to Dynamics: %message;` 
  
- - **Cause**: You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.'` if your use case meets **all** of the following three conditions:
+ - **Cause**: You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` 
+ or otherwise `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` If your use case meets **all** of the following three conditions:
     - You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM.
     - You are using Office365 Authentication.
     - Your tenant and user is configured in Azure Active Directory for [conditional access](/azure/active-directory/conditional-access/overview) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).
