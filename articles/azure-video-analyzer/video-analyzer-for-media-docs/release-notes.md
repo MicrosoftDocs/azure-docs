@@ -31,7 +31,7 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 Video Analyzer for Media now supports STT, translation, and search in Chinese (Cantonese) ('zh-HK'), Dutch (Netherlands) ('Nl-NL'), Czech ('Cs-CZ'), Polish ('Pl-PL'), Swedish (Sweden) ('Sv-SE'), Norwegian('nb-NO'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), 
 Arabic: (United Arab Emirates) ('ar-AE', 'ar-EG'), (Iraq) ('ar-IQ'), (Jordan) ('ar-JO'), (Kuwait) ('ar-KW'), (Lebanon) ('ar-LB'), (Oman) ('ar-OM'), (Qatar) ('ar-QA'), (Palestinian Authority) ('ar-PS'), (Syria) ('ar-SY'), and Turkish('tr-TR'). 
 
-These languages are available in both API and Video Analyzer for Media website (under **Video source language**).
+These languages are available in both API and Video Analyzer for Media website. Select the language from the combobox under **Video source language**.
 
 ### New theme for Azure Video Analyzer for Media
 
@@ -49,7 +49,7 @@ Three new Git-Hub projects are available at our [GitHub repository](https://gith
 
 When indexing a video through our advanced video settings, you can view our new observed people capabilities.
 
-If there are people detected in your media file you can enable a bounding box on the detected person through the media player.
+If there are people detected in your media file, you can enable a bounding box on the detected person through the media player.
 
 ## April 2021
 
