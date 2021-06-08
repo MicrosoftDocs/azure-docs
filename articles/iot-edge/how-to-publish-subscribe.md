@@ -321,14 +321,22 @@ In this article, you'll use one client named **sub_client** that subscribes to a
 
 Create two IoT Devices in IoT Hub and get their passwords. Using the Azure CLI from your terminal to:
 
-1. Create two IoT Devices in IoT Hub, parent them to your IoT Edge device:
+1. Create two IoT Devices in IoT Hub:
 
    ```azurecli-interactive
-   az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
-   az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name>
+   az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name>
    ```
 
-2. Get their passwords by generating a SAS token:
+2. Set their parent to be your IoT Edge device:
+
+   ```azurecli-interactive
+   az iot hub device-identity parent set --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   az iot hub device-identity parent set --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   ```
+
+
+3. Get their passwords by generating a SAS token:
 
    - For a device:
 
@@ -346,7 +354,7 @@ Create two IoT Devices in IoT Hub and get their passwords. Using the Azure CLI f
 
      where 3600 is the duration of SAS token in seconds (for example, 3600 = 1 hour).
 
-3. Copy the SAS token, which is the value corresponding to the "sas" key from the output. Here is an example output from the Azure CLI command above:
+4. Copy the SAS token, which is the value corresponding to the "sas" key from the output. Here is an example output from the Azure CLI command above:
 
    ```output
    {
