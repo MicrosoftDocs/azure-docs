@@ -37,6 +37,8 @@
         href: accredible-tutorial.md
       - name: Achieve3000
         href: achieve3000-tutorial.md
+      - name: A Cloud Guru
+        href: a-cloud-guru-tutorial.md
       - name: ACLP
         href: aclp-tutorial.md
       - name: AcquireIO
@@ -337,11 +339,13 @@
         href: chatwork-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
+      - name: Check Point CloudGuard Posture Management
+        href: dome9arc-tutorial.md
       - name: Check Point Harmony Connect
         href: check-point-harmony-connect-tutorial.md
       - name: Check Point Identity Awareness
         href: check-point-identity-awareness-tutorial.md
-      - name: CheckPoint Infinity Portal
+      - name: Check Point Infinity Portal
         href: checkpoint-infinity-portal-tutorial.md
       - name: Check Point Remote Access VPN
         href: check-point-remote-access-vpn-tutorial.md
@@ -409,6 +413,8 @@
         href: cloud-service-picco-tutorial.md
       - name: CloudSign
         href: cloudsign-tutorial.md
+      - name: cloudtamer.io
+        href: cloudtamer-io-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
       - name: Coda
@@ -535,8 +541,6 @@
         href: documo-tutorial.md
       - name: DocuSign
         href: docusign-tutorial.md
-      - name: Check Point CloudGuard Posture Management
-        href: dome9arc-tutorial.md
       - name: Domo
         href: domo-tutorial.md
       - name: Dossier
@@ -675,7 +679,7 @@
       - name: Fastly Edge Cloud
         href: fastly-edge-cloud-tutorial.md
       - name: FAX.PLUS
-        href: fax.plus-tutorial.md    
+        href: fax-plus-tutorial.md    
       - name: FCM HUB
         href: fcm-hub-tutorial.md
       - name: Field iD
@@ -772,6 +776,8 @@
         href: github-enterprise-managed-user-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: Glint Inc
+        href: glint-inc-tutorial.md  
       - name: GlobalOne
         href: globalone-tutorial.md
       - name: GlobeSmart
@@ -1112,7 +1118,7 @@
         href: learning-at-work-tutorial.md
       - name: Learning Seat LMS
         href: learningseatlms-tutorial.md
-      - name: Learningpool Act
+      - name: Learning Pool LMS
         href: learningpool-tutorial.md
       - name: LearnUpon
         href: learnupon-tutorial.md
@@ -1302,6 +1308,8 @@
         href: new-relic-limited-release-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
+      - name: Nexsure
+        href: nexsure-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
       - name: Nintex Promapp
@@ -1434,6 +1442,8 @@
         href: perimeterx-tutorial.md
       - name: Periscope Data
         href: periscope-data-tutorial.md
+      - name: PetroVue
+        href: petrovue-tutorial.md
       - name: Phraseanet
         href: phraseanet-tutorial.md
       - name: Picturepark
@@ -1458,6 +1468,8 @@
         href: poolparty-semantic-suite-tutorial.md
       - name: PostBeyond
         href: postbeyond-tutorial.md
+      - name: Postman
+        href: postman-tutorial.md  
       - name: Powerschool Performance Matters
         href: powerschool-performance-matters-tutorial.md
       - name: Predictix Assortment Planning
@@ -1538,6 +1550,10 @@
         href: raketa-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
+      - name: raum]für[raum
+        href: raumfurraum-tutorial.md  
+      - name: ReadCube Papers
+        href: readcube-papers-tutorial.md  
       - name: Real Links
         href: real-links-tutorial.md
       - name: Recognize
@@ -1658,6 +1674,8 @@
         href: qualtrics-tutorial.md
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
+      - name: Saviynt
+        href: saviynt-tutorial.md  
       - name: ScaleX Enterprise
         href: scalex-enterprise-tutorial.md
       - name: SCC LifeCycle
@@ -2469,6 +2487,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
+      - name: Twingate
+        href: twingate-provisioning-tutorial.md
       - name: UNIFI
         href: unifi-provisioning-tutorial.md
       - name: Velpic

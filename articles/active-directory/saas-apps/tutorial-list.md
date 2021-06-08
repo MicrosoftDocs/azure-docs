@@ -81,7 +81,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-Evernote](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|
 | ![logo-ExpenseIn](./media/tutorial-list/active-directory-saas-expensein-tutorial.png)| [ExpenseIn](expensein-tutorial.md)|
 | ![logo-EZOfficeInventory](./media/tutorial-list/active-directory-saas-ezofficeinventory-tutorial.png)| [EZOfficeInventory](ezofficeinventory-tutorial.md)|
-| ![logo-FAX.PLUS](./media/tutorial-list/active-directory-saas-fax.plus-tutorial.png)| [FAX.PLUS](fax.plus-tutorial.md)|
+| ![logo-FAX.PLUS](./media/tutorial-list/active-directory-saas-fax.plus-tutorial.png)| [FAX.PLUS](fax-plus-tutorial.md)|
 | ![logo-Foodee](./media/tutorial-list/active-directory-saas-foodee-tutorial.png)| [Foodee](foodee-tutorial.md)|
 | ![logo-Freedcamp](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|
 | ![logo-Freshservice](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|
