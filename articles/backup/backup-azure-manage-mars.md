@@ -222,7 +222,7 @@ To monitor backup data usage and daily churn, follow these steps:
  
     ![View the average backup data.](./media/backup-azure-manage-mars/view-average-backup-data.png)
 
-Learn more about [other report tabs](configure-reports.md) and receive those [reports through email](backup-reports-email.md).
+Learn more about [other report tabs](configure-reports.md) and receiving those [reports through email](backup-reports-email.md).
 
 ## Next steps
 
