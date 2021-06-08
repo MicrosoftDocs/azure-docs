@@ -203,8 +203,6 @@
         href: bamboo-hr-tutorial.md
       - name: Bambu by Sprout Social
         href: bambubysproutsocial-tutorial.md
-      - name: Banyan Command Center
-        href: banyan-command-center-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
       - name: Beekeeper Azure AD Data Connector
@@ -2154,6 +2152,8 @@
         href: zenqms-tutorial.md
       - name: ZephyrSSO
         href: zephyrsso-tutorial.md
+      - name: Zero Trust Remote Access Platform
+        href: banyan-command-center-tutorial.md
       - name: Ziflow
         href: ziflow-tutorial.md
       - name: Zip
