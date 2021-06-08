@@ -12,6 +12,8 @@
     href: jboss-eap-on-rhel.md
   - name: JBoss EAP marketplace image
     href: jboss-marketplace-image.md
+  - name: Migrate JBoss EAP to App Service
+    href: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
   - name: WildFly + CentOS on VM
     href: wildfly-on-centos.md
 - name: Red Hat Update Infrastructure in Azure
