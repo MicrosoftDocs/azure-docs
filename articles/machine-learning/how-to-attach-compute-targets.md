@@ -221,7 +221,7 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same Azure Batch from your workspace. Each new attachment will break the previous existing attachment(s).
 
-### <a id="databricks"></a>Azure Databricks
+## <a id="databricks"></a>Azure Databricks
 
 Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 
@@ -280,7 +280,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-databri
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same Azure Databricks from your workspace. Each new attachment will break the previous existing attachment(s).
 
-### <a id="adla"></a>Azure Data Lake Analytics
+## <a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 
