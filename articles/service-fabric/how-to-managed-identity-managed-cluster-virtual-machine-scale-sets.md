@@ -1,17 +1,16 @@
 ---
-title: Add a managed identity to a Service Fabric managed cluster node type (preview)
+title: Add a managed identity to a Service Fabric managed cluster node type
 description: This article shows how to add a managed identity to a Service Fabric managed cluster node type
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.custom: references_regions
+ms.date: 5/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Add a managed identity to a Service Fabric managed cluster node type (preview)
+# Add a managed identity to a Service Fabric managed cluster node type
 
 Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed identities to be used with a managed cluster node type, a property `vmManagedIdentity` has been added to node type definitions containing a list of identities that may be used, `userAssignedIdentities`. Functionality mirrors how managed identities can be used in non-managed clusters, such as using a managed identity with the [Azure Key Vault virtual machine scale set extension](../virtual-machines/extensions/key-vault-windows.md).
 
-
-For an example of a Service Fabric managed cluster deployment that makes use of managed identity on a node type, see [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). For a list of supported regions, see the [managed cluster FAQ](./faq-managed-cluster.md#what-regions-are-supported-in-the-preview).
+For an example of a Service Fabric managed cluster deployment that makes use of managed identity on a node type, see [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI).
 
 > [!NOTE]
 > Only user-assigned identities are currently supported for this feature.
@@ -23,7 +22,7 @@ Before you begin:
 * If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 * If you plan to use PowerShell, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
-## Create a user-assigned managed identity 
+## Create a user-assigned managed identity
 
 A user-assigned managed identity can be defined in the resources section of an Azure Resource Manager (ARM) template for creation upon deployment:
 
@@ -39,8 +38,8 @@ A user-assigned managed identity can be defined in the resources section of an A
 or created via PowerShell:
 
 ```powershell
-az group create --name <resourceGroupName> --location <location>
-az identity create --name <userAssignedIdentityName> --resource-group <resourceGroupName>
+az group create --name <resourceGroupName> --location <location>
+az identity create --name <userAssignedIdentityName> --resource-group <resourceGroupName>
 ```
 
 ## Add a role assignment with Service Fabric Resource Provider
@@ -102,13 +101,13 @@ New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleD
 
 ## Add managed identity properties to node type definition
 
-Finally, add the `vmManagedIdentity` and `userAssignedIdentities` properties to the managed cluster's node type definition. Be sure to use **2021-01-01-preview** or later for the `apiVersion`.
+Finally, add the `vmManagedIdentity` and `userAssignedIdentities` properties to the managed cluster's node type definition. Be sure to use **2021-05-01** or later for the `apiVersion`.
 
 ```json
 
  {
     "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     ...
     "properties": {
         "isPrimary" : true,

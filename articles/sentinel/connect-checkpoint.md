@@ -23,6 +23,9 @@ ms.author: yelevin
 
 This article explains how to connect your Check Point appliance to Azure Sentinel. The Check Point data connector allows you to easily connect your Check Point logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Using Check Point on Azure Sentinel will provide you more insights into your organization’s Internet usage, and will enhance its security operation capabilities.​ 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+
 ## Forward Check Point logs to the Syslog agent
 
 Configure your Check Point appliance to forward Syslog messages in CEF format to your Azure workspace via the Syslog agent.

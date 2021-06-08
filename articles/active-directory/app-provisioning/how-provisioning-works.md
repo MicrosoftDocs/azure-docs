@@ -1,20 +1,19 @@
 ---
-title: Understand how Azure AD provisioning works | Microsoft Docs
-description: Understand how Azure AD provisioning works 
+title: Understand how Application Provisioning in Azure Active Directory
+description: Understand how Application Provisioning works in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
 ---
 
-# How provisioning works
+# How Application Provisioning works in Azure Active Directory
 
 Automatic provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Before you start a deployment, you can review this article to learn how Azure AD provision works and get configuration recommendations. 
 

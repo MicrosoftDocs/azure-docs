@@ -3,15 +3,16 @@ title: Operating system backup and restore of SAP HANA on Azure (Large Instances
 description: Perform Operating system backup and restore for SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor:
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
-ms.author: juergent
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -121,7 +122,7 @@ The following example shows a cron schedule in `/etc/crontab` for a Type-II SKU 
 ```
 
 Additional references -
-- [Set up storage snapshots](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots)
+- [Set up storage snapshots](hana-backup-restore.md#set-up-storage-snapshots)
 - Microsoft Snapshot Tools for SAP HANA guide on [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md).
 
 ### How to restore a backup?

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/6/2021
+ms.date: 6/2/2021
 ms.author: iangithinji
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
@@ -18,13 +18,13 @@ ms.collection: M365-identity-device-management
 
 Large organizations that emphasize security want to move to cloud services like Microsoft 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like [outlook.office.com](https://outlook.office.com/) and [login.microsoftonline.com](https://login.microsoftonline.com/). Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
 
-The Azure Active Directory (Azure AD) solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization’s Microsoft 365 applications, while preventing access to other organizations’ instances of these same applications.  
+The Azure Active Directory (Azure AD) solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization's Microsoft 365 applications, while preventing access to other organizations' instances of these same applications.  
 
 With tenant restrictions, organizations can specify the list of tenants that their users are permitted to access. Azure AD then only grants access to these permitted tenants.
 
 This article focuses on tenant restrictions for Microsoft 365, but the feature protects all apps that send the user to Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by your Microsoft 365, make sure that all required tenants are permitted (e.g. in B2B collaboration scenarios). For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-Additionally, the tenant restrictions feature now supports [blocking the use of all Microsoft consumer applications](#blocking-consumer-applications-public-preview) (MSA apps) such as OneDrive, Hotmail, and Xbox.com.  This uses a separate header to the `login.live.com` endpoint, and is detailed at the end of the document.
+Additionally, the tenant restrictions feature now supports [blocking the use of all Microsoft consumer applications](#blocking-consumer-applications) (MSA apps) such as OneDrive, Hotmail, and Xbox.com.  This uses a separate header to the `login.live.com` endpoint, and is detailed at the end of the document.
 
 ## How it works
 
@@ -36,7 +36,7 @@ The overall solution comprises the following components:
 
 3. **Client software**: To support tenant restrictions, client software must request tokens directly from Azure AD, so that the proxy infrastructure can intercept traffic. Browser-based Microsoft 365 applications currently support tenant restrictions, as do Office clients that use modern authentication (like OAuth 2.0).
 
-4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Microsoft 365 cloud services to use modern authentication protocols by default. For the latest information on Microsoft 365 support for modern authentication, read [Updated Office 365 modern authentication](https://docs.microsoft.com/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide).
+4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Microsoft 365 cloud services to use modern authentication protocols by default. For the latest information on Microsoft 365 support for modern authentication, read [Updated Office 365 modern authentication](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016).
 
 The following diagram illustrates the high-level traffic flow. Tenant restrictions requires TLS inspection only on traffic to Azure AD, not to the Microsoft 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
@@ -52,7 +52,7 @@ To use tenant restrictions, your clients must be able to connect to the followin
 
 ### Proxy configuration and requirements
 
-The following configuration is required to enable tenant restrictions through your proxy infrastructure. This guidance is generic, so you should refer to your proxy vendor’s documentation for specific implementation steps.
+The following configuration is required to enable tenant restrictions through your proxy infrastructure. This guidance is generic, so you should refer to your proxy vendor's documentation for specific implementation steps.
 
 #### Prerequisites
 
@@ -146,7 +146,7 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
 
 1. [Download and install Fiddler](https://www.telerik.com/fiddler).
 
-2. Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+2. Configure Fiddler to decrypt HTTPS traffic, per [Fiddler's help documentation](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 
 3. Configure Fiddler to insert the *Restrict-Access-To-Tenants* and *Restrict-Access-Context* headers using custom rules:
 
@@ -192,7 +192,7 @@ Depending on the capabilities of your proxy infrastructure, you may be able to s
 
 For specific details, refer to your proxy server documentation.
 
-## Blocking consumer applications (public preview)
+## Blocking consumer applications
 
 Applications from Microsoft that support both consumer accounts and organizational accounts, like [OneDrive](https://onedrive.live.com/) or [Microsoft Learn](/learn/), can sometimes be hosted on the same URL.  This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
 

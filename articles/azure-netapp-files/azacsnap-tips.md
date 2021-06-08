@@ -27,7 +27,7 @@ It may be necessary to limit the scope of the AzAcSnap service principal.  Revie
 
 The following is an example role definition with the minimum required actions needed for AzAcSnap to function.
 
-```bash
+```azurecli
 az role definition create --role-definition '{ \
   "Name": "Azure Application Consistent Snapshot tool", \
   "IsCustom": "true", \
@@ -46,7 +46,7 @@ az role definition create --role-definition '{ \
 
 For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes.  In this case the role definition needs an additional action, therefore the complete service principal should look like the following example.
 
-```bash
+```azurecli
 az role definition create --role-definition '{ \
   "Name": "Azure Application Consistent Snapshot tool", \
   "IsCustom": "true", \

@@ -21,7 +21,7 @@ Log alerts are one of the alert types that are supported in [Azure Alerts](./ale
 
 ## Prerequisites
 
-Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples article](../logs/example-queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
+Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples article](../logs/queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
 
 [Azure Monitoring Contributor](../roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
@@ -179,7 +179,7 @@ Log alerts can either be stateless or stateful (currently in preview).
 
 Stateless alerts fire each time the condition is met, even if fired previously. You can [mark the alert as closed](../alerts/alerts-managing-alert-states.md) once the alert instance is resolved. You can also mute actions to prevent them from triggering for a period after an alert rule fired. In Log Analytics Workspaces and Application Insights, it's called **Suppress Alerts**. In all other resource types, it's called **Mute Actions**. 
 
-See this alert evaluation example:
+See this alert stateless evaluation example:
 
 | Time    | Log condition evaluation | Result 
 | ------- | ----------| ----------| ------- 
@@ -188,7 +188,7 @@ See this alert evaluation example:
 | 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
 
-Stateful alerts fire once per incident and resolve. You can set this using **Automatically resolve alerts** in the alert details section.
+Stateful alerts fire once per incident and resolve. This feature is currently in preview in the Azure public cloud. You can set this using **Automatically resolve alerts** in the alert details section.
 
 ## Location selection in log alerts
 

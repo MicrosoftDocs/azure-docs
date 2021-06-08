@@ -206,6 +206,8 @@
         href: ncv3-series.md
       - name: NCasT4_v3-series
         href: nct4-v3-series.md
+      - name: NDasrA100_v4-series
+        href: nda100-v4-series.md
       - name: ND-series
         href: nd-series.md
       - name: NDv2-series
@@ -809,7 +811,7 @@
       href: managed-disk-from-image-version.md
     - name: Purchase plan information
       href: marketplace-images.md
-  - name: Image builder (Preview)
+  - name: Image builder
     items:
     - name: Overview
       displayName: Image builder, images, building
@@ -1040,6 +1042,8 @@
           href: ./linux/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
           href: ./linux/disk-encryption-faq.md
+        - name: Upgrade from previous to current version
+          href: ./linux/disk-encryption-upgrade.md
         - name: Disk encryption - previous version
           items:
           - name: Overview
@@ -1768,6 +1772,8 @@
   - name: Overview
     displayName: Infrastrucure automation overview
     href: infrastructure-automation.md
+  - name: User data
+    href: user-data.md
   - name: Custom data
     href: custom-data.md
   - name: Ansible

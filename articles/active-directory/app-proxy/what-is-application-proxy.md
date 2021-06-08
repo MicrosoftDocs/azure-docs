@@ -26,7 +26,7 @@ Many organizations believe they are in control and protected when resources exis
 
 Perhaps you're already using Azure AD to manage users in the cloud who need to access Microsoft 365 and other SaaS applications, as well as web apps hosted on-premises. If you already have Azure AD, you can leverage it as one control plane to allow seamless and secure access to your on-premises applications. Or, maybe you're still contemplating a move to the cloud. If so, you can begin your journey to the cloud by implementing Application Proxy and taking the first step towards building a strong identity foundation.
 
-While not comprehensive, the list below illustrates some of the things you can enable by implementing App Proxy in a hybrid coexistence scenario:
+While not comprehensive, the list below illustrates some of the things you can enable by implementing Application Proxy in a hybrid coexistence scenario:
 
 * Publish on-premises web apps externally in a simplified way without a DMZ
 * Support single sign-on (SSO) across devices, resources, and apps in the cloud and on-premises
@@ -179,7 +179,7 @@ Up to this point, we've focused on using Application Proxy to publish on-premise
 
 * **Securely publish REST APIs**. When you have business logic or APIs running on-premises or hosted on virtual machines in the cloud, Application Proxy provides a public endpoint for API access. API endpoint access lets you control authentication and authorization without requiring incoming ports. It provides additional security through Azure AD Premium features such as multi-factor authentication and device-based Conditional Access for desktops, iOS, MAC, and Android devices using Intune. To learn more, see [How to enable native client applications to interact with proxy applications](../manage-apps/application-proxy-configure-native-client-application.md) and [Protect an API by using OAuth 2.0 with Azure Active Directory and API Management](../../api-management/api-management-howto-protect-backend-with-aad.md).
 * **Remote Desktop Services** **(RDS)**. Standard RDS deployments require open inbound connections. However, the [RDS deployment with Application Proxy](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) has a permanent outbound connection from the server running the connector service. This way, you can offer more applications to end users by publishing on-premises applications through Remote Desktop Services. You can also reduce the attack surface of the deployment with a limited set of two-step verification and Conditional Access controls to RDS.
-* **Publish applications that connect using WebSockets**. Support with [Qlik Sense](../manage-apps/application-proxy-qlik.md) is in Public Preview and will be expanded to other apps in the future.
+* **Publish applications that connect using WebSockets**. Support with [Qlik Sense](/azure/active-directory/app-proxy/application-proxy-qlik) is in Public Preview and will be expanded to other apps in the future.
 * **Enable native client applications to interact with proxy applications**. You can use Azure AD Application Proxy to publish web apps, but it also can be used to publish [native client applications](../manage-apps/application-proxy-configure-native-client-application.md) that are configured with the Azure AD Authentication Library (ADAL). Native client applications differ from web apps because they're installed on a device, while web apps are accessed through a browser.
 
 ## Conclusion

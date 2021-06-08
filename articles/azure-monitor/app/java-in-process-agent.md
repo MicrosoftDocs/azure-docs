@@ -10,15 +10,21 @@ ms.author: jgol
 
 # Java codeless application monitoring Azure Monitor Application Insights
 
+> [!NOTE]
+> If you are looking for the old 2.x docs, go [here](./java-2x-get-started.md).
+
 Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
 
- The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it, the Java 3.0 agent will monitor your app.
+The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it,
+the Application Insights Java agent will monitor your app.
 
-Adding the Application Insights Java SDK to your application is no longer required, as the 3.0 agent auto-collects requests, dependencies and logs all on its own.
+Adding the Application Insights Java 2.x SDK to your application is no longer required,
+as the Application Insights Java 3.x agent auto-collects requests, dependencies and logs all on its own.
 
-You can still send custom telemetry from your application. The 3.0 agent will track and correlate it along with all of the auto-collected telemetry.
+You can still send custom telemetry from your application.
+The 3.x agent will track and correlate it along with all of the auto-collected telemetry.
 
-The 3.0 agent supports Java 8 and above.
+The 3.x agent supports Java 8 and above.
 
 ## Quickstart
 
@@ -30,11 +36,19 @@ The 3.0 agent supports Java 8 and above.
 > Please review all the [configuration options](./java-standalone-config.md) carefully,
 > as the json structure has completely changed, in addition to the file name itself which went all lowercase.
 
-Download [applicationinsights-agent-3.0.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.3/applicationinsights-agent-3.0.3.jar)
+> [!WARNING]
+> **If you are upgrading from 3.0.x**
+>
+> The operation names and request telemetry names are now prefixed by the http method (`GET`, `POST`, etc.).
+> This can affect custom dashboards or alerts if they relied on the previous unprefixed values.
+> See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
+> for more details.
+
+Download [applicationinsights-agent-3.1.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.0/applicationinsights-agent-3.1.0.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.3.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.1.0.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
@@ -50,7 +64,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.3.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.1.0.jar`, with the following content:
 
 ```json
 {
@@ -136,7 +150,7 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 * [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
 * [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
 * [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
-* [Communication Sms](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
 * [Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
 * [Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
@@ -169,15 +183,15 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 
 ## Send custom telemetry from your application
 
-Our goal in 3.0+ is to allow you to send your custom telemetry using standard APIs.
+Our goal in Application Insights Java 3.x is to allow you to send your custom telemetry using standard APIs.
 
 We support Micrometer, popular logging frameworks, and the Application Insights Java 2.x SDK so far.
-Application Insights Java 3.0 automatically captures the telemetry sent through these APIs,
+Application Insights Java 3.x automatically captures the telemetry sent through these APIs,
 and correlates it with auto-collected telemetry.
 
 ### Supported custom telemetry
 
-The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.0 agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk).
+The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.x agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk).
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
@@ -189,9 +203,9 @@ The table below represents currently supported custom telemetry types that you c
 | **Requests**        |            |                     |  Yes    |
 | **Traces**          |            |  Yes                |  Yes    |
 
-We're not planning to release an SDK with Application Insights 3.0 at this time.
+We're not planning to release an SDK with Application Insights 3.x at this time.
 
-Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until the OpenTelemetry API is GA.
+Application Insights Java 3.x is already listening for telemetry that is sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until the OpenTelemetry API is GA.
 
 ### Send custom metrics using Micrometer
 
@@ -229,18 +243,19 @@ If you want to attach custom dimensions to your logs, you can use
 [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html),
 [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html),
 or [Logback MDC](http://logback.qos.ch/manual/mdc.html),
-and Application Insights Java 3.0 will automatically capture those MDC properties as custom dimensions
+and Application Insights Java 3.x will automatically capture those MDC properties as custom dimensions
 on your trace and exception telemetry.
 
 ### Send custom telemetry using the 2.x SDK
 
-Add `applicationinsights-core-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+Add `applicationinsights-core-2.6.3.jar` to your application
+(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
@@ -302,13 +317,14 @@ try {
 > [!NOTE]
 > This feature is only in 3.0.2 and later
 
-Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+Add `applicationinsights-web-2.6.3.jar` to your application
+(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
@@ -326,13 +342,14 @@ requestTelemetry.getProperties().put("mydimension", "myvalue");
 > [!NOTE]
 > This feature is only in 3.0.2 and later
 
-Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+Add `applicationinsights-web-2.6.3.jar` to your application
+(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
@@ -350,13 +367,14 @@ requestTelemetry.getContext().getUser().setId("myuser");
 > [!NOTE]
 > This feature is only in 3.0.2 and later
 
-Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+Add `applicationinsights-web-2.6.3.jar` to your application
+(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
@@ -369,22 +387,23 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
-### Get the request telemetry id and the operation id using the 2.x SDK
+### Get the request telemetry Id and the operation Id using the 2.x SDK
 
 > [!NOTE]
 > This feature is only in 3.0.3 and later
 
-Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+Add `applicationinsights-web-2.6.3.jar` to your application
+(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
-and get the request telemetry id and the operation id in your code:
+and get the request telemetry Id and the operation Id in your code:
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;

@@ -46,14 +46,14 @@ In this section, you will **create a new instance of Azure Digital Twins** using
 Use these values in the following command to create the instance:
 
 ```azurecli-interactive
-az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
+az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
 ```
 
 ### Verify success and collect important values
 
 If the instance was created successfully, the result in Cloud Shell looks something like this, outputting information about the resource you've created:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Command window with successful creation of resource group and Azure Digital Twins instance":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Screenshot of the Cloud Shell window with successful creation of a resource group and Azure Digital Twins instance in the Azure portal.":::
 
 Note the Azure Digital Twins instance's **hostName**, **name**, and **resourceGroup** from the output. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources. If other users will be programming against the instance, you should share these values with them.
 
@@ -89,7 +89,7 @@ The result of this command is outputted information about the role assignment th
 >
 > Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's *ObjectID*:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Screenshot of the user page in Azure portal highlighting the GUID in the 'Object ID' field." lightbox="media/includes/user-id.png":::
 >
 > Then, repeat the role assignment list command using the user's *Object ID* for the `assignee` parameter above.
 
@@ -102,7 +102,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/dt)
+* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
 * [Concepts: Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:

@@ -4,7 +4,7 @@ description: Describes how to put your Microsoft 365 user resources close to the
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid:
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 06/08/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -31,29 +31,8 @@ By setting the attribute **preferredDataLocation**, you can define a user's geo.
 >
 >
 
-A list of all geos for Microsoft 365 can be found in [Where is your data located?](/microsoft-365/enterprise/o365-data-locations).
+A list of all geos for Microsoft 365 can be found in [Where is your data located?](/microsoft-365/enterprise/o365-data-locations).  Azure AD Connect supports all the geos in Microsoft 365.
 
-The geos in Microsoft 365 available for Multi-Geo are:
-
-| Geo | preferredDataLocation value |
-| --- | --- |
-| Asia Pacific | APC |
-| Australia | AUS |
-| Canada | CAN |
-| European Union | EUR |
-| France | FRA |
-| India | IND |
-| Japan | JPN |
-| Korea | KOR |
-| South Africa | ZAF |
-| Switzerland | CHE |
-| United Arab Emirates | ARE |
-| United Kingdom | GBR |
-| United States | NAM |
-
-* If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
-
-* Not all Microsoft 365 workloads support the use of setting a user's geo.
 
 ### Azure AD Connect support for synchronization
 
@@ -198,7 +177,7 @@ In general, full synchronization cycle is required. This is because you have add
 
 1. Run **Full import** on the on-premises Active Directory Connector:
 
-   1. Go to the **Operations** tab in the Synchronization Service Manager.
+   1. Go to the **Connectors** tab in the Synchronization Service Manager.
    2. Right-click the **on-premises Active Directory Connector**, and select **Run**.
    3. In the dialog box, select **Full Import**, and select **OK**.
    4. Wait for the operation to complete.

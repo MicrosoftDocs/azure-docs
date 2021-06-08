@@ -13,7 +13,7 @@ ms.author: kryalama
 > [!NOTE]
 > The telemetry processors feature is in preview.
 
-The Java 3.0 agent for Application Insights can process telemetry data before the data is exported.
+Application Insights Java 3.x can process telemetry data before the data is exported.
 
 Here are some use cases for telemetry processors:
  * Mask sensitive data.
