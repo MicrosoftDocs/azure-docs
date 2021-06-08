@@ -62,7 +62,7 @@ This section lists the features that are supported in the Contoso Coffee store l
 ### Functionality features
 
 * A `keypress` event added to the search box triggers a search when the user presses **Enter**.
-* When the map moves, the distance to each location from the center of the map is calculated. The results list is updated to display the closest locations at the top of the map.  
+* When the map moves, the distance to each location from the center of the map calculates. The results list updates to display the closest locations at the top of the map.  
 * When the user selects a result in the results list, the map is centered over the selected location and information about the location appears in a pop-up window.  
 * When the user selects a specific location, the map triggers a pop-up window.
 * When the user zooms out, locations are grouped in clusters. Clusters are represented by a circle with a number inside the circle. Clusters form and separate as the user changes the zoom level.
