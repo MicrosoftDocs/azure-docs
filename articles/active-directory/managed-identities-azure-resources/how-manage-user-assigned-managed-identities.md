@@ -94,7 +94,7 @@ In this article, you learn how to create, list, delete, or assign a role to a us
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]	
 > To modify user permissions when using an app service principal using CLI you must provide the service principal additional permissions in Azure AD Graph API as portions of CLI perform GET requests against the Graph API. Otherwise, you may end up receiving a 'Insufficient privileges to complete the operation' message. To do this you will need to go into the App registration in Azure Active Directory, select your app, click on API permissions, scroll down and select Azure Active Directory Graph. From there select Application permissions, and then add the appropriate permissions. 
@@ -299,7 +299,7 @@ For information on how to assign a user-assigned managed identity to an Azure VM
 ::: zone-end
 
 
-:: zone pivot="identity-mi-methods-rest"
+::: zone pivot="identity-mi-methods-rest"
 
 In this article, you learn how to create, list, and delete a user-assigned managed identity using CURL to make REST API calls.
 
