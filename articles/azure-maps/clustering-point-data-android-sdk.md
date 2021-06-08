@@ -235,7 +235,7 @@ map.layers.add(
 
 ::: zone-end
 
-The following image shows the above code displaying clustered point features in a bubble layer, scaled and colored based on the number of points in the cluster. Unclustered points are rendered using a symbol layer.
+The following image shows the above code display clustered point features in a bubble layer, scaled and colored based on the number of points in the cluster. Unclustered points are rendered using a symbol layer.
 
 ![Map clustered locations breaking apart while zooming the map in](media/clustering-point-data-android-sdk/android-cluster-bubble-layer.gif)
 
@@ -409,7 +409,7 @@ map.layers.add(
 
 ::: zone-end
 
-The following image shows the above code displaying a heat map that is optimized by using clustered point features and the cluster count as the weight in the heat map.
+The following image shows the above code display a heat map that is optimized by using clustered point features and the cluster count as the weight in the heat map.
 
 ![Map of a heatmap optimized using clustered points as a weight](media/clustering-point-data-android-sdk/android-cluster-heat-map.gif)
 
@@ -650,7 +650,7 @@ map.events.add(OnFeatureClick { features: List<Feature?>? ->
 
 ::: zone-end
 
-The following image shows the above code displaying clustered points on a map that when clicked, zoom into the next zoom level that a cluster starts to break apart and expand.
+The following image shows the above code display clustered points on a map that when clicked, zoom into the next zoom level that a cluster starts to break apart and expand.
 
 ![Map of clustered features zooming in and breaking apart when clicked](media/clustering-point-data-android-sdk/android-cluster-expansion.gif)
 
@@ -826,7 +826,7 @@ map.events.add(OnFeatureClick { features: List<Feature?>? ->
 
 ::: zone-end
 
-The following image shows the above code displaying the area of all points within a clicked clustered.
+The following image shows the above code display the area of all points within a clicked clustered.
 
 ![Map showing convex hull polygon of all points within a clicked cluster](media/clustering-point-data-android-sdk/android-cluster-leaves-convex-hull.gif)
 
@@ -1111,7 +1111,7 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
 
 The popup follows the steps outlined in the [display a popup](display-feature-information-android.md?#display-a-popup) document.
 
-The following image shows the above code displaying a popup with aggregated counts of each entity value type for all points in the clicked clustered point.
+The following image shows the above code display a popup with aggregated counts of each entity value type for all points in the clicked clustered point.
 
 ![Map showing popup of aggregated counts of entity types of all points in a cluster](media/clustering-point-data-android-sdk/android-cluster-aggregates.gif)
 

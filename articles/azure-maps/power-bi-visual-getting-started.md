@@ -93,7 +93,7 @@ The following data buckets are available in the **Fields** pane of the Azure Map
 | Longitude | The field used to specify the longitude value of the data points. Longitude values should be between -180 and 180 in decimal degrees format.  |
 | Legend    | The field used to categorize the data and assign a unique color for data points in each category. When this bucket is filled, a **Data colors** section will appear in the **Format** pane that allows adjustments to the colors. |
 | Size      | The measure used for relative sizing of data points on the map.   |
-| Tooltips  | Additional data fields to display in tooltips when shapes are hovered. |
+| Tooltips  | Other data fields to display in tooltips when shapes are hovered. |
 
 ## Map settings
 
@@ -105,7 +105,7 @@ The **Map settings** section of the Format pane provide options for customizing 
 | World wrap          | Allows the user to pan the map horizontally infinitely. |
 | Style picker        | Adds a button to the map that allows the report readers to change the style of the map. |
 | Navigation controls | Adds buttons to the map as another method to allow the report readers to zoom, rotate, and change the pitch of the map. See this document on [Navigating the map](map-accessibility.md#navigating-the-map) for details on all the different ways users can navigate the map. |
-| Map style           | The style of the map. For more information, see this document for more information on [supported map styles](supported-map-styles.md). |
+| Map style           | The style of the map. See the [supported map styles](supported-map-styles.md) document for more information. |
 | Selection control   | Adds a button that allows the user to choose between different modes to select data on the map; circle, rectangle, polygon (lasso), or travel time or distance. When drawing a polygon, to complete the drawing; click on the first point, or double-click the map on the last point, or press the `c` key. |
 
 ### Map view settings
