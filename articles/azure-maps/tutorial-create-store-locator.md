@@ -887,7 +887,7 @@ To add the JavaScript:
     }
     ```
 
-9. When the user selects an item in the list panel, the shape to which the item is related is retrieved from the data source. A pop-up window is generated that's based on the property information stored in the shape. The map is centered over the shape. If the map is less than 700 pixels wide, the map view is offset so the pop-up window is visible.
+9. When the user selects an item in the list panel, the shape to which the item is related is retrieved from the data source. A pop-up window is generated that's based on the property information stored in the shape. The map centers over the shape. If the map is less than 700 pixels wide, the map view is offset so the pop-up window is visible.
 
     ```JavaScript
     //When a user selects a result in the side panel, look up the shape by its ID value and display the pop-up window.
