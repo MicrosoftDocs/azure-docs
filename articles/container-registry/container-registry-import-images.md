@@ -202,7 +202,11 @@ az acr import \
 
 ## Next steps
 
-In this article, you learned about importing container images to an Azure container registry from a public registry or another private registry. For additional image import options, see the [az acr import][az-acr-import] command reference. 
+In this article, you learned about importing container images to an Azure container registry from a public registry or another private registry. 
+
+* For additional image import options, see the [az acr import][az-acr-import] command reference. 
+
+* Image import can help you move content to a container registry in a different Azure region, subscription, or Azure AD tenant. For more information, see [Manually move a container registry to another region](manual-regional-move.md).
 
 
 <!-- LINKS - Internal -->
