@@ -211,7 +211,7 @@ The **Location** - The location the connection was initiated from:
 
 ## Download sign-in activities
 
-Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal.  
+Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](./howto-download-logs.md) if you want to work with it outside the Azure portal.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 

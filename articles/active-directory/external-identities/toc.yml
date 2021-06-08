@@ -141,7 +141,7 @@
   - name: Resources
     items:
     - name: FAQ
-      href: /azure/active-directory/external-identities/faq
+      href: ./faq.yml
     - name: Getting support
       href: ../fundamentals/active-directory-troubleshooting-support-howto.md
     - name: Azure feedback forum
