@@ -7,8 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: danimir
-ms.author: danil
+author: urosmil
+ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 1/29/2021
 ---
