@@ -18,6 +18,10 @@ The first version of Azure Disk Encryption (ADE) relied on Azure Active Director
 
 ## Determine ADE version
 
+The versions of ADE in scope for migration are:
+- **Windows**: 1.1.* (ADE on the VM must be upgraded to 2.2)
+- **Linux**: 0.1.* (ADE on the VM must be upgraded to 1.2)
+
 You can determine the version of ADE with which a VM was encrypted via Azure CLI, Azure PowerShell, or the Azure portal.
 
 # [CLI](#tab/CLI)
