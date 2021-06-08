@@ -190,7 +190,14 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 + **Force Tunneling Traffic to On-premises Firewall Using Express Route or Network Virtual Appliance:**  
   Commonly, you configure and define your own default route (0.0.0.0/0), forcing all traffic from the API Management-delegated subnet to flow through an on-premises firewall or to a network virtual appliance. This traffic flow breaks connectivity with Azure API Management, since outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses no longer working with various Azure endpoints. You can solve this issue via a couple of methods: 
 
-  * Enable [service endpoints][ServiceEndpoints] for Azure Sql, Azure Storage, Azure EventHub, and Azure ServiceBus on the subnet in which the API Management service is deployed. By enabling endpoints directly from API Management-delegated subnet to these services, you can use the Microsoft Azure backbone network, providing optimal routing for service traffic. If you use service endpoints with a force tunneled API Management, the above Azure services traffic isn't force tunneled. The other API Management service dependency traffic is force tunneled and can't be lost. If lost, the API Management service would not function properly.
+  * Enable [service endpoints][ServiceEndpoints] on the subnet in which the API Management service is deployed for:
+      * Azure Sql
+      * Azure Storage
+      * Azure EventHub
+      * Azure ServiceBus, and
+      * Azure KeyVault. 
+  
+    By enabling endpoints directly from API Management-delegated subnet to these services, you can use the Microsoft Azure backbone network, providing optimal routing for service traffic. If you use service endpoints with a force tunneled API Management, the above Azure services traffic isn't force tunneled. The other API Management service dependency traffic is force tunneled and can't be lost. If lost, the API Management service would not function properly.
 
   * All the control plane traffic from the internet to the management endpoint of your API Management service is routed through a specific set of inbound IPs, hosted by API Management. When the traffic is force tunneled, the responses will not symmetrically map back to these inbound source IPs. To overcome the limitation, set the destination of the following user-defined routes ([UDRs][UDRs]) to the "Internet", to steer traffic back to Azure. Find the set of inbound IPs for control plane traffic documented in [Control Plane IP Addresses](#control-plane-ips).
 
