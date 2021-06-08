@@ -171,7 +171,7 @@ Recommended Action: Wait until the previous running backup completes.
 
 Error Message: The subscription is not registered to use namespace ‘Microsoft.Compute’.
 
-Recommended Action: The required resource provider hasn't been registered for your subscription. Register both the resource provider namespace **Microsoft.Compute** and **Microsoft.Storage** using [Solution 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal).
+Recommended Action: The required resource provider hasn't been registered for your subscription. Register both the resource providers' namespace (_Microsoft.Compute_ and _Microsoft.Storage_) using the steps in [Solution 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal).
 
 ## Next steps
 
