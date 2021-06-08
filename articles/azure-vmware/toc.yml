@@ -64,6 +64,8 @@
     items:
     - name: Move Azure VMware Solution subscriptions
       href: move-ea-csp-subscriptions.md
+    - name: Move Azure VMware Solution resources across regions
+      href: move-azure-vmware-solution-across-regions.md
   - name: Configure DHCP  
     href: configure-dhcp-azure-vmware-solution.md
   - name: Configure DHCP on L2 stretched VMware HCX networks
@@ -80,9 +82,7 @@
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
-  - name: Deploy disaster recovery for VMs
-    href: disaster-recovery-for-virtual-machines.md
-  - name: Azure native integration
+  - name: Disaster recovery 
     items:
     - name: Deploy disaster recovery for VMs
       href: disaster-recovery-for-virtual-machines.md

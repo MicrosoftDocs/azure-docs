@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 06/01/2021
 ms.author: thweiss
 ---
 
@@ -397,7 +397,10 @@ The Azure Cosmos DB RBAC is currently supported with the `2021-03-15` version of
 > [!NOTE]
 > The data explorer exposed in the Azure portal does not support the Azure Cosmos DB RBAC yet. To use your Azure AD identity when exploring your data, you must use the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) instead.
 
-When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) with the specific `?feature.enableAadDataPlane=true` query parameter and sign in, your Azure AD identity is used to authenticate your data access. In this mode, your identity must be [assigned with proper role definitions](#role-assignments) to ensure data access.
+When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) with the specific `?feature.enableAadDataPlane=true` query parameter and sign in, the following logic is used to access your data:
+
+1. A request to fetch the account's primary key is attempted on behalf of the identity signed in. If this request succeeds, the primary key is used to access the account's data.
+1. If the identity signed in isn't allowed to fetch the account's primary key, this identity is directly used to authenticate data access. In this mode, the identity must be [assigned with proper role definitions](#role-assignments) to ensure data access.
 
 ## Audit data requests
 
