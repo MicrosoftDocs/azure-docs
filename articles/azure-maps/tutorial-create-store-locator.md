@@ -234,7 +234,7 @@ The next step is to define the CSS styles. CSS styles define how the application
         margin: 0;
         font-family: Gotham, Helvetica, sans-serif;
         overflow-x: hidden;
-    }
+    } 
 
     header {
         width: calc(100vw - 10px);
