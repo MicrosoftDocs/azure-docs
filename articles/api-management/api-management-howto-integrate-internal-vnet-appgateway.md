@@ -151,13 +151,16 @@ Assign the address range 10.0.0.0/24 to the subnet variable to be used for Appli
 ```powershell
 $appGatewaySubnet = New-AzVirtualNetworkSubnetConfig -Name "appGatewaySubnet" -NetworkSecurityGroup $appGwNsg -AddressPrefix "10.0.0.0/24"
 ```
+
+### Step 3
+
 Assign the address range 10.0.1.0/24 to the subnet variable to be used for API Management while creating a virtual network.
 
 ```powershell
 $apimSubnet = New-AzVirtualNetworkSubnetConfig -Name "apimSubnet" -NetworkSecurityGroup $apimNsg -AddressPrefix "10.0.1.0/24"
 ```
 
-### Step 3
+### Step 4
 
 Create a virtual network named **appgwvnet** in resource group **apim-appGw-RG** for the West US region. Use the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
 
@@ -166,7 +169,7 @@ $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName 
   -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appGatewaySubnet,$apimSubnet
 ```
 
-### Step 4
+### Step 5
 
 Assign subnet variables for the next steps
 
