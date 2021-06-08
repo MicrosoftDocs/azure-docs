@@ -330,8 +330,6 @@ To return the city claim back to the relying party application, add an output cl
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Sign up now** to sign up. Finish entering the user information including the city name, and then click **Create**. You should see the contents of the token that was returned.
 
-You should 
-
 ::: zone-end
 
 The sign-up screen should look similar to the following screenshot:
@@ -365,6 +363,63 @@ The token sent back to your application includes the `city` claim.
 ```
 
 ::: zone pivot="b2c-custom-policy"
+
+## [Optional] Localize the UI
+
+Azure AD B2C allows you to accommodate your policy to different languages. For more information, [learn about customizing the language experience](language-customization.md). To localize the sign-up page, [set up the list of supported languages](language-customization.md#set-up-the-list-of-supported-languages), and [provide language-specific labels](language-customization.md#provide-language-specific-labels).
+
+> [!NOTE]
+> When using the `LocalizedCollection` with the language-specific labels, you can remove the `Restriction` collection from the [claim definition](#define-a-claim).
+
+The following example demonstrates how to provide the list of cities for English and Spanish. Both set the `Restriction` collection of the claim *city* with a list of items for English and Spanish. The [SelectByDefault](claimsschema.md#enumeration) makes an item selected by default when the page first loads.
+   
+```xml
+<!-- 
+<BuildingBlocks>-->
+  <Localization Enabled="true">
+    <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+      <SupportedLanguage>en</SupportedLanguage>
+      <SupportedLanguage>es</SupportedLanguage>
+    </SupportedLanguages>
+    <LocalizedResources Id="api.localaccountsignup.en">
+      <LocalizedCollections>
+        <LocalizedCollection ElementType="ClaimType" ElementId="city" TargetCollection="Restriction">
+          <Item Text="Berlin" Value="Berlin"></Item>
+          <Item Text="London" Value="London" SelectByDefault="true"></Item>
+          <Item Text="Seattle" Value="Seattle"></Item>
+        </LocalizedCollection>
+      </LocalizedCollections>
+    </LocalizedResources>
+    <LocalizedResources Id="api.localaccountsignup.es">
+      <LocalizedCollections>
+        <LocalizedCollection ElementType="ClaimType" ElementId="city" TargetCollection="Restriction">
+          <Item Text="Berlina" Value="Berlin"></Item>
+          <Item Text="Londres" Value="London" SelectByDefault="true"></Item>
+          <Item Text="Seattle" Value="Seattle"></Item>
+        </LocalizedCollection>
+      </LocalizedCollections>
+    </LocalizedResources>
+  </Localization>
+<!-- 
+</BuildingBlocks>-->
+```
+
+After you add the localization element, [edit the content definition with the localization](language-customization.md#edit-the-content-definition-with-the-localization). In the following example, English (en) and Spanish (es) custom localized resources are added to the sign-up page:
+   
+```xml
+<!-- 
+<BuildingBlocks>
+  <ContentDefinitions> -->
+   <ContentDefinition Id="api.localaccountsignup">
+    <LocalizedResourcesReferences MergeBehavior="Prepend">
+        <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+        <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
+    </LocalizedResourcesReferences>
+   </ContentDefinition>
+  <!-- 
+  </ContentDefinitions>
+</BuildingBlocks>-->
+```
 
 ## Next steps
 

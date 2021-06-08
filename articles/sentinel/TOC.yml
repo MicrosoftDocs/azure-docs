@@ -25,8 +25,10 @@
   items:
   - name: Architecture
     items:
-    - name: Roles and Permissions
+    - name: Roles and permissions
       href: roles.md
+    - name: Costs and billing
+      href: azure-sentinel-billing.md
     - name: Security baseline
       href: https://docs.microsoft.com/security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json
   - name: Data collection and analysis
@@ -113,7 +115,7 @@
         href: connect-asc-iot.md
       - name: Domain name server
         href: connect-dns.md
-      - name: Dynamics 365 (new!)
+      - name: Dynamics 365
         href: connect-dynamics-365.md
       - name: Microsoft 365 Defender
         href: connect-microsoft-365-defender.md
@@ -127,7 +129,7 @@
           href: connect-azure-atp.md
         - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
           href: connect-office-365-advanced-threat-protection.md
-      - name: Office 365 (now with Teams!)
+      - name: Office 365 (includes Teams)
         href: connect-office-365.md
       - name: Windows firewall
         href: connect-windows-firewall.md
