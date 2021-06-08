@@ -12,7 +12,7 @@ ms.date: 05/06/2021
 
 This tutorial provides steps for using the Azure portal to setup Private Link Service and access on-premises SQL Server from Managed VNet using Private Endpoint.
 
-> ![Note]
+> [!NOTE]
 > The solution presented in this article describes SQL Server connectivity, but you can use a similar approach to connect and query other available [on-premises connectors](connector-overview.md) that are supported in Azure Data Factory.
 
 :::image type="content" source="./media/tutorial-managed-virtual-network/sql-server-access-model.png" alt-text="Screenshot that shows the access model of SQL server." lightbox="./media/tutorial-managed-virtual-network/sql-server-access-model-expanded.png":::
