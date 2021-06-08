@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/02/2021
+ms.date: 06/08/2021
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub
@@ -113,7 +113,7 @@ To create an IoT hub:
 
 ### Configure IoT Explorer
 
-In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send a command to your device to turn on an LED. In this section, you configure IoT Explorer to connect to the IoT hub you just created and to read PnP models from the public model repository. 
+In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send commands to your device. In this section, you configure IoT Explorer to connect to the IoT hub you just created and to read plug and play models from the public model repository. 
 
 To add a connection to your IoT hub:
 
@@ -128,9 +128,9 @@ To add a connection to your IoT hub:
 1. Paste the connection string into the **Connection string** box.
 1. Select **Save**.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-connection.png" alt-text="Azure IoT Explorer connection string":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-connection.png" alt-text="Screenshot of adding a connection in IoT Explorer":::
 
-    If the connection succeeds, IoT Explorer switches to a **Devices** view.
+1. If the connection succeeds, IoT Explorer switches to the **Devices** view.
 
 To add the public model repository:
 
@@ -138,7 +138,7 @@ To add the public model repository:
 1. On the left menu, select **IoT Plug and Play Settings**, then select **+Add** and select **Public repository** from the drop-down menu.
 1. An entry appears for the public model repository at `https://devicemodels.azure.com`.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-connection.png" alt-text="Azure IoT Explorer connection string":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-public-repository.png" alt-text="Screenshot of adding the public model repository in IoT Explorer":::
 
 1. Select **Save**.
 
@@ -153,7 +153,7 @@ To register a device:
 1. Select **+ New** and enter a device ID for your device; for example, *mydevice*. Leave all other properties the same.
 1. Select **Create**.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity pane":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity":::
 
 1. Use the copy buttons to copy and note down the **Device ID** and **Primary key** fields.
 
@@ -276,18 +276,40 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use the Azure IoT Explorer to view and manage the properties of your devices. 
+You can use the Azure IoT Explorer to view and manage the properties of your devices. In this section and the following sections, you'll use the Plug and Play capabilities surfaced in IoT Explorer to manage and interact with the MXCHIP DevKit. These capabilities rely on the device model published for the MXCHIP DevKit in the public model repository. You configured your instance of IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by merely selecting the same action from the left side menu of your device pane in IoT Explorer, but using plug and play often provides an enhanced experience because IoT Explorer can read the device model and present information specific to the MXCHIP DevKit.  
+
+To access IoT Plug and Play components for the device in IoT Explorer:
+
+1. From the home view in IoT Explorer, select **IoT hubs**, then select **View devices in this hub**.
+1. Select your device.
+1. Select **IoT Plug and Play components**.
+1. Select **Default component**. IoT Explorer displays the IoT Plug and Play components that are implemented on your device.
+
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-default-component-view.png" alt-text="Screenshot of MXCHIP DevKit default component in IoT Explorer":::
+
+1. On the **Interface** tab, view the JSON content in the device model **Description**. The JSON contains configuration details for each of the IoT Plug and Play components in the device model.
+
+    Each tab in IoT Explorer corresponds to one of the IoT Plug and Play components in the device model.
+
+    | Tab | Type | Name | Description |
+    |---|---|---|---|
+    | **Interface** | Interface | `MXCHIP Getting Started Guide` | Example model for the MXCHIP DevKit |
+    | **Properties (read-only)** | Property | -- | The model currently doesn't have any read-only properties |
+    | **Properties (writable)** | Property | `telemetryInterval` | The interval that the device sends telemetry |
+    | **Commands** | Command | `setLedState` | Turn the LED on or off |
+    | **Telemetry** | Telemetry | `temperature` | The temperature in Celsius |
 
 To view device properties using Azure IoT Explorer:
 
-1. From the home view in IoT Explorer, select **IoT hubs** then select **View devices in this hub**. 
-1. Select the link for your device identity. IoT Explorer displays details for the device.
+1. Select the **Properties (read-only)** tab. Currently, there aren't any read-only properties exposed by the device model.
+1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
+1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-identity.png" alt-text="Azure IoT Explorer device identity":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-set-telemetry-interval.png" alt-text="Screenshot of setting telemetry interval on MXCHIP DevKit in IoT Explorer":::
 
-1. Inspect the properties for your device in the **Device identity** panel. 
-1. Optionally, select the **Device twin** panel and inspect additional device properties.
-
+1. IoT Explorer responds with a notification. You can also observe the update in Termite.
+1. Set the telemetry interval back to 10.
+ 
 To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show) command.
@@ -304,14 +326,18 @@ With Azure IoT Explorer, you can view the flow of telemetry from your device to 
 
 To view telemetry in Azure IoT Explorer:
 
-1. In IoT Explorer, select **Telemetry**. Confirm that **Use built-in event hub** is set to *Yes*.
+1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Telemetry** tab. Confirm that **Use built-in event hub** is set to *Yes*.
 1. Select **Start**.
 1. View the telemetry as the device sends messages to the cloud.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-telemetry.png" alt-text="Azure IoT Explorer device telemetry":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
+
+1. Select the **Show modeled events** checkbox to view the events in the data format specified by the device model.
+
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer device":::
 
 1. Select **Stop** to end receiving events.
 
@@ -346,15 +372,13 @@ You can also use Azure IoT Explorer to call a direct method that you've implemen
 
 To call a method in Azure IoT Explorer:
 
-1. Select **Direct method**.
-1. In the Direct method panel, add the following values for the method name and payload. The payload value *true* indicates to turn on the LED.
-    * **Method name**: `setLedState`
-    * **Payload**: `true`
-1. Select **Invoke method**. The yellow User LED light should turn on.
+1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Commands** tab.
+1. For the **setLedState** command, set the **state** to **true**.
+1. Select **Send command**. You should see a notification in IoT Explorer, and the yellow User LED light on the device should turn on.
 
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-invoke-method.png" alt-text="Azure IoT Explorer invoke method":::
 
-1. Change **Payload** to *false*, and again select **Invoke method**. The yellow User LED should turn off.
+1. Set the **state** to  **false**, and then select **Send command**. The yellow User LED should turn off.
 1. Optionally, you can view the output in Termite to monitor the status of the methods.
 
 To use Azure CLI to call a method:
