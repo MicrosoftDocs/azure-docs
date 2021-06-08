@@ -377,9 +377,10 @@ Executing the command, the **sub_client** MQTT client receives the "hello" messa
 To enable TLS, the port must be changed from 1883(MQTT) to 8883(MQTTS) and clients must have the root certificate of the MQTT broker to be able to validate the certificate chain sent by the MQTT broker. This can be done by following the steps provided in section [Secure connection (TLS)](#secure-connection-tls).
 
 Because the clients are running on the same device as the MQTT broker in the example above, the same steps apply to enable TLS by:
-    - Changing the port number from 1883 (MQTT) to 8883 (MQTTS)
-    - Passing the CA root certificate to the mosquitto_pub and mosquitto_sub clients using a parameter similar to `--cafile /certs/certs/azure-iot-test-only.root.ca.cert.pem`
-    - The hostname parameter passed to the mosquitto_pub and mosquitto_sub clients needs to be replaced by the actual hostname set up in IoT Edge (instead of `localhost`) to enable validation of the certificate chain
+
+- Changing the port number from 1883 (MQTT) to 8883 (MQTTS)
+- Passing the CA root certificate to the mosquitto_pub and mosquitto_sub clients using a parameter similar to `--cafile /certs/certs/azure-iot-test-only.root.ca.cert.pem`
+- Passing the actual hostname set up in IoT Edge instead of `localhost` via the hostname parameter passed to the mosquitto_pub and mosquitto_sub clients to enable validation of the certificate chain
 
 ## Publish and subscribe on IoT Hub topics
 
