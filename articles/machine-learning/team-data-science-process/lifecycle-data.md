@@ -22,7 +22,7 @@ This article outlines the goals, tasks, and deliverables associated with the dat
    4. **Deployment**
    5. **Customer acceptance**
 
-For an overview and visual representation of the TDSP lifecycle, see ![The Team Data Science Process lifecycle](./lifecycle.md).
+For an overview and visual representation of the TDSP lifecycle, see ![Team Data Science Process lifecycle](./lifecycle.md).
 
 ## Goals
 * Produce a clean, high-quality data set whose relationship to the target variables is understood. Locate the data set in the appropriate analytics environment so you are ready to model.

@@ -22,7 +22,7 @@ This article outlines the goals, tasks, and deliverables associated with the dep
    4. **Deployment** (this article)
    5. **Customer acceptance**
 
-For an overview and visual representation of the TDSP lifecycle, see ![The Team Data Science Process lifecycle](./lifecycle.md).
+For an overview and visual representation of the TDSP lifecycle, see ![Team Data Science Process lifecycle](./lifecycle.md).
 
 ## Goal
 Deploy models with a data pipeline to a production or production-like environment for final user acceptance. 
