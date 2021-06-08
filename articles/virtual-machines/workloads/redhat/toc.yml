@@ -11,7 +11,7 @@
   - name: JBoss EAP + RHEL on VM/VMSS
     href: jboss-eap-on-rhel.md
   - name: JBoss EAP marketplace image
-    href: marketplace-jboss-eap-on-azure-rhel-vm-vmss.md
+    href: jboss-marketplace-image.md
   - name: WildFly + CentOS on VM
     href: wildfly-on-centos.md
 - name: Red Hat Update Infrastructure in Azure
