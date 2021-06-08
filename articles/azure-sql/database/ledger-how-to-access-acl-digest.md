@@ -48,7 +48,7 @@ We're interested in the value in the path column from the query output. It consi
 
 ## 3. Obtain an Azure AD token
 
-The Azure Confidential Ledger API accepts an Azure Active Directory (Azure AD) Bearer token as the caller identity. This identity needs access to ACL via Azure Resource Manager during provisioning. The user who had enabled ledger in SQL Database is automatically given administrator access to Azure Confidential Ledger. To obtain a token, the user needs to authenticate using [Azure CLI](/cli/azure/install-azure-cli) with the same account that was used with Azure portal. Once the user has authenticated, they can use [AzureCliCredential](/python/api/azure-identity/azure.identity.azureclicredential?view=azure-python) to retrieve a bearer token and call Azure Confidential Ledger API.
+The Azure Confidential Ledger API accepts an Azure Active Directory (Azure AD) Bearer token as the caller identity. This identity needs access to ACL via Azure Resource Manager during provisioning. The user who had enabled ledger in SQL Database is automatically given administrator access to Azure Confidential Ledger. To obtain a token, the user needs to authenticate using [Azure CLI](/cli/azure/install-azure-cli) with the same account that was used with Azure portal. Once the user has authenticated, they can use [AzureCliCredential](/python/api/azure-identity/azure.identity.azureclicredential) to retrieve a bearer token and call Azure Confidential Ledger API.
 
 Log in to Azure AD using the identity with access to ACL.
 
