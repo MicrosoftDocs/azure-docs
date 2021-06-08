@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 ---
 # Connect to an internal virtual network using Azure API Management 
-With Azure Virtual Networks (VNETs), Azure API Management can manage internet-inaccessible APIs using several VPN technologies to make the connection. You can deploy API Management either [externally](./api-management-using-with-vnet.md) or internally inside a VNET. In this article, you'll learn how to deploy API Management in internal VNET mode.
+With Azure Virtual Networks (VNETs), Azure API Management can manage internet-inaccessible APIs using several VPN technologies to make the connection. You can deploy API Management either via [external](./api-management-using-with-vnet.md) or internal modes. In this article, you'll learn how to deploy API Management in internal VNET mode.
 
 When API Management deploys in internal VNET mode, you can only view the following service endpoints within a VNET whose access you control.
 * The proxy gateway
@@ -48,11 +48,11 @@ Use API Management in internal mode to:
 When an API Management service is deployed in a VNET, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened.
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal VNET
-In an internal network, API Management service hosting locations are based on the API version with which you've created it. For more information, see [Azure Load Balancer SKUs](../load-balancer/skus.md).
+The API Management service in an internal virtual network is hosted behind an internal load balancer. The load balancer SKU depends on the management API used to create the service. For more information, see [Azure Load Balancer SKUs](../load-balancer/skus.md).
 
 | API version | Hosted behind |
 | ----------- | ------------- |
-| 2020-12-01 | An internal load balancer Basic SKU |
+| 2020-12-01 | An internal load balancer in the Basic SKU |
 | 2020-01-01-preview, with a public IP address from your subscription | An internal load balancer Standard SKU |
 
 ### Enable a VNET connection using the Azure portal
