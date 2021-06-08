@@ -628,15 +628,15 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-:::image type="content" source="media/quickstart-dotnetcore/app-services.png" alt-text="Azure Portal - Select App Services option.":::
+:::image type="content" source="media/quickstart-dotnetcore/app-services.png" alt-text="Azure portal - Select App Services option.":::
 
 On the **App Services** page, select the name of your web app.
 
-:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Azure Portal - App Services page with an example web app selected.":::
+:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Azure portal - App Services page with an example web app selected.":::
 
 The **Overview** page for your web app, contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
-:::image type="content" source="media/quickstart-dotnetcore/web-app-overview-page.png" alt-text="Azure Portal - App Service overview page.":::
+:::image type="content" source="media/quickstart-dotnetcore/web-app-overview-page.png" alt-text="Azure portal - App Service overview page.":::
 
 <!--
 ## Clean up resources - H2 added from the next three includes
