@@ -73,9 +73,9 @@ Once you've selected your data source, select **Next: Configure your data** to m
 ### Step 4 – Configure your data
 Once you've selected your data source, you'll configure your connection. Each data source will require different information. For a few data sources, the Power Query documentation provides additional details on how to connect to your data. 
 
-+ [PostgreSQL](https://docs.microsoft.com/power-query/connectors/postgresql)
-+ [Salesforce Objects](https://docs.microsoft.com/power-query/connectors/salesforceobjects)
-+ [Salesforce Reports](https://docs.microsoft.com/power-query/connectors/salesforcereports)
++ [PostgreSQL](/power-query/connectors/postgresql)
++ [Salesforce Objects](/power-query/connectors/salesforceobjects)
++ [Salesforce Reports](/power-query/connectors/salesforcereports)
 
 Once you've provided your connection credentials, select **Next**.
 
@@ -93,7 +93,7 @@ It's not required that you transform your data before importing it into Azure Co
 
 ![Transform your data](./media/search-power-query-connectors/power-query-transform-your-data.png "Transform your data") 
 
-For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](https://docs.microsoft.com/power-query/power-query-quickstart-using-power-bi). 
+For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](/power-query/power-query-quickstart-using-power-bi). 
 
 Once you're done transforming your data, select **Next**.
 
