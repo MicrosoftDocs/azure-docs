@@ -7,18 +7,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/04/2021
+ms.date: 06/08/2021
 ms.author: alkohli
 ---
 # Troubleshoot Azure Resource Manager issues on an Azure Stack Edge Pro GPU device 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to troubleshoot configuration issues that may be keeping you from using Azure Resource Manager to manage your Azure Stack Edge Pro GPU device. Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure account.
+This article describes how to troubleshoot issues with Azure Resource Manager that may interfere with management of resources on your Azure Stack Edge Pro GPU device. Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure account.
  
 ## Azure Resource Manager configuration errors
 
-Here are the errors that may show up during the configuration of Azure Resource Manager to access your device. 
+The following errors may indicate an issue with your Azure Resource Manager configuration. 
 
 | **Issue / Errors** |  **Resolution** | 
 |------------|-----------------|
@@ -31,7 +31,7 @@ Here are the errors that may show up during the configuration of Azure Resource 
 |Unable to get endpoints from the cloud.<br>Ensure you have network connection. Error detail: HTTPSConnectionPool(host='management.dbg-of4k6suvm.microsoftdatabox.com', port=30005): Max retries exceeded with url: /metadata/endpoints?api-version=2015-01-01 (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",),)) |This error appears mostly in a Mac/Linux environment, and is caused by the following issues:<li>A PEM format certificate wasn't added to the python certificate store.</li> |
 
 
-## Troubleshooting general issues
+## Troubleshoot general issues with Azure Resource Manager
 
 For general issues with Azure Resource Manager, the first to do is to make sure your Azure Stack Edge Pro GPU device and the client are configured properly. For end-to-end procedures, see [Connect to Azure Resource Manager on your Azure Stack Edge Pro device](azure-stack-edge-gpu-connect-resource-manager.md).
 
@@ -69,4 +69,5 @@ For general issues with Azure Resource Manager, the first to do is to make sure 
 
 ## Next steps
 
-- Learn more on how to [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).<!--List not yet updated.-->
+- [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).
+- [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot.md)

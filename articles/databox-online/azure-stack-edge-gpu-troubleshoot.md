@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/07/2021
+ms.date: 06/08/2021
 ms.author: alkohli
 ---
 # Run diagnostics, collect logs to troubleshoot device issues on Azure Stack Edge Pro GPU 
@@ -130,7 +130,7 @@ Any errors experienced during the upload and refresh processes are included in t
 
 ## Next steps
 
-- Learn more on how to [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).
-- [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)
-- [Troubleshoot Blob storage issues](azure-stack-edge-gpu-troubleshoot-blob-storage.md)
-- [Troubleshoot compute issues in IoT Edge](azure-stack-edge-gpu-troubleshoot-iot-edge.md)
+- [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).
+- [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md).
+- [Troubleshoot Blob storage issues](azure-stack-edge-gpu-troubleshoot-blob-storage.md).
+- [Troubleshoot compute issues in IoT Edge](azure-stack-edge-gpu-troubleshoot-iot-edge.md).

@@ -1,24 +1,21 @@
 ---
-title: Troubleshoot Blob storage on an Azure Stack Edge Pro with GPU device| Microsoft Docs 
-description: Describes how to troubleshoot issues with Blob storage on an Azure Stack Edge Pro GPU device.
+title: Troubleshoot Blob storage for an Azure Stack Edge Pro with GPU device| Microsoft Docs 
+description: Describes how to troubleshoot issues with Blob storage for an Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/02/2021
+ms.date: 06/08/2021
 ms.author: alkohli
 ---
-# Troubleshoot Blob storage issues on an Azure Stack Edge Pro GPU device 
+# Troubleshoot Blob storage issues for an Azure Stack Edge Pro GPU device 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-and-gateway-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-databox-gateway-sku.md)]
 
 
 This article describes how to troubleshoot issues with Blob storage on your Azure Stack Edge Pro GPU or Data Box Gateway device. 
-
-ERRORS DISPLAYED IN PORTAL?
-
 
 ## Errors for Blob storage on device 
 
@@ -42,4 +39,4 @@ Here are the errors related to Blob storage on an Azure Stack Edge Pro or Data B
 
 ## Next steps
 
-- Learn more on how to [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).<!--List not updated.-->
+- [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md).
