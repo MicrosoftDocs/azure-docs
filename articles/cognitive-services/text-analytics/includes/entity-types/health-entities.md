@@ -133,11 +133,11 @@ See more information and examples below.
   
 **ADMINISTRATIVE_EVENT** – Events that relate to the healthcare system but of an administrative/semi-administrative nature. For example, registration, admission, trial, study entry, transfer, discharge, hospitalization, hospital stay. 
 
-:::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="An example of a healthcare event entity." lightbox="../../media/ta-for-health/healthcare-event-entity.png" :::
-
 **CARE_ENVIRONMENT** – An environment or location where patients are given care. For example, emergency room, physician’s office, cardio unit, hospice, hospital.
 
-:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="This screenshot shows an example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-environment-entity.png":::
+:::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="An example of a healthcare event entity." lightbox="../../media/ta-for-health/healthcare-event-entity.png" :::
+
+<!--:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="This screenshot shows an example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-environment-entity.png":::--
 
 **HEALTHCARE_PROFESSION** – A healthcare practitioner licensed or non-licensed. For example, dentist, pathologist, neurologist, radiologist, pharmacist, nutritionist, physical therapist, chiropractor.
 
