@@ -1273,7 +1273,7 @@ groups:
   - id: identity-mi-methods-powershell
     title: PowerShell
   - id: identity-mi-methods-arm
-    title: Azure resource manager
+    title: Resource Manager
   - id: identity-mi-methods-rest
     title: REST
 - id: identity-mi-method-sub
