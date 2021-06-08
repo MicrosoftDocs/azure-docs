@@ -4,7 +4,7 @@ description: A brief overview of which locations Azure Virtual Desktop's data an
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/09/2021
+ms.date: 06/08/2021
 ms.author: helohr
 manager: femila
 ---
