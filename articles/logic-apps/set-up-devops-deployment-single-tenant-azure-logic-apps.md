@@ -257,8 +257,16 @@ If your resource group is successfully created, the output shows the `provisioni
 To deploy your zipped artifact to an Azure resource group, run the command, `az logicapp deployment`, with the following required parameters:
 
 > [!IMPORTANT]
-> Make sure that your zip file contains the actual build artifacts, including all workflow folders, 
-> configuration files such as host.json, connections.json, and any other related files.
+> Make sure that your zip file contains your project's artifacts at the root level. These artifacts include all workflow folders, 
+> configuration files such as host.json, connections.json, and any other related files. Don't add any extra folders nor put any artifacts 
+> into folders that don't already exist in your project structure. For example, this list shows an example MyBuildArtifacts.zip file structure:
+>
+> ```output
+> MyStatefulWorkflow1-Folder
+> MyStatefulWorkflow2-Folder
+> connections.json
+> host.json
+> ```
 
 ```azurecli-interactive
 az logicapp deployment source config-zip --name MyLogicAppName 
