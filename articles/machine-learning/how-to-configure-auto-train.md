@@ -1,7 +1,7 @@
 ---
-title: Set up Auto ML with Python
+title: Set up AutoML with Python
 titleSuffix: Azure Machine Learning
-description: Learn how to set up an Auto ML training run with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
+description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -13,9 +13,9 @@ ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
 ---
 
-# Set up Auto ML training with Python
+# Set up AutoML training with Python
 
-In this guide, learn how to set up an Auto ML training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure these types of experiments.
+In this guide, learn how to set up an AutoML training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure these types of experiments.
 
 For an end to end example, see [Tutorial: Train a regression model with automated machine learning](tutorial-auto-train-models.md).
 
@@ -29,7 +29,7 @@ Configuration options available in automated ML:
 * Explore model metrics
 * Register and deploy model
 
-If you prefer a no-code experience, you can also [Set up no-code Auto ML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
+If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## Prerequisites
 
@@ -178,7 +178,7 @@ The three different `task` parameter values determine the list of algorithms, or
 The following table summarizes the supported models by task type. 
 
 > [!NOTE]
-> If you plan to export your auto ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
+> If you plan to export your automated ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
 
 Classification | Regression | Time Series Forecasting
 |-- |-- |--
