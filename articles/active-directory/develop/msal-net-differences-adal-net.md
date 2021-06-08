@@ -98,7 +98,7 @@ In ADAL.NET, claim challenge exceptions are handled in the following way:
 In MSAL.NET, claim challenge exceptions are handled in the following way:
 
 - The `Claims` are surfaced in the `MsalServiceException`.
-- There is a `.WithClaim(claims)` method that can apply to the `AcquireTokenInteractive` builder.
+- There is a `.WithClaim(claims)` method that can apply to the `AcquireTokenXXX` builders.
 
 ### Supported grants
 
@@ -131,7 +131,7 @@ ADAL.NET allows you to extend the `TokenCache` class to implement the desired pe
 
 MSAL.NET makes the token cache a sealed class, removing the ability to extend it. Therefore, your implementation of token cache persistence must be in the form of a helper class that interacts with the sealed token cache. This interaction is described in [Token Cache Serialization in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization). The serialization will be different for a public client application (See [Token cache for a public client application](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-public-client-application)), and for a confidential client application (See [Token cache for a web app or web API](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-public-client-application))
 
-## Signification of the common authority
+## Meaning of the common authority
 
 In v1.0, if you use the `https://login.microsoftonline.com/common` authority, you will allow users to sign in with any AAD account (for any organization). See [Authority Validation in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 

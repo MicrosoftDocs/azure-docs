@@ -1,7 +1,7 @@
 ---
 title: Migrating to MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Learn about the differences between the Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) and how to migrate to MSAL.NET.
+description: Learn why and how to migrate from  Azure AD Authentication Library for .NET (ADAL.NET) to Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,7 +14,7 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
-#Customer intent: As an application developer, I want to learn about the differences between the ADAL.NET and MSAL.NET libraries so I can migrate my applications to MSAL.NET.
+#Customer intent: As an application developer, I want to learn why and how to migrate from ADAL.NET and MSAL.NET libraries.
 ---
 
 # Migrating applications to MSAL.NET
@@ -45,6 +45,5 @@ For details about the decision tree below, read [Should I use MSAL.NET only? or 
 
 ## Next steps
 
-- Learn [how to migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
-- Learn more about the [Differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md)
-
+- Learn [how to migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md).
+- Learn more about the [Differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md).
