@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -45,9 +46,7 @@ Review the following checklist for a brief overview of the storage best practice
     - Always stop the SQL Server service before changing the cache settings of your disk.
 - For development and test workloads, and long-term backup archival consider using standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
 - [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) should only be considered for smaller dev/test workloads and departmental systems.
-- Provision the storage account in the same region as the SQL Server VM. 
-- Disable Azure geo-redundant storage (geo-replication) and use LRS (local redundant storage) on the storage account.
-- Format your data disk to use 64 KB allocation unit size for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64 KB. 
+- Format your data disk to use 64 KB block size (allocation unit size) for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with a block size and interleave for the storage pool set to 64 KB. 
 
 To compare the storage checklist with the others, see the comprehensive [Performance best practices checklist](performance-guidelines-best-practices-checklist.md). 
 
@@ -157,7 +156,7 @@ For example, the [M-series](../../../virtual-machines/m-series.md) documentation
 
 Likewise, you can see that the Standard_M32ts supports 20,000 uncached disk IOPS and 500 MBps uncached disk throughput. This limit is governed at the virtual machine level regardless of the underlying premium disk storage.
 
-For more information, see [uncached and cached limits](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
+For more information, see [uncached and cached limits](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits).
 
 
 ### Cached and temp storage throughput
@@ -225,7 +224,7 @@ For more information on disk capping limitations and using caching to avoid capp
 
 ## Write Acceleration
 
-Write Acceleration is a disk feature that is only available for the [M-Series](https://docs.microsoft.com/azure/virtual-machines/m-series) Virtual Machines (VMs). The purpose of Write Acceleration is to improve the I/O latency of writes against Azure Premium Storage when you need single digit I/O latency due to high volume mission critical OLTP workloads or data warehouse environments. 
+Write Acceleration is a disk feature that is only available for the [M-Series](../../../virtual-machines/m-series.md) Virtual Machines (VMs). The purpose of Write Acceleration is to improve the I/O latency of writes against Azure Premium Storage when you need single digit I/O latency due to high volume mission critical OLTP workloads or data warehouse environments. 
 
 Use Write Acceleration to improve write latency to the drive hosting the log files. Do not use Write Acceleration for SQL Server data files. 
 

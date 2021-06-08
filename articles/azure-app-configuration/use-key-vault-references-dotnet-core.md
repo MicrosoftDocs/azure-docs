@@ -90,7 +90,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Connect to Key Vault
 
-1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
+1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
@@ -258,7 +258,13 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Next steps
 
-In this tutorial, you created an App Configuration key that references a value stored in Key Vault. To learn how to add an Azure-managed service identity that streamlines access to App Configuration and Key Vault, continue to the next tutorial.
+In this tutorial, you created a key in App Configuration that references a secret stored in Key Vault.
+To learn how to automatically reload secrets and certificates from Key Vault, continue to the next tutorial:
+
+> [!div class="nextstepaction"]
+> [Reload secrets and certificates from Key Vault automatically](./reload-key-vault-secrets-dotnet.md)
+
+To learn how to use Managed Identity to streamline access to App Configuration and Key Vault, refer to the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

@@ -4,7 +4,7 @@ description: Customize a C# .NET chat bot with a Personalizer loop to provide th
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 05/17/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -125,7 +125,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 To use this chat bot, you need to create Azure resources for Personalizer and Language Understanding (LUIS).
 
-* [Create LUIS resources](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal). Select **both** in the creation step because you need both authoring and prediction resources.
+* [Create LUIS resources](../luis/luis-how-to-azure-subscription.md). Create both an authoring and prediction resource.
 * [Create Personalizer resource](how-to-create-resource.md) then copy the key and endpoint from the Azure portal. You will need to set these values in the `appsettings.json` file of the .NET project.
 
 ### Create LUIS app

@@ -1,3 +1,6 @@
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/PhoneNumbers)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -30,7 +33,7 @@ dotnet build
 While still in the application directory, install the Azure Communication PhoneNumbers client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
+dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the namespaces.

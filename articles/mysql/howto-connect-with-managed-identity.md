@@ -33,13 +33,13 @@ You learn how to:
 
 ## Creating a user-assigned managed identity for your VM
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You can use the same resource group that your virtual machine runs in, or a different one.
+Create an identity in your subscription using the [az identity create](/cli/azure/identity#az_identity_create) command. You can use the same resource group that your virtual machine runs in, or a different one.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's resource ID and client ID in variables.
+To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az_identity_show) command to store the identity's resource ID and client ID in variables.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -49,7 +49,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-We can now assign the user-assigned identity to the VM with the [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
+We can now assign the user-assigned identity to the VM with the [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign) command:
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

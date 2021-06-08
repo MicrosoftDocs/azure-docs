@@ -179,6 +179,4 @@ Learn more about [registry storage](container-registry-storage.md) and [supporte
 Learn how to [push and pull images](container-registry-get-started-docker-cli.md) from Azure Container Registry.
 
 <!-- LINKS - Internal -->
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-
-
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests

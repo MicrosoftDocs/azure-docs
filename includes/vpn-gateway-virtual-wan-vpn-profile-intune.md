@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/01/2021
+ ms.date: 04/26/2021
  ms.author: cherylmc
  ms.custom: include file
 
@@ -63,9 +63,7 @@ For other supported options, see the [VPNv2 CSP](/windows/client-management/mdm/
 In this section, you create a Microsoft Intune profile with custom settings.
 
 1. Sign in to Intune and navigate to **Devices -> Configuration profiles**. Select **+ Create profile**.
-
-   :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/configuration-profile.png" alt-text="Configuration profiles":::
-1. For **Platform**, select **Windows 10 and later**. For **Profile**, select **Custom**. Then, select **Create**.
+1. For **Platform**, select **Windows 10 and later**. For **Profile Type**, select **Templates** and **Custom**. Then, select **Create**.
 1. Give the profile a name and description, then select **Next**.
 1. On the **Configuration settings** tab, select **Add**.
 

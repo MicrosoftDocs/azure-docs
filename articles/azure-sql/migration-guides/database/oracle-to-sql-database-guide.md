@@ -5,9 +5,9 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom:
 ms.devlang:
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+ms.topic: how-to
+author: cawrites
+ms.author: chadam
 ms.date: 08/25/2020
 ---
 
@@ -17,7 +17,7 @@ ms.date: 08/25/2020
 
 In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your Oracle schemas to Azure SQL Database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for Oracle (SSMA for Oracle).
 
-For other migration guides, see [Azure Database Migration Guides](https://docs.microsoft.com/data-migration).
+For other migration guides, see [Azure Database Migration Guides](/data-migration).
 
 ## Prerequisites
 

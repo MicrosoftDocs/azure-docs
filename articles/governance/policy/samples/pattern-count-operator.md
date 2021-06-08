@@ -18,7 +18,7 @@ allow inbound Remote Desktop Protocol (RDP) traffic.
 ### Explanation
 
 The core components of the **count** operator are _field_, _where_, and the condition. Each is
-highlighted in the snippet below.
+highlighted in the following snippet.
 
 - _field_ tells count which [alias](../concepts/definition-structure.md#aliases) to evaluate members
   of. Here, we're looking at the **securityRules\[\*\]** alias _array_ of the network security

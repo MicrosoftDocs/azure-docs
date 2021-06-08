@@ -62,6 +62,7 @@ The following table shows the endpoints for the management and data planes.
 | Management plane | **Global:**<br> management.azure.com:443<br> | Create, read, update, delete, and move managed HSMs<br>Set managed HSM tags | Azure RBAC |
 | Data plane | **Global:**<br> &lt;hsm-name&gt;.managedhsm.azure.net:443<br> | **Keys**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)***: list role definitions, assign roles, delete role assignments, define custom roles<br/><br/>**Backup/restore**: backup, restore, check status backup/restore operations <br/><br/>**Security domain**: download and upload security domain | Managed HSM local RBAC |
 |||||
+
 ## Management plane and Azure RBAC
 
 In the management plane, you use Azure RBAC to authorize the operations a caller can execute. In the Azure RBAC model, each Azure subscription has an instance of Azure Active Directory. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](/rest/api/authorization/roleassignments).
@@ -84,6 +85,6 @@ You grant a security principal access to execute specific key operations by assi
 
 ## Next steps
 
-- For a getting-started tutorial for an administrator, see [What is Managed HSM?](overview.md).
+- For a getting-started tutorial for an administrator, see [What is Managed HSM?](overview.md)
 - For a role management tutorial, see [Managed HSM local RBAC](role-management.md)
-- For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md).
+- For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md)

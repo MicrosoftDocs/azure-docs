@@ -35,7 +35,7 @@ In this article, you learn how to:
 
 To complete this tutorial, you must have:
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 * [Azure Cloud Shell configured](../cloud-shell/quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -218,7 +218,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az-webapp-deployment-source-config-local-git) in Cloud Shell.
+To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az_webapp_deployment_source_config_local_git) in Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>

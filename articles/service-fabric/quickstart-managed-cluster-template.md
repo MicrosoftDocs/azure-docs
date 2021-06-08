@@ -1,12 +1,11 @@
 ---
-title: Deploy a Service Fabric managed cluster (preview) using Azure Resource Manager
+title: Deploy a Service Fabric managed cluster using Azure Resource Manager
 description: Learn how to create a Service Fabric managed cluster with an Azure Resource Manager template
 ms.topic: quickstart
-ms.date: 09/28/2020
-ms.custom: references_regions
+ms.date: 5/10/2021
 ---
 
-# Quickstart: Deploy a Service Fabric managed cluster (preview) with an Azure Resource Manager template
+# Quickstart: Deploy a Service Fabric managed cluster with an Azure Resource Manager template
 
 Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience. Service Fabric managed clusters are a fully encapsulated resource that enable you to deploy a single Service Fabric cluster resource rather than having to deploy all of the underlying resources that make up a Service Fabric cluster. This article describes how to do deploy a Service Fabric managed cluster for testing in Azure using an Azure Resource Manager template (ARM template).
 
@@ -42,7 +41,7 @@ Take note of the certificate thumbprint as this will be required to deploy the t
 
     * **Subscription**: Select an Azure subscription.
     * **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
-    * **Location**: Select a location, such as **eastus2**. Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
+    * **Location**: Select a location.
     * **Cluster Name**: Enter a unique name for your cluster, such as *mysfcluster*.
     * **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
     * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.

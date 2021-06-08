@@ -111,7 +111,7 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
 ## Register a device
 
-You must register a device with your IoT hub before it can connect. In this section, you use Azure Cloud Shell with the [IoT Extension](/cli/azure/ext/azure-iot/iot) to register a simulated device.
+You must register a device with your IoT hub before it can connect. In this section, you use Azure Cloud Shell with the [IoT Extension](/cli/azure/iot) to register a simulated device.
 
 1. To create the device identity, run the following command in Cloud Shell:
 

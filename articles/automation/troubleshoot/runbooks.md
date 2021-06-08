@@ -4,7 +4,7 @@ description: This article tells how to troubleshoot and resolve issues with Azur
 services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
 
 # Troubleshoot runbook issues

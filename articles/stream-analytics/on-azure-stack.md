@@ -1,6 +1,6 @@
 ---
 title: Run Azure Stream Analytics on Azure Stack
-description: Create an Azure Stream Analytics edge job and deploy it to Azure Stack hub via the IoT Edge runtime.
+description: Create an Azure Stream Analytics edge job and deploy it to Azure Stack Hub via the IoT Edge runtime.
 ms.service: stream-analytics
 author: an-emma
 ms.author: raan

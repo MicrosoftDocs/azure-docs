@@ -10,10 +10,8 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Android.
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
 > [!NOTE]
-> This document uses version 1.0.0-beta.8 of the Calling SDK.
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)
 
 ## Prerequisites
 
@@ -263,7 +261,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient| The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationUserCredential | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.|
+| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
 | CommunicationIdentifier | The CommunicationIdentifier is used as different type of participant that would could be part of a call.|
 
 ## Create an agent from the user access token

@@ -30,7 +30,7 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Set environment variables. The use of variables in this article is based on Bash. Slight variations will be needed for other environments. See [az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create) for a complete list of possible parameters for cluster creation.
+2. Set environment variables. The use of variables in this article is based on Bash. Slight variations will be needed for other environments. See [az-hdinsight-create](/cli/azure/hdinsight#az_hdinsight_create) for a complete list of possible parameters for cluster creation.
 
     |Parameter | Description |
     |---|---|
@@ -56,7 +56,7 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
     export componentVersion=Hadoop=2.7
     ```
 
-3. [Create the resource group](/cli/azure/group#az-group-create) by entering the command below:
+3. [Create the resource group](/cli/azure/group#az_group_create) by entering the command below:
 
     ```azurecli-interactive
     az group create \
@@ -66,7 +66,7 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
 
     For a list of valid locations, use the `az account list-locations` command, and then use one of the locations from the `name` value.
 
-4. [Create an Azure Storage account](/cli/azure/storage/account#az-storage-account-create) by entering the command below:
+4. [Create an Azure Storage account](/cli/azure/storage/account#az_storage_account_create) by entering the command below:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -79,7 +79,7 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
         --sku Standard_LRS
     ```
 
-5. [Extract the primary key from the Azure Storage account](/cli/azure/storage/account/keys#az-storage-account-keys-list) and store it in a variable by entering the command below:
+5. [Extract the primary key from the Azure Storage account](/cli/azure/storage/account/keys#az_storage_account_keys_list) and store it in a variable by entering the command below:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -88,7 +88,7 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
         --query [0].value -o tsv)
     ```
 
-6. [Create an Azure Storage container](/cli/azure/storage/container#az-storage-container-create) by entering the command below:
+6. [Create an Azure Storage container](/cli/azure/storage/container#az_storage_container_create) by entering the command below:
 
     ```azurecli-interactive
     az storage container create \
@@ -97,7 +97,7 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. [Create the HDInsight cluster](/cli/azure/hdinsight#az-hdinsight-create) by entering the following command:
+7. [Create the HDInsight cluster](/cli/azure/hdinsight#az_hdinsight_create) by entering the following command:
 
     ```azurecli-interactive
     az hdinsight create \

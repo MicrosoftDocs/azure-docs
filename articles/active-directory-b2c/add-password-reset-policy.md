@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/24/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -24,8 +24,13 @@ zone_pivot_groups: b2c-policy-type
 
 The [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md) allows users to reset their own password using the **Forgot your password?** link. The password reset flow involves the following steps:
 
-1. From the sign-up and sign-in page, the user clicks the **Forgot your password?** link. Azure AD B2C initiates the password reset flow. 
-2. The user provides and verifies their email address with a Timed One Time Passcode.
+1. From the sign-up and sign-in page, the user clicks the **Forgot your password?** link. Azure AD B2C initiates the password reset flow.
+2. The user provides their email address and selects **Send verification code**. Azure AD B2C will then send the user a verification code.
+
+* The user needs to open the mail box and copy the verification code. The user then enters the verification code in Azure AD B2C password reset page, and selects **Verify code**.
+
+> [!NOTE]
+> After the email is verified, the user can still select **Change e-mail**, type the other email, and repeat the email verification from the beginning.
 3. The user can then enter a new password.
 
 ![Password reset flow](./media/add-password-reset-policy/password-reset-flow.png)
@@ -57,10 +62,10 @@ To enable self-service password reset for the sign-up or sign-in user flow:
 1. Select **User flows**.
 1. Select a sign-up or sign-in user flow (of type **Recommended**) that you want to customize.
 1. Under **Settings** in the left menu, select **Properties**.
-1. Under **Password complexity**, select **Self-service password reset**.
+1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
 1. Under **Customize** in the left menu, select **Page layouts**.
-1. In the **Page Layout Version**, choose **2.1.2 - Current** or above.
+1. In the **Page Layout Version**, choose **2.1.3** or above.
 1. Select **Save**.
 
 ::: zone-end

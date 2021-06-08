@@ -84,7 +84,7 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **Q: In what regions is Azure Spatial Anchors available?**
 
-**A:** Azure Spatial Anchors is currently available in West US 2, East US, East US 2, South Central US, West Europe, North Europe, UK South, and Australia East. Additional regions will be available in the future.
+**A:** Azure Spatial Anchors is currently available in West US 2, East US, East US 2, South Central US, West Europe, North Europe, UK South, Australia East, Southeast Asia, and Korea Central. Additional regions will be available in the future.
 
 What this means is that both compute and storage powering this service are in these regions. That said, there are no restrictions on where your clients are located. 
 

@@ -1,5 +1,6 @@
 ---
-title: 'Azure VPN Gateway: Configure forced tunneling - Site-to-Site connections: classic'
+title: 'Configure forced tunneling - Site-to-Site connections: classic'
+titleSuffix: Azure VPN Gateway
 description: Learn how to configure forced tunneling for virtual networks created using the classic deployment model.
 services: vpn-gateway
 author: cherylmc

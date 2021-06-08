@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure Migrate 
+title: What's new in Azure Migrate
 description: Learn about what's new and recent updates in the Azure Migrate service.
 ms.topic: overview
 author: anvar-ms
@@ -13,18 +13,23 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (June 2021)
+- Azure Migrate allows you to register servers running SQL server with SQL VM RP during replication to automatically install SQL IaaS Agent Extension. This feature is available for agentless VMware, agentless Hyper-V, and agent-based migrations.
+
+## Update (May 2021)
+- Migration of VMs and physical servers with OS disks up to 4 TB is now supported using the agent-based migration method.
+
 ## Update (March 2021)
 - Support to provide multiple server credentials on Azure Migrate appliance to discover installed applications (software inventory), agentless dependency analysis and discover SQL Server instances and databases in your VMware environment. [Learn more](tutorial-discover-vmware.md#provide-server-credentials)
 - Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. [Learn More](concepts-azure-sql-assessment-calculation.md) Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-sql.md) tutorials to get started.
 - Agentless VMware migration now supports concurrent replication of 500 VMs per vCenter.
-- Azure Migrate now automatically installs the Azure VM agent on the VMware VMs while migrating them to Azure using the agentless method of VMware migration.
 
 ## Update (January 2021)
 -  Azure Migrate: Server Migration tool now lets you migrate VMware virtual machines, physical servers, and virtual machines from other clouds to Azure virtual machines with disks encrypted with server-side encryption with customer-managed keys (CMK).
 
 ## Update (December 2020)
-- Azure Migrate now automatically installs the Azure VM agent on the VMware VMs while migrating them to Azure using the agentless method of VMware migration.
-- Migration of VMware VMs to Azure virtual machines with disks encrypted using server-side encryption (SSE) with customer-managed keys(CMK), using Azure Migrate Server Migration (agentless replication) is now available through Azure portal.
+- Azure Migrate now automatically installs the Azure VM agent on the VMware VMs while migrating them to Azure using the agentless method of VMware migration. (Windows Server 2008 R2 and later)
+- Migration of VMware VMs to Azure virtual machines with disks encrypted using server-side encryption (SSE) with customer-managed keys (CMK), using Azure Migrate Server Migration (agentless replication) is now available through Azure portal.
 
 ## Update (September 2020)
 - Migration of servers to Availability Zones is now supported.
@@ -55,7 +60,7 @@ ms.custom: mvc
 
 ## Update (April 2020)
 
-Azure Migrate supports deployments in Azure Government. 
+Azure Migrate supports deployments in Azure Government.
 
 - You can discover and assess VMware VMs, Hyper-V VMs, and physical servers.
 - You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.

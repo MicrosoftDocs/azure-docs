@@ -2,14 +2,13 @@
 title: Enable soft-delete on all key vault objects - Azure Key Vault | Microsoft Docs
 description: Use this document to adopt soft-delete for all key vaults and to make application and administration changes to avoid conflict errors.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.author: sudbalas
+ms.date: 03/31/2021
+ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
 ---

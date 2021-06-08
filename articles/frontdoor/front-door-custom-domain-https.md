@@ -66,10 +66,8 @@ To enable HTTPS on a custom domain, follow these steps:
 5. Continue to [Validate the domain](#validate-the-domain).
 
 > [!NOTE]
-> For AFD managed certificates, DigiCert’s 64 character limit is enforced. Validation will fail if that limit is exceeded.
-
-> [!NOTE]
-> Enabling HTTPS via Front Door managed certificate is not supported for apex/root domains (example: contoso.com). You can use your own certificate for this scenario.  Please continue with Option 2 for further details.
+> * For AFD managed certificates, DigiCert’s 64 character limit is enforced. Validation will fail if that limit is exceeded.
+> * Enabling HTTPS via Front Door managed certificate is not supported for apex/root domains (example: contoso.com). You can use your own certificate for this scenario.  Please continue with Option 2 for further details.
 
 ### Option 2: Use your own certificate
 
@@ -207,7 +205,7 @@ The following table shows the operation progress that occurs when you enable HTT
 | | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS won't be enabled on your domain. * |
 | | Domain ownership validation request was rejected by the customer. HTTPS won't be enabled on your domain. * |
 | 3 Certificate provisioning | The certificate authority is currently issuing the certificate needed to enable HTTPS on your domain. |
-| | The certificate has been issued and is currently being deployed for your Front Door. This process could take up to 1 hour. |
+| | The certificate has been issued and is currently being deployed for your Front Door. This process could take from several minutes to an hour to complete. |
 | | The certificate has been successfully deployed for your Front Door. |
 | 4 Complete | HTTPS has been successfully enabled on your domain. |
 

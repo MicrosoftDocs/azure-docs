@@ -245,12 +245,14 @@
       href: troubleshoot-common-errors.md
 - name: Reference
   items:
+  - name: PowerShell functions
+    items:
+    - name: IoT Edge for Linux on Windows
+      href: reference-iot-edge-for-linux-on-windows-functions.md
+    - name: IoT Edge for Windows
+      href: reference-windows-scripts.md
   - name: Create test certificates
     href: how-to-create-test-certificates.md
-  - name: Windows device management scripts
-    href: reference-windows-scripts.md
-  - name: IoT Edge for Linux on Windows scripts
-    href: reference-iot-edge-for-linux-on-windows-scripts.md
   - name: Azure CLI
     href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources

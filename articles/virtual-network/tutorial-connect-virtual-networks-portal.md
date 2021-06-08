@@ -126,6 +126,8 @@ Complete steps 1-6 again, with the following changes:
 
 The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Communicate between VMs
 
 1. In the *Search* box at the top of the portal, begin typing *myVm1*. When **myVm1** appears in the search results, select it.

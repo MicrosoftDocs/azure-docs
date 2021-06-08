@@ -11,9 +11,6 @@ manager: femila
 
 This topic will walk you through how to set up PowerShell scripts for MSIX app attach.
 
->[!IMPORTANT]
->Before you get started, make sure to fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. If you don't have an approved request, MSIX app attach won't work. Approval of requests can take up to 24 hours during business days. You'll get an email when your request has been accepted and completed.
-
 ## Install certificates
 
 You must install certificates on all session hosts in the host pool that will host the apps from your MSIX app attach packages.
@@ -21,7 +18,7 @@ You must install certificates on all session hosts in the host pool that will ho
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
 1. Right-click the package and select **Properties**.
-2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **Details**.
+2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab. Select that item to highlight the item, then select **Details**.
 3. When the digital signature details window appears, select the **General** tab, then select **View Certificate**, then select **Install certificate**.
 4. When the installer opens, select **local machine** as your storage location, then select **Next**.
 5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
@@ -132,7 +129,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where { $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult] AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
     $asTaskAsyncOperation = $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult], [Windows.Management.Deployment.DeploymentProgress])
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName 
     $path = ([System.Uri]$path).AbsoluteUri
     $asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
     $task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))

@@ -6,7 +6,7 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 04/15/2021
 ms.author: banders
 ---
 
@@ -50,9 +50,9 @@ To transfer any other Azure subscriptions to a CSP partner, the subscriber needs
 
 ## Transfer CSP subscription to other offer
 
-To transfer any other subscriptions from a CSP Partner to any other Azure offer, the subscriber needs to move resources between source CSP subscriptions and target subscriptions.
+To transfer any other subscriptions from a CSP Partner to any other Azure offer, the subscriber needs to move resources between source CSP subscriptions and target subscriptions. This is work done by a partner and a customer - it is not work done by a Microsoft representative.
 
-1. Create target Azure subscriptions.
+1. The customer creates target Azure subscriptions.
 1. Ensure that the source and target subscriptions are in the same Azure Active Directory (Azure AD) tenant. For more information about changing an Azure AD tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     Note that the change directory option isn't supported for the CSP subscription. For example, you're transferring from a CSP to a pay-as-you-go subscription. You need change the directory of the pay-as-you-go subscription to match the directory.
 
@@ -60,7 +60,7 @@ To transfer any other subscriptions from a CSP Partner to any other Azure offer,
     >  - When you associate a subscription to a different directory, users that have roles assigned using [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
     >  - Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
 
-1. The user account that you use to do the transfer must have [Azure RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
+1. The customer user account that you use to do the transfer must have [Azure RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
 1. Before you begin, [validate](/rest/api/resources/resources/validatemoveresources) that all Azure resources can move from the source subscription to the destination subscription.
     > [!IMPORTANT]
     >  - Some Azure resources can't move between subscriptions. To view the complete list of Azure resource that can move, see [Move operation support for resources](../../azure-resource-manager/management/move-support-resources.md).

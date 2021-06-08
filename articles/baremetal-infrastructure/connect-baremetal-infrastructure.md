@@ -2,7 +2,6 @@
 title: Connect BareMetal Infrastructure instances in Azure
 description: Learn how to identify and interact with BareMetal instances in the Azure portal or Azure CLI.
 ms.topic: how-to
-ms.subservice: workloads
 ms.date: 04/06/2021
 ---
 
@@ -78,7 +77,7 @@ During the deployment of your BareMetal instances, a new [Azure resource group](
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see all your BareMetal instances, run the [az baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) command for your resource group:
+To see all your BareMetal instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az_baremetalinstance_list) command for your resource group:
 
 ```azurecli
 az baremetalinstance list --resource-group DSM05A-T550 –output table
@@ -118,11 +117,11 @@ The possible hardware revisions are:
 Also, on the right side, you'll find the [Azure proximity placement group's](../virtual-machines/co-location.md) name, which is created automatically for each deployed BareMetal instance. Reference the proximity placement group when you deploy the Azure VMs that host the application layer. When you use the proximity placement group associated with the BareMetal instance, you ensure that the Azure VMs get deployed close to the BareMetal instance.
  
 >[!TIP]
->To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).
+>To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_show) command:
+To see details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az_baremetalinstance_show) command:
 
 ```azurecli
 az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
@@ -154,7 +153,7 @@ Deleting tags also works the same way as for VMs. Applying and deleting a tag is
 
 Assigning tags to BareMetal instances works the same as assigning tags for virtual machines. As with VMs, the tags exist in the Azure metadata. Tags have the same restrictions for BareMetal instances as for VMs.
 
-To add tags to a BareMetal instance, run the [az baremetalinstance update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update) command:
+To add tags to a BareMetal instance, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az_baremetalinstance_update) command:
 
 ```azurecli
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
@@ -192,7 +191,7 @@ When you restart a BareMetal instance, you'll experience a delay. During this de
 
 ### [Azure CLI](#tab/azure-cli)
 
-To restart a BareMetal instance, use the [az baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart) command:
+To restart a BareMetal instance, use the [az baremetalinstance restart](/cli/azure/baremetalinstance#az_baremetalinstance_restart) command:
 
 ```azurecli
 az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01

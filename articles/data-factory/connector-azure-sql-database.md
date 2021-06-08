@@ -1,8 +1,8 @@
 ---
 title: Copy and transform data in Azure SQL Database
 description: Learn how to copy data to and from Azure SQL Database, and transform data in Azure SQL Database by using Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -46,7 +46,7 @@ If you use Azure SQL Database [serverless tier](../azure-sql/database/serverless
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Azure Data Factory entities specific to an Azure SQL Database connector.
 

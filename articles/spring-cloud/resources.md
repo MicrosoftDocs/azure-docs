@@ -16,8 +16,8 @@ ms.custom: devx-track-java
 As a developer, you might find the following Azure Spring Cloud resources useful:
 
 * [Azure roadmap](https://azure.microsoft.com/updates)
-* [Frequently asked questions](spring-cloud-faq.md)
-* [Troubleshooting guide](spring-cloud-troubleshoot.md)
+* [Frequently asked questions](./faq.md)
+* [Troubleshooting guide](./troubleshoot.md)
 * [Microsoft Q&A question page](/answers/topics/azure-spring-cloud.html)
 * [Spring Cloud microservices architecture by Pivotal](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)
 * [Steeltoe](https://steeltoe.io/)

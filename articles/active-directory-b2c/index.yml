@@ -102,7 +102,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Manage threats
+          - text: Manage credential attacks
             url: threat-management.md
           - text: Learn where user data is stored
             url: data-residency.md
@@ -145,7 +145,7 @@ landingContent:
           - text: Service updates
             url: https://azure.microsoft.com/updates/?product=active-directory-b2c
           - text: Frequently asked questions
-            url: faq.md
+            url: faq.yml
           - text: Microsoft support
             url: support-options.md
 

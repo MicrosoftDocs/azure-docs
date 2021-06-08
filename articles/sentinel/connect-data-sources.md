@@ -20,6 +20,8 @@ ms.author: yelevin
 ---
 # Connect data sources
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 Once you have enabled Azure Sentinel, the first thing you need to do is connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel.
 
 1. On the menu, select **Data connectors**. This page lets you see the full list of connectors that Azure Sentinel provides and their status. Select the connector you want to connect and select **Open connector page**. 
@@ -42,23 +44,28 @@ The following data connection methods are supported by Azure Sentinel:
 - **Service to service integration**:<br> Some services are connected natively, such as AWS and Microsoft services, these services leverage the Azure foundation for out-of-the box integration, the following solutions can be connected in a few clicks:
     - [Amazon Web Services - CloudTrail](connect-aws.md)
     - [Azure Active Directory](connect-azure-active-directory.md) - audit logs and sign-in logs
+    - [Azure Active Directory Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure Activity](connect-azure-activity.md)
-    - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Azure Defender](connect-azure-security-center.md) alerts from Azure Security Center
     - [Azure Defender for IoT](connect-asc-iot.md) (formerly Azure Security Center for IoT)
-    - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Firewall](connect-azure-firewall.md)
-    - [Azure Security Center](connect-azure-security-center.md) - alerts from Azure Defender solutions
+    - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Key Vault](connect-azure-key-vault.md)
+    - [Azure Kubernetes Service (AKS)](connect-azure-kubernetes-service.md)
+    - [Azure SQL Databases](connect-azure-sql-logs.md)
+    - [Azure Storage Account](connect-azure-storage-account.md)
     - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (formerly Microsoft WAF)
-    - [Cloud App Security](connect-cloud-app-security.md)
     - [Domain name server](connect-dns.md)
-    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes M365D incidents and MDE raw data
+    - [Dynamics 365](connect-dynamics-365.md)
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes M365D incidents and Defender for Endpoint raw data
+    - [Microsoft Cloud App Security](connect-cloud-app-security.md)
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (formerly Microsoft Defender Advanced Threat Protection)
     - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
     - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)
-    - [Office 365](connect-office-365.md) (now with Teams!)
+    - [Office 365](connect-office-365.md) (includes Teams)
     - [Windows firewall](connect-windows-firewall.md)
-    - [Windows security events](connect-windows-security-events.md)
+    - (Windows) [Security events](connect-windows-security-events.md)
 
 - **External solutions via API**: Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved.The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
     

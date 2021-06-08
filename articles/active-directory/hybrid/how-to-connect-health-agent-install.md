@@ -204,7 +204,7 @@ If the Azure AD Connect Health for Sync agent registration fails after you succe
 
 Manually register the Azure AD Connect Health agent for Sync by using the following PowerShell command. The Azure AD Connect Health services will start after the agent has been successfully registered.
 
-`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $true -StagingMode $false`
 
 The command takes following parameters:
 

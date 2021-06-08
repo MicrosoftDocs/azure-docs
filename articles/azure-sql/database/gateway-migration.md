@@ -3,12 +3,12 @@ title: Gateway traffic migration notice
 description: Article provides notice to users about the migration of Azure SQL Database gateway IP addresses
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 07/01/2019
 ---
 # Azure SQL Database traffic migration to newer Gateways
@@ -23,10 +23,25 @@ The most up-to-date information will be maintained in the [Azure SQL Database ga
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+## June 2021
+New SQL Gateways are being added to the following regions:
+- UK West: 51.140.208.96, 51.140.208.97
+- Korea Central: 20.44.24.32, 20.194.64.33
+- Japan East: 13.78.104.32
+
+This SQL Gateway shall start accepting customer traffic on 1 June 2021.
+
+## May 2021
+New SQL Gateways are being added to the following regions:
+- UK South:  51.140.144.36, 51.105.72.32  
+- West Central US: 13.71.193.32, 13.71.193.33 
+
+This SQL Gateway shall start accepting customer traffic on 17 May 2021.
 
 ## April 2021
 New SQL Gateways are being added to the following regions:
 - East US 2:  40.70.144.193
+
 This SQL Gateway shall start accepting customer traffic on 30 April 2021.
 
 New SQL Gateways are being added to the following regions:
@@ -41,7 +56,6 @@ These SQL Gateways shall start accepting customer traffic on 5 April 2021.
 
 ## March 2021
 The following SQL Gateways in multiple regions are in the process of being deactivated:
-
 - Brazil South: 104.41.11.5
 - East Asia: 191.234.2.139
 - East US: 191.238.6.43
@@ -54,6 +68,9 @@ The following SQL Gateways in multiple regions are in the process of being deact
 - West US: 23.99.34.75
 
 No customer impact is anticipated since these Gateways (running on older hardware) are not routing any customer traffic. The IP addresses for these Gateways shall be deactivated on 15th March 2021.
+
+# [Completed](#tab/completed-ip)
+The following gateway migrations are complete: 
 
 ## February 2021
 New SQL Gateways are being added to the following regions:
@@ -69,17 +86,16 @@ New SQL Gateways are being added to the following regions:
 - Australia Central 2:	20.36.112.6 
 - Brazil South: 191.234.144.16 ,191.234.152.3 
 - Canada East: 40.69.105.9 ,40.69.105.10
-- India Central: 104.211.86.30 , 104.211.86.31 
+- Central India: 104.211.86.30 , 104.211.86.31 
 - East Asia: 13.75.32.14 
 - France Central: 40.79.137.8, 40.79.145.12 
 - France South: 40.79.177.10 ,40.79.177.12
 - Korea Central: 52.231.17.22 ,52.231.17.23
-- India West: 104.211.144.4
+- West India: 104.211.144.4
 
 These SQL Gateways shall start accepting customer traffic on 31 January 2021.
 
-# [Completed](#tab/completed-ip)
-The following gateway migrations are complete: 
+
 
 ### October 2020
 

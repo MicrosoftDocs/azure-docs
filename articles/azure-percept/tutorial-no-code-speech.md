@@ -1,8 +1,8 @@
 ---
 title: Create a voice assistant with Azure Percept DK and Azure Percept Audio
 description: Learn how to create and deploy a no-code speech solution to your Azure Percept DK
-author: elqu20
-ms.author: v-elqu
+author: philmea
+ms.author: philmea
 ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021

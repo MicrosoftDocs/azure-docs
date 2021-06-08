@@ -7,7 +7,8 @@ ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
 ms.date: 08/01/2018
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 # Edit textual runbooks in Azure Automation
