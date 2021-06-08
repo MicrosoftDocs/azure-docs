@@ -233,7 +233,7 @@ provides information regarding the presence (present vs. absent) of the concept 
 
 **Negative**: the concept does not exist now or never happened.
 
-:::image type="content" source="../../media/ta-for-health/negative-entity.png" alt-text="An example of a negative entity." lightbox="../../media/ta-for-health/negative-entity.png:::
+:::image type="content" source="../../media/ta-for-health/negative-entity.png" alt-text="An example of a negative entity." lightbox="../../media/ta-for-health/negative-entity.png":::
 
 **Positive_Possible**: the concept likely exists but there is some uncertainty.
 
