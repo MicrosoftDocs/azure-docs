@@ -74,7 +74,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
 1. On the Azure Data Factory home page, select the **Ingest** tile to open the Copy Data tool:
 
-   ![Ingest tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 2. On the **Properties** page, take the following steps:
 

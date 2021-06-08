@@ -93,7 +93,7 @@ After your data factory is created, open its overview page in the Azure portal. 
 
 On the home page, select the **Configure SSIS** tile to open the **Integration runtime setup** pane.
 
-   ![Configure SSIS tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
    The **Integration runtime setup** pane has three pages where you successively configure general, deployment, and advanced settings.
 

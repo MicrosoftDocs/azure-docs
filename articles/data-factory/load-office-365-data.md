@@ -41,7 +41,7 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
 1. On the home page, select **Orchestrate**.
  
-    ![Create pipeline](./media/doc-common-process/get-started-page.png)
+    ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 2. In the **General tab** for the pipeline, enter "CopyPipeline" for **Name** of the pipeline.
 

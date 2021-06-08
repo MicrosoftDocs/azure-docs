@@ -815,7 +815,7 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
 5. On the Azure Data Factory home page, select **Monitor** on the left side. 
 
-    ![Screenshot shows the Let's get started page for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
+    ![Screenshot shows the home page for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column.
 

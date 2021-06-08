@@ -65,7 +65,7 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
 
 1. In the home page, click **Orchestrate**: 
 
-    ![Home page](./media/doc-common-process/get-started-page.png)
+    ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 2. In the **Activities** toolbox, expand **General**, and drag-drop **Stored Procedure** activity to the pipeline designer surface. 
 

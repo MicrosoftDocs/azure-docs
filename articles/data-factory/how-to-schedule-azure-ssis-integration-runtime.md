@@ -75,7 +75,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
 
 1. In the home page, select **Orchestrate**. 
 
-   ![Home page](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
    
 2. In **Activities** toolbox, expand **General** menu, and drag & drop a **Web** activity onto the pipeline designer surface. In **General** tab of the activity properties window, change the activity name to **startMyIR**. Switch to **Settings** tab, and do the following actions.
 

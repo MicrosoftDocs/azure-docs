@@ -178,7 +178,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 11. In the home page, switch to the **Manage** tab in the left panel as shown in the following image:
 
-    ![Manage button](media/doc-common-process/get-started-page-manage-button.png)
+    ![Screenshot that shows the Manage button.](media/doc-common-process/get-started-page-manage-button.png)
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and your database in Azure SQL Database.

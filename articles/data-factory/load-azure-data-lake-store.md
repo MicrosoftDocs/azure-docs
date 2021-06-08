@@ -62,7 +62,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 1. In the home page, select the **Ingest** tile to launch the Copy Data tool: 
 
-   ![Copy Data tool tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 2. In the **Properties** page, specify **CopyFromAmazonS3ToADLS** for the **Task name** field, and select **Next**:
 
     ![Properties page](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)

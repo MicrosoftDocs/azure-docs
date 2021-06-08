@@ -34,7 +34,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
    On the home page, select **Orchestrate**. 
 
-   ![Home page](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 1. In the **Activities** toolbox, expand **General**. Then drag an **Execute SSIS Package** activity to the pipeline designer surface. 
 

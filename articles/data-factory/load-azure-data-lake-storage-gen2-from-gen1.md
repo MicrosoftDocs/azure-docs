@@ -56,7 +56,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 1. On the home page, select the **Ingest** tile to launch the copy data tool. 
 
-   ![Ingest tile](./media/doc-common-process/get-started-page.png )
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png )
 2. On the **Properties** page, specify **CopyFromADLSGen1ToGen2** for the **Task name** field. Select **Next**.
 
     ![Properties page](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)

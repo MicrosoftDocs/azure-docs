@@ -117,7 +117,7 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 
 1. On the home page, select **Orchestrate**.
 
-   ![Screenshot that shows Orchestrate tile.](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 1. In the properties pane for the pipeline, enter **CopyPipeline** for the pipeline name.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag the **Copy data** activity from the tool box to the pipeline designer surface. Enter **CopyFromBlobToSql** for the name.

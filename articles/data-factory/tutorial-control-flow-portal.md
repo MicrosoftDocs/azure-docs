@@ -164,7 +164,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 
 1. In the home page of Data Factory UI, click the **Orchestrate** tile.  
 
-   ![Home page](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 3. In the properties window for the pipeline, switch to the **Parameters** tab, and use the **New** button to add the following three parameters of type String: sourceBlobContainer, sinkBlobContainer, and receiver.
 
     - **sourceBlobContainer** - parameter in the pipeline consumed by the source blob dataset.

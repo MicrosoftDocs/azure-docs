@@ -96,7 +96,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 10. Click **Author & Monitor** to launch the Data Factory User Interface (UI) in a separate tab.
 11. In the home page, switch to the **Manage** tab in the left panel as shown in the following image: 
 
-    ![Manage tab](media/doc-common-process/get-started-page-manage-button.png)
+    ![Screenshot that shows the Manage tab.](media/doc-common-process/get-started-page-manage-button.png)
 
 ## Create a self-hosted integration runtime
 As the Hadoop cluster is inside a virtual network, you need to install a self-hosted integration runtime (IR) in the same virtual network. In this section, you create a new VM, join it to the same virtual network, and install self-hosted IR on it. The self-hosted IR allows Data Factory service to dispatch processing requests to a compute service such as HDInsight inside a virtual network. It also allows you to move data to/from data stores inside a virtual network to Azure. You use a self-hosted IR when the data store or compute is in an on-premises environment as well. 

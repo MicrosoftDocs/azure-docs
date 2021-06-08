@@ -114,7 +114,7 @@ You author two linked services in this section:
 
 1. On the home page, switch to the **Manage** tab in the left panel. 
 
-   !["Let's get started" page](media/doc-common-process/get-started-page-manage-button.png)
+   ![Screenshot that shows the Manage tab.](media/doc-common-process/get-started-page-manage-button.png)
 
 1. Select **Connections** at the bottom of the window, and then select **+ New**. 
 

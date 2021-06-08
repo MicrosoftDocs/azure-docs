@@ -27,7 +27,7 @@ The following table provides guidance on when to use the Copy Data tool vs. per-
 
 To start the Copy Data tool, click the **Ingest** tile on the home page of your data factory.
 
-![Home page - link to Copy Data tool](./media/doc-common-process/get-started-page.png)
+![Screenshot that shows the home page - link to Copy Data tool.](./media/doc-common-process/get-started-page.png)
 
 
 ## Intuitive flow for loading data into a data lake

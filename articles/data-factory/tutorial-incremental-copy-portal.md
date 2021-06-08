@@ -173,7 +173,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
 1. On the home page of Data Factory UI, click the **Orchestrate** tile.
 
-   ![Home page of Data Factory UI](./media/doc-common-process/get-started-page.png)    
+   ![Screenshot that shows the home page of Data Factory UI.](./media/doc-common-process/get-started-page.png)    
 3. In the General panel under **Properties**, specify **IncrementalCopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 4. Let's add the first lookup activity to get the old watermark value. In the **Activities** toolbox, expand **General**, and drag-drop the **Lookup** activity to the pipeline designer surface. Change the name of the activity to **LookupOldWaterMarkActivity**.
