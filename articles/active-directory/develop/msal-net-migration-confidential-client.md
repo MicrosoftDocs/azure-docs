@@ -140,6 +140,7 @@ public partial class AuthWrapper
  }
 }
 ```
+
 </td>
 </tr>
 </table>
@@ -160,7 +161,7 @@ Resilience is ensured in the following way:
 - The Instance of `IConfidentialClientApplication` needs to be kept in member variable in order to benefit from the in-memory cache. If you re-create the confidential client application each time you request a token you won't benefit from the cache.
 - If you don't need to share your cache with ADAL.NET, disable the legacy cache compatibility when creating the confidential client application. You'll increase the performance
   
-  ```CSharp
+  ```c#
   app = ConfidentialClientApplicationBuilder.Create(ClientId)
            .WithCertificate(certificate)
            .WithAuthority(authority)
@@ -187,17 +188,108 @@ The ADAL code for your app contains a call to `AuthenticationContext.AcquireToke
 
 ### How to migrate the code of OBO scenarios
 
-TBD
+<table>
+<tr>
+<td>ADAL</td>
+<td>MSAL</td>
+</tr>
+
+<tr>
+<td valign="top" style="font-size:x-small;">
+
+```c#
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+
+public partial class AuthWrapper
+{
+ const string ClientId = "Guid (AppID)";
+ const string authority = "";
+ X509Certificate2 certificate = LoadCertificate();
+
+
+
+ public async Task<AuthenticationResult> GetAuthenticationResult(
+  string resourceId, 
+  string tokenUsedToCallTheWebApi)
+ {
+
+
+  var authContext = new AuthenticationContext(authority);
+  var clientAssertionCert = new ClientAssertionCertificate(
+                                  ClientId,
+                                  certificate);
+
+  var userAssertion = new UserAssertion(tokenUsedToCallTheWebApi);
+
+  var authResult = await authContext.AcquireTokenAsync(
+                                      resourceId,
+                                      clientAssertionCert,
+                                      userAssertion,
+                                      sendX5c: true);
+  return authResult;
+ }
+}
+```
+
+</td>
+<td valign="top" style="font-size:x-small;">
+
+```c#
+using Microsoft.Identity.Client;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+
+public partial class AuthWrapper
+{
+ const string ClientId = "Guid (Application ID)";
+ const string authority = "https://login.microsoftonline.com/common";
+ X509Certificate2 certificate = LoadCertificate();
+
+ IConfidentialClientApplication app;
+
+ public async Task<AuthenticationResult> GetAuthenticationResult(
+  string resourceId,
+  string tokenUsedToCallTheWebApi)
+ {
+  if (app == null)
+  {
+   app = ConfidentialClientApplicationBuilder.Create(ClientId)
+           .WithCertificate(certificate)
+           .WithAuthority(authority)
+           .WithAzureRegion()
+           .Build();
+  }
+
+  var userAssertion = new UserAssertion(tokenUsedToCallTheWebApi);
+
+  var authResult = await app.AcquireTokenOnBehalfOf(
+              new string[] { $"{resourceId}/.default" },
+              userAssertion)
+              .WithSendX5C(true)
+              .ExecuteAsync()
+              .ConfigureAwait(false);
+  return authResult;
+ }
+}
+```
+
+</td>
+</tr>
+</table>
 
 #### Remarks about the code of OBO scenarios
 
 ##### Resilience
+
 Resilience is ensured in the following way:
 - `.WithAzureRegion()` will attempt an automatic region detection. For details, see [Use MSAL to target regional ESTS](https://armwiki.azurewebsites.net/authorization/managed_identities/MSALIntegrationWithRegionalESTS.html).
 - You will automatically benefit from CCS.
 - Tokens are automatically renewed by MSAL.NET
 
 ##### Security
+
 `.WithSendX5C` helps your rotate the certificate credentials by leveraging [Subject/Name issuer](https://aka.ms/msal-net-sni)
 
 ##### Performance and scalability
