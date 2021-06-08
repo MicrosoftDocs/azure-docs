@@ -1,24 +1,22 @@
 ---
-title: Create VM images for your Azure Stack Edge Pro GPU device
-description: Describes how to create linux or Windows VM images to use with your Azure Stack Edge Pro GPU device.
+title: Create custom VM images for your Azure Stack Edge Pro GPU device
+description: Describes how to create custom Windows and Linux VM images for deploying virtual machines on Azure Stack Edge Pro GPU devices.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 6/07/2021
+ms.date: 6/08/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
+#Customer intent: As an IT admin, I need to understand how to create Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
 
 # Create custom VM images for your Azure Stack Edge Pro GPU device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-To deploy VMs on your Azure Stack Edge Pro GPU device, you need to be able to create custom VM images that you can use to create VMs in Azure. This article describes the steps to create custom VM images in Azure for Windows and Linux VMs and download or copy those images to an Azure Storage account. 
-
-<!--There's a required workflow for preparing a custom VM image. You must create a virtual machine in Azure, customize the VM, generalize the OS VHD, and then download the OS VHD to an Azure Storage account.-->
+To deploy VMs on your Azure Stack Edge Pro GPU device, you need to be able to create custom VM images that you can use to create VMs in Azure. This article describes the steps to create custom VM images in Azure for Windows and Linux VMs and download or copy those images to an Azure Storage account.
 
 There's a required workflow for preparing a custom VM image. For the image source, you need to use a fixed VHD from a Gen1 VM of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
 
@@ -57,7 +55,7 @@ Do the following steps to create a Windows VM image:
 
 Do the following steps to create a Linux VM image:
 
-1. Create a Linux virtual machine. For more information, see [Quickstart: Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+1. Create a Linux virtual machine in Azure. For portal instructions, see [Quickstart: Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).  For PowerShell instructions, see [Quickstart: Create a Linux VM in Azure with PowerShell](../virtual-machines/linux/quick-create-powershell.md).
 
    You can use any Gen1 VM with a fixed-size VHD in Azure Marketplace to create Linux custom images, with the exception of Red Hat Enterprise Linux (RHEL) images, which require extra steps. For a list of Azure Marketplace images that could work, see [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true). For guidance on RHEL images, see [Using RHEL BYOS images](#using-rhel-byos-images), below. 
 
