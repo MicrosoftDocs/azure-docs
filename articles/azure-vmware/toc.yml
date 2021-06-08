@@ -82,9 +82,7 @@
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
-  - name: Deploy disaster recovery for VMs
-    href: disaster-recovery-for-virtual-machines.md
-  - name: Azure native integration
+  - name: Disaster recovery 
     items:
     - name: Deploy disaster recovery for VMs
       href: disaster-recovery-for-virtual-machines.md
