@@ -1581,10 +1581,6 @@ tools:
     - title: Terraform
       imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
       url: /azure/developer/terraform/
-    # Card
-    - title: Ansible
-      imageSrc: ./media/index/ansible.svg
-      url: /azure/developer/ansible
 
 additionalContent:
   sections:
