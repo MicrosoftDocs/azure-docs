@@ -15,7 +15,7 @@ ms.date: 06/09/2021
 
 ## Prerequisites
 
-[Introduction](01-mysql-migration-guide-index.md)
+[Introduction](01-mysql-migration-guide-intro.md)
 ## Overview
 
 The following use case is based on a real-world customer scenario of an enterprise that migrated their MySQL workload to Azure Database for MySQL.
