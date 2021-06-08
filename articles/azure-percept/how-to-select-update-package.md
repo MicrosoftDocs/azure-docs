@@ -28,13 +28,16 @@ To ensure you apply the correct update package to your dev kit, you must first d
 > [!WARNING]
 > Applying the incorrect update package could result in your dev kit becoming inoperable. It is important that you follow these steps to ensure you apply the correct update package.
 
-1. Power on your dev kit and ensure it's connected to Azure Percept Studio.
-1. In Azure Percept Studio, select **Devices** from the left menu.
-1. From the device list, select the name of the device that is currently connected. The status will say **Connected**.
-1. Select **Open device in IoT Hub**
-1. You may be asked to sign into your Azure account again.
-1. Select **Device twin**.
-1. Scroll through the device twin properties and locate **"model"** and **"swVersion"** under **"deviceInformation"** and make a note of their values.
+Option 1:
+1. Log in to the [Azure Percept Studio](/azure/azure-percept/overview-azure-percept-studio).
+2. In **Devices**, choose your devkit device.
+3. In the **General** tab, look for the **Model** and **SW Version** information.
+
+Option 2:
+1. View the **IoT Edge Device** of **IoT Hub** service from Microsoft Azure Portal.
+2. Choose your devkit device from the device list.
+3. Select **Device twin**.
+4. Scroll through the device twin properties and locate **"model"** and **"swVersion"** under **"deviceInformation"** and make a note of their values.
 
 ## Determine the correct update package
 Using the **model** and **swVersion** identified in the previous section, check the table below to determine which update package to download.
@@ -42,9 +45,9 @@ Using the **model** and **swVersion** identified in the previous section, check 
 
 |model  |swVersion  |Update method  |Download links  |Note  |
 |---------|---------|---------|---------|---------|
-|PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**USB only**         |[2021.104.110.103 USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)         |Public Preview major release         |
-|PE-101     |2021.102.108.112, <br>         |OTA or USB        |[2021.104.110.103 OTA manifest](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[2021.104.110.103 OTA update package](https://go.microsoft.com/fwlink/?linkid=2161538)<br>[2021.104.110.103 USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)          |Public Preview major release         |
-|APDK-101     |All swVersions        |OTA or USB       | [2021.105.111.112 OTA manifest](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |Latest monthly release (May)         |
+|PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**USB only**         |[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)         |May release (2105)         |
+|PE-101     |2021.102.108.112, <br>         |OTA or USB        |[2021.105.111.112 OTA manifest (PE-101)](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2161538)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)          |May release (2105)         |
+|APDK-101     |All swVersions        |OTA or USB       | [2021.105.111.112 OTA manifest (APDK-101)](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |May release (2105)         |
 
 
 ## Next steps
