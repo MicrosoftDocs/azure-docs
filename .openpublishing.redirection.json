@@ -67019,6 +67019,11 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-download-sign-in-report.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-download-logs",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
+      "redirect_url": "/azure/iot-develop/",
+      "redirect_document_id": false
     }
   ]
 }
