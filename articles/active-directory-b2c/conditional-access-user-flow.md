@@ -18,7 +18,7 @@ Conditional Access can be added to your Azure Active Directory B2C (Azure AD B2C
 ![Conditional access flow](media/conditional-access-user-flow/conditional-access-flow.png)
 Automating risk assessment with policy conditions means risky sign-ins are identified immediately and then either remediated or blocked.
 ## Service overview
-Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. During this **Evaluation** phase, the Conditional Access service evaluates the signals collected by Identity Protection risk detections during sign-in events. The outcome of this evaluation process is a set of claims that indicates whether the sign-in should be granted or blocked. The Azure AD B2C policy uses these claims to take an action within the user flow, such as blocking access or challenging the user with a specific remediation like multi-factor authentication (MFA). “Block access” overrides all other settings.
+Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. During this **Evaluation** phase, the Conditional Access service evaluates the signals collected by Identity Protection risk detections during sign-in events. The outcome of this evaluation process is a set of claims that indicates whether the sign-in should be granted or blocked. The Azure AD B2C policy uses these claims to act within the user flow. An example is blocking access or challenging the user with a specific remediation like multi-factor authentication (MFA). “Block access” overrides all other settings.
 ::: zone pivot="b2c-custom-policy"
 The following example shows a Conditional Access technical profile that is used to evaluate the sign-in threat.
 ```XML
@@ -34,7 +34,7 @@ The following example shows a Conditional Access technical profile that is used 
 To ensure that Identity Protection signals are evaluated properly, you'll want to call the `ConditionalAccessEvaluation` technical profile for all users, including both [local and social accounts](technical-overview.md#consumer-accounts). Otherwise, Identity Protection will indicate an incorrect degree of risk associated with users.
 ::: zone-end
 In the *Remediation* phase that follows, the user is challenged with MFA. Once complete, Azure AD B2C informs Identity Protection that the identified sign-in threat has been remediated and by which method. In this example, Azure AD B2C signals that the user has successfully completed the multi-factor authentication challenge.
-The remediation may also happen through other channels. For example, when the account's password is reset, either by the administrator or by the user. You can check the the user *Risk state* in the [risky users report](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
+The remediation may also happen through other channels. For example, when the account's password is reset, either by the administrator or by the user. You can check the user *Risk state* in the [risky users report](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
 ::: zone pivot="b2c-custom-policy"
 > [!IMPORTANT]
 > To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after the *Evaluation* technical profile is executed. If  *Evaluation* is invoked without *Remediation*, the risk state will be *At risk*.
@@ -60,8 +60,10 @@ These are the components that enable Conditional Access in Azure AD B2C:
 ## Service limitations and considerations
 When using the Azure AD Conditional Access, consider the following:
 - Identity Protection is available for both local and social identities, such as Google or Facebook. For social identities, you need to manually activate Conditional Access. Detection is limited because social account credentials are managed by the external identity provider.
-- In Azure AD B2C tenants, only a subset of [Azure AD Conditional Access](../active-directory/conditional-access/overview.md) policies are available.
+- In Azure AD B2C tenants, only a subset of [Azure AD Conditional Access](../active-directory/conditional-access/overview.md) policies is available.
+
 ## Prerequisites
+
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 ## Pricing tier
 Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Premium P1** tenants can create a policy that is based on location, application, user-based, or group-based policies. For more information, see [Change your Azure AD B2C pricing tier](billing.md#change-your-azure-ad-pricing-tier)
@@ -118,7 +120,7 @@ To add a Conditional Access policy:
 ## Template 1: Sign-in risk-based Conditional Access
 
 Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they are really who they say they are.
-A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Azure AD B2C tenants with P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Please note the [limitations on Identity Protection detections for B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
+A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Azure AD B2C tenants with P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Note the [limitations on Identity Protection detections for B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
 If risk is detected, users can perform multi-factor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
 Configure Conditional Access through the Azure portal or Microsoft Graph APIs to enable a sign-in risk-based Conditional Access policy requiring MFA when the sign-in risk is *medium* or *high*.
 To configure your conditional access:
@@ -201,7 +203,7 @@ To configure your user based conditional access:
 
 ### Enable template 2 with Conditional Access APIs (optional)
 
-To create a user risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+To create a user risk-based Conditional Access policy with Conditional Access APIs, refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
 
 The following template can be used to create a Conditional Access policy with display name "Template 2: Require secure password change for medium+ user risk" in report-only mode.
 ```json
@@ -272,7 +274,7 @@ To enable with condition access policy:
 
 ### Enable template 3 with Conditional Access APIs (optional)
 
-To create a location-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api). To set up Named Locations, please refer to the documentations for [Named Locations](/graph/api/resources/namedlocation).
+To create a location-based Conditional Access policy with Conditional Access APIs,  refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api). To set up Named Locations, refer to the documentations for [Named Locations](/graph/api/resources/namedlocation).
 
 The following template can be used to create a Conditional Access policy with display name "Template 3: Block unallowed locations" in report-only mode.
 ```json
