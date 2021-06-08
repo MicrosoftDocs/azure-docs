@@ -61,7 +61,7 @@ This section lists the features that are supported in the Contoso Coffee store l
 
 ### Functionality features
 
-* A `keypress` event added to the search box triggers a search if the user presses the *Enter* key.
+* A `keypress` event added to the search box triggers a search when the user presses **Enter**.
 * When the map moves, the distance to each location from the center of the map is calculated. The results list is updated to display the closest locations at the top of the map.  
 * When the user selects a result in the results list, the map is centered over the selected location and information about the location appears in a pop-up window.  
 * When the user selects a specific location, the map triggers a pop-up window.
