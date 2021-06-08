@@ -137,14 +137,14 @@ popup.close();
 
 8. Go back into the  **MainActivity.kt** file and after the code for the bubble layer, add the following code to create a reusable popup.
 
-    ```kotlin
-    //Create a popup and add it to the map.
-    val popup = Popup()
-    map.popups.add(popup)
-        
-    //Close it initially.
-    popup.close()
-    ```
+```kotlin
+//Create a popup and add it to the map.
+val popup = Popup()
+map.popups.add(popup)
+    
+//Close it initially.
+popup.close()
+```
 
 ::: zone-end
 

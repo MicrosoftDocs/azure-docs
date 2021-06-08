@@ -624,58 +624,58 @@ The `DataSource` class makes its easy to add and remove features. Updating the g
 
 ::: zone pivot="programming-language-java-android"
 
-    ``` java
-    DataSource source;
+``` java
+DataSource source;
 
-    private void onReady(AzureMap map) {
-        //Create a data source and add it to the map.
-        source = new DataSource();
-        map.sources.add(source);
+private void onReady(AzureMap map) {
+    //Create a data source and add it to the map.
+    source = new DataSource();
+    map.sources.add(source);
 
-        //Create a feature and add it to the data source.
-        Feature myFeature = Feature.fromGeometry(Point.fromLngLat(0,0));
-        myFeature.addStringProperty("Name", "Original value");
+    //Create a feature and add it to the data source.
+    Feature myFeature = Feature.fromGeometry(Point.fromLngLat(0,0));
+    myFeature.addStringProperty("Name", "Original value");
 
-        source.add(myFeature);
-    }
+    source.add(myFeature);
+}
 
-    private void updateFeature(){
-        //Create a new replacement feature with an updated geometry and property value.
-        Feature myNewFeature = Feature.fromGeometry(Point.fromLngLat(-10, 10));
-        myNewFeature.addStringProperty("Name", "New value");
+private void updateFeature(){
+    //Create a new replacement feature with an updated geometry and property value.
+    Feature myNewFeature = Feature.fromGeometry(Point.fromLngLat(-10, 10));
+    myNewFeature.addStringProperty("Name", "New value");
 
-        //Replace all features to the data source with the new one.
-        source.setShapes(myNewFeature);
-    }
-    ```
+    //Replace all features to the data source with the new one.
+    source.setShapes(myNewFeature);
+}
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-kotlin"
 
-    ```kotlin
-    var source: DataSource? = null
+```kotlin
+var source: DataSource? = null
 
-    private fun onReady(map: AzureMap) {
-        //Create a data source and add it to the map.
-        source = DataSource()
-        map.sources.add(source)
+private fun onReady(map: AzureMap) {
+    //Create a data source and add it to the map.
+    source = DataSource()
+    map.sources.add(source)
 
-        //Create a feature and add it to the data source.
-        val myFeature = Feature.fromGeometry(Point.fromLngLat(0.0, 0.0))
-        myFeature.addStringProperty("Name", "Original value")
-        source!!.add(myFeature)
-    }
+    //Create a feature and add it to the data source.
+    val myFeature = Feature.fromGeometry(Point.fromLngLat(0.0, 0.0))
+    myFeature.addStringProperty("Name", "Original value")
+    source!!.add(myFeature)
+}
 
-    private fun updateFeature() {
-        //Create a new replacement feature with an updated geometry and property value.
-        val myNewFeature = Feature.fromGeometry(Point.fromLngLat(-10.0, 10.0))
-        myNewFeature.addStringProperty("Name", "New value")
+private fun updateFeature() {
+    //Create a new replacement feature with an updated geometry and property value.
+    val myNewFeature = Feature.fromGeometry(Point.fromLngLat(-10.0, 10.0))
+    myNewFeature.addStringProperty("Name", "New value")
 
-        //Replace all features to the data source with the new one.
-        source!!.setShapes(myNewFeature)
-    }
-    ```
+    //Replace all features to the data source with the new one.
+    source!!.setShapes(myNewFeature)
+}
+```
 
 ::: zone-end
 
@@ -683,76 +683,76 @@ The `DataSource` class makes its easy to add and remove features. Updating the g
 
 ::: zone pivot="programming-language-java-android"
 
-    ``` java
-    DataSource source;
-    Feature myFeature;
+``` java
+DataSource source;
+Feature myFeature;
 
-    private void onReady(AzureMap map) {
-        //Create a data source and add it to the map.
-        source = new DataSource();
-        map.sources.add(source);
+private void onReady(AzureMap map) {
+    //Create a data source and add it to the map.
+    source = new DataSource();
+    map.sources.add(source);
 
-        //Create a feature and add it to the data source.
-        myFeature = Feature.fromGeometry(Point.fromLngLat(0,0));
-        myFeature.addStringProperty("Name", "Original value");
+    //Create a feature and add it to the data source.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(0,0));
+    myFeature.addStringProperty("Name", "Original value");
 
-        source.add(myFeature);
-    }
+    source.add(myFeature);
+}
 
-    private void updateFeature(){
-        //Remove the feature instance from the data source.
-        source.remove(myFeature);
+private void updateFeature(){
+    //Remove the feature instance from the data source.
+    source.remove(myFeature);
 
-        //Get properties from original feature.
-        JsonObject props = myFeature.properties();
+    //Get properties from original feature.
+    JsonObject props = myFeature.properties();
 
-        //Update a property.
-        props.addProperty("Name", "New value");
+    //Update a property.
+    props.addProperty("Name", "New value");
 
-        //Create a new replacement feature with an updated geometry.
-        myFeature = Feature.fromGeometry(Point.fromLngLat(-10, 10), props);
+    //Create a new replacement feature with an updated geometry.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(-10, 10), props);
 
-        //Re-add the feature to the data source.
-        source.add(myFeature);
-    }
-    ```
+    //Re-add the feature to the data source.
+    source.add(myFeature);
+}
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-kotlin"
 
-    ```kotlin
-    var source: DataSource? = null
-    var myFeature: Feature? = null
+```kotlin
+var source: DataSource? = null
+var myFeature: Feature? = null
 
-    private fun onReady(map: AzureMap) {
-        //Create a data source and add it to the map.
-        source = DataSource()
-        map.sources.add(source)
+private fun onReady(map: AzureMap) {
+    //Create a data source and add it to the map.
+    source = DataSource()
+    map.sources.add(source)
 
-        //Create a feature and add it to the data source.
-        myFeature = Feature.fromGeometry(Point.fromLngLat(0.0, 0.0))
-        myFeature.addStringProperty("Name", "Original value")
-        source!!.add(myFeature)
-    }
+    //Create a feature and add it to the data source.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(0.0, 0.0))
+    myFeature.addStringProperty("Name", "Original value")
+    source!!.add(myFeature)
+}
 
-    private fun updateFeature() {
-        //Remove the feature instance from the data source.
-        source!!.remove(myFeature)
+private fun updateFeature() {
+    //Remove the feature instance from the data source.
+    source!!.remove(myFeature)
 
-        //Get properties from original feature.
-        val props = myFeature!!.properties()
+    //Get properties from original feature.
+    val props = myFeature!!.properties()
 
-        //Update a property.
-        props!!.addProperty("Name", "New value")
+    //Update a property.
+    props!!.addProperty("Name", "New value")
 
-        //Create a new replacement feature with an updated geometry.
-        myFeature = Feature.fromGeometry(Point.fromLngLat(-10.0, 10.0), props)
+    //Create a new replacement feature with an updated geometry.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(-10.0, 10.0), props)
 
-        //Re-add the feature to the data source.
-        source!!.add(myFeature)
-    }
-    ```
+    //Re-add the feature to the data source.
+    source!!.add(myFeature)
+}
+```
 
 ::: zone-end
 
