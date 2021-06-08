@@ -58,7 +58,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. On the home page of Azure Data Factory, select the **Ingest** tile to start the Copy Data tool.
 
-   !["Ingest" tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
 1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, then select **Next**.
 

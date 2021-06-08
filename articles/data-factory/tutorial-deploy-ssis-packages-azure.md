@@ -67,7 +67,7 @@ After your data factory is created, open its overview page in the Azure portal. 
 
 1. On the home page, select the **Configure SSIS** tile. 
 
-   !["Configure SSIS" tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
 1. For the remaining steps to set up an Azure-SSIS IR, see the [Provision an Azure-SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section. 
 

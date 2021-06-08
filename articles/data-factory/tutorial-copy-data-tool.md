@@ -110,7 +110,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. On the home page of Azure Data Factory, select the **Ingest** tile to launch the Copy Data tool.
 
-   ![Ingest tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
 1. On the **Properties** page, under **Task name**, enter **CopyFromBlobToSqlPipeline**. Then select **Next**. The Data Factory UI creates a pipeline with the specified task name.
 

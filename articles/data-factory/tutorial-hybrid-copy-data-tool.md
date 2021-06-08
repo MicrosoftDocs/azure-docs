@@ -115,7 +115,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. On the Azure Data Factory home page, select **Ingest** to launch the Copy Data tool.
 
-   ![ADF home page](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
 1. On the **Properties** page of the Copy Data tool, under **Task name**, enter **CopyFromOnPremSqlToAzureBlobPipeline**. Then select **Next**. The Copy Data tool creates a pipeline with the name you specify for this field.
   ![Task name](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
