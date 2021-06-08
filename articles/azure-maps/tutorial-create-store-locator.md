@@ -82,7 +82,7 @@ To maximize the usefulness of this store locator, we include a responsive layout
 
 ## Create the store location dataset
 
-This section shows you how to create a dataset of the stores you want to display on the map. The dataset for the Contoso Coffee locator is created inside an Excel workbook. The dataset contains 10,213 Contoso Coffee coffee shop locations spread across nine countries or regions: the United States, Canada, the United Kingdom, France, Germany, Italy, the Netherlands, Denmark, and Spain. Here's a screenshot of what the data looks like:
+This section describes how to create a dataset of the stores that you want to display on the map. The dataset for the Contoso Coffee locator is created inside an Excel workbook. The dataset contains 10,213 Contoso Coffee coffee shop locations spread across nine countries or regions: the United States, Canada, the United Kingdom, France, Germany, Italy, the Netherlands, Denmark, and Spain. Here's a screenshot of what the data looks like:
 
 :::image type="content" source="./media/tutorial-create-store-locator/store-locator-data-spreadsheet.png" alt-text="Screenshot of the store locator data in an Excel workbook.":::
 
@@ -92,14 +92,14 @@ Looking at the screenshot of the data, we can make the following observations:
 
 * Location information is stored by using the **AddressLine**, **City**, **Municipality** (county), **AdminDivision** (state/province), **PostCode** (postal code), and **Country** columns.  
 * The **Latitude** and **Longitude** columns contain the coordinates for each Contoso Coffee location. If you don't have coordinates information, you can use the Search services in Azure Maps to determine the location coordinates.
-* Some additional columns contain metadata related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that's more relevant to your location data.
+* Some additional columns contain metadata that's related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that's more relevant to your location data.
 
 > [!NOTE]
 > Azure Maps renders data in the spherical Mercator projection "EPSG:3857" but reads data in "EPSG:4326" that use the WGS84 datum.
 
 ## Load the store location dataset
 
- Since the Contoso Coffee shop locator dataset is small, we'll convert the Excel worksheet into a tab-delimited text file. This file can then be downloaded by the browser when the application loads.
+ The Contoso Coffee shop locator dataset is small, so we'll convert the Excel worksheet into a tab-delimited text file. This file can then be downloaded by the browser when the application loads.
 
  >[!TIP]
 >If your dataset is too large for client download, or is updated frequently, you might consider storing your dataset in a database. After your data is loaded into a database, you can then set up a web service that accepts queries for the data, and then sends the results to the user's browser.
@@ -132,7 +132,7 @@ If you open the text file in Notepad, it looks similar to the following text:
 
 1. Open the Visual Studio Code app.
 
-2. Select **File**, and then select **Open Workspace...*.
+2. Select **File**, and then select **Open Workspace...**.
 
 3. Create a new folder and name it "ContosoCoffee".
 
@@ -215,7 +215,7 @@ To create the HTML:
     </main>
     ```
 
-When you're finished, *index.html* should look like [this example index.html file](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
+After you finish, *index.html* should look like [this example index.html file](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
 
 ## Define the CSS Styles
 
