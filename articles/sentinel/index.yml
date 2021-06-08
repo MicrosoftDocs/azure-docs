@@ -85,8 +85,18 @@ landingContent:
             url: normalization-schema.md
 
  # Card (optional)
-  - title: Detect threats
+  - title: Threat intelligence
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Import threat intelligence into Azure Sentinel
+            url: import-threat-intelligence.md
+          - text: User and entity behavior analytics (UEBA)
+            url: identify-threats-with-entity-behavior-analytics.md
+          - text: SOC-ML anomalies
+            url: soc-ml-anomalies.md
+          - text: Threat intelligence integrations
+            url: threat-intelligence-integration.md
       - linkListType: tutorial
         links:
           - text: Use built-in-analytics to detect threats
@@ -95,18 +105,29 @@ landingContent:
             url: tutorial-detect-threats-custom.md
       - linkListType: how-to-guide
         links:
-          - text: Create incidents from Microsoft Security alerts
-            url: create-incidents-from-alerts.md
-          - text: Hunt for threats
-            url: hunting.md
+          - text: Connect threat intelligence
+            url: connect-threat-intelligence.md
       - linkListType: reference
         links:
-          - text: Commonly used Azure Sentinel workbooks
-            url: top-workbooks.md
           - text: Entities reference
             url: entities-reference.md
-
-
+          - text: UEBA enrichments
+            url: ueba-enrichments.md
+        
+ # Card (optional)
+  - title: Threat hunting
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Hunt for threats
+            url: hunting.md
+      - linkListType: how-to-guide
+          - text: Hunt with Jupyter notebooks
+            url: notebooks.md
+          - text: Hunt with bookmarks
+            url: bookmarks.md
+          - text: Hunt with livestream
+            url: livestream.md
 
  # Card (optional)
   - title: Investigate
@@ -121,8 +142,8 @@ landingContent:
           url: investigate-with-ueba.md
       - linkListType: reference
         links:
-        - text: UEBA enrichments
-          url: ueba-enrichments.md
+        - text: Commonly used Azure Sentinel workbooks
+          url: top-workbooks.md
 
 
 # Card (optional)
