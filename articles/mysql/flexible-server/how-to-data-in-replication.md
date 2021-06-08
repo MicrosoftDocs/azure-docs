@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray 
 ms.service: mysql
 ms.topic: how-to
-ms.date: 05/26/2021 
+ms.date: 06/08/2021 
 ---
 
 # How to configure Azure Database for MySQL Flexible Server Data-in replication
@@ -16,7 +16,7 @@ This article describes how to set up [Data-in replication](concepts-data-in-repl
 > This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
-To create a replica in the Azure Database for MySQL Flexible service, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in replication is based on the binary log (binlog) file position-based or GTID-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+To create a replica in the Azure Database for MySQL Flexible service, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
@@ -27,10 +27,6 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 2. Create the same user accounts and corresponding privileges.
 
    User accounts aren't replicated from the source server to the replica server. If you plan on providing users with access to the replica server, you need to create all accounts and corresponding privileges manually on this newly created Azure Database for MySQL Flexible Server.
-
-3. **Optional** - If you wish to use [GTID-based replication](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html) from the source server to the Azure Database for MySQL Flexible replica server, you'll need to enable the following server parameters on the Azure Database for MySQL Flexible Server as shown in the portal image below:
-
-   :::image type="content" source="./media/how-to-data-in-replication/enable-gtid.png" alt-text="Enable GTID on Azure Database for MySQL Flexible Server":::
 
 ## Configure the source MySQL server
 
@@ -81,15 +77,6 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ```sql
    SET GLOBAL lower_case_table_names = 1;
    ```
-
-   **Optional** - If you wish to use [GTID-based replication](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), you'll need to check if GTID is enabled on the source server. You can execute following command against your source MySQL server to see if gtid_mode is ON.
-
-   ```sql
-   show variables like 'gtid_mode';
-   ```
-
-   >[!IMPORTANT]
-   > All servers have gtid_mode set to the default value OFF. You don't need to enable GTID on the source MySQL server specifically to set up Data-in replication. If GTID is already enabled on source server, you can optionally use GTID-based replication to set up Data-in replication too with Azure Database for MySQL Flexible Server Single Server. You can use file-based replication to set up Data-in replication for all servers regardless of the gitd_mode configuration on the source server.
 
 5. Create a new replication role and set up permission.
 
@@ -157,11 +144,6 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
     You can use mysqldump to dump databases from your primary server. For details, refer to [Dump & Restore](../concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
-2. **Optional** - If you wish to use [gtid-based replication](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), you'll need to identify the GTID of the last transaction executed at the primary. You can use the following command to note the GTID of the last transaction executed on the master server.
-
-   ```sql
-   show global variables like 'gtid_executed';
-   ```
 
 3. Set source server to read/write mode.
 
@@ -176,11 +158,6 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    Restore the dump file to the server created in the Azure Database for MySQL Flexible Server service. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL Flexible Server server from the virtual machine.
 
-5. **Optional** - Note the GTID of the restored server on Azure Database for MySQL Flexible Server to ensure it is same as the primary server. You can use the following command to note the GTID of the GTID purged value on the Azure Database for MySQL Flexible Server replica server. The value of gtid_purged should be same as gtid_executed on master noted in step 2 for GTID-based replication to work.
-
-   ```sql
-   show global variables like 'gtid_purged';
-   ```
 
 ## Link source and replica servers to start Data-in replication
 
@@ -194,12 +171,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
 
-   **Optional** - If you wish to use [gtid-based replication](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html),you will need to use the following command to link the two servers
-
-    ```sql
-   call mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_ssl_ca>');
-   ```
-
+ 
    - master_host: hostname of the source server
    - master_user: username for the source server
    - master_password: password for the source server
@@ -290,16 +262,6 @@ To skip a replication error and allow replication to continue, use the following
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
-
- **Optional** - If you wish to use [gtid-based replication](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), use the following stored procedure to skip a transaction
-
-```sql
-call mysql. az_replication_skip_gtid_transaction(‘<transaction_gtid>’)
-```
-
-The procedure can skip the transaction for the given GTID. If the GTID format is not right or the GTID transaction has already been executed, the procedure will fail to execute. The GTID for a transaction can be determined by parsing the binary log to check the transaction events. MySQL provides a utility [mysqlbinlog](https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html) to parse binary logs and display their contents in text format, which can be used to identify GTID of the transaction.
-
-To skip the next transaction after the current replication position, use the following command to identify the GTID of next transaction as shown below.
 
 ```sql
 SHOW BINLOG EVENTS [IN 'log_name'] [FROM pos][LIMIT [offset,] row_count]
