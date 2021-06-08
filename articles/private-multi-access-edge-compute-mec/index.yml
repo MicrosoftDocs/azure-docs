@@ -56,15 +56,6 @@ landingContent:
         links:
           - text: Deploy Affirmed networks solution
             url: deploy-affirmed-solution.md
-  
-  # Card
-  - title: About Network Functions Manager
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Network Functions Manager?
-            url: ../network-functions-manager/overview.md 
-          - text: Create a network function
-            url: ../network-functions-manager/create-function.md 
+
 
 
