@@ -174,7 +174,7 @@ Create an Azure Managed Disk from your chosen Marketplace image.
 
 Here is an example output:
 
-```azurecli
+```output
 PS /home/user> $urn = “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
 PS /home/user> $diskName = "NewManagedDisk1"
 PS /home/user> $diskRG = "NewRG1"
@@ -273,7 +273,7 @@ This step will export a VHD from the managed disk to your preferred Azure blob s
 
 Here is an example output:
 
-```azurecli
+```output
 PS /home/user> $storageAccountName = "edgeazurevmeus"
 PS /home/user> $containerName = "azurevmmp"
 PS /home/user> $destBlobName = "newblobmp.vhd"
