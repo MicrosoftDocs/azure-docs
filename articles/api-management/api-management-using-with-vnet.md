@@ -208,8 +208,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
       - Developer portal CAPTCHA
 
 ## <a name="troubleshooting"> </a>Troubleshooting
-* **Initial Setup:**  
-  For unsuccessful initial deployment of API Management service into a subnet: 
+* **Unsuccessful initial deployment of API Management service into a subnet:** 
   * Deploy a virtual machine into the same subnet. 
   * Remote desktop into the virtual machine and validate connectivity to one of each of the following resources in your Azure subscription:
     * Azure Storage blob

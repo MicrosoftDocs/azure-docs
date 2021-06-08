@@ -10,7 +10,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 06/08/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
 
@@ -59,8 +59,7 @@ The API Management service in an internal virtual network is hosted behind an in
 
 1. Navigate to your Azure API Management instance in the [Azure portal](https://portal.azure.com/).
 1. Select **Virtual network**.
-1. Configure the **Internal** access type. 
-    * For detailed steps, see [Enable VNET connectivity using the Azure portal](api-management-using-with-vnet.md#enable-vnet-connectivity-using-the-azure-portal).
+1. Configure the **Internal** access type. For detailed steps, see [Enable VNET connectivity using the Azure portal](api-management-using-with-vnet.md#enable-vnet-connectivity-using-the-azure-portal).
 
     ![Menu for setting up an Azure API Management in an internal VNET][api-management-using-internal-vnet-menu]
 
@@ -104,12 +103,12 @@ Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-
 > * The Azure portal
 > * The developer portal
 > * Direct management endpoint
-> * Git.
+> * Git
 
 ### Access on default host names
 When you create an API Management service (`contosointernalvnet`, for example), the following service endpoints are configured by default:
 
-|  |  |
+| Endpoint | Endpoint configuration |
 | ----- | ----- |
 | Gateway or proxy | `contosointernalvnet.azure-api.net` |
 | Developer portal | `contosointernalvnet.portal.azure-api.net` |
@@ -119,7 +118,7 @@ When you create an API Management service (`contosointernalvnet`, for example), 
 
 To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the VNET in which API Management is deployed. Assuming the internal virtual IP address for your service is 10.1.0.5, you can map the hosts file, `%SystemDrive%\drivers\etc\hosts`, as follows:
 
-|  |  |
+| Internal virtual IP address | Endpoint configuration |
 | ----- | ----- |
 | 10.1.0.5 | `contosointernalvnet.azure-api.net` |
 | 10.1.0.5 | `contosointernalvnet.portal.azure-api.net` |
