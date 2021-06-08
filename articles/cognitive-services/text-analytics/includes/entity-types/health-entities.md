@@ -45,11 +45,11 @@ See more information and examples below.
 
 **AGE** - All age terms and phrases, including ones for patients, family members, and others. For example, 40-year-old, 51 yo, 3 months old, adult, infant, elderly, young, minor, middle-aged.
 
-:::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="An example of an age entity." lightbox="../../media/ta-for-health/age-entity.png":::
-
 **GENDER** - Terms that disclose the gender of the subject. For example, male, female, woman, gentleman, lady.
 
-:::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="An example of a gender entity." lightbox="../../media/ta-for-health/gender-entity.png":::
+:::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="An example of an age entity." lightbox="../../media/ta-for-health/age-entity.png":::
+
+<!--:::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="An example of a gender entity." lightbox="../../media/ta-for-health/gender-entity.png":::-->
 
 ## Examinations
 
