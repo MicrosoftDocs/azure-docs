@@ -137,7 +137,7 @@ See more information and examples below.
 
 :::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="An example of a healthcare event entity." lightbox="../../media/ta-for-health/healthcare-event-entity.png" :::
 
-<!--:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="This screenshot shows an example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-environment-entity.png":::--
+<!--:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="This screenshot shows an example of a healthcare environment entity." lightbox="../../media/ta-for-health/healthcare-environment-entity.png":::-->
 
 **HEALTHCARE_PROFESSION** – A healthcare practitioner licensed or non-licensed. For example, dentist, pathologist, neurologist, radiologist, pharmacist, nutritionist, physical therapist, chiropractor.
 
