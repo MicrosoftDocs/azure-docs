@@ -1,5 +1,5 @@
 ---
-title: Assign an Azure RBAC role for access to blob data
+title: Assign an Azure role for access to blob data
 titleSuffix: Azure Storage
 description: Learn how to assign permissions for blob data to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Azure AD.
 services: storage
@@ -14,15 +14,15 @@ ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ---
 
-# Assign an Azure RBAC role for access to blob data
+# Assign an Azure role for access to blob data
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access containers.
 
 When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article shows how to assign Azure RBAC roles for data access to blobs.
+This article shows how to assign Azure roles for data access to blobs.
 
-## Azure RBAC roles for blobs
+## Azure roles for blobs
 
 [!INCLUDE [storage-auth-rbac-roles-blob-include](../../../includes/storage-auth-rbac-roles-blob-include.md)]
 
@@ -30,7 +30,7 @@ This article shows how to assign Azure RBAC roles for data access to blobs.
 
 [!INCLUDE [storage-auth-resource-scope-blob-include](../../../includes/storage-auth-resource-scope-blob-include.md)]
 
-## Assign an Azure RBAC role
+## Assign an Azure role
 
 You can use the Azure portal, PowerShell, or Azure CLI to assign a role for data access.
 
@@ -90,10 +90,10 @@ az role assignment create \
 
 ---
 
-Keep in mind the following points about Azure RBAC role assignments in Azure Storage:
+Keep in mind the following points about Azure role assignments in Azure Storage:
 
 - When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container.
-- If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure RBAC roles that are scoped to the storage account or a container.
+- If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a container.
 
 ## Next steps
 
