@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store by using Azure Resource Manager template (ARM template).
 author: GrantMeStrength
 ms.author: jken
-ms.date: 05/26/2021
+ms.date: 06/09/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
@@ -22,7 +22,7 @@ This quickstart describes how to :
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
 
 ## Prerequisites
 
