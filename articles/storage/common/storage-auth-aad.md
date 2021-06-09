@@ -47,7 +47,7 @@ When an Azure role is assigned to an Azure AD security principal, Azure grants a
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
+To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
