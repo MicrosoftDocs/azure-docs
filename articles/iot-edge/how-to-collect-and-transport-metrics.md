@@ -4,7 +4,7 @@ description: Use Azure Monitor to remotely monitor IoT Edge's built-in metrics
 author: veyalla
 manager: philmea
 ms.author: veyalla
-ms.date: 06/04/2021
+ms.date: 06/09/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge 
@@ -46,7 +46,7 @@ All configuration for the metrics-collector is done using environment variables.
 
 | Environment variable name | Description |
 |-|-|
-| `ResourceId` | Resource ID of the IoT hub that the device communicates with. You can find the resource ID in the **Properties** page of the IoT hub in the Azure portal. Or, retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command. For example `az resource show -g \<group> -n \<name> --resource-type "Microsoft.Devices/iothubs"`. <br><br>  **Required** <br><br> Default value: *none* |
+| `ResourceId` | Resource ID of the IoT hub that the device communicates with. For the steps to retrieve the resource ID, see the [Resource ID](#resource-id) section.  <br><br>  **Required** <br><br> Default value: *none* |
 | `UploadTarget` |  Controls whether metrics are sent directly to Azure Monitor over HTTPS or to IoT Hub as D2C messages. For more information, see [upload target](#upload-target). <br><br>Can be either **AzureMonitor** or **IoTMessage**  <br><br>  **Not required** <br><br> Default value: *AzureMonitor* |
 | `LogAnalyticsWorkspaceId` | [Log Analytics workspace ID](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>**Required** only if *UploadTarget* is *AzureMonitor* <br><br>Default value: *none* |
 | `LogAnalyticsSharedKey` | [Log Analytics workspace key](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
@@ -54,6 +54,26 @@ All configuration for the metrics-collector is done using environment variables.
 | `AllowedMetrics` | List of metrics to collect, all other metrics will be ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
 | `BlockedMetrics` | List of metrics to ignore. Overrides *AllowedMetrics*, so a metric will not be reported if  it is included in both lists. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>   Example: *metricToIgnore{quantile=0.5}[endpoint=http://VeryNoisyModule:9001/metrics], docker_container_disk_write_bytes*<br><br>  **Not required**  <br><br>Default value: *empty* |
 | `CompressForUpload` | Controls is compression should be used when uploading metrics. Applies to all upload targets.<br><br>  Example: *true* <br><br>    **Not required** <br><br>  Default value: *true* |
+
+### Resource ID
+
+The metrics-collector module requires the Azure Resource Manager ID of the IoT hub that the IoT Edge device belongs to. Provide this ID as the value of the **ResourceID** environment variable.
+
+The resource ID takes the following format:
+
+```input
+/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Devices/IoTHubs/<iot hub name>
+```
+
+You can find the resource ID in the **Properties** page of the IoT hub in the Azure portal.
+
+:::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id.png" alt-text="Retrieve resource ID from the IoT Hub properties.":::
+
+Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
+
+```azurecli-interactive
+az resource show -g \<group> -n \<name> --resource-type "Microsoft.Devices/IoTHubs"`
+```
 
 ### Upload target
 
