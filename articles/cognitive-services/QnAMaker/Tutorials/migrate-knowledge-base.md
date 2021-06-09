@@ -59,10 +59,10 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 You can refer the following summary of settings applicable to QnA Maker and Custom question answering.
 |Settings| Can update when importing to QnA Maker? | Can update when importing to Custom question answering?|
 |:--|--|--|
-|DefaultAnswerForKB (Specifes default answer returned by KB)| No | Yes
-|EnableActiveLearning (Set to True/False to enable/disable Active Learning)| Yes| No
-|EnableMultiTurnExtraction (Set to True/False to enable/disable multi-turn extraction| Yes | Yes
-|DefaultAnswerforMultiturn (Default answer when answer is empty for a question at multi-turn extraction)| Yes | Yes
+|DefaultAnswerForKB (Specifes default answer returned by KB)| No | Yes |
+|EnableActiveLearning (Set to True/False to enable/disable Active Learning)| Yes| No |
+|EnableMultiTurnExtraction (Set to True/False to enable/disable multi-turn extraction| Yes | Yes |
+|DefaultAnswerforMultiturn (Default answer when answer is empty for a question at multi-turn extraction)| Yes | Yes |
 |Language (Language of the KB) | No | No |
 
    > [!div class="mx-imgBorder"]
