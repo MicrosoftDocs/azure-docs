@@ -32,7 +32,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 # [Custom question answering (preview release)](#tab/v2)
 
 > * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
-> * Set up a new [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
+> * Set up [Custom question answering](../How-To/set-up-qnamaker-service-azure.md)
 
 ---
 
