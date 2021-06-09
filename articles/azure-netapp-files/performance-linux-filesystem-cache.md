@@ -22,7 +22,7 @@ This article helps you understand filesystem cache best practices for Azure NetA
 
 ## Filesystem cache tunables
 
-You need to understand two factors about filesystem cache tunables:  
+You need to understand the following factors about filesystem cache tunables:  
 
 * Flushing a dirty buffer leaves the data in a clean state usable for future reads until memory pressure leads to eviction.  
 * There are three triggers for an asynchronous flush operation:
@@ -71,7 +71,7 @@ To understand what is going with virtual memory and the write-back, consider the
 
 `# while true; do echo "###" ;date ; egrep "^Cached:|^Dirty:|^Writeback:|file" /proc/meminfo; sleep 5; done`
 
-The following output comes from an experiment where `vm.dirty_ratio` and `vm.dirty_background` ratios were set to 2% and 1% of physical memory respectively.  In this case, flushing began at 3.8 GiB, 1% of the 384-GiB memory system.  Writeback closely resembled the write throughput to NFS. 
+The following output comes from an experiment where the `vm.dirty_ratio` and the `vm.dirty_background` ratio were set to 2% and 1% of physical memory respectively.  In this case, flushing began at 3.8 GiB, 1% of the 384-GiB memory system.  Writeback closely resembled the write throughput to NFS. 
 
 ```
 Cons
