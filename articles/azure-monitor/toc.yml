@@ -873,6 +873,8 @@
     - name: Smart Detection
       href: app/proactive-diagnostics.md
       items:
+      - name: Upgrade to alerts
+        href: alerts/alerts-smart-detections-migration.md
       - name: Failure anomalies
         href: app/proactive-failure-diagnostics.md
       - name: Performance anomalies

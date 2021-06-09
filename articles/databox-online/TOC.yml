@@ -245,6 +245,8 @@
           href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
         - name: Use specialized image
           href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
+        - name: Use Azure Marketplace image
+          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
       - name: Deploy VMs
         items:
         - name: Via Azure portal
@@ -281,8 +283,6 @@
           items:
           - name: Connect to VM console
             href: azure-stack-edge-gpu-connect-virtual-machine-console.md
-          - name: Collect VM guest logs
-            href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md
           - name: VM image upload
             href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
           - name: VM deployment
