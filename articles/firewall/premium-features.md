@@ -1,35 +1,30 @@
 ---
-title: Azure Firewall Premium Preview features
+title: Azure Firewall Premium features
 description: Azure Firewall Premium is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/15/2021
 ms.author: victorh
 ms.custom: references_regions
 ---
 
-# Azure Firewall Premium Preview features
+# Azure Firewall Premium features
 
 :::image type="content" source="media/premium-features/icsa-cert-firewall-small.png" alt-text="ICSA certification logo" border="false"::::::image type="content" source="media/premium-features/pci-logo.png" alt-text="PCI certification logo" border="false":::
 
 
-> [!IMPORTANT]
-> Azure Firewall Premium is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
- Azure Firewall Premium Preview is a next generation firewall with capabilities that are required for highly sensitive and regulated environments.
+ Azure Firewall Premium is a next generation firewall with capabilities that are required for highly sensitive and regulated environments.
 
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Azure Firewall Premium overview diagram":::
 
-Azure Firewall Premium Preview uses Firewall Policy, a global resource that can be used to centrally manage your firewalls using Azure Firewall Manager. Starting this release, all new features are configurable via Firewall Policy only. Firewall Rules (classic) continue to be supported and can be used to configure existing Standard Firewall features.  Firewall Policy can be managed independently or with Azure Firewall Manager. A firewall policy associated with a single firewall has no charge.
+Azure Firewall Premium uses Firewall Policy, a global resource that can be used to centrally manage your firewalls using Azure Firewall Manager. Starting this release, all new features are configurable via Firewall Policy only. Firewall Rules (classic) continue to be supported and can be used to configure existing Standard Firewall features.  Firewall Policy can be managed independently or with Azure Firewall Manager. A firewall policy associated with a single firewall has no charge.
 
 > [!IMPORTANT]
 > Currently the Firewall Premium SKU is  not supported in Secure Hub deployments and forced tunnel configurations. 
 
-Azure Firewall Premium Preview includes the following features:
+Azure Firewall Premium includes the following features:
 
 - **TLS inspection** - decrypts outbound traffic, processes the data, then encrypts the data and sends it to the destination.
 - **IDPS** - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
@@ -44,13 +39,13 @@ Azure Firewall Premium terminates outbound and east-west TLS connections. Inboun
 > [!TIP]
 > TLS 1.0 and 1.1 are being deprecated and won’t be supported. TLS 1.0 and 1.1 versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable, and while they still currently work to allow backwards compatibility, they aren't recommended. Migrate to TLS 1.2 as soon as possible.
 
-To learn more about Azure Firewall Premium Preview Intermediate CA certificate requirements, see [Azure Firewall Premium Preview certificates](premium-certificates.md).
+To learn more about Azure Firewall Premium Intermediate CA certificate requirements, see [Azure Firewall Premium certificates](premium-certificates.md).
 
 ## IDPS
 
 A network intrusion detection and prevention system (IDPS) allows you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
 
-Azure Firewall Premium Preview provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are fully managed and continuously updated. IDPS can be applied to inbound traffic, spoke-to-spoke traffic (East-West), and outbound traffic.
+Azure Firewall Premium provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are fully managed and continuously updated. IDPS can be applied to inbound traffic, spoke-to-spoke traffic (East-West), and outbound traffic.
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
@@ -61,17 +56,24 @@ The Azure Firewall signatures/rulesets include:
 
 IDPS allows you to detect attacks in all ports and protocols for non-encrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
-The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list. 
+The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
+
+ After setting up IDPS mode, you can browse through the various signatures, view their attributes, and set dedicated IDPS mode per signature or group of signatures. This allows you to fine-tune the IDPS setup, as needed. For example, if you receive a false positive where a legitimate request is blocked by Azure Firewall due to a “faulty” signature, you can use the signature ID from the application rules logs and set the IDPS mode of this specific signature to **off**. This causes the "faulty" signature to be ignored and resolves the false positive issue.
+
+You can apply the same fine-tuning procedure for signatures that are creating too many low-priority alerts, and therefore interfering with visibility for high-priority alerts.
+
+You can also use signature rules when the IDPS mode is set to **Alert**, but there are one or more specific signatures that you want to block, including their associated traffic. In this case, you can add new signature rules by setting the TLS Inspection mode to **deny**.
+
 
 ## URL filtering
 
 URL filtering extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.  
 
-URL Filtering can be applied both on HTTP and HTTPS traffic. When HTTPS traffic is inspected, Azure Firewall Premium Preview can use its TLS inspection capability to decrypt the traffic and extract the target URL to validate whether access is permitted. TLS inspection requires opt-in at the application rule level. Once enabled, you can use URLs for filtering with HTTPS. 
+URL Filtering can be applied both on HTTP and HTTPS traffic. When HTTPS traffic is inspected, Azure Firewall Premium can use its TLS inspection capability to decrypt the traffic and extract the target URL to validate whether access is permitted. TLS inspection requires opt-in at the application rule level. Once enabled, you can use URLs for filtering with HTTPS. 
 
 ## Web categories
 
-Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories will also be included in Azure Firewall Standard, but it will be more fine-tuned in Azure Firewall Premium Preview. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. 
+Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories will also be included in Azure Firewall Standard, but it will be more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. 
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 
@@ -99,7 +101,7 @@ You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request
  
 ## Supported regions
 
-Azure Firewall Premium Preview is supported in the following regions:
+Azure Firewall Premium is supported in the following regions:
 
 - Australia Central (Public / Australia)
 - Australia Central 2 (Public / Australia)
@@ -136,7 +138,7 @@ Azure Firewall Premium Preview is supported in the following regions:
 
 ## Known issues
 
-Azure Firewall Premium Preview has the following known issues:
+Azure Firewall Premium has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
@@ -151,11 +153,11 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 |IDPS Bypass|IDPS Bypass doesn't work for TLS terminated traffic, and Source IP address and Source IP Groups aren't supported.|Fix scheduled for GA.|
 |TLS 1.3 support|TLS 1.3 is partially supported. The TLS tunnel from client to the firewall is based on TLS 1.2, and from the firewall to the external Web server is based on TLS 1.3.|Updates are being investigated.|
 |KeyVault Private Endpoint|KeyVault supports Private Endpoint access to limit its network exposure. Trusted Azure Services can bypass this limitation if an exception is configured as described in the [KeyVault documentation](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Firewall is not currently listed as a trusted service and can't access the Key Vault.|Fix scheduled for GA.|
-|IP Groups support|Azure Firewall Premium Preview does not support IP Groups.|Fix scheduled for GA.|
+|IP Groups support|Azure Firewall Premium does not support IP Groups.|Fix scheduled for GA.|
 
 
 ## Next steps
 
 - [Learn about Azure Firewall Premium certificates](premium-certificates.md)
-- [Deploy and configure Azure Firewall Premium Preview](premium-deploy.md)
-- [Migrate to Azure Firewall Premium Preview](premium-migrate.md)
+- [Deploy and configure Azure Firewall Premium](premium-deploy.md)
+- [Migrate to Azure Firewall Premium](premium-migrate.md)
