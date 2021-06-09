@@ -80,7 +80,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [Azure Batch](../batch/create-pool-availability-zones.md)                                                                 | :large_blue_diamond:  |
 |     [Azure Cosmos   DB](../cosmos-db/high-availability.md#availability-zone-support)                                           | :large_blue_diamond:  |
 |     [Azure Data   Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)                             | :large_blue_diamond:  |
-|     [Azure DNS: Azure DNS Private Zones](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal)                   | :large_blue_diamond:  |
+|     [Azure DNS: Azure DNS Private Zones](/azure/dns/private-dns-getstarted-portal)                   | :large_blue_diamond:  |
 |     [Azure Express   Route](../expressroute/designing-for-high-availability-with-expressroute.md)                                       | :large_blue_diamond:  |
 |     [Azure Public   IP](../virtual-network/public-ip-addresses.md)                                           | :large_blue_diamond:  |
 |     Azure SQL   Database ([General Purpose Tier](../azure-sql/database/high-availability-sla.md))                 | :large_blue_diamond:  |
@@ -124,7 +124,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [Azure Cognitive Search](../search/search-performance-optimization.md#availability-zones)               | :large_blue_diamond:  |
 |     Azure Cognitive Services: [Text Analytics](../cognitive-services/text-analytics/index.yml)                    | :large_blue_diamond:  |
 |     [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal)                               | :large_blue_diamond:  |
-|     [Azure Data Factory](https://docs.microsoft.com/azure/data-factory)                               | :large_blue_diamond:  |
+|     [Azure Data Factory](/azure/data-factory)                               | :large_blue_diamond:  |
 |     Azure Database for MySQL – [Flexible Server](../mysql/flexible-server/concepts-high-availability.md)                  | :large_blue_diamond:  |
 |     Azure Database for PostgreSQL – [Flexible Server](../postgresql/flexible-server/overview.md)             | :large_blue_diamond:  |
 |     [Azure DDoS Protection](../ddos-protection/ddos-faq.md)                                       | :large_blue_diamond:  |

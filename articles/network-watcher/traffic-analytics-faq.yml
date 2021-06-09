@@ -141,7 +141,67 @@ sections:
           To configure traffic analytics by using an Azure Resource Manager client, see the following examples.
           
           **Set cmdlet example:**
+          
           ```
+                    #Requestbody parameters
+          $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
+          $TAstorageId = "/subscriptions/<storage subscription id>/resourcegroups/<storage resource group name> /providers/microsoft.storage/storageaccounts/<storage account name>"
+          $networkWatcherResourceGroupName = "<network watcher resource group name>"
+          $networkWatcherName = "<network watcher name>"
+          
+          $requestBody = 
+          @"
+          {
+              'targetResourceId': '${TAtargetUri}',
+              'properties': 
+              {
+                  'storageId': '${TAstorageId}',
+                  'enabled': '<true to enable flow log or false to disable flow log>',
+                  'retentionPolicy' : 
+                  {
+                      days: <enter number of days like to retail flow logs in storage account>,
+                      enabled: <true to enable retention or false to disable retention>
+                  }
+              },
+              'flowAnalyticsConfiguration':
+              {
+                          'networkWatcherFlowAnalyticsConfiguration':
+                {
+                  'enabled':,<true to enable traffic analytics or false to disable traffic analytics>
+                  'workspaceId':'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
+                  'workspaceRegion':'<workspace region>',
+                  'workspaceResourceId':'/subscriptions/<workspace subscription id>/resourcegroups/<workspace resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+                  
+                }
+          
+              }
+          }
+          "@
+          $apiversion = "2016-09-01"
+          
+          armclient login
+          armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
+          ```
+          
+          **Get cmdlet example:**
+
+          ```
+          #Requestbody parameters
+          $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
+          
+          
+          $requestBody = 
+          @"
+          {
+              'targetResourceId': '${TAtargetUri}'
+          }
+          “@
+          
+          
+          armclient login
+          armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/queryFlowLogStatus?api-version=${apiversion}" $requestBody
+          ```
+
       - question: |
           How is Traffic Analytics priced?
         answer: |
