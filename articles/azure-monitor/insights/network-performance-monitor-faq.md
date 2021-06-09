@@ -302,10 +302,10 @@ You can view the health status of the nodes being used for monitoring from the f
 NPM rounds the latency numbers in the UI and in milliseconds. The same data is stored at a higher granularity (sometimes up to four decimal places).
 
 ### Does NPM support multi-homed nodes? 
-No. Each NPM node requires a dedicated log analytics workspace. 
+No. Each NPM node requires a dedicated Log Analytics workspace. 
 
 ### What additional requirements does the NPM have for Linux? 
-The OMS agent for Linux also requires the use of GLIBC 2.14 or above. 
+The OMS agent for Linux also requires GLIBC 2.14 or later. 
 
 ## Next steps
 
