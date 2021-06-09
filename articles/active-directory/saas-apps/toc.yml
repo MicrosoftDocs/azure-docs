@@ -679,7 +679,7 @@
       - name: Fastly Edge Cloud
         href: fastly-edge-cloud-tutorial.md
       - name: FAX.PLUS
-        href: fax.plus-tutorial.md    
+        href: fax-plus-tutorial.md    
       - name: FCM HUB
         href: fcm-hub-tutorial.md
       - name: Field iD
@@ -1442,8 +1442,6 @@
         href: perimeterx-tutorial.md
       - name: Periscope Data
         href: periscope-data-tutorial.md
-      - name: Pexip
-        href: pexip-tutorial.md
       - name: PetroVue
         href: petrovue-tutorial.md
       - name: Phraseanet
