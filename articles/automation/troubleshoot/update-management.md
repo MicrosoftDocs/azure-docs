@@ -48,7 +48,7 @@ Your query results should return something similar to the following:
 
 :::image type="content" source="./media/update-management/example-query-updates-table.png" alt-text="Example showing results of log query from Updates table.":::
 
-Run the following log query to get the time generated, version, and update ID of KB2267602 in the **UpdatesRunProgress** table. This query helps us understand if it was installed from Update Management or if it was auto-installed on the machine from Microsoft Update. You need to replace the value for *CorrelationId* with the X and *SourceComputerId* with the GUID of the machine.
+Run the following log query to get the time generated, version, and update ID of KB2267602 in the **UpdatesRunProgress** table. This query helps us understand if it was installed from Update Management or if it was auto-installed on the machine from Microsoft Update. You need to replace the value for *CorrelationId* with the runbook job GUID (that is, the **MasterJOBID** property value from the **Patch-MicrosoftOMSComputer** runbook job) for the update, and *SourceComputerId* with the GUID of the machine.
 
 ```kusto
 UpdateRunProgress
