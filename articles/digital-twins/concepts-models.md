@@ -98,7 +98,7 @@ This section goes into more detail about **properties** and **telemetry** in DTD
 ### Difference between properties and telemetry
 
 Here's some additional guidance on conceptually distinguishing between DTDL **property** and **telemetry** in Azure Digital Twins.
-* **Properties** are expected to have backing storage. This means that you can read a property at any time and retrieve its value. If the property is writeable, you can also store a value in the property.  
+* **Properties** are expected to have backing storage. This means that you can read a property at any time and retrieve its value. If the property is writable, you can also store a value in the property.  
 * **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there is no trace of the event at a later time. You can't come back to it and read it later. 
   - In C# terms, telemetry is like a C# event. 
   - In IoT terms, telemetry is typically a single measurement sent by a device.

@@ -524,6 +524,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/active-directory-saas-fax.plus-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/fax-plus-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-redbrickhealth-tutorial.md",
       "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
       "redirect_document_id": false
@@ -13869,6 +13874,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/lifecycle-management-of-azure-vmware-solution-vms.md",
+      "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/set-up-backup-server-for-azure-vmware-solution.md",
       "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
       "redirect_document_id": false
@@ -25267,6 +25277,36 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md",
       "redirect_url": "/azure/iot-hub/tutorial-routing#routing-to-a-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
       "redirect_document_id": false
     },
     {
@@ -66991,6 +67031,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
+      "redirect_url": "/azure/virtual-desktop/teams-on-avd",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure/media-services/video-indexer/",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
       "redirect_document_id": false
@@ -67018,6 +67063,11 @@
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-download-sign-in-report.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-download-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
+      "redirect_url": "/azure/iot-develop/",
       "redirect_document_id": false
     }
   ]
