@@ -186,21 +186,22 @@ Now that you have created an extension, you can use it in an app project to veri
 
 1. Create a Python virtual environment, based on OS as follows:
 
-    # [Linux](tab/linux)
+    # [Linux](#tab/linux)
     ```bash
     python3 -m venv .venv
     ```
-    # [Windows](tab/windows)
+    # [Windows](#tab/windows)
     ```console
     py -m venv .venv
     ``` 
     ---
+
 1. Activate the Python virtual environment, based on OS as follows:
-    # [Linux](tab/linux)
+    # [Linux](#tab/linux)
     ```bash
     source .venv/bin/activate
     ```
-    # [Windows](tab/windows)
+    # [Windows](#tab/windows)
     ```console
     .venv\Scripts\Activate.ps1
     ``` 
@@ -223,12 +224,12 @@ Now that you have created an extension, you can use it in an app project to veri
     In this example, replace `<PYTHON_WORKER_EXTENSION_ROOT>` with the file location of your extension project.   
     When a customer uses your extension, they'll instead add your extension package location to the requirements.txt file as follows:
 
-    # [PyPI](tab/pypi)
+    # [PyPI](#tab/pypi)
     ```python
     # requirements.txt
     python_worker_extension_timer==1.0.0
     ``` 
-    # [GitHub](tab/github)
+    # [GitHub](#tab/github)
     
     ```python
     # requirements.txt
@@ -271,7 +272,7 @@ After you've created and verified your extension, you still need to complete the
 + Create a readme.md and other documentation (if needed). 
 + Publish the extension library to a Python package registry, such as PyPI, or a version control platform, such as GitHub.
 
-# [PyPI](tab/pypi)
+# [PyPI](#tab/pypi)
 
 To publish your extension to PyPI:
 
@@ -301,7 +302,7 @@ After these steps, customers can use your extension by including your package na
 
 For more information, see the [official Python packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/).
 
-# [GitHub](tab/github)
+# [GitHub](#tab/github)
 
 You can also publish the extension source code with setup.py into a GitHub repository. 
 
