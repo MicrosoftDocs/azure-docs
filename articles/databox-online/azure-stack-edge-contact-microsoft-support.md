@@ -95,5 +95,6 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 ## Next steps
 
-Learn how to [Troubleshoot issues related to Azure Stack Edge](azure-stack-edge-troubleshoot.md).
-Learn how to [Troubleshoot issues related to Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).
+- [Troubleshoot issues related to Azure Stack Edge FPGA](azure-stack-edge-troubleshoot.md).
+- [Troubleshoot device issues for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot.md).
+- [Troubleshoot issues related to Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).
