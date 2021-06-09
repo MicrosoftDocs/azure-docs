@@ -129,6 +129,8 @@ Allow access to the following URLs:
 | ctldl.windowsupdate.com                                      | 80/HTTP   | The connector uses this URL during the registration process. |
 
 You can allow connections to &ast;.msappproxy.net, &ast;.servicebus.windows.net, and other URLs above if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
+> [!IMPORTANT]
+> Avoid all forms of inline inspection and Termination on outbound TLS communications between Azure AD Application Proxy connector and Azure Endpoint.
 
 ### DNS name resolution for Azure AD Application Proxy endpoints
 
