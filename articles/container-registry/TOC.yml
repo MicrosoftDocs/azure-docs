@@ -96,7 +96,7 @@
           href: container-registry-auto-purge.md
       - name: Use ACR webhooks
         href: container-registry-webhook.md
-      - name: Move registry to different Region
+      - name: Move registry to different region
         href: manual-regional-move.md
     - name: Security and authentication
       items:
