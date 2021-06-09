@@ -73,7 +73,7 @@ You can specify fixed IP addresses for your IoT Edge modules via the K8s-experim
 
 #### Problem description
 
-By default, the IoT service type is of type load balancer and assigned externally facing IP addresses. You may not want an external-facing IP address for your application. You may need to expose the pods within the Kubernetes cluster for access as other pods and not as an externally exposed load balancer service. 
+By default, the IoT service type is **load balancer**Y, and the service is assigned externally facing IP addresses. If an application needs Kubernetes pods within the Kubernetes cluster to access other pods in the cluster, you may need to configure the service as a cluster IP service instead of a load balancer service. For more information, see [Kubernetes networking on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-kubernetes-networking.md).
 
 #### Suggested solution
 
