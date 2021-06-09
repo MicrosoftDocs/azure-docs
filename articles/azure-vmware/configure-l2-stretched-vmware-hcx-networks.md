@@ -24,7 +24,7 @@ DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch netwo
 
       :::image type="content" source="media/manage-dhcp/hcx-find-destination-network.png" alt-text="Screenshot of a network extension in VMware vSphere Client" lightbox="media/manage-dhcp/hcx-find-destination-network.png":::
 
-1. In the Azure VMware Solution NSX-T Manager, select **Networking** > **Segments** > **Segment Profiles**.
+1. In NSX-T Manager, select **Networking** > **Segments** > **Segment Profiles**.
 
 1. Select **Add Segment Profile** and then **Segment Security**.
 
