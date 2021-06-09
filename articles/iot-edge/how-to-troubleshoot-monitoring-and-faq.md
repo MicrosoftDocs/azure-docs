@@ -119,4 +119,12 @@ Open an issue on the [Azure IoT Edge GitHub repo](https://github.com/azure/ioted
 
 The template for the workbooks is [publicly available on GitHub](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks/IoTHub). Pull requests with improvements or fixes are very welcome!
 
+---
+
+## I cannot see the workbooks in the public templates
+
+Ensure that you're looking at the **Workbooks** page in your IoT hub page in the portal, not in your Log Analytics workspace.
+
+If you still can't see the workbooks, try using the pre-production Azure portal environment: [`https://ms.portal.azure.com`](https://ms.portal.azure.com). Sometimes workbook updates take additional time to show up in the production environment, but will be available in pre-production.
+
 :::zone-end

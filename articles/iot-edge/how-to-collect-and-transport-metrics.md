@@ -38,7 +38,7 @@ A Microsoft-supplied metrics-collector module can be added to an IoT Edge deploy
 
 The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It is publicly available at **[`mcr.microsoft.com/azureiotedge-metrics-collector`](https://aka.ms/edgemon-metrics-collector)**.
 
-It also available in the [IoT Edge Module Marketplace](https://aks.ms/edgemon-module-marketplace).
+It also available in the [IoT Edge Module Marketplace](https://aka.ms/edgemon-module-marketplace).
 
 ## Metrics collector configuration
 
