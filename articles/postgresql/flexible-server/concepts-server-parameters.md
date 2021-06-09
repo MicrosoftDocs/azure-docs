@@ -19,7 +19,10 @@ Azure Database for PostgreSQL provides a subset of configurable parameters for e
 
 Azure Database for PostgreSQL server is pre-configured with optimal default values for each parameter on creation. Static parameters require a server restart and parameters that require superuser access cannot be configured by the user. 
 
-In order to review which parameters are available to view or to modify, we recommend going into the Azure portal, and to the Server Parameters page. You can also configure parameters on a per-user or per-database basis using `ALTER DATABASE` or `ALTER ROLE` commands. 
+In order to review which parameters are available to view or to modify, we recommend going into the Azure portal, and to the Server Parameters page. You can also configure parameters on a per-user or per-database basis using `ALTER DATABASE` or `ALTER ROLE` commands.
+
+>[!NOTE]
+> Since Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or modify configuration files such as `postgresql.conf`. The content of the file is automatically updated based on parameter changes in the Server Parameters page.
 
 :::image type="content" source="./media/concepts-server-parameters/server-parameters.png" alt-text="Server parameters - portal":::
 
