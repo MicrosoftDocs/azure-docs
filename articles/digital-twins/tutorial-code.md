@@ -81,7 +81,7 @@ To begin, open the file *Program.cs* in any code editor. You will see a minimal 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="A snippet of sample code. There is one 'using System;' statement, a namespace called DigitalTwinsCodeTutorial; a class in the namespace called Program; and a Main method in the class with a standard signature of 'static void Main(string[] args)'. The main method contains a Hello World print statement." lightbox="media/tutorial-code/starter-template.png":::
+        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Screenshot of a snippet of sample code in a code editor." lightbox="media/tutorial-code/starter-template.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -182,7 +182,7 @@ To keep the program from crashing, you can add exception code around the model u
 
 Now, if you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output from the model creation code shows this error:
 
-:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Program output, showing a message that says '409:Service request failed. Status: 409 (Conflict).', followed by an error printout indicating that dtmi:example:SampleModel;1 already exists":::
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Screenshot of a console showing the program output, which results in an error '409:Service request failed. Status: 409 (Conflict).'.":::
 
 From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
 
@@ -230,7 +230,7 @@ Then, add the following code to the end of the `Main` method to call the `ListRe
 
 In your command window, run the program with `dotnet run`. You should see a list of all the relationships you have created in an output statement that looks like this:
 
-:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Program output, showing a message that says 'Twin sampleTwin-0 is connected to: contains->sampleTwin-1, -contains->sampleTwin-2'" lightbox="media/tutorial-code/list-relationships.png":::
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Screenshot of a console showing the program output, which results in a message that lists the twin relationships." lightbox="media/tutorial-code/list-relationships.png":::
 
 ### Query digital twins
 

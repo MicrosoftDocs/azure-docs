@@ -1,5 +1,5 @@
 ---
-title: Deploy the Azure Sentinel solution for SAP environments | Microsoft Docs
+title: Deploy SAP continuous threat monitoring | Microsoft Docs
 description: Learn how to deploy the Azure Sentinel solution for SAP environments.
 author: batamig
 ms.author: bagold
@@ -11,9 +11,9 @@ ms.subservice: azure-sentinel
 
 ---
 
-# Tutorial: Deploy the Azure Sentinel solution for SAP (public preview)
+#  Deploy SAP continuous threat monitoring (public preview)
 
-This tutorial takes you step by step through the process of deploying the Azure Sentinel solution for SAP.
+This article takes you step by step through the process of deploying Azure Sentinel continuous threat monitoring for SAP.
 
 > [!IMPORTANT]
 > The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -105,7 +105,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 1. Download and place the **SAP NetWeaver RFC SDK 7.50 for Linux on x86_64 64 BIT** version on your VM, as it's required during the installation process.
 
-    For example, find the SDK on the [SAP software download site](https://launchpad.support.sap.com/#/softwarecenter/templateproducts/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATEENR=01200314690100002214&V=MAINT) > **SAP NW RFC SDK** > **SAP NW RFC SDK 7.50** > **nwrfc750X_X-xxxxxxx.zip**. Make sure to download the **LINUX ON X86_64 65BIT** option. Copy the file, such as by using SCP, to your VM.
+    For example, find the SDK on the [SAP software download site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATE&ENR=01200314690100002214&V=MAINT) > **SAP NW RFC SDK** > **SAP NW RFC SDK 7.50** > **nwrfc750X_X-xxxxxxx.zip**. Make sure to download the **LINUX ON X86_64 65BIT** option. Copy the file, such as by using SCP, to your VM.
 
     You'll need an SAP user account to access the SAP software download page.
 
@@ -186,7 +186,7 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](/azure/key-vau
 
 The Azure Sentinel SAP data connector deployment script installs [required software](#automatically-installed-software) and then installs the connector on your [newly created VM](#deploy-a-linux-vm-for-your-sap-data-connector), storing credentials in your [dedicated key vault](#create-key-vault-for-your-sap-credentials).
 
-The SAP data connector deployment script is stored in the [Azure Sentinel GitHub repository > DataConnectors > SAP](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/SAP/) directory.
+The SAP data connector deployment script is stored in the [Azure Sentinel GitHub repository > DataConnectors > SAP](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh).
 
 To run the SAP data connector deployment script, you'll need the following details:
 
