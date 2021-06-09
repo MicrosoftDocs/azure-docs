@@ -246,7 +246,7 @@ The following JSON fragment displays a sample conversion warning:
 
 ## Create a dataset
 
-A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/v2/dataset). The Dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset.
+A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/v2/dataset/create). The Dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset.
 
 To create a dataset:
 
