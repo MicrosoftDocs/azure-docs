@@ -16,11 +16,8 @@ Azure Data Factory data flows provide a low-code mechanism to transform data in 
 
 ## Comparison between different compute options 
 
-| Category              | Data store                                                   | [Copy activity](../copy-activity-overview.md)  (source/sink) | [Mapping Data Flow](../concepts-data-flow-overview.md) (source/sink) | [Lookup Activity](../control-flow-lookup-activity.md) | [Get Metadata Activity](../control-flow-get-metadata-activity.md)/[Validation Activity](../control-flow-validation-activity.md) | [Delete Activity](../delete-activity.md) |
-| :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
-
-| Compute Option | Performance |
-| :---------------------------- |
+| Compute Option              | Performance                                                  |
+| :-------------------- | :----------------------------------------------------------- |
 | General Purpose Data Flows | Best performing runtime for data flows when working with large datasets and many calculations |
 | Memory Optimized Data Flows | Good for general use cases in production workloads |
 | Compute Optimized Data Flows | Not recommended for production workloads |
