@@ -58,7 +58,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
 You can refer the following summary of settings applicable to QnA Maker and Custom question answering.
 
-|Settings|Can update when importing to QnA Maker?|Can update when importing to Custom question answering?|
+|Settings|Update permitted with QnA Maker?|Update permitted with Custom question answering?|
 |:--|--|--|
 |DefaultAnswerForKB (Specifes default answer returned by KB)|No|Yes|
 |EnableActiveLearning (Set to True/False to enable/disable Active Learning)|Yes|No|
