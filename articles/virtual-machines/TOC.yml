@@ -1284,8 +1284,8 @@
   - name: Overview
     displayName: Networking Overview
     href: network-overview.md?context=/azure/virtual-machines/context/context
-  - name: OOptimize network throughput
-    href: ../virtual-network/virtual-network-optimize-network-bandwidth?context=/azure/virtual-machines/context/context
+  - name: Optimize network throughput
+    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: Best practices
     href: /virtual-network/concepts-and-best-practices.md?context=/azure/virtual-machines/context/context
   - name: Create virtual network
