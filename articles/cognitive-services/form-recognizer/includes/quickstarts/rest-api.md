@@ -1058,9 +1058,9 @@ Below is a sample identity document and  its corresponding JSON output
               "page": 1,
               "confidence": 0.965
             },
-            "Country": {
-              "type": "country",
-              "valueCountry": "USA",
+            "CountryRegion": {
+              "type": "countryRegion",
+              "valueCountryRegion": "USA",
               "confidence": 0.99
             },
             "DateOfBirth": {
@@ -1154,8 +1154,8 @@ Below is a sample identity document and  its corresponding JSON output
               "confidence": 0.99
             },
             "Sex": {
-              "type": "gender",
-              "valueGender": "M",
+              "type": "string",
+              "valueString": "M",
               "text": "M",
               "boundingBox": [
                 226,
