@@ -1,0 +1,61 @@
+### YamlMime:Landing
+
+title: Azure private multi-access edge compute documentation
+summary: The Azure private multi-access edge compute (MEC) solution enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
+
+metadata:
+  title: Azure private multi-access edge compute documentation
+  description:  The Azure private multi-access edge compute (MEC) solution enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
+
+  services: vnf-manager
+  ms.service: vnf-manager
+  ms.topic: landing-page
+  author: kumud
+  ms.author: KumudD
+  ms.date: 05/26/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card
+  - title: About Azure private MEC
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure private MEC?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Partner solutions
+            url: partner-programs.md
+
+  # Card
+  - title: Edge connectivity using Metaswitch solution
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Fusion Core?
+            url: metaswitch-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Fusion Core on an Azure Stack Edge device
+            url: deploy-metaswitch-solution.md
+
+  # Card
+  - title: Edge connectivity using Affirmed Networks solution
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Use Affirmed networks with Azure
+            url: affirmed-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Affirmed networks solution
+            url: deploy-affirmed-solution.md
+
+
+
