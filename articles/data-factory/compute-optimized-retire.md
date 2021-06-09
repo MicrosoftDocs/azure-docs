@@ -24,7 +24,10 @@ Azure Data Factory data flows provide a low-code mechanism to transform data in 
 
 ## Migration steps 
 
-Your Compute Optimized data flows will continue to work in pipelines as-is. However, new Azure Integration Runtimes and data flow activities will not be able to use Compute Optimized. When creating a new data flow activity, first create a new Azure Integration Runtime with “General Purpose” or “Memory Optimized” as the compute type. Second, set your data flow activity using either of those compute types.
+Your Compute Optimized data flows will continue to work in pipelines as-is. However, new Azure Integration Runtimes and data flow activities will not be able to use Compute Optimized. When creating a new data flow activity:
+
+1. Create a new Azure Integration Runtime with “General Purpose” or “Memory Optimized” as the compute type.
+2. Set your data flow activity using either of those compute types.
 
 ![Compute types](media/data-flow/compute-types.png)
 
