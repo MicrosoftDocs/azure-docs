@@ -114,7 +114,7 @@ azureuser@aksnpwin000000 C:\Users\azureuser>
 
 ## Remove SSH access
 
-When done, enter `exit` in the SSH session, select **Ctrl+C** in the port forwarding terminal (for Windows), and enter `exit` in the debug container. When this container session closes, the pod used for SSH access from the AKS cluster is deleted.
+When done, `exit` the SSH session, and then `exit` the interactive container session. Finally, enter `exit` in the debug container. When this container session closes, the pod used for SSH access from the AKS cluster is deleted.
 
 ## Next steps
 
