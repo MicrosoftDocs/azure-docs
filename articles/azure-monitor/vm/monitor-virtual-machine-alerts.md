@@ -10,68 +10,32 @@ ms.date: 05/26/2021
 ---
 
 # Monitoring virtual machines with Azure Monitor - Alerts
-[Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no per-configured alert rules for virtual machines, but you can create your own based on collected telemetry. This article provides guidance on creating alert rules, including a set of sample queries.
+[Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on collected telemetry. This article provides guidance on creating alert rules for alerting on the guest operating system of virtual machines and provides a set of recommended alerts.
 
 > [!IMPORTANT]
 > The alerts described in this article do not include alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md) which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
 
 
-## Alerts
-[Alerts](../alerts/alerts-overview.md) in Azure Monitor proactively notify you when important conditions are found in your monitoring data and potentially launch an action such as starting a Logic App or calling a webhook. Alert rules define the logic used to determine when an alert should be created. Azure Monitor collects the data used by alert rules, but you need to create rules to define alerting conditions in your Azure subscription.
+## Types of alert rules
+Alert rules define the logic used to determine when an alert should be created. VM insights and other configuration in Azure Monitor collects the data used by alert rules, but you need to create rules to define alerting conditions in your Azure subscription.
 
-The following sections describe the types of alert rules and recommendations on when you should use each. This recommendation is based on the functionality and cost of the alert rule type. For details pricing of alerts, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Alert rule types
 
-| Type | Cost | Stateful | Description  |
-|:---|:--|:---|:---|
-| Activity log | Free | No | Creates an alert when an event matching certain criteria is created in the Activity log. You could create an alert, for example, when a virtual machine is stopped, but metric and log alerts are typically going to provide more reliable alerting for virtual machines. |
-| Metric | Lower cost | Yes | Fire an alert when a metric value exceeds a threshold. A single metric alert rule can be applied to multiple machines and create a separate alert for each. As a general rule, you should use a metric alert instead of a log alert if you're collecting the required data in Metrics, and you can define the required logic. More complex logic will require a log alert rule. |
-| Log query | Higher cost | No | Fire an alert when the result of a log query matches certain criteria. Use a metric measurement alert rule to create a separate alert for each computer. Use log query alerts for any data that isn't stored in Metrics or if you require more complex logic than you can implement with a metric alert rule. |
-
-### Activity log alert rules
-[Activity log alert rules](../alerts/alerts-activity-log.md) fire when an entry matching particular criteria is created in the activity log. They have no cost so they should be your first choice if the logic you require is in the activity log. 
-
-The target resource for activity log alerts can be a specific virtual machine, all virtual machines in a resource group, or all virtual machines in a subscription.
-
-For example, create an alert if a critical virtual machine is stopped by selecting the *Power Off Virtual Machine* for the signal name.
-
+| Type | Stateful | Description  |
+|:---|:--|:---|
+| [Activity log](../alerts/alerts-activity-log.md) | No | Creates an alert when an event matching certain criteria is created in the Activity log. You could create an alert, for example, when a virtual machine is stopped, but metric and log alerts are typically going to provide more reliable alerting for virtual machines. |
+| [Metric](../alerts/alerts-metric.md) | Yes | Fire an alert when a metric value exceeds a threshold. A single metric alert rule can be applied to multiple machines and create a separate alert for each. As a general rule, you should use a metric alert instead of a log alert if you're collecting the required data in Metrics, and you can define the required logic. More complex logic will require a log alert rule. |
+| [Log query](../alerts/alerts-log.md)   | No | Fire an alert when the result of a log query matches certain criteria. Use a metric measurement alert rule to create a separate alert for each computer. Use log query alerts for any data that isn't stored in Metrics or if you require more complex logic than you can implement with a metric alert rule. |
 
 ### Metric alert rules
-[Metric alert rules](../alerts/alerts-metric.md) fire when a metric value exceeds a threshold. You can define a specific threshold value or allow Azure Monitor to dynamically determine a threshold based on historical data.  Use metric alerts whenever possible with metric data since they cost less and are more responsive than log alert rules. They are also stateful meaning they will resolve themselves when the metric drops below the threshold.
+It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in metrics. VM insights currently send all of its data to Logs so you may not have the data you require in Metrics.
 
-The target resource for activity log alerts can be a specific virtual machine or all virtual machines in a resource group.
+- Host metrics which are collected automatically. **Percentage CPU** is a common metric that reflects the same value in the guest operating system, but most of the host metrics are not going to be as valuable for alerting at the guest operating system metrics.
+- Metrics that are collected by the diagnostic extension from the quest operating system. These will only be collected if you have the diagnostic extension installed.
+- Certain performance counters stored in logs using the process described at [Create Metric Alerts for Logs in Azure Monitor](../alerts/alerts-metric-logs.md). These counters must be collected from the Log Analytics workspace and stored in the **Perf** table as described in []().
 
-For example, to create an alert when the processor of a virtual machine exceeds a particular value, create a metric alert rule using *Percentage CPU* as the signal type. Set either a specific threshold value or allow Azure Monitor to set a dynamic threshold. 
-l
-### Log alerts
-[Log alert rules](../alerts/alerts-log.md) fire when the results of a scheduled log query match certain criteria. Log query alerts are the most expensive and least responsive of the alert rules, but they have access to the most diverse data and can perform complex logic that can't be performed by the other alert rules. 
-
-The target resource for a log query is a Log Analytics workspace. Filter for specific computers in the query.
-
-For example, to create an alert that checks if any virtual machines in a particular resource group are offline, use the following query which returns a record for each computer that's missed a heartbeat in the last ten minutes. Use a threshold of 1 which fires if at least one computer has a missed heartbeat.
-
-```kusto
-Heartbeat
-| where TimeGenerated > ago(10m)
-| where ResourceGroup == "my-resource-group"
-| summarize max(TimeGenerated) by Computer
-```
-
-![Log alert for missed heartbeat](media/monitor-vm-azure/log-alert-01.png)
-
-To create an alert if an excessive number of failed logons have occurred on any Windows virtual machines in the subscription, use the following query which returns a record for each failed logon event in the past hour. Use a threshold set to the number of failed logons that you'll allow. 
-
-```kusto
-Event
-| where TimeGenerated > ago(1hr)
-| where EventID == 4625
-```
-
-![Log alert for failed logons](media/monitor-vm-azure/log-alert-02.png)
-
-
-
+> [!NOTE]
+> When VM insights supports the Azure Monitor Agent which is currently in public preview, then it will send performance data from the guest operating system to Metrics so that you can use metric alerts.
 
 
 ### Log alert rules
@@ -84,45 +48,7 @@ There are two types of log alerts in Azure Monitor:
 
 
 
-
-## Target resource
-Log query alerts will be associated with the workspace resource instead of the machine. You need to view the details of the alert to view the computer that was affected. The computer name can be included in notifications that fire in response to the alert. Create a workbook to create a custom view that shows alerts with computer names. Example in workbooks section.
-
-You can associate a log query alert with a computer if you create a resource centric alert rule. The workspace must be set to resource-centric or workspace permissions as described in Manage Log Analytics workspaces in Azure Monitor.  The  target resource must be set to a particular virtual machine meaning that you require a separate rule for each. This isn’t a scalable solution and should only be used for particular high priority computers.
-
-
-| Resource | Data sources |
-|:---|:---|
-| Single VM | Metrics (Host)<br>Activity Log |
-| All virtual machines in a resource group | Metrics (Host)<br>Activity Log |
-| 
-| Workspace | Metrics (Guest OS)<br>Log query |
-
-
-
-> [!IMPORTANT]
-> This section assumes the Log Analytics agent 
-
-## VM unresponsive
-The most basic type of alert for a virtual machine is whether it's responsive or not running. This could be that the machine is stopped 
-
-### Log query alert
-Each virtual machine sends a record to the Heartbeat table in the Log Analytics workspace every minute. You can create a log query that retrieves the last heartbeat for each computer and alerts on those that have exceeded a particular threshold. There are two methods for this depending on whether you want to receive a single alert for multiple computers or a separate alert for each computer.
-
-Negatives
-- Not stateful. Alert not automatically resolved once the machine is healthy again. (Stateful alerts available soon)
-- Minimum frequency of 5 minutes.
-- Alert associated with the workspace instead of the computer.
-
-Positives
-- Same cost regardless of number of machines.
-- More selective with included machines.
-- Could use complex logic.
-
-#### Alert for each computer
-
-
-## Alert rule walkthrough
+### Metric measurement rule walkthrough
 This section walks through the creation of a metric measurement alert rule using performance data from VM insights. You can use this basic process with a variety of log queries to alert on different performance counters.
 
 Start by creating a new alert rule following the procedure in [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md). For the **Resource**, select the Log Analytics workspace that Azure Monitor VMs uses in your subscription. Since the target resource for log alert rules is always a Log Analytics workspace, the log query must include any filter for particular virtual machines or virtual machine scale sets. 
@@ -136,11 +62,103 @@ The **Evaluated based on** section defines how often the query is run and the ti
 
 ![Metric measurement alert rule](media/vminsights-alerts/metric-measurement-alert.png)
 
+
+
+## Target resource and impacted resource
+Each alert in Azure Monitor has an **Affected resource** 
+When you create an alert rule, you specify a target resource, which is the Azure resource with the data to analyze for the alert. This resource will typically define the **Affected resource** for the alert which is 
+
+Log query alerts will be associated with the workspace resource instead of the machine. You need to view the details of the alert to view the computer that was affected. The computer name can be included in notifications that fire in response to the alert. Create a workbook to create a custom view that shows alerts with computer names. Example in workbooks section.
+
+You can associate a log query alert with a computer if you create a resource centric alert rule. The workspace must be set to resource-centric or workspace permissions as described in Manage Log Analytics workspaces in Azure Monitor.  The  target resource must be set to a particular virtual machine meaning that you require a separate rule for each. This isn’t a scalable solution and should only be used for particular high priority computers.
+
+
+| Resource | Data sources |
+|:---|:---|
+| Single VM | Metrics (Host)<br>Activity Log |
+| All virtual machines in a resource group | Metrics (Host)<br>Activity Log |
+| Workspace | Metrics (Guest OS)<br>Log query |
+
+
+### Custom workbook
+Since the default alert view doesn't show the affected computer with the list of alerts, you can create a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. 
+
+Following is a query that can be used to display alerts. 
+
+Data source: Azure Resource Graph
+Query: 
+
+
+```kusto
+alertsmanagementresources
+| extend dimension = properties.context.context.condition.allOf
+| mv-expand dimension
+| extend dimension = dimension.dimensions
+| mv-expand dimension
+| extend Computer = dimension.value
+| extend AlertStatus = properties.essentials.alertState
+| summarize count() by Alert=name, tostring(AlertStatus), tostring(Computer)
+| project Alert, AlertStatus, Computer
+```
+
+
 ## VM available
-One of the most basic alerts is to determine whether a machine is responsive. You could use the Activity log to determine that a machine was stopped 
+One of the most basic alerts is to determine whether a machine is available. You shouldn't just check if the machine is running, because it could be running but the guest operating system or agent is unresponsive. There are multiple methods for this alert.
+
+| Method | Min Frequency | Stateful | Description |
+|:---|:---|:---|:---|
+| Log query alert | 5 minutes | No | Each virtual machine sends a record to the [Heartbeat]() table in the Log Analytics workspace every minute. Create a log query that retrieves the last heartbeat for each computer and alerts on those that have exceeded a particular threshold. There are two methods for this depending on whether you want to receive a single alert for multiple computers or a separate alert for each computer. |
+| Metric heartbeat | 1 minutes | Yes | A metric called *Heartbeat* is included in each Log Analytics workspace. Each virtual machine connected to that workspace will send a heartbeat metric value each minute. Since the computer is a dimension on the metric, you can fire an alert when any computer fails to send a heartbeat. |
+| Activity log | Immediate | No | Only checks when the machine is stopped. Doesn't detect when the guest operating system or agent is unresponsive. |
 
 
-## CPU utilization
+### Log query alert
+
+**Separate alert for each computer**
+Using a metric measurement alert rule, you can create a separate alert for computer. This type of alert rule requires a query with a particular format, and you set the threshold in the rule definition as opposed to the query itself.
+
+| Property | Value |
+|:---|:---|
+| Resource | Log Analytics workspace |
+| Dimension name | Computer = All current and future values |
+| Alert logic | Metric measurement Greater than 5 | The numeric value is number of minutes since last heartbeat. Change this value to change the threshold. |
+| Trigger alert | Total breaches Greater than 0 |
+| Query | `Heartbeat | summarize TimeGenerated=max(TimeGenerated) by Computer | extend Duration = datetime_diff 'minute',now(),TimeGenerated) | summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,1)` |
+| Evaluation period | 1440 | This evaluates any computers that sent a heartbeat in the last 24 hours. If the computer didn’t send a heartbeat within this window, then it won’t be included in the query. |
+| Evaluated frequency | 5 | Query is run and evaluation performed every 5 minutes. |
+
+**Single alert for all computers**
+Create a query that returns a single record for all machines with a last heartbeat that exceeds the threshold. The alert rule will fire if the query returns any records. This is useful if you have a set of computers that work together. 
+
+| Property | Value |
+|:---|:---|
+| Resource | Log Analytics workspace |
+| Dimension name | Computer = All current and future values |
+| Alert logic | Metric measurement Greater than 5 | The numeric value is number of minutes since last heartbeat. Change this value to change the threshold. |
+| Trigger alert | Total breaches Greater than 0 |
+| Query | `Heartbeat | summarize LastHeartbeat=max(TimeGenerated) by Computer | where LastHeartbeat < ago(5m)` |
+| Evaluation period | 1440 | This evaluates any computers that sent a heartbeat in the last 24 hours. If the computer didn’t send a heartbeat within this window, then it won’t be included in the query. |
+| Evaluated frequency | 5 | Query is run and evaluation performed every 5 minutes. |
+
+### Metric heartbeat
+A metric called *Heartbeat* is included in each Log Analytics workspace. Each virtual machine connected to that workspace will send a heartbeat metric value each minute. Since the computer is a dimension on the metric, you can fire an alert when any computer fails to send a heartbeat. 
+
+| Property | Value |
+|:---|:---|
+| Resource | Log Analytics workspace |
+| Signal | Heartbeat metric |
+| Dimension name | Computer = All current and future values. |
+| Alert logic  | Threshold: Static<br>Operator: Less than or equal to<br>Aggregation type: Count<br>Threshold value: 5 (should match the granularity. 1 per minute)<br>Unit: Count |
+| Evaluation granularity | 5 minutes |
+| Evaluation frequency | 1 minute |
+
+## Performance alerts
+
+
+Use the guidance above to create metric measurement alert rules using each of the following queries. You can also modify these queries according to your particular requirements.
+
+### CPU
+#### CPU utilization for all machines
 
 ```kusto
 InsightsMetrics
@@ -149,109 +167,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
 
-## Memory
-
-### Available Memory in MB
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where Namespace == "Memory" and Name == "AvailableMB"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
-```
-
-### Available Memory in percentage
-
-```kusto
-InsightsMetrics 
-| where Origin == "vm.azm.ms" 
-| where Namespace == "Memory" and Name == "AvailableMB" 
-| extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"])
-| extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0 
-| summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer, _ResourceId 
-```
-
-## Disk
-### Logical disk used - all disks on each computer
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where Namespace == "LogicalDisk" and Name == "FreeSpacePercentage"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
-```
-
-### Logical disk used - individual disks
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where Namespace == "LogicalDisk" and Name == "FreeSpacePercentage"
-| extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk
-```
-
-### Logical disk IOPS
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms" 
-| where Namespace == "LogicalDisk" and Name == "TransfersPerSecond"
-| extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk
-```
-
-### Logical disk data rate
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms" 
-| where Namespace == "LogicalDisk" and Name == "BytesPerSecond"
-| extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk
-```
-
-## Network
-### Network interfaces bytes received - all interfaces
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where Namespace == "Network" and Name == "ReadBytesPerSecond"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
-```
-
-### Network interfaces bytes received - individual interfaces
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where Namespace == "Network" and Name == "ReadBytesPerSecond"
-| extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface
-```
-
-### Network interfaces bytes sent - all interfaces
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where Namespace == "Network" and Name == "WriteBytesPerSecond"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
-```
-
-### Network interfaces bytes sent - individual interfaces
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where Namespace == "Network" and Name == "WriteBytesPerSecond"
-| extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface
-```
-
-##
-### Virtual machine scale set
+#### CPU utilization for Virtual machine scale set
 Modify with your subscription ID, resource group, and virtual machine scale set name.
 
 ```kusto
@@ -262,7 +178,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
 ```
 
-### Specific virtual machine
+#### CPU utilization for specific virtual machine
 Modify with your subscription ID, resource group, and VM name.
 
 ```kusto
@@ -273,7 +189,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m)
 ```
 
-### CPU utilization for all compute resources in a subscription
+#### CPU utilization for all compute resources in a subscription
 Modify with your subscription ID.
 
 ```kusto
@@ -284,7 +200,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
 ```
 
-### CPU utilization for all compute resources in a resource group
+#### CPU utilization for all compute resources in a resource group
 Modify with your subscription ID and resource group.
 
 ```kusto
@@ -294,7 +210,106 @@ InsightsMetrics
 or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachineScaleSets/" 
 | where Namespace == "Processor" and Name == "UtilizationPercentage"
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
+```
+### Memory
 
+#### Available Memory in MB
+
+```kusto
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+| where Namespace == "Memory" and Name == "AvailableMB"
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
+```
+
+#### Available Memory in percentage
+
+```kusto
+InsightsMetrics 
+| where Origin == "vm.azm.ms" 
+| where Namespace == "Memory" and Name == "AvailableMB" 
+| extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"])
+| extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0 
+| summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer, _ResourceId 
+```
+
+### Disk
+#### Logical disk used - all disks on each computer
+
+```kusto
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+| where Namespace == "LogicalDisk" and Name == "FreeSpacePercentage"
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
+```
+
+#### Logical disk used - individual disks
+
+```kusto
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+| where Namespace == "LogicalDisk" and Name == "FreeSpacePercentage"
+| extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk
+```
+
+#### Logical disk IOPS
+
+```kusto
+InsightsMetrics
+| where Origin == "vm.azm.ms" 
+| where Namespace == "LogicalDisk" and Name == "TransfersPerSecond"
+| extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk
+```
+
+#### Logical disk data rate
+
+```kusto
+InsightsMetrics
+| where Origin == "vm.azm.ms" 
+| where Namespace == "LogicalDisk" and Name == "BytesPerSecond"
+| extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk
+```
+
+### Network
+#### Network interfaces bytes received - all interfaces
+
+```kusto
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+| where Namespace == "Network" and Name == "ReadBytesPerSecond"
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
+```
+
+#### Network interfaces bytes received - individual interfaces
+
+```kusto
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+| where Namespace == "Network" and Name == "ReadBytesPerSecond"
+| extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface
+```
+
+#### Network interfaces bytes sent - all interfaces
+
+```kusto
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+| where Namespace == "Network" and Name == "WriteBytesPerSecond"
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
+```
+
+#### Network interfaces bytes sent - individual interfaces
+
+```kusto
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+| where Namespace == "Network" and Name == "WriteBytesPerSecond"
+| extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface
 ```
 
 

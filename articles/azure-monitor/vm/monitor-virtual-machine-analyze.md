@@ -143,14 +143,17 @@ There are three namespaces used by virtual machines:
 
 
 ## Workbooks
-[Workbooks](../visualize/workbooks-overview.MD) are an interactive visualization tool, commonly found in Azure Monitor, Azure Sentinel, and Azure Security Center. They are particularly useful because they can combine different kinds of data into a single view, and you can create custom reports that 
+[Workbooks](../visualize/workbooks-overview.MD) are an interactive visualization tool, commonly found in Azure Monitor, Azure Sentinel, and Azure Security Center. They are particularly useful because they can combine different kinds of data into a single view. They support querying both Azure Monitor Logs, Azure Metrics and other services like Azure Resource Graph.
 
-They support querying both Azure Monitor Logs, Azure Metrics and other services like Azure Resource Graph.
+### Standard workbooks
+VM insights provides several workbooks in the **Performance** and **Map** tabs. Use these workbooks without modification or create custom workbooks to address unique requirements of different roles in your organization. 
 
+### Custom workbooks
+Workbooks also provide a blank canvas to create custom visuals that meet your particular requirements. You can combine data from 
 
-With Azure Monitor for Virtual Machines are several built in Workbooks. These Workbooks are available in the Performance tab under Virtual Machine Insights. 
+With Virtual Machines we have host platform metrics available to use, Event Log, Syslog, as well as performance data under both InsightsMetrics and Perf tables. 
 
-
+Use Resource Graph to include queries with alerts:
 
 
 
