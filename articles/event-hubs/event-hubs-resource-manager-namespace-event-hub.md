@@ -3,7 +3,7 @@ title: 'Quickstart: Create an event hub with consumer group - Azure Event Hubs'
 description: 'Quickstart: Create an Event Hubs namespace with an event hub and a consumer group using Azure Resource Manager templates'
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.date: 06/23/2020
+ms.date: 06/08/2021
 ---
 
 # Quickstart: Create an event hub by using an ARM template
@@ -22,7 +22,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/eventhubs-create-namespace-and-eventhub/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-eventhub/azuredeploy.json":::
 

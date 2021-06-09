@@ -1,6 +1,6 @@
 ---
 title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
-description: Use Azure Blob storage with web apps to store app data to a storage account. This tutorial creates a web app that stores and displays images from Azure storage.
+description: Use Azure Blob Storage with web apps to store app data to a storage account. This tutorial creates a web app that stores and displays images from Azure storage.
 author: normesta
 
 ms.service: storage
@@ -14,7 +14,7 @@ ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 
 # Tutorial: Upload image data in the cloud with Azure Storage
 
-This tutorial is part one of a series. In this tutorial, you'll learn how to deploy a web app. The web app uses the Azure Blob storage client library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
+This tutorial is part one of a series. In this tutorial, you'll learn how to deploy a web app. The web app uses the Azure Blob Storage client library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
 # [.NET v12 SDK](#tab/dotnet)
 
@@ -378,7 +378,7 @@ router.post('/', uploadStrategy, async (req, res) => {
     await blockBlobClient.uploadStream(stream,
       uploadOptions.bufferSize, uploadOptions.maxBuffers,
       { blobHTTPHeaders: { blobContentType: "image/jpeg" } });
-    res.render('success', { message: 'File uploaded to Azure Blob storage.' });
+    res.render('success', { message: 'File uploaded to Azure Blob Storage.' });
   } catch (err) {
     res.render('error', { message: err.message });
   }
