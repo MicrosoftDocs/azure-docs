@@ -20,10 +20,10 @@ Azure Data Factory data flows provide a low-code mechanism to transform data in 
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
 
 | Compute Option | Performance |
-| ---------------------------- |
+| :---------------------------- |
 | General Purpose Data Flows | Best performing runtime for data flows when working with large datasets and many calculations |
-| Memory Optimized Data Flows | Good for general use cases in production workloads 
-| Compute Optimized Data Flows | Not recommended for production workloads 
+| Memory Optimized Data Flows | Good for general use cases in production workloads |
+| Compute Optimized Data Flows | Not recommended for production workloads |
 
 ## Migration steps 
 
