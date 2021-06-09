@@ -20,14 +20,14 @@ The Team Data Science Process requires that data be ingested or loaded into vari
 
 The following articles describe how to move data to and from Azure Blob storage using different technologies.
 
-* [Azure Storage-Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage-Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
   * Storage Explorer is a free tool from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux.
   * If you are using VM that was set up with the scripts provided by Data Science Virtual machines in Azure, then Azure Storage Explorer is already installed on the VM.
 * [AzCopy](../../storage/common/storage-use-azcopy-v10.md)
   * AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. 
 * [Python SDK](../../storage/blobs/storage-quickstart-blobs-python.md)
   * Use the Azure Blob Storage client library for Python to move blobs.
-* [SQL Server Integration Services (SSIS) Feature Pack for Azure](../../sql/integration-services/azure-feature-pack-for-integration-services-ssis)
+* [SQL Server Integration Services (SSIS) Feature Pack for Azure](/sql/integration-services/azure-feature-pack-for-integration-services-ssis)
   * SSIS provides components to connect to Azure, transfer data between Azure and on-premises data sources, and process data stored in Azure. For a discussion of canonical scenarios that use SSIS to accomplish business needs common in hybrid data integration scenarios, see [Doing more with SQL Server Integration Services Feature Pack for Azure blog](https://techcommunity.microsoft.com/t5/sql-server-integration-services/doing-more-with-sql-server-integration-services-feature-pack-for/ba-p/388238).
   * For training materials on SSIS, see [Hands On Training for SSIS](https://www.microsoft.com/sql-server/training-certification).
   * For information on how to get up-and-running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS Tutorial: Creating a Simple ETL Package](/sql/integration-services/ssis-how-to-create-an-etl-package).
