@@ -14,9 +14,9 @@ ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
 ---
 
-# Use codec compressed audio input with the Speech SDK
+# Use codec compressed audio input
 
-The Speech service SDK can accept compressed audio formats. It decoompresses the audio before it sends it over the wire to the Speech service as raw PCM.
+The Speech SDK and Speech CLI can accept compressed audio formats using GStreamer. GStreamer decompresses the audio before it is sent over the wire to the Speech service as raw PCM.
 
 Platform | Languages | Supported GStreamer version
 | :--- | ---: | :---:
