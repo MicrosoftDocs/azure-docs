@@ -15,11 +15,11 @@ ms.custom: devx-track-csharp
 
 # Upgrade to Azure Cognitive Search .NET SDK version 11
 
-If your search solution is built on the [**Azure SDK for .NET**](/dotnet/azure/), this article will help you upgrade from earlier versions of [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) to version 11 and the new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library. Version 11 is a fully redesigned client library, released by the Azure SDK development team (previous versions were produced by the Azure Cognitive Search development team). 
+If your search solution is built on the [**Azure SDK for .NET**](/dotnet/azure/), this article will help you migrate from earlier versions of [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) to version 11 and the new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library. Version 11 is a fully redesigned client library, released by the Azure SDK development team (previous versions were produced by the Azure Cognitive Search development team). 
 
 Key differences in the new version include:
 
-+ One package **Azure.Search.Documents** instead of four.
++ One package (**Azure.Search.Documents**) instead of four
 + Three clients instead of two: SearchClient, SearchIndexClient, SearchIndexerClient
 + Naming differences across a range of APIs and small structural differences that simplify some tasks
 
@@ -29,7 +29,7 @@ In addition to this article, you can review the [Change Log](https://github.com/
 
 The benefits of upgrading are summarized in the following list.
 
-+ New features will be added to **Azure.Search.Documents** only. The previous version, Microsoft.Azure.Search, is a legacy client library. Updates to legacy libraries are limited to high priority bug fixes only.
++ As new features are introduced, they will be added to **Azure.Search.Documents** only. The previous version, Microsoft.Azure.Search, is a legacy client library. Updates to legacy libraries are limited to high priority bug fixes only.
 
 + Consistency with other Azure client libraries. **Azure.Search.Documents** takes a dependency on [Azure.Core](/dotnet/api/azure.core) and [System.Text.Json](/dotnet/api/system.text.json), and implements familiar approaches for common tasks such as authorization.
 
@@ -52,7 +52,7 @@ Where applicable, the following table maps the client libraries between the two 
 | Targets indexer-related objects (indexers, data sources, skillsets) | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**new**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Caution]
-> SearchIndexClient exists in both versions, but supports different things. In version 10, SearchIndexClient create indexes and other objects. In version 11, SearchIndexClient works with existing indexes, targeting the documents collection. To avoid confusion when updating code, be mindful of the order in which client references are updated. Following the sequence in [Steps to upgrade](#UpgradeSteps) should help mitigate any string replacement issues.
+> SearchIndexClient exists in both versions, but targets different operations. In version 10, SearchIndexClient creates indexes and other objects. In version 11, SearchIndexClient works with existing indexes, targeting the documents collection with query and data ingestion APIs. To avoid confusion when updating code, be mindful of the order in which client references are updated. Following the sequence in [Steps to upgrade](#UpgradeSteps) should help mitigate any string replacement issues.
 
 <a name="naming-differences"></a>
 
@@ -144,10 +144,9 @@ Response<SearchResults<Mountain>> results = client.Search<Mountain>("Rainier");
 
 If you are using Newtonsoft.Json for JSON serialization, you can pass in global naming policies using similar attributes, or by using properties on [JsonSerializerSettings](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm). For an example equivalent to the one above, see the [Deserializing documents example](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md) in the Newtonsoft.Json readme.
 
-
 <a name="WhatsNew"></a>
 
-## What's in version 11
+## Inside v11
 
 Each version of an Azure Cognitive Search client library targets a corresponding version of the REST API. The REST API is considered foundational to the service, with individual SDKs wrapping a version of the REST API. As a .NET developer, it can be helpful to review [REST API documentation](/rest/api/searchservice/) if you want more background on specific objects or operations.
 
