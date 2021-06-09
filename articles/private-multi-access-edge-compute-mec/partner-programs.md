@@ -56,8 +56,8 @@ Network functions partners include software vendors that provide mobile packet c
 |Celona  |   128 Technology      |    AirHop   |
 |Expeto	  |      Arista   |      	ASOCS  |
 |HSS by HPE    |  Fortinet    |   Celona      |
-|  | NetFoundry |  Commscope|
-|Nokia Digital Automation Cloud  | Nuage Networks by Nokia |  Nokia|
+| Nokia Digital Automation Cloud  | NetFoundry |  Commscope|
+| | Nuage Networks by Nokia |  Nokia|
 |  |Palo Alto Networks |  |
 |  |Versa Networks |  |
 |  | VMware SD-WAN by Velocloud|  |
@@ -65,7 +65,7 @@ Network functions partners include software vendors that provide mobile packet c
 	
 			
 ### SIM, Device, & RAN:
-SIM & Device partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver a various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. Current SIM, Device, & RAN partners include:
+SIM & Device partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. Current SIM, Device, & RAN partners include:
 
 |SIM|Devices |RAN (hardware)|
 |---------|---------|---------|
@@ -75,9 +75,6 @@ SIM & Device partners provide wireless authentication technologies and embedded 
 |IDEMIA  |         |Nokia |
 |   JCI US (Contour Networks)  |         ||
 ||||
-
-### Operational & Business Support Systems
-Microsoft has partnered with Amdocs (Operational & Business Support Systems (OSS/BSS) market leader) to deliver its solutions as part of the Azure private MEC solution. Amdocs on Azure and Azure private MEC deliver a robust set of solutions for spectrum allocation, network operations, device management, and system integration.
 
 ### Application ISVs
 Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. ISVs such as Attabotics, Taqtile, and Everseen have used Azure private MEC combination of private 5G and edge compute capabilities to create new experiences for customers.
@@ -89,7 +86,6 @@ Azure private MEC, as a solution that supports multiple platforms, applications 
     - [Join the Azure private MEC Managed Solution Providers program](https://aka.ms/privateMECmsp) to get started if you are an operator and system integrator managed service providers.
     - [Contact the Azure private MEC team](https://aka.ms/privateMEC_ISV) if you are a Platform partner, such as a VNF and hardware vendor.
     - Onboard your applications to the Azure Marketplace, and then [pre-register for the forthcoming Azure private MEC ISV or developer program](https://aka.ms/privateMECpartnerprogram).
-- Learn more about [Metaswitch Fusion Core solution](metaswitch-overview.md).
-- Learn more about [Affirmed Private Network Service solution](affirmed-overview.md).
+
 
 
