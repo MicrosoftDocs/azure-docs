@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 06/08/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge device so that I can manage resources.
 ---
@@ -139,16 +139,16 @@ Your Windows client must meet the following prerequisites:
 
     If you don\'t have PowerShell 5.0, follow [Installing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
 
-    A sample output is shown below.
+    An example output is shown below.
 
-    ```powershell
+    ```output
     Windows PowerShell
     Copyright (C) Microsoft Corporation. All rights reserved. 
     Try the new cross-platform PowerShell https://aka.ms/pscore6
     PS C:\windows\system32> $PSVersionTable.PSVersion
     Major  Minor  Build  Revision
     -----  -----  -----  --------
-    5      1      18362  145
+    5      1      19041  906
     ```
     
 1. You can access the PowerShell Gallery.
@@ -172,7 +172,7 @@ Your Windows client must meet the following prerequisites:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-If your repository is not trusted or you need more information, see [Validate the PowerShell Gallery accessibility](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
+    If your repository is not trusted or you need more information, see [Validate the PowerShell Gallery accessibility](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
 ### [AzureRM](#tab/AzureRM)
 
@@ -235,7 +235,22 @@ You will install Azure PowerShell modules on your client that will work with you
 1. Run PowerShell as an administrator. You need access to PowerShell gallery. 
 
 
-2. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
+1. First verify that there are no existing versions of AzureRm and Az modules on your client. To check, run the following commands:
+
+    ```azurepowershell
+    # Check existing versions of AzureRm modules
+    Get-InstalledModule -Name AzureRM -AllVersions
+
+    # Check existing versions of Az modules
+    Get-InstalledModule -Name Az -AllVersions
+    ```
+
+    If there are existing versions, use the Uninstall-Module cmdlet to uninstall. For more information, see 
+    - [how to uninstall AzureRm modules](https://docs.microsoft.com/en-us/powershell/azure/uninstall-az-ps?view=azps-6.0.0#uninstall-the-az-module)
+    - [how to uninstall Az modules](https://docs.microsoft.com/en-us/powershell/azure/uninstall-az-ps?view=azps-6.0.0#uninstall-the-azurerm-module)
+
+. 
+1. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
 
     If you are using PowerShell Core version 7.0 and later:
 
@@ -261,11 +276,11 @@ You will install Azure PowerShell modules on your client that will work with you
     ```
 
 3.  Make sure that you have Az module version 1.10.0  running at the end of the installation. Also make sure that AzureRm is not installed on the same client where Az is being 
-    installed. If you have an existing version of Az module that does not match the required version, uninstall using the following command:
+    installed. <!--If you have an existing version of Az module that does not match the required version, uninstall using the following command:-- remove this part>
 
-    `Get-Module -Name Az* -ListAvailable | Uninstall-Module -Force -Verbose`
+    <!--`Get-Module -Name Az* -ListAvailable | Uninstall-Module -Force -Verbose`
 
-    You will now need to install the required version again.
+    You will now need to install the required version again.-- remove this part-->
    
 
     A sample output is shown below that indicates the Az version 1.10.0 modules were installed successfully.
@@ -277,6 +292,15 @@ You will install Azure PowerShell modules on your client that will work with you
     PS C:\windows\system32> Get-Module -Name "Az*" -ListAvailable
      
     <Insert the actual sample output>
+    ```
+
+    ```powershell
+    PS C:\WINDOWS\system32> Get-InstalledModule -Name Az -AllVersions
+    Version              Name                                Repository           Description
+    -------              ----                                ----------           ------
+    1.10.0               Az                                  PSGallery            Mic...  
+    
+    PS C:\WINDOWS\system32>
     ```
 
 ### [AzureRM](#tab/AzureRM)
@@ -414,7 +438,7 @@ Set the Azure Resource Manager environment and verify that your device to client
     A sample output is shown below:
     
     ```powershell
-    PS C:\windows\system32> Add-AzEnvironment -Name AzDBE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com/
+    PS C:\windows\system32> Add-AzEnvironment -Name AzASE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com/
     
     Name  Resource Manager Url                    ActiveDirectory Authority
     ----  --------------------                   -------------------------
@@ -441,45 +465,49 @@ Set the Azure Resource Manager environment and verify that your device to client
 
     2. You can connect via `login-AzAccount` or via `Connect-AzAccount` command. 
 
-        1. To sign in, type the following command. The tenant ID in this instance is hard coded - c0257de7-538f-415c-993a-1b87a031879d. Use the following username and password.
+        1. To sign in, type the following command. 
+        
+            ```powershell
+            $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
+            $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
+            Connect-AzureRmAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
+            ```
+
+            Use the tenant ID c0257de7-538f-415c-993a-1b87a031879d as in this instance it is hard coded.
+            Use the following username and password.
 
             - **Username** - *EdgeArmUser*
 
             - **Password** - [Set the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in. 
-            
-            ```powershell
-            $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
-            $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
-            Connect-AzureRmAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
-            ```
+       
+
 
             Here is a sample output of the `Connect-AzAccount`:
 
             ```powershell
             PS C:\windows\system32> $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
             PS C:\windows\system32> $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
-            PS C:\windows\system32> Connect-AzAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
+            PS C:\windows\system32> Connect-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
             
             Account       SubscriptionName   TenantId            Environment
             -------       ----------------   --------            -----------
-            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE
+            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzASE
             
             PS C:\windows\system32>
-            ```
-                   
+            ```                   
         
             An alternative way to log in is to use the `login-AzAccount` cmdlet. 
             
             `login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d` 
 
-            Here is a sample output of the command. 
+            Here is an example output. 
          
             ```powershell
             PS C:\Users\Administrator> login-AzAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d
             
             Account         SubscriptionName  TenantId              Environment
             -------         ----------------  --------              -------
-            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE
+            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzASE
             PS C:\Users\Administrator>
             ```
 
