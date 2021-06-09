@@ -44,7 +44,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
    1. **QnAs**: When exporting QnAs, all QnA pairs (with questions, answers, metadata, follow-up prompts, and the data source names) are downloaded. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
    2. **Synonyms**: You can export Synonyms that have been added to the knowledge base.
-   3. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you should choose this option.
+   4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you should choose this option.
 
 1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation. Set the new knowledge base name only. Duplicate names are supported and special characters are supported as well.
 
@@ -56,17 +56,17 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer (SampleSynonyms.xlsx)[https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleSynonyms.xlsx] to import synonyms.
    3. **Knowledge Base Replica**: If you want to import replica with excel, add three tabs for QnAs, Synonyms, and Settings in the excel file, zip it and import the zipped folder. You can refer [KBReplicaSample](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleKBReplica.zip) for more details. If you also want to add unstructured content, refer [CustomQnAKBReplicaSample](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleV2KBReplica.zip). If you want to import replica in tsv, you can zip the three QnAs, synonyms and settings files and import the zipped folder. You can refer for more details.
 
-        1. Either QnAs or Unstructured content is required when importing replica. Unstructured documents are only valid for Custom question answering.
-        2. Synonyms file is not mandatory when importing replica.
-        3. Settings file is mandatory when importing replica.
+      1. Either QnAs or Unstructured content is required when importing replica. Unstructured documents are only valid for Custom question answering.
+      2. Synonyms file is not mandatory when importing replica.
+      3. Settings file is mandatory when importing replica.
          
-           |Settings|Update permitted when importing to QnA Maker KB?|Update permitted when importing to Custom question answering KB?|
-           |:--|--|--|
-           |DefaultAnswerForKB|No|Yes|
-           |EnableActiveLearning (True/False)|Yes|No|
-           |EnableMultiTurnExtraction (True/False)|Yes|Yes|
-           |DefaultAnswerforMultiturn|Yes|Yes|
-           |Language|No|No|
+         |Settings|Update permitted when importing to QnA Maker KB?|Update permitted when importing to Custom question answering KB?|
+         |:--|--|--|
+         |DefaultAnswerForKB|No|Yes|
+         |EnableActiveLearning (True/False)|Yes|No|
+         |EnableMultiTurnExtraction (True/False)|Yes|Yes|
+         |DefaultAnswerforMultiturn|Yes|Yes|
+         |Language|No|No|
 
    > [!div class="mx-imgBorder"]
    > [![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
