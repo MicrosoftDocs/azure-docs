@@ -5,12 +5,11 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 05/23/2021
+ms.date: 06/09/2021
 ---
 
 
 # Cloud feature availability for US Government customers
-
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
@@ -45,6 +44,62 @@ For more information about Office 365 US Government environments, see:
 
 
 The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
+
+## Azure Security Center
+
+Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+
+For more information, see the [Azure Security Center product documentation](/azure/security-center/security-center-introduction).
+
+The following tables display the current Security Center feature availability in Azure and Azure Government.
+
+
+| Feature                                                                                                                                            | Azure          | Azure Government |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|----------------|------------------|
+| [Just-in-time VM access](/azure/security-center/security-center-just-in-time) (1)                                                                  | GA             | GA               |
+| [File integrity monitoring](/azure/security-center/security-center-file-integrity-monitoring) (1)                                                  | GA             | GA               |
+| [Adaptive application controls](/azure/security-center/security-center-adaptive-application) (1)                                                   | GA             | GA               |
+| [Adaptive network hardening](/azure/security-center/security-center-adaptive-network-hardening) (1)                                                | GA             | Not Available    |
+| [Docker host hardening](/azure/security-center/harden-docker-hosts) (1)                                                                            | GA             | GA               |
+| [Integrated vulnerability assessment for machines](/azure/security-center/deploy-vulnerability-assessment-vm) (1)                                  | GA             | Not Available    |
+| [Microsoft Defender for Endpoint deployment and integrated license](/azure/security-center/security-center-wdatp) (1)                              | GA             | GA               |
+| [Connect AWS account](/azure/security-center/quickstart-onboard-aws) (1)                                                                           | GA             | Not Available    |
+| [Connect GCP account](/azure/security-center/quickstart-onboard-gcp) (1)                                                                           | GA             | Not Available    |
+| [Continuous export](/azure/security-center/continuous-export)                                                                                      | GA             | GA               |
+| [Workflow automation](/azure/security-center/continuous-export)                                                                                    | GA             | GA               |
+| [Recommendation exemption rules](/azure/security-center/exempt-resource)                                                                           | Public Preview | Not Available    |
+| [Alert suppression rules](/azure/security-center/alerts-suppression-rules)                                                                         | GA             | GA               |
+| [Email notifications for security alerts](/azure/security-center/security-center-provide-security-contact-details)                                 | GA             | GA               |
+| [Auto provisioning for agents and extensions](/azure/security-center/security-center-enable-data-collection)                                       | GA             | GA               |
+| [Asset inventory](/azure/security-center/asset-inventory)                                                                                          | GA             | GA               |
+| [Azure Defender for App Service](/azure/security-center/defender-for-app-service-introduction)                                                     | GA             | Not Available    |
+| [Azure Defender for DNS](/azure/security-center/defender-for-dns-introduction)                                                                     | GA             | Not Available    |
+| [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) (3)                               | GA             | GA               |
+| [Azure Defender for container registries scanning of images in CI/CD workflows](/azure/security-center/defender-for-container-registries-cicd) (5) | Public Preview | GA               |
+| [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) (4)                                                   | GA             | GA               |
+| [Azure Defender extension for Azure Arc enabled Kubernetes clusters](/azure/security-center/defender-for-kubernetes-azure-arc) (6)                 | Public Preview | Public Preview   |
+| [Azure Defender for Azure SQL database servers](/azure/security-center/defender-for-sql-introduction)                                              | GA             | GA               |
+| [Azure Defender for SQL servers on machines](/azure/security-center/defender-for-sql-introduction)                                                 | GA             | GA               |
+| [Azure Defender for open-source relational databases](/azure/security-center/defender-for-databases-introduction)                                  | GA             | Not Available    |
+| [Azure Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction)                                                         | GA             | Not Available    |
+| [Azure Defender for Resource Manager](/azure/security-center/defender-for-resource-manager-introduction)                                           | GA             | Not Available    |
+| [Azure Defender for Storage](/azure/security-center/defender-for-storage-introduction) (2)                                                         | GA             | GA               |
+| [Threat protection for Cosmos DB](/azure/security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                | Public Preview | Public Preview   |
+| [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](/azure/security-center/custom-dashboards-azure-workbooks)           | Public Preview | Public Preview   |
+| [Kubernetes workload protection](/azure/security-center/kubernetes-workload-protections)                                                           | GA             | GA               |
+|                                                                                                                                                    |                |                  |
+
+<sup><a name="footnote1" /></a>1</sup> Requires Azure Defender for servers
+
+<sup><a name="footnote1" /></a>2</sup> Partially GA - Some of the threat protection alerts from Azure Defender for Storage are in public preview
+
+<sup><a name="footnote1" /></a>3</sup> Partially GA - The ability to disable specific findings from vulnerability scans is in public preview 
+
+<sup><a name="footnote1" /></a>4</sup> Partially GA - Support for Arc enabled clusters is in public preview and not available on Azure Government
+
+<sup><a name="footnote1" /></a>5</sup> Requires Azure Defender for container registries
+
+<sup><a name="footnote1" /></a>6</sup> Requires Azure Defender for Kubernetes
 
 ## Azure Sentinel
 
