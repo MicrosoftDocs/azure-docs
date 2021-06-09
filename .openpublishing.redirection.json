@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/healthcare-apis/index.yml",
+      "redirect_url": "/azure/healthcare-apis/index",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/static-web-apps/routes.md",
       "redirect_url": "/azure/static-web-apps/configuration",
       "redirect_document_id": true
