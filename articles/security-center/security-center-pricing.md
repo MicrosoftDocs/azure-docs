@@ -82,7 +82,9 @@ An alternative is to enable Azure Defender for servers at the Log Analytics work
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?
 If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.
 
-To confirm your discount, contact Security Center's support team and provide the relevant workspace ID, region, and license information for each relevant license.
+To request your discount, contact Security Center's support team and provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
+
+The discount will be effective starting from the approval date, and will not take place retroactively.
 
 ### My subscription has Azure Defender for servers enabled, do I pay for not-running servers? 
 No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any machines that are in the deallocated power state while they're in that state. Machines are billed according to their power state as shown in the following table:
