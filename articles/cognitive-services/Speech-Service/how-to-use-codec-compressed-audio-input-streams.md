@@ -27,7 +27,7 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## Speech SDK version required for compressed audio input
 * Speech SDK version 1.10.0 or later is required for RHEL 8 and CentOS 8
 * Speech SDK version 1.11.0 or later is required for for Windows.
-* Speech SDK version 1.16.0 or later for latest gstreamer on Windows and Android.
+* Speech SDK version 1.16.0 or later for latest GStreamer on Windows and Android.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
