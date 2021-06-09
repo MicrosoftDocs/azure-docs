@@ -6,7 +6,7 @@ services: cognitive-services
 author: nitinme
 manager: guillasi
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
