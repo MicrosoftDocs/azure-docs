@@ -17,6 +17,8 @@ ms.date: 06/28/2021
 
 Azure Disks are attached to the managed iSCSI controller, a virtual machine deployed under the managed resource group. Disks get deployed as storage targets to a disk pool, and each storage target shows as an iSCSI LUN under the iSCSI target. You can expose a disk pool as an iSCSI target connected to Azure VMware Solution hosts as a datastore. A disk pool surfaces as a single endpoint for all underlying disks added as storage targets. Each disk pool can have only one iSCSI controller.
 
+
+
 Disk pool in Azure VMware Solution only supports the following regions:
 
 - East US
@@ -27,9 +29,11 @@ Disk pool in Azure VMware Solution only supports the following regions:
 
 You can only connect the disk pool to an Azure VMware Solution private cloud in the same region. If your private cloud is deployed in non-supported regions, you can redeploy in a supported region. Azure VMware Solution private cloud and disk pool colocation provide the best performance with minimal network latency.
 
-The diagram shows how disk pools work. Each iSCSI controller can access each ultra disk over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI.
+
+The diagram shows how disk pools work with Azure VMware Solution. Each iSCSI controller can access each ultra disk over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI.
 
 :::image type="content" source="media/disk-pools/azure-disks-attached-to-managed-iscsi-controllers.png" alt-text="Diagram depicting how disk pools works, each ultra disk can be accessed by each iSCSI controller over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI." border="false":::
+
 
 In this article, you'll learn how to:
 
@@ -38,6 +42,8 @@ In this article, you'll learn how to:
 - Connect to a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud.
 
 - Create a VMware instance in Azure VMware Solution with storage volume created on the datastore backed by Azure disk pool.
+
+
 
 ## Prerequisites
 
