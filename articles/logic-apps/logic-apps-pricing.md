@@ -63,7 +63,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Standard pricing (single-tenant)
 
-A hosting plan and pricing tier based pricing model applies to logic apps that run in the single-tenant Azure Logic Apps environment. This pricing applies to the **Logic App (Standard)** resource type in the Azure portal or to logic apps that you work on using the **Azure Logic Apps (Standard)** extension for Visual Studio Code. When you create or deploy such a logic app, you must choose a hosting plan and pricing tier that determines the pricing rates to use for metering and billing when running your workflows.
+A hosting plan and pricing tier-based pricing model applies to logic apps that run in the single-tenant Azure Logic Apps environment. This pricing applies to the **Logic App (Standard)** resource type in the Azure portal or to logic apps that you work on using the **Azure Logic Apps (Standard)** extension for Visual Studio Code. When you create or deploy such a logic app, you must choose a hosting plan and pricing tier that determines the pricing rates to use for metering and billing when running your workflows.
 
 > [!NOTE]
 > The Logic App (Standard) resource currently doesn't support using an App Service Plan and App Service Environment.
@@ -173,7 +173,7 @@ Integration accounts are billed using a fixed [integration account price](https:
 
 At no extra cost, your ISE includes a single integration account, based on your ISE SKU. For an extra cost, you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Learn more about the [ISE pricing model](#fixed-pricing) earlier in this topic.
 
-| ISE SKU | Included integration account | Additional cost |
+| ISE SKU | Included integration account | Extra cost |
 |---------|------------------------------|-----------------|
 | **Premium** | A single [Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts. No Free or Basic accounts are permitted. |
 | **Developer** | A single [Free](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted. |
@@ -187,9 +187,9 @@ Azure Logic Apps uses [Azure Storage](/azure/storage/) for any storage operation
 
 | Environment | Notes |
 |-------------|-------|
-| **Multi-tenant** | Storage usage and retention is billed using a fixed rate, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps), under the **Pricing details** table. |
-| **Single-tenant** | Storage usage and retention is billed using the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice. For more information, review [Storage transactions (single-tenant)](#storage-transactions). |
-| **ISE** | Storage usage and retention doesn't incur charges. |
+| **Multi-tenant** | Storage usage and retention are billed using a fixed rate, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps), under the **Pricing details** table. |
+| **Single-tenant** | Storage usage and retention are billed using the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice. For more information, review [Storage transactions (single-tenant)](#storage-transactions). |
+| **ISE** | Storage usage and retention don't incur charges. |
 |||
 
 <a name="data-gateway"></a>
