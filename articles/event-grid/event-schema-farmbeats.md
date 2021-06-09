@@ -28,7 +28,7 @@ Microsoft.AgFoodPlatform.FarmChanged| Published when a farm is created /updated/
 |Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChanged| Published when the status of a weather job changes. Possible states of a job are 'Waiting', 'Running', 'Canceled', 'Succeeded', 'Failed'.
 |Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChanged|Published when the status of a farm operation job changes. Possible states of a job are 'Waiting', 'Running', 'Canceled', 'Succeeded', 'Failed'.
 
-## Example events
+## Event Properties
 Each FarmBeats event has two parts, one that common across events and the data object, which contains properties specific to each event. The generic event schema that FarmBeats events follow is <a href = "https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/event-schema.md#event-schema" target = "_blank">here </a>. The tables below elaborate on the properties within data object for each event.
 
 *For farm, farmer, season, crop, crop variety events, the data object contains following properties:*
