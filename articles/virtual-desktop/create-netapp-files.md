@@ -1,16 +1,16 @@
 ---
-title: Create Azure NetApp files Windows Virtual Desktop - Azure
-description: This article describes how to create an Azure NetApp file in Windows Virtual Desktop.
+title: Create Azure NetApp files Azure Virtual Desktop - Azure
+description: This article describes how to create an Azure NetApp file in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 06/10/2021
 ms.author: helohr
 manager: femila
 ---
 
-# Upload MSIX images to Azure NetApp Files in Windows Virtual Desktop
+# Upload MSIX images to Azure NetApp Files in Azure Virtual Desktop
 
-This article describes how to upload MSIX images to Azure NetApp Files in Windows Virtual Desktop.
+This article describes how to upload MSIX images to Azure NetApp Files in Azure Virtual Desktop.
 
 ## Requirements
 
@@ -22,7 +22,7 @@ To set up an Azure NetApp Files, you'll need the following things:
 
 - A virtual machine (VM) or physical machine joined to Active Directory Domain Services (AD DS), and permissions to access it
 
-- A Windows Virtual Desktop host pool made of domain-joined session hosts. Each session host must be in the same region as the region you create your Azure NetApp files in. For more information, see [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). If your existing session hosts aren't in one of the available regions, you'll need to create new ones.
+- A Azure Virtual Desktop host pool made of domain-joined session hosts. Each session host must be in the same region as the region you create your Azure NetApp files in. For more information, see [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). If your existing session hosts aren't in one of the available regions, you'll need to create new ones.
 
 ## Start using Azure NetApp Files
 
@@ -46,3 +46,11 @@ To upload an MSIX image to your Azure NetApp Files share:
 3. Go to **File Explorer** and enter the mount path, then paste the MSIX image into the mount path folder.
 
 Your MSIX image should now be accessible to your session hosts when they add an MSIX package using the Azure portal or PowerShell.
+
+## Next steps
+
+Now that you've created an Azure NetApp Files share, here are some resources about what you can use it for in Azure Virtual Desktop:
+
+- [Create a profile container with Azure NetApp Files and AD DS](create-fslogix-profile-container.md)
+- [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md)
+- [Create replication peering for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md)
