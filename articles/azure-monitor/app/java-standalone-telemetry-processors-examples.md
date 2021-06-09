@@ -485,32 +485,9 @@ The following sample shows how to change the span name to `{operation_website}`.
 
 ## Log processor samples
 
-### Update log message body
-
-The following sample specifies the values of attributes `applicationinsights.internal.logger_name` and `applicationinsights.internal.log_level`. It forms the new body of the log by using those attributes, in that order, separated by the value `::`.
-```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "log",
-        "body": {
-          "fromAttributes": [
-            "applicationinsights.internal.logger_name",
-            "applicationinsights.internal.log_level"
-          ],
-          "separator": "::"
-        }
-      }
-    ]
-  }
-}
-```
-
 ### Extract attributes from a log message body
 
-Let's assume the input log message body is `Starting PetClinicApplication on WorkLaptop with PID 27984 (C:\randompath\target\classes started by userx in C:\randompath)`. The following sample results in the output message body `Starting PetClinicApplication on WorkLaptop with PID PIDVALUE (C:\randompath\target\classes started by userx in C:\randompath)`. It adds the new attribute `PIDVALUE=27984` to the log.
+Let's assume the input log message body is `Starting PetClinicApplication on WorkLaptop with PID 27984 (C:\randompath\target\classes started by userx in C:\randompath)`. The following sample results in the output message body `Starting PetClinicApplication on WorkLaptop with PID {PIDVALUE} (C:\randompath\target\classes started by userx in C:\randompath)`. It adds the new attribute `PIDVALUE=27984` to the log.
 
 ```json
 {
@@ -526,6 +503,39 @@ Let's assume the input log message body is `Starting PetClinicApplication on Wor
             ]
           }
         }
+      }
+    ]
+  }
+}
+```
+
+### Masking sensitive data in log message
+
+The following sample shows how to mask sensitive data in a log message body using both log processor and attribute processor.
+Let's assume the input log message body is `User account with userId 123456xx failed to login`. The log processor updates output message body to `User account with userId {redactedUserId} failed to login` and the attribute processor deletes the new attribute `redactedUserId` which was adding in the previous step.
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "log",
+        "body": {
+          "toAttributes": {
+            "rules": [
+              "^User account with userId (?<redactedUserId>\\d+) .*"
+            ]
+          }
+        }
+      },
+      {
+        "type": "attribute",
+        "actions": [
+          {
+            "key": "redactedUserId",
+            "action": "delete"
+          }
+        ]
       }
     ]
   }
