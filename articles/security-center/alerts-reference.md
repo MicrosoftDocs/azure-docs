@@ -245,7 +245,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 
 
-## <a name="alerts-akscluster"></a>Alerts for containers - Kubernetes clusters
+## <a name="alerts-k8scluster"></a>Alerts for containers - Kubernetes clusters
 
 [Further details and notes](defender-for-kubernetes-introduction.md)
 
