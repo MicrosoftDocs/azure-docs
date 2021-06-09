@@ -17,10 +17,6 @@ This article provides an overview on the platform-supported migration tool and h
 
 The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](../virtual-machines/migration-classic-resource-manager-overview.md). 
 
-> [!IMPORTANT]
-> Migrating from Cloud Services (classic) to Cloud Services (extended support) using the migration tool is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Refer to the following resources if you need assistance with your migration: 
 
 - [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html): Microsoft and community support for migration.
@@ -51,13 +47,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
     Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
     ```
  
-5. Register your subscription for the Cloud Services migration preview feature using [Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell](../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or [CLI](../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
-    ```
-
-6. Check the status of your registration. Registration can take a few minutes to complete. 
+5. Check the status of your registration. Registration can take a few minutes to complete. 
 
     ```powershell
     Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
