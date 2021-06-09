@@ -47,7 +47,7 @@ In this article, you'll learn how to:
 
 ## Prerequisites
 
-- Identify the scalability and performance requirements of your workloads. For details, see [Planning for Azure disk pools](../ virtual-machines/disks-pools-planning.md).
+- Identify the scalability and performance requirements of your workloads. For details, see [Planning for Azure disk pools](../virtual-machines/disks-pools-planning.md).
 
 - Deploy [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md).
 
