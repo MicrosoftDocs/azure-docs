@@ -1,16 +1,16 @@
 ---
-title: How to authorize a Windows Virtual Desktop host pool for Azure Files - Azure
-description: How to authorize a Windows Virtual Desktop host pool to use.
+title: How to authorize a Azure Virtual Desktop host pool for Azure Files - Azure
+description: How to authorize a Azure Virtual Desktop host pool to use.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 06/10/2021
 ms.author: helohr
 manager: femila
 ---
 
 # Authorize an account for Azure Files
 
-This article will show you how to authorize a Windows Virtual Desktop host pool to use Azure Files.
+This article will show you how to authorize a Azure Virtual Desktop host pool to use Azure Files.
 
 ## Requirements
 
@@ -20,7 +20,7 @@ Before you get started, you'll need the following things:
 - Permissions to create a group in AD DS
 - A storage account and the permissions needed to create a new storage account, if required
 - A virtual machine (VM) or physical machine joined to AD DS that you have permission to access
-- A Windows Virtual Desktop host pool in which all session hosts have been domain joined
+- A Azure Virtual Desktop host pool in which all session hosts have been domain joined
 
 ## Create a security group in Active Directory Domain Services
 
@@ -197,3 +197,6 @@ To be able to authenticate with AD DS computer accounts against an Azure Files s
 
 13. Select **Apply**. If you see a Windows Security prompt, select **Yes** to confirm your changes.
 
+## Next steps
+
+If you run into any issues after setup, check out our [Azure Files troubleshooting article](troubleshoot-azure-files-auth.md).

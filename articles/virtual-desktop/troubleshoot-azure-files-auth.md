@@ -1,3 +1,12 @@
+---
+title: Troubleshoot Azure Files Virtual Desktop - Azure
+description: How to troubleshoot issues with Azure Files in Azure Virtual Desktop.
+author: Heidilohr
+ms.topic: troubleshooting
+ms.date: 06/10/2021
+ms.author: helohr
+manager: femila
+---
 # Toubleshooting Azure Files authorization
 
 Common challenges with granting machine accounts access to Azure Files share authenticated with Azure AD are captured in the sections below.
@@ -33,3 +42,7 @@ The sync interval between AD DS and Azure AD is 30 minutes by default. If the AD
 For MSIX app attach and FSLogix the minimum RBAC permissions on the storage account are **Storage File Data SMB Share Contributor.**
 
 For MSIX app attach and FSLogix the minimum NTFS permissions on the storage account are **Read & Execute,** and **List folder content.**
+
+## Next steps
+
+If you need to refresh your memory about the Azure Files setup process, see [Authorize an account for Azure Files](azure-files-authorization.md).
