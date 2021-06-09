@@ -12,8 +12,8 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 Azure Resource Manager supports two types of vCPU quotas for virtual machines:
 
-* *standard vCPU quotas*
-* *spot vCPU quotas*
+* standard vCPU quotas
+* spot vCPU quotas
 
 ## Standard vCPU quota
 
@@ -21,16 +21,20 @@ Standard vCPU quota applies to pay-as-you-go VMs and reserved VM instances and i
 
 * The first tier is the *total regional vCPUs limit* and is enforced across all VM series.
 * The second tier is the *per-VM series vCPUs limit* and is enforced for a given VM series such as the Dv3-series vCPUs.
-](
+
 An increase in the VM series quota automatically increases the total regional vCPU limit by the same amount. You can request an increase in the vCPU quota limit for a VM series using either [**Help + support**](#hs) or [**Subscriptions**](#subs) in the Azure portal.
-
-
 
 ## Spot vCPU quotas
 
 Spot vCPU quotas apply to spot VMs. When you deploy a new spot VM, the total new and existing vCPU usage for all spot VM instances must not exceed the approved spot vCPU quota limit. If the spot quota is exceeded, the spot VM cannot be deployed.
 
+## Learn more about standard and spot vCPU quotas
 
+* To learn more about standard vCPU quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits](./classic-deployment-model-quota-increase-requests.md).
+
+* To learn about increasing the vCPU limit by region for standard quota, see [Standard quota: Increase limits by region](regional-quota-requests.md).
+
+* To learn more about increasing spot VM vCPU limits, see [Spot quota: Increase limits for all VM series](low-priority-quota.md).
 
 
 ## Request a standard quota increase from Help + support<a name="hs"></a>
