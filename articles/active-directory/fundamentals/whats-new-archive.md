@@ -34,7 +34,7 @@ The What's new in Azure Active Directory? release notes provide information abou
 
 ### Azure Active Directory TLS 1.0, TLS 1.1, and 3DES deprecation
 
-**Type:** Plan for change  
+**Type:** Plan for change   
 **Service category:** All Azure AD applications  
 **Product capability:** Standards
 
