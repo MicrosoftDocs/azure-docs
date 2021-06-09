@@ -7,13 +7,13 @@ ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: how-to
-ms.date: 12/09/202006/08/2021
+ms.date: 06/08/2021
 ---
 
 
 # Plan and manage costs for Azure Synapse Analytics
 
-This article describes how you plan for and manage costs for Azure Synapse Analytics. First, you use the Azure pricing calculator to help plan forAzure Synapse Analytics costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs {if applicable to Azure Synapse Analytics}. After you've started using Azure Synapse Analytics resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure Synapse Analytics are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Synapse Analytics, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
+This article describes how you plan for and manage costs for Azure Synapse Analytics. First, you use the Azure pricing calculator to help plan forAzure Synapse Analytics costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. After you've started using Azure Synapse Analytics resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure Synapse Analytics are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Synapse Analytics, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
 
