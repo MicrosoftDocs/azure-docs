@@ -210,3 +210,4 @@ To manage or delete a scan, do the following:
 
 - [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
 - [Search the Azure Purview Data Catalog](how-to-search-catalog.md)   
+- 
