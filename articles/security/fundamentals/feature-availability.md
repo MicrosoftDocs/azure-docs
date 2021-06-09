@@ -66,7 +66,7 @@ The following tables display the current Security Center feature availability in
 | [Asset inventory](/azure/security-center/asset-inventory)                                                                                          | GA             | GA               |
 | [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](/azure/security-center/custom-dashboards-azure-workbooks)           | Public Preview | Public Preview   |
 | **Azure Defender plans and extensions**                                                                                                            |                |                  |
-| [Azure Defender for servers](azure/security-center/defender-for-servers-introduction)                                                              | GA             | GA               |
+| [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction)                                                              | GA             | GA               |
 | [Azure Defender for App Service](/azure/security-center/defender-for-app-service-introduction)                                                     | GA             | Not Available    |
 | [Azure Defender for DNS](/azure/security-center/defender-for-dns-introduction)                                                                     | GA             | Not Available    |
 | [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) (3)                               | GA             | GA               |
@@ -93,7 +93,7 @@ The following tables display the current Security Center feature availability in
 | [Connect GCP account](/azure/security-center/quickstart-onboard-gcp)                                                                               | GA             | Not Available    |
 |                                                                                                                                                    |                |                  |
 
-<sup><a name="footnote1" /></a>1</sup> These features all require [Azure Defender for servers](azure/security-center/defender-for-servers-introduction)
+<sup><a name="footnote1" /></a>1</sup> These features all require [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction)
 
 <sup><a name="footnote1" /></a>2</sup> Partially GA - Some of the threat protection alerts from Azure Defender for Storage are in public preview
 
