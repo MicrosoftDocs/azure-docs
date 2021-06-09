@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 # Develop Python worker extensions for Azure Functions
 
-Azure Functions lets you integrate custom behaviors as part of Python function execution. This enables you to create business logic that customers can easily leverage in their own function apps. To learn more, see the [Python developer reference](functions-reference-python.md#python-worker-extensions).
+Azure Functions lets you integrate custom behaviors as part of Python function execution. This feature enables you to create business logic that customers can easily use in their own function apps. To learn more, see the [Python developer reference](functions-reference-python.md#python-worker-extensions).
 
 In this tutorial, you'll learn how to: 
 > [!div class="checklist"]
@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to:
 
 Before you start, you must meet these requirements:
 
-* [Python 3.6.x or above](https://www.python.org/downloads/release/python-374/). To check the full list of supported Python versions in Azure Functions, please visit [Python developer guide](functions-reference-python.md#python-version).
+* [Python 3.6.x or above](https://www.python.org/downloads/release/python-374/). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](functions-reference-python.md#python-version).
 
 * The [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3568 or later.
 
@@ -34,7 +34,7 @@ The extension you create reports the elapsed time of an HTTP trigger invocation 
 
 ### Folder structure
 
-The folder for your extension project should be like the following:
+The folder for your extension project should be like the following structure:
 
 ```
 <python_worker_extension_root>/
@@ -48,9 +48,9 @@ The folder for your extension project should be like the following:
 | Folder/file | Description |
 | --- | --- |
 | **.venv/** | (Optional) Contains a Python virtual environment used for local development. |
-| **python_worker_extension/** | Contains the source code of the Python worker extension. This is the main Python module to be published into PyPI. |
+| **python_worker_extension/** | Contains the source code of the Python worker extension. This folder contains the main Python module to be published into PyPI. |
 | **setup.py** | Contains the metadata of the Python worker extension package. |
-| **readme.md** | (Optional) Contains the instruction and usage of your extension. This is displayed as the description in the home page in your PyPI project. |
+| **readme.md** | (Optional) Contains the instruction and usage of your extension. This content is displayed as the description in the home page in your PyPI project. |
 
 ### Configure project metadata
 
@@ -154,9 +154,9 @@ class TimerExtension(AppExtensionBase):
 
 This code inherits from [AppExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) so that the extension applies to every function in the app. You could have also implemented the extension on a function-level scope by inheriting from [FuncExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/func_extension_base.py).
 
-The `init` method is a class method that's called by the worker when the extension class is imported. You can do initialization actions here for the extension. In this case, a hashmap is initialized for recording the invocation start time for each function.
+The `init` method is a class method that's called by the worker when the extension class is imported. You can do initialization actions here for the extension. In this case, a hash map is initialized for recording the invocation start time for each function.
 
-The `configure` method is customer-facing. You should instruct your customers in your readme to call `Extension.configure()`. You should also document the extension capabilities, possible configuration, and usage of your extension. In this example, customers can choose whether the elapsed time is reported in the `HttpResponse`.
+The `configure` method is customer-facing. In your readme file, you can tell your customers when they need to call `Extension.configure()`. You should also document the extension capabilities, possible configuration, and usage of your extension. In this example, customers can choose whether the elapsed time is reported in the `HttpResponse`.
 
 The `pre_invocation_app_level` method is called by the Python worker before the function runs. It provides the information from the function, such as function context and arguments. In this example, the extension logs a message and records the start time of an invocation based on its invocation_id.
 
@@ -164,7 +164,7 @@ Similarly, the `post_invocation_app_level` is called after function execution. T
 
 ## Consume your extension locally
 
-Now that you have created an extension, you should try using it in a Functions project the way your customers will to verify it works as intended. 
+Now that you have created an extension, you can use it in an app project to verify it works as intended. 
 
 ### Create an HTTP trigger function
 
@@ -297,21 +297,21 @@ To publish your extension to PyPI:
 
     You may need to provide your PyPI account credentials during upload.
 
-After these steps, customers can use your extension by simply include your package name in their requirements.txt.
+After these steps, customers can use your extension by including your package name in their requirements.txt.
 
-For further information, please visit the [official Python packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/).
+For more information, see the [official Python packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/).
 
 # [GitHub](tab/github)
 
 You can also publish the extension source code with setup.py into a GitHub repository. 
 
-For further information about VCS support in pip, please visit the [official pip VCS support documentation](https://pip.pypa.io/en/stable/cli/pip_install/#vcs-support).
+For more information about VCS support in pip, see the [official pip VCS support documentation](https://pip.pypa.io/en/stable/cli/pip_install/#vcs-support).
 
 ---
 
 ## Examples
 
-OpenCensus integration is an open source project that uses the extension interface to integrate telemetry tracing in Azure Functions Python apps. See the [opencensus-python-extensions-azure](https://github.com/census-ecosystem/opencensus-python-extensions-azure/tree/main/extensions/functions) repository to review the implementation of this Python worker extension.
+OpenCensus integration is an open-source project that uses the extension interface to integrate telemetry tracing in Azure Functions Python apps. See the [opencensus-python-extensions-azure](https://github.com/census-ecosystem/opencensus-python-extensions-azure/tree/main/extensions/functions) repository to review the implementation of this Python worker extension.
 
 ## Next steps
 
