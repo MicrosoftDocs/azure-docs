@@ -59,7 +59,7 @@ UpdateRunProgress
 
 Your query results should return something similar to the following:
 
-:::image type="content" source="./media/update-management/example-query-updatesrunprogress-table.png" alt-text="Example showing results of log query from UpdatesRunProgress table.":::
+:::image type="content" source="./media/update-management/example-query-updaterunprogress-table.png" alt-text="Example showing results of log query from UpdatesRunProgress table.":::
 
 If the **TimeGenerated** value for the log query results from the **Updates** table is earlier than the timestamp (that is, value of **TimeGenerated**) of the update installation on machine or from the log query results from the **UpdateRunProgress** table, then wait for the next assessment. Afterwards, run the log query against the **Updates** table again. Either an update for KB2267602 won't appear or it appears with a newer version. However, even after the most recent assessment if same version shows up as **Needed** in the **Updates** table but it is already installed, you should open an Azure support incident.
 
