@@ -245,8 +245,8 @@ You will install Azure PowerShell modules on your client that will work with you
     ```
 
     If there are existing versions, use the `Uninstall-Module` cmdlet to uninstall. For more information, see 
-    - [Uninstall AzureRM modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0#uninstall-the-az-module)
-    - [Uninstall Az modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0#uninstall-the-azurerm-module)
+    - [Uninstall AzureRM modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true to the URL#uninstall-the-az-module)
+    - [Uninstall Az modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true to the URL#uninstall-the-azurerm-module)
 
 1. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
 
