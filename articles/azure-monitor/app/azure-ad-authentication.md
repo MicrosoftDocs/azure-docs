@@ -34,12 +34,14 @@ Below are SDKs/scenarios not supported in the Public Preview:
     If you are configuring managed identities on other Azure services ( App Service, VMSS etc.) see [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) for more information.
 
     1. If using service principal, follow these steps in [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
+
     > [!NOTE]
     > Information the user should notice even if skimming We recommend using this type of authentication only during development and not in production.
+
 1. Using the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md) add the "Monitoring Metrics Publisher" role from the target Application Insights resource to the Azure resource from which the telemetry is sent. 
 1. Follow the steps in the next section depending on the Application Insights SDKs/Agents language being used.
 
-## [ASP.NET and .NET](#tab/net)
+### [ASP.NET and .NET](#tab/net)
 
 Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta2).
 
@@ -73,11 +75,11 @@ services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 });
 ```
 
-## [Java](#tab/java)
+### [Java](#tab/java)
 
 The following are types of authentication that are supported by Java agent. We recommend users to use managed identities, since the ultimate goal is to eliminate secrets and also to eliminate the need for developers to manage credentials. Each supported authentication type also have an example json configuration that needs to be added to ApplicationInsights.json configuration file.
 
-### System Assigned Managed Identity
+#### System Assigned Managed Identity
 
 Below is an example on how to configure Java agent to use system assigned managed identity for authentication with Azure AD.
 
@@ -90,7 +92,7 @@ Below is an example on how to configure Java agent to use system assigned manage
 }
 ```
 
-### User Assigned Managed Identity
+#### User Assigned Managed Identity
 
 Below is an example on how to configure Java agent to use user assigned managed identity for authentication with Azure AD.
 ```JSON
@@ -103,7 +105,7 @@ Below is an example on how to configure Java agent to use user assigned managed 
 }
 ```
 
-### Client Secret
+#### Client Secret
 
 Below is an example on how to configure Java agent to use service principal for authentication with Azure AD. We recommend users to use this type of authentication only during development. The ultimate goal of adding authentication feature is to eliminate secrets.
 
@@ -119,7 +121,7 @@ Below is an example on how to configure Java agent to use service principal for 
 }
 ```
 
-## [Python](#tab/python)
+### [Python](#tab/python)
 
 > [!NOTE]
 > Azure AD authentication is only available for Python v2.7, v3.6 and v3.7.
@@ -130,7 +132,7 @@ Construct the appropriate [credentials](/python/api/overview/azure/identity-read
 Below are the following types of authentication that are supported by the Opencensus Azure Monitor exporters. Managed identities are recommended to be used in production environments.
 
 
-### System Assigned Managed Identity
+#### System Assigned Managed Identity
 
 ```python
 from azure.identity import ManagedIdentityCredential
@@ -148,7 +150,7 @@ tracer = Tracer(
 
 ```
 
-### User Assigned Managed Identity
+#### User Assigned Managed Identity
 
 ```python
 from azure.identity import ManagedIdentityCredential
@@ -166,7 +168,7 @@ tracer = Tracer(
 
 ```
 
-### Client secret
+#### Client secret
 
 ```python
 from azure.identity import ClientSecretCredential
@@ -338,43 +340,44 @@ Below is the policy template definition:
 
 This section provides distinct troubleshooting scenarios and steps that users can take to resolve any issue before they raise a support ticket. 
 
-## [ASP.NET and .NET](#tab/net)
+### [ASP.NET and .NET](#tab/net)
 
-### Http Traffic
+#### Http Traffic
 
 You can inspect network traffic using a tool like Fiddler.
 If Azure AD is enabled in the SDK, outbound traffic will include the HTTP Header “Authorization”.
 
 
-### Event Source
+#### Event Source
 
 The Application Insights .NET SDK emits error logs using event source. To learn more about collecting event source logs visit, [Troubleshooting no data- collect logs with PerfView](asp-net-troubleshoot-no-data.md#PerfView).
 
 If the SDK fails to get a token, the exception message is logged as:
 “Failed to get AAD Token. Error message: ”
 
-## [Java](#tab/java)
+### [Java](#tab/java)
 
 NA
-## [Python](#tab/python)
 
-### Error starts with “credential error” (with no status code)
+### [Python](#tab/python)
+
+#### Error starts with “credential error” (with no status code)
 
 Something is incorrect about the credential you are using and the client is not able to obtain a token for authorization. It is usually due to lacking the required data for the state. An example would be passing in a system ManagedIdentityCredential but the resource is not configured to use system managed identity.
 
-### Error starts with “authentication error” (with no status code)
+#### Error starts with “authentication error” (with no status code)
 
 Client failed to authenticate with the given credential. Usually occurs when the credential used does not have correct role assignments.
 
-### I’m getting a status code 400 in my error logs
+#### I’m getting a status code 400 in my error logs
 
 You are probably missing a credential or your credential is set to `None`, but your Application Insights resource is configured with `DisableLocalAuth: true`. Make sure you are passing in a valid credential and that it has permission to access your Application Insights resource.
 
-### I’m getting a status code 403 in my error logs
+#### I’m getting a status code 403 in my error logs
 
 Usually occurs when the provided credentials do not grant access to ingest telemetry for the Application Insights resource. Make sure your AI resource has the correct role assignments.
 
-## [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 Internal logs could be turned on using following setup, once this is enabled, error logs will be shown in the console, including any error related to Azure AD integration like failure to generate the token when wrong credentials are supplied or errors when ingestion endpoint fails to authenticate using the provided credentials.
 
