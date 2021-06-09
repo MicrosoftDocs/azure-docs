@@ -104,6 +104,5 @@ Any errors experienced during the upload and refresh processes are included in t
 
 ## Next steps
 
-- [Troubleshoot compute issues in IoT Edge](../databox-online/azure-stack-edge-gpu-troubleshoot-iot-edge.md).
 - [Troubleshoot Blob storage issues](../databox-online/azure-stack-edge-gpu-troubleshoot-blob-storage.md).
 - Learn more about the [known issues in this release](data-box-gateway-release-notes.md).
