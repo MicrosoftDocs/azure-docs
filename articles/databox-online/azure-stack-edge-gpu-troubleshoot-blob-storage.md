@@ -38,4 +38,4 @@ Here are the errors related to Blob storage for an Azure Stack Edge device.
 
 ## Next steps
 
-- [Troubleshoot device upload and refresh errors](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-device-upload-and-refresh-errors.md).
+- [Troubleshoot device upload and refresh errors](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-device-upload-and-refresh-errors).
