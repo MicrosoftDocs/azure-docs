@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/07/2021
+ms.date: 05/06/2021
 ms.author: ginle
 ---
 
@@ -32,21 +32,6 @@ For example:
 - `http://hl7.org/fhir/StructureDefinition/patient-birthPlace` is a base profile that requires information on the registered address of birth of the patient.
 - `http://hl7.org/fhir/StructureDefinition/bmi` is another base profile that defines how to represent Body Mass Index (BMI) observations.
 - `http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance` is a US Core profile that sets minimum expectations for `AllergyIntolerance` resource associated with a patient, and identifies mandatory fields such as extensions and value sets.
-
-When a resource conforms to a profile, its profile is specified in a resource inside the field `profile`.
-
-```json
-{
-  "resourceType" : "Patient",
-  "id" : "ExamplePatient1",
-  "meta" : {
-    "lastUpdated" : "2020-10-30T09:48:01.8512764-04:00",
-    "source" : "Organization/PayerOrganizationExample1",
-    "profile" : [
-      "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient"
-    ]
-  },
-```
 
 ### Base profile and custom profile
 
@@ -346,9 +331,16 @@ If the resource is not valid, you will get an error code and an error message wi
 
 In this example above, the resource did not conform to the provided `Patient` profile which required a patient identifier value and gender.
 
-If you would like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example for the HL7 base profile for `heartrate`:
+If you would like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example with US Core `Patient` profile and a base profile for `heartrate`:
 
 ```rest
+GET http://<your FHIR service base URL>/{Resource}/{Resource ID}/$validate?profile={canonicalUrl}
+```
+
+For example:
+
+```rest
+GET http://my-fhir-server.azurewebsites.net/Patient/a6e11662-def8-4dde-9ebc-4429e68d130e/$validate?profile=http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 GET http://my-fhir-server.azurewebsites.net/Observation/12345678/$validate?profile=http://hl7.org/fhir/StructureDefinition/heartrate
 ```
 
