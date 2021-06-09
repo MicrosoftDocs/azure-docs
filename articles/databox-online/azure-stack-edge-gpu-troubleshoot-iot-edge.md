@@ -14,7 +14,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to troubleshoot compute-related errors on an Azure Stack Edge Pro GPU device by reviewing IoT Edge agent runtime responses and troubleshooting errors for the Iot Edge service installed on your device.  
+This article describes how to troubleshoot compute-related errors on an Azure Stack Edge Pro GPU device by reviewing runtime responses for the IoT Edge agent and errors for the IoT Edge service that's installed on your device.
 
 ## Review IoT Edge runtime responses
 

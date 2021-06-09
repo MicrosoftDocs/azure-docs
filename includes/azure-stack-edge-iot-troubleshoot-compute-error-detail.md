@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 06/08/2021
+ms.date: 06/09/2021
 ---
 
 ### Compute modules have Unknown status and can't be used
@@ -21,9 +21,9 @@ Delete the IoT Edge service, and then redeploy the module(s). For more informati
 
 #### Error description
 
-The runtime status of module shows as running but the expected outcomes are not seen. 
+The runtime status of the module shows as running, but you don't see the expected outcomes. 
 
-This condition could be because of an issue with module route configuration that is not working or `edgehub` is not routing messages as expected. You can check the `edgehub` logs. If you see that there are errors such as failing to connect to the IoT Hub service, then the most common reason is the connectivity issues. The connectivity issues could be because the AMPQ port that is used as a default port by IoT Hub service for communication is blocked or the web proxy server is blocking these messages.
+This condition may be caused by a module route configuration that's not working, or `edgehub` may not be routing messages as expected. You can check the `edgehub` logs. If you see errors such as failing to connect to the IoT Hub service, then the most common reason is the connectivity issues. The connectivity issues could occur because the AMPQ port that the IoT Hub service is using as a default port for communication is blocked or the web proxy server is blocking these messages.
 
 #### Suggested solution
 
@@ -36,9 +36,9 @@ Take the following steps:
 
 #### Error description
 
-The runtime status of module shows as running but the containerized app does not have an IP assigned. 
+The runtime status of the module shows as running, but the containerized app doesn't have an IP address assigned. 
 
-This condition is because the range of IPs that you have provided for Kubernetes external service IPs is not sufficient. You need to extend this range to ensure that each container or VM that you deployed are covered.
+This condition happens because the range of IPs you provided for Kubernetes external service IPs isn't sufficient. You need to extend this range to ensure that each container or VM that you deployed is covered.
 
 #### Suggested solution
 
@@ -73,7 +73,7 @@ You can specify fixed IP addresses for your IoT Edge modules via the K8s-experim
 
 #### Problem description
 
-By default, the IoT service type is of type load balancer and assigned externally facing IP addresses. You may not want an external-facing IP address for your application. You may need to expose the pods within the KUbernetes cluster for access as other pods and not as an externally exposed load balancer service. 
+By default, the IoT service type is of type load balancer and assigned externally facing IP addresses. You may not want an external-facing IP address for your application. You may need to expose the pods within the Kubernetes cluster for access as other pods and not as an externally exposed load balancer service. 
 
 #### Suggested solution
 
