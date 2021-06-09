@@ -193,7 +193,7 @@ The basic configuration of the trust between SharePoint and Azure AD is now fini
 
 ## Sign in as a member user
 
-Azure Active Directory has [two type of users](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-user-properties): Guest users and Member users. Let's start with a member user, which is merely a user that is homed in your organization.
+Azure Active Directory has [two type of users](../external-identities/user-properties.md): Guest users and Member users. Let's start with a member user, which is merely a user that is homed in your organization.
 
 ### Create a member user in Azure Active Directory
 
