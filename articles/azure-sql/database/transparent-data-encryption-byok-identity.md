@@ -28,6 +28,9 @@ For TDE with Customer-Managed Key (CMK) in Azure SQL, a managed identity on the 
 
 In addition to system-assigned managed identity that is already supported for TDE with CMK, a User-Assigned managed identity that is assigned to the server can be used to allow the server to access key vault. A prerequisite to enable key vault access here is to ensure the user-assigned managed identity has been provided Get, wrapKey and unwrapKey permissions on the key vault. Since user-assigned managed identity is a standalone resource that can be created and granted access to key vault, TDE with Customer Managed Key  can now be enabled at creation time for the server or database. 
 
+> [!NOTE]
+> For assigning a user-assigned managed identity to the server or managed instance, a user must have the SQL Server Contributor RBAC role along with any other RBAC role containing the "Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action" action. 
+
 ## Benefits of using user-assigned managed identities for customer-managed TDE 
 - Enables the ability to pre-authorize key vault access for Azure SQL servers by creating a user assigned managed identity and granting it access to key vault even before server/database has been created 
 
@@ -50,5 +53,5 @@ In addition to system-assigned managed identity that is already supported for TD
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create Azure SQL database configured with user-assigned managed identity and customer-managed TDE](authentication-aad-service-principal-tutorial.md)
+> [Tutorial: Create Azure SQL database configured with user-assigned managed identity and customer-managed TDE](transparent-data-encryption-byok-create-server.md)
 
