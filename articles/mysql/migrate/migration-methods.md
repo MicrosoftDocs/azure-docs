@@ -55,13 +55,13 @@ Similar to other database management systems, MySQL provides for a log replicati
 
 Utilize binlog replication to [migrate your data  to Azure Database for MySQL](../concepts-data-in-replication.md) in an online scenario. The data replication helps to reduce the downtime required to make the final target data changes.
 
-In order to use the `binlog` replication feature there are some setup [requirements:](../howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication)
+In order to use the `binlog` replication feature there are some setup [requirements:](../howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
 
   - Then master server is recommended to use the MySQL InnoDB engine. If you're using a storage engine other than InnoDB, you need to migrate those tables to InnoDB.
 
   - Migration users must have permissions to configure binary logging and create new users on the master server.
 
-  - If the master server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the mysql.az\_replication\_change\_master stored procedure. Refer to the following [examples](../howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication) and the master\_ssl\_ca parameter.
+  - If the master server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the mysql.az\_replication\_change\_master stored procedure. Refer to the following [examples](../howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the master\_ssl\_ca parameter.
 
   - Ensure the master server’s IP address has been added to the Azure Database for MySQL replica server’s firewall rules. Update firewall rules using the Azure portal or Azure CLI.
 
@@ -69,7 +69,7 @@ In order to use the `binlog` replication feature there are some setup [requireme
 
   - Ensure the master server has an accessible IP address (public or private) from the source to the targets.
 
-To perform a migration using replication, review [How to configure Azure Database for MySQL Data-in Replication](../howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication) for details.
+To perform a migration using replication, review [How to configure Azure Database for MySQL Data-in Replication](../howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) for details.
 
 The `binlog` replication method has high CPU and extra storage requirements. Migration users should test the load placed on the source system during online migrations and determine if It's acceptable.
 
