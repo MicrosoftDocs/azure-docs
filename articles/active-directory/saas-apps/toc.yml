@@ -21,6 +21,8 @@
         href: 8x8virtualoffice-tutorial.md
     - name: A
       items:
+      - name: ABBYY FlexiCapture Cloud
+        href: abbyy-flexicapture-cloud-tutorial.md
       - name: Abintegro
         href: abintegro-tutorial.md
       - name: Absorb LMS
