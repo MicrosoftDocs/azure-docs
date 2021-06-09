@@ -25,6 +25,8 @@
     href: tutorial-respond-threats-playbook.md
   - name: Create KQL queries (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+  - name: Create a Power BI report from Azure Sentinel
+    href: powerbi.md
 - name: Concepts
   items:
   - name: Understand and manage costs and billing
