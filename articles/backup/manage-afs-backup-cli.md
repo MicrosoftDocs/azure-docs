@@ -2,7 +2,7 @@
 title: Manage Azure file share backups with the Azure CLI
 description: Learn how to use the Azure CLI to manage and monitor Azure file shares backed up by Azure Backup.
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 06/09/2021
 ---
 
 # Manage Azure file share backups with the Azure CLI
@@ -229,6 +229,95 @@ You can also run the previous cmdlet by using the friendly name for the containe
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --backup-management-type azurestorage --out table
+```
+
+## Create policy
+
+You can create a backup policy by executing the **az backup policy create** command with the following parameters:
+- `--backup-management-type – Azure Storage`
+- `--workload-type - AzureFileShare`
+- `--name – Name of the policy`
+- `--policy - JSON file with appropriate details for schedule and retention`
+- `--resource-group - Resource group of the vault`
+- `--vault-name – Name of the vault`
+
+**Example**
+
+`az backup policy create --resource-group azurefiles --vault-name azurefilesvault --name schedule20 --backup-management-type AzureStorage --policy samplepolicy.json --workload-type AzureFileShare`
+
+**Sample JSON (samplepolicy.json)**
+
+```json
+{
+  "eTag": null,
+  "id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupPolicies/schedule20",
+  "location": null,
+  "name": "schedule20",
+  "properties": {
+    "backupManagementType": "AzureStorage",
+    "protectedItemsCount": 0,
+    "retentionPolicy": {
+      "dailySchedule": {
+        "retentionDuration": {
+          "count": 30,
+          "durationType": "Days"
+        },
+        "retentionTimes": [
+          "2020-01-05T08:00:00+00:00"
+        ]
+      },
+      "monthlySchedule": null,
+      "retentionPolicyType": "LongTermRetentionPolicy",
+      "weeklySchedule": null,
+      "yearlySchedule": null
+    },
+    "schedulePolicy": {
+      "schedulePolicyType": "SimpleSchedulePolicy",
+      "scheduleRunDays": null,
+      "scheduleRunFrequency": "Daily",
+      "scheduleRunTimes": [
+        "2020-01-05T08:00:00+00:00"
+      ],
+      "scheduleWeeklyFrequency": 0
+    },
+    "timeZone": "UTC",
+    "workLoadType": “AzureFileShare”
+  },
+  "resourceGroup": "azurefiles",
+  "tags": null,
+  "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
+}
+```
+
+Once the policy is created successfully, the output of the command will display the policy JSON that you have passed as a parameter while executing the command.
+
+You can modify the schedule and retention section of the policy as required.
+
+**Example**
+
+If you want to retain the backup of first Sunday of every month for two months, update the monthly schedule as below:
+
+```json
+"monthlySchedule": {
+        "retentionDuration": {
+          "count": 2,
+          "durationType": "Months"
+        },
+        "retentionScheduleDaily": null,
+        "retentionScheduleFormatType": "Weekly",
+        "retentionScheduleWeekly": {
+          "daysOfTheWeek": [
+            "Sunday"
+          ],
+          "weeksOfTheMonth": [
+            "First"
+          ]
+        },
+        "retentionTimes": [
+          "2020-01-05T08:00:00+00:00"
+        ]
+      }
+
 ```
 
 ## Next steps
