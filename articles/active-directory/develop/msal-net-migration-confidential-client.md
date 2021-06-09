@@ -19,21 +19,15 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # How to migrate confidential client applications from ADAL.NET to MSAL.NET
 
-Confidential client applications are web apps, web APIs, and daemon applications (calling another service on their own behalf).
+Confidential client applications are web apps, web APIs, and daemon applications (calling another service on their own behalf). For details see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 
-If your app is based on ASP.NET Core, a great wrapper already exists (Microsoft.Identity.Web). See the [decision tree](msal-net-migration.md#should-you-migrate-to-msalnet-or-to-microsoftidentityweb) for more information.
+If your app is based on ASP.NET Core, use [Microsoft.Identity.Web](microsoft-identity-web.md)
 
 The migration process consists of:
 
 1. Inventory - identify the code in your apps that uses ADAL.NET.
 2. Install the MSAL.NET NuGet package.
-3. Update the code:
-   1. Replace resourceID by scopes.
-   2. Replace AuthenticationContext by IConfidentialClientApplication and its builder.
-   3. Depending on your scenario, replace AcquireTokenAsync by AcquireTokenXXX.
-   4. Handle the MSAL exceptions.
-   5. Enable token caching for better performance.
-   6. Improve your code to enable resilience.
+3. Update the code depending on your scenario.
 
 From the point of view of the app registration, if your application is not dual stacked (AAD and MSA being two apps), things should be relatively simple:
 
@@ -42,7 +36,7 @@ From the point of view of the app registration, if your application is not dual 
 
 ## Step 1 - Find the code using ADAL.NET in your app
 
-The code using ADAL in confidential client application instantiates an `AuthenticationContext` and calls `AcquireTokenAsync` with the following parameters:
+The code using ADAL in confidential client application instantiates an `AuthenticationContext` and calls either `AcquireTokenByAuthorizationCode` or one override of `AcquireTokenAsync` with the following parameters:
 
 - a `resourceId` string. This is the **App ID URI** of the web API that you want to call.
 - an instance of `IClientAssertionCertificate` or `ClientAssertion` instance. This is providing the client credentials for your app (proving the identity of your app).
@@ -61,11 +55,11 @@ Some steps are common, others depend on the scenarios that your app implements.
 
 The confidential client scenarios are the following:
 
-- [Daemon scenarios](/active-directory/develop/msal-net-migration-confidential-client&tabs=daemon#migrate-daemon-scenarios) supported by web apps, web APIs and daemon console applications.
-- [On behalf of](/active-directory/develop/msal-net-migration-confidential-client&tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
-- [Authorization code flow](/active-directory/develop/msal-net-migration-confidential-client&tabs=authcode#migrate-acquiretokenbyauthorizationcodeasync-in-web-apps) supported by Web apps that sign-in users and call a downstream web API.
+- [Daemon scenarios](/active-directory/develop/msal-net-migration-confidential-client?tabs=daemon#migrate-daemon-scenarios) supported by web apps, web APIs and daemon console applications.
+- [On behalf of](/active-directory/develop/msal-net-migration-confidential-client?tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
+- [Authorization code flow](/active-directory/develop/msal-net-migration-confidential-client?tabs=authcode#migrate-acquiretokenbyauthorizationcodeasync-in-web-apps) supported by Web apps that sign-in users and call a downstream web API.
 
-Most of you provided a wrapper around ADAL.NET. Therefore, in this document, we illustrate migrating scenarios using code such a wrapper, but this is only to show equivalent code (we are not suggesting that you copy/paste these wrapper or integrate them in your code)
+In order to handle certificates, or caching, most of you provided a wrapper around ADAL.NET. Therefore, in this document, we illustrate migrating scenarios using code such a wrapper, but this is only to show equivalent code (we are not suggesting that you copy/paste these wrappers or integrate them in your code)
 
 # [Daemon](#tab/daemon)
 
@@ -81,7 +75,7 @@ The ADAL code for your app uses daemon scenarios if it contains a call to `Authe
 - a `IClientAssertionCertificate` or `ClientAssertion` as the second parameter.
 - Optionally it sets `sendX5c` to help certificate rotation
 
-It does not have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using another flow: the [on behalf of flow](/active-directory/develop/msal-net-migration-confidential-client&tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis).
+It does not have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using another scenario: the [on behalf of flow](/active-directory/develop/msal-net-migration-confidential-client?tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis).
 
 #### Update the code of daemon scenarios
 
@@ -106,7 +100,8 @@ public partial class AuthWrapper
  const string ClientId = "Guid (AppID)";
  const string authority 
    = "https://login.microsoftonline.com/{tenant}";
- const string resourceId = "App ID Uri of web API to call";
+ // App ID Uri of web API to call
+ const string resourceId = "https://target-api.domain.com";
  X509Certificate2 certificate = LoadCertificate();
 
 
@@ -146,7 +141,8 @@ public partial class AuthWrapper
  const string ClientId = "Guid (Application ID)";
  const string authority 
    = "https://login.microsoftonline.com/{tenant}";
- const string resourceId = "App ID Uri of web API to call";
+ // App ID Uri of web API to call
+ const string resourceId = "https://target-api.domain.com";
  X509Certificate2 certificate = LoadCertificate();
 
  IConfidentialClientApplication app;
@@ -193,7 +189,7 @@ Resilience is ensured in the following way:
 
 ##### Performance and scalability
 
-- The Instance of `IConfidentialClientApplication` needs to be kept in member variable in order to benefit from the in-memory cache. If you re-create the confidential client application each time you request a token you won't benefit from the token cache.
+- The Instance of `IConfidentialClientApplication` needs to be kept in a member variable in order to benefit from the in-memory cache. If you re-create the confidential client application each time you request a token you won't benefit from the token cache.
 - If you don't need to share your cache with ADAL.NET, disable the legacy cache compatibility when creating the confidential client application (`.WithLegacyCacheCompatibility(false)`). You'll increase the performance significantly.
   
   ```c#
@@ -215,7 +211,7 @@ If you want to learn more about the daemon scenario and how it's implemented wit
 
 ### Migrate on-behalf-of calls (OBO) in web APIs
 
-Web APIs that call downstream web APIs on behalf of the user use the OAuth2.0 [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md), in short OBO. The code will use the token that was used to call your web API (which retrieved it from the HTTP Authorize header and validated it). This token will be exchanged against a token to call the downstream web API. This token is used as a `UserAssertion` (both in ADAL.NET and MSAL.NET)
+Web APIs that call downstream web APIs on behalf of the user use the OAuth2.0 [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md), in short OBO. The code of the web API will use the token retrieved from the HTTP authorized header and validate it. This token will be exchanged against a token to call the downstream web API. This token is used as a `UserAssertion` (both in ADAL.NET and MSAL.NET)
 
 #### Find if your code uses OBO
 
@@ -324,6 +320,16 @@ public partial class AuthWrapper
 </tr>
 </table>
 
+#### Add a token cache
+
+<!-- Add the token cache to the cache -->
+- You need to leverage a distributed token cache. For details see [Token cache for a web app or web API (confidential client application)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-web-app-or-web-api-confidential-client-application) and this sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache)
+
+  ```CSharp
+  IMsalTokenCacheProvider msalTokenCacheProvider = CreateTokenCache(cacheImplementation)
+  msalTokenCacheProvider.Initialize(app.AppTokenCache);
+  ```
+
 #### Remarks about the code of OBO scenarios
 
 ##### Resilience
@@ -340,7 +346,6 @@ Resilience is ensured in the following way:
 
 ##### Performance and scalability
 
-- The Instance of `IConfidentialClientApplication` needs to be kept in member variable in order to benefit from the in-memory cache. If you re-create the confidential client application each time you request a token you won't benefit from the token cache.
 - If you don't need to share your cache with ADAL.NET, disable the legacy cache compatibility when creating the confidential client application (`.WithLegacyCacheCompatibility(false)`). You'll increase the performance significantly.
   
   ```c#
@@ -352,12 +357,6 @@ Resilience is ensured in the following way:
            .Build();
   ```
 
-- If your web API uses OBO, you need to leverage a distributed token cache. For details see [Token cache for a web app or web API (confidential client application)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-web-app-or-web-api-confidential-client-application) and this sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache)
-
-  ```CSharp
-  IMsalTokenCacheProvider msalTokenCacheProvider = CreateTokenCache(cacheImplementation)
-  msalTokenCacheProvider.Initialize(app.AppTokenCache);
-  ```
 
   For an example of implementation of CreateTokenCache, see [this sample](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/ConfidentialClientTokenCache/Program.cs)
 
@@ -373,7 +372,7 @@ If your app uses ASP.NET Core, Microsoft strongly recommends that you update to 
 
 Web apps that call sign in users and call web APIs on behalf of the user use the OAuth2.0 [authorization code flow](v2-oauth2-auth-code-flow.md). Typically:
 
-1. the web app signs-in a user by executing a first leg of the auth code flow (by going to Azure AD's authorize endpoint). The users signs-in, and performs multiple factor authentication is needed. As an outcome of this operation, the app then gets, from Azure AD, a string which is named the **authorization code**. So far ADAL/MSAL were not involved.
+1. the web app signs-in a user by executing a first leg of the auth code flow (by going to Azure AD's authorize endpoint). The users signs-in, and performs multiple factor authentication if needed. As an outcome of this operation, the app receives the **authorization code**. So far ADAL/MSAL are not involved.
 2. The app will, then, execute the second leg of the authorization code flow, to redeem the authorization code to get an access token (and an ID Token, and refresh token). You application needs to provide the redirectUri which is the URI at which Azure AD will provide the security tokens. Once received, the web app will typically call ADAL/MSAL `AcquireTokenByAuthorizationCode` to redeem the code, and get a token that will be stored in the token cache.
 3. Then, from the web app controllers, the app will use ADAL/MSAL to call AcquireTokenSilent in order to acquire tokens to call the web APIs it needs to call.
 
@@ -469,6 +468,18 @@ public partial class AuthWrapper
 </tr>
 </table>
 
+#### Add a token cache
+
+<!-- Add the token cache to the cache -->
+- Your web app uses `AcquireTokenByAuthorizationCode`, you need to leverage a distributed token cache. For details see [Token cache for a web app or web API (confidential client application)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-web-app-or-web-api-confidential-client-application) and this sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache)
+
+  ```CSharp
+  IMsalTokenCacheProvider msalTokenCacheProvider = CreateTokenCache(cacheImplementation)
+  msalTokenCacheProvider.Initialize(app.UserTokenCache);
+  ```
+
+  For an example of implementation of CreateTokenCache, see [this sample](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/ConfidentialClientTokenCache/Program.cs)
+
 #### Remarks about the code
 
 ##### Resilience
@@ -496,15 +507,6 @@ Resilience is ensured in the following way:
            .WithLegacyCacheCompatibility(false)
            .Build();
   ```
-
-- If your web API uses `AcquireTokenByAuthorizationCode`, you need to leverage a distributed token cache. For details see [Token cache for a web app or web API (confidential client application)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-web-app-or-web-api-confidential-client-application) and this sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache)
-
-  ```CSharp
-  IMsalTokenCacheProvider msalTokenCacheProvider = CreateTokenCache(cacheImplementation)
-  msalTokenCacheProvider.Initialize(app.UserTokenCache);
-  ```
-
-  For an example of implementation of CreateTokenCache, see [this sample](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/ConfidentialClientTokenCache/Program.cs)
 
 #### More about web apps calling APIs
 
