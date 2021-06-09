@@ -27,7 +27,7 @@ By utilizing Azure Sentinel in conjunction with Azure AD B2C, you can:
 * Respond to incidents rapidly with built-in orchestration and automation of common tasks.
 * Meet security and compliance requirements for your organization. 
 
-![Azure Sentinel](./media/azure-sentinel/azure-sentinel-flow.png)
+![Azure Sentinel](./media/azure-sentinel/azure-sentinel-flow2.png)
 
 In this article, you learn how to transfer the logs to an Azure Log Analytics workspace, configure an Azure Sentinel (instance?) and lastly **<do sentinel things?>**.
 
