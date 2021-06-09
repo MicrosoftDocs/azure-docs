@@ -47,10 +47,8 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you should choose this option.
 
 
-
    > [!div class="mx-imgBorder"]
    > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
-
 
 
 1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation. Set the new knowledge base name only. Duplicate names are supported and special characters are supported as well.
@@ -62,11 +60,11 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer [SampleQnAs.xlsx](https://aka.ms/qnamaker-sampleqnas), [SampleQnAs.tsv](https://aka.ms/qnamaker-sampleqnastsv) to import QnAs.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer [SampleSynonyms.xlsx](https://aka.ms/qnamaker-samplesynonyms), [SampleSynonyms.tsv](https://aka.ms/qnamaker-samplesynonymstsv) to import synonyms.
    3. **Knowledge Base Replica**: TThis option can be used to import KB replica with QnAs, Synonyms and Settings. You can refer [KBReplicaSampleExcel](https://aka.ms/qnamaker-samplereplica), [KBReplicaSampleTSV](https://aka.ms/qnamaker-samplereplicatsv) for more details. If you also want to add unstructured content to the replica, refer [CustomQnAKBReplicaSample](https://aka.ms/qnamaker-samplev2replica).
-  
+
       1. Either QnAs or Unstructured content is required when importing replica. Unstructured documents are only valid for Custom question answering.
       2. Synonyms file is not mandatory when importing replica.
       3. Settings file is mandatory when importing replica.
-         
+
          |Settings|Update permitted when importing to QnA Maker KB?|Update permitted when importing to Custom question answering KB?|
          |:--|--|--|
          |DefaultAnswerForKB|No|Yes|
@@ -74,6 +72,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
          |EnableMultiTurnExtraction (True/False)|Yes|Yes|
          |DefaultAnswerforMultiturn|Yes|Yes|
          |Language|No|No|
+
 
 1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 
