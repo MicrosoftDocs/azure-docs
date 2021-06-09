@@ -140,7 +140,7 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 
 **Parameter** | **Example value** | **Notes** 
 |---|---|---|
-|adminUserName|vmadmin| Admin username for the cluster VMs. [Username requirements for VM](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm). |
+|adminUserName|vmadmin| Admin username for the cluster VMs. [Username requirements for VM](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-). |
 |adminPassword|Password#1234| Admin password for the cluster VMs. [Password requirements for VM](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).|
 |clusterName|mysfcluster123| Name of the cluster. Can contain letters and numbers only. Length can be between 3 and 23 characters.|
 |location|southcentralus| Location of the cluster. |
