@@ -230,7 +230,7 @@ Note that the information in [Enroll your Android enterprise device](https://sup
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
  
-The Azure Information Protection service signs users into the tenant that encrypted the document as part of providing access to the document.  Starting June, Azure AD will begin prompting the user for consent when this access is performed across organizations.  This ensures that the user understands that the organization which owns the document will collect some information about the user as part of the document access. [Learn more](./h/azure/information-protection/known-issues#sharing-external-doc-types-across-tenants).
+The Azure Information Protection service signs users into the tenant that encrypted the document as part of providing access to the document.  Starting June, Azure AD will begin prompting the user for consent when this access is performed across organizations.  This ensures that the user understands that the organization which owns the document will collect some information about the user as part of the document access. [Learn more](/azure/information-protection/known-issues#sharing-external-doc-types-across-tenants).
  
 ---
 
