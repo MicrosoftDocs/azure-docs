@@ -14,7 +14,7 @@ Azure Resource Manager supports two types of vCPU quotas for virtual machines:
 
 * standard vCPU quotas
 * spot vCPU quotas
-* 
+
 ## Standard vCPU quota
 
 Standard vCPU quota applies to pay-as-you-go VMs and reserved VM instances and it is enforced at two tiers for each subscription in each region:
