@@ -23,12 +23,12 @@ To create a new application:
 
 1. Select **Create app** in the **Custom app** tile.
 
-    :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-select-custom.png" alt-text="Select a custom app in Azure IoT Central":::
+    :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-select-custom.png" alt-text="Screenshot of create a custom app in Azure IoT Central":::
 
 1. Add Application Name and a URL.
 1. Choose the **Free** Pricing plan to activate a 7-day trial.
 
-    :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-create-custom.png" alt-text="Create a custom app in Azure IoT Central":::
+    :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-create-custom.png" alt-text="Screenshot of entering information for the new app in Azure IoT Central":::
 
 1. Select **Create**. After IoT Central provisions the application, it redirects you automatically to the new application dashboard.
 
