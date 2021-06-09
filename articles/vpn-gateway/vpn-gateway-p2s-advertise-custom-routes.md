@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/08/2021
 ms.author: cherylmc
 
 ---
@@ -46,9 +46,10 @@ To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The fo
 
 You can direct all traffic to the VPN tunnel by advertising 0.0.0.0/1 and 128.0.0.0/1 as custom routes to the clients. The reason for breaking 0.0.0.0/0 into two smaller subnets is that these smaller prefixes are more specific than the default route that may already be configured on the local network adapter and as such will be prefered when routing traffic.
 
-1. To enable forced tunneling, use the following command:
+1. To enable forced tunneling, use the following commands:
 
-    ```azurepowershell-interactive
+    ```azurepowershell-interactive    
+    $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 0.0.0.0/1 , 128.0.0.0/1
     ```
 ## View custom routes
