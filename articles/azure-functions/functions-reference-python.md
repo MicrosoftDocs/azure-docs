@@ -622,44 +622,39 @@ For a list of preinstalled system libraries in Python worker Docker images, plea
 | Version 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
 | Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
-## Python worker extensions
+## Python worker extensions  
 
-As the number of feature requests is growing rapidly, we design and implement the Python worker extension interface in Azure Functions Python worker to allow fast integration with third-party libraries.
+The Python worker process that runs in Azure Functions lets you integrate third-party libraries into your function app. These extension libraries act as middleware that can inject specific operations during the lifecycle of your function's execution. Specific library modules may target specific trigger types. 
 
-Extensions act as a middleware between Python worker and customer's code, enabling extra functionality to a function app.
+Extensions are executed based on these following scopes: 
 
-### Parties and duties
+| Scope | Description |
+| --- | --- |
+| Application-level | When imported into any function trigger, the extension applies to every function execution in the app. |
+| Function-level | Execution is limited to only the specific function trigger into which it's imported. |
 
-#### Extension developers
+Review the documentation for your extensions to learn about the scopes in which your extensions run. 
 
-A third-party library developer who interested in integrating into Azure Functions usually acts as an extension developer. The goal of an extension developer is to design, implement, and release Python packages which can be used inside Azure Functions Python worker as an extension. These extensions can be published to PyPI registry or GitHub repositories.
+Extension libraries, which must implement the Python worker extension interface, are registered and used much like a standard Python library module. 
 
-Please visit our tutorial [Authoring Python worker extensions](author-python-worker-extensions.md#author-python-worker-extensions) to learn how to integrate into Azure Functions by developing your first Python worker extension.
+### Using extensions 
 
-#### Python function customers
+You can use a Python worker extension library in your Python functions by following these basic steps:
 
-Our customers consume the Python worker extension by including extensions in requirements.txt, installing and importing them into a function trigger. This enables third-party features in your functions.
+1. Add the extension package in the requirements.txt file for your project.
+1. Install the library into your app.
+1. Add the application setting `PYTHON_ENABLE_WORKER_EXTENSIONS = 1` either in the `Values` array in your [local.settings.json file](functions-run-local.md?tabs=python#local-settings-file) or in your [app settings in Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+1. Import the extension module into your function trigger. 
+1. Configure the extension instance. Configuration requirements should be called-out in the extension's documentation. 
 
-You need to configure the app setting `PYTHON_ENABLE_WORKER_EXTENSIONS` to `1` to enable the extensions.
+> [!IMPORTANT]
+> Third-party Python worker extension libraries are not supported or warrantied by Microsoft. You must make sure that any extensions you use in your function app is trustworthy, and you bear the full risk of using a malicious or poorly written extension. 
 
-Some extensions may allow extra configuration and pass extra properties into your function's context. For how to use a specific extension, please visit the extension's manual page or its readme doc.
+Third-parties should provide specific documentation on how to install and consume their specific extension in your function app. For a basic example of how to consume an extension, see see [Consuming your extension](develop-python-worker-extensions.md#consume-your-extension-locally). 
 
-Please ensure the extension you choose is trustworthy and you bear the risk of using it. Azure Functions gives no express warranties to any third-party extensions.
+Here are examples of using extensions in a function app, by scope:
 
-### Extension scopes and interfaces
-
-#### Application level extension
-
-An extension inherited from [AppExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) will be implemented on an **application** scope, which means the extension will apply to every function once it is imported in any of the function triggers.
-
-The **AppExtensionBase** expose the following **abstract class methods** for implementations:
-* *init*: This method will be called once the customer imports the extension.
-* *configure*: This method may be called by the customer. It is intended to configure the extension.
-* *post_function_load_app_level*: This method will be called right after a customer's function is loaded. The function name and function directory will be passed into your extension. Reminder, the function directory is read-only, any attempts of writing to the customer's directory will fail.
-* *pre_invocation_app_level*: This method will be called right before a customer's function is triggered. The function context and function invocation arguments will be passed into your extension. Usually, it is feasible to pass additional attributes in the context object for customer consumption.
-* *post_invocation_app_level*: This method will be called right after a customer's function finishes. The function context, function invocation arguments, and the invocation return object will be passed into your extension. It is a good place to validate if the execution of the lifecycle hooks succeeds.
-
-Here is an example of applying an application-level extension to a function app.
+# [Application-level](#tab/application-level)
 
 ```python
 # <project_root>/requirements.txt
@@ -675,19 +670,7 @@ AppExtension.configure(key=value)
 def main(req, context):
   # Use context.app_ext_attributes here
 ```
-
-#### Function level extension
-
-We also provides a [FuncExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/func_extension_base.py) interface for extensions who are intended to be executed in a specific function trigger. Implementing an extension base on it will only apply to the specific function trigger who imports the extension.
-
-The **FuncExtensionBase** expose the following **abstract methods** for implementations:
-* *\_\_init\_\_*: This method is the constructor of the extension. It will be called when customers initialize the extension instance in a specific function. Usually, when implementing this abstract method, you may want accept the `filename` parameter and pass it to the parent's method `super().__init__(filename)` for proper extension registration.
-* *post_function_load*: This method is the same as the `post_function_load_app_level` in application-level extension.
-* *pre_invocation*: This method is the same as the `pre_invocation_app_level` in application-level extension.
-* *post_invocation*: This method is the same as the `post_invocation_app_level` in application-level extension.
-
-Here is an example of applying a function-level extension to a specific function trigger.
-
+# [Function-level](#tab/function-level)
 ```python
 # <project_root>/requirements.txt
 function-level-extension==1.0.0
@@ -702,6 +685,39 @@ func_ext_instance = FuncExtension(__file__)
 def main(req, context):
   # Use func_ext_instance.attributes here
 ```
+---
+
+### Creating extensions 
+
+Extensions are created by third-party library developers who have created functionality that can be integrated into Azure Functions.  An extension developer designs, implements, and releases Python packages that contains custom logic designed specifically to be run in the context of function execution. These extensions can be published either to the PyPI registry or to GitHub repositories.
+
+To learn how to create, package, publish, and consume a Python worker extension package, see [Develop Python worker extensions for Azure Functions](develop-python-worker-extensions.md).
+
+#### Application-level extensions
+
+An extension inherited from [`AppExtensionBase`](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) runs in an _application_ scope. 
+
+`AppExtensionBase` exposes the following abstract class methods for you to implement:
+
+| Method | Description |
+| --- | --- |
+| **`init`** | Called after the extension is imported. |
+| **`configure`** | Called from function code when needed to configure the extension. |
+| **`post_function_load_app_level`** | Called right after the function is loaded. The function name and function directory are passed to the extension. Keep in mind that the function directory is read-only, and any attempt to write to local file in this directory fails. |
+| **`pre_invocation_app_level`** | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass additional attributes in the context object for the function code to consume. |
+| **`post_invocation_app_level`** | Called right after the function execution completes. The function context, function invocation arguments, and the invocation return object are passed to the extension. This implementation is a good place to validate whether execution of the lifecycle hooks succeeded. |
+
+#### Function-level extensions
+
+An extension that inherits from [FuncExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/func_extension_base.py) runs in a specific function trigger. 
+
+`FuncExtensionBase` exposes the following abstract class methods for implementations:
+
+| Method | Description |
+| **`__init__`** | This method is the constructor of the extension. It's called when an extension instance is initialized in a specific function. When implementing this abstract method, you may want accept a `filename` parameter and pass it to the parent's method `super().__init__(filename)` for proper extension registration. |
+| **`post_function_load`** | Called right after the function is loaded. The function name and function directory are passed to the extension. Keep in mind that the function directory is read-only, and any attempt to write to local file in this directory fails. |
+| **`pre_invocation`** | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass additional attributes in the context object for the function code to consume. |
+| **`post_invocation`** | Called right after the function execution completes. The function context, function invocation arguments, and the invocation return object are passed to the extension. This implementation is a good place to validate whether execution of the lifecycle hooks succeeded. |
 
 ## Cross-origin resource sharing
 
