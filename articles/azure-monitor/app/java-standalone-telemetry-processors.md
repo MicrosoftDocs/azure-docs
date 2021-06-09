@@ -373,7 +373,7 @@ This section lists some common span attributes that telemetry processors can use
 ## Log processor
 
 > [!NOTE]
-> This feature is available only in version 3.1.1.BETA-5 and later.
+> This feature is available only in version 3.1.1 and later.
 
 The log processor modifies either the log message body or attributes of a log based on the log message body. It can support the ability to include or exclude logs.
 
@@ -436,4 +436,3 @@ This process is repeated for all rules in the order they're specified. Each subs
 ]
 
 ```
-
