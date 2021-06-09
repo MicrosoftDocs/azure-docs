@@ -7,7 +7,7 @@ ms.date: 06/07/2021
 ms.topic: conceptual
 ---
 
-# Operating Systems supported by Update Management
+# Operating systems supported by Update Management
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Update Management.
 
