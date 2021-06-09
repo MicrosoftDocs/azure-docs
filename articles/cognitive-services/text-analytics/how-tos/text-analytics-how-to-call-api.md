@@ -27,7 +27,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 2.	Select the region you want to use for your endpoint.
 
-3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
+3.	Create the Text Analytics resource and go to the “Keys and Endpoint” section under Resource Management in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
 4. To check the number of text records that have been sent using your Text Analytics resource:
 
