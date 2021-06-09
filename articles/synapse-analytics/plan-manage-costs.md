@@ -38,8 +38,8 @@ When you create or use Azure Synapse Analytics resources, you might get charged 
 - Data Exploration & Data Warehousing 
     - Dedicated SQL Pool - You're charged for it based on the number of DWU blocks and hours running.
     - Storage - You're charged for it based on the number of TBs stored.
-    - Serverless SQL pool - Yuu're charged by the TB of dat processed.
-- Apache Spark Pool - You're charged by the number of instance and the hours running.
+    - Serverless SQL pool - You're charged by the TB of dat processed.
+- Apache Spark Pool - You're charged for the number of instances and the hours running.
 - Data Integration 
     - Orchestration Activity Runs - You are charged based on the number of activity runs.
     - Data Movement – For copy activities run on Azure Integration Runtime, you are charged based on number of DIU used and execution duration.
@@ -61,7 +61,7 @@ After you delete Azure Synapse resources, the following resources might continue
 
 ### Using Azure Prepayment credit with Azure Synapse 
 
-You can pay for Azure Synapse charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Azure Synapse charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
 
 ## Review estimated costs in the Azure portal
@@ -112,7 +112,7 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 ## Export cost data
 
-You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Other ways to manage and reduce costs for Azure Synapse 
 
@@ -122,17 +122,17 @@ To learn more about costs for serverless SQL pool see [Cost management for serve
 
 ### Dedicated SQL pool
 
-You can control costs for a dedicated SQL pool by pausing the resource when it is not is use. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. For more information see [Pause and resume compute in dedicated SQL pool via the Azure portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+You can control costs for a dedicated SQL pool by pausing the resource when it is not is use. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. For more information, see [Pause and resume compute in dedicated SQL pool via the Azure portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### Serverless Apache Spark pool
 
-To control costs for your serverless Apache Spark pool, enable the serverless Apache Spark automatic pause feature and set your timeout value accordingly.  When using Synapse Studio for your development, the studio sends a keep alive message to keep the session active which is also configurable, so set a short timeout value for automatic pause.  When you are done, close your session and the Apache Spark pool will automatically pause once the timeout value is reached.
+To control costs for your serverless Apache Spark pool, enable the serverless Apache Spark automatic pause feature and set your timeout value accordingly.  When using Synapse Studio for your development, the studio sends a keep alive message to keep the session active, which is also configurable, so set a short timeout value for automatic pause.  When you are done, close your session and the Apache Spark pool will automatically pause once the timeout value is reached.
  
 During development, create multiple Apache Spark pool definitions of various sizes.  Creating Apache Spark pool definitions are free and you will only be charged for usage.  Apache Spark usage in Azure Synapse is charged per vCore hour and prorated by the minute.  For example, use small pool sizes for code development and validation while using larger pool sizes for performance testing.
 
 ### Data integration - pipelines and data flows 
 
-To learn more about data integration cost see [Plan and manage costs for Azure Data Factory](../data-factory/plan-manage-costs.md)
+To learn more about data integration costs, see [Plan and manage costs for Azure Data Factory](../data-factory/plan-manage-costs.md)
 
 ## Next steps
 
