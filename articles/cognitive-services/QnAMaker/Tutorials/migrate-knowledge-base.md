@@ -42,7 +42,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
 1. On the **Settings** page, you can Export **QnAs**, **Synonyms**, or **Knowledge Base Replica**. You can chooose to download in .tsv/.xlsx.
 
-   1. **QnAs**: When exporting QnAs, the content of your original knowledge base - questions, answers, metadata, follow-up prompts, and the data source names from which they were extracted - will be downloaded. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
+   1. **QnAs**: When exporting QnAs, all QnA pairs with questions, answers, metadata, follow-up prompts, and the data source names from which they were extracted,  is downloaded. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
    2. **Synonyms**: You can export Synonyms that have been added to the knowledge base.
    3. **Knowledge Base Replica**: If you want to download the entire knowledge base with synoyms and other settings, you should choose this option.
 
@@ -52,7 +52,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
 1. In this new knowledge base, open the **Settings** tab and select either of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
 
-   1. **QnAs**: This imports the questions, answers, metadata, follow-up prompts, and retains the data source names from which they were extracted. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer the following sample to import QnAs:.
+   1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer the following sample to import QnAs:.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer the following sample to import synonyms:.
    3. **Knowledge Base Replica**: if you want to import the complete knowledge base replica, you can zip QnAs, synonyms and settings file and import the zipped folder. You can refer the following sample to import Knowledge Base replica:
 
