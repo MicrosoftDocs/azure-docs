@@ -86,11 +86,12 @@ In this article, you'll learn how to:
 
 Now that you've created a disk pool and connected it to Azure VMware Solution hosts, you may want to learn about:
 
-- [How to manage an Azure disk pool](../virtual-machines/disks-pools-manage.md ).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, Update iSCSI LUN mapping, or add ACLs (Only applicable if ACL mode is set to Static).
+- [Managing an Azure disk pool](../virtual-machines/disks-pools-manage.md ).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, Update iSCSI LUN mapping, or add ACLs (Only applicable if ACL mode is set to Static).
 
-- [How to delete a disk pool](/azure/virtual-machines/disks-pools-deprovision#delete-a-disk-pool). When you delete a disk pool, all the resources in the managed resource group are also deleted.
+- [Deleting a disk pool](/azure/virtual-machines/disks-pools-deprovision#delete-a-disk-pool). When you delete a disk pool, all the resources in the managed resource group are also deleted.
 
-- [How to disable iSCSI support on a disk](/azure/virtual-machines/disks-pools-deprovision#disable-iscsi-support). If you disable iSCSI support on a disk pool, you effectively can no longer use a disk pool.
+- [Disabling iSCSI support on a disk](/azure/virtual-machines/disks-pools-deprovision#disable-iscsi-support). If you disable iSCSI support on a disk pool, you effectively can no longer use a disk pool.
 
 - [Moving disk pools to a different subscription](/azure/virtual-machines/disks-pools-move-resource). Moving a disk pool involves moving the disk pool itself, the disks contained in the disk pool, the disk pool's managed resource group, and all the resources contained in the managed resource group.
+
 
