@@ -53,7 +53,7 @@ The trace message or body is the primary display for logs in the Azure portal. L
 
 Currently, the three types of telemetry processors are attribute processors, span processors and log processors.
 
-An attribute processor can insert, update, delete, or hash attributes of a telemetry item(`span` or `log`).
+An attribute processor can insert, update, delete, or hash attributes of a telemetry item (`span` or `log`).
 It can also use a regular expression to extract one or more new attributes from an existing attribute.
 
 A span processor can update the telemetry name of requests and dependencies.
