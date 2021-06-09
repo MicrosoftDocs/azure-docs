@@ -17,7 +17,7 @@ Azure private MEC solution partners include managed service providers, platform 
 - **Managed Service Providers** include Operators and SIs that are responsible for planning, deployment, operation of a customer’s Azure private MEC implementation. These providers bring assets and expertise such as spectrum, RF planning, installation, maintenance, and support. Operators and SIs enable customers to rapidly deploy the Azure private MEC solution without requiring in-house expertise in complexities surrounding mobile network technologies. 
 - **Platform Partners** bring critical hardware and software components to the Azure private MEC ecosystem, such as Network Functions, Radio Access Network (RAN) technologies, SIMs & Devices, and Operational Support Systems (OSS/BSS). Customers can deploy the mix of platform technologies that fit their specific environment and requirements. 
 - **Application ISV Partners** bring ready to deploy software solutions built for Azure private MEC. These applications apply the low latency edge computing capabilities of Azure private MEC to deliver a customer’s specific use-cases within industries such as manufacturing or retail, along with cross-industry capabilities such as computer vision or analytics.
-### Managed Solution Providers
+### Managed Service Providers (MSPs)
 Our operator partners include:
 
 |Americas |EMEA |Asia & Australia |
@@ -29,63 +29,66 @@ Our operator partners include:
 |    |         |         |
 
 
-Our system integrators and non-operator Microsoft Solution Provider partners include:
+Our system integrators and non-operator MSP partners include:
 - Accenture
 - Amdocs
 - American Tower
 - Capgemini
 - Cognizant
-- Federated Wireless
-- HCL
 - Expeto
-- Infosys
+- Federated Wireless
 - Fujitsu
+- HCL
+- Infosys
 - Tech Mahindra
 
 
 
 ### Platform Partners
-Azure Private MEC platform partners provide critical hardware and software components across categories of Network Functions, Radio Access Network (RAN) technologies, SIM & Device, and Operational Support Systems (OSS/BSS).
+Azure Private MEC platform partners provide critical hardware and software components across categories of Network Functions, Radio Access Network (RAN) technologies, SIM, Connectivity Devices, and Operational Support Systems.
 
 ### Network Functions
-Network functions partners include an array of software vendors providing mobile packet core, firewalls, routers, and SD-WAN. RAN partners deliver various hardware equipment (such as radios and antennas) and the software components necessary to deploy private mobile networks. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
+Network functions partners include software vendors that provide mobile packet core, firewalls, routers, SD-WAN, vRAN, and RAN optimization. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
 
 
-|Mobile Packet Core |Firewall, Routers, & SD-WAN |RAN Partners |
-|---------|---------|---------|
-|Celona  |   128 Technology      |     ASOCS    |
-|Druid Software    |  Arista       |   Celona      |
-|Expeto	  |      NetFoundry   |      	Commscope   |
-|HSS by HPE    |    Nuage Networks by Nokia     |         |
-|Mavenir   |    Palo Alto Networks	     |         |
-|Nokia Digital Automation Cloud    |  Versa Networks	       |         |
-|  |   VMware SD-WAN by Velocloud	      |         |
-|   |    FortiNet     |         |
-|    |         |         |
+|Mobile Packet Core |Firewall, Routers, & SD-WAN |RAN Partners (software) |
+|---------|---------|---------|---------|
+|Celona  |   128 Technology      |    AirHop   |
+|Expeto	  |      Arista   |      	ASOCS  |
+|HSS by HPE    |  Fortinet    |   Celona      |
+|  | NetFoundry |  Commscope|
+|Nokia Digital Automation Cloud  | Nuage Networks by Nokia |  Nokia|
+|  |Palo Alto Networks |  |
+|  |Versa Networks |  |
+|  | VMware SD-WAN by Velocloud|  |
+|||
 	
 			
-### SIM & Device:
-SIM & Device partners provide wireless authentication technologies and embedded cellular modules. Current SIM & Device partners include:
+### SIM, Device, & RAN:
+SIM & Device partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver a various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. Current SIM, Device, & RAN partners include:
 
-|SIM|Devices |
-|---------|---------|
-|Contour    |  Multitech       |
-|G+D     |     Sierra Wireless    |
-|Gemalto    |         |
-|Idemia	  |         |
-|    |         |
+|SIM|Devices |RAN (hardware)|
+|---------|---------|---------|
+|Commscope   |  Cradlepoint by Ericsson    |ASOCS |
+|G+D     |     Multitech |Celona |
+|Gemalto    |  Sierra Wireless        |Commscope |
+|IDEMIA  |         |Nokia |
+|   JCI US (Contour Networks)  |         ||
+||||
 
-### Operational & Business Support Systems (OSS/BSS)
-Microsoft is currently partnered with OSS/BSS market leader Amdocs to deliver its solutions as part of the Azure private MEC solution. Amdocs on Azure and Azure private MEC delivers a robust set of solutions for spectrum allocation, network operations, device management, and system integration.
+### Operational & Business Support Systems
+Microsoft has partnered with Amdocs (Operational & Business Support Systems (OSS/BSS) market leader) to deliver its solutions as part of the Azure private MEC solution. Amdocs on Azure and Azure private MEC deliver a robust set of solutions for spectrum allocation, network operations, device management, and system integration.
 
 ### Application ISVs
-Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. ISVs such as Attabotics, Taqtile, and Everseen are just a few of the examples of ISVs that have leveraged Azure private MEC combination of private 5G and edge compute capabilities to create new experiences for customers.
+Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. ISVs such as Attabotics, Taqtile, and Everseen have used Azure private MEC combination of private 5G and edge compute capabilities to create new experiences for customers.
+
 Azure private MEC, as a solution that supports multiple platforms, applications that run on supported platforms can deploy to Azure private MEC with few code changes required. This means that application ISV solutions for Azure Stack Edge, Azure Stack HCI, and Azure IoT Edge can also run on the Azure private MEC solution. 
 
 ## Next steps
-- If you are a system integrator and operator interested in partnering with Microsoft to deploy and manage customers’ Azure private MEC solutions, join the Azure private MEC Managed Solution Providers program to get started.
-- If you are a Platform partner, such as VNF and hardware vendor, who is interested in integrating with the Azure private MEC, contact the Azure private MEC team.
-- If you are an Application ISV interested in deploying their industry or horizontal solutions on Azure, you can begin by onboarding your applications to the Azure Marketplace, and then pre-register for the forthcoming Azure private MEC ISV or developer program.
+- To partner with Microsoft and deploy Azure private MEC solutions:
+    - [Join the Azure private MEC Managed Solution Providers program](https://aka.ms/privateMECmsp) to get started if you are an operator and system integrator managed service providers.
+    - [Contact the Azure private MEC team](https://aka.ms/privateMEC_ISV) if you are a Platform partner, such as a VNF and hardware vendor.
+    - Onboard your applications to the Azure Marketplace, and then [pre-register for the forthcoming Azure private MEC ISV or developer program](https://aka.ms/privateMECpartnerprogram).
 - Learn more about [Metaswitch Fusion Core solution](metaswitch-overview.md).
 - Learn more about [Affirmed Private Network Service solution](affirmed-overview.md).
 
