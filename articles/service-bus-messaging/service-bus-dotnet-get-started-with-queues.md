@@ -10,25 +10,22 @@ ms.custom: devx-track-csharp
 # Send messages to and receive messages from Azure Service Bus queues (.NET)
 In this tutorial, you create a .NET Core console application to send messages to and receive messages from a Service Bus queue using the **Azure.Messaging.ServiceBus** package. 
 
-> [!Important]
-> This quickstart uses the new Azure.Messaging.ServiceBus package. For a quickstart that uses the old Microsoft.Azure.ServiceBus package, see [Send and receive events using Microsoft.Azure.ServiceBus package](service-bus-dotnet-get-started-with-queues-legacy.md).
-
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. 
+- If you don't have a Service Bus queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. 
 
     > [!IMPORTANT]
     > Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created. You'll use them later in this tutorial. 
 - [Visual Studio 2019](https://www.visualstudio.com/vs)
 
 ## Send messages to a queue
-In this section, you'll create a C# .NET Core console application to send messages to the queue.
+In this section, you'll create a C# .NET Core console application to send messages to the queue you created as part of the prerequisites. 
 
 > [!NOTE]
-> If you want to see and use the full code instead of going through the following step-by-step instructions, see [Full code (send messages)](#full-code-send-messages)
+> If you want to see and use the full code instead of going through step-by-step instructions, see [Full code (send messages)](#full-code-send-messages)
 
 ### Create a console application
-Launch Visual Studio and create a new **Console App (.NET Core)** project for C#. 
+Launch Visual Studio and create a new **Console App (.NET Core)** project for **C#**. For step-by-step instructions, see [Create a console app](/dotnet/core/tutorials/with-visual-studio).
 
 ### Add the Service Bus NuGet package
 
@@ -38,20 +35,22 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
 ### Add code to send messages to the queue
 
-1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
+1. In *Program.cs*, add the following `using` statements at the top of the namespace definition and before the class declaration:
 
     ```csharp
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using Azure.Messaging.ServiceBus;
     ```
 
-1. In the `Program` class, declare the following variables:
+1. In the `Program` class, add the following two static properties. 
 
     ```csharp
+        // connection string to your Service Bus namespace
         static string connectionString = "<NAMESPACE CONNECTION STRING>";
+
+        // name of your Service Bus queue
         static string queueName = "<QUEUE NAME>";
     ```
 
@@ -78,7 +77,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             return messages;
         }
     ```
-1. Directly after the `Main()` method, add a method named `SendMessages` to the `Program` class as shown below. This method takes a queue of messages, and prepares one or more batches to send to the Service Bus queue.
+1. Add a method named `SendMessages` to the `Program` class as shown below. This method takes a queue of messages, and prepares one or more batches to send to the Service Bus queue.
 
     ```csharp
         static async Task SendMessages()
@@ -295,22 +294,24 @@ In this section, you'll create another .NET Core console application that receiv
 In this section, you'll add code to retrieve messages from the queue.
 
 > [!NOTE]
-> If you want to see and use the full code instead of going through the following step-by-step instructions, see [Full code (send messages)](#full-code-receive-messages)
+> If you want to see and use the full code instead of going through the following step-by-step instructions, see [Full code (receive messages)](#full-code-receive-messages)
 
 1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
 
     ```csharp
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using Azure.Messaging.ServiceBus;
     ```
 
-1. In the `Program` class, declare the following variables:
+1. In the `Program` class, declare the following static properties:
 
     ```csharp
+        // connection string to your Service Bus namespace
         static string connectionString = "<NAMESPACE CONNECTION STRING>";
+
+        // name of your Service Bus queue
         static string queueName = "<QUEUE NAME>";
     ```
 
@@ -344,7 +345,7 @@ In this section, you'll add code to retrieve messages from the queue.
             return Task.CompletedTask;
         }
     ```
-1. Add a method named `ReceiveMessages` to the `Program` class, and add the following code to receive messages. 
+1. Add a method named `ReceiveMessages` to the `Program` class, and add the following code to receive messages from the Service Bus queue. 
 
     ```csharp
         static async Task ReceiveMessages()
