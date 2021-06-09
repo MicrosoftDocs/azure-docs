@@ -5,12 +5,12 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 06/08/2021
 ---
 
 # Tutorial: Create a Power BI report from Azure Sentinel data
 
-[Power BI](https://powerbi.microsoft.com/) is a reporting and analytics platform that uses apps, services, and connectors to turn data into coherent, immersive, interactive visualizations. Power BI lets you easily connect to data sources, visualize and discover relationships, and share insights with whoever you want.
+[Power BI](https://powerbi.microsoft.com/) is a reporting and analytics platform that turns data into coherent, immersive, interactive visualizations. Power BI lets you easily connect to data sources, visualize and discover relationships, and share insights with whoever you want.
 
 You can base Power BI reports on data from Azure Sentinel Log Analytics workspaces, and share those reports with people who don't have access to Azure Sentinel. For example, you might want to share information about failed sign-in attempts with app owners, without granting them Azure Sentinel access. Power BI visualizations can provide the data at a glance.
 
@@ -28,8 +28,8 @@ People you granted access in the Power BI service, and members of the Teams chan
 
 To complete this tutorial, you need:
 
-- At least read access to an Azure Sentinel workspace that monitors sign-in attempts.
-- A Power BI account that has read access to the Azure Sentinel workspace.
+- At least read access to an Azure Sentinel Log Analytics workspace that monitors sign-in attempts.
+- A Power BI account that has read access to the Log Analytics workspace.
 - [Power BI Desktop installed from the Microsoft Store](https://aka.ms/pbidesktopstore).
 
 ## Export a query from Log Analytics
@@ -150,13 +150,15 @@ To create a Power BI workspace for sharing the report:
    
    :::image type="content" source="media/powerbi/create-workspace.png" alt-text="Screenshot showing Create a workspace in the Power BI service.":::
    
-1. To grant people and groups access to the workspace, select the **More options** dots next to the new workspace name, and then select **Workspace access**. You can grant others access to the entire workspace, to the published report only, or to the Power BI *.pbix* file. For now, add members to the workspace as needed.
+1. To grant people and groups access to the workspace, select the **More options** dots next to the new workspace name, and then select **Workspace access**.
    
    :::image type="content" source="media/powerbi/workspace-access.png" alt-text="Screenshot showing Workspace access in the workspace More options menu.":::
+   
+   In the **Workspace access** side pane, you can add users' email addresses and assign each user a role. The roles are Admin, Member, Contributor, and Viewer.
 
 ## Publish the Power BI report
 
-Publish your Power BI report so other people can see it.
+Now you can use Power BI Desktop to publish your Power BI report so other people can see it.
 
 1. With your new report open in Power BI Desktop, select **Publish**.
    
@@ -184,11 +186,11 @@ Refresh your Power BI report on a schedule, so updated data always appears in th
 
 1. In the Power BI service, select the workspace you published your report to.
    
-1. Next to the report **Dataset**, select **More options** > **Settings**.
+1. Next to the report's dataset, select **More options** > **Settings**.
    
    :::image type="content" source="media/powerbi/settings.png" alt-text="Screenshot showing Settings under More options in the Power BI report dataset.":::
    
-1. Select **Edit credentials** to provide the credentials to connect to Log Analytics.
+1. Select **Edit credentials** to provide the credentials for an account that has read access to the Log Analytics workspace.
    
 1. Under **Scheduled refresh**, set the slider to **On**, and set up a refresh schedule for the report.
    
