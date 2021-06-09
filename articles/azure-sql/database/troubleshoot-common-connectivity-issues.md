@@ -451,3 +451,8 @@ public bool IsTransient(Exception ex)
 [step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: /sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+
+## See also
+
+- [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md)
+- [Troubleshooting transaction log errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md)
