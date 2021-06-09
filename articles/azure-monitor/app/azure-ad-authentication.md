@@ -31,7 +31,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 1. Follow the steps below depending on the type of authentication you are using: 
     1. If using system-assigned managed identity or User assigned managed identity, follow the steps in the [configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
     
-    If you are configuring managed identities on other Azure services ( App Service, VMSS etc.) see [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities) for more information.
+    If you are configuring managed identities on other Azure services ( App Service, VMSS etc.) see [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) for more information.
 
     1. If using service principal, follow these steps in [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
     > [!NOTE]
@@ -39,18 +39,16 @@ Below are SDKs/scenarios not supported in the Public Preview:
 1. Using the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md) add the "Monitoring Metrics Publisher" role from the target Application Insights resource to the Azure resource from which the telemetry is sent. 
 1. Follow the steps in the next section depending on the Application Insights SDKs/Agents language being used.
 
-# [ASP.NET and .NET](#tab/net)
+## [ASP.NET and .NET](#tab/net)
 
 Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta2).
 
-Application Insights .NET SDK supports the Credential Classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity#credential-classes).
+Application Insights .NET SDK supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity#credential-classes).
 
 - DefaultAzureCredential is recommended for local development.
 - ClientSecretCredential is recommended for service principals. 
 
-# [.NET](#tab/dotnet/net)
-
-Here is an example of manually creating and configuring a TelemetryConfiguration:
+Here is an example of manually creating and configuring a TelemetryConfiguration using .NET:
 
 ```csharp
 var config = new TelemetryConfiguration
@@ -61,7 +59,6 @@ var credential = new DefaultAzureCredential();
 config. SetAzureTokenCredential (credential);
 
 ```
-# [ASP.NET Core](#tab/netcore/net)
 
 Here is an example of configuring the TelemetryConfiguration using ASP.Net Core:
 ```csharp
@@ -76,24 +73,7 @@ services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 });
 ```
 
-# [Node.js](#tab/nodejs)
-
-
-Azure Credentials from [Azure Identity client library](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity) can be provided in Application Insights Node.JS SDK Client configuration.
- 
-```javascript
-let appInsights = require("applicationinsights");
-import { DefaultAzureCredential } from "@azure/identity"; 
- 
-const credential = new DefaultAzureCredential();
-appInsights.setup().start();
-let client = appInsights.defaultClient;
-client.aadTokenCredential = credential;
-client.trackEvent({name: "Custom Event"});
-```
-
-
-# [Java](#tab/java)
+## [Java](#tab/java)
 
 The following are types of authentication that are supported by Java agent. We recommend users to use managed identities, since the ultimate goal is to eliminate secrets and also to eliminate the need for developers to manage credentials. Each supported authentication type also have an example json configuration that needs to be added to ApplicationInsights.json configuration file.
 
@@ -139,7 +119,7 @@ Below is an example on how to configure Java agent to use service principal for 
 }
 ```
 
-# [Python](#tab/python)
+## [Python](#tab/python)
 
 > [!NOTE]
 > Azure AD authentication is only available for Python v2.7, v3.6 and v3.7.
@@ -206,6 +186,22 @@ tracer = Tracer(
 )
 ...
 ```
+## [Node.js](#tab/nodejs)
+
+
+Azure Credentials from [Azure Identity client library](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity) can be provided in Application Insights Node.JS SDK Client configuration.
+ 
+```javascript
+let appInsights = require("applicationinsights");
+import { DefaultAzureCredential } from "@azure/identity"; 
+ 
+const credential = new DefaultAzureCredential();
+appInsights.setup().start();
+let client = appInsights.defaultClient;
+client.aadTokenCredential = credential;
+client.trackEvent({name: "Custom Event"});
+```
+
 
 ## Disable local authentication
 
@@ -342,7 +338,7 @@ Below is the policy template definition:
 
 This section provides distinct troubleshooting scenarios and steps that users can take to resolve any issue before they raise a support ticket. 
 
-# [ASP.NET and .NET](#tab/net)
+## [ASP.NET and .NET](#tab/net)
 
 ### Http Traffic
 
@@ -357,20 +353,10 @@ The Application Insights .NET SDK emits error logs using event source. To learn 
 If the SDK fails to get a token, the exception message is logged as:
 “Failed to get AAD Token. Error message: ”
 
-
-# [Node.js](#tab/nodejs)
-
-Internal logs could be turned on using following setup, once this is enabled, error logs will be shown in the console, including any error related to Azure AD integration like failure to generate the token when wrong credentials are supplied or errors when ingestion endpoint fails to authenticate using the provided credentials.
-
-```javascript
-let appInsights = require("applicationinsights");
-appInsights.setup().setInternalLogging(true, true);
-```
-
-# [Java](#tab/java)
+## [Java](#tab/java)
 
 NA
-# [Python](#tab/python)
+## [Python](#tab/python)
 
 ### Error starts with “credential error” (with no status code)
 
@@ -387,5 +373,14 @@ You are probably missing a credential or your credential is set to `None`, but y
 ### I’m getting a status code 403 in my error logs
 
 Usually occurs when the provided credentials do not grant access to ingest telemetry for the Application Insights resource. Make sure your AI resource has the correct role assignments.
+
+## [Node.js](#tab/nodejs)
+
+Internal logs could be turned on using following setup, once this is enabled, error logs will be shown in the console, including any error related to Azure AD integration like failure to generate the token when wrong credentials are supplied or errors when ingestion endpoint fails to authenticate using the provided credentials.
+
+```javascript
+let appInsights = require("applicationinsights");
+appInsights.setup().setInternalLogging(true, true);
+```
 
 ## Next Steps

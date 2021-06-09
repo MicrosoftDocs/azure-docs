@@ -922,7 +922,7 @@
       items:
       - name: Access control
         href: app/resources-roles-access-control.md
-      - name: Azure AD Authentication 
+      - name: Azure AD authentication 
         href: app/azure-ad-authentication.md
       - name: IP address collection
         href: app/ip-collection.md
