@@ -85,4 +85,4 @@ Follow these steps to register the device resource with Azure Stack Edge.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network function as a managed application](deploy-functions.md)
+> [Deploy a network function](deploy-functions.md)
