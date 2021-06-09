@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/08/2021
+ms.date: 06/09/2021
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub
