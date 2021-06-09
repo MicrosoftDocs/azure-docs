@@ -195,7 +195,7 @@ Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 ```
 
 >[!NOTE]
->You can shut down the device even while the symbolic link remains after executing the destage script.
+>You can shut down the device even while the **$volumeGuid** point remains after executing the destage script.
 
 ## Set up simulation scripts for the MSIX app attach agent
 
