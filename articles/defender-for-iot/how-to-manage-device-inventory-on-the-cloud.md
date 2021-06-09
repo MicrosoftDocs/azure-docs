@@ -1,13 +1,15 @@
 ---
-title: Manage the device inventory 
-description:  
+title: Manage the device inventory on the cloud
+description: Learn how to manage your device inventory on the cloud.
 ms.date: 06/09/2021
 ms.topic: how-to
 ---
 
-# INSERT TITLE
+# Manage the device inventory on the cloud
 
 The device inventory can be used to view a comprehensive perspective of all network information. The import export, and filtering tools can be used to manage this information. 
+
+ADD SECTION ON USE CASES
 
 INSERT SCREENSHOT
 
@@ -40,37 +42,31 @@ The following table describes the table columns in the device inventory.
 | **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku.|
 | **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1.|
 
+**To view the device inventory**:
 
+1. Open the [Azure portal](https://ms.portal.azure.com).
 
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Business Unit** | The business unit that contains this device. |
-| **Region** | The region that contains this device. |
+1. Navigate to **Defender for IoT** > **Device inventory**.
 
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Select device inventory from the left side menu under Defender for IoT.":::
 
-| **Appliance** | The Azure Defender for IoT sensor that protects this device. |
-| **Name** | The name of this device as Defender for IoT discovered it. |
-| **Type** | The type of device, such as PLC or HMI. |
-| **Operating System** | The OS of the device. |
-| **Firmware** | The device's firmware. |
-| **Protocols** | The protocols that the device uses. |
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device has not been authorized. |
-| **Is Known as Scanner** | Whether this device performs scanning-like activities in the network. |
-| **Is Programming Device** | Whether this is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device is not a programming device. |
-| **Groups** | Groups in which this device participates. |
-| **Discovered** | When this device was first seen in the network. |
-| Type | The type of device as determined by the sensor, or as entered by the user. |
-| Vendor | The name of the device's vendor, as defined in the MAC address. |
-| Operating System | The OS of the device, if detected. |
-| Firmware version | The device's firmware, if detected. |
-| IP Address | The IP address of the device where defined. |
-| VLAN | The VLAN of the device. For details about instructing the sensor to discover VLANs, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names). |
-| MAC Address | The MAC address of the device. |
-| Protocols | The protocols that the device uses. |
-| Unacknowledged Alerts | The number of unacknowledged alerts associated with this device. |
-| Is Authorized | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device has not been authorized. |
-| Is Known as Scanner | Defined as a network scanning device by the user. |
-| Is Programming device | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device is not a programming device. |
-| Groups | The groups that this device participates in. |
-| Last Activity | The last activity that the device performed. |
-| Discovered | When this device was first seen in the network. |
+In the device inventory table you can add or remove columns. You can also change the column order by dragging and dropping a field.
+
+**To customize the device inventory table**:
+
+1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: icon.
+
+1. In the Edit columns tab, select the drop down menu to change the value of a column.
+
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-drop-down-menu.png" alt-text="Select the drop down menu to change the value of a given column.":::
+
+1. Add a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-column-icon.png" border="false"::: icon.
+
+1. Reorder the columns by dragging a column parameter to a new location.
+
+1. Delete a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon.
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/delete-a-column.png" alt-text="Select the trash can icon to delete a column.":::
+
+1. Select **Save** to save any changes made.
+
+If you want to reset the device inventory to the default settings, in the Edit columns tab, select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false"::: icon.
