@@ -10,3 +10,5 @@ ms.author: ginle
 ---
 
 # How to get started with Healthcare APIs
+
+How to set up Healthcare APIs workspaces and quickly start up the service
