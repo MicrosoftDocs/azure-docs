@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal
