@@ -155,8 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In **Last Name** text box, enter Simon.
 
-    c. In **University Email** text box, enter the email address you added for B.Simon within Azure![configuration](https://user-images.githubusercontent.com/5530769/119829468-43323580-bec9-11eb-9dd7-106289df3beb.png)
-.
+    c. In **University Email** text box, enter the email address you added for B.Simon within Azure.
 
     d. Scroll to the bottom and Click **Create User**.
 
