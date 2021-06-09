@@ -1,22 +1,22 @@
-- name: Network Functions Manager documentation
+- name: Network Function Manager documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: About Network Functions Manager
+  - name: About Network Function Manager
     href: overview.md
 - name: Tutorials
   expanded: true
   items:
-  - name: Create a device
+  - name: Create a device resource
     href: create-device.md
-  - name: Create a network function
-    href: create-function.md
+  - name: Deploy network functions
+    href: deploy-functions.md
 - name: Concepts
   expanded: true
   items:
-  - name: Routing
-    href: routing.md
+  - name: Partners
+    href: partners.md
   - name: FAQ
     href: faq.md
 - name: Resource
