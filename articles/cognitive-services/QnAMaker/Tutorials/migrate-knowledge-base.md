@@ -55,21 +55,19 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer the following sample to import QnAs:.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer the following sample to import synonyms:.
    3. **Knowledge Base Replica**: if you want to import the complete knowledge base replica, you can zip QnAs, synonyms and settings file and import the zipped folder. You can refer the following sample to import Knowledge Base replica:
+
+        1. Either QnAs or Unstructured documents is required when importing replica. Unstructured documents are only valid for Custom question answering.
+        1. Synonyms file is not mandatory when importing replica.
+        1. Settings file is mandatory when importing replica.
          
-         ||Mandatory when importing replica to QnA Maker KB?|Mandatory when importing replica to Custom question answering KB?|
-         |:--|--|--|
-         |QnAs|Yes|Yes, if unstructured documents are not being imported|
-         |Unstructured documents|Not Applicable|Yes, if QnAs are not being imported|
-         |Synonyms|No|No|
-         |Settings|Yes|Yes|
          
-         |Settings|Update permitted Wwhen importing to QnA Maker KB?|Update permitted when importing to Custom question answering KB?|
-         |:--|--|--|
-         |DefaultAnswerForKB (Specifes default answer returned by KB)|No|Yes|
-         |EnableActiveLearning (Set to True/False to enable/disable Active Learning)|Yes|No|
-         |EnableMultiTurnExtraction (Set to True/False to enable/disable multi-turn extraction)|Yes|Yes|
-         |DefaultAnswerforMultiturn (Default answer when answer is empty for a question at multi-turn extraction)|Yes|Yes|
-         |Language (Language of the KB)|No|No|
+           |Settings|Update permitted when importing to QnA Maker KB?|Update permitted when importing to Custom question answering KB?|
+           |:--|--|--|
+           |DefaultAnswerForKB|No|Yes|
+           |EnableActiveLearning (True/False)|Yes|No|
+           |EnableMultiTurnExtraction (True/False)|Yes|Yes|
+           |DefaultAnswerforMultiturn|Yes|Yes|
+           |Language|No|No|
 
    > [!div class="mx-imgBorder"]
    > [![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
