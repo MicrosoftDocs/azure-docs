@@ -438,7 +438,6 @@ To delete a resource group by name:
     az group list
     ```
 
-
 ## Next steps
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the Azure CLI and/or IoT Explorer to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
