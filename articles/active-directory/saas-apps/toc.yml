@@ -670,6 +670,8 @@
 
     - name: F - G
       items:
+      - name: Fabric
+        href: fabric-tutorial.md
       - name: F5
         href: headerf5-tutorial.md
       - name: FactSet
