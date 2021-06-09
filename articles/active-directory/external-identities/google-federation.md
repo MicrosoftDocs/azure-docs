@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 06/08/2021
 
 ms.author: mimart
 author: msmimart
@@ -81,6 +81,10 @@ Modify your apps to use the system browser for sign-in. For details, see [Embedd
 Before Google puts these changes into place in the second half of 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked.
 
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
+
+If applications are not migrated to an allowed web-view for authentication, then affected Gmail users will see the following screen.
+
+![Google sign-in error if apps are not migrated to system browsers](media/google-federation/google-sign-in-error-ewv.png)
 
 We will update this document as dates and further details are shared by Google.
 
