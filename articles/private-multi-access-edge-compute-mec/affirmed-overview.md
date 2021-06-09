@@ -13,7 +13,7 @@ ms.author: hollycl
 
 The Affirmed Private Network Service (APNS) is a managed network service offering created for managed service providers and mobile network operators to provide private LTE and private 5G solutions to enterprises.
 
-Affirmed has combined its mobile core-technology with Azure’s capabilities to create a complete turnkey solution for private LTE/5G networks to help carriers and enterprises take advantage of managed networks and the mobile edge. The combination of cloud management and automation allows managed service providers to deliver a fully managed infrastructure and also brings a complete end-to-end solution for operators to pick the best of breed Radio Access Network, SIM, and Azure services from a rich ecosystem of partners offered in Azure marketplace. The solution is composed of five components:
+Affirmed has combined its mobile core-technology with Azure’s capabilities to create a complete turnkey solution for private LTE/5G networks to help carriers and enterprises take advantage of managed networks and the mobile edge. The combination of cloud management and automation allows managed service providers to deliver a fully managed infrastructure and also brings a complete end-to-end solution for operators to pick the best of breed Radio Access Network, SIM, and Azure services from a rich ecosystem of partners offered in Azure Marketplace. The solution is composed of five components:
 
 - **Cloud-native Mobile Core**: This component is 3GPP standards compliant and supports network functions for both 4G and 5G and has virtual network probes located natively within the mobile core. The mobile core can be deployed on VMs, physical servers, or on an operator's cloud, eliminating the need for dedicated hardware.
 

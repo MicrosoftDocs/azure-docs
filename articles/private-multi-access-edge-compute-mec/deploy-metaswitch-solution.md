@@ -25,7 +25,7 @@ You must have the following:
 - An Azure account with an active subscription and access to the following.
 
   - The Azure private Multi-access Edge Compute service. This has the resource provider namespace Microsoft.HybridNetwork. For more information, see [What is Azure private Multi-access Edge Compute?](overview.md).
-  - The Fusion Core - 5G packet core managed application. You must request access by visiting [https://azuremarketplace.microsoft.com/en-us/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) and using the **CONTACT ME** button. Our sales representatives will provide you with information on how you can evaluate or buy Fusion Core. Once you have selected one of these options, we will provide you with access to the managed application.
+  - The Fusion Core - 5G packet core managed application. You must request access by visiting [https://azuremarketplace.microsoft.com/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) and using the **CONTACT ME** button. Our sales representatives will provide you with information on how you can evaluate or buy Fusion Core. Once you have selected one of these options, we will provide you with access to the managed application.
   - The built-in **Owner** role at the subscription scope. If this is not possible at your organization, contact your Metaswitch support representative.
 - A configured **Azure Network Function Manager - Device** object representing the Azure Stack Edge device.
 
@@ -39,7 +39,7 @@ After selecting Fusion Core for ASE from the Azure Marketplace, you will deploy 
 
 The Fusion Core Managed Application creates a Managed Resource Group containing Packet Core Network Function and Relay resources to be installed on your Azure Stack Edge (ASE) device.
 
-- The Packet Core Network Function resource defines the Fusion Core Base VM version and its configuration parameters. It is hidden in the Azure Portal by default.
+- The Packet Core Network Function resource defines the Fusion Core Base VM version and its configuration parameters. It is hidden in the Azure portal by default.
 - The Relay resource contains a number of Hybrid Connections that provide the necessary connectivity for installation and remote access to monitoring interfaces.
 
 Fusion Core is then automatically deployed on to your ASE device as follows.

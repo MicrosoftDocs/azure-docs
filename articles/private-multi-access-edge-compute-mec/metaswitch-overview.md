@@ -37,7 +37,7 @@ It also implements the following Network Functions when interworking with a 4G n
 
 The following diagram shows each of these Network Functions and the interfaces they use to interoperate with third-party components.
 
-:::image type="content" source="./media/metaswitch-overview/fusion-core-architecture.png" alt-text="Fusion Core architecture":::
+:::image type="content" source="./media/metaswitch-overview/fusion-core-architecture.png#lightbox" alt-text="Fusion Core architecture":::
 
 Fusion Core is delivered on a Virtual Machine (VM) known as the Fusion Core Base VM. The Fusion Core Base VM is designed to be deployed as an Azure-managed application on an Azure Stack Edge (ASE). The Network Functions and infrastructure components required to deliver Fusion Core function are deployed as containers on the Fusion Core Base VM and orchestrated by Kubernetes.
 
