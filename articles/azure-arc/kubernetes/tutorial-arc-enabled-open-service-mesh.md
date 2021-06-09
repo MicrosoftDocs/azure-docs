@@ -49,8 +49,8 @@ Set the environment variables:
 
 ```azurecli-interactive
 export VERSION=0.8.4
-export $CLUSTER_NAME=<arc-cluster-name>
-export $RESOURCE_GROUP=<resource-group-name>
+export CLUSTER_NAME=<arc-cluster-name>
+export RESOURCE_GROUP=<resource-group-name>
 ```
 
 While Arc enabled Open Service Mesh is in preview, the `az k8s-extension create` command only accepts `pilot` for the `--release-train` flag. `--auto-upgrade-minor-version` is always set to `false` and a version must be provided. If you have an OpenShift cluster, use the steps in the [section](#install-a-specific-version-of-osm-on-openshift-cluster).
