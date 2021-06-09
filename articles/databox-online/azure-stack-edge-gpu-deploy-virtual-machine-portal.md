@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/14/2021
+ms.date: 06/09/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -70,7 +70,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
     ![Screenshot that shows Edge Services and Virtual machines.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
 
-1. Select **Virtual Machines** to go to the **Overview** page. Select **Enable** to enable virtual machine cloud management.
+1. Select **Virtual Machines** to go to the **Overview** page. Select **Enable** to enable virtual machine cloud management.<!--Is "Select enable" a one-time-only task, or is VM cloud management enabled by default?-->
 
     ![Screenshot that shows the Overview page with the Enable button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)
 
