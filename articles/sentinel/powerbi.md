@@ -154,13 +154,13 @@ To create a Power BI workspace for sharing the report:
    
    :::image type="content" source="media/powerbi/workspace-access.png" alt-text="Screenshot showing Workspace access in the workspace More options menu.":::
    
-   In the **Workspace access** side pane, you can add users' email addresses and assign each user a role. The roles are Admin, Member, Contributor, and Viewer.
+1. In the **Workspace access** side pane, you can add users' email addresses and assign each user a role. The roles are Admin, Member, Contributor, and Viewer.
 
 ## Publish the Power BI report
 
 Now you can use Power BI Desktop to publish your Power BI report so other people can see it.
 
-1. With your new report open in Power BI Desktop, select **Publish**.
+1. In your new report in Power BI Desktop, select **Publish**.
    
    :::image type="content" source="media/powerbi/publish.png" alt-text="Screenshot showing Publish in the Power BI Desktop ribbon.":::
    
