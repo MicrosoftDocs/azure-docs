@@ -74,10 +74,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://service10.wanbishi.ne.jp/saml/metadata/azuread/<CostomerID>`
+    `https://service10.wanbishi.ne.jp/saml/metadata/azuread/<CUSTOMER_ID>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://service10.wanbishi.ne.jp/saml/azuread/<CostomerID>`
+    `https://service10.wanbishi.ne.jp/saml/azuread/<CUSTOMER_ID>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [WAN-Sign Client support team](mailto:wansign-help@wanbishi.ne.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
