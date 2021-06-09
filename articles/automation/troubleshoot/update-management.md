@@ -19,7 +19,7 @@ This article discusses issues that you might run into when using the Update Mana
 
 ### Issue
 
-Definition update for Windows Defender (KB2267602) always shows as missing in an assessment when it's installed and shows as **up to date** when verified from Windows Update history.
+Definition update for Windows Defender (KB2267602) always shows as missing in an assessment when it's installed and shows as up to date when verified from Windows Update history.
 
 ### Cause
 
