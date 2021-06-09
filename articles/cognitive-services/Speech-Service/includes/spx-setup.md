@@ -51,7 +51,7 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI`
 
-3. On CentOS/RHEL Linux, [Configure OpenSSL for Linux](../how-to-configure-openssl-linux.md).
+3. On RHEL/CentOS Linux, [Configure OpenSSL for Linux](../how-to-configure-openssl-linux.md).
 
 Type `spx` to see help for the Speech CLI.
 
