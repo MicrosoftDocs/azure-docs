@@ -165,7 +165,7 @@ On the **Offer overview** page, you will see preview links under the **Go live**
 
 After you approve your preview, select **Go live** to publish your offer live to the commercial marketplace. 
 
-If you want to make changes after previewing the offer, you can edit and resubmit your publication request. If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live*. For more information, see [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md)
+If you want to make changes after previewing the offer, you can edit and resubmit your publication request. If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live*. For more information, see [Update an existing offer in the commercial marketplace](update-existing-offer.md)
 
 ## Publish phase
 
@@ -274,4 +274,4 @@ No user is shown for system processes that correspond to [validation and publish
 
 ## Next steps
 
-- [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
+- [Access analytic reports for the commercial marketplace in Partner Center](analytics.md)

@@ -79,11 +79,11 @@ In Cognitive Search, mechanisms that might be helpful for the above scenarios in
 
 ## Availability and pricing
 
-Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early June, semantic features are offered free of charge.
+Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early July, semantic features are offered free of charge.
 
 | Feature | Tier | Region | Sign up | Projected pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | Starting June 1, expected pricing is USD $500/month for the first 250,000 queries, and $2 for each additional 1,000 queries.  |
+| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | Starting in early July, expected pricing is USD $500/month for the first 250,000 queries, and $2 for each additional 1,000 queries.  |
 | Spell check | Any | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | None (free) |
 
 There is one [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup) for both semantic features and spell check. 

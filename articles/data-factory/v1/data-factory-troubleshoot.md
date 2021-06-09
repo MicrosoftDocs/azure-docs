@@ -6,7 +6,8 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
+ms.reviewer: jburchel 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Troubleshoot Data Factory issues

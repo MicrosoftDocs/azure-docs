@@ -115,6 +115,8 @@ The folder name in the `OPENROWSET` function (`yellow` in this example) that is 
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
 
+Do not use the `WITH` clause in the `OPENROWSET` function when you query partitioned Delta Lake data. Due to the known issue in the preview, the `WITH` clause will not properly return the values from the underlying partitioning columns. Partition elimination works fine if you are directly using the `OPENROWSET` function with the `WITH` clause (without views).  
+
 ## Use a view
 
 You can use views in your queries the same way you use views in SQL Server queries.

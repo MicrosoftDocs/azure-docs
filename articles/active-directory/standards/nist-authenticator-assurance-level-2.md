@@ -72,7 +72,10 @@ The cryptographic authenticators of government agencies are required to be valid
 
 * Smartcard (Active Directory Federation Services) 
 
-FIDO2 security keys don't meet government agencies' requirement for FIPS 140 Level 1 overall validation as of this writing. The Microsoft Authenticator app doesn't meet this requirement either. This is true no matter which mode of the Microsoft Authenticator app you're using.
+While the Microsoft Authenticator app in all its modes (notification, OTP and passwordless) uses FIPS 140 approved cryptography, it is not FIPS 140 Level 1 validated.
+
+FIDO2 security key providers are in various stages of FIPS certification, including some that have completed validation. We recommend you review the [list of supported FIDO2 key vendors](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-key-providers) and check with your provider for current FIPS validation status.
+
 
 ## Reauthentication 
 

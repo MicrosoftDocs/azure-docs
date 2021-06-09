@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Secure Azure Digital Twins
 
-For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **Azure role-based access control (Azure RBAC)**. You can read about the general principles of Azure RBAC [here](../role-based-access-control/overview.md).
+For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 Azure Digital Twins also supports encryption of data at rest.
 

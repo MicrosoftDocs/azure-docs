@@ -91,7 +91,7 @@ After the Atlas Spark model definition is successfully created, follow below ste
         * grant_type: client_credentials
         * client_id: {service principal ID}
         * client_secret: {service principal key}
-        * resource: https://purview.azure.net
+        * resource: `https://purview.azure.net`
 
         :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/postman-examples.png" alt-text="Screenshot showing postman example" lightbox="./media/how-to-lineage-spark-atlas-connector/postman-examples.png":::      
 

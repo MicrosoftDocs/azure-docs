@@ -4,7 +4,7 @@ description: Provides PowerShell and Transact-SQL for a two-phase code sample th
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT

@@ -4,7 +4,7 @@ description: Learn how to back up your virtual machines with Azure Resource Mana
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.custom: mvc,subject-armqs
+ms.custom: mvc,subject-armqs, devx-track-azurepowershell
 ---
 
 # Quickstart: Back up a virtual machine in Azure with an ARM template
