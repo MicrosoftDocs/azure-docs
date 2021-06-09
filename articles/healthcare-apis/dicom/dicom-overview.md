@@ -4,7 +4,7 @@ description: In this article, you'll learn concepts of DICOM, Medical Imaging, a
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: Conceptual
+ms.topic: reference
 ms.date: 5/19/2021
 ms.author: ginle
 ---
@@ -21,7 +21,7 @@ DICOM (Digital Imaging and Communications in Medicine) is the international stan
 
 ## DICOM Services (Confirm with Moira if this heading should be DICOM Services)
 
-The DICOM Services is a managed service of the DICOM server that is easily deployed on Azure. DICOM Services injects DICOM metadata into the [Azure API for FHIR service](https://docs.microsoft.com/azure/healthcare-apis/), allowing a single source of truth for both clinical data and imaging metadata. It allows standards-based communication with any DICOMweb&trade; enabled systems.
+The DICOM Services is a managed service of the DICOM server that is easily deployed on Azure. DICOM Services injects DICOM metadata into the Azure API for FHIR service, allowing a single source of truth for both clinical data and imaging metadata. It allows standards-based communication with any DICOMweb&trade; enabled systems.
 
 
 The need to effectively integrate non-clinical data has become acute. In order to effectively treat patients, research new treatments,diagnose solutions, or simply provide an effective overview of the health history of a single patient, organizations must integrate data across several sources. One of the most pressing integrations is between clinical and imaging data.
@@ -37,8 +37,6 @@ FHIR&trade; is becoming an important standard for clinical data and provides ext
 ## Deployment DICOM Services to Azure
 
 DICOM service needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, an Azure Active Directory account is required. The diagram below depicts all of the resources created within your resource group.
-
-![resource-deployment](../images/dicom-deployment-architecture.png)
 
 - **Azure SQL**: Indexes a subset of the Medical Imaging Server for DICOM metadata to support queries and to maintain a queryable log of changes.
 - **App Service Plan**: Hosts the Medical Imaging Server for DICOM.
@@ -56,5 +54,5 @@ This conceptual article provided you with an overview of DICOM, Medical Imaging,
 
 To get started using the DICOM service, see:
 
-- [Deploy DICOM Services to Azure](../quickstarts/deploy-via-azure.md)
-- [Use the DICOM Services for DICOM APIs](../tutorials/use-the-medical-imaging-server-apis.md)
+- Deploy DICOM Services to Azure]
+- Use the DICOM Services for DICOM APIs
