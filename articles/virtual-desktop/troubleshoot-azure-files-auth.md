@@ -17,8 +17,7 @@ When a VM is added to an AD DS group that VM needs to be restarted in order to p
 
 ## I can't add my storage acount to my Active Directory Domain Services
 
-The Azure Files team have excellent troubleshooting document available
-[here](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#unable-to-mount-azure-files-with-ad-credentials).
+The Azure Files team have excellent troubleshooting document available [here](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#unable-to-mount-azure-files-with-ad-credentials).
 There are few errors that I have observed occurring with higher frequency:
 
 -   Ignoring warnings when running the PowerShell
