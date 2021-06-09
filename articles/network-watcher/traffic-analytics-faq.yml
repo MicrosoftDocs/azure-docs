@@ -143,7 +143,7 @@ sections:
           **Set cmdlet example:**
           
           ```
-                    #Requestbody parameters
+          #Requestbody parameters
           $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
           $TAstorageId = "/subscriptions/<storage subscription id>/resourcegroups/<storage resource group name> /providers/microsoft.storage/storageaccounts/<storage account name>"
           $networkWatcherResourceGroupName = "<network watcher resource group name>"
