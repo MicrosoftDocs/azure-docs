@@ -2,7 +2,7 @@
 title: Registry service tiers and features
 description: Learn about the features and limits (quotas) in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 06/09/2021
 ---
 
 # Azure Container Registry service tiers
@@ -22,6 +22,39 @@ The Basic, Standard, and Premium tiers all provide the same programmatic capabil
 The following table details the features and registry limits of the Basic, Standard, and Premium service tiers.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
+
+## Registry performance
+
+### Throughput 
+
+When generating a high rate of registry operations such as Docker image pulls or pushes, use the service tier's limits for read and write operations and bandwidth as a guide for expected image throughput. However, additional factors will affect your registry performance in practice.
+
+Each image pull or push can generate a large number of atomic read and/or write operations on the registry. A large number of operations will translate into fewer images pushed or pulled. The number depends on:
+
+* Number and size of layers
+* Reuse of layers or base images across images
+* additional API calls that might be required for each pull or push
+
+For details, see documentation for the [Docker HTTP API V2](https://docs.docker.com/registry/spec/api/).
+
+When evaluating or troubleshooting registry throughput, also consider the configuration of your client environment:
+
+* your Docker daemon configuration for concurrent operations
+* your network connection to the registry's data endpoint or endpoints
+
+### Example
+
+Puahing a single 133 MB `nginx:latest` image to an Azure container registry requires multiple read and write operations: 
+
+* Read operations to read the image manifest, if it exists in the registry
+* Write operations to write each of 5 image layers
+* Write operations to write the image manifest
+
+### Throttling
+
+You may experience throttling of pull or push operations when the registry determines the rate of requests is too high. You may see an HTTP 429 error similar to `Too many requests`.
+
+For example, throttling could occur temporarily when you generate a burst of image pull or push operations in a very short period, even when the average rate of read and write operations is within registry limits. You may need to implement retry logic in your code or reduce the maximm rate of requests to the registry
 
 ## Changing tiers
 
