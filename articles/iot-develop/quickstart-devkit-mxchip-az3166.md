@@ -189,7 +189,7 @@ Keep Termite open to monitor device output in the following steps.
 To view the device status in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to **Provisioned**.
-1. Confirm that the **Device template** is updated to **Getting Started Guide**.
+1. Confirm that the **Device template** is updated to **MXCHIP Getting Started Guide**.
 
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
 
@@ -249,6 +249,8 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
+> [!div class="nextstepaction"]
+> [Connect an MXCHIP AZ3166 devkit to IoT Hub](quickstart-devkit-mxchip-az3166-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
