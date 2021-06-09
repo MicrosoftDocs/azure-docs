@@ -71,6 +71,9 @@ Enable blob inventory reports by adding a policy with one or more rules to your 
 
    If you select **Blob**, then under **Blob subtype**, choose the types of blobs that you want to include in your report, and whether to include blob versions and/or snapshots in your inventory report. 
 
+   > [!NOTE]
+   > Hierarchical namespace enabled accounts do not support page blobs and blob versions currently. Hence the corresponding options do not appear for such accounts.
+  
 8. Select the fields that you would like to include in your report, and the format of your reports.
 
 9. Choose how often you want to generate reports.
