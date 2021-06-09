@@ -4,7 +4,8 @@ description: This article tells how to configure and manage pre-scripts and post
 services: automation
 ms.subservice: update-management
 ms.date: 03/08/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage pre-scripts and post-scripts
@@ -142,7 +143,7 @@ Pre-tasks and post-tasks run as runbooks and don't natively run on your Azure VM
 * A Run As account
 * A runbook you want to run
 
-To interact with Azure machines, you should use the [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to interact with your Azure VMs. For an example of how to do this, see the runbook example [Update Management – run script with Run command](https://github.com/azureautomation/update-management-run-script-with-run-command).
+To interact with Azure machines, you should use the [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to interact with your Azure VMs. For an example of how to do this, see the runbook example [Update Management - run script with Run command](https://github.com/azureautomation/update-management-run-script-with-run-command).
 
 ### Interact with non-Azure machines
 
@@ -153,7 +154,7 @@ Pre-tasks and post-tasks run in the Azure context and don't have access to non-A
 * A runbook you want to run locally
 * A parent runbook
 
-To interact with non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet. You must specify the `RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on. See the runbook example [Update Management – run script locally](https://github.com/azureautomation/update-management-run-script-locally).
+To interact with non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet. You must specify the `RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on. See the runbook example [Update Management - run script locally](https://github.com/azureautomation/update-management-run-script-locally).
 
 ## Abort patch deployment
 
@@ -233,9 +234,9 @@ Write-Output $context
 #Example: How to create and write to a variable using the pre-script:
 <#
 #Create variable named after this run so it can be retrieved
-New-AzAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+New-AzAutomationVariable -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccount -Name $runId -Value "" -Encrypted $false
 #Set value of variable
-Set-AutomationVariable –Name $runId -Value $vmIds
+Set-AutomationVariable -Name $runId -Value $vmIds
 #>
 
 #Example: How to retrieve information from a variable set during the pre-script

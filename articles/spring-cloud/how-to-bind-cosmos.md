@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Bind an Azure Cosmos DB to your Azure Spring Cloud application
+title: Bind an Azure Cosmos DB to your Azure Spring Cloud application
 description: Learn how to bind Azure Cosmos DB to your Azure Spring Cloud application
 author: bmitchell287
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.author: brendm
 ms.custom: devx-track-java
 ---
 
-# Tutorial: Bind an Azure Cosmos DB database to your Azure Spring Cloud application
+# Bind an Azure Cosmos DB database to your Azure Spring Cloud application
 
 **This article applies to:** ✔️ Java
 
@@ -17,7 +17,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 Prerequisites:
 
-* A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](spring-cloud-quickstart.md) to get started.
+* A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](./quickstart.md) to get started.
 * An Azure Cosmos DB account with a minimum permission level of Contributor.
 
 ## Bind Azure Cosmos DB
@@ -58,16 +58,6 @@ Azure Cosmos DB has five different API types that support binding. The following
       </dependency>
       ```
 
-    * API type: Gremlin (graph)
-
-      ```xml
-      <dependency>
-          <groupId>com.microsoft.spring.data.gremlin</groupId>
-          <artifactId>spring-data-gremlin</artifactId>
-          <version>2.1.7</version>
-      </dependency>
-      ```
-
     * API type: Azure Table
 
       ```xml
@@ -103,4 +93,4 @@ Azure Cosmos DB has five different API types that support binding. The following
 
 ## Next steps
 
-In this article, you learned how to bind your Azure Spring Cloud application to an Azure Cosmos DB database. To learn more about binding services to your application, see [Bind to an Azure Cache for Redis cache](spring-cloud-howto-bind-redis.md).
+In this article, you learned how to bind your Azure Spring Cloud application to an Azure Cosmos DB database. To learn more about binding services to your application, see [Bind to an Azure Cache for Redis cache](./how-to-bind-redis.md).

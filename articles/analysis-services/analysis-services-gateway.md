@@ -4,7 +4,7 @@ description: An On-premises gateway is necessary if your Analysis Services serve
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ---

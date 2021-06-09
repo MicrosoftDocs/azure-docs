@@ -1,13 +1,17 @@
 ---
-title: Create a Defender IoT micro agent module twin (Preview)
-description: Learn how to create individual DefenderIotMicroAgent module twins for new devices.
-ms.date: 1/20/2021
+title: 'Quickstart: Create a Defender IoT micro agent module twin (Preview)'
+description: In this quickstart, learn how to create individual DefenderIotMicroAgent module twins for new devices.
+ms.date: 05/10/2021
 ms.topic: quickstart
 ---
 
-# Create a Defender IoT micro agent module twin (Preview)
+# Quickstart: Create a Defender IoT micro agent module twin (Preview)
 
 You can create individual **DefenderIotMicroAgent** module twins for new devices. You can also batch create module twins for all devices in an IoT Hub. 
+
+## Prerequisites
+
+None
 
 ## Device twins 
 
@@ -65,4 +69,5 @@ To verify if a Defender-IoT-micro-agent twin exists for a specific device:
 
 ## Next steps 
 
-Advance to the next article to learn how to [investigate security recommendations](quickstart-investigate-security-recommendations.md).
+> [!div class="nextstepaction"]
+> [investigate security recommendations](quickstart-investigate-security-recommendations.md)

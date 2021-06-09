@@ -105,9 +105,9 @@ To configure Azure AD single sign-on with Beeline, perform the following steps:
     ```
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Beeline Client support team](https://www.beeline.com/support-beeline/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Beeline Client support team](https://www.beeline.com/contact-support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. The Beeline application expects the SAML assertions in a specific format. Please work with [Beeline support team](https://www.beeline.com/support-beeline/) first to identify the correct user identifier which will be mapped into the application. Also please take the guidance from [Beeline support team](https://www.beeline.com/support-beeline/) about the attribute which they want to use for this mapping. You can manage the value of this attribute from the **User Attributes** tab of the application. The following screenshot shows an example for this. Here we have mapped the **User Identifier** claim with the **userprincipalname** attribute, which provides unique user ID, which will be sent to the Beeline application in every successful SAML response.
+5. The Beeline application expects the SAML assertions in a specific format. Please work with [Beeline support team](https://www.beeline.com/contact-support/) first to identify the correct user identifier which will be mapped into the application. Also please take the guidance from [Beeline support team](https://www.beeline.com/contact-support/) about the attribute which they want to use for this mapping. You can manage the value of this attribute from the **User Attributes** tab of the application. The following screenshot shows an example for this. Here we have mapped the **User Identifier** claim with the **userprincipalname** attribute, which provides unique user ID, which will be sent to the Beeline application in every successful SAML response.
 
     ![image](common/edit-attribute.png)
 
@@ -122,7 +122,7 @@ To configure Azure AD single sign-on with Beeline, perform the following steps:
 
 ### Configure Beeline Single Sign-On
 
-To configure single sign-on on **Beeline** side, you need to send the downloaded **Federation Metadata XML** and the User Access URL from the Azure portal properties to [Beeline support team](https://www.beeline.com/support-beeline/). They require the metadata and User Access URL so that the SAML SSO connection is configured properly on both sides.
+To configure single sign-on on **Beeline** side, you need to send the downloaded **Federation Metadata XML** and the User Access URL from the Azure portal properties to [Beeline support team](https://www.beeline.com/contact-support/). They require the metadata and User Access URL so that the SAML SSO connection is configured properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -177,7 +177,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Beeline test user
 
-In this section, you will create a user, Britta Simon, in Beeline. The Beeline application needs all users to be provisioned in the application before doing Single Sign On. So work with the [Beeline support team](https://www.beeline.com/support-beeline/) to provision all these users into the application.
+In this section, you will create a user, Britta Simon, in Beeline. The Beeline application needs all users to be provisioned in the application before doing Single Sign On. So work with the [Beeline support team](https://www.beeline.com/contact-support/) to provision all these users into the application.
 
 ### Test single sign-on
 

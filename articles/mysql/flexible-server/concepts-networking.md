@@ -117,7 +117,7 @@ Learn how to enable and manage public access (allowed IP addresses) using the [A
 ### Troubleshooting public access issues
 Consider the following points when access to the Microsoft Azure Database for MySQL Server service does not behave as you expect:
 
-* **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Database for MySQL Server firewall configuration to take effect.
+* **Changes to the allowlist have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Database for MySQL Server firewall configuration to take effect.
 
 * **Authentication failed:** If a user does not have permissions on the Azure Database for MySQL server or the password used is incorrect, the connection to the Azure Database for MySQL server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server. Each client must still provide the necessary security credentials.
 
@@ -138,9 +138,23 @@ Example
 
 
 ## TLS and SSL
-Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL service using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications. TLS is an updated protocol of Secure Sockets Layer (SSL).
+Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security(TLS) encryption. TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
-Azure Database for MySQL Flexible Server only supports encrypted connections using Transport Layer Security (TLS 1.2). All incoming connections with TLS 1.0 and TLS 1.1 will be denied. You cannot disable or change the TLS version for connecting to Azure Database for MySQL Flexible Server. Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more. 
+Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default and all incoming connections with TLS 1.0 and TLS 1.1 will be denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be configured and changed. 
+
+Following are the different configurations of SSL and TLS settings you can have for your flexible server:
+
+| Scenario   | Server parameter settings      | Description                                    |
+|------------|--------------------------------|------------------------------------------------|
+|Disable SSL (encrypted connections) | require_secure_transport = OFF |If your legacy application doesn't support encrypted connections to MySQL server, you can disable enforcement of encrypted connections to your flexible server by setting require_secure_transport=OFF.|
+|Enforce SSL with TLS version < 1.2 | require_secure_transport = ON and tls_version = TLSV1 or TLSV1.1| If your legacy application supports encrypted connections but requires TLS version < 1.2, you can enable encrypted connections but configure your flexible server to allow connections with the tls version (v1.0 or v1.1) supported by your application|
+|Enforce SSL with TLS version = 1.2(Default configuration)|require_secure_transport = ON and tls_version = TLSV1.2| This is the recommended and default configuration for flexible server.|
+|Enforce SSL with TLS version = 1.3(Supported with MySQL v8.0 and above)| require_secure_transport = ON and tls_version = TLSV1.3| This is useful and recommended for new applications development|
+
+> [!Note]
+> Changes to SSL Cipher on flexible server is not supported. FIPS cipher suites is enforced by default when tls_version is set to TLS version 1.2 . For TLS versions other than version 1.2, SSL Cipher is set to default settings which comes with MySQL community installation.
+
+Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more. 
 
 
 ## Next steps

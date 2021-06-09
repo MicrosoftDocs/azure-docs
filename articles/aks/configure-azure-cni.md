@@ -4,7 +4,7 @@ description: Learn how to configure Azure CNI (advanced) networking in Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Configure Azure CNI networking in Azure Kubernetes Service (AKS)
@@ -149,7 +149,18 @@ The following screenshot from the Azure portal shows an example of configuring t
 > [!NOTE] 
 > This preview feature is currently available in the following regions:
 >
+> * East US
+> * East US 2
+> * North Central US
 > * West Central US
+> * West US
+> * West US 2
+> * Canada Central
+> * Australia East
+> * UK South
+> * North Europe
+> * West Europe
+> * Southeast Asia
 
 A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting pod IPs from a subnet separate from the subnet hosting the AKS cluster.  It offers the following benefits:
 
@@ -341,7 +352,7 @@ Learn more about networking in AKS in the following articles:
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
 [aks-network-concepts]: concepts-network.md

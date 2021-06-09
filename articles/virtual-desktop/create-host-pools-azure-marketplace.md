@@ -1,21 +1,21 @@
 ---
-title: Windows Virtual Desktop host pool Azure portal - Azure
-description: How to create a Windows Virtual Desktop host pool by using the Azure portal.
+title: Azure Virtual Desktop host pool Azure portal - Azure
+description: How to create a Azure Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 03/10/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Create a host pool with the Azure portal
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Any objects you create with Windows Virtual Desktop (classic) can't be managed with the Azure portal.
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Any objects you create with Azure Virtual Desktop (classic) can't be managed with the Azure portal.
 
-Host pools are a collection of one or more identical virtual machines (VMs) within Windows Virtual Desktop environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines (VMs) within Azure Virtual Desktop environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
-This article will walk you through the setup process for creating a host pool for a Windows Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Windows Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the Azure Active Directory (AD) domain, and register the VMs with Windows Virtual Desktop.
+This article will walk you through the setup process for creating a host pool for a Azure Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the Azure Active Directory (AD) domain, and register the VMs with Azure Virtual Desktop.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ You'll need to enter the following parameters to create a host pool:
 - The VM image name
 - VM configuration
 - Domain and network properties
-- Windows Virtual Desktop host pool properties
+- Azure Virtual Desktop host pool properties
 
 You'll also need to know the following things:
 
@@ -33,7 +33,7 @@ You'll also need to know the following things:
 
 Also, make sure you've registered the Microsoft.DesktopVirtualization resource provider. If you haven't already, go to **Subscriptions**, select the name of your subscription, and then select **Resource providers**. Search for DesktopVirtualization, select Microsoft.DesktopVirtualization, and then select Register.
 
-When you create a Windows Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
+When you create a Azure Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
 If you don't have an Azure subscription already, make sure to [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start following these instructions.
 
@@ -46,9 +46,9 @@ To start creating your new host pool:
    >[!NOTE]
    > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
 
-2. Enter **Windows Virtual Desktop** into the search bar, then find and select **Windows Virtual Desktop** under Services.
+2. Enter **Azure Virtual Desktop** into the search bar, then find and select **Azure Virtual Desktop** under Services.
 
-3. In the **Windows Virtual Desktop** overview page, select **Create a host pool**.
+3. In the **Azure Virtual Desktop** overview page, select **Create a host pool**.
 
 4. In the **Basics** tab, select the correct subscription under Project details.
 
@@ -202,7 +202,7 @@ If you'd rather use an automated process, [download our Azure Resource Manager t
 
 ## Next steps
 
-Now that you've made your host pool, you can populate it with RemoteApp programs. To learn more about how to manage apps in Windows Virtual Desktop, head to our next tutorial:
+Now that you've made your host pool, you can populate it with RemoteApp programs. To learn more about how to manage apps in Azure Virtual Desktop, head to our next tutorial:
 
 > [!div class="nextstepaction"]
 > [Manage app groups tutorial](./manage-app-groups.md)

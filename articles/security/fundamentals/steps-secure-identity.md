@@ -70,7 +70,7 @@ Microsoft recommends adopting the following modern password policy based on [NIS
 2. Disable expiration rules, which drive users to easily guessed passwords such as **Spring2019!**
 3. Disable character-composition requirements and prevent users from choosing commonly attacked passwords, as they cause users to choose predictable character substitutions in passwords.
 
-You can use [PowerShell to prevent passwords from expiring](../../active-directory/authentication/concept-sspr-policy.md) for users if you create identities in Azure AD directly. Hybrid organizations should implement these policies using [domain group policy settings](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) or [Windows PowerShell](/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+You can use [PowerShell to prevent passwords from expiring](../../active-directory/authentication/concept-sspr-policy.md) for users if you create identities in Azure AD directly. Hybrid organizations should implement these policies using [domain group policy settings](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) or [Windows PowerShell](/powershell/module/activedirectory/set-addefaultdomainpasswordpolicy).
 
 ### Protect against leaked credentials and add resilience against outages
 

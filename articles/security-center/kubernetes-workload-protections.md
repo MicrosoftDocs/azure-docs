@@ -150,7 +150,6 @@ spec:
       labels:
         app: redis
       annotations:
-        apparmor.security.beta.kubernetes.io/pod: runtime/default
         container.apparmor.security.beta.kubernetes.io/redis: runtime/default
     spec:
       containers:
@@ -250,5 +249,5 @@ In this article, you learned how to configure Kubernetes workload protection.
 For other related material, see the following pages: 
 
 - [Security Center recommendations for compute](recommendations-reference.md#recs-compute)
-- [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
+- [Alerts for AKS cluster level](alerts-reference.md#alerts-k8scluster)
 - [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Soft delete for containers (preview)
 
-Soft delete for containers (preview) protects your data from being accidentally or maliciously deleted. When container soft delete is enabled for a storage account, any deleted container and their contents are retained in Azure Storage for the period that you specify. During the retention period, you can restore previously deleted containers. Restoring a container restores any blobs within that container when it was deleted.
+Soft delete for containers (preview) protects your data from being accidentally or maliciously deleted. When container soft delete is enabled for a storage account, a deleted container and its contents are retained in Azure Storage for the period that you specify. During the retention period, you can restore previously deleted containers. Restoring a container restores any blobs within that container when it was deleted.
 
 For end to end protection for your blob data, Microsoft recommends enabling the following data protection features:
 
@@ -33,7 +33,7 @@ When you enable container soft delete, you can specify a retention period for de
 When you restore a container, the container's blobs and any blob versions are also restored. However, you can only use container soft delete to restore blobs if the container itself was deleted. To a restore a deleted blob when its parent container has not been deleted, you must use blob soft delete or blob versioning.
 
 > [!WARNING]
-> Container soft delete can restore only whole containers and the blobs they contained at the time of deletion. You cannot restore a deleted blob within a container by using container soft delete.
+> Container soft delete can restore only whole containers and their contents at the time of deletion. You cannot restore a deleted blob within a container by using container soft delete. Microsoft recommends also enabling blob soft delete and blob versioning to protect individual blobs in a container.
 
 The following diagram shows how a deleted container can be restored when container soft delete is enabled:
 
@@ -46,7 +46,7 @@ After the retention period has expired, the container is permanently deleted fro
 Disabling container soft delete does not result in permanent deletion of containers that were previously soft-deleted. Any soft-deleted containers will be permanently deleted at the expiration of the retention period that was in effect at the time that the container was deleted.
 
 > [!IMPORTANT]
-> Container soft delete does not protect against the deletion of a storage account, but only against the deletion of containers in that account. To protect a storage account from deletion, configure a lock on the storage account resource. For more information about locking Azure Resource Manager resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+> Container soft delete does not protect against the deletion of a storage account. It protects only against the deletion of containers in that account. To protect a storage account from deletion, configure a lock on the storage account resource. For more information about locking a storage account, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
 
 ## About the preview
 
@@ -83,7 +83,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 # [Azure CLI](#tab/azure-cli)
 
-To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
+To register with Azure CLI, call the [az feature register](/cli/azure/feature#az_feature_register) command.
 
 ```azurecli
 az feature register --namespace Microsoft.Storage --name ContainerSoftDelete
@@ -106,7 +106,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName Containe
 
 # [Azure CLI](#tab/azure-cli)
 
-To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
+To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az_feature_show) command.
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name ContainerSoftDelete

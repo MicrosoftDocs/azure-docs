@@ -1,21 +1,21 @@
 ---
-title: Deploy IoT Edge Defender-IoT-micro-agent
+title: Deploy IoT Edge security module
 description: Learn about how to deploy a Defender for IoT security agent on IoT Edge.
 ms.topic: conceptual
-ms.date: 1/30/2020
+ms.date: 04/21/2021
 ---
 
-# Deploy a Defender-IoT-micro-agent on your IoT Edge device
+# Deploy a security module on your IoT Edge device
 
 **Defender for IoT** module provides a comprehensive security solution for your IoT Edge devices.
-The Defender-IoT-micro-agent collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
-To learn more, see [Defender-IoT-micro-agent for IoT Edge](security-edge-architecture.md).
+The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
+To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 
-In this article, you'll learn how to deploy a Defender-IoT-micro-agent on your IoT Edge device.
+In this article, you'll learn how to deploy a security module on your IoT Edge device.
 
-## Deploy Defender-IoT-micro-agent
+## Deploy security module
 
-Use the following steps to deploy a Defender for IoT Defender-IoT-micro-agent for IoT Edge.
+Use the following steps to deploy a Defender for IoT security module for IoT Edge.
 
 ### Prerequisites
 
@@ -154,7 +154,7 @@ Complete each step to complete your IoT Edge deployment for Defender for IoT.
 
 ## Diagnostic steps
 
-If you encounter an issue, container logs are the best way to learn about the state of an IoT Edge Defender-IoT-micro-agent device. Use the commands and tools in this section to gather information.
+If you encounter an issue, container logs are the best way to learn about the state of an IoT Edge security module device. Use the commands and tools in this section to gather information.
 
 ### Verify the required containers are installed and functioning as expected
 

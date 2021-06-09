@@ -119,7 +119,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50055 | InvalidPasswordExpiredPassword - The password is expired. |
 | AADSTS50056 | Invalid or null password -Password does not exist in store for this user. |
 | AADSTS50057 | UserDisabled - The user account is disabled. The account has been disabled by an administrator. |
-| AADSTS50058 | UserInformationNotProvided - This means that a user is not signed in. This is a common error that's expected when a user is unauthenticated and has not yet signed in.</br>If this error is encouraged in an SSO context where the user has previously signed in, this means that the SSO session was either not found or invalid.</br>This error may be returned to the application if prompt=none is specified. |
+| AADSTS50058 | UserInformationNotProvided - This means that a user is not signed in. This is a common error that's expected when a user is unauthenticated and has not yet signed in.</br>If this error is encountered in an SSO context where the user has previously signed in, this means that the SSO session was either not found or invalid.</br>This error may be returned to the application if prompt=none is specified. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Tenant-identifying information was not found in either the request or implied by any provided credentials. The user can contact the tenant admin to help resolve the issue. |
 | AADSTS50061 | SignoutInvalidRequest - The sign-out request is invalid. |
 | AADSTS50064 | CredentialAuthenticationError - Credential validation on username or password has failed. |
@@ -192,7 +192,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - Authentication failed. The refresh token is not valid. Error may be due to the following reasons:<ul><li>Token binding header is empty</li><li>Token binding hash does not match</li></ul> |
 | AADSTS70001 | UnauthorizedClient - The application is disabled. To learn more, see the troubleshooting article for error [AADSTS70001](/troubleshoot/azure/active-directory/error-code-aadsts70001-app-not-found-in-directory). |
-| AADSTS70002 | InvalidClient - Error validating the credentials. The specified client_secret does not match the expected value for this client. Correct the client_secret and try again. For more info, see [Use the authorization code to request an access token](v2-oauth2-auth-code-flow.md#request-an-access-token). |
+| AADSTS70002 | InvalidClient - Error validating the credentials. The specified client_secret does not match the expected value for this client. Correct the client_secret and try again. For more info, see [Use the authorization code to request an access token](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). |
 | AADSTS70003 | UnsupportedGrantType - The app returned an unsupported grant type. |
 | AADSTS70004 | InvalidRedirectUri - The app returned an invalid redirect URI. The redirect address specified by the client does not match any configured addresses or any addresses on the OIDC approve list. |
 | AADSTS70005 | UnsupportedResponseType - The app returned an unsupported response type due to the following reasons:<ul><li>response type 'token' is not enabled for the app</li><li>response type 'id_token' requires the 'OpenID' scope -contains an unsupported OAuth parameter value in the encoded wctx</li></ul> |

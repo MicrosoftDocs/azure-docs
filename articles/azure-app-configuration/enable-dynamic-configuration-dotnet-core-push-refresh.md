@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET Core apps using push refresh
 services: azure-app-configuration
 documentationcenter: ''
-author: abarora
+author: GrantMeStrength
 manager: zhenlan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
-ms.author: abarora
+ms.author: jken
 
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---

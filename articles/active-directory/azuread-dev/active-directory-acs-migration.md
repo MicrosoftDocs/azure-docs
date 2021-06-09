@@ -131,7 +131,7 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 | Azure DataMarket | [Migrate to the Cognitive Services APIs](https://azure.microsoft.com/services/cognitive-services/) |
 | BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Upgrade the Azure Backup agent](../../backup/backup-azure-file-folder-backup-faq.md) |
+| Azure Backup | [Upgrade the Azure Backup agent](../../backup/backup-azure-file-folder-backup-faq.yml) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->

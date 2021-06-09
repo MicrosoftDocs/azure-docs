@@ -42,5 +42,5 @@ You need to provide remote access and protect your Remote Desktop Services deplo
 
 * [Publish remote desktop with Azure AD Application Proxy](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) 
 
-* [Add an on-premises application for remote access through Application Proxy in Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)
+* [Add an on-premises application for remote access through Application Proxy in Azure AD](../app-proxy/application-proxy-add-on-premises-application.md)
 

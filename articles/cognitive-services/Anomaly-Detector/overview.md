@@ -24,6 +24,12 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 Using the Anomaly Detector doesn't require any prior experience in machine learning, and the RESTful API enables you to easily integrate the service into your applications and processes.
 
+This documentation contains the following types of articles:
+* The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./how-to/identify-anomalies.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](./concepts/anomaly-detection-best-practices.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./tutorials/batch-anomaly-detection-powerbi.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
 ## Features
 
 With the Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time.
@@ -45,16 +51,7 @@ To run the demo, you need to create an Anomaly Detector resource and get the API
 
 To learn how to call the Anomaly Detector API, try this [Notebook](https://aka.ms/adNotebook). This Jupyter Notebook shows you how to send an API request and visualize the result.
 
-To run the Notebook, complete the following steps:
-
-1. Get a valid Anomaly Detector API subscription key and an API endpoint. The section below has instructions for signing up.
-1. Sign in, and select Clone, in the upper right corner.
-1. Uncheck the "public" option in the dialog box before completing the clone operation, otherwise your notebook, including any subscription keys, will be public.
-1. Select **Run on free compute**
-1. Select one of the notebooks.
-1. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable.
-1. Change the `endpoint` variable to your endpoint. For example: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. On the top menu bar, select **Cell**, then **Run All**.
+To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
 
 ## Workflow
 
@@ -102,5 +99,5 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 ## Next steps
 
 * [Quickstart: Detect anomalies in your time series data using the Anomaly Detector](quickstarts/client-libraries.md)
-* The Anomaly Detector API [online demo](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
+* The Anomaly Detector API [online demo](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
 * The Anomaly Detector [REST API reference](https://aka.ms/anomaly-detector-rest-api-ref)

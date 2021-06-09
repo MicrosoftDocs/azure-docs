@@ -39,7 +39,7 @@ A development machine:
 * Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
 * Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.  
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 An Azure IoT Edge device:
 
@@ -221,10 +221,10 @@ Provide your container registry credentials to Docker so that it can push your c
    ```
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
-   
+
 3. Log in to Azure Container Registry
 
-   ```cmd/sh
+   ```azurecli
    az acr login -n <ACR registry name>
    ```
 

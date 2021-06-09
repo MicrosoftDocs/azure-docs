@@ -65,7 +65,7 @@ The following classes handle some of the major features of the Metrics Advisor P
 |Name|Description|
 |---|---|
 | [MetricsAdvisorClient](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html#azure.ai.metricsadvisor.MetricsAdvisorClient) | **Used for**: <br> - Listing incidents <br> - Listing root cause of incidents <br> - Retrieving original time series data and time series data enriched by the service. <br> - Listing alerts <br> - Adding feedback to tune your model |
-| [MetricsAdvisorAdministrationClient](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html#azure.ai.metricsadvisor.MetricsAdvisorAdministrationClient) | **Allows you to:** <br> - Manage data feeds <br> - Create, configure, retrieve, list, and delete anomaly detection configurations <br> - Create, configure, retrieve, list, and delete anomaly alerting configurations <br> - Manage hooks  | |
+| [MetricsAdvisorAdministrationClient](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html#azure.ai.metricsadvisor.MetricsAdvisorAdministrationClient) | **Allows you to:** <br> - Manage data feeds <br> - Create, configure, retrieve, list, and delete anomaly detection configurations <br> - Create, configure, retrieve, list, and delete anomaly alerting configurations <br> - Manage hooks  |
 | [DataFeed](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.models.html?highlight=datafeed#azure.ai.metricsadvisor.models.DataFeed)| **What Metrics Advisor ingests from your datasource. A `DataFeed` contains rows of:** <br> - Timestamps <br> - Zero or more dimensions <br> - One or more measures  |
 | [DataFeedMetric](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.models.html?highlight=datafeedmetric#azure.ai.metricsadvisor.models.DataFeedMetric) | A `DataFeedMetric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
 
@@ -243,7 +243,7 @@ return detection_config
 
 ## Create a hook
 
-In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link for receiving the alert.  
+In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link which will appear in the alert.
 
 ```python
 def sample_create_hook():
@@ -262,7 +262,7 @@ hook = client.create_hook(
         name="email hook",
         description="my email hook",
         emails_to_alert=["alertme@alertme.com"],
-        external_link="https://example.com/handleAlerts", # you must enter a valid webhook url to post the alert payload
+        external_link="https://example.com/handleAlerts"   #A customized field configured by users, which will be displayed in the anomaly alert. It's usually been used to link to a troubleshooting guide to help further diagnose the issue.
     )
 )
 ```

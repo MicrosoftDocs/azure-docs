@@ -55,6 +55,14 @@
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
+        - name: Azure Arc (preview)
+          items:
+          - name: Publish code project
+            displayName: Arc, container, Kubernetes
+            href: create-first-function-arc-cli.md
+          - name: Publish Linux container
+            displayName: Arc, container, Kubernetes
+            href: create-first-function-arc-custom-container.md
     - name: Connect to a database
       items:
         - name: Visual Studio Code
@@ -73,8 +81,9 @@
       href: functions-twitter-email.md
     - name: Develop Python functions with VS Code
       href: /azure/python/tutorial-vs-code-serverless-python-01
-    - name: OpenAPI definition for serverless APIs
-      href: functions-openapi-definition.md
+    - name: Create serverless APIs using Visual Studio  
+      href: openapi-apim-integrate-visual-studio.md
+      displayName: OpenAPI, Swagger
     - name: Networking
       items:  
         - name: Connect to a Virtual Network
@@ -233,7 +242,7 @@
           href: security-concepts.md
           displayName: secure, ssl
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
     - name: Monitoring
       href: functions-monitoring.md
       displayName: App Insights, Application Insights, logs, logging
@@ -267,6 +276,8 @@
             - name: Core Tools development
               href: functions-run-local.md
               displayName: local, runtime
+            - name: Event Grid Blob Trigger local development
+              href: functions-event-grid-blob-trigger.md
         - name: Create functions
           items:
             - name: HTTP trigger
@@ -341,6 +352,8 @@
           href: functions-bindings-error-pages.md
         - name: Manually run a non HTTP-triggered function
           href: functions-manually-run-non-http.md
+        - name: Bring dependencies to function apps
+          href: bring-dependency-to-functions.md
     - name: Deploy
       items:
         - name: Continuous deployment
@@ -360,8 +373,6 @@
           displayName: keda, container, docker
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
-        - name: On-premises functions
-          href: functions-runtime-install.md
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
@@ -404,8 +415,6 @@
               href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Authenticate with Google
               href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
-            - name: Authenticate with Microsoft account
-              href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Authenticate with Twitter
               href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Authenticate with an OpenID Connect provider (Preview)
@@ -436,12 +445,30 @@
               href: functions-add-output-binding-storage-queue-vs-code.md
             - name: Storage - Visual Studio
               href: functions-add-output-binding-storage-queue-vs.md
+        - name: Start/Stop VMs
+          items:
+            - name: Overview
+              href: start-stop-vms/overview.md
+            - name: Deploy and configure
+              href: start-stop-vms/deploy.md
+            - name: Manage and monitor
+              href: start-stop-vms/manage.md
+            - name: Remove Start/Stop VMs
+              href: start-stop-vms/remove.md
+            - name: Troubleshoot
+              href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Connect to a virtual Network
           href: ./functions-create-vnet.md
-        - name: Create an Open API 2.0 definition
-          href: ./functions-openapi-definition.md
+        - name: Create OpenAPI definitions
+          items:
+            - name: API Management integration (portal)
+              href: ./functions-openapi-definition.md
+              displayName: OpenAPI, Swagger
+            - name: Visual Studio with API Management (C#)
+              href: openapi-apim-integrate-visual-studio.md
+              displayName: OpenAPI, Swagger
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Customize HTTP function endpoint
@@ -452,10 +479,14 @@
       items:
         - name: Troubleshoot storage
           href: functions-recover-storage-account.md
-        - name: Troubleshoot Python functions
-          href: recover-python-functions.md
-        - name: Scale and performance for Python functions
-          href: python-scale-performance-reference.md
+        - name: Python functions
+          items:
+            - name: General troubleshooting
+              href: recover-python-functions.md
+            - name: Scale and performance
+              href: python-scale-performance-reference.md
+            - name: Memory profiling
+              href: python-memory-profiler-reference.md
 - name: Reference
   items:
     - name: API references
@@ -552,7 +583,7 @@
               displayName: HTTP
             - name: Trigger
               href: functions-bindings-http-webhook-trigger.md
-              displayName: HTTP
+              displayName: HTTP, keys, authorization keys, function keys, access keys
             - name: Output
               href: functions-bindings-http-webhook-output.md
               displayName: HTTP
@@ -626,14 +657,22 @@
           href: functions-bindings-twilio.md
         - name: Warmup
           href: functions-bindings-warmup.md
+    - name: Errors and diagnostics
+      items:
+        - name: .NET worker rules
+          items:
+          - name: AZFW0001
+            href: errors-diagnostics/net-worker-rules/azfw0001.md
+        - name: SDK rules
+          items:
+          - name: AZF0001
+            href: errors-diagnostics/sdk-rules/azf0001.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
       href: functions-host-json-v1.md
     - name: Networking FAQ
       href: functions-networking-faq.md
-    - name: OpenAPI reference
-      href: functions-api-definition.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn

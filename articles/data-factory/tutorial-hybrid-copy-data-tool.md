@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 03/26/2021
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -82,21 +82,6 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 
 1. In the **Storage account name** and **key1** boxes, copy the values, and then paste them into Notepad or another editor for later use in the tutorial.
-
-#### Create the adftutorial container
-In this section, you create a blob container named **adftutorial** in your Blob storage.
-
-1. In the **Storage account** window, switch to **Overview**, and then select **Blobs**.
-
-1. In the **Blobs** window, select **+ Container**.
-
-1. In the **New container** window, under **Name**, enter **adftutorial**, and then select **OK**.
-
-1. In the list of containers, select **adftutorial**.
-
-
-1. Keep the **Container** window for **adftutorial** open. You use it to verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
-
 
 ## Create a data factory
 

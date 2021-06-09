@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-# customer intent: As an IT admin, I want to learn about Front Door and how to configure a security header via Rules Engine. 
+# Customer intent: As an IT admin, I want to learn about Front Door and how to configure a security header via Rules Engine. 
 ---
 
 # Tutorial: Add Security headers with Rules Engine
@@ -37,6 +37,9 @@ In this tutorial, you learn how to:
 1. Set the Operator to be **Append** to add this header as a response to all of the incoming requests to this route.
 
 1. Add the header name: **Content-Security-Policy** and define the values this header should accept. In this scenario, we choose *"script-src 'self' https://apiphany.portal.azure-api.net."*
+
+   > [!NOTE]
+   > Header values are limited to 128 characters.
 
 1. Once you've added all of the rules you'd like to your configuration, don't forget to go to your preferred route and associate your Rules Engine configuration to your Route Rule. This step is required to enable the rule to work. 
 

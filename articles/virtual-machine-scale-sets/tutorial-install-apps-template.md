@@ -5,7 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.subservice: template
+ms.subservice: extensions
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli

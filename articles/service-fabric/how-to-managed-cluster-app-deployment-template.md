@@ -1,12 +1,13 @@
 ---
-title: Deploy a Service Fabric managed cluster (preview) application using ARM template
-description: Deploy an application to a Azure Service Fabric managed cluster (preview) using an Azure Resource Manager template.
+title: Deploy a Service Fabric managed cluster application using ARM template
+description: Deploy an application to a Azure Service Fabric managed cluster using an Azure Resource Manager template.
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 5/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
-# Deploy a Service Fabric managed cluster (preview) application using ARM template
+# Deploy a Service Fabric managed cluster application using ARM template
 
-You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
+You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
 Managing your applications as resources in Resource Manager can help you gain improvements in these areas:
 
@@ -88,32 +89,32 @@ The sample application contains [Azure Resource Manager templates](https://githu
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | The name of the cluster you're deploying to | sf-cluster123                                                |                                                              |
 | application            | The name of the application                 | Voting                                                       |
-| version    | The resource ID, application type, and version of the app.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0.0                                               | Must match ApplicationManifest.xml                 |              |
+| version    | The resource ID, application type, and version of the app.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0.0                                               | Must match ApplicationManifest.xml                 |
 | serviceName            | The name of the service         | VotingWeb                                             | Must be in the format ServiceType            |
 | serviceTypeName        | The type name of the service                | VotingWebType                                                    | Must match ServiceManifest.xml                 |
 | appPackageUrl          | The blob storage URL of the application     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | The URL of the application package in blob storage (the procedure to set the URL is described later in the article) |
 
 ```json
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -175,12 +176,10 @@ To delete an application that was deployed by using the application resource mod
 
 ## Next steps
 
-Get information about the application resource model:
+Learn more about managed cluster application deployment:
 
-* [Model an application in Service Fabric](service-fabric-application-model.md)
-* [Service Fabric application and service manifests](service-fabric-application-and-service-manifests.md)
-* [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
-* [Manage applications and services as Azure resources](service-fabric-best-practices-infrastructure-as-code.md)
+* [Deploy managed cluster application secrets](how-to-managed-cluster-application-secrets.md)
+* [Deploy managed cluster applications with managed identity](how-to-managed-cluster-application-managed-identity.md)
 
 
 <!--Image references-->

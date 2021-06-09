@@ -46,7 +46,7 @@
   - name: REST
     href: /rest/api/customproviders/
   - name: Azure CLI
-    href: /cli/azure/ext/custom-providers/custom-providers/
+    href: /cli/azure/custom-providers/
   - name: Azure PowerShell
     href: /powershell/module/Az.CustomProviders/
   - name: Azure Policy built-ins

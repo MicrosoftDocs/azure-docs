@@ -95,7 +95,7 @@ In this tutorial, you learned how to:
 > * Start the device
 > * Verify the device is registered
 
-Advance to the next tutorial to learn how to provision multiple devices across load-balanced hubs. 
+Advance to the next tutorial to learn how to provision multiple devices across load-balanced hubs
 
 > [!div class="nextstepaction"]
 > [Provision devices across load-balanced IoT hubs](./tutorial-provision-multiple-hubs.md)

@@ -5,7 +5,8 @@ keywords: runbook, runbook template, runbook automation, azure runbook
 services: automation
 ms.subservice: process-automation
 ms.date: 09/15/2020
-ms.topic: tutorial
+ms.topic: tutorial 
+ms.custom: devx-track-azurepowershell
 ---
 # Tutorial: Create a graphical runbook
 

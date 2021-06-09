@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides encryption of data at rest and h
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 06/08/2021
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
@@ -39,7 +39,7 @@ Advanced Threat Protection for Azure Cosmos DB detects anomalous activities indi
 
 You can configure advanced threat protection in any of several ways, described in the following sections.
 
-### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. Launch the Azure portal at  [https://portal.azure.com](https://portal.azure.com/).
 
@@ -52,14 +52,14 @@ You can configure advanced threat protection in any of several ways, described i
     * Click the **Advanced Threat Protection** option to set it to **ON**.
     * Click **Save** to save the new or updated Advanced Threat Protection policy.   
 
-### [REST API](#tab/rest-api)
+# [REST API](#tab/rest-api)
 
 Use Rest API commands to create, update, or get the Advanced Threat Protection setting for a specific Azure Cosmos DB account.
 
 * [Advanced Threat Protection - Create](/rest/api/securitycenter/advancedthreatprotection/create)
 * [Advanced Threat Protection - Get](/rest/api/securitycenter/advancedthreatprotection/get)
 
-### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use the following PowerShell cmdlets:
 
@@ -67,13 +67,13 @@ Use the following PowerShell cmdlets:
 * [Get Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
 * [Disable Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
-### [ARM template](#tab/arm-template)
+# [ARM template](#tab/arm-template)
 
 Use an Azure Resource Manager (ARM) template to set up Cosmos DB with Advanced Threat Protection enabled.
 For more information, see
-[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
+[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
 
-### [Azure Policy](#tab/azure-policy)
+# [Azure Policy](#tab/azure-policy)
 
 Use an Azure Policy to enable Advanced Threat Protection for Cosmos DB.
 

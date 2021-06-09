@@ -3,7 +3,7 @@ title: "Overview of Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 03/03/2021
+ms.date: 05/25/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
@@ -39,9 +39,13 @@ Azure Arc enabled Kubernetes supports the following scenarios:
 
 * Deploy applications and apply configuration using GitOps-based configuration management. 
 
-* View and monitor your clusters using Azure Monitor for containers. 
+* View and monitor your clusters using Azure Monitor for containers.
 
-* Apply policies using Azure Policy for Kubernetes. 
+* Enforce threat protection using Azure Defender for Kubernetes.
+
+* Apply policies using Azure Policy for Kubernetes.
+
+* Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc enabled Data Services, [App Services on Azure Arc](../../app-service/overview-arc-integration.md) (including web, function, and logic apps) and [Event Grid on Kubernetes](/azure/event-grid/kubernetes/overview).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

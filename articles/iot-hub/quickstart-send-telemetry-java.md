@@ -10,7 +10,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt, devx-track-java, devx-track-azurecli]
 ms.date: 01/27/2021
-# As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
+#Customer intent: As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
 # Quickstart: Send telemetry to an Azure IoT hub and read it with a Java application

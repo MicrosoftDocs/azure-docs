@@ -2,7 +2,8 @@
 title: Create a new Azure Monitor Application Insights workspace-based resource | Microsoft Docs
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 10/06/2020 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
@@ -60,10 +61,10 @@ For code-based application monitoring, you would just install the appropriate Ap
 For detailed documentation on setting up an Application Insights SDK for code-based monitoring consult the language/framework specific documentation:
 
 - [ASP.NET](./asp-net.md)
-- [ASP.NET Core ](./asp-net-core.md)
+- [ASP.NET Core](./asp-net-core.md)
 - [Background tasks & modern console applications (.NET/.NET Core)](./worker-service.md)
 - [Classic console applications (.NET)](./console.md) 
-- [Java ](./java-get-started.md?tabs=maven)
+- [Java](./java-in-process-agent.md)
 - [JavaScript](./javascript.md)
 - [Node.js](./nodejs.md)
 - [Python](./opencensus-python.md)
@@ -109,7 +110,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
+For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create).
 
 ### Azure PowerShell
 

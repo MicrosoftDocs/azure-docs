@@ -164,4 +164,4 @@ Remove-AzResourceGroup -Name <resource group name>
 
 ## Next steps
 
-[Azure Spring Cloud developer resources](spring-cloud-resources.md).
+[Azure Spring Cloud developer resources](./resources.md).

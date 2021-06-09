@@ -32,7 +32,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * An Azure AD tenant allows, by default, 50,000 objects. When you verify your domain, the limit increases to 300,000 objects. If you need even more objects in Azure AD, open a support case to have the limit increased even further. If you need more than 500,000 objects, you need a license, such as Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security.
 
 ### Prepare your on-premises data
-* Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Microsoft 365.
+* Use [IdFix](https://github.com/Microsoft/idfix) to identify errors such as duplicates and formatting problems in your directory before you [synchronize to Azure AD and Microsoft 365](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac).
 * Review [optional sync features you can enable in Azure AD](how-to-connect-syncservice-features.md), and evaluate which features you should enable.
 
 ### On-premises Active Directory
@@ -226,7 +226,7 @@ The following table shows the minimum requirements for the Azure AD Connect sync
 | Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
 | 10,000–50,000 |1.6 GHz |4 GB |70 GB |
 | 50,000–100,000 |1.6 GHz |16 GB |100 GB |
-| For 100,000 or more objects, the full version of SQL Server is required | | | |
+| For 100,000 or more objects, the full version of SQL Server is required. For performance reasons, installing locally is preferred. | | | |
 | 100,000–300,000 |1.6 GHz |32 GB |300 GB |
 | 300,000–600,000 |1.6 GHz |32 GB |450 GB |
 | More than 600,000 |1.6 GHz |32 GB |500 GB |

@@ -22,7 +22,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 - **Azure CLI**: you have two options.
 
     - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md).
-    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az_login).
     
 > [!NOTE]
 > Linux is currently the recommended option for running Python apps in App Service. For information on the Windows option, see [Python on the Windows flavor of App Service](/visualstudio/python/managing-python-on-azure-app-service).
@@ -124,7 +124,7 @@ The following table describes the production settings that are relevant to Azure
 
 | Django setting | Instructions for Azure |
 | --- | --- |
-| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a "secrete" in Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
+| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a "secret" in Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 | `DEBUG` | Create a `DEBUG` setting on App Service with the value 0 (false), then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value 1 (true). |
 | `ALLOWED_HOSTS` | In production, Django requires that you include app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime with the code, `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
 | `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternately store the values (especially the username and password) as [Azure Key Vault secrets](../key-vault/secrets/quick-create-python.md). |
@@ -164,8 +164,10 @@ For App Service, you then make the following modifications:
 1. Also modify the `MIDDLEWARE` and `INSTALLED_APPS` lists to include Whitenoise:
 
     ```python
-    MIDDLEWARE = [
-        "whitenoise.middleware.WhiteNoiseMiddleware",
+    MIDDLEWARE = [                                                                   
+        'django.middleware.security.SecurityMiddleware',
+        # Add whitenoise middleware after the security middleware                             
+        'whitenoise.middleware.WhiteNoiseMiddleware',
         # Other values follow
     ]
 

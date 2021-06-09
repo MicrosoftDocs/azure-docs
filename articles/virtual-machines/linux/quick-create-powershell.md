@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a Linux virtual machine in Azure with PowerShell
@@ -166,6 +166,8 @@ New-AzVM `
 ```
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to the VM
 

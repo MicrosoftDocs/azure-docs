@@ -1,12 +1,12 @@
 ---
 title: Copy data to and from Azure Databricks Delta Lake
 description: Learn how to copy data to and from Azure Databricks Delta Lake by using a copy activity in an Azure Data Factory pipeline.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
+ms.date: 03/29/2021
 ---
 
 # Copy data to and from Azure Databricks Delta Lake by using Azure Data Factory
@@ -37,7 +37,7 @@ To use this Azure Databricks Delta Lake connector, you need to set up a cluster 
 
 The Databricks cluster needs to have access to Azure Blob or Azure Data Lake Storage Gen2 account, both the storage container/file system used for source/sink/staging and the container/file system where you want to write the Delta Lake tables.
 
-- To use **Azure Data Lake Storage Gen2**, you can configure a **service principal** or **storage account access key** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access directly with service principal](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
+- To use **Azure Data Lake Storage Gen2**, you can configure a **service principal** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access directly with service principal](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20).
 
 - To use **Azure Blob storage**, you can configure a **storage account access key** or **SAS token** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access Azure Blob storage using the RDD API](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 
@@ -62,7 +62,7 @@ For cluster configuration details, see [Configure clusters](/azure/databricks/cl
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that define Data Factory entities specific to an Azure Databricks Delta Lake connector.
 

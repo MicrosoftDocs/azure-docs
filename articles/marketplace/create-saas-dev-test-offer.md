@@ -1,16 +1,16 @@
 ---
-title: Create a test offer
-description: How to create a separate development offer for testing your production offer in the commercial marketplace program in Microsoft Partner Center. 
+title: Create a test SaaS offer
+description: Create a separate development offer for testing your production offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 04/20/2021
 ---
 
-# Create a test offer
+# Create a test SaaS offer
 
 To develop in a separate environment from your production offer, you’ll create a separate test and development (DEV) offer and a separate production (PROD) offer. For information about the benefits of using a separate DEV offer, see [Plan a SaaS offer](plan-saas-offer.md#test-offer).
 
@@ -89,10 +89,11 @@ To reduce your cost for testing the pricing models, including Marketplace custom
 | ------------ | ------------- |
 | $0.00 | Set a total transaction cost of zero to have no financial impact. Use this price when making calls to the metering APIs, or to test purchasing plans in your offer while developing your solution. |
 | $0.01 - $49.99 | Use this price range to test analytics, reporting, and the purchase process. |
-| $50.00 and above | Use this price range to test payout. For information about our payment schedule, see [Payout schedules and processes](/partner-center/payout-policy-details). |
+| $50.00 - $100.00 | Use this price range to test payout. For information about our payment schedule, see [Payout schedules and processes](/partner-center/payout-policy-details). |
 |||
 
-To avoid being charged a store service fee on your test, open a [support ticket](support.md).
+> [!IMPORTANT]
+>  To avoid being charged a store service fee on your test, open a [support ticket](support.md) within 7 days of the test purchase.
 
 #### Free trial
 

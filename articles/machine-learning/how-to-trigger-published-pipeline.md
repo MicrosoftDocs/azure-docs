@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 01/29/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 
 # Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
 ---

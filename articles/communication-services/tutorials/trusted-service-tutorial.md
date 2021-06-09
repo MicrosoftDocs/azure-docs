@@ -14,9 +14,6 @@ ms.service: azure-communication-services
 
 # Build a trusted authentication service using Azure Functions
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 
 ## Clean up resources

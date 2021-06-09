@@ -6,7 +6,7 @@ ms.author: routlaw
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-azurecli
 ---
 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
@@ -77,7 +77,7 @@ The name of Cosmos DB must use only lower case letters. Note down the `documentE
 4. Get your Azure Cosmos DB key to connect to the app. Keep the `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
 
     ```azurecli
-    az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
+    az cosmosdb keys list -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
 ## Configure the TODO app properties
@@ -183,7 +183,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.11.0</version>
+        <version>1.14.0</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -191,12 +191,12 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
-
+            <pricingTier>P1V2</princingTier>
             <!-- Java Runtime Stack for Web App on Linux-->
             <runtime>
                  <os>linux</os>
-                 <javaVersion>jre8</javaVersion>
-                 <webContainer>jre8</webContainer>
+                 <javaVersion>Java 8</javaVersion>
+                 <webContainer>Java SE</webContainer>
              </runtime>
              <deployment>
                  <resources>
@@ -248,7 +248,7 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.11.0:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:1.14.0:deploy (default-cli) @ spring-todo-app ---
 [INFO] Auth Type : AZURE_CLI, Auth Files : [C:\Users\testuser\.azure\azureProfile.json, C:\Users\testuser\.azure\accessTokens.json]
 [INFO] Subscription : xxxxxxxxx
 [INFO] Target Web App doesn't exist. Creating a new one...
@@ -273,7 +273,7 @@ bash-3.2$ mvn azure-webapp:deploy
 The output contains the URL to your deployed application (in this example, `https://spring-todo-app.azurewebsites.net` ). You can copy this URL into your web browser or run the following command in your Terminal window to load your app.
 
 ```bash
-curl https://spring-todo-app.azurewebsites.net
+explorer https://spring-todo-app.azurewebsites.net
 ```
 
 You should see the app running with the remote URL in the address bar:
@@ -297,10 +297,9 @@ az appservice plan update --number-of-workers 2 \
 
 ## Clean up resources
 
-If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell: 
-  
+If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell:
 ```azurecli
-az group delete --name <your-azure-group-name>
+az group delete --name <your-azure-group-name> --yes
 ```
 
 <a name="next"></a>

@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Use Azure Virtual WAN to Create Site-to-Site connections'
-description: In this tutorial, learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
+description: Learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 05/26/2021
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
+# Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
 # Tutorial: Create a Site-to-Site connection using Azure Virtual WAN
 
@@ -29,7 +29,7 @@ In this tutorial you learn how to:
 > If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
 >
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
+:::image type="content" source="./media/virtual-wan-about/virtualwan.png" alt-text="Screenshot shows a networking diagram for Virtual WAN.":::
 
 ## Prerequisites
 
@@ -228,7 +228,7 @@ On the **Edit VPN Gateway** page, you can see the following settings:
 * VPN Gateway Default BGP IP address (assigned by Azure)
 * Configuration option for Custom BGP IP Address: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="View configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Screenshot shows the Edit VPN Gateway page with the Edit button highlighted." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="cleanup"></a>Clean up resources
 

@@ -63,7 +63,7 @@ To build the application, follow these steps:
 4. Build the .jar file:
 
    ```azurecli
-   mvn clean packge -DskipTests
+   mvn clean package -DskipTests
    ```
 5. Create the app in your Azure Spring Cloud instance:
 
@@ -180,4 +180,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## Next steps
 
-* [CI/CD for Azure Spring Cloud](./spring-cloud-howto-cicd.md?pivots=programming-language-java)
+* [CI/CD for Azure Spring Cloud](./how-to-cicd.md?pivots=programming-language-java)

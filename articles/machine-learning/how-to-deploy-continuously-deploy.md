@@ -8,9 +8,9 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.date: 08/03/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: how-to, tracking-python, deploy
+ms.custom: tracking-python, deploy
 ---
 
 # Continuously deploy models

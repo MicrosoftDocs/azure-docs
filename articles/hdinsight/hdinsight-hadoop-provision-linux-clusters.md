@@ -3,7 +3,7 @@ title: Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kaf
 description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017,seodec18
+ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
 ms.date: 08/06/2020
 ---
 
@@ -26,12 +26,12 @@ The following table shows the different methods you can use to set up an HDInsig
 
 | Clusters created with | Web browser | Command line | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
-| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |âœ” |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |âœ” |âœ” |âœ” |âœ” |
+| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |âœ” |&nbsp; |&nbsp; |
+| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |âœ” |&nbsp; |&nbsp; |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |âœ” |âœ” |&nbsp; |
+| [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |âœ” |&nbsp; |&nbsp; |
 
 This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster.
 

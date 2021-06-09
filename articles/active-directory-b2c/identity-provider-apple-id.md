@@ -192,7 +192,7 @@ You can define an Apple ID as a claims provider by adding it to the **ClaimsProv
             <Item Key="response_types">code</Item>
             <Item Key="external_user_identity_claim_id">sub</Item>
             <Item Key="response_mode">form_post</Item>
-            <Item Key="ReadBodyClaimsOnIdpRedirect">user.firstName user.lastName user.email</Item>
+            <Item Key="ReadBodyClaimsOnIdpRedirect">user.name.firstName user.name.lastName user.email</Item>
             <Item Key="client_id">You Apple ID</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
           </Metadata>
@@ -247,7 +247,7 @@ You can define an Apple ID as a claims provider by adding it to the **ClaimsProv
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Apple** to sign in with Apple ID.
 

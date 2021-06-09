@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 03/16/2021
+ms.date: 03/26/2021
 ---
 
 # Access Azure API for FHIR with Postman
@@ -19,12 +19,13 @@ A client application can access the Azure API for FHIR through a [REST API](http
 
 - A FHIR endpoint in Azure. 
 
-   To deploy the Azure API for FHIR (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+  To deploy the Azure API for FHIR (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+
 - A registered [confidential client application](register-confidential-azure-ad-client-app.md) to access the FHIR service.
 - You have granted permissions to the confidential client application, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](./configure-azure-rbac.md).
 - Postman installed. 
     
-    For more information about Postman, see [Get Started with Postman](https://www.getpostman.com).
+  For more information about Postman, see [Get Started with Postman](https://www.getpostman.com).
 
 ## FHIR server and authentication details
 
@@ -57,6 +58,8 @@ If you attempt to access restricted resources, an "Authentication failed" respon
 ![Authentication Failed](media/tutorial-postman/postman-authentication-failed.png)
 
 ## Obtaining an access token
+Select **Get New Access Token**.
+
 To obtain a valid access token, select **Authorization** and select **OAuth 2.0** from the **TYPE** drop-down menu.
 
 ![Set OAuth 2.0](media/tutorial-postman/postman-select-oauth2.png)
@@ -71,13 +74,13 @@ In the **Get New Access Token** dialog box, enter the following details:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------|
 | Token Name            | MYTOKEN                                                                                                         | A name you choose          |
 | Grant Type            | Authorization Code                                                                                              |                            |
-| Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                      |                            |
+| Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                    |                            |
 | Auth URL              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience` is `https://MYACCOUNT.azurehealthcareapis.com` for Azure API for FHIR |
-| Access Token URL      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
-| Client ID             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Application ID             |
-| Client Secret         | `XXXXXXXX`                                                                                                        | Secret client key          |
-| Scope | `<Leave Blank>` |
-| State                |  `1234`                                                                                                           |                            |
+| Access Token URL      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                    |                            |
+| Client ID             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                           | Application ID             |
+| Client Secret         | `XXXXXXXX`                                                                                                      | Secret client key          |
+| Scope | `<Leave Blank>` | Scope is not used; therefore, it can be left blank.  
+| State                 | `1234`     | [State](https://learning.postman.com/docs/sending-requests/authorization/) is an opaque value to prevent cross-site request forgery. It is optional and can take an arbitrary value such as '1234'.                           |
 | Client Authentication | Send client credentials in body                                                                                 |                 
 
 Select **Request Token** to be guided through the Azure Active Directory Authentication flow, and a token will be returned to Postman. If an authentication failure occurs, refer to the Postman Console for more details. **Note**: On the ribbon, select **View**, and then select **Show Postman Console**. The keyboard shortcut to the Postman Console is **Alt-Ctrl+C**.
@@ -128,7 +131,7 @@ Select **Send** to determine that the patient is successfully created.
 
 ![Screenshot that shows that the patient is successfully created.](media/tutorial-postman/postman-patient-created.png)
 
-If you repeat the patient search, you should now see the patient record:
+If you repeat the patient search, you should now see the patient record.
 
 ![Patient Created](media/tutorial-postman/postman-patient-found.png)
 

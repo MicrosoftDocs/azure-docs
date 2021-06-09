@@ -12,6 +12,9 @@ ms.custom: include file
 ms.author: mikben
 ---
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat)
+
 ## Prerequisites
 Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -41,7 +44,7 @@ dotnet build
 Install the Azure Communication Chat SDK for .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
+dotnet add package Azure.Communication.Chat --version 1.0.0
 ```
 
 ## Object model
@@ -130,7 +133,8 @@ Use `SendMessage` to send a message to a thread.
 - Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
 
 ```csharp
-var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
+SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
+string messageId = sendChatMessageResult.Id;
 ```
 
 ## Receive chat messages from a chat thread

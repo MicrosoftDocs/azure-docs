@@ -215,7 +215,7 @@
     - name: iOS Platform
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azureiotsolutions.com/
+    href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Customer data requests

@@ -3,8 +3,9 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 04/18/2021
 ms.topic: troubleshooting
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Update Management issues
@@ -183,11 +184,13 @@ To register the Automation resource provider, follow these steps in the Azure po
 
 5. If it's not listed, register the Microsoft.Automation provider by following the steps at [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
-## <a name="scheduled-update-missed-machines"></a>Scenario: Scheduled update with a dynamic schedule missed some machines
+## <a name="scheduled-update-missed-machines"></a>Scenario: Scheduled update did not patch some machines
 
 ### Issue
 
-Machines included in an update preview don't all appear in the list of machines patched during a scheduled run.
+Machines included in an update preview don't all appear in the list of machines patched during a scheduled run, or VMs for selected scopes of a dynamic group are not showing up in the update preview list in the portal.
+
+The update preview list consists of all machines retrieved by an [Azure Resource Graph](../../governance/resource-graph/overview.md) query for the selected scopes. The scopes are filtered for machines that have a system Hybrid Runbook Worker installed and for which you have access permissions.
 
 ### Cause
 
@@ -196,6 +199,12 @@ This issue can have one of the following causes:
 * The subscriptions defined in the scope in a dynamic query aren't configured for the registered Automation resource provider.
 
 * The machines weren't available or didn't have appropriate tags when the schedule executed.
+
+* You don't have the correct access on the selected scopes.
+
+* The Azure Resource Graph query doesn't retrieve the expected machines.
+
+* The system Hybrid Runbook Worker isn't installed on the machines.
 
 ### Resolution
 
@@ -233,31 +242,15 @@ Use the following procedure if your subscription is configured for the Automatio
 
 7. Rerun the update schedule to ensure that deployment with the specified dynamic groups includes all machines.
 
-## <a name="machines-not-in-preview"></a>Scenario: Expected machines don't appear in preview for dynamic group
-
-### Issue
-
-VMs for selected scopes of a dynamic group are not showing up in the Azure portal preview list. This list consists of all machines retrieved by an ARG query for the selected scopes. The scopes are filtered for machines that have Hybrid Runbook Workers installed and for which you have access permissions.
-
-### Cause
-
-Here are possible causes for this issue:
-
-* You don't have the correct access on the selected scopes.
-* The ARG query doesn't retrieve the expected machines.
-* Hybrid Runbook Worker isn't installed on the machines.
-
-### Resolution 
-
 #### Incorrect access on selected scopes
 
 The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-#### ARG query doesn't return expected machines
+#### Resource Graph query doesn't return expected machines
 
 Follow the steps below to find out if your queries are working correctly.
 
-1. Run an ARG query formatted as shown below in the Resource Graph explorer blade in Azure portal. This query mimics the filters you selected when you created the dynamic group in Update Management. See [Use dynamic groups with Update Management](../update-management/configure-groups.md).
+1. Run an Azure Resource Graph query formatted as shown below in the Resource Graph explorer blade in Azure portal. If you are new to Azure Resource Graph, see this [quickstart](../../governance/resource-graph/first-query-portal.md) to learn how to work with Resource Graph explorer. This query mimics the filters you selected when you created the dynamic group in Update Management. See [Use dynamic groups with Update Management](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -282,7 +275,7 @@ Follow the steps below to find out if your queries are working correctly.
 
 #### Hybrid Runbook Worker not installed on machines
 
-Machines do appear in ARG query results but still don't show up in the dynamic group preview. In this case, the machines might not be designated as hybrid workers and thus can't run Azure Automation and Update Management jobs. To ensure that the machines you're expecting to see are set up as Hybrid Runbook Workers:
+Machines do appear in Azure Resource Graph query results, but still don't show up in the dynamic group preview. In this case, the machines might not be designated as system Hybrid Runbook workers and thus can't run Azure Automation and Update Management jobs. To ensure that the machines you're expecting to see are set up as system Hybrid Runbook Workers:
 
 1. In the Azure portal, go to the Automation account for a machine that is not appearing correctly.
 
@@ -292,11 +285,19 @@ Machines do appear in ARG query results but still don't show up in the dynamic g
 
 4. Validate that the hybrid worker is present for that machine.
 
-5. If the machine is not set up as a hybrid worker, make adjustments using instructions at [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md).
+5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable using one of the following methods:
 
-6. Join the machine to the Hybrid Runbook Worker group.
+   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
 
-7. Repeat the steps above for all machines that have not been displaying in the preview.
+   - Using the **Enable-AutomationSolution** [runbook](../update-management/enable-from-runbook.md) to automate onboarding Azure VMs.
+
+   - For a [selected Azure VM](../update-management/enable-from-vm.md) from the **Virtual machines** page in the Azure portal. This scenario is available for Linux and Windows VMs.
+
+   - For [multiple Azure VMs](../update-management/enable-from-portal.md) by selecting them from the **Virtual machines** page in the Azure portal.
+
+   The method to enable is based on the environment the machine is running in.
+
+6. Repeat the steps above for all machines that have not been displaying in the preview.
 
 ## <a name="components-enabled-not-working"></a>Scenario: Update Management components enabled, while VM continues to show as being configured
 
@@ -330,7 +331,7 @@ Update
 
 #### Communication with Automation account blocked
 
-Go to [Network planning](../update-management/overview.md#ports) to learn about which addresses and ports must be allowed for Update Management to work.
+Go to [Network planning](../update-management/plan-deployment.md#ports) to learn about which addresses and ports must be allowed for Update Management to work.
 
 #### Duplicate computer name
 
@@ -398,10 +399,10 @@ Review the registry keys listed under [Configuring Automatic Updates by editing 
 
 ### Issue
 
-A machine shows a `Failed to start` status. When you view the specific details for the machine, you see the following error:
+A machine shows a `Failed to start` or `Failed` status. When you view the specific details for the machine, you see the following error:
 
 ```error
-Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+For one or more machines in schedule, UM job run resulted in either Failed or Failed to start state. Guide available at https://aka.ms/UMSucrFailed.
 ```
 
 ### Cause
@@ -416,9 +417,11 @@ This error can occur for one of the following reasons:
 
 ### Resolution
 
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
+
 When applicable, use [dynamic groups](../update-management/configure-groups.md) for your update deployments. In addition, you can take the following steps.
 
-1. Verify that your machine or server meets the [requirements](../update-management/overview.md#system-requirements).
+1. Verify that your machine or server meets the [requirements](../update-management/operating-system-requirements.md).
 2. Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
@@ -510,11 +513,13 @@ Verify that the system account has read access to the **C:\ProgramData\Microsoft
 
 ### Issue
 
-The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes.
+The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes. You might receive the error message `For one or more machines in schedule, UM job run resulted in Maintenance Window Exceeded state. Guide available at https://aka.ms/UMSucrMwExceeded.`
 
 ### Resolution
 
 To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
+
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 
@@ -549,7 +554,7 @@ If you see an HRESULT, double-click the exception displayed in red to see the en
 |Exception  |Resolution or action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details about the cause of the exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/overview.md#ports) section for a list of required ports and addresses.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/plan-deployment.md#ports) section for a list of required ports and addresses.        |
 |`0x8024001E`| The update operation didn't complete because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
@@ -615,7 +620,7 @@ Updates are often superseded by other updates. For more information, see [Update
 
 ### Installing updates by classification on Linux
 
-Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/overview.md#linux).
+Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/overview.md#update-classifications).
 
 ### KB2267602 is consistently missing
 

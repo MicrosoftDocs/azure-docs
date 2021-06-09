@@ -2,7 +2,7 @@
 title: Azure Communication Services - Web calling sample
 titleSuffix: An Azure Communication Services sample
 description: Learn about the Communication Services web calling sample
-author: chriswhilar
+author: mariusu-msft
 manager: mariusu-msft
 services: azure-communication-services
 
@@ -20,11 +20,8 @@ This sample was built for developers and makes it very easy for you to get start
 
 ## Get started with the web calling sample
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
 > [!IMPORTANT]
-> [This sample is available on Github.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
+> [This sample is available **on Github**.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
 Follow the /Project/readme.md to set up the project and run it locally on your machine.
 Once the [web calling sample](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) is running on your machine, you'll see the following landing page:

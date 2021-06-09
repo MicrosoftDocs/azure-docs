@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 12/2/2020
+ms.date: 06/07/2021
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ The Defender for IoT appliance sensor connects to a SPAN port or network TAP and
 
 The following rack mount appliances are available:
 
-| **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |**Line** |
 |--|--|--|--|--|
 | **Model** | HPE ProLiant DL360 | Dell PowerEdge R340 XL | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 9 RJ45 or 6 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
@@ -46,13 +46,12 @@ The following rack mount appliances are available:
 
 The following virtual appliances are available:
 
-| **Deployment type** | **Enterprise** | **SMB** | **Line** |
-|--|--|--|--|
-| **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
-| **Max Bandwidth\*** | 150 Mb/sec | 15 Mb/sec | 3 Mb/sec |
-| **Max protected devices** | 3,000 | 300 | 100 |
-| **Deployment Type** | Enterprise | SMB | Line |
-| **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
+|--|--|--|--|--|
+| **Description** | Virtual appliance for corporate deployments | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
+| **Max Bandwidth\*** | 2.5 Gb/Sec | 800 Mb/sec | 160 Mb/sec | 3 Mb/sec |
+| **Max protected devices** | 30,000 | 10,000 | 2,500 | 100 |
+| **Deployment Type** | Corporate | Enterprise | SMB | Line |
 
 *Maximum bandwidth capacity might vary depending on protocol distribution.
 
@@ -60,7 +59,7 @@ The following virtual appliances are available:
 
  | Item | Description |
  |----|--|
- **Description** | In a multitier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks, including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
+ **Description** | In a multi-tier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks, including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
  **Deployment type** | Enterprise |
  **Appliance type**  | Dell R340, VM |
  **Number of managed sensors** | Unlimited |
@@ -205,7 +204,7 @@ To configure Dell BIOS:
 
 #### Import the BIOS configuration file
 
-This article describes how to configure the BIOS by using the configuration file.
+This section describes how to configure the BIOS by using the configuration file.
 
 1. Plug in a PC with a static preconfigured IP address **10.100.100.200** to the **iDRAC** port.
 
@@ -323,11 +322,11 @@ To install:
 
 1. Select **SENSOR-RELEASE-\<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows version selection.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select your sensor version and enterprise type.":::   
 
-1. Define the appliance profile and network properties:
+1. Define the appliance profile, and network properties:
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile, and network properties.":::   
 
    | Parameter | Configuration |
    |--|--|
@@ -349,7 +348,7 @@ To install:
 
 ## HPE ProLiant DL20 installation
 
-This article describes the HPE ProLiant DL20 installation process, which includes the following steps:
+This section describes the HPE ProLiant DL20 installation process, which includes the following steps:
 
   - Enable remote access and update the default administrator password.
   - Configure BIOS and RAID settings.
@@ -465,13 +464,13 @@ To install the software:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot of the screen for selecting a version.":::
 
-1. In the Installation Wizard, define the appliance profile and network properties:
+1. In the Installation Wizard define the hardware profile and network properties:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
     | Parameter | Configuration |
     | ----------| ------------- |
-    | **Hardware profile** | Select **Enterprise** or **Office** for SMB deployments. |
+    | **Hardware profile** | Select **Enterprise**, or **SMB** deployments. |
     | **Management interface** | **eno2** |
     | **Default network parameters (usually the parameters are provided by the customer)** | **management network IP address:** <br/> <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
     | **input interfaces:** | The system generates the list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator: **eno5, eno3, eno1, eno6, eno4**<br/><br/>**For HPE DL20: Do not list eno1, enp1s0f4u4 (iLo interfaces)**<br/><br/>**BRIDGE**: There's no need to configure the bridge interface. This option is used for special use cases only. Press **Enter** to continue. |
@@ -549,7 +548,7 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
 
-1. In the Installation Wizard, define the appliance profile and network properties.
+1. In the Installation Wizard define the appliance profile and network properties.
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -566,10 +565,101 @@ To install:
 
 1. Select **Enter** to continue.
 
+## HP EdgeLine 300 installation
+
+•	A default administrative user is provided. We recommend that you change the password during the network configuration.
+
+•	The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
+### HP EdgeLine 300 back panel
+
+:::image type="content" source="media/tutorial-install-components/edgeline-el300-panel.png" alt-text="View of the back panel of the EL300":::
+
+### Enable remote access
+
+1. Enter the iSM IP Address into your web browser.
+
+1. Sign in using the default username and password found on your appliance.
+
+1. Navigate to **Wired and Wireless Network** > **IPV4**
+
+    :::image type="content" source="media/tutorial-install-components/wired-and-wireless.png" alt-text="navigate to highlighted sections.":::
+
+1. Disable **DHCP toggle**.
+
+1. Configure the IPv4 addresses as such:
+    - **IPV4 Address**: `192.168.1.125`
+    - **IPV4 Subnet Mask**: `255.255.255.0`
+    - **IPV4 Gateway**: `192.168.1.1`
+
+1. Select **Apply**.
+
+1. Sign out and reboot the appliance.
+
+### Configure the BIOS
+
+The following procedure describes how to configure the BIOS for HP EL300 appliance.
+
+To configure the BIOS:
+
+1. Turn on the appliance and push **F9** to enter the BIOS.
+
+1. Select **Advanced**, and scroll down to **CSM Support**.
+
+    :::image type="content" source="media/tutorial-install-components/csm-support.png" alt-text="Enable CSM support to open the additional menu.":::
+
+1. Push **Enter** to enable CSM Support.
+
+1. Navigate to **Storage** and push **+/-** to change it to Legacy.
+
+1. Navigate to **Video** and push **+/-** to change it to Legacy.
+
+    :::image type="content" source="media/tutorial-install-components/storage-and-video.png" alt-text="Navigate to storage and video and change them to Legacy.":::
+
+1. Navigate to **Boot** > **Boot mode select**.
+
+1. Push **+/-** to change it to Legacy.
+
+    :::image type="content" source="media/tutorial-install-components/boot-mode.png" alt-text="Change Boot mode select to Legacy.":::
+
+1. Navigate to **Save & Exit**.
+
+1. Select **Save Changes and Exit**.
+
+    :::image type="content" source="media/tutorial-install-components/save-and-exit.png" alt-text="Save your changes and exit the system.":::
+
+1. Select **Yes**, and the appliance will reboot.
+
+1. Push **F11** to enter the **Boot Menu**.
+
+1. Select the device with the sensor image. Either **DVD** or **USB**.
+
+1. Select your language.
+
+1. Select **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8 GB RAM, 100 GB STORAGE**.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-select-screen.png" alt-text="Select the sensor version as shown.":::
+
+1. In the Installation Wizard, define the appliance profile, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/appliance-parameters.png" alt-text="Define the appliance's profile and network configurations with the following parameters.":::
+
+    | Parameter | Configuration |
+    |--|--|
+    | **configure hardware profile** | **office** |
+    | **configure management network interface** | **enp3s0** <br />or <br />**possible value** |
+    | **configure management network IP address:** | **IP address provided by the customer** |
+    | **configure subnet mask:** | **IP address provided by the customer** |
+    | **configure DNS:** | **IP address provided by the customer** |
+    | **configure default gateway IP address:** | **IP address provided by the customer** |
+    | **configure input interface(s)** | **enp4s0** <br />or <br />**possible value** |
+    | **configure bridge interface(s)** | N/A |
+
+1. Accept the settings and continue by entering `Y`.
+
 ## Sensor installation for the virtual appliance
 
 You can deploy the virtual machine for the Defender for IoT sensor in the following architectures:
-
 
 | Architecture | Specifications | Usage | Comments |
 |---|---|---|---|
@@ -698,6 +788,113 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to the management console.":::
 
+## On-premises management console installation
+
+Before installing the software on the appliance, you need to adjust the appliance's BIOS configuration:
+
+### BIOS configuration
+
+To configure the BIOS for your appliance:
+
+1. [Enable remote access and update the password](#enable-remote-access-and-update-the-password).
+
+1. [Configure the BIOS](#configure-the-hpe-bios).
+
+### Software installation
+
+The installation process takes about 20 minutes. After the installation, the system is restarted several times. 
+
+During the installation process, you will can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](#add-a-secondary-nic) at a later time. 
+
+To install the software:
+
+1. Select your preferred language for the installation process.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preferred language for the installation process.":::     
+
+1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Select your version.":::   
+
+1. In the Installation Wizard, define the network properties:
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot that shows the appliance profile.":::   
+
+   | Parameter | Configuration |
+   |--|--|
+   | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br /> or <br />**possible value** |
+   | **configure management network IP address:** | **IP address provided by the customer** |
+   | **configure subnet mask:** | **IP address provided by the customer** |
+   | **configure DNS:** | **IP address provided by the customer** |
+   | **configure default gateway IP address:** | **IP address provided by the customer** |
+   
+1. **(Optional)** If you would like to install a secondary Network Interface Card (NIC), define the following appliance profile, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
+
+   | Parameter | Configuration |
+   |--|--|
+   | **configure sensor monitoring interface (Optional):** | **eth1**, or **possible value** |
+   | **configure an IP address for the sensor monitoring interface:** | **IP address provided by the customer** |
+   | **configure a subnet mask for the sensor monitoring interface:** | **IP address provided by the customer** |
+
+1. Accept the settlings and continue by typing `Y`. 
+
+1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
+
+   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they will not be presented again.":::  
+
+   Save the usernames, and passwords, you'll need these credentials to access the platform the first time you use it.
+
+1. Select **Enter** to continue.
+
+For information on how to find the physical port on your appliance, see [Find your port](#find-your-port).
+
+### Add a secondary NIC
+
+You can enhance security to your on-premises management console by adding a secondary NIC. This could be used for high availability. By adding a secondary NIC, you may also have one dedicated for your users while using the other to support the configuration of a gateway for routed networks. The second NIC is then dedicated to all attached sensors within an IP address range.
+
+:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
+
+Both NICs will support the user interface (UI). 
+
+If you choose not to deploy a secondary NIC, all of the above features will be available through the primary NIC. 
+
+If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
+
+1. Use the network reconfigure command:
+
+    ```bash
+    sudo cyberx-management-network-reconfigure
+    ```
+
+1. Enter the following responses to the following questions:
+
+    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Enter the following answers to configure your appliance.":::
+
+    | Parameters | Response to enter |
+    |--|--|
+    | **Management Network IP address** | `N` |
+    | **Subnet mask** | `N` |
+    | **DNS** | `N` |
+    | **Default gateway IP Address** | `N` |
+    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information, see the Installation instructions)**| `Y`, **select a possible value** |
+    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer**|
+    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer** |
+    | **Hostname** | **provided by the customer** |
+
+1. Review all choices, and enter `Y` to accept the changes. The system reboots.
+
+### Find your port
+
+If you are having trouble locating the physical port on your device, you can use the following command to:
+
+```bash
+sudo ethtool -p <port value> <time-in-seconds>
+```
+
+This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes allowing you to find the port on the back of your appliance. 
+
 ## Virtual appliance: On-premises management console installation
 
 The on-premises management console VM supports the following architectures:
@@ -705,8 +902,8 @@ The on-premises management console VM supports the following architectures:
 | Architecture | Specifications | Usage | 
 |--|--|--|
 | Enterprise <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments | 
-| Enterprise | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
-| Enterprise | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments | 
+| Small | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
+| Office | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments | 
    
 ### Prerequisites
 
@@ -818,11 +1015,7 @@ To create a virtual machine by using Hyper-V:
 
 ### Software installation (ESXi and Hyper-V)
 
-Starting the virtual machine will start the installation process from the ISO image. To enhance security, you can create a second network interface on your on-premises management console. One network interface is dedicated for your users, and can support the configuration of a gateway for routed networks. The second network interface is dedicated to the all attached sensors within an IP address range.
-
-Both network interfaces have the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary network interface when routing in not needed. High Availability will run on the secondary network interface.
-
-If you choose not to deploy a secondary network interface, all of the features will be available through the primary network interface. 
+Starting the virtual machine will start the installation process from the ISO image.
 
 To install the software:
 
@@ -832,26 +1025,198 @@ To install the software:
 
 1. Define the network interface for the sensor management network: interface, IP, subnet, DNS server, and default gateway.
 
-1. (Optional) Add a second network interface to your on-premises management console.
+1. Sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
 
-    1. `Please type sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions): <name of interface>`
-    
-    1. `Please type an IP address for the sensor monitoring interface (accessible by the sensors): <ip address>`
-    
-    1. `Please type a subnet mask for the sensor monitoring interface (accessible by the sensors): <subnet>`
-
-1. Sign-in credentials are automatically generated and presented. Keep these credentials in a safe place, because they're required for sign-in and administration.
-
-    | Username | Description |
-    |--|--|
-    | Support | The administrative user for user management. |
-    | CyberX | The equivalent of root for accessing the appliance. |
-
-1. The appliance restarts.
+   The appliance will then reboot.
 
 1. Access the management console via the IP address previously configured: `<https://ip_address>`.
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Screenshot that shows the management console's sign-in screen.":::
+
+## Legacy devices
+
+This section describes devices that are no longer available for purchase, but are still supported by Azure Defender for IoT.
+
+### Nuvo 5006LP installation
+
+This section provides the Nuvo 5006LP installation procedure. Before installing the software on the Nuvo 5006LP appliance, you need to adjust the appliance BIOS configuration. 
+
+#### Nuvo 5006LP front panel
+
+:::image type="content" source="media/tutorial-install-components/nuvo5006lp_frontpanel.png" alt-text="A view of the front panel of the Nuvo 5006LP device.":::
+
+1. Power button, Power indicator
+1. DVI video connectors
+1. HDMI video connectors
+1. VGA video connectors
+1. Remote on/off Control, and status LED output
+1. Reset button
+1. Management network adapter
+1. Ports to receive mirrored data
+
+#### Nuvo back panel
+
+:::image type="content" source="media/tutorial-install-components/nuvo5006lp_backpanel.png" alt-text="A view of the back panel of the Nuvo 5006lp.":::
+
+1. SIM card slot
+1. Microphone, and speakers
+1. COM ports
+1. USB connectors
+1. DC power port (DC IN)
+
+#### Configure the Nuvo 5006LP BIOS
+
+The following procedure describes how to configure the Nuvo 5006LP BIOS. Make sure the operating system was previously installed on the appliance.
+
+To configure the BIOS:
+
+1. Power on the appliance.
+
+1. Press **F2** to enter the BIOS configuration.
+
+1. Navigate to **Power** and change Power On after Power Failure to S0-Power On.
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-power-on.png" alt-text="Change you Nuvo 5006 to power on after a power failure..":::
+
+1. Navigate to **Boot** and ensure that **PXE Boot to LAN** is set to **Disabled**.
+
+1. Press **F10** to save, and then select **Exit**. 
+
+#### Software installation (Nuvo 5006LP)
+
+The installation process takes approximately 20 minutes. After installation, the system is restarted several times.
+
+1. Connect the external CD, or disk on key with the ISO image.
+
+1. Boot the appliance.
+
+1. Select **English**.
+
+1. Select **XSENSE-RELEASE-<version> Office...**.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select the version of the sensor to install.":::
+
+1. Define the appliance architecture, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Define the Nuvo's architecture and network properties.":::
+
+    | Parameter | Configuration |
+    | ----------| ------------- |
+    | **Hardware profile** | Select **office**. |
+    | **Management interface** | **eth0** |
+    | **Management network IP address** | **IP address provided by the customer** | 
+    | **Management subnet mask** | **IP address provided by the customer** | 
+    | **DNS** | **IP address provided by the customer** |
+    | **Default gateway IP address** | **0.0.0.0** | 
+    | **Input interface** | The list of input interfaces is generated for you by the system. <br />To mirror the input interfaces, copy all the items presented in the list with a comma separator. |
+    | **Bridge interface** | - |
+
+1. Accept the settings and continue by entering `Y`.
+
+After approximately 10 minutes, sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
+
+### Fitlet2 mini sensor Installation
+
+This section provides the Fitlet2 installation procedure. Before installing the software on the Fitlet appliance, you need to adjust the appliance's BIOS configuration.
+
+#### Fitlet2 front panel 
+
+:::image type="content" source="media/tutorial-install-components/fitlet-front-panel.png" alt-text="A view of the front panel of the Fitlet 2.":::
+
+#### Fitlet2 back panel
+
+:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="A view of the back panel of the Fitlet 2.":::
+
+#### Configure the Fitlet2 BIOS
+
+1. Power on the appliance.
+
+1. Navigate to **Main** > **OS Selection**.
+
+1. Press **+/-** to select **Linux**.
+
+    :::image type="content" source="media/tutorial-install-components/fitlet-linux.png" alt-text="Set the OS to Linux on your Fitlet2.":::
+
+1. Verify that the system date, and time are updated with the installation date, and time.
+
+1. Navigate to **Advanced**, and select **ACPI Settings**.
+
+1. Select **Enable Hibernation**, and press **+/-** to select **Disabled**.
+
+    :::image type="content" source="media/tutorial-install-components/disable-hibernation.png" alt-text="Diable the hibernation mode on your Fitlet2.":::
+
+1. Press **Esc**.
+
+1. Navigate to **Advanced** > **TPM Configuration**.
+
+1. Select **fTPM**, and press **+/-** to select **Disabled**.
+
+1. Press **Esc**.
+
+1. Navigate to **CPU Configuration** > **VT-d**.
+
+1. Press **+/-** to select **Enabled**.
+
+1. Navigate to **CSM Configuration** > **CSM Support**.
+
+1. Press **+/-** to select **Enabled**.
+1. Navigate to **Advanced** > **Boot option filter [Legacy only]** and change setting in the following fields to **Legacy**:
+    - Network
+    - Storage
+    - Video
+    - Other PCI
+
+    :::image type="content" source="media/tutorial-install-components/legacy-only.png" alt-text="Set all fields to Legacy.":::
+
+1. Press **Esc**.
+
+1. Navigate to **Security** > **Secure Boot Customization**.
+
+1. Press **+/-** to select **Disabled**.
+
+1. Press **Esc**.
+
+1. Navigate to **Boot** > **Boot mode** select, and select **Legacy**.
+
+1. Select **Boot Option #1 – [USB CD/DVD]**.
+ 
+1. Select **Save & Exit**.
+
+#### Software installation (Fitlet2)
+
+The installation process takes approximately 20 minutes. After installation, the system is restarted several times.
+
+1. Connect the external CD, or disk on key with the ISO image.
+
+1. Boot the appliance.
+
+1. Select **English**.
+
+1. Select **XSENSE-RELEASE-<version> Office...**.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select the version of the sensor to install.":::
+
+    > [!Note]
+    > Do not select Ruggedized.
+
+1. Define the appliance architecture, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Define the Nuvo's architecture and network properties.":::
+
+    | Parameter | Configuration |
+    | ----------| ------------- |
+    | **Hardware profile** | Select **office**. |
+    | **Management interface** | **em1** |
+    | **Management network IP address** | **IP address provided by the customer** | 
+    | **Management subnet mask** | **IP address provided by the customer** | 
+    | **DNS** | **IP address provided by the customer** |
+    | **Default gateway IP address** | **0.0.0.0** | 
+    | **Input interface** | The list of input interfaces is generated for you by the system. <br />To mirror the input interfaces, copy all the items presented in the list with a comma separator. |
+    | **Bridge interface** | - |
+
+1. Accept the settings and continue by entering `Y`.
+
+After approximately 10 minutes, sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
 
 ## Post-installation validation
 
@@ -867,7 +1232,7 @@ Post-installation validation must include the following tests:
 
   - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-### Checking system health by using the GUI
+### Check system health by using the GUI
 
 :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 
@@ -919,7 +1284,7 @@ To access the tool:
 
     :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
-### Checking system health by using the CLI
+### Check system health by using the CLI
 
 **Test 1: Sanity**
 
@@ -1067,7 +1432,7 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 To enable tunneling:
 
-1. Sign in to the on-premises management console's CLI with **CyberX** or **Support** user credentials.
+1. Sign in to the on-premises management console's CLI with the **CyberX**, or the **Support** user credentials.
 
 1. Enter `sudo cyberx-management-tunnel-enable`.
 

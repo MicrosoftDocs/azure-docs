@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Use device groups in your Azure IoT Central application | Microsoft Docs
-description: Tutorial - As an operator, learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
+description: Tutorial - Learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/16/2020
@@ -11,7 +11,7 @@ services: iot-central
 
 # Tutorial: Use device groups to analyze device telemetry
 
-This article describes how, as an operator, to use device groups to analyze device telemetry in your Azure IoT Central application.
+This article describes how to use device groups to analyze device telemetry in your Azure IoT Central application.
 
 A device group is a list of devices that are grouped together because they match some specified criteria. Device groups help you manage, visualize, and analyze devices at scale by grouping devices into smaller, logical groups. For example, you can create a device group to list all the air conditioner devices in Seattle to enable a technician to find the devices for which they're responsible.
 
@@ -32,15 +32,13 @@ Before you create a device group, add at least five simulated devices based on t
 
 :::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Screenshot showing five simulated sensor controller devices":::
 
-For four of the simulated sensor devices, use the **Manage device** view to set the customer name to *Contoso*:
+For four of the simulated sensor devices, use the **Manage device** view to set the customer name to *Contoso* and select **Save**.
 
 :::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Screenshot that shows how to set the Customer Name cloud property":::
 
 ## Create a device group
 
-To create a device group:
-
-1. Choose **Device groups** on the left pane.
+1. Select **Device groups** on the left pane to navigate to device groups page.
 
 1. Select **+ New**.
 

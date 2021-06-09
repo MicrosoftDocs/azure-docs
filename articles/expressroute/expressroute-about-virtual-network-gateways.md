@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 04/23/2021
 ms.author: duau
 
 ---
@@ -32,12 +32,18 @@ If you want to upgrade your gateway to a more powerful gateway SKU, in most case
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
 The following table shows the gateway types and the estimated performances. This table applies to both the Resource Manager and classic deployment models.
 
-[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
-
 > [!IMPORTANT]
 > Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
 >
 >
+
+> [!NOTE]
+> The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
+>
+>
+
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+
 
 ## <a name="gwsub"></a>Gateway subnet
 
@@ -49,7 +55,7 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
 
-When you are planning your gateway subnet size, refer to the documentation for the configuration that you are planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.) if you have the available address space to do so. If you are creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This will accommodate most configurations.
+When you are planning your gateway subnet size, refer to the documentation for the configuration that you are planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.) if you have the available address space to do so. If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger. If you are creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This will accommodate most configurations.
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 07/03/2019
+ms.date: 03/25/2021
 ms.author: alkohli
 ---
 # Azure Data Box Heavy system requirements
