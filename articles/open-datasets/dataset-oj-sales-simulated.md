@@ -103,7 +103,7 @@ datastore.upload(src_dir = oj_sales_path,
 ```
 
 ### Create the file dataset 
-We need to define the path of the data to create the [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true). 
+We need to define the path of the data to create the [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset). 
 
 
 ```python
