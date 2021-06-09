@@ -23,7 +23,7 @@ AD FS sign-ins can now be integrated into the Azure Active Directory sign-ins re
 The Connect Health for AD FS agent correlates multiple Event IDs from AD FS, dependent on the server version, to provide information about the request and error details if the request fails. This information is correlated to the Azure AD sign-ins report schema and displayed in the Azure AD Sign-In Report UX. Alongside the report, a new Log Analytics stream is available with the AD FS data and a new Azure Monitor Workbook template. The template can be used and modified for an in-depth analysis for scenarios such as AD FS account lockouts, bad password attempts, and spikes of unexpected sign-in attempts.
 
 ## Prerequisites
-* Azure AD Connect Health for AD FS installed and upgraded to latest version (3.1.95.0 or greater).
+* Azure AD Connect Health for AD FS installed and upgraded to latest version (3.1.95.0 or later).
 * Global administrator or reports reader role to view the Azure AD sign-ins
 
 ## What data is displayed in the report?
