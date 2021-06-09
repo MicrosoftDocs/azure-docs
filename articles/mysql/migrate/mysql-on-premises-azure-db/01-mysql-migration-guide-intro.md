@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 06/09/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Introduction
+# MySQL on-premises to Azure Database for MySQL migration guide Introduction 
 
 This migration guide is designed to provide stackable and actionable information for MySQL customers and software integrators seeking to migrate MySQL workloads to [Azure Database for MySQL.](/azure/mysql/overview) This guide gives applicable knowledge that applies to most cases and provides guidance that leads to the successful planning and execution of a MySQL migration to Azure.
 
