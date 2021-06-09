@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 06/09/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
