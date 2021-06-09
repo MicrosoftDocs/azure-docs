@@ -71,9 +71,6 @@ Enable blob inventory reports by adding a policy with one or more rules to your 
 
    If you select **Blob**, then under **Blob subtype**, choose the types of blobs that you want to include in your report, and whether to include blob versions and/or snapshots in your inventory report. 
 
-   > [!NOTE]
-   > Versions and snapshots must be enabled on the account to save a new rule with the corresponding option enabled.
-
 8. Select the fields that you would like to include in your report, and the format of your reports.
 
 9. Choose how often you want to generate reports.
