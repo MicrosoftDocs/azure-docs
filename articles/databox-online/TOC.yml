@@ -44,7 +44,10 @@
     - name: Understand limits
       href: azure-stack-edge-limits.md 
     - name: Security overview
-      href: azure-stack-edge-security.md 
+      href: azure-stack-edge-security.md
+    - name: Understand data residency
+      href: azure-stack-edge-gpu-data-residency.md
+      href: azure-stack-edge-limits.md  
     - name: Review specifications
       items:
       - name: Device specifications
