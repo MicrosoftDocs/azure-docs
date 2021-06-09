@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 06/10/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
@@ -16,9 +16,9 @@ ms.date: 05/26/2021
 
 ## Consumption pricing (multi-tenant)
 
-A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps environment. All successful and unsuccessful runs are metered and billed.
+A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps environment. This pricing applies to the **Logic App (Consumption)** resource type in the Azure portal or to logic apps that you work on using the **Azure Logic Apps (Consumption)** extension for Visual Studio Code or logic apps that you work on using Azure Logic Apps extension in Visual Studio.
 
-For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
+Metering and billing are based on the trigger and action executions in a logic app workflow. These executions are metered and billed, regardless whether the workflow runs successfully or whether the workflow is even instantiated. For example, suppose your automation task uses a polling trigger that regularly makes an outgoing call to an endpoint. This outbound request is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
 
 | Items | Description |
 |-------|-------------|
@@ -63,39 +63,44 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Standard pricing (single-tenant)
 
-When you create the **Logic App (Standard)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan and pricing tier for your logic app. These choices determine the pricing that applies when running your workflows in single-tenant Azure Logic Apps.
-  
+A hosting plan and pricing tier-based pricing model applies to logic apps that run in the single-tenant Azure Logic Apps environment. This pricing applies to the **Logic App (Standard)** resource type in the Azure portal or to logic apps that you work on using the **Azure Logic Apps (Standard)** extension for Visual Studio Code. When you create or deploy such a logic app, you must choose a hosting plan and pricing tier that determines the pricing rates to use for metering and billing when running your workflows.
+
 > [!NOTE]
-> The Logic App (Standard) resource currently doesn't support using an App Service Plan and App Service Environment.
+> For new logic apps that you create with the **Logic App (Standard)** resource type, you must use the **Workflow Standard** 
+> hosting plan. The App Service Plan and App Service Environment aren't available for new logic apps.
 
 <a name="hosting-plans"></a>
 
-### Hosting plans, pricing tiers, and billing rates
+### Pricing tiers and billing rates
 
-For single-tenant based logic apps, you must use the **Workflow Standard** hosting plan, and select a pricing tier. Each tier includes a specific amount of compute, memory, and storage resources. For more information, review the following table, which lists each pricing tier plus the included resources and the monthly rate, which uses *East US as an example region*. Below the table, you can find the hourly rates and an example that breaks down the monthly cost per resource.
+Each pricing tier in a hosting plan includes a specific amount of compute, memory, and storage resources. For hourly rates per resource and per region, review the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Pricing tier | Monthly US$ (East US) | Virtual CPU (core) | [Azure Compute Unit (ACU)](../virtual-machines/acu.md) | Memory (GB) | Storage (GB) |
-|--------------|-----------------------|--------------------|--------------------------------------------------------|-------------|--------------|
-| **WS1** | $175.20 | 1 | 210 | 3.5 | 250 |
-| **WS2** | $350.40 | 2 | 420 | 7 | 250 |
-| **WS3** | $700.80 | 4 | 840 | 14 | 250 |
-|||||||
+To better understand how pricing works, this example provides sample estimates for the *East US 2 region*.
 
-The following table lists the hourly rate that's used to calculate the monthly rate:
+* On the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), select the **East US 2** region to view the hourly rates, or review the following table:
 
-| Resource | Hourly US$ (East US) |
-|----------|----------------------|
-| **Virtual CPU** | $0.1920 per core |
-| **Memory** | $0.0137 per GB |
-|||
+  | Resource | Hourly US$ (East US 2) |
+  |----------|------------------------|
+  | **Virtual CPU (vCPU)** | $0.192 |
+  | **Memory** | $0.0137 per GB |
+  |||
 
-Based on the preceding information, the following table breaks down the monthly rate for the **WS1** pricing tier by resource and hourly rate:
+* Based on the preceding information, this table shows the estimated monthly rate for each pricing tier and the resources included in that pricing tier:
 
-| Resource | Amount | Monthly US$ (East US) |
-|----------|--------|-----------------------|
-| **Virtual CPU** | 1 core | $140.16 |
-| **Memory** | 3.5 GB | $35.04 |
-||||
+  | Pricing tier | Monthly US$ (East US 2) | Virtual CPU (vCPU) | Memory (GB) | Storage (GB) |
+  |--------------|-------------------------|--------------------|-------------|--------------|
+  | **WS1** | $175.20 | 1 | 3.5 | 250 |
+  | **WS2** | $350.40 | 2 | 7 | 250 |
+  | **WS3** | $700.80 | 4 | 14 | 250 |
+  ||||||
+
+* Based on the preceding information, this table lists each resource and the estimated monthly rate if you choose the **WS1** pricing tier:
+
+  | Resource | Amount | Monthly US$ (East US 2) |
+  |----------|--------|-------------------------|
+  | **Virtual CPU (vCPU)** | 1 | $140.16 |
+  | **Memory** | 3.5 GB | $35.04 |
+  ||||
 
 <a name="storage-transactions"></a>
 
@@ -169,7 +174,7 @@ Integration accounts are billed using a fixed [integration account price](https:
 
 At no extra cost, your ISE includes a single integration account, based on your ISE SKU. For an extra cost, you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Learn more about the [ISE pricing model](#fixed-pricing) earlier in this topic.
 
-| ISE SKU | Included integration account | Additional cost |
+| ISE SKU | Included integration account | Extra cost |
 |---------|------------------------------|-----------------|
 | **Premium** | A single [Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts. No Free or Basic accounts are permitted. |
 | **Developer** | A single [Free](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted. |
@@ -183,9 +188,9 @@ Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage oper
 
 | Environment | Notes |
 |-------------|-------|
-| **Multi-tenant** | Storage usage and retention is billed using a fixed rate, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps), under the **Pricing details** table. |
-| **Single-tenant** | Storage usage and retention is billed using the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice. For more information, review [Storage transactions (single-tenant)](#storage-transactions). |
-| **ISE** | Storage usage and retention doesn't incur charges. |
+| **Multi-tenant** | Storage usage and retention are billed using a fixed rate, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps), under the **Pricing details** table. |
+| **Single-tenant** | Storage usage and retention are billed using the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice. For more information, review [Storage transactions (single-tenant)](#storage-transactions). |
+| **ISE** | Storage usage and retention don't incur charges. |
 |||
 
 <a name="data-gateway"></a>

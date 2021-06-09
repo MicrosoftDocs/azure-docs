@@ -65,7 +65,7 @@ Another thing that `-SupportMultipleDomain` does is that it ensures that the AD 
 
 Thus during authentication to Azure AD or Microsoft 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD. If, a match cannot be found, the authentication will fail.
 
-For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token, AD FS issues, will be set to `http://bmcontoso.com/adfs/services/trust`. This element will match the Azure AD configuration, and authentication will succeed.
+For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token, AD FS issuer, will be set to `http://bmcontoso.com/adfs/services/trust`. This element will match the Azure AD configuration, and authentication will succeed.
 
 The following is the customized claim rule that implements this logic:
 
