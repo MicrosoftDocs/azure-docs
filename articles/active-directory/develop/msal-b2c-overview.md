@@ -29,8 +29,8 @@ MSAL.js enables [single-page applications](../../active-directory-b2c/applicatio
 
 - Users **can** authenticate with their social and local identities.
 - Users **can** be authorized to access Azure AD B2C protected resources (but not Azure AD protected resources).
-- Users **cannot** obtain tokens for Microsoft APIs (e.g. MS Graph API) using [delegated permissions](https://review.docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent?branch=master#permission-types).
-- Users with administrator privileges **can** obtain tokens for Microsoft APIs (e.g. MS Graph API) using [delegated permissions](https://review.docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent?branch=master#permission-types).
+- Users **cannot** obtain tokens for Microsoft APIs (e.g. MS Graph API) using [delegated permissions](/azure/active-directory/develop/v2-permissions-and-consent#permission-types).
+- Users with administrator privileges **can** obtain tokens for Microsoft APIs (e.g. MS Graph API) using [delegated permissions](/azure/active-directory/develop/v2-permissions-and-consent#permission-types).
 
 For more information, see: [Working with Azure AD B2C](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/working-with-b2c.md)
 
