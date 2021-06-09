@@ -8,14 +8,14 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 02/19/2021
+ms.date: 06/09/2021
 ms.author: vlvinogr
 ms.custom: include file
 ---
 
 | Resource | Limit |
 | ---------------------------------------------------------------------- | -------------------------- |
-| Maximum number of scale units | 10 per region<sup>1</sup> |
+| Maximum number of scale units | 12 per region<sup>1</sup> |
 | Cache size | 5 GiB per unit<sup>2</sup> |
 | Concurrent back-end connections<sup>3</sup> per HTTP authority | 2,048 per unit<sup>4</sup> |
 | Maximum cached response size | 2 MiB |
