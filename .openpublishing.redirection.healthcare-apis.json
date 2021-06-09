@@ -179,7 +179,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/index.yml",
-        "redirect_url": "/azure/healthcare-apis/fhir/index",
+        "redirect_url": "/azure/healthcare-apis/index",
         "redirect_document_id": true
     },
     {
