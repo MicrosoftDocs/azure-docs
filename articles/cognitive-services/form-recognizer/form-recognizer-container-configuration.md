@@ -4,7 +4,7 @@ titleSuffix: Azure Applied AI Services
 description: Learn how to configure the Form Recognizer container to parse form and table data.
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/14/2020

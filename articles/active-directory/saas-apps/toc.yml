@@ -21,6 +21,8 @@
         href: 8x8virtualoffice-tutorial.md
     - name: A
       items:
+      - name: ABBYY FlexiCapture Cloud
+        href: abbyy-flexicapture-cloud-tutorial.md
       - name: Abintegro
         href: abintegro-tutorial.md
       - name: Absorb LMS
@@ -2257,6 +2259,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Cloud Academy - SSO
+        href: cloud-academy-sso-provisioning-tutorial.md
       - name: Code42
         href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
