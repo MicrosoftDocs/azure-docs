@@ -34,7 +34,7 @@ There are three versions of Azure Functions Core Tools.<sup>*</sup> The version 
 
 You can only install one version of Core Tools on a given computer. Unless otherwise noted, the examples in this article are for version 3.x.
 
-<sup>*</sup> An experimental version of Azure Functions is available that lets you run C# functions on the .NET 6.0 preview. To learn more, see the [C# class library article](functions-dotnet-class-library.md#supported-versions).
+<sup>*</sup> An experimental version of Azure Functions is available that lets you run C# functions on the .NET 6.0 preview. To learn more, see the [Azure Functions v4 early preview](https://aka.ms/functions-dotnet6earlypreview-wiki) page.
 
 ## Prerequisites
 
