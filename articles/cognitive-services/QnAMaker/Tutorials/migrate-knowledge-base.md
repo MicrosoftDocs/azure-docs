@@ -54,8 +54,8 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer [SampleQnAs.xlsx](https://aka.ms/qnamaker-sampleqnas), [SampleQnAs.tsv](https://aka.ms/qnamaker-sampleqnastsv) to import QnAs.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer [SampleSynonyms.xlsx](https://aka.ms/qnamaker-samplesynonyms), [SampleSynonyms.tsv](https://aka.ms/qnamaker-samplesynonymstsv) to import synonyms.
-   3. **Knowledge Base Replica**: If you want to import replica with excel, add three tabs for QnAs, Synonyms, and Settings in the excel file, zip it and import the zipped folder. You can refer [KBReplicaSample](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleKBReplica.zip) for more details. If you also want to add unstructured content, refer [CustomQnAKBReplicaSample](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleV2KBReplica.zip). If you want to import replica in tsv, you can zip the three QnAs, synonyms and settings files and import the zipped folder. You can refer for more details.
-
+   3. **Knowledge Base Replica**: TThis option can be used to import KB replica with QnAs, Synonyms and Settings. You can refer [KBReplicaSampleExcel](https://aka.ms/qnamaker-samplereplica), [KBReplicaSampleTSV](https://aka.ms/qnamaker-samplereplicatsv) for more details. If you also want to add unstructured content to the replica, refer [CustomQnAKBReplicaSample](https://aka.ms/qnamaker-samplev2replica).
+  
       1. Either QnAs or Unstructured content is required when importing replica. Unstructured documents are only valid for Custom question answering.
       2. Synonyms file is not mandatory when importing replica.
       3. Settings file is mandatory when importing replica.
