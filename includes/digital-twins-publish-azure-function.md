@@ -32,13 +32,13 @@ In the **Function App (Windows) - Create new** window, fill in the following fie
 * Select the **Location** of your resource group.
 * Create a new **Azure Storage** resource by selecting the **New** link. Set the location to match your resource group, use the other default values, and then select **OK**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Screenshot of Visual Studio, showing the Publish Azure function dialog. The details of a new function app are being filled in, including Name, Subscription, Resource group, Plan Type, Location, and Azure Storage.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Screenshot of Visual Studio, showing the Publish Azure function dialog page where the details of a new function app are being filled in.":::
 
 Then select **Create**.
 
 After the app service is created, the **Functions instance** tab opens. Your new function app appears in the **Function Apps** area beneath your resource group. Select **Finish**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Screenshot of Visual Studio, showing the Publish Azure function dialog. The Functions instance tab is selected. The new functions app appears under the resource group.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Screenshot of Visual Studio, showing the Publish Azure function dialog where the Functions instance tab is selected.":::
 
 On the **Publish** pane that opens in the main Visual Studio window, check that all the information looks correct. Then select **Publish**.
 
@@ -46,7 +46,7 @@ On the **Publish** pane that opens in the main Visual Studio window, check that 
 
 > [!NOTE]
 > If you see a pop-up window like the following example, select **Attempt to retrieve credentials from Azure** and then select **Save**.
-> :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Screenshot of Visual Studio, showing a pop-up window called Publish credentials. It contains fields for a Username and Password. It also contains a button to Attempt to retrieve credentials from Azure." border="false":::
+> :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Screenshot of Visual Studio, showing a pop-up window called Publish credentials." border="false":::
 >
 > If you see one of the following warnings, follow the prompts to upgrade to the latest Azure Functions runtime version:
 > * "Upgrade Functions version on Azure."

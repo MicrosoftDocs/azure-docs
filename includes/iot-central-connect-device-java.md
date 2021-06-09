@@ -6,6 +6,8 @@ ms.topic: include
 ms.date: 03/31/2021
 ---
 
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+
 ## Prerequisites
 
 To complete the steps in this article, you need the following resources:

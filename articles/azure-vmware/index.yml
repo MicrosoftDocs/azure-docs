@@ -27,14 +27,14 @@ landingContent:
         links:
           - text: Private cloud and clusters
             url: concepts-private-clouds-clusters.md
-          - text: Private cloud networking and interconnectivity
+          - text: Networking and interconnectivity
             url: concepts-networking.md
-          - text: Storage in private clouds
+          - text: Storage 
             url: concepts-storage.md
-          - text: Access and identity for private clouds
+          - text: Access and identity 
             url: concepts-identity.md
-          - text: Monitor and repair private clouds
-            url: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+          - text: Monitor and protection
+            url: concepts-monitor-protection.md
           - text: API Management
             url: concepts-api-management.md
           - text: Hub and spoke
@@ -53,8 +53,8 @@ landingContent:
             url: /azure/azure-vmware/faq#configuration-and-setup
           - text: VMware software 
             url: /azure/azure-vmware/faq#vmware-software
-          - text: Compute, backup and disaster recovery
-            url: /azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery
+          - text: Compute
+            url: /azure/azure-vmware/faq#compute
           - text: Networking and interconnectivity
             url: /azure/azure-vmware/faq#networking-and-interconnectivity
           - text: Storage
@@ -114,19 +114,19 @@ landingContent:
     linkLists:
       - linkListType: reference 
         links:
+          - text: Create an Azure VMware Solution assessment
+            url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
           - text: Request host quota Azure VMware Solution
             url: request-host-quota-azure-vmware-solution.md
           - text: Save costs with a reserved instance
             url: reserved-instance.md
-          - text: Create an Azure VMware Solution assessment
-            url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
       - linkListType: how-to-guide
         links:
-          - text: Configure and manage DHCP
+          - text: Configure DHCP 
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched VMware HCX networks
             url: configure-l2-stretched-vmware-hcx-networks.md
-          - text: Configure NSX network components
+          - text: Configure NSX components using Azure 
             url: configure-nsx-network-components-azure-portal.md
           - text: Configure GitHub Enterprise Server
             url: github-enterprise-server.md
@@ -142,10 +142,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Protect VMs with Azure Security Center
+          - text: Protect, monitor, and manage VMs
+            url: integrate-azure-native-services.md
+          - text: Integrate Azure Security Center
             url: azure-security-integration.md
-          - text: Monitor and manage VMs
-            url: lifecycle-management-of-azure-vmware-solution-vms.md
           - text: Integrate Azure NetApp Files
             url: netapp-files-with-azure-vmware-solution.md
           - text: Protect web apps with Azure Application Gateway
@@ -220,8 +220,10 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Move EA and CSP subscriptions
-            url: move-ea-csp-subscriptions.md 
+        - text: Move Azure VMware Solution subscriptions
+          url: move-ea-csp-subscriptions.md
+        - text: Move Azure VMware Solution across regions
+          url: move-azure-vmware-solution-across-regions.md
 
 
 

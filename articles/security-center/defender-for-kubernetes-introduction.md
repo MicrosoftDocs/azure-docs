@@ -40,7 +40,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 
 Azure Defender for Kubernetes provides **cluster-level threat protection** by monitoring your clusters' logs.
 
-Examples of security events that Azure Defender for Kubernetes monitors include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts. For a full list of the cluster level alerts, see the [reference table of alerts](alerts-reference.md#alerts-akscluster).
+Examples of security events that Azure Defender for Kubernetes monitors include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts. For a full list of the cluster level alerts, see the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
 > [!TIP]
 > You can simulate container alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
@@ -53,7 +53,7 @@ Also, our global team of security researchers constantly monitor the threat land
 
 
 
-## Azure Defender for Kubernetes - FAQ
+## FAQ - Azure Defender for Kubernetes
 
 ### Can I still get cluster protections without the Log Analytics agent?
 

@@ -57,6 +57,8 @@ GROUP BY f.lastName
 ) AS UniqueLastNames
 ```
 
+Additionally, cross-partition `GROUP BY` queries can have a maximum of 21 [aggregate system functions](sql-query-aggregate-functions.md). 
+
 ## Examples
 
 These examples use the nutrition data set available through the [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).

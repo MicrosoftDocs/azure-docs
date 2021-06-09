@@ -84,7 +84,7 @@ If the number of requests are more than the current resources can service, then 
 ### How will I know that I'm being throttled?
 
 There are various ways to identifying throttling in Azure Service Bus Premium - 
-  * **Throttled Requests** show up on the [Azure Monitor Request metrics](service-bus-metrics-azure-monitor.md#request-metrics) to identify how many requests were throttled.
+  * **Throttled Requests** show up on the [Azure Monitor Request metrics](monitor-service-bus-reference.md#request-metrics) to identify how many requests were throttled.
   * High **CPU Usage** indicates that current resource allocation is high and requests may get throttled if the current workload doesn't reduce.
   * High **Memory Usage** indicates that current resource allocation is high and requests may get throttled if the current workload doesn't reduce.
 
