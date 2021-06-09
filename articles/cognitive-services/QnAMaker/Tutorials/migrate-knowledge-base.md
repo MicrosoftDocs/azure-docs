@@ -70,10 +70,8 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
 
    > [!div class="mx-imgBorder"]
-   > [![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
-
-   > [!div class="mx-imgBorder"]
    > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
+
 
 1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 
