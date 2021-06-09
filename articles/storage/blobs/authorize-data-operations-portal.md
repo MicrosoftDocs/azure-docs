@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 06/08/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
@@ -45,20 +45,16 @@ When you attempt to access blob data in the Azure portal, the portal first check
 
 To access blob data from the Azure portal using your Azure AD account, both of the following statements must be true for you:
 
-- You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
 - You have been assigned either a built-in or custom role that provides access to blob data.
+- You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
 
-The **Reader** role assignment or another Azure Resource Manager role assignment is necessary so that the user can view and navigate storage account management resources in the Azure portal. The Azure roles that grant access to blob data do not grant access to storage account management resources. To access blob data in the portal, the user needs permissions to navigate storage account resources. For more information about this requirement, see [Assign the Reader role for portal access](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
+The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to blob containers in the Azure portal.
 
-The built-in roles that support access to your blob data include:
-
-- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): For POSIX access control for Azure Data Lake Storage Gen2.
-- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Read/write/delete permissions for blobs.
-- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Read-only permissions for blobs.
+For information about the built-in roles that support access to blob data, see [Azure RBAC roles for blobs](assign-azure-rbac-role.md#azure-rbac-roles-for-blobs).
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
-> [!IMPORTANT]
+> [!NOTE]
 > The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify blob data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 ## Navigate to blobs in the Azure portal
@@ -111,6 +107,4 @@ To specify how to authorize a blob upload operation, follow these steps:
 ## Next steps
 
 - [Authenticate access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md)
-- [Use the Azure portal to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md)
-- [Use the Azure CLI to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-cli.md)
-- [Use the Azure PowerShell module to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-powershell.md)
+- [Assign an Azure RBAC role for access to blob data](assign-azure-rbac-role.md)
