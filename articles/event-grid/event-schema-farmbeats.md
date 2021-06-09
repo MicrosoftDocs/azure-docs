@@ -10,7 +10,7 @@ This article provides the properties and schema for Azure FarmBeats events. For 
 ## Available event types
 
 |Event Name | Description|
-|:-----:|:----:|
+|-----|----|
 Microsoft.AgFoodPlatform.FarmChanged| Published when a farm is created /updated/deleted or available from a provider in a FarmBeats resource
 |Microsoft.AgFoodPlatform.FarmerChanged|Published when a farmer is created /updated/deleted or available from a provider in a FarmBeats resource
 |Microsoft.AgFoodPlatform.SeasonalField Changed|Published when a Seasonal Field is created /updated/deleted or available  from a provider in a FarmBeats resource
@@ -34,7 +34,7 @@ Each FarmBeats event has two parts, one that common across events and the data o
 *For farm, farmer, season, crop, crop variety events, the data object contains following properties:*
 
 |Property | Type| Description|
-|:-----:| :----:| :----:|
+|----| ----| ----|
 id|	string|	User-defined Id of the resource, such as FarmId, FarmerId etc.
 actionType|	string|	Indicates the change triggered during publishing of the event. Applicable values are created, updated, deleted
 properties|	object|	It contains user-defined key – value pairs
@@ -46,8 +46,9 @@ description| string|	Textual description of the resource
 
 
 *Boundary events have the following data object:*
+
 |Property | Type| Description|
-|:-----:| :----:| :----:|
+|----| ----| ----|
 id|	string|	User-defined Id of boundary
 actionType|	string|	Indicates the change which is triggered during publishing of the event. Applicable values are created, updated, deleted
 properties|	object|	It contains user-defined key – value pairs
@@ -64,7 +65,7 @@ description| string|	Textual description of the resource
 *Seasonal Field events have the following data object:*
 
 Property|	Type|	Description
-|:-----:| :----:| :----:|
+|----| ----| ----|
 id|	string|	User-defined Id of the seasonal field
 farmId|	string|	User-defined Id of the farm that seasonal field is associated with
 farmerId|	string|	User-defined Id of the farmer that seasonal field is associated with
@@ -82,7 +83,7 @@ description| string|	Textual description of the resource
 *Field events have the following data object:*
 
 Property|	Type|	Description
-|:-----:| :----:| :----:|
+|----| ----| ----|
 id|	string|	User-defined Id of the field
 farmId|	string|	User-defined Id of the farm that  field is associated with
 farmerId|	string|	User-defined Id of the farmer that field is associated with
@@ -94,12 +95,11 @@ createdDateTime|string|	Indicates the time at which the resource was created
 status|	string|	Contains the user-defined status of the object.
 eTag|	string|	Implements optimistic concurrency
 description|string|	Textual description of the resource
-#
 
 *Farm operations data events such as Application data, harvesting data, planting data, and tillage data have the following data object:*
 
 Property|	Type|	Description
-|:----:|:----:|:----:|
+|----|----|----|
 id|	string|	User-defined Id of the resource, such as FarmId, FarmerId etc.
 status|	string|	Contains the status of the job. It can take any value from Created/Pending/Running/Failed/Succeeded
 source|	string|	Message from FarmBeats giving details about the job.	
@@ -109,8 +109,9 @@ eTag|	string|	Implements optimistic concurrency
 description|string|	Textual description of the resource
 
 *Job status change events for Satellite, weather and farm operations data ingestion have the following data object:*
+
 Property|	Type|	Description
-|:----:|:----:|:----:|
+|----|----|----|
 id|String| Unique Id of the job.
 name| string| User-defined name of the job.
 description|string| Textual description of the job.
@@ -123,13 +124,12 @@ createdDateTime| string|Date-time when resource was created, sample format: yyyy
 
 
 
-#
 ## Sample events 
 These event samples represent an event notification.
 
 **Event type: Microsoft.AgFoodPlatform.FarmerChanged**
 
-````
+```json
 {
     "data": {
       "actionType": "Created",
@@ -153,10 +153,11 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T10:53:28.2783745Z"
   }
-````
+```
 
 **Event type: Microsoft.AgFoodPlatform.FarmChanged**
-````
+
+```json
   {
     "data": {
       "farmerId": "UNIQUE-FARMER-ID",
@@ -181,11 +182,11 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T10:55:57.6026173Z"
   }
-````
+```
 
 **Event type: Microsoft.AgFoodPlatform.FieldChanged**
 
-````
+```json
   {
     "data": {
       "farmerId": "UNIQUE-FARMER-ID",
@@ -211,12 +212,13 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T10:58:43.3222921Z"
   }
-  ````
+  ```
 
   
   
   **Event type: Microsoft.AgFoodPlatform.CropChanged**
-````
+
+```json
   {
     "data": {
       "actionType": "Created",
@@ -240,11 +242,11 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T11:03:49.0590658Z"
   }
-  ````
+  ```
 
 **Event type: Microsoft.AgFoodPlatform.CropVarietyChanged**
 
-````
+```json
   {
     "data": {
       "cropId": "UNIQUE-CROP-ID",
@@ -269,11 +271,11 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T11:10:21.4572495Z"
   }
-````
+```
 
 **Event type: Microsoft.AgFoodPlatform.BoundaryChanged**
 
-````
+```json
   {
     "data": {
       "farmerId": "UNIQUE-FARMER-ID",
@@ -295,10 +297,10 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T11:15:29.4797354Z"
   }
-  ````
+  ```
 
 **Event type: Microsoft.AgFoodPlatform.SeasonChanged**
-````
+```json
   {
     "data": {
       "actionType": "Created",
@@ -322,10 +324,10 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T11:18:38.5804699Z"
   }
-  ````
+  ```
 
 **Event type: Microsoft.AgFoodPlatform.SeasonalFieldChanged**
-````
+```json
   {
     "data": {
       "farmerId": "UNIQUE-FARMER-ID",
@@ -353,10 +355,10 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T11:24:56.4210287Z"
   }
-````
+```
 **Event type: Microsoft.AgFoodPlatform.ApplicationDataChanged**
 
-````
+```json
   {
     "data": {
       "actionType": "Created",
@@ -382,10 +384,10 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T11:27:24.164612Z"
   }
-````
+```
 
 **Event type: Microsoft.AgFoodPlatform.HarvestDataChanged**
-````
+```json
   {
     "data": {
       "actionType": "Created",
@@ -411,9 +413,9 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T11:33:41.3434992Z"
   }
-````
+```
 **Event type: Microsoft.AgFoodPlatform.PlantingDataChanged**
-````
+```json
   {
     "data": {
       "actionType": "Created",
@@ -439,9 +441,9 @@ These event samples represent an event notification.
     "metadataVersion": "1",
     "eventTime": "2021-03-05T11:41:18.1744322Z"
   }
-````
+```
 **Event type: Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChanged**
-````
+```json
 [
   {
     "data": {
@@ -468,13 +470,13 @@ These event samples represent an event notification.
     "eventTime": "2021-06-01T11:25:37.8634764Z"
   }
 ]
-````
+```
 **Event type: Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChanged**
-````
+```json
 [
   {
     "data": {
-      "farmerId": "UNIQUE-FARMER-ID
+      "farmerId": "UNIQUE-FARMER-ID",
       "message": "Created job to fetch weather data for job name 'job2', farmer id 'farmer2' and boundary id 'boundary2'.",
       "status": "Running",
       "lastActionDateTime": "2021-06-01T11:22:27.9031003Z",
@@ -492,9 +494,9 @@ These event samples represent an event notification.
   }
 ]
 
-````
+```
 **Event type: Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChanged**
-````
+```json
 [
   {
     "data": {
@@ -523,6 +525,6 @@ These event samples represent an event notification.
 ]
 
 
-````
+```
 ## Next steps
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
