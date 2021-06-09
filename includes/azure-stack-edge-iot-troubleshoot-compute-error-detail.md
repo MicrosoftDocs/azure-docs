@@ -38,13 +38,13 @@ Take the following steps:
 
 The runtime status of the module shows as running, but the containerized app doesn't have an IP address assigned. 
 
-This condition happens because the range of IPs you provided for Kubernetes external service IPs isn't sufficient. You need to extend this range to ensure that each container or VM that you deployed is covered.
+This condition happens because the range of IPs you provided for Kubernetes external service IPs isn't sufficient. Extend this range to ensure that each container or VM that you deployed is covered.
 
 #### Suggested solution
 
 In the local web UI of your device, do the following steps:
 1. Go to the **Compute** page. Select the port for which you enabled the compute network. 
-1. Enter a static, contiguous range of IPs for **Kubernetes external service IPs**. You need 1 IP for `edgehub` service. Additionally, you need one IP for each IoT Edge module and for each VM you'll deploy. 
+1. Enter a static, contiguous range of IPs for **Kubernetes external service IPs**. You need one IP for `edgehub` service. Additionally, you need one IP for each IoT Edge module and for each VM you'll deploy. 
 1. Select **Apply**. The changed IP range should take effect immediately.
 
 For more information, see [Change external service IPs for containers](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#change-external-service-ips-for-containers).
