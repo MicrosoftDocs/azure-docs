@@ -138,7 +138,7 @@ left join
 	ON rg.object_id = nt.object_id
 	AND rg.pdw_node_id = nt.pdw_node_id
 	AND rg.distribution_id = nt.distribution_id
-	WHERE 1 = 1
+	WWHERE rg.index_id = 1
 	GROUP BY sm.name, tb.name, tb.object_id
 ) actualRowCounts
 on objIdsWithStats.object_id = actualRowCounts.object_id
