@@ -17,7 +17,7 @@ This article provides a high-level overview of the process of deploying Fusion C
 
 You must have the following:
 
-- A fully deployed Azure Stack Edge Pro with GPU. This device must have Azure Private Edge Zones enabled and its ports must be connected as follows.
+- A fully deployed Azure Stack Edge Pro with GPU. The device's ports must be connected as follows.
 
   - Port 5 - LAN
   - Port 6 - WAN
