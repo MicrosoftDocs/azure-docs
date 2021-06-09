@@ -1,6 +1,6 @@
 ---
 title: Tagging Nodes
-description: Learn about tagging nodes in Azure CycleCloud. CycleCloud automatically creates and adds the name, cluster name, and owner tags to each node.
+description: Learn about tagging nodes in Azure CycleCloud. CycleCloud automatically adds Azure tags to resources created from nodes.
 author: adriankjohnson
 ms.date: 03/20/2020
 ms.author: adjohnso
@@ -10,19 +10,49 @@ ms.author: adjohnso
 
 Azure CycleCloud will automatically create and add three tags to each node: a name, the cluster name, and the owner. These tags are meant to make it easier to audit ownership of the nodes when using non-CycleCloud tools.
 
-| Tag         | Description                                                                |
-| ----------- | -------------------------------------------------------------------------- |
-| Name        | Full CycleCloud name of the node.                                          |
-| ClusterName | Name of the CycleCloud cluster the node is running in.                     |
-| CycleOwner  | Which user started the node, using the format username@site_name:site_id   |
+| Tag                  | Description                                                                            |
+| -------------------- | -------------------------------------------------------------------------------------- |
+| ClusterName          | Name of the CycleCloud cluster the node is running in                                  |
+| Name                 | Name of the node (for head node resources only)                                        |
+| CycleOwner           | The user that started the node                                                         |
+| LaunchTime           | The time that this resource was created                                                |
+| ClusterId            | A identifier for the cluster (deprecated as of 8.2)                                    |
+| CycleCloudCluster    | A globally unique name for the cluster (as of 8.2)                                     |
+| CycleCloudNodeArray  | A globally unique name for the nodearray, if it comes from a nodearray (as of 8.2)     |
 
-The `CycleOwner` tag uses this format: [username]@[site_name]:[site_id], where username is the CycleCloud user that started the node, site_name is the user defined name of the CycleCloud installation, and site_id is the CycleCloud Site ID that identifies the CycleCloud installation. For example, a cluster named "Demo" with a node called "scheduler" started by "username" running on CycleCloud site "mysite" with id "92xy4vgh" would have the following tags created automatically:
+The formats for the encoded tags are as follows:
+- `CycleCloudCluster`: /sites/[site_id]/clusters/[cluster_name]
+- `CycleCloudNodearray`: /sites/[site_id]/clusters/[cluster_name]/nodearrays/[nodearray_name]
+- `CycleOwner`: [cluster_name]\([username]@[site_name]:[site_id]\)
+
+The parameters referenced above are defined as:
+- `username`: the CycleCloud user that started the node
+- `site_name`: the user-defined name of the CycleCloud installation
+- `site_id`: the CycleCloud site id that uniquely identifies the CycleCloud installation
+- `cluster_name`: the name of the cluster
+- `nodearray`: the name of the nodearray the node is in
+
+For example, a node called "scheduler" in a cluster named "Demo" started by "username" running on CycleCloud site "mysite" with id "92xy4vgh" would have the following tags created automatically on the VM, nic and disk:
 
 ``` ini
-Name => "Demo: scheduler"
+Name => "scheduler"
 ClusterName => "Demo"
+CycleCloudCluster => "/sites/92xy4vgh/clusters/Demo"
 CycleOwner => "username@mysite:92xy4vgh"
+ClusterId => "Demo(username@mysite:92xy4vgh)"
 ```
+
+Nodes in the "Compute" nodearray would get an additional tag:
+``` ini
+CycleCloudNodeArray => "/sites/92xy4vgh/clusters/Demo/nodearrays/Compute"
+```
+
+::: moniker range=">=cyclecloud-8"
+> [!NOTE]
+> The CycleCloudCluster and CycleCloudNodeArray tags were added in 8.2 to make it easier to get costs from Azure Cost Management, using a standard format also used for 
+> the subject of [events sent to Event Grid](~/events.md#subject). The value for ClusterId is not constant over time, since the site name and owner can be changed.
+::: moniker-end
+
 
 Within a resource that supports [Resource Manager Operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) you can create additional tags to assign to the instance by specifying them with a node definition inside your template:
 
@@ -34,11 +64,9 @@ Within a resource that supports [Resource Manager Operations](https://docs.micro
     tags.CustomText = Hello world
 ```
 
-Creating a node with this definition will result in three additional tags being set on the node:
+Creating a node with this definition will result in three additional tags being set on the node in addition to the standard tags:
 
 ``` ini
-Name => "Demo: scheduler"
-ClusterName => "Demo"
 Application => "my application"
 CustomValue => "57"
 CustomText => "Hello world"
@@ -51,7 +79,8 @@ There are limits on the number and format of tags applied to each Virtual Machin
 Do not include quotation marks or periods in your tag names.
 
 > [!NOTE]
-> Resources created with the Azure classic portal cannot use tags.
+> Tag names in CycleCloud cannot contain the following characters:<br>
+>  `.` `"` `:` `=`
 
 ## Further Reading
 
