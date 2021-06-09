@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 06/09/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
@@ -41,7 +41,7 @@ Azure Blob Storage runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Azure Blob Storage
 
-When you create or use Blob storage resources, you'll be charged for the following meters: 
+When you create or use Blob Storage resources, you'll be charged for the following meters: 
 
 | Meter | Unit | Meter | Unit |
 |---|---|---|---|
