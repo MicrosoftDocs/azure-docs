@@ -791,8 +791,8 @@
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
   - name: Private multi-access edge compute
-    tocHref: /azure/private-multi-access-edge-compute/
-    topicHref: /azure/private-multi-access-edge-compute/
+    tocHref: /azure/private-multi-access-edge-compute-mec/
+    topicHref: /azure/private-multi-access-edge-compute-mec/
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/

@@ -10,25 +10,33 @@ ms.author: hollycl
 ---
 # Deploy Affirmed Private Network Service on Azure Stack Edge
 
-This article provides a high-level overview of the process of deploying Affirmed Private Network Service (APNS) on an Azure Stack Edge device via the Microsoft Azure Marketplace. Further details and optional deployment methods are provided in the Affirmed Private Network Service Deployment Guide. 
+This article provides a high-level overview of the process of deploying APNS on an ASE device via the Microsoft Azure Marketplace.
 
 ## Collect required information
-To deploy APNS, you must have the following resources and information:
-- A suitable management network to join that includes:
-    - Virtual network.
-    - Virtual subnet.
-    - Network security group.
-- A valid SAS Token provided by Affirmed Release Engineering.
-- Appropriate permissions within your subscription that includes:
-    - Managed Application Contributor Role for your subscription.
-    - Owner/Contributor role for your resource group.
-- An Administrative user and password to program during the deployment.
-- Your subscription must be approved for the following Affirmed services:
-    - Affirmed Management Systems VM Offer.
-    - APNS Managed Application.
+To deploy APNS, you must have the following resources:
+- A configured Azure Network Function Manager - Device object which serves as the digital twin of the Azure Stack Edge device 
+
+- A fully deployed Azure Stack Edge with NetFoundry VM. 
+
+- Subscription approval for the Affirmed Management Systems VM Offer and APNS Managed Application 
+
+- An Azure account with an active subscription and access to the following:  
+
+- The built-in “Owner” Role for your Resource Group  
+
+- The built-in “Managed Application Contributor” role for your Subscription 
+
+- A Virtual Network and Subnet to join (Open ports tcp/443 and tcp/8443) 
+
+- 5 IP Addresses on the Virtual Subnet 
+
+- A valid SAS Token provided by Affirmed Release Engineering  
+
+- An Administrative username/password to program during the deployment 
     
 ## Deploying APNS
-To automatically deploy the APNS Managed application with all required resources and relevant information necessary, select the APNS Managed Application from the Microsoft Azure Marketplace. When you deploy, all of the required resources are automatically created for you and are contained in a Managed Resource Group. 
+
+To automatically deploy the APNS Managed application with all required resources and relevant information necessary, select the APNS Managed Application from the Microsoft Azure Marketplace. When you deploy APNS, all the required resources are automatically created for you and are contained in a Managed Resource Group. 
 
 Complete the following procedure to deploy APNS:
 1.	Open the Azure portal and select **Create a resource**.
