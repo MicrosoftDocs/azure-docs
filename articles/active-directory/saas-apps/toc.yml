@@ -203,8 +203,6 @@
         href: bamboo-hr-tutorial.md
       - name: Bambu by Sprout Social
         href: bambubysproutsocial-tutorial.md
-      - name: Banyan Command Center
-        href: banyan-command-center-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
       - name: Beekeeper Azure AD Data Connector
@@ -1442,6 +1440,8 @@
         href: perimeterx-tutorial.md
       - name: Periscope Data
         href: periscope-data-tutorial.md
+      - name: Pexip
+        href: pexip-tutorial.md
       - name: PetroVue
         href: petrovue-tutorial.md
       - name: Phraseanet
@@ -2152,6 +2152,8 @@
         href: zenqms-tutorial.md
       - name: ZephyrSSO
         href: zephyrsso-tutorial.md
+      - name: Zero Trust Remote Access Platform
+        href: banyan-command-center-tutorial.md
       - name: Ziflow
         href: ziflow-tutorial.md
       - name: Zip
@@ -2441,6 +2443,8 @@
         href: sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
       - name: SAP SuccessFactors Writeback
         href: sap-successfactors-writeback-tutorial.md
+      - name: SECURE DELIVER
+        href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin
         href: secure-login-provisioning-tutorial.md
       - name: ServiceNow
@@ -2449,6 +2453,8 @@
         href: segment-provisioning-tutorial.md
       - name: Shopify Plus
         href: shopify-plus-provisioning-tutorial.md
+      - name: Sigma Computing
+        href: sigma-computing-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Snowflake
