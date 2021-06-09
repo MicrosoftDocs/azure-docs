@@ -41,7 +41,7 @@ The 3.x agent supports Java 8 and above.
 >
 > The operation names and request telemetry names are now prefixed by the http method (`GET`, `POST`, etc.).
 > This can affect custom dashboards or alerts if they relied on the previous unprefixed values.
-> See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.1)
+> See the [3.1.1 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.1)
 > for more details.
 
 Download [applicationinsights-agent-3.1.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.1/applicationinsights-agent-3.1.1.jar)
