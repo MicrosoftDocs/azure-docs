@@ -95,65 +95,6 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 }
 ```
 
-## Include criteria and exclude criteria
-
-All telemetry processors support optional `include` and `exclude` criteria.
-A processor is applied only to telemetry that match its `include` criteria (if it's provided)
-_and_ don't match its `exclude` criteria (if it's provided).
-
-To configure this option, under `include` or `exclude` (or both), specify at least one `matchType` and either `spanNames` or `attributes`.
-The include-exclude configuration allows more than one specified condition.
-All specified conditions must evaluate to true to result in a match. 
-
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
-
-* **Optional fields**: 
-    * `spanNames` must match at least one of the items. 
-    * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
-    
-> [!NOTE]
-> If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
-
-> [!NOTE]
-> If the `include` or `exclude` configuration donot have `spanNames` specified, then the matching criteria is applied on both `spans` and `logs`.
-
-### Sample usage
-
-```json
-"processors": [
-  {
-    "type": "attribute",
-    "include": {
-      "matchType": "strict",
-      "spanNames": [
-        "spanA",
-        "spanB"
-      ]
-    },
-    "exclude": {
-      "matchType": "strict",
-      "attributes": [
-        {
-          "key": "redact_trace",
-          "value": "false"
-        }
-      ]
-    },
-    "actions": [
-      {
-        "key": "credit_card",
-        "action": "delete"
-      },
-      {
-        "key": "duplicate_key",
-        "action": "delete"
-      }
-    ]
-  }
-]
-```
-For more information, see [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md).
-
 ## Attribute processor
 
 The attribute processor modifies attributes of a `span` or a `log`. It can support the ability to include or exclude `span` or `log`. It takes a list of actions that are performed in the order that the configuration file specifies. The processor supports these actions:
@@ -279,6 +220,63 @@ The `extract` action requires the following settings:
 * `pattern`
 * `action`: `extract`
 
+### Include criteria and exclude criteria
+
+Attribute processors support optional `include` and `exclude` criteria.
+A attribute processor is applied only to telemetry that match its `include` criteria (if it's provided)
+_and_ don't match its `exclude` criteria (if it's provided).
+
+To configure this option, under `include` or `exclude` (or both), specify at least one `matchType` and either `spanNames` or `attributes`.
+The include-exclude configuration allows more than one specified condition.
+All specified conditions must evaluate to true to result in a match. 
+
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+
+* **Optional fields**: 
+    * `spanNames` must match at least one of the items. 
+    * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
+    
+> [!NOTE]
+> If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
+
+> [!NOTE]
+> If the `include` or `exclude` configuration donot have `spanNames` specified, then the matching criteria is applied on both `spans` and `logs`.
+
+### Sample usage
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "include": {
+      "matchType": "strict",
+      "spanNames": [
+        "spanA",
+        "spanB"
+      ]
+    },
+    "exclude": {
+      "matchType": "strict",
+      "attributes": [
+        {
+          "key": "redact_trace",
+          "value": "false"
+        }
+      ]
+    },
+    "actions": [
+      {
+        "key": "credit_card",
+        "action": "delete"
+      },
+      {
+        "key": "duplicate_key",
+        "action": "delete"
+      }
+    ]
+  }
+]
+```
 For more information, see [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md).
 
 ## Span processor
@@ -369,6 +367,60 @@ This section lists some common span attributes that telemetry processors can use
 | `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|
 | `db.statement` | string | Database statement that's being run.|
 
+### Include criteria and exclude criteria
+
+Span processors support optional `include` and `exclude` criteria.
+A span processor is applied only to telemetry that match its `include` criteria (if it's provided)
+_and_ don't match its `exclude` criteria (if it's provided).
+
+To configure this option, under `include` or `exclude` (or both), specify at least one `matchType` and either `spanNames` or  span `attributes`.
+The include-exclude configuration allows more than one specified condition.
+All specified conditions must evaluate to true to result in a match. 
+
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+
+* **Optional fields**: 
+    * `spanNames` must match at least one of the items. 
+    * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
+    
+> [!NOTE]
+> If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
+
+### Sample usage
+
+```json
+"processors": [
+  {
+    "type": "span",
+    "include": {
+      "matchType": "strict",
+      "spanNames": [
+        "spanA",
+        "spanB"
+      ]
+    },
+    "exclude": {
+      "matchType": "strict",
+      "attributes": [
+        {
+          "key": "attribute1",
+          "value": "attributeValue1"
+        }
+      ]
+    },
+    "name": {
+      "toAttributes": {
+        "rules": [
+          "rule1",
+          "rule2",
+          "rule3"
+        ]
+      }
+    }
+  }
+]
+```
+For more information, see [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md).
 
 ## Log processor
 
@@ -436,3 +488,61 @@ This process is repeated for all rules in the order they're specified. Each subs
 ]
 
 ```
+
+### Include criteria and exclude criteria
+
+Log processors support optional `include` and `exclude` criteria.
+A log processor is applied only to telemetry that match its `include` criteria (if it's provided)
+_and_ don't match its `exclude` criteria (if it's provided).
+
+To configure this option, under `include` or `exclude` (or both), specify the `matchType` and `attributes`.
+The include-exclude configuration allows more than one specified condition.
+All specified conditions must evaluate to true to result in a match. 
+
+* **Required field**: 
+  * `matchType` controls how items in `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+  * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
+    
+> [!NOTE]
+> If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
+
+> [!NOTE]
+> Log processors donot support `spanNames`.
+
+### Sample usage
+
+```json
+"processors": [
+  {
+    "type": "log",
+    "include": {
+      "matchType": "strict",
+      "attributes": [
+        {
+          "key": "attribute1",
+          "value": "value1"
+        }
+      ]
+    },
+    "exclude": {
+      "matchType": "strict",
+      "attributes": [
+        {
+          "key": "attribute2",
+          "value": "value2"
+        }
+      ]
+    },
+    "body": {
+      "toAttributes": {
+        "rules": [
+          "rule1",
+          "rule2",
+          "rule3"
+        ]
+      }
+    }
+  }
+]
+```
+For more information, see [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md).
