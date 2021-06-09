@@ -43,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A [LimbleCMMS](https://limblecmms.com/signup/?plan=business-yearly) tenant with Business Plus or above licensing.
 * A user account in LimbleCMMS with Super Admin permissions.
 * Single Sign On to be enabled in your LimbleCMMS tenant (contact your Customer Success Manager).
-* At least one group you plan on provisioning to LimbleCMMS (permissions in LimbleCMMS are based on groups, if you do not provision a group then the users that are provisioned will not have any permissions assoicated with them). 
+* At least one group you plan on provisioning to LimbleCMMS (permissions in LimbleCMMS are based on groups, if you do not provision a group then the users that are provisioned will not have any permissions associated with them). 
 
 
 ## Step 1. Plan your provisioning deployment
@@ -55,7 +55,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Login to LimbleCMMS as a **Super Admin**.
 1. Navigate to **Advanced Settings > Manage SSO**.
-      ![Manage SSO](media/limblecmms-provisioning-tutorial/limble-manage-sso.png).
+      ![Manage SSO](media/limblecmms-provisioning-tutorial/limble-manage-sso.png)
 1. Select **Azure Active Directory** as your SSO Provider.
 1. [Setup OIDC](https://help.limblecmms.com/en/articles/4446986-active-directory-oidc-sso-setup-guide) to support Single Sign On
 1. Click the **Generate SCIM Token** button to retrieve your SCIM token, save this for a future step.
