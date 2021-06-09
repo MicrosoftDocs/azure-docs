@@ -20,7 +20,6 @@ In this tutorial, you'll learn how to integrate Standard for Success Accreditati
 
 * Control in Azure AD who has access to Standard for Success Accreditation.
 * Enable your users to be automatically signed-in to Standard for Success Accreditation with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
@@ -108,7 +107,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the username@institutiondomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
@@ -136,9 +135,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. **Enable Azure Single Sign On** checkbox.
 
-    b. Fill the **Azure Tenant ID** text box with Tenant ID value from the Azure portal.
+    b. Fill the URL and Identifier fields with the appropriate URLs copied from the Azure portal SAML setup.
 
-    c. Fill the application ID in the **Application ID** text box.
+    c. Fill the Application ID in the **Application ID** text box.
 
     d. In the **Certificate Thumbprint** text box, paste the **Thumbprint Value** which you have copied from Azure portal.
 
@@ -156,7 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In **Last Name** text box, enter Simon.
 
-    c. In **University Email** text box, enter your organization email address.
+    c. In **University Email** text box, enter the email address you added for B.Simon within Azure.
 
     d. Scroll to the bottom and Click **Create User**.
 
