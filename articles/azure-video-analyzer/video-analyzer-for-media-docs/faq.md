@@ -101,7 +101,7 @@ If there are multiple audio streams, Video Analyzer for Media takes the first on
 
 Your paid Video Analyzer for Media account uses the specified Media Services account that is connected to a storage account. Currently, the connected storage account cannot be behind a firewall.
 
-When calling the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API, you can provide a URL to a video for Video Analyzer for Media to download from. If the URL is based on a storage account in the same region as the Video Analyzer for Media account and it has a firewall, it will not work.<br/>If the storage account is in another region, you can whitelist Video Analyzer for Media IPs and it will work.
+When calling the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API, you can provide a URL to a video for Video Analyzer for Media to download from. If the URL is based on a storage account in the same region as the Video Analyzer for Media account and it has a firewall, it will not work.<br/>If the storage account is in another region, you can add Video Analyzer for Media IPs to the allowed list and it will work.
 
 ### What is the SLA for Video Analyzer for Media?
 
