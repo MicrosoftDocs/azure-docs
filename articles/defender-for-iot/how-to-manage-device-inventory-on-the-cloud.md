@@ -50,6 +50,8 @@ The following table describes the table columns in the device inventory.
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Select device inventory from the left side menu under Defender for IoT.":::
 
+## Customize the device inventory table 
+
 In the device inventory table you can add or remove columns. You can also change the column order by dragging and dropping a field.
 
 **To customize the device inventory table**:
