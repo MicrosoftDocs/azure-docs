@@ -714,6 +714,7 @@ An extension that inherits from [FuncExtensionBase](https://github.com/Azure/azu
 `FuncExtensionBase` exposes the following abstract class methods for implementations:
 
 | Method | Description |
+| --- | --- |
 | **`__init__`** | This method is the constructor of the extension. It's called when an extension instance is initialized in a specific function. When implementing this abstract method, you may want accept a `filename` parameter and pass it to the parent's method `super().__init__(filename)` for proper extension registration. |
 | **`post_function_load`** | Called right after the function is loaded. The function name and function directory are passed to the extension. Keep in mind that the function directory is read-only, and any attempt to write to local file in this directory fails. |
 | **`pre_invocation`** | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass additional attributes in the context object for the function code to consume. |
