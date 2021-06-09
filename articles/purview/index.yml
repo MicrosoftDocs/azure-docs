@@ -90,7 +90,7 @@ landingContent:
         - text: Scan Oracle
           url: register-scan-oracle-source.md
         - text: Scan Hive Metastore Database
-          url: register-scan-hive-metastore-source
+          url: register-scan-hive-metastore-source.md
   #Card
   - title: Understand your data estate 
     linkLists:
