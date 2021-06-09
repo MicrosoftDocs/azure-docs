@@ -54,7 +54,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer the following sample to import QnAs:.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer the following sample to import synonyms:.
-   3. **Knowledge Base Replica**: If you want to import replica with excel, add three tabs for QnAs, Synonyms, and Settings in the excel file, zip it and import the zipped folder. If you want to import replica with tsv files, you can zip the three QnAs, synonyms and settings files and import the zipped folder. You can refer the following samples to import Knowledge Base replica:. If you also want to add unstructured content, refer .
+   3. **Knowledge Base Replica**: If you want to import replica with excel, add three tabs for QnAs, Synonyms, and Settings in the excel file, zip it and import the zipped folder. You can refer [SampleKBReplicaExcel](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleKBReplica.zip) for more details. If you want to import replica in tsv, you can zip the three QnAs, synonyms and settings files and import the zipped folder. You can refer for more details. If you also want to add unstructured content, refer .
 
         2. Either QnAs or Unstructured content is required when importing replica. Unstructured documents are only valid for Custom question answering.
         3. Synonyms file is not mandatory when importing replica.
@@ -74,8 +74,6 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 
 1. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
-
-
 
 ## Programmatically migrate a knowledge base from QnA Maker
 
