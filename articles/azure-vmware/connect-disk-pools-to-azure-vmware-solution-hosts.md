@@ -55,7 +55,7 @@ In this article, you'll learn how to:
 
    - If you select Premium SSD Managed Disks, use either the Standard (1Gbps) or High Performance (2Gbps) SKU for the Azure VMware Solution private cloud.
 
-- Deploy and configure a disk pool with UItra Disks or Premium SSD Disks as the backing storge and expose the disk pool as an iSCSI target with each disk as an individual LUN. For details, see [Deploy an Azure disk pool](../virtual-machines/disks-pools-deploy.md).
+- [Deploy an Azure disk pool](../virtual-machines/disks-pools-deploy.md) with UItra Disks or Premium SSD Disks as the backing storge and expose the disk pool as an iSCSI target with each disk as an individual LUN. 
 
    >[!IMPORTANT]
    > The disk pool must be deployed in the same subscription as the VMware cluster, and it must be attached to the same VNET as the VMware cluster.
