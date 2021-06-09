@@ -77,7 +77,7 @@ Follow these steps to assign roles using the Roles and administrators page. If y
 
     If a user is made eligible for a role, that means they must perform one or more actions to use the role. For more information about these settings, see [PIM Terminology](../privileged-identity-management/pim-configure.md#terminology).
 
-    ![Add assignments page and Select a member pane with PIM enabled.](./media/manage-roles-portal/add-assignments-pim-setting.png)
+    ![Add assignments page and Setting tab with PIM enabled.](./media/manage-roles-portal/add-assignments-pim-setting.png)
 
 1. Use the remaining options to set the duration for the assignment.
 
@@ -105,7 +105,7 @@ Follow these steps to assign Azure AD roles using PowerShell.
     $user = Get-AzureADUser -Filter "userPrincipalName eq 'user@contoso.com'"
     ```
 
-1. Use [Get-AzureADMSRoleDefinition]() to get the role you want to assign.
+1. Use [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) to get the role you want to assign.
 
     ```powershell
     $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Billing Administrator'"
