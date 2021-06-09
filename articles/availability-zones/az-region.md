@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 06/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
@@ -77,6 +77,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |-----------------------------------------------------------------|:----------------------------:|
 |     [Application   Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md)                                  | :large_blue_diamond:  |
 |     [Azure Backup](../backup/backup-create-rs-vault.md#set-storage-redundancy)                                                | :large_blue_diamond:  |
+|     [Azure Batch](../batch/create-pool-availability-zones.md)                                                                 | :large_blue_diamond:  |
 |     [Azure Cosmos   DB](../cosmos-db/high-availability.md#availability-zone-support)                                           | :large_blue_diamond:  |
 |     [Azure Data   Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)                             | :large_blue_diamond:  |
 |     [Azure DNS: Azure DNS Private Zones](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal)                   | :large_blue_diamond:  |
