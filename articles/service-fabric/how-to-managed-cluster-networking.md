@@ -123,11 +123,11 @@ Using Azure portal, locate the managed cluster created inbound NAT rules for Rem
 
 3. On the page for your load balancer, select Inbound NAT rules. Review the inbound NAT rules to confirm the inbound Frontend port to target port mapping for a node. 
 
-The following screenshot shows the inbound NAT rules for three different node types:
+   The following screenshot shows the inbound NAT rules for three different node types:
 
-![Inbound Nat Rules][Inbound-NAT-Rules]
+   ![Inbound Nat Rules][Inbound-NAT-Rules]
 
-By default, for Windows clusters, the Frontend Port is in the 50000 and higher range and the target port is port 3389, which maps to the RDP service on the target node.
+   By default, for Windows clusters, the Frontend Port is in the 50000 and higher range and the target port is port 3389, which maps to the RDP service on the target node.
 
 4. Remotely connect to the specific node (scale set instance). You can use the user name and password that you set when you created the cluster or any other credentials you have configured.
 
