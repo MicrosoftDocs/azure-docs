@@ -61,9 +61,9 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer [SampleSynonyms.xlsx](https://aka.ms/qnamaker-samplesynonyms), [SampleSynonyms.tsv](https://aka.ms/qnamaker-samplesynonymstsv) to import synonyms.
    3. **Knowledge Base Replica**: TThis option can be used to import KB replica with QnAs, Synonyms and Settings. You can refer [KBReplicaSampleExcel](https://aka.ms/qnamaker-samplereplica), [KBReplicaSampleTSV](https://aka.ms/qnamaker-samplereplicatsv) for more details. If you also want to add unstructured content to the replica, refer [CustomQnAKBReplicaSample](https://aka.ms/qnamaker-samplev2replica).
 
-      * Either QnAs or Unstructured content is required when importing replica. Unstructured documents are only valid for Custom question answering.
-      * Synonyms file is not mandatory when importing replica.
-      * Settings file is mandatory when importing replica.
+      Either QnAs or Unstructured content is required when importing replica. Unstructured documents are only valid for Custom question answering.
+      Synonyms file is not mandatory when importing replica.
+      Settings file is mandatory when importing replica.
 
          |Settings|Update permitted when importing to QnA Maker KB?|Update permitted when importing to Custom question answering KB?|
          |:--|--|--|
