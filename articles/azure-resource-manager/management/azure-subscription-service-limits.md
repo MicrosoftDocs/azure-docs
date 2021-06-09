@@ -177,7 +177,9 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
 
-## Azure role-based access control limits
+## Azure RBAC limits
+
+The following limits apply to [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 

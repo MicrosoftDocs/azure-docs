@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/04/2021
+ms.date: 06/09/2021
 ms.custom: references_regions
 ---
 
@@ -106,7 +106,7 @@ For more information, see [Use a webhook from an ARM template](./automation-webh
 
 **Type:** New feature
 
-See the [full list](./update-management/overview.md#supported-operating-systems) of supported Linux operating systems for more details.
+See the [full list](./update-management/operating-system-requirements.md) of supported Linux operating systems for more details.
 
 ### In-region data residency support for Brazil South and South East Asia 
 
@@ -271,7 +271,7 @@ Automation Hybrid Runbook Worker supports the Windows Server 2008 R2 operating s
 
 **Type:** New feature
 
-Update Management supports assessing and patching the Windows Server 2008 R2 operating system. See [Supported operating systems](update-management/overview.md#clients) for updates to the documentation to reflect these changes.
+Update Management supports assessing and patching the Windows Server 2008 R2 operating system. See [Supported operating systems](update-management/operating-system-requirements.md) for updates to the documentation to reflect these changes.
 
 ### Automation diagnostic logs schema update
 
