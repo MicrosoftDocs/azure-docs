@@ -96,13 +96,13 @@ To connect the NXP EVK to Azure, you'll modify a configuration file for Wi-Fi an
 
 ### Build the image
 
-In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+1. In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
 
-&nbsp;&nbsp;&nbsp;&nbsp;*getting-started\NXP\MIMXRT1050-EVKB\tools\rebuild.bat*
+    *getting-started\NXP\MIMXRT1050-EVKB\tools\rebuild.bat*
 
-After the build completes, confirm that the binary file was created in the following path:
+2. After the build completes, confirm that the binary file was created in the following path:
 
-&nbsp;&nbsp;&nbsp;&nbsp;*getting-started\NXP\MIMXRT1050-EVKB\build\app\mimxrt1050_azure_iot.bin*
+    *getting-started\NXP\MIMXRT1050-EVKB\build\app\mimxrt1050_azure_iot.bin*
 
 ### Flash the image
 
