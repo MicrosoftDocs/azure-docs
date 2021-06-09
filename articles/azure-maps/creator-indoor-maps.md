@@ -149,8 +149,8 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
 The following example shows how to update a dataset, create a new tileset, and delete an old tileset:
 
 1. Follow steps in the [Upload a Drawing package](#upload-a-drawing-package) and [Convert a Drawing package](#convert-a-drawing-package) sections to upload and convert the new Drawing package.
-2. Use the [Dataset Create API](/rest/api/maps/v2/dataset) to append the converted data to the existing dataset.
-3. Use the [Tileset Create API](/rest/api/maps/v2/tileset) to generate a new tileset out of the updated dataset.
+2. Use the [Dataset Create API](/rest/api/maps/v2/dataset/create) to append the converted data to the existing dataset.
+3. Use the [Tileset Create API](/rest/api/maps/v2/tileset/create) to generate a new tileset out of the updated dataset.
 4. Save the new **tilesetId** for the next step.
 5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer used, you can delete it.
 
