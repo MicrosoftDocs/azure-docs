@@ -210,7 +210,7 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 
 >[!TIP]
 >You can run the task scheduler with the stage script.
->To run the script, set the task trigger to *When the computer starts*, then enable *Run with highest privileges*.
+>To run the script, set the task trigger to **When the computer starts**, then enable **Run with highest privileges**.
 
 ## Use packages offline
 
