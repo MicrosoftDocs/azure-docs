@@ -65,6 +65,7 @@ In the device inventory table you can add or remove columns. You can also change
 1. Reorder the columns by dragging a column parameter to a new location.
 
 1. Delete a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon.
+    
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/delete-a-column.png" alt-text="Select the trash can icon to delete a column.":::
 
 1. Select **Save** to save any changes made.
