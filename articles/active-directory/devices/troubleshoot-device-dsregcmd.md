@@ -63,6 +63,14 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 - **KeyProvider:** KeyProvider (Hardware/Software) used to store the device private key.
 - **TpmProtected:** "YES" if the device private key is stored in a Hardware TPM.
 
+> [!NOTE]
+> **DeviceAuthStatus** field was added in **Windows 10 May 2021 Update (version 21H1)**.
+
+- **DeviceAuthStatus:** Perfoms a check to determine device's health in the cloud.  
+"SUCCESS" if the device is in a valid state in the cloud.  
+"FAILED. Device is either disabled or deleted" if the deice is either disabled or deleted, [More Info](https://docs.microsoft.com/azure/active-directory/devices/faq#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
+"FAILED. ERROR" if the test was unable to run successfully.  
+
 ### Sample device details output
 
 ```
@@ -76,6 +84,7 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
             KeyContainerId : 13e68a58-xxxx-xxxx-xxxx-a20a2411xxxx
                KeyProvider : Microsoft Software Key Storage Provider
               TpmProtected : NO
+          DeviceAuthStatus : SUCCESS
 +----------------------------------------------------------------------+
 ```
 
@@ -172,6 +181,34 @@ This section can be ignored for Azure AD registered devices.
 - **EnterprisePrtExpiryTime:** Set to the time in UTC when the PRT is going to expire if it is not renewed.
 - **EnterprisePrtAuthority:** ADFS authority URL
 
+>[!NOTE]
+> The following PRT diagnostics fields were added in **Windows 10 May 2021 Update (version 21H1)**
+
+>[!NOTE]
+> Diagnostic info displayed under **AzureAdPrt** field are for AzureAD PRT acquisition/refresh and diagnostic info displayed under **EnterprisePrt** and for Enterprise PRT acquisition/refresh respectively.
+
+>[!NOTE]
+>Diagnostic is info is displayed only if the acquisition/refresh failure happened after the the last successful PRT update time (AzureAdPrtUpdateTime/EnterprisePrtUpdateTime).  
+
+- **AcquirePrtDiagnostics:** Set to "PRESENT" if acquire PRT diagnostic info is present in the logs.  
+This field is skipped if no diagnostics info is available.
+- **Previous Prt Attempt:** Local time in UTC at which the failed PRT attempt ocurred. 
+- **Attempt Status:** Client error code returned (HRESULT).
+- **User Identity:** UPN of the user for whom the PRT attempt happened.
+- **Credential Type:** Credential used to acquire/refresh PRT. Common credential types are Password and NGC (Windows Hello).
+- **Correlation ID:** Correlation ID sent by the server for the failed PRT attempt.
+- **Endpoint URI:** Last endpoint accessed before the failure.
+- **HTTP Method:** HTTP method used to access the endpoint.
+- **HTTP Error:** WinHttp transport error code. WinHttp errors can be found [here](https://docs.microsoft.com/windows/win32/winhttp/error-messages).
+- **HTTP Status:** HTTP status returned by the endpoint.
+- **Server Error Code:** Error code from server.  
+- **Server Errror Description:** Error message from server.
+---
+- **RefreshPrtDiagnostics:** Set to "PRESENT" if acquire PRT diagnostic info is present in the logs.  
+This field is skipped if no diagnostics info is available.
+The diagnostic info fields are same as **AcquirePrtDiagnostics**
+
+
 ### Sample SSO state output
 
 ```
@@ -179,10 +216,20 @@ This section can be ignored for Azure AD registered devices.
 | SSO State                                                            |
 +----------------------------------------------------------------------+
 
-                AzureAdPrt : YES
-      AzureAdPrtUpdateTime : 2019-01-24 19:15:26.000 UTC
-      AzureAdPrtExpiryTime : 2019-02-07 19:15:26.000 UTC
+                AzureAdPrt : NO
        AzureAdPrtAuthority : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx
+     AcquirePrtDiagnostics : PRESENT
+      Previous Prt Attempt : 2020-07-18 20:10:33.789 UTC
+            Attempt Status : 0xc000006d
+             User Identity : john@contoso.com
+           Credential Type : Password
+            Correlation ID : 63648321-fc5c-46eb-996e-ed1f3ba7740f
+              Endpoint URI : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx/oauth2/token/
+               HTTP Method : POST
+                HTTP Error : 0x0
+               HTTP status : 400
+         Server Error Code : invalid_grant
+  Server Error Description : AADSTS50126: Error validating credentials due to invalid username or password.
              EnterprisePrt : YES
    EnterprisePrtUpdateTime : 2019-01-24 19:15:33.000 UTC
    EnterprisePrtExpiryTime : 2019-02-07 19:15:33.000 UTC
