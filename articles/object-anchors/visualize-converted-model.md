@@ -13,9 +13,9 @@ ms.service: azure-object-anchors
 
 # How to visualize an Object Anchors model
 
-You don't need to look into a converted model to use it. However, there's an easy way to visualize its mesh before using it if you want.
+You don't need to visualize a converted model to use it. However, there's an easy way to view its mesh before using it if you want.
 
-Follow the steps in our [Unity app Quickstart](quickstarts/get-started-unity-hololens.md), with one minor change. When building the sample scene, instead of opening **AOASampleScene**, add the **VisualizeScene** to the scene build list. Then, in **Build Settings**, ensure that *only* **VisualizeScene** has a checkmark next to it: all other scenes shouldn't be included.
+Follow the steps in our [Unity app Quickstart](quickstarts/get-started-unity-hololens.md), with one minor change. When building the sample scene, instead of opening **AOASampleScene**, open **VisualizeScene** and add it to the scene build list. Then, in **Build Settings**, ensure that *only* **VisualizeScene** has a checkmark next to it: all other scenes shouldn't be included.
 
 :::image type="content" source="../../includes/media/object-anchors-quickstarts-unity/aoa-unity-build-settings-visualize.png" alt-text="build settings visualize":::
 
@@ -25,7 +25,7 @@ In the **Hierarchy** panel, select the **Visualizer** GameObject.
 
 :::image type="content" source="../../includes/media/object-anchors-quickstarts-unity/aoa-unity-hierarchy.png" alt-text="hierarchy":::
 
-In the **Inspector** panel, locate the **Model path** property under the **Mesh Loader (Script)** section, and type the path to your Object Anchors model file, including extension.
+In the **Inspector** panel, locate the **Model path** property under the **Mesh Loader (Script)** section, and type the path to your Object Anchors model file, including the file extension.
 
 :::image type="content" source="../../includes/media/object-anchors-quickstarts-unity/aoa-unity-inspector.png" alt-text="inspector":::
 

@@ -30,7 +30,13 @@ Some example use cases enabled by Azure Object Anchors include:
 
 ## Usage Flow
 
-First, upload your 3d asset to our Azure Object Anchors Conversion service using the [Conversion SDK](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.MixedReality.ObjectAnchors.Conversion/latest/index.html). The service will then convert your asset into an Azure Object Anchors model. Download the converted model, so you can [visualize its mesh](visualize-converted-model.md) if you want. Finally, copy the model over to a HoloLens device that has the Runtime SDK for [Unity](/dotnet/api/Microsoft.Azure.ObjectAnchors) or [HoloLens C++/WinRT](/cpp/api/object-anchors/winrt): you can now detect physical objects that match your original model.
+First, upload your 3d asset to our Azure Object Anchors Conversion service. You can follow the steps in one of our Quickstarts:
+
+  - [Unity HoloLens](quickstarts/get-started-unity-hololens.md)
+  - [Unity HoloLens with MRTK](quickstarts/get-started-unity-hololens-mrtk.md)
+  - [HoloLens DirectX](quickstarts/get-started-hololens-directx.md)
+
+The service will then convert your asset into an Azure Object Anchors model. Download the converted model, so you can [visualize its mesh](visualize-converted-model.md) if you want. Finally, copy the model over to a HoloLens device that has the Runtime SDK for [Unity](/dotnet/api/Microsoft.Azure.ObjectAnchors) or [HoloLens C++/WinRT](/cpp/api/object-anchors/winrt): you can now detect physical objects that match your original model.
 
 :::image type="content" source="./media/aoa-flow.png" alt-text="usage flow":::
 
