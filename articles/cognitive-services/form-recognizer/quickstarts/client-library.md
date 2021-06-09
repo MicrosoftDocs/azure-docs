@@ -5,7 +5,7 @@ description: Use the Form Recognizer client library or REST API to create a form
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2021
