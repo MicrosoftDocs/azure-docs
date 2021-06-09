@@ -44,7 +44,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
    1. **QnAs**: When exporting QnAs, all QnA pairs (with questions, answers, metadata, follow-up prompts, and the data source names) are downloaded. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
    2. **Synonyms**: You can export Synonyms that have been added to the knowledge base.
-   3. **Knowledge Base Replica**: If you want to download the entire knowledge base with synoyms and other settings, you should choose this option.
+   3. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you should choose this option.
 
 1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation. Set the new knowledge base name only. Duplicate names are supported and special characters are supported as well.
 
