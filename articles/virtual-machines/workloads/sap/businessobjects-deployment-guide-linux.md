@@ -19,7 +19,7 @@ ms.author: depadia
 
 # SAP BusinessObjects BI platform deployment guide for Linux on Azure
 
-This article describes the strategy to deploy SAP BusinessObjects BI platform on Azure for Linux. In this example, you configure two virtual machines with premium solid-state drive (SSD) managed disks as the install directory. You use Azure Database for MySQL for your CMS database, and you share Azure NetApp Files for your file repository server across both servers. On both virtual machines, you install the default Tomcat Java web application and BI platform application together. To load-balance user requests, you use Application Gateway with native TLS/SSL offloading capabilities.
+This article describes the strategy to deploy SAP BusinessObjects BI (BOBI) platform on Azure for Linux. In this example, you configure two virtual machines with premium solid-state drive (SSD) managed disks as the install directory. You use Azure Database for MySQL for your CMS database, and you share Azure NetApp Files for your file repository server across both servers. On both virtual machines, you install the default Tomcat Java web application and BI platform application together. To load-balance user requests, you use Application Gateway with native TLS/SSL offloading capabilities.
 
 This type of architecture is effective for small deployments or non-production environments. For large deployments or production environments, you can have separate hosts for your web application. You can also have multiple BOBI application hosts, allowing the server to process more information.
 
@@ -91,25 +91,25 @@ Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in 
 
 ### Important considerations
 
-As you're creating your Azure NetApp Files for SAP BOBI Platform File Repository Server, be aware of the following consideration:
+As you're creating your Azure NetApp Files for SAP BOBI platform file repository server, be aware of the following considerations:
 
-1. The minimum capacity pool is 4 tebibytes (TiB).
-2. The minimum volume size is 100 gibibytes (GiB).
-3. Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted must be in the same Azure virtual network or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over VNET peering in the same region is supported now. Azure NetApp access over global peering isn't supported yet.
-4. The selected virtual network must have a subnet that is delegated to Azure NetApp Files.
-5. With the Azure NetApp Files [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (read-write, read only, and so on).
-6. The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
-7. Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP BI Platform Applications.
+- The minimum capacity pool is 4 tebibytes (TiB).
+- The minimum volume size is 100 gibibytes (GiB).
+- Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted must be in the same Azure virtual network, or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported. Azure NetApp access over global peering isn't currently supported.
+- The selected virtual network must have a subnet that is delegated to Azure NetApp Files.
+- With the Azure NetApp Files [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (for example, read-write or read only).
+- The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
+- Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP BI platform applications.
 
-## Configure file systems on linux servers
+## Configure file systems on Linux servers
 
-The steps in this section use the following prefixes:
+The steps in this section use the following prefix:
 
-**[A]**: The step applies to all hosts
+**[A]**: The step applies to all hosts.
 
-### Format and mount SAP file system
+### Format and mount the SAP file system
 
-1. **[A]** List all attached disk
+1. **[A]** List all attached disks.
 
     ```bash
     sudo lsblk
@@ -123,38 +123,38 @@ The steps in this section use the following prefixes:
     └─sdb1   8:17   0   32G  0 part /mnt
     sdc      8:32   0  128G  0 disk
     sr0     11:0    1  628K  0 rom  
-    # Premium SSD of 128 GB is attached to Virtual Machine, whose device name is sdc
+    # Premium SSD of 128 GB is attached to virtual machine, whose device name is sdc
     ```
 
-2. **[A]** Format block device for /usr/sap
+2. **[A]** Format block device for /usr/sap.
 
     ```bash
     sudo mkfs.xfs /dev/sdc
     ```
 
-3. **[A]** Create mount directory
+3. **[A]** Create mount directory.
 
     ```bash
     sudo mkdir -p /usr/sap
     ```
 
-4. **[A]** Get UUID of block device
+4. **[A]** Get UUID of block device.
 
     ```bash
     sudo blkid
 
-    #It will display information about block device. Copy UUID of the formatted block device
+    # It will display information about block device. Copy UUID of the formatted block device
 
     /dev/sdc: UUID="0eb5f6f8-fa77-42a6-b22d-7a9472b4dd1b" TYPE="xfs"
     ```
 
-5. **[A]** Maintain file system mount entry in /etc/fstab
+5. **[A]** Maintain file system mount entry in /etc/fstab.
 
     ```bash
     sudo echo "UUID=0eb5f6f8-fa77-42a6-b22d-7a9472b4dd1b /usr/sap xfs defaults,nofail 0 2" >> /etc/fstab
     ```
 
-6. **[A]** Mount file system
+6. **[A]** Mount file system.
 
     ```bash
     sudo mount -a
@@ -173,22 +173,20 @@ The steps in this section use the following prefixes:
     /dev/sdc                       128G   29G  100G  23% /usr/sap
     ```
 
-### Mount Azure NetApp Files volume
+### Mount the Azure NetApp Files volume
 
-1. **[A]** Create mount directories
+1. **[A]** Create mount directories.
 
    ```bash
    sudo mkdir -p /usr/sap/frsinput
    sudo mkdir -p /usr/sap/frsoutput
    ```
 
-2. **[A]** Configure Client OS to support NFSv4.1 Mount **(Only applicable if using NFSv4.1)**
+2. **[A]** Configure the client operating system to support NFSv4.1 Mount (only applicable if using NFSv4.1).
 
-   If you're using Azure NetApp Files volumes with NFSv4.1 protocol, execute following configuration on all VMs, where Azure NetApp Files NFSv4.1 volumes need to be mounted.
+   If you're using Azure NetApp Files volumes with NFSv4.1 protocol, run the following configuration on all VMs where Azure NetApp Files NFSv4.1 volumes need to be mounted.
 
-   **Verify NFS domain settings**
-
-   Make sure that the domain is configured as the default Azure NetApp Files domain that is,  **defaultv4iddomain.com** and the mapping is set to **nobody**.
+   In this step, you need to verify NFS domain settings. Make sure that the domain is configured as the default Azure NetApp Files domain (`defaultv4iddomain.com`), and that the mapping is set to `nobody`.
 
    ```bash
    sudo cat /etc/idmapd.conf
@@ -201,10 +199,9 @@ The steps in this section use the following prefixes:
    ```
 
    > [!Important]
-   >
-   > Make sure to set the NFS domain in /etc/idmapd.conf on the VM to match the default domain configuration on Azure NetApp Files: **defaultv4iddomain.com**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as nobody.
+   > Make sure to set the NFS domain in /etc/idmapd.conf on the VM to match the default domain configuration on Azure NetApp Files (`defaultv4iddomain.com`). If there's a mismatch, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.
 
-   Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.
+   Verify `nfs4_disable_idmapping`. It should be set to `Y`. To create the directory structure where `nfs4_disable_idmapping` is located, run the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.
 
    ```bash
    # Check nfs4_disable_idmapping
@@ -221,23 +218,23 @@ The steps in this section use the following prefixes:
    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
    ```
 
-3. **[A]** Add mount entries
+3. **[A]** Add mount entries.
 
-   If using NFSv3
+   If you're using NFSv3:
 
    ```bash
    sudo echo "10.31.2.4:/azusbobi-frsinput /usr/sap/frsinput  nfs   rw,hard,rsize=65536,wsize=65536,vers=3" >> /etc/fstab
    sudo echo "10.31.2.4:/azusbobi-frsoutput /usr/sap/frsoutput  nfs   rw,hard,rsize=65536,wsize=65536,vers=3" >> /etc/fstab
    ```
 
-   If using NFSv4.1
+   If you're using NFSv4.1:
 
    ```bash
    sudo echo "10.31.2.4:/azusbobi-frsinput /usr/sap/frsinput  nfs   rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys" >> /etc/fstab
    sudo echo "10.31.2.4:/azusbobi-frsoutput /usr/sap/frsoutput  nfs   rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys" >> /etc/fstab
    ```
 
-4. **[A]** Mount NFS volumes
+4. **[A]** Mount NFS volumes.
 
    ```bash
    sudo mount -a
@@ -258,53 +255,53 @@ The steps in this section use the following prefixes:
    10.31.2.4:/azusbobi-frsoutput  100T  512K  100T   1% /usr/sap/frsoutput
    ```
 
-## Configure CMS database - Azure database for MySQL
+## Configure Azure Database for MySQL
 
-This section provides details on how to provision Azure Database for MySQL using Azure portal. It also provides instructions on how to create CMS and Audit Databases for SAP BOBI Platform and a user account to access the database.
+This section provides details on how to provision Azure Database for MySQL by using the Azure portal. It also provides instructions on how to create the CMS and audit databases for the SAP BOBI platform, and a user account to access the database.
 
-The guidelines are applicable only if you're using Azure DB for MySQL. For other database(s), refer to SAP or database-specific documentation for instructions.
+The guidelines are applicable only if you're using Azure Database for MySQL. For other databases, refer to the SAP or database-specific documentation for instructions.
 
-### Create an Azure database for MySQL
+### Create a database
 
-Sign in to Azure portal and follow the steps mentioned in this [Quick start Guide of Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Few points to note while provisioning Azure Database for MySQL -
+Sign in to the Azure portal, and follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Here are a few points to note while you're provisioning Azure Database for MySQL:
 
-1. Select the same region for Azure Database for MySQL where your SAP BI Platform application servers are running.
+- Select the same region for Azure Database for MySQL as where your SAP BI platform application servers are running.
 
-2. Choose a supported DB version based on [Product Availability Matrix (PAM) for SAP BI](https://support.sap.com/pam) specific to your SAP BOBI version. Follow same compatibility guidelines as addressed for MySQL AB in SAP PAM
+- Choose a supported database version, based on the [Product Availability Matrix (PAM) for SAP BI](https://support.sap.com/pam) specific to your SAP BOBI version.
 
-3. In “compute+storage”, select **Configure server** and select the appropriate pricing tier based on you sizing output.
+- In **compute+storage**, select **Configure server**, and select the appropriate pricing tier based on your sizing output.
 
-4. **Storage Autogrowth** is enabled by default. Keep in mind that [Storage](../../../mysql/concepts-pricing-tiers.md#storage) can only be scaled-up, not down.
+- **Storage Autogrowth** is enabled by default. Keep in mind that [storage](../../../mysql/concepts-pricing-tiers.md#storage) can only be scaled-up, not down.
 
-5. By default, **Back up Retention Period** is seven days but you can [optionally configure](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) it up to 35 days.
+- By default, **Back up Retention Period** is seven days. You can [optionally configure](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) it up to 35 days.
 
-6. Backups of Azure Database for MySQL are locally redundant by default, so if you want server backups in geo-redundant storage, select **Geographically Redundant** from **Backup Redundancy Options**.
+- Backups of Azure Database for MySQL are locally redundant by default. If you want server backups in geo-redundant storage, select **Geographically Redundant** from **Backup Redundancy Options**.
 
 >[!Important]
->Changing the [Backup Redundancy Options](../../../mysql/concepts-backup.md#backup-redundancy-options) after server creation is not supported.
+>Changing the [Backup Redundancy Options](../../../mysql/concepts-backup.md#backup-redundancy-options) after server creation isn't supported.
 
 >[!Note]
->The private link feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the database server is in one of these pricing tiers.
+>The private link feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure that the database server is in one of these pricing tiers.
 
-### Configure Private Link
+### Configure Azure Private Link
 
-In this section, you will create a private link that will allow SAP BOBI virtual machines to connect to Azure database for MySQL service via private endpoint. Azure Private Link brings Azure services inside your private Virtual Network (VNet).
+In this section, you create a private link that allows SAP BOBI virtual machines to connect to Azure Database for MySQL through a private endpoint. Azure Private Link brings Azure services inside your private virtual network.
 
-1. Select the Azure database for MySQL created in above section.
-2. Navigate to **Security** > **Private endpoint connections**.
-3. In **Private endpoint connections** section, Select **Private endpoint**.
-4. Select **Subscription**, **Resource group**, and **Location**.
-5. Enter the **Name** of private endpoint.
-6. On the **Resource** section, perform below selection -
-   - Resource type - Microsoft.DBforMySQL/servers
-   - Resource - MySQL database created in above section
-   - Target sub-resource - mysqlServer.
-7. On the **Networking** section, select the **Virtual network** and **Subnet** on which SAP BusinessObjects BI application is deployed.
+1. Select the database created in the previous section.
+2. Go to **Security** > **Private endpoint connections**.
+3. In **Private endpoint connections**, select **Private endpoint**.
+4. Select **Subscription** > **Resource group** > **Location**.
+5. Enter the **Name** of the private endpoint.
+6. In the **Resource** section, specify the following:
+   - Resource type: Microsoft.DBforMySQL/servers
+   - Resource: MySQL database created in the previous section
+   - Target sub-resource: mysqlServer
+7. In the **Networking** section, select the **Virtual network** and **Subnet** on which the SAP BOBI application is deployed.
    >[!NOTE]
    >If you have a network security group (NSG) enabled for the subnet, it will be disabled for private endpoints on this subnet only. Other resources on the subnet will still have NSG enforcement.
-8. Accept the **default (yes)** for **Integrate with private DNS zone**.
-9.  Select your **private DNS zone** from the drop-down.
-10. Select **Review+Create**, and create private end point.
+8. For **Integrate with private DNS zone**, accept the **default (yes)**.
+9.  Select your **private DNS zone** from the dropdown list.
+10. Select **Review+Create**, and create a private endpoint.
 
 For more information, see [Private Link for Azure Database for MySQL](../../../mysql/concepts-data-access-security-private-link.md)
 
