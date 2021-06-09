@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 06/08/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -53,9 +53,9 @@ No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNe
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
 
-Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details.   
+Azure NetApp Files data traffic is inherently secure by design, as it does not provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight is not encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. 
 
-Data traffic between NFSv3 or SMB3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+NFSv3 protocol does not provide support for encryption, so this data-in-flight cannot be encrypted. However, NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details. Data traffic between SMB3 clients and Azure NetApp Files volumes can be encrypted using the AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1 connections. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for details. 
 
 ### Can the storage be encrypted at rest?
 
@@ -124,6 +124,18 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 ### What’s the performance impact of Kerberos on NFSv4.1?
 
 See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
+
+### Does Azure NetApp Files support SMB Direct?
+
+No, Azure NetApp Files does not support SMB Direct. 
+
+### Is NIC Teaming supported in Azure?
+
+NIC Teaming is not supported in Azure. Although multiple network interfaces are supported on Azure virtual machines, they represent a logical rather than a physical construct. As such, they provide no fault tolerance.  Also, the bandwidth available to an Azure virtual machine is calculated for the machine itself and not any individual network interface.
+
+### Are jumbo frames supported?
+
+Jumbo frames are not supported with Azure virtual machines.
 
 ## NFS FAQs
 
@@ -209,6 +221,7 @@ Use the **JSON View** link on the volume overview pane, and look for the **start
 
 No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
 To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
+
 
 ### SMB encryption FAQs
 
