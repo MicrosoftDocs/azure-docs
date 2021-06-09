@@ -445,6 +445,8 @@
           href: azure-stack-edge-troubleshoot.md
         - name: Ordering issues
           href: azure-stack-edge-troubleshoot-ordering.md
+        - name: IoT Edge
+          href: azure-stack-edge-troubleshoot-iot-edge.md
         - name: Contact Microsoft Support
           href: azure-stack-edge-contact-microsoft-support.md    
     - name: Monitor
