@@ -18,7 +18,7 @@ Migration is the process of creating a new knowledge base from an existing knowl
 Migrating a knowledge base requires exporting from an existing knowledge base, then importing into another.
 
 > [!NOTE]
-> Follow the below instructions to migrate your existing knowledge base to a new QnA Maker managed (Preview).
+> Follow the below instructions to migrate your existing knowledge base to Custom question answering.
 
 ## Prerequisites
 
