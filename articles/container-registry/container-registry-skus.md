@@ -54,7 +54,7 @@ Pushing a single 133 MB `nginx:latest` image to an Azure container registry requ
 
 You may experience throttling of pull or push operations when the registry determines the rate of requests is too high. You may see an HTTP 429 error similar to `Too many requests`.
 
-For example, throttling could occur temporarily when you generate a burst of image pull or push operations in a very short period, even when the average rate of read and write operations is within registry limits. You may need to implement retry logic in your code or reduce the maximm rate of requests to the registry.
+For example, throttling could occur temporarily when you generate a burst of image pull or push operations in a very short period, even when the average rate of read and write operations is within registry limits. You may need to implement retry logic in your code or reduce the maximum rate of requests to the registry.
 
 ## Changing tiers
 
