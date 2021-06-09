@@ -251,4 +251,4 @@ When only inbound NAT rules are used, no outbound NAT is provided.
 ## Next steps
 
 - Learn more about [Azure Standard Load Balancer](load-balancer-overview.md)
-- See our [frequently asked questions about Azure Load Balancer](load-balancer-faqs.md)
+- See our [frequently asked questions about Azure Load Balancer](load-balancer-faqs.yml)
