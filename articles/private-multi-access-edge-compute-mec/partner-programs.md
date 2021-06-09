@@ -65,7 +65,7 @@ Network functions partners include an array of software vendors providing mobile
 	
 			
 ### SIM, Device, & RAN:
-SIM & Device partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver a variety of hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. Current SIM, Device, & RAN partners include:
+SIM & Device partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver a various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. Current SIM, Device, & RAN partners include:
 
 |SIM|Devices |RAN (hardware)|
 |---------|---------|---------|
@@ -80,13 +80,14 @@ SIM & Device partners provide wireless authentication technologies and embedded 
 Microsoft is currently partnered with OSS/BSS market leader Amdocs to deliver its solutions as part of the Azure private MEC solution. Amdocs on Azure and Azure private MEC deliver a robust set of solutions for spectrum allocation, network operations, device management, and system integration.
 
 ### Application ISVs
-Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. ISVs such as Attabotics, Taqtile, and Everseen are just a few of the examples of ISVs that have leveraged Azure private MEC combination of private 5G and edge compute capabilities to create new experiences for customers.
+Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. ISVs such as Attabotics, Taqtile, and Everseen are just a few of the examples of ISVs that have used Azure private MEC combination of private 5G and edge compute capabilities to create new experiences for customers.
 Azure private MEC, as a solution that supports multiple platforms, applications that run on supported platforms can deploy to Azure private MEC with few code changes required. This means that application ISV solutions for Azure Stack Edge, Azure Stack HCI, and Azure IoT Edge can also run on the Azure private MEC solution. 
 
 ## Next steps
-- [Join the Azure private MEC Managed Solution Providers program](https://aka.ms/privateMECmsp) to get started if you are an operator and system integrator managed service providers who is interested in partnering with Microsoft to deploy and manage customers’ Azure private MEC solutions.
-- [Contact the Azure private MEC team](https://aka.ms/privateMEC_ISV) if you are a Platform partner, such as a VNF and hardware vendor, who is interested in integrating with the Azure private MEC.
-- Start onboarding your applications to the Azure Marketplace, and then [pre-register for the forthcoming Azure private MEC ISV or developer program](https://aka.ms/privateMECpartnerprogram) if you are an Application ISV interested in deploying their industry or horizontal solutions on Azure.
+- To partner with Microsoft and deploy Azure private MEC solutions:
+    - [Join the Azure private MEC Managed Solution Providers program](https://aka.ms/privateMECmsp) to get started if you are an operator and system integrator managed service providers.
+    - [Contact the Azure private MEC team](https://aka.ms/privateMEC_ISV) if you are a Platform partner, such as a VNF and hardware vendor.
+    - Onboard your applications to the Azure Marketplace, and then [pre-register for the forthcoming Azure private MEC ISV or developer program](https://aka.ms/privateMECpartnerprogram).
 - Learn more about [Metaswitch Fusion Core solution](metaswitch-overview.md).
 - Learn more about [Affirmed Private Network Service solution](affirmed-overview.md).
 
