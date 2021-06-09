@@ -96,8 +96,8 @@ blob_service = BlockBlobService(
 
 We can use this blob service as a handle on the data. We can navigate the dataset making use of the `BlockBlobService` APIs. See here for more details:
 
-* [Blob service concepts](https://docs.microsoft.com/rest/api/storageservices/blob-service-concepts)
-* [Operations on containers](https://docs.microsoft.com/rest/api/storageservices/operations-on-containers)
+* [Blob service concepts](/rest/api/storageservices/blob-service-concepts)
+* [Operations on containers](/rest/api/storageservices/operations-on-containers)
 
 The CORD-19 data is stored in the `covid19temp` container. This is the file structure within the container together with an example file.
 
@@ -433,7 +433,7 @@ nltk.download('punkt')
 
 ### Getting the CORD-19 data from Azure
 
-The CORD-19 data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). In this notebook, we use AzureML [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) to reference the CORD-19 open dataset.
+The CORD-19 data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). In this notebook, we use AzureML [Dataset](/python/api/azureml-core/azureml.core.dataset.dataset) to reference the CORD-19 open dataset.
 
 ```python
 import azureml.core
@@ -450,7 +450,7 @@ The `mount()` method creates a context manager for mounting file system streams 
 
 Use `mount.start()` and `mount.stop()` or alternatively use `with mount():` to manage context.
 
-Mount is only supported on Unix or Unix-like operating systems and libfuse must be present. If you are running inside a docker container, the docker container must be started with the `--privileged` flag or started with `--cap-add SYS_ADMIN --device /dev/fuse`. For more information, see the [docs](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py#mount-mount-point-none----kwargs-&preserve-view=true)
+Mount is only supported on Unix or Unix-like operating systems and libfuse must be present. If you are running inside a docker container, the docker container must be started with the `--privileged` flag or started with `--cap-add SYS_ADMIN --device /dev/fuse`. For more information, see the [docs](/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py#mount-mount-point-none----kwargs-&preserve-view=true)
 
 
 ```python

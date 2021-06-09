@@ -35,7 +35,7 @@ West US 2: https://datasetclinvar.blob.core.windows.net/dataset
 
 West Central US: https://datasetclinvar-secondary.blob.core.windows.net/dataset
 
-[SAS Token](https://docs.microsoft.com/azure/storage/common/storage-sas-overview): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=qFPPwPba1RmBvaffkzkLuzabYU5dZstSTgMwxuLNME8%3D
+[SAS Token](../storage/common/storage-sas-overview.md): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=qFPPwPba1RmBvaffkzkLuzabYU5dZstSTgMwxuLNME8%3D
 
 ## Use Terms
 Data is available without restrictions. More information and citation details, see [Accessing and using data in ClinVar](https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/).
@@ -64,7 +64,7 @@ Users can call and download the following path with this notebook: https://datas
 > [!NOTE]
 > Users needs to log-in their Azure Account via Azure CLI for viewing the data with Azure ML SDK. On the other hand, they do not need do any actions for downloading the data.
 
-Azure CLI: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true
+For more information on installing the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli)
 
 ### Calling the data from  'ClinVar Data Set'
 
