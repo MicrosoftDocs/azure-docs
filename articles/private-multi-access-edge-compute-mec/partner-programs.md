@@ -17,7 +17,7 @@ Azure private MEC solution partners include managed service providers, platform 
 - **Managed Service Providers** include Operators and SIs that are responsible for planning, deployment, operation of a customer’s Azure private MEC implementation. These providers bring assets and expertise such as spectrum, RF planning, installation, maintenance, and support. Operators and SIs enable customers to rapidly deploy the Azure private MEC solution without requiring in-house expertise in complexities surrounding mobile network technologies. 
 - **Platform Partners** bring critical hardware and software components to the Azure private MEC ecosystem, such as Network Functions, Radio Access Network (RAN) technologies, SIMs & Devices, and Operational Support Systems (OSS/BSS). Customers can deploy the mix of platform technologies that fit their specific environment and requirements. 
 - **Application ISV Partners** bring ready to deploy software solutions built for Azure private MEC. These applications apply the low latency edge computing capabilities of Azure private MEC to deliver a customer’s specific use-cases within industries such as manufacturing or retail, along with cross-industry capabilities such as computer vision or analytics.
-### Managed Solution Providers
+### Managed Service Providers
 Our operator partners include:
 
 |Americas |EMEA |Asia & Australia |
@@ -35,11 +35,11 @@ Our system integrators and non-operator Microsoft Solution Provider partners inc
 - American Tower
 - Capgemini
 - Cognizant
-- Federated Wireless
-- HCL
 - Expeto
-- Infosys
+- Federated Wireless
 - Fujitsu
+- HCL
+- Infosys
 - Tech Mahindra
 
 
@@ -48,7 +48,7 @@ Our system integrators and non-operator Microsoft Solution Provider partners inc
 Azure Private MEC platform partners provide critical hardware and software components across categories of Network Functions, Radio Access Network (RAN) technologies, SIM & Device, and Operational Support Systems (OSS/BSS).
 
 ### Network Functions
-Network functions partners include an array of software vendors providing mobile packet core, firewalls, routers, and SD-WAN. RAN partners deliver various hardware equipment (such as radios and antennas) and the software components necessary to deploy private mobile networks. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
+Network functions partners include an array of software vendors providing mobile packet core, firewalls, routers, SD-WAN, vRAN, and RAN optimization. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
 
 
 |Mobile Packet Core |Firewall, Routers, & SD-WAN |RAN Partners |
@@ -64,8 +64,8 @@ Network functions partners include an array of software vendors providing mobile
 |    |         |         |
 	
 			
-### SIM & Device:
-SIM & Device partners provide wireless authentication technologies and embedded cellular modules. Current SIM & Device partners include:
+### SIM, Device, & RAN:
+SIM & Device partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver a variety of hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. Current SIM, Device, & RAN partners include:
 
 |SIM|Devices |
 |---------|---------|
