@@ -57,13 +57,14 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    3. **Knowledge Base Replica**: if you want to import the complete knowledge base replica, you can zip QnAs, synonyms and settings file and import the zipped folder. You can refer the following sample to import Knowledge Base replica:
 
 You can refer the following summary of settings applicable to QnA Maker and Custom question answering.
-|Settings| Can update when importing to QnA Maker? | Can update when importing to Custom question answering?|
+
+|Settings|Can update when importing to QnA Maker?|Can update when importing to Custom question answering?|
 |:--|--|--|
-|DefaultAnswerForKB (Specifes default answer returned by KB)| No | Yes |
-|EnableActiveLearning (Set to True/False to enable/disable Active Learning)| Yes| No |
-|EnableMultiTurnExtraction (Set to True/False to enable/disable multi-turn extraction| Yes | Yes |
-|DefaultAnswerforMultiturn (Default answer when answer is empty for a question at multi-turn extraction)| Yes | Yes |
-|Language (Language of the KB) | No | No |
+|DefaultAnswerForKB (Specifes default answer returned by KB)|No|Yes|
+|EnableActiveLearning (Set to True/False to enable/disable Active Learning)|Yes|No|
+|EnableMultiTurnExtraction (Set to True/False to enable/disable multi-turn extraction)|Yes|Yes|
+|DefaultAnswerforMultiturn (Default answer when answer is empty for a question at multi-turn extraction)|Yes|Yes|
+|Language (Language of the KB)|No|No|
 
    > [!div class="mx-imgBorder"]
    > [![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
