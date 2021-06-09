@@ -4,7 +4,7 @@ description: This article  provides information on Web Application Firewall DRS 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/21/2021
+ms.date: 06/09/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
