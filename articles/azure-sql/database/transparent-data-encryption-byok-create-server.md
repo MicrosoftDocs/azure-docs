@@ -1,45 +1,32 @@
 ---
 title: Create server configured with user-assigned managed identity and customer-managed TDE
 titleSuffix: Azure SQL Database & Azure Synapse Analytics 
-description: Learn how to rotate the Transparent Data Encryption (TDE) protector for a server in Azure used by Azure SQL Database and Azure Synapse Analytics using PowerShell and the Azure CLI.
-services: sql-database
+description: Learn how to configure user-assigned managed identity and customer-managed transparent data encryption (TDE) while creating an Azure SQL Database using the Azure portal, PowerShell, or Azure CLI.
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
-ms.devlang: 
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 03/12/2019
+ms.date: 06/30/2021
 ---
 # Create server configured with user-assigned managed identity and customer-managed TDE
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
-This tutorial outlines the steps to create a [server](logical-servers.md) configured with TDE with customer-managed keys (CMK) using a user-assigned managed identity to access Azure Key Vault. 
-
-
+This tutorial outlines the steps to create a [server](logical-servers.md) configured with transparent data encryption (TDE) with customer-managed keys (CMK) using a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) to access Azure Key Vault. 
 
 ## Prerequisites
 
-- This how-to guide assumes that you have already created an Azure Key Vault and imported a key into it to use as the TDE protector for Azure SQL Database. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md).
-- You must have created a user-assigned managed identity and provided it the required TDE permissions (Get, Wrap Key, Unwrap Key) on the above key vault. For creating a user-assigned managed identity, see [Create a user-assigned managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+- This how-to guide assumes that you have already created an [Azure Key Vault](/azure/key-vault/general/quick-create-portal) and imported a key into it to use as the TDE protector for Azure SQL Database. For more information, see [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md).
+- You must have created a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and provided it the required TDE permissions (*Get, Wrap Key, Unwrap Key*) on the above key vault. For creating a user-assigned managed identity, see [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 - You must have Azure PowerShell installed and running.
 - [Recommended but optional] Create the key material for the TDE protector in a hardware security module (HSM) or local key store first, and import the key material to Azure Key Vault. Follow the [instructions for using a hardware security module (HSM) and Key Vault](../../key-vault/general/overview.md) to learn more.
 
-# [PowerShell](#tab/azure-powershell)
-
-For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager (RM) module is still supported, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
-# [The Azure CLI](#tab/azure-cli)
-
-For installation, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-* * *
 
 ## Create server configured with TDE with customer-managed key (CMK)
 
@@ -92,7 +79,9 @@ For installation, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 19. On the **Review + create** page, after reviewing, select **Create**.
 
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
+
+For information on installing the current release of Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) article.
 
 Create a server configured with user-assigned managed identity and customer-managed TDE using the [az sql server create](/cli/azure/sql/server) command.
 
@@ -126,22 +115,17 @@ az sql db create \
 
 # [PowerShell](#tab/azure-powershell)
 
+For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
+
 Use the [New-AzSqlServer](/powershell/module/az.sql/New-AzSqlServer) cmdlet.
 
 ```powershell
 # create a server with user-assigned managed identity and customer-managed TDE
 New-AzSqlServer -ResourceGroupName <ResourceGroupName> -Location <RegionName> -ServerName <ServerName> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -SqlAdministratorLogin <ServerAdminName> -SqlAdministratorPassword <ServerAdminPassword> -AssignIdentity -IdentityType <IdentityType> -UserAssignedIdentityId <UserAssignedIdentityId> -PrimaryUserAssignedIdentityId <PrimaryUserAssignedIdentityId> -KeyId <CustomerManagedKeyId>
-  
 
 ```
 
-```
-
-* * *
-
-
-
-* * *
+---
 
 ## Next steps
 
