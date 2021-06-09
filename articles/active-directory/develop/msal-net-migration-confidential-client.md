@@ -21,7 +21,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 Confidential client applications are web apps, web APIs, and daemon applications (calling another service on their own behalf).
 
-If your app is  ASP.NET Core, a great wrapper already exists (Microsoft.Identity.Web). See the [decision tree](msal-net-migration?branch.md=#should-you-migrate-to-msalnet-or-to-microsoftidentityweb) for more information.
+If your app is  ASP.NET Core, a great wrapper already exists (Microsoft.Identity.Web). See the [decision tree](msal-net-migration.md=#should-you-migrate-to-msalnet-or-to-microsoftidentityweb) for more information.
 
 The migration process consists in:
 
@@ -47,12 +47,13 @@ The code using ADAL in confidential client application instantiates an `Authenti
 - a `resourceId` string. This is the **App ID URI** of the web API that you want to call.
 - an instance of `IClientAssertionCertificate` or `ClientAssertion` instance. This is providing the client credentials for your app (proving the identity of your app).
 
-## Step 2 - Install the MSAL.NET NuGet package and update your project libraries references
+## Step 2 - Update the code
 
-Add the MSAL.NET NuGet package: [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client).
+Some steps are common, others depend on the scenarios that your app implements.
 
-## Step 3 - Update the code - common steps
+### common steps
 
+- Install the MSAL.NET NuGet package: [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) and update your project library references.
 - Add the MSAL.NET namespace in your source code: `using Microsoft.Identity.Client;`
 - Instead of instantiating an `AuthenticationContext`, use `ConfidentialClientApplicationBuilder.Create` to instantiate a `IConfidentialClientApplication`.
 - Instead of the `resourceId` string, MSAL.NET uses scopes. As first party applications are pre-authorized you can always use the following scopes: `new string[] { $"{resourceId}/.default" }`
@@ -60,13 +61,13 @@ Add the MSAL.NET NuGet package: [Microsoft.Identity.Client](https://www.nuget.or
 
 The confidential client scenarios are the following:
 
-- [Daemon scenarios](#how-to-migrate-daemon-scenarios) supported by web apps, web APIs and daemon console applications.
-- [On behalf of](#how-to-migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
-- [Authorization code flow](#how-to-migrate-auth-code-flow-in-web-apps) supported by Web apps that sign-in users and call a downstream web API.
+- [Daemon scenarios](#migrate-daemon-scenarios) supported by web apps, web APIs and daemon console applications.
+- [On behalf of](#migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
+- [Authorization code flow](#migrate-acquiretokenbyauthorizationcodeasync-in-web-apps) supported by Web apps that sign-in users and call a downstream web API.
 
 Most of you provided a wrapper around ADAL.NET. Therefore, in this document, we illustrate migrating scenarios using code such a wrapper, but this is only to show equivalent code (we are not suggesting that you copy/paste these wrapper or integrate them in your code)
 
-#[Daemon](#tab/daemon)
+# [Daemon](#tab/daemon)
 
 ### Migrate Daemon scenarios
 
@@ -210,9 +211,9 @@ Resilience is ensured in the following way:
 
 If you want to learn more about the daemon scenario and how it's implemented with MSAL.NET or Microsoft.Identity.Web in new applications, see [Scenario: Daemon application that calls web APIs](scenario-daemon-overview.md)
 
-#[On Behalf of](#tab/obo)
+# [On Behalf of](#tab/obo)
 
-## How to migrate on-behalf-of calls (OBO) in web APIs
+## Migrate on-behalf-of calls (OBO) in web APIs
 
 Web APIs that call downstream web APIs on behalf of the user use the OAuth2.0 [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md), in short OBO. The code will use the token that was used to call your web API (which retrieved it from the HTTP Authorize header and validated it). This token will be exchanged against a token to call the downstream web API. This token is used as a `UserAssertion` (both in ADAL.NET and MSAL.NET)
 
@@ -364,13 +365,11 @@ Resilience is ensured in the following way:
 
 If you want to learn more about web APIs calling downstream web API and how they are implemented with MSAL.NET or Microsoft.Identity.Web in new applications, see [Scenario: A web API that calls web APIs](scenario-web-api-call-api-overview.md)
 
+# [Auth code flow](#tab/authcode)
 
+## Migrate AcquireTokenByAuthorizationCodeAsync in web apps
 
-#[Auth code flow](#tab/authcode)
-
-## How to migrate AcquireTokenByAuthorizationCodeAsync in web apps
-
-If your app uses ASP.NET Core, Microsoft strongly recommends that you update to Microsoft.Identity.Web which processes everything for you. See []() for a quick presentation, and [https://aka.ms/ms-id-web/webapp](https://aka.ms/ms-id-web/webapp) for details about how to use it in a web app.
+If your app uses ASP.NET Core, Microsoft strongly recommends that you update to Microsoft.Identity.Web which processes everything for you. See [Microsoft identity web GA](https://github.com/AzureAD/microsoft-identity-web/wiki/1.0.0) for a quick presentation, and [https://aka.ms/ms-id-web/webapp](https://aka.ms/ms-id-web/webapp) for details about how to use it in a web app.
 
 Web apps that call sign in users and call web APIs on behalf of the user use the OAuth2.0 [authorization code flow](v2-oauth2-auth-code-flow.md). Typically:
 
