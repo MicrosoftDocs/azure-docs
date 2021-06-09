@@ -79,6 +79,38 @@ landingContent:
           - text: Onboard Azure sources at scale
             url: tutorial-data-sources-readiness.md
   #Card
+  - title: Discover data 
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Browse and lineage
+          url: tutorial-browse-and-view-lineage.md
+    - linkListType: how-to-guide
+      links:
+        - text: Use data lineage features
+          url: catalog-lineage-user-guide.md
+        - text: Browse by asset type
+          url: how-to-browse-catalog.md
+        - text: Search for assets, terms, annotations, and contacts
+          url: how-to-search-catalog.md          
+  #Card
+  - title: Curate data 
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Resource sets, assets, schemas, classifications
+          url: tutorial-schemas-and-classifications.md
+        - text: Glossary terms
+          url: tutorial-import-create-glossary-terms.md
+    - linkListType: how-to-guide
+      links:
+        - text: Create, edit, & delete custom classifications and rules
+          url: create-a-custom-classification-and-classification-rule.md
+        - text: Create, import, & export a glossary
+          url: how-to-create-import-export-glossary.md
+        - text: Bulk edit assets
+          url: how-to-bulk-edit-assets.md
+  #Card
   - title: Scan non-Azure data sources
     linkLists:
     - linkListType: how-to-guide
@@ -104,35 +136,4 @@ landingContent:
           url: classification-insights.md
         - text: View glossary insights
           url: glossary-insights.md
-  #Card
-  - title: Curate data 
-    linkLists:
-    - linkListType: tutorial
-      links:
-        - text: Resource sets, assets, schemas, classifications
-          url: tutorial-schemas-and-classifications.md
-        - text: Glossary terms
-          url: tutorial-import-create-glossary-terms.md
-    - linkListType: how-to-guide
-      links:
-        - text: Create, edit, & delete custom classifications and rules
-          url: create-a-custom-classification-and-classification-rule.md
-        - text: Create, import, & export a glossary
-          url: how-to-create-import-export-glossary.md
-        - text: Bulk edit assets
-          url: how-to-bulk-edit-assets.md
-  #Card
-  - title: Discover data 
-    linkLists:
-    - linkListType: tutorial
-      links:
-        - text: Browse and lineage
-          url: tutorial-browse-and-view-lineage.md
-    - linkListType: how-to-guide
-      links:
-        - text: Use data lineage features
-          url: catalog-lineage-user-guide.md
-        - text: Browse by asset type
-          url: how-to-browse-catalog.md
-        - text: Search for assets, terms, annotations, and contacts
-          url: how-to-search-catalog.md
+ 
