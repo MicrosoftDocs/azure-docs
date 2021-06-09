@@ -88,7 +88,7 @@
       - name: Overview
         href: ingest-data.md
       - name: Move to/from Blob storage
-        href: move-zure-blob.md
+        href: move-azure-blob.md
       - name: Move to SQL on a VM
         href: move-sql-server-virtual-machine.md
       - name: Move to Azure SQL Database
