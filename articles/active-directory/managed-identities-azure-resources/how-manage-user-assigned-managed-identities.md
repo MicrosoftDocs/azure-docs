@@ -18,9 +18,9 @@ zone_pivot_groups: identity-mi-methods
 # Manage user-assigned managed identities
 
 
-Managed identities for Azure resources eliminate the need to manage credentials in code. You can use them to get an Azure Active Directory (Azure AD) token your applications can use when you access resources that support Azure AD authentication. Azure manages the identity so you don't have to. 
+Managed identities for Azure resources eliminate the need to manage credentials in code. You can use them to get an Azure Active Directory (Azure AD) token your applications can use when you access resources that support Azure AD authentication. Azure manages the identity so you don't have to.
 
-There are two types of managed identities: system-assigned and user-assigned. The main difference between them is that system-assigned managed identities have their lifecycle linked to the resource where they're used. User-assigned managed identities can be used on multiple resources. To learn more about managed identities, see the [managed identities overview](overview.md).
+There are two types of managed identities: system-assigned and user-assigned. The main difference between them is that system-assigned managed identities have their lifecycle linked to the resource where they're used. User-assigned managed identities can be used on multiple resources. To learn more about managed identities, see [What are managed identities for Azure resources?](overview.md).
 
 ::: zone pivot="identity-mi-methods-azp"
 
@@ -117,7 +117,7 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 
 To list or read a user-assigned managed identity, your account needs the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) or [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
-To list user-assigned managed identities, use the [az identity list](/cli/azure/identity#az_identity_list) command. Replace the `<RESOURCE GROUP>` with your own value.
+To list user-assigned managed identities, use the [az identity list](/cli/azure/identity#az_identity_list) command. Replace the `<RESOURCE GROUP>` value with your own value.
 
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
@@ -157,7 +157,7 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). *Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)*.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - To run the example scripts, you have two options:
-    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
+    - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
     - Run scripts locally with Azure PowerShell, as described in the next section.
 
 ### Configure Azure PowerShell locally
@@ -202,7 +202,7 @@ New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGN
 
 To list or read a user-assigned managed identity, your account needs the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) or [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
-To list user-assigned managed identities, use the [Get-AzUserAssigned] command. The `-ResourceGroupName` parameter specifies the resource group where the user-assigned managed identity was created. Replace the `<RESOURCE GROUP>` with your own value.
+To list user-assigned managed identities, use the [Get-AzUserAssigned] command. The `-ResourceGroupName` parameter specifies the resource group where the user-assigned managed identity was created. Replace the `<RESOURCE GROUP>` value with your own value.
 
 ```azurepowershell-interactive
 Get-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
@@ -237,7 +237,7 @@ For a full list and more details of the Azure PowerShell managed identities for 
 
 In this article, you create a user-assigned managed identity by using Azure Resource Manager.
 
-It isn't possible to list and delete a user-assigned managed identity by using a Resource Manager template. See the following articles to create and list a user-assigned managed identity:
+You can't list and delete a user-assigned managed identity by using a Resource Manager template. See the following articles to create and list a user-assigned managed identity:
 
 - [List user-assigned managed identity](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [Delete user-assigned managed identity](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
@@ -356,7 +356,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 |Name  |Description  |
 |---------|---------|
-|location     | Required. Resource location.        |
+|Location     | Required. Resource location.        |
 
 ## List user-assigned managed identities
 
