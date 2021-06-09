@@ -5,7 +5,7 @@ description: Use the Form Recognizer client library v3.0.0 or REST API v2.0 to c
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
 ms.date: 05/25/2021
