@@ -13,7 +13,7 @@ ms.date: 01/08/2021
 
 # Quickstart: Use Azure Cache for Redis with Go
 
-In this article, you will learn how to build a REST API in Go that will store and retrieve user information backed by a [HASH](https://redis.io/topics/data-types-intro#redis-hashes) data structure in [Azure Cache for Redis](./cache-overview.md).
+In this article, you learn how to build a REST API in Go that stores and retrieves user information backed by a [HASH](https://redis.io/topics/data-types-intro#redis-hashes) data structure in [Azure Cache for Redis](./cache-overview.md).
 
 ## Skip to the code on GitHub
 
@@ -47,7 +47,7 @@ func main() {
 ...
 ```
 
-Then, we establish connection with Azure Cache for Redis. Note that [tls.Config](https://golang.org/pkg/crypto/tls/#Config) is being used - Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
+Then, we establish connection with Azure Cache for Redis. We use [tls.Config](https://golang.org/pkg/crypto/tls/#Config)--Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
 
 ```go
 ...
@@ -78,7 +78,7 @@ router.HandleFunc("/users/{userid}", uh.getUser).Methods(http.MethodGet)
 log.Fatal(http.ListenAndServe(":8080", router))
 ```
 
-`userHandler` struct encapsulates a [redis.Client](https://pkg.go.dev/github.com/go-redis/redis/v8#Client), which is used by the `createUser`, `getUser` methods - code for these methods has not been included for the sake of brevity.
+`userHandler` struct encapsulates a [redis.Client](https://pkg.go.dev/github.com/go-redis/redis/v8#Client), which is used by the `createUser`, `getUser` methods - code for these methods isn't included for brevity.
 
 - `createUser`: accepts a JSON payload (containing user information) and saves it as a `HASH` in Azure Cache for Redis.
 - `getUser`: fetches user info from `HASH` or returns an HTTP `404` response if not found.
@@ -109,7 +109,7 @@ Start by cloning the application from GitHub.
     md "C:\git-samples"
     ```
 
-1. Open a git terminal window, such as git bash. Use the `cd` command to change into the new folder where you will be cloning the sample app.
+1. Open a git terminal window, such as git bash. Use the `cd` command to change to the new folder where you want to clone the sample app.
 
     ```bash
     cd "C:\git-samples"
@@ -174,7 +174,7 @@ The HTTP server will start on port `8080`.
     }
     ```
 
-1. If you try to fetch a user that does not exist, you will get an HTTP `404`. For example:
+1. If you try to fetch a user who doesn't exist, you get an HTTP `404`. For example:
 
     ```bash
     curl -i localhost:8080/users/100
@@ -204,7 +204,7 @@ To delete the resource group and its Redis Cache for Azure instance:
 
 ## Next steps
 
-In this quickstart, you learned how to get started using Go with Azure Cache for Redis. You configured and ran a simple REST API based application to create and get user information backed by a Redis `HASH` data structure.
+In this quickstart, you learned how to get started using Go with Azure Cache for Redis. You configured and ran a simple REST API-based application to create and get user information backed by a Redis `HASH` data structure.
 
 > [!div class="nextstepaction"]
 > [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
