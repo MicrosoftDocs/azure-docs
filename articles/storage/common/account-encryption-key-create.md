@@ -111,7 +111,7 @@ The following JSON example creates a general-purpose v2 storage account that is 
 
 ---
 
-After you have created an account that relies on the account encryption key, you can configure customer-managed keys that are stored in Azure Key Vault or in Key Vault Managed Hardware Security Model (HSM) (preview). To learn how to store customer-managed keys in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md). To learn how to store customer-managed keys in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](customer-managed-keys-configure-key-vault-hsm.md).
+After you have created an account that relies on the account encryption key, you can configure customer-managed keys that are stored in Azure Key Vault or in Key Vault Managed Hardware Security Model (HSM). To learn how to store customer-managed keys in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md). To learn how to store customer-managed keys in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## Verify the account encryption key
 
