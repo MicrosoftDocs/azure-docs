@@ -53,7 +53,6 @@ For more information, see the [Azure Security Center product documentation](/azu
 
 The following table displays the current Security Center feature availability in Azure and Azure Government.
 
-
 | Feature                                                                                                                                            | Azure          | Azure Government |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|----------------|------------------|
 | **Security Center free features**                                                                                                                  |                |                  |
@@ -66,13 +65,13 @@ The following table displays the current Security Center feature availability in
 | [Asset inventory](/azure/security-center/asset-inventory)                                                                                          | GA             | GA               |
 | [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](/azure/security-center/custom-dashboards-azure-workbooks)           | Public Preview | Public Preview   |
 | **Azure Defender plans and extensions**                                                                                                            |                |                  |
-| [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction)                                                              | GA             | GA               |
+| [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction)                                                             | GA             | GA               |
 | [Azure Defender for App Service](/azure/security-center/defender-for-app-service-introduction)                                                     | GA             | Not Available    |
 | [Azure Defender for DNS](/azure/security-center/defender-for-dns-introduction)                                                                     | GA             | Not Available    |
-| [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) (3)                               | GA             | GA               |
-| [Azure Defender for container registries scanning of images in CI/CD workflows](/azure/security-center/defender-for-container-registries-cicd) (5) | Public Preview | GA               |
+| [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) (3)                               | GA             | GA  (7)          |
+| [Azure Defender for container registries scanning of images in CI/CD workflows](/azure/security-center/defender-for-container-registries-cicd) (5) | Public Preview | Not Available    |
 | [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) (4)                                                   | GA             | GA               |
-| [Azure Defender extension for Azure Arc enabled Kubernetes clusters](/azure/security-center/defender-for-kubernetes-azure-arc) (6)                 | Public Preview | Public Preview   |
+| [Azure Defender extension for Azure Arc enabled Kubernetes clusters](/azure/security-center/defender-for-kubernetes-azure-arc) (6)                 | Public Preview | Not Available    |
 | [Azure Defender for Azure SQL database servers](/azure/security-center/defender-for-sql-introduction)                                              | GA             | GA               |
 | [Azure Defender for SQL servers on machines](/azure/security-center/defender-for-sql-introduction)                                                 | GA             | GA               |
 | [Azure Defender for open-source relational databases](/azure/security-center/defender-for-databases-introduction)                                  | GA             | Not Available    |
@@ -88,6 +87,7 @@ The following table displays the current Security Center feature availability in
 | [Adaptive network hardening](/azure/security-center/security-center-adaptive-network-hardening)                                                    | GA             | Not Available    |
 | [Docker host hardening](/azure/security-center/harden-docker-hosts)                                                                                | GA             | GA               |
 | [Integrated vulnerability assessment for machines](/azure/security-center/deploy-vulnerability-assessment-vm)                                      | GA             | Not Available    |
+| [Regulatory compliance dashboard & reports](/azure/security-center/security-center-compliance-dashboard) (8)                                       | GA             | GA               |
 | [Microsoft Defender for Endpoint deployment and integrated license](/azure/security-center/security-center-wdatp)                                  | GA             | GA               |
 | [Connect AWS account](/azure/security-center/quickstart-onboard-aws)                                                                               | GA             | Not Available    |
 | [Connect GCP account](/azure/security-center/quickstart-onboard-gcp)                                                                               | GA             | Not Available    |
@@ -104,6 +104,11 @@ The following table displays the current Security Center feature availability in
 <sup><a name="footnote1" /></a>5</sup> Requires Azure Defender for container registries
 
 <sup><a name="footnote1" /></a>6</sup> Requires Azure Defender for Kubernetes
+
+<sup><a name="footnote1" /></a>7</sup> Vulnerability scans of container registries on Azure Gov can only be performed with the scan on push feature 
+
+<sup><a name="footnote1" /></a>8</sup> There may be differences in the standard offered per cloud type
+ 
 
 ## Azure Sentinel
 
