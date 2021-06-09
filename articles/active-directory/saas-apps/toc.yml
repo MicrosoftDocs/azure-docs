@@ -2257,6 +2257,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Cloud Academy - SSO
+        href: cloud-academy-sso-provisioning-tutorial.md
       - name: Code42
         href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
