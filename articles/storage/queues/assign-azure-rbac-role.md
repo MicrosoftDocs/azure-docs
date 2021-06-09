@@ -44,7 +44,7 @@ For example, if you assign the **Storage Queue Data Contributor** role to user M
 
 You can also assign an Azure Resource Manager role that provides permissions greater than the **Reader** role. Assigning the least possible permissions is recommended as a security best practice.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to queue data in the Azure portal](../queues/authorize-data-operations-portal.md).
 >
 > The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify queue data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
@@ -90,10 +90,10 @@ az role assignment create \
 
 ---
 
-> [!IMPORTANT]
-> When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or queue.
->
-> If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a queue.
+Keep in mind the following points about Azure RBAC role assignments in Azure Storage:
+
+- When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or queue.
+- If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure RBAC roles that are scoped to the storage account or a queue.
 
 ## Next steps
 
