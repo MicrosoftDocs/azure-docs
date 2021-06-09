@@ -285,7 +285,17 @@ Machines do appear in Azure Resource Graph query results, but still don't show u
 
 4. Validate that the hybrid worker is present for that machine.
 
-5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable the machine under the [Enable Update Management](../update-management/overview.md#enable-update-management) section of the Update Management Overview article. The method to enable is based on the environment the machine is running in.
+5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable using one of the following methods:
+
+   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
+
+   - Using the **Enable-AutomationSolution** [runbook](../update-management/enable-from-runbook.md) to automate onboarding Azure VMs.
+
+   - For a [selected Azure VM](../update-management/enable-from-vm.md) from the **Virtual machines** page in the Azure portal. This scenario is available for Linux and Windows VMs.
+
+   - For [multiple Azure VMs](../update-management/enable-from-portal.md) by selecting them from the **Virtual machines** page in the Azure portal.
+
+   The method to enable is based on the environment the machine is running in.
 
 6. Repeat the steps above for all machines that have not been displaying in the preview.
 
@@ -321,7 +331,7 @@ Update
 
 #### Communication with Automation account blocked
 
-Go to [Network planning](../update-management/overview.md#ports) to learn about which addresses and ports must be allowed for Update Management to work.
+Go to [Network planning](../update-management/plan-deployment.md#ports) to learn about which addresses and ports must be allowed for Update Management to work.
 
 #### Duplicate computer name
 
@@ -411,7 +421,7 @@ You can retrieve more details programmatically by using the REST API. See [Softw
 
 When applicable, use [dynamic groups](../update-management/configure-groups.md) for your update deployments. In addition, you can take the following steps.
 
-1. Verify that your machine or server meets the [requirements](../update-management/overview.md#system-requirements).
+1. Verify that your machine or server meets the [requirements](../update-management/operating-system-requirements.md).
 2. Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
@@ -509,7 +519,7 @@ The default maintenance window for updates is 120 minutes. You can increase the 
 
 To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
 
-You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 
@@ -544,7 +554,7 @@ If you see an HRESULT, double-click the exception displayed in red to see the en
 |Exception  |Resolution or action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details about the cause of the exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/overview.md#ports) section for a list of required ports and addresses.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/plan-deployment.md#ports) section for a list of required ports and addresses.        |
 |`0x8024001E`| The update operation didn't complete because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
@@ -610,7 +620,7 @@ Updates are often superseded by other updates. For more information, see [Update
 
 ### Installing updates by classification on Linux
 
-Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/overview.md#linux).
+Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/overview.md#update-classifications).
 
 ### KB2267602 is consistently missing
 
