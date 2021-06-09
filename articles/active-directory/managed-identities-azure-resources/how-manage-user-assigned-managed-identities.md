@@ -55,7 +55,7 @@ To list or read a user-assigned managed identity, your account needs the [Manage
 1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
 1. A list of the user-assigned managed identities for your subscription is returned. To see the details of a user-assigned managed identity, select its name.
 
-![Screenshot that shows the list of user-assigned managed identity.](media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
+   ![Screenshot that shows the list of user-assigned managed identity.](media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
 
 ## Delete a user-assigned managed identity
 
@@ -67,7 +67,7 @@ Deleting a user-assigned identity doesn't remove it from the VM or resource it w
 1. Select the user-assigned managed identity, and select **Delete**.
 1. Under the confirmation box, select **Yes**.
 
-![Screenshot that shows the Delete user-assigned managed identities.](media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
+   ![Screenshot that shows the Delete user-assigned managed identities.](media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
 ## Assign a role to a user-assigned managed identity 
 
