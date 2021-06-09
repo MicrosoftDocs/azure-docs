@@ -624,18 +624,18 @@ For a list of preinstalled system libraries in Python worker Docker images, plea
 
 ## Python worker extensions  
 
-The Python worker process that runs in Azure Functions lets you integrate third-party libraries into your function app. These extension libraries act as middleware that can inject specific operations during the lifecycle of your function's execution. Specific library modules may target specific trigger types. 
+The Python worker process that runs in Azure Functions lets you integrate third-party libraries into your function app. These extension libraries act as middleware that can inject specific operations during the lifecycle of your function's execution. 
 
-Extensions are executed based on these following scopes: 
+Extensions are imported in your function code much like a standard Python library module. Extensions are executed based on the following scopes: 
 
 | Scope | Description |
 | --- | --- |
-| Application-level | When imported into any function trigger, the extension applies to every function execution in the app. |
-| Function-level | Execution is limited to only the specific function trigger into which it's imported. |
+| **Application-level** | When imported into any function trigger, the extension applies to every function execution in the app. |
+| **Function-level** | Execution is limited to only the specific function trigger into which it's imported. |
 
-Review the documentation for your extensions to learn about the scopes in which your extensions run. 
+Review the information for a given extension to learn more about the scope in which the extension runs. 
 
-Extension libraries, which must implement the Python worker extension interface, are registered and used much like a standard Python library module. 
+Extensions implement a Python worker extension interface that lets the Python worker process call into the extension code during the function execution lifecycle. To learn more, see [Creating extensions](#creating-extensions).
 
 ### Using extensions 
 
