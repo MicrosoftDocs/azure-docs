@@ -12,8 +12,8 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 Azure Resource Manager supports two types of vCPU quotas for virtual machines:
 
-* standard vCPU quotas
-* spot vCPU quotas
+* standard vCPU quota
+* spot vCPU quota
 
 ## Standard vCPU quota
 
