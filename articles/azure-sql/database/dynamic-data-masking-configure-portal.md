@@ -20,11 +20,11 @@ This article shows you how to implement [dynamic data masking](dynamic-data-mask
 > [!NOTE]
 > This feature cannot be set using portal for SQL Managed Instance (use PowerShell or REST API). For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
-## Set up dynamic data masking for your database using the Azure portal
+## Enable dynamic data masking
 
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Navigate to the settings page of the database that includes the sensitive data you want to mask.
-3. Click the **Dynamic Data Masking** blade under the **Security** section of your database.
+2. Go to your database resource in the Azure portal. 
+3. Select the **Dynamic Data Masking** blade under the **Security** section. 
 
    ![Screenshot that shows the Security section with Dynamic Data Masking highlighted.](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 
