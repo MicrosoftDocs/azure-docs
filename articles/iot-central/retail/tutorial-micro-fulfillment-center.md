@@ -52,7 +52,7 @@ To create a new micro-fulfillment center application that uses preview features:
 
     ![Screenshot of Azure IoT Central New application page](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
-    ![Screenshot of Azure IoT Central New application page](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc-billing.png)
+    ![Screenshot of Azure IoT Central billing info](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc-billing.png)
 
 ## Walk through the application 
 
