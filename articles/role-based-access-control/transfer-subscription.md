@@ -247,7 +247,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID.
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
     ```
 
 1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies.
