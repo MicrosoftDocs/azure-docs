@@ -46,6 +46,13 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    2. **Synonyms**: You can export Synonyms that have been added to the knowledge base.
    4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you should choose this option.
 
+
+
+   > [!div class="mx-imgBorder"]
+   > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
+
+
+
 1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation. Set the new knowledge base name only. Duplicate names are supported and special characters are supported as well.
 
     Do not select anything from Step 4 because those values will be overwritten when you import the file. In Step 5, select **Create**.
@@ -67,13 +74,6 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
          |EnableMultiTurnExtraction (True/False)|Yes|Yes|
          |DefaultAnswerforMultiturn|Yes|Yes|
          |Language|No|No|
-
-
-
-   > [!div class="mx-imgBorder"]
-   > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
-
-
 
 1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 
