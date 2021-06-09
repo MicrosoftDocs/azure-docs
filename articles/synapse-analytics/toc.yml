@@ -1227,7 +1227,7 @@ items:
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
     - name: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
       href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
-    - name: ADLS read/write using FSSPEC and Linked Service
+    - name: ADLS read/write using FSSPEC and linked service
       displayname: machine learning
       href: ./machine-learning/tutorial-spark-pool-fsspec-usage.md
 - name: Data Catalog and Governance
