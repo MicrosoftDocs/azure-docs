@@ -12,7 +12,7 @@ ms.custom:
 ---
  
 # Post migration changes
-The Cloud Services (classic) deployment is converted to a Cloud Service (extended support) deployment. Refer to [Cloud Services (extended support) documentation](deploy-prerequisite.md) for more details.  
+The Cloud Services (classic) deployment is converted to a Cloud Service (extended support) deployment. For more information, see [Cloud Services (extended support) documentation](deploy-prerequisite.md).  
 
 ## Changes to deployment files 
 
