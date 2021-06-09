@@ -66,17 +66,18 @@ To help you estimate more accurate consumption costs, review these tips:
 A hosting plan and pricing tier-based pricing model applies to logic apps that run in the single-tenant Azure Logic Apps environment. This pricing applies to the **Logic App (Standard)** resource type in the Azure portal or to logic apps that you work on using the **Azure Logic Apps (Standard)** extension for Visual Studio Code. When you create or deploy such a logic app, you must choose a hosting plan and pricing tier that determines the pricing rates to use for metering and billing when running your workflows.
 
 > [!NOTE]
-> The Logic App (Standard) resource currently doesn't support using an App Service Plan and App Service Environment.
+> For new logic apps that you create with the **Logic App (Standard)** resource type, you must use the **Workflow Standard** 
+> hosting plan. The App Service Plan and App Service Environment aren't available for new logic apps.
 
 <a name="hosting-plans"></a>
 
-### Hosting plans, pricing tiers, and billing rates
+### Pricing tiers and billing rates
 
-For single-tenant based logic apps, you must use the **Workflow Standard** hosting plan, and select a pricing tier. Each tier includes a specific amount of compute, memory, and storage resources. For specific pricing information, review the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
+Each pricing tier in a hosting plan includes a specific amount of compute, memory, and storage resources. For hourly rates per resource and per region, review the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-As an example, the following tables show sample pricing and billing for the *East US 2 region*:
+To better understand how pricing works, this example provides sample estimates for the *East US 2 region*.
 
-* This table lists the hourly rate that's used to calculate the monthly rate:
+* On the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), select the **East US 2** region to view the hourly rates, or review the following table:
 
   | Resource | Hourly US$ (East US 2) |
   |----------|------------------------|
@@ -84,7 +85,7 @@ As an example, the following tables show sample pricing and billing for the *Eas
   | **Memory** | $0.0137 per GB |
   |||
 
-* Based on the preceding information, this table lists each pricing tier, the estimated monthly rate, and the resources included for that pricing tier:
+* Based on the preceding information, this table shows the estimated monthly rate for each pricing tier and the resources included in that pricing tier:
 
   | Pricing tier | Monthly US$ (East US 2) | Virtual CPU (vCPU) | Memory (GB) | Storage (GB) |
   |--------------|-------------------------|--------------------|-------------|--------------|
