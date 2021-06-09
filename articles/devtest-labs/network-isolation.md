@@ -73,7 +73,7 @@ You can also choose to automate these steps to configure this setting for multip
 
 ## Network isolation for an existing lab
 
-As a lab owner, you can choose to isolate the network for an existing lab, see the [sample script](https://github.com/Azure/azure-devtestlab/blob/master/Tools/ConvertDtlLabToIsolatedNetwork/Convert-DtlLabToIsolatedNetwork.ps1).
+As a lab owner, you can choose to isolate the network for an existing lab. [This sample script](https://github.com/Azure/azure-devtestlab/blob/master/Tools/ConvertDtlLabToIsolatedNetwork/Convert-DtlLabToIsolatedNetwork.ps1) demonstrates how to convert an existing lab and associated lab resources to an isolated network mode. 
 
 ## Things to remember while using a lab in a network isolated mode
 
