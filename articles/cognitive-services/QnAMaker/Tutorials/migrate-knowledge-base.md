@@ -55,9 +55,8 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer the following sample to import QnAs:.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer the following sample to import synonyms:.
    3. **Knowledge Base Replica**: if you want to import the complete knowledge base replica, you can zip QnAs, synonyms and settings file and import the zipped folder. You can refer the following sample to import Knowledge Base replica:
-
+        
          You can refer the following summary of settings applicable to QnA Maker and Custom question answering.
-
          |Settings|Update permitted with QnA Maker?|Update permitted with Custom question answering?|
          |:--|--|--|
          |DefaultAnswerForKB (Specifes default answer returned by KB)|No|Yes|
