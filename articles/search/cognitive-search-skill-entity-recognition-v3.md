@@ -13,9 +13,6 @@ ms.date: 05/19/2021
 
 #    Entity Recognition cognitive skill (V3)
 
-> [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
-
 The **Entity Recognition** skill extracts entities of different types from text. These entities fall under 14 distinct categories, ranging from people and organizations to URLs and phone numbers. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 
 > [!NOTE]
