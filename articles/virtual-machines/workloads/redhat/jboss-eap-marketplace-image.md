@@ -1,6 +1,6 @@
 ---
-title: Azure marketplace offer for Red Hat JBoss EAP on Azure Red Hat Enterprise Linux Virtual Machine (VM) and virtual machine scale sets
-description: How to deploy Red Hat JBoss EAP on Azure Red Hat Enterprise Linux (RHEL) VM and virtual machine scale sets using Azure marketplace offer.
+title: Azure Marketplace offer for Red Hat JBoss EAP on Azure Red Hat Enterprise Linux Virtual Machine (VM) and virtual machine scale sets
+description: How to deploy Red Hat JBoss EAP on Azure Red Hat Enterprise Linux (RHEL) VM and virtual machine scale sets using Azure Marketplace offer.
 author: theresa-nguyen
 ms.author: bicnguy
 ms.topic: article
@@ -10,7 +10,7 @@ ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 05/25/2021
 ---
 
-# Deploy Red Hat JBoss Enterprise Platform (EAP) on Azure VMs and virtual machine scale sets using the Azure marketplace offer
+# Deploy Red Hat JBoss Enterprise Platform (EAP) on Azure VMs and virtual machine scale sets using the Azure Marketplace offer
 
 The Azure Marketplace offers for [Red Hat JBoss Enterprise Application Platform](https://www.redhat.com/technologies/jboss-middleware/application-platform) on Azure [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/technologies/linux-platforms/enterprise-linux) is a joint solution from [Red Hat](https://www.redhat.com/) and Microsoft. Red Hat is a leading open-source solutions provider and contributor including the [Java](https://www.java.com/) standards, [OpenJDK](https://openjdk.java.net/), [MicroProfile](https://microprofile.io/), [Jakarta EE](https://jakarta.ee/), and [Quarkus](https://quarkus.io/). JBoss EAP is a leading Java application server platform that is Java EE Certified and Jakarta EE Compliant in both Web Profile and Full Platform. Every JBoss EAP release is tested and supported on a various market-leading operating systems, Java Virtual Machines (JVMs), and database combinations.  JBoss EAP and RHEL include everything you need to build, run, deploy, and manage enterprise Java applications in any environment.  It includes on-premises, virtual environments, and in private, public, or hybrid clouds. The joint solution by Red Hat and Microsoft includes integrated support and software licensing flexibility.
 
@@ -28,7 +28,7 @@ The JBoss EAP on Azure Marketplace offer is a joint solution by Red Hat and Micr
 
 * Azure Command-Line Interface (CLI).
 
-## Azure marketplace offer subscription options
+## Azure Marketplace offer subscription options
 
 The Azure Marketplace offer of JBoss EAP on RHEL will install and provision an Azure VM/virtual machine scale sets deployment in less than 10 minutes. You can access these offers from the [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 

@@ -14,13 +14,13 @@ ms.date: 06/08/2021
 
 This guide provides information on how to migrate your enterprise Java applications on [Red Hat JBoss Enterprise Application Platform (EAP)](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) from a traditional on-premises server to Azure Red Hat Enterprise Linux (RHEL) Virtual Machines (VM) and virtual machine scale sets if your cloud strategy is to "Lift and Shift" Java applications as-is. However, if you want to "Lift and Optimize" then alternatively you can migrate your containerized applications to [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/) with JBoss EAP images from the Red Hat Gallery, or drop your Java app code directly into a JBoss EAP on Azure App Service instance.
 
-## Best practice starting with Azure marketplace offers and quickstarts
+## Best practice starting with Azure Marketplace offers and quickstarts
 
 Red Hat and Microsoft have partnered to bring a set of [JBoss EAP on Azure Marketplace offer](https://aka.ms/AMP-JBoss-EAP) to provide a solid starting point for migrating to Azure. Consult the documentation for a list of offer and plans and select the one that most closely matches your existing deployment. Check out the article on [JBoss EAP on Azure Best Practices](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-azure-best-practices/)
 
 If none of the existing offers is a good starting point, you can manually reproduce the deployment using Azure VM and other available resources. For more information, see [What is IaaS](https://azure.microsoft.com/overview/what-is-iaas/)?
 
-### Azure marketplace offers
+### Azure Marketplace offers
 
 Red Hat in partnership with Microsoft has published the following offerings in Azure Marketplace. You can access these offers from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) or from the [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Check out the article on how to [Deploy Red Hat JBoss EAP on Azure VM and VM Scale Sets Using the Azure Marketplace Offer](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-azure-marketplace/) for more details.
 
@@ -107,8 +107,7 @@ The following table describes the most common supported migration paths.
 
 <sup>1</sup> Although MTA does not currently provide rules for this migration path, Red Hat Consulting can assist with migration from any source platform to JBoss EAP 7.
 
-[image](https://user-images.githubusercontent.com/39895728/119304786-9f246200-bc1c-11eb-92f5-0c5c3f7580b0.png)
-
+:::image type="content" source="./media/jboss-cli-image.png" alt-text="Image shows the output in the CLI window.":::
 
 You can also check on the [system requirements](https://access.redhat.com/documentation/en/migration_toolkit_for_applications/5.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#system_requirements_getting-started-guide) for the MTA.
 
@@ -132,7 +131,7 @@ Document the hardware (memory, CPU, disk, etc.) of the current production server
 
 ### Inventory all secrets
 
-Before the advent of "configuration as a service" technologies such as [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) or [Azure App Configuration](https://azure.microsoft.com/services/app-configuration/), there wasn't a well-defined concept of "secrets". Instead, you had a disparate set of configuration settings that effectively functioned as what we now call "secrets". With app servers such as JBoss EAP, these secrets are in many different config files and configuration stores. Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check *jboss-web.xml* in your WAR files. Configuration files containing passwords or credentials may also be found inside your application. For additional information on Azure Key Vault, visit [Azure Key Vault basic concepts](https://docs.microsoft.com/azure/key-vault/general/basic-concepts).
+Before the advent of "configuration as a service" technologies such as [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) or [Azure App Configuration](https://azure.microsoft.com/services/app-configuration/), there wasn't a well-defined concept of "secrets". Instead, you had a disparate set of configuration settings that effectively functioned as what we now call "secrets". With app servers such as JBoss EAP, these secrets are in many different config files and configuration stores. Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check *jboss-web.xml* in your WAR files. Configuration files containing passwords or credentials may also be found inside your application. For additional information on Azure Key Vault, visit [Azure Key Vault basic concepts](https://docs.microsoft.com/azure/key-vault/general/basic-concepts).
 
 ### Inventory all certificates
 
