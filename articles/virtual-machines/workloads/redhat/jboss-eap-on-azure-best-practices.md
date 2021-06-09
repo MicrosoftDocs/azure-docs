@@ -113,7 +113,7 @@ Solution architecture includes:
 * JBoss EAP on RHEL Clustered VMs
 * JBoss EAP on RHEL Clustered virtual machine scale sets
 
-:::image type="content" source="./media/red-hat-marketplace-image.png" alt-text="Image shows the Red Hat offers available through the Azure marketplace.":::
+    :::image type="content" source="./media/red-hat-marketplace-image.png" alt-text="Image shows the Red Hat offers available through the Azure Marketplace.":::
 
 You can choose between the RHEL 7.7 and 8.0 and JBoss EAP 7.2 and 7.3. You can select one of the following combinations for deployment:
 
