@@ -51,7 +51,7 @@ Azure Security Center is a unified infrastructure security management system tha
 
 For more information, see the [Azure Security Center product documentation](/azure/security-center/security-center-introduction).
 
-The following tables display the current Security Center feature availability in Azure and Azure Government.
+The following table displays the current Security Center feature availability in Azure and Azure Government.
 
 
 | Feature                                                                                                                                            | Azure          | Azure Government |
