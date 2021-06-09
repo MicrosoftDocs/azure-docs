@@ -341,7 +341,7 @@ To view telemetry in Azure IoT Explorer:
 
 1. Select the **Show modeled events** checkbox to view the events in the data format specified by the device model.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-evemts.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer device":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer device":::
 
 1. Select **Stop** to end receiving events.
 
