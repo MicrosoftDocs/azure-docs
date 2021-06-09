@@ -30,12 +30,11 @@ Spot vCPU quotas apply to spot VMs. When you deploy a new spot VM, the total new
 
 ## Learn more about standard and spot vCPU quotas
 
-* To learn more about standard vCPU quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits](./classic-deployment-model-quota-increase-requests.md).
+* To learn more about standard vCPU quotas, see [Check vCPU quotas using Azure PowerShell](../../virtual-machines/windows/quotas.md) and [Classic deployment model](./classic-deployment-model-quota-increase-requests.md).
 
 * To learn about increasing the vCPU limit by region for standard quota, see [Standard quota: Increase limits by region](regional-quota-requests.md).
 
 * To learn more about increasing spot VM vCPU limits, see [Spot quota: Increase limits for all VM series](low-priority-quota.md).
-
 
 ## Request a standard quota increase from Help + support<a name="hs"></a>
 
