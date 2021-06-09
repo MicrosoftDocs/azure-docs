@@ -61,11 +61,13 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 To find unit prices, open the correct pricing page. If you've enabled the hierarchical namespace feature on your account, see the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. If you haven't enabled this feature, see the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
 
-In the pricing page for your account, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier. 
+In the pricing page, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier. 
 
 ### Flat namespace accounts and transaction pricing
 
-The transaction price that appears in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page applies only to requests that use the Blob Storage endpoint of your account (For example: `https://<storage-account>.blob.core.windows.net`). The listed prices do not apply to requests that use the Data Lake Storage Gen2 endpoint (For example: `https://<storage-account>.dfs.core.windows.net`). For the transaction price of those requests, open the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page and select the **Flat Namespace** option. 
+Clients can make a request by using either the Blob Storage endpoint or the Data Lake Storage endpoint of your account. To learn more about storage account endpoints, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints).
+
+Transaction prices that appear in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page apply only to requests that use the Blob Storage endpoint (For example: `https://<storage-account>.blob.core.windows.net`). The listed prices do not apply to requests that use the Data Lake Storage Gen2 endpoint (For example: `https://<storage-account>.dfs.core.windows.net`). For the transaction price of those requests, open the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page and select the **Flat Namespace** option. 
 
   > [!div class="mx-imgBorder"]
   > ![flat namespace option](media/storage-plan-manage-costs/select-flat-namespace.png)
@@ -78,7 +80,6 @@ Requests to the Data Lake Storage Gen2 endpoint can originate from any of the fo
 
 - Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library.  
 
-For more information about storage account endpoints, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints).
 
 ### Using Azure Prepayment with Azure Blob Storage
 
