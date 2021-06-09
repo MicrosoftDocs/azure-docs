@@ -8,10 +8,14 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 05/26/2021
+ms.date: 06/09/2021
 ---
 
 # MySQL on-premises to Azure Database for MySQL migration guide Business Continuity and Disaster Recovery (BCDR)
+
+## Prerequisites
+
+[Optimization](11-optimization.md)
 
 ## Back up and restore
 
@@ -25,13 +29,13 @@ There are several current limitations to the database backup feature as describe
 
 Some items to be aware of include:
 
-  - No direct access to the backups
+- No direct access to the backups
 
-  - Tiers that allow up to 4 TB have a full backup once per week, differential twice a day, and logs every five minutes
+- Tiers that allow up to 4 TB have a full backup once per week, differential twice a day, and logs every five minutes
 
-  - Tiers that allow up to 16 TB have backups that are snapshot-based
+- Tiers that allow up to 16 TB have backups that are snapshot-based
 
-    > [!NOTE] 
+    > [!NOTE]
     > [Some regions](/azure/mysql/concepts-pricing-tiers#storage) do not yet support storage up to 16TB.
 
 ### Restore
@@ -66,19 +70,19 @@ WWI wanted to test the failover capabilities of read replicas so they performed 
 
 ### Creating a read replica
 
-  - Open the Azure portal.
+- Open the Azure portal.
 
-  - Browse to the Azure Database for MySQL instance.
+- Browse to the Azure Database for MySQL instance.
 
-  - Under **Settings**, select **Replication**.
+- Under **Settings**, select **Replication**.
 
-  - Select **Add Replica**.
+- Select **Add Replica**.
 
-  - Type a server name.
+- Type a server name.
 
-  - Select the region.
+- Select the region.
 
-  - Select **OK**, wait for the instance to deploy. Depending on the size of the main instance, it could take some time to replicate.
+- Select **OK**, wait for the instance to deploy. Depending on the size of the main instance, it could take some time to replicate.
 
     > [!NOTE]
     > Each replica incurs additional charges equal to the main instance.
@@ -89,28 +93,28 @@ Once a read replica has been created and has completed the replication process, 
 
 Failover Steps:
 
-  - Open the Azure portal.
+- Open the Azure portal.
 
-  - Browse to the Azure Database for MySQL instance.
+- Browse to the Azure Database for MySQL instance.
 
-  - Under **Settings**, select **Replication**.
+- Under **Settings**, select **Replication**.
 
-  - Select one of the read replicas.
+- Select one of the read replicas.
 
-  - Select **Stop Replication**. This breaks the read replica.
+- Select **Stop Replication**. This breaks the read replica.
 
-  - Modify all applications connection strings to point to the new main instance.
+- Modify all applications connection strings to point to the new main instance.
 
 ## BCDR checklist
 
-  - Modify backup frequency to meet requirements.
+- Modify backup frequency to meet requirements.
 
-  - Setup read replicas for read intensive workloads and regional failover.
+- Setup read replicas for read intensive workloads and regional failover.
 
-  - Create resource locks on resource groups.
+- Create resource locks on resource groups.
 
-  - Implement a load-balancing strategy for applications for quick failover.  
+- Implement a load-balancing strategy for applications for quick failover.  
 
 
 > [!div class="nextstepaction"]
-> [Security](./security.md)
+> [Security](./13-security.md)

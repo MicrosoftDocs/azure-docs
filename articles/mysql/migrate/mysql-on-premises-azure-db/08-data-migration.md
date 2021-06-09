@@ -8,10 +8,14 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 05/26/2021
+ms.date: 06/09/2021
 ---
 
 # MySQL on-premises to Azure Database for MySQL migration guide Data Migration
+
+## Prerequisites
+
+[Performance baselines](07-performance-baselines.md)
 
 ## Back up the database
 
@@ -314,4 +318,4 @@ With the basic migration components in place, it's now possible to proceed with 
 
 
 > [!div class="nextstepaction"]
-> [Data Migration with MySQL Workbench](./data-migration-with-mySQL-workbench.md)
+> [Data Migration with MySQL Workbench](./09-data-migration-with-mySQL-workbench.md)

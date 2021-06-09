@@ -8,10 +8,16 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 05/25/2021
+ms.date: 06/09/2021
 ---
 
 # MySQL on-premises to Azure Database for MySQL migration guide assessment
+
+## Prerequisites
+
+[Representative Use Case](02-representative-use-case.md)
+
+## Overview
 
 Before jumping right into migrating a MySQL workload, there's a fair amount of due diligence that must be performed. This includes analyzing the data, hosting environment, and application workloads to validate the Azure Landing zone is configured correctly and prepared to host the soon-to-be migrated workloads.
 
@@ -273,4 +279,4 @@ For the first phase, WWI focused solely on the ConferenceDB database. The team n
   - Be prepared to make application changes.
 
 > [!div class="nextstepaction"]
-> [Planning](./planning.md)
+> [Planning](./04-planning.md)
