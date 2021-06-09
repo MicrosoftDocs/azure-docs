@@ -45,10 +45,10 @@ Our system integrators and non-operator MSP partners include:
 
 
 ### Platform Partners
-Azure Private MEC platform partners provide critical hardware and software components across categories of Network Functions, Radio Access Network (RAN) technologies, SIM, Connectivity Devices, and Operational Support Systems (OSS/BSS).
+Azure Private MEC platform partners provide critical hardware and software components across categories of Network Functions, Radio Access Network (RAN) technologies, SIM, Connectivity Devices, and Operational Support Systems.
 
 ### Network Functions
-Network functions partners include an array of software vendors providing mobile packet core, firewalls, routers, SD-WAN, vRAN, and RAN optimization. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
+Network functions partners include software vendors that provide mobile packet core, firewalls, routers, SD-WAN, vRAN, and RAN optimization. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
 
 
 |Mobile Packet Core |Firewall, Routers, & SD-WAN |RAN Partners (software) |
@@ -76,8 +76,8 @@ SIM & Device partners provide wireless authentication technologies and embedded 
 |   JCI US (Contour Networks)  |         ||
 ||||
 
-### Operational & Business Support Systems (OSS/BSS)
-Microsoft is currently partnered with OSS/BSS market leader Amdocs to deliver its solutions as part of the Azure private MEC solution. Amdocs on Azure and Azure private MEC deliver a robust set of solutions for spectrum allocation, network operations, device management, and system integration.
+### Operational & Business Support Systems
+Microsoft is currently partnered with Operational & Business Support Systems (OSS/BSS) market leader Amdocs to deliver its solutions as part of the Azure private MEC solution. Amdocs on Azure and Azure private MEC deliver a robust set of solutions for spectrum allocation, network operations, device management, and system integration.
 
 ### Application ISVs
 Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. ISVs such as Attabotics, Taqtile, and Everseen are just a few of the examples of ISVs that have used Azure private MEC combination of private 5G and edge compute capabilities to create new experiences for customers.
