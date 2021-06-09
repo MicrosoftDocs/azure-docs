@@ -143,25 +143,25 @@
     - name: General
       href: faq.yml
     - name: Customer communication
-      href: ./faq.yml#customer-communication
+      href: /azure/azure-vmware/faq.yml#customer-communication
     - name: Configuration and setup 
-      href: ./faq.yml#configuration-and-setup
+      href: /azure/azure-vmware/faq.yml#configuration-and-setup
     - name: VMware software 
-      href: ./faq.yml#vmware-software
+      href: /azure/azure-vmware/faq.yml#vmware-software
     - name: Third-party backup solutions 
-      href: ./faq.yml#third-party-backup-and-recovery
+      href: /azure/azure-vmware/faq.yml#third-party-backup-and-recovery
     - name: Compute
-      href: ./faq.yml#compute
+      href: /azure/azure-vmware/faq.yml#compute
     - name: Networking and interconnectivity
-      href: ./faq.yml#networking-and-interconnectivity
+      href: /azure/azure-vmware/faq.yml#networking-and-interconnectivity
     - name: Storage
-      href: ./faq.yml#storage
+      href: /azure/azure-vmware/faq.yml#storage
     - name: Hosts, clusters, and private clouds
-      href: ./faq.yml#hosts,-clusters,-and-private-clouds
+      href: /azure/azure-vmware/faq.yml#hosts,-clusters,-and-private-clouds
     - name: Identity management
-      href: ./faq.yml#identity-management
+      href: /azure/azure-vmware/faq.yml#identity-management
     - name: Billing and support
-      href: ./faq.yml#billing-and-support
+      href: /azure/azure-vmware/faq.yml#billing-and-support
   - name: Videos 
     items:
     - name: Playlist

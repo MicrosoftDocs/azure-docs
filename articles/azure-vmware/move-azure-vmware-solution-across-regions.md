@@ -265,7 +265,7 @@ In this step, you'll use the source NSX-T configuration to configure the target 
 
 1. [Create the gateway firewall policy and rules](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DE6FE8CB-017E-41C8-85FC-D71CF27F85C2.html).
 
-1. [Create the DHCP server or DHCP relay service](./configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-in-the-azure-portal). 
+1. [Create the DHCP server or DHCP relay service](./configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal). 
 
 1. [Configure port mirroring](./configure-nsx-network-components-azure-portal.md#configure-port-mirroring-in-the-azure-portal).
 
