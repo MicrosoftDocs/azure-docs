@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: troubleshooting
-ms.date: 06/08/2021
+ms.date: 06/09/2021
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Data Box Gateway issues
@@ -104,5 +104,4 @@ Any errors experienced during the upload and refresh processes are included in t
 
 ## Next steps
 
-- [Troubleshoot Blob storage issues](../databox-online/azure-stack-edge-gpu-troubleshoot-blob-storage.md).
 - Learn more about the [known issues in this release](data-box-gateway-release-notes.md).
