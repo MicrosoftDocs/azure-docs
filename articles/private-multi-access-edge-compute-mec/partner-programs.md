@@ -77,10 +77,11 @@ SIM & Device partners provide wireless authentication technologies and embedded 
 ||||
 
 ### Operational & Business Support Systems
-Microsoft is currently partnered with Operational & Business Support Systems (OSS/BSS) market leader Amdocs to deliver its solutions as part of the Azure private MEC solution. Amdocs on Azure and Azure private MEC deliver a robust set of solutions for spectrum allocation, network operations, device management, and system integration.
+Microsoft has partnered with Amdocs (Operational & Business Support Systems (OSS/BSS) market leader) to deliver its solutions as part of the Azure private MEC solution. Amdocs on Azure and Azure private MEC deliver a robust set of solutions for spectrum allocation, network operations, device management, and system integration.
 
 ### Application ISVs
-Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. ISVs such as Attabotics, Taqtile, and Everseen are just a few of the examples of ISVs that have used Azure private MEC combination of private 5G and edge compute capabilities to create new experiences for customers.
+Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. ISVs such as Attabotics, Taqtile, and Everseen have used Azure private MEC combination of private 5G and edge compute capabilities to create new experiences for customers.
+
 Azure private MEC, as a solution that supports multiple platforms, applications that run on supported platforms can deploy to Azure private MEC with few code changes required. This means that application ISV solutions for Azure Stack Edge, Azure Stack HCI, and Azure IoT Edge can also run on the Azure private MEC solution. 
 
 ## Next steps
