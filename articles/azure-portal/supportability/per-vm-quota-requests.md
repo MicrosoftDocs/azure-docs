@@ -71,21 +71,19 @@ To request a standard vCPU quota increase per VM series from **Help + support**:
 
    ![TProvide additional quota details](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
-  a.  For **Deployment model**, select the appropriate model.
+   a.  For **Deployment model**, select the appropriate model.
   
-  b.  For **Locations**, select a location. For the selected location, under **Types**, in **Select a type**, choose **Standard**.
+   b.  For **Locations**, select a location. For the selected location, select the quota types you want to modify. You can request both standard and spot quota types from a single support case through multi-selection support.
+   
+   ![Quota details - quota types](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
+   
+   For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](../../virtual-machine-scale-sets/use-spot.md).
   
-  ![Quota details - quota types](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
-  
-  Under **Types**, you can request both standard and spot quota types from a single support case through multi-selection support.
-  
-  For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](../../virtual-machine-scale-sets/use-spot.md).
-  
-  c.  In **Standard**, select the SKU series for increased quotas.
+   c.  In **Standard**, select the SKU series for increased quotas.
   
   ![Quota details - SKU series](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
   
-  d.  Enter the new quota limits that you want for this subscription. To remove a SKU from your list, clear the check box next to the SKU or select the discard "X" icon.
+   d.  Enter the new quota limits that you want for this subscription. To remove a SKU from your list, clear the check box next to the SKU or select the discard "X" icon.
 
       ![Select a new vCPU Limit](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
