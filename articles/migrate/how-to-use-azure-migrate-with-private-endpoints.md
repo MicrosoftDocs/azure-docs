@@ -121,6 +121,10 @@ Check that the zipped file is secure before you deploy it.
 
 1.  Verify the latest version of the appliance by comparing the hash values from the preceding table.
 
+<<<<<<< HEAD
+=======
+Make sure the server meets the [hardware requirements](./migrate-appliance.md) for the chosen scenario, such as VMware, Hyper-V, physical or other, and can connect to the [required URLs](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity).
+>>>>>>> 0b968bad8e592a8a1593b7256a6f7ed31b3f42fd
 
 #### Run the script
 
