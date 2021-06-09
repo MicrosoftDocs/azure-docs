@@ -18,7 +18,7 @@ The state given to any request that has been accepted as satisfactory by t
 ## Asset
 Any single object that is stored within an Azure Purview data catalog.
 > [!NOTE]
-> A single object in the catalog could potentially represent many objects in storage, for example, a resource set is an asset but it's made up of many partition files in storage."
+> A single object in the catalog could potentially represent many objects in storage, for example, a resource set is an asset but it's made up of many partition files in storage.
 ## Azure Information Protection
 A cloud solution that supports labeling of documents and emails to classify and protect information. Labeled items can be protected by encryption, marked with a watermark, or restricted to specific actions or users, and is bound to the item. This cloud-based solution relies on Azure Rights Management Service (RMS) for enforcing restrictions. 
 ## Business glossary
@@ -26,7 +26,7 @@ A searchable list of specialized terms that an organization uses to describe k
 ## Classification report
 A report that shows key classification details about the scanned data.  
 ## Classification
-A type of annotation used to identify an attribute of an asset or a column such as “Age,” “Email Address,” and “Street Address.” These attributes can be assigned during scans or added manually. 
+A type of annotation used to identify an attribute of an asset or a column such as "Age", “Email Address", and "Street Address". These attributes can be assigned during scans or added manually. 
 ## Classification rule
 A classification rule is a set of conditions that determine how scanned data should be classified when content matches the specified pattern.  
 ## Contact
@@ -83,3 +83,7 @@ A system where data is stored. Sources can be hosted in various places such 
 A categorization of the registered sources used in an Azure Purview instance, for example, Azure SQL Database, Azure Blob Storage, Amazon S3, or SAP ECC. 
 ## Steward
 An individual who defines the standards for a glossary term. They are responsible for maintaining quality standards, nomenclature, and rules for the assigned entity. 
+
+## Next steps
+
+To get started with Azure Purview, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
