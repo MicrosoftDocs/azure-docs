@@ -22,7 +22,7 @@ For Preview, the following SKUs are currently available.
 | Affirmed Private Mobile Service  | Mobile Packet Core |[Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165526)|
 |Celona Edge |Mobile Packet Core |[Azure Marketplace](https://ms.portal.azure.com/)|
 | Metaswitch Fusion Core | Mobile Packet Core | [Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165525)|
-| Netfoundry ZTNA | Other| [Azure Marketplace](https://ms.portal.azure.com/)|
+| NetFoundry ZTNA | Other| [Azure Marketplace](https://ms.portal.azure.com/)|
 | Nuage Networks SD-WAN From Nokia | SD-WAN| [Azure Marketplace](https://ms.portal.azure.com/)|
 | Versa SD-WAN| SD-WAN |[Azure Marketplace](https://ms.portal.azure.com/)|
 | VMware SD-WAN by Velocloud | SD-WAN | [Azure Marketplace](https://ms.portal.azure.com/)|
