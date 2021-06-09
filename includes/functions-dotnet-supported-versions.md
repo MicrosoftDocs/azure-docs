@@ -19,7 +19,7 @@ The following table shows the highest level of .NET Core or .NET Framework that 
 | Functions 2.x | .NET Core 2.1<sup>2</sup> | n/a |
 | Functions 1.x | .NET Framework 4.8 | n/a |
 
-<sup>1</sup> Azure Functions provides experimental support to let you try out your functions running on the preview release of .NET 6.0. This pre-release version isn't officially supported. To learn more, see the [Azure Functions v4 early preview](https://aka.ms/functions-dotnet6earlypreview-wiki) page.
+<sup>1</sup> Azure Functions provides experimental support to let you try out your functions running on the preview release of .NET 6.0. This pre-release version isn't officially supported. To learn more, see the [Azure Functions v4 early preview](https://aka.ms/functions-dotnet6earlypreview-wiki) page.  
 <sup>2</sup> For details, see [Functions v2.x considerations](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations).   
 
 For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
