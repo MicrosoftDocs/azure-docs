@@ -596,10 +596,14 @@ The following API Management **features are not currently available** in Azure G
 
 ### [App Service](../app-service/overview.md)
 
+The following App Service **resources are not currently available** in Azure Government:
+
+- App Service Certificate
+- App Service Managed Certificate
+- App Service Domain
+
 The following App Service **features are not currently available** in Azure Government:
 
-- Resource
-    - App Service Certificate
 - Deployment
     - Deployment options: only Local Git Repository and External Repository are available
 - Development tools
