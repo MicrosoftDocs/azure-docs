@@ -7,6 +7,7 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 06/11/2021
+ms.custom: subject-rbac-steps
 ms.author: memildin
 
 ---
