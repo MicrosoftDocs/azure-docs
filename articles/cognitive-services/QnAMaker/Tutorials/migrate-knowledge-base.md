@@ -54,12 +54,11 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer the following sample to import QnAs:.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer the following sample to import synonyms:.
-   3. **Knowledge Base Replica**: if you want to import the complete knowledge base replica, you can zip QnAs, synonyms and settings file and import the zipped folder. You can refer the following sample to import Knowledge Base replica:
+   3. **Knowledge Base Replica**: If you want to import replica with excel, add three tabs for QnAs, Synonyms, and Settings in the excel file, zip it and import the zipped folder. If you want to import replica with tsv files, you can zip the three QnAs, synonyms and settings files and import the zipped folder. You can refer the following samples to import Knowledge Base replica:. If you also want to add unstructured content, refer .
 
-        1. Either QnAs or Unstructured documents is required when importing replica. Unstructured documents are only valid for Custom question answering.
-        1. Synonyms file is not mandatory when importing replica.
-        1. Settings file is mandatory when importing replica.
-         
+        2. Either QnAs or Unstructured content is required when importing replica. Unstructured documents are only valid for Custom question answering.
+        3. Synonyms file is not mandatory when importing replica.
+        4. Settings file is mandatory when importing replica.
          
            |Settings|Update permitted when importing to QnA Maker KB?|Update permitted when importing to Custom question answering KB?|
            |:--|--|--|
