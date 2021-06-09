@@ -26,11 +26,12 @@ Depending on how you want to authorize access to blob data in the Azure portal, 
 
 ### Use the account access key
 
-To access blob data with the account access key, you must have an Azure role assigned to you that includes the Azure RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This Azure role may be a built-in or a custom role. Built-in roles that support **Microsoft.Storage/storageAccounts/listkeys/action** include:
+To access blob data with the account access key, you must have an Azure role assigned to you that includes the Azure RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This Azure role may be a built-in or a custom role. Built-in roles that support **Microsoft.Storage/storageAccounts/listkeys/action** include the following, in order from least to greatest permissions:
 
-- The Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role
-- The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
-- The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
+- The [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access) role
+- The [Storage Account Contributor role](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+- The Azure Resource Manager [Contributor role](../../role-based-access-control/built-in-roles.md#contributor)
+- The Azure Resource Manager [Owner role](../../role-based-access-control/built-in-roles.md#owner)
 
 When you attempt to access blob data in the Azure portal, the portal first checks whether you have been assigned a role with **Microsoft.Storage/storageAccounts/listkeys/action**. If you have been assigned a role with this action, then the portal uses the account key for accessing blob data. If you have not been assigned a role with this action, then the portal attempts to access data using your Azure AD account.
 
