@@ -73,7 +73,7 @@ To request a standard vCPU quota increase per VM series from **Help + support**:
 
    a. For **Deployment model**, select the appropriate model.
    
-   b. For **Locations**, select a location. For the selected location, under **Types**, in **Select a type**, choose **Standard**.
+      b. For **Locations**, select a location. For the selected location, under **Types**, in **Select a type**, choose **Standard**.
 
       ![Quota details - quota types](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
 
