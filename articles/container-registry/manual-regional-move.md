@@ -26,8 +26,8 @@ Azure CLI
 
 ## Considerations
 
-* Use steps in this article show to move the registry to a different region in the same subscription. More configuration is needed to move a registry to a different Azure subscription or Active Directory tenant. 
-* Exporting and using a Resource Manager template can help you re-create many registry settings. However, you might need to manually reconfigure some settings after creating the target registry.
+* Use steps in this article to move the registry to a different region in the same subscription. More configuration is needed to move a registry to a different Azure subscription or Active Directory tenant. 
+* Exporting and using a Resource Manager template can help re-create many registry settings. You can edit the template to configure additional settings, or update the target registry after creation.
 
 ## Export template from source registry 
 
@@ -70,7 +70,7 @@ Inspect the registry properties in the template JSON file you downloaded, and ma
 For more information, see [Use exported template from the Azure portal](../azure-resource-manager/templates/template-tutorial-export-template.md) and the [template reference](/azure/templates/microsoft.containerregistry/registries).
 
 > [!IMPORTANT]
-> If you want to encrypt the target registry using a customer-managed key, ensure that you update the template with settings for the required managed identity, key vault, and key. You can only enable the customer-managed key when you deploy the registry.
+> If you want to encrypt the target registry using a customer-managed key, make sure to update the template with settings for the required managed identity, key vault, and key. You can only enable the customer-managed key when you deploy the registry.
 > 
 > For more information, see [Encrypt registry using customer-managed key](/container-registry-customer-managed-keys.md#enable-customer-managed-key---template).
 
@@ -92,7 +92,7 @@ az deployment group --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> If you see errors during deployment, you might need to remove certain configurations from the template file and retry the command.
+> If you see errors during deployment, you might need to update certain configurations in the template file and retry the command.
 
 ## Import registry content in target registry
 
@@ -133,7 +133,7 @@ Confirm the following information in your target registry:
 
 ### Additional configuration
 
-* If needed, manually configure registry settings such as private endpoints, IP access rules, and managed identities.
+* If needed, manually configure settings in the target registry such as private endpoints, IP access rules, and managed identities.
 
 * Update development and deployment systems to use the target registry instead of the source registry.
 
