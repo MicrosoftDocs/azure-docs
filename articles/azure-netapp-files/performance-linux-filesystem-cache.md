@@ -30,7 +30,7 @@ You need to understand two factors about filesystem cache tunables:
     * Memory pressure: See [`vm.dirty_ratio | vm.dirty_bytes`](#vmdirty_ratio--vmdirty_bytes) for details.
     * Close: When a file handle is closed, all dirty buffers are asynchronously flushed to storage.
 
-These factors are controlled by four tunables, each may be tuned dynamically and persistently using `tuned` or `sysctl` in the `/etc/sysctl.conf` file. Tuning these variables improves performance for applications.  
+These factors are controlled by four tunables. Each tunable can be tuned dynamically and persistently using `tuned` or `sysctl` in the `/etc/sysctl.conf` file. Tuning these variables improves performance for applications.  
 
 > [!NOTE]
 > Information discussed in this article was uncovered during SAS GRID and SAS Viya validation exercises. As such, the tunables are based on lessons learned from the validation exercises. 
