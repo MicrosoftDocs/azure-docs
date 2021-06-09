@@ -75,7 +75,7 @@ To use AzureAD, follow these steps to make sure it is imported into the current 
     Get-Module -Name AzureAD
     ```
 
-1. If you don't see any output in the previous step, use [Import-Module](/powershell/module/microsoft.powershell.core/import-module?view=powershell-7.1) to import AzureAD. The `-Force` parameter removes the loaded module and then imports it again.
+1. If you don't see any output in the previous step, use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import AzureAD. The `-Force` parameter removes the loaded module and then imports it again.
 
     ```powershell
     Import-Module -Name AzureAD -Force
