@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 06/10/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
@@ -16,9 +16,9 @@ ms.date: 05/26/2021
 
 ## Consumption pricing (multi-tenant)
 
-A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps environment. All successful and unsuccessful runs are metered and billed.
+A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps environment. This pricing applies to the **Logic App (Consumption)** resource type in the Azure portal or to logic apps that you work on using the **Azure Logic Apps (Consumption)** extension for Visual Studio Code or logic apps that you work on using Azure Logic Apps extension in Visual Studio.
 
-For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
+Metering and billing are based on the trigger and action executions in a logic app workflow. These executions are metered and billed, regardless whether the workflow runs successfully or whether the workflow is even instantiated. For example, suppose your automation task uses a polling trigger that regularly makes an outgoing call to an endpoint. This outbound request is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
 
 | Items | Description |
 |-------|-------------|
@@ -63,8 +63,8 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Standard pricing (single-tenant)
 
-When you create the **Logic App (Standard)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan and pricing tier for your logic app. These choices determine the pricing that applies when running your workflows in single-tenant Azure Logic Apps.
-  
+A hosting plan and pricing tier based pricing model applies to logic apps that run in the single-tenant Azure Logic Apps environment. This pricing applies to the **Logic App (Standard)** resource type in the Azure portal or to logic apps that you work on using the **Azure Logic Apps (Standard)** extension for Visual Studio Code. When you create or deploy such a logic app, you must choose a hosting plan and pricing tier that determines the pricing rates to use for metering and billing when running your workflows.
+
 > [!NOTE]
 > The Logic App (Standard) resource currently doesn't support using an App Service Plan and App Service Environment.
 
@@ -72,30 +72,34 @@ When you create the **Logic App (Standard)** resource in the Azure portal or dep
 
 ### Hosting plans, pricing tiers, and billing rates
 
-For single-tenant based logic apps, you must use the **Workflow Standard** hosting plan, and select a pricing tier. Each tier includes a specific amount of compute, memory, and storage resources. For more information, review the following table, which lists each pricing tier plus the included resources and the monthly rate, which uses *East US as an example region*. Below the table, you can find the hourly rates and an example that breaks down the monthly cost per resource.
+For single-tenant based logic apps, you must use the **Workflow Standard** hosting plan, and select a pricing tier. Each tier includes a specific amount of compute, memory, and storage resources. For specific pricing information, review the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Pricing tier | Monthly US$ (East US) | Virtual CPU (core) | [Azure Compute Unit (ACU)](../virtual-machines/acu.md) | Memory (GB) | Storage (GB) |
-|--------------|-----------------------|--------------------|--------------------------------------------------------|-------------|--------------|
-| **WS1** | $175.20 | 1 | 210 | 3.5 | 250 |
-| **WS2** | $350.40 | 2 | 420 | 7 | 250 |
-| **WS3** | $700.80 | 4 | 840 | 14 | 250 |
-|||||||
+As an example, the following tables show sample pricing and billing for the *East US 2 region*:
 
-The following table lists the hourly rate that's used to calculate the monthly rate:
+* This table lists the hourly rate that's used to calculate the monthly rate:
 
-| Resource | Hourly US$ (East US) |
-|----------|----------------------|
-| **Virtual CPU** | $0.1920 per core |
-| **Memory** | $0.0137 per GB |
-|||
+  | Resource | Hourly US$ (East US 2) |
+  |----------|------------------------|
+  | **Virtual CPU (vCPU)** | $0.192 |
+  | **Memory** | $0.0137 per GB |
+  |||
 
-Based on the preceding information, the following table breaks down the monthly rate for the **WS1** pricing tier by resource and hourly rate:
+* Based on the preceding information, this table lists each pricing tier, the estimated monthly rate, and the resources included for that pricing tier:
 
-| Resource | Amount | Monthly US$ (East US) |
-|----------|--------|-----------------------|
-| **Virtual CPU** | 1 core | $140.16 |
-| **Memory** | 3.5 GB | $35.04 |
-||||
+  | Pricing tier | Monthly US$ (East US 2) | Virtual CPU (vCPU) | Memory (GB) | Storage (GB) |
+  |--------------|-------------------------|--------------------|-------------|--------------|
+  | **WS1** | $175.20 | 1 | 3.5 | 250 |
+  | **WS2** | $350.40 | 2 | 7 | 250 |
+  | **WS3** | $700.80 | 4 | 14 | 250 |
+  ||||||
+
+* Based on the preceding information, this table lists each resource and the estimated monthly rate if you choose the **WS1** pricing tier:
+
+  | Resource | Amount | Monthly US$ (East US 2) |
+  |----------|--------|-------------------------|
+  | **Virtual CPU (vCPU)** | 1 | $140.16 |
+  | **Memory** | 3.5 GB | $35.04 |
+  ||||
 
 <a name="storage-transactions"></a>
 
