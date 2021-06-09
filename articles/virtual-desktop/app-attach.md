@@ -194,7 +194,7 @@ Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 
->[!TIP]
+>[!NOTE]
 >You can shut down the device even while the symbolic link remains after executing the destage script.
 
 ## Set up simulation scripts for the MSIX app attach agent
@@ -208,9 +208,8 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 - The logoff script runs the deregister script.
 - The shutdown script runs the destage script.
 
->[!TIP]
->You can run the task scheduler with the stage script.
->To run the script, set the task trigger to **When the computer starts**, then enable **Run with highest privileges**.
+>[!NOTE]
+>You can run the task scheduler with the stage script. To run the script, set the task trigger to **When the computer starts**, then enable **Run with highest privileges**.
 
 ## Use packages offline
 
