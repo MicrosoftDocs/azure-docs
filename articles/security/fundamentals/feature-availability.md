@@ -56,15 +56,7 @@ The following tables display the current Security Center feature availability in
 
 | Feature                                                                                                                                            | Azure          | Azure Government |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|----------------|------------------|
-| [Just-in-time VM access](/azure/security-center/security-center-just-in-time) (1)                                                                  | GA             | GA               |
-| [File integrity monitoring](/azure/security-center/security-center-file-integrity-monitoring) (1)                                                  | GA             | GA               |
-| [Adaptive application controls](/azure/security-center/security-center-adaptive-application) (1)                                                   | GA             | GA               |
-| [Adaptive network hardening](/azure/security-center/security-center-adaptive-network-hardening) (1)                                                | GA             | Not Available    |
-| [Docker host hardening](/azure/security-center/harden-docker-hosts) (1)                                                                            | GA             | GA               |
-| [Integrated vulnerability assessment for machines](/azure/security-center/deploy-vulnerability-assessment-vm) (1)                                  | GA             | Not Available    |
-| [Microsoft Defender for Endpoint deployment and integrated license](/azure/security-center/security-center-wdatp) (1)                              | GA             | GA               |
-| [Connect AWS account](/azure/security-center/quickstart-onboard-aws) (1)                                                                           | GA             | Not Available    |
-| [Connect GCP account](/azure/security-center/quickstart-onboard-gcp) (1)                                                                           | GA             | Not Available    |
+| **Security Center free features**                                                                                                                  |                |                  |
 | [Continuous export](/azure/security-center/continuous-export)                                                                                      | GA             | GA               |
 | [Workflow automation](/azure/security-center/continuous-export)                                                                                    | GA             | GA               |
 | [Recommendation exemption rules](/azure/security-center/exempt-resource)                                                                           | Public Preview | Not Available    |
@@ -72,6 +64,9 @@ The following tables display the current Security Center feature availability in
 | [Email notifications for security alerts](/azure/security-center/security-center-provide-security-contact-details)                                 | GA             | GA               |
 | [Auto provisioning for agents and extensions](/azure/security-center/security-center-enable-data-collection)                                       | GA             | GA               |
 | [Asset inventory](/azure/security-center/asset-inventory)                                                                                          | GA             | GA               |
+| [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](/azure/security-center/custom-dashboards-azure-workbooks)           | Public Preview | Public Preview   |
+| **Azure Defender plans and extensions**                                                                                                            |                |                  |
+| [Azure Defender for servers](azure/security-center/defender-for-servers-introduction)                                                              | GA             | GA               |
 | [Azure Defender for App Service](/azure/security-center/defender-for-app-service-introduction)                                                     | GA             | Not Available    |
 | [Azure Defender for DNS](/azure/security-center/defender-for-dns-introduction)                                                                     | GA             | Not Available    |
 | [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) (3)                               | GA             | GA               |
@@ -85,11 +80,20 @@ The following tables display the current Security Center feature availability in
 | [Azure Defender for Resource Manager](/azure/security-center/defender-for-resource-manager-introduction)                                           | GA             | Not Available    |
 | [Azure Defender for Storage](/azure/security-center/defender-for-storage-introduction) (2)                                                         | GA             | GA               |
 | [Threat protection for Cosmos DB](/azure/security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                | Public Preview | Public Preview   |
-| [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](/azure/security-center/custom-dashboards-azure-workbooks)           | Public Preview | Public Preview   |
 | [Kubernetes workload protection](/azure/security-center/kubernetes-workload-protections)                                                           | GA             | GA               |
+| **Azure Defender for Servers features** (1)                                                                                                        |                |                  |
+| [Just-in-time VM access](/azure/security-center/security-center-just-in-time)                                                                      | GA             | GA               |
+| [File integrity monitoring](/azure/security-center/security-center-file-integrity-monitoring)                                                      | GA             | GA               |
+| [Adaptive application controls](/azure/security-center/security-center-adaptive-application)                                                       | GA             | GA               |
+| [Adaptive network hardening](/azure/security-center/security-center-adaptive-network-hardening)                                                    | GA             | Not Available    |
+| [Docker host hardening](/azure/security-center/harden-docker-hosts)                                                                                | GA             | GA               |
+| [Integrated vulnerability assessment for machines](/azure/security-center/deploy-vulnerability-assessment-vm)                                      | GA             | Not Available    |
+| [Microsoft Defender for Endpoint deployment and integrated license](/azure/security-center/security-center-wdatp)                                  | GA             | GA               |
+| [Connect AWS account](/azure/security-center/quickstart-onboard-aws)                                                                               | GA             | Not Available    |
+| [Connect GCP account](/azure/security-center/quickstart-onboard-gcp)                                                                               | GA             | Not Available    |
 |                                                                                                                                                    |                |                  |
 
-<sup><a name="footnote1" /></a>1</sup> Requires Azure Defender for servers
+<sup><a name="footnote1" /></a>1</sup> These features all require [Azure Defender for servers](azure/security-center/defender-for-servers-introduction)
 
 <sup><a name="footnote1" /></a>2</sup> Partially GA - Some of the threat protection alerts from Azure Defender for Storage are in public preview
 
