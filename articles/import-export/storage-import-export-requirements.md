@@ -56,7 +56,7 @@ The following list of storage types is supported with Azure Import/Export servic
 
 |Job  |Storage Service |Supported  |Not supported  |
 |---------|---------|---------|---------|
-|Import     |  Azure Blob Storage <br><br> Azure File Storage       | Block Blobs and Page blobs supported <br><br> Files supported          |
+|Import     |  Azure Blob Storage <br><br> Azure Files storage       | Block blobs and Page blobs supported <br><br> Files supported          |
 |Export     |   Azure Blob Storage       | Block blobs, Page blobs, and Append blobs supported         | Azure Files not supported<br>Export from archive tier not supported|
 
 
