@@ -39,6 +39,8 @@
       items:
       - name: Linux direct I/O best practices
         href: performance-linux-direct-io.md
+      - name: Linux filesystem cache best practices
+        href: performance-linux-filesystem-cache.md
       - name: Linux NFS mount options best practices
         href: performance-linux-mount-options.md
       - name: Linux concurrency best practices
