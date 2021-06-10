@@ -270,7 +270,7 @@ The following table shows which values to use for the `sku` and `kind` parameter
 
 # [Template](#tab/template)
 
-You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
+You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

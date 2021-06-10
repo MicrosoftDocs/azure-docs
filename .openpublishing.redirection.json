@@ -524,6 +524,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/active-directory-saas-fax.plus-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/fax-plus-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-redbrickhealth-tutorial.md",
       "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
       "redirect_document_id": false
@@ -13866,6 +13871,11 @@
     {
       "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
       "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/lifecycle-management-of-azure-vmware-solution-vms.md",
+      "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
       "redirect_document_id": false
     },
     {
@@ -29912,12 +29922,17 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md",
-      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
+      "redirect_url": "/partner-center/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
-      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
+      "redirect_url": "/partner-center/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/account-migration-from-cpp-to-pc.md",
+      "redirect_url": "/partner-center/overview",
       "redirect_document_id": false
     },
     {

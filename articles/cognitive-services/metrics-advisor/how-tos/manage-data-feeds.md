@@ -5,7 +5,7 @@ description: Learn how to manage data feeds that you've added to Metrics Advisor
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
