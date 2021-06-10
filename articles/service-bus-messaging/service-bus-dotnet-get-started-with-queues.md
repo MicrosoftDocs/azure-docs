@@ -8,7 +8,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (.NET)
-In this tutorial, you create a .NET Core console application to send messages to and receive messages from a Service Bus queue using the **Azure.Messaging.ServiceBus** package. 
+In this tutorial, you'll create two .NET Core console applications. The first application sends messages to a Service Bus queue and the second one receives those messages from the queue. These applications use the [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) NuGet package. For an overview of Service Bus queues, see [Queues](service-bus-messaging-overview.md#queues).
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -35,7 +35,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
 
 ### Add code to send messages to the queue
 
-1. In *Program.cs*, add the following `using` statements at the top of the namespace definition and before the class declaration:
+1. In **Program.cs**, add the following `using` statements at the top of the file.
 
     ```csharp
     using System.Collections.Generic;
