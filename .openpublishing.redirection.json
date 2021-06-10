@@ -48826,6 +48826,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md",
+      "redirect_url": "/articles/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-suite/iot-suite-connected-factory-publisher.md",
       "redirect_url": "https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md",
       "redirect_document_id": false
