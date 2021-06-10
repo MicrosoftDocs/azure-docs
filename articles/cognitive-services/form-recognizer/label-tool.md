@@ -38,7 +38,7 @@ To complete this quickstart, you must have:
 
 ## Try it out
 
-To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-2.1.azurewebsites.net/).
+To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-2-1.azurewebsites.net/).
 
 ### [v2.1](#tab/v2-1)
 
