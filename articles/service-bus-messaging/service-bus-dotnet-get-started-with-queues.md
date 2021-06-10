@@ -131,8 +131,10 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+            // Create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
+
+            // create the sender object that will be used to send messages to the queue
             sender = client.CreateSender(queueName);
 
             try
@@ -236,9 +238,13 @@ namespace SBusQueueSender
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+
+            // Create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
+
+            // create the sender object that will be used to send messages to the queue
             sender = client.CreateSender(queueName);
+
 
             try
             {
@@ -350,25 +356,22 @@ In this section, you'll add code to retrieve messages from the queue.
     ```csharp
         static async Task ReceiveMessages()
         {
-            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
-            {
-                // add handler to process messages
-                processor.ProcessMessageAsync += MessageHandler;
+            // add handler to process messages
+            processor.ProcessMessageAsync += MessageHandler;
 
-                // add handler to process any errors
-                processor.ProcessErrorAsync += ErrorHandler;
+            // add handler to process any errors
+            processor.ProcessErrorAsync += ErrorHandler;
 
-                // start processing 
-                await processor.StartProcessingAsync();
+            // start processing 
+            await processor.StartProcessingAsync();
 
-                Console.WriteLine("Wait for a minute and then press any key to end the processing");
-                Console.ReadKey();
+            Console.WriteLine("Wait for a minute and then press any key to end the processing");
+            Console.ReadKey();
 
-                // stop processing 
-                Console.WriteLine("\nStopping the receiver...");
-                await processor.StopProcessingAsync();
-                Console.WriteLine("Stopped receiving messages");
-            }
+            // stop processing 
+            Console.WriteLine("\nStopping the receiver...");
+            await processor.StopProcessingAsync();
+            Console.WriteLine("Stopped receiving messages");
         }
     ```
 1. Replace the `Main()` method. It calls the `ReceiveMessages` method to receive messages from the queue. 
@@ -380,7 +383,8 @@ In this section, you'll add code to retrieve messages from the queue.
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+
+            // Create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
 
             // create a processor that we can use to process the messages
@@ -445,25 +449,22 @@ namespace SBusQueueClient
 
         static async Task ReceiveMessages()
         {
-            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
-            {
-                // add handler to process messages
-                processor.ProcessMessageAsync += MessageHandler;
+            // add handler to process messages
+            processor.ProcessMessageAsync += MessageHandler;
 
-                // add handler to process any errors
-                processor.ProcessErrorAsync += ErrorHandler;
+            // add handler to process any errors
+            processor.ProcessErrorAsync += ErrorHandler;
 
-                // start processing 
-                await processor.StartProcessingAsync();
+            // start processing 
+            await processor.StartProcessingAsync();
 
-                Console.WriteLine("Wait for a minute and then press any key to end the processing");
-                Console.ReadKey();
+            Console.WriteLine("Wait for a minute and then press any key to end the processing");
+            Console.ReadKey();
 
-                // stop processing 
-                Console.WriteLine("\nStopping the receiver...");
-                await processor.StopProcessingAsync();
-                Console.WriteLine("Stopped receiving messages");
-            }
+            // stop processing 
+            Console.WriteLine("\nStopping the receiver...");
+            await processor.StopProcessingAsync();
+            Console.WriteLine("Stopped receiving messages");
         }
 
         static async Task Main()
@@ -472,7 +473,8 @@ namespace SBusQueueClient
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+
+            // Create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
 
             // create a processor that we can use to process the messages

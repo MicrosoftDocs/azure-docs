@@ -142,8 +142,11 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+
+            // create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
+
+            // create the sender object that will be used to send messages to the topic
             sender = client.CreateSender(topicName);
 
             try
@@ -265,8 +268,11 @@ namespace ServiceBusTopicSender
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+
+            // create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
+
+            // create the sender object that will be used to send messages to the topic
             sender = client.CreateSender(topicName);
 
             try
@@ -461,28 +467,25 @@ namespace ServiceBusSubReceiver
 
         static async Task ReceiveMessagesFromSubscriptionAsync()
         {
-            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
-            {
-                // create a processor that we can use to process the messages
-                ServiceBusProcessor processor = client.CreateProcessor(topicName, subscriptionName, new ServiceBusProcessorOptions());
+            // create a processor that we can use to process the messages
+            ServiceBusProcessor processor = client.CreateProcessor(topicName, subscriptionName, new ServiceBusProcessorOptions());
 
-                // add handler to process messages
-                processor.ProcessMessageAsync += MessageHandler;
+            // add handler to process messages
+            processor.ProcessMessageAsync += MessageHandler;
 
-                // add handler to process any errors
-                processor.ProcessErrorAsync += ErrorHandler;
+            // add handler to process any errors
+            processor.ProcessErrorAsync += ErrorHandler;
 
-                // start processing 
-                await processor.StartProcessingAsync();
+            // start processing 
+            await processor.StartProcessingAsync();
 
-                Console.WriteLine("Wait for a minute and then press any key to end the processing");
-                Console.ReadKey();
+            Console.WriteLine("Wait for a minute and then press any key to end the processing");
+            Console.ReadKey();
 
-                // stop processing 
-                Console.WriteLine("\nStopping the receiver...");
-                await processor.StopProcessingAsync();
-                Console.WriteLine("Stopped receiving messages");
-            }
+            // stop processing 
+            Console.WriteLine("\nStopping the receiver...");
+            await processor.StopProcessingAsync();
+            Console.WriteLine("Stopped receiving messages");
         }
 
         static async Task ReceiveMessagesFromSubscription()
