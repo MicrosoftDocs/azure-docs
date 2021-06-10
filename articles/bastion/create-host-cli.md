@@ -1,6 +1,6 @@
 ---
 title: 'Create a Bastion host using Azure CLI | Azure Bastion'
-description: In this article, learn how to create and delete a Bastion host
+description: Learn how to create and delete a bastion host using Azure CLI.
 services: bastion
 author: cherylmc
 

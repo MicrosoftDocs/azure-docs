@@ -17,17 +17,28 @@ keywords: anomaly detection, machine learning, algorithms
 
 This article will provide guidance around recommended practices to follow when using the multivariate Anomaly Detector APIs.
 
-## How to prepare data for training
+## Training data 
 
-To use the Anomaly Detector multivariate APIs, we need to train our own model before using detection. Data used for training is a batch of time series, each time series should be in CSV format with two columns, timestamp and value. All of the time series should be zipped into one zip file and uploaded to Azure Blob storage. By default the file name will be used to represent the variable for the time series. Alternatively, an extra meta.json file can be included in the zip file if you wish the name of the variable to be different from the .zip file name. Once we generate a [blob SAS (Shared access signatures) URL](../../../storage/common/storage-sas-overview.md), we can use it for training.
+### Data schema
+To use the Anomaly Detector multivariate APIs, you need to first train your own models. Training data is a set of multiple time series that meet the following requirements:
 
-## Data quality and quantity
+Each time series should be a CSV file with two (and only two) columns, **"timestamp"** and **"value"** (all in lowercase) as the header row. The "timestamp" values should conform to ISO 8601; the "value" could be integers or decimals with any number of decimal places. For example:
 
-The Anomaly Detector multivariate API uses state-of-the-art deep neural networks to learn normal patterns from historical data and predicts whether future values are anomalies. The quality and quantity of training data is important to train an optimal model. As the model learns normal patterns from historical data, the training data should represent the overall normal state of the system. It is hard for the model to learn these types of patterns if the training data is full of anomalies. Also, the model has millions of parameters and it needs a minimum number of data points to learn an optimal set of parameters. The general rule is that you need to provide at least 15,000 data points per variable to properly train the model. The more data, the better the model.
+|timestamp | value|
+|-------|-------|
+|2019-04-01T00:00:00Z| 5|
+|2019-04-01T00:01:00Z| 3.6|
+|2019-04-01T00:02:00Z| 4|
+|`...`| `...` |
 
-It is common that many time series have missing values, which may affect the performance of trained models. The missing ratio of each time series should be controlled under a reasonable value. A time series having 90% values missing provides little information about normal patterns of the system. Even worse, the model may consider filled values as normal patterns, which are usually straight segments or constant values. When new data flows in, the data might be detected as anomalies.
+Each CSV file should be named after a different variable that will be used for model training. For example, "temperature.csv" and "humidity.csv". All the CSV files should be zipped into one zip file without any subfolders. The zip file can have whatever name you want. The zip file should be uploaded to Azure Blob storage. Once you generate the [blob SAS (Shared access signatures) URL](../../../storage/common/storage-sas-overview.md) for the zip file, it can be used for training. Refer to this document for how to generate SAS URLs from Azure Blob Storage.
 
-A recommended max missing value threshold is 20%, but a higher threshold might be acceptable under some circumstances. For example, if you have a time series with one-minute granularity and another time series with hourly granularity.  Each hour there are 60 data points per minute of data and 1 data point for hourly data, which means that the missing ratio for hourly data is 98.33%. However, it is fine to fill the hourly data with the only value if the hourly time series does not typically fluctuate too much.
+### Data quality
+- As the model learns normal patterns from historical data, the training data should **represent the overall normal state of the system**. It is hard for the model to learn these types of patterns if the training data is full of anomalies. 
+-  The model has millions of parameters and it needs a minimum number of data points to learn an optimal set of parameters. The general rule is that you need to provide **at least 15,000 data points per variable** to properly train the model. The more data, the better the model.
+- In general, the **missing value ratio of training data should be under 20%**. Too much missing data may end up with automatically filled values (usually straight segments or constant values) being learnt as normal patterns. That may result in real data points being detected as anomalies. 
+
+    However, there are cases when a high ratio is acceptable. For example, if you have two time series in a group using `Outer` mode to align timestamps. One has one-minute granularity, the other one has hourly granularity. Then the hourly time series by nature has at least 59 / 60 = 98.33% missing data points. In such cases, it's fine to fill the hourly time series using the only value available if it does not fluctuate too much typically.
 
 ## Parameters
 

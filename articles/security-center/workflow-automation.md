@@ -139,7 +139,7 @@ To implement these policies:
 To view the raw event schemas of the security alerts or recommendations events passed to the Logic App instance, visit the [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas). This can be useful in cases where you are not using Security Center's built-in Logic App connectors mentioned above, but instead are using Logic App's generic HTTP connector - you could use the event JSON schema to manually parse it as you see fit.
 
 
-## FAQ for workflow automation
+## FAQ - Workflow automation
 
 ### Does workflow automation support any business continuity or disaster recovery (BCDR) scenarios?
 

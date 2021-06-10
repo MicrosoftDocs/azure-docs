@@ -2,7 +2,7 @@
 title: "Custom Locations - Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 04/05/2021
+ms.date: 05/25/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb

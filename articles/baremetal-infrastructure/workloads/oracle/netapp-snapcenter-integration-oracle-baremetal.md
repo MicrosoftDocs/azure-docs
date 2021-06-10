@@ -2,7 +2,7 @@
 title: SnapCenter integration for Oracle on BareMetal Infrastructure 
 description: Learn how to use snapshot technologies from Oracle and NetApp to create operational recovery backups for Oracle databases on BareMetal Infrastructure.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 05/05/2021
 ---
 

@@ -30,6 +30,12 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 
 :::zone-end
 
+:::zone pivot="programming-language-java"
+
+[!INCLUDE [iot-develop-send-telemetry-iot-hub-java](../../includes/iot-develop-send-telemetry-iot-hub-java.md)]
+
+:::zone-end
+
 :::zone pivot="programming-language-nodejs"
 
 [!INCLUDE [iot-develop-send-telemetry-iot-hub-node](../../includes/iot-develop-send-telemetry-iot-hub-node.md)]
@@ -76,9 +82,9 @@ To delete a resource group by name:
 
 In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure CLI to create an Azure IoT hub and a device instance. Then you used an Azure IoT device SDK to create a simulated device, connect it to the hub, and send telemetry. You also used Azure portal to monitor telemetry.
 
-As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
+As a next step, explore the following quickstart series to learn more about building device solutions with Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Send telemetry to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
-> [Get started with embedded development](quickstart-device-development.md)
+> [Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central](quickstart-devkit-mxchip-az3166.md)

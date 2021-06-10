@@ -18,9 +18,9 @@ This article describes how to configure the [Postman REST client](https://www.ge
 
 1. Use the Azure CLI to [get a bearer token](#get-bearer-token) that you will use to make API requests in Postman.
 1. Set up a [Postman collection](#about-postman-collections) and configure the Postman REST client to use your bearer token to authenticate. When setting up the collection, you can choose either of these options:
-    1. [Import](#import-collection-of-azure-digital-twins-apis) a pre-built collection of Azure Digital Twins API requests.
-    1. [Create](#create-your-own-collection) your own collection from scratch.
-1. [Add requests](#add-an-individual-request) to your configured collection and send them to the Azure Digital Twins APIs.
+    1. [Import a pre-built collection of Azure Digital Twins API requests](#import-collection-of-azure-digital-twins-apis).
+    1. [Create your own collection from scratch](#create-your-own-collection).
+1. [Add requests to your configured collection](#add-an-individual-request) and send them to the Azure Digital Twins APIs.
 
 Azure Digital Twins has two sets of APIs that you can work with: **data plane** and **control plane**. For more about the difference between these API sets, see [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). This article contains information for both API sets.
 
@@ -34,7 +34,7 @@ To proceed with using Postman to access the Azure Digital Twins APIs, you need t
 
 ### Download Postman
 
-Next, download the desktop version of the Postman client. Navigate to [www.getpostman.com/apps](https://www.getpostman.com/apps) and follow the prompts to download the app.
+Next, [download the desktop version of the Postman client](https://www.getpostman.com/apps).
 
 ## Get bearer token
 
@@ -42,7 +42,7 @@ Now that you've set up Postman and your Azure Digital Twins instance, you'll nee
 
 There are several possible ways to obtain this token. This article uses the [Azure CLI](/cli/azure/install-azure-cli) to sign into your Azure account and obtain a token that way.
 
-If you have an Azure CLI [installed locally](/cli/azure/install-azure-cli), you can start a command prompt on your machine to run the following commands.
+If you have an [Azure CLI installed locally](/cli/azure/install-azure-cli), you can start a command prompt on your machine to run the following commands.
 Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window in your browser and run the commands there.
 
 1. First, make sure you're logged into Azure with the appropriate credentials, by running this command:
@@ -51,7 +51,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     az login
     ```
 
-2. Next, use the [az account get-access-token](/cli/azure/account#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
+2. Next, use the [az account get-access-token](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
 
     The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#overview-data-plane-apis) and [control plane](concepts-apis-sdks.md#overview-control-plane-apis) APIs.
 
@@ -77,7 +77,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
 
 3. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authorize your requests.
 
-    :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Screenshot of console showing the result of the az account get-access-token command. The accessToken field and its sample value is highlighted.":::
+    :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Screenshot of the console showing the result of the az account get-access-token command. The accessToken field and its sample value is highlighted.":::
 
 >[!TIP]
 >This token is valid for at least five minutes and a maximum of 60 minutes. If you run out of time allotted for the current token, you can repeat the steps in this section to get a new one.
@@ -167,7 +167,7 @@ If you're making a [data plane](concepts-apis-sdks.md#overview-data-plane-apis) 
 
 1. Still in the edit dialog for your collection, move to the **Variables** tab.
 
-1. Use your instance's **host name** from the [Prerequisites](#prerequisites) section to set the CURRENT VALUE field of the relevant variable. Select **Save**.
+1. Use your instance's **host name** from the [Prerequisites section](#prerequisites) to set the CURRENT VALUE field of the relevant variable. Select **Save**.
 
     :::image type="content" source="media/how-to-use-postman/postman-variables-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Variables' tab. The 'CURRENT VALUE' field is highlighted." lightbox="media/how-to-use-postman/postman-variables-imported.png":::
 
@@ -272,7 +272,7 @@ To make a Postman request to one of the Azure Digital Twins APIs, you'll need th
 To proceed with an example query, this article will use the Query API (and its [reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)) to query for all the digital twins in an instance.
 
 1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST* `https://digitaltwins-host-name/query?api-version=2020-10-31`.
-1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's **host name** from the [Prerequisites](#prerequisites) section.
+1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's **host name** from the [Prerequisites section](#prerequisites).
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Screenshot of the new request's details in Postman. The query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::
     

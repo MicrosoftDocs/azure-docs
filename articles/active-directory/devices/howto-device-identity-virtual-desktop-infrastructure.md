@@ -34,10 +34,10 @@ Persistent versions use a unique desktop image for each user or a pool of users.
 
 Non-persistent versions use a collection of desktops that users can access on an as needed basis. These non-persistent desktops are reverted to their original state, in case of Windows current<sup>1</sup> this happens when a virtual machine goes through a shutdown/restart/OS reset process and in case of Windows down-level<sup>2</sup> this happens when a user signs out.
 
-There has been a rise in non-persistent VDI deployments as remote work continues to be the new norm. As customers deploy non-persistent VDI, it is important to ensure that you manage device churn that could be caused due to frequent device registration without having a proper strategy for device lifecycle management.
+There has been a rise in non-persistent VDI deployments as remote work continues to be the new norm. As customers deploy non-persistent VDI, it is important to ensure that you manage stale devices that are created as a result of frequent device registration without having a proper strategy for device lifecycle management.
 
 > [!IMPORTANT]
-> Failure to manage device churn, can lead to pressure increase on your tenant quota usage consumption and potential risk of service interruption, if you run out of tenant quota. You should follow the guidance documented below when deploying non persistent VDI environments to avoid this situation.
+> Failure to manage stale devices can lead to pressure increase on your tenant quota usage consumption and potential risk of service interruption, if you run out of tenant quota. You should follow the guidance documented below when deploying non persistent VDI environments to avoid this situation.
 
 This article will cover Microsoft's guidance to administrators on support for device identity and VDI. For more information about device identity, see the article [What is a device identity](overview.md).
 

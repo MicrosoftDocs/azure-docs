@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/21/2021
-ms.author: amverma
+ms.author: amverma 
+ms.custom: devx-track-azurepowershell
 
 ---
 # NVIDIA GPU Driver Extension for Linux

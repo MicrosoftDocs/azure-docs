@@ -31,7 +31,7 @@ Previous versions also currently supported include: `3.0.2`
 | update (conditional)           | Yes       | Yes       | Yes       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
 | delete                         | Yes       | Yes       | Yes       |  See Note  below.                                   |
-| delete (conditional)           | No        | No        | No        |                                                     |
+| delete (conditional)           | Yes       | Yes        | Yes        |                                                     |
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -63,7 +63,9 @@ All the operations that are supported that extend the RESTful API.
 | Patient/$export        | Yes       | Yes       | Yes       |         |
 | Group/$export          | Yes       | Yes       | Yes       |         |
 | $convert-data          | Yes       | Yes       | Yes       |         |
-| $validate          | Yes       | Yes       | Yes       |         |
+| $validate              | Yes       | Yes       | Yes       |         |
+| $member-match          | Yes       | Yes       | Yes       |         |
+| $patient-everything    | No        | No        | Yes       |         |
 
 ## Persistence
 
@@ -82,8 +84,6 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 ## Service limits
 
 * [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
-
-* **Concurrent connections** and **Instances** - By default, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
 
 * **Bundle size** - Each bundle is limited to 500 items.
 

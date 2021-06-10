@@ -32,7 +32,6 @@ ms.author: anfeldma
 > See these articles for information about Spring Data on other Azure Cosmos DB APIs:
 > * [Spring Data for Apache Cassandra with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
 > * [Spring Data MongoDB with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Spring Data Gremlin with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 > [!IMPORTANT]  
