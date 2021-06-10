@@ -73,12 +73,12 @@ Start with the request body template below.
 }
 ```
 
-Here you'll need to provide the URL of a form that has the same type as the forms you trained with. For testing purposes, you can use one of your training forms. If you followed the cURL quickstart, your forms will be located in an Azure blob storage account. Open Azure Storage Explorer, locate a form file, right-click it, and select **Get Shared Access Signature**. The next dialog window will provide a URL and SAS token. Enter these strings in the `"formUrl"` and `"formSasToken"` fields of your request body, respectively.
+Here you'll need to provide the URL of a form that has the same type as the forms you trained with. For testing purposes, you can use one of your training forms. If you followed the cURL quickstart, your forms will be located in an Azure Blob Storage account. Open Azure Storage Explorer, locate a form file, right-click it, and select **Get Shared Access Signature**. The next dialog window will provide a URL and SAS token. Enter these strings in the `"formUrl"` and `"formSasToken"` fields of your request body, respectively.
 
 > [!div class="mx-imgBorder"]
 > ![Azure storage explorer; a pdf document is selected](media/cognitive-search-skill-form/form-sas.png)
 
-If you want to analyze a remote document that isn't in Azure blob storage, paste its URL in the `"formUrl"` field and leave the `"formSasToken"` field blank.
+If you want to analyze a remote document that isn't in Azure Blob Storage, paste its URL in the `"formUrl"` field and leave the `"formSasToken"` field blank.
 
 > [!NOTE]
 > When the skill is integrated in a skillset, the URL and token will be provided by Cognitive Search.
