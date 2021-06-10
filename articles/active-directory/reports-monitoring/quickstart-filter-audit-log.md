@@ -49,9 +49,13 @@ This section provides you with the steps to filter your audit log.
 
     c. In the **Target** textbox, type the **User Principal Name** of **Isabella Simonsen**, and then click **Apply**.
 
-3. Click the filtered item to review the **Audit Log Details**.
+3. Click the filtered item.
+
+    ![Filtered items](./media/quickstart-filter-audit-log/audit-log-list.png)  
+
+4.  Review the **Audit Log Details**.
  
-    ![Filtered audit log items](./media/quickstart-filter-audit-log/audit-log-list.png)  
+    ![Audit log details](./media/quickstart-filter-audit-log/audit-log-details.png)  
  
   
 
