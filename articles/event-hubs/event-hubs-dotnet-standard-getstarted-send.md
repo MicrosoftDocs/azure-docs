@@ -51,7 +51,7 @@ This section shows you how to create a .NET Core console application to send eve
     ```
 
 
-### Write code to send messages to the event hub
+### Write code to send events to the event hub
 
 1. Add the following `using` statements to the top of the **Program.cs** file:
 
@@ -82,7 +82,7 @@ This section shows you how to create a .NET Core console application to send eve
 
     ```csharp
         // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
-        // of the application, which is best practice when messages are being published or read regularly.
+        // of the application, which is best practice when events are being published or read regularly.
         static EventHubProducerClient producerClient;    
     ```
 1. Replace the `Main` method with the following `async Main` method. See the code comments for details. 
@@ -123,15 +123,15 @@ This section shows you how to create a .NET Core console application to send eve
     ```csharp
     A batch of 3 events has been published.
     ```
-1. In the Azure portal, you can verify that the event hub has received the messages. Switch to **Messages** view in the **Metrics** section. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
+1. In the Azure portal, you can verify that the event hub has received the events. Switch to **Messages** view in the **Metrics** section. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
 
-    [![Verify that the event hub received the messages](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
+    [![Verify that the event hub received the events](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
     > For the complete source code with more informational comments, see [this file on the GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)
 
 ## Receive events
-This section shows how to write a .NET Core console application that receives messages from an event hub using an event processor. The event processor simplifies receiving events from event hubs by managing persistent checkpoints and parallel receptions from those event hubs. An event processor is associated with a specific event Hub and a consumer group. It receives events from multiple partitions in the event hub, passing them to a handler delegate for processing using code that you provide. 
+This section shows how to write a .NET Core console application that receives events from an event hub using an event processor. The event processor simplifies receiving events from event hubs by managing persistent checkpoints and parallel receptions from those event hubs. An event processor is associated with a specific event Hub and a consumer group. It receives events from multiple partitions in the event hub, passing them to a handler delegate for processing using code that you provide. 
 
 
 > [!WARNING]
@@ -199,7 +199,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
         static BlobContainerClient storageClient;
 
         // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
-        // of the application, which is best practice when messages are being published or read regularly.        
+        // of the application, which is best practice when events are being published or read regularly.        
         static EventProcessorClient processor;    
     ```
 1. Replace the `Main` method with the following `async Main` method. See the code comments for details. 
