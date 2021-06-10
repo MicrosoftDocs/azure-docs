@@ -67089,16 +67089,6 @@
       "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
       "redirect_url": "/azure/iot-develop/",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md",
-      "redirect_url": "/azure/vs-azure-tools-storage-manage-with-storage-explorer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-ssis.md",
-      "redirect_url": "/sql/integration-services/azure-feature-pack-for-integration-services-ssis",
-      "redirect_document_id": false
     }
   ]
 }
