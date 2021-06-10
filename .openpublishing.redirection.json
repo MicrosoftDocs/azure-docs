@@ -42396,6 +42396,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-allowed-certificate-authority.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/waf-front-door-custom-rules-powershell.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules-powershell",
       "redirect_document_id": false
