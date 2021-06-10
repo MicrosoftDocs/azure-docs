@@ -213,8 +213,7 @@ If you receive this error, update your deployments to replace any metric categor
 
 ## Error: Setting disappears due to non-ASCII characters in resourceID
 
-Diagnostic settings do not support resourceIDs with non-ASCII characters. The system considers the non-ASCII characters a mistake and deletes the setting. You currently cannot rename resources, so the only way to work-around this issue is to create a new resource with non-ASCII characters.  
-
+Diagnostic settings do not support resourceIDs with non-ASCII characters (for example, Preproducción). Since you cannot rename resources in Azure, your only option is to create a new resource without the non-ASCII characters. If the characters are in a resource group, you can move the resources under it to a new one. Otherwise, you'll need to recreate the resource. 
 
 ## Next steps
 
