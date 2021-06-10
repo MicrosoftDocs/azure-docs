@@ -190,6 +190,7 @@ The following headers are included with each Document Translator API request:
 
 ### POST request body properties
 
+* The POST request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
 * The POST request body is a JSON object named `inputs`.
 * The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs and can optionally contain a `glossaryURL` container address.
 * The `prefix` and `suffix` fields (optional) are used to filter documents in the container including folders.

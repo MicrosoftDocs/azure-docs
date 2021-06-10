@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 11/06/2020
 ---
 # Migration guide: Oracle to SQL Server on Azure Virtual Machines
@@ -259,6 +259,7 @@ For more help with completing this migration scenario, see the following resourc
 | [Automate SSMA Oracle Assessment Collection & Consolidation](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | This set of resources uses a .csv file as entry (sources.csv in the project folders) to produce the XML files that you need to run an SSMA assessment in console mode. You provide the source.csv file by taking an inventory of existing Oracle instances. The output files are AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml, and VariableValueFile.xml.|
 | [SSMA issues and possible remedies when migrating Oracle databases](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | With Oracle, you can assign a non-scalar condition in a WHERE clause. SQL Server doesn't support this type of condition. So SSMA for Oracle doesn't convert queries that have a non-scalar condition in the WHERE clause. Instead, it generates an error: O2SS0001. This white paper provides details on the problem and ways to resolve it.          |
 | [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | This document focuses on the tasks associated with migrating an Oracle schema to the latest version of SQL Server. If the migration requires changes to features/functionality, you need to carefully consider the possible effect of each change on the applications that use the database.                                                     |
+|[Oracle to SQL Server - Database Compare utility](https://www.microsoft.com/download/details.aspx?id=103016)|SSMA for Oracle Tester is the recommended tool to automatically validate the database object conversion and data migration, and it's a superset of Database Compare functionality.<br /><br />If you're looking for an alternative data validation option, you can use the Database Compare utility to compare data down to the row or column level in all or selected tables, rows, and columns.|
 
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data-platform migration projects to the Microsoft Azure data platform.

@@ -73,12 +73,12 @@
   items:
   - name: Pipeline
     href: pipeline.md
+  - name: Pipeline extension
+    href: pipeline-extension.md
   - name: Video recording
     href: video-recording.md
   - name: Scenarios 
     items:
-    - name: Pipeline extension
-      href: pipeline-extension.md
     - name: Event-based video recording
       href: event-based-video-recording-concept.md 
     - name: Continuous video recording

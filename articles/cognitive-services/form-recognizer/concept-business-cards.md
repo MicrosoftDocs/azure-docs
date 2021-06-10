@@ -5,7 +5,7 @@ description: Learn concepts related to business card analysis with the Form Reco
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
@@ -108,35 +108,35 @@ See the following example of a successful JSON response (the output has been sho
 		"readResults": [
 			{
 				"page": 1,
-				"angle": 0,
-				"width": 703,
-				"height": 1249,
+				"angle": 0.0255,
+				"width": 2592,
+				"height": 4608,
 				"unit": "pixel",
 				"lines": [
 					{
 						"text": "CONTOSO",
 						"boundingBox": [
-							144,
-							425,
-							361,
-							425,
-							361,
-							466,
-							144,
-							466
+							533,
+							1570,
+							1334,
+							1570,
+							1333,
+							1721,
+							533,
+							1720
 						],
 						"words": [
 							{
 								"text": "CONTOSO",
 								"boundingBox": [
-									145,
-									426,
-									346,
-									426,
-									346,
-									467,
-									144,
-									466
+									535,
+									1571,
+									1278,
+									1571,
+									1279,
+									1722,
+									534,
+									1719
 								],
 								"confidence": 0.994
 							}
@@ -168,17 +168,17 @@ See the following example of a successful JSON response (the output has been sho
 								"valueString": "4001 1st Ave NE Redmond, WA 98052",
 								"text": "4001 1st Ave NE Redmond, WA 98052",
 								"boundingBox": [
-									108,
-									755,
-									410,
-									755,
-									410,
-									775,
-									108,
-									775
+									400,
+									2789,
+									1514,
+									2789,
+									1514,
+									2857,
+									400,
+									2857
 								],
 								"page": 1,
-								"confidence": 0.987,
+								"confidence": 0.986,
 								"elements": [
 									"#/readResults/0/lines/9/words/0",
 									"#/readResults/0/lines/9/words/1",
@@ -199,17 +199,17 @@ See the following example of a successful JSON response (the output has been sho
 								"valueString": "CONTOSO",
 								"text": "CONTOSO",
 								"boundingBox": [
-									145,
-									426,
-									346,
-									426,
-									346,
-									467,
-									144,
-									466
+									535,
+									1571,
+									1278,
+									1571,
+									1279,
+									1722,
+									534,
+									1719
 								],
 								"page": 1,
-								"confidence": 0.986,
+								"confidence": 0.985,
 								"elements": [
 									"#/readResults/0/lines/0/words/0"
 								]
@@ -227,14 +227,14 @@ See the following example of a successful JSON response (the output has been sho
 										"valueString": "Chris",
 										"text": "Chris",
 										"boundingBox": [
-											422,
-											546,
-											518,
-											547,
-											516,
-											584,
-											422,
-											584
+											1556,
+											2018,
+											1915,
+											2021,
+											1915,
+											2156,
+											1558,
+											2154
 										],
 										"page": 1,
 										"elements": [
@@ -246,14 +246,14 @@ See the following example of a successful JSON response (the output has been sho
 										"valueString": "Smith",
 										"text": "Smith",
 										"boundingBox": [
-											526,
-											547,
-											644,
-											546,
-											641,
-											584,
-											524,
-											584
+											1944,
+											2021,
+											2368,
+											2016,
+											2364,
+											2156,
+											1944,
+											2156
 										],
 										"page": 1,
 										"elements": [
@@ -263,14 +263,14 @@ See the following example of a successful JSON response (the output has been sho
 								},
 								"text": "Chris Smith",
 								"boundingBox": [
-									422,
-									544.8,
-									644,
-									546,
-									643.8,
-									585.2,
-									421.8,
-									584
+									1556.1,
+									2010.3,
+									2368,
+									2016,
+									2367,
+									2159.6,
+									1555.1,
+									2154
 								],
 								"page": 1,
 								"confidence": 0.99,
@@ -289,14 +289,14 @@ See the following example of a successful JSON response (the output has been sho
 								"valueString": "Cloud & Al Department",
 								"text": "Cloud & Al Department",
 								"boundingBox": [
-									427,
-									619.5,
-									618,
-									621.6,
-									617.8,
-									641.6,
-									426.8,
-									639.5
+									1578,
+									2288.8,
+									2277,
+									2295.1,
+									2276.3,
+									2367.8,
+									1577.3,
+									2361.5
 								],
 								"page": 1,
 								"confidence": 0.989,
@@ -317,14 +317,14 @@ See the following example of a successful JSON response (the output has been sho
 								"valueString": "chris.smith@contoso.com",
 								"text": "chris.smith@contoso.com",
 								"boundingBox": [
-									429,
-									645,
-									627,
-									646,
-									627,
-									663,
-									429,
-									664
+									1583,
+									2381,
+									2309,
+									2382,
+									2308,
+									2445,
+									1584,
+									2447
 								],
 								"page": 1,
 								"confidence": 0.99,
@@ -342,14 +342,14 @@ See the following example of a successful JSON response (the output has been sho
 								"valuePhoneNumber": "+19873126745",
 								"text": "+1 (987) 312-6745",
 								"boundingBox": [
-									200,
-									732,
-									345,
-									732,
-									345,
-									752,
-									200,
-									752
+									740,
+									2703.8,
+									1273,
+									2702.1,
+									1273.2,
+									2774.1,
+									740.2,
+									2775.8
 								],
 								"page": 1,
 								"confidence": 0.99,
@@ -369,14 +369,14 @@ See the following example of a successful JSON response (the output has been sho
 								"valueString": "Senior Researcher",
 								"text": "Senior Researcher",
 								"boundingBox": [
-									428,
-									597.2,
-									574,
-									598,
-									573.9,
-									616,
-									427.9,
-									615.2
+									1578,
+									2206,
+									2117,
+									2207.6,
+									2116.8,
+									2272.6,
+									1577.8,
+									2271
 								],
 								"page": 1,
 								"confidence": 0.99,
@@ -395,17 +395,17 @@ See the following example of a successful JSON response (the output has been sho
 								"valuePhoneNumber": "+19871234567",
 								"text": "+1 (987) 123-4567",
 								"boundingBox": [
-									201,
-									685,
-									348,
-									685,
-									348,
-									706,
-									201,
-									706
+									744,
+									2529,
+									1281,
+									2529,
+									1281,
+									2603,
+									744,
+									2603
 								],
 								"page": 1,
-								"confidence": 0.995,
+								"confidence": 0.99,
 								"elements": [
 									"#/readResults/0/lines/5/words/1",
 									"#/readResults/0/lines/5/words/2",
@@ -422,14 +422,14 @@ See the following example of a successful JSON response (the output has been sho
 								"valueString": "https://www.contoso.com/",
 								"text": "https://www.contoso.com/",
 								"boundingBox": [
-									428,
-									667,
-									647,
-									667,
-									646,
-									687,
-									428,
-									687
+									1576,
+									2462,
+									2383,
+									2462,
+									2380,
+									2535,
+									1576,
+									2535
 								],
 								"page": 1,
 								"confidence": 0.99,
@@ -447,17 +447,17 @@ See the following example of a successful JSON response (the output has been sho
 								"valuePhoneNumber": "+19872135674",
 								"text": "+1 (987) 213-5674",
 								"boundingBox": [
-									198,
-									709,
-									344,
-									709,
-									344,
-									729,
-									198,
-									729
+									736,
+									2617.6,
+									1267.1,
+									2618.5,
+									1267,
+									2687.5,
+									735.9,
+									2686.6
 								],
 								"page": 1,
-								"confidence": 0.985,
+								"confidence": 0.984,
 								"elements": [
 									"#/readResults/0/lines/7/words/1",
 									"#/readResults/0/lines/7/words/2",

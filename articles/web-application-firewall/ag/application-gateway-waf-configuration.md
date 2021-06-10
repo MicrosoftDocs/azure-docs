@@ -6,7 +6,8 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Web Application Firewall request size limits and exclusion lists
