@@ -86,7 +86,7 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 ```
 ## Create policy
 
-You can create a backup policy by executing the [az backup policy create](https://docs.microsoft.com/en-us/cli/azure/backup/policy?view=azure-cli-latest#az_backup_policy_create) command with the following parameters:
+You can create a backup policy by executing the [az backup policy create](https://docs.microsoft.com/cli/azure/backup/policy?view=azure-cli-latest#az_backup_policy_create&preserve-view=true) command with the following parameters:
 
 - --backup-management-type – Azure Storage
 - --workload-type - AzureFileShare
@@ -101,7 +101,7 @@ You can create a backup policy by executing the [az backup policy create](https:
 
 **Sample JSON (samplepolicy.json)**
 
-```azurejson
+```json
 {
   "eTag": null,
   "id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupPolicies/schedule20",
@@ -151,7 +151,7 @@ You can modify the schedule and retention section of the policy as required.
 
 If you want to retain the backup of first Sunday of every month for two months, update the monthly schedule as below:
 
-```azurejson
+```json
 "monthlySchedule": {
         "retentionDuration": {
           "count": 2,
