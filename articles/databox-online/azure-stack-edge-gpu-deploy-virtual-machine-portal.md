@@ -76,29 +76,30 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
 1. The first step is to add a VM image. You've already uploaded a VHD into the storage account in the earlier step. You'll use this VHD to create a VM image.
 
-    Select **Add** to download the VHD from the storage account and add it to the device. The download process takes several minutes depending on the size of the VHD and the internet bandwidth available for the download. 
+    Select **+ Add image** to download the VHD from the storage account and add it to the device. The download process takes several minutes depending on the size of the VHD and the internet bandwidth available for the download. 
 
     ![Screenshot that shows the Overview page with the Add button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
 
 1. On the **Add image** pane, input the following parameters. Select **Add**.
 
 
-    |Parameter  |Description  |
-    |---------|---------|
-    |Download from storage blob    |Browse to the location of the storage blob in the storage account where you uploaded the VHD.         |
-    |Download to    | Automatically set to the current device where you're deploying the VM.        |
-    |Save image as      | The name for the VM image that you're creating from the VHD you uploaded to the storage account.        |
-    |OS type     |Choose from Windows or Linux as the operating system of the VHD you'll use to create the VM image.         |
+    |Parameter                  |Description  |
+    |---------------------------|-------------|
+    |Download from storage blob |Browse to the location of the storage blob in the storage account where you uploaded the VHD.   |
+    |Download to                |Automatically set to the current device where you're deploying the VM.                          |
+    |Edge resource group        |Select the resource group to add the image to.                                                  | 
+    |Save image as              |Enter a name for the VM image you're creating from the VHD you uploaded to the storage account. |
+    |OS type                    |Select Windows or Linux as the operating system of the VHD you'll use to create the VM image.   |
    
 
     ![Screenshot that shows the Add image page with the Add button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)
 
-1. The VHD is downloaded, and the VM image is created. The image creation takes several minutes to complete. You'll see a notification for the successful completion of the VM image.
+1. The VHD is downloaded, and the VM image is created. The image creation takes several minutes to complete. You'll see a notification that VM image creation is in progress. <!--You'll see a notification for the successful completion of the VM image. - NOTE: I got a notification that VM image creation was in progress but not that it had successfully completed.-->
 
-    ![Screenshot that shows the notification for successful completion.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-8.png)
+<!--![Screenshot that shows the notification for successful completion.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-8.png)-->
 
 
-1. After the VM image is successfully created, it's added to the list of images on the **Images** pane.
+1. After the VM is successfully created, it's added to the list of images on the **Images** pane.
 
     ![Screenshot that shows the Images pane.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-9.png)
 
@@ -134,7 +135,7 @@ Follow these steps to create a VM after you've created a VM image.
     |Confirm password    | Enter the password again.        |
 
 
-    ![Screenshot that shows the Basics tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)
+    ![Screenshot that shows the Basics tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)<!--OK as is-->
 
     Select **Next: Disks**.
 
@@ -146,7 +147,7 @@ Follow these steps to create a VM after you've created a VM image.
 
     1. Select **Create and attach a new disk**. On the **Create new disk** pane, provide a name for the disk and the size in GiB.
 
-        ![Screenshot that shows the Create a new disk tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
+        ![Screenshot that shows the Create a new disk tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)<!--OK as is-->
 
     1. Repeat the preceding process to add more disks. After the disks are created, they show up on the **Disks** tab. Select **Next: Networking**.
 
@@ -159,21 +160,39 @@ Follow these steps to create a VM after you've created a VM image.
     |Subnet     | This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |
     |IP address     | Provide a static or a dynamic IP for your VM. The static IP should be an available, free IP from the specified subnet range.        |
 
-    ![Screenshot that shows the Networking tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)
+    ![Screenshot that shows the Networking tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)<!--OK as is-->
 
     Select **Next: Advanced**.
 
-1. On the **Advanced** tab, you can specify the custom data or the cloud-init to customize your VM. 
+1. On the **Advanced** tab, you can select an extension to install and specify the custom data or the cloud-init to customize your VM. 
 
-    You can use cloud-init to customize a VM on its first boot. Use the cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, no other steps are required to apply your configuration. For more information on cloud-init, see [Cloud-init overview](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+    ![Screenshot that shows the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab.png)
 
-    ![Screenshot that shows the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-1.png)
+1. *ADD EXTENSIONS COMMENTARY HERE. We mainly expect them to install a GPU extension for a GPU VM? This is the plain vanilla version of VM deployment.* 
 
-    Select **Next: Review + Create**.
+   1. Choose **Select an extension to install**.
+
+      ![Screenshot that shows the Select an extension option on the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-select-an-extension-to-install.png)
+
+   1. On the **Add extension** pane, select the extension you want to install.
+
+      ![Screenshot that shows the Add extension pane. Select the extension to install.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-extension-added.png)
+   
+      The **Advanced** tab displays the extension you selected.
+
+      ![Screenshot that shows an extension added to the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-add-extension-pane.png)    
+ 
+1. If you want to use cloud-init to customize the new VM on its first boost, under **Custom data and cloud init**, paste your cloud-init script into the **Custom data** box. 
+
+    You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, no other steps are required to apply your configuration. For more information on cloud-init, see [Cloud-init overview](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+
+    ![Screenshot that shows the Advanced tab with a cloud init script in the Custom data box.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-cloud-init-script.png)
+
+    To proceed, select **Next: Review + Create**.
 
 1. On the **Review + Create** tab, review the specifications for the VM. Then select **Create**.
 
-    ![Screenshot that shows the Review + create tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
+    ![Screenshot that shows the Review + create tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)<!--STOPPED HERE. To reproduce the screens, I may need a real cloud-init script. Could try just typing in the text in the graphic. May not have any problems until the VM is deployed.-->
 
 1. The VM creation starts and can take up to 20 minutes. You can go to **Deployments** to monitor the VM creation.
 
