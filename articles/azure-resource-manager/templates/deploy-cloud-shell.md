@@ -113,4 +113,4 @@ To deploy a local template, you must first upload your template to the storage a
 ## Next steps
 
 - For more information about deployment commands, see [Deploy resources with ARM templates and Azure CLI](deploy-cli.md) and [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
-- To preview changes before deploying a template, see [ARM template deployment what-if operation](template-deploy-what-if.md).
+- To preview changes before deploying a template, see [ARM template deployment what-if operation](./deploy-what-if.md).

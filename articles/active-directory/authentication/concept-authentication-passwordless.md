@@ -148,7 +148,7 @@ The following providers offer FIDO2 security keys of different form factors that
 > [!NOTE]
 > If you purchase and plan to use NFC-based security keys, you need a supported NFC reader for the security key. The NFC reader isn't an Azure requirement or limitation. Check with the vendor for your NFC-based security key for a list of supported NFC readers.
 
-If you're a vendor and want to get your device on this list of supported devices, check out our guidance on how to [become a Microsoft-compatible FIDO2 security key vendor](https://docs.microsoft.com/security/zero-trust/isv/fido2-hardware-vendor).
+If you're a vendor and want to get your device on this list of supported devices, check out our guidance on how to [become a Microsoft-compatible FIDO2 security key vendor](/security/zero-trust/isv/fido2-hardware-vendor).
 
 To get started with FIDO2 security keys, complete the following how-to:
 
@@ -169,7 +169,7 @@ The following considerations apply:
    - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 setup, and with integrated mobile apps on any operating system.
    - Security keys: Work on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
 
-- Users can use passwordless credentials to access resources in tenants where they are a guest, but they may still be required to perform MFA in that resource tenant. For more information, see [Possible double multi-factor authentication](https://docs.microsoft.com/azure/active-directory/external-identities/current-limitations#possible-double-multi-factor-authentication).  
+- Users can use passwordless credentials to access resources in tenants where they are a guest, but they may still be required to perform MFA in that resource tenant. For more information, see [Possible double multi-factor authentication](../external-identities/current-limitations.md#possible-double-multi-factor-authentication).  
 
 - Users may not register passwordless credentials within a tenant where they are a guest, the same way that they do not have a password managed in that tenant.  
 

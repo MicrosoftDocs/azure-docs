@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 6/08/2021
+ms.date: 06/09/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
@@ -122,27 +122,27 @@ To create the target URI for your prepared VHD, do the following steps:
 
    1. In the Azure portal, open the storage account, and select **Containers**. Select and then right-click the blob container you want to use, and select **Generate SAS**.
 
-      ![Screenshot of the Generate SAS option for a blob container in the Azure portal](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-01.png)
+      ![Screenshot of the Generate SAS option for a blob container in the Azure portal](./media/azure-stack-edge-gpu-create-virtual-machine-image/storage-container-generate-sas-option.png)
 
    1. On the **Generate SAS** screen, select **Read** and **Write** in **Permissions**.  
 
-      ![Screenshot of the Generate SAS screen with Read and Write permissions selected](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-02.png)
+      ![Screenshot of the Generate SAS screen with Read and Write permissions selected](./media/azure-stack-edge-gpu-create-virtual-machine-image/generate-sas-screen-read-and-write-permissions.png)
 
    1. Select **Generate SAS token and URL**, and then select **Copy** to copy the **Blob SAS URL**.
 
-      ![Screenshot of the Generate SAS screen, with options for generating and copying a Blob SAS URL](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-03.png)
+      ![Screenshot of the Generate SAS screen, with options for generating and copying a Blob SAS URL](./media/azure-stack-edge-gpu-create-virtual-machine-image/generate-sas-screen-copy-blob-sas-url.png)
 
 1. To create the target URI for the `azcopy` command, add the desired filename to the SAS URL.
 
    The Blob SAS URL has the following format. 
 
-   ![Graphic of a Blob SAS URL, with container path and place to insert the new filename labeled](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-04.png)
+   ![Graphic of a Blob SAS URL, with container path and place to insert the new filename labeled](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-format.png)
 
    Insert the filename, in the format `/<filename>.vhd` before the question mark that begins the query string. The filename extension must be VHD. 
 
    For example, the following Blob SAS URL will copy the **osdisk.vhd** file to the **virtualmachines** blob container in **mystorageaccount**.
 
-   ![Graphic of a Blob SAS URL example for a VHD named osdisk](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-05.png)
+   ![Graphic of a Blob SAS URL example for a VHD named osdisk](./media/azure-stack-edge-gpu-create-virtual-machine-image/target-uri-example-based-on-blob-sas-url.png)
 
 
 ### Copy VHD to blob container
