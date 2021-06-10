@@ -312,8 +312,7 @@ sections:
           Can I set alerts with Azure Front Door?
         answer:  |
           Yes, Azure Front Door does support alerts. Alerts are configured on metrics. 
-
-         
+      
 additionalContent: |
 
   ## Next steps
