@@ -26,15 +26,23 @@ Monitor for accounts that have low or now traffic.
 
 - Log analytic query to identify accounts that have little or no blob data in them. 
 
+- What about metrics?
+
 #### Monitor the capacity of a container
 
-Problem: How much capacity is left? Am I approaching a limit? 
+Need to determine how much capacity is left in a container and whether the user is approaching a limit.
+
+Need to put a better business use case description here.
 
 This is the solution with inventory - [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
 
 - How does calculating size used in a container equate to evaluating the capacity of a container?
 
 - Is there a way to view the trend of container use over time? A chart? A report?
+
+- Metrics?
+
+- Alerts?
 
 ## Monitor activity
 
