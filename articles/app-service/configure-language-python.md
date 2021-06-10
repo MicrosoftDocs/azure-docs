@@ -60,7 +60,7 @@ You can run an unsupported version of Python by building your own container imag
 
 ## Customize build automation
 
-App Service's build system, called Oryx, performs the following steps when you deploy your app using Git or zip packages:
+App Service's build system, called Oryx, performs the following steps when you deploy your app if the app setting `SCM_DO_BUILD_DURING_DEPLOYMENT` is set to `1`:
 
 1. Run a custom pre-build script if specified by the `PRE_BUILD_COMMAND` setting. (The script can itself run other Python and Node.js scripts, pip and npm commands, and Node-based tools like yarn, for example, `yarn install` and `yarn build`.)
 
