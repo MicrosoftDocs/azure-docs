@@ -18,20 +18,18 @@
       items:
       - name: Deploy Fusion Core on Azure Stack Edge
         href: deploy-metaswitch-solution.md
-  - name: Edge connectivity using Affirmed Networks
+  - name: Private networks using Affirmed Private Network Service
     items:
     - name: Overview
       items:
-      - name: What is the Affirmed Networks solution?
+      - name: What is Affirmed Private Network Service on Azure?
         href: affirmed-overview.md
     - name: How-to guides
       items:
-      - name: Deploy the Affirmed Networks solution
+      - name: Deploy Affirmed Private Network Service on Azure
         href: deploy-affirmed-solution.md
   - name: Resources
     items:
-    - name: Azure private MEC
-      href: https://azure.microsoft.com/solutions/private-multi-access-edge-compute-mec
     - name: Azure Marketplace
       href: https://azuremarketplace.microsoft.com/marketplace/
     - name: Pricing
