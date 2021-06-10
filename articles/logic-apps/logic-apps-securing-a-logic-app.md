@@ -1196,8 +1196,12 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
   > for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
   > partner services, or customer services that are hosted on Azure.
   >
-  > If your multi-tenant based logic apps require access to virtual networks that use private endpoints, 
-  > you *must create and run your logic apps in an ISE*.
+  > If your workflows need access to virtual networks that use private endpoints, and you want to develop those workflows 
+  > using the **Logic App (Consumption)** resource type, you *must create and run your logic apps in an ISE*. However, 
+  > if you want to develop those workflows using the **Logic App (Standard)** resource type, *you don't need an ISE*. 
+  > Instead, your workflows can communicate privately and securely with virtual networks by using private endpoints 
+  > for inbound traffic and virtual network integration for outbound traffic. For more information, review 
+  > [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
 For more information about isolation, review the following documentation:
 
