@@ -39,7 +39,7 @@ In the below sections, you will find guidance on how to create an Azure ML linke
 
 ## Create a linked service using the Synapse workspace managed identity
 
-This section will guide you on how to create an Azure ML linked service in Azure Synapse, using the [Azure Synapse Workspace Managed Identity](../../security/synapse-workspace-managed-identity.md)
+This section will guide you on how to create an Azure ML linked service in Azure Synapse, using the [Azure Synapse Workspace Managed Identity](../security/synapse-workspace-managed-identity.md)
 
 ### Give MSI permisison to the Azure ML workspace
 
