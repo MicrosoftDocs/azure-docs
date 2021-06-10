@@ -1,17 +1,16 @@
 ---
 title: Microsoft HPC Pack Integration
 description: Microsoft HPC Pack configuration in Azure CycleCloud
-author: Sunbin
+author: prkannap
 ms.date: 05/24/2021
-ms.author: Preetha
+ms.author: prkannap
 ---
 
 
-## Microsoft HPC Pack 
+## Microsoft HPC Pack
 
- This page articulates the capabilities and configuration details for HPC Pack integration with Cyclecloud. 
-[Microsoft HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) - free HPC solution built on Microsoft Azure with Windows Server technologies and supports a wide range of HPC workloads. 
-
+ This page articulates the capabilities and configuration details for HPC Pack integration with Cyclecloud.
+[Microsoft HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) - free HPC solution built on Microsoft Azure with Windows Server technologies and supports a wide range of HPC workloads.
 
 ## Limitations and supported versions
 
@@ -20,11 +19,9 @@ Microsoft HPC Pack 2016 (with Update 3) and Microsoft HPC Pack 2019 are supporte
 - The cluster must be created in an Active Directory Domain since cluster without domain is not supported yet.
 - The cluster can contain only single head node, especially  Head node high availability is not supported yet.
 - The Head node VM image customization is not supported .
-- Linux compute nodes are not supported yet. 
+- Linux compute nodes are not supported yet.
 - The head node requires outbound internet access to download Nuget binary and Python3.
 - CLI, Cloud Init configuration is not supported yet.
-
-
 
 ## Prerequisites
 
@@ -32,7 +29,7 @@ Microsoft HPC Pack 2016 (with Update 3) and Microsoft HPC Pack 2019 are supporte
 
 Currently all HPC Pack nodes must be joined into an Active Directory Domain. If you are deploying the HPC Pack cluster in a virtual network which has a Site-to-Site VPN or ExpressRoute connection with your corporate network, typically there is already an existing Active Directory Domain. If you don't have an AD domain in your virtual network yet, you can choose to create a new AD domain by promoting the head node as domain controller.
 
-### Azure Key Vault 
+### Azure Key Vault
 
 Microsoft HPC Pack requires a PFX certificate to secure the node communication, it also requires AD domain user credentials to join the nodes into AD domain. While you can directly specify a PFX file, protection password and user password in the template, we strongly recommend that you use Azure Key Vault to pass the certificate and user password . Refer to [Create an Azure Key Vault Certificate](https://docs.microsoft.com/powershell/high-performance-computing/deploy-an-hpc-pack-cluster-in-azure?view=hpc19-ps#create-azure-key-vault-certificate-on-azure-portal).
 
@@ -46,7 +43,7 @@ You can refer to [Key Vault](https://docs.microsoft.com/en-us/azure/active-direc
 
 We recommend using [Azure Role-Based Access Control](https://docs.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli) to assign Key Vault permissions to the Managed Identity.
 
- ##  HPC Pack node roles
+## HPC Pack node roles
 
 There are three different node roles in  HPC Pack cluster:
 
@@ -56,7 +53,7 @@ There are three different node roles in  HPC Pack cluster:
 
 ## Create new  HPC Pack Cluster
 
-You can click the ** Microsoft HPC Pack** icon under **Schedulers** to create a new Microsoft HPC Pack cluster.
+You can click the **Microsoft HPC Pack** icon under **Schedulers** to create a new Microsoft HPC Pack cluster.
 
 On the **About** page, specify an unique **Cluster Name** for the cluster, it will be used as the NetBIOS computer name of the head node, make sure it is unique in the AD domain and complies with the [naming convention](https://docs.microsoft.com/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou#netbios-domain-names).
 
@@ -75,7 +72,7 @@ There are two scale down options for compute nodes: **Deallocate** or **Terminat
 
 - **Virtual Network**: You shall select an existing virtual network and subnet in which the HPC Pack cluster will be created.
 - **Active Directory Domain**: If there is already an AD domain in your virtual network, specify the full **Domain Name** and **OU Path** in which the cluster nodes will be joined. Or select **New AD Domain** to create a new AD domain by promoting the head node as domain controller.
-- **Secrets and Certificate**: We strongly recommend that you select **Use KeyVault** to use Azure Key Vault to pass the node communication certificate and user password. In **MSI Identity**, select Azure User Assigned Identity which you created in **Prerequisites** from the dropdown list, and specify the Azure Key **Vault Name** created in **Prerequisites**. 
+- **Secrets and Certificate**: We strongly recommend that you select **Use KeyVault** to use Azure Key Vault to pass the node communication certificate and user password. In **MSI Identity**, select Azure User Assigned Identity which you created in **Prerequisites** from the dropdown list, and specify the Azure Key **Vault Name** created in **Prerequisites**.
 - **User Credentials**: In **Username**, specify the domain user name. In **Password Secret**, specify the Azure Key Vault secret name you created in in **Prerequisites** to store the domain user password.
 - **PFX Certificate**: In **Certificate Name**, specify the Azure Key Vault Certificate name you created in **Prerequisites**.
 
