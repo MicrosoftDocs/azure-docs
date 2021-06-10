@@ -9,11 +9,6 @@ ms.custom: devx-track-csharp
 # Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
 This quickstart shows how to send events to and receive events from an event hub using the **Azure.Messaging.EventHubs** .NET library. 
 
-> [!IMPORTANT]
-> This quickstart uses the new **Azure.Messaging.EventHubs** library. For a quickstart that uses the old **Microsoft.Azure.EventHubs** library, see [Send and receive events using Microsoft.Azure.EventHubs library](event-hubs-dotnet-standard-get-started-send-legacy.md). 
-
-
-
 ## Prerequisites
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 
@@ -36,10 +31,10 @@ This section shows you how to create a .NET Core console application to send eve
     1. Select **Console Application** from the results list. 
     1. Then, select **Next**. 
 
-        ![New project dialog box](./media/getstarted-dotnet-standard-send-v2/new-send-project.png)    
+        :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/new-send-project.png" alt-text="Image showing the New Project dialog box":::
 1. Enter **EventHubsSender** for the project name, **EventHubsQuickStart** for the solution name, and then select **OK** to create the project. 
 
-    ![C# > Console app](./media/getstarted-dotnet-standard-send-v2/project-solution-names.png)
+    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/project-solution-names.png" alt-text="Image showing the page where you enter solution and project names":::
 
 ### Add the Event Hubs NuGet package
 
@@ -125,7 +120,7 @@ This section shows you how to create a .NET Core console application to send eve
     ```
 1. In the Azure portal, you can verify that the event hub has received the events. Switch to **Messages** view in the **Metrics** section. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
 
-    [![Verify that the event hub received the events](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
+    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png" alt-text="Image of the Azure portal page to verify that the event hub received the events" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png":::
 
     > [!NOTE]
     > For the complete source code with more informational comments, see [this file on the GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)
@@ -257,7 +252,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 6. Run the receiver application. 
 1. You should see a message that the events have been received. 
 
-    ```csharp
+    ```bash
     Received event: Event 1
     Received event: Event 2
     Received event: Event 3    
