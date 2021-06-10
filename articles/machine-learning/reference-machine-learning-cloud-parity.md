@@ -14,7 +14,7 @@ ms.date: 06/10/2021
 ms.custom: references_regions
 ---
 
-# Azure Machine Learning feature availability across clouds
+# Azure Machine Learning feature availability across clouds regions
 
 Learn what Azure Machine Learning features are available in the Azure Government, Azure Germany, and Azure China 21Vianet regions. 
 
