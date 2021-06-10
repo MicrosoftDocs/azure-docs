@@ -249,7 +249,7 @@ sections:
   - name: Hybrid Azure AD join FAQ
     questions:
       - question: How do I unjoin a Hybrid Azure AD joined device locally on the device?
-        answer: For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
+        answer: For hybrid Azure AD joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](hybrid-azuread-join-control.md) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
 
       - question: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?
         answer: |
