@@ -12,6 +12,7 @@ ms.author: kumud
 # What is Azure private multi-access edge compute?
 
 Azure private multi-access edge compute (MEC) is a solution that brings together a portfolio of Microsoft compute, networking, and application services managed from the cloud. The solution enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge for the next wave of enterprise digital transformation. 
+
 Azure private MEC is an evolution of Private Edge Zone, expanding the scope of possibilities from a single platform and service to a solution that leverages multiple platforms and capabilities. These capabilities include edge services and applications, edge network functions, edge compute options and edge radios and devices. By processing data closer to the end device, these capabilities help improve latency- and throughput-sensitive user scenarios such as video analytics, real-time robotics and mixed IoT use cases at a global scale. Customers and partners can benefit with a complete set of Azure services and ecosystem technology components to rapidly build, deploy, and manage solutions with simplicity. 
 
 ## Benefits to customers and partners
