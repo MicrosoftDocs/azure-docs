@@ -19,8 +19,8 @@ Managed identities in Azure Active Directory (Azure AD) provides Azure services 
 
 Managed Identities can be of two types:
 
-- System-Assigned
-- User-Assigned
+- **System-assigned**
+- **User-assigned**
 
 Enabling system-assigned managed identity for Azure SQL logical servers and Managed Instances are already supported today. Assigning user-assigned managed identity to the server is also available now.
 
