@@ -110,4 +110,4 @@ For hybrid cloud scenarios like those using ExpressRoute, it can sometimes be mo
 ## Next steps
 
 - [Plan to manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
-- [Manage budgets, costs, and quota for Azure Machine Learning at organizational scale](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost.md)
+- [Manage budgets, costs, and quota for Azure Machine Learning at organizational scale](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost)
