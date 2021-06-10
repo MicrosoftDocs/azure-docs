@@ -5,7 +5,7 @@ author: vhorne
 ms.author: victorh
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 06/10/2021
 ---
 
 <!-- VERSION 2.2
@@ -104,7 +104,7 @@ If you don't support resource logs, say so. Some services may be only onboarded 
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema). The schema for Application Gateway resource logs is found in the [Azure Application Gateway Data Reference](monitor-application-gateway-reference.md#schemas). 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Common and service-specific schema for Azure Resource Logs](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). The schema for Application Gateway resource logs is found in the [Azure Application Gateway Data Reference](monitor-application-gateway-reference.md#schemas). 
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 

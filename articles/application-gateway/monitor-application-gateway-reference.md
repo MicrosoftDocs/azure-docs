@@ -6,7 +6,7 @@ ms.author: victorh
 ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
-ms.date: 04/15/2021
+ms.date: 06/10/2021
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -99,7 +99,7 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 
 
 <!-- Keep this text as-is -->
-For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 
 
