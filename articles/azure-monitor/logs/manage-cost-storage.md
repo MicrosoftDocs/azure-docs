@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 06/08/2021
 ms.author: bwren 
 ms.custom: devx-track-azurepowershell
 ---
@@ -33,10 +33,10 @@ The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data
   - Number of VMs monitored
   - Type of data collected from each monitored VM 
   
-In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers** which enable you to save as much as 25% compared to the Pay-As-You-Go price. The commitment tier pricing enables you to make a commitment to buy data ingestion starting at 100 GB/day at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) will be billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period. During the commitment period, you can change to a higher commitment tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower commitment tier until after the commitment period is finished. Billing for the commitment tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Commitment Tier pricing. 
+In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers** which enable you to save as much as 30% compared to the Pay-As-You-Go price. The commitment tier pricing enables you to make a commitment to buy data ingestion starting at 100 GB/day at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) will be billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period. During the commitment period, you can change to a higher commitment tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower commitment tier until after the commitment period is finished. Billing for the commitment tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Commitment Tier pricing. 
 
 > [!NOTE]
-> Starting June 2, 2021, **Capacity Reservations** are now called **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Additionally, three new larger commitment tiers have been added at 1000, 2000 and 5000 GB/day.
+> Starting June 2, 2021, **Capacity Reservations** are now called **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Additionally, three new larger commitment tiers have been added at 1000, 2000 and 5000 GB/day. 
 
 In all pricing tiers, an event's data size is calculated from a string representation of the properties which are stored in Log Analytics for this event, whether the data is sent from an agent or added during the ingestion process. This  includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the AzureActivity, Heartbeat and Usage types. To determine whether an event was excluded from billing for data ingestion, you can use the `_IsBillable` property as shown [below](#data-volume-for-specific-events). Usage is reported in GB (1.0E9 bytes). 
 
@@ -44,7 +44,7 @@ Also, note that some solutions, such as [Azure Defender (Security Center)](https
 
 ### Log Analytics Dedicated Clusters
 
-Log Analytics Dedicated Clusters are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters use a commitment tier pricing model which must be configured to at least 1000 GB/day. The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period the commitment tier level cannot be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces are done at the cluster level using the configured commitment tier level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster) and [associating workspaces to it](customer-managed-keys.md#link-workspace-to-cluster). Commitment tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).
+[Log Analytics Dedicated Clusters](logs-dedicated-clusters.md) are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters use a commitment tier pricing model which must be configured to at least 1000 GB/day. The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period the commitment tier level cannot be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces are done at the cluster level using the configured commitment tier level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster) and [associating workspaces to it](customer-managed-keys.md#link-workspace-to-cluster). Commitment tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).
 
 The cluster commitment tier level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed at [Azure Monitor customer-managed key](customer-managed-keys.md#create-cluster).
 
@@ -124,7 +124,7 @@ To use this template via PowerShell, after [installing the Azure Az PowerShell m
 New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -TemplateFile "template.json"
 ```
 
-To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the sku), omit the  `capacityReservationLevel` property. Learn more about [creating ARM templates](/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell),  [/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell](adding a resource to your template), and [applying templates](https://docs.microsoft.com/azure/azure-monitor/resource-manager-samples). 
+To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the sku), omit the  `capacityReservationLevel` property. Learn more about [creating ARM templates](../../azure-resource-manager/templates/template-tutorial-create-first-template.md),  [adding a resource to your template](../../azure-resource-manager/templates/template-tutorial-add-resource.md), and [applying templates](../resource-manager-samples.md). 
 
 ## Legacy pricing tiers
 
@@ -624,11 +624,14 @@ let workspaceHasSecurityCenter = false;  // Specify if the workspace has Azure S
 let PerNodePrice = 15.; // Enter your montly price per monitored nodes
 let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
-let CarRes100Price = 196.; // Enter your price for the 100 GB/day commitment tier
-let CarRes200Price = 368.; // Enter your price for the 200 GB/day commitment tier
-let CarRes300Price = 540.; // Enter your price for the 300 GB/day commitment tier
-let CarRes400Price = 704.; // Enter your price for the 400 GB/day commitment tier
-let CarRes500Price = 865.; // Enter your price for the 500 GB/day commitment tier
+let CommitmentTier100Price = 196.; // Enter your price for the 100 GB/day commitment tier
+let CommitmentTier200Price = 368.; // Enter your price for the 200 GB/day commitment tier
+let CommitmentTier300Price = 540.; // Enter your price for the 300 GB/day commitment tier
+let CommitmentTier400Price = 704.; // Enter your price for the 400 GB/day commitment tier
+let CommitmentTier500Price = 865.; // Enter your price for the 500 GB/day commitment tier
+let CommitmentTier1000Price = 1700.; // Enter your price for the 1000 GB/day commitment tier
+let CommitmentTier2000Price = 3320.; // Enter your price for the 2000 GB/day commitment tier
+let CommitmentTier5000Price = 8050.; // Enter your price for the 5000 GB/day commitment tier
 // ---------------------------------------
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
 let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
@@ -663,27 +666,32 @@ union *
 | extend billableGB = iff(workspaceHasSecurityCenter,
              (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)), DataGB )
 | extend PerGBDailyCost = billableGB * PerGBPrice
-| extend CapRes100DailyCost = CarRes100Price + max_of(billableGB - 100, 0.)* PerGBPrice
-| extend CapRes200DailyCost = CarRes200Price + max_of(billableGB - 200, 0.)* PerGBPrice
-| extend CapRes300DailyCost = CarRes300Price + max_of(billableGB - 300, 0.)* PerGBPrice
-| extend CapRes400DailyCost = CarRes400Price + max_of(billableGB - 400, 0.)* PerGBPrice
-| extend CapResLevel500AndAbove = max_of(floor(billableGB, 100),500)
-| extend CapRes500AndAboveDailyCost = CarRes500Price*CapResLevel500AndAbove/500 + max_of(billableGB - CapResLevel500AndAbove, 0.)* PerGBPrice
+| extend CommitmentTier100DailyCost = CommitmentTier100Price + max_of(billableGB - 100, 0.)* CommitmentTier100Price/100.
+| extend CommitmentTier200DailyCost = CommitmentTier200Price + max_of(billableGB - 200, 0.)* CommitmentTier200Price/200.
+| extend CommitmentTier300DailyCost = CommitmentTier300Price + max_of(billableGB - 300, 0.)* CommitmentTier300Price/300.
+| extend CommitmentTier400DailyCost = CommitmentTier400Price + max_of(billableGB - 400, 0.)* CommitmentTier400Price/400.
+| extend CommitmentTier500DailyCost = CommitmentTier500Price + max_of(billableGB - 500, 0.)* CommitmentTier500Price/500.
+| extend CommitmentTier1000DailyCost = CommitmentTier1000Price + max_of(billableGB - 1000, 0.)* CommitmentTier1000Price/1000.
+| extend CommitmentTier2000DailyCost = CommitmentTier2000Price + max_of(billableGB - 2000, 0.)* CommitmentTier2000Price/2000.
+| extend CommitmentTier5000DailyCost = CommitmentTier5000Price + max_of(billableGB - 5000, 0.)* CommitmentTier5000Price/5000.
 | extend MinCost = min_of(
-	PerNodeDailyCost,PerGBDailyCost,CapRes100DailyCost,CapRes200DailyCost,
-    CapRes300DailyCost, CapRes400DailyCost, CapRes500AndAboveDailyCost)
+	PerNodeDailyCost,PerGBDailyCost,CommitmentTier100DailyCost,CommitmentTier200DailyCost,
+    CommitmentTier300DailyCost, CommitmentTier400DailyCost, CommitmentTier500DailyCost, CommitmentTier1000DailyCost, CommitmentTier2000DailyCost, CommitmentTier5000DailyCost)
 | extend Recommendation = case(
     MinCost == PerNodeDailyCost, "Per node tier",
     MinCost == PerGBDailyCost, "Pay-as-you-go tier",
-    MinCost == CapRes100DailyCost, "Cap**ommitment tier (100 GB/day)",
-    MinCost == CapRes200DailyCost, "Commitment tier (200 GB/day)",
-    MinCost == CapRes300DailyCost, "Commitment tier (300 GB/day)",
-    MinCost == CapRes400DailyCost, "Commitment tier (400 GB/day)",
-    MinCost == CapRes500AndAboveDailyCost, strcat("Commitment tier (",CapResLevel500AndAbove," GB/day)"),
+    MinCost == CommitmentTier100DailyCost, "Commitment tier (100 GB/day)",
+    MinCost == CommitmentTier200DailyCost, "Commitment tier (200 GB/day)",
+    MinCost == CommitmentTier300DailyCost, "Commitment tier (300 GB/day)",
+    MinCost == CommitmentTier400DailyCost, "Commitment tier (400 GB/day)",
+    MinCost == CommitmentTier500DailyCost, "Commitment tier (500 GB/day)",
+    MinCost == CommitmentTier1000DailyCost, "Commitment tier (1000 GB/day)",
+    MinCost == CommitmentTier2000DailyCost, "Commitment tier (2000 GB/day)",
+    MinCost == CommitmentTier5000DailyCost, "Commitment tier (5000 GB/day)",
     "Error"
 )
 | project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, 
-    CapRes100DailyCost, CapRes200DailyCost, CapRes300DailyCost, CapRes400DailyCost, CapRes500AndAboveDailyCost, Recommendation 
+    CommitmentTier100DailyCost, CommitmentTier200DailyCost, CommitmentTier300DailyCost, CommitmentTier400DailyCost, CommitmentTier500DailyCost, CommitmentTier1000DailyCost, CommitmentTier2000DailyCost, CommitmentTier5000DailyCost, Recommendation 
 | sort by day asc
 //| project day, Recommendation // Comment this line to see details
 | sort by day asc

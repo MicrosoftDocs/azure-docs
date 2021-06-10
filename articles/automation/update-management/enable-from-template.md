@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 # Enable Update Management using Azure Resource Manager template
 
-You can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management feature in your resource group. This article provides a sample template that automates the following:
+You can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to enable the Azure Automation Update Management feature in your resource group. This article provides a sample template that automates the following:
 
 * Automates the creation of an Azure Monitor Log Analytics workspace.
 * Automates the creation of an Azure Automation account.
@@ -148,7 +148,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
             },
             "_artifactsLocation": {
                 "type": "string",
-                "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/",
+                "defaultValue": "[deployment().properties.templateLink.uri]",
                 "metadata": {
                     "description": "URI to artifacts location"
                 }
