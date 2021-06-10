@@ -43,16 +43,16 @@ To create a device:
 1. Leave Device template as **Unassigned**.
 1. Fill in the desired Device name and Device ID.
 
-    :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-create-device.png" alt-text="Create a device in Azure IoT Central":::
+    :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-create-device.png" alt-text="Screenshot of entering information for a new device in Azure IoT Central":::
 
 1. Select the **Create** button.
 1. The newly created device will appear in the **All devices** list.  Select on the device name to show details.
 1. Select **Connect** in the top right menu bar to display the connection information used to configure the device in the next section.
 
-    :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-device-connection-info.png" alt-text="View device connection details":::
+    :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-device-connection-info.png" alt-text="Screenshot of device connection details in Azure IoT Central":::
 
 1. Note the connection values for the following connection string parameters displayed in **Connect** dialog. You'll add these values to a configuration file in the next step:
 
-    > * `ID scope`
-    > * `Device ID`
-    > * `Primary key`
+    * `ID scope`
+    * `Device ID`
+    * `Primary key`
