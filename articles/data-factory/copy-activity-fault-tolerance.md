@@ -303,5 +303,3 @@ See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Copy activity performance](copy-activity-performance.md)
-
-:::image type="content" source="../active-directory-b2c/media/add-api-connector/validation-error-postal-code.png" alt-text="Validation error demo":::
