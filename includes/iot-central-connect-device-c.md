@@ -97,7 +97,7 @@ int main(void)
 
     int numberOfIterations = 0;
 
-    // During startup, send the non-"writeable" properties.
+    // During startup, send the non-"writable" properties.
     PnP_TempControlComponent_ReportSerialNumber_Property(deviceClient);
     PnP_DeviceInfoComponent_Report_All_Properties(g_deviceInfoComponentName, deviceClient);
     PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(g_thermostatHandle1, deviceClient);

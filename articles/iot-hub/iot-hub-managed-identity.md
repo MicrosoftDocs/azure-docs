@@ -273,7 +273,7 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
     :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="IoT Hub file upload with msi":::
 
     > [!NOTE]
-    > In the file upload scenario, both hub and your device need to connect with your storage account. The steps above are for connecting your IoT hub to your storage account with desired authentication type. You still need to connect your device to storage using the SAS URI. Please follow the steps in [file upload](iot-hub-devguide-file-upload.md).
+    > In the file upload scenario, both hub and your device need to connect with your storage account. The steps above are for connecting your IoT hub to your storage account with desired authentication type. You still need to connect your device to storage using the SAS URI. Today the SAS URI is generated using connection string. We'll add support to generate SAS URI with managed identity soon. Please follow the steps in [file upload](iot-hub-devguide-file-upload.md).
 
 ### Bulk device import/export
 
