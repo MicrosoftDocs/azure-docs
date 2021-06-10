@@ -41,10 +41,6 @@ You may want to create a copy of your knowledge base for several reasons:
    2. **Synonyms**: You can export Synonyms that have been added to the knowledge base.
    4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you can choose this option.
 
-
-   > [!div class="mx-imgBorder"]
-   > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
-
 ## Import a knowledge base
 1. Click **Create a knowledge base** from the top menu of the qnamaker.ai portal and then create an _empty_ knowledge base by not adding any URLs or files. Set the name of your choice for the new knowledge base and then Click **Create your KB**. 
 
@@ -66,6 +62,10 @@ You may want to create a copy of your knowledge base for several reasons:
          |DefaultAnswerforMultiturn|Yes|Yes|
          |Language|No|No|
 
+   >
+   > [!div class="mx-imgBorder"]
+   > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
+   >
 
 1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 
