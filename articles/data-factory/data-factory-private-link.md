@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
+ms.date: 06/10/2021
 ---
 
 # Azure Private Link for Azure Data Factory
