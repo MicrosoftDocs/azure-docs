@@ -1,7 +1,7 @@
 ---
 title: Develop and publish .NET 5 functions using Azure Functions  
 description: Learn how to create and debug C# functions using .NET 5.0, then deploy the local project to serverless hosting in Azure Functions.
-ms.date: 05/03/2021
+ms.date: 06/10/2021
 ms.topic: how-to
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
@@ -18,7 +18,7 @@ If you don't need to support .NET 5.0 or run your functions out-of-process, you 
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="development-environment-vscode,development-environment-cli"  
+::: zone pivot="development-environment-vscode,development-environment-cli,development-environment-rider"  
 + [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3381, or a later version.
@@ -34,6 +34,11 @@ If you don't need to support .NET 5.0 or run your functions out-of-process, you 
 ::: zone-end  
 ::: zone pivot="development-environment-vs"  
 + [Visual Studio 2019](https://azure.microsoft.com/downloads/) version 16.10 or later. Your install must include either the **Azure development** or the **ASP.NET and web development** workload.  
+::: zone-end  
+::: zone pivot="development-environment-rider"
++ [JetBrains Rider](https://www.jetbrains.com/rider/) version 2021.1 or later.
+
++ [Azure Toolkit for Rider](https://plugins.jetbrains.com/plugin/11220-azure-toolkit-for-rider).
 ::: zone-end  
 
 ## Create a local function project
@@ -147,6 +152,58 @@ Visual Studio integrates with Azure Functions Core Tools so that you can test yo
 1. Copy the URL of your function from the Azure Functions runtime output and run the request. A welcome to Functions message is displayed when the function runs successfully and logs are written to the runtime output. 
 
 1. To stop debugging, press <kbd>Shift</kbd>+<kbd>F5</kbd> in Visual Studio.
+
+After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
+
+::: zone-end
+
+::: zone pivot="development-environment-rider"
+
+1. From the Rider menu, select **File** > **New...**.
+
+1. In **New Solution**, choose the **Azure Functions** template.
+
+1. Enter a **Solution name** and **project name** for your project.
+
+1. Provide the following information:
+
+   + **SDK**: Choose `5.0` to target .NET 5.0.
+ 
+   + **Language**: Choose `C#`.
+
+   + **Functions runtime**: Choose `Isolated worker (.NET 5+)`.
+
+   ![Azure Functions project settings](./media/dotnet-isolated-process-developer-howtos/functions-project-settings-rider.png)
+
+1. Click **Create** to create the function project.
+
+Rider creates an empty project to which you can start adding Azure Functions.
+
+## Add a function to your project
+
+Newly created Azure Functions projects in Rider contain a default `Program.cs` that bootstraps your Azure Functions application. A default `host.json` is also created to configure the Azure Functions host. You will need to add a function that can respond to a specific trigger.
+
+1. In **Solution Explorer**, right-click the *MyFunctionApp* project and select **Add...** > **HTTP Trigger**.
+
+1. Give the function a name: `HttpExample`
+
+1. Press **Enter** to create the function class.
+
+An editor window will open and lets you further customize your HTTP trigger function. For **AuthorizationLevel**, select **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint.
+
+Your HTTP trigger function contains boilerplate code that sends a "Welcome to Azure Functions!" HTTP response. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request.
+
+Now that you've created the function, you can test it on your local computer.
+
+## Run the function locally
+
+JetBrains Rider integrates with Azure Functions Core Tools so that you can test your functions locally using the full Azure Functions runtime.
+
+1. To run your function, press <kbd>F5</kbd> in Rider. You might need to enable a firewall exception so that the tools can handle HTTP requests. Authorization levels are never enforced when you run a function locally.
+
+1. Copy the URL of your function from the Azure Functions runtime output and run the request. A welcome to Functions message is displayed when the function runs successfully and logs are written to the runtime output.
+
+1. To stop debugging, press <kbd>Shift</kbd>+<kbd>F5</kbd> in Rider.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -291,6 +348,30 @@ In this section, you create a function app and related resources in your Azure s
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]  
 ::: zone-end  
 
+:::zone pivot="development-environment-rider"
+
+## Publish the project to Azure
+
+Before you can publish your project, you must have a function app in your Azure subscription. Rider can create a function app for you the first time you publish your project.
+
+[!INCLUDE [Publish the project to Azure](../../includes/functions-rider-publish.md)]
+
+## Verify your function in Azure
+
+1. In **Azure Explorer**, select your new function app. Expand **App Service** > **Function Apps**, and select your new function app.
+
+1. Right-click the function app and choose **Show Properties**. This opens the properties of your function app in Rider.
+
+1. Click the **URL** to open the root of your function app in your default web browser and display the page that indicates your function app is running.
+
+   ![Function app running](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
+
+1. In the address bar in the browser, append the path `/api/HttpExample` to the base URL and run the request.
+
+1. Go to this URL and you see the same response in the browser you had when running locally.
+
+:::zone-end
+
 ## Clean up resources
 
 You created resources to complete this article. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). 
@@ -310,6 +391,23 @@ Use the following steps to delete the function app and its related resources to 
 ::: zone-end  
 ::: zone pivot="development-environment-vs"   
 [!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
+::: zone-end
+
+::: zone pivot="development-environment-rider"  
+Use the following steps to delete the function app and its related resources to avoid incurring any further costs.
+
+1. In **Azure Explorer**, select your function app. Expand **App Service** > **Function Apps**, and select your new function app.
+
+1. Right-click the function app and choose **Open In Browser**. This opens the Azure Portal in your default browser.
+
+1. In the **Overview** tab, select the named link next to **Resource group**.
+
+1. In the **Resource group** page, review the list of included resources, and verify that they are the ones you want to delete.
+
+3. Select **Delete resource group**, and follow the instructions.
+
+   Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
+
 ::: zone-end
 
 ## Next steps

@@ -419,6 +419,8 @@ groups:
     title: Visual Studio
   - id: development-environment-cli
     title: Command line
+  - id: development-environment-rider
+    title: JetBrains Rider
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
   title: Programming Languages
