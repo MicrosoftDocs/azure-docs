@@ -84,8 +84,8 @@ To request a standard vCPU quota increase per VM series from **Help + support**:
   ![Quota details - SKU series](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
   
    d.  Enter the new quota limits that you want for this subscription. To remove a SKU from your list, clear the check box next to the SKU or select the discard "X" icon.
-
-      ![Select a new vCPU Limit](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
+   
+   ![Select a new vCPU Limit](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
 1. To request a quota increase for more than one location, select an additional location in **Locations**, and then select an appropriate VM type. You can then enter a limit that applies to the additional location.
 
