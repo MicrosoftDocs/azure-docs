@@ -147,9 +147,7 @@
     - name: 404 status
       href: cdn-troubleshoot-endpoint.md
     - name: File compression
-      href: cdn-troubleshoot-compression.md
-    - name: Allowed certificate authorities
-      href: cdn-troubleshoot-allowed-ca.md      
+      href: cdn-troubleshoot-compression.md    
 - name: Reference
   items:
   - name: Standard rules engine reference
