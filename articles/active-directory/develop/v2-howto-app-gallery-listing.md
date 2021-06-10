@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/07/2021
+ms.date: 06/10/2021
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -309,6 +309,9 @@ Customers can request application by sharing the Application and ISV contact inf
 Here's the flow of customer-requested applications.
 
 ![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
+
+> [!Note]
+> If you have any [issues with access](https://docs.microsoft.com/azure/active-directory/develop/v2-howto-app-gallery-listing#issues-on-logging-into-portal), send email to the [Azure AD App Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Next steps
 
