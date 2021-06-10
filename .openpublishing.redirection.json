@@ -28737,7 +28737,7 @@
     {
       "source_path_from_root": "/articles/machine-learning/concept-managed-endpoints.md",
       "redirect_url": "/azure/machine-learning/concept-endpoints",
-      "redireect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
@@ -37044,6 +37044,21 @@
       "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac.md",
       "redirect_url": "/azure/storage/common/storage-auth-aad-rbac-portal",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-cli.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-portal.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-powershell.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-azure-cli.md",
@@ -67073,6 +67088,16 @@
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
       "redirect_url": "/azure/iot-develop/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md",
+      "redirect_url": "/azure/vs-azure-tools-storage-manage-with-storage-explorer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-ssis.md",
+      "redirect_url": "/sql/integration-services/azure-feature-pack-for-integration-services-ssis",
       "redirect_document_id": false
     }
   ]

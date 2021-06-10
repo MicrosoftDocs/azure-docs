@@ -3,7 +3,7 @@ title: .NET isolated process guide for .NET 5.0 in Azure Functions
 description: Learn how to use a .NET isolated process to run your C# functions on .NET 5.0 out-of-process in Azure.  
 
 ms.service: azure-functions
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 06/10/2021
 ms.custom: template-concept 
 recommendations: false
@@ -34,9 +34,7 @@ When running out-of-process, your .NET functions can take advantage of the follo
 + Full control of the process: you control the start-up of the app and can control the configurations used and the middleware started.
 + Dependency injection: because you have full control of the process, you can use current .NET behaviors for dependency injection and incorporating middleware into your function app. 
 
-## Supported versions
-
-The only version of .NET that is currently supported to run out-of-process is .NET 5.0.
+[!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
 ## .NET isolated project
 
