@@ -28,7 +28,7 @@ An Android or iOS phone on which you're able to install a free app from one of t
 
 Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with the Microsoft personal, work, or school account associated with your Azure subscription.
 
-To create a new Azure IoT Central application from scratch, use the **Custom application** template:
+IoT Central provides various industry-focused application templates to help you get started. This quickstart uses the **Custom application** template to create an application from scratch:
 
 1. Navigate to the **Build** page and select **Create app** in the **Custom app** tile:
 
