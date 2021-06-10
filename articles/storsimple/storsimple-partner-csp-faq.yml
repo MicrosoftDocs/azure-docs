@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: 'FAQ for partners: StorSimple for Cloud Solutions Provider Program'
-  description: 'Find answers to some common questions regarding StorSimple and CSP for partners.''
+  description: 'Find answers to some common questions regarding StorSimple and CSP for partners.'
   services: storsimple
   documentationcenter: NA
   author: alkohli
@@ -19,7 +19,7 @@ metadata:
     
 title: "StorSimple for Cloud Solutions Provider Program: Frequently Asked Questions"
 summary: |
-  
+
   ## Overview
   The following are questions and answers that you might have as a StorSimple partner when you deploy or manage a StorSimple Virtual Array in Azure portal.
 
