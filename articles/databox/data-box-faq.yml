@@ -178,24 +178,6 @@ sections:
           Can I connect to both the 10-GbE interfaces on the Data Box to transfer data?
         answer: |
           Yes. Both the 10-GbE interfaces can be connected on the Data Box to copy data at the same time. For more information on how to copy data, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
-          
-          <!--### The network interface on my Data Box is not working. What should I do? 
-          
-          
-      - question: |
-          I could not set up Data Box using a Dynamic (DHCP) IP address. Why?
-        answer: |
-          A.
-
-      - question: |
-          I could not set up Data Box using a Static IP address. Why?
-        answer: |
-          A.
-
-      - question: |
-          I could not set up Data Box on a private network. Why?
-        answer: |
-          A.-->
 
       - question: |
           The system fault indicator LED on the front operating panel is on. What should I do?
