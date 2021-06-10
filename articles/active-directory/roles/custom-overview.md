@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 06/10/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -48,21 +48,21 @@ The following are the high-level steps that Azure AD uses to determine if you ha
 
 ## Role assignment
 
-A role assignment is an Azure AD resource that attaches a *role definition* to a *user* at a particular *scope* to grant access to Azure AD resources. Access is granted by creating a role assignment, and access is revoked by removing a role assignment. At its core, a role assignment consists of three elements:
+A role assignment is an Azure AD resource that attaches a *role definition* to a *security principal* at a particular *scope* to grant access to Azure AD resources. Access is granted by creating a role assignment, and access is revoked by removing a role assignment. At its core, a role assignment consists of three elements:
 
-- Azure AD user
+- Azure AD user or group
 - Role definition
-- Resource scope
+- Scope
 
-You can [create role assignments](custom-create.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [list the role assignments](view-assignments.md).
+You can [create role assignments](manage-roles-portal.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [list the role assignments](view-assignments.md).
 
-The following diagram shows an example of a role assignment. In this example, Chris Green has been assigned the App registration administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App registration administrator role for only this specific app registration.
+The following diagram shows an example of a role assignment. In this example, Chris has been assigned the App Registration Administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App Registration Administrator role for only this specific app registration.
 
-![Role assignment is how permissions are enforced and has three parts](./media/custom-overview/rbac-overview.png)
+![Role assignment is how permissions are enforced and has three parts.](./media/custom-overview/rbac-overview.png)
 
 ### Security principal
 
-A security principal represents the user that is to be assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory.
+A security principal represents a user or group that is to be assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory. A group is a new Microsoft 365 or security group with the isAssignableToRole property set to true (currently in preview).
 
 ### Role
 
