@@ -269,6 +269,12 @@ Audit logs are available for Azure Front Door. In the portal, select **Activity 
 
 Yes, Azure Front Door does support alerts. Alerts are configured on metrics. 
 
+## Billing
+
+### Will I be billed for the Azure Front Door resources that are disabled?
+
+Azure Front Door resources, like Front Door profiles, are not billed if disabled. WAF policies and rules are billed even if disabled.
+
 ## Next steps
 
 Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
