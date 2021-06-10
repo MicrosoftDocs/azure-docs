@@ -4,7 +4,7 @@ description: Learn how to manage an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 06/10/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
