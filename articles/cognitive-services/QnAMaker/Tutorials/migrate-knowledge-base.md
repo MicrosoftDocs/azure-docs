@@ -10,15 +10,10 @@ ms.date: 11/09/2020
 
 You may want to create a copy of your knowledge base for several reasons:
 
-* moving a knowledge base from QnA Maker GA to Custom question answering
-* backup and restore process
-* CI/CD pipeline
-* move regions
-
-Migrating a knowledge base requires exporting from an existing knowledge base, then importing into another.
-
-> [!NOTE]
-> Follow the below instructions to migrate your existing knowledge base to Custom question answering.
+* Copy a knowledge base from QnA Maker GA to Custom question answering 
+* To implement a backup and restore process 
+* Integrate with your CI/CD pipeline 
+* When you wish to move your data to different regions
 
 ## Prerequisites
 
@@ -40,11 +35,11 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).
 1. Select the knowledge base you want to migrate.
 
-1. On the **Settings** page, you can Export **QnAs**, **Synonyms**, or **Knowledge Base Replica**. You can chooose to download in .tsv/.xlsx.
+1. On the **Settings** page, you have the options to export **QnAs**, **Synonyms**, or **Knowledge Base Replica**. You can chooose to download the data in .tsv/.xlsx.
 
    1. **QnAs**: When exporting QnAs, all QnA pairs (with questions, answers, metadata, follow-up prompts, and the data source names) are downloaded. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
    2. **Synonyms**: You can export Synonyms that have been added to the knowledge base.
-   4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you should choose this option.
+   4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you can choose this option.
 
 
    > [!div class="mx-imgBorder"]
