@@ -240,7 +240,7 @@ From the sample log file above, you can see one row "data1, data2, data3" has be
 
 ## Copying tabular data (legacy):
 
-The following is the legacy way to enable fault tolerance for copying tabular data only. If you are creating new pipeline or activity, you are encouraged to start from [here](#copying-tabular-data) instead.
+The following approach is the legacy way to enable fault tolerance for copying tabular data only. If you are creating new pipeline or activity, you are encouraged to start from [here](#copying-tabular-data) instead.
 
 ### Configuration
 The following example provides a JSON definition to configure skipping the incompatible rows in copy activity:
@@ -303,3 +303,5 @@ See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Copy activity performance](copy-activity-performance.md)
+
+:::image type="content" source="../active-directory-b2c/media/add-api-connector/validation-error-postal-code.png" alt-text="Validation error demo":::
