@@ -117,7 +117,7 @@ New-AzResourceGroup -Name "RG-MoveCollection-demoRMS" -Location "East US 2"
     ```
 ### Create a MoveCollection object
 
-Create a MoveCollection object, and assign a managed identity to it, as follows: 
+Create a MoveCollection object, and assign a managed identity to it, as follows: (Following locations are currently supported: eastus2,northeurope,uksouth,southeastasia,australiaeast,japaneast)
 
 ```azurepowershell-interactive
 New-AzResourceMoverMoveCollection -Name "PS-centralus-westcentralus-demoRMS"  -ResourceGroupName "RG-MoveCollection-demoRMS" -SourceRegion "centralus" -TargetRegion "westcentralus" -Location "centraluseuap" -IdentityType "SystemAssigned"
