@@ -83,7 +83,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
 1. Add a method named `SendMessages` the `Program` class, and add the following code. This method takes a queue of messages, and prepares one or more batches to send to the Service Bus topic. 
 
     ```csharp
-        static async Task SendMessages()
+        static async Task SendMessagesToTopic()
         {
             // create a Service Bus client 
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
@@ -157,7 +157,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
             try
             {
                 // send a batch of messages to the topic
-                await SendMessages();
+                await SendMessagesToTopic();
             }
             finally
             {
@@ -225,7 +225,7 @@ namespace ServiceBusTopicSender
             return messages;
         }
 
-        static async Task SendMessages()
+        static async Task SendMessagesToTopic()
         {
             // create a Service Bus client 
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
@@ -288,7 +288,7 @@ namespace ServiceBusTopicSender
             try
             {
                 // send a batch of messages to the topic
-                await SendMessages();
+                await SendMessagesToTopic();
             }
             finally
             {
@@ -307,34 +307,80 @@ namespace ServiceBusTopicSender
 ```
 
 ## Receive messages from a subscription
+In this section, you'll create another .NET Core console application that receives messages from the queue. 
 
+### Create a console application and add Service Bus NuGet package
+
+1. Create another C# .NET Core console application project. 
+1. Right-click the newly created project and select **Manage NuGet Packages**.
+1. Select **Browse**. Search for and select **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)**.
+1. Select **Install** to complete the installation, then close the NuGet Package Manager.
+
+### Add code to receive messages from the subscription
+> [!NOTE]
+> If you want to see and use the full code instead of going through the following step-by-step instructions, see [Full code (receive messages)](#full-code-receive-messages)
+
+1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
+
+    ```csharp
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
+    using Azure.Messaging.ServiceBus;
+    ```
+
+1. In the `Program` class, declare the following static properties:
+
+    ```csharp
+        // connection string to your Service Bus namespace
+        static string connectionString = "<NAMESPACE CONNECTION STRING>";
+
+        // name of the Service Bus topic
+        static string topicName = "<SERVICE BUS TOPIC NAME>";
+    
+        // name of the subscription to the topic
+        static string subscriptionName = "<SERVICE BUS - TOPIC SUBSCRIPTION NAME>";
+    ```
+
+    Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue. 
+1. Declare the following static properties in the `Program` class. See the code comments for details. 
+
+    ```csharp
+        // the client that owns the connection and can be used to create senders and receivers
+        static ServiceBusClient client;
+
+        // the processor that reads and processes messages from the queue
+        static ServiceBusProcessor processor;
+    ```
 1. Add the following methods to the `Program` class that handle messages and any errors. 
 
     ```csharp
+        // handle received messages
         static async Task MessageHandler(ProcessMessageEventArgs args)
         {
             string body = args.Message.Body.ToString();
-            Console.WriteLine($"Received: {body} from subscription: {subscriptionName}");
+            Console.WriteLine($"Received: {body}");
 
             // complete the message. messages is deleted from the queue. 
             await args.CompleteMessageAsync(args.Message);
         }
 
+        // handle any errors when receiving messages
         static Task ErrorHandler(ProcessErrorEventArgs args)
         {
             Console.WriteLine(args.Exception.ToString());
             return Task.CompletedTask;
         }
     ```
-1. Add the following method `ReceiveMessagesFromSubscriptionAsync` to the `Program` class.
+1. Add a method named `ReceiveMessagesFromSubscription` to the `Program` class, and add the following code to receive messages from the Service Bus queue. 
 
     ```csharp
-        static async Task ReceiveMessagesFromSubscriptionAsync()
+        static async Task ReceiveMessagesFromSubscription()
         {
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
             {
                 // create a processor that we can use to process the messages
-                ServiceBusProcessor processor = client.CreateProcessor(topicName, subscriptionName, new ServiceBusProcessorOptions());
+                ServiceBusProcessor processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
 
                 // add handler to process messages
                 processor.ProcessMessageAsync += MessageHandler;
@@ -362,33 +408,40 @@ namespace ServiceBusTopicSender
     1. Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the `ServiceBusProcessor` object. 
     1. Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the `ServiceBusProcessor` object. 
     1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the `ServiceBusProcessor` object. 
-1. Add a call to the `ReceiveMessagesFromSubscriptionAsync` method to the `Main` method. Comment out the `SendMessagesToTopicAsync` method if you want to test only receiving of messages. If you don't, you see another four messages sent to the topic. 
+1. Replace the `Main()` method. It calls the `ReceiveMessages` method to receive messages from the queue. 
 
     ```csharp
         static async Task Main()
         {
-            // send a message to the topic
-            await SendMessageToTopicAsync();
+            // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+            // of the application, which is best practice when messages are being published or read
+            // regularly.
+            //
+            // Create the clients that we'll use for sending and processing messages.
+            client = new ServiceBusClient(connectionString);
+            processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
 
-            // send a batch of messages to the topic
-            await SendMessageBatchToTopicAsync();
-
-            // receive messages from the subscription
-            await ReceiveMessagesFromSubscriptionAsync();
+            try
+            {
+                // receive messages from the queue
+                await ReceiveMessagesFromSubscription();
+            }
+            finally
+            {
+                // Calling DisposeAsync on client types is required to ensure that network
+                // resources and other unmanaged objects are properly cleaned up.
+                await processor.DisposeAsync();
+                await client.DisposeAsync();
+            }
         }
     ```
+
+
 ## Run the app
 Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
-Sent a single message to the topic: mytopic
-Sent a batch of 3 messages to the topic: mytopic
 Wait for a minute and then press any key to end the processing
-Received: Hello, World! from subscription: mysub
-Received: First message from subscription: mysub
-Received: Second message from subscription: mysub
-Received: Third message from subscription: mysub
-Received: Hello, World! from subscription: mysub
 Received: First message from subscription: mysub
 Received: Second message from subscription: mysub
 Received: Third message from subscription: mysub
