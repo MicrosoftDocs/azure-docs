@@ -149,7 +149,7 @@ Now that you've created an extension, you can use it in an app project to verify
     
     ```python
     # requirements.txt
-    git+https://github.com/Hazhzeng/python-worker-extension-timer@master
+    git+https://github.com/Azure-Samples/python-worker-extension-timer@main
     ```
     ---
 
@@ -221,7 +221,7 @@ For more information, see the [official Python packaging tutorial](https://packa
 
 # [GitHub](#tab/github)
 
-You can also publish the extension source code with the setup.py file to a GitHub repository, as shown in [this example repository](https://github.com/Hazhzeng/python-worker-extension-timer). 
+You can also publish the extension source code with the setup.py file to a GitHub repository, as shown in [this sample repository](https://github.com/Azure-Samples/python-worker-extension-timer). 
 
 For more information about VCS support in pip, see the [official pip VCS support documentation](https://pip.pypa.io/en/stable/cli/pip_install/#vcs-support).
 
