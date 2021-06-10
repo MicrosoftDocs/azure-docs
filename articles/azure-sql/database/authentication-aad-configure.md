@@ -45,7 +45,7 @@ Create an Azure AD instance and populate it with users and groups. Azure AD can 
 
 For more information, see:
 - [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md)
-- [Add your own domain name to Azure AD](../../active-directory/active-directory-domains-add-azure-portal.md)
+- [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 - [Manage Azure AD using Windows PowerShell](/powershell/module/azuread)

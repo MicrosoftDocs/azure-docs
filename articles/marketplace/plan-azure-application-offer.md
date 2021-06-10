@@ -28,7 +28,7 @@ Designing, building, and testing Azure application offers requires technical kno
 
 Review the following resources as you plan your Azure application offer for the commercial marketplace.
 
-- [Understand Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
+- [Understand Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md)
 - Quickstarts:
     - [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     - [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
