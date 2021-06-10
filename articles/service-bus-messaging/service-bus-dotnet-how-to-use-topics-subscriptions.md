@@ -45,7 +45,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
 
     using Azure.Messaging.ServiceBus;
     ```
-1. In the `Program` class, above the `Main` function, declare the following variables:
+1. In the `Program` class, above the `Main` function, declare the following static properties.
 
     ```csharp
         // connection string to your Service Bus namespace
@@ -58,7 +58,6 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
     Replace the following values:
     - `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace
     - `<TOPIC NAME>` with the name of the topic
-    - `<SUBSCRIPTION NAME>` with the name of the subscription
 1. Declare the following static properties in the `Program` class. See code comments for details. 
 
     ```csharp
@@ -177,19 +176,135 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
 
     ```console
     Sent a batch of 3 messages to the topic: mytopic
+    Press any key to end the application
     ```
 1. In the Azure portal, follow these steps:
     1. Navigate to your Service Bus namespace. 
     1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. In the following example, it's `mytopic`.
     
         :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-topic.png" alt-text="Select topic":::
-    1. On the **Service Bus Topic** page, In the **Messages** chart in the bottom **Metrics** section, you can see that there are four incoming messages for the topic. If you don't see the value, wait for a few minutes and refresh the page to see the updated chart. 
+    1. On the **Service Bus Topic** page, In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the topic. If you don't see the value, wait for a few minutes and refresh the page to see the updated chart. 
 
         :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages sent to the topic" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png":::
     4. Select the subscription in the bottom pane. In the following example, it's **S1**. On the **Service Bus Subscription** page, you see the **Active message count** as **4**. The subscription has received the four messages that you sent to the topic, but no receiver has picked them yet. 
     
         :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png" alt-text="Messages received at the subscription" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png":::
     
+### Full code (send messages)
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+using Azure.Messaging.ServiceBus;
+
+namespace ServiceBusTopicSender
+{
+    class Program
+    {
+        // connection string to your Service Bus namespace
+        static string connectionString = "<NAMESPACE CONNECTION STRING>";
+
+        // name of the Service Bus topic
+        static string topicName = "<SERVICE BUS TOPIC NAME>";
+
+        // the client that owns the connection and can be used to create senders and receivers
+        static ServiceBusClient client;
+
+        // the sender used to publish messages to the Service Bus topic
+        static ServiceBusSender sender;
+
+        static Queue<ServiceBusMessage> CreateMessages()
+        {
+            // create a queue containing the messages and return it to the caller
+            Queue<ServiceBusMessage> messages = new Queue<ServiceBusMessage>();
+            messages.Enqueue(new ServiceBusMessage("First message"));
+            messages.Enqueue(new ServiceBusMessage("Second message"));
+            messages.Enqueue(new ServiceBusMessage("Third message"));
+            return messages;
+        }
+
+        static async Task SendMessages()
+        {
+            // create a Service Bus client 
+            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
+            {
+
+                // create a sender for the topic 
+                ServiceBusSender sender = client.CreateSender(topicName);
+
+                // get the messages to be sent to the Service Bus topic
+                Queue<ServiceBusMessage> messages = CreateMessages();
+
+                // total number of messages to be sent to the Service Bus topic
+                int messageCount = messages.Count;
+
+                // while all messages are not sent to the Service Bus topic
+                while (messages.Count > 0)
+                {
+                    // start a new batch 
+                    using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+
+                    // add the first message to the batch
+                    if (messageBatch.TryAddMessage(messages.Peek()))
+                    {
+                        // dequeue the message from the .NET queue once the message is added to the batch
+                        messages.Dequeue();
+                    }
+                    else
+                    {
+                        // if the first message can't fit, then it is too large for the batch
+                        throw new Exception($"Message {messageCount - messages.Count} is too large and cannot be sent.");
+                    }
+
+                    // add as many messages as possible to the current batch
+                    while (messages.Count > 0 && messageBatch.TryAddMessage(messages.Peek()))
+                    {
+                        // dequeue the message from the .NET queue as it has been added to the batch
+                        messages.Dequeue();
+                    }
+
+                    // now, send the batch
+                    await sender.SendMessagesAsync(messageBatch);
+
+                    // if there are any remaining messages in the .NET queue, the while loop repeats 
+                }
+
+                Console.WriteLine($"Sent a batch of {messageCount} messages to the topic: {topicName}");
+            }
+        }
+
+        static async Task Main()
+        {
+            // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+            // of the application, which is best practice when messages are being published or read
+            // regularly.
+            //
+            // Create the clients that we'll use for sending and processing messages.
+            client = new ServiceBusClient(connectionString);
+            sender = client.CreateSender(topicName);
+
+            try
+            {
+                // send a batch of messages to the topic
+                await SendMessages();
+            }
+            finally
+            {
+                // Calling DisposeAsync on client types is required to ensure that network
+                // resources and other unmanaged objects are properly cleaned up.
+                await sender.DisposeAsync();
+                await client.DisposeAsync();
+            }
+
+            Console.WriteLine("Press any key to end the application");
+            Console.ReadKey();
+        }
+    }
+}
+
+```
 
 ## Receive messages from a subscription
 
