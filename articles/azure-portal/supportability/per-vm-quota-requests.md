@@ -51,7 +51,7 @@ To request a standard vCPU quota increase per VM series from **Help + support**:
 
     ![Create a new support request](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-3. For **Issue type**, select **Service and subscription limits (quotas)**.
+3. For **Summary**, enter a concise description for your issue. For **Issue type**, select **Service and subscription limits (quotas)**.
 
    ![Select an issue type](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
