@@ -202,5 +202,8 @@ az disk-pool iscsi-target update --name $targetName \
  --resource-group $resourceGroupName \
  --luns name=$lunName managed-disk-azure-resource-id=$diskId
 ```
-
 ---
+
+## Next steps
+
+[Manage a disk pool](disks-pools-manage.md)

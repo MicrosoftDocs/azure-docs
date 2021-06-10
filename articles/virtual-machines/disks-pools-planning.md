@@ -4,7 +4,7 @@ description: Learn how to approach an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 06/10/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -51,5 +51,4 @@ As an example, if we provisioned two 1 TiB premium SSDs (P30, with a provisioned
 
 ## Next steps
 
-- [Write concepts](contribute-how-to-write-concept.md)
-- [Links](links-how-to.md)
+[Deploy a disk pool](disks-pools-deploy.md).

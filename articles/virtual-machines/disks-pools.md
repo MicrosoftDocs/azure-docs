@@ -4,7 +4,7 @@ description: Learn about Azure disk pools.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 06/10/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -61,3 +61,4 @@ See the Azure pricing calculator for regional pricing on VMs and disks to evalua
 
 ## Next steps
 
+See the [disk pools planning guide](disks-pools-planning.md).
