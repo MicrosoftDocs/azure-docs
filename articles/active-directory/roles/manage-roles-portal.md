@@ -114,7 +114,7 @@ Follow these steps to assign Azure AD roles using PowerShell.
 1. Use [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment) to assign the role.
 
     ```powershell
-    $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+    $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
     ```
 
 ## Next steps
