@@ -42,6 +42,10 @@ These are the currently supported sign-in methods:
 
 Windows Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure Active Directory (AD), including those federated using Active Directory Federation Services (ADFS). Since users must be discoverable through Azure AD, Windows Virtual Desktop doesn't support standalone Active Directory deployments with ADFS.
 
+### UPN mismatch
+
+When using hybrid identities, it is possible that the User Principal Name (UPN) doesn't match between Active Directory and Azure Active Directory. For example, the AD account user@contoso.local may correspond to user@contoso.com in Azure AD. This configuration is supported with Azure Virtual Desktop, however the Security Identifier (SID) must match between Active Directory and Azure Active Directory.
+
 ## Cloud-only identity
 
 Windows Virtual Desktop supports cloud-only identities when using [Azure AD joined VMs](deploy-azure-ad-joined-vm.md).
