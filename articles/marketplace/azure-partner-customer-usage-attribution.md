@@ -248,7 +248,7 @@ Learn about the support options in the commercial marketplace at [Support for th
 1. Enter a title and a detailed description of the problem.
 1. Select **Submit**.
 
-View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
+View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](/partner-center/technical-benefits).
 
 You will be contacted by a Microsoft Partner Technical Consultant to set up a call to scope your needs.
 

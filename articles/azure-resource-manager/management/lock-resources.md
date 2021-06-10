@@ -190,7 +190,7 @@ To create a resource group and lock it, deploy the following template at the sub
 
 # [Bicep](#tab/bicep)
 
-The main Bicep file creates a resource group and uses a [module](../templates/bicep-modules.md) to create the lock.
+The main Bicep file creates a resource group and uses a [module](../bicep/modules.md) to create the lock.
 
 ```Bicep
 targetScope = 'subscription'

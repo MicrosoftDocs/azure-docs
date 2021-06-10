@@ -164,7 +164,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## Next steps
 
-- [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
-- [Use Azure AD with storage applications](storage-auth-aad-app.md).
+- [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md)
+- [Use Azure AD with storage applications](storage-auth-aad-app.md)
 - [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md)
 - [Tutorial: Access storage from App Service using managed identities](../../app-service/scenario-secure-app-access-storage.md)
