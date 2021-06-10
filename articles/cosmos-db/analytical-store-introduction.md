@@ -91,13 +91,19 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * Only the first 1000 properties are represented in the analytical store.
   * Only the first 127 nested levels are represented in the analytical store.
   * The first level of a JSON document is its `/` root level.
+  * Properties in the first level of the document will be represented as columns.
+
 
 * Sample scenarios:
- * If your first level has 2000 properties, only the first 1000 will be represented.
- * If you have 5 levels with 200 properties in each one, all properties will be represented.
- * If you have 10 levels with 400 properties in each one, only the 2 first levels will be fully represented in analytical store. Half of the third level will also be represented.
+ * If your document's first level has 2000 properties, only the first 1000 will be represented.
+ * If your documents have 5 levels with 200 properties in each one, all properties will be represented.
+ * If your documents have 10 levels with 400 properties in each one, only the 2 first levels will be fully represented in analytical store. Half of the third level will also be represented.
 
-* The hypothetical document below contains 4 properties and 3 levels. 
+* The hypothetical document below contains 4 properties and 3 levels.
+ * The levels are `root`, `myArray`, and the nested structure within the `myArray`.
+ * The properties are `id`, `myArray`, `myArray.nested1` and `myArray.nested2`.
+ * The analytical store representation will have 2 columns, `id` and `myArray`. You can use Spark or T-SQL functions to also expose the nested structures as columns.
+
 
 ```json
 {
@@ -112,10 +118,6 @@ The following constraints are applicable on the operational data in Azure Cosmos
   ]
 }
 ```
-The levels are `root`, `myArray`, and the nested structure within the `myArray`.
-The properties are `id`, `myArray`, `myArray.nested1` and `myArray.nested2`.
-The analytical store representation will have 2 columns, `id` and `myArray`. You can use Spark or T-SQL functions to also expose the nested structures as columns.
-
 
 * While JSON documents (and Cosmos DB collections/containers) are case sensitive from the uniqueness perspective, analytical store is not.
 
@@ -136,7 +138,6 @@ The analytical store representation will have 2 columns, `id` and `myArray`. You
 
 
 * The first document of the collection defines the initial analytical store schema.
-  * Properties in the first level of the document will be represented as columns.
   * Documents with more properties than the initial schema will generate new columns in analytical store.
   * Columns can't be removed.
   * The deletion of all documents in a collection doesn't reset the analytical store schema.
