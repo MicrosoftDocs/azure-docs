@@ -33,7 +33,7 @@ Here you can see the:
 
 - Total number of devices
 - The number of important devices
-- How many new devices you have
+- The number of new devices
 - The total number inactive devices
 - A count of the devices by class
 - A count of the devices by type
@@ -79,15 +79,15 @@ The following table describes the table columns in the device inventory.
 
 ## Customize the device inventory table 
 
-In the device inventory table you can add or remove columns. You can also change the column order by dragging and dropping a field.
+In the device inventory table, you can add or remove columns. You can also change the column order by dragging and dropping a field.
 
 **To customize the device inventory table**:
 
 1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: button.
 
-1. In the Edit columns tab, select the drop down menu to change the value of a column.
+1. In the Edit columns tab, select the drop-down menu to change the value of a column.
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-drop-down-menu.png" alt-text="Select the drop down menu to change the value of a given column.":::
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-drop-down-menu.png" alt-text="Select the drop-down menu to change the value of a given column.":::
 
 1. Add a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-column-icon.png" border="false"::: button.
 
@@ -140,7 +140,7 @@ Below is a list of filters that can be applied to the device inventory table.
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter.png" alt-text="Select  the add filter button to specify what you want to appear in the device inventory.":::
 
-1. In the Add filter window select the column drop down menu to choose which column to filter.
+1. In the Add filter window, select the column drop-down menu to choose which column to filter.
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter-window.png" alt-text="Select which column you want to filter in the device inventory.":::
 
@@ -148,7 +148,7 @@ Below is a list of filters that can be applied to the device inventory table.
 
 1. Select the **Apply button**.
 
-You can add as many filters as you want. The filters are not saved when you leave the Device inventory page.
+Multiple filters can be applied at one time. The filters are not saved when you leave the Device inventory page.
 
 ## View device information
 
@@ -158,6 +158,6 @@ To view a specific devices information, select the device and the device informa
 
 ## Export the device inventory to CSV
 
-At any point you can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
+You can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
 
 Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
