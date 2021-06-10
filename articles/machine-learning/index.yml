@@ -58,7 +58,8 @@ landingContent:
           - text: Collaborate on experiments
             url: collaboration-guide.md      
             
-  - title: 'Reference docs'            
+  - title: 'Reference docs'      
+    linkLists:
       - linkListType: reference
         links:
           - text: Python SDK
