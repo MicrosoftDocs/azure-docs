@@ -757,7 +757,7 @@ Secure enterprise search connector for reliably indexing content from Atlassian 
 
 by [BA Insight](https://www.bainsight.com/)
 
-The CuadraSTAR Connector crawls content in CuadraSTAR and creates a single index that makes it possible to use Azure Cogntivie Search to find relevant information within CuadraSTAR, and over 70 other supported repositories, eliminating the need to perform separate searches.
+The CuadraSTAR Connector crawls content in CuadraSTAR and creates a single index that makes it possible to use Azure Cognitive Search to find relevant information within CuadraSTAR, and over 70 other supported repositories, eliminating the need to perform separate searches.
 
 [More details](https://www.bainsight.com/connectors/cuadrastar-connector-sharepoint-azure-elasticsearch/)
 
@@ -881,7 +881,7 @@ The Elasticsearch connector will crawl content from an Elasticsearch index, allo
 
 by [BA Insight](https://www.bainsight.com/)
 
-BA Insight's Elite Connector provides a single point of access for lawyers to access firm content and knowledge in line with Elite content using Azure Cogntivie Search.
+BA Insight's Elite Connector provides a single point of access for lawyers to access firm content and knowledge in line with Elite content using Azure Cognitive Search.
 
 [More details](https://www.bainsight.com/connectors/elite-connector-sharepoint-azure-elasticsearch/)
 
@@ -1031,7 +1031,7 @@ Secure enterprise search connector for reliably indexing content from GitLab and
 
 by [BA Insight](https://www.bainsight.com/)
 
-The Google Cloud SQL Connector indexes content from Google Cloud SQL into the Azure Cogntivie Search index surfacing it through BA Insight's SmartHub to provide users with integrated search results.
+The Google Cloud SQL Connector indexes content from Google Cloud SQL into the Azure Cognitive Search index surfacing it through BA Insight's SmartHub to provide users with integrated search results.
 
 [More details](https://www.bainsight.com/connectors/google-cloud-sql-connector-sharepoint-azure-elasticsearch/)
 
@@ -1457,7 +1457,7 @@ The LexisNexis InterAction Connector makes it easier for lawyers and other firm 
 
 by [BA Insight](https://www.bainsight.com/) 
 
-With the IBM Notes Database Connector, users have the ability to find content stored in Notes databases using Azure Cogntivie Search. Security defined within IBM Notes is automatically reflected in the search experience, which ensures that users see content for which they are authorized. Ultimately, users can find everything they need in one place.
+With the IBM Notes Database Connector, users have the ability to find content stored in Notes databases using Azure Cognitive Search. Security defined within IBM Notes is automatically reflected in the search experience, which ensures that users see content for which they are authorized. Ultimately, users can find everything they need in one place.
 
 [More details](https://www.bainsight.com/connectors/ibm-lotus-notes-connector-sharepoint-azure-elasticsearch/)
 
@@ -1481,7 +1481,7 @@ With the IBM Notes Database Connector, users have the ability to find content st
 
 by [BA Insight](https://www.bainsight.com/)
 
-BA Insight's MediaPlatform PrimeTime indexing connector makes it possible to make the content accessible to users via an organization's enterprise search platform, combining the connector with BA Insight's SmartHub. The BA Insight MediaPlatform PrimeTime Connector retrieves information about channels and videos from MediaPlatform PrimeTime and indexes them via Azure Cogntivie Search.
+BA Insight's MediaPlatform PrimeTime indexing connector makes it possible to make the content accessible to users via an organization's enterprise search platform, combining the connector with BA Insight's SmartHub. The BA Insight MediaPlatform PrimeTime Connector retrieves information about channels and videos from MediaPlatform PrimeTime and indexes them via Azure Cognitive Search.
 
 [More details](https://www.bainsight.com/connectors/mediaplatform-primetime-connector-sharepoint-azure-elasticsearch/)
 
@@ -1681,7 +1681,7 @@ The MySQL connector is built upon industry standard database access methods, so 
 
 by [BA Insight](https://www.bainsight.com/)
 
-The NetDocuments Connector indexes content stored in NetDocs so that users can search and retrieve NetDocuments content directly from within their portal. The connector applies document security in NetDocs to Azure Cogntivie Search automatically, so user information remains secure. Metadata stored in NetDocuments can be mapped to equivalent terms so that users have a seamless search experience.
+The NetDocuments Connector indexes content stored in NetDocs so that users can search and retrieve NetDocuments content directly from within their portal. The connector applies document security in NetDocs to Azure Cognitive Search automatically, so user information remains secure. Metadata stored in NetDocuments can be mapped to equivalent terms so that users have a seamless search experience.
 
 [More details](https://www.bainsight.com/connectors/netdocuments-connector-sharepoint-azure-elasticsearch/)
 
@@ -1731,7 +1731,7 @@ Secure enterprise search connector for reliably indexing content from IBM Notes 
 
 by [BA Insight](https://www.bainsight.com/)
 
-The Nuxeo connector lets organizations index their Nuxeo content, including both security information and standard and custom metadata set on content into Azure Cogntivie Search alongside content present in Office 365. Ultimately, users can find everything they need in one place.
+The Nuxeo connector lets organizations index their Nuxeo content, including both security information and standard and custom metadata set on content into Azure Cognitive Search alongside content present in Office 365. Ultimately, users can find everything they need in one place.
 
 [More details](https://www.bainsight.com/indexing-connectors/)
 
@@ -1807,7 +1807,7 @@ Secure enterprise search connector for reliably indexing content from OpenText C
 
 by [BA Insight](https://www.bainsight.com/)
 
-BA Insight's Documentum Connector securely indexes both the full text and metadata of Documentum objects into Azure Cogntivie Search, enabling a single searchable result set across content from multiple repositories. This is unlike some other connectors that surface Documentum records with Azure Cogntivie Search one at a time for process management.
+BA Insight's Documentum Connector securely indexes both the full text and metadata of Documentum objects into Azure Cognitive Search, enabling a single searchable result set across content from multiple repositories. This is unlike some other connectors that surface Documentum records with Azure Cognitive Search one at a time for process management.
 
 [More details](https://www.bainsight.com/connectors/documentum-connector-sharepoint-azure-elasticsearch/)
 
@@ -1857,7 +1857,7 @@ Secure enterprise search connector for reliably indexing content from OpenText 
 
 by [BA Insight](https://www.bainsight.com/)
 
-Users of the OpenText eDOCS DM Connector can search for content housed in eDOCS repositories directly from within Azure Cogntivie Search, eliminating the need to perform multiple searches to locate needed content. Security established within eDOCS is maintained by the connector to make certain that content is only seen by those who have been granted access.
+Users of the OpenText eDOCS DM Connector can search for content housed in eDOCS repositories directly from within Azure Cognitive Search, eliminating the need to perform multiple searches to locate needed content. Security established within eDOCS is maintained by the connector to make certain that content is only seen by those who have been granted access.
 
 [More details](https://www.bainsight.com/connectors/edocs-dm-connector-sharepoint-azure-elasticsearch/)
 
@@ -1931,7 +1931,7 @@ Secure enterprise search connector for reliably indexing content from Oracle Kno
 
 by [BA Insight](https://www.bainsight.com/)
 
-The WebCenter Connector integrates WebCenter with Azure Cogntivie Search, making it easier for users throughout the organization to find important information stored in WebCenter without the need to directly log in and do a separate search.
+The WebCenter Connector integrates WebCenter with Azure Cognitive Search, making it easier for users throughout the organization to find important information stored in WebCenter without the need to directly log in and do a separate search.
 
 [More details](https://www.bainsight.com/connectors/oracle-webcenter-connector-sharepoint-azure-elasticsearch/)
 
@@ -1944,7 +1944,7 @@ The WebCenter Connector integrates WebCenter with Azure Cogntivie Search, making
 
 by [BA Insight](https://www.bainsight.com/)
 
-The WebCenter Content Connector fully supports the underlying security of all content made available to Azure Cogntivie Search and keeps this content up to date via scheduled crawls, ensuring users get the most recent updates when doing a search.
+The WebCenter Content Connector fully supports the underlying security of all content made available to Azure Cognitive Search and keeps this content up to date via scheduled crawls, ensuring users get the most recent updates when doing a search.
 
 [More details](https://www.bainsight.com/connectors/oracle-webcenter-content-connector-sharepoint-azure-elasticsearch/)
 
@@ -1981,7 +1981,7 @@ Secure enterprise search connector for reliably indexing content from pirobase C
 
 by [BA Insight](https://www.bainsight.com/)
 
-BA Insight's PostgreSQL Connector honors the security of the source database and provides full and incremental crawls, so users always have the latest information available. It indexes content from PostgreSQL into Azure Cogntivie Search, surfacing it through BA Insight's SmartHub to provide users with integrated search results.
+BA Insight's PostgreSQL Connector honors the security of the source database and provides full and incremental crawls, so users always have the latest information available. It indexes content from PostgreSQL into Azure Cognitive Search, surfacing it through BA Insight's SmartHub to provide users with integrated search results.
 
 [More details](https://www.bainsight.com/connectors/postgresql-connector-connector-sharepoint-azure-elasticsearch/)
 
@@ -2094,7 +2094,7 @@ The Salesforce connector will crawl content from a Salesforce repository. The co
 
 by [BA Insight](https://www.bainsight.com/)
 
-The Salesforce Connector integrates Salesforce's Service, Sales, and Marketing Cloud with Azure Cogntivie Search, making all the content within Salesforce available to all employees through this portal.
+The Salesforce Connector integrates Salesforce's Service, Sales, and Marketing Cloud with Azure Cognitive Search, making all the content within Salesforce available to all employees through this portal.
 
 [More details](https://www.bainsight.com/connectors/salesforce-connector-sharepoint-azure-elasticsearch/)
 
@@ -2157,7 +2157,7 @@ BA Insight's SAP ERP (Cloud Version) Connector is designed to bring items from S
 
 by [BA Insight](https://www.bainsight.com/)
 
-The SAP HANA Connector honors the security of the source database and provides both full and incremental crawls, so users always have the latest information available to them. It indexes content from SAP HANA into Azure Cogntivie Search, surfacing it through BA Insight's SmartHub to provide users with integrated search results.
+The SAP HANA Connector honors the security of the source database and provides both full and incremental crawls, so users always have the latest information available to them. It indexes content from SAP HANA into Azure Cognitive Search, surfacing it through BA Insight's SmartHub to provide users with integrated search results.
 
 [More details](https://www.bainsight.com/connectors/sap-hana-connector-sharepoint-azure-elasticsearch/)
 
@@ -2607,7 +2607,7 @@ The Twitter connector will crawl content from any twitter account. It performs f
 
 by [BA Insight](https://www.bainsight.com/)
 
-BA Insight's Veeva Vault Connector securely indexes both the full text and metadata of Veeva Vault objects into Azure Cogntivie Search. This enables users to retrieve a single result set for content within Veeva Vault and Microsoft 365.
+BA Insight's Veeva Vault Connector securely indexes both the full text and metadata of Veeva Vault objects into Azure Cognitive Search. This enables users to retrieve a single result set for content within Veeva Vault and Microsoft 365.
 
 [More details](https://www.bainsight.com/connectors/veeva-vault-connector-sharepoint-azure-elasticsearch/)
 
@@ -2707,7 +2707,7 @@ Secure enterprise search connector for reliably indexing content from windream E
 
 by [BA Insight](https://www.bainsight.com/)
 
-search for content housed in Docushare repositories directly from within Azure Cogntivie Search, eliminating the need to perform multiple searches to locate needed content.
+search for content housed in Docushare repositories directly from within Azure Cognitive Search, eliminating the need to perform multiple searches to locate needed content.
 
 [More details](https://www.bainsight.com/connectors/docushare-connector-sharepoint-azure-elasticsearch/)
 
