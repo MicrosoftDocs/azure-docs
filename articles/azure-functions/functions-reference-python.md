@@ -643,9 +643,11 @@ You can use a Python worker extension library in your Python functions by follow
 
 1. Add the extension package in the requirements.txt file for your project.
 1. Install the library into your app.
-1. Add the application setting `PYTHON_ENABLE_WORKER_EXTENSIONS = 1` either in the `Values` array in your [local.settings.json file](functions-run-local.md?tabs=python#local-settings-file) or in your [app settings in Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+1. Add the application setting `PYTHON_ENABLE_WORKER_EXTENSIONS`:
+    + Locally: add `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` in the `Values` array in your [local.settings.json file](functions-run-local.md?tabs=python#local-settings-file)
+    + Azure: add `PYTHON_ENABLE_WORKER_EXTENSIONS=1` to your [app settings](functions-how-to-use-azure-function-app-settings.md#settings).
 1. Import the extension module into your function trigger. 
-1. Configure the extension instance. Configuration requirements should be called-out in the extension's documentation. 
+1. Configure the extension instance, if needed. Configuration requirements should be called-out in the extension's documentation. 
 
 > [!IMPORTANT]
 > Third-party Python worker extension libraries are not supported or warrantied by Microsoft. You must make sure that any extensions you use in your function app is trustworthy, and you bear the full risk of using a malicious or poorly written extension. 

@@ -138,7 +138,7 @@ Now that you've created an extension, you can use it in an app project to verify
     ```
 
     In this example, replace `<PYTHON_WORKER_EXTENSION_ROOT>` with the file location of your extension project.   
-    When a customer uses your extension, they'll instead add your extension package location to the requirements.txt file, as in the  following examples:
+    When a customer uses your extension, they'll instead add your extension package location to the requirements.txt file, as in the following examples:
 
     # [PyPI](#tab/pypi)
     ```python
@@ -153,7 +153,7 @@ Now that you've created an extension, you can use it in an app project to verify
     ```
     ---
 
-1. Open the local.settings.json project file and add the following value to the `Values` array:
+1. Open the local.settings.json project file and add the following field to `Values`:
 
     ```json
     "PYTHON_ENABLE_WORKER_EXTENSIONS": "1" 
@@ -229,7 +229,9 @@ For more information about VCS support in pip, see the [official pip VCS support
 
 ## Examples
 
-OpenCensus integration is an open-source project that uses the extension interface to integrate telemetry tracing in Azure Functions Python apps. See the [opencensus-python-extensions-azure](https://github.com/census-ecosystem/opencensus-python-extensions-azure/tree/main/extensions/functions) repository to review the implementation of this Python worker extension.
++ You can view completed sample extension project from this article in the [python_worker_extension_timer](https://github.com/Azure-Samples/python-worker-extension-timer) sample repository. 
+
++ OpenCensus integration is an open-source project that uses the extension interface to integrate telemetry tracing in Azure Functions Python apps. See the [opencensus-python-extensions-azure](https://github.com/census-ecosystem/opencensus-python-extensions-azure/tree/main/extensions/functions) repository to review the implementation of this Python worker extension.
 
 ## Next steps
 
