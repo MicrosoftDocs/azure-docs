@@ -4,8 +4,6 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice: 
 ms.topic: overview
-author: mgoedtel
-ms.author: magoedte
 ms.date: 06/09/2021
 ms.custom: references_regions
 ---
@@ -313,7 +311,7 @@ Azure Automation region mapping updated to support Update Management feature in 
 
 Azure Automation DNS records have been updated to support Private Links. For more information, read the [announcement](https://azure.microsoft.com/updates/azure-automation-updateddns-records/).
 
-### Added capability to keep Automation runbooks, and DSC scripts encrypted by default
+### Added capability to keep Automation runbooks and DSC scripts encrypted by default
 
 **Type:** New feature
 
