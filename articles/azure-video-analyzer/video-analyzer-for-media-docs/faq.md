@@ -99,7 +99,9 @@ If there are multiple audio streams, Video Analyzer for Media takes the first on
 
 ### Can a storage account connected to the Media Services account be behind a firewall?
 
-Your paid Video Analyzer for Media account uses the specified Media Services account that is connected to a storage account. Currently, to use the connected storage account that is behind firewall, you need to contact Video Analyzer for Media support and they will give the exact directions.  
+Your paid Video Analyzer for Media account uses the specified Media Services account that is connected to a storage account. Currently, to use the connected storage account that is behind firewall, you need to contact Video Analyzer for Media support and they will give the exact directions. 
+
+To open a new support request on Azure portal, navigate to [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ### What is the SLA for Video Analyzer for Media?
 
