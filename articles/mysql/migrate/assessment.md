@@ -17,7 +17,7 @@ Before jumping right into migrating a MySQL workload, there's a fair amount of d
 
 ### Limitations
 
-Azure Database for MySQL is a fully supported version of the MySQL community edition running as a platform as a service. However, there are [some limitations](/azure/mysql/concepts-limits) to become familiar with when doing an initial assessment.
+Azure Database for MySQL is a fully supported version of the MySQL community edition running as a platform as a service. However, there are [some limitations](../concepts-limits.md) to become familiar with when doing an initial assessment.
 
 The most important of which include:
 
@@ -35,7 +35,7 @@ Many of the other items are operational aspects that administrators should becom
 
 ### MySQL Versions
 
-MySQL has a rich history starting in 1995. Since then, it has evolved into a widely used database management system. Azure Database for MySQL started with the support of MySQL version 5.6 and has continued to 5.7 and recently 8.0. For the latest on Azure Database for MySQL version support, reference [Supported Azure Database for MySQL server versions.](/azure/mysql/concepts-supported-versions) In the Post Migration Management section, we review how upgrades (such as 5.7.20 to 5.7.21) are applied to the MySQL instances in Azure.
+MySQL has a rich history starting in 1995. Since then, it has evolved into a widely used database management system. Azure Database for MySQL started with the support of MySQL version 5.6 and has continued to 5.7 and recently 8.0. For the latest on Azure Database for MySQL version support, reference [Supported Azure Database for MySQL server versions.](../concepts-supported-versions.md) In the Post Migration Management section, we review how upgrades (such as 5.7.20 to 5.7.21) are applied to the MySQL instances in Azure.
 
 > [!NOTE]
 > The jump from 5.x to 8.0 was largely due to the Oracle acquisition of MySQL. To read more about MySQL history, navigate to the [MySQL wiki page. ](https://en.wikipedia.org/wiki/MySQL)
@@ -145,7 +145,7 @@ SELECT * FROM mysql.func;
 
 The amount of migration preparation can vary depending on the source system and its location. In addition to the database objects, consider how to get the data from the source system to the target system. Migrating data can become challenging when firewalls and other networking components are between the source and target.
 
-Additionally, moving data over the Internet can be slower than using dedicated circuits to Azure. Therefore, when moving many gigabytes, terabytes, and petabytes of data, consider setting up an [ExpressRoute](/azure/expressroute/expressroute-introduction) connection between the source network and the Azure network.
+Additionally, moving data over the Internet can be slower than using dedicated circuits to Azure. Therefore, when moving many gigabytes, terabytes, and petabytes of data, consider setting up an [ExpressRoute](../../expressroute/expressroute-introduction.md) connection between the source network and the Azure network.
 
 If ExpressRoute is already present, it's likely that connection is being used by other applications. Performing a migration over an existing route can cause strain on the network throughput and potentially cause a significant performance hit for both the migration and other applications using the network.
 
@@ -165,17 +165,17 @@ Many tools and methods can be used to assess the MySQL data workloads and enviro
 
 #### Azure Migrate
 
-Although [Azure Migrate](/azure/migrate/migrate-services-overview) doesn't support migrating MySQL database workloads directly, it can be used when administrators are unsure of what users and applications are consuming the data, whether hosted in a virtual or hardware-based machine. [Dependency analysis](/azure/migrate/concepts-dependency-visualization) can be accomplished by installing and running the monitoring agent on the machine hosting the MySQL workload. The agent will gather the information over a set period, such as a month. The dependency data can be analyzed to find unknown connections being made to the database. The connection data can help identify application owners that need to be notified of the pending migration.
+Although [Azure Migrate](../../migrate/migrate-services-overview.md) doesn't support migrating MySQL database workloads directly, it can be used when administrators are unsure of what users and applications are consuming the data, whether hosted in a virtual or hardware-based machine. [Dependency analysis](../../migrate/concepts-dependency-visualization.md) can be accomplished by installing and running the monitoring agent on the machine hosting the MySQL workload. The agent will gather the information over a set period, such as a month. The dependency data can be analyzed to find unknown connections being made to the database. The connection data can help identify application owners that need to be notified of the pending migration.
 
-In addition to the dependency analysis of applications and user connectivity data, Azure Migrate can also be used to analyze the [Hyper-V, VMware, or physical servers](/azure/migrate/migrate-appliance-architecture) to provide utilization patterns of the database workloads to help suggest the proper target environment.
+In addition to the dependency analysis of applications and user connectivity data, Azure Migrate can also be used to analyze the [Hyper-V, VMware, or physical servers](../../migrate/migrate-appliance-architecture.md) to provide utilization patterns of the database workloads to help suggest the proper target environment.
 
 #### Telgraf for Linux
 
-Linux workloads can utilize the [Microsoft Monitoring Agent (MMA)](/azure/azure-monitor/platform/agent-linux) to gather data on your virtual and physical machines. Additionally, consider using the [Telegraf agent](/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf) and its wide array of plugins to gather your performance metrics.
+Linux workloads can utilize the [Microsoft Monitoring Agent (MMA)](../../azure-monitor/agents/agent-linux.md) to gather data on your virtual and physical machines. Additionally, consider using the [Telegraf agent](../../azure-monitor/essentials/collect-custom-metrics-linux-telegraf.md) and its wide array of plugins to gather your performance metrics.
 
 #### Service Tiers
 
-Equipped with the assessment information (CPU, memory, storage, etc.), the migration user's next choice is to decide on which Azure Database for MySQL [pricing tier](/azure/mysql/concepts-pricing-tiers) to start using.
+Equipped with the assessment information (CPU, memory, storage, etc.), the migration user's next choice is to decide on which Azure Database for MySQL [pricing tier](../concepts-pricing-tiers.md) to start using.
 
 There are currently three tiers:
 
@@ -185,7 +185,7 @@ There are currently three tiers:
 
   - **Memory Optimized** : High-performance database workloads requiring in-memory performance for faster transaction processing and higher concurrency.
 
-The tier decision can be influenced by the RTO and RPO requirements of the data workload. When the data workload requires over 4 TB of storage, an extra step is required. Review and select [a region that supports](/azure/mysql/concepts-pricing-tiers#storage) up to 16 TB of storage.
+The tier decision can be influenced by the RTO and RPO requirements of the data workload. When the data workload requires over 4 TB of storage, an extra step is required. Review and select [a region that supports](../concepts-pricing-tiers.md#storage) up to 16 TB of storage.
 
 > [!NOTE]
 > Contact the MySQL team (AskAzureDBforMySQL@service.microsoft.com) for regions that don't support your storage requirements.
@@ -200,7 +200,7 @@ Typically, the decision-making will focus on the storage and IOPS, or Input/outp
 
 #### Costs
 
-After evaluating the entire WWI MySQL data workloads, WWI determined they would need at least 4 vCores and 20 GB of memory and at least 100 GB of storage space with an IOP capacity of 450 IOPS. Because of the 450 IOPS requirement, they need to allocate at least 150 GB of storage because of [Azure Database for MySQL IOPs allocation method.](/azure/mysql/concepts-pricing-tiers#storage) Additionally, they require at least up to 100% of your provisioned server storage as backup storage and one read replica. They don't anticipate an outbound egress of more than 5 GB.
+After evaluating the entire WWI MySQL data workloads, WWI determined they would need at least 4 vCores and 20 GB of memory and at least 100 GB of storage space with an IOP capacity of 450 IOPS. Because of the 450 IOPS requirement, they need to allocate at least 150 GB of storage because of [Azure Database for MySQL IOPs allocation method.](../concepts-pricing-tiers.md#storage) Additionally, they require at least up to 100% of your provisioned server storage as backup storage and one read replica. They don't anticipate an outbound egress of more than 5 GB.
 
 Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/en-us/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database:
 
@@ -213,7 +213,7 @@ Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.
 | **Network**                   | < 5GB/month egress                | Free                                                        |               |
 | **Total**                     |                                   |                                                             | $6563.52 / yr |
 
-After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a period much longer than 3 years. They decided to use 3-year [reserve instances](/azure/mysql/concept-reserved-pricing) to save an extra \~$4K/yr:
+After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a period much longer than 3 years. They decided to use 3-year [reserve instances](../concept-reserved-pricing.md) to save an extra \~$4K/yr:
 
 | Resource                  | Description                       | Quantity                                                     | Cost         |
 |---------------------------|-----------------------------------|--------------------------------------------------------------|--------------|
@@ -227,7 +227,7 @@ After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a p
 As the table above shows, backups, network egress, and any read replicas must be considered in the total cost of ownership (TCO). As more databases are added, the storage and network traffic generated would be the only extra cost-based factor to consider.
 
 > [!NOTE]
-> The estimates above don't include any [ExpressRoute,](/azure/expressroute/expressroute-introduction) [Azure App Gateway,](/azure/application-gateway/overview) [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) or [App Service](/azure/app-service/overview) costs for the application layers.
+> The estimates above don't include any [ExpressRoute,](../../expressroute/expressroute-introduction.md) [Azure App Gateway,](../../application-gateway/overview.md) [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) or [App Service](../../app-service/overview.md) costs for the application layers.
 >
 > The above pricing can change at any time and will vary based on region.
 
@@ -238,7 +238,7 @@ When moving to Azure Database for MySQL, the conversion to secure sockets layer 
 > [!NOTE]
 > Although SSL is enabled by default, you do have the option to disable it.
 
-Follow the activities in [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](/azure/mysql/howto-configure-ssl) to reconfigure the application to support this strong authentication path.
+Follow the activities in [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../howto-configure-ssl.md) to reconfigure the application to support this strong authentication path.
 
 Lastly, modify the server name in the application connection strings or switch the DNS to point to the new Azure Database for MySQL server.
 

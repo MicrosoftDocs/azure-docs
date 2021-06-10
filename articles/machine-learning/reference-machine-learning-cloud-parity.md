@@ -1,7 +1,7 @@
 ---
-title: Parity between public and sovereign regions
+title: Feature availability across cloud regions
 titleSuffix: Azure Machine Learning
-description: This article lists feature parity between public cloud and the Azure Government, Azure Germany, and Azure China 21Vianet regions.
+description: This article lists feature availability differences between public cloud and the Azure Government, Azure Germany, and Azure China 21Vianet regions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,24 +10,20 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 12/21/2020
+ms.date: 06/10/2021
 ms.custom: references_regions
 ---
 
-# Azure Machine Learning sovereign cloud parity
+# Azure Machine Learning feature availability across clouds regions
 
-Learn what Azure Machine Learning features are available in sovereign cloud regions. 
+Learn what Azure Machine Learning features are available in the Azure Government, Azure Germany, and Azure China 21Vianet regions. 
 
-In the list of global Azure regions, there are several 'sovereign' regions that serve specific markets. For example, the Azure Government and the Azure China 21Vianet regions. Currently Azure Machine Learning is deployed into the following sovereign cloud regions:
+In the list of global Azure regions, there are several regions that serve specific markets in addition to the public cloud regions. For example, the Azure Government and the Azure China 21Vianet regions. Azure Machine Learning is deployed into the following regions, in addition to public cloud regions:
 
 * Azure Government regions **US-Arizona** and **US-Virginia**.
 * Azure China 21Vianet region **China-East-2**.
 
-> [!TIP]
-> To differentiate between sovereign and non-sovereign regions, this article will use the term __public cloud__ to refer to non-sovereign regions.
-
-We aim to provide maximum parity between our public cloud and sovereign regions. All Azure Machine Learning features will be available in these regions within **30 days of GA** (general availability) in our public cloud. We also enable a select number of preview features in these regions. Below display the current parity differences between our sovereign and public clouds.
-
+The information in the rest of this document provides information on what features of Azure Machine Learning are available in these regions, along with region-specific information on using these features.
 ## Azure Government	
 
 | Feature | Public cloud status  | US-Virginia | US-Arizona| 
@@ -127,14 +123,14 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 
 
 
-### Additional Azure Government limitations
+### Other Azure Government limitations
 
 * For Azure Machine Learning compute instances, the ability to refresh a token lasting more than 24 hours is not available in Azure Government.
 * Model Profiling does not support 4 CPUs in the US-Arizona region.   
 * Sample notebooks may not work in Azure Government if it needs access to public data.
 * IP addresses: The CLI command used in the [VNet and forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) instead.
-* For scheduled pipelines, we also provide a blob-based trigger mechanism. This mechanism is not supported for CMK workspaces. For enabling a blob-based trigger for CMK workspaces, you have to do additional setup. For more information, see [Trigger a run of a machine learning pipeline from a Logic App](how-to-trigger-published-pipeline.md).
-* Firewalls: When using an Azure Government region, add the following additional hosts to your firewall setting:
+* For scheduled pipelines, we also provide a blob-based trigger mechanism. This mechanism is not supported for CMK workspaces. For enabling a blob-based trigger for CMK workspaces, you have to do extra setup. For more information, see [Trigger a run of a machine learning pipeline from a Logic App](how-to-trigger-published-pipeline.md).
+* Firewalls: When using an Azure Government region, add the following hosts to your firewall setting:
 
     * For Arizona use: `usgovarizona.api.ml.azure.us`
     * For Virginia use: `usgovvirginia.api.ml.azure.us`
@@ -220,7 +216,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 
 
 
-### Additional Azure China limitations
+### Other Azure China limitations
 
 * Azure China has limited VM SKU, especially for GPU SKU. It only has NCv3 family (V100).
 * REST API Endpoints are different from global Azure. Use the following table to find the REST API endpoint for Azure China regions:

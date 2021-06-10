@@ -65,7 +65,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
     - **Resource group**: Choose a resource group to create the Video Analyzer account in or click **Create new** to create a new resource group.
     - **Video Analyzer account name**: This is the name for your Video Analyzer account. The name must be all lowercase letters or numbers with no spaces and 3 to 24 characters in length.
     - **Location**: Choose a location to deploy your Video Analyzer account, for example **West US 2**.
-    - **Storage account**: Create a new storage account. It is recommended to select a [standard general-purpose v2](/azure/storage/common/storage-account-overview#types-of-storage-accounts) storage account.
+    - **Storage account**: Create a new storage account. It is recommended to select a [standard general-purpose v2](../../storage/common/storage-account-overview.md#types-of-storage-accounts) storage account.
     - **User identity**: Create and name a new user-assigned managed identity.
 
 1. Click **Review + create** at the bottom of the form.
@@ -806,4 +806,4 @@ You can try to invoke `pipelineTopologyList` and observe that the module contain
 
 * Try the [quickstart for recording videos to the cloud when motion is detected](detect-motion-record-video-clips-cloud.md)
 * Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)
-* Learn more about [diagnostic messages](monitor-log-edge.md) 
+* Learn more about [diagnostic messages](monitor-log-edge.md)
