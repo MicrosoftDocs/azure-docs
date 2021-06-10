@@ -35,7 +35,7 @@ You can assign permissions to all authenticated Azure AD users and specific Azur
 
 ## Share-level permissions for specific Azure AD users or groups
 
-To assign share level permission to specific Azure AD users or groups, the identity must be hybrid that exists in both AD and Azure AD. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals. Because of this, you must sync the users and groups from your AD to Azure AD using Azure AD Connect sync. 
+The identity used to access Azure file share resources must be a hybrid identity that exists in both on-premises AD DS and Azure AD. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals. Because of this, you must sync the users and groups from your AD to Azure AD using Azure AD Connect sync. 
 
 Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), are not supported with AD DS authentication.
 
