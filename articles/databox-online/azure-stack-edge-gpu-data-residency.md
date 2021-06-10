@@ -23,22 +23,23 @@ Currently the Southeast Asia (Singapore) region is paired with Hong Kong and Bra
 
 Microsoft has made changes to the Azure Stack Edge service so that the service-specific data is stored within a single region only and the service can also be deployed in a single region. This article covers all the changes made to the way the service-specific data is stored and the actions required by the customers to meet the data residency requirements. 
 
-For more information, see [Single data residency for ]().
+For more information, see [Single data residency for Azure services]().
 
-## Summary of data residency changes
+## Summary of data residency behavior
 
-The changes made to the Azure Stack Edge services can be categorized as follows:
+The data residency posture of the Azure Stack Edge services can be categorized as follows:
 
-- Changes to the existing Azure Stack Edge ordering and management.
-- Changes to the new Azure Edge Hardware Center that will be used for new orders going forward.
-- Changes Proactive Support log collection where any logs that the service generates is stored in a single region and is not replicated to the paired region.
+- Existing Azure Stack Edge ordering and management.
+- New Azure Edge Hardware Center that will be used for new orders going forward.
+- Proactive Support log collection where any logs that the service generates are stored in a single region and are not replicated to the paired region.
+- Telemetry for the device and the service.
 
-Azure Stack Edge also integrates with other services and changes were made to the dependent services as well.
+Azure Stack Edge also integrates with other services and behavior of the following dependent services is summarized:
 
-- Changes to Azure IoT Hub and Azure IoT Edge
-- Changes to Azure Key Vault 
-- Changes to Azure Monitor 
-- Changes to Azure Storage accounts
+- Azure IoT Hub and Azure IoT Edge
+- Azure Key Vault 
+- Azure Monitor 
+- Azure Storage accounts
 
 There are also services that are excluded from these data requirements, and these are briefly discussed later in this article.
 
