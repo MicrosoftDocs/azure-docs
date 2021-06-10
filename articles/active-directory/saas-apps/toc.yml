@@ -980,7 +980,7 @@
         href: ipasssmartconnect-tutorial.md
       - name: iPoint Service Provider
         href: ipoint-service-provider-tutorial.md
-      - name: iProva
+      - name: Zenya
         href: iprova-tutorial.md
       - name: IQNavigator VMS
         href: iqnavigatorvms-tutorial.md
@@ -1576,7 +1576,7 @@
         href: reprints-desk-article-galaxy-tutorial.md
       - name: Rescana
         href: rescana-tutorial.md
-      - name: Resource Central
+      - name: Resource Central – SAML SSO for Meeting Room Booking System
         href: resource-central-tutorial.md
       - name: Retail Zipline
         href: retail-zipline-tutorial.md
@@ -1722,7 +1722,7 @@
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
         href: serraview-space-utilization-software-solutions-tutorial.md
-      - name: Services@SoSafe
+      - name: SoSafe
         href: servicessosafe-tutorial.md
       - name: ServiceChannel
         href: servicechannel-tutorial.md
