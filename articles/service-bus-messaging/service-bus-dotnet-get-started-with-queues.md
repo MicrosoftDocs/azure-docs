@@ -281,11 +281,11 @@ namespace SBusQueueSender
     - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the queue. 
 
 ## Receive messages from a queue
-In this section, you'll create another .NET Core console application that receives messages from the queue. 
+In this section, you'll create a .NET Core console application that receives messages from the queue. 
 
 ### Create a console application and add Service Bus NuGet package
 
-1. Create another C# .NET Core console application project. 
+1. Create a C# .NET Core console application project. 
 1. Right-click the newly created project and select **Manage NuGet Packages**.
 1. Select **Browse**. Search for and select **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)**.
 1. Select **Install** to complete the installation, then close the NuGet Package Manager.
@@ -352,9 +352,6 @@ In this section, you'll add code to retrieve messages from the queue.
         {
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
             {
-                // create a processor that we can use to process the messages
-                ServiceBusProcessor processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
-
                 // add handler to process messages
                 processor.ProcessMessageAsync += MessageHandler;
 
@@ -385,6 +382,8 @@ In this section, you'll add code to retrieve messages from the queue.
             //
             // Create the clients that we'll use for sending and processing messages.
             client = new ServiceBusClient(connectionString);
+
+            // create a processor that we can use to process the messages
             processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
 
             try

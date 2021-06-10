@@ -22,9 +22,6 @@ In this tutorial, you'll create two .NET Core console applications. The first ap
 ## Send messages to a topic
 In this section, you'll create a .NET Core console application in Visual Studio, add code to send messages to the Service Bus topic you created. 
 
-> [!NOTE]
-> If you want to see and use the full code instead of going through step-by-step instructions, see [Full code (send messages)](#full-code-send-messages)
-
 ### Create a console application
 Launch Visual Studio and create a new **Console App (.NET Core)** project for **C#**. For step-by-step instructions, see [Create a console app](/dotnet/core/tutorials/with-visual-studio).
 
@@ -37,6 +34,9 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
 
 ### Add code to send messages to the topic 
 
+> [!NOTE]
+> If you want to see and use the full code instead of going through step-by-step instructions, see [Full code (send messages)](#full-code-receive-messages)
+
 1. In **Program.cs**, add the following `using` statements at the top of the file.
 
     ```csharp
@@ -44,6 +44,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
     using System.Threading.Tasks;
 
     using Azure.Messaging.ServiceBus;
+
     ```
 1. In the `Program` class, above the `Main` function, declare the following static properties.
 
@@ -307,7 +308,7 @@ namespace ServiceBusTopicSender
 ```
 
 ## Receive messages from a subscription
-In this section, you'll create another .NET Core console application that receives messages from the queue. 
+In this section, you'll create a .NET Core console application that receives messages from the subscription to the Service Bus topic. 
 
 ### Create a console application and add Service Bus NuGet package
 
@@ -327,6 +328,7 @@ In this section, you'll create another .NET Core console application that receiv
     using System.Threading.Tasks;
 
     using Azure.Messaging.ServiceBus;
+
     ```
 
 1. In the `Program` class, declare the following static properties:
@@ -351,6 +353,7 @@ In this section, you'll create another .NET Core console application that receiv
 
         // the processor that reads and processes messages from the queue
         static ServiceBusProcessor processor;
+
     ```
 1. Add the following methods to the `Program` class that handle messages and any errors. 
 
@@ -359,8 +362,8 @@ In this section, you'll create another .NET Core console application that receiv
         static async Task MessageHandler(ProcessMessageEventArgs args)
         {
             string body = args.Message.Body.ToString();
-            Console.WriteLine($"Received: {body}");
-
+            Console.WriteLine($"Received: {body} from subscription: {subscriptionName}");
+    
             // complete the message. messages is deleted from the queue. 
             await args.CompleteMessageAsync(args.Message);
         }
@@ -379,9 +382,6 @@ In this section, you'll create another .NET Core console application that receiv
         {
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
             {
-                // create a processor that we can use to process the messages
-                ServiceBusProcessor processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
-
                 // add handler to process messages
                 processor.ProcessMessageAsync += MessageHandler;
 
@@ -403,9 +403,6 @@ In this section, you'll create another .NET Core console application that receiv
     ```
 
     Here are the important steps from the code:
-    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
-    1. Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus topic and the subscription combination. 
-    1. Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the `ServiceBusProcessor` object. 
     1. Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the `ServiceBusProcessor` object. 
     1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the `ServiceBusProcessor` object. 
 1. Replace the `Main()` method. It calls the `ReceiveMessages` method to receive messages from the queue. 
@@ -419,7 +416,9 @@ In this section, you'll create another .NET Core console application that receiv
             //
             // Create the clients that we'll use for sending and processing messages.
             client = new ServiceBusClient(connectionString);
-            processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+
+            // create a processor that we can use to process the messages
+            processor = client.CreateProcessor(topicName, subscriptionName, new ServiceBusProcessorOptions());
 
             try
             {
@@ -436,15 +435,14 @@ In this section, you'll create another .NET Core console application that receiv
         }
     ```
 
-
 ## Run the app
 Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
 Wait for a minute and then press any key to end the processing
-Received: First message from subscription: mysub
-Received: Second message from subscription: mysub
-Received: Third message from subscription: mysub
+Received: First message from subscription: S1
+Received: Second message from subscription: S1
+Received: Third message from subscription: S1
 
 Stopping the receiver...
 Stopped receiving messages
