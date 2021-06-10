@@ -37,14 +37,8 @@
     items:
     - name: Normalizing and parsing data
       href: normalization.md
-    - name: Response and automation (SOAR)
-      href: automation-in-azure-sentinel.md
     - name: Classifying data with entities
       href: entities-in-azure-sentinel.md
-    - name: Multistage attacks (Fusion)
-      href: fusion.md
-    - name: Incident metrics
-      href: manage-soc-with-incident-metrics.md
   - name: Threat intelligence
     items:
     - name: Import threat intelligence into Azure Sentinel
@@ -57,18 +51,22 @@
       href: identify-threats-with-entity-behavior-analytics.md
     - name: SOC-ML anomalies
       href: soc-ml-anomalies.md
+    - name: Multistage attacks (Fusion)
+      href: fusion.md
+    - name: Watchlists
+      href: watchlists.md
   - name: Threat hunting
     href: hunting.md
-  - name: Investigation and orchestration
+  - name: Investigation, orchestration, and response
     items:
+    - name: Orchestration, automation, and response (SOAR)
+      href: automation-in-azure-sentinel.md
     - name: Automation rules
       href: automate-incident-handling-with-automation-rules.md
     - name: Playbooks
       href: automate-responses-with-playbooks.md
     - name: Bring your own machine learning
       href: bring-your-own-ml.md
-    - name: Watchlists
-      href: watchlists.md
     - name: Azure Sentinel solutions
       items:
       - name: About Sentinel solutions
@@ -315,6 +313,8 @@
       href: bookmarks.md
     - name: Hunt with livestream
       href: livestream.md
+  - name: Detect threats
+    items:
   - name: Investigate and respond
     items:
     - name: Create custom entity activities
@@ -333,6 +333,8 @@
     items:
     - name: Manage workspace access
       href: resource-context-rbac.md
+    - name: Extend Azure Sentinel across workspaces and tenants
+      href: extend-sentinel-across-workspaces-tenants.md
     - name: Azure Sentinel for MSSPs
       items:
       - name: Manage multiple tenants (MSSP)
@@ -341,10 +343,10 @@
         href: multiple-workspace-view.md
       - name: Manage your intellectual property in Azure Sentinel
         href: mssp-protect-intellectual-property.md
-    - name: Extend Azure Sentinel across workspaces and tenants
-      href: extend-sentinel-across-workspaces-tenants.md
-    - name: Set up customer managed keys=
+    - name: Set up customer managed keys
       href: customer-managed-keys.md
+    - name: Manage your SOC with incident metrics
+      href: manage-soc-with-incident-metrics.md
     - name: Auditing Azure Sentinel with Azure Activity Logstash
       href: audit-sentinel-data.md
     - name: Remove Azure Sentinel from your workspaces
