@@ -96,14 +96,14 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 
 * Sample scenarios:
- * If your document's first level has 2000 properties, only the first 1000 will be represented.
- * If your documents have 5 levels with 200 properties in each one, all properties will be represented.
- * If your documents have 10 levels with 400 properties in each one, only the 2 first levels will be fully represented in analytical store. Half of the third level will also be represented.
+  * If your document's first level has 2000 properties, only the first 1000 will be represented.
+  * If your documents have 5 levels with 200 properties in each one, all properties will be represented.
+  * If your documents have 10 levels with 400 properties in each one, only the 2 first levels will be fully represented in analytical store. Half of the third level will also be represented.
 
 * The hypothetical document below contains 4 properties and 3 levels.
- * The levels are `root`, `myArray`, and the nested structure within the `myArray`.
- * The properties are `id`, `myArray`, `myArray.nested1` and `myArray.nested2`.
- * The analytical store representation will have 2 columns, `id` and `myArray`. You can use Spark or T-SQL functions to also expose the nested structures as columns.
+  * The levels are `root`, `myArray`, and the nested structure within the `myArray`.
+  * The properties are `id`, `myArray`, `myArray.nested1` and `myArray.nested2`.
+  * The analytical store representation will have 2 columns, `id` and `myArray`. You can use Spark or T-SQL functions to also expose the nested structures as columns.
 
 
 ```json
@@ -192,6 +192,8 @@ The well-defined schema representation creates a simple tabular representation o
 The full fidelity schema representation is designed to handle the full breadth of polymorphic schemas in the schema-agnostic operational data. In this schema representation, no items are dropped from the analytical store even if the well-defined schema constraints (that is no mixed data type fields nor mixed data type arrays) are violated.
 
 This is achieved by translating the leaf properties of the operational data into the analytical store with distinct columns based on the data type of values in the property. The leaf property names are extended with data types as a suffix in the analytical store schema such that they can be queries without ambiguity.
+
+In the full fidelity schema representation, each datatype of each property will generate a column for that datatype. Each of them count as one of the 1000 maximum properties.
 
 For example, let’s take the following sample document in the transactional store:
 
