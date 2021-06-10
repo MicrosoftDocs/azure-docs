@@ -12,6 +12,10 @@ manager: femila
 
 This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
 
+## Does Azure Virtual Desktop support session hosts running outside of Azure?
+
+Azure Virtual Desktop does not support running session hosts outside of Azure.
+
 ## What are the minimum admin permissions I need to manage objects?
 
 If you want to create host pools and other objects, you must be assigned the Contributor role on the subscription or resource group you're working with.
