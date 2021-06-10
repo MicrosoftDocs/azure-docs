@@ -77,7 +77,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
             return messages;
         }
     ```
-1. Add a method named `SendMessages` to the `Program` class as shown below. This method takes a queue of messages, and prepares one or more batches to send to the Service Bus queue.
+1. Add a method named `SendMessages` to the `Program` class as shown below. This method takes a queue (.NET queue) of messages, and prepares one or more batches to send to the Service Bus queue.
 
     ```csharp
         static async Task SendMessages()
@@ -261,11 +261,11 @@ namespace SBusQueueSender
 
 ```
 
-### Test the app
+### Test the app to send messages to the queue
 
 1. Run the application. You should see the following messages. Press any key to end the application. 
     ```console
-    Sent a batch of messages to the queue: myqueue
+    Sent a batch of 3 messages to the queue: myqueue
     Press any key to end the application
     ```       
 1. In the Azure portal, follow these steps:
@@ -420,8 +420,7 @@ namespace SBusQueueClient
         // name of your Service Bus queue
         static string queueName = "<QUEUE NAME>";
 
-        // the client that owns the connection and can be used to create
-        // senders and receivers
+        // the client that owns the connection and can be used to create senders and receivers
         static ServiceBusClient client;
 
         // the processor that reads and processes messages from the queue
@@ -446,22 +445,25 @@ namespace SBusQueueClient
 
         static async Task ReceiveMessages()
         {
-            // add handler to process messages
-            processor.ProcessMessageAsync += MessageHandler;
+            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
+            {
+                // add handler to process messages
+                processor.ProcessMessageAsync += MessageHandler;
 
-            // add handler to process any errors
-            processor.ProcessErrorAsync += ErrorHandler;
+                // add handler to process any errors
+                processor.ProcessErrorAsync += ErrorHandler;
 
-            // start processing 
-            await processor.StartProcessingAsync();
+                // start processing 
+                await processor.StartProcessingAsync();
 
-            Console.WriteLine("Wait for a minute and then press any key to end the processing");
-            Console.ReadKey();
+                Console.WriteLine("Wait for a minute and then press any key to end the processing");
+                Console.ReadKey();
 
-            // stop processing 
-            Console.WriteLine("\nStopping the receiver...");
-            await processor.StopProcessingAsync();
-            Console.WriteLine("Stopped receiving messages");
+                // stop processing 
+                Console.WriteLine("\nStopping the receiver...");
+                await processor.StopProcessingAsync();
+                Console.WriteLine("Stopped receiving messages");
+            }
         }
 
         static async Task Main()
@@ -472,6 +474,8 @@ namespace SBusQueueClient
             //
             // Create the clients that we'll use for sending and processing messages.
             client = new ServiceBusClient(connectionString);
+
+            // create a processor that we can use to process the messages
             processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
 
             try
@@ -490,9 +494,10 @@ namespace SBusQueueClient
     }
 }
 
+
 ```
 
-### Run the app
+### Test the app to receive messages to the queue
 Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
