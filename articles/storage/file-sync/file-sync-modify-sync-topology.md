@@ -39,7 +39,7 @@ Repeat these steps for all the sync groups in the Storage Sync Service you would
 
 Currently, this is not supported. 
 
-If you are currently using the D drive and are planning on migrating to the cloud, see [Make the D: drive of a VM a data disk - Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/change-drive-letter).
+If you are currently using the D drive and are planning on migrating to the cloud, see [Make the D: drive of a VM a data disk - Azure Virtual Machines](../../virtual-machines/windows/change-drive-letter.md).
 
 ## Deprovision all server endpoints associated with a registered server
 
@@ -49,6 +49,3 @@ Navigate to your Storage Sync Service resource, and go to the Registered Servers
 
 ## Next steps
 * [Deprovision your Azure File Sync server endpoint](./file-sync-deprovision-server-endpoint.md)
-
-
-

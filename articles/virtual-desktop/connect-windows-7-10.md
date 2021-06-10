@@ -14,7 +14,7 @@ ms.custom: template-how-to
 You can access Azure Virtual Desktop resources on devices with Windows 10, Windows 10 IoT Enterprise, and  Windows 7 using the Windows Desktop client. 
 
 > [!IMPORTANT]
-> This does not support Window 8, Windows 8.1, Windows 10 LTSB, or Windows 10 LTSC.
+> This does not support Window 8 or Windows 8.1.
 > 
 > This only supports Azure Resource Manager objects, to support objects without Azure Resource Manager, see [Connect with Windows Desktop (classic) client](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 > 

@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/02/2021
+ms.date: 06/04/2021
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -90,7 +90,7 @@ To verify that the default gateway and DNS server can be reached from the VM, do
 
 ### `cloud init` issues (Linux VMs)
 
-**Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
+**Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](../virtual-machines/linux/using-cloud-init.md).
 
 **Suggested solutions:** To find issues that occurred when `cloud init` was run:
 1. [Connect to the VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-vm).
@@ -112,15 +112,13 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
    `cloud-init --help` 
 
-   <!--You can also go to [CLI Interface](https://cloudinit.readthedocs.io/en/latest/topics/cli.html). - No additional guidance. They might as well just run the Help command.-->
-
 2. Make sure the `cloud init` instance can run successfully with the data source set to *Azure*. 
 
    When the data source is set to *Azure*, the entry in the *cloud init* logs looks similar to the following one.
 
    ![Picture of a cloud-init log entry for a VM image with Data Source set to Azure.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png) 
 
-   If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](/azure/virtual-machines/linux/cloud-init-deep-dive).
+   If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](../virtual-machines/linux/cloud-init-deep-dive.md).
 
 
 ### Provisioning flags set incorrectly (Linux VMs)
@@ -197,5 +195,5 @@ If Kubernetes is enabled before the VM is created, Kubernetes will use all the a
 
 <!-- Remove link while cmdlet issue is fixed. - * [Collect a Support package that includes guest logs for a failed VM](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)-->
 * [Troubleshoot issues with a failed GPU extension installation](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
-* [Troubleshoot issues with Azure Resource Manager](azure-stack-edge-gpu-troubleshoot.md#azure-resource-manager)
+* [Troubleshoot issues with Azure Resource Manager](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)
 

@@ -174,7 +174,7 @@ You could create a policy on the Azure Migrate appliance to throttle replication
 > [!NOTE]
 > This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.
 
-You can also increase and decrease replication bandwidth based on a schedule using the [sample script](https://go.microsoft.com/fwlink/?linkid=2165036).
+You can also increase and decrease replication bandwidth based on a schedule using the [sample script](./common-questions-server-migration.md).
 
 ### Blackout window
 
