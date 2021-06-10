@@ -23,6 +23,23 @@ Some of the benefits of the device inventory include:
 
 - Export the information to CSV for comparison with OT reports.
 
+## Device inventory overview
+
+You can see a quick view of all devices in your inventory through the main indicators on along the top of the screen. 
+
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-indicators.png" alt-text="A quick view of all of the devices in your inventory along with their statuses.":::
+
+Here you can see the:
+
+- Total number of devices
+- The number of important devices
+- How many new devices you have
+- The total number inactive devices
+- A count of the devices by class
+- A count of the devices by type
+
+Any device deleted on a sensor will display here as an inactive device.
+
 The following table describes the table columns in the device inventory.
 
 | Parameter | Description |
@@ -86,7 +103,36 @@ If you want to reset the device inventory to the default settings, in the Edit c
 
 ## Filter the device inventory
 
-You can search, and filter the device inventory to defines what information the table displays.
+You can search, and filter the device inventory to define what information the table displays.
+
+Below is a list of filters that can be applied to the device inventory table.
+
+| Filter name | Filter type |
+|--|--|
+| Device name | contains |
+| Device category | contains |
+| Device type | contains |
+| Device subtype | contains |
+| Device model | list |
+| Firmware vendor | contains |
+| OS distribution | list |
+| OS version | contains |
+| VLAN | contains |
+| IP address | contains |
+| MAC address | contains |
+| Site | contains |
+| Last activity | contains |
+| Vendor| contains|
+| OS platform| contains |
+| Importance | list |
+| Sensor | contains |
+| Zone| contains |
+|First seen | list |
+| Program functionality | list |
+| Last update time | list |
+| Data source | list |
+|Purdue level | contains |
+| OS architecture | contains |
 
 **To filter the device inventory**:
 
@@ -110,8 +156,8 @@ To view a specific devices information, select the device and the device informa
 
 :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information.":::
 
-## Export the device inventory
+## Export the device inventory to CSV
 
-At any point you can export your device inventory to a CSV file. If you apply filters to the device inventory table, when you export the table the CSV file will only contain the filtered results.
+At any point you can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
 
-Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory.
+Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
