@@ -84,7 +84,7 @@ The CryptographicKeys element contains the following key:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| issuer_secret | Yes  | An X509 certificate (RSA key set). Use the `B2C_1A_TokenSigningKeyContainer` key you configure in [Get started with custom policies](custom-policy-get-started.md).|
+| issuer_secret | Yes  | An X509 certificate (RSA key set). Use the `B2C_1A_TokenSigningKeyContainer` key you configure in [Get started with custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).|
 |
 
 ## Invoke the technical profile
@@ -122,4 +122,3 @@ In the following example:
 ## Next steps
 
 Learn about [UserJourneys](userjourneys.md)
-
