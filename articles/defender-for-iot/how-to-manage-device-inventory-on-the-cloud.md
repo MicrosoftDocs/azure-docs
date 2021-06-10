@@ -9,6 +9,8 @@ ms.topic: how-to
 
 The device inventory can be used to view a comprehensive perspective of all network information. The search, filter, edit columns, and export tools can be used to manage this information. 
 
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen.":::
+
 Some of the benefits of the device inventory include:
 
 - Collect information on all devices within the network.
@@ -20,8 +22,6 @@ Some of the benefits of the device inventory include:
 - Gain deep level understanding of each device and their details.
 
 - Export the information to CSV for comparison with OT reports.
-
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen.":::
 
 The following table describes the table columns in the device inventory.
 
@@ -98,11 +98,17 @@ You can search, and filter the device inventory to defines what information the 
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter-window.png" alt-text="Select which column you want to filter in the device inventory.":::
 
-1. Enter a value in the filter field.
+1. Enter a value in the filter field to filter by.
 
 1. Select the **Apply button**.
 
 You can add as many filters as you want. The filters are not saved when you leave the Device inventory page.
+
+## View device information
+
+To view a specific devices information, select the device and the device information window appears.
+
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information.":::
 
 ## Export the device inventory
 
