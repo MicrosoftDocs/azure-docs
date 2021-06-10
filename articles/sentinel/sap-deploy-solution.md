@@ -118,7 +118,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 ## Deploy a Linux VM for your SAP data connector
 
-This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.04 LTS VM and assign it with a [system-managed identity](/azure/active-directory/managed-identities-azure-resources/).
+This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.04 LTS VM and assign it with a [system-managed identity](../active-directory/managed-identities-azure-resources/index.yml).
 
 > [!TIP]
 > You can also deploy the data connector on RHEL, versions 7.7 and higher or SUSE versions 15 and higher. Note that any OS and patch levels must be completely up to date.
@@ -141,11 +141,11 @@ This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.
 > Make sure that you apply any security best practices for your organization, just as you would any other VM.
 >
 
-For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
+For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
 
 ## Create key vault for your SAP credentials
 
-This tutorial uses a newly created or dedicated [Azure Key Vault](/azure/key-vault/) to store credentials for your SAP data connector.
+This tutorial uses a newly created or dedicated [Azure Key Vault](../key-vault/index.yml) to store credentials for your SAP data connector.
 
 **To create or dedicate an Azure Key Vault**:
 
@@ -168,7 +168,7 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](/azure/key-vau
 
     In Azure Key Vault, select to **Access Policies** > **Add Access Policy - Secret Permissions: Get, List, and Set** > **Select Principal**. Enter your [VM's name](#deploy-a-linux-vm-for-your-sap-data-connector), and then select **Add** > **Save**.
 
-    For more information, see the [Key Vault documentation](/azure/key-vault/general/assign-access-policy-portal).
+    For more information, see the [Key Vault documentation](../key-vault/general/assign-access-policy-portal.md).
 
 1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector), entering the name of your Azure resource group:
 
