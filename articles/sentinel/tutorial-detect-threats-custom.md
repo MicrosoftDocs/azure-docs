@@ -145,6 +145,7 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
         > [!NOTE]
         > If you choose this option, Azure Sentinel will add a new field, **OriginalQuery** to the results of the query. Here is a comparison of the existing **Query** field and the new field:
+        >
         > | Field name | Contains | Running the query in this field results in... |
         > | - | :-: | :-: |
         > | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert |
