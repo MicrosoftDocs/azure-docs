@@ -166,5 +166,5 @@ The preceding example returns an array with the following values:
   - [Resource iteration in ARM templates](copy-resources.md)
   - [Property iteration in ARM templates](copy-properties.md)
   - [Variable iteration in ARM templates](copy-variables.md)
-- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 - To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
