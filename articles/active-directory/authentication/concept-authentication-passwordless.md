@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 06/10/2021
 
 ms.author: justinha
 author: justinha
@@ -107,14 +107,21 @@ The following process is used when a user signs in with a FIDO2 security key:
 
 While there are many keys that are FIDO2 certified by the FIDO Alliance, Microsoft requires some optional extensions of the FIDO2 Client-to-Authenticator Protocol (CTAP) specification to be implemented by the vendor to ensure maximum security and the best experience.
 
-A security key **MUST** implement the following features and extensions from the FIDO2 CTAP protocol to be Microsoft-compatible:
+A security key **mUST** implement the following features and extensions from the FIDO2 CTAP protocol to be Microsoft-compatible. For more information, see the [Client to Authenticator Protocol](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html).
 
 | # | Feature / Extension trust | Why is this feature or extension required? |
 | --- | --- | --- |
-| 1 | Resident key | This feature enables the security key to be portable, where your credential is stored on the security key. |
-| 2 | Client pin | This feature enables you to protect your credentials with a second factor and applies to security keys that do not have a user interface. |
+| 1 | Resident/Discoverable key | This feature enables the security key to be portable, where your credential is stored on the security key and is discoverable which makes usernameless flows possible. |
+| 2 | Client pin | This feature enables you to protect your credentials with a second factor and applies to security keys that do not have a user interface.<br>Both [PIN protocol 1](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#pinProto1) and [PIN protocol 2](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#pinProto2) **must** be implemented. |
 | 3 | hmac-secret | This extension ensures you can sign in to your device when it's off-line or in airplane mode. |
 | 4 | Multiple accounts per RP | This feature ensures you can use the same security key across multiple services like Microsoft Account and Azure Active Directory. |
+| 5 | Credential Management    | This feature allows users to manage their credentials on security keys on platforms and applies to security keys that do not have this capability built-in.  |
+| 6 | Bio Enrollment           | This feature allows users to enroll their biometrics on their authenticators and applies to security keys that do not have this capability built in.<br> Authenticator **must** implement [authenicatorBioEnrollment](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#authenticatorBioEnrollment) command for this feature. Authenticator vendors are highly encouraged to implement [userVerificationMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#prototypeAuthenticatorBioEnrollment) command also so that users can enroll bio templates it on all previous OS versions. |
+| 7 | pinUvAuthToken           | This feature allows platform to have auth tokens using PIN or BIO match which helps in better user experience when multiple credentials are present on the authenticator.  |
+| 8 | forcePinChange           | This feature allows enterprises to ask users to change their PIN in remote deployments.  |
+| 9 | setMinPINLength          | This feature allows enterprises to have custom minimum PIN length for their users. Authenticator MUST implement minPinLength extension also.  |
+| 10 | alwaysUV                | This feature allows enterprises or users to always require user verification to use this security key. Authenticator MUST implement toggleAlwaysUv subcommand.  |
+| 11 | credBlob                | This extension allows websites to store small information along with the security key.  |
 
 ### FIDO2 security key providers
 
