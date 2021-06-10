@@ -25,7 +25,7 @@ The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.
 * Vibration data sampled at high frequency
 * Some form of preprocessed data.
 
-These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, however, you can still use the security and reliability of IoT Hub. This sample shows you how.
+These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, however, you can still use the security and reliability of IoT Hub. This sample shows you how. Also, there are two samples located at [https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot) in GitHub.
 
 > [!NOTE]
 > IoT Hub supports many device platforms and languages (including C, .NET, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
@@ -46,19 +46,7 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## Associate an Azure Storage Account to your IoT Hub
-
-You must have an Azure Storage account associated with your IoT hub. To learn how to create one, see [Create a storage account](../storage/common/storage-account-create.md). When you associate an Azure Storage account with an IoT hub, the IoT hub generates a SAS URI. A device can use this SAS URI to securely upload a file to a blob container.
-
-## Create a container
-
-Follow these steps to create a blob container for your storage account:
-
-1. In the left pane of your storage account, under **Data Storage**, select **Containers**.
-1. In the Container blade, select **+ Container**.
-1. In the **New container** pane that opens, give your container a name and select **Create**.
-
-After creating a container, follow the instructions in [Configure file uploads using the Azure portal](iot-hub-configure-file-upload.md). Make sure that a blob container is associated with your IoT hub and that file notifications are enabled.
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## Create a project using Maven
 
