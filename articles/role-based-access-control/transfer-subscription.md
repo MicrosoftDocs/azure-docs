@@ -255,7 +255,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
     ```azurecli
     az graph query -q \
     'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
-    --subscriptions $subscriptionId --output table
+    --subscriptions $subscriptionId --output yaml
     ```
 
 ## Step 2: Transfer the subscription
