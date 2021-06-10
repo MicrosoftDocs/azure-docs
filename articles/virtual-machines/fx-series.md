@@ -11,9 +11,9 @@ ms.author: jushiman
 
 # FX-series
 
-The FX-series runs on the Intel® Xeon® Gold 6246R (Cascade Lake) processors. It features an all-core-turbo frequency of 4.0GHz, 21GB RAM per vCPU, up to 1TB total RAM, and local temporary storage. It will benefit workloads which require a high CPU clock speed and high memory to CPU ratio, workloads with high per-core licensing costs, and applications requiring high a single-core performance. A typical use case for FX-series is the Electronic Design Automation (EDA) workload.
+The FX-series runs on the Intel® Xeon® Gold 6246R (Cascade Lake) processors. It features an all-core-turbo frequency of 4.0GHz, 21GB RAM per vCPU, up to 1TB total RAM, and local temporary storage. It will benefit workloads that require a high CPU clock speed and high memory to CPU ratio, workloads with high per-core licensing costs, and applications requiring high a single-core performance. A typical use case for FX-series is the Electronic Design Automation (EDA) workload.
 
-FX-series VMs feature [Intel® Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel® Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel® Advanced Vector Extensions 512 (Intel® AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+FX-series VMs feature [Intel® Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel® Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), and [Intel® Advanced Vector Extensions 512 (Intel® AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 [ACU](acu.md): 310 - 340<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
@@ -27,10 +27,10 @@ FX-series VMs feature [Intel® Turbo Boost Technology 2.0](https://www.intel.com
 
 | Size | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_FX4mds  | 4  | 84   | 168  | 8  | 54500/343 (180)       | 6700/104    | 2|4000  |
-| Standard_FX12mds  | 12  | 252 | 504  | 24 | 163500/1029 (540)    | 20000/314  | 4|8000  |
-| Standard_FX24mds | 24 | 504  | 1008 | 32 | 327000/2057 (1080)   | 40000/629  | 4|16000  |
-| Standard_FX48mds | 48 | 1008 | 2016 | 32 | 615000/3871 (2160)   | 80000/1258 | 8|32000 |
+| Standard_FX4mds  | 4   | 84   | 168  | 8   | 54500/343 (180)     | 6700/104   | 2 | 4000  |
+| Standard_FX12mds | 12  | 252  | 504  | 24  | 163500/1029 (540)   | 20000/314  | 4 | 8000  |
+| Standard_FX24mds | 24  | 504  | 1008 | 32  | 327000/2057 (1080)  | 40000/629  | 4 | 16000 |
+| Standard_FX48mds | 48  | 1008 | 2016 | 32  | 615000/3871 (2160)  | 80000/1258 | 8 | 32000 |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
@@ -46,7 +46,7 @@ FX-series VMs feature [Intel® Turbo Boost Technology 2.0](https://www.intel.com
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types: [Disk Types](./disks-types.md#ultra-disk)
 
 
 ## Next steps
