@@ -81,7 +81,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ```
 ---
 
-### Share-level permissions for all authenticated identities
+## Share-level permissions for all authenticated identities
 
 You can add a default share-level permission on your storage account itself, instead of configuring share-level permissions per Azure AD user or group. A default share-level permission assigned to the storage account will apply to all file shares contained in the storage account. 
 
