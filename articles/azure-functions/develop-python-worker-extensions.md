@@ -1,5 +1,5 @@
 ---
-title: Develop Python Worker Extensions for Azure Functions
+title: Develop Python worker extensions for Azure Functions
 description: Learn how to create and publish worker extensions that let you inject middleware behavior into Python functions running in Azure.
 ms.topic: how-to
 author: hazhzeng
