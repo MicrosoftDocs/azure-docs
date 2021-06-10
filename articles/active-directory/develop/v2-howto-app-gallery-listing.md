@@ -311,7 +311,7 @@ Here's the flow of customer-requested applications.
 ![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
 
 > [!Note]
-> If you have any [issues with access](../active-directory/develop/v2-howto-app-gallery-listing#issues-on-logging-into-portal), send email to the [Azure AD App Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> If you have any issues with access, send email to the [Azure AD App Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Next steps
 
