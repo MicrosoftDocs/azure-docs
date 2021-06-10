@@ -48827,7 +48827,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md",
-      "redirect_url": "/articles/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
       "redirect_document_id": false
     },
     {
