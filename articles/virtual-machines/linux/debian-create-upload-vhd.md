@@ -146,7 +146,7 @@ Note: If the bandwidth from your local machine to the Azure Disk is causing a lo
 
 1. Create a tarball of the VHD on your local machine: `tar -czvf ./image_buster_azure_amd64.vhd.tar.gz ./image_buster_azure_amd64.vhd`.
 2. Create an Azure Linux VM (distro of your choice). Make sure that you create it with a large enough disk to hold the extracted VHD!
-3. Download the azcopy utility to the Azure Linux VM. It can be retrieved from [here](../storage/common/storage-use-azcopy-v10.md#download-azcopy).
+3. Download the azcopy utility to the Azure Linux VM. It can be retrieved from [here](../../storage/common/storage-use-azcopy-v10.md#download-azcopy).
 4. Copy the tarball to the VM: `scp ./image_buster_azure_amd64.vhd.tar.gz <vm>:~`.
 5. On the VM, extract the VHD: `tar -xf ./image_buster_azure_amd64.vhd.tar.gz` (this will take a bit of time given the size of the file).
 6. Finally on the VM, copy the VHD to the Azure Disk with `azcopy` (the command from above).
