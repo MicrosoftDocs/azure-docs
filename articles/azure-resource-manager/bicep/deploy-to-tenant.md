@@ -141,7 +141,7 @@ resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
 
 ### Scope to management group
 
-To target a management group within the tenant, add a module. Use the [managementGroup function](bicep-functions-scope.md#managementgroup) to set its `scope` property.
+To target a management group within the tenant, add a module. Use the [managementGroup function](bicep-functions-scope.md#managementgroup) to set its `scope` property. Provide the management group name.
 
 ```bicep
 targetScope = 'tenant'
@@ -157,7 +157,7 @@ module  'module.bicep' = {
 
 ### Scope to subscription
 
-To target a subscription within the tenant, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set its `scope` property.
+To target a subscription within the tenant, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set its `scope` property. Provide the subscription ID.
 
 ```bicep
 targetScope = 'tenant'

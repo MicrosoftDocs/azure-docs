@@ -123,7 +123,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
 }
 ```
 
-To target another management group, add a module. Use the [managementGroup function](bicep-functions-scope.md#managementgroup) to set the `scope` property.
+To target another management group, add a module. Use the [managementGroup function](bicep-functions-scope.md#managementgroup) to set the `scope` property. Provide the management group name.
 
 ```bicep
 targetScope = 'managementGroup'
@@ -141,7 +141,7 @@ module exampleModule 'module.bicep' = {
 
 You can also target subscriptions within a management group. The user deploying the template must have access to the specified scope.
 
-To target a subscription within the management group, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set the `scope` property.
+To target a subscription within the management group, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set the `scope` property. Provide the subscription ID.
 
 ```bicep
 targetScope = 'managementGroup'

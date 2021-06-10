@@ -256,4 +256,4 @@
   - name: Get support for Azure Active Directory
     href: active-directory-troubleshooting-support-howto.md
   - name: Azure Active Directory FAQ
-    href: active-directory-faq.md
+    href: active-directory-faq.yml
