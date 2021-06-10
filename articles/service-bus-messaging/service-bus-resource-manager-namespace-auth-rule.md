@@ -5,7 +5,8 @@ author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
-ms.author: spelluru
+ms.author: spelluru 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -170,7 +171,7 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md

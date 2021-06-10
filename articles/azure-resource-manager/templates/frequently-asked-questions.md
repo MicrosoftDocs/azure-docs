@@ -49,7 +49,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Where can I learn about best practices for ARM templates?**
 
-  For recommendations about how you implement your templates, see [ARM template best practices](template-best-practices.md). After creating a template, run the [ARM test toolkit](https://github.com/azure/arm-ttk). It checks whether your template matches recommended practices.
+  For recommendations about how you implement your templates, see [ARM template best practices](./best-practices.md). After creating a template, run the [ARM test toolkit](https://github.com/azure/arm-ttk). It checks whether your template matches recommended practices.
 
 * **I have set up my environment through the portal. Is there some way to get the template from an existing resource group?**
 
@@ -67,7 +67,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **How can I test my template before deploying it?**
 
-  We recommend running the [ARM test toolkit](https://github.com/azure/arm-ttk) and the [what-if operation](template-deploy-what-if.md) on your templates before deploying them. The test toolkit checks whether your template uses best practices. It provides warnings when it identifies changes that could improve how you've implemented your template.
+  We recommend running the [ARM test toolkit](https://github.com/azure/arm-ttk) and the [what-if operation](./deploy-what-if.md) on your templates before deploying them. The test toolkit checks whether your template uses best practices. It provides warnings when it identifies changes that could improve how you've implemented your template.
 
   The what-if operation shows the changes your template will make to your environment. You can see unintended changes before they're deployed. What-if also returns any errors it can detect during preflight validation. For example, if your template contains a syntactical error, it returns that error. It also returns any errors it can determine about the final state of the deployed resources. For example, if your template deploys a storage account with a name that is already in use, what-if returns that error.
 
@@ -83,7 +83,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **I've heard you're working on a new template language. Where can I find out more about it?**
 
-  To learn about the new language, see [What is Bicep (Preview)?](bicep-overview.md).
+  To learn about the new language, see [What is Bicep (Preview)?](../bicep/overview.md).
 
 * **Is there a plan to support creating templates in YAML?**
 
@@ -95,7 +95,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Will you offer a tool to convert my JSON templates to the new template language?**
 
-  Yes. See [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
+  Yes. See [Converting ARM templates between JSON and Bicep](../bicep/decompile.md).
 
 ## Template Specs
 
@@ -129,11 +129,11 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Can I preview the changes that will happen before deploying a template?**
 
-  Yes, use the [what-if feature](template-deploy-what-if.md). It evaluates the current state of your environment and compares it to the state that will exist after deployment. You can examine the summarized changes to make sure the template doesn't have any unexpected results.
+  Yes, use the [what-if feature](./deploy-what-if.md). It evaluates the current state of your environment and compares it to the state that will exist after deployment. You can examine the summarized changes to make sure the template doesn't have any unexpected results.
 
 * **Can I use what-if with both incremental and complete modes?**
 
-  Yes, both [deployment modes](deployment-modes.md) are supported. For an example of using incremental mode, see [Run what-if operation](template-deploy-what-if.md#run-what-if-operation). For an example of using complete mode, see [Confirm deletion](template-deploy-what-if.md#confirm-deletion).
+  Yes, both [deployment modes](deployment-modes.md) are supported. For an example of using incremental mode, see [Run what-if operation](./deploy-what-if.md#run-what-if-operation). For an example of using complete mode, see [Confirm deletion](./deploy-what-if.md#confirm-deletion).
 
 * **Does what-if work with linked templates?**
 

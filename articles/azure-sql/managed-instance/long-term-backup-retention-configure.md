@@ -3,8 +3,8 @@ title: "Azure SQL Managed Instance: Long-term backup retention"
 description: "Learn how to store and restore automated backups on separate Azure Blob storage containers for an Azure SQL Managed Instance using PowerShell."
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: 
+ms.subservice: backup-restore
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: shkale-msft

@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Azure SQL Managed Instance communication and connectivity architecture as well as how the components direct traffic to a managed instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
@@ -173,5 +173,5 @@ The following virtual network features are currently *not supported* with SQL Ma
 - Learn how to create a managed instance:
   - From the [Azure portal](instance-create-quickstart.md).
   - By using [PowerShell](scripts/create-configure-managed-instance-powershell.md).
-  - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/).
+  - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet/).
+  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet-w-jumpbox/).

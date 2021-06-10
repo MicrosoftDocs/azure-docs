@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/06/2021
+ms.date: 05/27/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---

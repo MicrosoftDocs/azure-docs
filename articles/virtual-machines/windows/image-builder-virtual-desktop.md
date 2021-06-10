@@ -8,7 +8,8 @@ ms.date: 05/12/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.collection: windows
-ms.subservice: image-builder
+ms.subservice: image-builder 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell

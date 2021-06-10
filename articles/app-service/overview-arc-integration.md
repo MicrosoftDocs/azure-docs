@@ -7,7 +7,7 @@ ms.date: 05/03/2021
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
 
-You can run App Service, Functions, and Logic Apps an Azure Arc enabled Kubernetes cluster. The Kubernetes cluster can be on-premises or hosted in a third-party cloud. This approach lets app developers take advantage of the features of App Service. At the same time, it lets their IT administrators maintain corporate compliance by hosting the App Service apps on internal infrastructure. It also lets other IT operators safeguard their prior investments in other cloud providers by running App Service on existing Kubernetes clusters.
+You can run App Service, Functions, and Logic Apps on an Azure Arc enabled Kubernetes cluster. The Kubernetes cluster can be on-premises or hosted in a third-party cloud. This approach lets app developers take advantage of the features of App Service. At the same time, it lets their IT administrators maintain corporate compliance by hosting the App Service apps on internal infrastructure. It also lets other IT operators safeguard their prior investments in other cloud providers by running App Service on existing Kubernetes clusters.
 
 > [!NOTE]
 > To learn how to set up your Kubernetes cluster for App Service, Functions, and Logic Apps, see [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md).

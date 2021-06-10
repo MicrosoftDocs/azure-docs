@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: mjbrown
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Manage Azure Cosmos DB Core (SQL) API resources using PowerShell

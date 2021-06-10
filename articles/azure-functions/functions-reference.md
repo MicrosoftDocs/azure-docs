@@ -108,6 +108,9 @@ Some connections in Azure Functions are configured to use an identity instead of
 
 Identity-based connections are supported by the following trigger and binding extensions in all plans:
 
+> [!NOTE]
+> Identity-based connections are not supported with Durable Functions.
+
 | Extension name | Extension version                                                                                     |
 |----------------|-------------------------------------------------------------------------------------------------------|
 | Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  |
@@ -141,8 +144,10 @@ An identity-based connection for an Azure service accepts the following properti
 
 | Property    | Required for Extensions | Environment variable | Description |
 |---|---|---|---|
-| Service URI | Azure Blob, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` |  The data plane URI of the service to which you are connecting. |
+| Service URI | Azure Blob<sup>1</sup>, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` | The data plane URI of the service to which you are connecting. |
 | Fully Qualified Namespace | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs and Service Bus namespace. |
+
+<sup>1</sup> Both blob and queue service URI's are required for Azure Blob.
 
 Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
 

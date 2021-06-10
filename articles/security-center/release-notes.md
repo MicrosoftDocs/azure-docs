@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 05/27/2021
+ms.date: 06/09/2021
 ms.author: memildin
 
 ---
@@ -22,6 +22,30 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
 
+## June 2021
+
+### Prefix for Kubernetes alerts changed from "AKS_" to "K8S_"
+
+Azure Defender for Kubernetes recently expanded to protect Kubernetes clusters hosted on-premises and in multi cloud environments. Learn more in [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](release-notes.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview).
+
+To reflect the fact that the security alerts provided by Azure Defender for Kubernetes are no longer restricted to clusters on Azure Kubernetes Service, we've changed the prefix for the alert types from "AKS_" to "K8S_". Where necessary, the names and descriptions were updated too. For example, this alert:
+
+|Alert (alert type)|Description|
+|----|----|
+|Kubernetes penetration testing tool detected<br>(**AKS**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **AKS** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.
+|||
+
+was changed to:
+
+|Alert (alert type)|Description|
+|----|----|
+|Kubernetes penetration testing tool detected<br>(**K8S**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **Kubernetes** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.|
+|||
+
+Any suppression rules that refer to alerts beginning "AKS_" were automatically converted. If you've setup SIEM exports, or custom automation scripts that refer to Kubernetes alerts by alert type, you'll need to update them with the new alert types.
+
+For a full list of the Kubernetes alerts, see [Alerts for Kubernetes clusters](alerts-reference.md#alerts-k8scluster).
+
 ## May 2021
 
 Updates in May include:
@@ -29,6 +53,7 @@ Updates in May include:
 - [Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
 - [Azure Defender for open-source relational databases released for General Availability (GA)](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
 - [New alerts for Azure Defender for Resource Manager](#new-alerts-for-azure-defender-for-resource-manager)
+- [CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)](#cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview)
 - [More Resource Graph queries available for some recommendations](#more-resource-graph-queries-available-for-some-recommendations)
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
 - [New recommendations to enable trusted launch capabilities (in preview)](#new-recommendations-to-enable-trusted-launch-capabilities-in-preview)
@@ -96,6 +121,16 @@ For more information, see:
 - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
 
 
+### CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)
+
+Azure Defender for container registries now provides DevSecOps teams observability into GitHub Action workflows.
+
+The new vulnerability scanning feature for container images, utilizing Trivy, helps your developers scan for common vulnerabilities in their container images *before* pushing images to container registries.
+
+Container scan reports are summarized in Azure Security Center, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
+
+Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-container-registries-cicd.md).
+
 ### More Resource Graph queries available for some recommendations
 
 All of Security Center's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer (ARG)](security-center-recommendations.md#review-recommendation-data-in-azure-resource-graph-explorer-arg).
@@ -159,7 +194,7 @@ Learn how Security Center can protect your containerized environments in [Contai
 
 ### Assessments API expanded with two new fields
 
-We've added the following two fields to the [Assessments REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments):
+We've added the following two fields to the [Assessments REST API](/rest/api/securitycenter/assessments):
 
 - **FirstEvaluationDate** – The time that the recommendation was created and first evaluated. Returned as UTC time in ISO 8601 format.
 - **StatusChangeDate** – The time that the status of the recommendation last changed. Returned as UTC time in ISO 8601 format.
@@ -172,12 +207,12 @@ To access this information, you can use any of the methods in the table below.
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | REST API call        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates |
 | Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
-| Workflow automation  | The two dedicated fields will be available the Log Analytics workspace data                                                                                            |
+| Continuous export    | The two dedicated fields will be available the Log Analytics workspace data                                                                                            |
 | [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                                        |
 |                      |                                                                                                                                                                        |
 
 
-Learn more about the [Assessments REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments).
+Learn more about the [Assessments REST API](/rest/api/securitycenter/assessments).
 
 
 ### Asset inventory gets a cloud environment filter
@@ -835,7 +870,7 @@ When you define a continuous export, set the export frequency:
 
 :::image type="content" source="media/release-notes/export-frequency.png" alt-text="Choosing the frequency of your continuous export":::
 
-- **Streaming** – assessments will be sent in real time when a resource’s health state is updated (if no updates occur, no data will be sent).
+- **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
 - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
 
 Learn more about the full capabilities of this feature in [Continuously export Security Center data](continuous-export.md).
