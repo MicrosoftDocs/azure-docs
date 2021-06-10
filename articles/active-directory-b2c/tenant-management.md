@@ -186,6 +186,8 @@ To get your Azure AD B2C tenant name, follow these steps:
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the **Overview**, copy the **Domain name**.
 
+![Screenshot demonstrates how to get the Azure AD B2C tenant name.](./media/tenant-management/get-azure-ad-b2c-tenant-name.png)  
+
 ## Get your tenant ID
 
 To get your Azure AD B2C tenant ID, follow these steps:
@@ -194,6 +196,8 @@ To get your Azure AD B2C tenant ID, follow these steps:
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the Azure portal, search for and select **Azure Active Directory**.
 1. In the **Overview**, copy the **Tenant ID**.
+
+![Screenshot demonstrates how to get the Azure AD B2C tenant ID.](./media/tenant-management/get-azure-ad-b2c-tenant-id.png)  
 
 ## Next steps
 
