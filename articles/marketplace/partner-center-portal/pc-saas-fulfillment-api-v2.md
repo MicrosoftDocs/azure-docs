@@ -1012,6 +1012,6 @@ See [Support for the commercial marketplace program in Partner Center](../suppor
 
 ## Next steps
 
-See the [commercial marketplace metering service APIs](marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
+See the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
 
 Review and use the [clients for different programming languages and samples](https://github.com/microsoft/commercial-marketplace-samples).

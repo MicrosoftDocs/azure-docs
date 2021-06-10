@@ -23,7 +23,7 @@ This guide shows you how to use these REST APIs with cURL. You can also use an H
 ## Prerequisites
 
 - A Custom Vision resource in Azure. If you don't have one, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). This feature doesn't currently support the Cognitive Service resource (all in one key).
-- An Azure Storage account with a blob container. Follow the [Storage quickstart](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) if you need help with this step.
+- An Azure Storage account with a blob container. Follow the [Storage quickstart](../../storage/blobs/storage-quickstart-blobs-portal.md) if you need help with this step.
 - [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
 ## Set up Azure storage integration
