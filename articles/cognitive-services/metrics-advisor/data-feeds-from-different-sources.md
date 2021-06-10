@@ -233,7 +233,7 @@ The following sections specify the parameters required for all authentication ty
 
         The account name is the same as **Basic** authentication type.
     
-        To use service principal, first you need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database, see detail in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+        To use service principal, first you need to create and register an Azure AD application and then authorize it to access database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
         Then, you need to assign roles:
         1. In the Azure portal, go to the **Storage accounts** service.
@@ -316,7 +316,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     
 * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-     First, you need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database, see detail in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+     First, you need to create and register an Azure AD application and then authorize it to access an database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
     Then, you need to assign roles:
     1. In the Azure portal, go to the **Storage accounts** service.
@@ -385,20 +385,19 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         
 
     
-    * **Azure SQL Connection String**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
+    * **Azure SQL Connection String**: 
       
-        You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) to know about Service Principal and create one. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
 
         Here's an example of connection string: 
         
         ```
-        Data Source=<Server>;Initial Catalog=<Database>
+        Data Source=<Server>;Initial Catalog=<Database>;User ID=<user-name>;Password=<password>
         ```
   
 
     * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-        First, you need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database, see detail in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+        First, you need to create and register an Azure AD application and then authorize it to access an database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
         Then, you should follow the same steps with [managed identity in SQL Server](#jump), which is mentioned above. 
 
