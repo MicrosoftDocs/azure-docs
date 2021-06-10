@@ -903,3 +903,16 @@ function subscribeToRemoteParticipant(p) {
     p.on('videoStreamsUpdated', e => { e.added.forEach(v => { subscribeToRemoteVideoStream(v) }) })
 }
 ```
+
+## Releasing resources
+1. How to properly release resources when a call is finished:
+    - When call is finished our SDK will terminate signaling&media sessions leaving you with an instance of the call that holds the last state of it, so you can check callEndReason etc.., if your app won't hold the reference to the Call instance - JavaScript GC will clean up everything so in terms of memory consumption your app should go back to initial state from before the call.
+
+2. Which resource types are long-lived (app lifetime) vs. short-lived (call lifetime):
+    - The following are considered to be "long-lived" resources - you can create them and keep referenced for a long time, they are very light in terms of resource(memory) consumption so won't impact perf:
+        - CallClient
+        - CallAgent
+        - DeviceManager
+    - The following are considered to be "short-lived" resources and are the ones that are playing some role in the call itself, or are interacting with local media devices. These will consume more cpu&memory, but once call ends - SDK will cleanup all the state and release resource.:
+        - Call instance - since it's the one holding the actual state of the call ( both signaling and media )
+        - Renderer with it's RendererViews - handling video rendering
