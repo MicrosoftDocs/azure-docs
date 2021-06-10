@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Manual QoS capacity pool
