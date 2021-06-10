@@ -990,6 +990,8 @@
         href: iris-intranet-tutorial.md
       - name: IriusRisk
         href: iriusrisk-tutorial.md
+      - name: iSAMS
+        href: isams-tutorial.md 
       - name: iServer Portal
         href: iserver-portal-tutorial.md
       - name: ITRP
