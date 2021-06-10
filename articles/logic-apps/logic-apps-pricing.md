@@ -18,7 +18,7 @@ ms.date: 06/10/2021
 
 A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps environment. This pricing applies to logic apps that you create in the following ways:
 
-* When you use the **Logic App (Consumption)** resource type in the Azure portal.
+* When you use the **Logic App (Consumption)** resource type in the Azure portal
 * When you use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code
 * When you use the Azure Logic Apps Tools extension in Visual Studio
 * When you create and use [automation tasks](create-automation-tasks-azure-resources.md) in the Azure portal
