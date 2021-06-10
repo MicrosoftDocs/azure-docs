@@ -4,13 +4,13 @@ description: Get a Log Analytics query into Excel and refresh results inside Exc
 ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
-ms.date: 11/03/2020
+ms.date: 06/10/2021
 
 ---
 
 # Integrate Log Analytics and Excel
 
-You can integrate Azure Monitor Log Analytics and Microsoft Excel using M query and the Log Analytics API. This integration allows you to send up to 500,000 records to Excel as long as the total volume of the results doesn’t exceed 61MiB.
+You can integrate Azure Monitor Log Analytics and Microsoft Excel using M query and the Log Analytics API. This integration allows you to send up a certain number of records and MB of data. Limits are documented under https://docs.microsoft.com/en-us/azure/azure-monitor/service-limits#log-analytics-workspaces in the Azure portal section. 
 
 > [!NOTE]
 > Because Excel is a local client application, local hardware and software limitations impact it's performance and ability to process large sets of data.
