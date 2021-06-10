@@ -201,4 +201,4 @@ The **softDeleteMarkerValue** must be a string – use the string representation
 
 Congratulations! You have learned how to integrate MySQL with Azure Cognitive Search using an indexer.
 
-+ To learn more about indexers, see [Creating Indexers in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-create-indexers)
++ To learn more about indexers, see [Creating Indexers in Azure Cognitive Search](search-howto-create-indexers.md)
