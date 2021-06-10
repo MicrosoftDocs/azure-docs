@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Upgrade to Azure Cognitive Search .NET SDK version 11
 
-If your search solution is built on the [**Azure SDK for .NET**](/dotnet/azure/), this article will help you migrate from earlier versions of [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) to version 11 and the new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library. Version 11 is a fully redesigned client library, released by the Azure SDK development team (previous versions were produced by the Azure Cognitive Search development team). 
+If your search solution is built on the [**Azure SDK for .NET**](/dotnet/azure/), this article will help you migrate your code from earlier versions of [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) to version 11, the new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library. Version 11 is a fully redesigned client library, released by the Azure SDK development team (previous versions were produced by the Azure Cognitive Search development team). 
 
 Key differences in the new version include:
 
@@ -23,15 +23,17 @@ Key differences in the new version include:
 + Three clients instead of two: SearchClient, SearchIndexClient, SearchIndexerClient
 + Naming differences across a range of APIs and small structural differences that simplify some tasks
 
-In addition to this article, you can review the [Change Log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) for an itemized list of changes in .NET SDK version 11.
+The client library [Change Log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) is an itemized list of code updates in .NET SDK version 11.
 
 ## Why upgrade?
 
-The benefits of upgrading are summarized in the following list.
+The benefits of upgrading are summarized as follows:
 
 + As new features are introduced, they will be added to **Azure.Search.Documents** only. The previous version, Microsoft.Azure.Search, is a legacy client library. Updates to legacy libraries are limited to high priority bug fixes only.
 
 + Consistency with other Azure client libraries. **Azure.Search.Documents** takes a dependency on [Azure.Core](/dotnet/api/azure.core) and [System.Text.Json](/dotnet/api/system.text.json), and implements familiar approaches for common tasks such as authorization.
+
+The C# code samples and snippets for Cognitive Search have been revised to use the **Azure.Search.Documents**.
 
 ## Package comparison
 
@@ -253,6 +255,8 @@ In terms of service version updates, where code changes in version 11 relate to 
 
 ## Next steps
 
++ [How to use Azure.Search.Documents in a C# .NET Application](search-howto-dotnet-sdk.md)
++ [Tutorial: Add search to web apps](tutorial-csharp-overview.md)
 + [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Samples on GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
 + [Azure.Search.Document API reference](/dotnet/api/overview/azure/search.documents-readme)

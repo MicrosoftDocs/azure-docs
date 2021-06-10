@@ -4,7 +4,7 @@ titleSuffix: Azure Applied AI Services
 description: Understand the latest changes to the Form Recognizer API.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/25/2021

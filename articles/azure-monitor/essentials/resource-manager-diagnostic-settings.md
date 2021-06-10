@@ -9,7 +9,7 @@ ms.date: 09/11/2020
 ---
 
 # Resource Manager template samples for diagnostic settings in Azure Monitor
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create diagnostic settings for an Azure resource. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create diagnostic settings for an Azure resource. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 To create a diagnostic setting for an Azure resource, add a resource of type `<resource namespace>/providers/diagnosticSettings` to the template. This article provides examples for some resource types, but the same pattern can be applied to other resource types. The collection of allowed logs and metrics will vary for each resource type.
 
