@@ -308,9 +308,26 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 > [!IMPORTANT]
 > There are still some configuration steps needed before you can fully use the workspace. However, these require you to connect to the workspace.
+
+## Enable studio
+
+Azure Machine Learning studio is a web-based application that lets you easily manage your workspace. However, it needs some additional configuration before it can be used with resources secured inside a VNet. Use the following steps to enable studio:
+
+1. From the Azure portal, select your storage account and then select __Access control (IAM)__.
+1. Select __+ Add__, and then __Add role assignment__.
+1. From the Add role assignment dialog, set the __Role__ to __Storage Blob Data Reader__ and then type the name of your Azure Machine Learning workspace in the __Select__ field. Select the item that appears and then select __Save__.
+1. When using an Azure Storage Account that has a private endpoint, add the workspace managed identity as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
+1. For __each private endpoint listed__, use the following steps:
+
+    1. Select the link in the __Private endpoint__ column.
+    1. Select __Access control (IAM)__ from the left side.
+    1. Select __+ Add__, and then __Add role assignment__.
+    1. From the Add role assignment dialog, set the __Role__ to __Reader__ and then type the name of your Azure Machine Learning workspace in the __Select__ field. Select the item that appears and then select __Save__.
+
+1.
 ## Connect to the workspace
 
-There are several ways that you can connect to the workspace. The steps in this article use a jump box, which is a virtual machine in the VNet. You can connect to it using your web browser and Azure Bastion. The following table lists several other ways that you might connect to the secure workspace:
+There are several ways that you can connect to the secured workspace. The steps in this article use a __jump box__, which is a virtual machine in the VNet. You can connect to it using your web browser and Azure Bastion. The following table lists several other ways that you might connect to the secure workspace:
 
 | Method | Description |
 | [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) | Connects on-premises networks to the VNet over a private connection. Connection is made over the public internet. |
@@ -350,15 +367,29 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
 1. Select __Use Bastion__, and then provide your authentication information for the virtual machine, and a connection will be established in your browser.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/use-bastion.png" alt-text="Image of use bastion dialog":::
+
+## Create a compute cluster
+
+1. From an Azure Bastion connection to the jump box, open the __Microsoft Edge__ browser on the remote desktop.
+1. In the remote browser session, go to __https://ml.azure.com__. When prompted, authenticate using your Azure AD account.
+1. From the __Welcome to studio!__ screen, select the __Machine Learning workspace__ you created earlier and then select __Get started__.
+
+    > [!TIP]
+    > If your Azure AD account has access to multiple subscriptions or directories, use the __Directory and Subscription__ dropdown to select the one that contains the workspace.
+
+1. From studio, select __Compute__, __Compute clusters__, and then __+ New__.
+1. From the __Virtual Machine__ dialog, select __Next__ to accept the default virtual machine configuration.
+1. From the __Configure Settings__ dialog, enter __cpu-cluster__ as the __Compute name__. Set the __Subnet__ to __Training__ and then select __Create__ to create the cluster.
+
+For more information on creating a compute cluster, including how to do so with Python and the CLI, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
+
 ## Configure image builds
 
-When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, configure the workspace to use an Azure Machine Learning compute cluster to build images. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
+When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, configure the workspace to use the compute cluster you created earlier. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
 
 > [!NOTE]
-> You can use the same compute cluster to train models.
+> You can use the same compute cluster to train models and build Docker images for the workspace.
 
-1. Connect to the jump box using Bastion, if you are not already connected.
-1. 
 
 ## Stop jump box
 
