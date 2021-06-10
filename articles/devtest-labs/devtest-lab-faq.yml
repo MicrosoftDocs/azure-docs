@@ -14,32 +14,21 @@ summary: |
   ## Blog post
   Our DevTest Labs Team blog has been retired as of 20 March 2019. 
 
-sections:
-  - name: Blog post
-    questions:
-      - question: |
-          Where can I track feature updates from now on?
-        answer: |
-          From now on, we'll be posting feature updates and informative blog posts on the Azure blog and Azure updates. These blog posts will also link to our documentation wherever required.
+  ### Where can I track feature updates from now on?
+  From now on, we'll be posting feature updates and informative blog posts on the Azure blog and Azure updates. These blog posts will also link to our documentation wherever required.
           
-          Subscribe to the [DevTest Labs Azure Blog](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) and [DevTest Labs Azure updates](https://azure.microsoft.com/updates/?product=devtest-lab) to stay informed about new features in DevTest Labs.
+  Subscribe to the [DevTest Labs Azure Blog](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) and [DevTest Labs Azure updates](https://azure.microsoft.com/updates/?product=devtest-lab) to stay informed about new features in DevTest Labs.
           
-      - question: |
-          What happens to the existing blog posts?
-        answer: |
-          We're currently working on migrating existing blog posts (excluding outage updates) to our [DevTest Labs documentation](devtest-lab-overview.md). When the MSDN blog is deprecated, it will be redirected to the documentation overview for DevTest Labs. Once redirected, you can search for the article you're looking for in the 'Filter by' title. We haven't migrated all posts yet, but should be done by end of this month. 
+  ### What happens to the existing blog posts?
+  We're currently working on migrating existing blog posts (excluding outage updates) to our [DevTest Labs documentation](devtest-lab-overview.md). When the MSDN blog is deprecated, it will be redirected to the documentation overview for DevTest Labs. Once redirected, you can search for the article you're looking for in the 'Filter by' title. We haven't migrated all posts yet, but should be done by end of this month. 
           
-          
-      - question: |
-          Where do I see outage updates?
-        answer: |
-          We'll be posting outage updates using our Twitter handle from now onwards. Follow us on Twitter to get latest updates on outages and known bugs.
+  ### Where do I see outage updates?
+  We'll be posting outage updates using our Twitter handle from now onwards. Follow us on Twitter to get latest updates on outages and known bugs.
 
-      - question: |
-          Twitter
-        answer: |
-          Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
-          
+  ### Twitter
+  Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
+
+sections:
   - name: General
     questions:
       - question: |
@@ -275,6 +264,34 @@ sections:
           As a lab owner, you can delete VMs from your lab in the Azure portal. You also can delete all the VMs in your lab by using a PowerShell script. In the following example, under the **values to change** comment, modify the parameter values. You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab pane in the Azure portal.
           
           ```powershell
+          # Delete all the VMs in a lab.
+          
+          # Values to change:
+          $subscriptionId = "<Enter Azure subscription ID here>"
+          $labResourceGroup = "<Enter lab's resource group here>"
+          $labName = "<Enter lab name here>"
+          
+          # Sign in to your Azure account.
+          Connect-AzAccount
+          
+          # Select the Azure subscription that has the lab. This step is optional
+          # if you have only one subscription.
+          Select-AzSubscription -SubscriptionId $subscriptionId
+          
+          # Get the lab that has the VMs that you want to delete.
+          $lab = Get-AzResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+          
+          # Get the VMs from that lab.
+          $labVMs = Get-AzResource | Where-Object {
+                    $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
+                    $_.Name -like "$($lab.Name)/*"}
+          
+          # Delete the VMs.
+          foreach($labVM in $labVMs)
+          {
+              Remove-AzResource -ResourceId $labVM.ResourceId -Force
+          }          
+          ```
   - name: Environments
     questions:
       - question: |
@@ -460,5 +477,6 @@ sections:
           Check availability of the resource type in Azure regions on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page. If the resource type isn't available in a certain region, DevTest Labs doesn't support creation of a lab in that region. Select another region when creating your lab.
           
           **Option 2**
+          
           If the resource type is available in your region, check if it's registered with your subscription. It can be done at the subscription owner level as shown in [this article](../azure-resource-manager/management/resource-providers-and-types.md).
           
