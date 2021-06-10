@@ -52,9 +52,9 @@ For cloud jobs, Python 3.8 is supported. Scripts and packages from any 3.x versi
 
 For hybrid jobs on Windows Hybrid Runbook Workers, you can choose to install any 3.x version you want to use. For hybrid jobs on Linux Hybrid Runbook Workers, we depend on Python 3 version installed on the machine to run DSC OMSConfig and the Linux Hybrid Worker. We recommend installing version 3.6; however, different versions should also work if there are no breaking changes in method signatures or contracts between versions of Python 3.
 
-### Can Python 2 and Python 3 runbooks run in same automation account?
+### Can Python 2 and Python 3 runbooks run in same Automation account?
 
-Yes, there's no limitation for using Python 2 and Python 3 runbooks in same automation account.  
+Yes, there's no limitation for using Python 2 and Python 3 runbooks in same Automation account.  
 
 ### What is the plan for migrating existing Python 2 runbooks and packages to Python 3?
 
@@ -72,23 +72,23 @@ Python 2 and Python 3 have different execution environments. While a Python 2 ru
 
 Python 3 is a new runbook definition, which distinguishes between Python 2 and Python 3 runbooks. Similarly, another package kind is introduced for Python 3 packages.
 
-### How does a Hybrid Runbook Worker (HRW) know which version of Python to run when both Python2 and Python3 are installed?
+### How does a Hybrid Runbook Worker know which version of Python to run when both Python2 and Python3 are installed?
 
-For a Windows HW, Python 2 runbook, the runbook looks for the `PYTHON_2_PATH` environment variable first and validates whether it points to a valid executable file. For example, if the installation folder is `C:\Python2`, it would check if `C:\Python2\python.exe` is a valid path. If not found, then it looks for the `PATH` environment variable to do a similar check.
+For a Windows Runbook Worker, when running a Python 2 runbook it looks for the environment variable `PYTHON_2_PATH` first and validates whether it points to a valid executable file. For example, if the installation folder is `C:\Python2`, it would check if `C:\Python2\python.exe` is a valid path. If not found, then it looks for the `PATH` environment variable to do a similar check.
 
 For Python 3, it looks for the `PYTHON_3_PATH` env variable first and then falls back to the `PATH` environment variable.
 
-For users using a single version of Python, it's enough to add the installation path in the `PATH` variable. If the user wants to use both the versions in the same HW, then set `PYTHON_2_PATH` and `PYTHON_3_PATH` with the respective installation paths.
+When using only one version of Python, you can add the installation path to the `PATH` variable. If you want to use both versions on the Runbook Worker, set `PYTHON_2_PATH` and `PYTHON_3_PATH` to the location of the module for those versions.
 
-### How does a HRW locate the python interpreter?
+### How does a Hybrid Runbook Worker locate the Python interpreter?
 
-Locating the python interpreter is controlled by environment variables as explained in the above answer.
+Locating the Python module is controlled by environment variables as explained earlier.
 
-### Is Python3 supported in Source Control?
+### Is Python 3 supported in Source Control?
 
 No. Source Control isn't currently supported for Python 3. By default, Python runbooks are synced as Python 2 runbooks.
 
-### How can a runbook Author learn what python packages/modules are already in place in an Azure sandbox?
+### How can a runbook author know what Python packages are available in an Azure sandbox?
 
 Use the following code to list the default installed modules:
 
@@ -104,9 +104,9 @@ for package in installed_packages_list:
     print(package)
 ```
 
-### How can a runbook Author set which version of a package module to be used if there are multiple modules?
+### How can a runbook author set which version of a package module to be used if there are multiple modules?
 
-The default version can be overridden by importing the python packages in the automation account. Preference is given to the imported version in the automation account.
+The default version can be overridden by importing the Python packages in the Automation account. Preference is given to the imported version in the Automation account.
 
 ## Next steps
 
