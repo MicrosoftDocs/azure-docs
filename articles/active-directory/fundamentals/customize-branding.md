@@ -62,15 +62,16 @@ Your custom branding won't immediately appear when your users go to sites such a
 
            You can customize the sign-in page text you entered. To begin a new paragraph, use the enter key twice. You can also change text formatting to include bold, italics, an underline or clickable link. Use the following syntax to add formatting to text: 
 
-          > Hyperlink: ```[text](link)``` 
+          > Hyperlink: `[text](link)` 
           
-          > Bold: ``` **text** ``` or ``` __text__ ``` 
+          > Bold: `**text**` or `__text__` 
           
-          > Italics: ``` *text* ``` or ``` _text_ ``` 
+          > Italics: `*text*` or `_text_` 
           
-          > Underline: ``` ++text++ ``` 
-            >[!IMPORTANT]
-            >Hyperlinks added with Sign-in page text are rendered as text in the native environments e.g. desktop and mobile applications.
+          > Underline: `++text++` 
+         
+          > [!IMPORTANT]
+          > Hyperlinks that are added with sign-in page text render as text in native environments, like in desktop and mobile applications.
 
     - **Advanced settings**
             
