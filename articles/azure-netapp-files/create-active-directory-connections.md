@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/17/2021
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
