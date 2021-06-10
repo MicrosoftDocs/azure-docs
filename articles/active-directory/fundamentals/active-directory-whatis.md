@@ -63,7 +63,7 @@ After you choose your Azure AD license, you'll get access to some or all of the 
 
 |Category|Description|
 |-------|-----------|
-|Application management|Manage your cloud and on-premises apps using Application Proxy, single sign-on, the My Apps portal (also known as the Access panel), and Software as a Service (SaaS) apps. For more information, see [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md) and [Application Management documentation](../manage-apps/index.yml).|
+|Application management|Manage your cloud and on-premises apps using Application Proxy, single sign-on, the My Apps portal (also known as the Access panel), and Software as a Service (SaaS) apps. For more information, see [How to provide secure remote access to on-premises applications](../app-proxy/application-proxy.md) and [Application Management documentation](../manage-apps/index.yml).|
 |Authentication|Manage Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout. For more information, see [Azure AD Authentication documentation](../authentication/index.yml).|
 |Azure Active Directory for developers|Build apps that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or custom APIs. For more information, see [Microsoft identity platform (Azure Active Directory for developers)](../develop/index.yml).|
 |Business-to-Business (B2B)|Manage your guest users and external partners, while maintaining control over your own corporate data. For more information, see [Azure Active Directory B2B documentation](../external-identities/index.yml).|

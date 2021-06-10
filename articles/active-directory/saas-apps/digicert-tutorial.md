@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with DigiCert
@@ -32,6 +32,9 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * DigiCert supports **IDP** initiated SSO.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add DigiCert from the gallery
 
@@ -69,8 +72,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    In the **Identifier** text box, type the URL:
-    `https://www.digicert.com/sso`
+    a. In the **Identifier** text box, type the URL:
+    `https://www.digicert.com/account/sso/metadata`
+
+    b. In the **Reply URL** text box, type the URL:
+    `https://www.digicert.com/account/sso/`
+
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://www.digicert.com/account/sso/<FEDERATION_NAME>/login`
+
+	> [!NOTE]
+    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [DigiCert support team](mailto:support@digicert.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. DigiCert application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 

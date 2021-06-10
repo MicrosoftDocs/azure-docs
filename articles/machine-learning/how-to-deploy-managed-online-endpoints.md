@@ -186,7 +186,7 @@ az ml endpoint get-logs --local -n $ENDPOINT_NAME --deployment blue
 
 To deploy the YAML configuration to the cloud, run the following command:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="deploy" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="deploy" :::
 
 This deployment can take approximately up to 15 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
 
@@ -200,7 +200,7 @@ This deployment can take approximately up to 15 minutes depending on whether the
 
 The `show` command contains `provisioning_status` for both endpoint and deployment:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
 You may list all the endpoints in the workspace in a table format with the `list` command:
 
@@ -212,7 +212,7 @@ az ml endpoint list --output table
 
 Check if the model was deployed without error by checking the logs:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_logs" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 By default, logs are pulled from the inference-server. If you want to see the logs from the storage-initializer (which mounts the assets such as model and code to the container), add the flag `--container storage-initializer`.
 
@@ -220,13 +220,13 @@ By default, logs are pulled from the inference-server. If you want to see the lo
 
 You can use either the `invoke` command or a REST client of your choice to invoke the endpoint and score some data: 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
 
 You can again use the `get-logs` command shown previously to see the invocation logs.
 
 To use a REST client, you'll need the `scoring_uri` and the auth key/token. The `scoring_uri` is available in the output of the `show` command:
  
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_scoring_uri" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_scoring_uri" :::
 
 Note how we're using the `--query` to filter attributes to only what are needed. You can learn more about `--query` at [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
@@ -278,7 +278,7 @@ You can view metrics and set alerts based on your SLA by following instructions 
 
 ### [Optional] Integrate with Log Analytics
 
-The `get-logs` command will only provide the last few-hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to store and analyze logs durably. First, follow the steps in [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace#create-a-workspace) to create a Log Analytics workspace.
+The `get-logs` command will only provide the last few-hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to store and analyze logs durably. First, follow the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md#create-a-workspace) to create a Log Analytics workspace.
 
 Then, in the Azure portal:
 
@@ -300,7 +300,7 @@ Note that it might take up to an hour for the logs to be connected. Send some sc
 
 If you aren't going use the deployment, you should delete it with the below command (it deletes the endpoint and all the underlying deployments):
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## Next steps
 
