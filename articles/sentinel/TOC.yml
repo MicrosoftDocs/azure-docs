@@ -63,9 +63,9 @@
       href: watchlists.md
   - name: Threat hunting
     href: hunting.md
-  - name: Investigation, orchestration, and response
+  - name: Orchestration, automation, and response (SOAR)
     items:
-    - name: Orchestration, automation, and response (SOAR)
+    - name: Overview
       href: automation-in-azure-sentinel.md
     - name: Automation rules
       href: automate-incident-handling-with-automation-rules.md
