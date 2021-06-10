@@ -245,8 +245,8 @@ You will install Azure PowerShell modules on your client that will work with you
     ```
 
     If there are existing versions, use the `Uninstall-Module` cmdlet to uninstall. For more information, see 
-    - [Uninstall AzureRM modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true to the URL#uninstall-the-az-module)
-    - [Uninstall Az modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true to the URL#uninstall-the-azurerm-module)
+    - [Uninstall AzureRM modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true to the URL#uninstall-the-az-module).
+    - [Uninstall Az modules](/powershell/azure/uninstall-az-ps?view=azps-6.0.0&preserve-view=true to the URL#uninstall-the-azurerm-module).
 
 1. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
 
@@ -273,7 +273,7 @@ You will install Azure PowerShell modules on your client that will work with you
         Install-Module –Name Az –RequiredVersion 1.10.0    
         ```
 
-3.  Make sure that you have Az module version 1.10.0  running at the end of the installation. 
+3.  Make sure that you have Az module version 1.10.0 running at the end of the installation. 
    
 
     If you used PowerShell core 7.0 and later, the example output below indicates that the Az version 1.10.0 modules were installed successfully.
@@ -388,11 +388,11 @@ On your Windows client that you are using to connect to the device, take the fol
     ```
 
     > [!IMPORTANT]
-    > The entry in the hosts file should match exactly that provided to connect to Azure Resource Manager at a later step. Make sure that the DNS Domain entry here is all in the lowercase.
+    > The entry in the hosts file should match exactly that provided to connect to Azure Resource Manager at a later step. Make sure that the DNS Domain entry here is all in the lowercase. To get the values for the `<appliance name>` and `<DNS domain>`, go to the **Device** page in the local UI of your device.
 
     You saved the device IP from the local web UI in an earlier step.
 
-    The login.\<appliance name\>.\<DNS domain\> entry is the endpoint for Security Token Service (STS). STS is responsible for creation, validation, renewal, and cancellation of security tokens. The security token service is used to create the access token and refresh token that are used for continuous communication between the device and the client.
+    The `login.<appliance name>.<DNS domain>` entry is the endpoint for Security Token Service (STS). STS is responsible for creation, validation, renewal, and cancellation of security tokens. The security token service is used to create the access token and refresh token that are used for continuous communication between the device and the client.
 
     The endpoint for blob storage is optional when connecting to Azure Resource Manager. This endpoint is needed when transferring data to Azure via storage accounts.
 
@@ -434,11 +434,11 @@ Set the Azure Resource Manager environment and verify that your device to client
     A sample output is shown below:
     
     ```output
-    PS C:\windows\system32> Add-AzEnvironment -Name AzASE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com/
+    PS C:\WINDOWS\system32> Add-AzEnvironment -Name AzASE -ARMEndpoint "https://management.myasegpu.wdshcsso.com/"
     
-    Name  Resource Manager Url                    ActiveDirectory Authority
-    ----  --------------------                   -------------------------
-    AzASE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
+    Name  Resource Manager Url                      ActiveDirectory Authority
+    ----  --------------------                      -------------------------
+    AzASE https://management.myasegpu.wdshcsso.com/ https://login.myasegpu.wdshcsso.c...
     ```
 
 2. Set the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as 443. You define the environment in two ways:
@@ -448,7 +448,16 @@ Set the Azure Resource Manager environment and verify that your device to client
         ```powershell
         Set-AzEnvironment -Name <Environment Name>
         ```
-    
+        
+        Here is an example output.
+
+        ```output
+        PS C:\WINDOWS\system32> Set-AzEnvironment -Name AzASE
+
+        Name  Resource Manager Url                      ActiveDirectory Authority
+        ----  --------------------                      -------------------------
+        AzASE https://management.myasegpu.wdshcsso.com/ https://login.myasegpu.wdshcsso.c...     
+        ```
         For more information, go to [Set-AzEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).    
 
     - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge device.
@@ -498,15 +507,48 @@ Set the Azure Resource Manager environment and verify that your device to client
 
             Here is an example output. 
          
-            ```powershell
-            PS C:\Users\Administrator> login-AzAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d
+            ```output
+            PS C:\WINDOWS\system32> login-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d
             
-            Account         SubscriptionName  TenantId              Environment
-            -------         ----------------  --------              -------
-            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzASE
-            PS C:\Users\Administrator>
+            Account               SubscriptionName              TenantId
+            -------               ----------------              --------
+            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a...            
+            
+            PS C:\WINDOWS\system32>
             ```
+3. To verify that the connection to the device is working, use the `Get-AzResource` command. This command should return all the resources that exist locally on the device.
 
+    Here is an example output.
+
+    ```output
+    PS C:\WINDOWS\system32> Get-AzResource
+    
+    Name              : aseimagestorageaccount
+    ResourceGroupName : ase-image-resourcegroup
+    ResourceType      : Microsoft.Storage/storageaccounts
+    Location          : dbelocal
+    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/ase-image-resourcegroup/providers/Microsoft.Storage/storageac
+                        counts/aseimagestorageaccount
+    Tags              :
+    
+    Name              : myaselinuxvmimage1
+    ResourceGroupName : ASERG
+    ResourceType      : Microsoft.Compute/images
+    Location          : dbelocal
+    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/ASERG/providers/Microsoft.Compute/images/myaselinuxvmimage1
+    Tags              :
+    
+    Name              : ASEVNET
+    ResourceGroupName : ASERG
+    ResourceType      : Microsoft.Network/virtualNetworks
+    Location          : dbelocal
+    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
+    Tags              :
+    
+    PS C:\WINDOWS\system32>  
+    ```
+
+   
 
 ### [AzureRM](#tab/AzureRM)
 
