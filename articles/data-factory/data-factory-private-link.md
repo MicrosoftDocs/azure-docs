@@ -187,7 +187,7 @@ Finally, you must create the private endpoint in your data factory.
 
 1. On the Azure portal page for your data factory, select the **Networking** blade and the **Private endpoint connections** tab, and then select **+ Private endpoint**. 
 
-:::image type="content" source="./media/data-factory-private-link/create-private-endpoint.png" alt-text="Screenshot of the \"Private endpoint connections\" pane for creating a private endpoint.":::
+:::image type="content" source="./media/data-factory-private-link/create-private-endpoint.png" alt-text="Screenshot of the Private endpoint connections pane for creating a private endpoint.":::
 
 2. In the **Basics** tab of **Create a private endpoint**, enter, or select this information:
 
