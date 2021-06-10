@@ -138,7 +138,7 @@ To pass the key of the storage account, use:
 - `-Dfs.azure.account.key.<storageaccount>.blob.core.windows.net='<storage account key>'`
 - `-Dfs.azure.account.keyprovider.<storageaccount>.blob.core.windows.net=org.apache.hadoop.fs.azure.SimpleKeyProvider`
 
-You can also use [AzCopy](/azure/storage/common/storage-ref-azcopy) for better performance when copying HBase data files.
+You can also use [AzCopy](../../storage/common/storage-ref-azcopy.md) for better performance when copying HBase data files.
    
 1. Run the AzCopy command:
    
@@ -154,7 +154,7 @@ You can also use [AzCopy](/azure/storage/common/storage-ref-azcopy) for better p
    sudo -u hbase hadoop fs -chmod -R 0755 /hbase
    ```
 
-You can download AzCopy from [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10). For more information about using AzCopy, see [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
+You can download AzCopy from [Get started with AzCopy](../../storage/common/storage-use-azcopy-v10.md). For more information about using AzCopy, see [azcopy copy](../../storage/common/storage-ref-azcopy-copy.md).
 
 #### The source cluster is HDI 3.6 or HDI 4.0 with Accelerated Writes, and the destination cluster has Accelerated Writes
 
@@ -271,4 +271,3 @@ To learn more about [Apache HBase](https://hbase.apache.org/) and upgrading HDIn
 - [Monitor and manage Azure HDInsight using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md)
 - [Azure HDInsight versions](../hdinsight-component-versioning.md)
 - [Optimize Apache HBase](../optimize-hbase-ambari.md)
-

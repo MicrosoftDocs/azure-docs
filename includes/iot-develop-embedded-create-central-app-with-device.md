@@ -39,7 +39,7 @@ In this section, you use the IoT Central application dashboard to create a new d
 
 To create a device:
 1. From the application dashboard, select **Devices** on the side navigation menu.
-1. Select **+ New** to open the **Create a new device** window.
+1. Select **Create a device** from the **All devices** pane to open the **Create a new device** window. (If you're reusing an existing application that already has one or more devices, select **+ New** to open the window.)
 1. Leave Device template as **Unassigned**.
 1. Fill in the desired Device name and Device ID.
 
