@@ -251,7 +251,7 @@ client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
-client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
+client.publish("devices/" + device_id + "/messages/events/", '{"id":123}', qos=1)
 client.loop_forever()
 ```
 

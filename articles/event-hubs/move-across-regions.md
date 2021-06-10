@@ -2,7 +2,7 @@
 title: Move an Azure Event Hubs namespace to another region | Microsoft Docs
 description: This article shows you how to move an Azure Event Hubs namespace from the current region to another region. 
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 06/08/2021
 ---
 
 # Move an Azure Event Hubs namespace to another region
@@ -21,7 +21,7 @@ To get started, export a Resource Manager template. This template contains setti
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** and then select your Event Hubs namespace.
-3. Select > **Settings** > **Export template**.
+3. On the **Event Hubs Namespace** page, select **Export template** under **Automation** in the left menu. 
 4. Choose **Download** in the **Export template** page.
 
     ![Download Resource Manager template](./media/move-across-regions/download-template.png)
