@@ -374,7 +374,7 @@ If you have a Docker container already running with an earlier version of the SA
 1. Make sure that you have the most recent versions of the relevant deployment scripts from the Azure Sentinel github repository. Run:
 
     ```azurecli
-    - wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-sentinel-update.sh
+    - wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
     ```
 
 1. Run the following command on your SAP data connector machine:
