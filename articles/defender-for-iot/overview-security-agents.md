@@ -15,7 +15,7 @@ Use the following workflow to deploy and test your Defender for IoT security age
 
 1. [Enable Defender for IoT service to your IoT Hub](quickstart-onboard-iot-hub.md).
 
-1. If your IoT Hub has no registered devices, [Register a new device](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
+1. If your IoT Hub has no registered devices, [Register a new device](/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-overview).
 
 1. [Create a DefenderIotMicroAgent module twin](quickstart-create-micro-agent-module-twin.md) for your devices.
 
