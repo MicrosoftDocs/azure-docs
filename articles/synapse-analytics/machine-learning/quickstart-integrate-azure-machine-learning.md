@@ -37,18 +37,18 @@ In the below sections, you will find guidance on how to create an Azure ML linke
 - If you chose to use a Service principal, you need permissions (or request from someone who has permissions) to create a service principal and secret which you can use to create the linked service. Note that this service principal needs to be assigned the contributor role in the Azure Machine Learning Workspace.
 - Sign in to the [Azure portal](https://portal.azure.com/)
 
-## Create a linked service using the Synapse workspace managed identity
+## Create a linked service using the Synapse Workspace Managed identity
 
 This section will guide you on how to create an Azure ML linked service in Azure Synapse, using the [Azure Synapse Workspace Managed Identity](../security/synapse-workspace-managed-identity.md)
 
-### Give MSI permisison to the Azure ML workspace
+### Give MSI permission to the Azure ML workspace
 
 1. Navigate to your Azure Ml workspace resource in the Azure portal and select **Access Control**
 
 1. Create a role assignment and add your Synapse Workspace Managed Service identity (MSI) as a *contributor* of the Azure Machine Learning workspace. Note that this will require being an owner of the resource group that the Azure Machine Learning workspace belongs to. If you have trouble finding your Synapse WS MSI, search for the name of the Synapse workspace.
 
 ### Create an Azure ML linked service
-1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Management** -> **Linked service**, create a new linked service with type "Azure Machine Learning".
+1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Management** > **Linked service**, create a new linked service with type "Azure Machine Learning".
 
    ![Create linked service](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
@@ -64,7 +64,7 @@ This section will guide you on how to create an Azure ML linked service in Azure
 
 ## Create a linked service using a service principal
 
-This section will guide you on how to create an azure ML linked service with a service principal.
+This section will guide you on how to create an Azure ML linked service with a service principal.
 
 ### Create a service principal
 
