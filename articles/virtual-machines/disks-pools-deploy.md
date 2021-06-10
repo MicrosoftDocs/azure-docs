@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 06/10/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -12,7 +12,12 @@ ms.subservice: disks
 
 This article covers how to deploy and configure a disk pool. Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
-In this article you will configure and deploy a disk pool. In order for a disk pool to work correctly, each pool must have a subnet delegated to it and RBAC permissions must be assigned to the disk pool resources. Once you've 
+In this article you will configure and deploy a disk pool. In order for a disk pool to work correctly, you must complete the following steps:
+- Register for the preview.
+- Delegate a subnet to your disk pool.
+- Assign RBAC permissions to each disk pool resource.
+- Create the disk pool using the subnet.
+- Add disks to your disk pool.
 
 ## Register for the preview
 
@@ -60,6 +65,8 @@ For a disk to be able to use a disk pool, it must meet the following requirement
 1. Select User, group, or service principal in the Assign access to list.
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 
+# [Portal](#tab/azure-portal)
+
 ## Create a disk pool
 
 1. Search for and select **Disk pool**.
@@ -92,14 +99,14 @@ If your disk meets these requirements, you can add it to a disk pool by selectin
 
 In the disks enablement section you can choose to enable or disable individual iSCSI targets.
 
-In the Access Control List options section, set the ACL mode to dynamic.
+In the Access Control List options section, the ACL mode is set to **Dynamic**. To use your disk pool as a storage solution for AVS, the ACL mode must be set to **Dynamic**.
 
 Select Review + create.
 
 
 # [PowerShell](#tab/azure-powershell)
 
-PowerShell content
+The following script
 
 
 ```azurepowershell
@@ -139,5 +146,61 @@ Get-AzIscsiTarget -ResourceGroupName $resourceGroupName -Name $iscsiTargetName -
 # [Azure CLI](#tab/azure-cli)
 
 CLI content
+
+```azurecli
+#Select subscription
+az account set --subscription "Azure Dedicated Tahoma Share"
+
+#Add disk-pool CLI extension
+az extension add -n diskpool
+#az extension add -s https://zuhdefault.blob.core.windows.net/cliext/diskpool-0.1.1-py3-none-any.whl
+
+##Initialize input parameters
+resourceGroupName='yuemlu-avs-rg'
+location='EastUS'
+zone=1
+subnetId='/subscriptions/eff9fadd-6918-4253-b667-c39271e7435c/resourceGroups/yuemlu-avs-rg/providers/Microsoft.Network/virtualNetworks/avs-vnet/subnets/DiskPool_Subnet'
+diskName='disk-1tb-1'
+diskPoolName='yuemlu-eastus-diskpool'
+targetName='target1'
+lunName='lun-0'
+
+#You can skip this step if you have already created the disk and assigned permission in the prerequisite step. Below is an example for Premium Disks.
+az disk create --name $diskName --resource-group $resourceGroupName --zone $zone --location $location --sku Premium_LRS --max-shares 2 --size-gb 1024
+
+#You can deploy all your disks into one resource group and assign StoragePool Resource Provider permission to the group
+storagePoolObjectId=$(az ad sp list --filter "displayName eq 'StoragePool Resource Provider'" --query "[0].objectId" -o json)
+storagePoolObjectId="${storagePoolObjectId%\"}"
+storagePoolObjectId="${storagePoolObjectId#\"}"
+
+az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --resource-group $resourceGroupName
+
+#Create a disk pool 
+az disk-pool create --name $diskPoolName \
+--resource-group $resourceGroupName \
+--location $location \
+--availability-zones $zone \
+--subnet-id $subnetId \
+--sku name="Standard"
+
+#Initialize an iSCSI target. You can have 1 iSCSI target per disk pool
+az disk-pool iscsi-target create --name $targetName \
+--disk-pool-name $diskPoolName \
+--resource-group $resourceGroupName \
+--acl-mode Dynamic
+
+#Add the disk to disk pool
+diskId=$(az disk show --name $diskName --resource-group $resourceGroupName --query "id" -o json)
+diskId="${diskId%\"}"
+diskId="${diskId#\"}"
+
+az disk-pool update --name $diskPoolName --resource-group $resourceGroupName --disks $diskId
+
+#Expose disks added in the Disk Pool as iSCSI Lun 
+az disk-pool iscsi-target update --name $targetName \
+ --disk-pool-name $diskPoolName \
+ --resource-group $resourceGroupName \
+ --luns name=$lunName managed-disk-azure-resource-id=$diskId
+```
 
 ---
