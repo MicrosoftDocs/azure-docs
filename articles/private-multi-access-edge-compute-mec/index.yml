@@ -46,16 +46,13 @@ landingContent:
             url: deploy-metaswitch-solution.md
 
   # Card
-  - title: Edge connectivity using Affirmed Networks solution
+  - title: About Affirmed Private Network Service on Azure
     linkLists:
       - linkListType: concept
         links:
-          - text: Use Affirmed networks with Azure
+          - text: What is Affirmed Private Network Service on Azure?
             url: affirmed-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy Affirmed networks solution
+          - text: Deploy Affirmed Private Network Service on Azure
             url: deploy-affirmed-solution.md
-
-
-

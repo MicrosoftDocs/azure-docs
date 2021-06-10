@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: hollycl
 ---
-# Deploy Affirmed Private Network Service on Azure Stack Edge
+# Deploy Affirmed Private Network Service on Azure
 
 This article provides a high-level overview of the process of deploying APNS on an ASE device via the Microsoft Azure Marketplace.
 
