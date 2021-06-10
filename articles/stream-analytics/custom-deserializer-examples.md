@@ -227,7 +227,7 @@ This feature is available in the following regions when using Standard SKU:
 * East US 2
 * West Europe
 
-You can [request support](https://aka.ms/ccodereqregion) for additional regions. However, there is no such region restriction when using [Stream Analytics clusters](https://docs.microsoft.com/azure/stream-analytics/cluster-overview).
+You can [request support](https://aka.ms/ccodereqregion) for additional regions. However, there is no such region restriction when using [Stream Analytics clusters](./cluster-overview.md).
 
 ## Frequently asked questions
 

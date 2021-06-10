@@ -21,6 +21,8 @@
         href: 8x8virtualoffice-tutorial.md
     - name: A
       items:
+      - name: ABBYY FlexiCapture Cloud
+        href: abbyy-flexicapture-cloud-tutorial.md
       - name: Abintegro
         href: abintegro-tutorial.md
       - name: Absorb LMS
@@ -369,7 +371,7 @@
         href: cisco-umbrella-tutorial.md    
       - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
-      - name: Citrix ADC
+      - name: Citrix ADC SAML Connector for Azure AD
         href: citrix-netscaler-tutorial.md
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
@@ -670,6 +672,8 @@
 
     - name: F - G
       items:
+      - name: Fabric
+        href: fabric-tutorial.md
       - name: F5
         href: headerf5-tutorial.md
       - name: FactSet
@@ -677,7 +681,7 @@
       - name: Fastly Edge Cloud
         href: fastly-edge-cloud-tutorial.md
       - name: FAX.PLUS
-        href: fax.plus-tutorial.md    
+        href: fax-plus-tutorial.md    
       - name: FCM HUB
         href: fcm-hub-tutorial.md
       - name: Field iD
@@ -692,6 +696,8 @@
         href: filecloud-tutorial.md
       - name: FilesAnywhere
         href: filesanywhere-tutorial.md
+      - name: Finvari
+        href: finvari-tutorial.md 
       - name: Firmex VDR
         href: firmex-vdr-tutorial.md
       - name: FirmPlay - Employee Advocacy for Recruiting
@@ -976,7 +982,7 @@
         href: ipasssmartconnect-tutorial.md
       - name: iPoint Service Provider
         href: ipoint-service-provider-tutorial.md
-      - name: iProva
+      - name: Zenya
         href: iprova-tutorial.md
       - name: IQNavigator VMS
         href: iqnavigatorvms-tutorial.md
@@ -1440,8 +1446,6 @@
         href: perimeterx-tutorial.md
       - name: Periscope Data
         href: periscope-data-tutorial.md
-      - name: Pexip
-        href: pexip-tutorial.md
       - name: PetroVue
         href: petrovue-tutorial.md
       - name: Phraseanet
@@ -1574,7 +1578,7 @@
         href: reprints-desk-article-galaxy-tutorial.md
       - name: Rescana
         href: rescana-tutorial.md
-      - name: Resource Central
+      - name: Resource Central – SAML SSO for Meeting Room Booking System
         href: resource-central-tutorial.md
       - name: Retail Zipline
         href: retail-zipline-tutorial.md
@@ -1720,7 +1724,7 @@
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
         href: serraview-space-utilization-software-solutions-tutorial.md
-      - name: Services@SoSafe
+      - name: SoSafe
         href: servicessosafe-tutorial.md
       - name: ServiceChannel
         href: servicechannel-tutorial.md
@@ -1852,6 +1856,8 @@
         href: statuspage-tutorial.md
       - name: Stormboard
         href: stormboard-tutorial.md
+      - name: Styleflow
+        href: styleflow-tutorial.md
       - name: SuccessFactors
         href: successfactors-tutorial.md
       - name: Sugar CRM
@@ -2066,6 +2072,8 @@
         href: vyond-tutorial.md
     - name: W - Z
       items:
+      - name: WAN-Sign
+        href: wan-sign-tutorial.md
       - name: Watch by Colors
         href: watch-by-colors-tutorial.md
       - name: Wandera
@@ -2257,6 +2265,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Cloud Academy - SSO
+        href: cloud-academy-sso-provisioning-tutorial.md
       - name: Code42
         href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
