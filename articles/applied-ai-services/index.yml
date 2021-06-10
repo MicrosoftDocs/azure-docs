@@ -59,11 +59,11 @@ productDirectory:
     - title: Azure Video Analyzer
       imageSrc: ./media/video-analytics.svg
       summary: Extract actionable insights from your videos
-      url: https://aka.ms/video-analyzer-hub
+      url: ../azure-video-analyzer/index.yml
     - title: Azure Bot Service
       imageSrc: ./media/bot-services.svg
       summary: Create bots and connect them across channels
-      url: https://docs.microsoft.com/composer/
+      url: /composer/
 
 additionalContent:
   sections:
@@ -74,7 +74,7 @@ additionalContent:
             - text: Submit feedback on UserVoice
               url: https://aka.ms/AppliedAIUserVoice
             - text: Ask questions on Microsoft Q&A
-              url: https://aka.ms/AppliedAIMSFTQandA
+              url: /answers/topics/azure-applied-ai-services.html
             # Card
             - text: Troubleshoot on StackOverflow
               url: https://aka.ms/AppliedAIStackOverflow
@@ -89,15 +89,15 @@ additionalContent:
           - text: Azure Cognitive Search
             url: ../search/search-get-started-portal.md
           - text: Azure Video Analyzer
-            url: https://aka.ms/video-analytics-qs
+            url: ../azure-video-analyzer/video-analyzer-docs/detect-motion-emit-events-quickstart.md
           - text: Azure Bot Service
-            url: https://docs.microsoft.com/composer/quickstart-create-bot
+            url: /composer/quickstart-create-bot
             
           - text: Start For free
             url: https://azure.microsoft.com/free/ai
         - title: Explore other Azure AI Services
           links:
             - text: Azure Cognitive Services
-              url: https://docs.microsoft.com/en-us/azure/cognitive-services/
+              url: ../cognitive-services/index.yml
             - text: Azure Machine Learning
-              url: https://docs.microsoft.com/en-us/azure/machine-learning/
+              url: ../machine-learning/index.yml
