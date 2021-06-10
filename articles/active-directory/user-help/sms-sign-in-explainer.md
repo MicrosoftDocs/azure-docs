@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/21/2021
+ms.date: 06/10/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -19,6 +19,9 @@ ms.custom: "user-help, seo-update-azuread-jan"
 Registering a device gives your phone access to your organization's services and doesn't allow your organization access to your phone. If you're an administrator, you can find more information in [Configure and enable users for SMS-based authentication](../authentication/howto-authentication-sms-signin.md).
 
 If your organization hasn't made SMS sign-in available, you won't see an option for it when registering a phone with your account.  
+
+>[!NOTE]
+>If your default sign-in method is a text or call to your phone number, send the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many SMS codes for different apps. If your default sign-in method is the Microsoft Authenticator app (highly recommended), then app notification is sent automatically.
 
 ## When you have a new phone number
 
