@@ -1854,6 +1854,8 @@
         href: statuspage-tutorial.md
       - name: Stormboard
         href: stormboard-tutorial.md
+      - name: Styleflow
+        href: styleflow-tutorial.md
       - name: SuccessFactors
         href: successfactors-tutorial.md
       - name: Sugar CRM
