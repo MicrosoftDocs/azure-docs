@@ -45,9 +45,9 @@ There are also services that are excluded from these data requirements, and thes
 
 ## Azure Stack Edge ordering and management resource 
 
-Azure Stack Edge currently uses Azure Regional Pair to data resiliency against region-wide outages. The service behavior is changed so if you are deploying the service in Singapore (Southeast Asia), you can control the data residency. If you choose the single data residency option, you service will not be resilient to region outages.
+Azure Stack Edge currently uses Azure Regional Pair to data resiliency against region-wide outages. The service behavior is changed so if you are deploying the service in Singapore (Southeast Asia), you can control the data residency. If you choose the single data residency option, your service will not be resilient to region outages.
 
-The following tables summarizes the data residency and outage behaviors for Azure Stack Edge v1 resource scenarios.
+The following table summarizes the data residency and outage behaviors for Azure Stack Edge v1 resource scenarios.
  
 | If you... | You’ll observe this behavior...|...and this happens if there is an outage!                    |
 |-----------------------|----------------------------------------------|-------------------------------------------------------------|
@@ -63,7 +63,7 @@ When the orders are created in Southeast Asia region through the Azure Edge Hard
 - When you create an order resource in Southeast Asia region, the following informational message is displayed: 
     *Data related to your order will not be replicated outside Singapore (Southeast Asia Region) and hence will not be resilient to region-wide outages. Learn more.*
 
-- In the event of region-wide outages, you won’t be able to access the order resources. You will not be able to return, cancel or delete the resources. If you request for updates on your order status or needs to initiate a device return urgently during the service outage, Microsoft Support will handle those requests.
+- In the event of region-wide outages, you won’t be able to access the order resources. You will not be able to return, cancel, or delete the resources. If you request for updates on your order status or need to initiate a device return urgently during the service outage, Microsoft Support will handle those requests.
 
 
 ## Proactive support log collection
@@ -92,7 +92,7 @@ For more information, see [Use the Kubernetes dashboard to monitor the Kubernete
 
 ### Azure Arc enabled Kubernetes clusters
 
-For Singapore (Southeast Asia), Azure Arc supports only national boundary residency. This implies that the data isn’t replicated and in the event of a region-wide outage, the service is not resilient.
+For Singapore (Southeast Asia), Azure Arc supports only national boundary residency. This implies that the data isn’t replicated and if there is a region-wide outage, the service is not resilient.
 
 For all other regions, Azure Arc supports Azure Regional Pair and is resilient to any region-wide outages.
 
@@ -106,7 +106,7 @@ Azure IoT currently uses Azure Regional Pair for region outage resiliency. This 
 
 | If you...                           | You’ll observe this behavior….                                                                         | …and this happens if there is an outage! |
 |-------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------|
-| Have an existing Azure IoT resource. | Azure Regional Pairs are used. In Singapore, the data will be replicated to Hong-Kong.                 | No change, same as today.                |
+| Have an existing Azure IoT resource. | Azure Regional Pairs are used. In Singapore, the data will be replicated to Hong Kong.                 | No change, same as today.                |
 | Are creating an Azure IoT resource. | Currently there is no support for national data residency. This is likely to come in a future release. | Not applicable as of today.              |
 
 
