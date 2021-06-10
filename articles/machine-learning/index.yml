@@ -53,10 +53,8 @@ landingContent:
         links:
           - text: Track ML experiments
             url: how-to-track-monitor-analyze-runs.md
-          - text: Data and model versioning
+          - text: ML lifecycle management (MLOps)
             url: concept-model-management-and-deployment.md
-          - text: Collaborate on experiments
-            url: collaboration-guide.md      
             
   - title: 'Reference docs'      
     linkLists:
