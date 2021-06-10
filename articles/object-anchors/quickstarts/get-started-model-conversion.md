@@ -138,3 +138,6 @@ In this quickstart, you created an Object Anchors account and converted a 3D mod
 
 > [!div class="nextstepaction"]
 > [HoloLens DirectX](get-started-hololens-directx.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.MixedReality.ObjectAnchors.Conversion/latest/index.html)
