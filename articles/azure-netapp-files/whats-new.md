@@ -29,10 +29,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
     * [Manual QoS capacity pool](manual-qos-capacity-pool-introduction.md)
 
-* [Administrators in Active Directory configuration](create-active-directory-connections.md) 
-
-    The Active Directory configuration now includes an **Administrators** field. You can specify users or groups that will be given administrator privileges on the volume.
-
 ## May 2021
 
 * Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
