@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/28/2021
+ms.date: 06/04/2021
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 This article describes how to troubleshoot common errors when deploying virtual machines on an Azure Stack Edge Pro GPU device. The article provides guidance for investigating the most common issues that cause VM provisioning timeouts and issues during network interface and VM creation.
 
-To diagnose any VM provisioning failure, you'll review guest logs for the failed virtual machine. For steps to collect VM guest logs and include them in a Support package, see [Collect guest logs for VMs on Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
+To diagnose any VM provisioning failure, you'll review guest logs for the failed virtual machine. <!--For steps to collect VM guest logs and include them in a Support package, see [Collect guest logs for VMs on Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).-->
 
 For guidance on issues that prevent successful upload of a VM image before your VM deployment, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).
 
@@ -29,10 +29,10 @@ When VM provisioning times out, you see the following error:
 
 ![Screenshot of Azure portal error displayed when VM provisioning times out.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
-These are the top causes of VM provisioning timeouts. When you receive this error message, check for these issues.
+The following issues are the top causes of VM provisioning timeouts:
 - The IP address that you assigned to the VM is already in use. [Learn more](#vm-provisioning-timeout)
 - The VM image that you used to deploy the VM wasn't prepared correctly. [Learn more](#vm-image-not-prepared-correctly)
-- The default gateway and DNS server couldn't be reached from guest VM. [Learn more](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
+- The default gateway and DNS server couldn't be reached from the guest VM. [Learn more](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
 - During a `cloud init` installation, `cloud init` either didn't run or there were issues while it was running. (Linux VMs only) [Learn more](#cloud-init-issues-linux-vms)
 - For a Linux VM deployed using a custom VM image, the Provisioning flags in the /etc/waagent.conf file are not correct. (Linux VMs only) [Learn more](#provisioning-flags-set-incorrectly-linux-vms)
 
@@ -56,7 +56,7 @@ If you get a response, the IP address that you assigned to the new VM is already
 
 ### VM image not prepared correctly
 
-**Error description:** To prepare a VM image for use on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. You must create a gen1 virtual machine in Azure, customize the VM, generalize the VHD, and then download the OS VHD for that virtual machine. The prepared image must be a gen1 VHD with the "vhd" filename extension the fixed type.
+**Error description:** To prepare a VM image for use on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. You must create a gen1 virtual machine in Azure, customize the VM, generalize the VHD, and then download the OS VHD for that virtual machine. The prepared image must be a gen1 VHD with the "vhd" filename extension and the fixed type.
 
 For an overview of requirements, see [Create custom VM images for an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md). For guidance on resolving VM image issues, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).  
 
@@ -74,9 +74,9 @@ For an overview of requirements, see [Create custom VM images for an Azure Stack
 
 **Suggested solution:** Verify that the default gateway and DNS server can be reached from the VM. Then repeat VM deployment.
 
-To verify that the default gateway and DNS server can be reached, do the following steps:
+To verify that the default gateway and DNS server can be reached from the VM, do the following steps:
 1. [Connect to the VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-vm).
-2. Run the following **ping** commands to verify that the default gateway and DNS server can be reached from the VM:
+2. Run the following commands:
 
    ```
    ping <default gateway IP address>
@@ -90,7 +90,7 @@ To verify that the default gateway and DNS server can be reached, do the followi
 
 ### `cloud init` issues (Linux VMs)
 
-**Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
+**Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](../virtual-machines/linux/using-cloud-init.md).
 
 **Suggested solutions:** To find issues that occurred when `cloud init` was run:
 1. [Connect to the VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-vm).
@@ -112,20 +112,18 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
    `cloud-init --help` 
 
-   <!--You can also go to [CLI Interface](https://cloudinit.readthedocs.io/en/latest/topics/cli.html). - No additional guidance. They might as well just run the Help command.-->
-
 2. Make sure the `cloud init` instance can run successfully with the data source set to *Azure*. 
 
    When the data source is set to *Azure*, the entry in the *cloud init* logs looks similar to the following one.
 
    ![Picture of a cloud-init log entry for a VM image with Data Source set to Azure.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png) 
 
-   If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](/azure/virtual-machines/linux/cloud-init-deep-dive).
+   If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](../virtual-machines/linux/cloud-init-deep-dive.md).
 
 
 ### Provisioning flags set incorrectly (Linux VMs)
 
-**Error description:** To successfully deploy a Linux VM in Azure, provisioning must be disabled on the image, and provisioning using `cloud init' must be enabled. The Provisioning flags that set these values are configured correctly for standard VM images. If you use a custom VM image, you need to make sure they're correct. 
+**Error description:** To successfully deploy a Linux VM in Azure, provisioning must be disabled on the image, and provisioning using `cloud init` must be enabled. The Provisioning flags that set these values are configured correctly for standard VM images. If you use a custom VM image, you need to make sure they're correct. 
 
 **Suggested solution:** Make sure the Provisioning flags in the */etc/waagent.conf* file have the following values:<!--Move details to "Create a custom VM image" when the 2 active PRs against that article have been merged. Not before Friday release.-->
 
@@ -195,7 +193,7 @@ If Kubernetes is enabled before the VM is created, Kubernetes will use all the a
 
 ## Next steps
 
-* [Collect a Support package that includes guest logs for a failed VM](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
+<!-- Remove link while cmdlet issue is fixed. - * [Collect a Support package that includes guest logs for a failed VM](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)-->
 * [Troubleshoot issues with a failed GPU extension installation](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
-* [Troubleshoot issues with Azure Resource Manager](azure-stack-edge-gpu-troubleshoot.md#azure-resource-manager)
+* [Troubleshoot issues with Azure Resource Manager](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)
 

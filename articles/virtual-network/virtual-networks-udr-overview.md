@@ -122,7 +122,7 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 #### Known Issues (April 2021)
 
-When BGP routes are present or a Service Endpoint is configured on your subnet, routes may not be evaluated with the correct priority. A fix for these scenarios is currently in progress </br>
+When BGP routes are present or a Service Endpoint is configured on your subnet, routes may not be evaluated with the correct priority. This feature does not currently work for dual stack (IPv4+IPv6) virtual networks. A fix for these scenarios is currently in progress </br>
 
 
 > [!NOTE] 
