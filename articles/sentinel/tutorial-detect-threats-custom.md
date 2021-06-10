@@ -143,16 +143,15 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
         Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the 20th alert will summarize the entire set of returned events. In other words, the 20th alert is what would have been generated under the **Group all events into a single alert** option.
 
-        > [!NOTE]
-        > If you choose this option, Azure Sentinel will add a new field, **OriginalQuery** to the results of the query. Here is a comparison of the existing **Query** field and the new field:
-        >
-        > | Field name | Contains | Running the query in this field<br>results in... |
-        > | - | :-: | :-: |
-        > | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert |
-        > | **OriginalQuery** | The original query as written in the analytics rule | The most recent event in the timeframe in which the query runs, that fits the parameters defined by the query |
-        > |
-        >
-        > In other words, the **OriginalQuery** field behaves like the **Query** field usually behaves. The result of this extra field is that the problem described by the first item in the [Troubleshooting](#troubleshooting) section below has been solved.
+        If you choose this option, Azure Sentinel will add a new field, **OriginalQuery**, to the results of the query. Here is a comparison of the existing **Query** field and the new field:
+
+        | Field name | Contains | Running the query in this field<br>results in... |
+        | - | :-: | :-: |
+        | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert |
+        | **OriginalQuery** | The original query as written in the analytics rule | The most recent event in the timeframe in which the query runs, that fits the parameters defined by the query |
+        |
+
+        In other words, the **OriginalQuery** field behaves like the **Query** field usually behaves. The result of this extra field is that the problem described by the first item in the [Troubleshooting](#troubleshooting) section below has been solved.
  
     > [!NOTE]
     > What's the difference between **events** and **alerts**?
