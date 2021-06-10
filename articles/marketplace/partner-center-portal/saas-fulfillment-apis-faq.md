@@ -83,4 +83,4 @@ The sequence below captures the flow when Azure user unsubscribes in Microsoft's
 
 ## Next steps
 
-[Marketplace metering service APIs](./marketplace-metering-service-apis.md)
+[Marketplace metering service APIs](../marketplace-metering-service-apis.md)
