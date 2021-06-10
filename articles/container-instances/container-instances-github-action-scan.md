@@ -21,7 +21,7 @@ In this article, we'll make use of the [Container image scan](https://github.com
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Container Registry to store all the container images that are built and pushed. You can [create an Azure Container Registry from the Azure portal](/azure/container-registry/container-registry-get-started-portal).
+- An Azure Container Registry to store all the container images that are built and pushed. You can [create an Azure Container Registry from the Azure portal](../container-registry/container-registry-get-started-portal.md).
 - A GitHub account with an active repository. If you don't have one, sign up for [free](https://github.com/join). 
     - This example uses the [Java Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic).
 
@@ -180,4 +180,4 @@ Once the image is scanned and there are no vulnerabilities found, it's safe to p
         
 ```
 ## Next steps
-- Learn how to [Deploy to Azure Container Instances from Azure Container Registry](/azure/container-instances/container-instances-using-azure-container-registry).
+- Learn how to [Deploy to Azure Container Instances from Azure Container Registry](./container-instances-using-azure-container-registry.md).

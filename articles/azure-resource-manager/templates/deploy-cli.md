@@ -170,7 +170,7 @@ For more information, see [Azure Resource Manager template specs](template-specs
 
 ## Preview changes
 
-Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 ## Parameters
 
@@ -273,5 +273,5 @@ To deploy a template with multi-line strings or comments using Azure CLI with ve
 
 * To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 * To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
