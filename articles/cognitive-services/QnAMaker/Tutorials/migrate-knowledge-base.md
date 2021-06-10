@@ -66,11 +66,8 @@ You may want to create a copy of your knowledge base for several reasons:
 
 1. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
-
-   >
    > [!div class="mx-imgBorder"]
    > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
-   >
 
 ## Programmatically migrate a knowledge base from QnA Maker
 
