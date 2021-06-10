@@ -10,7 +10,7 @@ items:
     href: support.md
 - name: Quickstarts
   expanded: true
-  items: 
+  items:
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
   - name: Create and manage access tokens
@@ -19,6 +19,8 @@ items:
     href: quickstarts/managed-identity.md
   - name: Set up managed identities from CLI
     href: quickstarts/managed-identity-from-cli.md
+  - name: Export SDK telemetry data to Application Insights
+    href: quickstarts/telemetry-application-insights.md
   - name: Get a relay token
     href: quickstarts/relay-token.md
   - name: Chat
@@ -97,8 +99,6 @@ items:
         href: concepts/telephony-sms/messaging-policy.md
   - name: Voice and video calling
     items:
-      - name: Known issues
-        href: concepts/known-issues.md
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
@@ -109,6 +109,8 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: Known issues
+        href: concepts/known-issues.md
   - name: UI Library
     items:
       - name: UI Library overview
@@ -116,7 +118,7 @@ items:
       - name: UI Library use cases
         href: concepts/ui-library/ui-library-use-cases.md
   - name: SDKs and REST APIs
-    href: concepts/sdk-options.md 
+    href: concepts/sdk-options.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
   - name: Identity model
@@ -124,9 +126,9 @@ items:
   - name: Authentication
     href: concepts/authentication.md
   - name: Privacy
-    href: concepts/privacy.md  
+    href: concepts/privacy.md
   - name: Pricing
-    href: concepts/pricing.md  
+    href: concepts/pricing.md
   - name: Push notifications
     href: concepts/notifications.md
   - name: Teams interoperability

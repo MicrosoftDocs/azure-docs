@@ -86,7 +86,8 @@ Getting started with Premium Messaging is straightforward and the process is sim
 
 ![create-premium-namespace][create-premium-namespace]
 
-You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
+You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/).
+
 
 ## Next steps
 

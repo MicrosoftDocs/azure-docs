@@ -82,9 +82,11 @@ time.sleep(30)
 pipeline_run = adf_client.pipeline_runs.get(
     rg_name, df_name, run_response.run_id)
 print("\n\tPipeline run status: {}".format(pipeline_run.status))
-activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
-    rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
-print_activity_run_details(activity_runs_paged[0])
+filter_params = RunFilterParameters(
+    last_updated_after=datetime.now() - timedelta(1), last_updated_before=datetime.now() + timedelta(1))
+query_response = adf_client.activity_runs.query_by_pipeline_run(
+    rg_name, df_name, pipeline_run.run_id, filter_params)
+print_activity_run_details(query_response.value[0])
 ```
 
 For complete documentation on Python SDK, see [Data Factory Python SDK reference](/python/api/overview/azure/datafactory).
