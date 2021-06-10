@@ -335,7 +335,7 @@ Go to [Use Azure AD access reviews to manage users excluded from Conditional Acc
 
 ### Review guest users' group memberships
 
-Go to [Manage guest access with Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) to learn how to review guest users' access to group memeberships.
+Go to [Manage guest access with Azure AD access reviews](./manage-guest-access-with-access-reviews.md) to learn how to review guest users' access to group memeberships.
 
 ### Review access to on-premises groups
 

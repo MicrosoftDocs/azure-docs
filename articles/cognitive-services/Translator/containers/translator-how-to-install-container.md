@@ -273,4 +273,4 @@ In this article, you learned concepts and workflows for downloading, installing,
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure Cognitive Services containers](/azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context)
+> [Learn more about Azure Cognitive Services containers](../../containers/index.yml?context=%2fazure%2fcognitive-services%2ftranslator%2fcontext%2fcontext)

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 06/10/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -258,3 +258,4 @@ If you have content expressed in a less frequently used language, you can try La
 ## See also
 
 * [What is the Text Analytics API?](overview.md)   
+* [Model versions](concepts/model-versioning.md)
