@@ -9,8 +9,8 @@ author: solankisamir
 ms.service: api-management
 ms.topic: how-to
 ms.author: sasolank
-ms.date: 06/02/2021
-ms.custom: devx-track-azurepowershell
+ms.date: 06/10/2021
+ms.custom: devx-track-azurepowershell,contperf-fy21q4
 
 ---
 # Integrate API Management in an internal virtual network with Application Gateway
@@ -47,7 +47,7 @@ To follow the steps described in this article, you must have:
 
 ## Scenario
 
-In this article, you learn how to Use a single API Management service for both internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You will also unnderstand how to expose only a subset of your APIs (in the example they are highlighted in green) for external consumption using routing functionality available in Application Gateway.
+In this article, you learn how to Use a single API Management service for both internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You will also understand how to expose only a subset of your APIs (in the example they are highlighted in green) for external consumption using routing functionality available in Application Gateway.
 
 In the first setup example, all your APIs are managed only from within your virtual network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to the internet. High-performance connectivity can be delivered via Express Route circuits.
 
