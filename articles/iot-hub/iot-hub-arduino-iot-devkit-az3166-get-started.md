@@ -1,13 +1,13 @@
 ---
 title: Connect IoT DevKit AZ3166 to an Azure IoT Hub
 description: In this tutorial, learn how to set up and connect IoT DevKit AZ3166 to Azure IoT Hub so it can send data to the Azure cloud platform.
-author: wesmc7777
+author: JimacoMS4
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/29/2021
-ms.author: wesmc
+ms.author: v-jbrannian
 ms.custom:  [mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ---
 
