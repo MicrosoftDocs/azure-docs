@@ -8,7 +8,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (.NET)
-In this tutorial, you create a .NET Core console application to send messages to and receive messages from a Service Bus queue using the **Azure.Messaging.ServiceBus** package. 
+In this tutorial, you'll create two .NET Core console applications. The first application sends messages to a Service Bus queue and the second one receives those messages from the queue. These applications use the [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) NuGet package. For an overview of Service Bus queues, see [Queues](service-bus-messaging-overview.md#queues).
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -35,7 +35,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
 
 ### Add code to send messages to the queue
 
-1. In *Program.cs*, add the following `using` statements at the top of the namespace definition and before the class declaration:
+1. In **Program.cs**, add the following `using` statements at the top of the file.
 
     ```csharp
     using System.Collections.Generic;
@@ -77,7 +77,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
             return messages;
         }
     ```
-1. Add a method named `SendMessages` to the `Program` class as shown below. This method takes a queue of messages, and prepares one or more batches to send to the Service Bus queue.
+1. Add a method named `SendMessages` to the `Program` class as shown below. This method takes a queue (.NET queue) of messages, and prepares one or more batches to send to the Service Bus queue.
 
     ```csharp
         static async Task SendMessages()
@@ -131,8 +131,10 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for **
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+            // Create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
+
+            // create the sender object that will be used to send messages to the queue
             sender = client.CreateSender(queueName);
 
             try
@@ -236,9 +238,13 @@ namespace SBusQueueSender
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+
+            // Create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
+
+            // create the sender object that will be used to send messages to the queue
             sender = client.CreateSender(queueName);
+
 
             try
             {
@@ -261,11 +267,11 @@ namespace SBusQueueSender
 
 ```
 
-### Test the app
+### Test the app to send messages to the queue
 
 1. Run the application. You should see the following messages. Press any key to end the application. 
     ```console
-    Sent a batch of messages to the queue: myqueue
+    Sent a batch of 3 messages to the queue: myqueue
     Press any key to end the application
     ```       
 1. In the Azure portal, follow these steps:
@@ -281,11 +287,11 @@ namespace SBusQueueSender
     - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the queue. 
 
 ## Receive messages from a queue
-In this section, you'll create another .NET Core console application that receives messages from the queue. 
+In this section, you'll create a .NET Core console application that receives messages from the queue. 
 
 ### Create a console application and add Service Bus NuGet package
 
-1. Create another C# .NET Core console application project. 
+1. Create a C# .NET Core console application project. 
 1. Right-click the newly created project and select **Manage NuGet Packages**.
 1. Select **Browse**. Search for and select **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)**.
 1. Select **Install** to complete the installation, then close the NuGet Package Manager.
@@ -350,28 +356,22 @@ In this section, you'll add code to retrieve messages from the queue.
     ```csharp
         static async Task ReceiveMessages()
         {
-            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
-            {
-                // create a processor that we can use to process the messages
-                ServiceBusProcessor processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+            // add handler to process messages
+            processor.ProcessMessageAsync += MessageHandler;
 
-                // add handler to process messages
-                processor.ProcessMessageAsync += MessageHandler;
+            // add handler to process any errors
+            processor.ProcessErrorAsync += ErrorHandler;
 
-                // add handler to process any errors
-                processor.ProcessErrorAsync += ErrorHandler;
+            // start processing 
+            await processor.StartProcessingAsync();
 
-                // start processing 
-                await processor.StartProcessingAsync();
+            Console.WriteLine("Wait for a minute and then press any key to end the processing");
+            Console.ReadKey();
 
-                Console.WriteLine("Wait for a minute and then press any key to end the processing");
-                Console.ReadKey();
-
-                // stop processing 
-                Console.WriteLine("\nStopping the receiver...");
-                await processor.StopProcessingAsync();
-                Console.WriteLine("Stopped receiving messages");
-            }
+            // stop processing 
+            Console.WriteLine("\nStopping the receiver...");
+            await processor.StopProcessingAsync();
+            Console.WriteLine("Stopped receiving messages");
         }
     ```
 1. Replace the `Main()` method. It calls the `ReceiveMessages` method to receive messages from the queue. 
@@ -383,8 +383,11 @@ In this section, you'll add code to retrieve messages from the queue.
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+
+            // Create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
+
+            // create a processor that we can use to process the messages
             processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
 
             try
@@ -421,8 +424,7 @@ namespace SBusQueueClient
         // name of your Service Bus queue
         static string queueName = "<QUEUE NAME>";
 
-        // the client that owns the connection and can be used to create
-        // senders and receivers
+        // the client that owns the connection and can be used to create senders and receivers
         static ServiceBusClient client;
 
         // the processor that reads and processes messages from the queue
@@ -471,8 +473,11 @@ namespace SBusQueueClient
             // of the application, which is best practice when messages are being published or read
             // regularly.
             //
-            // Create the clients that we'll use for sending and processing messages.
+
+            // Create the client object that will be used to create sender and receiver objects
             client = new ServiceBusClient(connectionString);
+
+            // create a processor that we can use to process the messages
             processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
 
             try
@@ -491,9 +496,10 @@ namespace SBusQueueClient
     }
 }
 
+
 ```
 
-### Run the app
+### Test the app to receive messages to the queue
 Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
