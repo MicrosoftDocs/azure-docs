@@ -283,7 +283,7 @@
       href: quickstart-get-visibility.md
     - name: Use Azure Monitor workbooks
       href: tutorial-monitor-your-data.md
-  - name: Detect and analyze data
+  - name: Detect threats and analyze data
     items:
     - name: Use built-in rules
       href: tutorial-detect-threats-built-in.md
@@ -299,6 +299,10 @@
         href: import-export-analytics-rules.md
       - name: Work with SOC-ML anomaly rules
         href: work-with-anomaly-rules.md
+    - name: Enable User and Entity Behavior Analytics (UEBA)
+      href: enable-entity-behavior-analytics.md
+    - name: Work with SOC-ML anomaly rules
+      href: work-with-anomaly-rules.md
     - name: Handle false positives
       href: false-positives.md
     - name: Create incidents from Microsoft Security alerts
@@ -313,16 +317,12 @@
       href: livestream.md
   - name: Detect threats
     items:
-    - name: Use UEBA to investigate incidents
-      href: enable-entity-behavior-analytics.md
-    - name: Common UEBA investigation methods
-      href: investigate-with-ueba.md
-    - name: Work with SOC-ML anomaly rules
-      href: work-with-anomaly-rules.md
   - name: Investigate and respond
     items:
     - name: Create custom entity activities
       href: customize-entity-activities.md
+    - name: Common UEBA investigation methods
+      href: investigate-with-ueba.md
     - name: Deploy solutions
       items:
       - name: Discover and deploy solutions
