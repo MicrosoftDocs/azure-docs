@@ -21,7 +21,7 @@ This article shows you how to troubleshoot Azure Bastion.
 
 **A:** If you create and apply an NSG to *AzureBastionSubnet*, make sure you have added the required rules to the NSG. For a list of required rules, see [Working with NSG access and Azure Bastion](./bastion-nsg.md). If you do not add these rules, the NSG creation/update will fail.
 
-An example of the NSG rules is available for reference in the [quickstart template](https://azure.microsoft.com/resources/templates/101-azure-bastion-nsg/).
+An example of the NSG rules is available for reference in the [quickstart template](https://azure.microsoft.com/resources/templates/azure-bastion-nsg/).
 For more information, see [NSG guidance for Azure Bastion](bastion-nsg.md).
 
 ## <a name="sshkey"></a>Unable to use my SSH key with Azure Bastion

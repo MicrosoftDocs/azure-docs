@@ -65,3 +65,6 @@ The app looks for objects in the current field of view and then tracks them once
 
 > [!div class="nextstepaction"]
 > [FAQ](../faq.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.MixedReality.ObjectAnchors.Conversion/latest/index.html)
