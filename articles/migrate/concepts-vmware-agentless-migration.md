@@ -62,8 +62,6 @@ A cycle is said to be complete once the disks are consolidated.
 
 ## Permissions required
 
-In addition to the roles described below, the logged-in user would need the following permission at a subscription level - Microsoft.Resources/subscriptions/resourceGroups/read
-
 When you start replication for the first time, the logged-in user must be assigned the following roles:
 
 - Owner or Contributor and User Access Administrator on the Azure Migrate project's Resource Group and the target Resource Group
@@ -71,6 +69,8 @@ When you start replication for the first time, the logged-in user must be assign
 For the subsequent replications, the logged-in user must be assigned the following roles:
 
 - Owner or Contributor on the Azure Migrate project's Resource Group and the target Resource Group
+
+In addition to the roles described above, the logged-in user would need the following permission at a subscription level - Microsoft.Resources/subscriptions/resourceGroups/read
 
 
 ## Data integrity
