@@ -11,7 +11,7 @@ ms.date: 02/25/2021
 
 # Access and track your secure score
 
-You can find your overall secure score, as well as your score per subscription, through the Azure portal or programatically as described in the following sections:
+You can find your overall secure score, as well as your score per subscription, through the Azure portal or programmatically as described in the following sections:
 
 > [!TIP]
 > For a detailed explanation of how your scores are calculated, see [Calculations - understanding your score](secure-score-security-controls.md#calculations---understanding-your-score).
@@ -93,7 +93,7 @@ Security Center's workbooks page includes a ready-made report for visually track
 If you're a Power BI user with a Pro account, you can use the **Secure Score Over Time** Power BI dashboard to track your secure score over time and investigate any changes.
 
 > [!TIP]
-> You can find this dashboard, as well as other tools for working programatically with secure score, in the dedicated area of the Azure Security Center community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+> You can find this dashboard, as well as other tools for working programmatically with secure score, in the dedicated area of the Azure Security Center community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
 
 The dashboard contains the following two reports to help you analyze your security status:
 

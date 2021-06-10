@@ -3,12 +3,12 @@ title: Send messages to Azure Service Bus topics using azure-messaging-servicebu
 description: This quickstart shows you how to send messages to Azure Service Bus topics using the azure-messaging-servicebus package. 
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 03/16/2021
+ms.date: 06/09/2021
 ms.custom: contperf-fy21q3
 ---
 
-# Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (.NET)
-In this tutorial, you create a C# application to do the following tasks:
+# Send messages to an Azure Service Bus topic and receive messages from its subscriptions (.NET)
+In this tutorial, you create a .NET Core C# application to do the following tasks:
 
 1. Send messages to a Service Bus topic. 
 
@@ -25,8 +25,8 @@ In this tutorial, you create a C# application to do the following tasks:
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Follow steps in this [Quickstart](service-bus-quickstart-topics-subscriptions-portal.md) to create a Service Bus topic and subscriptions to the topic. 
 
-    > [!NOTE]
-    > You will use the connection string to the namespace, the topic name, and the name of one of the subscriptions to the topic in this tutorial.  
+    > [!IMPORTANT]
+    > Note down the connection string to the namespace, the topic name, and the name of one of the subscriptions to the topic. You'll use them later in this tutorial.
 - [Visual Studio 2019](https://www.visualstudio.com/vs). 
  
 ## Send messages to a topic

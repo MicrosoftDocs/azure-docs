@@ -21,6 +21,8 @@
     href: microsoft-365-defender-sentinel-integration.md
   - name: Create KQL queries for Azure Sentinel (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+  - name: Create a Power BI report from Azure Sentinel
+    href: powerbi.md
 - name: Concepts
   items:
   - name: Architecture
