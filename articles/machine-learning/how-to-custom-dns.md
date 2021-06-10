@@ -30,7 +30,7 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 - Familiarity with [Azure Private Endpoint DNS zone configuration](../private-link/private-endpoint-dns.md)
 
-- Familiarity with [Azure Private DNS](/azure/dns/private-dns-privatednszone)
+- Familiarity with [Azure Private DNS](../dns/private-dns-privatednszone.md)
 
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
