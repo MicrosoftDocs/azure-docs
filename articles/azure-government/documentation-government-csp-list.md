@@ -376,7 +376,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Sumo Logic](https://www.sumologic.com/)|
 |[SWC Technology Partners](https://www.swc.com)|
 |[Sybatech, Inc](https://www.sybatech.com)|
-|[Synergy Technical, LLC](https://www.syntechva.com/)|
+|[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
 |[Systems Solutions Inc](https://www.ssi-net.com/)|
