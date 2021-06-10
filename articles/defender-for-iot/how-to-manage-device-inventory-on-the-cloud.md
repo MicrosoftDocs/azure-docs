@@ -1,17 +1,27 @@
 ---
 title: Manage the device inventory on the cloud
 description: Learn how to manage your device inventory on the cloud.
-ms.date: 06/09/2021
+ms.date: 06/10/2021
 ms.topic: how-to
 ---
 
 # Manage the device inventory on the cloud
 
-The device inventory can be used to view a comprehensive perspective of all network information. The import export, and filtering tools can be used to manage this information. 
+The device inventory can be used to view a comprehensive perspective of all network information. The search, filter, edit columns, and export tools can be used to manage this information. 
 
-ADD SECTION ON USE CASES
+Some of the benefits of the device inventory include:
 
-INSERT SCREENSHOT
+- Collect information on all devices within the network.
+
+- Group devices by site, device type, vendor, or VLAN.
+
+- Locate any unreported devices.
+
+- Gain deep level understanding of each device and their details.
+
+- Export the information to CSV for comparison with OT reports.
+
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen.":::
 
 The following table describes the table columns in the device inventory.
 
@@ -56,20 +66,46 @@ In the device inventory table you can add or remove columns. You can also change
 
 **To customize the device inventory table**:
 
-1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: icon.
+1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: button.
 
 1. In the Edit columns tab, select the drop down menu to change the value of a column.
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-drop-down-menu.png" alt-text="Select the drop down menu to change the value of a given column.":::
 
-1. Add a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-column-icon.png" border="false"::: icon.
+1. Add a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-column-icon.png" border="false"::: button.
 
 1. Reorder the columns by dragging a column parameter to a new location.
 
-1. Delete a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon.
+1. Delete a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: button.
     
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/delete-a-column.png" alt-text="Select the trash can icon to delete a column.":::
 
 1. Select **Save** to save any changes made.
 
-If you want to reset the device inventory to the default settings, in the Edit columns tab, select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false"::: icon.
+If you want to reset the device inventory to the default settings, in the Edit columns window, select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false"::: button.
+
+## Filter the device inventory
+
+You can search, and filter the device inventory to defines what information the table displays.
+
+**To filter the device inventory**:
+
+1. Select **Add filter**
+
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter.png" alt-text="Select  the add filter button to specify what you want to appear in the device inventory.":::
+
+1. In the Add filter window select the column drop down menu to choose which column to filter.
+
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter-window.png" alt-text="Select which column you want to filter in the device inventory.":::
+
+1. Enter a value in the filter field.
+
+1. Select the **Apply button**.
+
+You can add as many filters as you want. The filters are not saved when you leave the Device inventory page.
+
+## Export the device inventory
+
+At any point you can export your device inventory to a CSV file. If you apply filters to the device inventory table, when you export the table the CSV file will only contain the filtered results.
+
+Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory.
