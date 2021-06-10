@@ -145,6 +145,8 @@ az vm create \
 >[!Note]
 > If the bandwidth from your local machine to the Azure Disk is causing a long time to process the upload with azcopy, you can use an Azure VM jumpbox to speed up the process. Here's how this can be done:
 
+> If the bandwidth from your local machine to the Azure Disk is causing a long time to process the upload with azcopy, you can use an Azure VM jumpbox to speed up the process. Here's how this can be done:
+
 
 1. Create a tarball of the VHD on your local machine: `tar -czvf ./image_buster_azure_amd64.vhd.tar.gz ./image_buster_azure_amd64.vhd`.
 2. Create an Azure Linux VM (distro of your choice). Make sure that you create it with a large enough disk to hold the extracted VHD!
