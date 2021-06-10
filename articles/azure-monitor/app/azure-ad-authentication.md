@@ -203,7 +203,7 @@ let client = appInsights.defaultClient;
 client.aadTokenCredential = credential;
 client.trackEvent({name: "Custom Event"});
 ```
-
+---
 
 ## Disable local authentication
 
@@ -385,5 +385,5 @@ Internal logs could be turned on using following setup, once this is enabled, er
 let appInsights = require("applicationinsights");
 appInsights.setup().setInternalLogging(true, true);
 ```
-
+---
 ## Next Steps
