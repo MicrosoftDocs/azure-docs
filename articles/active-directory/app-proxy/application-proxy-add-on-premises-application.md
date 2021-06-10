@@ -130,7 +130,7 @@ Allow access to the following URLs:
 
 You can allow connections to &ast;.msappproxy.net, &ast;.servicebus.windows.net, and other URLs above if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
 > [!IMPORTANT]
-> Avoid all forms of inline inspection and Termination on outbound TLS communications between Azure AD Application Proxy connector and Azure Endpoint.
+> Avoid all forms of inline inspection and termination on outbound TLS communications between Azure AD Application Proxy connectors and Azure AD Application Proxy Cloud services.
 
 ### DNS name resolution for Azure AD Application Proxy endpoints
 
