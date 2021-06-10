@@ -36,6 +36,8 @@ The following classes and interfaces handle some of the major features of the Az
 | `DeviceManager`                    | Used to manage media devices.                                                                                           |
 | `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`. |
 
+Note: The Calling SDK's objects are not POJO.
+
 ## Initialize a CallClient instance, create a CallAgent instance, and access deviceManager
 
 Create a new `CallClient` instance. You can configure it with custom options like a Logger instance.
