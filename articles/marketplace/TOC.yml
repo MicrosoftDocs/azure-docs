@@ -536,7 +536,7 @@
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
-    href: marketplace-faq-publisher-guide.md
+    href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.md 
   - name: Business opportunity office hours

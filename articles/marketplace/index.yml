@@ -24,7 +24,7 @@ landingContent:
       - text: Policies and terms
         url: policies-terms.md
       - text: Microsoft commercial marketplace FAQs
-        url: marketplace-faq-publisher-guide.md
+        url: marketplace-faq-publisher-guide.yml
       - text: Microsoft Publisher Agreement
         url: /legal/marketplace/msft-publisher-agreement
       - text: What's new
