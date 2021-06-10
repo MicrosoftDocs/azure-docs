@@ -82,7 +82,7 @@ landingContent:
           - text: Versioning
             url: ./luis-concept-app-iteration.md
           - text: Interactive testing
-            url: luis-concept-test.md
+            url: ./luis-interactive-test.md
           - text: Batch testing
             url: ./luis-how-to-batch-test.md
 

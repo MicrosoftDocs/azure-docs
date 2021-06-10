@@ -170,7 +170,7 @@
               href: api-management-using-with-vnet.md
             - name: Connect to an internal virtual network
               href: api-management-using-with-internal-vnet.md
-            - name: Integrate Application Gateway in an internal VNET
+            - name: Integrate Application Gateway in an internal virtual network
               href: api-management-howto-integrate-internal-vnet-appgateway.md
             - name: Mutual Certificate authentication
               href: api-management-howto-mutual-certificates.md

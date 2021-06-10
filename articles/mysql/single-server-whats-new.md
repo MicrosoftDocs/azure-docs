@@ -10,7 +10,7 @@ ms.date: 05/05/2021
 ---
 # What's new in Azure Database for MySQL - Single Server?
 
-Azure Database for MySQL is a relational database service in the Microsoft cloud. The service is based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine and supports versions 5.6, 5.7, and 8.0. [Azure Database for MySQL - Single Server](https://docs.microsoft.com/azure/mysql/overview#azure-database-for-mysql---single-server) is a deployment mode that provides a fully managed database service with minimal requirements for customizations of database. The Single Server platform is designed to handle most database management functions such as patching, backups, high availability, and security, all with minimal user configuration and control.
+Azure Database for MySQL is a relational database service in the Microsoft cloud. The service is based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine and supports versions 5.6, 5.7, and 8.0. [Azure Database for MySQL - Single Server](./overview.md#azure-database-for-mysql---single-server) is a deployment mode that provides a fully managed database service with minimal requirements for customizations of database. The Single Server platform is designed to handle most database management functions such as patching, backups, high availability, and security, all with minimal user configuration and control.
 
 This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
@@ -43,5 +43,5 @@ In addition, consider the following points of contact as appropriate:
 ## Next steps
 
 - Learn more about [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
-- Browse the [public documentation](https://docs.microsoft.com/azure/mysql/single-server/) for Azure Database for MySQL – Single Server.
-- Review details on [troubleshooting common errors](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-errors).
+- Browse the [public documentation](./single-server/index.yml) for Azure Database for MySQL – Single Server.
+- Review details on [troubleshooting common errors](./howto-troubleshoot-common-errors.md).
