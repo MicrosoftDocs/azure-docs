@@ -34,7 +34,7 @@ The following table lists the share-level permissions and how they align with th
 
 ## Share-level permissions for specific Azure AD users or groups
 
-The identity used to access Azure file share resources must be a hybrid identity that exists in both AD DS and Azure AD. For example, say you have a user in your AD DS that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals. Because of this, you must sync the users and groups from your AD DS to Azure AD using Azure AD Connect sync. 
+To assign share level permission to specific Azure AD users or groups, the identity must be hybrid that exists in both AD and Azure AD. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals. Because of this, you must sync the users and groups from your AD to Azure AD using Azure AD Connect sync. 
 
 Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), are not supported with AD DS authentication.
 
@@ -85,7 +85,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 You can add a default share-level permission on your storage account itself, instead of configuring share-level permissions per Azure AD user or group. A default share-level permission assigned to the storage account will apply to all file shares contained in the storage account. 
 
-When you set a default share-level permission, all authenticated users and groups will have the same permission. Authenticated users or groups are identified as the identity can be authenticated against the Azure AD the storage account is associated with.
+When you set a default share-level permission, all authenticated users and groups will have the same permission. Authenticated users or groups are identified as the identity can be authenticated against the AD DS (on-premises AD) the storage account is associated with.
 
 # [Portal](#tab/azure-portal)
 
