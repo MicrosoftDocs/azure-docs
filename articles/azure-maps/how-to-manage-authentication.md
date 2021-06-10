@@ -19,7 +19,7 @@ When you create an Azure Maps account, keys and a client ID are generated. The k
 ## View authentication details
 
  >[!IMPORTANT]
- >It is recommended that you use the primary key as the subscription key when you [use Shared Key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). It is best to use the secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
+ >It's recommended that you use the primary key as the subscription key when you [use Shared Key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). It is best to use the secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
 
 To view your Azure Maps authentication details:
 
@@ -121,8 +121,6 @@ To rotate your Azure Maps subscription keys in the Azure portal:
 > Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you won't be able to rotate your keys without some applications losing access.
 
 ## Next steps
-
-For more information, see [Azure AD and Azure Maps Web SDK](./how-to-use-map-control.md).
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
