@@ -65,9 +65,9 @@ For a disk to be able to use a disk pool, it must meet the following requirement
 1. Select User, group, or service principal in the Assign access to list.
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 
-# [Portal](#tab/azure-portal)
-
 ## Create a disk pool
+
+# [Portal](#tab/azure-portal)
 
 1. Search for and select **Disk pool**.
 1. Select **+Add** to create a new disk pool.
@@ -76,9 +76,9 @@ For a disk to be able to use a disk pool, it must meet the following requirement
 
 At this point, you have successfully deployed a disk pool. Now, you must add disks to the pool.
 
-## Add a disk
+### Add a disk
 
-### Prerequisites
+#### Prerequisites
 
 To add a disk, it must meet the following requirements:
 
