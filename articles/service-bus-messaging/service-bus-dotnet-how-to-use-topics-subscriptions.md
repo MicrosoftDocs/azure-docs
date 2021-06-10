@@ -445,7 +445,7 @@ namespace ServiceBusSubReceiver
         // the client that owns the connection and can be used to create senders and receivers
         static ServiceBusClient client;
 
-        // the processor that reads and processes messages from the queue
+        // the processor that reads and processes messages from the subscription
         static ServiceBusProcessor processor;
 
         // handle received messages
@@ -454,7 +454,7 @@ namespace ServiceBusSubReceiver
             string body = args.Message.Body.ToString();
             Console.WriteLine($"Received: {body} from subscription: {subscriptionName}");
 
-            // complete the message. messages is deleted from the queue. 
+            // complete the message. messages is deleted from the subscription. 
             await args.CompleteMessageAsync(args.Message);
         }
 
@@ -522,7 +522,7 @@ namespace ServiceBusSubReceiver
 
             try
             {
-                // receive messages from the queue
+                // receive messages from the subscription
                 await ReceiveMessagesFromSubscription();
             }
             finally
