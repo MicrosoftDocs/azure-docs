@@ -80,7 +80,8 @@ As your schema evolves, and new properties are added over time, the analytical s
 > [!NOTE]
 > In the context of analytical store, we consider the following structures as property:
 > * JSON "elements" or "string-value pairs separated by a `:` ".
-> * JSON objects with nested arrays, that starts and ends with `[` and `]`.
+> * JSON objects, delimited by `{` and `}`.
+> * JSON arrays, delimited by `[` and `]`.
 
 
 ### Schema constraints
