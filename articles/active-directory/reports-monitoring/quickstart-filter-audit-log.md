@@ -30,10 +30,6 @@ To complete the scenario in this quickstart, you need:
 - **Access to an Azure AD tenant** - If you don't have access to an Azure AD tenant, see [Create your Azure free account today](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
-
-
-
-
 ## Find the new user account
 
 This section provides you with the steps to filter your audit log.
