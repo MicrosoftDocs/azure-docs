@@ -70,7 +70,7 @@ Your custom branding won't immediately appear when your users go to sites such a
           
           > Underline: ``` ++text++ ``` 
             >[!IMPORTANT]
-            >Hyperlinks added with Sign-in page text are rendered as a text in the native environments e.g. desktop and mobile applications.
+            >Hyperlinks added with Sign-in page text are rendered as text in the native environments e.g. desktop and mobile applications.
 
     - **Advanced settings**
             
