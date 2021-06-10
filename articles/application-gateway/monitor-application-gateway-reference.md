@@ -53,7 +53,7 @@ If you notice a spike in *Backend last byte response time* but the *Backend firs
 
 Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that that the degradation is because of the network between client and Application Gateway.
 
-#### V2 metrics
+#### Application Gateway metrics
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
@@ -94,8 +94,8 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 |**Throughput**|bytes/sec|Number of bytes per second the Application Gateway has served.|
 |**Total Requests**|count|Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.|
 |**Web Application Firewall Blocked Requests Count**|count|Number of requests blocked by WAF.|
-|**Web Application Firewall Blocked Requests Distribution**|???|???|
-|**Web Application Firewall Total Rule Distribution**|???|???|
+|**Web Application Firewall Blocked Requests Distribution**|count|Number of requests blocked by WAF filtered to show count per each/specific WAF rule group or WAF rule ID combination.|
+|**Web Application Firewall Total Rule Distribution**|count|Number of requests received per each specific WAF rule group or WAF rule ID combination.|
 
 
 <!-- Keep this text as-is -->
@@ -113,19 +113,7 @@ For more information on what metric dimensions are, see [Multi-dimensional metri
 
 <!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
 
-Azure Application Gateway supports the following dimensions for metrics in Azure Monitor.
-
-| Dimension Name | Description |
-| ------------------- | ----------------- |
-|**Listener**|An application gateway can have one or more listeners configured.|
-|**BackendSettingsPool**|???|
-|**BackendServer**|???|
-|**BackendPool**|???|
-|**BackendHttpSetting**|???|
-|**HttpStatusGroup**|???|
-|**RuleGroup**|???|
-|**RuleID**|???|
-|**TlsProtocol**|???|
+Azure Application Gateway supports dimensions for some of the metrics in Azure Monitor. Each metric includes a description that explains the available dimensions specifically for that metric.
 
 
 ## Resource logs
@@ -136,6 +124,9 @@ This section lists the types of resource logs you can collect for Azure Applicat
 <!-- List all the resource log types you can have and what they are for -->  
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
+
+> [!NOTE]
+> The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.
 
 <!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
 -->
@@ -176,36 +167,24 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 <!-- REQUIRED. Please keep heading in this order -->
 <!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 
-Azure Application Gateway uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
+Azure Application Gateway uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
 
 **Azure Diagnostics**
 
 | Property | Description |
 |:--- |:---|
-|  |  |
-|  |  |
+requestUri_s | The URI of the client request.|
+Message | informational messages such as "SQL Injection Attack"|
+userAgent_s | User agent details of the client request|
+ruleName_s | Request routing rule which is used to serve this request|
+httpMethod_s | HTTP method of the client request|
+instanceId_s | The Appgw instance to which the client request is routed to for evaluation|
+httpVersion_s | HTTP version of the client request|
+clientIP_s | IP from which is request is made|
+host_s | Host header of the client request|
+requestQuery_s | Query string as part of the client request|
+sslEnabled_s | Does the client request have SSL enabled|
 
-**[TODO Service-specific table]**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
-
-## Activity log
-<!-- REQUIRED. Please keep heading in this order -->
-
-The following table lists the operations related to Azure Application Gateway that may be created in the Activity log.
-
-<!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
-| Operation | Description |
-|:---|:---|
-| | |
-| | |
-
-<!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
-
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
 ## Schemas
 <!-- REQUIRED. Please keep heading in this order -->

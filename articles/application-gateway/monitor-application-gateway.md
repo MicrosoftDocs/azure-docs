@@ -179,15 +179,31 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you are creating or running an application which use Application Gateway [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
 <!-- end -->
 
-The following table lists common and recommended alert rules for Application Gateway.
+The following tables lists common and recommended alert rules for Application Gateway.
 
 <!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
+
+**Application Gateway v1**
+
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-|Metrics|Failed requests|Number of requests that Application Gateway has served with 5xx server error codes.
-| Metrics|Application Gateway Total Time |Average time that it takes for a request to be received, processed and its response to be sent. |
-|Metrics |Unhealthy Host Count |Number of unhealthy backend hosts|
-|Log|Restart an application gateway|Whenever the log has a *Restart an application gateway* event.
+||CPU utilization crosses 80%|Under normal conditions, CPU usage should not regularly exceed 90%, as this may cause latency in the websites hosted behind the Application Gateway and disrupt the client experience.|
+||Unhealthy host count crosses threshold|Indicates the number of backend servers that Application Gateway is unable to probe successfully. This catches issues where the Application Gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity.|
+||Response status (4xx, 5xx) crosses threshold|When Application Gateway response status is 4xx or 5xx. There could be occasional 4xx or 5xx response seen due to transient issues. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
+||Failed requests crosses threshold|When failed requests metric crosses a threshold. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
+
+
+**Application Gateway v2**
+
+| Alert type | Condition | Description  |
+|:---|:---|:---|
+||Compute Unit utilization crosses 75% of average usage|Compute unit is the measure of compute utilization of your Application Gateway. Check your average compute unit usage in the last one month and set alert if it crosses 75% of it.|
+||Capacity Unit utilization crosses 75% of peak usage|Capacity units represent overall gateway utilization in terms of throughput, compute, and connection count. Check your maximum capacity unit usage in the last one month and set alert if it crosses 75% of it.|
+||Unhealthy host count crosses threshold|Indicates number of backend servers that application gateway is unable to probe successfully. This will catch issues where Application gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity.|
+||Response status (4xx, 5xx) crosses threshold|when Application Gateway response status is 4xx or 5xx. There could be occasional 4xx or 5xx response seen due to transient issues. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
+||Failed requests crosses threshold|When Failed requests metric crosses threshold. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
+||Backend last byte response time crosses threshold|indicates the time interval between start of establishing a connection to backend server and receiving the last byte of the response body. Create an alert if the backend response latency is more that certain threshold from usual.|
+||Application Gateway total time crosses threshold|This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. Should create an alert if the backend response latency is more that certain threshold from usual.|
 
 ## Next steps
 
