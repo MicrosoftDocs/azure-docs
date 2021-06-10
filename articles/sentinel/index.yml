@@ -91,10 +91,6 @@ landingContent:
         links:
           - text: Import threat intelligence into Azure Sentinel
             url: import-threat-intelligence.md
-          - text: User and entity behavior analytics (UEBA)
-            url: identify-threats-with-entity-behavior-analytics.md
-          - text: SOC-ML anomalies
-            url: soc-ml-anomalies.md
           - text: Threat intelligence integrations
             url: threat-intelligence-integration.md
       - linkListType: tutorial
@@ -111,6 +107,19 @@ landingContent:
         links:
           - text: Entities reference
             url: entities-reference.md
+
+
+ # Card (optional)
+  - title: Threat detection
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: User and entity behavior analytics (UEBA)
+            url: identify-threats-with-entity-behavior-analytics.md
+          - text: SOC-ML anomalies
+            url: soc-ml-anomalies.md
+      - linkListType: reference
+        links:
           - text: UEBA enrichments
             url: ueba-enrichments.md
 

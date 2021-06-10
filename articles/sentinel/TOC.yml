@@ -49,12 +49,14 @@
     items:
     - name: Import threat intelligence into Azure Sentinel
       href: import-threat-intelligence.md
+    - name: Threat intelligence integrations
+      href: threat-intelligence-integration.md
+  - name: Threat detection
+    items:
     - name: User and entity behavior analytics (UEBA)
       href: identify-threats-with-entity-behavior-analytics.md
     - name: SOC-ML anomalies
       href: soc-ml-anomalies.md
-    - name: Threat intelligence integrations
-      href: threat-intelligence-integration.md
   - name: Threat hunting
     href: hunting.md
   - name: Investigation and orchestration
@@ -309,18 +311,18 @@
       href: bookmarks.md
     - name: Hunt with livestream
       href: livestream.md
-  - name: Investigate and respond
+  - name: Detect threats
     items:
     - name: Use UEBA to investigate incidents
-      items:
-        - name: Enable UEBA
-          href: enable-entity-behavior-analytics.md
-        - name: Common UEBA investigation methods
-          href: investigate-with-ueba.md
-    - name: Create custom entity activities
-      href: customize-entity-activities.md
+      href: enable-entity-behavior-analytics.md
+    - name: Common UEBA investigation methods
+      href: investigate-with-ueba.md
     - name: Work with SOC-ML anomaly rules
       href: work-with-anomaly-rules.md
+  - name: Investigate and respond
+    items:
+    - name: Create custom entity activities
+      href: customize-entity-activities.md
     - name: Deploy solutions
       items:
       - name: Discover and deploy solutions
