@@ -21,6 +21,8 @@
         href: 8x8virtualoffice-tutorial.md
     - name: A
       items:
+      - name: ABBYY FlexiCapture Cloud
+        href: abbyy-flexicapture-cloud-tutorial.md
       - name: Abintegro
         href: abintegro-tutorial.md
       - name: Absorb LMS
@@ -679,7 +681,7 @@
       - name: Fastly Edge Cloud
         href: fastly-edge-cloud-tutorial.md
       - name: FAX.PLUS
-        href: fax.plus-tutorial.md    
+        href: fax-plus-tutorial.md    
       - name: FCM HUB
         href: fcm-hub-tutorial.md
       - name: Field iD
@@ -1442,8 +1444,6 @@
         href: perimeterx-tutorial.md
       - name: Periscope Data
         href: periscope-data-tutorial.md
-      - name: Pexip
-        href: pexip-tutorial.md
       - name: PetroVue
         href: petrovue-tutorial.md
       - name: Phraseanet
@@ -2259,6 +2259,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Cloud Academy - SSO
+        href: cloud-academy-sso-provisioning-tutorial.md
       - name: Code42
         href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
