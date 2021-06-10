@@ -57,7 +57,7 @@ The following limits apply only for networking resources managed through **Azure
 
 <sup>1</sup>Default limits for Public IP addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000.
 
-<sup>2</sup> Public IP addresses limit refers to the total amount of Public IP addressess including Basic and Standard. 
+<sup>2</sup>Public IP addresses limit refers to the total amount of Public IP addresses, including Basic and Standard. 
 
 #### <a name="load-balancer"></a>Load balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
