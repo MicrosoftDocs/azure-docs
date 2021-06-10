@@ -225,10 +225,22 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         ![Active Directory backup policy users](../media/azure-netapp-files/active-directory-backup-policy-users.png)
 
-     * **Administrators**  
-        You can specify users or groups that will be given administrator privileges on the volume. 
+        The **Backup policy users** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
 
-        ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+        
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
 
     * Credentials, including your **username** and **password**
 

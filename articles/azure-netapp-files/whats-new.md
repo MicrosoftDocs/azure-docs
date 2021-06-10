@@ -26,7 +26,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * Features now generally available (GA)   
 
     The following Azure NetApp Files features are now generally available. You no longer need to register the features before using them:
-    * [Backup policy users](create-active-directory-connections.md#create-an-active-directory-connection)
     * [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
     * [Manual QoS capacity pool](manual-qos-capacity-pool-introduction.md)
 
