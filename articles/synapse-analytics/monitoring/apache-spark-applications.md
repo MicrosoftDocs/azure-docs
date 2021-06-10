@@ -62,7 +62,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 9. By default, the **Progress** display is selected. You can check the data flow by selecting **Progress**/**Read**/**Written**/**Duration** in the **View** dropdown list.
 
-10. To playback the job, click on **Playback** button. You can click on **Stop** button at any time to stop.
+10. To play back the job, click on **Playback** button. You can click on **Stop** button at any time to stop.
 
 11. Use scroll bar to zoom in and zoom out the job graph, you can also select **Zoom to Fit** to make it fit the screen.
 
@@ -163,7 +163,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 ## View input data/output data for Apache Spark Application
 
-Select an Apache Spark application, and click on **Input data/Output data tab** to view dates of the input and output for Apache Spark application. This function can better help you debug the Spark job. And the data source supports three storage methods: gen1, gen2 and blob.
+Select an Apache Spark application, and click on **Input data/Output data tab** to view dates of the input and output for Apache Spark application. This function can better help you debug the Spark job. And the data source supports three storage methods: gen1, gen2, and blob.
     
 **Input data tab**
      
@@ -188,8 +188,6 @@ Select an Apache Spark application, and click on **Input data/Output data tab** 
    * Properties: show the basic properties of the file (File name/File path/Read format/Size/Modified).
 
      ![properties image](./media/how-to-monitor-spark-applications/properties.png)
-
-
 
 **Output data tab**
 
