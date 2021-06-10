@@ -142,17 +142,17 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
     * **Project Name**: RX65N
     * **Tool**: E2 emulator Lite
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-new.png" alt-text="Renesas Flash Programmer, New Project":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-new.png" alt-text="Screenshot of Renesas Flash Programmer, New Project":::
 
 3. Select the *Tool Details* button, and navigate to the *Reset Settings* tab.
 
 4. Select *Reset Pin as Hi-Z* and press the *OK* button.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-reset.png" alt-text="Renesas Flash Programmer, Reset Settings":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-reset.png" alt-text="Screenshot of Renesas Flash Programmer, Reset Settings":::
 
 5. Press the *Connect* button and when prompted, check the *Auto Authentication* checkbox and then press *OK*.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-auth.png" alt-text="Renesas Flash Programmer, Authentication":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/rfp-auth.png" alt-text="Screenshot of Renesas Flash Programmer, Authentication":::
 
 6. Select the *Browse...* button and locate the *rx65n_azure_iot.hex* file created in the previous section.
 
@@ -218,7 +218,7 @@ To view the device status in IoT Central portal:
 1. Confirm that the **Device status** is updated to **Provisioned**.
 1. Confirm that the **Device template** is updated to **Getting Started Guide**.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-view-status.png" alt-text=Screenshot of device status in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
 ## View telemetry
 
