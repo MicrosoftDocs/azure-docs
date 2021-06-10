@@ -21,8 +21,6 @@ Once you've enabled Active Directory Domain Services (AD DS) authentication on y
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
-If you prefer, you can assign permissions to all authenticated Azure AD users and specific Azure AD users/groups. With this configuration, a specific user or group would have the superset of permissions allowed from the default share-level permission and RBAC assignment. The following example helps you understand how this works:  Say you granted a user the **Storage File Data SMB Reader** role on the target file share. You also granted the default share-level permission **Storage File Data SMB Share Elevated Contributor** to all authenticated users. With this configuration, that particular user will have **Storage File Data SMB Share Elevated Contributor** level of access to the file share. Higher-level permissions always take precedence.
-
 The following table lists the share-level permissions and how they align with the built-in RBAC roles:
 
 |Supported default share-level permission  |Description  |
@@ -122,6 +120,9 @@ az storage account update --name $storageAccountName --resource-group $resourceG
 ```
 ---
 
+## Combine permissions
+
+If you prefer, you can assign permissions to all authenticated Azure AD users and specific Azure AD users/groups. With this configuration, a specific user or group would have the superset of permissions allowed from the default share-level permission and RBAC assignment. The following example helps you understand how this works:  Say you granted a user the **Storage File Data SMB Reader** role on the target file share. You also granted the default share-level permission **Storage File Data SMB Share Elevated Contributor** to all authenticated users. With this configuration, that particular user will have **Storage File Data SMB Share Elevated Contributor** level of access to the file share. Higher-level permissions always take precedence.
 
 ## Next steps
 
