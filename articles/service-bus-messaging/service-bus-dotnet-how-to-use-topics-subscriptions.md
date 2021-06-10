@@ -434,6 +434,104 @@ In this section, you'll create a .NET Core console application that receives mes
             }
         }
     ```
+### Full code (receive messages)
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+using Azure.Messaging.ServiceBus;
+
+namespace ServiceBusSubReceiver
+{
+    class Program
+    {
+        // connection string to your Service Bus namespace
+        static string connectionString = "<NAMESPACE CONNECTION STRING>";
+
+        // name of the Service Bus topic
+        static string topicName = "<SERVICE BUS TOPIC NAME>";
+    
+        // name of the subscription to the topic
+        static string subscriptionName = "<SERVICE BUS - TOPIC SUBSCRIPTION NAME>";
+
+        // the client that owns the connection and can be used to create senders and receivers
+        static ServiceBusClient client;
+
+        // the processor that reads and processes messages from the queue
+        static ServiceBusProcessor processor;
+
+        // handle received messages
+        static async Task MessageHandler(ProcessMessageEventArgs args)
+        {
+            string body = args.Message.Body.ToString();
+            Console.WriteLine($"Received: {body}");
+
+            // complete the message. messages is deleted from the queue. 
+            await args.CompleteMessageAsync(args.Message);
+        }
+
+        // handle any errors when receiving messages
+        static Task ErrorHandler(ProcessErrorEventArgs args)
+        {
+            Console.WriteLine(args.Exception.ToString());
+            return Task.CompletedTask;
+        }
+
+        static async Task ReceiveMessagesFromSubscription()
+        {
+            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
+            {
+                // add handler to process messages
+                processor.ProcessMessageAsync += MessageHandler;
+
+                // add handler to process any errors
+                processor.ProcessErrorAsync += ErrorHandler;
+
+                // start processing 
+                await processor.StartProcessingAsync();
+
+                Console.WriteLine("Wait for a minute and then press any key to end the processing");
+                Console.ReadKey();
+
+                // stop processing 
+                Console.WriteLine("\nStopping the receiver...");
+                await processor.StopProcessingAsync();
+                Console.WriteLine("Stopped receiving messages");
+            }
+        }
+
+        static async Task Main()
+        {
+            // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+            // of the application, which is best practice when messages are being published or read
+            // regularly.
+            //
+            // Create the clients that we'll use for sending and processing messages.
+            client = new ServiceBusClient(connectionString);
+
+            // create a processor that we can use to process the messages
+            processor = client.CreateProcessor(topicName, subscriptionName, new ServiceBusProcessorOptions());
+
+
+            try
+            {
+                // receive messages from the queue
+                await ReceiveMessagesFromSubscription();
+            }
+            finally
+            {
+                // Calling DisposeAsync on client types is required to ensure that network
+                // resources and other unmanaged objects are properly cleaned up.
+                await processor.DisposeAsync();
+                await client.DisposeAsync();
+            }
+        }
+    }
+}
+
+```
 
 ## Run the app
 Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
