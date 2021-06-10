@@ -124,7 +124,7 @@ The following JSON example creates a general-purpose v2 storage account that is 
 
 ---
 
-After you have created an account that relies on the account encryption key, you can configure customer-managed keys that are stored in Azure Key Vault or in Key Vault Managed Hardware Security Model (HSM) (preview). To learn how to store customer-managed keys in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md). To learn how to store customer-managed keys in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](customer-managed-keys-configure-key-vault-hsm.md).
+After you have created an account that relies on the account encryption key, you can configure customer-managed keys that are stored in Azure Key Vault or in Key Vault Managed Hardware Security Model (HSM). To learn how to store customer-managed keys in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md). To learn how to store customer-managed keys in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## Verify the account encryption key
 
@@ -136,7 +136,7 @@ To verify that a service in a storage account is using an encryption key that is
 
 1. Navigate to your new storage account in the Azure portal.
 1. In the **Security + Networking** section, select **Encryption**.
-1. If the storage account was created to rely on the account encryption key, you'll see on the Encryption tab that customer-managed keys can be enabled for any of the four Azure Storage services: blobs, files, tables, and queues.
+1. If the storage account was created to rely on the account encryption key, you'll see on the **Encryption** tab that customer-managed keys can be enabled for any of the four Azure Storage services: blobs, files, tables, and queues.
 
     :::image type="content" source="media/account-encryption-key-create/verify-cmk-tables-queues.png" alt-text="Screenshot showing how to verify that the storage account is relying on the account encryption key":::
 
@@ -167,7 +167,7 @@ N/A
 
 ---
 
-After you've verified that the storage account is using an encryption key that is scoped to the account, you can proceed to enable customer-managed keys.
+After you've verified that the storage account is using an encryption key that is scoped to the account, you can proceed to enable customer-managed keys. All four Azure Storage services&mdash;blobs, files, tables, and queues&mdash;will then use the customer-managed key for encryption.
 
 ## Pricing and billing
 
