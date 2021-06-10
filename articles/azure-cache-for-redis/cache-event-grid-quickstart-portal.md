@@ -77,7 +77,7 @@ In this step, you'll subscribe to a topic to tell Event Grid which events you wa
     | **Name** | Enter a name for the event subscription. | The value must be between 3 and 64 characters long. It can only contain letters, numbers, and dashes. | 
     | **Event Types** | Drop down and select which event type(s) you want to get pushed to your destination. For this quickstart, we'll be scaling our cache instance. | Patching, scaling, import and export are the available options. | 
     | **Endpoint Type** | Select **Web Hook**. | Event handler to receive your events. | 
-    | **Endpoint** | Click **Select an endpoint**, and enter the URL of your web app and add `api/updates` to the home page URL (for example: `https://cache.azurewebsites.net/api/updates`), and then select **Confirm Selection**. | This is the URL of your web app that you created earlier. | 
+    | **Endpoint** | Select **Select an endpoint**, and enter the URL of your web app and add `api/updates` to the home page URL (for example: `https://cache.azurewebsites.net/api/updates`), and then select **Confirm Selection**. | This is the URL of your web app that you created earlier. | 
 
 5. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription. 
 
@@ -91,7 +91,7 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 
 1. In the Azure portal, navigate to your Azure Cache for Redis instance and select **Scale** on the left menu.
 
-1. Select the desired pricing tier from the **Scale** page and click **Select**. 
+1. Select the desired pricing tier from the **Scale** page and select **Select**. 
 
     You can scale to a different pricing tier with the following restrictions:
     
