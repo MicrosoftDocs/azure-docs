@@ -60,14 +60,3 @@ A scale set built on a Marketplace image (also known as a platform image) and co
 A scale set configured with user-managed storage accounts is currently limited to 100 VMs (and 5 storage accounts are recommended for this scale).
 
 A scale set built on a custom image (one built by you) can have a capacity of up to 600 VMs when configured with Azure Managed disks. If the scale set is configured with user-managed storage accounts, it must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image and user-managed storage is 20. If you turn off overprovisioning, you can go up to 40.
-
-<!-- 
-For more VMs than these limits allow, you need to deploy multiple scale sets as shown in [this template](https://azure.microsoft.com/resources/templates/301-custom-images-at-scale/).
-
-Commented this out because it's a broken link and will notify author to resolve.
-301-custom-images-at-scale was deleted from Azure/azure-quickstart-templates repository.
-
-Possible replacements: 
-Linux: https://azure.microsoft.com/resources/templates/vmss-linux-customimage-autoscale
-Windows: https://azure.microsoft.com/en-us/resources/templates/201-vmss-windows-customimage
--->
