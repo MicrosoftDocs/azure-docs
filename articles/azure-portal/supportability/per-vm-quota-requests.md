@@ -41,7 +41,7 @@ Spot vCPU quotas apply to spot VMs. When you deploy a new spot VM, the total new
 To request a standard vCPU quota increase per VM series from **Help + support**:
 
 > [!NOTE]
-> You can also request a quota limit increase for multiple regions through a single support case. For details, see step 8.
+> You can also request a quota limit increase for multiple regions through a single support case. For details, see step 8 .
 
 1. On  the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
 
