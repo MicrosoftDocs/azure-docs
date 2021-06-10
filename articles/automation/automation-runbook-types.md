@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2021
+ms.date: 06/10/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -121,10 +121,10 @@ Python 3 runbooks are supported in the following Azure global infrastructures:
 
 ### Known issues
 
-For cloud jobs, Python 3 jobs sometimes fail with an exception message *invalid interpreter executable path*. You might see this exception if a job is delayed, starting more than 10 minutes or using **Start-AutomationRunbook** to start Python 3 runbooks. If the job is delayed, restarting the runbook should be sufficient. Hybrid jobs should work without any issues if the following steps are done:
+For cloud jobs, Python 3 jobs sometimes fail with an exception message `invalid interpreter executable path`. You might see this exception if the job is delayed, starting more than 10 minutes, or using **Start-AutomationRunbook** to start Python 3 runbooks. If the job is delayed, restarting the runbook should be sufficient. Hybrid jobs should work without any issue if using the following steps:
 
 1. Create a new environment variable called `PYTHON_3_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python3`, then this path needs to be added to the variable.
-1. Restart the machine/hybrid worker after setting the environment variable.
+1. Restart the machine after setting the environment variable.
 
 ## Next steps
 
