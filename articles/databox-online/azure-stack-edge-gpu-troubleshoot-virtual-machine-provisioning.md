@@ -90,7 +90,7 @@ To verify that the default gateway and DNS server can be reached from the VM, do
 
 ### `cloud init` issues (Linux VMs)
 
-**Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
+**Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](../virtual-machines/linux/using-cloud-init.md).
 
 **Suggested solutions:** To find issues that occurred when `cloud init` was run:
 1. [Connect to the VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-vm).
@@ -118,7 +118,7 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
    ![Picture of a cloud-init log entry for a VM image with Data Source set to Azure.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png) 
 
-   If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](/azure/virtual-machines/linux/cloud-init-deep-dive).
+   If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](../virtual-machines/linux/cloud-init-deep-dive.md).
 
 
 ### Provisioning flags set incorrectly (Linux VMs)

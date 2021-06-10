@@ -137,7 +137,7 @@ After the workspace is provisioned, you can also automate many Azure Machine Lea
 
 ## Next steps
 
-* Learn more about [authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md).
+* Learn more about [authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/syntax.md).
 * Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates).
 * Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * See the [Resource Manager template reference help](/azure/templates/microsoft.machinelearning/allversions)

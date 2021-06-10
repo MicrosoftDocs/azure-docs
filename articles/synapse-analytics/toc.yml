@@ -42,7 +42,7 @@ items:
   - name: 8 Monitor
     href: get-started-monitor.md
     displayName: get, started
-  - name: 9 Explore the Knowledge Center
+  - name: 9 Explore the Knowledge center
     href: get-started-knowledge-center.md
     displayName: get, started
   - name: 10 Add an administrator
@@ -1227,6 +1227,9 @@ items:
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
     - name: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
       href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
+    - name: ADLS read/write using filesystem spec and linked service
+      displayname: machine learning
+      href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts
