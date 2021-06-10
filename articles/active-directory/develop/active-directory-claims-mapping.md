@@ -15,7 +15,7 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
 
-# How to: Customize claims emitted in tokens for a specific app in a tenant
+# Customize claims emitted in tokens for a specific app in a tenant
 
 Claims customization is used by tenant admins to customize the claims emitted in tokens for a specific application in their tenant. You can use claims-mapping policies to:
 
