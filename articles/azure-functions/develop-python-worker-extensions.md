@@ -58,39 +58,7 @@ First you create `setup.py`, which provides essential information about your pac
 
 In the following template, you should change `author`, `author_email`, `install_requires`, `license`, `packages`, and `url` fields as needed.
 
-```python
-from setuptools import find_packages, setup
-
-setup(
-    name='python-worker-extension-timer',
-    version='1.0.0',
-    author='Your Name Here',
-    author_email='your@email.here',
-    classifiers=[
-        'Intended Audience :: End Users/Desktop',
-        'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: End Users/Desktop',
-        'License :: OSI Approved :: Apache Software License',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-    ],
-    description='Python Worker Extension Demo',
-    include_package_data=True,
-    long_description=open('readme.md').read(),
-    install_requires=[
-        'azure-functions >= 1.7.0, < 2.0.0',
-        # Any additional packages that will be used in your extension
-    ],
-    extras_require={},
-    license='MIT',
-    packages=find_packages(where='.'),
-    url='https://your-github-or-pypi-link',
-    zip_safe=False,
-)
-```
+:::code language="python" source="~/azure-functions-python-worker-extension/setup.py":::
 
 Next, you'll implement your extension code in the application-level scope.
 
@@ -98,65 +66,13 @@ Next, you'll implement your extension code in the application-level scope.
 
 Add the following code in `python_worker_extension_timer/__init__.py` to implement the application-level extension:
 
-```python
-import typing
-from logging import Logger
-from time import time
-
-from azure.functions import AppExtensionBase, Context, HttpResponse
-
-class TimerExtension(AppExtensionBase):
-    """A Python worker extension to record elapsed time in a function invocation
-    """
-
-    @classmethod
-    def init(cls):
-        # This records the starttime of each function
-        cls.start_timestamps: typing.Dict[str, float] = {}
-
-    @classmethod
-    def configure(cls, *args, append_to_http_response:bool=False, **kwargs):
-        # Customer can use TimerExtension.configure(append_to_http_response=)
-        # to decide whether the elapsed time should be shown in HTTP response
-        cls.append_to_http_response = append_to_http_response
-
-    @classmethod
-    def pre_invocation_app_level(
-        cls, logger: Logger, context: Context,
-        func_args: typing.Dict[str, object],
-        *args, **kwargs
-    ) -> None:
-        logger.info(f'Recording start time of {context.function_name}')
-        cls.start_timestamps[context.invocation_id] = time()
-
-    @classmethod
-    def post_invocation_app_level(
-        cls, logger: Logger, context: Context,
-        func_args: typing.Dict[str, object],
-        func_ret: typing.Optional[object],
-        *args, **kwargs
-    ) -> None:
-        if context.invocation_id in cls.start_timestamps:
-            # Get the start_time of the invocation
-            start_time: float = cls.start_timestamps.pop(context.invocation_id)
-            end_time: float = time()
-
-            # Calculate the elapsed time
-            elapsed_time = end_time - start_time
-            logger.info(f'Time taken to execute {context.function_name} is {elapsed_time} sec')
-
-            # Append the elapsed time to the end of HTTP response
-            # if the append_to_http_response is set to True
-            if cls.append_to_http_response and isinstance(func_ret, HttpResponse):
-                func_ret._HttpResponse__body += f' (TimeElapsed: {elapsed_time} sec)'.encode()
-
-```
+:::code language="python" source="~/azure-functions-python-worker-extension/python_worker_extension_timer/__init__.py":::
 
 This code inherits from [AppExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) so that the extension applies to every function in the app. You could have also implemented the extension on a function-level scope by inheriting from [FuncExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/func_extension_base.py).
 
 The `init` method is a class method that's called by the worker when the extension class is imported. You can do initialization actions here for the extension. In this case, a hash map is initialized for recording the invocation start time for each function.
 
-The `configure` method is customer-facing. In your readme file, you can tell your customers when they need to call `Extension.configure()`. You should also document the extension capabilities, possible configuration, and usage of your extension. In this example, customers can choose whether the elapsed time is reported in the `HttpResponse`.
+The `configure` method is customer-facing. In your readme file, you can tell your customers when they need to call `Extension.configure()`. The readme should also document the extension capabilities, possible configuration, and usage of your extension. In this example, customers can choose whether the elapsed time is reported in the `HttpResponse`.
 
 The `pre_invocation_app_level` method is called by the Python worker before the function runs. It provides the information from the function, such as function context and arguments. In this example, the extension logs a message and records the start time of an invocation based on its invocation_id.
 
@@ -164,7 +80,7 @@ Similarly, the `post_invocation_app_level` is called after function execution. T
 
 ## Consume your extension locally
 
-Now that you have created an extension, you can use it in an app project to verify it works as intended. 
+Now that you've created an extension, you can use it in an app project to verify it works as intended. 
 
 ### Create an HTTP trigger function
 
@@ -222,7 +138,7 @@ Now that you have created an extension, you can use it in an app project to veri
     ```
 
     In this example, replace `<PYTHON_WORKER_EXTENSION_ROOT>` with the file location of your extension project.   
-    When a customer uses your extension, they'll instead add your extension package location to the requirements.txt file as follows:
+    When a customer uses your extension, they'll instead add your extension package location to the requirements.txt file, as in the  following examples:
 
     # [PyPI](#tab/pypi)
     ```python
@@ -233,17 +149,17 @@ Now that you have created an extension, you can use it in an app project to veri
     
     ```python
     # requirements.txt
-    git+https://github.com/<your_organization>/<extension_repo>.git@branch
+    git+https://github.com/Hazhzeng/python-worker-extension-timer@master
     ```
     ---
 
-1. Open the local.settings.json project file and add the following to the `Values` array:
+1. Open the local.settings.json project file and add the following value to the `Values` array:
 
     ```json
     "PYTHON_ENABLE_WORKER_EXTENSIONS": "1" 
     ```
 
-    When running in Azure, `PYTHON_ENABLE_WORKER_EXTENSIONS=1` must also be added to the [app settings in the function app](functions-how-to-use-azure-function-app-settings.md#settings).
+    When running in Azure, you instead add `PYTHON_ENABLE_WORKER_EXTENSIONS=1` to the [app settings in the function app](functions-how-to-use-azure-function-app-settings.md#settings).
 
 1. Add following two lines before the `main` function in \_\_init.py\_\_:
 
@@ -268,9 +184,10 @@ Now that you have created an extension, you can use it in an app project to veri
 
 After you've created and verified your extension, you still need to complete these remaining publishing tasks:
 
-+ Choose a license.
-+ Create a readme.md and other documentation (if needed). 
-+ Publish the extension library to a Python package registry, such as PyPI, or a version control platform, such as GitHub.
+> [!div class="checklist"]
+> + Choose a license.
+> + Create a readme.md and other documentation. 
+> + Publish the extension library to a Python package registry or a version control system (VCS).
 
 # [PyPI](#tab/pypi)
 
@@ -304,7 +221,7 @@ For more information, see the [official Python packaging tutorial](https://packa
 
 # [GitHub](#tab/github)
 
-You can also publish the extension source code with setup.py into a GitHub repository. 
+You can also publish the extension source code with the setup.py file to a GitHub repository, as shown in [this example repository](https://github.com/Hazhzeng/python-worker-extension-timer). 
 
 For more information about VCS support in pip, see the [official pip VCS support documentation](https://pip.pypa.io/en/stable/cli/pip_install/#vcs-support).
 

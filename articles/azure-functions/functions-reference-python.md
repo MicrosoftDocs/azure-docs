@@ -13,7 +13,7 @@ This article is an introduction to developing Azure Functions using Python. The 
 As a Python developer, you may also be interested in one of the following articles:
 
 | Getting started | Concepts| Scenarios/Samples |
-| -- | -- | -- |
+|--|--|--|
 | <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
@@ -135,7 +135,7 @@ from ..shared_code import my_first_helper_function #(deprecated beyond top-level
 
 ## Triggers and Inputs
 
-Inputs are divided into two categories in Azure Functions: trigger input and additional input. Although they are different in the `function.json` file, usage is identical in Python code.  Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure.
+Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're different in the `function.json` file, usage is identical in Python code.  Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure.
 
 For example, the following code demonstrates the difference between the two:
 
@@ -236,7 +236,7 @@ def main(req: func.HttpRequest,
 
 ## Logging
 
-Access to the Azure Functions runtime logger is available via a root [`logging`](https://docs.python.org/3/library/logging.html#module-logging) handler in your function app. This logger is tied to Application Insights and allows you to flag warnings and errors encountered during the function execution.
+Access to the Azure Functions runtime logger is available via a root [`logging`](https://docs.python.org/3/library/logging.html#module-logging) handler in your function app. This logger is tied to Application Insights and allows you to flag warnings and errors that occur during the function execution.
 
 The following example logs an info message when the function is invoked via an HTTP trigger.
 
@@ -248,7 +248,7 @@ def main(req):
     logging.info('Python HTTP trigger function processed a request.')
 ```
 
-Additional logging methods are available that let you write to the console at different trace levels:
+More logging methods are available that let you write to the console at different trace levels:
 
 | Method                 | Description                                |
 | ---------------------- | ------------------------------------------ |
@@ -297,7 +297,7 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Scaling and Performance
 
-For scaling and performance best practices for Python function apps, please refer to the [Python scale and performance article](python-scale-performance-reference.md).
+For scaling and performance best practices for Python function apps, see the [Python scale and performance article](python-scale-performance-reference.md).
 
 ## Context
 
@@ -404,7 +404,7 @@ You can also use Azure Pipelines to build your dependencies and publish using co
 
 When using remote build, dependencies restored on the server and native dependencies match the production environment. This results in a smaller deployment package to upload. Use remote build when developing Python apps on Windows. If your project has custom dependencies, you can [use remote build with extra index URL](#remote-build-with-extra-index-url).
 
-Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure.
+Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. By default, the Azure Functions Core Tools requests a remote build when you use the following [`func azure functionapp publish`](functions-run-local.md#publish) command to publish your Python project to Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -416,7 +416,7 @@ The [Azure Functions Extension for Visual Studio Code](./create-first-function-v
 
 ### Local build
 
-Dependencies are obtained locally based on the contents of the requirements.txt file. You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build.
+Dependencies are obtained locally based on the contents of the requirements.txt file. You can prevent doing a remote build by using the following [`func azure functionapp publish`](functions-run-local.md#publish) command to publish with a local build.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -550,7 +550,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-Inside your `.venv` Python virtual environment, install your favorite Python test framework (e.g. `pip install pytest`). Simply run `pytest tests` to check the test result.
+Inside your `.venv` Python virtual environment, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
 
 ## Temporary files
 
@@ -582,9 +582,9 @@ There are a few libraries come with the Python Functions runtime.
 
 ### Python Standard Library
 
-The Python Standard Library contain a list of built-in Python modules that are shipped with each Python distribution. Most of these libraries help you access system functionality, like file I/O. On Windows systems, these libraries are installed with Python. On the Unix-based systems, they are provided by package collections.
+The Python Standard Library contains a list of built-in Python modules that are shipped with each Python distribution. Most of these libraries help you access system functionality, like file I/O. On Windows systems, these libraries are installed with Python. On the Unix-based systems, they are provided by package collections.
 
-To view the full details of the list of these libraries, please visit the links below:
+To view the full details of the list of these libraries, see the links below:
 
 * [Python 3.6 Standard Library](https://docs.python.org/3.6/library/)
 * [Python 3.7 Standard Library](https://docs.python.org/3.7/library/)
@@ -615,7 +615,7 @@ getattr(azure.functions, '__version__', '< 1.2.1')
 
 ### Runtime system libraries
 
-For a list of preinstalled system libraries in Python worker Docker images, please follow the links below:
+For a list of preinstalled system libraries in Python worker Docker images, see the links below:
 
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
@@ -650,7 +650,7 @@ You can use a Python worker extension library in your Python functions by follow
 > [!IMPORTANT]
 > Third-party Python worker extension libraries are not supported or warrantied by Microsoft. You must make sure that any extensions you use in your function app is trustworthy, and you bear the full risk of using a malicious or poorly written extension. 
 
-Third-parties should provide specific documentation on how to install and consume their specific extension in your function app. For a basic example of how to consume an extension, see see [Consuming your extension](develop-python-worker-extensions.md#consume-your-extension-locally). 
+Third-parties should provide specific documentation on how to install and consume their specific extension in your function app. For a basic example of how to consume an extension, see [Consuming your extension](develop-python-worker-extensions.md#consume-your-extension-locally). 
 
 Here are examples of using extensions in a function app, by scope:
 
@@ -689,7 +689,7 @@ def main(req, context):
 
 ### Creating extensions 
 
-Extensions are created by third-party library developers who have created functionality that can be integrated into Azure Functions.  An extension developer designs, implements, and releases Python packages that contains custom logic designed specifically to be run in the context of function execution. These extensions can be published either to the PyPI registry or to GitHub repositories.
+Extensions are created by third-party library developers who have created functionality that can be integrated into Azure Functions.  An extension developer designs, implements, and releases Python packages that contain custom logic designed specifically to be run in the context of function execution. These extensions can be published either to the PyPI registry or to GitHub repositories.
 
 To learn how to create, package, publish, and consume a Python worker extension package, see [Develop Python worker extensions for Azure Functions](develop-python-worker-extensions.md).
 
@@ -704,7 +704,7 @@ An extension inherited from [`AppExtensionBase`](https://github.com/Azure/azure-
 | **`init`** | Called after the extension is imported. |
 | **`configure`** | Called from function code when needed to configure the extension. |
 | **`post_function_load_app_level`** | Called right after the function is loaded. The function name and function directory are passed to the extension. Keep in mind that the function directory is read-only, and any attempt to write to local file in this directory fails. |
-| **`pre_invocation_app_level`** | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass additional attributes in the context object for the function code to consume. |
+| **`pre_invocation_app_level`** | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass other attributes in the context object for the function code to consume. |
 | **`post_invocation_app_level`** | Called right after the function execution completes. The function context, function invocation arguments, and the invocation return object are passed to the extension. This implementation is a good place to validate whether execution of the lifecycle hooks succeeded. |
 
 #### Function-level extensions
@@ -715,9 +715,9 @@ An extension that inherits from [FuncExtensionBase](https://github.com/Azure/azu
 
 | Method | Description |
 | --- | --- |
-| **`__init__`** | This method is the constructor of the extension. It's called when an extension instance is initialized in a specific function. When implementing this abstract method, you may want accept a `filename` parameter and pass it to the parent's method `super().__init__(filename)` for proper extension registration. |
+| **`__init__`** | This method is the constructor of the extension. It's called when an extension instance is initialized in a specific function. When implementing this abstract method, you may want to accept a `filename` parameter and pass it to the parent's method `super().__init__(filename)` for proper extension registration. |
 | **`post_function_load`** | Called right after the function is loaded. The function name and function directory are passed to the extension. Keep in mind that the function directory is read-only, and any attempt to write to local file in this directory fails. |
-| **`pre_invocation`** | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass additional attributes in the context object for the function code to consume. |
+| **`pre_invocation`** | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass other attributes in the context object for the function code to consume. |
 | **`post_invocation`** | Called right after the function execution completes. The function context, function invocation arguments, and the invocation return object are passed to the extension. This implementation is a good place to validate whether execution of the lifecycle hooks succeeded. |
 
 ## Cross-origin resource sharing
