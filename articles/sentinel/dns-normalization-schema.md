@@ -55,6 +55,27 @@ The KQL functions implementing the DNS information model have the following name
 
 The parsers can be deployed from https://aka.ms/AzSentinelDns
 
+## Normalized conent
+
+The following built-in analytic rules now work with normalized DNS parsers:
+- Added: 
+  - Excessive NXDOMAIN DNS Queries (Normalized DNS)
+  - DNS events related to mining pools (Normalized DNS)
+  - DNS events related to ToR proxies (Normalized DNS)
+- Updated to include normalized DNS: 
+  - Known Barium domains
+  - Known Barium IP addresses  
+  - Exchange Server Vulnerabilities Disclosed March 2021 IoC Match
+  - Known GALLIUM domains and hashes
+  - Known IRIDIUM IP
+  - NOBELIUM - Domain and IP IOCs - March 2021
+  - Known Phosphorus group domains/IP
+  - Known STRONTIUM group domains - July 2019
+  - Solorigate Network Beacon
+  - THALLIUM domains included in DCU takedown
+  - Known ZINC Comebacker and Klackring malware hashes
+
+
 ## Schema details
 
 The DNS information model is aligned with the [OSSEM DNS entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/dns.md).
