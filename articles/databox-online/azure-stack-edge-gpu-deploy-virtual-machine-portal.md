@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 06/10/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -82,7 +82,6 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
 1. On the **Add image** pane, input the following parameters. Select **Add**.
 
-
     |Parameter                  |Description  |
     |---------------------------|-------------|
     |Download from storage blob |Browse to the location of the storage blob in the storage account where you uploaded the VHD.   |
@@ -94,10 +93,9 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
     ![Screenshot that shows the Add image page with the Add button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)
 
-1. The VHD is downloaded, and the VM image is created. The image creation takes several minutes to complete. You'll see a notification that VM image creation is in progress. <!--You'll see a notification for the successful completion of the VM image. - NOTE: I got a notification that VM image creation was in progress but not that it had successfully completed.-->
+1. The VHD is downloaded, and the VM image is created. The image creation takes several minutes to complete. You'll see a notification that VM image creation is in progress. You'll see a notification for the successful completion of the VM image.<!--Is this a first-time-only thing?-->
 
-<!--![Screenshot that shows the notification for successful completion.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-8.png)-->
-
+   [Screenshot that shows the notification for successful completion.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-8.png)
 
 1. After the VM is successfully created, it's added to the list of images on the **Images** pane.
 
@@ -123,15 +121,15 @@ Follow these steps to create a VM after you've created a VM image.
 1. On the **Basics** tab, input the following parameters.
 
 
-    |Parameter |Description  |
-    |---------|---------|
-    |Virtual machine name     |         |
-    |Edge resource group     | Create a new resource group for all the resources associated with the VM.        |
-    |Image     | Select from the VM images available on the device.        |
-    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
-    |Username     | Use the default username **azureuser** for the admin to sign in to the VM.        |
-    |Authentication type    | Choose from an SSH public key or a user-defined password.       |
-    |Password     | Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
+    |Parameter            |Description  |
+    |---------------------|------------------------------------------------------------------------------------------|
+    |Virtual machine name | Enter a name for the new virtual machine.                                                |
+    |Edge resource group  | Create a new resource group for all the resources associated with the VM.                |
+    |Image                | Select from the VM images available on the device.        |
+    |Size                 | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
+    |Username             | Use the default username **azureuser** for the admin to sign in to the VM.        |
+    |Authentication type  | Choose from an SSH public key or a user-defined password.       |
+    |Password             | Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
     |Confirm password    | Enter the password again.        |
 
 
