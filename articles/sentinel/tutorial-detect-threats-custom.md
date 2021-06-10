@@ -93,6 +93,10 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     Learn more about surfacing custom details in alerts, and see the [complete instructions](surface-custom-details-in-alerts.md).
 
+- Use the **Alert details** configuration section to tailor the alert's presentation details to its actual content. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
+
+    See complete instructions on [customizing your alert details](customize-alert-details.md).
+
 ### Query scheduling and alert threshold
 
 - In the **Query scheduling** section, set the following parameters:
