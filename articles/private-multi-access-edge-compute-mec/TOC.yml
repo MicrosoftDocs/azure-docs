@@ -30,6 +30,8 @@
         href: deploy-affirmed-solution.md
   - name: Resources
     items:
+    - name: Azure private MEC
+      href: https://azure.microsoft.com/solutions/private-multi-access-edge-compute-mec
     - name: Azure Marketplace
       href: https://azuremarketplace.microsoft.com/marketplace/
     - name: Pricing
