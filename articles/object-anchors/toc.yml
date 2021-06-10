@@ -36,13 +36,17 @@
     href: /cpp/api/object-anchors/winrt/
 - name: Resources
   items:
-  - name: Release notes
-    href: https://github.com/Azure/azure-object-anchors/releases
   - name: Azure Mixed Reality Resource Management REST API
     href: /rest/api/mixedreality/
-  - name: Model Conversion Error Codes
-    href: model-conversion-error-codes.md
+  - name: Detect a difficult object
+    href: detect-difficult-object.md
   - name: FAQ
     href: faq.md
+  - name: Model conversion error codes
+    href: model-conversion-error-codes.md
+  - name: Release notes
+    href: https://github.com/Azure/azure-object-anchors/releases
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-object-anchors
+  - name: Visualize a converted model
+    href: visualize-converted-model.md
