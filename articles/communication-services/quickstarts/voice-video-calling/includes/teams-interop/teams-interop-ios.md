@@ -118,7 +118,7 @@ struct ContentView: View {
 
     func leaveMeeting() {
         if let call = call {
-            call.hangup(options: nil, completionHandler: { (error) in
+            call.hangUp(options: nil, completionHandler: { (error) in
                 if error == nil {
                     self.message = "Leaving Teams meeting was successful"
                 } else {
