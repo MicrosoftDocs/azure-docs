@@ -20,9 +20,6 @@ Registering a device gives your phone access to your organization's services and
 
 If your organization hasn't made SMS sign-in available, you won't see an option for it when registering a phone with your account.  
 
->[!NOTE]
->If your default sign-in method is a text or call to your phone number, send the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many SMS codes for different apps. If your default sign-in method is the Microsoft Authenticator app (highly recommended), then app notification is sent automatically.
-
 ## When you have a new phone number
 
 If you get a new phone or new number and you register it with an organization for which SMS sign-in is available, you experience the normal phone registration process:
