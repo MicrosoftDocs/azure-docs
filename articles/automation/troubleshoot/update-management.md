@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 04/18/2021
+ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,11 +15,11 @@ This article discusses issues that you might run into when using the Update Mana
 >[!NOTE]
 >If you run into problems when deploying Update Management on a Windows machine, open the Windows Event Viewer, and check the **Operations Manager** event log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-## Scenario: Windows Defender update always show as missing
+## <a name="windows-defender-update-missing-status"></a>Scenario: Windows Defender update always show as missing
 
 ### Issue
 
-Definition update for Windows Defender (KB2267602) always shows as missing in an assessment when it's installed and shows as up to date when verified from Windows Update history.
+Definition update for Windows Defender (**KB2267602**) always shows as missing in an assessment when it's installed and shows as up to date when verified from Windows Update history.
 
 ### Cause
 
