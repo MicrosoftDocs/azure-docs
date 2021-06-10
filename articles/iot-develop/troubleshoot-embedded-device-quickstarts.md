@@ -3,6 +3,7 @@ title: Troubleshooting the Azure RTOS embedded device quickstarts
 description: Steps to help you troubleshoot common issues when using the Azure RTOS embedded device quickstarts
 author: JimacoMS4
 ms.author: v-jbrannian
+ms.service: iot-develop
 ms.topic: troubleshooting
 ms.date: 06/10/2021
 ---
@@ -21,7 +22,7 @@ This article provides suggested resolutions for the most common issues that can 
 
 All the troubleshooting steps require that you've completed the following prerequisites for the quickstart you're working in:
 
-* You installed or acquired all prerequisites, and additional software tools, for the specific quickstart in the series [Getting Started with Azure RTOS](https://go.microsoft.com/fwlink/p/?linkid=2129824).
+* You installed or acquired all prerequisites, and additional software tools, for the specific quickstart in the [Embedded device development quickstarts](quickstart-devkit-mxchip-az3166.md).
 * You created an Azure Iot hub, and registered a device, as directed in the quickstart.
 * You built an image for the device, as directed in the quickstart.
 
@@ -42,7 +43,7 @@ The issue can occur after you've created Azure resources, and flashed your devic
 
 ### Resolution
 
-* Check the spelling and case of the configuration values you entered for your IoT configuration in the file *azure_config.h*. The values for some IoT resource attributes, such as `deviceID` and `primaryKey`, are case sensitive.
+* Check the spelling and case of the configuration values you entered for your IoT configuration in the file *azure_config.h*. The values for some IoT resource attributes, such as `deviceID` and `primaryKey`, are case-sensitive.
 
 ## Issue:  Wi-Fi is unable to connect
 
@@ -52,14 +53,14 @@ After you flash a device that uses a Wi-Fi connection and try to connect to your
 
 ### Resolution
 
-* Check your Wi-Fi network frequency and settings. The devices used in the getting started guide all use 2.4 GHz. Confirm that your Wi-Fi router is configured to support a 2.4 GHz network.
+* Check your Wi-Fi network frequency and settings. The devices used in the embedded device quickstarts all use 2.4 GHz. Confirm that your Wi-Fi router is configured to support a 2.4-GHz network.
 * Check the Wi-Fi mode. Confirm what setting you used for the WIFI_MODE constant in the *azure_config.h* file. Check your Wi-Fi network security or authentication settings to confirm that the Wi-Fi security mode matches what you have in the configuration file.
 
 ## Issue: Flashing the board fails
 
 ### Description
 
-You can't complete the process of flashing your device. You will know this if you experience any of the following symptoms:
+You can't complete the process of flashing your device. You'll know this if you experience any of the following symptoms:
 
 * The **.bin* image file that you built does not copy to the device.
 * The utility that you're using to flash the device gives a warning or error.
@@ -77,7 +78,7 @@ You can't complete the process of flashing your device. You will know this if yo
 
 After you flash your device and connect it to your computer, you get a message like the following in your terminal software:
 
-```
+```output
 Failed to initialize the port.
 Please verify the COM port settings.
 ```
@@ -113,9 +114,9 @@ After you flash your device successfully and connect it to your computer, you se
 
 ### Description
 
-After you flash your device and connect it to your computer, you get a repeated messages like the following in your terminal window:
+After you flash your device and connect it to your computer, you get a repeated message like the following in your terminal window:
 
-```
+```output
 Failed to publish temperature
 ```
 
@@ -125,7 +126,7 @@ Failed to publish temperature
 
 ## Next steps
 
-If you reviewed all the previous issues, and you still cannot monitor your device in a terminal or connect to Azure IoT, there might be an issue with your device's hardware or physical configuration. See the manufacturer's page for your device to find documentation and support options.
+If, after reviewing the issues in this article, you still can't monitor your device in a terminal or connect to Azure IoT, there might be an issue with your device's hardware or physical configuration. See the manufacturer's page for your device to find documentation and support options.
 
 * [STMicroelectronics B-L475E-IOT01](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-discovery-kits/b-l475e-iot01a.html)
 * [NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK)
