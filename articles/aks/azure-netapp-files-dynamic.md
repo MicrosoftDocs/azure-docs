@@ -12,12 +12,13 @@ ms.date: 05/10/2021
 
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create an [Azure NetApp Files][anf] volume to be used by pods in an Azure Kubernetes Service (AKS) cluster.
 
-[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. Kubernetes users have three options when it comes to using ANF volumes for Kubernetes workloads:
+[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. Kubernetes users have multiple options when it comes to using ANF volumes for Kubernetes workloads:
 
 * Create ANF volumes statically. In this scenario, the creation of ANF volumes is achieved external to AKS; ANF volumes are created using `az`/Azure UI and are then exposed to the Kubernetes plane by the creation of a `PersistentVolume`.
-* Create ANF volumes on-demand, orchestrating through Kubernetes. This is the preferred mode of operation for creating multiple ANF volumes directly through Kubernetes. Users can achieve this one of two ways:
-    * Using NetApp Astra and Trident. [Astra](https://cloud.netapp.com/astra) is a **fully managed** application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. This document explains the steps involved to connect AKS clusters with Astra and provision ANF volumes using [Trident](https://netapp-trident.readthedocs.io/). In addition, you can also implement data protection, disaster recovery, and migration plans for AKS workloads using Astra.
-    * Using [Trident](https://netapp-trident.readthedocs.io/). You can choose to install Trident in a standalone manner without requiring Astra. This is covered under [Use Container Storage Interface (CSI) driver for Azure NetApp Files on Azure Kubernetes Service (AKS)][az-netappfiles-csi].
+* Create ANF volumes on-demand, orchestrating through Kubernetes. This is the preferred mode of operation for creating multiple ANF volumes directly through Kubernetes and is achieved using NetApp Astra. [Astra](https://cloud.netapp.com/astra) is a **fully managed and supported** application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. NetApp recommends Astra for customers who prioritize data protection, disaster recover, and migration for production workloads. This document explains the steps involved to connect AKS clusters with Astra and provision ANF volumes using [Trident](https://netapp-trident.readthedocs.io/). Trident is NetApp's dynamic storage orchestrator, which is deployed and managed by the Astra service.
+
+> [!NOTE]
+>  You can also choose to install [Trident](https://netapp-trident.readthedocs.io/) in a standalone manner without requiring Astra. To learn more, check out [Use Container Storage Interface (CSI) driver for Azure NetApp Files on Azure Kubernetes Service (AKS)][az-netappfiles-csi].
 
 If you would like to provision ANF volumes statically, read [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netappfiles-static].
 
