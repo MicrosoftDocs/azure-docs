@@ -71,7 +71,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 ## Studio (classic) and designer module-mapping
 
-Consult the following table to see you which modules to use while rebuilding Studio (classic) experiments in the designer.
+Consult the following table to see which modules to use while rebuilding Studio (classic) experiments in the designer.
 
 
 > [!IMPORTANT]
