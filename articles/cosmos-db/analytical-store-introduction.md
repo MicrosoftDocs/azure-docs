@@ -244,6 +244,10 @@ Analytical store pricing is separate from the transaction store pricing model. T
 
 In order to get a high-level cost estimate to enable analytical store on an Azure Cosmos DB container, you can use the [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) and get an estimate of your analytical storage and write operations costs. Analytical read operations costs depends on the analytics workload characteristics but as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and results in a cost of $0.065.
 
+> [!NOTE]
+> We don't have details about analytical store read operations in the Cosmos DB cost calculator since it is a function of your analytical workload. While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned, which determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations.
+
+
 ## <a id="analytical-ttl"></a> Analytical Time-to-Live (TTL)
 
 Analytical TTL indicates how long data should be retained in your analytical store, for a container. 
