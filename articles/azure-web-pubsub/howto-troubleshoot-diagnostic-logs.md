@@ -72,7 +72,7 @@ After the Azure Web PubSub service is GA, the live trace tool will also support 
 
 ## Capture diagnostic logs with Azure Monitor
 
-Integration with [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage), and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace) to capture the diagnostic logs is not supported for public preview.
+Integration with [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage), and [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) to capture the diagnostic logs is not supported for public preview.
 
 ## Troubleshoot with the diagnostic logs
 
@@ -105,4 +105,3 @@ If you get 401 Unauthorized returned for client requests, check your diagnostic 
 ### Throttling
 
 If you find that you cannot establish client connections to Azure Web PubSub service, check your diagnostic logs. If you meet `Connection count reaches limit` in diagnostic log, you establish too many connections to Azure Web PubSub service, which reach the connection count limit. Consider scaling up your Azure Web PubSub service instance. If you meet `Message count reaches limit` in diagnostic log, it means you use free tier, and you use up the quota of messages. If you want to send more messages, consider changing your Azure Web PubSub service instance to standard tier to send additional messages. For more information, see [Azure Web PubSub service Pricing](https://azure.microsoft.com/pricing/details/web-pubsub/).
-
