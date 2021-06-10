@@ -8,12 +8,12 @@ ms.date: 11/09/2020
 ---
 # Migrate a knowledge base using export-import
 
-Migration is the process of creating a new knowledge base from an existing knowledge base. You may do this for several reasons:
+You may want to create a copy of your knowledge base for several reasons:
 
-* Copy a knowledge base from QnA Maker GA to Custom question answering
-* To implement a backup and restore process
-* Integrate with your CI/CD pipeline
-* move data to different regions
+* moving a knowledge base from QnA Maker GA to Custom question answering
+* backup and restore process
+* CI/CD pipeline
+* move regions
 
 Migrating a knowledge base requires exporting from an existing knowledge base, then importing into another.
 
@@ -36,7 +36,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
 ---
 
-## Migrate a knowledge base from QnA Maker
+## Export a knowledge base
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).
 1. Select the knowledge base you want to migrate.
 
@@ -50,12 +50,12 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
    > [!div class="mx-imgBorder"]
    > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
 
-
+## Import a knowledge base
 1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation. Set the new knowledge base name only. Duplicate names are supported and special characters are supported as well.
 
     Do not select anything from Step 4 because those values will be overwritten when you import the file. In Step 5, select **Create**.
 
-1. In this new knowledge base, open the **Settings** tab and under **Import knowledge base** select either of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
+1. In this new knowledge base, open the **Settings** tab and select either of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
 
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer [SampleQnAs.xlsx](https://aka.ms/qnamaker-sampleqnas), [SampleQnAs.tsv](https://aka.ms/qnamaker-sampleqnastsv) to import QnAs.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer [SampleSynonyms.xlsx](https://aka.ms/qnamaker-samplesynonyms), [SampleSynonyms.tsv](https://aka.ms/qnamaker-samplesynonymstsv) to import synonyms.
