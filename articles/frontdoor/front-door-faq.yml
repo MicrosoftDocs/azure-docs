@@ -290,6 +290,13 @@ sections:
           Can I use client/mutual authentication with Azure Front Door?
         answer: |
           No. Although Azure Front Door supports TLS 1.2, which introduced client/mutual authentication in [RFC 5246](https://tools.ietf.org/html/rfc5246), currently, Azure Front Door doesn't support client/mutual authentication.
+
+  - name: Billing
+    questions:
+      - question: |
+          Will I be billed for the Azure Front Door resources that are disabled?
+        answer:  |
+          Azure Front Door resources, like Front Door profiles, routing rules are not billed in disabled. WAF policies and rules are billed even if disabled.
           
   - name: Diagnostics and logging
     questions:
@@ -313,12 +320,6 @@ sections:
         answer:  |
           Yes, Azure Front Door does support alerts. Alerts are configured on metrics. 
 
- - name: Billing
-    questions:
-      - question: |
-          Will I be billed for the Azure Front Door resources that are disabled?
-        answer:  |
-         Azure Front Door resources, like Front Door profiles, routing rules are not billed in disabled. WAF policies and rules are billed even if disabled.
          
 additionalContent: |
 
