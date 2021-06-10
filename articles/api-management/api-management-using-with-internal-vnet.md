@@ -41,7 +41,7 @@ Use API Management in internal mode to:
 
 + **An active Azure subscription**. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ **An Azure API Management instance**. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
++ **An Azure API Management instance (supported SKUs: Developer, Premium and Isolated)**. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
