@@ -1,6 +1,6 @@
 ---
-title: 'Edge connectivity in Azure using Affirmed Networks'
-description: Learn how to bring cloud compute capabilities to the edge of your private mobile network.
+title: 'What is Affirmed Private Network Service on Azure?'
+description: Learn about Affirmed Private Network Service solutions on Azure for private LTE/5G networks.
 services: vnf-manager
 author: KumudD
 ms.service: vnf-manager
@@ -9,7 +9,7 @@ ms.date: 06/16/2021
 ms.author: hollycl
 
 ---
-# What is Affirmed Private Networks solution in Azure?
+# What is Affirmed Private Network Service on Azure?
 
 The Affirmed Private Network Service (APNS) is a managed network service offering created for managed service providers and mobile network operators to provide private LTE and private 5G solutions to enterprises.
 
