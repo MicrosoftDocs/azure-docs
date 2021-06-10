@@ -48,11 +48,11 @@ When using hybrid identities, it is possible that the User Principal Name (UPN) 
 
 ## Cloud-only identity
 
-Windows Virtual Desktop supports cloud-only identities when using [Azure AD joined VMs](deploy-azure-ad-joined-vm.md).
+Azure Virtual Desktop supports cloud-only identities when using [Azure AD joined VMs](deploy-azure-ad-joined-vm.md).
 
 ## External identity
 
-Windows Virtual Desktop does not support [external identities](../active-directory/external-identities/index.yml).
+Azure Virtual Desktop does not support [external identities](../active-directory/external-identities/index.yml).
 
 ## Single sign-on (SSO)
 
