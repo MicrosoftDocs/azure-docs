@@ -6,9 +6,9 @@ ms.date: 06/09/2021
 
 ---
 # Azure AD authentication for Application Insights (Preview)
-Application Insights now supports Azure Active Directory (Azure AD) authentication. By using Azure AD you can now ensure that only authenticated telemetry is ingested in your Application Insights resources. 
+Application Insights now supports Azure Active Directory (Azure AD) authentication. By using Azure AD, you can now ensure that only authenticated telemetry is ingested in your Application Insights resources. 
 
-Typically, using various authentication system can be cumbersome and can pose risk since it’s difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical business decisions. 
+Typically, using various authentication systems can be cumbersome and pose risk since it’s difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical business decisions. 
 
 > [!IMPORTANT]
 > Azure AD authentication is currently in PREVIEW.
@@ -18,7 +18,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - [Java 2.x SDK](java-in-process-agent.md) – Azure AD authentication is only available for Java agent > 3.2.x. 
 - [JavaScript SDKs](javascript.md). 
 - [OpenCensus Python SDK](opencensus-python.md) won't support Python versions - 3.4 and 3.5.
-- [Certificate/secret based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) is not recommended for production. Use Managed Identities instead. 
+- [Certificate/secret based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use Managed Identities instead. 
 - Auto Attach scenario for .NET/.NET core.
 
 ## Prerequisites to enable Azure AD authentication ingestion
@@ -28,10 +28,10 @@ Below are SDKs/scenarios not supported in the Public Preview:
 
 ## Configuring and enabling Azure AD based authentication 
 
-1. Follow the steps below depending on the type of authentication you are using: 
+1. Follow the steps below depending on the type of authentication you're using: 
     1. If using system-assigned managed identity or User assigned managed identity, follow the steps in the [configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
     
-    If you are configuring managed identities on other Azure services ( App Service, VMSS etc.) see [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) for more information.
+    If you are configuring managed identities on other Azure services (App Service, virtual machine scale set etc.) see [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) for more information.
 
     1. If using service principal, follow these steps in [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -62,7 +62,7 @@ config. SetAzureTokenCredential (credential);
 
 ```
 
-Here is an example of configuring the TelemetryConfiguration using ASP.Net Core:
+Here is an example of configuring the TelemetryConfiguration using ASP.NET Core:
 ```csharp
 services.Configure<TelemetryConfiguration>(config =>
 {
@@ -211,7 +211,7 @@ After the Azure AD authentication is enabled, you can choose to disable local au
 
 You can disable local authentication by using the Azure portal, programmatically or Azure Policy.
 
-### Azure Portal
+### Azure portal
 
 1.	From your Application Insights resource, select **Properties** under the *Configure* heading in the left-hand menu bar.
 
