@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Data residency for your Azure Stack Edge Pro GPU
 
-!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes the information that you need to help understand the data residency behavior of Azure Stack Edge device and how to control data residency.  
 
