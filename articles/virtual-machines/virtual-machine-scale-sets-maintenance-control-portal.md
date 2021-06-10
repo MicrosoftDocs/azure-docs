@@ -24,44 +24,42 @@ Maintenance control lets you decide when to apply automatic guest OS image upgra
     
     :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-search-bar.png" alt-text="Screenshot showing how to open Maintenance Configurations":::
 
-1. Click **Add**.
+1. Select **Add**.
 
     :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-add.png" alt-text="Screenshot showing how to add a maintenance configuration":::
 
-1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select *OS image upgrade* for the scope. Click **Next**.
+1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select *OS image upgrade* for the scope. Select **Next**.
     
     :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
-1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence. Once you create a scheduled window, you no longer have to apply the updates manually. Click **Next**. 
+1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence. Once you create a scheduled window, you no longer have to apply the updates manually. Select **Next**. 
 
     > [!IMPORTANT]
     > Maintenance window **duration** must be *5 hours* or longer. Maintenance **recurrence** must be set to repeat at least once a day. 
 
     :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-schedule-tab.png" alt-text="Screenshot showing Maintenance Configuration schedule":::
 
-1. In the Assignment tab, assign resources now or skip this step and assign resources later after maintenance configuration deployment. Click **Next**.
+1. In the Assignment tab, assign resources now or skip this step and assign resources after the maintenance configuration deployment. Select **Next**.
 
-1. Add tags and values. Click **Next**.
+1. Add tags and values. Select **Next**.
     
     :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-tags-tab.png" alt-text="Screenshot showing how to add tags to a maintenance configuration":::
 
-1. Review the summary. Click **Create**.
+1. Review the summary. Select **Create**.
 
-1. After the deployment is complete, click **Go to resource**.
+1. After the deployment is complete, select **Go to resource**.
 
 
 ## Assign the configuration
 
-On the details page of the maintenance configuration, click Assignments and then click **Assign resource**. 
+On the details page of the maintenance configuration, select **Assignments** and then select **Assign resource**. 
 
 ![Screenshot showing how to assign a resource](media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
-Select the resources that you want the maintenance configuration assigned to and click **Ok**. The **Type** column shows whether the resource is an isolated VM or Azure dedicated host. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. 
+Select the resources that you want the maintenance configuration assigned to and select **Ok**. The **Type** column shows whether the resource is an isolated VM or Azure dedicated host. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. 
 
 
 ## Next steps
 
-Learn about Maintenance and updates for virtual machines running in Azure.
-
 > [!div class="nextstepaction"]
-> [Maintenance and updates](maintenance-and-updates.md)
+> [Learn about Maintenance and updates for virtual machines running in Azure](maintenance-and-updates.md)

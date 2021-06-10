@@ -104,12 +104,10 @@ New-AzConfigurationAssignment `
 
 ## Enable automatic OS upgrade
 
-You can enable automatic OS upgrades for each virtual machine scale set that is going to use maintenance control. Refer to document [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for enabling automatic OS upgrades on your virtual machine scale set. 
+You can enable automatic OS upgrades for each virtual machine scale set that is going to use maintenance control. For more information about enabling automatic OS upgrades on your virtual machine scale set, see [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 
 ## Next steps
 
-Learn about Maintenance and updates for virtual machines running in Azure.
-
 > [!div class="nextstepaction"]
-> [Maintenance and updates](maintenance-and-updates.md)
+> [Learn about Maintenance and updates for virtual machines running in Azure](maintenance-and-updates.md)

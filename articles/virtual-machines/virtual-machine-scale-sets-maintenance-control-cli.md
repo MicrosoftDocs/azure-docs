@@ -43,8 +43,8 @@ You can query for available maintenance configurations using `az maintenance con
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
 
-### Create a maintenance configuration with scheduled window
-You can also declare a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
+### Create a maintenance configuration with a scheduled window
+You can also declare a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named *myConfig* with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window, you no longer have to apply the updates manually.
 
 > [!IMPORTANT]
 > Maintenance **duration** must be *5 hours* or longer. Maintenance **recurrence** must be set to *Day*.
@@ -68,12 +68,10 @@ Use `az maintenance assignment create` to assign the configuration to your virtu
 
 ## Enable automatic OS upgrade
 
-You can enable automatic OS upgrades for each virtual machine scale set that is going to use maintenance control. Refer to document [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for enabling automatic OS upgrades on your virtual machine scale set. 
+You can enable automatic OS upgrades for each virtual machine scale set that is going to use maintenance control. For more information about enabling automatic OS upgrades on your virtual machine scale set, see [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 
 ## Next steps
 
-Learn about Maintenance and updates for virtual machines running in Azure.
-
 > [!div class="nextstepaction"]
-> [Maintenance and updates](maintenance-and-updates.md)
+> [Learn about Maintenance and updates for virtual machines running in Azure](maintenance-and-updates.md)
