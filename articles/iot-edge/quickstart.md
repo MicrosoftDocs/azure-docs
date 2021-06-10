@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli
 monikerRange: "=iotedge-2018-06"
 ---
 
-# Quickstart: Deploy your first IoT Edge module to a Windows device (preview)
+# Quickstart: Deploy your first IoT Edge module to a Windows device
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
@@ -30,9 +30,6 @@ In this quickstart, you'll learn how to:
 This quickstart walks you through how to set up your Azure IoT Edge for Linux on Windows device. Then, you'll deploy a module from the Azure portal to your device. The module you'll use is a simulated sensor that generates temperature, humidity, and pressure data. Other Azure IoT Edge tutorials build on the work you do here by deploying modules that analyze the simulated data for business insights.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-
->[!NOTE]
->IoT Edge for Linux on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

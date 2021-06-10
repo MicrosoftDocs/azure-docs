@@ -7,12 +7,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 06/10/2021
 ms.author: v-tcassi
 monikerRange: "=iotedge-2018-06"
 ---
 
-# Install and provision Azure IoT Edge for Linux on a Windows device (Preview)
+# Install and provision Azure IoT Edge for Linux on a Windows device
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
@@ -23,9 +23,7 @@ Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows 
 This article lists the steps to set up IoT Edge on a Windows device. These steps deploy a Linux virtual machine that contains the IoT Edge runtime to run on your Windows device, then provision the device with its IoT Hub device identity.
 
 >[!NOTE]
->IoT Edge for Linux on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->While IoT Edge for Linux on Windows is the recommended experience for using Azure IoT Edge in a Windows environment, Windows containers are still available. If you prefer to use Windows containers, see the how-to guide on [installing and managing Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
+>IoT Edge for Linux on Windows is the recommended experience for using Azure IoT Edge in a Windows environment. However, Windows containers are still available. If you prefer to use Windows containers, see the how-to guide on [installing and managing Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
 
 ## Prerequisites
 
