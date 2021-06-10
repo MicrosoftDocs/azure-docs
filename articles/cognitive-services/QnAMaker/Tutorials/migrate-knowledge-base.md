@@ -10,10 +10,10 @@ ms.date: 11/09/2020
 
 Migration is the process of creating a new knowledge base from an existing knowledge base. You may do this for several reasons:
 
-* moving a knowledge base from QnA Maker GA to Custom question answering
-* backup and restore process
-* CI/CD pipeline
-* move regions
+* Copy a knowledge base from QnA Maker GA to Custom question answering
+* To implement a backup and restore process
+* Integrate with your CI/CD pipeline
+* move data to different regions
 
 Migrating a knowledge base requires exporting from an existing knowledge base, then importing into another.
 
@@ -55,7 +55,7 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
     Do not select anything from Step 4 because those values will be overwritten when you import the file. In Step 5, select **Create**.
 
-1. In this new knowledge base, open the **Settings** tab and select either of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
+1. In this new knowledge base, open the **Settings** tab and under **Import knowledge base** select either of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
 
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer [SampleQnAs.xlsx](https://aka.ms/qnamaker-sampleqnas), [SampleQnAs.tsv](https://aka.ms/qnamaker-sampleqnastsv) to import QnAs.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer [SampleSynonyms.xlsx](https://aka.ms/qnamaker-samplesynonyms), [SampleSynonyms.tsv](https://aka.ms/qnamaker-samplesynonymstsv) to import synonyms.
