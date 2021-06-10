@@ -87,7 +87,7 @@ For more information on configuring your own DNS server to support private endpo
 - [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
-## Set up Private Link for Azure Data Factory
+## Setup a Private Endpoint Link for Azure Data Factory
 
 In this section you will setup a private endpoint link for Azure Data Factory.
 
