@@ -47,12 +47,25 @@ For additional pricing and feature details, see:
 
 You can pay for API Management charges with your Azure Prepayment (previously called monetary commitment). However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
-## Monitor costs
+## Understand the full billing model
 
 As you use Azure resources with API Management, you incur costs, or billable meters. Azure resource usage unit costs vary by:
 * Time intervals (seconds, minutes, hours, and days)
 * Unit usage (bytes, megabytes, and so on)
 * Number of transactions
+
+### How you're charged for API Management
+
+When you create or use Azure resources with API Management, you'll get charged based on tiers you're working in. Learn more about [choosing the best tier](#choose-tier) for you.
+
+| Tiers | Description |
+| ----- | ----------- |
+| Consumption | Incurs no fixed costs. You are billed based on the number of API calls to the service above a certain threshold. |
+| Developer, Basic, Standard, and Premium | Incur monthly costs. [Upgrade](./upgrade-and-scale.md) to a different service tier at any time. |
+
+You may also incur additional charges when you use other Azure resources with API Management, like virtual networks, availability zones, and multi-region writes. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all API Management costs. There's a separate line item for each meter.
+
+## Monitor costs
 
 As soon as API Management use starts, costs are incurred. You can see the costs in [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) or via the Azure Pricing Calculator.
 
