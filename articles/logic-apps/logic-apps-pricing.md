@@ -16,12 +16,16 @@ ms.date: 06/10/2021
 
 ## Consumption pricing (multi-tenant)
 
-A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps environment. This pricing applies to logic apps that you create in the following ways:
+A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps environment. You can create these logic apps by using multiple options, for example:
 
-* When you use the **Logic App (Consumption)** resource type in the Azure portal
-* When you use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code
-* When you use the Azure Logic Apps Tools extension in Visual Studio
-* When you create and use [automation tasks](create-automation-tasks-azure-resources.md) in the Azure portal
+* Logic App (Consumption) resource type in the Azure portal
+* Azure Logic Apps (Consumption) extension in Visual Studio Code
+* Azure Logic Apps Tools extension in Visual Studio
+* Azure Resource Manager template (ARM template) using the `Microsoft.Logic` resource type
+* Azure CLI for Azure Logic Apps using the `az logic` commands
+* Azure PowerShell for Azure Logic Apps using the `Az.LogicApp` module
+* REST API for Azure Logic Apps
+* [Automation tasks](create-automation-tasks-azure-resources.md) in the Azure portal
 
 Metering and billing are based on the trigger and action executions in a logic app workflow. These executions are metered and billed, regardless whether the workflow runs successfully or whether the workflow is even instantiated. For example, suppose your automation task uses a polling trigger that regularly makes an outgoing call to an endpoint. This outbound request is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
 
