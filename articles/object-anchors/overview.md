@@ -16,7 +16,7 @@ Azure Object Anchors enables an application to detect an object in the physical 
 
 Azure Object Anchors is composed of a service for model conversion and a runtime client SDK for HoloLens. The service accepts a 3D object model and outputs an Azure Object Anchors model. The Azure Object Anchors model is used along with the runtime SDK to enable a HoloLens application to load an object model, detect, and track instance(s) of that model in the physical world.
 
-:::image type="content" source="./media/aoa-overview.jpg" alt-text="Azure Object Anchors in action":::
+:::image type="content" source="./media/object-anchors-overview.jpg" alt-text="Azure Object Anchors in action":::
 
 ## Examples
 
@@ -28,7 +28,7 @@ Some example use cases enabled by Azure Object Anchors include:
 
 - **Asset Finding**. If you already have a 3D model of some object in your physical space, Azure Object Anchors can enable you to locate and track instances of that object in your physical environment.
 
-## Usage Flow
+## Usage flow
 
 First, upload your 3d asset to our Azure Object Anchors Conversion service. You can follow the steps in one of our Quickstarts:
 
@@ -38,7 +38,13 @@ First, upload your 3d asset to our Azure Object Anchors Conversion service. You 
 
 The service will then convert your asset into an Azure Object Anchors model. Download the converted model, so you can [visualize its mesh](visualize-converted-model.md) if you want. Finally, copy the model over to a HoloLens device that has the Runtime SDK for [Unity](/dotnet/api/Microsoft.Azure.ObjectAnchors) or [HoloLens C++/WinRT](/cpp/api/object-anchors/winrt): you can now detect physical objects that match your original model.
 
-:::image type="content" source="./media/aoa-flow.png" alt-text="usage flow":::
+:::image type="content" source="./media/object-anchors-flow.png" alt-text="usage flow":::
+
+## Model requirements
+
+Each dimension of a model should be between 1 meter to 10 meters, and the file size should be less than 150 MB.
+
+The model formats currently supported are: `fbx`, `ply`, `obj`, `glb`, and `gltf`.
 
 ## Next steps
 

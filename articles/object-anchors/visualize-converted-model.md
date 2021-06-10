@@ -35,4 +35,4 @@ Select the **Play** button at the top of the Unity Editor, and then ensure the *
 
 Using [Unity's scene view navigation controls](https://docs.unity3d.com/Manual/SceneViewNavigation.html), you're now able to inspect your Object Anchors model.
 
-:::image type="content" source="./media/aoa-visualize.png" alt-text="visualize model":::
+:::image type="content" source="./media/object-anchors-visualize.png" alt-text="visualize model":::
