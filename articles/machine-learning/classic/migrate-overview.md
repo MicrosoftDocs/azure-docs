@@ -104,7 +104,7 @@ Consult the following table to see which modules to use while rebuilding Studio 
 | Web Service | - Input </br> -   Output | - Input </br>  - Output|
 | Computer Vision| | - Apply Image Transformation </br> - Convert to Image Directory </br> - Init Image Transformation </br> - Split Image Directory  </br> - DenseNet Image Classification   </br>- ResNet Image Classification |
 
-For more information on how to use individual the designer modules, see the [designer module reference](../algorithm-module-reference/module-reference.md).
+For more information on how to use individual designer modules, see the [designer module reference](../algorithm-module-reference/module-reference.md).
 
 ### What if a designer module is missing?
 
