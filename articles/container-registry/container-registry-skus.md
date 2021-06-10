@@ -27,7 +27,7 @@ The following table details the features and registry limits of the Basic, Stand
 
 ### Throughput 
 
-When generating a high rate of registry operations such as Docker image pulls or pushes, use the service tier's limits for read and write operations and bandwidth as a guide for expected image throughput. However, additional factors will affect your registry performance in practice.
+When generating a high rate of registry operations such as Docker image pulls or pushes, use the service tier's limits for read and write operations and bandwidth as a guide for expected image throughput. Additional factors will affect your registry performance in practice.
 
 Each image pull or push can generate a large number of atomic read and/or write operations on the registry. A large number of operations will translate into fewer images pushed or pulled. The number depends on:
 
@@ -37,7 +37,7 @@ Each image pull or push can generate a large number of atomic read and/or write 
 
 For details, see documentation for the [Docker HTTP API V2](https://docs.docker.com/registry/spec/api/).
 
-When evaluating or troubleshooting registry throughput, also consider the configuration of your client environment:
+If you experience issues with throughput to your registry, see [Troubleshoot registry performance](container-registry-troubleshoot-performance.md). When evaluating or troubleshooting registry throughput, also consider the configuration of your client environment:
 
 * your Docker daemon configuration for concurrent operations
 * your network connection to the registry's data endpoint or endpoints
@@ -54,7 +54,7 @@ Pushing a single 133 MB `nginx:latest` image to an Azure container registry requ
 
 You may experience throttling of pull or push operations when the registry determines the rate of requests is too high. You may see an HTTP 429 error similar to `Too many requests`.
 
-For example, throttling could occur temporarily when you generate a burst of image pull or push operations in a very short period, even when the average rate of read and write operations is within registry limits. You may need to implement retry logic in your code or reduce the maximum rate of requests to the registry.
+Throttling could occur temporarily when you generate a burst of image pull or push operations in a very short period, even when the average rate of read and write operations is within registry limits. You may need to implement retry logic in your code or reduce the maximum rate of requests to the registry.
 
 ## Changing tiers
 
