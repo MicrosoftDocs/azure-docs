@@ -116,7 +116,7 @@ In this section, you'll take the information provided from AAD above and enter t
 1. Go to https://github.com
 1. Click on Sign In at the top-right corner
 1. Enter the credentials for the first administrator user account. The login handle should be in the format: `<your enterprise short code>_admin`
-1. Navigate to https://github.com/enterprises/ `<your enterprise name>`. This information should be provided by your Solutions Engineering contact.
+1. Navigate to `https://github.com/enterprises/` `<your enterprise name>`. This information should be provided by your Solutions Engineering contact.
 1. On the navigation menu on the left, select **Settings**, then **Security**.
 1. Click on the checkbox **Enable SAML authentication**
 1. Enter the Sign on URL. This URL is the Login URL that you copied from AAD above.

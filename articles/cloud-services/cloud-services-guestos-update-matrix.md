@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/26/2021
+ms.date: 6/9/2021
 ms.author: gunnarc
 ---
 # Azure Guest OS releases and SDK compatibility matrix
@@ -148,15 +148,7 @@ The September Guest OS has released.
 .NET Framework installed: 3.5, 4.7.2
 
 > [!NOTE]
-> The Windows Azure SDK for .NET - 3.0 can be downloaded [here][Windows Azure SDK].
->
->Installation steps:
->1.	Please uninstall any older versions of MicrosoftAzureAuthoringTools*.msi
->2. Install the [Azure SDK for .NET - 3.0][Windows Azure SDK]
->3. Restart your machine
->4. Create a new Cloud Service project and add a single Worker Role
->5. Change the OS Family to 6 and build a package
->6. Deploy the package to Azure using the Azure portal or Visual Studio
+> It is recommended to develop Cloud Services on Visual Studio 2019 and install the Azure Workload.
 >
 >Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites. Learn [more].
 
