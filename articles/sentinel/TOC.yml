@@ -39,6 +39,12 @@
       href: normalization.md
     - name: Classifying data with entities
       href: entities-in-azure-sentinel.md
+  - name: Azure Sentinel solutions
+    items:
+    - name: About Sentinel solutions
+      href: sentinel-solutions.md
+    - name: Solutions catalog
+      href: sentinel-solutions-catalog.md
   - name: Threat intelligence
     items:
     - name: Import threat intelligence into Azure Sentinel
@@ -67,12 +73,6 @@
       href: automate-responses-with-playbooks.md
     - name: Bring your own machine learning
       href: bring-your-own-ml.md
-    - name: Azure Sentinel solutions
-      items:
-      - name: About Sentinel solutions
-        href: sentinel-solutions.md
-      - name: Solutions catalog
-        href: sentinel-solutions-catalog.md
 - name: How-Tos
   items:
   - name: Collect data
@@ -273,6 +273,8 @@
       href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
+  - name: Discover and deploy solutions
+    href: sentinel-solutions-deploy.md
   - name: Connect threat intelligence
     href: connect-threat-intelligence.md
   - name: Monitor and visualize data
@@ -305,7 +307,7 @@
       href: false-positives.md
     - name: Create incidents from Microsoft Security alerts
       href: create-incidents-from-alerts.md
-  - name: Threat hunting
+  - name: Hunt for threats
     items:
     - name: Hunt with Jupyter notebooks
       href: notebooks.md
@@ -313,20 +315,12 @@
       href: bookmarks.md
     - name: Hunt with livestream
       href: livestream.md
-  - name: Detect threats
-    items:
   - name: Investigate and respond
     items:
     - name: Create custom entity activities
       href: customize-entity-activities.md
     - name: Common UEBA investigation methods
       href: investigate-with-ueba.md
-    - name: Deploy solutions
-      items:
-      - name: Discover and deploy solutions
-        href: sentinel-solutions-deploy.md
-      - name: Advanced - Deploy the SAP data connector on-premises
-        href: sap-solution-deploy-alternate.md
     - name: Collaborate in Microsoft Teams
       href: collaborate-in-microsoft-teams.md
   - name: Manage Azure Sentinel
