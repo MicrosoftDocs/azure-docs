@@ -32,15 +32,15 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **Q: What are the maximum object dimensions that can be processed for model conversion?**
 
-**A:** Each dimension of a CAD model should be less than 10 meters. For more information, see [Model Requirements](overview.md).
+**A:** Each dimension of a CAD model should be less than 10 meters. For more information, see [Asset Requirements](overview.md).
 
 **Q: What is the maximum CAD model size that can be processed for conversion?**
 
-**A:** The model file size should be less than 150 MB. For more information, see [Model Requirements](overview.md).
+**A:** The model file size should be less than 150 MB. For more information, see [Asset Requirements](overview.md).
 
 **Q: What are the supported CAD formats?**
 
-**A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types. For more information, see [Model Requirements](overview.md).
+**A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types. For more information, see [Asset Requirements](overview.md).
 
 **Q: What is the gravity direction and unit required by the model conversion service? How can we figure them out?**
 
