@@ -57,7 +57,7 @@ To create a rule for the Azure Backup tag, follow these steps:
 
 You can similarly create NSG outbound security rules for Azure Storage and Azure AD. To learn more about service tags, see [Virtual network service tags](../articles/virtual-network/service-tags-overview.md).
 
-### Use Azure ExpressRoute
+### Azure ExpressRoute support
 
 You can back up your data through Azure ExpressRoute by using public peering (available for old circuits). We don’t support Microsoft peering Backup over private peering.
 
