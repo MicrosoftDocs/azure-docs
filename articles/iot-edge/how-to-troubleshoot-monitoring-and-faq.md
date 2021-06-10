@@ -4,7 +4,7 @@ description: Troubleshooting Azure Monitor integration and FAQ
 author: veyalla
 manager: philmea
 ms.author: veyalla
-ms.date: 06/08/2021
+ms.date: 06/09/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge 
@@ -46,13 +46,9 @@ The built-in metrics endpoints use http protocol. They won't be available, even 
 
 For more information, see [proxy considerations](how-to-collect-and-transport-metrics.md#proxy-considerations).
 
----
-
 ## How do I collect logs along with metrics?
 
 You could use [built-in log pull features](how-to-retrieve-iot-edge-logs.md). A sample solution that uses the built-in log retrieval features is available at [**https://aka.ms/iot-elms**](https://aka.ms/iot-elms).
-
----
 
 ## Why can't I see device metrics in the metrics page in Azure portal?
 
@@ -62,8 +58,6 @@ Azure Monitor's [native metrics](../azure-monitor/essentials/data-platform-metri
 * Advanced data processing via [KQL](https://aka.ms/kql) for visualizations and alerts.
 
 The use of Log Analytics as the metrics database is the reason why metrics appear in the **Logs** page in Azure portal rather than **Metrics**.
-
----
 
 ## How do I configure metrics-collector in a layered deployment?
 
@@ -77,8 +71,6 @@ The metrics collector doesn't have any service discovery functionality. We recom
 
 See the [custom metrics](how-to-add-custom-metrics.md) article.
 
----
-
 ## How can I tell which device a particular metric belongs to?
 
 Encode device information in the metric labels. For more information, see [Naming conventions](how-to-add-custom-metrics.md#naming-conventions).
@@ -90,8 +82,6 @@ Encode device information in the metric labels. For more information, see [Namin
 ## How do I create a alert rule that spans devices from multiple IoT hubs?
 
 When [creating an alert rule](how-to-create-alerts.md#create-an-alert-rule), you can [change its scope](how-to-create-alerts.md#select-alert-rule-scope) to a resource group or subscription. The alert rule will then apply to all IoT hubs in that scope.
-
----
 
 ## Alerts aren't firing when they should
 
@@ -111,15 +101,11 @@ Using metrics-collector module logs, confirm that the device sent metrics during
 
 Keep in mind, there can be an ingestion delay of a few minutes before metrics show up.
 
----
-
 ## I found a bug or have a question about metrics being shown in the workbook
 
 Open an issue on the [Azure IoT Edge GitHub repo](https://github.com/azure/iotedge/issues) with '[monitor-workbook]' in the title.
 
 The template for the workbooks is [publicly available on GitHub](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks/IoTHub). Pull requests with improvements or fixes are very welcome!
-
----
 
 ## I cannot see the workbooks in the public templates
 
