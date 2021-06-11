@@ -31,5 +31,5 @@ Your Compute Optimized data flows will continue to work in pipelines as-is. Howe
 
 ![Compute types](media/data-flow/compute-types.png)
 
-[Please find more detailed information at the data flows FAQ here](https://docs.microsoft.com/azure/data-factory/frequently-asked-questions#mapping-data-flows)  
-[Post questions and find answers on data flows on Microsoft Q&A](https://docs.microsoft.com/answers/questions/topics/azure-data-factory.html)
+[Please find more detailed information at the data flows FAQ here](https://aka.ms/dataflowsqa)  
+[Post questions and find answers on data flows on Microsoft Q&A](https://aka.ms/datafactoryqa)
