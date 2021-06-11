@@ -12,7 +12,7 @@ manager: philmea
 
 # Implement dynamic styling for Creator indoor maps
 
-You can use Azure Maps Creator [Feature State service](/rest/api/maps/v2/featurestate) to apply styles that are based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. This article describes how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/v2/featurestate) and the [Indoor Web module](how-to-use-indoor-module.md).
+You can use Azure Maps Creator [Feature State service](/rest/api/maps/v2/feature-state) to apply styles that are based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. This article describes how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/v2/feature-state) and the [Indoor Web module](how-to-use-indoor-module.md).
 
 ## Prerequisites
 

@@ -57,7 +57,7 @@ To upload the Drawing package:
 
 7. Select the **POST** HTTP method.
 
-8. Enter the following URL to the [Data Upload API](/rest/api/maps/data%20v2/uploadpreview):
+8. Enter the following URL to the [Data Upload API](/rest/api/maps/data-v2/upload-preview):
 
     ```http
     https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=dwgzippackage&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -541,7 +541,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 
 5. Select the **PUT** HTTP method.
 
-6. Enter the following URL to the [Feature Statesets API](/rest/api/maps/v2/featurestate/createstatesetpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{statesetId`} with the `statesetId` obtained in [Create a feature stateset](#create-a-feature-stateset)):
+6. Enter the following URL to the [Feature Statesets API](/rest/api/maps/v2/feature-state/create-stateset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{statesetId`} with the `statesetId` obtained in [Create a feature stateset](#create-a-feature-stateset)):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}

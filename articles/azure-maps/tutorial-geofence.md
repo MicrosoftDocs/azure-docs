@@ -37,7 +37,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCollection`. The `FeatureCollection` contains two geofences that define polygonal areas within the construction site. The first geofence has no time expiration or restrictions. The second one can only be queried against during business hours (9:00 AM-5:00 PM in the Pacific Time zone), and will no longer be valid after January 1, 2022. For more information on the GeoJSON format, see [Geofencing GeoJSON data](geofence-geojson.md).
 
 >[!TIP]
->You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data%20v2/uploadpreview).
+>You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data-v2/upload-preview).
 
 1. Open the Postman app. Near the top, select **New**. In the **Create New** window, select **Collection**. Name the collection and select **Create**.
 
