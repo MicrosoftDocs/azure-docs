@@ -21,21 +21,26 @@ Once you've enabled Active Directory Domain Services (AD DS) authentication on y
 
 ## Use cases
 
-For most users, you should assign share-level permissions to specific Azure AD users or groups. This is the most stringent and secure configuration.
+Most users should assign share-level permissions to specific Azure AD users or groups. This is the most stringent and secure configuration.
 
-If you are unable to sync your on-premises AD DS to Azure AD,  you can alternatively use a default share-level permission. Assigning a default share-level permission will allow you to workaround the sync requirement, and you can use Windows ACLs for granular permission enforcement on your files and directories.
+There are three scenarios where we recommend using default share-level permissions assigned to all authenticated identities, they are as follows:
+
+- If you are unable to sync your on-premises AD DS to Azure AD, you can alternatively use a default share-level permission. Assigning a default share-level permission allows you to workaround the sync requirement, and you can use Windows ACLs for granular permission enforcement on your files and directories.
+- The on-premises AD DS you're using is synched to a different Azure AD than the Azure AD the file share is deployed in.
+    - This is typical when you are managing multi-tenant environments.
+- You prefer to enforce authentication using Windows ACLS at the file and directory level only.
 
 The AD identities you plan to access Azure Files is not synced to Azure AD 
 
-By setting the default share level permission, it provides a workaround of the AD to Azure AD sync requirement for enabling Azure Files on-prem AD authentication. You can configure a default share level permission as Storage File Data SMB Share Elevated Contributor then leverage file/directory level Windows ACLs for granular permission enforcement. With default share level permission set on the share, you no longer need to manage role assignments with the synced Azure AD identities. This workaround also applies for machine accounts in AD that are not synced to Azure AD as identities.
+By setting the default share level permission, it provides a workaround of the AD to Azure AD sync requirement for enabling Azure Files on-prem AD authentication. You can configure a default share level permission as Storage File Data SMB Share Elevated Contributor then leverage file/directory level Windows ACLs for granular permission enforcement. With default share level permission set on the share, you no longer need to manage role assignments with the synced Azure AD identities. This workaround also applies for machine accounts in AD that are not synced to Azure AD as identities.  
 
-The AD enabled for authentication is not synced to the Azure AD the file share is deployed to 
+The AD enabled for authentication synced to a different Azure AD then the Azure AD the file share is deployed to 
 
 This is a typical scenario where you are managing multi-tenant environment. Similar to the scenario above, by configuring the default share level permission, you are no longer blocked by that there isn’t a mapping Azure AD identity for RBAC share level permission assignment. You can configure a default share level permission as Storage File Data SMB Share Elevated Contributor then leverage file/directory level Windows ACLs for granular permission enforcement. 
 
 Prefer to enforce permission enforcement on file/directory level with Windows ACLs 
 
-Many customers may prefer to release the share level permissions and only enforce authorization on the file/directory level for simplicity. Default share level permission is like the “Everyone” concept on Windows File Servers where you allow access to the share from everyone in the directory service.
+Many customers may prefer to release the share level permissions and only enforce authorization on the file/directory level for simplicity. Default share level permission is like the “Everyone” concept on Windows File Servers where you allow access to the share from everyone in the directory service.   
 
 ## Share-level permissions
 
