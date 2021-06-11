@@ -1,5 +1,5 @@
 ---
-title: Virtual network isolation and security overview
+title: Secure workspace resources using virtual networks (VNets)
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network with Azure Machine Learning to secure workspace resources and compute environments.
 services: machine-learning
@@ -8,13 +8,14 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/02/2021
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1
+ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack 
 
 ---
 
-# Virtual network isolation and privacy overview
+<!-- # Virtual network isolation and privacy overview -->
+# Secure Azure Machine Learning workspace resources using virtual networks (VNets)
 
 In this article, you learn how to use virtual networks (VNets) to secure network communication in Azure Machine Learning. This article uses an example scenario to show you how to configure a complete virtual network.
 
