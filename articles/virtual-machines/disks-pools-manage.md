@@ -11,10 +11,9 @@ ms.subservice: disks
 
 # Manage a disk pool
 
-Once you've deployed a disk pool, there are various management actions available to you. You can:
+Once you've deployed a disk pool, there are two management actions available to you. You can:
 - Add or remove a disk to or from a disk pool
-- Update iSCSI LUN mapping
-- Add ACLs (Only applicable if ACL mode is set to Static)
+- Disable iSCSI support on a disk
 
 
 ## Add/Remove a disk to/from a pool
@@ -25,12 +24,35 @@ Your disk must meet the following requirements in order to be added to the disk 
 - Must be a shared disk, with a maxShares value of two or greater.
 - Your disk pool resource provider must have the necessary RBAC permissions.
 
+# [PowerShell](#tab/azure-powershell)
 
-## Enable or disable iSCSI support on a disk
+PowerShell content
 
-iSCSI support can be disabled or enabled on each individual disk in a disk pool by updating the iSCSI configuration. Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connection to the iSCSI lun the disk is exposed as.
+# [Azure CLI](#tab/azure-cli)
 
+```azurecli
+#Initialize input parameters 
+resourceGroupName='yuemlu-avs-rg'
+diskName='disk-1tb-1'
+diskPoolName='yuemlu-eastus-diskpool'
+targetName='target1'
+lunName='lun-0'
 
-## Add ACLs
-The default ACL model for disk pools is Dynamic, which doesn't support adding ACLs. If you manually configure your disk pool with the Static ACL mode, you can add ACLs to specify the iSCSI initiator allowed to connect to the iSCSI target exposed on the disk pool.
+#Add the disk to disk pool
+diskId=$(az disk show --name $diskName --resource-group $resourceGroupName --query "id" -o json)
+diskId="${diskId%\"}"
+diskId="${diskId#\"}"
+az disk-pool update --name $diskPoolName --resource-group $resourceGroupName --disks $diskId
 
+#Expose disks added in the Disk Pool as iSCSI Lun
+az disk-pool iscsi-target update --name $targetName \
+ --disk-pool-name $diskPoolName \
+ --resource-group $resourceGroupName \
+ --luns name=$lunName managed-disk-azure-resource-id=$diskId
+```
+
+---
+
+## Disable iSCSI on a disk and remove it from the pool
+
+iSCSI support can be disabled or enabled on each individual disk in a disk pool by updating the iSCSI configuration. Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connection to the iSCSI lun the disk is exposed as. When the disk is removed from the disk pool, it isn't deleted to ensure there is no data loss. You must manually delete the disk if you don't want to incur further charges for having the disk.
