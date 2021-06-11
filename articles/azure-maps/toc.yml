@@ -67,6 +67,8 @@
     href: choose-pricing-tier.md
   - name: Creator for Indoor maps
     items:
+    - name: Creator service geographic scope
+      href: creator-geographic-scope.md
     - name: Indoor map concepts
       href: creator-indoor-maps.md
     - name: Drawing conversion errors and warnings
@@ -302,6 +304,8 @@
     items:
     - name: Drawing package requirements
       href: drawing-requirements.md
+    - name: Drawing package guide
+      href: drawing-package-guide.md
     - name: Dynamic maps StylesObject
       href: schema-stateset-stylesobject.md
     - name: Vehicle consumption model
@@ -312,10 +316,12 @@
       href: geofence-geojson.md
     - name: Supported search categories
       href: supported-search-categories.md
+    - name: Facility Ontology
+      href: creator-facility-ontology.md
   - name: REST
     items:
     - name: Data service
-      href: /rest/api/maps/data
+      href: /rest/api/maps/data-v2
     - name: Elevation service
       href: /rest/api/maps/elevation
     - name: Geolocation service
@@ -341,17 +347,17 @@
     - name: Maps Creator service
       items:
       - name: Alias service
-        href: /rest/api/maps/alias
+        href: /rest/api/maps/v2/alias
       - name: Conversion service
-        href: /rest/api/maps/conversion
+        href: /rest/api/maps/v2/conversion
       - name: Dataset service
-        href: /rest/api/maps/dataset
+        href: /rest/api/maps/v2/dataset
       - name: Feature State service
-        href: /rest/api/maps/featurestate
+        href: /rest/api/maps/v2/feature-state
       - name: Tileset service
-        href: /rest/api/maps/tileset
+        href: /rest/api/maps/v2/tileset
       - name: WFS service
-        href: /rest/api/maps/wfs
+        href: /rest/api/maps/v2/wfs
     - name: Maps account management
       href: /rest/api/maps-management
   - name: JavaScript

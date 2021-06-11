@@ -27,7 +27,7 @@ Depending on which Logic Apps you have enabled to support your start/stop scenar
 
 You can review the details for the operations performed on the VMs that are written to the table **requestsstoretable** in the Azure storage account used for Start/Stop VMs v2 (preview). Perform the following steps to view those records.
 
-1. Navigate to the storage account in the Azure portal and in the account select **Storage Explorer (preview) from the left-hand pane.
+1. Navigate to the storage account in the Azure portal and in the account select **Storage Explorer (preview)** from the left-hand pane.
 1. Select **TABLES** and then select **requeststoretable**.
 1. Each record in the table represents the start/stop action performed against an Azure VM based on the target scope defined in the logic app scenario. You can filter the results by any one of the record properties (for example, TIMESTAMP, ACTION, or TARGETTOPLEVELRESOURCENAME).
 

@@ -83,6 +83,9 @@ If you have questions or need help, [create a support request](https://portal.az
 
 The vCore reservation discount is applied automatically to the number of databases or managed instances that match the capacity reservation scope and attributes. You can update the scope of the capacity reservation through the [Azure portal](https://portal.azure.com), PowerShell, Azure CLI, or the API.
 
+- For information on Azure SQL Database service tiers for the vCore model, see [vCore model overview - Azure SQL Database](service-tiers-sql-database-vcore.md).
+- For information on Azure SQL Managed Instance service tiers for the vCore model, see [vCore model overview - Azure SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md).
+
 To learn how to manage the capacity reservation, see [manage reserved capacity](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 To learn more about Azure Reservations, see the following articles:

@@ -28,13 +28,13 @@ This article shows you how to configure Azure Cognitive Search to index content 
 
 ## Get started
 
-You can use the [preview REST API](https://docs.microsoft.com/rest/api/searchservice/index-preview) to index Azure Cosmos DB data that's available through the Gremlin API by following a three-part workflow common to all indexers in Azure Cognitive Search: create a data source, create an index, create an indexer. In the process below, data extraction from Cosmos DB starts when you submit the Create Indexer request.
+You can use the [preview REST API](/rest/api/searchservice/index-preview) to index Azure Cosmos DB data that's available through the Gremlin API by following a three-part workflow common to all indexers in Azure Cognitive Search: create a data source, create an index, create an indexer. In the process below, data extraction from Cosmos DB starts when you submit the Create Indexer request.
 
 By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make every vertex in your graph a document in the index. Edges will be ignored. Alternatively, you could set the query to only index the edges.
 
 ### Step 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header). You can use [Postman](search-get-started-postman.md) or any REST API client to send HTTPS requests to Azure Cognitive Search.
+For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header). You can use [Postman](./search-get-started-rest.md) or any REST API client to send HTTPS requests to Azure Cognitive Search.
 
 Copy and save the following values for use in your request:
 
@@ -174,7 +174,7 @@ Once the index and data source have been created, you're ready to create the ind
 
 This indexer will start running after it's created and only run once. You can add the optional schedule parameter to the request to set your indexer to run on a schedule. For more information about defining indexer schedules, see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
-For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+For more details on the Create Indexer API, check out [Create Indexer](/rest/api/searchservice/create-indexer).
 
 <a name="DataDeletionDetectionPolicy"></a>
 

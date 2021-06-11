@@ -84,7 +84,11 @@ Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps
 >[!NOTE]
 > Credentials provided during template deployment are stored only for the length of the deployment. After deployment finishes, those passwords are removed. You'll be asked to provide them again if you add more SQL Server VMs to the cluster. 
 
+## Configure quorum
 
+Although the disk witness is the most resilient quorum option, it requires an Azure shared disk which imposes some limitations to the availability group. As such, the cloud witness is the recommended quorum solution for clusters hosting availability groups for SQL Server on Azure VMs. 
+
+If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## Validate cluster 
 
@@ -223,7 +227,7 @@ After you make these changes, try to deploy the Azure quickstart template once m
 
 ## Next steps
 
-For more information, see the following articles: 
+To learn more, see:
 
 * [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server VMs](frequently-asked-questions-faq.yml)

@@ -4,7 +4,7 @@ titleSuffix: Azure Applied AI Services
 description: Learn the different ways you can deploy the Form Recognizer sample labeling tool to help with supervised learning.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021

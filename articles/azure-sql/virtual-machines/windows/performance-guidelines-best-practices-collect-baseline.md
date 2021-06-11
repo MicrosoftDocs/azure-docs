@@ -86,6 +86,8 @@ To learn more, see the other articles in this series:
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [VM size](performance-guidelines-best-practices-vm-size.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
+- [Security](security-considerations-best-practices.md)
+- [HADR settings](hadr-cluster-best-practices.md)
 
 
 For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).

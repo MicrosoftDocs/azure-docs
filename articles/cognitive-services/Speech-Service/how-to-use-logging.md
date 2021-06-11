@@ -109,7 +109,9 @@ More about data and file storage for Android applications is available [here](ht
 
 #### iOS
 
-Only directories inside the application sandbox are accessible. Files can be created in the documents, library, and temp directories. Files in the documents directory can be made available to a user. The following code snippet shows creation of a log file in the application document directory:
+Only directories inside the application sandbox are accessible. Files can be created in the documents, library, and temp directories. Files in the documents directory can be made available to a user. 
+
+If you are using Objective-C on iOS, use the following code snippet to create a log file in the application document directory:
 
 ```objc
 NSString *filePath = [
@@ -125,6 +127,14 @@ To access a created file, add the below properties to the `Info.plist` property 
 <true/>
 <key>LSSupportsOpeningDocumentsInPlace</key>
 <true/>
+```
+
+If you are using Swift on iOS, please use the following code snippet to enable logs:
+```swift
+let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+let logFilePath = documentsDirectoryPath.appendingPathComponent("swift.log")
+self.speechConfig!.setPropertyTo(logFilePath!.absoluteString, by: SPXPropertyId.speechLogFilename)
 ```
 
 More about iOS File System is available [here](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
