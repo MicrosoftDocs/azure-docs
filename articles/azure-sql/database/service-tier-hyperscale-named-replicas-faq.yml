@@ -76,7 +76,8 @@ sections:
       - question: |
           What is the SLA of Named Replicas?
         answer: |
-          By default Named Replicas do not have any HA replica. However, as they behave like a regular (read-only) Azure SQL database, they can benefit from the [higher SLA](https://azure.microsoft.com/support/legal/sla/sql-database/) provided by HA replicas. To set the number of HA replicas you can use the parameter `--ha-replicas` with [AZ CLI](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_create) or the parameter `--HighAvailabilityReplicaCount` with [PowerShell](/powershell/module/az.sql/set-azsqldatabase).
+          By default Named Replicas do not have any HA replica. However, as they behave like a regular (read-only) Azure SQL database, they can benefit from the [higher SLA](https://azure.microsoft.com/support/legal/sla/sql-database/) provided by HA replicas. To set the number of HA replicas you can use the parameter `--ha-replicas` with [AZ CLI](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_create) or the parameter `--HighAvailabilityReplicaCount` with [PowerShell](/powershell/module/az.sql/set-azsqldatabase) or via the `highAvailabilityReplicaCount` property with the [REST API](/rest/api/sql/2021-02-01-preview/databases/create-or-update).
+          The number of HA replicas can be set during the creation of a named replica and can be changed – only via AZ CLI, PowerShell or REST API– anytime after the named replica has been created. Pricing of HA replicas for named replicas is the same of HA replicas for regular databases.
     
 
 additionalContent: |
