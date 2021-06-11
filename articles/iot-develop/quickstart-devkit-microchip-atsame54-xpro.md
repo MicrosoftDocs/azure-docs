@@ -30,12 +30,12 @@ You will complete the following tasks:
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
-    > * The [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
-    > * USB 2.0 A male to Micro USB male cable
-    > * Wired Ethernet access
-    > * Ethernet cable
-    > * Optional: [Weather Click](https://www.mikroe.com/weather-click) sensor. You can add this sensor to the device to monitor weather conditions. If you don't have this sensor, you can still complete this quickstart.
-    > * Optional: [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) adapter. Use this adapter to attach the Weather Click sensor to the Microchip E54. If you don't have the sensor and this adapter, you can still complete this quickstart.
+    * The [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
+    * USB 2.0 A male to Micro USB male cable
+    * Wired Ethernet access
+    * Ethernet cable
+    * Optional: [Weather Click](https://www.mikroe.com/weather-click) sensor. You can add this sensor to the device to monitor weather conditions. If you don't have this sensor, you can still complete this quickstart.
+    * Optional: [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) adapter. Use this adapter to attach the Weather Click sensor to the Microchip E54. If you don't have the sensor and this adapter, you can still complete this quickstart.
 
 ## Prepare the development environment
 
@@ -65,7 +65,7 @@ To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    > *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain.bat*
 
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
@@ -87,7 +87,7 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 
 1. Open the following file in a text editor:
 
-    > *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
+    *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
@@ -116,29 +116,29 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
 1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54.
 1. Reopen the configuration file you edited previously:
 
-    > *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
+    *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
 
 1. Set the value of the constant `__SENSOR_BME280__` to *1* as shown in the following code from the header file. Setting this value enables the device to use real sensor data from the Weather Click sensor.
 
-    > `#define __SENSOR_BME280__ 1`
+    `#define __SENSOR_BME280__ 1`
 
 1. Save and close the file.
 
 ### Build the image
 
-In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+1. In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
 
-> *getting-started\Microchip\ATSAME54-XPRO\tools\rebuild.bat*
+    *getting-started\Microchip\ATSAME54-XPRO\tools\rebuild.bat*
 
-After the build completes, confirm that the binary file was created in the following path:
+2. After the build completes, confirm that the binary file was created in the following path:
 
-> *getting-started\Microchip\ATSAME54-XPRO\build\app\atsame54_azure_iot.bin*
+    *getting-started\Microchip\ATSAME54-XPRO\build\app\atsame54_azure_iot.bin*
 
 ### Flash the image
 
 1. Open the **Windows Start > Microchip Studio Command Prompt** console and go to the folder of the Microchip E54 binary file that you built.
 
-    > *getting-started\Microchip\ATSAME54-XPRO\build\app*
+    *getting-started\Microchip\ATSAME54-XPRO\build\app*
 
 1. Use the *atprogram* utility to flash the Microchip E54 with the binary image:
 
@@ -169,7 +169,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     * **Port**: The port that your Microchip E54 is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
     * **Flow control**: DTR/DSR
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Confirm settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
@@ -217,7 +217,7 @@ To view the device status in IoT Central portal:
 1. Confirm that the **Device status** is updated to **Provisioned**.
 1. Confirm that the **Device template** is updated to **Getting Started Guide**.
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
 ## View telemetry
 
@@ -229,7 +229,7 @@ To view telemetry in IoT Central portal:
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -243,7 +243,7 @@ To call a method in IoT Central portal:
 1. Select the **Command** tab from the device page.
 1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
 1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
@@ -253,7 +253,7 @@ You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
 
-:::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
+:::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
 ## Troubleshoot and debug
 

@@ -278,7 +278,7 @@ You can view metrics and set alerts based on your SLA by following instructions 
 
 ### [Optional] Integrate with Log Analytics
 
-The `get-logs` command will only provide the last few-hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to store and analyze logs durably. First, follow the steps in [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace#create-a-workspace) to create a Log Analytics workspace.
+The `get-logs` command will only provide the last few-hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to store and analyze logs durably. First, follow the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md#create-a-workspace) to create a Log Analytics workspace.
 
 Then, in the Azure portal:
 

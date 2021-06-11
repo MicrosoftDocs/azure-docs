@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 > For an optimal migration experience, Microsoft recommends creating an instance of Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
 > [!IMPORTANT]
-> Migration from Azure Database for PostgreSQL is supported for PostgreSQL version 9.x and later. You can also use this tutorial to migrate from one Azure Database for PostgreSQL instance to another Azure Database for PostgreSQL instance or Hyperscale (Citus) instance. Note that migrating from PostgreSQL 9.5 and 9.6 require [extra logical replication privileges](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#run-the-migration) in the source instance. 
+> Migration from Azure Database for PostgreSQL is supported for PostgreSQL version 9.x and later. You can also use this tutorial to migrate from one Azure Database for PostgreSQL instance to another Azure Database for PostgreSQL instance or Hyperscale (Citus) instance. Note that migrating from PostgreSQL 9.5 and 9.6 require [extra logical replication privileges](#run-the-migration) in the source instance. 
 
 ## Prerequisites
 

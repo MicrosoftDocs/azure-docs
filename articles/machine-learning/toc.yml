@@ -23,11 +23,11 @@
     - name: "Python get started (Day 1)"
       expanded: true
       items:
-        - name: '1. "Hello world"'
+        - name: '1. Run a Python script'
           href: tutorial-1st-experiment-hello-world.md
         - name: 2. Train your model
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 3. Bring your own data
+        - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       items:
@@ -635,6 +635,9 @@
     - name: Manage resource quotas
       displayName: limits
       href: how-to-manage-quotas.md
+    - name: Manage and optimize cost
+      displayName: cost-management,cost-optimization
+      href: how-to-manage-optimize-cost.md      
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: how-to-manage-resources-vscode.md
@@ -676,7 +679,7 @@
       href: reference-online-endpoint-yaml.md
     - name: Machine learning pipeline YAML reference
       href: reference-pipeline-yaml.md
-    - name: Sovereign cloud parity
+    - name: Feature availability across regions
       href: reference-machine-learning-cloud-parity.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
