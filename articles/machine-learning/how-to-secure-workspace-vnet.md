@@ -50,7 +50,7 @@ In this article you learn how to enable the following workspaces resources in a 
 
 Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. A private endpoint also helps reduce the risk of data exfiltration.
 
-For more information on setting up a private endpoint-enabled workspace, see [How to configure private eink](how-to-configure-private-link.md).
+For more information on setting up a private endpoint-enabled workspace, see [How to configure private endpoint](how-to-configure-private-link.md).
 
 > [!WARNING]
 > Securing a workspace with private endpoints does not ensure end-to-end security by itself. You must follow the steps in the rest of this article, and the VNet series, to secure individual components of your solution. For example, if you use a private endpoint for the workspace, but your Azure Storage Account is not behind the VNet, traffic between the workspace and storage does not use the VNet for security.
