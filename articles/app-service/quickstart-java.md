@@ -62,6 +62,29 @@ Then change your working directory to the project folder:
 cd helloworld
 ```
 
+# [JBoss EAP](#tab/jbosseap)
+
+::: zone pivot="platform-windows"
+
+JBoss EAP is only available on the Linux version of App Service. Please select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+::: zone-end
+::: zone pivot="platform-linux"
+
+Clone the Pet Store demo application.
+
+```bash
+git clone https://github.com/agoncal/agoncal-application-petstore-ee7.git
+```
+
+Change directory to the cloned project.
+
+```bash
+cd agoncal-application-petstore-ee7
+```
+
+::: zone-end
+
 ---
 
 ## Configure the Maven plugin
@@ -71,19 +94,19 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.16.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # [Java SE](#tab/javase)
 
-1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
-1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
-1. When prompted with **OS** option, select **Windows** by entering `3`.
-1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
-1. Use the default Java version, **Java 8**, by pressing enter.
-1. Finally, press enter on the last prompt to confirm your selections.
+1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
+2. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
+3. When prompted with **OS** option, select **Windows** by entering `2`.
+4. When prompted with **javaVersion** option, select **Java 8** by entering `1`.
+5. When prompted with **Pricing Tier** option, select **P1v2** by entering `7`.
+6. Finally, press enter on the last prompt to confirm your selections.
 
     Your summary output will look similar to the snippet shown below.
 
@@ -110,13 +133,13 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
 
 # [Tomcat](#tab/tomcat)
 
-1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
-1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
-1. When prompted with **OS** option, select **Windows** by entering `3`.
-1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
-1. Use the default Java version, **Java 8**, by pressing enter.
-1. Use the default web container, **Tomcat 8.5**, by pressing enter.
-1. Finally, press enter on the last prompt to confirm your selections.
+1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
+2. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
+3. When prompted with **OS** option, select **Windows** by entering `2`.
+4. When prompted with **javaVersion** option, select **Java 8** by entering `1`.
+5. When prompted with **webContainer** option, select **Tomcat 8.5** by entering `3`.
+6. When prompted with **Pricing Tier** option, select **P1v2** by entering `7`.
+7. Finally, press enter on the last prompt to confirm your selections.
 
     Your summary output will look similar to the snippet shown below.
 
@@ -141,19 +164,23 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
+# [JBoss EAP](#tab/jbosseap)
+
+JBoss EAP is only available on the Linux version of App Service. Please select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
 ---
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-### [Java SE](#tab/javase)
+# [Java SE](#tab/javase)
 
-1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
-1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
+1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
+1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
-1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
-1. Use the default Java version, **Java 8**, by pressing enter.
-1. Finally, press enter on the last prompt to confirm your selections.
+2. When prompted with **javaVersion** option, select **Java 8** by entering `1`.
+3. When prompted with **Pricing Tier** option, select **P1v2** by entering `6`.
+4. Finally, press enter on the last prompt to confirm your selections.
 
     ```
     Please confirm webapp properties
@@ -175,14 +202,14 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
-### [Tomcat](#tab/tomcat)
+# [Tomcat](#tab/tomcat)
 
-1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
-1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
+1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
+1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
-1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
-1. Use the default Java version, **Java 8**, by pressing enter.
-1. Use the default web container, **Tomcat 8.5**, by pressing enter.
+1. When prompted with **javaVersion** option, select **Java 8** by entering `1`.
+1. When prompted with **runtimeStack** option, select **Tomcat 8.5** by entering `3`.
+1. When prompted with **Pricing Tier** option, select **P1v2** by entering `6`.
 1. Finally, press enter on the last prompt to confirm your selections.
 
     ```
@@ -205,6 +232,37 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
+# [JBoss EAP](#tab/jbosseap)
+
+1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
+1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter.
+1. When prompted with **OS** option, select **Linux** by pressing enter.
+1. When prompted with **javaVersion** option, select **Java 8** by entering `1`.
+1. When prompted with **runtimeStack** option, select **Jbosseap 7** by entering `1`
+1. When prompted with **pricingTier** option, select **P1v3** by entering `3`
+1. Finally, press enter on the last prompt to confirm your selections.
+
+    ```
+    Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
+    AppName : petstoreee7-1623451825408
+    ResourceGroup : petstoreee7-1623451825408-rg
+    Region : westeurope
+    PricingTier : P1v3
+    OS : Linux
+    Java : Java 8
+    Web server stack: Jbosseap 7.2
+    Deploy to slot : false
+    Confirm (Y/N) [Y]: y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 01:01 min
+    [INFO] Finished at: 2021-06-11T15:52:25-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
+
 ---
 
 ::: zone-end
@@ -222,7 +280,7 @@ Property | Required | Description | Version
 `<runtime>` | true | The runtime environment configuration, you could see the detail [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | true | The deployment configuration, you could see the details [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
-Be careful about the values of `<appName>` and `<resourceGroup>`(`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they will be used later.
+Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they will be used later.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
@@ -241,7 +299,10 @@ Then you can deploy your Java app to Azure using the following command.
 mvn package azure-webapp:deploy
 ```
 
-Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
+> [!NOTE]
+> For JBoss EAP, run `mvn package azure-webapp:deploy -DskipTests` to disable testing, as it requires Wildfly to be installed locally. 
+
+Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
 ![Sample app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
