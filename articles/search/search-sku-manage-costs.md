@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 06/11/2021
 ---
 
 # How to estimate and manage costs of an Azure Cognitive Search service
@@ -107,7 +107,7 @@ In terms of the service itself, the only way to lower your bill is to reduce rep
 
 ## Next steps
 
-Learn how to monitor and manage costs across your Azure subscription.
+Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Azure Cost Management and Billing documentation](../cost-management-billing/cost-management-billing-overview.md)
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
