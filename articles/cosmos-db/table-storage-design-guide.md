@@ -209,7 +209,7 @@ Here are some general guidelines for designing Table storage queries. The filter
   `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * A *table scan* doesn't include the `PartitionKey`, and is inefficient because it searches all of the partitions that make up your table for any matching entities. It performs a table scan regardless of whether or not your filter uses the `RowKey`. For example:
   `$filter=LastName eq 'Jones'`.  
-* Azure Table storage queries that return multiple entities sort them in `PartitionKey` and `RowKey` order. To avoid resorting the entities in the client, choose a `RowKey` that defines the most common sort order. Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](/table-api-faq.yml#table-api-in-azure-cosmos-db-vs-azure-table-storage).
+* Azure Table storage queries that return multiple entities sort them in `PartitionKey` and `RowKey` order. To avoid resorting the entities in the client, choose a `RowKey` that defines the most common sort order. Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](/cosmos-db/table-api-faq#table-api-in-azure-cosmos-db-vs-azure-table-storage).
 
 Using an "**or**" to specify a filter based on `RowKey` values results in a partition scan, and isn't treated as a range query. Therefore, avoid queries that use filters such as:
 `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  

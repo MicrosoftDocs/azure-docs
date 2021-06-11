@@ -73,7 +73,7 @@ df.write \
     .mode("Append") \
     .save()
 ```
-In addition, you can also batch write data by providing additional ingestion properties. For more info on the supported ingestion properties, you can visit the [Kusto ingestion properties reference material](https://docs.microsoft.com/azure/data-explorer/ingestion-properties).
+In addition, you can also batch write data by providing additional ingestion properties. For more info on the supported ingestion properties, you can visit the [Kusto ingestion properties reference material](/azure/data-explorer/ingestion-properties).
 
 
  ```python

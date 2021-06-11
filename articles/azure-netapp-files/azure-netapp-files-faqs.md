@@ -125,6 +125,18 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 
 See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
 
+### Does Azure NetApp Files support SMB Direct?
+
+No, Azure NetApp Files does not support SMB Direct. 
+
+### Is NIC Teaming supported in Azure?
+
+NIC Teaming is not supported in Azure. Although multiple network interfaces are supported on Azure virtual machines, they represent a logical rather than a physical construct. As such, they provide no fault tolerance.  Also, the bandwidth available to an Azure virtual machine is calculated for the machine itself and not any individual network interface.
+
+### Are jumbo frames supported?
+
+Jumbo frames are not supported with Azure virtual machines.
+
 ## NFS FAQs
 
 ### I want to have a volume mounted automatically when an Azure VM is started or rebooted.  How do I configure my host for persistent NFS volumes?
@@ -209,43 +221,6 @@ Use the **JSON View** link on the volume overview pane, and look for the **start
 
 No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
 To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
-
-### SMB encryption FAQs
-
-This section answers commonly asked questions about SMB encryption (SMB 3.0 and SMB 3.1.1).
-
-#### What is SMB encryption?  
-
-[SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks. SMB encryption is supported on SMB 3.0 and greater. 
-
-#### How does SMB encryption work?
-
-When sending a request to the storage, the client encrypts the request, which the storage then decrypts. Responses are similarly encrypted by the server and decrypted by the client.
-
-#### Which clients support SMB encryption?
-
-Windows 10, Windows 2012, and later versions support SMB encryption.
-
-#### With Azure NetApp Files, at what layer is SMB encryption enabled?  
-
-SMB encryption is enabled at the share level.
-
-#### What forms of SMB encryption are used by Azure NetApp Files?
-
-SMB 3.0 employs AES-CCM algorithm, while SMB 3.1.1 employs the AES-GCM algorithm
-
-#### Is SMB encryption required?
-
-SMB encryption is not required. As such, it is only enabled for a given share if the user requests that Azure NetApp Files enable it. Azure NetApp Files shares are never exposed to the internet. They are only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure. The choice to enable SMB encryption is entirely up to the user. Be aware of the anticipated performance penalty before enabling this feature.
-
-#### <a name="smb_encryption_impact"></a>What is the anticipated impact of SMB encryption on client workloads?
-
-Although SMB encryption has impact to both the client (CPU overhead for encrypting and decrypting messages) and the storage (reductions in throughput), the following table highlights storage impact only. You should test the encryption performance impact against your own applications before deploying workloads into production.
-
-|     I/O profile    	|     Impact    	|
-|-	|-	|
-|     Read and write workloads    	|     10% to 15%     	|
-|     Metadata intensive    	|     5%  	|
 
 ## Capacity management FAQs
 

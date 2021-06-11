@@ -14,7 +14,7 @@ ms.subservice: partner
 
 This article helps you integrate the Komprise Intelligent Data Manager infrastructure with Azure storage services. It includes considerations and implementation guidance on how to analyze, and migrate your data.
 
-Komprise provides analytics and insights into network attached storage systems. It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
+Komprise provides analytics and insights into network attached storage systems. It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](../primary-secondary-storage/partner-overview.md).
 
 Komprise will help in many different use cases, like:
 
@@ -46,8 +46,8 @@ Microsoft offers a framework to follow to get you started with Azure. The [Cloud
 
 Several aspects are important when considering migrations of file data to Azure. Before proceeding learn more:
 
-- [Storage migration overview](/azure/storage/common/storage-migration-overview)
-- latest supported features by Komprise Intelligent Data Management in [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison).
+- [Storage migration overview](../../../common/storage-migration-overview.md)
+- latest supported features by Komprise Intelligent Data Management in [migration tools comparison matrix](./migration-tools-comparison.md).
 
 Remember, you'll require enough network capacity to support migrations without impacting production applications. This section outlines the tools and techniques that are available to assess your network needs.
 
@@ -97,8 +97,8 @@ The first step is critical in finding and prioritizing the right data to migrate
 
 Before deploying Komprise, the target service has to be deployed. You can learn more here:
 
-- How to create [Azure File Share](/azure/storage/files/storage-how-to-create-file-share)
-- How to create an [SMB volume](/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) or [NFS export](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in Azure NetApp Files
+- How to create [Azure File Share](../../../files/storage-how-to-create-file-share.md)
+- How to create an [SMB volume](../../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) or [NFS export](../../../../azure-netapp-files/azure-netapp-files-create-volumes.md) in Azure NetApp Files
 
 The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. Alternatively, you may setup the environment in your Azure subscription using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management).
 
@@ -115,7 +115,7 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
    2. Provide a unique name for your storage account
    3. Choose the region
    4. Select  **Standard**  or **Premium** performance, depending on your needs. If you select **Premium**, select **File shares** under **Premium account type**.
-   5. Choose the **[Redundancy](/azure/storage/common/storage-redundancy)** that meets your data protection requirements
+   5. Choose the **[Redundancy](../../../common/storage-redundancy.md)** that meets your data protection requirements
    
    :::image type="content" source="./media/komprise-quick-start-guide/azure-account-create-1.png" alt-text="Shows storage account settings in the portal.":::
 
@@ -139,17 +139,17 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
 8. (_Optional_) You can add extra layers of security to your deployment.
  
-   1. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations).
+   1. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](../../../common/authorization-resource-provider.md#built-in-roles-for-management-operations).
  
-   2.  Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Configure firewall settings to prevent access from outside of your corporate network.
+   2.  Restrict access to the account to specific network segments with [storage firewall settings](../../../common/storage-network-security.md). Configure firewall settings to prevent access from outside of your corporate network.
 
        :::image type="content" source="./media/komprise-quick-start-guide/azure-storage-firewall.png" alt-text="Shows storage firewall settings in the portal.":::
 
-   3.  Set a [delete lock](/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
+   3.  Set a [delete lock](../../../../azure-resource-manager/management/lock-resources.md) on the account to prevent accidental deletion of the storage account.
 
        :::image type="content" source="./media/komprise-quick-start-guide/azure-resource-lock.png" alt-text="Shows setting a delete lock in the portal.":::
 
-   4.  Configure extra [security best practices](/azure/storage/blobs/security-recommendations).
+   4.  Configure extra [security best practices](../../../blobs/security-recommendations.md).
 
 1.	**Download** the Komprise Observer virtual appliance from the Director, deploy it to your hypervisor and configure it with the network and domain. Director is provided as a cloud service managed by Komprise. Information needed to access Director is sent with the welcome email once you purchase the solution.
 
@@ -220,6 +220,6 @@ Get Komprise listing on [Azure Marketplace](https://azuremarketplace.microsoft.c
 
 Various resources are available to learn more:
 
-- [Storage migration overview](/azure/storage/common/storage-migration-overview)
-- Features supported by Komprise Intelligent Data Management in [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
+- [Storage migration overview](../../../common/storage-migration-overview.md)
+- Features supported by Komprise Intelligent Data Management in [migration tools comparison matrix](./migration-tools-comparison.md)
 - [Komprise compatibility matrix](https://www.komprise.com/partners/microsoft-azure/)

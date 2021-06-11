@@ -88,7 +88,7 @@ Key Vault can manage [Azure storage account](../../storage/common/storage-accoun
 
 For more information, see:
 - [Storage account access keys](../../storage/common/storage-account-keys-manage.md)
-- [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md))
+- [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md)
 
 
 ## Storage account access control
