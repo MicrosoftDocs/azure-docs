@@ -33,6 +33,7 @@ We will implement the following custom roles:
 The developer role includes permissions to restart apps and see their log streams, but cannot make changes to apps, configuration.
 
 #### [Portal](#tab/Azure-portal)
+
 ### Navigate subscription and resource group Access control (IAM)
 
 Follow these steps to start defining a role.
@@ -98,10 +99,45 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 11. Click **Review and create**.
 
 #### [JSON](#tab/JSON)
-If you need the JSON text of permissions, before you **Click Review and create**, you can click the **JSON** tab and get the JSON file.
 
-   ![JSON source for permissions](media/spring-cloud-permissions/json-source.png)
+The Developer role is defined by the following JSON file.
 
+```json
+{
+  "properties": {
+    "roleName": "Developer",
+    "description": "",
+    "assignableScopes": [
+      "/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.AppPlatform/Spring/write",
+          "Microsoft.AppPlatform/Spring/read",
+          "Microsoft.AppPlatform/Spring/listTestKeys/action",
+          "Microsoft.AppPlatform/Spring/apps/read",
+          "Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action",
+          "Microsoft.AppPlatform/Spring/apps/bindings/read",
+          "Microsoft.AppPlatform/Spring/apps/domains/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/write",
+          "Microsoft.AppPlatform/Spring/apps/deployments/read",
+          "Microsoft.AppPlatform/Spring/apps/deployments/start/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/stop/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/restart/action",
+          "Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action",
+          "Microsoft.AppPlatform/Spring/certificates/read",
+          "Microsoft.AppPlatform/locations/operationResults/Spring/read",
+          "Microsoft.AppPlatform/locations/operationStatus/operationId/read"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
 ---
 
 ## Define DevOps engineer role
