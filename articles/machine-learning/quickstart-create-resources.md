@@ -1,5 +1,6 @@
 ---
-title: "Quickstart: Create an Azure Machine Learning workspace"
+title: "Quickstart: Create workspace resources"
+titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and cloud resources that can be used to train machine learning models.
 services: machine-learning
 ms.service: machine-learning
@@ -9,10 +10,11 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 06/10/2021
 adobe-target: true
+ms.custom: contperf-fy21q4
 # Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
-# Quickstart: Create resources you'll need to get started with Azure Machine Learning
+# Quickstart: Create workspace resources you'll need to get started with Azure Machine Learning
 
 In this quickstart, you'll create a workspace and then add compute resources to the workspace. You'll then have everything you need to get started with Azure Machine Learning.  
 
