@@ -8,7 +8,7 @@ ms.date: 08/11/2020
 ---
 # HDInsight management IP addresses
 
-This article lists the IP addresses used by Azure HDInsight health and management services. If you use network security groups (NSGs) or user-defined routes (UDRs) you may need to add some of these IP addresses to the allow list for inbound network traffic.
+This article lists the IP addresses used by Azure HDInsight health and management services. If you use network security groups (NSGs) or user-defined routes (UDRs) you may need to add some of these IP addresses to the allowlist for inbound network traffic.
 
 ## Introduction
  
