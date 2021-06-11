@@ -21,7 +21,7 @@ ms.custom: "seodec18, devx-track-csharp"
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-When securing media with the [content protection](./drm-content-protection-concept.md) and DRM features of Media Services, you could encounter scenarios where you need to limit the delivery of licensee or key requests to to a specific IP range of client devices on your network. To restrict content playback and delivery of keys, you can use the IP allowlist for Key Delivery.
+When securing media with the [content protection](./drm-content-protection-concept.md) and DRM features of Media Services, you could encounter scenarios where you need to limit the delivery of licenses or key requests to to a specific IP range of client devices on your network. To restrict content playback and delivery of keys, you can use the IP allowlist for Key Delivery.
 
 In addition, you can also use the allowlist to completely block all public internet access to Key Delivery traffic and only allow traffic from your private network endpoints.
 
@@ -31,9 +31,9 @@ The IP allowlist for Key Delivery restricts the delivery of both DRM licenses an
 
 The settings for the Key Delivery IP allowlist are on the Media Services account resource. When creating a new Media Services account, you can restrict the allowed IP ranges through the **KeyDelivery** property on the [Media Services account resource.](/rest/api/media/mediaservices/create-or-update)
 
-The **defaultAction** property can be set to either "Allow" or "Deny" access to clients in the allowlist range.
+The **defaultAction** property can be set to "Allow" or "Deny" to control delivery of licenses and keys to clients in the allowlist range.
 
-The **ipAllowList** property can be an array of single IPs and/or IP ranges with [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation).
+The **ipAllowList** property is an array of single IPv4 address and/or IPv4 ranges using [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation).
 
 ## Setting the allowlist in the portal
 
