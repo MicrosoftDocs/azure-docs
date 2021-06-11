@@ -63,7 +63,7 @@ Related links:
 * [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md)
 * [HTTP/HTTPS proxy configuration](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [Geo-replicationin Azure Container Registry](container-registry-geo-replication.md)
-* [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
+* [Monitor Azure Container Registry](monitor-service.md)
 
 ### Configure public access to registry
 
@@ -121,12 +121,17 @@ Related links:
 
 ## Advanced troubleshooting
 
-If [collection of resource logs](container-registry-diagnostics-audit-logs.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
+If [collection of resource logs](monitor-service.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](monitor-service.md#registry-authentication-failures). 
 
 Related links:
 
+<<<<<<< HEAD
 * [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
 * [Container registry FAQ](container-registry-faq.yml)
+=======
+* [Monitor Azure Container Registry](monitor-service.md)
+* [Container registry FAQ](container-registry-faq.md)
+>>>>>>> 702672a8b4394357796b5f2857f3da44bef7597d
 * [Azure Security Baseline for Azure Container Registry](security-baseline.md)
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 

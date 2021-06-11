@@ -2,7 +2,7 @@
 title: Downtime, SLA, and outage workbook - Application Insights
 description: Calculate and report SLA for Web Test through a single pane of glass across your Application Insights resources and Azure subscriptions.
 ms.topic: conceptual
-ms.date: 02/8/2021
+ms.date: 05/4/2021
 
 ---
 
@@ -19,15 +19,15 @@ The SLA workbook template is accessible through the workbook gallery in your App
 
 The parameters set in the workbook influence the rest of your report.
 
-:::image type="content" source="./media/sla-report/outages.png" alt-text=" Screenshot of outage/maintenance parameters tab in the downtime and outages workbook." lightbox ="./media/sla-report/outages.png":::
+:::image type="content" source="./media/sla-report/parameters.png" alt-text=" Screenshot of parameters." lightbox= "./media/sla-report/parameters.png":::
 
-`Subscriptions`, `App Insights Resources`, and `Web Test` parameters determine your high-level resource options. These parameters are based on log analytics queries and used in every report query.
+`Subscriptions`, `App Insights Resources`, and `Web Test` parameters determine your high-level resource options. These parameters are based on Log Analytics queries and used in every report query.
 
-`Failure Threshold` and `Outage Window` allow you to determine your own criteria for a service outage, for example, the criteria for App Insights Availability alert based upon failed location counter over a chosen period. The typical threshold is three locations over a five-minute window.
+`Failure Threshold` and `Outage Window` allow you to determine your own criteria for a service outage, for example, the criteria for App Insights Availability alert based upon failed location counter over a chosen period. The typical threshold is three locations over a five-minute window.
 
-`Maintenance Period` enables you to select your typical maintenance frequency and `Maintenance Window` is a datetime selector for an example maintenance period. All data that occurs during the identified period will be ignored in your results.
+`Maintenance Period` enables you to select your typical maintenance frequency and `Maintenance Window` is a datetime selector for an example maintenance period. All data that occurs during the identified period will be ignored in your results.
 
-`Availability Target 9s` specifies your Target 9s objective from two 9s to five 9s.
+`Availability Target %` specifies your target objective & takes custom values.
 
 ## Overview page
 

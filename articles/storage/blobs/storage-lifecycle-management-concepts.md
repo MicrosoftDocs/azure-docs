@@ -1,9 +1,9 @@
 ---
 title: Optimize costs by automating Azure Blob Storage access tiers
 description: Create automated rules for moving data between hot, cool, and archive tiers.
-author: twooley
+author: tamram
 
-ms.author: twooley
+ms.author: tamram
 ms.date: 04/23/2021
 ms.service: storage
 ms.subservice: common
@@ -71,7 +71,7 @@ There are two ways to add a policy through the Azure portal.
 
 1. In the Azure portal, search for and select your storage account.
 
-1. Under **Blob service**, select **Lifecycle Management** to view or change your rules.
+1. Under **Data management**, select **Lifecycle Management** to view or change your rules.
 
 1. Select the **List View** tab.
 
@@ -323,7 +323,7 @@ Filters include:
 | blobIndexMatch | An array of dictionary values consisting of Blob Index tag key and value conditions to be matched. Each rule can define up to 10 Blob Index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 > [!NOTE]
-> Blob Index is in public preview, and is available in the **Canada Central**, **Canada East**, **France Central**, and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
+> Blob Index is in public preview.  To learn more about this feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
 ### Rule actions
 

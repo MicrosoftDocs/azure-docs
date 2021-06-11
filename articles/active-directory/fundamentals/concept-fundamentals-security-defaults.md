@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 05/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,7 +33,7 @@ More details on why security defaults are being made available can be found in A
 
 ## Availability
 
-Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal. If your tenant was created on or after October 22, 2019, it is possible security defaults are already enabled in your tenant. To protect all of our users, security defaults is being rolled out to all new tenants created.
+Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal. If your tenant was created on or after October 22, 2019, it is possible security defaults are already enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants created.
 
 ### Who's it for?
 
@@ -133,6 +133,9 @@ These free security defaults allow registration and use of Azure AD Multi-Factor
 
 - ** Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option.
 - *** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
+
+> [!WARNING]
+> Do not disable methods for your organization if you are using Security Defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-verification-options).
 
 ### Disabled MFA status
 

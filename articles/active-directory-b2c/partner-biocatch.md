@@ -70,17 +70,17 @@ Contact [BioCatch](https://www.biocatch.com/contact-us) and create an account.
 
 It's recommended to hide the client session ID field. Use CSS, JavaScript, or any other method to hide the field. For testing purposes, you may unhide the field. For example, JavaScript is used to hide the input field as:
 
-```
+```JavaScript
 document.getElementById("clientSessionId").style.display = 'none';
 ```
 
 ## Configure  Azure AD B2C Identity Experience Framework policies
 
-1. Configure the initial [custom policy configuration](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started).
+1. Configure the initial [custom policy configuration](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 2. Create a new file, which inherits from the extensions file.
 
-    ```
+    ```XML
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -92,7 +92,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. Create a reference to the custom UI to hide the input box, under the BuildingBlocks resource.
 
-    ```
+    ```XML
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -108,7 +108,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. Add the following claims under the BuildingBlocks resource.
 
-    ```
+    ```XML
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -142,7 +142,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. Configure self-asserted claims provider for the client session ID field.
 
-    ```
+    ```XML
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -186,7 +186,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. Configure REST API claims provider for BioCatch. 
 
-    ```
+    ```XML
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
@@ -243,7 +243,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
-    ```
+    ```XML
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
               <ClaimsExchanges> 
@@ -292,7 +292,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
 
-    ```
+    ```XML
     <RelyingParty> 
 
         <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
@@ -361,7 +361,7 @@ Follow these steps to add the policy files to Azure AD B2C
 
 ## Test the solution
 
-1. [Register a dummy application, which redirects to JWT.MS](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga)  
+1. [Register a dummy application, which redirects to JWT.MS](./tutorial-register-applications.md?tabs=app-reg-ga)  
 
 2. Under the **Identity Experience Framework**, select the policy you created
 
@@ -369,7 +369,7 @@ Follow these steps to add the policy files to Azure AD B2C
 
 4. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
 
-    ```
+    ```JavaScript
     { 
 
       "typ": "JWT", 
@@ -420,6 +420,6 @@ Follow these steps to add the policy files to Azure AD B2C
 
 ## Additional resources
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)

@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage storage account access keys
@@ -29,7 +29,7 @@ You can view and copy your account access keys with the Azure portal, PowerShell
 To view and copy your storage account access keys or connection string from the Azure portal:
 
 1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
-1. Under **Settings**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+1. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
 1. Locate the **Key** value under **key1**, and click the **Copy** button to copy the account key.
 1. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
 
@@ -86,7 +86,7 @@ To rotate your storage account access keys in the Azure portal:
 
 1. Update the connection strings in your application code to reference the secondary access key for the storage account.
 1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
-1. Under **Settings**, select **Access keys**.
+1. Under **Security + networking**, select **Access keys**.
 1. To regenerate the primary access key for your storage account, select the **Regenerate** button next to the primary access key.
 1. Update the connection strings in your code to reference the new primary access key.
 1. Regenerate the secondary access key in the same manner.

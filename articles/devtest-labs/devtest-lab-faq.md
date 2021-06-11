@@ -2,7 +2,8 @@
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.
 ms.topic: article
-ms.date: 07/17/2020
+ms.date: 07/17/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure DevTest Labs FAQ
@@ -103,7 +104,7 @@ $policyRoleDef.Id = $null
 $policyRoleDef.Name = "DevTest Labs Advanced User"
 $policyRoleDef.IsCustom = $true
 $policyRoleDef.AssignableScopes.Clear()
-$policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>")
+$policyRoleDef.AssignableScopes.Add("/subscriptions/<subscription Id>")
 $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action")
 $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action")
 $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef  
@@ -129,7 +130,7 @@ Ultimately, the same type of restrictions needs to be applied across the organiz
 ## Lab configuration
 
 ### How do I create a lab from a Resource Manager template?
-We offer a [GitHub repository of lab Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) that you can deploy as-is or modify to create custom templates for your labs. Each template has a link to deploy the lab as it's in your own Azure subscription. Or, you can customize the template and [deploy by using PowerShell or Azure CLI](../azure-resource-manager/templates/deploy-powershell.md).
+We offer a [GitHub repository of lab Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/dtl-create-lab) that you can deploy as-is or modify to create custom templates for your labs. Each template has a link to deploy the lab as it's in your own Azure subscription. Or, you can customize the template and [deploy by using PowerShell or Azure CLI](../azure-resource-manager/templates/deploy-powershell.md).
 
 
 ### Can I have all virtual machines to be created in a common resource group instead having each machine in its own resource group?

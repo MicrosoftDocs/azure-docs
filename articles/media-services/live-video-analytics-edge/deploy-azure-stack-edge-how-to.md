@@ -1,11 +1,13 @@
 ---
-title: Deploy Live Video Analytics on Azure Stack Edge
-description: This article lists the steps that will help you deploy Live Video Analytics on your Azure Stack Edge.
+title: Deploy Azure Live Video Analytics on Azure Stack Edge
+description: This article lists the steps that will help you deploy Azure Live Video Analytics on your Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
 
 ---
-# Deploy Live Video Analytics on Azure Stack Edge
+# Deploy Azure Live Video Analytics on Azure Stack Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article lists the steps that will help you deploy Live Video Analytics on your Azure Stack Edge. After the device has been setup and activated, it is then ready for Live Video Analytics deployment. 
 
@@ -17,7 +19,7 @@ For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge r
 ## Prerequisites
 
 * Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner).
-* An [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) resource
+* An [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
    
 * [An IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * A [service principal](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) for the Live Video Analytics module.
@@ -32,17 +34,17 @@ For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge r
 
 ## Configuring Azure Stack Edge for using Live Video Analytics
 
-Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. Read more about [Azure Stack Edge and detailed setup instructions](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep). To get started, follow the instructions in the links below:
+Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. Read more about [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-gpu-deploy-prep.md). To get started, follow the instructions in the links below:
 
-* [Azure Stack Edge / Data Box Gateway Resource Creation](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#create-a-new-resource)
-* [Install and Setup](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-install)
+* [Azure Stack Edge / Data Box Gateway Resource Creation](../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource)
+* [Install and Setup](../../databox-online/azure-stack-edge-gpu-deploy-install.md)
 * Connection and Activation
 
-    1. [Connect](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-connect)
-    2. [Configure network](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy)
-    3. [Configure device](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time)
-    4. [Configure certificates](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-certificates)
-    5. [Activate](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-activate)
+    1. [Connect](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
+    2. [Configure network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
+    3. [Configure device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+    4. [Configure certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
+    5. [Activate](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
 * [Attach an IoT Hub to Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute)
 ### Enable Compute Prerequisites on the Azure Stack Edge Local UI
 
@@ -54,11 +56,11 @@ Before you continue, make sure that:
 
     * Connect and configure:
     
-        1. [Connect](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-connect)
-        2. [Configure network](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy)
-        3. [Configure device](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time)
-        4. [Configure certificates](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-certificates)
-        5. [Activate](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-activate)
+        1. [Connect](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
+        2. [Configure network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
+        3. [Configure device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+        4. [Configure certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
+        5. [Activate](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
     * To enable the compute, in the local web UI of your device, go to the Compute page.
     
         * Select a network interface that you want to enable for compute. Select Enable. Enabling compute results in the creation of a virtual switch on your device on that network interface.

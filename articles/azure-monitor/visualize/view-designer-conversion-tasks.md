@@ -1,8 +1,8 @@
 ---
 title: Azure Monitor view designer to workbooks conversion common tasks
 description: Common tasks when transitioning from views to workbooks in Azure Monitor.
-author: austonli
-ms.author: aul
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
 

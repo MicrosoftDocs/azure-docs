@@ -193,6 +193,8 @@
       href: storage-files-migration-overview.md
     - name: Target a cloud-only deployment
       items:
+      - name: RoboCopy to to Azure file shares
+        href: storage-files-migration-robocopy.md
       - name: Migrate from an on-premises NAS to Azure file shares with DataBox
         href: storage-files-migration-nas-cloud-databox.md
     - name: Target a hybrid deployment
@@ -211,7 +213,7 @@
         href: storage-files-migration-storsimple-8000.md
       - name: StorSimple 1200 migration guide
         href: storage-files-migration-storsimple-1200.md
-  - name: Improve performance
+  - name: Performance
     items:
     - name: Enable SMB Multichannel
       href: storage-files-enable-smb-multichannel.md

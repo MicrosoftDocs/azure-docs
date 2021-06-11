@@ -1,6 +1,6 @@
 ---
 title: Manage your bill and convert from the free pricing plan in Azure IoT Central application | Microsoft Docs
-description: As an administrator, learn how to manage your bill and move from the free pricing plan to a standard pricing plan in your Azure IoT Central application
+description: Learn how to manage your bill and move from the free pricing plan to a standard pricing plan in your Azure IoT Central application
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/23/2019
@@ -8,11 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
+
+# Administrator
 ---
 
 # Manage your bill in an IoT Central application
 
-This article describes how, as an administrator, you can manage your Azure IoT Central billing. You can move your application from the free pricing plan to a standard pricing plan, and also upgrade or downgrade your pricing plan.
+This article describes how you can manage your Azure IoT Central billing. You can move your application from the free pricing plan to a standard pricing plan, and also upgrade or downgrade your pricing plan.
 
 To access the **Administration** section, you must be in the *Administrator* role or have a *custom user role* that allows you to view billing. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role.
 
@@ -29,15 +31,14 @@ To complete this self-service process, follow these steps:
 
 1. Go to the **Pricing** page in the **Administration** section.
 
-    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="Trial state":::
+1. Select the **Plan**
 
-1. Select **Convert to a paid plan**.
+    :::image type="content" source="media/howto-view-bill/free-trial-billing.png" alt-text="Trial state":::
 
-    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Convert trial":::
 
 1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
 
-1. After you select **Convert**, your application now uses a paid plan and you start getting billed.
+1. After you select **Save**, your application now uses a paid plan and you start getting billed.
 
 > [!Note]
 > By default, you are converted to a *Standard 2* pricing plan.

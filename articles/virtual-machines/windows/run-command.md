@@ -7,8 +7,8 @@ ms.collection: windows
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: how-to 
-ms.custom: devx-track-azurecli
+ms.topic: how-to  
+ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 # Run PowerShell scripts in your Windows VM by using Run Command

@@ -24,9 +24,9 @@
     href: tutorial-create-tenant.md
   - name: 2 - Register an application
     href: tutorial-register-applications.md
-  - name: 3 - Create user flows
+  - name: 3 - Create user flows and custom policies
     href: tutorial-create-user-flows.md
-  - name: 4 - Authenticate users
+  - name: Authenticate users
     items:
     - name: ASP.NET
       href: tutorial-web-app-dotnet.md
@@ -37,7 +37,7 @@
     - name: Python
       href: tutorial-web-app-python.md
       displayName: flask
-  - name: 5 - Grant API access
+  - name: Grant API access
     items:
     - name: ASP.NET
       href: tutorial-web-api-dotnet.md
@@ -45,7 +45,7 @@
       href: tutorial-desktop-app-webapi.md
     - name: Single page
       href: tutorial-single-page-app-webapi.md
-  - name: 6 - Clean up and delete tenant
+  - name: Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
   href: code-samples.md
@@ -88,6 +88,9 @@
       href: user-flow-overview.md
     - name: Custom policy overview
       href: custom-policy-overview.md
+  - name: API Connectors
+    href: api-connectors-overview.md
+    displayName: REST API, web API, API connectors
   - name: User accounts
     href: user-overview.md
   - name: User profile attributes
@@ -102,8 +105,14 @@
     href: tenant-management.md
   - name: App integration
     items:
-    - name: Register a web application
-      href: tutorial-register-applications.md
+    - name: ASP.NET Core web app
+      items:
+      - name: Configure a sample web app
+        href: configure-authentication-sample-web-app.md
+      - name: Enable authentication in your app
+        href: enable-authentication-web-application.md
+      - name: Authentication options
+        href: enable-authentication-web-application-options.md
     - name: Register a single-page application (SPA)
       href: tutorial-register-spa.md
     - name: SAML application
@@ -155,7 +164,7 @@
     items:
     - name: Local account identity provider
       href: identity-provider-local.md
-      displayName: Username, Email, Phone authorization, Phone sing-in
+      displayName: Username, Email, Phone authorization, Phone sign-in
     - name: Add an identity provider
       href: add-identity-provider.md
     - name: AD FS
@@ -171,6 +180,8 @@
       href: identity-provider-azure-ad-multi-tenant.md
     - name: Azure AD B2C
       href: identity-provider-azure-ad-b2c.md
+    - name: eBay
+      href: identity-provider-ebay.md
     - name: Facebook
       href: identity-provider-facebook.md
     - name: Generic OpenId Connect
@@ -269,34 +280,40 @@
       href: configure-tokens.md
   - name: Define custom attributes
     href: user-flow-custom-attributes.md
-  - name: Risk-based authentication
+  - name: Security and threat management
     items:
     - name: Investigate risk with Identity Protection
       href: identity-protection-investigate-risk.md
     - name: Configure Conditional Access
       href: conditional-access-user-flow.md
+    - name: Mitigate credential attacks
+      displayName: smart lockout, account lockout, password attack
+      href: threat-management.md
+    - name: Fraud protection partners
+      items: 
+      - name: Arkose Labs
+        href: partner-arkose-labs.md
+        displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection
+      - name: BioCatch
+        href: partner-biocatch.md
+        displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior
+      - name: Microsoft Dynamics 365 Fraud Protection
+        href: partner-dynamics-365-fraud-protection.md
+        displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
   - name: Configure age gating
     href: age-gating.md
-  - name: API connectors (preview)
+  - name: API connectors
     items:
-    - name: Overview
-      href: api-connectors-overview.md
-    - name: Add an API connector
+    - name: Add an API connector to a sign-up user flow
       href: add-api-connector.md
+      displayName: rest claims validation, validate
+    - name: Add an API connector to a sign-up or sign-in user flow
+      href: custom-policy-rest-api-claims-exchange.md
+      displayName: rest claims exchange
+    - name: Secure an API connector
+      href: secure-rest-api.md
   - name: Custom policy
     items:
-    - name: Add your own business logic
-      items:
-      - name: Integrate REST API
-        href: custom-policy-rest-api-intro.md
-      - name: Validate user input
-        href: custom-policy-rest-api-claims-validation.md
-        displayName: rest claims validation, validate
-      - name: Obtain additional claims
-        href: custom-policy-rest-api-claims-exchange.md
-        displayName: rest claims exchange
-      - name: Secure REST API
-        href: secure-rest-api.md
     - name: Troubleshooting
       items:
       - name: Collect logs using Application Insights
@@ -325,17 +342,6 @@
       href: partner-lexisnexis.md
     - name: Onfido
       href: partner-onfido.md
-  - name: Fraud protection partners
-    items: 
-    - name: Arkose Labs
-      href: partner-arkose-labs.md
-      displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection
-    - name: BioCatch
-      href: partner-biocatch.md
-      displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior
-    - name: Microsoft Dynamics 365 Fraud Protection
-      href: partner-dynamics-365-fraud-protection.md
-      displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
   - name: Secure access to legacy and on-premises apps
     items:
     - name: Ping Identity
@@ -475,14 +481,16 @@
           href: id-token-hint.md
         - name: JWT token issuer
           href: jwt-issuer-technical-profile.md
-        - name: OAuth1
+        - name: OAuth1 identity provider
           href: oauth1-technical-profile.md
-        - name: OAuth2
+        - name: OAuth2 identity provider
           href: oauth2-technical-profile.md
+        - name: OAuth2 custom error
+          href: oauth2-error-technical-profile.md
         - name: One-time password
           href: one-time-password-technical-profile.md
           displayName: otp
-        - name: OpenID Connect
+        - name: OpenID Connect identity provider
           href: openid-connect-technical-profile.md
         - name: Phone factor
           href: phone-factor-technical-profile.md
@@ -505,10 +513,12 @@
       href: relyingparty.md
     - name: Claim resolvers
       href: claim-resolver-overview.md
-  - name: Custom policy release notes
+  - name: Release notes
     href: custom-policy-developer-notes.md
   - name: Service limits and restrictions
     href: service-limits.md
+  - name: TLS and cipher suite requirements
+    href: https-cipher-tls-requirements.md
   - name: App registrations
     href: app-registrations-training-guide.md
   - name: Billing model
@@ -539,8 +549,6 @@
       href: ../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Monitoring and analytics
       href: ../active-directory/fundamentals/resilience-with-monitoring-alerting.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-  - name: Threat management
-    href: threat-management.md
     displayName: security
   - name: User flow versions
     href: user-flow-versions.md
@@ -551,7 +559,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
-    href: faq.md
+    href: ./faq.yml
   - name: Getting help
     href: ../active-directory/develop/developer-support-help-options.md
   - name: Pricing

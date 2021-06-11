@@ -54,6 +54,9 @@
       - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
+      - name: Application proxy
+        tocHref: /azure/active-directory/app-proxy/
+        topicHref: /azure/active-directory/app-proxy/
       - name: Application provisioning
         tocHref: /azure/active-directory/app-provisioning/
         topicHref: /azure/active-directory/app-provisioning/
@@ -69,7 +72,7 @@
         topicHref: /azure/active-directory/reports-monitoring/
       - name: Verifiable credentials
         tocHref: /azure/active-directory/verifiable-credentials/
-        topicHref: /azure/active-directory/verifable-credentials/
+        topicHref: /azure/active-directory/verifiable-credentials/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -83,6 +86,19 @@
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
+  - name: Applied AI Services
+    tocHref: /azure/applied-ai-services/
+    topicHref: /azure/applied-ai-services/
+    items:
+    - name: Immersive Reader
+      tocHref: /azure/cognitive-services/immersive-reader/
+      topicHref: /azure/cognitive-services/immersive-reader/
+    - name: Metrics Advisor
+      tocHref: /azure/cognitive-services/metrics-advisor/
+      topicHref: /azure/cognitive-services/metrics-advisor/
+    - name: Form Recognizer
+      tocHref: /azure/cognitive-services/form-recognizer/
+      topicHref: /azure/cognitive-services/form-recognizer/
   - name: Avere vFXT for Azure
     tocHref: /azure/avere-vfxt/
     topicHref: /azure/avere-vfxt/
@@ -261,6 +277,9 @@
       - name: Templates
         tocHref: /azure/azure-resource-manager/templates/
         topicHref: /azure/azure-resource-manager/templates/
+      - name: Bicep
+        tocHref: /azure/azure-resource-manager/bicep/
+        topicHref: /azure/azure-resource-manager/bicep/
       - name: Management
         tocHref: /azure/azure-resource-manager/management/
         topicHref: /azure/azure-resource-manager/management/
@@ -433,18 +452,12 @@
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
-    - name: Form Recognizer
-      tocHref: /azure/cognitive-services/form-recognizer/
-      topicHref: /azure/cognitive-services/form-recognizer/
     - name: Ink Recognizer
       tocHref: /azure/cognitive-services/Ink-Recognizer/
       topicHref: /azure/cognitive-services/Ink-Recognizer/
     - name: Personalizer
       tocHref: /azure/cognitive-services/personalizer/
       topicHref: /azure/cognitive-services/personalizer/
-    - name: Immersive Reader
-      tocHref: /azure/cognitive-services/immersive-reader/
-      topicHref: /azure/cognitive-services/immersive-reader/
   - name: Communication Services
     tocHref: /azure/communication-services/
     topicHref: /azure/communication-services/
@@ -473,6 +486,10 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+    items:
+    - name: MongoDB API
+      tocHref: /azure/cosmos-db/mongodb-introduction
+      topicHref: /azure/cosmos-db/mongodb-introduction
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
@@ -841,6 +858,9 @@
       - name: Attestation
         tocHref: /azure/attestation/
         topicHref: /azure/attestation/
+      - name: Confidential Ledger
+        tocHref: /azure/confidential-ledger/
+        topicHref: /azure/confidential-ledger/
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
@@ -953,7 +973,7 @@
   - name: Confidential Computing
     tocHref: /azure/confidential-computing/
     topicHref: /azure/confidential-computing/overview
-  - name: Windows Virtual Desktop
+  - name: Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
   - name: Cost Management and Billing
@@ -978,3 +998,14 @@
   - name: Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
+  - name: Applied AI Services 
+    tocHref: /azure/applied-ai-services/
+    topicHref: /azure/applied-ai-services/
+    items:
+    - name: Video Analyzer
+      tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
+      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
+    - name: Video Analyzer for Media
+      tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
+      topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
+    

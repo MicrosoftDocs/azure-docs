@@ -1,13 +1,13 @@
 ---
-title: Monitor availability and responsiveness of any web site - Azure Monitor 
+title: Monitor availability with URL ping tests- Azure Monitor 
 description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 05/25/2021
 
 ms.reviewer: sdash
 ---
 
-# Monitor the availability of any website
+# Monitor availability with URL ping tests
 
 The name "URL ping test" is a bit of a misnomer. To be clear, these tests are not making any use of ICMP (Internet Control Message Protocol) to check your site's availability. Instead they use more advanced HTTP request functionality to validate whether an endpoint is responding. They also measure the performance associated with that response, and adds the ability to set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
 
@@ -60,6 +60,15 @@ The following population tags can be used for the geo-location attribute when de
 | USGov Texas    | usgov-tx-azr        |
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
+
+### Azure China
+
+| Display Name   | Population Name     |
+|----------------|---------------------|
+| China East     | mc-cne-azr          |
+| China East 2   | mc-cne2-azr         |
+| China North    | mc-cnn-azr          |
+| China North 2  | mc-cnn2-azr         |
 
 #### Azure
 
@@ -140,3 +149,4 @@ In addition to the raw results, you can also view two key Availability metrics i
 * [Availability Alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
 * [Troubleshooting](troubleshoot-availability.md)
+* [Web Tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)

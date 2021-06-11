@@ -1,7 +1,7 @@
 ---
 title: 'Connect a computer to a virtual network using P2S: certificate authentication: Azure portal classic'
 titleSuffix: Azure VPN Gateway
-description: Create a classic a Point-to-Site VPN Gateway connection using the Azure portal.
+description: Learn how to create a classic a Point-to-Site VPN Gateway connection using the Azure portal.
 services: vpn-gateway
 author: cherylmc
 

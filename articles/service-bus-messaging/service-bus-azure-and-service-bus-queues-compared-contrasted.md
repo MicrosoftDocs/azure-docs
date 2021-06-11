@@ -95,7 +95,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 | Poison message support |**Yes** |**Yes** |
 | In-place update |**Yes** |**Yes** |
 | Server-side transaction log |**Yes** |**No** |
-| Storage metrics |**Yes**<br/><br/>**Minute Metrics** provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Yes**<br/><br/>For information about metrics supported by Azure Service Bus, see [Message metrics](service-bus-metrics-azure-monitor.md#message-metrics). |
+| Storage metrics |**Yes**<br/><br/>**Minute Metrics** provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Yes**<br/><br/>For information about metrics supported by Azure Service Bus, see [Message metrics](monitor-service-bus-reference.md#message-metrics). |
 | State management |**No** |**Yes** (Active, Disabled, SendDisabled, ReceiveDisabled. For details on these states, see [Queue status](entity-suspend.md#queue-status)) |
 | Message autoforwarding |**No** |**Yes** |
 | Purge queue function |**Yes** |**No** |

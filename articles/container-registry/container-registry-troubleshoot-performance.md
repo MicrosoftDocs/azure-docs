@@ -94,12 +94,17 @@ Related links:
 
 If your permissions to registry resources allow, [check the health of the registry environment](container-registry-check-health.md). If errors are reported, review the [error reference](container-registry-health-error-reference.md) for potential solutions.
 
-If [collection of resource logs](container-registry-diagnostics-audit-logs.md) is enabled in the registry, review the ContainterRegistryRepositoryEvents log. This log stores information for operations such as push or pull events. Query the log for [repository-level operation failures](container-registry-diagnostics-audit-logs.md#repository-level-operation-failures). 
+If [collection of resource logs](monitor-service.md) is enabled in the registry, review the ContainterRegistryRepositoryEvents log. This log stores information for operations such as push or pull events. Query the log for [repository-level operation failures](monitor-service.md#repository-level-operation-failures). 
 
 Related links:
 
+<<<<<<< HEAD
 * [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
 * [Container registry FAQ](container-registry-faq.yml)
+=======
+* [Monitor Azure Container Registry](monitor-service.md)
+* [Container registry FAQ](container-registry-faq.md)
+>>>>>>> 702672a8b4394357796b5f2857f3da44bef7597d
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 
 ## Next steps

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 06/10/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -27,11 +27,11 @@ ms.author: aahi
 | Italian               |     `it`      |     ✓      |         2019-10-01         |                    |
 | Japanese              |     `ja`      |     ✓      |         2019-10-01         |                    |
 | Korean                |     `ko`      |    ✓      |         2019-10-01         |                    |
-| Norwegian  (Bokmål)   |     `no`      |     ✓      |         2020-07-01         |                    |
+| Norwegian  (Bokmål)   |     `no`      |     ✓      |         2020-04-01         |                    |
 | Portuguese (Brazil)   |    `pt-BR`    |     ✓      |         2020-04-01         |                    |
 | Portuguese (Portugal) |    `pt-PT`    |     ✓      |         2019-10-01         | `pt` also accepted |
 | Spanish               |     `es`      |     ✓      |         2019-10-01         |                    |
-| Turkish               |     `tr`      |     ✓       |         2020-07-01        |                    |
+| Turkish               |     `tr`      |     ✓       |         2020-04-01        |                    |
 
 ### Opinion mining (v3.1-preview only)
 
@@ -73,28 +73,42 @@ ms.author: aahi
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
-| Language              | Language code |  v3 support | Available starting with v3 model version: |       Notes        |
+| Language              | Language code |  v3 support | Starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
-| Danish                |     `da`      |     ✓     |                2019-10-01                 |                    |
+| Afrikaans             |     `af`      |     ✓      |                2020-07-01                 |                    |
+| Bulgarian             |     `bg`      |     ✓      |                2020-07-01                 |                    |
+| Catalan               |     `ca`      |     ✓      |                2020-07-01                 |                    |
+| Chinese-Simplified    |     `zh-hans` |     ✓      |                2021-06-01                 |                    |
+| Croatian              |     `hr`      |     ✓      |                2020-07-01                 |                    |
+| Danish                |     `da`      |     ✓      |                2019-10-01                 |                    |
 | Dutch                 |     `nl`      |     ✓      |                2019-10-01                 |                    |
 | English               |     `en`      |     ✓      |                2019-10-01                 |                    |
+| Estonian              |     `et`      |     ✓      |                2020-07-01                 |                    |
 | Finnish               |     `fi`      |     ✓      |                2019-10-01                 |                    |
 | French                |     `fr`      |     ✓      |                2019-10-01                 |                    |
 | German                |     `de`      |     ✓      |                2019-10-01                 |                    |
+| Greek                 |     `el`      |     ✓      |                2020-07-01                 |                    |
+| Hungarian             |     `hu`      |     ✓      |                2020-07-01                 |                    |
 | Italian               |     `it`      |     ✓      |                2019-10-01                 |                    |
+| Indonesian            |     `id`      |     ✓      |                2020-07-01                 |                    |
 | Japanese              |     `ja`      |     ✓      |                2019-10-01                 |                    |
 | Korean                |     `ko`      |     ✓      |                2019-10-01                 |                    |
+| Latvian               |     `lv`      |     ✓      |                2020-07-01                 |                    |
 | Norwegian  (Bokmål)   |     `no`      |     ✓      |                2020-07-01                 | `nb` also accepted |
 | Polish                |     `pl`      |    ✓      |                2019-10-01                 |                    |
 | Portuguese (Brazil)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
 | Portuguese (Portugal) |    `pt-PT`    |    ✓      |                2019-10-01                 | `pt` also accepted |
+| Romanian              |     `ro`      |     ✓      |                2020-07-01                 |                    |
 | Russian               |     `ru`      |     ✓      |                2019-10-01                 |                    |
 | Spanish               |     `es`      |     ✓      |                2019-10-01                 |                    |
+| Slovak                |     `sk`      |     ✓      |                2020-07-01                 |                    |
+| Slovenian             |     `sl`      |     ✓      |                2020-07-01                 |                    |
 | Swedish               |     `sv`      |     ✓      |                2019-10-01                 |                    |
+| Turkish               |     `tr`      |     ✓      |                2020-07-01                 |                    |
 
 #### [Entity linking](#tab/entity-linking)
 
-| Language | Language code |  v3 support | Available starting with v3 model version: | Notes |
+| Language | Language code |  v3 support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | English  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Spanish  |     `es`      |    ✓      |                2019-10-01                 |       |
@@ -120,7 +134,7 @@ The Text Analytics API can detect a wide range of languages, variants, dialects,
 
 If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that cannot be detected is `unknown`.
 
-| Language | Language Code | v3 support | Available starting with v3 model version: |
+| Language | Language Code | v3 support | Starting with v3 model version: |
 |:-|:-:|:-:|:-:|
 |Afrikaans|`af`|✓|    |
 |Albanian|`sq`|✓|    |
@@ -227,12 +241,21 @@ If you have content expressed in a less frequently used language, you can try La
 |Tongan|`to`|✓|2020-09-01|
 |Turkish|`tr`|✓|2021-01-05|
 |Turkmen|`tk`|✓|2021-01-05|
+|Ukrainian|`uk`|✓||
+|Urdu|`ur`|✓||
+|Uzbek|`uz`|✓||
+|Vietnamese|`vi`|✓||
+|Welsh|`cy`|✓||	
 |Xhosa|`xh`|✓|2021-01-05|
+|Yiddish|`yi`|✓||
 |Yoruba|`yo`|✓|2021-01-05|
+|Yucatec Maya| `yua` | ✓| |
 |Zulu|`zu`|✓|2021-01-05|
+
 
 ---
 
 ## See also
 
 * [What is the Text Analytics API?](overview.md)   
+* [Model versions](concepts/model-versioning.md)

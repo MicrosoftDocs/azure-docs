@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files 
-ms.custom: devx-track-azurecli, references_regions
+ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 ---
 
 # Create an Azure file share

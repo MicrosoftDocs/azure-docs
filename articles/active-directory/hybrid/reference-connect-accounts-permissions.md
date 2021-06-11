@@ -6,14 +6,13 @@ documentationcenter: ''
 author: billmath
 manager: daveba
 editor: ''
-ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/04/2021
+ms.date: 06/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -76,6 +75,8 @@ If you are upgrading from DirSync, the AD DS Enterprise Admins credentials are u
 
 ### Azure AD Global Admin credentials
 These credentials are only used during the installation and are not used after the installation has completed. It is used to create the Azure AD Connector account used for synchronizing changes to Azure AD. The account also enables sync as a feature in Azure AD.
+
+For more information on Global Administrator accounts, see [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator).
 
 ### AD DS Connector account required permissions for express settings
 The AD DS Connector account is created for reading and writing to Windows Server AD and has the following permissions when created by express settings:
@@ -192,8 +193,8 @@ Legend:
 - Non-bold - Supported option
 - Local account - Local user account on the server
 - Domain account - Domain user account
-- sMSA - [standalone Managed Service account](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
-- gMSA - [group Managed Service account](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
+- sMSA - [standalone Managed Service account](../../active-directory/fundamentals/service-accounts-on-premises.md)
+- gMSA - [group Managed Service account](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Custom | Remote SQL</br>Custom |
 | --- | --- | --- | --- |
@@ -210,11 +211,11 @@ The VSA is intended to be used with scenarios where the sync engine and SQL are 
 This feature requires Windows Server 2008 R2 or later. If you install Azure AD Connect on Windows Server 2008, then the installation falls back to using a [user account](#user-account) instead.
 
 #### Group managed service account
-If you use a remote SQL server, then we recommend to using a **group managed service account**. For more information on how to prepare your Active Directory for Group Managed Service account, see [Group Managed Service Accounts Overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
+If you use a remote SQL server, then we recommend to using a **group managed service account**. For more information on how to prepare your Active Directory for Group Managed Service account, see [Group Managed Service Accounts Overview](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
 To use this option, on the [Install required components](how-to-connect-install-custom.md#install-required-components) page, select **Use an existing service account**, and select **Managed Service Account**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-It is also supported to use a [standalone managed service account](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). However, these can only be used on the local machine and there is no benefit to use them over the default virtual service account.
+It is also supported to use a [standalone managed service account](../../active-directory/fundamentals/service-accounts-on-premises.md). However, these can only be used on the local machine and there is no benefit to use them over the default virtual service account.
 
 This feature requires Windows Server 2012 or later. If you need to use an older operating system and use remote SQL, then you must use a [user account](#user-account).
 

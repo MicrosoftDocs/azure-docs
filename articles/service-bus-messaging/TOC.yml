@@ -36,8 +36,6 @@
         href: service-bus-nodejs-how-to-use-queues.md
       - name: PHP
         href: service-bus-php-how-to-use-queues.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-queues.md
     - name: Send and receive messages (old versions/packages)
       items:
       - name: .NET (Microsoft.Azure.ServiceBus)
@@ -66,8 +64,6 @@
         href: service-bus-nodejs-how-to-use-topics-subscriptions.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-topics-subscriptions.md
     - name: Publish and subscribe for messages (old versions/packages)
       items:
       - name: .NET (Microsoft.Azure.ServiceBus)
@@ -98,6 +94,8 @@
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   - name: Advanced features
     items: 
+    - name: Overview of advanced features
+      href: advanced-features-overview.md
     - name: Message sessions
       href: message-sessions.md
     - name: Duplicate message detection
@@ -147,7 +145,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline
+      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/service-bus-messaging/TOC.json
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:
@@ -220,8 +218,8 @@
       href: service-bus-end-to-end-tracing.md
     - name: Diagnostic logs
       href: service-bus-diagnostic-logs.md
-    - name: Azure Monitor metrics
-      href: service-bus-metrics-azure-monitor.md   
+    - name: Monitoring Azure Service Bus
+      href: monitor-service-bus.md
   - name: Integrate
     items:
     - name: Integrate with RabbitMQ
@@ -281,6 +279,8 @@
       href: service-bus-resource-manager-exceptions.md
 - name: Reference
   items:
+  - name: Monitor data reference
+    href: monitor-service-bus-reference.md
   - name: .NET
     items:
     - name: Migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus

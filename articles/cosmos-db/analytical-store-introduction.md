@@ -73,9 +73,16 @@ By using horizontal partitioning, Azure Cosmos DB transactional store can elasti
 
 ## <a id="analytical-schema"></a>Automatically handle schema updates
 
-Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With the auto-sync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
+Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With the auto-sync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store. It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
 
 As your schema evolves, and new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
+
+> [!NOTE]
+> In the context of analytical store, we consider the following structures as property:
+> * JSON "elements" or "string-value pairs separated by a `:` ".
+> * JSON objects, delimited by `{` and `}`.
+> * JSON arrays, delimited by `[` and `]`.
+
 
 ### Schema constraints
 
@@ -84,6 +91,34 @@ The following constraints are applicable on the operational data in Azure Cosmos
 * You can have a maximum of 1000 properties at any nesting level in the schema and a maximum nesting depth of 127.
   * Only the first 1000 properties are represented in the analytical store.
   * Only the first 127 nested levels are represented in the analytical store.
+  * The first level of a JSON document is its `/` root level.
+  * Properties in the first level of the document will be represented as columns.
+
+
+* Sample scenarios:
+  * If your document's first level has 2000 properties, only the first 1000 will be represented.
+  * If your documents have 5 levels with 200 properties in each one, all properties will be represented.
+  * If your documents have 10 levels with 400 properties in each one, only the 2 first levels will be fully represented in analytical store. Half of the third level will also be represented.
+
+* The hypothetical document below contains 4 properties and 3 levels.
+  * The levels are `root`, `myArray`, and the nested structure within the `myArray`.
+  * The properties are `id`, `myArray`, `myArray.nested1` and `myArray.nested2`.
+  * The analytical store representation will have 2 columns, `id` and `myArray`. You can use Spark or T-SQL functions to also expose the nested structures as columns.
+
+
+```json
+{
+  "id": "1",
+  "myArray": [
+    "string1",
+    "string2",
+    {
+      "nested1": "abc",
+      "nested2": "cde"
+    }
+  ]
+}
+```
 
 * While JSON documents (and Cosmos DB collections/containers) are case sensitive from the uniqueness perspective, analytical store is not.
 
@@ -104,22 +139,12 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 
 * The first document of the collection defines the initial analytical store schema.
-  * Properties in the first level of the document will be represented as columns.
   * Documents with more properties than the initial schema will generate new columns in analytical store.
   * Columns can't be removed.
   * The deletion of all documents in a collection doesn't reset the analytical store schema.
   * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
-* Currently we do not support Azure Synapse Spark reading column names that contain blanks (white spaces).
-
-* Expect different behavior in regard to explicit `null` values:
-  * Spark pools in Azure Synapse will read these values as `0` (zero).
-  * SQL serverless pools in Azure Synapse will read these values as `NULL` if the first document of the collection has, for the same property, a value with a `non-numeric` datatype.
-  * SQL serverless pools in Azure Synapse will read these values as `0` (zero) if the first document of the collection has, for the same property, a value with a `numeric` datatype.
-
-* Expect different behavior in regard to missing columns:
-  * Spark pools in Azure Synapse will represent these columns as `undefined`.
-  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
+* Currently we do not support Azure Synapse Spark reading properties that contain blanks (white spaces) in their names. You will need to use Spark functions like `cast` or `replace` to be able to load the data into a Spark DataFrame.
 
 ### Schema representation
 
@@ -153,12 +178,22 @@ The well-defined schema representation creates a simple tabular representation o
   * Spark pools in Azure Synapse will represent these values as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
 
+* Expect different behavior in regard to explicit `null` values:
+  * Spark pools in Azure Synapse will read these values as `0` (zero). And it will change to `undefined` as soon as the column has a non-null value.
+  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+    
+* Expect different behavior in regard to missing columns:
+  * Spark pools in Azure Synapse will represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
+
 
 **Full fidelity schema representation**
 
 The full fidelity schema representation is designed to handle the full breadth of polymorphic schemas in the schema-agnostic operational data. In this schema representation, no items are dropped from the analytical store even if the well-defined schema constraints (that is no mixed data type fields nor mixed data type arrays) are violated.
 
 This is achieved by translating the leaf properties of the operational data into the analytical store with distinct columns based on the data type of values in the property. The leaf property names are extended with data types as a suffix in the analytical store schema such that they can be queries without ambiguity.
+
+In the full fidelity schema representation, each datatype of each property will generate a column for that datatype. Each of them count as one of the 1000 maximum properties.
 
 For example, let’s take the following sample document in the transactional store:
 
@@ -196,6 +231,14 @@ Here is a map of all the property data types and their suffix representations in
 |DateTime	|".date"	| ISODate("2020-08-21T07:43:07.375Z")|
 |ObjectId	|".objectId"	| ObjectId("5f3f7b59330ec25c132623a2")|
 |Document	|".object" |	{"a": "a"}|
+
+* Expect different behavior in regard to explicit `null` values:
+  * Spark pools in Azure Synapse will read these values as `0` (zero).
+  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+  
+* Expect different behavior in regard to missing columns:
+  * Spark pools in Azure Synapse will represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
 ## Cost-effective archival of historical data
 
@@ -236,6 +279,10 @@ Analytical store follows a consumption-based pricing model where you are charged
 Analytical store pricing is separate from the transaction store pricing model. There is no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/), for full details on the pricing model for analytical store.
 
 In order to get a high-level cost estimate to enable analytical store on an Azure Cosmos DB container, you can use the [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) and get an estimate of your analytical storage and write operations costs. Analytical read operations costs depends on the analytics workload characteristics but as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and results in a cost of $0.065.
+
+> [!NOTE]
+> Analytical store read operations estimates are not included in the Cosmos DB cost calculator since they are a function of your analytical workload. While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations.
+
 
 ## <a id="analytical-ttl"></a> Analytical Time-to-Live (TTL)
 

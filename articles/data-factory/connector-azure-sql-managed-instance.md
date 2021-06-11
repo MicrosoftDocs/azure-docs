@@ -3,8 +3,8 @@ title: Copy and transform data in Azure SQL Managed Instance
 description: Learn how to copy and transform data in Azure SQL Managed Instance by using Azure Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ---
@@ -41,7 +41,7 @@ To access the SQL Managed Instance private endpoint, set up a [self-hosted integ
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Azure Data Factory entities specific to the SQL Managed Instance connector.
 
@@ -633,8 +633,6 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 
 When transforming data in mapping data flow, you can read and write to tables from Azure SQL Managed Instance. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
 
-> [!NOTE]
-> Azure SQL Managed Instance connector in Mapping Data Flow is currently available as public preview. You can connect to SQL Managed Instance public endpoint but not private endpoint yet.
 
 ### Source transformation
 

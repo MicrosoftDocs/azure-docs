@@ -1,6 +1,7 @@
 ---
-title: 'Azure VPN Gateway: Point-to-site VPN session management'
-description: This article helps you view and disconnect Point-to-site VPN sessions.
+title: 'Point-to-site VPN session management'
+titleSuffix: Azure VPN Gateway
+description: Learn how to view and disconnect Point-to-Site VPN sessions.
 services: vpn-gateway
 author: cherylmc
 

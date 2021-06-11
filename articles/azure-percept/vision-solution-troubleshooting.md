@@ -89,7 +89,7 @@ To update your TelemetryIntervalNeuralNetworkMs value, follow these steps:
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Screenshot of module page." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
 
-1. Scroll down to **properties**. Note that the properties "Running" and "Logging" are not active at this time.
+1. Scroll down to **properties**. The properties "Running" and "Logging" are not active at this time.
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Screenshot of module twin properties." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
 
@@ -99,7 +99,7 @@ To update your TelemetryIntervalNeuralNetworkMs value, follow these steps:
 
 View your device's RTSP video stream in [Azure Percept Studio](./how-to-view-video-stream.md) or [VLC media player](https://www.videolan.org/vlc/index.html).
 
-To open the RTSP stream in VLC media player, go to **Media** -> **Open network stream** -> **rtsp://[device IP address]/result**.
+To open the RTSP stream in VLC media player, go to **Media** -> **Open network stream** -> **rtsp://[device IP address]:8554/result**.
 
 ## Next steps
 

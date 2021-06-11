@@ -4,7 +4,7 @@ description: Shows how to create an Azure managed application that is intended f
 author: tfitzmac
 
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 04/14/2020
 ms.author: tomfitz
 ---

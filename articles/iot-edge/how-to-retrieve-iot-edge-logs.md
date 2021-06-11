@@ -48,6 +48,9 @@ The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge
 
 Use the **GetModuleLogs** direct method to retrieve the logs of an IoT Edge module.
 
+>[!TIP]
+>The IoT Edge troubleshooting page in the Azure portal provides a simplified experience for viewing module logs. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
+
 This method accepts a JSON payload with the following schema:
 
 ```json
@@ -204,7 +207,7 @@ For example:
 The following invocation uploads the last 100 log lines from all modules, in compressed JSON format:
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",
@@ -226,7 +229,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 The following invocation uploads the last 100 log lines from edgeAgent and edgeHub with the last 1000 log lines from tempSensor module in uncompressed text format:
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",

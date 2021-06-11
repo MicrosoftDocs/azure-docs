@@ -49,7 +49,7 @@ Actions can be defined to run when the conditions (see above) are met. You can d
 
 - Changing the status of an incident, keeping your workflow up to date.
 
-  - When changing to “closed,” specifying the [closing reason](tutorial-investigate-cases.md#closing-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce false positives.
+  - When changing to “closed,” specifying the [closing reason](tutorial-investigate-cases.md#closing-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce [false positives](false-positives.md).
 
 - Changing the severity of an incident – you can reevaluate and reprioritize based on the presence, absence, values, or attributes of entities involved in the incident.
 

@@ -5,7 +5,7 @@ author: ssabat
 ms.author: susabat
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 05/11/2021
 ---
 
 # Azure Data Factory FAQ
@@ -226,6 +226,91 @@ Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activ
 ### Does the data flow compute engine serve multiple tenants?
 
 Clusters are never shared. We guarantee isolation for each job run in production runs. In case of debug scenario one person gets one cluster, and all debugs will go to that cluster which are initiated by that user.
+
+### Is there a way to write attributes in cosmos db in the same order as specified in the sink in ADF data flow?	
+
+For cosmos DB, the underlying format of each document is a JSON object which is an unordered set of name/value pairs, so the order cannot be reserved. 
+
+###  Why a user is unable to use data preview in the data flows?	
+
+You should check permissions for custom role. There are multiple actions involved in the dataflow data preview. You start by checking network traffic while debugging on your browser. Please follow all of the actions, for details, please refer to  [Resource provider.](../role-based-access-control/resource-provider-operations.md#microsoftdatafactory)
+
+###  In ADF, can I calculate value for a new column from existing column from mapping?	
+
+You can use derive transformation in mapping data flow to create a new column on the logic you want. When creating a derived column, you can either generate a new column or update an existing one. In the Column textbox, enter in the column you are creating. To override an existing column in your schema, you can use the column dropdown. To build the derived column's expression, click on the Enter expression textbox. You can either start typing your expression or open up the expression builder to construct your logic.
+
+### Why mapping data flow preview failing with Gateway timeout?	
+
+Please try to use larger cluster and leverage the row limits in debug settings to a smaller value to reduce the size of debug output.
+
+### How to parameterize column name in dataflow?
+
+Column name can be parameterized similar to other properties. Like in derived column customer can use **$ColumnNameParam = toString(byName($myColumnNameParamInData)).** These parameters can be passed from pipeline execution down to Data flows.
+
+### The data flow advisory about TTL and costs
+
+This troubleshoot document may help to resolve your issues: [Mapping data flows performance and tuning guide-Time to live](./concepts-data-flow-performance.md#time-to-live).
+
+
+## Wrangling data flow (Data flow power query)
+
+### What are the supported regions for wrangling data flow?
+
+Data factory is available in following [regions.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
+Power query feature is being rolled out to all regions. If the feature is not available in your region, please check with support.
+
+### What are the limitations and constraints with wrangling data flow?
+
+Dataset names can only contain alpha-numeric characters. The following data stores are supported:
+
+* DelimitedText dataset in Azure Blob Storage using account key authentication
+* DelimitedText dataset in Azure Data Lake Storage gen2 using account key or service principal authentication
+* DelimitedText dataset in Azure Data Lake Storage gen1 using service principal authentication
+* Azure SQL Database and Data Warehouse using sql authentication. See supported SQL types below. There is no PolyBase or staging support for data warehouse.
+
+At this time, linked service Key Vault integration is not supported in wrangling data flows.
+
+### What is the difference between mapping and wrangling data flows?
+
+Mapping data flows provide a way to transform data at scale without any coding required. You can design a data transformation job in the data flow canvas by constructing a series of transformations. Start with any number of source transformations followed by data transformation steps. Complete your data flow with a sink to land your results in a destination. Mapping data flow is great at mapping and transforming data with both known and unknown schemas in the sinks and sources.
+
+Wrangling data flows allow you to do agile data preparation and exploration using the Power Query Online mashup editor at scale via spark execution. With the rise of data lakes sometimes you just need to explore a data set or create a dataset in the lake. You aren't mapping to a known target. Wrangling data flows are used for less formal and model-based analytics scenarios.
+
+### What is the difference between Power Platform Dataflows and wrangling data flows?
+
+Power Platform Dataflows allow users to import and transform data from a wide range of data sources into the Common Data Service and Azure Data Lake to build PowerApps applications, Power BI reports or Flow automations. Power Platform Dataflows use the established Power Query data preparation experiences, similar to Power BI and Excel. Power Platform Dataflows also enable easy reuse within an organization and automatically handle orchestration (e.g. automatically refreshing dataflows that depend on another dataflow when the former one is refreshed).
+
+Azure Data Factory (ADF) is a managed data integration service that allows data engineers and citizen data integrator to create complex hybrid extract-transform-load (ETL) and extract-load-transform (ELT) workflows. Wrangling data flow in ADF empowers users with a code-free, serverless environment that simplifies data preparation in the cloud and scales to any data size with no infrastructure management required. It uses the Power Query data preparation technology (also used in Power Platform dataflows, Excel, Power BI) to prepare and shape the data. Built to handle all the complexities and scale challenges of big data integration, wrangling data flows allow users to quickly prepare data at scale via spark execution. Users can build resilient data pipelines in an accessible visual environment with our browser-based interface and let ADF handle the complexities of Spark execution. Build schedules for your pipelines and monitor your data flow executions from the ADF monitoring portal. Easily manage data availability SLAs with ADF's rich availability monitoring and alerts and leverage built-in continuous integration and deployment capabilities to save and manage your flows in a managed environment. Establish alerts and view execution plans to validate that your logic is performing as planned as you tune your data flows.
+
+### Supported SQL Types
+
+Wrangling data flow supports the following data types in SQL. You will get a validation error for using a data type that isn't supported.
+
+* short
+* double
+* real
+* float
+* char
+* nchar
+* varchar
+* nvarchar
+* integer
+* int
+* bit
+* boolean
+* smallint
+* tinyint
+* bigint
+* long
+* text
+* date
+* datetime
+* datetime2
+* smalldatetime
+* timestamp
+* uniqueidentifier
+* xml
+
 
 ## Next steps
 

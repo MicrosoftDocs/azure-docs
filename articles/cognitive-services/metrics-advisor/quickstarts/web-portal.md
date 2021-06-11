@@ -8,7 +8,7 @@ ms.author: mbullwin
 manager: nitinme
 ms.date: 09/30/2020
 ms.topic: quickstart
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.custom:
   - mode-portal
