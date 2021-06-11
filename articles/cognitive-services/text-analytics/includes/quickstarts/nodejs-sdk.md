@@ -770,8 +770,6 @@ This feature is not available in version 3.0.
 
 ---
 
-## Run the application
-
 Run the application with the `node` command on your quickstart file.
 
 ```console
