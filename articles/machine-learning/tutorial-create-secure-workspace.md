@@ -350,6 +350,7 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 There are several ways that you can connect to the secured workspace. The steps in this article use a __jump box__, which is a virtual machine in the VNet. You can connect to it using your web browser and Azure Bastion. The following table lists several other ways that you might connect to the secure workspace:
 
 | Method | Description |
+| ----- | ----- |
 | [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) | Connects on-premises networks to the VNet over a private connection. Connection is made over the public internet. |
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. |
 | Enable public internet access | Enables access to the workspace from the public internet. Communication between the workspace and other resources in the VNet are still secured. |
