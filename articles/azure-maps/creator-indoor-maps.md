@@ -54,7 +54,7 @@ Creator services create, store, and use various data types that are defined and 
 
 Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information about Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
-Use the [Azure Maps Data Upload API](/rest/api/maps/data%20v2/uploadpreview) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
+Use the [Azure Maps Data Upload API](/rest/api/maps/data-v2/update-preview) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
 
 ## Convert a Drawing package
 
@@ -85,7 +85,7 @@ A tileset is a collection of vector data that represents a set of uniform grid t
 
 To reflect different content stages, you can create multiple tilesets from the same dataset. For example, you can make one tileset with furniture and equipment, and another tileset without furniture and equipment. You might choose to generate one tileset with the most recent data updates, and another tileset without the most recent data updates.
 
-In addition to the vector data, the tileset provides metadata for map rendering optimization. For example, tileset metadata contains a minimum and maximum zoom level for the tileset. The metadata also provides a bounding box that defines the geographic extent of the tileset. An application can use a bounding box to programmatically set the correct center point. For more information about tileset metadata, see [Tileset List API](/rest/api/maps/v2/tileset/listpreview).
+In addition to the vector data, the tileset provides metadata for map rendering optimization. For example, tileset metadata contains a minimum and maximum zoom level for the tileset. The metadata also provides a bounding box that defines the geographic extent of the tileset. An application can use a bounding box to programmatically set the correct center point. For more information about tileset metadata, see [Tileset List API](/rest/api/maps/v2/tileset/list).
 
 After a tileset is created, it can be retrieved by the [Render V2 service](#render-v2-get-map-tile-api).
 
@@ -100,9 +100,9 @@ If a tileset becomes outdated and is no longer useful, you can delete the tilese
 
 Feature statesets are collections of dynamic properties (*states*) that are assigned to dataset features, such as rooms or equipment. An example of a *state* can be temperature or occupancy. Each *state* is a key/value pair that contains the name of the property, the value, and the timestamp of the last update.
 
-You can use the [Feature State service](/rest/api/maps/v2/featurestate/createstatesetpreview) to create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
+You can use the [Feature State service](/rest/api/maps/v2/feature-state/create-stateset) to create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
 
-The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications.  For example, using the [Feature State Update API](/rest/api/maps/v2/featurestate/updatestatespreview), devices measuring space occupancy can systematically post the state change of a room.
+The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications.  For example, using the [Feature State Update API](/rest/api/maps/v2/feature-state/update-states), devices measuring space occupancy can systematically post the state change of a room.
 
 An application can use a feature stateset to dynamically render features in a facility according to their current state and respective map style. For more information about using feature statesets to style features in a rendering map, see [Indoor Maps module](#indoor-maps-module).
 
