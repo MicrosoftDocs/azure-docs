@@ -68,7 +68,7 @@ Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge nod
 **Azure Digital Twins**: Azure Digital Twins enables device sensors to be modeled in their business context considering spatial relationships, usage patterns, and other business context that turns a fleet of devices into a digital replica of a physical asset or environment. For more information, see [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/).
 
 ## Next steps
-- Learn more about [Metaswitch Fusion Core](metaswitch-overview.md)
-- Learn more about [Affirmed Private Network Service](affirmed-overview.md)
+- Learn more about [Metaswitch Fusion Core](metaswitch-fusion-core-overview.md)
+- Learn more about [Affirmed Private Network Service](affirmed-private-network-service-overview.md)
 
 

@@ -34,7 +34,7 @@ To deploy APNS, you must have the following resources:
 
 - An Administrative username/password to program during the deployment 
     
-## Deploying APNS
+## Deploy APNS
 
 To automatically deploy the APNS Managed application with all required resources and relevant information necessary, select the APNS Managed Application from the Microsoft Azure Marketplace. When you deploy APNS, all the required resources are automatically created for you and are contained in a Managed Resource Group. 
 
@@ -51,4 +51,5 @@ Complete the following procedure to deploy APNS:
 ## Next steps
 
 - For step-by-step instructions for deploying APNS and configuring NetFoundry settings on an Azure Stack Edge device, view the Affirmed Private Network Service Deployment guide.
-- For information regarding the programmatic GUI-driven portal that operators used to deploy, monitor, and manage private mobile core networks, Affirmed Private Network Service Manager User guide. 
+- For information regarding the programmatic GUI-driven portal that operators used to deploy, monitor, and manage private mobile core networks, Affirmed Private Network Service Manager User guide.
+- Learn more about [Affirmed Private Network Service on Azure](affirmed-private-network-service-overview.md)
