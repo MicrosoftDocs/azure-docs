@@ -285,9 +285,6 @@
       - name: Deny Public Network Access
         href: howto-deny-public-network-access.md
         displayName: security, public access
-      - name: Configuring Azure Defender using Azure portal
-        href: howto-database-threat-protection-portal.md
-        displayName: atp, advanced thread, security
       - name: Configuring encryption with customer managed keys using Azure portal
         href: howto-data-encryption-portal.md
         displayName: encryption, security
