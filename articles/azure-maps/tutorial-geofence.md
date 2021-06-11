@@ -20,7 +20,7 @@ This tutorial walks you through the basics of creating and using Azure Maps geof
 Azure Maps provides a number of services to support the tracking of equipment entering and exiting the construction area. In this tutorial, you:
 
 > [!div class="checklist"]
-> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data%20v2/uploadpreview) to upload geofences as polygon coordinates to your Azure Maps account.
+> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data-v2/upload-preview) to upload geofences as polygon coordinates to your Azure Maps account.
 > * Set up two [logic apps](../event-grid/handler-webhooks.md#logic-apps) that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
 > * Use [Azure Event Grid](../event-grid/overview.md) to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
 > * Use [Search Geofence Get API](/rest/api/maps/spatial/getgeofence) to receive notifications when a piece of equipment exits and enters the geofence areas.
@@ -37,7 +37,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCollection`. The `FeatureCollection` contains two geofences that define polygonal areas within the construction site. The first geofence has no time expiration or restrictions. The second one can only be queried against during business hours (9:00 AM-5:00 PM in the Pacific Time zone), and will no longer be valid after January 1, 2022. For more information on the GeoJSON format, see [Geofencing GeoJSON data](geofence-geojson.md).
 
 >[!TIP]
->You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data%20v2/uploadpreview).
+>You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data-v2/upload-preview).
 
 1. Open the Postman app. Near the top, select **New**. In the **Create New** window, select **Collection**. Name the collection and select **Create**.
 
