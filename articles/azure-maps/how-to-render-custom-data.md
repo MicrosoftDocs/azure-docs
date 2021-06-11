@@ -58,7 +58,7 @@ To render pushpins with labels and a custom image, complete these steps:
 > [!Note]
 > The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
 
-You can also obtain the path and pin location information by using the [Data Upload API](/rest/api/maps/data%v2/uploadpreview/). Follow the steps below to upload the path and pins data.
+You can also obtain the path and pin location information by using the [Data Upload API](/rest/api/maps/data-v2/upload-preview). Follow the steps below to upload the path and pins data.
 
 1. In the Postman app, open a new tab in the collection you created in the previous section. Select the POST HTTP method on the builder tab and enter the following URL to make a POST request:
 
