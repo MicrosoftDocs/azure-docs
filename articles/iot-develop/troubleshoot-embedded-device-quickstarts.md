@@ -62,7 +62,7 @@ CMake Warning in C:/embedded quickstarts/areallyreallyreallylongpath/getting-sta
 
 You can try one of the following options to resolve this error:
 * Clone the repository into a directory with a shorter path name and try again.
-* Follow the instructions in [Maximum Path Length Limitation](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) to enable long paths in Windows 10, version 1607, and later.
+* Follow the instructions in [Maximum Path Length Limitation](/windows/win32/fileio/maximum-file-path-limitation) to enable long paths in Windows 10, version 1607 and later.
 
 ## Issue: Device can't connect to Iot hub
 
