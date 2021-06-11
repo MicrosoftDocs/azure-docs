@@ -399,17 +399,17 @@ For the SAP BOBI application server to access a database, it requires database c
 
 ## Server preparation
 
-The steps in this section use the following prefixes:
+The steps in this section use the following prefix:
 
 **[A]**: The step applies to all hosts.
 
-1. **[A]** Based on the flavor of Linux (SLES or RHEL), you need to set kernel parameters and install required libraries. Refer to **System requirements** section in [Business Intelligence Platform Installation Guide for Unix](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3).
+1. **[A]** Based on the flavor of Linux (SLES or RHEL), you need to set kernel parameters and install required libraries. Refer to the "System requirements" section in [Business Intelligence Platform Installation Guide for Unix](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3).
 
-2. **[A]** Ensure the time zone on your machine is set correctly. Refer to [Additional Unix and Linux requirements section](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/46b143336e041014910aba7db0e91070.html) in Installation Guide.
+2. **[A]** Ensure that the time zone on your machine is set correctly. In the Installation Guide, see [Additional Unix and Linux requirements](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/46b143336e041014910aba7db0e91070.html).
 
-3. **[A]** Create user account (**bl1**adm) and group (sapsys) under which the software's background processes can run. Use this account to execute the installation and run the software. The account doesn't require root privileges.
+3. **[A]** Create user account (**bl1**adm) and group (sapsys) under which the software's background processes can run. Use this account to run the installation and the software. The account doesn't require root privileges.
 
-4. **[A]** Set user account (**bl1**adm) environment to use a supported UTF-8 locale and ensure that your console software supports UTF-8 character sets. To ensure that your operating system uses the correct locale, set the LC_ALL and LANG environment variables to your preferred locale in your (**bl1**adm) user environment.
+4. **[A]** Set the user account (**bl1**adm) environment to use a supported UTF-8 locale, and ensure that your console software supports UTF-8 character sets. To ensure that your operating system uses the correct locale, set the `LC_ALL` and `LANG` environment variables to your preferred locale in your (**bl1**adm) user environment.
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -447,11 +447,11 @@ The steps in this section use the following prefixes:
    file locks                      (-x) unlimited
    ```
 
-6. Download and extract media for SAP BusinessObjects BI Platform from SAP Service Marketplace.
+6. Download and extract media for SAP BusinessObjects BI platform from SAP Service Marketplace.
 
 ## Installation
 
-Check locale for user account **bl1**adm on the server
+Check the locale for user account **bl1**adm on the server:
 
 ```bash
 bl1adm@azusbosl1:~> locale
@@ -459,39 +459,39 @@ LANG=en_US.utf8
 LC_ALL=en_US.utf8
 ```
 
-Navigate to media of SAP BusinessObjects BI Platform and run below command with **bl1**adm user -
+Go to the media of SAP BOBI platform, and run the following command with **bl1**adm user:
 
 ```bash
 ./setup.sh -InstallDir /usr/sap/BL1
 ```
 
-Follow [SAP BOBI Platform](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM) Installation Guide for Unix, specific to your version. Few points to note while installing SAP BOBI Platform.
+Follow the [SAP BOBI platform](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM) Installation Guide for Unix, specific to your version. Here are a few points to note while you're installing the SAP BOBI platform:
 
-- On **Configure Product Registration** screen, you can either use temporary license key for SAP BusinessObjects Solutions from SAP Note [1288121](https://launchpad.support.sap.com/#/notes/1288121) or can generate license key in SAP Service Marketplace
+- On **Configure Product Registration**, you can either use a temporary license key for SAP BusinessObjects Solutions from SAP Note [1288121](https://launchpad.support.sap.com/#/notes/1288121), or you can generate a license key in SAP Service Marketplace.
 
-- On **Select Install Type** screen, select **Full** installation on first server (azusbosl1), for other server (azusbosl2) select **Custom / Expand** which will expand the existing BOBI setup.
+- On **Select Install Type**, select **Full** installation on the first server (`azusbosl1`). For the other server (`azusbosl2`), select **Custom / Expand**, which will expand the existing BOBI setup.
 
-- On **Select Default or Existing Database** screen, select **configure an existing database**, which will prompt you to select CMS and Audit database. Select **MySQL** for CMS Database type and Audit Database type.
+- On **Select Default or Existing Database**, select **configure an existing database**, which will prompt you to select CMS and audit databases. Select **MySQL** for these database types.
 
-  You can also select No auditing database, if you don’t want to configure auditing during installation.
+  You can also select **No auditing database**, if you don’t want to configure auditing during installation.
 
-- Select appropriate options on **Select Java Web Application Server screen** based on your SAP BOBI architecture. In this example, we have selected option 1, which installs tomcat server on the same SAP BOBI Platform.
+- On **Select Java Web Application Server screen**, select appropriate options based on your SAP BOBI architecture. In this example, we have selected option 1, which installs a tomcat server on the same SAP BOBI Platform.
 
-- Enter CMS database information in **Configure CMS Repository Database - MySQL**. Example input for CMS database information for Linux installation. Azure Database for MySQL is used on default port 3306
+- Enter CMS database information in **Configure CMS Repository Database - MySQL**. The following example shows input for CMS database information for a Linux installation. Azure Database for MySQL is used on default port 3306.
   
-  ![SAP BOBI Deployment on Linux - CMS Database](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cms.png)
+  ![Screenshot that shows SAP BOBI Deployment on Linux - CMS Database.](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cms.png)
 
-- (Optional) Enter Audit database information in **Configure Audit Repository Database - MySQL**. Example input for Audit database information for Linux installation.
+- (Optional) Enter audit database information in **Configure Audit Repository Database - MySQL**. The following example shows input for audit database information for a Linux installation.
 
-  ![SAP BOBI Deployment on Linux - Audit Database](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-audit.png)
+  ![Screenshot that shows SAP BOBI Deployment on Linux - Audit Database.](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-audit.png)
 
 - Follow the instructions and enter required inputs to complete the installation.
 
-For multi-instance deployment, run the installation setup on second host (azusbosl2). During **Select Install Type** screen, select **Custom / Expand** which will expand the existing BOBI setup.
+For multi-instance deployment, run the installation setup on a second host (`azusbosl2`). For  **Select Install Type**, select **Custom / Expand**, which will expand the existing BOBI setup.
 
-In Azure database for MySQL offering, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. So in Central Management Console (CMC), you'll find different database version that is basically the version set on gateway. Check [Supported Azure Database for MySQL server versions](../../../mysql/concepts-supported-versions.md) for more details.
+In Azure Database for MySQL, a gateway redirects the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. For more details, see [Supported Azure Database for MySQL server versions](../../../mysql/concepts-supported-versions.md).
 
-![SAP BOBI Deployment on Linux - CMC Settings](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cmc.png)
+![Screenshot that shows SAP BOBI Deployment on Linux - CMC Settings.](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cmc.png)
 
 ```sql
 # Run direct query to the database using MySQL Workbench
@@ -505,7 +505,7 @@ select version();
 +-----------+
 ```
 
-## Post installation
+## Post-installation
 
 After multi-instance installation of SAP BOBI Platform, additional post configuration steps need to be performed to support application high availability.
 
