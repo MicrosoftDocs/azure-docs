@@ -114,9 +114,9 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
 ### Add a VM
 
-Follow these steps to create a VM after you've created a VM image.
+Follow these steps to create a VM after you've created a VM image.<!--Use this portal: https://aka.ms/vmmayrelease-->
 
-1. On the **Overview** page, select **Add virtual machine**.
+1. On the **Virtual machines** page, select **Add virtual machine**.<!--RETEST: Earlier, this was available on Overview? Could be because I had just added a VM image.-->
 
     ![Screenshot that shows the Overview page and the Add virtual machine button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-1.png)
 
@@ -131,7 +131,8 @@ Follow these steps to create a VM after you've created a VM image.
     |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Username     | Use the default username **azureuser** for the admin to sign in to the VM.        |
     |Authentication type    | Choose from an SSH public key or a user-defined password.       |
-    |Password     | Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
+    |SSH public key | Displayed when you select the **SSH public key** authentication type. Paste in the SSH public key. |
+    |Password     | Displayed when you select the **Password** authentication type. Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
     |Confirm password    | Enter the password again.        |
 
 
