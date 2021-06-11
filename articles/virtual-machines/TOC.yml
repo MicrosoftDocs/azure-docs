@@ -1041,7 +1041,7 @@
         - name: Disk encryption troubleshooting
           href: ./linux/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./linux/disk-encryption-faq.md
+          href: ./linux/disk-encryption-faq.yml
         - name: Upgrade from previous to current version
           href: ./linux/disk-encryption-upgrade.md
         - name: Disk encryption - previous version
@@ -1074,7 +1074,7 @@
         - name: Disk encryption troubleshooting
           href: ./windows/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./windows/disk-encryption-faq.md
+          href: ./windows/disk-encryption-faq.yml
         - name: Disk encryption - previous version
           items:
           - name: Overview
