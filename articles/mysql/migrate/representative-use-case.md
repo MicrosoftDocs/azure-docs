@@ -4,9 +4,9 @@ description: "The following use case is based on a real-world customer scenario 
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: arthiaga
+author: arunkumarthiags
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
 ms.date: 05/25/2021
 ---

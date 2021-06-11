@@ -1,7 +1,7 @@
 ---
-title: "Image classification tutorial: Train models"
+title: "Tutorial: Train an example Jupyter Notebook"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to train an image classification model with scikit-learn in a Python Jupyter Notebook. This tutorial is part one of two. 
+description: Use Azure Machine Learning to train an image classification model with scikit-learn in a cloud-based Python Jupyter Notebook. This tutorial is part one of two. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,11 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 04/26/2021
-ms.custom: seodec18, devx-track-python
+ms.custom: seodec18, devx-track-python, contperf-fy21q4
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Tutorial: Train image classification models with MNIST data and scikit-learn 
+# Tutorial: Train an image classification model with an example Jupyter Notebook 
 
 In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter Notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
@@ -121,7 +121,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Connect to a workspace
 
-Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named `ws`:
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named `ws`.  The compute instance has a copy of this file saved in its root directory.  If you run the code elsewhere, you'll need to [create the file](how-to-configure-environment.md#workspace).
 
 ```python
 # load workspace configuration from the config.json file in the current folder.

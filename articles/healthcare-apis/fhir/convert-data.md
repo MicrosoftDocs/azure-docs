@@ -119,7 +119,7 @@ Change the status to **On** to enable managed identity in Azure API for FHIR.
 
 1. Select **Add**, and then select **Add role assignment** to open the Add role assignment page.
 
-1. Assign the [AcrPull](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#acrpull) role. 
+1. Assign the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role. 
 
    ![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
 
@@ -193,7 +193,7 @@ In the table below, you'll find the IP address for the Azure region where the Az
 
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document How to export FHIR data. For more information, see [Secure Export to Azure Storage](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage)
+> The above steps are similar to the configuration steps described in the document How to export FHIR data. For more information, see [Secure Export to Azure Storage](./export-data.md#secure-export-to-azure-storage)
 
 ### Verify
 

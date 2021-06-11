@@ -2,7 +2,7 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/03/2021
 ---
 
 # What is Bicep?
@@ -23,13 +23,14 @@ To learn about Bicep, see the following video.
 
 ## Get started
 
-To start with Bicep, [install the tools](./install.md).
+To start with Bicep:
 
-After installing the tools, try the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md). The tutorial series walks you through the structure and capabilities of Bicep.
+1. **Install the tools**. See [Set up Bicep development and deployment environments](./install.md). Alternatively, you can use [Bicep Playground](./decompile.md#side-by-side-view) to view Bicep and equivalent JSON side by side,  or use the [VS Code Devcontainer/Codespaces repo](https://github.com/Azure/vscode-remote-try-bicep) to get a pre-configured authoring environment.
+2. **Complete the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md) and the [Microsoft Learn Bicep modules](./learn-bicep.md)**.
 
-To view equivalent JSON and Bicep files side by side, see the [Bicep Playground](https://aka.ms/bicepdemo).
+To decompile an existing ARM template to Bicep, see [Decompile ARM templates to Bicep](./decompile.md).
 
-If you have an existing ARM template that you would like to decompile to Bicep, see [Decompile ARM templates to Bicep](./decompile.md).
+Additional Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/bicep/tree/main/docs/examples).
 
 ## Benefits of Bicep versus other tools
 

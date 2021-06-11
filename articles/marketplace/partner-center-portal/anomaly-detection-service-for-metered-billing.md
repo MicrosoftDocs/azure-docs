@@ -11,7 +11,7 @@ ms.date: 06/10/2020
 
 # Anomaly detection service for metered billing
 
-The [Marketplace metering service](marketplace-metering-service-apis-faq.md) lets you create offers in the commercial marketplace program that are charged according to non-standard units. With metered billing, you send usage events for your customer’s usage to Microsoft and we prepare the billing based on that usage.
+The [Marketplace metering service](../marketplace-metering-service-apis-faq.md) lets you create offers in the commercial marketplace program that are charged according to non-standard units. With metered billing, you send usage events for your customer’s usage to Microsoft and we prepare the billing based on that usage.
 
 Incorrect usage data could come from a variety of causes, such as bugs, misconfigurations in your consumption tracking, or fraud. Incorrect usage data would result in incorrect customer charges and billing disputes.
 
@@ -77,5 +77,5 @@ For more publisher support options, see [Support for the commercial marketplace 
 
 ## Next steps
 
-- Learn about the [Marketplace metering service API](marketplace-metering-service-apis.md).
+- Learn about the [Marketplace metering service API](../marketplace-metering-service-apis.md).
 - [Manage metered billing anomalies in Partner Center](../anomaly-detection.md)

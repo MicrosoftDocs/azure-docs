@@ -212,7 +212,7 @@ When you move a machine from one group to another, the application control polic
 
 ## Manage application controls via the REST API 
 
-To manage your adaptive application controls programatically, use our REST API. 
+To manage your adaptive application controls programmatically, use our REST API. 
 
 The relevant API documentation is available in [the Adaptive Application Controls section of Security Center's API docs](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
