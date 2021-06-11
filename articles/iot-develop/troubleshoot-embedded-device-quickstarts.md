@@ -26,9 +26,9 @@ All the troubleshooting steps require that you've completed the following prereq
 * You created an Azure IoT hub or Azure IoT Central application, and registered a device, as directed in the quickstart.
 * You built an image for the device, as directed in the quickstart.
 
-## Issue: The source directory does not contain CMakeLists.txt file
+## Issue: The source directory doesn't contain CMakeLists.txt file
 ### Description
-This issue can occur when you attempt to build the project. It is the result of the project being incorrectly cloned from GitHub. The project contains multiple submodules that will not be cloned by default unless the **--recursive** flag is used.
+This issue can occur when you attempt to build the project. It's the result of the project being incorrectly cloned from GitHub. The project contains multiple submodules that won't be cloned by default unless the **--recursive** flag is used.
 
 ### Resolution
 * When you clone the repository using Git, confirm that the **--recursive** option is present.
@@ -95,9 +95,9 @@ After you flash a device that uses a Wi-Fi connection and try to connect to your
 
 You can't complete the process of flashing your device. You'll know this if you experience any of the following symptoms:
 
-* The **.bin* image file that you built does not copy to the device.
+* The **.bin* image file that you built doesn't copy to the device.
 * The utility that you're using to flash the device gives a warning or error.
-* The utility that you're using to flash the device does not say that programming completed successfully.
+* The utility that you're using to flash the device doesn't say that programming completed successfully.
 
 ### Resolution
 
