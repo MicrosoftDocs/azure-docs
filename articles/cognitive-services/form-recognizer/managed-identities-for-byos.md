@@ -88,7 +88,7 @@ There are two types of managed identity assignments:
 
  :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
 
-You have completed the steps to enable a service-assigned managed identity. With this identity credential you can grant specific access rights to a single Azure service. If you need to assign a managed identity to  multiple Azure services, you'll need to create a user-assigned managed identity.
+You have completed the steps to enable a service-assigned managed identity. With this identity credential, you can grant specific access rights to a single Azure service. If you need to assign a managed identity to  multiple Azure services, you'll need to create a user-assigned managed identity.
 
 ### Create a user-assigned managed identity in the Azure portal
 
@@ -102,7 +102,7 @@ You have completed the steps to enable a service-assigned managed identity. With
 
 1. In the search box, type **Managed Identities** and under **Services** select **Managed Identities**.
 
-1. On the Managed Identities page select the **&plus; Create** tab or the **Create managed identity** button.
+1. On the Managed Identities page, select the **&plus; Create** tab or the **Create managed identity** button.
 
     :::image type="content" source="media/managed-identities/create-managed-identity-in-portal.png" alt-text="Screenshot: create Managed Identities page in the Azure portal.":::
 
