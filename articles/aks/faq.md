@@ -46,6 +46,12 @@ Azure automatically applies security patches to the Linux nodes in your cluster 
 
 For Windows Server nodes, Windows Update does not automatically run and apply the latest updates. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the cluster and the Windows Server node pool(s) in your AKS cluster. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
+### Are there additional security threats relevant to AKS that customers should be aware of?
+
+Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Azure Security Center](https://azure.microsoft.com/services/security-center/). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
+
+* [New large-scale campaign targets Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - June 8, 2021
+
 ## Why are two resource groups created with AKS?
 
 AKS builds upon a number of Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. This enables you to leverage many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.

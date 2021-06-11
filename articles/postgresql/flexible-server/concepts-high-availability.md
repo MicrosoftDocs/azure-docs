@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 06/07/2021
 ---
 
 # High availability concepts in Azure Database for PostgreSQL - Flexible Server
@@ -80,7 +80,26 @@ After the failover, while a new standby server is being provisioned, application
 3. Standby server is established in the same zone as the old primary server and the streaming replication is initiated. 
 4. Once the steady-state replication is established, the client application commits and writes are acknowledged after the data is persisted on both the sites.
 
- 
+## On-demand failover
+
+Flexible server provides two methods for you to perform on-demand failover to the standby server. These are useful if you want to test the failover time and downtime impact for your applications and if you want to failover to the preferred availability zone. 
+
+* **Forced failover**: You can use this option to simulate an unplanned outage scenario. This triggers a fault in the primary server and brings the primary server down. Applications loses connectivity to the server. The failover workflow is triggered which initiates the standby promote operation. Once the standby is all caught up with all transactions, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background.
+
+* **Planned failover**: This option is for failing over to the standby server with reduced downtime. The standby server is first prepared to make sure it is caught up with recent transactions. The standby is then promoted and the connections to the primary is severed. DNS record is updated and the applications can connect to the  newly promoted server.  Your application can continue to write to the primary while a new standby server is established in the background. As the application continues to write to the primary server while the standby is being prepared, this method of failover provides reduced downtime experience. 
+
+>[!NOTE]
+> It is recommended to perform planned failover during low activity period.
+
+>[!IMPORTANT] 
+> * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
+> 
+> * The overall end-to-end operation time may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
+
+See [this guide](how-to-manage-high-availability-portal.md) for step-by-step instructions.
+
+
+
 ## Point-in-time restore 
 
 Flexible servers that are configured with high availability, log data is replicated in real time to the standby server. Any user errors on the primary server - such as an accidental drop of a table or incorrect data updates are replicated to the standby replica as well. So, you cannot use standby to recover from such logical errors. To recover from such errors, you have to perform point-in-time restore from the backup.  Using flexible server's point-in-time restore capability, you can restore to the time before the error occurred. For databases configured with high availability, a new database server will be restored as a single zone flexible server with a new user-provided server name. You can use the restored server for few use cases:

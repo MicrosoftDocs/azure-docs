@@ -117,15 +117,15 @@ To create and run a new scan, do the following:
 
 1. Select the credential to connect to your data source.
 
-   :::image type="content" source="media/register-scan-on-premises-sql-server/prem-sql-set-up-scan.png" alt-text="Set up scan":::
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-set-up-scan.png" alt-text="Set up scan":::
 
 1. You can scope your scan to specific tables by choosing the appropriate items in the list.
 
-   :::image type="content" source="media/register-scan-on-premises-sql-server/prem-sql-scope-your-scan.png" alt-text="Scope your scan":::
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scope-your-scan.png" alt-text="Scope your scan":::
 
 1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
 
-   :::image type="content" source="media/register-scan-on-premises-sql-server/prem-sql-scan-rule-set.png" alt-text="Scan rule set":::
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scan-rule-set.png" alt-text="Scan rule set":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 

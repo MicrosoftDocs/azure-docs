@@ -6,7 +6,7 @@ services: cognitive-services
 author: rwaller
 manager: guillasi
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 07/22/2019
