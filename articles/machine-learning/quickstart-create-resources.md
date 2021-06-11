@@ -14,7 +14,7 @@ ms.custom: contperf-fy21q4
 # Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
-# Quickstart: Create workspace resources you'll need to get started with Azure Machine Learning
+# Quickstart: Create workspace resources you need to get started with Azure Machine Learning
 
 In this quickstart, you'll create a workspace and then add compute resources to the workspace. You'll then have everything you need to get started with Azure Machine Learning.  
 
