@@ -47,7 +47,7 @@
   items:
   - name: Troubleshoot
     items:
-      - name: Troubleshoot quickstarts
+      - name: Troubleshoot embedded quickstarts
         href: troubleshoot-embedded-device-quickstarts.md
 - name: Reference
   items:
