@@ -1,7 +1,7 @@
 ---
-title: Create automated ML classification models
+title: 'Tutorial: AutoML- train no-code classification models'
 titleSuffix: Azure Machine Learning
-description: Train & deploy classification models without writing code, using Azure Machine Learning's automated machine learning (automated ML) interface.
+description: Train a classification model without writing a single line of code using Azure Machine Learning automated ML in the studio UI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,15 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 12/21/2020
+ms.date: 06/11/2021
 ms.custom: automl
+
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
-# Tutorial: Create a classification model with automated ML in Azure Machine Learning
+# Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio
 
-Learn how to create a [simple classification model](concept-automated-ml.md#classification) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
+Learn how to train a classification model with no-code AutoML using Azure Machine Learning automated ML in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
@@ -31,7 +32,7 @@ You won't write any code in this tutorial, you'll use the studio interface to pe
 Also try automated machine learning for these other model types:
 
 * For a no-code example of forecasting, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
-* For a code first example of a regression model, see the [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
+* For a code first example of a regression model, see the [Tutorial: Regression model with AutoML](tutorial-auto-train-models.md).
 
 ## Prerequisites
 
