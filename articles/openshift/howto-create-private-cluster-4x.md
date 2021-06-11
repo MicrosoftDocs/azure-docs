@@ -37,13 +37,19 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
     az provider register -n Microsoft.RedHatOpenShift --wait
     ```
 
-1. Register the `Microsoft.Compute` resource provider:
+1. Register the `Microsoft.Compute` resource provider (if you haven't already):
 
     ```azurecli-interactive
     az provider register -n Microsoft.Compute --wait
     ```
 
-1. Register the `Microsoft.Storage` resource provider:
+1. Register the `Microsoft.Network` resource provider (if you haven't already):
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Network --wait
+    ```
+
+1. Register the `Microsoft.Storage` resource provider (if you haven't already):
 
     ```azurecli-interactive
     az provider register -n Microsoft.Storage --wait
