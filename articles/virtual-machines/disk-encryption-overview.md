@@ -24,7 +24,7 @@ There are several types of encryption available for your managed disks, includin
 
 Here is a comparison of SSE, ADE, and encryption at host.
 
-| | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | ASC disk encryption status |
+| | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | Azure Security Center disk encryption status |
 |--|--|--|--|--|--|--|
 | **Encryption at rest with platform-managed key (SSE+PMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#10060; | Unhealthy, not applicable if exempt |
 | **Encryption at rest with customer-managed key (SSE+CMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; | Unhealthy, not applicable if exempt |
@@ -40,4 +40,4 @@ Here is a comparison of SSE, ADE, and encryption at host.
 - [Azure Disk Encryption for Windows VMs](./windows/disk-encryption-overview.md)
 - [Server-side encryption of Azure Disk Storage](./disk-encryption.md)
 - [Encryption at host](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
-- [Azure Security Fundamentals - Azure encryption overview](../security/fundamentals/encryption-overview.md)
+- [Azure Security Fundamentals - Azure encryption overview](../security/fundamentals/asc-overview.md)
