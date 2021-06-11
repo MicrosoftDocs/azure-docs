@@ -146,7 +146,8 @@ In this section, you'll create a .NET Core console application that receives mes
 
 1. In the Solution Explorer window, right-click the **ServiceBusTopicQuickStart** solution, point to **Add**, and select **New Project**. 
 1. Select **Console application**, and select **Next**. 
-1. Enter **SubscriptionReceiver** for the **Project name**, and select **Create**. 
+1. Enter **SubscriptionReceiver** for the **Project name**, and select **Next**. 
+1. On the **Additional information** page, select **Create**. 
 1. In the **Solution Explorer** window, right-click **SubscriptionReceiver**, and select **Set as a Startup Project**. 
 
 ### Add the Service Bus NuGet package
@@ -195,7 +196,6 @@ In this section, you'll create a .NET Core console application that receives mes
 
         // the processor that reads and processes messages from the subscription
         static ServiceBusProcessor processor;
-
     ```
 1. Add the following methods to the `Program` class that handle messages and any errors. 
 
@@ -217,34 +217,7 @@ In this section, you'll create a .NET Core console application that receives mes
             return Task.CompletedTask;
         }
     ```
-1. Add a method named `ReceiveMessagesFromSubscription` to the `Program` class, and add the following code to receive messages from the subscription to the Service Bus topic. 
-
-    ```csharp
-        static async Task ReceiveMessagesFromSubscription()
-        {
-            // add handler to process messages
-            processor.ProcessMessageAsync += MessageHandler;
-
-            // add handler to process any errors
-            processor.ProcessErrorAsync += ErrorHandler;
-
-            // start processing 
-            await processor.StartProcessingAsync();
-
-            Console.WriteLine("Wait for a minute and then press any key to end the processing");
-            Console.ReadKey();
-
-            // stop processing 
-            Console.WriteLine("\nStopping the receiver...");
-            await processor.StopProcessingAsync();
-            Console.WriteLine("Stopped receiving messages");
-        }
-    ```
-
-    Here are the important steps from the code:
-    1. Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the `ServiceBusProcessor` object. 
-    1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the `ServiceBusProcessor` object. 
-1. Replace the `Main()` method. It calls the `ReceiveMessages` method to receive messages from the subscription. 
+1. Replace the `Main()` method. 
 
     ```csharp
         static async Task Main()
@@ -261,8 +234,22 @@ In this section, you'll create a .NET Core console application that receives mes
 
             try
             {
-                // receive messages from the subscription
-                await ReceiveMessagesFromSubscription();
+                // add handler to process messages
+                processor.ProcessMessageAsync += MessageHandler;
+    
+                // add handler to process any errors
+                processor.ProcessErrorAsync += ErrorHandler;
+    
+                // start processing 
+                await processor.StartProcessingAsync();
+    
+                Console.WriteLine("Wait for a minute and then press any key to end the processing");
+                Console.ReadKey();
+    
+                // stop processing 
+                Console.WriteLine("\nStopping the receiver...");
+                await processor.StopProcessingAsync();
+                Console.WriteLine("Stopped receiving messages");
             }
             finally
             {
