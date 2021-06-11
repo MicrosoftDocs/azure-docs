@@ -34,7 +34,7 @@ To deploy APNS, you must have the following resources:
 
 - An Administrative username/password to program during the deployment 
     
-## Deploying APNS
+## Deploy APNS
 
 To automatically deploy the APNS Managed application with all required resources and relevant information necessary, select the APNS Managed Application from the Microsoft Azure Marketplace. When you deploy APNS, all the required resources are automatically created for you and are contained in a Managed Resource Group. 
 
