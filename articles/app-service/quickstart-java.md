@@ -38,13 +38,13 @@ adobe-target-content: ./quickstart-java-uiex
 
 Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project.
 
-```bash
+```azurecli-interactive
 git clone https://github.com/spring-guides/gs-spring-boot
 ```
 
 Change directory to the completed project.
 
-```bash
+```azurecli-interactive
 cd gs-spring-boot/complete
 ```
 
@@ -52,13 +52,13 @@ cd gs-spring-boot/complete
 
 Execute the following Maven command in the Cloud Shell prompt to create a new app named `helloworld`:
 
-```bash
+```azurecli-interactive
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 Then change your working directory to the project folder:
 
-```bash
+```azurecli-interactive
 cd helloworld
 ```
 
@@ -73,13 +73,13 @@ JBoss EAP is only available on the Linux version of App Service. Please select t
 
 Clone the Pet Store demo application.
 
-```bash
+```azurecli-interactive
 git clone https://github.com/agoncal/agoncal-application-petstore-ee7.git
 ```
 
 Change directory to the cloned project.
 
-```bash
+```azurecli-interactive
 cd agoncal-application-petstore-ee7
 ```
 
@@ -93,7 +93,7 @@ The deployment process to Azure App Service will use your Azure credentials from
 
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
-```bash
+```azurecli-interactive
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.16.0:config
 ```
 
@@ -289,13 +289,13 @@ Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-15
 
 The Maven plugin uses account credentials from the Azure CLI to deploy to App Services. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing.
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
 Then you can deploy your Java app to Azure using the following command.
 
-```bash
+```azurecli-interactive
 mvn package azure-webapp:deploy
 ```
 
