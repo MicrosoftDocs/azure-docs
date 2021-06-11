@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Designer - train a price prediction model '
+title: 'Tutorial: Designer - train a regression model to predict prices '
 titleSuffix: Azure Machine Learning
-description: Use the designer to train a machine learning model that predicts automobile prices using linear regression. This tutorial is part one of a two-part series.
+description: Use the designer to train a regression model that predicts car prices. This tutorial is part one of a two-part series.
 
 author: peterclu
 ms.author: peterlu
@@ -15,7 +15,7 @@ ms.custom: designer
 
 # Tutorial: Designer - train a price prediction model using linear regression
 
-In this two-part tutorial, you use the Azure Machine Learning designer to train and deploy a machine learning model that predicts the price of any car. The designer is a drag-and-drop feature that lets you create machine learning models without a single line of code.
+In this two-part tutorial, you use the Azure Machine Learning designer to train and deploy a regression model that predicts car prices. For more information on the designer, see [What is Azure Machine Learning designer](concept-designer.md).
 
 In part one of the tutorial, you learn how to:
 
