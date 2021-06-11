@@ -120,4 +120,4 @@ The specified deployment must have succeeded.
 ## Next steps
 
 - To understand complete and incremental modes, see [Azure Resource Manager deployment modes](deployment-modes.md).
-- To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+- To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](./syntax.md).

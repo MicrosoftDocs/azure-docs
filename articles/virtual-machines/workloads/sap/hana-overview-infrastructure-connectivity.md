@@ -11,19 +11,21 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
-ms.author: juergent
+ms.date: 6/1/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---
 
 # SAP HANA (Large Instances) deployment 
 
-This article assumes you've completed your purchase of SAP HANA on Azure (Large Instances) from Microsoft. Before reading this article, for general background, see [HANA Large Instances common terms](hana-know-terms.md) and [HANA Large Instances SKUs](hana-available-skus.md).
+In this article, we'll list the information you'll need to deploy SAP HANA Large Instances (otherwise known as BareMetal Infrastructure instances). First, for background, see:
+- [HANA Large Instances common terms](hana-know-terms.md)
+-  [HANA Large Instances SKUs](hana-available-skus.md)
 
 ## Required information
 
-Microsoft requires the following information to deploy HANA Large Instance units:
+You've purchased SAP HANA on Azure Large Instances from Microsoft and want to deploy. Microsoft will need the following information from you:
 
 - Customer name.
 - Business contact information (including email address and phone number).
@@ -34,7 +36,7 @@ Microsoft requires the following information to deploy HANA Large Instance units
 - For every Azure deployment region:
 	- A /29 IP address range for ER-P2P connections that connect Azure virtual networks to HANA Large Instances.
 	- A /24 CIDR Block used for the HANA Large Instances server IP pool.
-	- Optional when using [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md), reserve another /29 IP address range. The added range enables direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions. This particular range may not overlap with the IP address ranges you defined before.
+	- Optional when using [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md), reserve another /29 IP address range. The added range enables direct routing from on-premises to HANA Large Instance units. The added range also enables routing between HANA Large Instance units in different Azure regions. This particular range can't overlap with the IP address ranges you defined before.
 - The IP address range values used in the virtual network address space attribute of every Azure virtual network that connects to the HANA Large Instances.
 - Data for each HANA Large Instances system:
   - Desired hostname, ideally with a fully qualified domain name.
@@ -52,4 +54,4 @@ See the following articles in sequence to connect to the HANA Large Instances af
 
 1. [Connecting Azure VMs to HANA Large Instances](hana-connect-azure-vm-large-instances.md)
 2. [Connecting a VNet to HANA Large Instances ExpressRoute](hana-connect-vnet-express-route.md)
-3. [Additional network requirements (optional)](hana-additional-network-requirements.md)
+3. [More network requirements (optional)](hana-additional-network-requirements.md)

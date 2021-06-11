@@ -119,7 +119,7 @@ Check that the zipped file is secure, before you deploy it.
 
 3.  Verify the latest version of the appliance by comparing the hash values from the table above.
 
-Make sure the server meets the [hardware requirements](./migrate-appliance.md) for the chosen scenario (VMware/Hyper-V/Physical or other) and can connect to the required Azure URLs - [public](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity) and [government](./migrate-appliance.md#government-cloud-urls-for-private-link-connectivity) clouds.
+Make sure the server meets the [hardware requirements](./migrate-appliance.md) for the chosen scenario (VMware/Hyper-V/Physical or other) and can connect to the [required URLs](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity).
 
 
 #### Run the script

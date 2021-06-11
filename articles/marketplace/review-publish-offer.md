@@ -274,4 +274,4 @@ No user is shown for system processes that correspond to [validation and publish
 
 ## Next steps
 
-- [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
+- [Access analytic reports for the commercial marketplace in Partner Center](analytics.md)

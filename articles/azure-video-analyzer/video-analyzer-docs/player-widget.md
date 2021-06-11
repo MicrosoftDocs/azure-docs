@@ -40,7 +40,7 @@ In this section we will create a JWT token that we will use later in the documen
 > [!NOTE] 
 > If you are familiar with how to generate a JWT token based on either an RSA or ECC certificate then you can skip this section.
 
-1. Download the JWTTokenIssuer application located [here](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/jwt-token-issuer/readme.md).
+1. Download the JWTTokenIssuer application located [here](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/jwt-token-issuer/).
 
    > [!NOTE] 
    > For more information about configuring your audience values see this [article](./access-policies.md)
@@ -256,10 +256,15 @@ The package used to get the code into your application is an NPM package [here](
 npm install @azure/video-analyzer/widgets
 ```
 
-Or you can import it within your application code using:
+Or you can import it within your application code using this for Typescript:
 
 ```typescript
 import { Player } from '@video-analyzer/widgets';
+```
+
+Or this for Javascript if you want to create a player widget dynamically:
+```javascript
+<script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets@latest/dist/global.min.js"></script>
 ```
 
 If you use this method to import, you will need to programatically create the player object after the import is complete.  In the above example you added the module to the page using the `ava-player` HTML tag.  To create a player object through code, you can do the following in either JavaScript:
