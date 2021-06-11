@@ -32581,6 +32581,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/postgresql/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mariaDB/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/postgresql/concepts-compute-unit-and-storage.md",
       "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
       "redirect_document_id": false
@@ -44344,6 +44359,11 @@
       "source_path_from_root": "/articles/connectors/connectors-create-api-yammer",
       "redirect_url": "/connectors/yammer/",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
+      "redirect_url": "/connectors/todo/",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
