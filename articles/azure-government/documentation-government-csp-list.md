@@ -204,6 +204,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Inforeliance LLC](https://www.inforeliance.com/)|
 |[Infosys Public Services, Inc.](https://www.infosyspublicservices.com/)|
 |[InnovaSystems International](https://www.innovasi.com/)|
+|[Innovia Consulting](https://www.innovia.com/)|
 |[Inquisit, LLC](https://www.inquisitllc.com)|
 |[InsITe Business Solutions Inc.](https://trustedinsite.com/)|
 |[Inspired Technologies](https://www.inspired-tech.net)|
@@ -265,7 +266,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Neovera Inc.](https://www.neovera.com)|
 |[Netwize](https://www.netwize.com)|
 |[NewWave Telecom & Technologies, Inc](https://www.newwave.io)|
-|[NexustTek](https://www.nexustek.com/)|
+|[NexusTek](https://www.nexustek.com/)|
 |[Nihilent Inc](https://nihilent.com)|
 |[Nimbus Logic LLC](https://www.nimbus-logic.com)|
 |[Norseman, Inc](https://www.norseman.com)|
@@ -375,7 +376,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Sumo Logic](https://www.sumologic.com/)|
 |[SWC Technology Partners](https://www.swc.com)|
 |[Sybatech, Inc](https://www.sybatech.com)|
-|[Synergy Technical, LLC](https://www.syntechva.com/)|
+|[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
 |[Systems Solutions Inc](https://www.ssi-net.com/)|

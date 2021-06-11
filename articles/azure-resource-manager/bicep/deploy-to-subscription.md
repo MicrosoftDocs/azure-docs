@@ -135,7 +135,7 @@ targetScope = 'subscription'
 // resource group created in target subscription
 resource exampleResource 'Microsoft.Resources/resourceGroups@2020-10-01' = {
   ...
-} 
+}
 ```
 
 For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
@@ -156,7 +156,7 @@ module exampleModule 'module.bicep' = {
 
 ### Scope to resource group
 
-To deploy resources to a resource group within the subscription, add a module and set its `scope` property. If the resource group already exists, use the [resourceGroup function](bicep-functions-scope.md#resourcegroup) to set the scope value.
+To deploy resources to a resource group within the subscription, add a module and set its `scope` property. If the resource group already exists, use the [resourceGroup function](bicep-functions-scope.md#resourcegroup) to set the scope value. Provide the resource group name.
 
 ```bicep
 targetScope = 'subscription'

@@ -1,12 +1,12 @@
-- name: Windows Virtual Desktop
+- name: Azure Virtual Desktop
   href: index.yml
 - name: Overview
   items:
-  - name: What is Windows Virtual Desktop?
+  - name: What is Azure Virtual Desktop?
     href: overview.md
   - name: What's new?
     href: whats-new.md
-  - name: Windows Virtual Desktop (classic) documentation
+  - name: Azure Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
   items:
@@ -22,7 +22,7 @@
   items:
   - name: Migrate manually
     href: manual-migration.md
-  - name: Connect to Windows Virtual Desktop resources
+  - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
         href: connect-windows-7-10.md
@@ -76,7 +76,7 @@
         href: configure-host-pool-load-balancing.md
       - name: Personal desktop assignment type
         href: configure-host-pool-personal-desktop-assignment-type.md
-  - name: Use Windows Virtual Desktop license
+  - name: Use Azure Virtual Desktop license
     href: apply-windows-license.md
   - name: Customize session host image
     items:
@@ -109,7 +109,7 @@
         - name: Set up the MSIXMGR tool
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
-    href: teams-on-wvd.md
+    href: teams-on-avd.md
   - name: Set up Azure AD Multi-Factor Authentication
     href: set-up-mfa.md
   - name: Configure AD FS single sign-on
@@ -122,7 +122,7 @@
     href: azure-advisor.md
   - name: Resolve recommendations
     href: azure-advisor-recommendations.md
-  - name: Use Azure Monitor for Windows Virtual Desktop
+  - name: Use Azure Monitor for Azure Virtual Desktop
     href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
@@ -142,9 +142,9 @@
     href: rbac.md
   - name: Authentication
     href: authentication.md
-  - name: Windows Virtual Desktop environment
+  - name: Azure Virtual Desktop environment
     href: environment-setup.md
-  - name: Windows Virtual Desktop Agent
+  - name: Azure Virtual Desktop Agent
     href: agent-overview.md
   - name: Network connectivity
     items:
@@ -162,7 +162,7 @@
         href: proxy-server-support.md
       - name: Determine user connection latency
         href: connection-latency.md
-  - name: Delegated access in Windows Virtual Desktop
+  - name: Delegated access in Azure Virtual Desktop
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
@@ -170,7 +170,7 @@
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md
-  - name: Windows Virtual Desktop FAQ
+  - name: Azure Virtual Desktop FAQ
     href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.yml
@@ -202,11 +202,11 @@
     href: troubleshoot-vm-configuration.md
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection.md
-  - name: Windows Virtual Desktop Agent
+  - name: Azure Virtual Desktop Agent
     href: troubleshoot-agent.md
   - name: Remote Desktop client issues
     href: troubleshoot-client.md
-  - name: Windows Virtual Desktop PowerShell
+  - name: Azure Virtual Desktop PowerShell
     href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
