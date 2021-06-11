@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting 
-ms.date: 05/24/2021
+ms.date: 06/10/2021
 ---
 
 
@@ -105,6 +105,43 @@ Use the following rules to set parameters in the query, and for more detailed in
 For example:
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/set-parameter-in-query.png" alt-text="Screenshot that shows the set parameter in the query."::: 
+
+### Support the map type in the source
+
+#### Symptoms
+ In data flow activities, when you try to use the map data type in the Cosmos DB or JSON source, it cannot be directly supported so you cannot get the map data type under "Import projection".
+
+#### Cause
+For Cosmos DB and JSON, they are schema free connectivity and their related spark connector uses sample data to infer the schema, and then use that schema as the Cosmos DB/JSON source schema. When inferring the schema, the Cosmos DB/JSON spark connector can only infer object data as a struct rather than a map data type, and that's why the map type cannot be directly supported.
+
+#### Recommendation 
+To solve this issue, refer to the following examples and steps to manually update the script (DSL) of the Cosmos DB/JSON source to get the map data type support.
+
+**Examples**:
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/script-example.png" alt-text="Screenshot that shows examples of updating the script (DSL) of the Cosmos DB/JSON source." lightbox="./media/data-flow-troubleshoot-connector-format/script-example.png"::: 
+    
+**Step-1**: Open the script of the data flow activity.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/open-script.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." ::: 
+    
+**Step-2**: Update the DSL to get the map type support by referring to the up examples.
+
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/update-dsl.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." ::: 
+
+>[!Note]
+>The ADF data flow has the UX improvement to support you editing the schema under "Import projection" to get the map type support.
+>
+>**The map type support**:
+>|Type   |Is the map type supported?   |Comments|
+>|----------|-----------|------------|
+>|Excel, CSV  |No      |Both are tabular data sources with the primitive type, so there is no need to support the map type. |
+>|Orc, Avro |Yes |None.|
+>|JSON|Yes |The map type can not be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
+>|Cosmos DB |Yes |The map type can not be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
+>|Parquet |Yes |Today the complex data type is not supported on the parquet dataset, so you need to use the "Import projection" under the data flow parquet source to get the map type.|
+>|XML |No |None.|
+
 
 ## CDM
 
