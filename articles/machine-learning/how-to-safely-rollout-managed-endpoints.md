@@ -76,6 +76,8 @@ You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment cal
 
 In the deployment described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1`. To handle more traffic, the second version of the YAML file (`2-scale-blue.yml`) changes the value to `2`:
 
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/canary-declarative-flow/2-scale-blue.yml" range="29":::
+
 Update the deployment with:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
@@ -86,6 +88,8 @@ Update the deployment with:
 ## Deploy a new model, but send it no traffic yet
 
 To deploy your new model, add a new section to the `deployments` section of your configuration file, but specify in the `traffic` section that it should receive 0% of traffic. The file `3-create-green.yml` incorporates this change:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/canary-declarative-flow/3-create-green.yml" range="7,35-56":::
 
 Update the deployment: 
 
@@ -103,6 +107,8 @@ If you want to use a REST client to invoke the deployment directly without going
 
 Once you have tested your `green` deployment, the `4-flight-green.yml` file demonstrates how to serve some percentage of traffic by modifying the `traffic` configuration in the configuration file:
 
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/canary-declarative-flow/4-flight-green.yml" range="5-7":::
+
 Other than the highlighted lines, the configuration file is otherwise unchanged. Update your deployment with:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
@@ -113,6 +119,8 @@ Now, your `green` deployment will receive 10% of requests.
 
 Once you're satisfied that your `green` deployment is fully satisfactory, switch all traffic to it. The following snippet shows only the relevant code from the configuration file, which is otherwise unchanged:
 
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/canary-declarative-flow/5-full-green.yml" range="5-7":::
+
 And update the deployment: 
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
@@ -120,6 +128,8 @@ And update the deployment:
 ## Remove the old deployment
 
 Complete the swap-over to your new model by deleting the older `blue` deployment. The final configuration file looks like:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/canary-declarative-flow/6-delete-blue.yml" :::
 
 Update the deployment with:
 
