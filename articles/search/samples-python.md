@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 06/11/2021
 ---
 
 # Python code samples for Azure Cognitive Search
@@ -45,8 +45,9 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | Samples | Article |
 |---------|---------|
 | [quickstart](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart) | Source code for [Quickstart: Create a search index in Python](search-get-started-python.md). This article covers the basic workflow for creating, loading, and querying a search index using sample data. |
+| [search-website](https://github.com/azure-samples/azure-search-python-samples/tree/master/search-website) | Source code for [Tutorial: Add search to web apps](tutorial-python-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | Source code for [Tutorial: Use Python and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob-python.md). This article shows how to create a blob indexer with a cognitive skillset, where the skillset creates and transforms raw content to make it searchable or consumable. |
 | [AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill)  | Source code for [Example: Create a custom skill using Python](cognitive-search-custom-skill-python.md). This article demonstrates indexer and skillset integration with deep learning models in Azure Machine Learning. |
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=python&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?languages=python&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.

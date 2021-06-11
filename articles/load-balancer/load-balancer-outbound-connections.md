@@ -41,13 +41,14 @@ With outbound rules, you have full declarative control over outbound internet co
 
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
-
+>[!Important]
+> When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.
 
 ## Associating a VNet NAT to the subnet
 
 Virtual Network NAT  simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
-Using a VNet NAT is the best method for outbound connectivity as it is highly scalable, reliable and doesn't have the concerts with respect to SNAT port exhaustion.
+Using a VNet NAT is the best method for outbound connectivity as it is highly scalable, reliable and doesn't have the same concerns with respect to SNAT port exhaustion.
 
 For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](../virtual-network/nat-overview.md).
 
@@ -55,7 +56,7 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 
  | Associations | Method | IP protocols |
  | ---------- | ------ | ------------ |
- | Public load balancer or stand-alone | [SNAT (Source Network Address Translation)](#snat) </br> is not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
+ | Public IP on VM's NIC | [SNAT (Source Network Address Translation)](#snat) </br> is not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
  All traffic will return to the requesting client from the virtual machine's public IP address (Instance Level IP).
  

@@ -36,7 +36,7 @@ If you plan to use Azure Cosmos DB in provisioned throughput mode, use the [Azur
 
 The following screenshot shows the throughput and cost estimation by using the capacity calculator:
 
-:::image type="content" source="./media/plan-manage-costs/capacity-calculator-cost-estimate.png" alt-text="Cost estimate in Azure Cosmos DB capacity calculator":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode-sql-api.png" alt-text="Capacity planner basic mode" border="true":::
 
 ### <a id="estimating-serverless-costs"></a> Estimate serverless costs
 

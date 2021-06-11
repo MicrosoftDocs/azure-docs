@@ -70,7 +70,7 @@ If you accidentally deleted a file and want to restore it to the same machine (f
     ![Screenshot of Recover Data Wizard Browse and Recover Files page (restore to same machine) - Confirm Recovery Volume Unmount](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended up to a maximum of 24 hours in the case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
+    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended to a maximum of 7 days in  case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
     >
 
 ## Use Instant Restore to restore data to an alternate machine

@@ -4,10 +4,10 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 05/10/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Enable shared disk

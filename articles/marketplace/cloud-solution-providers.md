@@ -1,5 +1,5 @@
 ---
-title: Cloud Solution Provider - Microsoft commercial marketplace
+title: Cloud Solution Provider - Microsoft commercial marketplace - Azure
 description: Learn how to sell your offers through the Microsoft Cloud Solution Provider (CSP) program partner channel in the commercial marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -29,7 +29,7 @@ The following offers are eligible to be opted in to be sold by partners in the C
 
 ## How to configure an offer
 
-Configure the CSP program opt-in setting when you create the offer in Partner Center. [Learn more about the changing publisher experience](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Configure the CSP program opt-in setting when you create the offer in Partner Center.
 
 ### Partner Center opt-in
 

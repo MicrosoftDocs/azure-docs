@@ -22,11 +22,9 @@ The device bridge solution provisions several Azure resources into your Azure su
 
 ## Prerequisites
 
-To complete the steps in this how-to guide, you need an active Azure subscription.
+To complete the steps in this how-to guide, you need:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Custom application** template.
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## Overview
 

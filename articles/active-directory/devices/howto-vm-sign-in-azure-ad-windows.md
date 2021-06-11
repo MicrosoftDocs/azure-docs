@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 06/04/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,8 +27,7 @@ There are many security benefits of using Azure AD based authentication to login
 - With Conditional Access, configure policies to require multi-factor authentication and other signals such as low user and sign in risk before you can RDP to Windows VMs. 
 - Use Azure deploy and audit policies to require Azure AD login for Windows VMs and to flag use of no approved local account on the VMs.
 - Login to Windows VMs with Azure Active Directory also works for customers that use Federation Services.
-- Automate and scale Azure AD join with MDM auto enrollment with Intune of Azure Windows VMs that are part for your VDI deployments. MDM enrollment does not apply to Windows Server 2019 VM depolyments
-
+- Automate and scale Azure AD join with MDM auto enrollment with Intune of Azure Windows VMs that are part for your VDI deployments. Auto MDM enrollment requires Azure AD P1 license. Windows Server 2019 VMs do not support MDM enrollment.
 
 > [!NOTE]
 > Once you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join it to other domain like on-premises AD or Azure AD DS. If you need to do so, you will need to disconnect the VM from your Azure AD tenant by uninstalling the extension.
@@ -51,32 +50,27 @@ This feature is now available in the following Azure clouds:
 - Azure Government
 - Azure China
 
-
-
 ### Network requirements
 
 To enable Azure AD authentication for your Windows VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
 
 For Azure Global
-- https://enterpriseregistration.windows.net For device registration.
-- http://169.254.169.254 For Azure Instance Metadata Service endpoint.
-- https://login.microsoftonline.com For authentication flows.
-- https://pas.windows.net For Azure RBAC flows.
-
+- `https://enterpriseregistration.windows.net` - For device registration.
+- `http://169.254.169.254` - Azure Instance Metadata Service endpoint.
+- `https://login.microsoftonline.com` - For authentication flows.
+- `https://pas.windows.net` - For Azure RBAC flows.
 
 For Azure Government
-- https://enterpriseregistration.microsoftonline.us For device registration.
-- http://169.254.169.254 For Azure Instance Metadata Service.
-- https://login.microsoftonline.us For authentication flows.
-- https://pasff.usgovcloudapi.net For Azure RBAC flows.
-
+- `https://enterpriseregistration.microsoftonline.us` - For device registration.
+- `http://169.254.169.254` - Azure Instance Metadata Service.
+- `https://login.microsoftonline.us` - For authentication flows.
+- `https://pasff.usgovcloudapi.net` - For Azure RBAC flows.
 
 For Azure China
-- https://enterpriseregistration.partner.microsoftonline.cn For device registration.
-- http://169.254.169.254 Azure Instance Metadata Service endpoint.
-- https://login.chinacloudapi.cn For authentication flows.
-- https://pas.chinacloudapi.cn For Azure RBAC flows.
-
+- `https://enterpriseregistration.partner.microsoftonline.cn` - For device registration.
+- `http://169.254.169.254` - Azure Instance Metadata Service endpoint.
+- `https://login.chinacloudapi.cn` - For authentication flows.
+- `https://pas.chinacloudapi.cn` - For Azure RBAC flows.
 
 ## Enabling Azure AD login in for Windows VM in Azure
 
@@ -239,6 +233,10 @@ You are now signed in to the Windows Server 2019 Azure virtual machine with the 
 > [!NOTE]
 > You can save the .RDP file locally on your computer to launch future remote desktop connections to your virtual machine instead of having to navigate to virtual machine overview page in the Azure portal and using the connect option.
 
+## Using Azure Policy to ensure standards and assess compliance
+
+Use Azure policy to ensure Azure AD login is enabled for your new and existing Windows virtual machines and assess compliance of your environment at scale on your Azure policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Windows VMs within your environment that do not have Azure AD login enabled. You can also use Azure policy to deploy the Azure AD extension on new Windows VMs that do not have Azure AD login enabled, as well as remediate existing Windows VMs to the same standard. In addition to these capabilities, you can also use policy to detect and flag Windows VMs that have non-approved local accounts created on their machines. To learn more, review [Azure policy](https://www.aka.ms/AzurePolicy).
+
 ## Troubleshoot
 
 ### Troubleshoot deployment issues
@@ -252,7 +250,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    > [!NOTE]
    > If the extension restarts after the initial failure, the log with the deployment error will be saved as `CommandExecution_YYYYMMDDHHMMSSSSS.log`. 
 "
-1. Open a PowerShell command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
+1. Open a PowerShell window on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
 
    | Command to run | Expected output |
    | --- | --- |
@@ -263,7 +261,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    > [!NOTE]
    > The access token can be decoded using a tool like [calebb.net](http://calebb.net/). Verify the `appid` in the access token matches the managed identity assigned to the VM.
 
-1. Ensure the required endpoints are accessible from the VM using the command line:
+1. Ensure the required endpoints are accessible from the VM using PowerShell:
    
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
@@ -288,7 +286,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
 1. Verify the Azure VM can retrieve the TenantID from the Instance Metadata Service.
 
-   - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated command line on the VM:
+   - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated PowerShell window on the VM:
       
       - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
@@ -298,7 +296,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
 This Exit code translates to `DSREG_AUTOJOIN_DISC_FAILED` because the extension is not able to reach the `https://enterpriseregistration.windows.net` endpoint.
 
-1. Verify the required endpoints are accessible from the VM using the command line:
+1. Verify the required endpoints are accessible from the VM using PowerShell:
 
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`

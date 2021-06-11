@@ -1,7 +1,7 @@
 ---
 author: jovanpop-msft
 ms.service: sql-database
-ms.subservice: operations  
+ms.subservice: deployment-configuration
 ms.topic: include
 ms.date: 12/17/2020
 ms.author: jovanpop

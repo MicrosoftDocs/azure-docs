@@ -24,7 +24,7 @@ We will implement the following custom roles:
     * Restart apps
     * Get log streams
     * Cannot make changes to apps or configurations
-* **Azure Pipelines/Jenkins/Github Actions role**:
+* **Azure Pipelines/Jenkins/GitHub Actions role**:
     * Can perform create, read, update, delete operations
     * Can create and configure everything in Azure Spring Cloud and apps within service instance: Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates
 
@@ -318,8 +318,10 @@ The following JSON file defines the Ops - Site Reliability Engineering role.
 ```
 ---
 ## Define Azure Pipelines/Provisioning role
+
 This Jenkins/Github Actions role can create and configure everything in Azure Spring Cloud and apps with a service instance. This role is for releasing or deploying code.
 #### [Portal](#tab/Azure-portal)
+
 1. Repeat the procedure to navigate subscription, resource group, and access Access control (IAM).
 
 2. Open the **Permissions** options.
