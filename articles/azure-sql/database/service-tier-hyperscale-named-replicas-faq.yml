@@ -73,6 +73,12 @@ sections:
         answer: |
           Data latency from the time a transaction is committed on the primary to the time it is readable on a secondary depends on current log generation rate, transaction size, load on the replica, and other factors. Typical data latency for small transactions is in tens of milliseconds, however there is no upper bound on data latency. Data on a given secondary replica is always transactionally consistent. However, at a given point in time data latency may be different for different secondary replicas. Workloads that need to read committed data immediately should run on the primary replica.
 
+      - question: |
+          How can I improve availability of named replicas?
+        answer: |
+          By default Named Replicas do not have any HA replica. However, as they behave like a regular (read-only) Azure SQL database, they can benefit from the [higher SLA](https://azure.microsoft.com/support/legal/sla/sql-database/) provided by HA replicas. To set the number of HA replicas you can use the parameter `--ha-replicas` with [AZ CLI](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_create) or the parameter `--HighAvailabilityReplicaCount` with [PowerShell](/powershell/module/az.sql/set-azsqldatabase) or via the `highAvailabilityReplicaCount` property with the [REST API](/rest/api/sql/2021-02-01-preview/databases/create-or-update).
+          The number of HA replicas can be set during the creation of a named replica and can be changed – only via AZ CLI, PowerShell or REST API– anytime after the named replica has been created. Pricing of HA replicas for named replicas is the same of HA replicas for regular databases.
+    
 
 additionalContent: |
 
