@@ -20,13 +20,14 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 - HTTP response overrides
 - Global HTTP header definitions
 - Custom MIME types
+- Networking
 
 > [!NOTE]
 > The this article details configuration that was once implemented in the deprecated [_routes.json_ file](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)).
 
 ## File location
 
-The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./github-actions-workflow.md). However, the file may be placed in any location within your application source code folder.
+The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./github-actions-workflow.md). However, the file may be placed in any subfolder within the folder set as the `app_location`.
 
 See the [example configuration](#example-configuration-file) file for details.
 
@@ -230,6 +231,24 @@ The following example configuration demonstrates how to override an error code.
   }
 }
 ```
+
+## Networking
+
+The `networking` section controls the network configuration of your static web app. To restrict access to your app, specify a list of allowed IP address blocks in `allowedIpRanges`.
+
+Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+
+```json
+{
+  "networking": {
+    "allowedIpRanges": [
+      "10.0.0.0/24",
+      "192.168.100.0/22"
+    ]
+}
+```
+
+When one or more IP address blocks are specified, clients originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
 
 ## Example configuration file
 
