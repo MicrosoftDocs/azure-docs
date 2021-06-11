@@ -245,6 +245,7 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
       "10.0.0.0/24",
       "192.168.100.0/22"
     ]
+  }
 }
 ```
 
