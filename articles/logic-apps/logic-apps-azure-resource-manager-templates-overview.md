@@ -25,9 +25,9 @@ The example logic app in this topic uses an [Office 365 Outlook trigger](/connec
 
 For more information about Resource Manager templates, see these topics:
 
-* [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager template best practices](../azure-resource-manager/templates/template-best-practices.md)
-* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/templates-cloud-consistency.md)
+* [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md)
+* [Azure Resource Manager template best practices](../azure-resource-manager/templates/best-practices.md)
+* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/template-cloud-consistency.md)
 
 For template resource information specific to logic apps, integration accounts, integration account artifacts, and integration service environments, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
@@ -42,7 +42,7 @@ For the Logic Apps REST API, start with the [Azure Logic Apps REST API overview]
 
 ## Template structure
 
-At the top level, a Resource Manager template follows this structure, which is fully described in the [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md) topic:
+At the top level, a Resource Manager template follows this structure, which is fully described in the [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md) topic:
 
 ```json
 {
@@ -60,8 +60,8 @@ For a logic app template, you primarily work with these template objects:
 
 | Attribute | Description |
 |-----------|-------------|
-| `parameters` | Declares the [template parameters](../azure-resource-manager/templates/template-syntax.md#parameters) for accepting the values to use when creating and customizing resources for deployment in Azure. For example, these parameters accept the values for your logic app's name and location, connections, and other resources necessary for deployment. You can store these parameter values in a [parameters file](#template-parameter-files), which is described later in this topic. For general details, see [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#parameters). |
-| `resources` | Defines the [resources](../azure-resource-manager/templates/template-syntax.md#resources) to create or update and deploy to an Azure resource group, such as your logic app, connections, Azure storage accounts, and so on. For general details, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#resources). |
+| `parameters` | Declares the [template parameters](../azure-resource-manager/templates/syntax.md#parameters) for accepting the values to use when creating and customizing resources for deployment in Azure. For example, these parameters accept the values for your logic app's name and location, connections, and other resources necessary for deployment. You can store these parameter values in a [parameters file](#template-parameter-files), which is described later in this topic. For general details, see [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md#parameters). |
+| `resources` | Defines the [resources](../azure-resource-manager/templates/syntax.md#resources) to create or update and deploy to an Azure resource group, such as your logic app, connections, Azure storage accounts, and so on. For general details, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md#resources). |
 |||
 
 Your logic app template uses this file name format:
@@ -75,7 +75,7 @@ Your logic app template uses this file name format:
 
 ## Template parameters
 
-A logic app template has multiple `parameters` objects that exist at different levels and perform different functions. For example, at the top level, you can declare [template parameters](../azure-resource-manager/templates/template-syntax.md#parameters) for the values to accept and use at deployment when creating and deploying resources in Azure, for example:
+A logic app template has multiple `parameters` objects that exist at different levels and perform different functions. For example, at the top level, you can declare [template parameters](../azure-resource-manager/templates/syntax.md#parameters) for the values to accept and use at deployment when creating and deploying resources in Azure, for example:
 
 * Your logic app
 * Connections that your logic uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
@@ -83,7 +83,7 @@ A logic app template has multiple `parameters` objects that exist at different l
 
   For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top level `parameters` object declares the parameter that accepts the resource ID for that integration account.
 
-Here is the general structure and syntax for a parameter definition, which is fully described by [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#parameters):
+Here is the general structure and syntax for a parameter definition, which is fully described by [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md#parameters):
 
 ```json
 "<parameter-name>": {
@@ -144,7 +144,7 @@ Except for parameters that handle values that are sensitive or must be secured, 
 
 For more information about securing template parameters, see these topics:
 
-* [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
+* [Security recommendations for template parameters](../azure-resource-manager/templates/best-practices.md#parameters)
 * [Improve security for template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Pass secured parameter values with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -166,7 +166,7 @@ Here are some best practices for defining parameters:
 
 * Include the `defaultValue` attribute, which can specify empty values, for all parameters except for values that are sensitive or must be secured. Always use secured parameters for user names, passwords, and secrets. To hide or protect sensitive parameter values, follow the guidance in these topics:
 
-  * [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
+  * [Security recommendations for template parameters](../azure-resource-manager/templates/best-practices.md#parameters)
 
   * [Improve security for template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
@@ -174,7 +174,7 @@ Here are some best practices for defining parameters:
 
 * To differentiate template parameter names from workflow definition parameter names, you can use descriptive template parameter names, for example: `TemplateFabrikamPassword`
 
-For more template best practices, see [Best practices for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters).
+For more template best practices, see [Best practices for template parameters](../azure-resource-manager/templates/best-practices.md#parameters).
 
 <a name="template-parameter-files"></a>
 
@@ -270,8 +270,8 @@ To review the resource definitions for all the resources in an Azure resource gr
 
 For general information about template resources and their attributes, see these topics:
 
-* [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#resources)
-* [Best practices for template resources](../azure-resource-manager/templates/template-best-practices.md#resources)
+* [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md#resources)
+* [Best practices for template resources](../azure-resource-manager/templates/best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 

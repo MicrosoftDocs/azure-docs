@@ -61,7 +61,7 @@ Formalizing the model, the following are the rules implemented and enforced in t
 - Deleting a secret resource causes the deletion of all its versions  
 - The value of a secret version is immutable
 	
-The full set of REST management APIs for secret resources can be found [here](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-meshsecrets), and for secret versions, [here](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-meshsecretvalues).
+The full set of REST management APIs for secret resources can be found [here](/rest/api/servicefabric/sfclient-index-meshsecrets), and for secret versions, [here](/rest/api/servicefabric/sfclient-index-meshsecretvalues).
 
 ### Declare a secret resource
 You can create a secret resource by using the REST API.

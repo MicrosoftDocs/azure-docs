@@ -79,7 +79,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [Azure Backup](../backup/backup-create-rs-vault.md#set-storage-redundancy)                                                | :large_blue_diamond:  |
 |     [Azure Cosmos   DB](../cosmos-db/high-availability.md#availability-zone-support)                                           | :large_blue_diamond:  |
 |     [Azure Data   Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)                             | :large_blue_diamond:  |
-|     [Azure DNS: Azure DNS Private Zones](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal)                   | :large_blue_diamond:  |
+|     [Azure DNS: Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md)                   | :large_blue_diamond:  |
 |     [Azure Express   Route](../expressroute/designing-for-high-availability-with-expressroute.md)                                       | :large_blue_diamond:  |
 |     [Azure Public   IP](../virtual-network/public-ip-addresses.md)                                           | :large_blue_diamond:  |
 |     Azure SQL   Database ([General Purpose Tier](../azure-sql/database/high-availability-sla.md))                 | :large_blue_diamond:  |
@@ -123,7 +123,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [Azure Cognitive Search](../search/search-performance-optimization.md#availability-zones)               | :large_blue_diamond:  |
 |     Azure Cognitive Services: [Text Analytics](../cognitive-services/text-analytics/index.yml)                    | :large_blue_diamond:  |
 |     [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal)                               | :large_blue_diamond:  |
-|     [Azure Data Factory](https://docs.microsoft.com/azure/data-factory)                               | :large_blue_diamond:  |
+|     [Azure Data Factory](../data-factory/index.yml)                               | :large_blue_diamond:  |
 |     Azure Database for MySQL – [Flexible Server](../mysql/flexible-server/concepts-high-availability.md)                  | :large_blue_diamond:  |
 |     Azure Database for PostgreSQL – [Flexible Server](../postgresql/flexible-server/overview.md)             | :large_blue_diamond:  |
 |     [Azure DDoS Protection](../ddos-protection/ddos-faq.md)                                       | :large_blue_diamond:  |
@@ -137,8 +137,8 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md)                              | :large_blue_diamond:  |
 |     [Container Registry](../container-registry/zone-redundancy.md)                                          | :large_blue_diamond:  |
 |     [Event Grid](../event-grid/overview.md)                                                  | :large_blue_diamond:  |
-|     [Network Watcher](../network-watcher/frequently-asked-questions.md#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
-|     Network Watcher: [Traffic Analytics](../network-watcher/frequently-asked-questions.md#service-availability-and-redundancy)                          | :large_blue_diamond:  |
+|     [Network Watcher](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
+|     Network Watcher: [Traffic Analytics](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                          | :large_blue_diamond:  |
 |     [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)                                           | :large_blue_diamond:  |
 |     [Premium Blob Storage](../storage/blobs/storage-blob-performance-tiers.md)                                        | :large_blue_diamond:  |
 |     Storage: [Azure Premium Files](../storage/files/storage-files-planning.md)                                | :large_blue_diamond:  |
@@ -153,8 +153,8 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     Virtual Machines: [Ev4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)                                | :large_blue_diamond:  |
 |     Virtual Machines: [Fsv2-Series](../virtual-machines/windows/create-powershell-availability-zone.md)                               | :large_blue_diamond:  |
 |     Virtual Machines: [M-Series](../virtual-machines/windows/create-powershell-availability-zone.md)                                  | :large_blue_diamond:  |
-|     [Virtual WAN](../virtual-wan/virtual-wan-about.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                                 | :large_blue_diamond:  |
-|     Virtual WAN: [ExpressRoute](../virtual-wan/virtual-wan-about.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                   | :large_blue_diamond:  |
+|     [Virtual WAN](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                                 | :large_blue_diamond:  |
+|     Virtual WAN: [ExpressRoute](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                   | :large_blue_diamond:  |
 |     Virtual WAN: [Point-to-Site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)                      | :large_blue_diamond:  |
 |     Virtual WAN: [Site-to-Site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)                       | :large_blue_diamond:  |
 

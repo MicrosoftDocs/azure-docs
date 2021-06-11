@@ -48,6 +48,9 @@ The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge
 
 Use the **GetModuleLogs** direct method to retrieve the logs of an IoT Edge module.
 
+>[!TIP]
+>The IoT Edge troubleshooting page in the Azure portal provides a simplified experience for viewing module logs. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
+
 This method accepts a JSON payload with the following schema:
 
 ```json

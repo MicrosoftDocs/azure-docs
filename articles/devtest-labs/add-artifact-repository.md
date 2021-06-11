@@ -70,7 +70,7 @@ This section provides steps to add an artifact repository to a lab in the Azure 
 6. Select **Save**.
 
 ## Use Azure Resource Manager template
-Azure Resource Management (Azure Resource Manager) templates are JSON files that describe resources in Azure that you want to create. For more information about these templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+Azure Resource Management (Azure Resource Manager) templates are JSON files that describe resources in Azure that you want to create. For more information about these templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 This section provides steps to add an artifact repository to a lab by using an Azure Resource Manager template.  The template creates the lab if it doesn't already exist.
 
@@ -289,7 +289,7 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
+Write-Verbose "Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
