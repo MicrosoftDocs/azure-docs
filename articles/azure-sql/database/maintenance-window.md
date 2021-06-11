@@ -86,6 +86,7 @@ Choosing a maintenance window other than the default is currently available in t
 - SouthCentral US
 - SouthEast Asia
 - UK South
+- UK West
 - West Europe
 - West US
 - West US2
