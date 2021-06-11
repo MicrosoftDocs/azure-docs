@@ -72,7 +72,7 @@ The following sample Resource Manager template specifies a user to be added to t
 
 ```
 
-If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](../azure-resource-manager/templates/define-resource-dependency.md) article.
+If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](../azure-resource-manager/templates/resource-dependency.md) article.
 
 ### Role Assignment Resource Information
 The role assignment resource needs to specify the type and name.
@@ -191,4 +191,3 @@ See the following articles:
 - [Create and manage virtual machines with DevTest Labs using the Azure CLI](devtest-lab-vmcli.md)
 - [Create a virtual machine with DevTest Labs using Azure PowerShell](devtest-lab-vm-powershell.md)
 - [Use command-line tools to start and stop Azure DevTest Labs virtual machines](use-command-line-start-stop-virtual-machines.md)
-
