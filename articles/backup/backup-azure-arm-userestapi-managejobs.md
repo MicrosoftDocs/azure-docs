@@ -42,7 +42,7 @@ The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with t
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     | [JobResource](/rest/api/backup/2021-02-10/job-detailsget#jobresource)        | OK        |
+|200 OK     | [JobResource](/rest/api/backup/2021-02-10/job-details/get#jobresource)        | OK        |
 
 #### Example response
 
