@@ -7,9 +7,9 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 12/16/2020
 ---
 

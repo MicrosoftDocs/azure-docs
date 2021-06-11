@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 04/28/2021
 ---
 

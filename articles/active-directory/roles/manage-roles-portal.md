@@ -50,7 +50,7 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 You can select **Manage in PIM** for additional management capabilities using [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have Privileged Identity Management, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license](../privileged-identity-management/subscription-requirements.md).
 
-![Screenshot that shows the "User administrator - Assignments" page with the "Manage in PIM" action selected](./media/manage-roles-portal/member-list-pim.png)
+![Screenshot that shows the "User Administrator - Assignments" page with the "Manage in PIM" action selected](./media/manage-roles-portal/member-list-pim.png)
 
 If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to see their active assigned roles.
 

@@ -74,13 +74,13 @@ The following code example creates a managed endpoint that,
 
 Configure the variable names for the workspace, workspace location, and the endpoint you want to create. The following code exports these values as environment variables in your endpoint:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="set_variables" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="set_variables" :::
 
 Next, specify what you want to name your blob storage account, blob container, and file. These variable names are defined here, and are referred to in `az storage account create` and `az storage container create` commands in the next section.
 
 The following code exports those values as environment variables:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="configure_storage_names" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="configure_storage_names" :::
 
 
 After these variables are exported, create a text file locally. When the endpoint is deployed, the scoring script will access this text file using the system assigned managed identity that's generated upon endpoint creation.
@@ -91,15 +91,15 @@ For this example, you create a blob storage account and blob container, and then
 
 First, create a storage account. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_account" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_account" :::
 
 Next, create the blob container in storage account. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_container" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_container" :::
 
 Then, upload your text file to the blob container. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="upload_file_to_storage" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="upload_file_to_storage" :::
 
 ## Create a managed online endpoint
 
@@ -110,11 +110,11 @@ When you create a managed endpoint, a system-assigned managed identity is create
 >[!IMPORTANT]
 > System assigned managed identities are immutable and can't be changed once created.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="create_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_endpoint" :::
 
 Check the status of the endpoint with the following. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
 
 ## Give storage permission to system-assigned managed identity
@@ -123,11 +123,11 @@ You can allow the managed endpoint permission to access your storage via its sys
 
 Retrieve the system- assigned managed identity was created for your endpoint. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="get_system_identity" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="get_system_identity" :::
 
 From here, you can give the system-assigned managed identity permission to access your storage.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="give_permission_to_user_storage_account" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="give_permission_to_user_storage_account" :::
 
 ## Scoring script to access Azure resource
 
@@ -141,18 +141,18 @@ Create a deployment that's associated with the managed endpoint.
 
 This deployment can take approximately 8-14 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
 
 Check the status of the deployment. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deploy_Status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deploy_Status" :::
 
 > [!NOTE]
 > The init method in the scoring script reads the file from your storage account using the system assigned managed identity token. 
 
 To check the init method output, see the deployment log with the following code. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deployment_log" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deployment_log" :::
 
 Once this command completes, you will have registered the model, the environment, and the endpoint in your Azure Machine Learning workspace.
 
@@ -164,15 +164,15 @@ Once your endpoint is deployed, confirm its operation. Details of inferencing va
 
 To call your endpoint, run: 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="test_endpoint" :::
 
 
 ## Delete the endpoint and storage account
 
 If you don't plan to continue using the deployed endpoint and storage, delete them to reduce costs. When you delete the endpoint, all of its associated deployments are deleted as well. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_endpoint" :::
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_storage_account" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_storage_account" :::
 
 ## Next steps
 
