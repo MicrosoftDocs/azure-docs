@@ -2,12 +2,11 @@
 title: Deprovision an Azure disk pool
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-ms.date: 06/02/2021
+ms.date: 06/11/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
 ---
 
 # Deprovision an Azure disk pool
@@ -24,7 +23,9 @@ PowerShell content
 
 # [Azure CLI](#tab/azure-cli)
 
-CLI content
+```azurecli
+az disk-pool delete --name "myDiskPool" --resource-group "myResourceGroup"
+```
 
 ---
 
@@ -43,7 +44,9 @@ PowerShell content
 
 # [Azure CLI](#tab/azure-cli)
 
-CLI content
+```azurecli
+az disk-pool iscsi-target delete --disk-pool-name "myDiskPool" --name "myIscsiTarget" --resource-group "myResourceGroup"
+```
 
 ---
 
