@@ -52,7 +52,7 @@ In addition to coordinating the installation of Fusion Core, the Metaswitch Serv
 
 ## Next steps
 - For step-by-step instructions about deploying Fusion Core on an Azure Stack Edge device, [Download the Private 5G Edge Fusion Core Solution Guide](https://go.microsoft.com/fwlink/?linkid=2165096).
-- Learn more about [Private 5G Edge Fusion Core](metaswitch-overview.md)
+- Learn more about [Private 5G Edge Fusion Core](metaswitch-fusion-core-overview.md)
 
 
 

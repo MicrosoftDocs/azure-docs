@@ -51,4 +51,5 @@ Complete the following procedure to deploy APNS:
 ## Next steps
 
 - For step-by-step instructions for deploying APNS and configuring NetFoundry settings on an Azure Stack Edge device, view the Affirmed Private Network Service Deployment guide.
-- For information regarding the programmatic GUI-driven portal that operators used to deploy, monitor, and manage private mobile core networks, Affirmed Private Network Service Manager User guide. 
+- For information regarding the programmatic GUI-driven portal that operators used to deploy, monitor, and manage private mobile core networks, Affirmed Private Network Service Manager User guide.
+- Learn more about [Affirmed Private Network Service on Azure](affirmed-private-network-service-overview.md)

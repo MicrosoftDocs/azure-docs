@@ -60,7 +60,7 @@ APNS provides the following key benefits to operators and their customers:
 - **Data Privacy & Security** - APNS uses Azure to deliver security and compliance across private networks and enterprise applications. Operators can confidently deploy the solution for industry use cases that require stringent data privacy laws, such as healthcare, government, public safety, and defense.
 
 ## Next steps
-- Learn how to [deploy the Affirmed Networks solution](deploy-affirmed-solution.md)
+- Learn how to [deploy the Affirmed private Network Sevrice solution](deploy-affirmed-private-network-service-solution.md)
 
 
 

@@ -101,5 +101,5 @@ ServiceIQ Monitoring runs on the Fusion Core VM and allows you to access a numbe
 
 ## Next steps
 
-- Learn how to [deploy Fusion Core](deploy-metaswitch-solution.md)
+- Learn how to [deploy Fusion Core](deploy-metaswitch-fusion-core-solution.md)
 

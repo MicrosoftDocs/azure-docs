@@ -13,21 +13,21 @@
     - name: Overview
       items:
       - name: What is Fusion Core?
-        href: metaswitch-overview.md
+        href: metaswitch-fusion-core-overview.md
     - name: How-to guides
       items:
       - name: Deploy Fusion Core on Azure Stack Edge
-        href: deploy-metaswitch-solution.md
+        href: deploy-metaswitch-fusion-core-solution.md
   - name: Private networks using Affirmed Private Network Service
     items:
     - name: Overview
       items:
       - name: What is Affirmed Private Network Service on Azure?
-        href: affirmed-overview.md
+        href: affirmed-private-network-service-overview.md
     - name: How-to guides
       items:
       - name: Deploy Affirmed Private Network Service on Azure
-        href: deploy-affirmed-solution.md
+        href: deploy-affirmed-private-network-service-solution.md
   - name: Resources
     items:
     - name: Azure Marketplace

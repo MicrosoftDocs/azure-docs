@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: kumud
   ms.author: KumudD
-  ms.date: 05/26/2021
+  ms.date: 01/16/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -39,11 +39,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: What is Fusion Core?
-            url: metaswitch-overview.md
+            url: metaswitch-fusion-core-overview.md
       - linkListType: how-to-guide
         links:
           - text: Deploy Fusion Core on an Azure Stack Edge device
-            url: deploy-metaswitch-solution.md
+            url: deploy-metaswitch-fusion-core-solution.md
 
   # Card
   - title: About Affirmed Private Network Service on Azure
@@ -51,8 +51,8 @@ landingContent:
       - linkListType: concept
         links:
           - text: What is Affirmed Private Network Service on Azure?
-            url: affirmed-overview.md
+            url: affirmed-private-network-service-overview.md
       - linkListType: how-to-guide
         links:
           - text: Deploy Affirmed Private Network Service on Azure
-            url: deploy-affirmed-solution.md
+            url: deploy-affirmed-private-network-service-solution.md
