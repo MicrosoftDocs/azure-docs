@@ -14,7 +14,7 @@ In this section, you use Azure CLI to create an IoT hub and a resource group.  A
 To create an IoT hub and a resource group:
 
 1. Launch your CLI app.  To run the CLI commands in the rest of this quickstart, copy the command syntax, paste it into your CLI app, edit variable values, and press Enter.
-    - If you prefer to use Cloud Shell, you can select the **Try It** button on the CLI commands to launch Cloud Shell in a split browser window. Or to open Cloud Shell in a separate window, right-click the link for [Cloud Shell](https://shell.azure.com/bash) and select the option to open in a new tab.
+    - If you prefer to use Cloud Shell, select the **Try It** button on the CLI commands to launch Cloud Shell in a split browser window. Or you can open the link for [Cloud Shell](https://shell.azure.com/bash) in a separate browser tab.
     - If you're using Azure CLI locally, start your CLI console app and log in to Azure CLI.
 
 1. Run the [az extension add](/cli/azure/extension?view=azure-cli-latest#az_extension_add) to install or upgrade the *azure-iot* extension to the current version.
