@@ -1,5 +1,5 @@
 ---
-title: Bring Your Own Storage (BYOS) and Managed Identites
+title: Bring Your Own Storage (BYOS) and Managed Identities
 titleSuffix: Azure Applied AI Services
 description: Understand how to use managed identities with BYOS accounts
 author: laujan
