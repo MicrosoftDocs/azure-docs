@@ -264,10 +264,6 @@ relation_embedding
 shutil.rmtree(temp_dir)
 ```
 
-### Next Steps
-
-Check out several baseline news recommendation models developed on MIND from [Microsoft Recommenders Repository](https://github.com/microsoft/recommenders)
-
 <!-- nbend -->
 
 ---
@@ -282,5 +278,8 @@ See the following examples of how to use the Microsoft News Recommender dataset:
 
 
 ## Next steps
+
+Check out several baseline news recommendation models developed on MIND from [Microsoft Recommenders Repository](https://github.com/microsoft/recommenders)
+
 
 View the rest of the datasets in the [Open Datasets catalog](dataset-catalog.md).

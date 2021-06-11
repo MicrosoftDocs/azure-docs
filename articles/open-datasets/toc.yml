@@ -23,7 +23,7 @@
   - name: Transportation
     items:
     - name: Tartanair AirSim
-      href: dataset-diabetes.md
+      href: dataset-tartanair-simulation.md
     - name: NYC Taxi - yellow
       href: dataset-taxi-yellow.md
     - name: NYC Taxi - green
@@ -44,6 +44,8 @@
         href: dataset-ecdc-covid-cases.md
       - name: Oxford COVID-19 Government Response Tracker
         href: dataset-oxford-covid-government-response-tracker.md
+    - name: COVID-19 Open Research
+      href: dataset-covid-19-open-research.md
     - name: Genomics Data lake
       items: 
       - name: Genomics data lake
