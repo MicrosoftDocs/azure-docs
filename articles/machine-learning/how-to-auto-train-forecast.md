@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl
-ms.date: 08/20/2020
+ms.date: 06/11/2021
 ---
 
 # Set up AutoML to train a time-series forecasting model with Python
 
-In this article, you learn how to set up AutoML training  for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
+In this article, you learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
 To do so, you: 
 
@@ -415,4 +415,4 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
 * Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
-* Follow the [tutorial](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.
+* Follow the [Tutorial: Train regression models](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Regression models with AutoML'
+title: 'Tutorial: AutoML- train regression model'
 titleSuffix: Azure Machine Learning
-description: Create a regression model to predict NYC taxi fares with Azure Machine Learning automated ML via the Azure Machine Learning Python SDK.
+description: Train a regression model to predict NYC taxi fares with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 08/14/2020
+ms.date: 06/11/2021
 ms.custom: devx-track-python, automl
 ---
 
-# Tutorial: Train regression models with AutoML and Python
+# Tutorial: Train a regression model with AutoML and Python
 
-In this tutorial, you learn how to configure AutoML training for regression models with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML. This regression model predicts NYC taxi fares. 
+In this tutorial, you learn how to train a regression model with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML. This regression model predicts NYC taxi fares. 
 
 This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model. 
 
@@ -30,7 +30,7 @@ You'll write code using the Python SDK in this tutorial.  You'll learn the follo
 
 For no-code AutoML, try the following tutorials: 
 
-* [Tutorial: Create a classification model with no-code AutoML](tutorial-first-experiment-automated-ml.md)
+* [Tutorial: Train no-code classification models](tutorial-first-experiment-automated-ml.md)
 
 * [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md)
 
