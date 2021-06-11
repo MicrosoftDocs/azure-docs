@@ -74,6 +74,9 @@ A namespace is a container for all messaging components (queues and topics). Mul
 
 A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It may optionally span three [Azure availability zones](../availability-zones/az-overview.md). So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
 
+## Advanced concepts
+Service Bus includes advanced features such as message sessions, scheduled delivery, and transactions that enable you to solve more complex messaging problems. For more information, see [Advanced features of Azure Service Bus](advanced-features-overview.md).
+
 ## Client libraries
 
 Fully supported Service Bus client libraries are available via the Azure SDK.
@@ -98,9 +101,6 @@ Service Bus fully integrates with many Microsoft and Azure services, for instanc
 * [Power Platform](../connectors/connectors-create-api-servicebus.md)
 * [Dynamics 365](/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus)
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md)
-
-## Advanced features
-Service Bus includes advanced features such as message sessions, scheduled delivery, and transactions that enable you to solve more complex messaging problems. For more information, see [Advanced features of Azure Service Bus](advanced-features-overview.md).
 
 ## Next steps
 
