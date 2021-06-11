@@ -53,7 +53,7 @@ Azure AD customers can now easily design and issue verifiable credentials to rep
 **Service category:** User Authentication  
 **Product capability:** Authentications (Logins)
  
-As a security improvement, [device code flow](../develop/v2-oauth2-device-code.md) has been updated to include an additional prompt, which validates that the user is signing into the app they expect. The roll roll out is planned to start in June and expected to be complete by June 30.
+As a security improvement, the [device code flow](../develop/v2-oauth2-device-code.md) has been updated to include an additional prompt, which validates that the user is signing into the app they expect. The roll roll out is planned to start in June and expected to be complete by June 30.
 
 To help prevent phishing attacks where an attacker tricks the user into signing into a malicious application, the following prompt is being added: “Are you trying to sign in to [application display name]?". All users will see this prompt while signing in using the device code flow. As a security measure, it cannot be removed or bypassed. [Learn more](../develop/reference-breaking-changes.md#the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt).
 
