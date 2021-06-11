@@ -26,6 +26,17 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+
+## June 2021
+
+### Key delivery supports IP allowlist restrictions
+
+Media Services accounts can now be configured with IP allowlist restrictions on key delivery. The new allowlist setting is available on the Media Services account resource through the SDK as well as in the portal and CLI.
+This allows operators to restrict delivery of DRM licenses and AES-128 content keys to specific IP ranges.
+
+See the article [Restrict access to DRM license and AES key delivery using IP allowlists](./drm-content-protection-key-delivery-ip-allow.md) for details.
+
+
 ## May 2021
 
 ### Availability Zones default support in Media Services
