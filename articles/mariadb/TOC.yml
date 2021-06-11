@@ -155,8 +155,6 @@
       href: howto-tls-configurations.md
     - name: Threat protection with Azure Defender
       href: ../security-center/defender-for-databases-introduction.md
-    - name: Configuring Advanced Threat Protection
-      href: howto-database-threat-protection-portal.md
     - name: Auditing Concepts
       href: concepts-audit-logs.md    
     - name: Configuring Audit logs

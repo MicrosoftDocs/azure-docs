@@ -353,11 +353,6 @@
       - name: Troubleshoot data encryption
         href: howto-data-encryption-troubleshoot.md
         displayName: debug, security, encryption
-    - name: Advanced threat protection
-      items:
-      - name: Azure portal
-        href: howto-database-threat-protection-portal.md
-        displayName: advanced thread, security
     - name: Virtual network
       items:
       - name: Azure portal
