@@ -44346,7 +44346,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist",
+      "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
       "redirect_url": "/connectors/todo/",
       "redirect_document_id": false
     },
