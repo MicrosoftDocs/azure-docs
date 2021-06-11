@@ -60,7 +60,7 @@ Enabling the Private Link service for each of the preceding communication channe
 > [!WARNING]
 > If you enable Private Link in Azure Data Factory and block public access at the same time, make sure when you create a linked service, your credentials are stored in an Azure key vault. Otherwise, the credentials won't work.
 
-## DNS changes for Private Endpoints
+## DNS changes for private endpoints
 When you create a private endpoint, the DNS CNAME resource record for the Data Factory is updated to an alias in a subdomain with the prefix 'privatelink'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the 'privatelink' subdomain, with the DNS A resource records for the private endpoints.
 
 When you resolve the data factory endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the data factory service. When resolved from the VNet hosting the private endpoint, the storage endpoint URL resolves to the private endpoint's IP address.
@@ -87,9 +87,9 @@ For more information on configuring your own DNS server to support private endpo
 - [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
-## Setup a Private Endpoint Link for Azure Data Factory
+## Set up a private endpoint link for Azure Data Factory
 
-In this section you will setup a private endpoint link for Azure Data Factory.
+In this section you will set up a private endpoint link for Azure Data Factory.
 
 You can choose whether to connect your Self-Hosted Integration Runtime (SHIR) to Azure Data Factory via public endpoint or private endpoint during the data factory creation step, shown here: 
 
@@ -99,10 +99,10 @@ You can change the selection anytime after creation from the data factory portal
 
 A private endpoint requires a virtual network and subnet for the link, and a virtual machine within the subnet, which will be used to run the Self-Hosted Integration Runtime (SHIR), connecting via the private endpoint link.
 
-### Create the Virtual Network
+### Create the virtual network
 If you do not have an existing virtual network to use with your private endpoint link, you must create a one, and assign a subnet.  
 
-1. Sign into the Azure Portal at https://portal.azure.com.
+1. Sign into the Azure portal at https://portal.azure.com.
 2. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
 
 3. In **Create virtual network**, enter or select this information in the **Basics** tab:
@@ -139,7 +139,7 @@ If you do not have an existing virtual network to use with your private endpoint
 
 10. Select **Create**.
 
-### Create a Virtual Machine for the Self-Hosted Integration Runtime (SHIR)
+### Create a virtual machine for the Self-Hosted Integration Runtime (SHIR)
 You must also create or assign an existing virtual machine to run the Self-Hosted Integration Runtime in the new subnet created above.
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine** or search for **Virtual machine** in the search box.
@@ -182,7 +182,7 @@ You must also create or assign an existing virtual machine to run the Self-Hoste
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
-### Create the Private Endpoint 
+### Create the private endpoint 
 Finally, you must create the private endpoint in your data factory.
 
 1. On the Azure portal page for your data factory, select the **Networking** blade and the **Private endpoint connections** tab, and then select **+ Private endpoint**. 
