@@ -35,7 +35,7 @@ When setting up a data source using a managed identity, you can change your data
 
 The following data sources support setting up an indexer connection using managed identities. 
 
-* [Azure Blob storage,  Azure Data Lake Storage Gen2 (preview), Azure Table storage](search-howto-managed-identities-storage.md)
+* [Azure Blob Storage,  Azure Data Lake Storage Gen2 (preview), Azure Table Storage](search-howto-managed-identities-storage.md)
 * [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
 * [Azure SQL Database](search-howto-managed-identities-sql.md)
 
@@ -47,6 +47,6 @@ The following features do not currently support using managed identities to set 
 
 Learn more about how to set up an indexer connection using managed identities:
 
-* [Azure Blob storage,  Azure Data Lake Storage Gen2 (preview), Azure Table storage](search-howto-managed-identities-storage.md)
+* [Azure Blob storage,  Azure Data Lake Storage Gen2 (preview), Azure Table Storage](search-howto-managed-identities-storage.md)
 * [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
 * [Azure SQL Database](search-howto-managed-identities-sql.md)

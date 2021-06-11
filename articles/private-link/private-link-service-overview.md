@@ -24,26 +24,6 @@ Azure Private Link service is the reference to your own service that is powered 
 
 *Figure: Azure Private Link service workflow.*
 
-### RBAC permissions
-
-The following are specific RBAC permissions the user needs to be able to create a Private Link Service. To find more information on custom roles, please review [Steps to create a custom role](/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
-
-Microsoft.Resources/subscriptions/resourcegroups/resources/read
-Microsoft.Network/virtualNetworks/read
-Microsoft.Network/virtualNetworks/subnets/read
-Microsoft.Network/virtualNetworks/subnets/write
-Microsoft.Network/virtualNetworks/subnets/join/action
-Microsoft.Network/privateEndpoints/read
-Microsoft.Network/privateEndpoints/write
-Microsoft.Network/locations/availablePrivateEndpointTypes/read
-Microsoft.Network/privateLinkServices/read
-Microsoft.Network/privateLinkServices/write
-Microsoft.Network/privateLinkServices/privateEndpointConnections/read
-Microsoft.Network/privateLinkServices/privateEndpointConnections/write
-Microsoft.Network/networkSecurityGroups/join/action
-Microsoft.Network/loadBalancers/read
-Microsoft.Network/loadBalancers/write
-
 ### Create your Private Link Service
 
 - Configure your application to run behind a standard load balancer in your virtual network. If you already have your application configured behind a standard load balancer, you can skip this step.   

@@ -6,7 +6,7 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 09/23/2020
+ms.date: 06/08/2021
 ms.custom: devx-track-java
 ms.author: anfeldma
 

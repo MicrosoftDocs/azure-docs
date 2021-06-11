@@ -1,5 +1,5 @@
 ---
-title: Azure Image Builder Service DevOps Task
+title: "Preview: Azure Image Builder Service DevOps Task"
 description: Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
 author: danielsollondon
 ms.author: danis
@@ -11,7 +11,7 @@ ms.collection: linux
 ms.custom: devx-track-azurepowershell
 ---
 
-# Azure Image Builder Service DevOps Task
+# Azure Image Builder Service DevOps Task (preview)
 
 This article shows you how to use an Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
 

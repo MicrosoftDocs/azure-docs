@@ -37,6 +37,24 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 - On Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
+## Gradle config
+
+Gradle configs require both a custom repository, and an explicit reference to the dependency extension `.jar`. 
+
+```groovy
+// build.gradle
+
+repositories {
+    maven {
+        url "https://csspeechstorage.blob.core.windows.net/maven/"
+    }
+}
+
+dependencies {
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.17.0", ext: "jar"
+}
+```
+
 ## Create an Eclipse project and install the Speech SDK
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
