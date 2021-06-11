@@ -126,7 +126,7 @@
       href: migrate-support-matrix-physical-migration.md
     - name: Replication appliance requirements
       href: migrate-replication-appliance.md
-    - name: VMware agentless migration overview
+    - name: VMware agentless migration architecture
       href: concepts-vmware-agentless-migration.md
     - name: Hyper-V migration architecture
       href: hyper-v-migration-architecture.md

@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/25/2021
+ms.date: 06/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -96,18 +96,7 @@ For web apps that request an ID token directly from Azure AD B2C, enable the imp
 1. Under **Implicit grant**, select the **ID tokens** check box.
 1. Select **Save**.
 
-## Step 3: Get your tenant name
-
-To integrate your app with your Azure AD B2C tenant, you need to specify your tenant name in the app configuration file. Follow these steps to get your tenant name:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the **Overview**, copy the first part of the **Domain name**. 
-
-![Get your tenant name](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-tenant-name.png)  
-
-
-## Step 4: Get the web app sample
+## Step 3: Get the web app sample
 
 [Download the zip file](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/refs/heads/master.zip), or clone the sample web application from GitHub. 
 
@@ -117,14 +106,14 @@ git clone https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-op
 
 Extract the sample file to a folder where the total character length of the path is less than 260.
 
-## Step 5: Configure the sample application
+## Step 4: Configure the sample application
 
 In the sample folder, under the `1-WebApp-OIDC/1-5-B2C/` folder, open the **WebApp-OpenIDConnect-DotNet.csproj** project with Visual Studio or Visual Studio Code. 
 
 Under the project root folder, open the `appsettings.json` file. This file contains information about your Azure AD B2C identity provider. Update the following properties of the app settings: 
 
-* **Instance** -  Replace `<your-tenant-name>` with your tenant name. For example, `https://contoso.b2clogin.com`.
-* **Domain** - Replace `<your-b2c-domain>` with your Azure AD B2C full domain name. For example, `contoso.onmicrosoft.com`.
+* **Instance** -  Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, `https://contoso.b2clogin.com`.
+* **Domain** - Replace `<your-b2c-domain>` with your Azure AD B2C full [tenant name](tenant-management.md#get-your-tenant-name). For example, `contoso.onmicrosoft.com`.
 * **Client ID** -  Replace `<web-app-application-id>` with the Application ID from [Step 2](#step-2-register-a-web-application).
 * **Policy name** -  Replace `<your-sign-up-in-policy>` with the user flows you created in [Step 1](#step-1-configure-your-user-flow).
 
@@ -140,7 +129,7 @@ Your final configuration file should look like the following JSON:
 }
 ```
 
-## Step 6: Run the sample application
+## Step 5: Run the sample application
 
 1. Build and run the project.
 1. Browse to https://localhost:5001. 

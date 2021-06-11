@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Cloud apps, actions, and authentication context are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, actions, or authentication context.
 
-- Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
+- Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../app-proxy/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a [user action](#user-actions) like **Register security information** or **Register or join devices (Preview)**, allowing Conditional Access to enforce controls around those actions.
 - Administrators can use [authentication context](#authentication-context-preview) to provide an extra layer of security inside of applications. 
 
@@ -116,7 +116,7 @@ The Microsoft Azure Management application includes multiple underlying services
 
 In addition to the Microsoft apps, administrators can add any Azure AD registered application to Conditional Access policies. These applications may include: 
 
-- Applications published through [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md)
+- Applications published through [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md)
 - [Applications added from the gallery](../manage-apps/add-application-portal.md)
 - [Custom applications not in the gallery](../manage-apps/view-applications-portal.md)
 - [Legacy applications published through app delivery controllers and networks](../manage-apps/secure-hybrid-access.md)

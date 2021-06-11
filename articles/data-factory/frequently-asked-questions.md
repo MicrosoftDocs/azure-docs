@@ -233,7 +233,7 @@ For cosmos DB, the underlying format of each document is a JSON object which is 
 
 ###  Why a user is unable to use data preview in the data flows?	
 
-You should check permissions for custom role. There are multiple actions involved in the dataflow data preview. You start by checking network traffic while debugging on your browser. Please follow all of the actions, for details, please refer to  [Resource provider.](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdatafactory)
+You should check permissions for custom role. There are multiple actions involved in the dataflow data preview. You start by checking network traffic while debugging on your browser. Please follow all of the actions, for details, please refer to  [Resource provider.](../role-based-access-control/resource-provider-operations.md#microsoftdatafactory)
 
 ###  In ADF, can I calculate value for a new column from existing column from mapping?	
 
@@ -249,7 +249,7 @@ Column name can be parameterized similar to other properties. Like in derived co
 
 ### The data flow advisory about TTL and costs
 
-This troubleshoot document may help to resolve your issues: [Mapping data flows performance and tuning guide-Time to live](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#time-to-live).
+This troubleshoot document may help to resolve your issues: [Mapping data flows performance and tuning guide-Time to live](./concepts-data-flow-performance.md#time-to-live).
 
 
 ## Wrangling data flow (Data flow power query)
