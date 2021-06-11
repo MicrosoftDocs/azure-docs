@@ -56,7 +56,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 6. Check the diagnostics in **Diagnostic** tab.
 
-7. Check the **Logs**. You can select different type of logs (**Livy**/**Prelaunch**/**Driver**) from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
+7. Check the **Logs**. You can view full log of **Livy**, **Prelaunch**, and **Driver** logs via selecting different options in the drop-down list. And you can directly retrieve the required log information by searching keywords. Click **Download log** to download the log information to the local, and select the **Filter errors and warnings** check box to filter the errors and warnings you need.
 
 8. You can see an overview of your job in the generated job graph. By default, the graph shows all jobs. You can filter this view by **Job ID**.
 
