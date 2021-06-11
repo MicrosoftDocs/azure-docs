@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Train your first machine learning model - Python"
+title: "Tutorial: Train a first Python machine learning model "
 titleSuffix: Azure Machine Learning
-description: Part 2 of the Azure Machine Learning get-started series shows how to train a machine learning model.
+description: How to train a machine learning model in Azure Machine Learning. This is part 2 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

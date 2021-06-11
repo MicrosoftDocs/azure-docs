@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Upload your data and train a model"
+title: "Tutorial: Upload data and train a model"
 titleSuffix: Azure Machine Learning
-description: Part 3 of the Azure Machine Learning get-started series shows how to upload and use your own data in a remote training run.
+description: How to upload and use your own data in a remote training run. This is part 3 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 04/29/2021
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Tutorial: Upload your data and train a model (part 3 of 3)
+# Tutorial: Upload data and train a model (part 3 of 3)
 
 This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is *part 3 of a three-part tutorial series*.  
 
