@@ -35,17 +35,17 @@ To get started, you'll need:
 
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. You will create containers to store and organize your blob data within your storage account. If the account has a firewall, you must enable the [exception for trusted Microsoft services enabled](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions)
 
-    :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Allow trusted services checkbox, portal view":::
+    :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
 
-* A high-level understanding of [**Azure role-based access control (Azure RBAC)**](azure/role-based-access-control/role-assignments-portal) using the Azure portal.
+* A high-level understanding of [**Azure role-based access control (Azure RBAC)**](/azure/role-based-access-control/role-assignments-portal) using the Azure portal.
 
 ## Managed Identity assignments
 
 There are two types of managed identity assignments:
 
-* A [**System-assigned**](#system-assigned-managed-identity) managed identity is **enabled** directly on a service instance, in our case, Form Recognizer. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+* A [**System-assigned**](#enable-a-system-assigned-managed-identity-in-the-azure-portal) managed identity is **enabled** directly on a service instance, in our case, Form Recognizer. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
-* [**User-assigned**](#user-assigned-managed-identity) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances, in our case, Form Recognizer. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
+* [**User-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances, in our case, Form Recognizer. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
 
 ### Enable a system-assigned managed identity in the Azure portal
 
@@ -59,15 +59,15 @@ There are two types of managed identity assignments:
 
 1. In the left rail, Select **Identity** from the Resource Management list:
 
-    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Resource management identity tab in the Azure portal.":::
+    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in the Azure portal.":::
 
 1. In the main window, select the **System assigned** tab →  toggle **Status** to **On** → under *Permissions* select **Azure role assignments**:
 
-    :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Enable system-assigned managed identity in Azure portal.":::
+    :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Screenshot: enable system-assigned managed identity in Azure portal.":::
 
 1. An Azure role assignments page will open. Select your subscription from the drop-down menu → select &plus; Add role assignment.
 
-    :::image type="content" source="media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Azure role assignments page in the Azure portal.":::
+    :::image type="content" source="media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Screenshot: Azure role assignments page in the Azure portal.":::
 
 >[!NOTE]
 >
@@ -82,9 +82,9 @@ There are two types of managed identity assignments:
 |**Resource**| ***The name of your storage resource**|
 |**Role** | ***Storage Blob Data Reader***|
 
- :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Azure role assignments page in the Azure portal.":::
+ :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
 
-### User-assigned managed identity
+### Create a user-assigned managed identity in the Azure portal
 
 >[!IMPORTANT]
 >
@@ -100,7 +100,7 @@ To use a user-assigned managed identity, you must first **create** the managed i
 
 1. On the Managed Identities page select the &plus; **Create** or the **Create managed identity** button.
 
-:::image type="content" source="media/managed-identities/create-managed-identity-in-portal.png" alt-text="Create Managed Identities page in the Azure portal.":::
+:::image type="content" source="media/managed-identities/create-managed-identity-in-portal.png" alt-text="Screenshot: create Managed Identities page in the Azure portal.":::
 
 1. On the **Create User Assigned Managed Identity** page complete the fields as follows and select **Review &plus; create**:
 
@@ -114,7 +114,7 @@ To use a user-assigned managed identity, you must first **create** the managed i
 1. Select **Review &plus; create.
 1. If you agree with the selections and entries that you have made, select **Create**.
 
-:::image type="content" source="media/managed-identities/create-user-managed-identity-in-portal.png" alt-text="Create a user-assigned managed identity resource in the Azure portal":::
+:::image type="content" source="media/managed-identities/create-user-managed-identity-in-portal.png" alt-text="Screenshot: create a user-assigned managed identity resource in the Azure portal":::
 
 #### Assign your user-assigned managed identity
 
@@ -122,11 +122,11 @@ To use a user-assigned managed identity, you must first **create** the managed i
 
 1. In the left rail, Select **Identity** from the Resource Management list:
 
-    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Resource management identity tab in Azure portal.":::
+    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in Azure portal.":::
 
 1. In the main window, select the **User assigned** tab → select &plus;  **Add**
 
-    :::image type="content" source="media/managed-identities/select-user-assigned-managed-identity-in-portal.png" alt-text="Select user-assigned managed identity in the Azure portal.":::
+    :::image type="content" source="media/managed-identities/select-user-assigned-managed-identity-in-portal.png" alt-text="Screenshot: select user-assigned managed identity in the Azure portal.":::
 
 1. In the pop-up window, complete the following fields and select **Add**:
 
@@ -141,7 +141,7 @@ To use a user-assigned managed identity, you must first **create** the managed i
 
 1. From the left rail, select **Access Control (IAM)** from the left rail and select &plus;  **Add** from the main window.
  
-:::image type="content" source="media/managed-identities/access-control-iam-window.png" alt-text="The access control window in the portal.":::
+:::image type="content" source="media/managed-identities/access-control-iam-window.png" alt-text="Screenshot: the access control window in the portal.":::
 
 1. Select **Add role assignment** from the drop-down window.
 
@@ -154,7 +154,7 @@ To use a user-assigned managed identity, you must first **create** the managed i
 |**Subscription**| ***The subscription associated with your storage resource***|
 |**Select**|*** Select your preferred user-assigned identity from the drop-down menu.***|
 
-:::image type="content" source="media/managed-identities/add-role-assignment-pop-up.png" alt-text="The add role assignment pop-up window fields.":::
+:::image type="content" source="media/managed-identities/add-role-assignment-pop-up.png" alt-text="Screenshot: the add role assignment pop-up window fields.":::
 
 > [!NOTE]
 >
