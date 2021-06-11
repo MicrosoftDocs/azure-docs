@@ -35,7 +35,7 @@ APNS provides the following key benefits to operators and their customers:
 
     - Standalone enables operators to provide a complete standalone private network on premises by delivering the RAN, 5G core on the Azure Stack Edge and the management layer on the centralized cloud.
 
-    - Distributed enables faster processing of data by distributing the user plane closer to the edge of the enterprise on the Azure stack edge while the control plane is on the cloud; an example of such a model would be manufacturing facilities.
+    - Distributed enables faster processing of data by distributing the user plane closer to the edge of the enterprise on the Azure Stack Edge while the control plane is on the cloud; an example of such a model would be manufacturing facilities.
 
     - All in Cloud allows for the entire 5G core to be deployed on the cloud while the RAN is on the edge, enabling dynamic allocation of cloud resources to suit the changing demands of the workloads.
 
