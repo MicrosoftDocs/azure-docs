@@ -66,6 +66,7 @@ The studio supports reading data from the following datastore types in a virtual
 
 Use the following steps to enable studio to work with storage services:
 
+<a id='firewall-settings'></a>
 1. **Disable service specific firewall settings**. Some storage services, such as Azure Storage Account, have firewall settings that apply to the public endpoint for that specific service instance. Usually this setting allows you to allow/disallow access from specific IP addresses from the public internet. __This is not supported__ when using Azure Machine Learning studio. It is supported when using the Azure Machine Learning SDK or CLI.
 
     > [!TIP]
