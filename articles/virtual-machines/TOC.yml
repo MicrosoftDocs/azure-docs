@@ -794,7 +794,7 @@
       - name: Create a Shared Image Gallery
         href: https://azure.microsoft.com/resources/templates/101-sig-create/
       - name: Create an Image Definition in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
         href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
       - name: Create a VM from Image Version
