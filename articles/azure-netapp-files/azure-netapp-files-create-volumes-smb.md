@@ -88,7 +88,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * Specify the name of the shared volume in  **Share name**.
     * If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
         This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
-        See [SMB Encryption FAQs](azure-netapp-files-faqs.md#smb-encryption-faqs) for additional information. 
+        See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information. 
 
         The **SMB3 Protocol Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
 
@@ -164,7 +164,7 @@ You can set permissions for a file or folder by using the **Security** tab of th
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
 * [Convert existing SMB volumes to use Continuous Availability](convert-smb-continuous-availability.md)
-* [SMB FAQs](azure-netapp-files-faqs.md#smb-faqs)
+* [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)
