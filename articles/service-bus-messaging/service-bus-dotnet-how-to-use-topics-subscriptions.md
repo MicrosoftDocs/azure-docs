@@ -161,9 +161,6 @@ In this section, you'll create a .NET Core console application that receives mes
     ```
 
 ### Add code to receive messages from the subscription
-> [!NOTE]
-> If you want to see and use the full code instead of going through the following step-by-step instructions, see [Full code (receive messages)](#full-code-receive-messages)
-
 1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
 
     ```csharp
