@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Designer - train a regression model to predict prices '
+title: 'Tutorial: Designer - train a regression model'
 titleSuffix: Azure Machine Learning
 description: Use the designer to train a regression model that predicts car prices. This tutorial is part one of a two-part series.
 
