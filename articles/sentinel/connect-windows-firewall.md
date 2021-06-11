@@ -27,7 +27,10 @@ The solution collects Windows firewall events from the Windows machines on which
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 >
-> - If Azure Defender alerts from Azure Security Center are already collected to the Azure Sentinel workspace, there is no need to enable the Windows Firewall solution through this connector. However, if you did enable it, it will not cause duplicated data. 
+> - If Azure Defender alerts from Azure Security Center are already collected to the Azure Sentinel workspace, there is no need to enable the Windows Firewall solution through this connector. However, if you did enable it, it will not cause duplicated data.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 ## Prerequisites
 

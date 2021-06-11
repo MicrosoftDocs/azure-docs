@@ -7,7 +7,7 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure NFS file shares

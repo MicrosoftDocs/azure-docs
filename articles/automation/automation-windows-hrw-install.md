@@ -88,7 +88,7 @@ The runbook uses the following parameters.
 
 | Parameter | Status | Description |
 | ------- | ----- | ----------- |
-| `Location` | Mandatory | The location for the Log Analytics workspace. |
+| `Location` | Mandatory | The Location of the automation account in which the script is executed. |
 | `ResourceGroupName` | Mandatory | The resource group for your Automation account. |
 | `AccountName` | Mandatory | The Automation account name in which the Hybrid Run Worker will be registered. |
 | `CreateLA` | Mandatory | If true, uses the value of `WorkspaceName` to create a Log Analytics workspace. If false, the value of `WorkspaceName` must refer to an existing workspace. |

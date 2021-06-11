@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 07/16/2019
 ---
 # Use CLI to create an Azure SQL Managed Instance to a failover group

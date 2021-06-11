@@ -5,7 +5,8 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: lle
+ms.author: lle 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Encrypt credentials for on-premises data stores in Azure Data Factory

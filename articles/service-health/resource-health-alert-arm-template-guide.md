@@ -2,7 +2,8 @@
 title: Template to create Resource Health alerts
 description: Create alerts programmatically that notify you when your Azure resources become unavailable.
 ms.topic: conceptual
-ms.date: 9/4/2018
+ms.date: 9/4/2018 
+ms.custom: devx-track-azurepowershell
 
 ---
 

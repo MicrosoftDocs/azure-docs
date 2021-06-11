@@ -115,7 +115,7 @@ Even though Security Center's default security initiative is based on industry b
 
 
 
-## Secure score FAQ
+## FAQ - Secure score
 
 ### If I address only three out of four recommendations in a security control, will my secure score change?
 No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.

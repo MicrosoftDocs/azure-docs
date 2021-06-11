@@ -87,17 +87,18 @@ Azure Resource Graph.
 
 Guest Configuration policy definitions are inclusive of new versions. Older versions of operating
 systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
-compatible. The following table shows a list of supported operating systems on Azure images:
+compatible. The following table shows a list of supported operating systems on Azure images.
+The ".x" text is symbolic to represent new minor versions of Linux distributions.
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 - 20.04|
-|Credativ|Debian|8 - 10|
+|Canonical|Ubuntu Server|14.04 - 20.x|
+|Credativ|Debian|8 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3 -8|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
-|SUSE|SLES|12 SP3-SP5, 15|
+|OpenLogic|CentOS|7.3 -8.x|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8.x|
+|SUSE|SLES|12 SP3-SP5, 15.x|
 
 Custom virtual machine images are supported by Guest Configuration policy definitions as long as
 they're one of the operating systems in the table above.
@@ -116,7 +117,7 @@ To communicate with the Guest Configuration resource provider in Azure, machines
 access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
 configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
-[service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
+[service tag](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure" can be
 used to reference the Guest Configuration service rather than manually maintaining the [list of IP
 ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Azure datacenters.
 

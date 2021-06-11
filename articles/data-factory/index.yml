@@ -52,6 +52,10 @@ landingContent:
             url: ./quickstart-create-data-factory-rest-api.md
           - text: Resource manager template
             url: ./quickstart-create-data-factory-resource-manager-template.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Data Factory
+            url: /learn/modules/intro-to-azure-data-factory/
   - title: Data movement
     linkLists:
       - linkListType: concept

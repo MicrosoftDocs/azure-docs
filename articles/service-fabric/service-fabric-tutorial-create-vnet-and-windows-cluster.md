@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to deploy a Windows Service Fabric 
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network
 

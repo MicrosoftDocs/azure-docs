@@ -57,8 +57,8 @@ ms.custom: include file
 | &nbsp; |[Vertica](../connector-vertica.md) |✓ | |✓ |✓  |
 | **NoSQL** |[Cassandra](../connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase (Preview)](../connector-couchbase.md) |✓ | |✓ |✓  |
-| &nbsp; |[MongoDB](../connector-mongodb.md) |✓ | |✓ |✓  |
-| &nbsp; |[MongoDB Atlas](../connector-mongodb-atlas.md) |✓ | |✓ |✓  |
+| &nbsp; |[MongoDB](../connector-mongodb.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[MongoDB Atlas](../connector-mongodb-atlas.md) |✓ |✓ |✓ |✓  |
 | **File** |[Amazon S3](../connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Amazon S3 Compatible Storage](../connector-amazon-s3-compatible-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[File system](../connector-file-system.md) |✓ |✓ |✓ |✓  |
@@ -72,8 +72,8 @@ ms.custom: include file
 | &nbsp; |[Generic ODBC](../connector-odbc.md) |✓ |✓ | |✓  |
 | &nbsp; |[Generic REST](../connector-rest.md) |✓ | ✓ |✓ |✓  |
 | **Services and apps** |[Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
-| &nbsp; |[Common Data Service](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (Preview)](../connector-concur.md) |✓ | |✓ |✓  |
+| &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics AX](../connector-dynamics-ax.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
