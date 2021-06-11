@@ -22,7 +22,7 @@ This article provides suggested resolutions for the most common issues that can 
 
 All the troubleshooting steps require that you've completed the following prerequisites for the quickstart you're working in:
 
-* You installed or acquired all prerequisites, and additional software tools, for the quickstart.
+* You installed or acquired all prerequisites and software tools for the quickstart.
 * You created an Azure IoT hub or Azure IoT Central application, and registered a device, as directed in the quickstart.
 * You built an image for the device, as directed in the quickstart.
 
@@ -160,7 +160,7 @@ Failed to publish temperature
 
 ## Next steps
 
-If, after reviewing the issues in this article, you still can't monitor your device in a terminal or connect to Azure IoT, there might be an issue with your device's hardware or physical configuration. See the manufacturer's page for your device to find documentation and support options.
+If after reviewing the issues in this article, you still can't monitor your device in a terminal or connect to Azure IoT, there might be an issue with your device's hardware or physical configuration. See the manufacturer's page for your device to find documentation and support options.
 
 * [STMicroelectronics B-L475E-IOT01](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-discovery-kits/b-l475e-iot01a.html)
 * [NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK)
