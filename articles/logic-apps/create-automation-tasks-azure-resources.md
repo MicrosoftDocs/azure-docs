@@ -40,7 +40,7 @@ This article shows you how to complete the following tasks:
 
 ## How do automation tasks differ from Azure Automation?
 
-Behind the scenes, an automation task is actually a logic app resource, which runs a workflow and is powered by the [*multi-tenant* Azure Logic Apps service](../logic-apps/logic-apps-overview.md). Currently, you can create an automation task only at the resource level. After you create the automation task, you can view and edit the underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the task's status, workflow run history, inputs, and outputs for each run. Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md).
+Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md). Currently, you can create an automation task only at the Azure resource level. Behind the scenes, an automation task is actually a logic app resource that runs a workflow and is powered by the [*multi-tenant* Azure Logic Apps service](../logic-apps/logic-apps-overview.md). After you create the automation task, you can view and edit the underlying workflow by opening the task in the workflow designer. After a task finishes at least one run, you can review the task's status, workflow run history, inputs, and outputs for each run.
 
 By comparison, Azure Automation is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking/overview.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
 
@@ -48,7 +48,15 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
 ## Pricing
 
-Because an automation task is really a multi-tenant based logic app resource underneath, the [Consumption (pay for use) pricing model](logic-apps-pricing.md) applies when your automation task runs. So, just creating an automation task doesn't automatically start incurring charges because metering and billing are based on the trigger and action executions in a workflow, regardless whether runs are successful or unsuccessful. For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created. Workflow operations also make storage transactions, which means that these events are also metered and billed based on [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
+Just creating an automation task doesn't automatically incur charges. Underneath, an automation task is a multi-tenant based logic app, so the [Consumption pricing model](logic-apps-pricing.md) also applies to automation tasks. Metering and billing are based on the trigger and action executions in the underlying logic app workflow.
+
+Executions are metered and billed, regardless whether the workflow runs successfully or whether the workflow is even instantiated. For example, suppose your automation task uses a polling trigger that regularly makes an outgoing call to an endpoint. This outbound request is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
+
+Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/), which differ based on whether these operations are ["built-in"](../connectors/built-in.md) or ["managed" (Standard or Enterprise)](../connectors/managed.md). Triggers and actions also make storage transactions, which use the [Consumption plan data rate](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+> [!TIP]
+> As a monthly bonus, the Consumption plan includes *several thousand* built-in executions free of charge. 
+> For specific information, review the [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## Prerequisites
 
