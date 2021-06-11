@@ -25,7 +25,7 @@ You'll have four options to configure NSX-T components in the Azure VMware Solut
 - **DNS** – Create a DNS forwarder to send DNS requests to a designated DNS server for resolution.  
 
 >[!IMPORTANT]
->You'll still have access to the NSX-T Manager console, where you can use the advanced settings mentioned and other NSX-T features. 
+>You can still use NSX-T Manager for the advanced settings mentioned and other NSX-T features. 
 
 ## Prerequisites
 Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment. 
