@@ -100,7 +100,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 #### [JSON](#tab/JSON)
 
-The Developer role is defined by the following JSON file.
+The following JSON file defines the Developer role.
 
 ```json
 {
@@ -201,7 +201,7 @@ From **Microsoft.AppPlatform/skus**, select:
 5. Click **Review and create**.
 
 #### [JSON](#tab/JSON)
-The DevOps engineer role is defined by the following JSON file.
+The following JSON file defines the DevOps engineer role.
 
 ```json
 {
@@ -285,7 +285,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 5. Click **Review and create**.
 #### [JSON](#tab/JSON)
-The Ops - Site Reliability Engineering role is defined by the following JSON file.
+The following JSON file defines the Ops - Site Reliability Engineering role.
 ```json
 {
   "properties": {
@@ -379,7 +379,7 @@ From **Microsoft.AppPlatform/skus**, select:
 
 6. Click **Review and create**.
 #### [JSON](#tab/JSON)
-The Azure Pipelines/Provisioning role is defined by the following JSON file.
+The following JSON file defines the Azure Pipelines/Provisioning role.
 ```json
 {
   "properties": {
