@@ -114,7 +114,7 @@ In this section, you clone the IoT Edge repo and execute the scripts.
 
 ### Set up on Linux
 
-To create demo certificates on a Windows device, you need clone the generation scripts and set them up to run locally in bash.
+To create demo certificates on a Linux device, you need to clone the generation scripts and set them up to run locally in bash.
 
 1. Clone the IoT Edge git repo, which contains scripts to generate demo certificates.
 
