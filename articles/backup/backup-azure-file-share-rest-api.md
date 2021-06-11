@@ -271,7 +271,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### Select the file share you want to back up
 
-You can list all protectable items under the subscription and locate the desired file share to be backed up using the [GET backupprotectableItems](r/rest/api/backup/2021-02-10/backup-protectable-items/list) operation.
+You can list all protectable items under the subscription and locate the desired file share to be backed up using the [GET backupprotectableItems](/rest/api/backup/2021-02-10/backup-protectable-items/list) operation.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
