@@ -792,7 +792,7 @@
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        href: https://azure.microsoft.com/resources/templates/sig-create/
       - name: Create an Image Definition in a Shared Image Gallery
         href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
