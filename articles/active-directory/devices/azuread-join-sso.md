@@ -37,7 +37,7 @@ If you have a hybrid environment, with both Azure AD and on-premises AD, it is l
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
 
 >[!NOTE]
-> Windows Hello for Business requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
+> Windows Hello for Business and FIDO2 security key based passwordless authentication with Windows 10 requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
 During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
 
