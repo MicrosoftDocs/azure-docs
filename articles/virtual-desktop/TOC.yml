@@ -170,13 +170,8 @@
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md
-<<<<<<< HEAD
-  - name: Windows Virtual Desktop FAQ
-    href: faq.yml
-=======
   - name: Azure Virtual Desktop FAQ
-    href: faq.md
->>>>>>> 702672a8b4394357796b5f2857f3da44bef7597d
+    href: faq.yml
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.yml
   - name: MSIX app attach
