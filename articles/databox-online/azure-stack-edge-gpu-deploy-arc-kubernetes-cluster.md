@@ -138,7 +138,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-Add the `CloudEnvironment` parameter if you are using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
+    Add the `CloudEnvironment` parameter if you are using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`,       `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
 
     > [!NOTE]
     > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). 
@@ -149,7 +149,7 @@ Add the `CloudEnvironment` parameter if you are using a cloud other than Azure p
    
     ```powershell
     [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
-        [10.128.44.240]: PS>
+    [10.128.44.240]: PS>
     ```
     
     In the Azure portal, a resource should be created with the name you provided in the preceding command.
