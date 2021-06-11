@@ -38,19 +38,14 @@ The high-level architecture for this use-case looks like this:
 
 While certain Teams meeting features such as raised hand, together mode, and breakout rooms will only be available for Teams users, your custom application will have access to the meeting's core audio, video, chat, and screen sharing capabilities. Meeting chat will be accessible to your custom application user while they're in the call. They won't be able to send or receive messages before joining or after leaving the call. 
 
-> [!NOTE]
-> Communication Services users were previously treated like anonymous users in Teams, but this has been changed to instead treat them like external access users.
-
 When a Communication Services user joins the Teams meeting, the display name provided through the Calling SDK will be shown to Teams users. The Communication Services user will be treated like an "external access" user. Learn more about external access in [Call, chat, and collaborate with people outside your organization in Microsoft Teams](/microsoftteams/communicate-with-users-from-other-organizations). Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling external users to join meetings, and use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to external users.
 
 If the Teams meeting is scheduled for a channel, Communication Services users will not be able to join the chat or send and receive messages.
 
 ## Enabling and configuring Teams federation
-Teams federation is managed using tenant level configuration settings, together with a user level policy if you wish to restrict which users are able to use Teams  federation.
+Teams federation is managed using tenant level configuration settings, together with a user level policy if you wish to restrict which users are able to use Teams federation.
 
 The tenant level configuration of federation between Teams and ACS is managed using the cmdlet [Set-CsTeamsAcsFederationConfiguration](https://docs.microsoft.com/powershell/module/teams/set-csteamsacsfederationconfiguration?view=teams-ps), which is used to enable or disable federation with ACS for a Teams tenant, and to specify which ACS resources can connect to Teams. All ACS resources can be allowed, with possible exclusions, or just selected ACS resources can be allowed. See the cmdlet documentation for more details.
-
-During the public preview, federation between Teams and ACS is disabled by default. When federation between Teams and ACS is generally available, it will be enabled by default, unless you explicitly disable it, in which case it will remain disabled.
 
 The user level control of federation between Teams and ACS is managed using the cmdlets [New-CsExternalAccessPolicy](https://docs.microsoft.com/powershell/module/skype/new-csexternalaccesspolicy?view=skype-ps), [Set-CsExternalAccessPolicy](https://docs.microsoft.com/powershell/module/skype/set-csexternalaccesspolicy?view=skype-ps) and [Grant-CsExternalAccessPolicy](https://docs.microsoft.com/powershell/module/skype/grant-csexternalaccesspolicy?view=skype-ps). By default, all users are able to use federation, once it is enabled at the tenant level. The user level policy is only needed if you wish to restrict which users are able to use federation: you can enable for all users, and disabled just for a selected set of users, or you can disable for all users and enabled for just a selected set of users. See the cmdlet documentation for more details.
 
