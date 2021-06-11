@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Predict car prices with the designer'
+title: 'Tutorial: Designer - train a price prediction model '
 titleSuffix: Azure Machine Learning
-description: Train machine learning model to predict automobile prices using linear regression. This tutorial is part one of a two-part series.
+description: Use the designer to train a machine learning model that predicts automobile prices using linear regression. This tutorial is part one of a two-part series.
 
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 09/28/2020
+ms.date: 06/11/2021
 ms.custom: designer
 ---
 
-# Tutorial: Predict automobile price with the designer
+# Tutorial: Designer - train a price prediction model using linear regression
 
+In this two-part tutorial, you use the Azure Machine Learning designer to train and deploy a machine learning model that predicts the price of any car. The designer is a drag-and-drop feature that lets you create machine learning models without a single line of code.
 
-In this two-part tutorial, you learn how to use the Azure Machine Learning designer to train and deploy a machine learning model that predicts the price of any car. The designer is a drag-and-drop tool that lets you create machine learning models without a single line of code.
-
-In part one of the tutorial, you'll learn how to:
+In part one of the tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a new pipeline.
@@ -27,7 +26,7 @@ In part one of the tutorial, you'll learn how to:
 > * Train a machine learning model.
 > * Evaluate a machine learning model.
 
-In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you'll deploy your model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
+In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you deploy your model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
 
 > [!NOTE]
 >A completed version of this tutorial is available as a sample pipeline.
