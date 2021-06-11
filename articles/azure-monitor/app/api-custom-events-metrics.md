@@ -394,7 +394,7 @@ try
 }
 catch (ex)
 {
-    appInsights.trackException(ex);
+    appInsights.trackException({exception: ex});
 }
 ```
 
