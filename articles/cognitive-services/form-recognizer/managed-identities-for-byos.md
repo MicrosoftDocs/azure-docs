@@ -17,7 +17,7 @@ ms.author: lajanuar
 > Assigning a role to a managed identity using the steps below is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
-If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer cannot access your account to read and list blob content. However, you can create a Bring Your Own Storage (BYOS) account which allows direct access to storage content using an authorized Managed Identity. With a BYOS, you upload your form, OCR, and layout files to your own storage account and you control policies and network access.
+If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer cannot access your account to read and list blob content. However, you can create a Bring Your Own Storage (BYOS) account that allows direct access to storage content using an authorized Managed Identity. With a BYOS, you upload your form, OCR, and layout files to your own storage account and you control policies and network access.
 
 > [!NOTE]
 >
@@ -31,7 +31,7 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) For more details, _see_ [Create a Cognitive Services resource using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows).
+* A [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows).
 
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. You will create containers to store and organize your blob data within your storage account. If the account has a firewall, you must enable the [exception for trusted Microsoft services enabled](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions)
 
@@ -43,11 +43,11 @@ To get started, you'll need:
 
 There are two types of managed identity assignments:
 
-* A [**System-assigned**](#system-assigned-managed-identity) managed identity is **enabled** directly on a service instance, e.g., Form Recognizer. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity wil be deleted as well.
+* A [**System-assigned**](#system-assigned-managed-identity) managed identity is **enabled** directly on a service instance, in our case, Form Recognizer. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
-* [**User-assigned**](#user-assigned-managed-identity) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instance, i.e., Form Recognizer. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
+* [**User-assigned**](#user-assigned-managed-identity) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances, in our case, Form Recognizer. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
 
-### Enable a system-assigned managed identity in the Azure Portal
+### Enable a system-assigned managed identity in the Azure portal
 
 >[!IMPORTANT]
 >
@@ -55,19 +55,19 @@ There are two types of managed identity assignments:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription to enable a system-assigned managed identity.
 
-1. Navigate to your Form Recognizer resource page in the Azure Portal.
+1. Navigate to your Form Recognizer resource page in the Azure portal.
 
-1. In the left rail, Select **Identity** from the the Resource Management list:
+1. In the left rail, Select **Identity** from the Resource Management list:
 
-    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Resource management identity tab in Azure Portal.":::
+    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Resource management identity tab in the Azure portal.":::
 
 1. In the main window, select the **System assigned** tab →  toggle **Status** to **On** → under *Permissions* select **Azure role assignments**:
 
-    :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Enable system-assigned managed identity in Azure Portal.":::
+    :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Enable system-assigned managed identity in Azure portal.":::
 
 1. An Azure role assignments page will open. Select your subscription from the drop-down menu → select &plus; Add role assignment.
 
-    :::image type="content" source="media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Azure role assignments page in the Azure Portal.":::
+    :::image type="content" source="media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Azure role assignments page in the Azure portal.":::
 
 >[!NOTE]
 >
@@ -82,7 +82,7 @@ There are two types of managed identity assignments:
 |**Resource**| ***The name of your storage resource**|
 |**Role** | ***Storage Blob Data Reader***|
 
- :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Azure role assignments page in the Azure Portal.":::
+ :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Azure role assignments page in the Azure portal.":::
 
 ### User-assigned managed identity
 
@@ -100,7 +100,7 @@ To use a user-assigned managed identity, you must first **create** the managed i
 
 1. On the Managed Identities page select the &plus; **Create** or the **Create managed identity** button.
 
-:::image type="content" source="media/managed-identities/create-managed-identity-in-portal.png" alt-text="Create Managed Identities page in the the Azure portal.":::
+:::image type="content" source="media/managed-identities/create-managed-identity-in-portal.png" alt-text="Create Managed Identities page in the Azure portal.":::
 
 1. On the **Create User Assigned Managed Identity** page complete the fields as follows and select **Review &plus; create**:
 
@@ -120,9 +120,9 @@ To use a user-assigned managed identity, you must first **create** the managed i
 
 1. Once you have created your user-assigned identity, navigate to Form Recognizer resource page in the Azure portal.
 
-1. In the left rail, Select **Identity** from the the Resource Management list:
+1. In the left rail, Select **Identity** from the Resource Management list:
 
-    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Resource management identity tab in Azure Portal.":::
+    :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Resource management identity tab in Azure portal.":::
 
 1. In the main window, select the **User assigned** tab → select &plus;  **Add**
 
@@ -160,7 +160,7 @@ To use a user-assigned managed identity, you must first **create** the managed i
 >
 >The RBAC can take a few minutes to propogate.
 
-Congratulations. You have can now implement system-assigned and user-assigned managed identities for your Form Recognizer and Azure storage resources. 
+That's it! You've learned how to implement system-assigned and user-assigned managed identities for your Form Recognizer and Azure storage resources. Now you can train a custom model or analyze documents using files in a private storage account.
 
 > [!div class="nextstepaction"]
 > [Train a custom model using the sample labeling tool](label-tool.md)

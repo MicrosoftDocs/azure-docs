@@ -31,7 +31,7 @@
   items:
   - name: Transparency notes
     items:
-    - name: Azure Form Recognizer use cases
+    - name: Azure Form Recognizer scenarios
       href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Characteristics and limitations
       href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
