@@ -266,33 +266,19 @@ In this section, you'll add code to retrieve messages from the queue.
 
     ```console
     Wait for a minute and then press any key to end the processing
-    Received: First message in the batch
-    Received: Second message in the batch
-    Received: Third message in the batch
+    Received: Message 1
+    Received: Message 2
+    Received: Message 3
     
     Stopping the receiver...
     Stopped receiving messages
     ```
+1. Check the portal again. 
 
-### Test the app to receive messages to the queue
-Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
-
-```console
-Wait for a minute and then press any key to end the processing
-Received: Message 1
-Received: Message 2
-Received: Message 3
-
-Stopping the receiver...
-Stopped receiving messages
-```
-
-Check the portal again. 
-
-- The **Active** message count and **Current size** values are now **0**.
-- In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages for the queue. 
-
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
+    - The **Active** message count and **Current size** values are now **0**.
+    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages for the queue. 
+    
+        :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
 
 
 ## Next steps
