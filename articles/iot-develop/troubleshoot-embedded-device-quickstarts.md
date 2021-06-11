@@ -37,7 +37,7 @@ This issue can occur when you attempt to build the project. It's the result of t
 
 ### Description
 
-The issue can occur because the path to an object file exceeds the default maximum path length. Examine the build output for a message similar to the following:
+The issue can occur because the path to an object file exceeds the default maximum path length in Windows. Examine the build output for a message similar to the following:
 
 ```output
 -- Configuring done
@@ -61,7 +61,7 @@ CMake Warning in C:/embedded quickstarts/areallyreallyreallylongpath/getting-sta
 ### Resolution
 
 You can try one of the following options to resolve this error:
-* Clone the repository into a directory with a shorter path name and try again.
+* Clone the repository into a directory with a shorter path and try again.
 * Follow the instructions in [Maximum Path Length Limitation](/windows/win32/fileio/maximum-file-path-limitation) to enable long paths in Windows 10, version 1607 and later.
 
 ## Issue: Device can't connect to Iot hub
