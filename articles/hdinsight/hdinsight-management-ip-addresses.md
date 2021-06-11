@@ -54,8 +54,8 @@ Allow traffic from the IP addresses listed for the Azure HDInsight health and ma
 | Brazil | Brazil South | 191.235.84.104<br>191.235.87.113 | \*:443 | Inbound |
 | Canada | Canada East | 52.229.127.96<br>52.229.123.172 | \*:443 | Inbound |
 | &nbsp; | Canada Central | 52.228.37.66<br>52.228.45.222 |\*: 443 | Inbound |
-| China | China North | 42.159.96.170<br>139.217.2.219<br>42.159.198.178</br>42.159.234.157 | \*:443 | Inbound |
-| &nbsp; | China East | 42.159.198.178<br>42.159.234.157<br>42.159.96.170</br>139.217.2.219 | \*:443 | Inbound |
+| China | China North | 42.159.96.170<br>139.217.2.219<br>42.159.198.178<br>42.159.234.157 | \*:443 | Inbound |
+| &nbsp; | China East | 42.159.198.178<br>42.159.234.157<br>42.159.96.170<br>139.217.2.219 | \*:443 | Inbound |
 | &nbsp; | China North 2 | 40.73.37.141<br>40.73.38.172 | \*:443 | Inbound |
 | &nbsp; | China East 2 | 139.217.227.106<br>139.217.228.187 | \*:443 | Inbound |
 | Europe | North Europe | 52.164.210.96<br>13.74.153.132 | \*:443 | Inbound |
