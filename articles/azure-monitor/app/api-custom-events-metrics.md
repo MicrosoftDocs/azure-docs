@@ -394,7 +394,7 @@ try
 }
 catch (ex)
 {
-    appInsights.trackException({exception: ex});
+    telemetry.trackException({exception: ex});
 }
 ```
 
