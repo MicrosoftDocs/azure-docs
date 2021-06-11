@@ -40,4 +40,4 @@ Here is a comparison of SSE, ADE, and encryption at host.
 - [Azure Disk Encryption for Windows VMs](./windows/disk-encryption-overview.md)
 - [Server-side encryption of Azure Disk Storage](./disk-encryption.md)
 - [Encryption at host](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
-- [Azure Security Fundamentals - Azure encryption overview](../security/fundamentals/asc-overview.md)
+- [Azure Security Fundamentals - Azure encryption overview](../security/fundamentals/encryption-overview.md)
