@@ -34,7 +34,8 @@ You'll complete the following tasks:
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](/azure/cloud-shell/quickstart) to **Start Cloud Shell** and **Select the Bash environment**.
-    * Optionally, run Azure CLI on your local machine. The quickstart requires Azure CLI version 2.0.76 or later. Run `az --version` to check the version. Follow the steps in [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade Azure CLI, run it, and sign in. If you're prompted, install the Azure CLI extensions on first use.
+    * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
 * [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT 
 * Hardware
 
@@ -88,11 +89,17 @@ You can use Azure CLI to create an IoT hub that handles events and messaging for
 
 To create an IoT hub:
 
-1. Launch your CLI app.  To run the CLI commands in the rest of this quickstart, copy the command syntax, paste it into your CLI app, edit variable values, and press Enter.
+1. Launch your CLI app. To run the CLI commands in the rest of this quickstart, copy the command syntax, paste it into your CLI app, edit variable values, and press Enter.
     - If you prefer to use Cloud Shell, right-click the link for [Cloud Shell](https://shell.azure.com/bash) and select the option to open in a new tab.
     - If you're using Azure CLI locally, start your CLI console app and sign in to Azure CLI.
 
-1. From your CLI app, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *centralus* region.
+1. Run [az extension add](/cli/azure/extension?view=azure-cli-latest#az_extension_add) to install or upgrade the *azure-iot* extension to the current version.
+
+    ```azurecli-interactive
+    az extension add --upgrade --name azure-iot
+    ```
+
+1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *centralus* region.
 
     > [!NOTE] 
     > You can optionally set an alternate `location`. To see available locations, run [az account list-locations](/cli/azure/account#az-account-list-locations).
