@@ -63,33 +63,23 @@ You can use the CreateReleaseAnnotation PowerShell script to create annotations 
 2. Make a local copy of the script below and call it CreateReleaseAnnotation.ps1.
 
     ```powershell
-    param( 
+    param(
+        [parameter(Mandatory = $true)][string]$aiResourceId,
+        [parameter(Mandatory = $true)][string]$releaseName,
+        [parameter(Mandatory = $false)]$releaseProperties = @()
+    )
     
-        [parameter(Mandatory = $true)][string]$aiResourceId, 
+    $annotation = @{
+        Id = [GUID]::NewGuid();
+        AnnotationName = $releaseName;
+        EventTime = (Get-Date).ToUniversalTime().GetDateTimeFormats("s")[0];
+        Category = "Deployment";
+        Properties = ConvertTo-Json $releaseProperties -Compress
+    }
     
-        [parameter(Mandatory = $true)][string]$releaseName, 
-    
-        [parameter(Mandatory = $false)]$releaseProperties = @() 
-    
-    ) 
-    
-    $annotation = @{ 
-    
-        Id = [GUID]::NewGuid(); 
-    
-        AnnotationName = $releaseName; 
-    
-        EventTime = (Get-Date).ToUniversalTime().GetDateTimeFormats("s")[0]; 
-    
-        Category = "Deployment"; 
-    
-        Properties = ConvertTo-Json $releaseProperties -Compress 
-    
-    } 
-    
-    $body = (ConvertTo-Json $annotation -Compress) -replace '(\\+)"', '$1$1"' -replace "`"", "`"`"" 
-    
-    az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) " 
+    $body = (ConvertTo-Json $annotation -Compress) -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
+
+    az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) "
     ```
 
 3. Call the PowerShell script with the following code, replacing the angle-bracketed placeholders with your values. The -releaseProperties are optional.
