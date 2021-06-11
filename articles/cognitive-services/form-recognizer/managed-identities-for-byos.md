@@ -53,9 +53,9 @@ There are two types of managed identity assignments:
 
 >[!IMPORTANT]
 >
-> To enable a system-assigned managed identity you need **Microsoft.Authorization/roleAssignments/write** permissions, such as [**Owner**](/azure/role-based-access-control/built-in-roles#owner) or [**User Access Administrator**](/azure/role-based-access-control/built-in-roles#user-access-administrator). You can specify a scope at four levels: management group, subscription, resource group, or resource.
+> To enable a system-assigned managed identity, you need **Microsoft.Authorization/roleAssignments/write** permissions, such as [**Owner**](/azure/role-based-access-control/built-in-roles#owner) or [**User Access Administrator**](/azure/role-based-access-control/built-in-roles#user-access-administrator). You can specify a scope at four levels: management group, subscription, resource group, or resource.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription to enable a system-assigned managed identity.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription.
 
 1. Navigate to your **Form Recognizer** resource page in the Azure portal.
 
@@ -65,28 +65,28 @@ There are two types of managed identity assignments:
 
 1. In the main window, toggle the **System assigned Status** tab to **On**.
 
-1. Under *Permissions* select **Azure role assignments**:
+1. Under **Permissions** select **Azure role assignments**:
 
     :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Screenshot: enable system-assigned managed identity in Azure portal.":::
 
-1. An Azure role assignments page will open. Select your subscription from the drop-down menu then select **&plus; Add role assignment**.
+1. An Azure role assignments page will open. Choose your subscription from the drop-down menu then select **&plus; Add role assignment**.
 
     :::image type="content" source="media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Screenshot: Azure role assignments page in the Azure portal.":::
 
 >[!NOTE]
 >
->If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or because you get the permissions error "The client with object id does not have authorization to perform action", check that you are currently signed in as a user that is assigned a role that has the Microsoft.Authorization/roleAssignments/write permission such as Owner or User Access Administrator at the Storage scope for the storage resource where you are assigning the role.
+>If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or because you get the permissions error "The client with object id does not have authorization to perform action", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
 
 5. In the **Add role assignment** pop-up window complete the fields as follows and select **Save**:
 
     | Field | Value|
     |------|--------|
     |**Scope**| ***Storage***|
-    |**Subscription**| ***The subscription associated with your storage resource***|
-    |**Resource**| ***The name of your storage resource**|
+    |**Subscription**| ***The subscription associated with your storage resource***.|
+    |**Resource**| ***The name of your storage resource***|
     |**Role** | ***Storage Blob Data Reader***|
 
- :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
+     :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
 
 You have completed the steps to enable a service-assigned managed identity. With this identity credential, you can grant specific access rights to a single Azure service. If you need to assign a managed identity to  multiple Azure services, you'll need to create a user-assigned managed identity.
 
@@ -96,7 +96,7 @@ You have completed the steps to enable a service-assigned managed identity. With
 >
  > * To enable a user-assigned managed identity you need Microsoft.Authorization/roleAssignments/write permissions, such as [**Owner**](/azure/role-based-access-control/built-in-roles#owner), [**User Access Administrator**](/azure/role-based-access-control/built-in-roles#user-access-administrator), or [**Managed Identity Contributor**](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
-#### Create user-assigned managed identity
+#### Create your Managed Identity resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription.
 
@@ -110,7 +110,7 @@ You have completed the steps to enable a service-assigned managed identity. With
 
     | Field | Value|
     |------|--------|
-    |**Subscription**| ***The subscription associated with your storage resource***|
+    |**Subscription**| ***The subscription associated with your storage resource***.|
     |**Resource group**| ***Choose an existing resource group or select Create new to create a new resource group***.
     | **Region**| ***Choose a region to deploy the user-assigned managed identity***.|
     |**Name**| ***Choose a name for your user-assigned managed identity***.|
@@ -129,7 +129,7 @@ You have completed the steps to enable a service-assigned managed identity. With
 
     :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in Azure portal.":::
 
-1. In the main window, select the **User assigned** tab → select &plus;  **Add**
+1. In the main window, choose the **User assigned** tab then select **&plus; Add**
 
     :::image type="content" source="media/managed-identities/select-user-assigned-managed-identity-in-portal.png" alt-text="Screenshot: select user-assigned managed identity in the Azure portal.":::
 
@@ -138,7 +138,7 @@ You have completed the steps to enable a service-assigned managed identity. With
     | Field | Value |
     |------|--------|
     |**Subscription** | ***The subscription associated with your storage resource*** |
-    | **User assigned managed identities** | ***Select a user-assigned managed identity resource that you created [above](#create-user-assigned-managed-identity).***|
+    | **User assigned managed identities** | ***Select a user-assigned managed identity resource that you created [above](#create-your-managed-identity-resource).***|
 
 #### Assign a role to your user-assigned managed identity
 
