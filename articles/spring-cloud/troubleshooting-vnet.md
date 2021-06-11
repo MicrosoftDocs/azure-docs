@@ -26,7 +26,7 @@ To set up the Azure Spring Cloud service instance by using the [Azure CLI](/cli/
 - The resource group for the instance is already created.
 - The resource name conforms to the naming rule. It must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
 
-To set up the Azure Spring Cloud service instance by using the Resource Manager template, refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+To set up the Azure Spring Cloud service instance by using the Resource Manager template, refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 ### Common creation issues
 

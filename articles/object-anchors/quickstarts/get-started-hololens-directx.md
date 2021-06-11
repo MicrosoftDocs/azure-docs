@@ -90,3 +90,6 @@ The app aligns a 3D model to its physical counterpart closely. A user can air ta
 
 > [!div class="nextstepaction"]
 > [FAQ](../faq.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

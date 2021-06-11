@@ -38,9 +38,9 @@ You'll complete the following tasks:
 * [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT 
 * Hardware
 
-    > * The [MXCHIP AZ3166 IoT DevKit](https://aka.ms/iot-devkit) (MXCHIP DevKit)
-    > * Wi-Fi 2.4 GHz
-    > * USB 2.0 A male to Micro USB male cable
+    * The [MXCHIP AZ3166 IoT DevKit](https://aka.ms/iot-devkit) (MXCHIP DevKit)
+    * Wi-Fi 2.4 GHz
+    * USB 2.0 A male to Micro USB male cable
 
 ## Prepare the development environment
 
@@ -71,7 +71,7 @@ To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    > *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain.bat*
 
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
@@ -163,9 +163,9 @@ To register a device:
 
 Before continuing to the next section, confirm that you've copied the following values:
 
-> * `hostName`
-> * `deviceId`
-> * `primaryKey`
+* `hostName`
+* `deviceId`
+* `primaryKey`
 
 ## Prepare the device
 
@@ -175,7 +175,7 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
 
 1. Open the following file in a text editor:
 
-    > *getting-started\MXChip\AZ3166\app\azure_config.h*
+    *getting-started\MXChip\AZ3166\app\azure_config.h*
 
 1. Comment out the following line near the top of the file as shown:
 
@@ -203,13 +203,13 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
 
 ### Build the image
 
-In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+1. In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
 
-> *getting-started\MXChip\AZ3166\tools\rebuild.bat*
+    *getting-started\MXChip\AZ3166\tools\rebuild.bat*
 
-After the build completes, confirm that the binary file was created in the following path:
+2. After the build completes, confirm that the binary file was created in the following path:
 
-> *getting-started\MXChip\AZ3166\build\app\mxchip_azure_iot.bin*
+    *getting-started\MXChip\AZ3166\build\app\mxchip_azure_iot.bin*
 
 ### Flash the image
 
@@ -238,7 +238,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     * **Baud rate**: 115,200
     * **Port**: The port that your MXCHIP DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/termite-settings.png" alt-text="Confirm settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
@@ -341,7 +341,7 @@ To view telemetry in Azure IoT Explorer:
 
 1. Select the **Show modeled events** checkbox to view the events in the data format specified by the device model.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer device":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer":::
 
 1. Select **Stop** to end receiving events.
 
@@ -380,7 +380,7 @@ To call a method in Azure IoT Explorer:
 1. For the **setLedState** command, set the **state** to **true**.
 1. Select **Send command**. You should see a notification in IoT Explorer, and the yellow User LED light on the device should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-invoke-method.png" alt-text="Azure IoT Explorer invoke method":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer":::
 
 1. Set the **state** to  **false**, and then select **Send command**. The yellow User LED should turn off.
 1. Optionally, you can view the output in Termite to monitor the status of the methods.
