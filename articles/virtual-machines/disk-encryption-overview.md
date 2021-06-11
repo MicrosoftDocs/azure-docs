@@ -18,15 +18,15 @@ Azure Disk Encryption and encryption-at-host encrypt temp disks, disk caches, an
 
 Azure Security Center does not have the ability to detect encryption-at-host on your VM.  
 
-Use Azure Disk Encryption to encrypt OS, data disks, temp disks, disk caches and data flows between Compute and Storage with customer-managed keys. If you have encryption-at-host enabled, or server-side encryption on Managed Disks meets your security requirements, you can disregard this recommendation. 
+Use Azure Disk Encryption to encrypt OS, data disks, temp disks, disk caches and data flows between Compute and Storage with customer-managed keys. If you have encryption-at-host enabled, or server-side encryption on Managed Disks meets your security requirements, you can disregard this recommendation.
 
-For more information on disk encryption options and remediation steps, see the table below or see the documentation here. 
+For more information on disk encryption options and remediation steps, see the table below or see the documentation here.
 
 | | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | ASC disk encryption status |
 |--|--|--|--|--|--|--|
-| Encryption at rest with platform-managed key (SSE+PMK) | Badge Tick1 outline | Badge Cross with solid fill | Badge Cross with solid fill | Badge Cross with solid fill | Badge Cross with solid fill | Unhealthy, not applicable if exempt | 
-| Encryption at rest with customer-managed key (SSE+CMK) | Badge Tick1 outline | Badge Cross with solid fill | Badge Cross with solid fill | Badge Cross with solid fill | Badge Tick1 outline | Unhealthy, not applicable if exempt | 
-| Encryption at Host*  | Badge Tick1 outline | Badge Tick1 outline | Badge Tick1 outline | Badge Tick1 outline | Badge Tick1 outline | Unhealthy, not applicable if exempt | 
-| Azure Disk Encryption | Badge Tick1 outline | Badge Tick1 outline | Badge Tick1 outline | Badge Tick1 outline | Badge Tick1 outline | Healthy 
+| Encryption at rest with platform-managed key (SSE+PMK) | &#10004; | &#10060; | &#10060; | &#10060; | &#10060; | Unhealthy, not applicable if exempt |
+| Encryption at rest with customer-managed key (SSE+CMK) | &#10004; | &#10060; | &#10060; | &#10060; | &#10004; | Unhealthy, not applicable if exempt |
+| Encryption at Host*  | &#10004; | &#10004; | &#10004; | &#10004; | &#10004; | Unhealthy, not applicable if exempt |
+| Azure Disk Encryption | &#10004; | &#10004; | &#10004; | &#10004; | &#10004; | Healthy |
 
-*For Encryption at Host, Azure Security Center does not detect the encryption state.  
+*For Encryption at Host, Azure Security Center does not detect the encryption state.
