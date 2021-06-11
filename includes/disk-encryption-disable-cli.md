@@ -8,7 +8,7 @@
  ms.date: 06/19/2020
  ms.author: rogarana
  ms.custom: include file
---
+---
 You can disable encryption using Azure PowerShell, the Azure CLI, or with a Resource Manager template. 
 
 >[!IMPORTANT]
