@@ -26,8 +26,8 @@ VM insights includes the following workbooks. You can use these workbooks or use
 
 | Workbook | Description |
 |----------|-------------|
-| Performance | Provides a customizable version of the Performance view that leverages all of the Log Analytics performance counters that you have enabled. | Single VM | 
-| Connections | Connections provides an in-depth view of the inbound and outbound connections from your VM. | Single VM |
+| Performance | Provides a customizable version of the Performance view that leverages all of the Log Analytics performance counters that you have enabled. | 
+| Connections | Connections provides an in-depth view of the inbound and outbound connections from your VM. | 
 
 ### Multiple virtual machines
 

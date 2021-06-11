@@ -32,9 +32,9 @@ Azure Monitor focuses on operational data including Activity Logs, Metrics, and 
 ## Integration with Azure Monitor
 The following table lists the integration points for Azure Monitor with the security services. All the services use the same Log Analytics agent, which reduces complexity since there are no additional components being deployed to your virtual machines. Azure Security Center and Azure Sentinel store their data in a Log Analytics workspace so that you can use log queries to correlate data collected by the different services. Or create a custom workbook that combines security data and availability and performance data in a single view.
 
-|                           | Azure Monitor | Azure Security Center | Azure Sentinel | Defender for Endpoint |
+| Integration point       | Azure Monitor | Azure Security Center | Azure Sentinel | Defender for Endpoint |
 |:---|:---|:---|:---|:---|
-| Collects security events         |   | X | X | X |
+| Collects security events     |   | X | X | X |
 | Stores data in Log Analytics workspace | X | X | X |   | 
 | Uses Log Analytics agent     | X | X | X | X | 
 
