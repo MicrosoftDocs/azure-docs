@@ -654,7 +654,7 @@ Linked Entities:
 --- 
 
 
-### Key phrase extraction
+## Key phrase extraction
 
 # [Version 3.1 preview](#tab/version-3-1)
 
