@@ -17,7 +17,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 - A working [Communication Services calling Android app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
-- Federation must be enabled between your Teams tenant and your Communication Services resource. See [Teams interop](../../../concepts/teams-interop.md).
+- Federation must be enabled between your Teams tenant and your Communication Services resource. See [Teams interop](../../../../concepts/teams-interop.md).
 
 ## Add the Teams UI controls
 
