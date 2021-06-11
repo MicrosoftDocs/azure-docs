@@ -20,12 +20,18 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: 'Train models'
+  - title: 'Get started: Train models'
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Train models in the cloud
-            url: how-to-train-cli.md      
+          - text: Train with the Python SDK
+            url: tutorial-1st-experiment-hello-world.md      
+          - text: Train with the v2 CLI (preview)
+            url: how-to-train-cli.md   
+  - title: 'How to train models'
+    linkLists:
+      - linkListType: how-to-guide
+        links:            
           - text: Optimize models with hyperparameter sweeps
             url: how-to-tune-hyperparameters.md
           - text: Create multi-step ML pipelines
@@ -39,11 +45,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-           - text: Deploy your model to the cloud
+           - text: How to deploy a model
              url: how-to-deploy-and-where.md  
-           - text: Online scoring
+           - text: Managed online scoring (preview)
              url: how-to-deploy-managed-online-endpoints.md
-           - text: Batch scoring
+           - text: Managed batch scoring (preview)
              url: how-to-use-batch-endpoint.md
             
   # MLOps
