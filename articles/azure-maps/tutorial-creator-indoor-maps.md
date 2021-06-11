@@ -580,7 +580,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 
 14. After the update completes, you'll receive a `200 OK` HTTP status code. If you implemented [dynamic styling](indoor-map-dynamic-styling.md) for an indoor map, the update displays at the specified time stamp in your rendered map.
 
-You can use the [Feature Get Stateset API](/rest/api/maps/v2/feature-state/get-states) to retrieve the state of a feature using its feature `id`. You can also use the [Feature State Delete State API](/rest/api/maps/v2/feature-state/delete-state) to delete the stateset and its resources.
+You can use the [Feature Get Stateset API](/rest/api/maps/v2/feature-state/get-states) to retrieve the state of a feature using its feature `id`. You can also use the [Feature State Delete State API](/rest/api/maps/v2/feature-state/delete-stateset) to delete the stateset and its resources.
 
 To learn more about the different Azure Maps Creator services discussed in this article, see [Creator Indoor Maps](creator-indoor-maps.md).
 

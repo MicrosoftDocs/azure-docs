@@ -275,7 +275,7 @@ The `directoryInfo` object class feature defines the name, address, phone number
 |`nameAlt` |    string |    false |   Alternate name used for the feature. Maximum length allowed is 1000. |
 |`phoneNumber` |    string |    false |    Phone number. |
 |`website` |    string |    false |  Website URL. Maximum length allowed is 1000. |
-|`hoursOfOperation` |    string |    false |   Hours of operation as text, following the [Open Street Map specification](https://wiki.openstreetmap.org/wiki/Key:openingHours/specification). Maximum length allowed is 1000. |
+|`hoursOfOperation` |    string |    false |   Hours of operation as text, following the [Open Street Map specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification). Maximum length allowed is 1000. |
 
 ## pointElement
 
