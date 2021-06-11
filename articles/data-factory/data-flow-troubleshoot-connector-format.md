@@ -68,11 +68,11 @@ To solve this issue, refer to the following examples and steps to manually updat
     
 **Step-1**: Open the script of the data flow activity.
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/open-script.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." ::: 
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/open-script.png" alt-text="Screenshot that shows how to open the script of the data flow activity." ::: 
     
 **Step-2**: Update the DSL to get the map type support by referring to the examples above.
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/update-dsl.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." ::: 
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/update-dsl.png" alt-text="Screenshot that shows how to update the DSL." ::: 
 
 >[!Note]
 >The ADF data flow has the UX improvement to support you editing the schema under "Import projection" to get the map type support.
