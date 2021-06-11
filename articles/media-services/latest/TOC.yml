@@ -225,7 +225,9 @@
     - name: Streaming policies 
       href: stream-streaming-policy-concept.md          
     - name: Content key policies 
-      href: drm-content-key-policy-concept.md                    
+      href: drm-content-key-policy-concept.md   
+    - name: Key delivery IP restrictions
+      href: drm-content-protection-key-delivery-ip-allow.md                   
   - name: Monitoring
     items:
       - name: Monitor with Azure Monitor
