@@ -22,27 +22,23 @@ Tasks for determining use and capacity
 
 Monitor for accounts that have low or now traffic. 
 
+- Lead with metrics  - Capacity, ingress, egress. how many operations how much activity are we seeing in accounts. 
+
+- Showcase storage insights for this one. Borrow whatever you can from that article and try a few things out.
+
+- Use logs to drill in a bit deeper on things like use etc.
+
 - Log analytic query to find accounts that have had below a certain threshold of requests against it.
 
 - Log analytic query to identify accounts that have little or no blob data in them. 
 
-- What about metrics?
+#### Monitor the use of a container
 
-#### Monitor the capacity of a container
-
-Need to determine how much capacity is left in a container and whether the user is approaching a limit.
-
-Need to put a better business use case description here.
+This scenario is about clearly identifying container use. For example, ISV partners might build solutions that use blob storage to host data. For example, container A for customer A and container B for customer B. All data stored in separate container. If they want to charge their customers for data use, they need to clearly identify how much data is being used by container. 
 
 This is the solution with inventory - [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
 
-- How does calculating size used in a container equate to evaluating the capacity of a container?
-
-- Is there a way to view the trend of container use over time? A chart? A report?
-
-- Metrics?
-
-- Alerts?
+There's also a PowerShell script that does this sort of calculation. 
 
 ## Monitor activity
 
@@ -91,10 +87,12 @@ Provide guidance for converting values to find identity.
 ##### Identity bytes read or written by source
 
 // Log Analytic query to return byte count for each source
+// Metrics?
 
 ##### Identify operations by source
 
 // Log Analytic query to return operations for each user.
+// Metric?
 
 ##### Other scenarios for traffic by source?
 
@@ -109,15 +107,34 @@ One way to reduce the cost of querying data is to archive logs to a storage acco
 
 1. Archive logs to storage account. See [Creating a diagnostic setting](monitor-blob-storage.md#creating-a-diagnostic-setting).
 
-2. Use tiering (how?).
-
-##### Some query approach
-
-// Put example here.
+2. Consider the use of tiering to move data that you don't frequently use to colder storage. You might also even consider archive storage and then rehydrate that to hotter tier. Make sure to mention considerations around query cost and rehydration cost as well.
 
 ##### Query Acceleration
 
-// Put example here.
+To learn more about how to set up query acceleration, see [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md).
+
+Here's an example for checking total blob size
+
+```powershell
+Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
+    $tempfile = New-TemporaryFile
+    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
+    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
+    Get-Content $tempfile.FullName
+}
+ 
+$query = [string]::Format("SELECT SUM(CAST(_4 AS INT)) FROM BlobStorage where SUBSTRING(_1, 0, {1}) = '{2}'", $targetContainer.Length, $targetContainer.Length, $targetContainer)
+Get-QueryCsv $ctx $inventoryContainer $blob $query $true
+
+```
+
+Here's an example for getting total blob count:
+
+```powershell
+$query = [string]::Format("SELECT COUNT(*) FROM BlobStorage where SUBSTRING(_1, 0, {1}) = '{2}'", $targetContainer.Length, $targetContainer.Length, $targetContainer)
+Get-QueryCsv $ctx $inventoryContainer $blob $query $true
+
+```
 
 ##### Azure Synapse
 
