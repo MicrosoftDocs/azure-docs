@@ -137,7 +137,7 @@ sections:
               ```
           
           
-            Here's an example for [AKS Nginx Ingress Controller](https://docs.microsoft.com/en-us/azure/aks/ingress-basic)
+            Here's an example for [AKS Nginx Ingress Controller](../aks/ingress-basic.md):
             
             ``` yaml
             apiVersion: networking.k8s.io/v1
