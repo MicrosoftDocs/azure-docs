@@ -305,15 +305,15 @@ In this section, you create a private link that allows SAP BOBI virtual machines
 
 For more information, see [Private Link for Azure Database for MySQL](../../../mysql/concepts-data-access-security-private-link.md)
 
-### Create CMS and audit database
+### Create the CMS and audit databases
 
 1. Download and install MySQL workbench from [MySQL website](https://dev.mysql.com/downloads/workbench/). Make sure you install MySQL workbench on the server that can access Azure Database for MySQL.
 
-2. Connect to server by using MySQL Workbench. Follow the instruction mentioned in this [article](../../../mysql/connect-workbench.md#get-connection-information). If the connection test is successful, you'll get following message -
+2. Connect to the server by using MySQL Workbench. Follow the instructions in [Get connection information](../../../mysql/connect-workbench.md#get-connection-information). If the connection test is successful, you get following message:
 
-   ![SQL Workbench Connection](media/businessobjects-deployment-guide/businessobjects-sql-workbench.png)
+   ![Screenshot of message in MySQL Workbench.](media/businessobjects-deployment-guide/businessobjects-sql-workbench.png)
 
-3. In SQL query tab, run below query to create schema for CMS and Audit database.
+3. In the SQL query tab, run the following query to create a schema for the CMS and audit databases.
 
    ```sql
    # Here cmsbl1 is the database name of CMS database. You can provide the name you want for CMS database.
@@ -323,7 +323,7 @@ For more information, see [Private Link for Azure Database for MySQL](../../../m
    CREATE SCHEMA `auditbl1` DEFAULT CHARACTER SET utf8;
    ```
 
-4. Create user account to connect to schema
+4. Create a user account to connect to the schema.
 
    ```sql
    # Create a user that can connect from any host, use the '%' wildcard as a host part
@@ -338,7 +338,7 @@ For more information, see [Private Link for Azure Database for MySQL](../../../m
    FLUSH PRIVILEGES;
    ```
 
-5. To check the privileges and roles of MySQL user account
+5. To check the privileges and roles of the MySQL user account:
 
    ```sql
    USE sys;
@@ -360,17 +360,17 @@ For more information, see [Private Link for Azure Database for MySQL](../../../m
    +----------------------------------------------------------------------------+
    ```
 
-### Install MySQL C API connector (libmysqlclient) on a Linux server
+### Install MySQL C API connector on a Linux server
 
-For SAP BOBI Application server to access database, it requires database client/drivers. MySQL C API Connector for Linux has to be used to access CMS and Audit databases. ODBC connection to CMS database isn't supported. This section provides instructions on how to set up MySQL C API Connector on Linux.
+For the SAP BOBI application server to access a database, it requires database client drivers. To access the CMS and audit databases, you must use the MySQL C API Connector for Linux. An ODBC connection to the CMS database isn't supported. This section provides instructions on how to set up MySQL C API Connector on Linux.
 
-1. Refer to [MySQL drivers and management tools compatible with Azure Database for MySQL](../../../mysql/concepts-compatibility.md) article, which describes the drivers that are compatible with Azure Database for MySQL. Check for **MySQL Connector/C (libmysqlclient)** driver in the article.
+1. Refer to [MySQL drivers and management tools compatible with Azure Database for MySQL](../../../mysql/concepts-compatibility.md). Check for the **MySQL Connector/C (libmysqlclient)** driver in the article.
 
-2. Refer to this [link](https://downloads.mysql.com/archives/c-c/) to download drivers.
+2. To download drivers, see [MySQL Product Archives](https://downloads.mysql.com/archives/c-c/).
 
 3. Select the operating system and download the shared component rpm package of MySQL Connector. In this example, mysql-connector-c-shared-6.1.11 connector version is used.
 
-4. Install the connector in all SAP BOBI Application instance.
+4. Install the connector in all SAP BOBI application instances.
 
    ```bash
    # Install rpm package
@@ -378,7 +378,7 @@ For SAP BOBI Application server to access database, it requires database client/
    RHEL: sudo yum install <package>.rpm
    ```
 
-5. Check the path of libmysqlclient.so
+5. Check the path of libmysqlclient.so.
 
    ```bash
    # Find the location of libmysqlclient.so file
@@ -388,7 +388,7 @@ For SAP BOBI Application server to access database, it requires database client/
    libmysqlclient: /usr/lib64/libmysqlclient.so
    ```
 
-6. Set LD_LIBRARY_PATH to point to `/usr/lib64` directory for user account that will be used for installation.
+6. Set `LD_LIBRARY_PATH` to point to the `/usr/lib64` directory for the user account that will be used for installation.
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -397,7 +397,7 @@ For SAP BOBI Application server to access database, it requires database client/
    export LD_LIBRARY_PATH=/usr/lib64
    ```
 
-## Server Preparation
+## Server preparation
 
 The steps in this section use the following prefixes:
 
