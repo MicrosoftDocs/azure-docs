@@ -16,21 +16,21 @@ ms.date: 05/25/2021
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview.
+> Azure SQL Database ledger is currently in public preview and available in West Central US.
 
 In this article, you'll verify the integrity of the data in your Azure SQL Database ledger tables. If you selected **Enable automatic digest storage** when you [created your SQL Database](ledger-create-a-single-database-with-ledger-enabled.md), follow the Azure portal instructions to automatically generate the Transact-SQL (T-SQL) script needed to verify the database ledger in the [query editor](connect-query-portal.md). Otherwise, follow the T-SQL instructions by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
 ## Prerequisites
 
 - Have an active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- [Create a SQL Database instance with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
+- [Create a SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
 - [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md) or [create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md).
 
 ## Run ledger verification for SQL Database
 
 # [Portal](#tab/azure-portal)
 
-1. Open the [Azure portal](https://portal.azure.com/), select **All resources**, and locate the database you want to verify. Select that SQL Database instance.
+1. Open the [Azure portal](https://portal.azure.com/), select **All resources**, and locate the database you want to verify. Select that SQL database.
 
 	 :::image type="content" source="media/ledger/ledger-portal-all-resources.png" alt-text="Screenshot that shows the Azure portal with the All resources tab selected.":::
 
