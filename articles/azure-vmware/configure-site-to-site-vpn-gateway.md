@@ -65,7 +65,7 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
  
 3. On the **Basics** tab, enter the required fields. 
 
-   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Screenshot of the Basics tab for the new VPN site.":::  
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Screenshot of the Basics tab for the new VPN site." lightbox="media/create-ipsec-tunnel/create-vpn-site-basics2.png":::  
 
    1. Select the **Region** from the list.
 
@@ -80,7 +80,7 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
    >[!IMPORTANT]
    >By default, Azure assigns a private IP address from the GatewaySubnet prefix range automatically as the Azure BGP IP address on the Azure VPN gateway. The custom Azure APIPA BGP address is needed when your on premises VPN devices use an APIPA address (169.254.0.1 to 169.254.255.254) as the BGP IP. Azure VPN Gateway will choose the custom APIPA address if the corresponding local network gateway resource (on-premises network) has an APIPA address as the BGP peer IP. If the local network gateway uses a regular IP address (not APIPA), Azure VPN Gateway will revert to the private IP address from the GatewaySubnet range.
 
-   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Screenshot that shows link details.":::
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Screenshot that shows link details." lightbox="media/create-ipsec-tunnel/create-vpn-site-links.png":::
 
 1. Select **Review + create**. 
 
