@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/14/2021
+ms.date: 06/10/2021
 ms.author: aahi
 ---
 
@@ -485,4 +485,5 @@ In this article, you learned concepts and workflow for entity linking using Text
 
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
+* [Model versions](../concepts/model-versioning.md)
 * [What's new](../whats-new.md)

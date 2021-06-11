@@ -25,7 +25,6 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 > * Configure a training script to use data in a local directory.
-> * Test the training script locally.
 > * Upload data to Azure.
 > * Create a control script.
 > * Understand the new Azure Machine Learning concepts (passing parameters, datasets, datastores).

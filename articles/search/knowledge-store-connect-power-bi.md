@@ -33,7 +33,7 @@ Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve
 ![Sample Azure Cognitive Search Power BI Template](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Sample Power BI template")
 
 > [!NOTE]
-> Although the template is downloaded while the wizard is in mid-flight, you'll have to wait until the knowledge store is actually created in Azure Table storage before you can use it.
+> Although the template is downloaded while the wizard is in mid-flight, you'll have to wait until the knowledge store is actually created in Azure Table Storage before you can use it.
 
 ## Connect with Power BI
 

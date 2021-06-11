@@ -29,8 +29,8 @@ This extension supports the following OSs:
 
 | Distribution | Version |
 |---|---|
-| Windows 10 EMS | Build 1903 |
-| Windows 10 | Build 1809 |
+| Windows 10 EMS | Build 1909 |
+| Windows 10 | Build 1909 |
 | Windows Server 2016 | Core |
 | Windows Server 2019 | Core |
 
