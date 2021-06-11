@@ -108,6 +108,9 @@ You can use your own certificate to enable the HTTPS feature. This process is do
  
 2. Azure Key Vault certificates: If you have a certificate, upload it directly to your Azure Key Vault account. If you don't have a certificate, create a new certificate directly through Azure Key Vault.
 
+> [!NOTE]
+> The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+
 ### Register Azure CDN
 
 Register Azure CDN as an app in your Azure Active Directory via PowerShell.
@@ -142,21 +145,20 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 2. In the **Add access policy** page, select **None selected** next to **Select principal**. In the **Principal** page, enter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Select **Microsoft.AzureFrontdoor-Cdn**.  Choose **Select**:
 
-2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, choose **Microsoft.AzureFrontDoor-Cdn**. Choose **Select**.
+3. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, choose **Microsoft.AzureFrontDoor-Cdn**. Choose **Select**.
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Select service principal of Azure CDN" border="true":::
     
-3. Select **Certificate permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the certificates.
+4. Select **Certificate permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the certificates.
 
-4. Select **Secret permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the secrets:
+5. Select **Secret permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the secrets:
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Select permissions for CDN to keyvault" border="true":::
 
-5. Select **Add**. 
+6. Select **Add**. 
 
 > [!NOTE]
-> Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault. Any CDN instance created in this subscription will have access to the certificates in this key vault. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). 
-
+> Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault. Any CDN instance created in this subscription will have access to the certificates in this key vault.
  
 ### Select the certificate for Azure CDN to deploy
  
