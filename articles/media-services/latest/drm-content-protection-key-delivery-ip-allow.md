@@ -25,7 +25,7 @@ When securing media with the [content protection](./drm-content-protection-conce
 
 The IP allowlist for Key Delivery restricts the delivery of both DRM licenses and AES-128 keys to clients within the supplied IP allowlist range.
 
-## Setting the IP allowlist for Key Delivery
+## Setting the allowlist for key delivery
 
 The settings for the Key Delivery IP allowlist are on the Media Services account resource. When creating a new Media Services account, you can restrict the allowed IP ranges through the **KeyDelivery** property on the [Media Services account resource.](/rest/api/media/mediaservices/create-or-update)
 
@@ -35,7 +35,7 @@ The **ipAllowList** property can be an array of IP addresses, or CIDR ranges.
 
 ## Setting the allowlist in the portal
 
-The Azure portal provides a method for configuring and updating the IP allowlist for key delivery.  Simply navigate to your Media Services account and access the **Key delivery** menu under **Settings**.
+The Azure portal provides a method for configuring and updating the IP allowlist for key delivery.  Navigate to your Media Services account and access the **Key delivery** menu under **Settings**.
 
 ## Next steps
 
