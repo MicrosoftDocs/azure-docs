@@ -19,16 +19,16 @@ Once you've enabled Active Directory Domain Services (AD DS) authentication on y
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
-## Use cases
+## Which configuration to use
 
 Most users should assign share-level permissions to specific Azure AD users or groups. This is the most stringent and secure configuration.
 
-There are three scenarios where we instead recommend using default share-level permissions assigned to all authenticated identities, they are as follows:
+There are three scenarios where we instead recommend using default share-level permissions assigned to all authenticated identities:
 
 - If you are unable to sync your on-premises AD DS to Azure AD, you can alternatively use a default share-level permission. Assigning a default share-level permission allows you to workaround the sync requirement, and you can use Windows ACLs for granular permission enforcement on your files and directories.
 - The on-premises AD DS you're using is synched to a different Azure AD than the Azure AD the file share is deployed in.
-    - This is typical when you are managing multi-tenant environments.
-- You prefer to enforce authentication using Windows ACLS at the file and directory level only.
+    - This is typical when you are managing multi-tenant environments. Using the default share-level permission allows you to bypass the requirement for a hybrid identity. You can still use Windows ACLs on your files and directories for granular permission enforcement.
+- You prefer to enforce authentication only using Windows ACLS at the file and directory level only.
 
 The AD identities you plan to access Azure Files is not synced to Azure AD 
 
@@ -144,9 +144,9 @@ az storage account update --name $storageAccountName --resource-group $resourceG
 ```
 ---
 
-## Examples
+## What happens if you use both configurations
 
-You can assign permissions to all authenticated Azure AD users and specific Azure AD users/groups. With this configuration, a specific user or group would have the superset of permissions allowed from the default share-level permission and RBAC assignment. The following example helps you understand how this works:  Say you granted a user the **Storage File Data SMB Reader** role on the target file share. You also granted the default share-level permission **Storage File Data SMB Share Elevated Contributor** to all authenticated users. With this configuration, that particular user will have **Storage File Data SMB Share Elevated Contributor** level of access to the file share. Higher-level permissions always take precedence.
+You could also assign permissions to all authenticated Azure AD users and specific Azure AD users/groups. With this configuration, a specific user or group would have the superset of permissions allowed from the default share-level permission and RBAC assignment. To help you understand how this works, here's an example:  Say you granted a user the **Storage File Data SMB Reader** role on the target file share. You also granted the default share-level permission **Storage File Data SMB Share Elevated Contributor** to all authenticated users. With this configuration, that particular user will have **Storage File Data SMB Share Elevated Contributor** level of access to the file share. Higher-level permissions always take precedence.
 
 ## Next steps
 
