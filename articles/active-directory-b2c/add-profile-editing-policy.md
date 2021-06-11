@@ -46,7 +46,7 @@ If you want to enable users to edit their profile in your application, you use a
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
 1. Under **Identity providers** select at least one identity provider:
 
-   * Under **Local accounts**, select one of the following: **Email signin**, **User ID signin**, **Phone signin**, **Phone/Email signin**, **User ID/Email signin**, or **None**. [Learn more](identity-provider-local.md).
+   * Under **Local accounts**, select one of the following: **Email signin**, **User ID signin**, **Phone signin**, **Phone/Email signin**, **User ID/Email signin**, or **None**. [Learn more](sign-in-options.md).
    * Under **Social identity providers**, select any of the external social or enterprise identity providers you've set up. [Learn more](add-identity-provider.md).
 1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multi-factor authentication (MFA). [Learn more](multi-factor-authentication.md).
 1. Under **Conditional access**, if you've configured Conditional Access policies for your Azure AD B2C tenant and you want to enable them for this user flow, select the **Enforce conditional access policies** check box. You don't need to specify a policy name. [Learn more](conditional-access-user-flow.md?pivots=b2c-user-flow).
