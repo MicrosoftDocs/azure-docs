@@ -32,7 +32,7 @@ This section shows you how to create a .NET Core console application to send mes
 1. On the **Create a new project** dialog box, do the following steps: If you don't see this dialog box, select **File** on the menu, select **New**, and then select **Project**. 
     1. Select **C#** for the programming language.
     1. Select **Console** for the type of the application. 
-    1. Select **Console App (.NET Core)** from the results list. 
+    1. Select **Console Application** from the results list. 
     1. Then, select **Next**. 
 
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/new-send-project.png" alt-text="Image showing the Create a new project dialog box with C# and Console selected":::
@@ -58,7 +58,6 @@ This section shows you how to create a .NET Core console application to send mes
     using System.Threading.Tasks;    
     using Azure.Messaging.ServiceBus;
     ```
-
 1. In the `Program` class, add the following two static properties. 
 
     ```csharp
@@ -145,7 +144,7 @@ This section shows you how to create a .NET Core console application to send mes
     - The **current size** of the queue increments each time the app adds messages to the queue.
     - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the queue. 
 
-## Receive messages from a queue
+## Receive messages
 In this section, you'll create a .NET Core console application that receives messages from the queue. 
 
 ### Create a project for the receiver
@@ -163,6 +162,7 @@ In this section, you'll create a .NET Core console application that receives mes
 
     ```cmd
     Install-Package Azure.Messaging.ServiceBus
+    ```
 
 ### Add the code to receive messages from the queue
 In this section, you'll add code to retrieve messages from the queue.
@@ -170,9 +170,7 @@ In this section, you'll add code to retrieve messages from the queue.
 1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
 
     ```csharp
-    using System.Collections.Generic;
     using System.Threading.Tasks;
-
     using Azure.Messaging.ServiceBus;
     ```
 
