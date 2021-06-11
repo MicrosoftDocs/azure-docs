@@ -309,7 +309,7 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
     >    - In step 5, select the **Transactions** metric instead of **Egress**.
     >    - In step 10, the only option for **Aggregation type** is *Total*. Therefore, the threshold value depends on your selected aggregation granularity. For example, if you want your threshold to be 80&nbsp;percent of provisioned baseline IOPS and you select *1 hour* for **Aggregation granularity**, your **Threshold value** would be your baseline IOPS (in bytes) &times;&nbsp;0.8 &times;&nbsp;3600. 
 
-To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## See also
 - [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)  
