@@ -32,7 +32,9 @@ To stay up-to-date with the most recent developments, this article provides you 
 ### Key delivery supports IP allowlist restrictions
 
 Media Services accounts can now be configured with IP allowlist restrictions on key delivery. The new allowlist setting is available on the Media Services account resource through the SDK as well as in the portal and CLI.
-This allows operators to restrict delivery of DRM licenses and AES-128 content keys to specific IP ranges.
+This allows operators to restrict delivery of DRM licenses and AES-128 content keys to specific IPv4 ranges.
+
+This feature can also be used to shut off all public internet delivery of DRM licenses or AES-128 keys and restrict delivery to a private network endpoint.
 
 See the article [Restrict access to DRM license and AES key delivery using IP allowlists](./drm-content-protection-key-delivery-ip-allow.md) for details.
 
