@@ -439,7 +439,7 @@ Language:  French
 
 ---
 
-## Named Entity recognition (NER)
+## Named Entity Recognition (NER)
 
 # [Version 3.1 preview](#tab/version-3-1)
 
@@ -794,7 +794,7 @@ key_phrase_extraction_example(client)
 
 ---
 
-## Use the API asynchronously with the batch analyze operation
+## Use the API asynchronously with the analyze operation
 
 # [Version 3.1 preview](#tab/version-3-1)
 

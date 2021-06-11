@@ -119,7 +119,7 @@ The response object is a list containing the analysis information for each docum
 
 ## Code examples
 
-* [Client Authentication](#client-authentication)
+* [Client Authentication](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis) 
 * [Opinion mining](#opinion-mining)
 * [Language detection](#language-detection)
@@ -128,7 +128,7 @@ The response object is a list containing the analysis information for each docum
 * Personally Identifiable Information
 * [Key phrase extraction](#key-phrase-extraction)
 
-## Client Authentication
+## Authenticate the client
 
 # [Version 3.1 preview](#tab/version-3-1)
 

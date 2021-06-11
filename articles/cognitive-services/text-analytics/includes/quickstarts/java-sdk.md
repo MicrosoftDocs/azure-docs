@@ -322,7 +322,7 @@ static void detectLanguageExample(TextAnalyticsClient client)
 Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 ```
 
-## Named Entity recognition (NER)
+## Named Entity Recognition (NER)
 
 # [Version 3.1 preview](#tab/version-3-1)
 

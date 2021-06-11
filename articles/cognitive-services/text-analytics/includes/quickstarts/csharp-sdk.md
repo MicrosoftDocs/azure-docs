@@ -712,7 +712,7 @@ Key phrases:
 
 ---
 
-## Use the API asynchronously with the analyze operation
+## Use the API asynchronously with the Analyze operation
 
 # [Version 3.1 preview](#tab/version-3-1)
 
