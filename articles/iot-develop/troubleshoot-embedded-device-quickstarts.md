@@ -23,7 +23,7 @@ This article provides suggested resolutions for the most common issues that can 
 All the troubleshooting steps require that you've completed the following prerequisites for the quickstart you're working in:
 
 * You installed or acquired all prerequisites, and additional software tools, for the specific quickstart in the [Embedded device development quickstarts](quickstart-devkit-mxchip-az3166.md).
-* You created an Azure Iot hub, and registered a device, as directed in the quickstart.
+* You created an Azure IoT hub or Azure IoT Central application, and registered a device, as directed in the quickstart.
 * You built an image for the device, as directed in the quickstart.
 
 ## Issue: The source directory does not contain CMakeLists.txt file
@@ -39,7 +39,9 @@ This issue can occur when you attempt to build the project. It is the result of 
 
 The issue can occur after you've created Azure resources, and flashed your device. When you try to connect your newly flashed device to Azure IoT, you see a console message like the following:
 
-* *Unable to resolve DNS for MQTT Server*
+```output
+*Unable to resolve DNS for MQTT Server*
+```
 
 ### Resolution
 
