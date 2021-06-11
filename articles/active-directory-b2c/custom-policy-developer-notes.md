@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/27/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -80,6 +80,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | [Custom email verification](custom-email-mailjet.md) | NA | GA| |
 | [Customize the user interface with built-in templates](customize-ui.md) | GA| GA| |
 | [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| By using HTML templates. |
+| [Page layout version](page-layout.md) | GA | GA | |
 | [JavaScript](javascript-and-page-layout.md) | GA | GA | |
 | [Embedded sign-in experience](embedded-login.md) | NA |  Preview| By using the inline frame element `<iframe>`. |
 | [Password complexity](password-complexity.md) | GA | GA | |

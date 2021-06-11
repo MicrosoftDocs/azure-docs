@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/07/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -52,6 +52,12 @@ For more information about VPN gateway connections, see [About VPN Gateway](vpn-
 **Point-to-Site** (VPN over SSTP) configurations let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the Point-to-Site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a Site-to-Site connection.
 
 You can configure your virtual network to use both Site-to-Site and Point-to-Site concurrently, as long as you create your Site-to-Site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
+
+## <a name="privacy"></a>Privacy
+
+### Does the VPN service store customer data?
+
+No.
 
 ## <a name="gateways"></a>Virtual network gateways
 
@@ -171,17 +177,13 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## How do I change the authentication type for my point-to-site connections?
-
-You can change the authentication method for your point-to-site connections by going to the **Point-to-site configuration** section under the VPN Gateway and checking the desired radio button. Current options are **Azure certificate, RADIUS authentication and Azure Active Directory**. Please note that current clients **may not be able to connect** after the change until the new profile has been downloaded and configured on the client.
-
-## <a name="P2S"></a>Point-to-Site using native Azure certificate authentication
+## <a name="P2S"></a>Point-to-Site - Certificate authentication
 
 This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Point-to-Site using RADIUS authentication
+## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
 
 This section applies to the Resource Manager deployment model.
 
@@ -217,7 +219,7 @@ Yes, but you must configure BGP on both tunnels to the same location.
 
 ### Does Azure VPN Gateway honor AS Path prepending to influence routing decisions between multiple connections to my on-premises sites?
 
-Yes, Azure VPN gateway will honor AS Path prepending to help make routing decisions when BGP is enabled. A shorter AS Path will be prefered in BGP path selection.
+Yes, Azure VPN gateway will honor AS Path prepending to help make routing decisions when BGP is enabled. A shorter AS Path will be preferred in BGP path selection.
 
 ### Can I use Point-to-Site VPNs with my virtual network with multiple VPN tunnels?
 

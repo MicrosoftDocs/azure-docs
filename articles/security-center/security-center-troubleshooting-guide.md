@@ -143,5 +143,5 @@ In this document, you learned how to configure security policies in Azure Securi
 * [Handling Security Incidents in Azure Security Center](security-center-incident.md)
 * [Azure Security Center detection capabilities](./security-center-alerts-overview.md)
 * [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md) — Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service
+* [Azure Security Center FAQ](faq-general.yml — Find frequently asked questions about using the service
 * [Azure Security Blog](/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance
