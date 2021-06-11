@@ -271,7 +271,7 @@ To confirm, you can use Azure Metrics in the portal -
 12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
-To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## How to create alerts if a premium file share is trending toward being throttled
 

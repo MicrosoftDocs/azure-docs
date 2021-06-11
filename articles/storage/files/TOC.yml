@@ -219,8 +219,6 @@
     items:
     - name: Enable SMB Multichannel
       href: storage-files-enable-smb-multichannel.md
-    - name: Enable large file shares
-      href: storage-files-how-to-create-large-file-share.md
   - name: Develop
     items:
     - name: Configure connection strings
