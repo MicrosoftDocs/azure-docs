@@ -59,6 +59,23 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 > [!IMPORTANT]
 > When you select **Logs** from the [service-name] menu, Log Analytics is opened with the query scope set to the current [Service resource]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
+The following sample query can help you monitor app logs using `AppServiceAppLogs`:
+
+```Kusto
+AppServiceAppLogs 
+| project CustomLevel, _ResourceId
+| summarize count() by CustomLevel, _ResourceId
+```
+
+The following sample query can help you monitor HTTP logs using `AppServiceHTTPLogs`:
+
+```Kusto
+AppServiceHTTPLogs 
+//| where ResourceId = "MyResourceId" // Uncomment to get results for a specific resource Id when querying over a group of Apps
+| where ScStatus >= 500
+| reduce by strcat(CsMethod, ':\\', CsUriStem)
+```
+
 The following sample query can help you monitor app errors using `AppServiceConsoleLogs` and `AppserviceHTTPLogs`:
 
 ```Kusto
@@ -67,12 +84,6 @@ let myHttp = AppServiceHTTPLogs | where  ScStatus == 500 | project TimeGen=subst
 let myConsole = AppServiceConsoleLogs | project TimeGen=substring(TimeGenerated, 0, 19), ResultDescription;
 
 myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, ResultDescription;   
-```
-
-```Kusto
-AppServiceAppLogs 
-| project CustomLevel, _ResourceId
-| summarize count() by CustomLevel, _ResourceId
 ```
 
 ## Alerts

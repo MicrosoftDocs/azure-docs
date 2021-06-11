@@ -22,6 +22,9 @@ This section lists all the automatically collected platform metrics collected fo
 | App Service Plans | [Microsoft.Web/serverfarms](/azure/azure-monitor/essentials/metrics-supported#microsoftwebserverfarms)
 | Web apps | [Microsoft.Web/sites](/azure/azure-monitor/essentials/metrics-supported#microsoftwebsites) |
 | Staging slots | [Microsoft.Web/sites/slots](/azure/azure-monitor/essentials/metrics-supported#microsoftwebsitesslots) 
+| App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironments)
+| App Service Environment Front-end | [Microsoft.Web/hostingEnvironments/multiRolePools](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironmentsmultirolepools)
+
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
@@ -30,24 +33,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-
 App Service does not have any metrics that contain dimensions.
-
-*OR*
-
-App Service has the following dimensions associated with its metrics.
-
-<!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
-
-**--------------EXAMPLE format when you have dimensions------------------**
-
-Azure Storage supports following dimensions for metrics in Azure Monitor.
-
-| Dimension Name | Description |
-| ------------------- | ----------------- |
-| **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append blobs are included in **BlockBlob**. |
-| **BlobTier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](/azure/storage/blobs/storage-blob-storage-tiers). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
-| **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
 
 ## Resource logs
 <!-- REQUIRED. Please  keep headings in this order -->
@@ -57,20 +43,6 @@ This section lists the types of resource logs you can collect for App Service.
 <!-- List all the resource log types you can have and what they are for -->  
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
-
-------------**OPTION 1 EXAMPLE** ---------------------
-
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-categories, which is auto generated from the REST API.  Not all resource log types metrics are published depending on whether your product group wants them to be.  If the resource log is published, but category display names are wrong or missing, contact your PM and tell them to update them in the Azure Monitor "shoebox" manifest.  If this article is missing resource logs that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
--->
-
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-
-This section lists all the resource log category types collected for App Service.  
-
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Web Sites | [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites) |
-| Web Site Slots | [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots) 
 
 --------------**OPTION 2 EXAMPLE** -------------
 
@@ -99,53 +71,23 @@ Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/pla
 | AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
 |  etc.               |                              |                                                   |  
 
+
+| App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironments)
+
+
 --------------**END Examples** -------------
 
 ## Azure Monitor Logs tables
+
+Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of tables used by Kusto, see the [Azure Monitor Logs table reference](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype#app-services) article. 
+
 <!-- REQUIRED. Please keep heading in this order -->
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to App Service and available for query by Log Analytics. 
 
-------------**OPTION 1 EXAMPLE** ---------------------
-
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
--->
-
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-
 |Resource Type | Notes |
 |-------|-----|
-| [Virtual Machines](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machines) | |
-| [Virtual machine scale sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
-
---------------**OPTION 2 EXAMPLE** -------------
-
-<!--  OPTION 2 -  List out your tables adding additional information on what each table is for. Individually link to each table using the table name.  For example, link to [AzureMetrics](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azuremetrics).  
-
-NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the automatically generated list. You can group these sections however you want provided you include the proper links back to the proper tables. 
--->
-
-### Virtual Machines
-
-| Table |  Description | *TODO replace this label with proper title for your additional information*  |
-|:---------|:-------------|------------------|
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | <!-- description copied from previous link --> Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. | *TODO other important information about this type |
-| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
-|  etc.               |                              |                                                   |  
-
-### Virtual Machine Scale Sets
-
-| Table |  Description | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/adassessmentrecommendation)   | <!-- description copied from previous link --> Recommendations generated by AD assessments that are started through a scheduled task. When you schedule the assessment it runs by default every 7 days and upload the data into Azure Log Analytics | *TODO other important information about this type |
-| [ADReplicationResult](/azure/azure-monitor/reference/tables/adreplicationresult) | <!-- description copied from previous link --> The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures.    | *TODO other important information about this type |
-|  etc.               |                              |                                                   |  
-
-<!-- Add extra information if required -->
-
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
-
---------------**END EXAMPLES** -------------
+| [App services](/azure/azure-monitor/reference/tables/tables-resourcetype#app-services) | |
 
 ### Diagnostics tables
 <!-- REQUIRED. Please keep heading in this order -->
