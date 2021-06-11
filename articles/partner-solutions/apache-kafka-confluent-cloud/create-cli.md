@@ -49,7 +49,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-After you sign in, use the [az confluent organization create](/cli/azure/confluent#az_confluent_organization_create) command to create the new organization resource:
+After you sign in, use the [az confluent organization create](/cli/azure/confluent/organization#az_confluent_organization_create) command to create the new organization resource:
 
 ```azurecli
 az confluent organization create --name "myOrganization" --resource-group "myResourceGroup" \
@@ -60,28 +60,41 @@ az confluent organization create --name "myOrganization" --resource-group "myRes
 ```
 
 > [!NOTE]
-> Creating the new resource may take some time before the [az confluent organization create](/cli/azure/confluent#az_confluent_organization_create) command returns. Use the optional parameter `--no-wait` to have the command return immediately. 
-To pause CLI execution until an organization's specific event or condition occurs, use the [az confluent organization wait](/cli/azure/confluent#az_confluent_organization_wait) command. For example, to wait until an organization is created:
+> If you want the command to return before the create operation completes, add the optional parameter `--no-wait`. The operation continues to run until the Confluent organization is created.
+ 
+To pause CLI execution until an organization's specific event or condition occurs, use the [az confluent organization wait](/cli/azure/confluent/organization#az_confluent_organization_wait) command. For example, to wait until an organization is created:
 
 ```azurecli
 az confluent organization wait --name "myOrganization" --resource-group "myResourceGroup" --created
 ```
 
-To see a list of existing organizations by subscription or by resource group, use the [az confluent organization list](/cli/azure/confluent#az_confluent_organization_list) command:
+To see a list of existing organizations, use the [az confluent organization list](/cli/azure/confluent/organization#az_confluent_organization_list) command.
+
+You can view all of the organizations in your subscription:
 
 ```azurecli
 az confluent organization list
+```
+
+Or, view the organizations in a resource group:
+
+```azurecli
 az confluent organization list --resource-group "myResourceGroup"
 ```
 
-To see the properties of a specific organization by name or by resource ID, use the [az confluent organization show](/cli/azure/confluent#az_confluent_organization_show) command:
+To see the properties of a specific organization, use the [az confluent organization show](/cli/azure/confluent/organization#az_confluent_organization_show) command.
+
+You can view the organization by name:
 
 ```azurecli
 az confluent organization show --name "myOrganization" --resource-group "myResourceGroup"
-az confluent organization show --ids "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Confluent/organizations/{myOrganization}"
 ```
 
----
+Or, view the organization by resource ID:
+
+```azurecli
+az confluent organization show --ids "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Confluent/organizations/{myOrganization}"
+```
 
 If you get an error, see [Troubleshooting Apache Kafka for Confluent Cloud solutions](troubleshoot.md).
 

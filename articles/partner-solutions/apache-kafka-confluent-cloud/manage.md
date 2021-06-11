@@ -22,9 +22,12 @@ To enable SSO, follow these steps:
 1. Navigate to the **Overview** for your instance of the Confluent Cloud resource.
 1. Select the link to **Manage on Confluent Cloud**.
 
-   :::image type="content" source="media/sso-link.png" alt-text="Confluent portal single sign-on.":::
+   :::image type="content" source="media/manage/sso-link.png" alt-text="Confluent portal single sign-on.":::
 
 1. If tenant administrator didn't import the gallery application for SSO consent, grant permissions and consent. This step is only needed the first time you access the link to **Manage on Confluent Cloud**.
+
+   :::image type="content" source="media/manage/permissions-requested.png" alt-text="Grant permissions.":::
+
 1. Choose an Azure AD account for single sign-on to the Confluent Cloud portal.
 1. After consent is provided, you're redirected to the Confluent Cloud portal.
 
