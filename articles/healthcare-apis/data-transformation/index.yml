@@ -1,0 +1,27 @@
+### YamlMime:Landing
+
+title: Data Transformation
+summary: Data Transformation documentation section for Azure Healthcare APIs
+
+metadata:
+  title: Azure Healthcare APIs Data Transformation
+  description: Data Transformation documentation section for Azure Healthcare APIs
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: data-transformation
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: ginalee-dotcom
+  ms.author: ginle
+  ms.date: 06/01/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: Start with Data Transformation
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: C-CDA to FHIR Conversion
+            url: ccda-to-fhir-conversion.md

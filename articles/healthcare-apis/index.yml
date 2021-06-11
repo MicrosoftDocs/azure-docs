@@ -1,0 +1,52 @@
+### YamlMime:Landing
+
+title: Azure Healthcare APIs documentation
+summary: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and Data Transformation
+
+metadata:
+  title: Azure Healthcare APIs documentation
+  description: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and Data Transformation
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: ginalee-dotcom
+  ms.author: ginle
+  ms.date: 06/01/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: What is Healthcare APIs?
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Healthcare APIs?
+            url: healthcare-apis-overview.md
+      - linkListType: quickstart
+        links:
+          - text: How to get started with Healthcare APIs
+            url: healthcare-apis-quickstart.md
+
+  - title: FHIR
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy javascript app to read data from FHIR service
+            url: ./fhir/tutorial-web-app-fhir-server.md
+          
+  - title: DICOM
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Overview of DICOM
+            url: ./dicom/dicom-overview.md
+
+  - title: Data Transformation
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: C-CDA to FHIR conversion
+            url: ./data-transformation/ccda-to-fhir-conversion.md
+          

@@ -178,11 +178,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/index.yml",
-        "redirect_url": "/azure/healthcare-apis/fhir/index",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/iot-data-flow.md",
         "redirect_url": "/azure/healthcare-apis/fhir/iot-data-flow",
         "redirect_document_id": true
