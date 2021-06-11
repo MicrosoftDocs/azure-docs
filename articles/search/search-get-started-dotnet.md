@@ -503,8 +503,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-In this C# quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, we recommend the following articles to deepen your knowledge.
+In this C# quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, try the next tutorial to call Cognitive Search APIs in the context of a web app.
 
-+ [How to use the Azure.Search.Documents client library](search-howto-dotnet-sdk.md)
-
-+ [Tutorial: Add search to web apps](tutorial-csharp-overview.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Add search to web apps](tutorial-csharp-overview.md)
