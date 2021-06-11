@@ -78,6 +78,7 @@ To solve this issue, refer to the following examples and steps to manually updat
 >The ADF data flow has the UX improvement to support you editing the schema under "Import projection" to get the map type support.
 >
 >**The map type support**:
+>
 >|Type   |Is the map type supported?   |Comments|
 >|----------|-----------|------------|
 >|Excel, CSV  |No      |Both are tabular data sources with the primitive type, so there is no need to support the map type. |
