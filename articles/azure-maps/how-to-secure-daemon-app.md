@@ -23,7 +23,7 @@ Examples of a daemon applications are:
 - Windows Service
 - A running and reliable background service
 
-## View Azure Maps Authentication Details
+## View Azure Maps authentication details
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
