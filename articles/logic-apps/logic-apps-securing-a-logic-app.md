@@ -3,9 +3,9 @@ title: Secure access and data
 description: Secure access to inputs, outputs, request-based triggers, run history, management tasks, and access to other resources in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla, rarayudu
+ms.reviewer: rarayudu, azla
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 05/01/2021
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -213,9 +213,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
 
 1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
-
-Workflow properties such as policies don't appear in your logic app's code view in the Azure portal. To access your policies programmatically, call the following API through Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820`. Make sure that you replace the placeholder values for your Azure subscription ID, resource group name, and workflow name.
-
+Workflow properties such as policies don't appear in your logic app's code view in the Azure portal. To access your policies programmatically, call the following API through Azure Resource Manager: `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820`. Make sure that you replace the placeholder values for your Azure subscription ID, resource group name, and workflow name.
 
 <a name="define-authorization-policy-template"></a>
 
@@ -305,7 +303,14 @@ For more information, see these topics:
 
 ### Expose your logic app with Azure API Management
 
-To add more [authentication protocols](../active-directory/develop/authentication-vs-authorization.md) to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use Azure AD OAuth, [client certificate](#client-certificate-authentication), or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management call your logic app, you can [restrict your logic app's inbound IP addresses](#restrict-inbound-ip).
+For more authentication protocols and options, consider exposing your logic app as an API by using Azure API Management. This service provides rich monitoring, security, policy, and documentation capabilities for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use Azure Active Directory Open Authentication (Azure AD OAuth), client certificate, or other security standards. When API Management receives a request, the service sends the request to your logic app and makes any necessary transformations or restrictions along the way. To let only API Management call your logic app, you can [restrict your logic app's inbound IP addresses](#restrict-inbound-ip).
+
+For more information, review the following documentation:
+
+* [About API Management](../api-management/api-management-key-concepts.md)
+* [Protect a web API backend in Azure API Management by using OAuth 2.0 authorization with Azure AD](../api-management/api-management-howto-protect-backend-with-aad.md)
+* [Secure APIs using client certificate authentication in API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
+* [API Management authentication policies](../api-management/api-management-authentication-policies.md)
 
 <a name="restrict-inbound-ip"></a>
 
@@ -1172,7 +1177,7 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
 
   For example, to meet Impact Level 5 requirements, create your function app with the [App Service plan](../azure-functions/dedicated-plan.md) using the [**Isolated** pricing tier](../app-service/overview-hosting-plans.md) along with an [App Service Environment (ASE)](../app-service/environment/intro.md) that also uses the **Isolated** pricing tier. In this environment, function apps run on dedicated Azure virtual machines and dedicated Azure virtual networks, which provide network isolation on top of compute isolation for your apps and maximum scale-out capabilities. For more information, see [Azure Government Impact Level 5 Isolation Guidance - Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
 
-  For more information, see these topics:<p>
+  For more information, review the following documentation:
 
   * [Azure App Service plans](../app-service/overview-hosting-plans.md)
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
@@ -1180,13 +1185,25 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
   * [Virtual machine isolation in Azure](../virtual-machines/isolation.md)
   * [Deploy dedicated Azure services into virtual networks](../virtual-network/virtual-network-for-azure-services.md)
 
-* To create logic apps that run on dedicated resources and can access resources protected by an Azure virtual network, you can create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* Based on whether you're using [multi-tenant or single-tenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences), you have these options:
 
-  * Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, partner services, or customer services that are hosted on Azure. If your logic apps need access to virtual networks that use private endpoints, you must create, deploy, and run those logic apps inside an ISE.
+  * With single-tenant based logic apps, you can privately and securely communicate between logic app workflows and an Azure virtual network by setting up private endpoints for inbound traffic and use virtual network integration for outbound traffic. For more information, review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
-  * For more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, see [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
+  * With multi-tenant based logic apps, you can create and run your logic apps in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). That way, your logic apps run on dedicated resources and can access resources protected by an Azure virtual network. For more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, review [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
 
-For more information, see these topics:
+  > [!IMPORTANT]
+  > Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) 
+  > for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
+  > partner services, or customer services that are hosted on Azure.
+  >
+  > If your workflows need access to virtual networks that use private endpoints, and you want to develop those workflows 
+  > using the **Logic App (Consumption)** resource type, you *must create and run your logic apps in an ISE*. However, 
+  > if you want to develop those workflows using the **Logic App (Standard)** resource type, *you don't need an ISE*. 
+  > Instead, your workflows can communicate privately and securely with virtual networks by using private endpoints 
+  > for inbound traffic and virtual network integration for outbound traffic. For more information, review 
+  > [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
+For more information about isolation, review the following documentation:
 
 * [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md)
 * [Security for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
