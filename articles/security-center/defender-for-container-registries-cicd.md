@@ -16,7 +16,7 @@ This page explains how to scan your Azure Container Registry-based container ima
 
 To set up the scanner, you'll need to enable **Azure Defender for container registries** and the CI/CD integration. When your CI/CD workflows push images to your registries, you can view registry scan results and a summary of CI/CD scan results.
 
-The findings of the CI/CD scans are an enrichment to the existing registry scan findings by Qualys. Azure Defender's CI/CD scanning is powered by [Trivy](https://0x1.gitlab.io/security/Trivy/).
+The findings of the CI/CD scans are an enrichment to the existing registry scan findings by Qualys. Azure Defender's CI/CD scanning is powered by [Aqua Trivy](https://github.com/aquasecurity/trivy).
 
 You’ll get traceability information such as the GitHub workflow and the GitHub run URL, to help identify the workflows that are resulting in vulnerable images.
 
@@ -27,7 +27,7 @@ You’ll get traceability information such as the GitHub workflow and the GitHub
 
 |Aspect|Details|
 |----|:----|
-|Release state:| **This CI/CD integration is in preview**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+|Release state:| **This CI/CD integration is in preview.**<br>We recommend that you experiment with it on non-production workflows only.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 |Pricing:|**Azure Defender for container registries** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||

@@ -24,6 +24,7 @@ When using the cluster start/stop feature, the following restrictions apply:
 - This feature is only supported for Virtual Machine Scale Sets backed clusters.
 - The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, the cluster state cannot be recovered. For more information, see the [AKS Support Policies](support-policies.md).
 - You can only start or delete a stopped AKS cluster. To perform any operation like scale or upgrade, start your cluster first.
+- The customer provisioned PrivateEndpoints linked to private cluster need to be deleted and recreated again when you start a stopped AKS cluster.
 
 ## Stop an AKS Cluster
 

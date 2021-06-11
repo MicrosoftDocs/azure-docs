@@ -102,10 +102,10 @@ Here are the download links for each of the scenario:
 
 Scenario | Download link | Hash value
 --- | --- | ---
-Hyper-V | [AzureMigrateInstaller-HyperV-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160557) | 17EFA01E3A7683F1CE2A08E3A9197A27D8BD2CC03C3AB5C6E00E4261A822BDB3
-Physical | [AzureMigrateInstaller-Physical-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160558) | 01028F92C2095452F2DDCB89986CDC1F177AAC58E150A5B219A69CF1B7DA3BE0
-VMware | [AzureMigrateInstaller-VMware-public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160648) | 66D3217AEC1DE51D84EC608B22BDDA605EC9C4FBAB06FC69FEC985886627C224
-VMware scale-out | [AzureMigrateInstaller-VMware-Public-Scaleout-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160811) | 42C1E8D5CF428E35E5B98E4E7465DD08439F0FD5C319340CE3E3ADC3DC1717A6
+Hyper-V | [AzureMigrateInstaller-HyperV-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160557) | CBF8927AF137A106E2A34AC4F77CFFCB1CD96873C592E1DF37BC5606254989EC
+Physical | [AzureMigrateInstaller-Physical-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160558) | 1CB967D92096EB48E4C3C809097F52C8341FC7CA7607CF840C529E7A21B1A21D
+VMware | [AzureMigrateInstaller-VMware-public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160648) | 0A4FCC4D1500442C5EB35E4095EF781CB17E8ECFE8E4F8C859E65231E00BB154
+VMware scale-out | [AzureMigrateInstaller-VMware-Public-Scaleout-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160811) | 2F035D34E982EE507EAEC59148FDA8327A45D2A845B4A95475EC6D2469D72D28
 
 #### Verify security
 
@@ -119,7 +119,7 @@ Check that the zipped file is secure, before you deploy it.
 
 3.  Verify the latest version of the appliance by comparing the hash values from the table above.
 
-Make sure the server meets the [hardware requirements](./migrate-appliance.md) for the chosen scenario (VMware/Hyper-V/Physical or other) and can connect to the required Azure URLs - [public](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity) and [government](./migrate-appliance.md#government-cloud-urls-for-private-link-connectivity) clouds.
+Make sure the server meets the [hardware requirements](./migrate-appliance.md) for the chosen scenario (VMware/Hyper-V/Physical or other) and can connect to the [required URLs](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity).
 
 
 #### Run the script
@@ -147,7 +147,7 @@ Open a browser on any machine that can connect to the appliance server, and open
    - **Connectivity**: The appliance checks for access to the required URLs. If the server uses a proxy:
      - Select **Set up proxy** to specify the proxy address `http://ProxyIPAddress` or `http://ProxyFQDN` and listening port.
      - Specify credentials if the proxy needs authentication. Only HTTP proxy is supported.
-     - You can add a list of URLs/IP addresses that should bypass the proxy server. If you are using ExpressRoute private peering, ensure that you bypass these [URLs](./replicate-using-expressroute.md#configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-vmware-agentless-migrations).
+     - You can add a list of URLs/IP addresses that should bypass the proxy server.
      - Select **Save** to register the configuration if you have updated the proxy server details or added URLs/IP addresses to bypass proxy.
 
         > [!Note]
@@ -220,9 +220,9 @@ Additionally, to enable replications over a private link, [create a private endp
 
 #### Grant access permissions to the Recovery Services vault
 
-The Recovery Services vault managed identity requires permissions for authenticated access to the cache/replication storage account.
+You must grant the permissions to the recovery Services vault for authenticated access to the cache/replication storage account.
 
-Use the guidance below to identify the Recovery Services vault created by Azure Migrate and grant the required permissions.
+To identify the Recovery Services vault created by Azure Migrate and grant the required permissions, follow these steps:
 
 **_Identify the recovery services vault and the managed identity object ID_**
 
@@ -236,21 +236,19 @@ You can find the details of the Recovery Services vault on the Azure Migrate: Se
 
     ![Azure Migrate: Server Migration properties page](./media/how-to-use-azure-migrate-with-private-endpoints/vault-info.png)
 
-**_Grant the required permissions to access the storage account_**
+**_Permissions to access the storage account_**
 
  To the managed identity of the vault you must be grant the following role permissions on the storage account required for replication.  In this case, you must create the storage account in advance.
 
 >[!Note]
 > For migrating Hyper-V VMs to Azure using private link, you must grant access to both the replication storage account and cache storage account.
 
-The role permissions vary depending on the type of the storage account.
+The role permissions for the Resource Manager vary depending on the type of the storage account.
 
-- Resource Manager-based storage accounts (Standard type):
-  - [Contributor](../role-based-access-control/built-in-roles.md#contributor) _and_
-  - [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-- Resource Manager-based storage accounts (Premium type):
-  - [Contributor](../role-based-access-control/built-in-roles.md#contributor) _and_
-  - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+|**Storage Account Type** | **Role Permissions**|
+|--- | ---|
+|Standard Type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|
+|Premium Type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 1. Go to the replication/cache storage account selected for replication. Select **Access control (IAM)** in the left pane.
 

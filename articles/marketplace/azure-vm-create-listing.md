@@ -1,6 +1,6 @@
 ---
 title: Configure virtual machine offer listing details on Azure Marketplace
-description: Configure  virtual machine offer listing details on Azure Marketplace.
+description: Configure virtual machine offer listing details on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: mingshen
 ms.date: 10/19/2020
 ---
 
-# How to configure virtual machine offer listing details
+# Configure virtual machine offer listing details
 
 On the **Offer listing** page (select from the left-nav menu in Partner Center), you define the offer details such as offer name, description, links, and contacts.
 
@@ -75,8 +75,6 @@ Provide the **Name**, **Email**, and **Phone** of the person who handles your CS
 ## Marketplace media
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
-
-[!INCLUDE [logo tips](includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.

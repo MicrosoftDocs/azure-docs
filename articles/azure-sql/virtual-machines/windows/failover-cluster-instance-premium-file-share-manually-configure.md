@@ -8,7 +8,7 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: hadr
-ms.custom: na
+ms.custom: na, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -41,24 +41,21 @@ Before you complete the instructions in this article, you should already have:
 ## Mount premium file share
 
 1. Sign in to the [Azure portal](https://portal.azure.com). and go to your storage account.
-1. Go to **File Shares** under **File service**, and then select the premium file share you want to use for your SQL storage.
+1. Go to **File shares** under **Data storage**, and then select the premium file share you want to use for your SQL storage.
 1. Select **Connect** to bring up the connection string for your file share.
-1. In the drop-down list, select the drive letter you want to use, and then copy both code blocks to Notepad.
+1. In the drop-down list, select the drive letter you want to use, choose **Storage account key** as the authentication method, and then copy the code block to a text editor, such as Notepad.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copy both PowerShell commands from the file share connect portal":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copy the PowerShell command from the file share connect portal":::
 
 1. Use Remote Desktop Protocol (RDP) to connect to the SQL Server VM with the account that your SQL Server FCI will use for the service account.
 1. Open an administrative PowerShell command console.
-1. Run the commands that you saved earlier when you were working in the portal.
-1. Go to the share by using either File Explorer or the **Run** dialog box (select Windows + R). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
-
+1. Run the command that you copied earlier to your text editor from the File share portal.
+1. Go to the share by using either File Explorer or the **Run** dialog box (Windows + R on your keyboard). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 1. Create at least one folder on the newly connected file share to place your SQL data files into.
 1. Repeat these steps on each SQL Server VM that will participate in the cluster.
 
   > [!IMPORTANT]
   > - Consider using a separate file share for backup files to save the input/output operations per second (IOPS) and space capacity of this share for data and log files. You can use either a Premium or Standard File Share for backup files.
-  > - If you're on Windows 2012 R2 or earlier, follow these same steps to mount the file share that you're going to use as the file share witness. 
-  > 
 
 
 ## Add Windows cluster feature
@@ -81,34 +78,6 @@ Before you complete the instructions in this article, you should already have:
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-## Validate cluster
-
-Validate the cluster in the UI or by using PowerShell.
-
-To validate the cluster by using the UI, do the following on one of the virtual machines:
-
-1. Under **Server Manager**, select **Tools**, and then select **Failover Cluster Manager**.
-1. Under **Failover Cluster Manager**, select **Action**, and then select **Validate Configuration**.
-1. Select **Next**.
-1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
-1. Under **Testing options**, select **Run only tests I select**. 
-1. Select **Next**.
-1. Under **Test Selection**, select all tests except for **Storage** and **Storage Spaces Direct**, as shown here:
-
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Select cluster validation tests":::
-
-1. Select **Next**.
-1. Under **Confirmation**, select **Next**.
-
-The **Validate a Configuration** wizard runs the validation tests.
-
-To validate the cluster by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
-   ```
-
-After you validate the cluster, create the failover cluster.
 
 
 ## Create failover cluster
@@ -140,10 +109,39 @@ For more information, see [Failover cluster: Cluster Network Object](https://blo
 
 ---
 
-
 ## Configure quorum
 
-Configure the quorum solution that best suits your business needs. You can configure a [Disk Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), a [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness), or a [File Share Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
+Although the disk witness is the most resilient quorum option, it requires an Azure shared disk which imposes some limitations to the failover cluster instance when configured with premium file shares. As such, the cloud witness is the recommended quorum solution for this type of cluster configuration for SQL Server on Azure VMs. Otherwise, configure a file share witness. 
+
+If you have an even number of votes in the cluster, configure the [quorum solution](hadr-cluster-quorum-configure-how-to.md) that best suits your business needs. For more information, see [Quorum with SQL Server VMs](hadr-windows-server-failover-cluster-overview.md#quorum). 
+
+## Validate cluster
+
+Validate the cluster in the UI or by using PowerShell.
+
+To validate the cluster by using the UI, do the following on one of the virtual machines:
+
+1. Under **Server Manager**, select **Tools**, and then select **Failover Cluster Manager**.
+1. Under **Failover Cluster Manager**, select **Action**, and then select **Validate Configuration**.
+1. Select **Next**.
+1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
+1. Under **Testing options**, select **Run only tests I select**. 
+1. Select **Next**.
+1. Under **Test Selection**, select all tests except for **Storage** and **Storage Spaces Direct**, as shown here:
+
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Select cluster validation tests":::
+
+1. Select **Next**.
+1. Under **Confirmation**, select **Next**.
+
+The **Validate a Configuration** wizard runs the validation tests.
+
+To validate the cluster by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
+
 
 
 ## Test cluster failover
@@ -203,9 +201,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## Configure connectivity 
 
-To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 CU2 (or later) and Windows Server 2016 (or later), you can use the [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) feature instead. 
-
-For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#connectivity). 
+You can configure a virtual network name, or a distributed network name for a failover cluster instance. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) and then deploy either a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) or a [virtual network name](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for your failover cluster instance.
 
 ## Limitations
 
@@ -221,8 +217,10 @@ If you haven't already done so, configure connectivity to your FCI with a [virtu
 
 If premium file shares are not the appropriate FCI storage solution for you, consider creating your FCI by using [Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster configuration best practices](hadr-cluster-best-practices.md). 
+To learn more, see:
 
-For more information, see: 
-- [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md)
+- [Failover cluster instance overview](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)
+

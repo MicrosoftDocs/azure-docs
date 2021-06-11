@@ -332,8 +332,6 @@
       href: logic-apps-enterprise-integration-transform.md
     - name: Twilio
       href: ../connectors/connectors-create-api-twilio.md
-    - name: Wunderlist
-      href: ../connectors/connectors-create-api-wunderlist.md
     - name: X12
       href: logic-apps-enterprise-integration-x12.md
     - name: XML Validation

@@ -151,10 +151,13 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 
 - Across all solutions, the backup service's built-in alerts are pushed as soon as they're created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
 - Across all solutions, on-demand backup jobs and restore jobs are pushed as soon as they *finish*.
-- For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they *finish*.
-- For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
+- For all solutions except SQL and SAP HANA backup, scheduled backup jobs are pushed as soon as they *finish*.
+- For SQL and SAP HANA backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
 - Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on, is pushed at least *once per day.*
 - A change in the backup configuration (such as changing policy or editing policy) triggers a push of all related backup information.
+
+> [!NOTE]
+> The same delay applies to other destinations for diagnostics data, such as Storage accounts and Event Hubs.
 
 ## Using the Recovery Services vault's activity logs
 

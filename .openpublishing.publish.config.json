@@ -232,6 +232,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-python-worker-extension",
+      "url": "https://github.com/Azure-Samples/python-worker-extension-timer",
+      "branch": "master",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "functions-openapi-turbine-repair",
       "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair",
       "branch": "main",
@@ -260,7 +266,7 @@
       "url": "https://github.com/Azure-Samples/azure-search-python-samples",
       "branch": "master",
       "branch_mapping": {}
-    },
+    },     
     {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
@@ -740,6 +746,18 @@
       "url": "https://github.com/Azure-Samples/digital-twins-iothub-integration",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-spring-cloud-reference-architecture",
+      "url": "https://github.com/Azure/azure-spring-cloud-reference-architecture",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+    "path_to_root": "digital-twins-docs-samples-getting-started",
+    "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
+    "branch": "main",
+    "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
