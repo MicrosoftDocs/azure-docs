@@ -1262,7 +1262,7 @@
         displayName: Find unattached disks
         href: disks-find-unattached-portal.md
     - name: Disks FAQs
-      href: faq-for-disks.md
+      href: faq-for-disks.yml
   - name: Code samples
     items:
     - name: CLI
