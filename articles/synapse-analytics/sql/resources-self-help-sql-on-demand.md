@@ -462,7 +462,6 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
   - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
 - You cannot use schema inference in the [OPENROWSET](/azure/synapse-analytics/sql/develop-openrowset) function if you have nested/complex types in the files. Make sure that you explicitly specify the schema in `WITH` clause.
-- Make sure that you have both Read and list permission on the underlying Delta Lake folders.
 - Delta Lake tables created in the Apache Spark pools are not synchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination.
   - The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. Due to the known issue in preview, you need to use schema inference and remove the `WITH` clause.
@@ -471,6 +470,26 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
 You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
+
+### Content of directory on path cannot be listed
+
+The following error is returned when serverless SQL pool cannot read the Delta Lake transaction log folder.
+
+```
+Msg 13807, Level 16, State 1, Line 6
+Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
+```
+
+Make sure that you have both read and list permission on the underlying Delta Lake folders.
+
+### Query failed because of a topology change or compute container failure
+
+Some Delta Lake queries on partitioned data sets might fail with this error message if your database collation is not `Latin1_General_100_BIN2_UTF8`. Create a database with `Latin1_General_100_BIN2_UTF8` collation and execute the queries on that database instead of master and other databases with the default collation.
+
+```sql
+CREATE DATABASE mydb 
+    COLLATE Latin1_General_100_BIN2_UTF8;
+```
 
 ## Next steps
 
