@@ -59,7 +59,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 
 <sup>1</sup> The limits for standard file shares apply to all three of the tiers available for standard file shares: transaction optimized, hot, and cool.
 
-<sup>2</sup> Default on standard file shares is 5 TiB, see [Enable and create large file shares](./storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.
+<sup>2</sup> Default on standard file shares is 5 TiB, see [Create an Azure file share](./storage-how-to-create-file-share.md) for the details on how to create file shares with 100 TiB size and increase existing standard file shares up to 100 TiB.
 
 ### File scale targets
 | Attribute | Files in standard file shares  | Files in premium file shares  |
