@@ -135,9 +135,11 @@ This section shows you how to create a .NET Core console application to send mes
 1. In the Azure portal, follow these steps:
     1. Navigate to your Service Bus namespace. 
     1. On the **Overview** page, select the queue in the bottom-middle pane. 
+    
+        :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/select-queue.png" alt-text="Image showing the Service Bus Namespace page in the Azure portal with the queue selected." lightbox="./media/service-bus-dotnet-get-started-with-queues/select-queue.png":::
     1. Notice the values in the **Essentials** section.
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Messages received with count and size" lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
+    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Image showing the number of messages received and the size of the queue" lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
 
     Notice the following values:
     - The **Active** message count value for the queue is now **3**. Each time you run this sender app without retrieving the messages, this value increases by 3.
@@ -271,7 +273,7 @@ In this section, you'll add code to retrieve messages from the queue.
     Stopping the receiver...
     Stopped receiving messages
     ```
-1. Check the portal again. 
+1. Check the portal again. Wait for a few minutes and refresh the page if you don't see `0` for **Active** messages. 
 
     - The **Active** message count and **Current size** values are now **0**.
     - In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages for the queue. 
