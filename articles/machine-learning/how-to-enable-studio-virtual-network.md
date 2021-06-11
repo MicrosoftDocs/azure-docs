@@ -53,8 +53,8 @@ The following operations are disabled by default in a virtual network:
 
 * Preview data in the studio.
 * Visualize data in the designer.
-* Deploy a model in the designer ([default storage account](#enable-managed-identity-authentication-for-default-storage-accounts)).
-* Submit an AutoML experiment ([default storage account](#enable-managed-identity-authentication-for-default-storage-accounts)).
+* Deploy a model in the designer.
+* Submit an AutoML experiment.
 * Start a labeling project.
 
 The studio supports reading data from the following datastore types in a virtual network:
@@ -84,6 +84,7 @@ Use the following steps to enable studio to work with storage services:
 
         For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
 
+    <a id='enable-managed-identity'></a>
     1. **Enable managed identity authentication for default storage accounts**. Each Azure Machine Learning workspace has two default storage accounts, a default blob storage account and a default file store account, which are defined when you create your workspace. You can also set new defaults in the **Datastore** management page.
 
         ![Screenshot showing where default datastores can be found](./media/how-to-enable-studio-virtual-network/default-datastores.png)
@@ -138,7 +139,7 @@ Use the following steps to enable studio to work with storage services:
     
     Make sure that you have access to the intermediate storage accounts in your virtual network. Otherwise, the pipeline will fail.
 
-    [Enable managed identity authentication](#configure-datastores-to-use-workspace-managed-identity) for intermediate storage accounts to visualize output data.
+    [Enable managed identity authentication](#enable-managed-identity) for intermediate storage accounts to visualize output data.
 ## Access the studio from a resource inside the VNet
 
 If you are accessing the studio from a resource inside of a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
