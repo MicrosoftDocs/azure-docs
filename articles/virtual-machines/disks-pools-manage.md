@@ -15,7 +15,6 @@ Once you've deployed a disk pool, there are two management actions available to 
 - Add or remove a disk to or from a disk pool
 - Disable iSCSI support on a disk
 
-
 ## Add/Remove a disk to/from a pool
 
 Your disk must meet the following requirements in order to be added to the disk pool:
