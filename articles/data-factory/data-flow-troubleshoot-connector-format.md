@@ -112,7 +112,7 @@ For example:
  In data flow activities, when you try to use the map data type in the Cosmos DB or JSON source, it cannot be directly supported so you cannot get the map data type under "Import projection".
 
 #### Cause
-For Cosmos DB and JSON, they are schema free connectivity and their related spark connector uses sample data to infer the schema, and then use that schema as the Cosmos DB/JSON source schema. When inferring the schema, the Cosmos DB/JSON spark connector can only infer object data as a struct rather than a map data type, and that's why the map type cannot be directly supported.
+For Cosmos DB and JSON, they are schema free connectivity and their related spark connector uses sample data to infer the schema, and then that schema is used as the Cosmos DB/JSON source schema. When inferring the schema, the Cosmos DB/JSON spark connector can only infer object data as a struct rather than a map data type, and that's why the map type cannot be directly supported.
 
 #### Recommendation 
 To solve this issue, refer to the following examples and steps to manually update the script (DSL) of the Cosmos DB/JSON source to get the map data type support.
@@ -125,7 +125,7 @@ To solve this issue, refer to the following examples and steps to manually updat
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/open-script.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." ::: 
     
-**Step-2**: Update the DSL to get the map type support by referring to the up examples.
+**Step-2**: Update the DSL to get the map type support by referring to the examples above.
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/update-dsl.png" alt-text="Screenshot that shows how to upgrade the storage account to general purpose v2." ::: 
 
