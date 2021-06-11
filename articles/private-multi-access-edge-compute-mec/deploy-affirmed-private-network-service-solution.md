@@ -1,5 +1,5 @@
 ---
-title: 'Deploy Affirmed Private Network Service on Azure Stack Edge'
+title: 'Deploy Affirmed Private Network Service on Azure'
 description: Learn how to deploy the Affirmed Private Network Service solution 
 services: vnf-manager
 author: KumudD
@@ -10,33 +10,39 @@ ms.author: hollycl
 ---
 # Deploy Affirmed Private Network Service on Azure
 
-This article provides a high-level overview of the process of deploying APNS on an ASE device via the Microsoft Azure Marketplace.
+This article provides a high-level overview of the process of deploying Affirmed Private Network Service (APNS) solution on an Azure Stack Edge device via the Microsoft Azure Marketplace.
+
+The following diagram shows the system architecture of the Affirmed Private Network Service, including the resources required to deploy.
+
+![Affirmed Private Network Service Deployment](media/deploy-affirmed-private-network-service/deploy-affirmed-private-network-service.png)
 
 ## Collect required information
+
 To deploy APNS, you must have the following resources:
-- A configured Azure Network Function Manager - Device object which serves as the digital twin of the Azure Stack Edge device 
+
+- A configured Azure Network Function Manager - Device object which serves as the digital twin of the Azure Stack Edge device. 
 
 - A fully deployed Azure Stack Edge with NetFoundry VM. 
 
-- Subscription approval for the Affirmed Management Systems VM Offer and APNS Managed Application 
+- Subscription approval for the Affirmed Management Systems VM Offer and APNS Managed Application. 
 
 - An Azure account with an active subscription and access to the following:  
 
-- The built-in “Owner” Role for your Resource Group  
+    - The built-in **Owner** Role for your resource group. 
 
-- The built-in “Managed Application Contributor” role for your Subscription 
+    - The built-in **Managed Application Contributor** role for your subscription. 
 
-- A Virtual Network and Subnet to join (Open ports tcp/443 and tcp/8443) 
+    - A virtual network and subnet to join (open ports tcp/443 and tcp/8443). 
 
-- 5 IP Addresses on the Virtual Subnet 
+    - 5 IP addresses on the virtual subnet. 
 
-- A valid SAS Token provided by Affirmed Release Engineering  
+    - A valid SAS Token provided by Affirmed Release Engineering.  
 
-- An Administrative username/password to program during the deployment 
+    - An administrative username/password to program during the deployment. 
     
 ## Deploy APNS
 
-To automatically deploy the APNS Managed application with all required resources and relevant information necessary, select the APNS Managed Application from the Microsoft Azure Marketplace. When you deploy APNS, all the required resources are automatically created for you and are contained in a Managed Resource Group. 
+To automatically deploy the APNS Managed application with all required resources and relevant information necessary, select the APNS Managed Application from the Microsoft Azure Marketplace. When you deploy APNS, all the required resources are automatically created for you and are contained in a Managed Resource Group.
 
 Complete the following procedure to deploy APNS:
 1.	Open the Azure portal and select **Create a resource**.
@@ -52,4 +58,4 @@ Complete the following procedure to deploy APNS:
 
 - For step-by-step instructions for deploying APNS and configuring NetFoundry settings on an Azure Stack Edge device, view the [Affirmed Private Network Service Deployment guide](https://go.microsoft.com/fwlink/?linkid=2165732).
 - For information regarding the programmatic GUI-driven portal that operators used to deploy, monitor, and manage private mobile core networks, [Affirmed Private Network Service Manager User guide](https://go.microsoft.com/fwlink/?linkid=2165932).
-- Learn more about [Affirmed Private Network Service on Azure](affirmed-private-network-service-overview.md)
+- Learn more about [Affirmed Private Network Service on Azure](affirmed-private-network-service-overview.md).
