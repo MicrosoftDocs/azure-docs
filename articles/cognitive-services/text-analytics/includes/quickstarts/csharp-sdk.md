@@ -209,7 +209,7 @@ Document sentiment: Positive
         Neutral score: 0.77
 ```
 
-### Opinion mining
+## Opinion mining
 
 Create a new function called `SentimentAnalysisWithOpinionMiningExample()` that takes the client that you created earlier, and call its `AnalyzeSentimentBatch()` function with `IncludeOpinionMining` option in the `AnalyzeSentimentOptions` bag. The returned `AnalyzeSentimentResultCollection` object will contain the collection of `AnalyzeSentimentResult` in which represents `Response<DocumentSentiment>`. The difference between `SentimentAnalysis()` and `SentimentAnalysisWithOpinionMiningExample()` is that the latter will contain `SentenceOpinion` in each sentence, which shows an analyzed target and the related assessment(s). If there was an error, it will throw a `RequestFailedException`.
 
@@ -654,7 +654,7 @@ Linked Entities:
 --- 
 
 
-### Key phrase extraction
+## Key phrase extraction
 
 # [Version 3.1 preview](#tab/version-3-1)
 

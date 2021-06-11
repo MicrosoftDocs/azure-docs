@@ -202,7 +202,7 @@ Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
 
-### Opinion mining
+## Opinion mining
 
 To perform sentiment analysis with opinion mining, create a new function called `sentimentAnalysisWithOpinionMiningExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function with setting option object `AnalyzeSentimentOptions`. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, or an `errorMessage` if not. 
 

@@ -635,6 +635,9 @@
     - name: Manage resource quotas
       displayName: limits
       href: how-to-manage-quotas.md
+    - name: Manage and optimize cost
+      displayName: cost-management,cost-optimization
+      href: how-to-manage-optimize-cost.md      
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: how-to-manage-resources-vscode.md
