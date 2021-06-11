@@ -17,7 +17,7 @@ ms.custom: automl
 
 # Tutorial: Create a classification model with no-code AutoML in the Azure Machine Learning studio
 
-Learn how to create a [classification model](concept-automated-ml.md#classification) without writing a single line of code using Azure Machine Learning automated ML via the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
+Learn how to create a [classification model](concept-automated-ml.md#classification) with no-code AutoML using Azure Machine Learning automated ML via the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
