@@ -186,11 +186,11 @@ Only choose from either of the following two options:
 * *Zone redundant storage (ZRS)*, which isn't available in all Azure regions.
 
 > [!NOTE]
-> Only LRS and ZRS redundancy types are compatible with the large 100-TiB-capacity Azure file shares.
+> Only LRS and ZRS redundancy types are compatible with the large 100 TiB capacity Azure file shares.
 
 Geo redundant storage (GRS) in all variations is currently not supported. You can switch your redundancy type later, and switch to GRS when support for it arrives in Azure.
 
-#### Enable 100-TiB-capacity file shares
+#### Enable 100 TiB capacity file shares
 
 :::row:::
     :::column:::
@@ -201,9 +201,9 @@ Geo redundant storage (GRS) in all variations is currently not supported. You ca
     :::column-end:::
 :::row-end:::
 
-Opting for the large, 100-TiB-capacity file shares has several benefits:
+Opting for the large, 100 TiB capacity file shares has several benefits:
 
-* Your performance is greatly increased as compared to the smaller 5-TiB-capacity file shares (for example, 10 times the IOPS).
+* Your performance is greatly increased as compared to the smaller 5 TiB-capacity file shares (for example, 10 times the IOPS).
 * Your migration will finish significantly faster.
 * You ensure that a file share will have enough capacity to hold all the data you'll migrate into it, including the storage capacity differential backups require.
 * Future growth is covered.
