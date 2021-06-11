@@ -1,21 +1,24 @@
 ---
-title: Azure Event Grid on Kubernetes - create topics and subscriptions
+title: Azure Event Grid on Kubernetes - Webhook as event handler
 description: This article describes how to create an event grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic. 
-author: spelluru
-manager: JasonWHowell
-ms.author: spelluru
-ms.date: 05/06/2021
+author: jfggdl
+ms.subservice: kubernetes
+ms.author: jafernan
+ms.date: 05/25/2021
 ms.topic: quickstart
 ---
 
-# Azure Event Grid on kubernetes - Create a topic and subscriptions
+# Route cloud events to Webhooks with Azure Event Grid on Kubernetes
 In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+
 
 ## Prerequisites
 
-1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
-1. Deploy the Event Grid Kubernetes extension. 
-1. Create a custom location.
+1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
+1. [Install Event Grid extension on Kubernetes cluster](install-k8s-extension.md). This extension deploys Event Grid to a Kubernetes cluster. 
+1. [Create a custom location](../../azure-arc/kubernetes/custom-locations.md). A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed.
 
 ## Create a topic
 
@@ -25,7 +28,7 @@ Run the following Azure CLI command to create a topic:
 ```azurecli-interactive
 az eventgrid topic create --name <EVENT GRID TOPIC NAME> \
                         --resource-group <RESOURCE GROUP NAME> \
-                        -location <REGION> \
+                        --location <REGION> \
                         --kind azurearc \
                         --extended-location-name /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOM LOCATION NAME> \
                         --extended-location-type customlocation \
@@ -72,11 +75,11 @@ az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> \
 Specify values for the place holders before running the command:
 - Name of the event subscription to be created. 
 
-- In the resource ID of the custom location, specify the following values:
+- In the **resource ID of the topic**, specify the following values:
     - ID of the Azure subscription in which you want the subscription to be created. 
     - Name of the resource group that contains the topic.
     - Name of the topic. 
-    - Name of the web site for Event Grid Viewer.
+- For the endpoint, specify the name of the Event Grid Viewer web site.
     
 For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
 
@@ -92,11 +95,12 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
     ```azurecli
     az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv
     ```
-3. Create file named **evt.json** with the following content: 
+1. Run the following **Curl** command to post the event. Specify the endpoint URL and key from step 1 and 2 before running the command. 
 
-    ```json
-    [{
-          "specVersion": "1.0",
+    ```bash
+    curl  -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY_FROM_STEP_2>" -g <ENDPOINT_URL_FROM_STEP_1> \
+    -d  '[{ 
+          "specversion": "1.0",
           "type" : "orderCreated",
           "source": "myCompanyName/us/webCommerceChannel/myOnlineCommerceSiteBrandName",
           "id" : "eventId-n",
@@ -108,13 +112,45 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
              "orderType" : "PO",
              "reference" : "https://www.myCompanyName.com/orders/123"
           }
-    }]
+    }]'
     ```
-4. Run the following **Curl** command to post the event. Specify the endpoint URL and key from step 1 and 2 before running the command. 
+    
+    If the topic endpoint URL from step 1 is a private IP address, such as in the case when Event Grid broker's service type is ClusterIP, you can execute **Curl** from within another pod in the cluster to have access to that IP address. For example, you can perform the following steps:
 
-    ```
-    curl -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY FROM STEP 2>" -g -d @evt.json <ENDPOINT URL from STEP 1>
-    ```
+    1. Create a manifest file with the following configuration. You may want to adjust the ``dnsPolicy`` according to your needs. Consult [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) for more information.
+    
+        ```yml
+        apiVersion: v1
+        kind: Pod
+        metadata:
+            name: test-pod
+        spec:
+            volumes:
+            - name: shared-data
+            emptyDir: {}
+            containers:
+            - name: nginx
+            image: nginx
+            volumeMounts:
+            - name: shared-data
+                mountPath: /usr/share/nginx/html
+        hostNetwork: true
+        dnsPolicy: ClusterFirstWithHostNet    
+        ```
+    1. Create the pod.
+        ```bash
+            kubectl apply -f <name_of_your_yaml_manifest_file>
+        ```
+    1. Verify that the pod is running.
+        ```bash
+            kubectl get pod test-pod
+        ```
+    1. Start a shell session from the container
+        ```bash
+            kubectl exec --stdin --tty test-pod -- /bin/bash
+        ```
+
+    At this point, you have a shell session from a running container in the cluster from which you can execute the **Curl** command described in an earlier step above.
 
     > [!NOTE]
     > To learn how to send cloud events using programming languages, see the following samples: 
@@ -129,4 +165,6 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 :::image type="content" source="./media/create-topic-subscription/viewer-received-event.png" alt-text="View received event in Event Grid Viewer":::
 
 ## Next steps
-See [Event handlers and destinations](event-handlers.md) to learn about all the event handlers and destinations that Event Grid on Kubernetes supports. 
+See the following articles: 
+- [Event handlers and destinations](event-handlers.md) - provides information about all the event handlers and destinations that Event Grid on Kubernetes supports. 
+- [Event filtering](filter-events.md) - provides information about filtering events on event subscriptions. 

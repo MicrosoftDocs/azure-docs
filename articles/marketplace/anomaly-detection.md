@@ -78,5 +78,5 @@ After you mark an overage usage as an anomaly or acknowledge a model that flagge
 
 ## See also
 - [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md)
-- [Managed application metered billing](./partner-center-portal/azure-app-metered-billing.md)
+- [Managed application metered billing](marketplace-metering-service-apis.md)
 - [Anomaly detection service for metered billing](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

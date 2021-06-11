@@ -1,6 +1,6 @@
 ---
 title: Cross-tenant management in Azure Security Center | Microsoft Docs
-description: Learn how to set up cross-tenant management to manage the security posture of multiple tenants in Security Center using Azure delegated resource management.
+description: Learn how to set up cross-tenant management to manage the security posture of multiple tenants in Security Center using Azure Lighthouse.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -18,8 +18,7 @@ ms.author: memildin
 
 # Cross-tenant management in Security Center
 
-Cross-tenant management enables you to view and manage the security posture of multiple tenants in Security Center by leveraging [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md)
-. Manage multiple tenants efficiently, from a single view, without having to sign in to each tenant's directory.
+Cross-tenant management enables you to view and manage the security posture of multiple tenants in Security Center by leveraging [Azure Lighthouse](../lighthouse/overview.md). Manage multiple tenants efficiently, from a single view, without having to sign in to each tenant's directory.
 
 - Service providers can manage the security posture of resources, for multiple customers, from within their own tenant.
 
@@ -27,7 +26,7 @@ Cross-tenant management enables you to view and manage the security posture of m
 
 ## Set up cross-tenant management
 
-Azure delegated resource management is one of the key components of Azure Lighthouse. Set up cross-tenant management by delegating access to resources of managed tenants to your own tenant using these instructions from Azure Lighthouse's documentation: [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
+[Azure delegated resource management](../lighthouse/concepts/architecture.md) is one of the key components of Azure Lighthouse. Set up cross-tenant management by delegating access to resources of managed tenants to your own tenant using these instructions from Azure Lighthouse's documentation: [Onboard a customer to Azure Lighthouse](../lighthouse/how-to/onboard-customer.md).
 
 
 ## How does cross-tenant management work in Security Center

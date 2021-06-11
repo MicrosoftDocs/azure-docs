@@ -30,6 +30,10 @@ This article focuses on managing digital twins; to work with relationships and t
 
 [!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 ## Create a digital twin
 
 To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the service client like this:
@@ -94,11 +98,11 @@ Only properties that have been set at least once are returned when you retrieve 
 
 To retrieve multiple twins using a single API call, see the query API examples in [How-to: Query the twin graph](how-to-query-graph.md).
 
-Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a *Moon*:
+Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a Moon:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
 
-The result of calling `object result = await client.GetDigitalTwinAsync("my-moon");` on a *Moon*-type twin might look like this:
+The result of calling `object result = await client.GetDigitalTwinAsync("my-moon");` on a Moon-type twin might look like this:
 
 ```json
 {
@@ -131,14 +135,14 @@ The defined properties of the digital twin are returned as top-level properties 
 * `$etag`: A standard HTTP field assigned by the web server. This is updated to a new value every time the twin is updated, which can be useful to determine whether the twin's data has been updated on the server since a previous check. You can use `If-Match` to perform updates and deletes that only complete if the entity's etag matches the etag provided. For more information on these operations, see the documentation for [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) and [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
 * `$metadata`: A set of other properties, including:
   - The DTMI of the model of the digital twin.
-  - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
+  - Synchronization status for each writable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see this [IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
   - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
 You can read more about the serialization helper classes like `BasicDigitalTwin` in [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](concepts-cli.md).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 
@@ -159,17 +163,58 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-You can create patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument). Here is an example.
+You can create patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
-### Update properties in digital twin components
+### Update sub-properties in digital twin components
 
 Recall that a model may contain components, allowing it to be made up of other models. 
 
 To patch properties in a digital twin's components, you can use path syntax in JSON Patch:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-component.json":::
+
+### Update sub-properties in object-type properties
+
+Models may contain properties that are of an object type. Those objects may have their own properties, and you may want to update one of those sub-properties belonging to the object-type property. This process is similar to the process for [updating sub-properties in components](#update-sub-properties-in-digital-twin-components), but may require some extra steps. 
+
+Consider a model with an object-type property, `ObjectProperty`. `ObjectProperty` has a string property named `StringSubProperty`.
+
+When a twin is created using this model, it's not necessary to instantiate the `ObjectProperty` at that time. If the object property is not instantiated during twin creation, there is no default path created to access `ObjectProperty` and its `StringSubProperty` for a patch operation. You will need to add the path to `ObjectProperty` yourself before you can update its properties.
+
+This can be done with a JSON Patch `add` operation, like this:
+
+```json
+[
+  {
+    "op": "add", 
+    "path": "/ObjectProperty", 
+    "value": {"StringSubProperty":"<string-value>"}
+  }
+]
+```
+
+>[!NOTE]
+> If `ObjectProperty` has more than one property, you should include all of them in the `value` field of this operation, even if you're only updating one:
+> ```json
+>... "value": {"StringSubProperty":"<string-value>", "Property2":"<property2-value>", ...}
+>```
+
+
+After this has been done once, a path to `StringSubProperty` exists, and it can be updated directly from now on with a typical `replace` operation:
+
+```json
+[
+  {
+    "op": "replace",
+    "path": "/ObjectProperty/StringSubProperty",
+    "value": "<string-value>"
+  }
+]
+```
+
+Although the first step isn't necessary in cases where `ObjectProperty` was instantiated when the twin was created, it's recommended to use it every time you update a sub-property for the first time, since you may not always know for sure whether the object property was initially instantiated or not.
 
 ### Update a digital twin's model
 
@@ -182,8 +227,8 @@ For example, consider the following JSON Patch document that replaces the digita
 This operation will only succeed if the digital twin being modified by the patch conforms with the new model. 
 
 Consider the following example:
-1. Imagine a digital twin with a model of *foo_old*. *foo_old* defines a required property *mass*.
-2. The new model *foo_new* defines a property mass, and adds a new required property *temperature*.
+1. Imagine a digital twin with a model of foo_old. foo_old defines a required property *mass*.
+2. The new model foo_new defines a property mass, and adds a new required property *temperature*.
 3. After the patch, the digital twin must have both a mass and temperature property. 
 
 The patch for this situation needs to update both the model and the twin's temperature property, like this:
@@ -197,11 +242,11 @@ Azure Digital Twins ensures that all incoming requests are processed one after t
 This behavior is on a per-twin basis. 
 
 As an example, imagine a scenario in which these three calls arrive at the same time: 
-*	Write property A on *Twin1*
-*	Write property B on *Twin1*
-*	Write property A on *Twin2*
+*	Write property A on Twin1
+*	Write property B on Twin1
+*	Write property A on Twin2
 
-The two calls that modify *Twin1* are executed one after another, and change messages are generated for each change. The call to modify *Twin2* may be executed concurrently with no conflict, as soon as it arrives.
+The two calls that modify Twin1 are executed one after another, and change messages are generated for each change. The call to modify Twin2 may be executed concurrently with no conflict, as soon as it arrives.
 
 ## Delete a digital twin
 
@@ -234,7 +279,7 @@ Then, **copy the following code** of the runnable sample into your project:
 Next, complete the following steps to configure your project code:
 1. Add the **Room.json** file you downloaded earlier to your project, and replace the `<path-to>` placeholder in the code to tell your program where to find it.
 2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
-3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), and the second provides tools to help with authentication against Azure.
+3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), and the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -250,7 +295,7 @@ Now that you've completed setup, you can run the sample code project.
 
 Here is the console output of the above program: 
 
-:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Console output showing that the twin is created, updated, and deleted" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Screenshot of the console output showing that the twin is created, updated, and deleted." lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## Next steps
 

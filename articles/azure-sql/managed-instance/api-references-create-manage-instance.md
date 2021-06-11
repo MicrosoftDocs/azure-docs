@@ -3,12 +3,12 @@ title: Management API reference for Azure SQL Managed Instance
 description: Learn about creating and configuring managed instances of Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: development
 ms.devlang: 
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Managed API reference for Azure SQL Managed Instance

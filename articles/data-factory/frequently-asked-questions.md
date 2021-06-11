@@ -5,7 +5,7 @@ author: ssabat
 ms.author: susabat
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/11/2021
 ---
 
 # Azure Data Factory FAQ
@@ -229,18 +229,11 @@ Clusters are never shared. We guarantee isolation for each job run in production
 
 ### Is there a way to write attributes in cosmos db in the same order as specified in the sink in ADF data flow?	
 
-For cosmos DB, the underlying format of each document is a JSON object which is an unordered set of name/value pairs, so the order cannot be reserved. Data flow spins up a cluster even on integration runtime with 15 min TTL configuration dataflow advisory about TTL and costs	This troubleshoot document [Data flow performance.](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#time-to-live)
+For cosmos DB, the underlying format of each document is a JSON object which is an unordered set of name/value pairs, so the order cannot be reserved. 
 
+###  Why a user is unable to use data preview in the data flows?	
 
-###  Why an user is unable to use data preview in the data flows?	
-
-You should check permissions for custom role. There are multiple actions involved in the dataflow data preview. You start by checking network traffic while debugging on your browser. Please follow all of the actions, for details, please refer to  [Resource provider.](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdatafactory)
-
-### Does the data flow compute engine serve multiple tenants?	
-
-This troubleshooting document may help to resolve your issue:
-[Multiple tenants.](https://docs.microsoft.com/azure/data-factory/frequently-asked-questions#does-the-data-flow-compute-engine-serve-multiple-tenants)
-
+You should check permissions for custom role. There are multiple actions involved in the dataflow data preview. You start by checking network traffic while debugging on your browser. Please follow all of the actions, for details, please refer to  [Resource provider.](../role-based-access-control/resource-provider-operations.md#microsoftdatafactory)
 
 ###  In ADF, can I calculate value for a new column from existing column from mapping?	
 
@@ -254,6 +247,9 @@ Please try to use larger cluster and leverage the row limits in debug settings t
 
 Column name can be parameterized similar to other properties. Like in derived column customer can use **$ColumnNameParam = toString(byName($myColumnNameParamInData)).** These parameters can be passed from pipeline execution down to Data flows.
 
+### The data flow advisory about TTL and costs
+
+This troubleshoot document may help to resolve your issues: [Mapping data flows performance and tuning guide-Time to live](./concepts-data-flow-performance.md#time-to-live).
 
 
 ## Wrangling data flow (Data flow power query)
@@ -263,7 +259,7 @@ Column name can be parameterized similar to other properties. Like in derived co
 Data factory is available in following [regions.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
 Power query feature is being rolled out to all regions. If the feature is not available in your region, please check with support.
 
-### What are the limitations and constraints with wrangling data flow ?
+### What are the limitations and constraints with wrangling data flow?
 
 Dataset names can only contain alpha-numeric characters. The following data stores are supported:
 

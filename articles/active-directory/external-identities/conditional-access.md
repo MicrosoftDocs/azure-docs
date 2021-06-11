@@ -154,4 +154,4 @@ For more information, see the following articles on Azure AD B2B collaboration:
 - [What is Azure AD B2B collaboration?](./what-is-b2b.md)
 - [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md)
 - [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/)
-- [Frequently Asked Questions (FAQs)](./faq.md)
+- [Frequently Asked Questions (FAQs)](./faq.yml)

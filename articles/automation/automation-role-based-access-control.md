@@ -4,7 +4,7 @@ description: This article describes how to use Azure role-based access control (
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/21/2020
+ms.date: 05/17/2020
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -256,14 +256,19 @@ The following sections describe the minimum required permissions needed for enab
 
 Update management reaches across multiple services to provide its service. The following table shows the permissions needed to manage update management deployments:
 
-|**Resource**  |**Role**  |**Scope**  |
+|**Resource** |**Role** |**Scope** |
 |---------|---------|---------|
-|Automation account     | Log Analytics Contributor       | Automation account        |
-|Automation account    | Virtual Machine Contributor        | Resource Group for the account        |
-|Log Analytics workspace     | Log Analytics Contributor| Log Analytics workspace        |
-|Log Analytics workspace |Log Analytics Reader| Subscription|
-|Solution     |Log Analytics Contributor         | Solution|
-|Virtual Machine     | Virtual Machine Contributor        | Virtual Machine        |
+|Automation account |Log Analytics Contributor |Automation account |
+|Automation account |Virtual Machine Contributor  |Resource Group for the account  |
+|Log Analytics workspace  Log Analytics Contributor|Log Analytics workspace |
+|Log Analytics workspace |Log Analytics Reader|Subscription|
+|Solution |Log Analytics Contributor |Solution|
+|Virtual Machine |Virtual Machine Contributor |Virtual Machine |
+|**Actions on Virtual Machine** | | |
+|View history of update schedule execution ([Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns)) |Reader |Automation account |
+|**Actions on virtual machine** |**Permission** | |
+|Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.Compute/virtualMachines/write |For static VM list and resource groups |
+|Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.|
 
 ## Configure Azure RBAC for your Automation account
 

@@ -2,16 +2,17 @@
 title: Deploy and configure Azure VMware Solution
 description: Learn how to use the information gathered in the planning stage to deploy and configure the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.custom: contperf-fy21q4
-ms.date: 04/23/2021
+ms.custom: contperf-fy21q4, devx-track-azurecli
+ms.date: 05/19/2021
 ---
 
 # Deploy and configure Azure VMware Solution
 
 In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy and configure Azure VMware Solution. 
 
->[!IMPORTANT]
->It's information that you've gone through the [planning section](production-ready-deployment-steps.md) before continuing.
+The diagram shows the deployment workflow of Azure VMware Solution. 
+
+:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagram of the Azure VMware Solution deployment workflow." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
 
 ## Step 1. Register the **Microsoft.AVS** resource provider
 

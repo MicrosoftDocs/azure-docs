@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: troubleshooting
   ms.custom: contperf-fy21q4
-  ms.date:  04/09/2021
+  ms.date:  05/25/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -84,7 +84,16 @@ sections:
       - question: Can I change the default vSphere Web Client timeout value?
         answer: Yes. For information on changing the timeout value, see [Configure the vSphere Web Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
 
-  - name: Compute, backup, and disaster recovery
+  - name: Migrate
+    questions:
+      - question: Why can't I see my Sentinel Management tab in the HCX Manager when using the Sentinel Appliance service?
+        answer: The Sentinel Management tab provides you access to download the Sentinal software.  It appears in the HCX Interconnect interface when an HCX Enterprise license is activated, and you have deployed a service mesh with an Sentinel Gateway (SGW) and Sentinel Data Receiver (SDR) pair deployed. Also, in traditional on-premises to cloud deployments the Sentinel tab is only visible in the Connector not cloud manager.
+
+      - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
+        answer: No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.  
+
+
+  - name: Compute
     questions:
 
       - question: What are the CPU specifications in each type of host?
@@ -93,11 +102,22 @@ sections:
       - question: How much memory is in each host?
         answer: The servers have 576 GB of RAM.
 
+      - question: Does Azure VMware Solution support running ESXi/ESX as a nested virtualization solution?
+        answer: No. VMware does not officially support nested virtualization. 
+
+
+  - name: Third-party backup and recovery
+    questions:         
+
+      - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
+        answer: No. We currently don't support cloudadmin extension privileges, and we don't plan to support it in the foreseeable future.       
+        
       - question:  What independent software vendors (ISVs) backup solutions work with Azure VMware Solution?
         answer: Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution.  However, any backup solution that uses VMware vStorage API for Data Protection (VADP) with the HotAdd transport mode works out of the box on Azure VMware Solution. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
 
       - question: What about support for ISV backup solutions?
         answer: As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
+   
 
   - name: Networking and interconnectivity
     questions:        
@@ -148,13 +168,13 @@ sections:
           > Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
       - question: Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
-        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](public-ip-usage.md) option in your Azure portal for your Azure VMware Solution private cloud.
+        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-internet-access.md) option in your Azure portal for your Azure VMware Solution private cloud.
           
       - question: Do I need to restrict internet access from VMs on logical networks to the internet?
         answer: Yes. You'll need to use NSX-T manager to create a firewall to restrict VM access to the internet.
 
       - question: Which IP range can be used for DNS service IP and DHCP server IP?
-        answer: The address range shouldn't overlap with the IP range used in other virtual networks that are in your subscription and on-premises networks.
+        answer: The IP address range shouldn't overlap with the IP range used in other virtual networks in your subscription and on-premises networks.
 
       - question: Can Azure VMware Solution use Azure Virtual WAN hosted ExpressRoute Gateways?
         answer: Yes.
@@ -188,9 +208,6 @@ sections:
 
       - question: Can I create a new VM in Azure VMware Solution with thin provisioning even if the default vSAN policy is thick provisioning?
         answer: Yes. Outside of the default (thick_provision), you can create VMs with FTT1 thin provisioning. 
-
-      - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
-        answer: No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.       
 
       - question: How many disks can fail on the vSAN before data loss occurs? 
         answer: It depends on how you plan your application workloads to run inside the SDDC (private cloud). Microsoft governs these failures regularly and replaces the hardware when such events are detected from an infrastructure perspective. As a default, a setting of FFT-1 is used, which accommodates a single host's failure.
@@ -226,10 +243,10 @@ sections:
         answer: Clusters can scale between three (minimum) and 16 (maximum) ESXi hosts. Trial clusters are limited to three hosts.
 
       - question: Can I scale my private cloud clusters?
-        answer: Yes, clusters scale between three (minimum) and 16 (maximum) ESXi hosts. Trial clusters are limited to three hosts.
+        answer: Yes, clusters scale between three (minimum) and 16 (maximum) ESXi hosts. 
 
       - question: What are trial clusters?
-        answer: Trial clusters are three host clusters used for one-month evaluations of Azure VMware Solution private clouds.
+        answer: Trial clusters are limited to three hosts used for one-month evaluations of Azure VMware Solution private clouds.
 
 
   - name: Identity management
@@ -251,8 +268,11 @@ sections:
           > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
       - question: How can I change my credentials?
-        answer: For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](reset-vsphere-credentials.md).
-          
+        answer: For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](rotate-cloudadmin-credentials.md).
+
+      - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
+        answer: No. We currently don't support cloudadmin extension privileges, and have no plans to support it.   
+
   - name: Billing and support
     questions:
 
@@ -280,7 +300,7 @@ sections:
         answer: VMware HCX Enterprise is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX Enterprise for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX Enterprise service goes GA, you'll get a 30-day notice that billing will switch over. You can switch it off or opt-out of the service.
 
       - question: How do I request a host quota increase for Azure VMware Solution?
-        answer: Whether you want more hosts for an existing private cloud or you're creating a new private cloud, you'll need to submit a support ticket to have your hosts allocated.  For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+        answer: Whether you want more hosts for an existing private cloud or you're creating a new private cloud, you'll need to submit a support ticket to have your hosts allocated.  For more information, see [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
           
       - question: Are Reserved Instances available for purchasing through the CSP program?
         answer: Yes. CSPs can purchase reserved instances for their customers. For more information, see [Save costs with a reserved instance](reserved-instance.md). 
@@ -294,5 +314,3 @@ sections:
       - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
         answer: | 
           NO        
-          
-
