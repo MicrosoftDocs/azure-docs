@@ -11,7 +11,7 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 02/22/2019
+ms.date: 06/11/2021
 ---
 # Determine required subnet size & range for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -85,6 +85,9 @@ During scaling operation instances temporarily require additional IP capacity th
 | Gen5 | BC | Switching to GP | 3 |
 
   \* Gen4 hardware is being phased out and is no longer available for new deployments. Update hardware generation from Gen4 to Gen5 to take advantage of the capabilities specific to Gen5 hardware generation.
+  
+> [!IMPORTANT]
+> When new create or update request comes, managed instance service communicates with compute platform with a request for new nodes that need to be added. Based on the compute response, deployment system either expands existing virtual cluster or creates a new one. Even if in most cases operation will be completed within same virtual cluster, there is no guarantee from the compute side that new one will not be spawned. This will increase number of IP addresses required for performing create or update operation and also reserve additonal IP addresses in the subnet for newly created virtual cluster.
 
 ## Next steps
 
