@@ -431,11 +431,11 @@ void listReadReceiptsNextPage(ChatThreadAsyncClient chatThreadAsyncClient, Strin
         try {
             PagedResponse<ChatMessageReadReceipt> nextPageWithResponse =
                     chatThreadAsyncClient.getReadReceiptsNextPageWithResponse(continuationToken, Context.NONE).get();
-
+                    
             for (ChatMessageReadReceipt readReceipt : nextPageWithResponse.getValue()) {
                 // You code to handle readReceipt
             }
-
+            
             listParticipantsNextPage(chatThreadAsyncClient, nextPageWithResponse.getContinuationToken(), ++pageNumber);
         } catch (Exception e) {
             e.printStackTrace();
