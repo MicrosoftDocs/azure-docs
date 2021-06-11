@@ -169,7 +169,7 @@ This sample template creates a test environment and returns the URI for the webh
             }
         },
         "_artifactsLocation": {
-            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/",
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/",
             "type": "String",
             "metadata": {
                 "description": "URI to artifacts location"

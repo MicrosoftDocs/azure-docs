@@ -4,6 +4,8 @@
   items:
     - name: Welcome to Azure Cosmos DB
       href: introduction.md
+    - name: Choose an API
+      href: choose-api.md
     - name: NoSQL vs. relational databases
       href: relational-nosql.md
 - name: Concepts
@@ -139,7 +141,6 @@
       expanded: true
       items:
         - name: Create Cosmos DB resources
-          expanded: true
           items:
             - name: Azure portal
               href: create-cosmosdb-resources-portal.md
@@ -929,7 +930,7 @@
         - name: REST (Data plane)
           href: /rest/api/cosmos-db/
         - name: REST (Management plane)
-          href: /rest/api/cosmos-db-resource-provider/2021-03-15/sqlresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1047,7 +1048,7 @@
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2021-03-15/cassandraresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/cassandraresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1181,7 +1182,7 @@
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2021-03-15/mongodbresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/mongodbresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1265,7 +1266,7 @@
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2021-03-15/gremlinresources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-15/gremlinresources
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI

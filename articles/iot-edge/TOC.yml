@@ -193,6 +193,18 @@
         href: how-to-retrieve-iot-edge-logs.md
       - name: Access built-in metrics
         href: how-to-access-built-in-metrics.md
+      - name: Azure Monitor integration
+        items:
+        - name: Collect and transport metrics
+          href: how-to-collect-and-transport-metrics.md
+        - name: Explore curated visualizations
+          href: how-to-explore-curated-visualizations.md
+        - name: Create alert rules
+          href: how-to-create-alerts.md
+        - name: Add custom metrics
+          href: how-to-add-custom-metrics.md
+        - name: FAQ and troubleshooting
+          href: how-to-troubleshoot-monitoring-and-faq.md
   - name: Use IoT Edge devices as gateways
     items:
     - name: Gateways for IoT devices

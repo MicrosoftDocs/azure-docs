@@ -310,15 +310,15 @@
   - name: FAQ for Azure Security Center
     items:
     - name: General questions
-      href: faq-general.md
+      href: faq-general.yml
     - name: Permissions questions
-      href: faq-permissions.md
+      href: faq-permissions.yml
     - name: Data collection and agent questions
-      href: faq-data-collection-agents.md
+      href: faq-data-collection-agents.yml
     - name: Virtual Machines questions
-      href: faq-vms.md
+      href: faq-vms.yml
     - name: Existing users of Azure Log Analytics
-      href: faq-azure-monitor-logs.md
+      href: faq-azure-monitor-logs.yml
   - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
