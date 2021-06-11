@@ -31,7 +31,7 @@ Azure CLI
 
 ## Export template from source registry 
 
-Use the Azure portal, Azure CLI, Azure PowerShell, or other Azure tools to export a resource manager template. To use the Azure portal:
+Use the Azure portal, Azure CLI, Azure PowerShell, or other Azure tools to export a Resource Manager template. To use the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your source registry.
 1. In the menu, under **Automation**, select **Export template** > **Download**.
