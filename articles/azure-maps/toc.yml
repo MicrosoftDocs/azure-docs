@@ -321,7 +321,7 @@
   - name: REST
     items:
     - name: Data service
-      href: /rest/api/maps/data v2
+      href: /rest/api/maps/data-v2
     - name: Elevation service
       href: /rest/api/maps/elevation
     - name: Geolocation service
