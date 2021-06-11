@@ -23,7 +23,7 @@ Once you've enabled Active Directory Domain Services (AD DS) authentication on y
 
 Most users should assign share-level permissions to specific Azure AD users or groups. This is the most stringent and secure configuration.
 
-There are three scenarios where we recommend using default share-level permissions assigned to all authenticated identities, they are as follows:
+There are three scenarios where we instead recommend using default share-level permissions assigned to all authenticated identities, they are as follows:
 
 - If you are unable to sync your on-premises AD DS to Azure AD, you can alternatively use a default share-level permission. Assigning a default share-level permission allows you to workaround the sync requirement, and you can use Windows ACLs for granular permission enforcement on your files and directories.
 - The on-premises AD DS you're using is synched to a different Azure AD than the Azure AD the file share is deployed in.
