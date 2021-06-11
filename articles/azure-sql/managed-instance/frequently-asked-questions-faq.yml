@@ -9,9 +9,9 @@ metadata:
   ms.custom: sqldbrb=1
   ms.devlang: 
   ms.topic: conceptual
-  author: jovanpop-msft
-  ms.author: nnikolic
-  ms.reviewer: mathoma
+  author: danimir
+  ms.author: danil
+  ms.reviewer: mathoma, urmilano
   ms.date: 09/21/2020
     
 title: Azure SQL Managed Instance frequently asked questions (FAQ)
