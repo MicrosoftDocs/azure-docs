@@ -62,7 +62,7 @@ If you don't have a deployed Azure Spring Cloud instance, follow the instruction
 
 #### [Terraform](#tab/Terraform)
 
-1. Below Terraform script shows how to set up an Azure Spring Cloud app with Azure Database for MySQL.
+The following Terraform script shows how to set up an Azure Spring Cloud app with Azure Database for MySQL.
 
 ```terraform
 provider "azurerm" {
