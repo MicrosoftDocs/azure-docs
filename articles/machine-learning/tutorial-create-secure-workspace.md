@@ -294,17 +294,17 @@ Use the following steps create a network security group (NSG) and add rules requ
 
     Select __OK__ to create the private endpoint.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-private-endpoint.png" alt-text="Workspace private network config":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-private-endpoint.png" alt-text="Screenshot of workspace private network config":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 1. Once the workspace has been created, select __Go to resource__.
 1. From the __Settings__ section on the left, select __Private endpoint connections__ and then select the link in the __Private endpoint__ column:
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-private-endpoint-connections.png" alt-text="Workspace private endpoint connections":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-private-endpoint-connections.png" alt-text="Screenshot of workspace private endpoint connections":::
 
 1. Once the private endpoint information appears, select __DNS configuration__ from the left of the page. Save the IP address and fully qualified domain name (FQDN) information on this page, as it will be used later.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-private-endpoint-dns.png" alt-text="IP and FQDN entries":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-private-endpoint-dns.png" alt-text="screenshot of IP and FQDN entries":::
 
 > [!IMPORTANT]
 > There are still some configuration steps needed before you can fully use the workspace. However, these require you to connect to the workspace.
@@ -314,17 +314,35 @@ Use the following steps create a network security group (NSG) and add rules requ
 Azure Machine Learning studio is a web-based application that lets you easily manage your workspace. However, it needs some additional configuration before it can be used with resources secured inside a VNet. Use the following steps to enable studio:
 
 1. From the Azure portal, select your storage account and then select __Access control (IAM)__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-access-control.png" alt-text="screenshot of access control entry":::
+
 1. Select __+ Add__, and then __Add role assignment__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-add-role.png" alt-text="Screenshot of + Add menu.":::
+
 1. From the Add role assignment dialog, set the __Role__ to __Storage Blob Data Reader__ and then type the name of your Azure Machine Learning workspace in the __Select__ field. Select the item that appears and then select __Save__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-add-blob-data-reader.png" alt-text="Screenshot of adding storage blob data reader role":::
+
 1. When using an Azure Storage Account that has a private endpoint, add the workspace managed identity as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-select.png" alt-text="Screenshot of storage private endpoints":::
+
 1. For __each private endpoint listed__, use the following steps:
 
     1. Select the link in the __Private endpoint__ column.
-    1. Select __Access control (IAM)__ from the left side.
-    1. Select __+ Add__, and then __Add role assignment__.
-    1. From the Add role assignment dialog, set the __Role__ to __Reader__ and then type the name of your Azure Machine Learning workspace in the __Select__ field. Select the item that appears and then select __Save__.
+    
+        :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-selected.png" alt-text="Screenshot of endpoints to select":::
 
-1.
+    1. Select __Access control (IAM)__ from the left side. Select __+ Add__, and then __Add role assignment__.
+    
+        :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-add-role.png" alt-text="Screenshot of adding role":::
+
+    1. From the Add role assignment dialog, set the __Role__ to __Reader__ and then type the name of your Azure Machine Learning workspace in the __Select__ field. Select the item that appears and then select __Save__.
+    
+        :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-add-workspace.png" alt-text="Screenshot of adding reader role":::
+
 ## Connect to the workspace
 
 There are several ways that you can connect to the secured workspace. The steps in this article use a __jump box__, which is a virtual machine in the VNet. You can connect to it using your web browser and Azure Bastion. The following table lists several other ways that you might connect to the secure workspace:
