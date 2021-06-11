@@ -14,7 +14,7 @@ ms.author: duau
 
 Some Azure CDNs offerings are only available to certain subscription types. Bandwidth throttling may also apply depending on your subscription type.
 
-## Free & Trial Subscription
+## Free and Trial Subscription
 
 Azure CDN from Microsoft is the only CDN offering that is available to trial subscriptions. Bandwidth throttling is applied for this type of subscription.  
  
@@ -26,11 +26,11 @@ Bandwidth for Azure CDN from Microsoft and Verizon will be throttled until the s
  
 If you have made a payment and throttling hasn't been removed, you can request to do so by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
   
-## Enterprise Agreements
+## Enterprise agreements
 
 All Azure CDNs are available to Enterprise Agreement subscriptions. Enterprise Agreements subscriptions don't have any bandwidth restrictions.  
  
-## Other Offer Types
+## Other offer types
  
 The same functionality as Pay-as-you-go applies to these types of agreements:
 
