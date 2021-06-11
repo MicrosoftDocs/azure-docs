@@ -22,7 +22,7 @@ This article provides suggested resolutions for the most common issues that can 
 
 All the troubleshooting steps require that you've completed the following prerequisites for the quickstart you're working in:
 
-* You installed or acquired all prerequisites, and additional software tools, for the specific quickstart in the [Embedded device development quickstarts](quickstart-devkit-mxchip-az3166.md).
+* You installed or acquired all prerequisites, and additional software tools, for the quickstart.
 * You created an Azure IoT hub or Azure IoT Central application, and registered a device, as directed in the quickstart.
 * You built an image for the device, as directed in the quickstart.
 
