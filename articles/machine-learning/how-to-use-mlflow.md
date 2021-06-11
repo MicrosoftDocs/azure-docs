@@ -37,24 +37,6 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 > [!NOTE] 
 > You can use the [MLflow Skinny client](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments. 
 
-## Compare MLflow and Azure Machine Learning clients
-
- The following table summarizes the different clients that can use Azure Machine Learning, and their respective function capabilities.
-
- MLflow Tracking offers metric logging and artifact storage functionalities that are only otherwise available via the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
-
-| Capability | MLflow Tracking & Deployment | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
-|---|---|---|---|---|
-| Manage workspace |   | ✓ | ✓ | ✓ |
-| Use data stores  |   | ✓ | ✓ | |
-| Log metrics      | ✓ | ✓ |   | |
-| Upload artifacts | ✓ | ✓ |   | |
-| View metrics     | ✓ | ✓ | ✓ | ✓ |
-| Manage compute   |   | ✓ | ✓ | ✓ |
-| Deploy models    | ✓ | ✓ | ✓ | ✓ |
-|Monitor model performance||✓|  |   |
-| Detect data drift |   | ✓ |   | ✓ |
-
 ## Prerequisites
 
 * Install the `azureml-mlflow` package. 
