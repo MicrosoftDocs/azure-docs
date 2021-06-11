@@ -1,7 +1,7 @@
 ---
-title: "Image classification tutorial: Train models"
+title: "Tutorial: Jupyter Notebook"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to train an image classification model with scikit-learn in a Python Jupyter Notebook. This tutorial is part one of two. 
+description: Use Azure Machine Learning to train an image classification model with scikit-learn in a cloud-based Python Jupyter Notebook. This tutorial is part one of two. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
