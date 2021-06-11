@@ -14,7 +14,7 @@ ms.custom: designer
 
 # What is Azure Machine Learning designer? 
 
-Azure Machine Learning designer uses a drag-and-drop interface to create machine learning models. To get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+Azure Machine Learning designer is a drag-and-drop interface used to create machine learning models in Azure Machine Learning. To get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 
 ![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
 
