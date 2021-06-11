@@ -279,12 +279,6 @@ Once the availability group is deployed, consider optimizing the [HADR settings 
 
 To learn more, see:
 
-<<<<<<< HEAD
-* [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
-* [FAQ for SQL Server VMs](frequently-asked-questions-faq.yml)
-=======
 - [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
 - [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
 - [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
->>>>>>> cc4a28ffdc4909e317925a7b54b13a9d824fc9eb
