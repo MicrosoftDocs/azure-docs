@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 1/28/2020
+ms.date: 5/12/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -218,7 +218,7 @@ The following Javascript code is an example of the .NET deserializer serializati
 
 ## Region support
 
-This feature is available in the following regions:
+This feature is available in the following regions when using Standard SKU:
 
 * West Central US
 * North Europe
@@ -227,7 +227,7 @@ This feature is available in the following regions:
 * East US 2
 * West Europe
 
-You can [request support](https://aka.ms/ccodereqregion) for additional regions.
+You can [request support](https://aka.ms/ccodereqregion) for additional regions. However, there is no such region restriction when using [Stream Analytics clusters](./cluster-overview.md).
 
 ## Frequently asked questions
 

@@ -28,6 +28,9 @@ To configure geo-replication between two caches, the following prerequisites mus
 - The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache.
 - Both caches are created and in a running state.
 
+> [!NOTE]
+> Data transfer between Azure regions will be charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 Some features aren't supported with geo-replication:
 
 - Persistence isn't supported with geo-replication.
@@ -37,7 +40,7 @@ Some features aren't supported with geo-replication:
 
 After geo-replication is configured, the following restrictions apply to your linked cache pair:
 
-- The secondary linked cache is read-only; you can read from it, but you can't write any data to it. If you choose to read from the Geo-Secondary instance, it is important to note that whenever a full data sync is happening between the Geo-Primary and the Geo-Secondary (happens when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios as well), the Geo-Secondary instance will throw erorrs (stating that a full data sync is in progress) on any Redis operation against it until the full data sync between Geo-Primary and Geo-Secondary is complete. Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors. 
+- The secondary linked cache is read-only; you can read from it, but you can't write any data to it. If you choose to read from the Geo-Secondary instance, it is important to note that whenever a full data sync is happening between the Geo-Primary and the Geo-Secondary (happens when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios as well), the Geo-Secondary instance will throw errors (stating that a full data sync is in progress) on any Redis operation against it until the full data sync between Geo-Primary and Geo-Secondary is complete. Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors. 
 - Any data that was in the secondary linked cache before the link was added is removed. If the geo-replication is later removed however, the replicated data remains in the secondary linked cache.
 - You can't [scale](cache-how-to-scale.md) either cache while the caches are linked.
 - You can't [change the number of shards](cache-how-to-premium-clustering.md) if the cache has clustering enabled.
@@ -147,7 +150,7 @@ Yes, geo-replication of caches in VNETs is supported with caveats:
   - If the VNETs are in the same region, you can connect them using [VNET peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN Gateway VNET-to-VNET connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
   - If the VNETs are in different regions, geo-replication using VNET peering is supported, but a client VM in VNET 1 (region 1) will not be able to access the cache in VNET 2 (region 2) via it's DNS name because of a constraint with Basic internal load balancers. For more information about VNET peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). The recommended solution is to use a VPN Gateway VNET-to-VNET connection.
   
-Using [this Azure template](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), you can quickly deploy two geo-replicated caches into a VNET connected with a VPN Gateway VNET-to-VNET connection.
+Using [this Azure template](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/), you can quickly deploy two geo-replicated caches into a VNET connected with a VPN Gateway VNET-to-VNET connection.
 
 ### What is the replication schedule for Redis geo-replication?
 

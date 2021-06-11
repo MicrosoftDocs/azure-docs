@@ -43,13 +43,13 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
   To learn about the new template language, [sign up for notifications](https://aka.ms/armLangUpdates).
 
-  To learn about template specs, see [Azure Resource Manager template specs (Preview)](template-specs.md).
+  To learn about template specs, see [Azure Resource Manager template specs](template-specs.md).
 
 ## Creating and testing templates
 
 * **Where can I learn about best practices for ARM templates?**
 
-  For recommendations about how you implement your templates, see [ARM template best practices](template-best-practices.md). After creating a template, run the [ARM test toolkit](https://github.com/azure/arm-ttk). It checks whether your template matches recommended practices.
+  For recommendations about how you implement your templates, see [ARM template best practices](./best-practices.md). After creating a template, run the [ARM test toolkit](https://github.com/azure/arm-ttk). It checks whether your template matches recommended practices.
 
 * **I have set up my environment through the portal. Is there some way to get the template from an existing resource group?**
 
@@ -67,7 +67,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **How can I test my template before deploying it?**
 
-  We recommend running the [ARM test toolkit](https://github.com/azure/arm-ttk) and the [what-if operation](template-deploy-what-if.md) on your templates before deploying them. The test toolkit checks whether your template uses best practices. It provides warnings when it identifies changes that could improve how you've implemented your template.
+  We recommend running the [ARM test toolkit](https://github.com/azure/arm-ttk) and the [what-if operation](./deploy-what-if.md) on your templates before deploying them. The test toolkit checks whether your template uses best practices. It provides warnings when it identifies changes that could improve how you've implemented your template.
 
   The what-if operation shows the changes your template will make to your environment. You can see unintended changes before they're deployed. What-if also returns any errors it can detect during preflight validation. For example, if your template contains a syntactical error, it returns that error. It also returns any errors it can determine about the final state of the deployed resources. For example, if your template deploys a storage account with a name that is already in use, what-if returns that error.
 
@@ -83,7 +83,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **I've heard you're working on a new template language. Where can I find out more about it?**
 
-  To learn about the new language, see [What is Bicep (Preview)?](bicep-overview.md).
+  To learn about the new language, see [What is Bicep (Preview)?](../bicep/overview.md).
 
 * **Is there a plan to support creating templates in YAML?**
 
@@ -95,13 +95,9 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Will you offer a tool to convert my JSON templates to the new template language?**
 
-  Yes. See [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
+  Yes. See [Converting ARM templates between JSON and Bicep](../bicep/decompile.md).
 
 ## Template Specs
-
-* **How can I get started with the preview release of Template Specs?**
-
-  Install the latest version of PowerShell or Azure CLI. For Azure PowerShell, use [version 5.0.0 or later](/powershell/azure/install-az-ps). For Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 * **How are template specs and Azure Blueprints related?**
 
@@ -119,7 +115,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Can I include a script in my template to do tasks that aren't possible in a template?**
 
-  Yes, use [deployment scripts](deployment-script-template.md). You can include Azure PowerShell or Azure CLI scripts in your templates. The feature is in preview.
+  Yes, use [deployment scripts](deployment-script-template.md). You can include Azure PowerShell or Azure CLI scripts in your templates.
 
 * **Can I still use custom script extensions and desired state configuration (DSC)?**
 
@@ -133,11 +129,11 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Can I preview the changes that will happen before deploying a template?**
 
-  Yes, use the [what-if feature](template-deploy-what-if.md). It evaluates the current state of your environment and compares it to the state that will exist after deployment. You can examine the summarized changes to make sure the template doesn't have any unexpected results.
+  Yes, use the [what-if feature](./deploy-what-if.md). It evaluates the current state of your environment and compares it to the state that will exist after deployment. You can examine the summarized changes to make sure the template doesn't have any unexpected results.
 
 * **Can I use what-if with both incremental and complete modes?**
 
-  Yes, both [deployment modes](deployment-modes.md) are supported. For an example of using incremental mode, see [Run what-if operation](template-deploy-what-if.md#run-what-if-operation). For an example of using complete mode, see [Confirm deletion](template-deploy-what-if.md#confirm-deletion).
+  Yes, both [deployment modes](deployment-modes.md) are supported. For an example of using incremental mode, see [Run what-if operation](./deploy-what-if.md#run-what-if-operation). For an example of using complete mode, see [Confirm deletion](./deploy-what-if.md#confirm-deletion).
 
 * **Does what-if work with linked templates?**
 

@@ -27,10 +27,6 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Easy, collaborative-friendly authoring experience.
 - Templates support public GitHub-based template gallery.
 
-### Limitations
-- No automatic refresh.
-- No dense layout like dashboards, which make workbooks less useful as a single pane of glass. Intended more for providing deeper insights.
-
 
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing single pane of glass over your Azure infrastructure and services allowing you to quickly identify important issues.

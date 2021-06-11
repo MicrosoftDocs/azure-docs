@@ -96,7 +96,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [ASP.NET Applications](./asp-net.md)
   * [ASP.NET Core Applications](./asp-net-core.md)
   * [.NET Console Applications](./console.md)
-  * [Java](./java-get-started.md)
+  * [Java](./java-in-process-agent.md)
   * [Node.js](./nodejs.md)
   * [Python](./opencensus-python.md)
   * [Other platforms](./platforms.md)
@@ -115,7 +115,7 @@ Get started at development time with:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
 * [JavaScript](./javascript.md)
@@ -139,7 +139,7 @@ Get started at development time with:
 [desktop]: ./windows-desktop.md
 [greenbrown]: ./asp-net.md
 [ios]: ../app/mobile-center-quickstart.md
-[java]: ./java-get-started.md
+[java]: ./java-in-process-agent.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md
 [portal]: https://portal.azure.com/

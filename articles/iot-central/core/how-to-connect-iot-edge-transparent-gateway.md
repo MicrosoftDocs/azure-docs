@@ -20,11 +20,11 @@ This article uses virtual machines to host the downstream device and gateway. In
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you need an active Azure subscription.
+To complete the steps in this article, you need:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Custom application** template.
+- An [IoT Central application created](howto-create-iot-central-application.md) from the **Custom application** template. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 
 To follow the steps in this article, download the following files to your computer:
 

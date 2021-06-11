@@ -149,6 +149,6 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md
-[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
+[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection
 [howtoguide6]: ../scripts/terraform-secure-backend-frontend.md
-[TiP]: https://docs.microsoft.com/azure/app-service/deploy-staging-slots#route-traffic
+[TiP]: ../deploy-staging-slots.md#route-traffic

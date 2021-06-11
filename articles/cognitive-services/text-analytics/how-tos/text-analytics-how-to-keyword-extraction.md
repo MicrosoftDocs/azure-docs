@@ -126,7 +126,7 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
-An example of the output for key phrase extraction from the v3.1-preview.2 endpoint is shown here:
+An example of the output for key phrase extraction from the v3.1-preview endpoint is shown here:
 
 ### Synchronous result
 
@@ -265,3 +265,4 @@ In this article, you learned concepts and workflow for key phrase extraction by 
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)
+* [Model versions](../concepts/model-versioning.md)

@@ -14,6 +14,9 @@ ms.author: mikben
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat)
+
 ## Prerequisites
 
 Before you get started, make sure to:
@@ -428,11 +431,11 @@ void listReadReceiptsNextPage(ChatThreadAsyncClient chatThreadAsyncClient, Strin
         try {
             PagedResponse<ChatMessageReadReceipt> nextPageWithResponse =
                     chatThreadAsyncClient.getReadReceiptsNextPageWithResponse(continuationToken, Context.NONE).get();
-
+                    
             for (ChatMessageReadReceipt readReceipt : nextPageWithResponse.getValue()) {
                 // You code to handle readReceipt
             }
-
+            
             listParticipantsNextPage(chatThreadAsyncClient, nextPageWithResponse.getContinuationToken(), ++pageNumber);
         } catch (Exception e) {
             e.printStackTrace();

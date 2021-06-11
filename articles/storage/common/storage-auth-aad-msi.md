@@ -67,7 +67,7 @@ To create a service principal with Azure CLI and assign an Azure role, call the 
 
 If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
 
-The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Reader** role to it with account scope
+The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Contributor** role to it with account scope
 
 ```azurecli-interactive
 az ad sp create-for-rbac \
@@ -164,7 +164,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## Next steps
 
-- [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
-- [Use Azure AD with storage applications](storage-auth-aad-app.md).
+- [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md)
+- [Use Azure AD with storage applications](storage-auth-aad-app.md)
 - [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md)
 - [Tutorial: Access storage from App Service using managed identities](../../app-service/scenario-secure-app-access-storage.md)

@@ -52,6 +52,32 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 | --------- | --------- | --------- | --------- |
 | Sha256 | True | string | Base64-encoded hash of the file using the SHA-256 algorithm. |
 
+## Example import request body
+
+If you are using the sample import manifest output from the [How to add a new update](./import-update.md#review-the-generated-import-manifest) page, and want to call the Device Update [REST API](/rest/api/deviceupdate/updates) directly to perform the import, the corresponding request body should look like this:
+
+```json
+{
+  "importManifest": {
+    "url": "http://<your Azure Storage location file path>/importManifest.json",
+    "sizeInBytes": <size of import manifest file>,
+    "hashes": {
+      "sha256": "<hash of import manifest file>"
+    }
+  },
+  "files": [
+    {
+      "filename": "file1.json",
+      "url": "http://<your Azure Storage location file path>/file1.json"
+    },
+    {
+          "filename": "file2.zip",
+          "url": "http://<your Azure Storage location file path>/file2.zip"
+    },
+  ]
+}
+```
+
 ## Next steps
 
 Learn more about [import concepts](./import-concepts.md).

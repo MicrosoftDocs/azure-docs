@@ -34,7 +34,7 @@ When you enable Private Link to your origin in Azure Front Door Premium configur
 :::image type="content" source="../media/concept-private-link/enable-private-endpoint.png" alt-text="Enable Private Endpoint":::
 
 > [!NOTE]
-> Once you enable a Private Link origin and approve the private endpoint conenction, it takes a few minutes for the connection to be established. During this time, requests to the origin will receive a Front Door error message. The error message will go away once the connection is established.
+> Once you enable a Private Link origin and approve the private endpoint connection, it takes a few minutes for the connection to be established. During this time, requests to the origin will receive a Front Door error message. The error message will go away once the connection is established.
 
 ## Limitations
 

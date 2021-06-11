@@ -53,8 +53,8 @@ While the service is deploying, let's switch to working with code. Clone the [sa
   Open the */samples/functions/js/simplechat* folder in the cloned repository. Edit *local.settings.json* to add service connection string.
   In *local.settings.json*, you need to make these changes and then save the file.
     - Replace the place holder *<connection-string>* to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
-    - For **`AzureWebJobsStorage`** setting, this is required due to [Azure Functions requires an Azure Storage account](https://docs.microsoft.com/azure/azure-functions/storage-considerations).
-        - If you have Azure storage emulator run in local, keep the original settings of "UseDevelopmentStorage=true".
+    - For **`AzureWebJobsStorage`** setting, this is required due to [Azure Functions requires an Azure Storage account](../azure-functions/storage-considerations.md).
+        - If you have Azure Storage Emulator run in local, keep the original settings of "UseDevelopmentStorage=true".
         - If you have an Azure storage connection string, replace the value with it.
  
 - JavaScript functions are organized into folders. In each folder are two files: `function.json` defines the bindings that are used in the function, and `index.js` is the body of the function. There are several triggered functions in this function app:

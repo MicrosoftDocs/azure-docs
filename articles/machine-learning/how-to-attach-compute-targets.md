@@ -20,11 +20,13 @@ In this article, learn how to set up your workspace to use these compute resourc
 
 * Your local computer
 * Remote virtual machines
+* Apache Spark pools (powered by Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
 * Azure Databricks
 * Azure Data Lake Analytics
 * Azure Container Instance
+
 
 To use compute targets managed by Azure Machine Learning, see:
 
@@ -37,7 +39,7 @@ To use compute targets managed by Azure Machine Learning, see:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 ## Limitations
 
@@ -121,6 +123,10 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
 > If you want to __remove__ (detach) a VM from your workspace, use the [RemoteCompute.detach()](/python/api/azureml-core/azureml.core.compute.remotecompute#detach--) method.
 >
 > Azure Machine Learning does not delete the VM for you. You must manually delete the VM using the Azure portal, CLI, or the SDK for Azure VM.
+
+## <a id="synapse"></a>Apache Spark pools
+
+The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale. For more information, see [How to attach Apache Spark pools powered by Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
 
 ## <a id="hdinsight"></a>Azure HDInsight 
 
@@ -215,12 +221,14 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same Azure Batch from your workspace. Each new attachment will break the previous existing attachment(s).
 
-### <a id="databricks"></a>Azure Databricks
+## <a id="databricks"></a>Azure Databricks
 
 Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 
-> [!IMPORTANT}
-> Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspacee. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
+> [!IMPORTANT]
+> Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspace. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
+> 
+> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
 
 To attach Azure Databricks as a compute target, provide the following information:
 
@@ -228,7 +236,7 @@ To attach Azure Databricks as a compute target, provide the following informatio
 * __Databricks workspace name__: The name of the Azure Databricks workspace.
 * __Databricks access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](/azure/databricks/dev-tools/api/latest/authentication) document.
 
-The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK (__The Databricks workspace need to be present in the same subscription as your AML workspace__):
+The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK:
 
 ```python
 import os
@@ -272,7 +280,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-databri
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same Azure Databricks from your workspace. Each new attachment will break the previous existing attachment(s).
 
-### <a id="adla"></a>Azure Data Lake Analytics
+## <a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 

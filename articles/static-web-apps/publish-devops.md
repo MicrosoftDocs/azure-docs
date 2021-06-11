@@ -48,7 +48,7 @@ In this tutorial, you learn to:
 
 1. Search for **Static Web Apps**.
 
-1. Select **Static Web Apps (Preview)**.
+1. Select **Static Web Apps**.
 
 1. Select **Create**.
 

@@ -64,7 +64,7 @@ The number of messaging units allocated to the Service Bus Premium namespace can
 There are a number of factors to take into consideration when deciding the number of messaging units for your architecture:
 
 - Start with ***1 or 2 messaging units*** allocated to your namespace.
-- Study the CPU usage metrics within the [Resource usage metrics](service-bus-metrics-azure-monitor.md#resource-usage-metrics) for your namespace.
+- Study the CPU usage metrics within the [Resource usage metrics](monitor-service-bus-reference.md#resource-usage-metrics) for your namespace.
     - If CPU usage is ***below 20%***, you might be able to ***scale down*** the number of messaging units allocated to your namespace.
     - If CPU usage is ***above 70%***, your application will benefit from ***scaling up*** the number of messaging units allocated to your namespace.
 
@@ -86,7 +86,8 @@ Getting started with Premium Messaging is straightforward and the process is sim
 
 ![create-premium-namespace][create-premium-namespace]
 
-You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
+You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/).
+
 
 ## Next steps
 

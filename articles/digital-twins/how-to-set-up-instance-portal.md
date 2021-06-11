@@ -34,11 +34,11 @@ In this section, you will **create a new instance of Azure Digital Twins** using
 
 Once in the portal, start by selecting _Create a resource_ in the Azure services home page menu.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Screenshot of the Azure portal, highlighting the 'Create a resource' icon from the home page.":::
 
 Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins** service from the results. Select the _Create_ button to create a new instance of the service.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Screenshot of the Azure portal, highlighting the 'Create' button from the Azure Digital Twins service page.":::
 
 On the following **Create Resource** page, fill in the values given below:
 * **Subscription**: The Azure subscription you're using
@@ -48,7 +48,7 @@ On the following **Create Resource** page, fill in the values given below:
   already using the specified name, you'll be asked to pick a different name.
 * **Grant access to resource**: Checking the box in this section will give your Azure account permission to access and manage data in the instance. If you're the one that will be managing the instance, you should check this box now. If it's greyed out because you don't have permission in the subscription, you can continue creating the resource and have someone with the required permissions grant you the role later. For more information about this role and assigning roles to your instance, see the next section, [Set up user access permissions](#set-up-user-access-permissions).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins. The described values are filled in.":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The described values are filled in.":::
 
 When you're finished, you can select **Review + create** if you don't want to configure any more settings for your instance. This will take you to a summary page, where you can review the instance details you've entered and finish with **Create**. 
 
@@ -59,14 +59,14 @@ If you do want to configure more details for your instance, the next section des
 Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
 
 * **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [How-to: Enable private access with Private Link (preview)](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
-* **Advanced**: In this tab, you can enable a [system-managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For instructions, see [How-to: Enable managed identities for routing events (preview)](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
+* **Advanced**: In this tab, you can enable a system-managed identity for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For more information about using system-managed identities with Azure Digital Twins, see [Concepts: Security for Azure Digital Twins solutions](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
 * **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values
 
 After finishing your instance setup by selecting **Create**, you can view the status of your instance's deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, and you'll be able to select the _Go to resource_ button to view your created instance.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="View of Azure notifications showing a successful deployment and highlighting the 'Go to resource' button":::
+:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Screenshot of the Azure notifications showing a successful deployment and highlighting the 'Go to resource' button in the Azure portal.":::
 
 Alternatively, if deployment fails, the notification will indicate why. Observe the advice from the error message and retry creating the instance.
 
@@ -75,7 +75,7 @@ Alternatively, if deployment fails, the notification will indicate why. Observe 
 
 From the instance's *Overview* page, note its *Name*, *Resource group*, and *Host name*. These are all important values that you may need as you continue working with your Azure Digital Twins instance. If other users will be programming against the instance, you should share these values with them.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Highlighting the important values from the instance's Overview page":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Screenshot of the Azure portal, highlighting the important values from the Azure Digital Twins instance's Overview page.":::
 
 You now have an Azure Digital Twins instance ready to go. Next, you'll give the appropriate Azure user permissions to manage it.
 
@@ -97,11 +97,11 @@ They both require the same permissions.
 
 While creating your Azure Digital Twins resource through the process described [earlier in this article](#create-the-azure-digital-twins-instance), select the **Assign Azure Digital Twins Data Owner Role** under **Grant access to resource**. This will grant yourself full access to the data plane APIs.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2-role.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins. The checkbox under Grant access to resource is highlighted.":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2-role.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The checkbox under Grant access to resource is highlighted.":::
 
 If you don't have permission to assign a role to an identity, the box will appear greyed out.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2-role-greyed.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins. The checkbox under Grant access to resource is greyed out and not clickable.":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2-role-greyed.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The checkbox under Grant access to resource is disabled.":::
 
 In that case, you can still continue to successfully create the Azure Digital Twins resource, but someone with the appropriate permissions will need to assign this role to you or the person who will be managing the instance's data.
 
@@ -129,14 +129,14 @@ You can also assign the **Azure Digital Twins Data Owner** role using the access
 
 You can view the role assignment you've set up under *Access control (IAM) > Role assignments*. The user should show up in the list with a role of *Azure Digital Twins Data Owner*. 
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="View of the role assignments for an Azure Digital Twins instance in Azure portal":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Screenshot of the role assignments for an Azure Digital Twins instance in the Azure portal.":::
 
 You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it.
 
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/dt)
+* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
 * [Concepts: Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:

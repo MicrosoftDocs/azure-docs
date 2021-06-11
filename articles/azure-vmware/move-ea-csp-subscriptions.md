@@ -61,9 +61,7 @@ The new subscription appears in the private cloud Overview.
 ## Next steps
 Learn more about:
 
-- [Move guidance for networking resources](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
-- [Move guidance for virtual machines](/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)
-- [Move guidance for App Service resources](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations)
-
-
-
+- [Move Azure VMware Solution across regions](move-azure-vmware-solution-across-regions.md)
+- [Move guidance for networking resources](../azure-resource-manager/management/move-limitations/networking-move-limitations.md)
+- [Move guidance for virtual machines](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md)
+- [Move guidance for App Service resources](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
