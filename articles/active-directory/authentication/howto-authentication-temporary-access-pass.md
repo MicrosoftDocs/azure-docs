@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/26/2021
+ms.date: 06/11/2021
 
 ms.author: justinha
 author: justinha
@@ -144,8 +144,8 @@ Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -
 
 - A user can only have one Temporary Access Pass. The passcode can be used during the start and end time of the Temporary Access Pass.
 - If the user requires a new Temporary Access Pass:
-  - If the existing Temporary Access Pass is valid, the admin needs to delete the existing Temporary Access Pass and create a new pass for the user. Deleting a valid Temporary Access Pass will revoke the user’s sessions. 
-  - If the existing Temporary Access Pass has expired, a new Temporary Access Pass will override the existing Temporary Access Pass and will not revoke the user’s sessions.
+  - If the existing Temporary Access Pass is valid, the admin needs to delete the existing Temporary Access Pass and create a new pass for the user. 
+  - If the existing Temporary Access Pass has expired, a new Temporary Access Pass will override the existing Temporary Access Pass.
 
 For more information about NIST standards for onboarding and recovery, see [NIST Special Publication 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html#sec4).
 
