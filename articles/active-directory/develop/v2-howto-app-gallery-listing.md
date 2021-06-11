@@ -302,7 +302,7 @@ The Microsoft Partner Network provides instant access to exclusive resources, pr
 
 ## Request Apps by sharing ISV App team contact
 
-Customers can request application by sharing the Application and ISV contact information.
+Customers can request application by sharing the Application and ISV contact information [here](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/AppRequestsByCustomers.aspx).
 
 ![Shows the customer-requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -311,7 +311,7 @@ Here's the flow of customer-requested applications.
 ![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
 
 > [!Note]
-> If you have any issues with access, send email to the [Azure AD App Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> If you have any [issues with access](#issues-on-logging-into-portal), send email to the [Azure AD App Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Next steps
 
