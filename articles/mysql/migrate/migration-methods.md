@@ -35,13 +35,13 @@ The latest version of the MySQL Workbench provides sophisticated [object migrati
 
 #### Data Import and Export
 
-MySQL Workbench provides a wizard-based UI to do full or partial export and import of tables and database objects. For an example of how to use the MySQL Workbench, see [Migrate your MySQL database using import and export. ](/azure/mysql/concepts-migrate-import-export)
+MySQL Workbench provides a wizard-based UI to do full or partial export and import of tables and database objects. For an example of how to use the MySQL Workbench, see [Migrate your MySQL database using import and export. ](../concepts-migrate-import-export.md)
 
 ### Dump and restore (mysqldump)
 
 `mysqldump` is typically provided as part of the MySQL installation. It's a [client utility](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) that can be run to create logical backups that equate to a set of SQL statements that can be replayed to rebuild the database to a point in time. `mysqldump` is not intended as a fast or scalable solution for backing up or migrating large amounts of data. Executing a large set of SQL insert statements can perform poorly due to the disk I/O required to update indexes. However, when combined with other tools that require the original schema, `mysqldump` is a great tool for generating the database and table schemas. The schemas can create the target landing zone environment.
 
-The `mysqldump` utility provides useful features during the data migration phase. Performance considerations need to be evaluated before running the utility. See [Performance considerations.](/azure/mysql/concepts-migrate-dump-restore#performance-considerations)
+The `mysqldump` utility provides useful features during the data migration phase. Performance considerations need to be evaluated before running the utility. See [Performance considerations.](../concepts-migrate-dump-restore.md#performance-considerations)
 
 ### mydumper and myloader
 
@@ -53,15 +53,15 @@ The tools’ binary releases available for public download have been compiled fo
 
 Similar to other database management systems, MySQL provides for a log replication feature called [binlog replication.](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) The `binlog` replication feature helps with data migration and the creation of read replicas.
 
-Utilize binlog replication to [migrate your data  to Azure Database for MySQL](/azure/mysql/concepts-data-in-replication) in an online scenario. The data replication helps to reduce the downtime required to make the final target data changes.
+Utilize binlog replication to [migrate your data  to Azure Database for MySQL](../concepts-data-in-replication.md) in an online scenario. The data replication helps to reduce the downtime required to make the final target data changes.
 
-In order to use the `binlog` replication feature there are some setup [requirements:](/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication)
+In order to use the `binlog` replication feature there are some setup [requirements:](../howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
 
   - Then master server is recommended to use the MySQL InnoDB engine. If you're using a storage engine other than InnoDB, you need to migrate those tables to InnoDB.
 
   - Migration users must have permissions to configure binary logging and create new users on the master server.
 
-  - If the master server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the mysql.az\_replication\_change\_master stored procedure. Refer to the following [examples](/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) and the master\_ssl\_ca parameter.
+  - If the master server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the mysql.az\_replication\_change\_master stored procedure. Refer to the following [examples](../howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the master\_ssl\_ca parameter.
 
   - Ensure the master server’s IP address has been added to the Azure Database for MySQL replica server’s firewall rules. Update firewall rules using the Azure portal or Azure CLI.
 
@@ -69,13 +69,13 @@ In order to use the `binlog` replication feature there are some setup [requireme
 
   - Ensure the master server has an accessible IP address (public or private) from the source to the targets.
 
-To perform a migration using replication, review [How to configure Azure Database for MySQL Data-in Replication](/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) for details.
+To perform a migration using replication, review [How to configure Azure Database for MySQL Data-in Replication](../howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) for details.
 
 The `binlog` replication method has high CPU and extra storage requirements. Migration users should test the load placed on the source system during online migrations and determine if It's acceptable.
 
 ### Azure Database Migration Service (DMS)
 
-The [Azure Database Migration Services (DMS)](https://azure.microsoft.com/en-us/services/database-migration/) is an Azure cloud-based tool that allows administrators to keep track of the various settings for migration and reuse them if necessary. DMS works by creating migration projects with settings that point to various sources and destinations. It supports [offline migrations](/azure/dms/tutorial-mysql-azure-mysql-offline-portal). Additionally, it supports on-premises data workloads and cloud-based workloads such as Amazon Relational Database Service (RDS) MySQL.
+The [Azure Database Migration Services (DMS)](https://azure.microsoft.com/en-us/services/database-migration/) is an Azure cloud-based tool that allows administrators to keep track of the various settings for migration and reuse them if necessary. DMS works by creating migration projects with settings that point to various sources and destinations. It supports [offline migrations](../../dms/tutorial-mysql-azure-mysql-offline-portal.md). Additionally, it supports on-premises data workloads and cloud-based workloads such as Amazon Relational Database Service (RDS) MySQL.
 
 Although the DMS service is an online tool, it does rely on the `binlog` replication feature of MySQL to complete its tasks. Currently, DMS partially automates the offline migration process. DMS requires the generation and application of the matching schema in the target Azure Database for MySQL instance. Schemas can be exported using the `mysqldump` client utility.
 

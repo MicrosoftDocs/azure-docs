@@ -21,19 +21,19 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 Get started with Azure Communication Services by connecting your calling solution to Microsoft Teams using the JavaScript SDK.
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
+[!INCLUDE [Calling with JavaScript](./includes/teams-interop/teams-interop-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Calling with Windows](./includes/teams-interop-windows.md)]
+[!INCLUDE [Calling with Windows](./includes/teams-interop/teams-interop-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/teams-interop-android.md)]
+[!INCLUDE [Calling with Android](./includes/teams-interop/teams-interop-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/teams-interop/teams-interop-ios.md)]
 ::: zone-end
 
 Functionality described in this document uses the General Availability version of the Communication Services SDKs. Teams Interoperability requires the Beta version of the Communication Services SDKs. The Beta SDKs can be explored on the [release notes page](https://github.com/Azure/Communication/tree/master/releasenotes).

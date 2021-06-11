@@ -5,7 +5,7 @@ description: Learn how to send feedback on anomalies found by your Metrics Advis
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 11/24/2020
