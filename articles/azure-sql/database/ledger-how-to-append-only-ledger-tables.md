@@ -1,6 +1,6 @@
 ---
 title: "Create and use append-only ledger tables"
-description: How to create and use append-only ledger tables in Azure SQL Database.
+description: Learn how to create and use append-only ledger tables in Azure SQL Database.
 ms.custom: ""
 ms.date: "05/25/2021"
 ms.service: sql-database
@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview.
+> Azure SQL Database ledger is currently in public preview and available in West Central US.
 
 This article shows you how to create an [append-only ledger table](ledger-append-only-ledger-tables.md) in Azure SQL Database. Next, you'll insert values in your append-only ledger table and then attempt to make updates to the data. Finally, you'll view the results by using the ledger view. We'll use an example of a card key access system for a facility, which is an append-only system pattern. Our example will give you a practical look at the relationship between the append-only ledger table and its corresponding ledger view.
 
@@ -24,8 +24,8 @@ For more information, see [Append-only ledger tables](ledger-append-only-ledger-
 
 ## Prerequisites
 
-- Have an existing SQL Database instance with ledger enabled. If you haven't already created a SQL Database instance, see [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
-- Have [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
+- Azure SQL Database with ledger enabled. If you haven't already created a database in SQL Database, see [Quickstart: Create a database in Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
 ## Create an append-only ledger table
 

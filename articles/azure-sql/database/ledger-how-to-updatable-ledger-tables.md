@@ -1,6 +1,6 @@
 ---
 title: "Create and use updatable ledger tables"
-description: How to create and use updatable ledger tables in Azure SQL Database.
+description: Learn how to create and use updatable ledger tables in Azure SQL Database.
 ms.custom: ""
 ms.date: "05/25/2021"
 ms.service: sql-database
@@ -16,14 +16,14 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview.
+> Azure SQL Database ledger is currently in public preview and available in West Central US.
 
 This article shows you how to create an [updatable ledger table](ledger-updatable-ledger-tables.md) in Azure SQL Database. Next, you'll insert values in your updatable ledger table and then make updates to the data. Finally, you'll view the results by using the ledger view. We'll use an example of a banking application that tracks banking customers' balances in their accounts. Our example will give you a practical look at the relationship between the updatable ledger table and its corresponding history table and ledger view.
 
 ## Prerequisites
 
-- Have an existing SQL Database instance with ledger enabled. If you haven't already created a SQL Database instance, see [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
-- Have [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
+- Azure SQL Database with ledger enabled. If you haven't already created a database in SQL Database, see [Quickstart: Create a database in Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
 ## Create an updatable ledger table
 
@@ -61,7 +61,7 @@ We'll create an account balance table with the following schema.
    ```
 
     > [!NOTE]
-    > Specifying the `LEDGER = ON` argument is optional if you enabled a ledger database when you created your SQL Database instance. 
+    > Specifying the `LEDGER = ON` argument is optional if you enabled a ledger database when you created your database in SQL Database.
     >
     > In the preceding example, the system generates the names of the [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns in the table, the name of the [ledger view](ledger-updatable-ledger-tables.md#ledger-view), and the names of the [ledger view columns](ledger-updatable-ledger-tables.md#ledger-view-schema).
     >
