@@ -24,9 +24,9 @@ For more information on disk encryption options and remediation steps, see the t
 
 | | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | ASC disk encryption status |
 |--|--|--|--|--|--|--|
-| Encryption at rest with platform-managed key (SSE+PMK) | &#10004; | &#10060; | &#10060; | &#10060; | &#10060; | Unhealthy, not applicable if exempt |
-| Encryption at rest with customer-managed key (SSE+CMK) | &#10004; | &#10060; | &#10060; | &#10060; | &#10004; | Unhealthy, not applicable if exempt |
-| Encryption at Host*  | &#10004; | &#10004; | &#10004; | &#10004; | &#10004; | Unhealthy, not applicable if exempt |
-| Azure Disk Encryption | &#10004; | &#10004; | &#10004; | &#10004; | &#10004; | Healthy |
+| **Encryption at rest with platform-managed key (SSE+PMK)** | &#10004; | &#10060; | &#10060; | &#10060; | &#10060; | Unhealthy, not applicable if exempt |
+| **Encryption at rest with customer-managed key (SSE+CMK)** | &#10004; | &#10060; | &#10060; | &#10060; | &#10004; | Unhealthy, not applicable if exempt |
+| **Encryption at Host***  | &#10004; | &#10004; | &#10004; | &#10004; | &#10004; | Unhealthy, not applicable if exempt |
+| **Azure Disk Encryption** | &#10004; | &#10004; | &#10004; | &#10004; | &#10004; | Healthy |
 
 *For Encryption at Host, Azure Security Center does not detect the encryption state.
