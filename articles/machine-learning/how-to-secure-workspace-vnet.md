@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 06/10/2021
+ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
@@ -115,9 +115,10 @@ To access data using the SDK, you must use the authentication method required by
 
 ### Disable data validation
 
-By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If the data is behind a virtual network, Azure Machine Learning can't complete these checks. To bypass this check, you must create datastores and datasets that skip validation.
+> [!IMPORTANT]
+> By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If the data is behind a virtual network, Azure Machine Learning can't complete these checks. To bypass this check, **create datastores and datasets that skip validation**.
 
-### Use datastores
+**Skip validation for datastores**
 
  Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
 
@@ -142,7 +143,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          skip_validation=True ) // Set skip_validation to true
 ```
 
-### Use datasets
+**Skip validation for datasets**
 
 The syntax to skip dataset validation is similar for the following dataset types:
 - Delimited file
