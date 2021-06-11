@@ -121,21 +121,24 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
     
         ```yml
         apiVersion: v1
-        kind: Pod
-        metadata:
-            name: test-pod
-        spec:
-            volumes:
-            - name: shared-data
-            emptyDir: {}
-            containers:
-            - name: nginx
-            image: nginx
-            volumeMounts:
-            - name: shared-data
-                mountPath: /usr/share/nginx/html
+        dnsPolicy: ClusterFirstWithHostNet
         hostNetwork: true
-        dnsPolicy: ClusterFirstWithHostNet    
+        kind: Pod
+        metadata: 
+          name: test-pod
+        spec: 
+          containers: 
+            - 
+              name: nginx
+          emptyDir: {}
+          image: nginx
+          volumeMounts: 
+            - 
+              mountPath: /usr/share/nginx/html
+              name: shared-data
+          volumes: 
+            - 
+              name: shared-data  
         ```
     1. Create the pod.
         ```bash
