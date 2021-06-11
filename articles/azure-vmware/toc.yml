@@ -85,7 +85,7 @@
   - name: Disaster recovery 
     items:
     - name: Deploy disaster recovery using VMware HCX
-      href: disaster-recovery-for-virtual-machines.md
+      href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Disaster recovery to Azure Site Recovery
       items:
       - name: Prepare Azure
