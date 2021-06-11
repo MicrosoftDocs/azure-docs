@@ -36,7 +36,12 @@ To deploy APNS, you must have the following resources:
     
 ## Deploy APNS
 
-To automatically deploy the APNS Managed application with all required resources and relevant information necessary, select the APNS Managed Application from the Microsoft Azure Marketplace. When you deploy APNS, all the required resources are automatically created for you and are contained in a Managed Resource Group. 
+To automatically deploy the APNS Managed application with all required resources and relevant information necessary, select the APNS Managed Application from the Microsoft Azure Marketplace. When you deploy APNS, all the required resources are automatically created for you and are contained in a Managed Resource Group.
+
+The following diagram shows the system architecture of the Affirmed Private Network Service, including the resources required to deploy.
+
+![Affirmed Private Network Service Deployment](media/deploy-affirmed-private-network-service/deploy-affirmed-private-network-service.png)
+ 
 
 Complete the following procedure to deploy APNS:
 1.	Open the Azure portal and select **Create a resource**.
