@@ -33,6 +33,37 @@ This issue can occur when you attempt to build the project. It is the result of 
 ### Resolution
 * When you clone the repository using Git, confirm that the **--recursive** option is present.
 
+## Issue: The build fails
+
+### Description
+
+The issue can occur because the path to an object file exceeds the default maximum path length. Examine the build output for a message similar to the following:
+
+```output
+-- Configuring done
+CMake Warning in C:/embedded quickstarts/areallyreallyreallylongpath/getting-started/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/CMakeLists.txt:
+  The object file directory
+
+    C:/embedded quickstarts/areallyreallyreallylongpath/getting-started/NXP/MIMXRT1060-EVK/build/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/CMakeFiles/asc_security_core.dir/./
+
+  has 208 characters.  The maximum full path to an object file is 250
+  characters (see CMAKE_OBJECT_PATH_MAX).  Object file
+
+    src/serializer/extensions/custom_builder_allocator.c.obj
+
+  cannot be safely placed under this directory.  The build may not work
+  correctly.
+
+
+-- Generating done
+```
+
+### Resolution
+
+You can try one of the following options to resolve this error:
+* Clone the repository into a directory with a shorter path name and try again.
+* Follow the instructions in [Maximum Path Length Limitation](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) to enable long paths in Windows 10, version 1607, and later.
+
 ## Issue: Device can't connect to Iot hub
 
 ### Description
@@ -40,7 +71,7 @@ This issue can occur when you attempt to build the project. It is the result of 
 The issue can occur after you've created Azure resources, and flashed your device. When you try to connect your newly flashed device to Azure IoT, you see a console message like the following:
 
 ```output
-*Unable to resolve DNS for MQTT Server*
+Unable to resolve DNS for MQTT Server
 ```
 
 ### Resolution
