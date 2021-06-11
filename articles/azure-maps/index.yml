@@ -93,7 +93,7 @@ landingContent:
           - text: Tileset service
             url: /rest/api/maps/v2/tileset
           - text: Feature stateset service
-            url: /rest/api/maps/v2/featurestate
+            url: /rest/api/maps/v2/feature-state
                     
   # Card
   - title: Developing with Web SDK

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/11/2021
 ms.author: bwren 
 ms.custom: devx-track-azurepowershell
 ---
@@ -52,9 +52,9 @@ There are two modes of billing for usage on a cluster. These can be specified by
 
 1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. Per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
 
-2. **Workspaces**: the commitment tier costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) for each workspace.) If the total data volume ingested into a workspace for a day is less than the commitment tier, then each workspace is billed for its ingested data at the effective per-GB commitment tier rate by billing them a fraction of the commitment tier, and the unused part of the commitment tier is billed to the cluster resource. If the total data volume ingested into a workspace for a day is more than the commitment tier, then each workspace is billed for a fraction of the commitment tier based on its fraction of the ingested data that day, and each workspace for a fraction of the ingested data above the commitment tier. There is nothing billed to the cluster resource if the total data volume ingested into a workspace for a day is over the commitment tier.
+2. **Workspaces**: the commitment tier costs for your cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) for each workspace.) If the total data volume ingested into a cluster for a day is less than the commitment tier, then each workspace is billed for its ingested data at the effective per-GB commitment tier rate by billing them a fraction of the commitment tier, and the unused part of the commitment tier is billed to the cluster resource. If the total data volume ingested into a cluster for a day is more than the commitment tier, then each workspace is billed for a fraction of the commitment tier based on its fraction of the ingested data that day, and each workspace for a fraction of the ingested data above the commitment tier. There is nothing billed to the cluster resource if the total data volume ingested into a workspace for a day is above the commitment tier.
 
-In cluster billing options, data retention is billed at per-workspace. Cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. Also, workspaces associated to a cluster no longer have a pricing tier.
+In cluster billing options, data retention is billed for each workspace. Cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. Workspaces associated to a cluster no longer have their own pricing tier.
 
 ## Estimating the costs to manage your environment 
 
@@ -128,7 +128,7 @@ To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018
 
 ## Legacy pricing tiers
 
-Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)** and **Per Node (OMS)**. Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to 7 days. The Free Trial pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+Subscriptions which contained a Log Analytics workspace or Application Insights resource in it on April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019 and is still active, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)** and **Per Node (OMS)**. Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to 7 days. The Free Trial pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
 
 Usage on the Standalone pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". 
 
