@@ -136,7 +136,23 @@ sections:
               </configuration>
               ```
           
-          
+            Here's an example for [AKS Nginx Ingress Controller](https://docs.microsoft.com/en-us/azure/aks/ingress-basic)
+            
+            ``` yaml
+            apiVersion: networking.k8s.io/v1
+            kind: Ingress
+            metadata:
+              name: frontdoor-ingress
+              annotations:
+                kubernetes.io/ingress.class: nginx
+                nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+                nginx.ingress.kubernetes.io/modsecurity-snippet: |
+                  SecRuleEngine On
+                  SecAuditLog /var/log/modsec_audit.log
+                  SecRule REQUEST_HEADERS:X-Azure-FDID "!@eq xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" "log,deny,id:107,status:403,msg:\'Traffic incoming from a different Frontdoor\'"
+            spec:
+              #section omitted on purpose
+            ```
           
       - question: |
           Can the anycast IP change over the lifetime of my Front Door?
