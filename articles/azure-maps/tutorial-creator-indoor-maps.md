@@ -142,7 +142,7 @@ To retrieve content metadata:
 
 7. Select **Send**.
 
-8. In the response window, select the **Headers** tab. The metadata should like the following JSON fragment:
+8. In the response window, select the **Body** tab. The metadata should like the following JSON fragment:
 
     ```json
     {

@@ -360,7 +360,7 @@ For more information, see [Private Link for Azure Database for MySQL](../../../m
    +----------------------------------------------------------------------------+
    ```
 
-### Install MySQL C API connector (libmysqlclient) on linux server
+### Install MySQL C API connector (libmysqlclient) on a Linux server
 
 For SAP BOBI Application server to access database, it requires database client/drivers. MySQL C API Connector for Linux has to be used to access CMS and Audit databases. ODBC connection to CMS database isn't supported. This section provides instructions on how to set up MySQL C API Connector on Linux.
 

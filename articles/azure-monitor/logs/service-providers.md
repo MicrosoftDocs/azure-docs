@@ -84,4 +84,4 @@ There are two options to implement logs in a central location:
 
 * Generate summary reports using [Power BI](../visualize/powerbi.md)
 
-* Onboard customers to [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
+* Onboard customers to [Azure delegated resource management](../../lighthouse/concepts/architecture.md).
