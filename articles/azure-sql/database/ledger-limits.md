@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview.
+> Azure SQL Database ledger is currently in public preview and available in West Central US.
 
 This article provides an overview of the limitations of ledger tables used with Azure SQL Database.
 

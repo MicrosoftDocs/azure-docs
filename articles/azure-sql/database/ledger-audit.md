@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview.
+> Azure SQL Database ledger is currently in public preview and available in West Central US.
 
 When you perform forensics activities with ledger-enabled tables, data is captured in the ledger view and database ledger. Other action IDs are added to the SQL audit logs, too. The following tables outline these new audit logging events. The conditions that trigger the events follow each table.
 

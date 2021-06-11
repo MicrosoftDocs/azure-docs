@@ -16,16 +16,16 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview.
+> Azure SQL Database ledger is currently in public preview and available in West Central US.
 
-This article shows you how to access an [Azure SQL Database ledger](ledger-overview.md) digest stored in [Azure Confidential Ledger](/azure/confidential-ledger/) to get end-to-end security and integrity guarantees. Throughout this article, we'll explain how to access and verify the integrity of the stored information.
+This article shows you how to access an [Azure SQL Database ledger](ledger-overview.md) digest stored in [Azure Confidential Ledger (ACL)](../../confidential-ledger/index.yml) to get end-to-end security and integrity guarantees. Throughout this article, we'll explain how to access and verify integrity of the stored information.
 
 ## Prerequisites
 
 - Python 2.7, 3.5.3, or later.
-- An existing SQL Database instance with ledger enabled. If you haven't already created a SQL Database instance, see [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
-- A [Confidential Ledger client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/confidentialledger/azure-confidentialledger).
-- A running instance of [Confidential Ledger](/azure/confidential-ledger/).
+- Azure SQL Database with ledger enabled. If you haven't already created a database in SQL Database, see [Quickstart: Create a database in Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
+- [Azure Confidential Ledger client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/confidentialledger/azure-confidentialledger).
+- A running instance of [Azure Confidential Ledger](../../confidential-ledger/index.yml).
 
 ## How does the integration work?
 
@@ -123,7 +123,7 @@ SELECT * FROM sys.database_ledger_blocks
 
 ## 6. Comparison
 
-Compare the digest retrieved from Confidential Ledger to the digest returned from your SQL Database instance by using `block_id` as the key. For example, the digest of `block_id` = `1` is the value of the `previous_block_hash` column in the `block_id`= `2` row. Similarly, for `block_id` = `3`, it's the value of the `previous_block_id` column in the `block_id` = `4` row. A mismatch in the hash value is an indicator of potential data tampering.
+Compare the digest retrieved from Confidential Ledger to the digest returned from your database in SQL Database by using `block_id` as the key. For example, the digest of `block_id` = `1` is the value of the `previous_block_hash` column in the `block_id`= `2` row. Similarly, for `block_id` = `3`, it's the value of the `previous_block_id` column in the `block_id` = `4` row. A mismatch in the hash value is an indicator of potential data tampering.
 
 If you suspect data tampering, see [Verify a ledger table to detect tampering](ledger-verify-database.md) to perform a full audit of the SQL Database ledger.
 

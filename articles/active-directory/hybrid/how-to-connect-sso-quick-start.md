@@ -197,7 +197,7 @@ If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium
 
 #### Google Chrome (macOS and other non-Windows platforms)
 
-For Google Chrome on macOS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to control the allow list for the Azure AD URL for integrated authentication.
+For Google Chrome on macOS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://chromeenterprise.google/policies/) for information on how to control the allow list for the Azure AD URL for integrated authentication.
 
 The use of third-party Active Directory Group Policy extensions to roll out the Azure AD URL to Firefox and Google Chrome on Mac users is outside the scope of this article.
 

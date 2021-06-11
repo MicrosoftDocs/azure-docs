@@ -165,7 +165,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## Upload the reachable range and charging points to Azure Maps Data service
 
-On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data service. Use the [Data Upload API](/rest/api/maps/data%20v2/uploadpreview). 
+On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data service. Use the [Data Upload API](/rest/api/maps/data-v2/upload-preview). 
 
 To upload the boundary and charging point data to Azure Maps Data service, run the following two cells:
 

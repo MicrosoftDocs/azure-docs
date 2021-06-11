@@ -13,7 +13,7 @@ ms.author: keferna
 
 You've published to Microsoft commercial marketplace, now you want to see your offer be successful. We provide you the sales, technical, and marketing benefits you need to accelerate your offer's growth.
 
-Once your offer is live on Microsoft AppSource or Azure Marketplace, go to [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) to access and activate your eligible marketing, sales, and technical benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
+Once your offer is live on Microsoft AppSource or Azure Marketplace, go to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165457) to access and activate your eligible marketing, sales, and technical benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
 
 ## Marketplace Rewards
 
@@ -33,10 +33,10 @@ You will get support in understanding the resources available to you and in impl
 
 Detailed descriptions of all program benefits can be found in this [Marketplace Rewards program presentation](https://aka.ms/marketplacerewards).
 
-## Getting started is easy:
+## Getting started is easy
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
-2. Go to [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) in Partner Center and select **Enroll in Marketplace Rewards Program**.
+2. Go to [Marketplace Rewards](https://go.microsoft.com/fwlink/?linkid=2165388) in Partner Center and select **Enroll in Marketplace Rewards Program**.
 3. To activate sales and marketing benefits, assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
 4. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
     1. Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
@@ -45,7 +45,7 @@ Detailed descriptions of all program benefits can be found in this [Marketplace 
     1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
 > [!NOTE]
-> If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps.<br><br>If you cannot determine the owner, or if the owner has left your company, raise a support ticket at [Help and Support](https://aka.ms/marketplacepublishersupport).
+> If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps.<br><br>If you cannot determine the owner, or if the owner has left your company, raise a support ticket at [Help and Support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 The scope of the activities available to you expands as you grow your offerings in the commercial marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
