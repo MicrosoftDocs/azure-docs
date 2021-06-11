@@ -524,6 +524,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/active-directory-saas-fax.plus-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/fax-plus-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-redbrickhealth-tutorial.md",
       "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
       "redirect_document_id": false
@@ -13869,6 +13874,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/disaster-recovery-for-virtual-machines.md",
+      "redirect_url": "/azure/azure-vmware/deploy-disaster-recovery-using-vmware-hcx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/lifecycle-management-of-azure-vmware-solution-vms.md",
+      "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/set-up-backup-server-for-azure-vmware-solution.md",
       "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
       "redirect_document_id": false
@@ -14512,6 +14527,11 @@
       "source_path_from_root": "/articles/cdn/cdn-rules-engine.md",
       "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cdn/cdn-troubleshoot-allowed-ca.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cdn/cdn-rules-engine-reference.md",
@@ -25270,6 +25290,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-pnp/concepts-common-interfaces.md",
       "redirect_url": "/azure/iot-pnp/",
       "redirect_document_id": false
@@ -28697,7 +28747,7 @@
     {
       "source_path_from_root": "/articles/machine-learning/concept-managed-endpoints.md",
       "redirect_url": "/azure/machine-learning/concept-endpoints",
-      "redireect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
@@ -29882,12 +29932,17 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md",
-      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
+      "redirect_url": "/partner-center/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
-      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
+      "redirect_url": "/partner-center/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/account-migration-from-cpp-to-pc.md",
+      "redirect_url": "/partner-center/overview",
       "redirect_document_id": false
     },
     {
@@ -37001,6 +37056,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-cli.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-portal.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-powershell.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/storage-azure-cli.md",
       "redirect_url": "/azure/storage/common/storage-azure-cli",
       "redirect_document_id": true
@@ -42331,8 +42401,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-troubleshoot-allowed-ca.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/waf-front-door-custom-rules.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-allowed-certificate-authority.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
       "redirect_document_id": false
     },
     {
@@ -44264,6 +44344,11 @@
       "source_path_from_root": "/articles/connectors/connectors-create-api-yammer",
       "redirect_url": "/connectors/yammer/",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
+      "redirect_url": "/connectors/todo/",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
@@ -66991,6 +67076,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
+      "redirect_url": "/azure/virtual-desktop/teams-on-avd",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure/media-services/video-indexer/",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
       "redirect_document_id": false
@@ -67018,6 +67108,11 @@
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-download-sign-in-report.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-download-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
+      "redirect_url": "/azure/iot-develop/",
       "redirect_document_id": false
     }
   ]

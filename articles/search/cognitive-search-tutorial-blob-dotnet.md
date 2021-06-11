@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Use .NET and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
 
 In this tutorial, you will learn how to:
 
@@ -46,7 +46,7 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 
 ## Download sample data
 
-The sample data consists of 14 files of mixed content type that you will upload to Azure Blob storage in a later step.
+The sample data consists of 14 files of mixed content type that you will upload to Azure Blob Storage in a later step.
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
@@ -56,7 +56,7 @@ You can also download the source code for this tutorial. Source code is in the *
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 

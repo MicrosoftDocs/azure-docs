@@ -58,7 +58,7 @@ To change your cluster upgrade mode using a Resource Manager template, specify e
 
 Upon successful deployment of the template, changes to the cluster upgrade mode will be applied. If your cluster is in manual mode, the cluster upgrade will kick off automatically.
 
-The [cluster health policies](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction#health-policies) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
+The [cluster health policies](./service-fabric-health-introduction.md#health-policies) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
 
 Once you have fixed the issues that resulted in the rollback, you'll need to initiate the upgrade again, by following the same steps as before.
 

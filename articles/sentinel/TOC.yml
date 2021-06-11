@@ -25,8 +25,12 @@
     href: tutorial-respond-threats-playbook.md
   - name: Create KQL queries (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+  - name: Create a Power BI report from Azure Sentinel
+    href: powerbi.md
 - name: Concepts
   items:
+  - name: Understand and manage costs and billing
+    href: azure-sentinel-billing.md
   - name: Classify data using entities
     href: entities-in-azure-sentinel.md
   - name: Manage access
@@ -390,6 +394,6 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   - name: Feature availability for US Government clouds
-    href: /azure/security/fundamentals/feature-availability
+    href: ../security/fundamentals/feature-availability.md
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md
