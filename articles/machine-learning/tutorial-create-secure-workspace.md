@@ -403,7 +403,23 @@ For more information on creating a compute cluster, including how to do so with 
 
 ## Configure image builds
 
-When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, configure the workspace to use the compute cluster you created earlier. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
+When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images (used for training and deployment). Instead, configure the workspace to use the compute cluster you created earlier. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
+
+> [!IMPORTANT]
+> The steps in this section use the 
+
+1. Navigate to [https://shell.azure.com/](https://shell.azure.com/) to open the Azure Cloud Shell.
+1. From the cloud shell, use the following command to install the 1.0 CLI for Azure Machine Learning:
+
+    ```azurecli-interactive
+    az extension add -n azure-cli-ml
+    ```
+
+1. To update the workspace to use the compute cluster to build Docker images. Replace `docs-ml-rg` with your reesource group. Replace `docs-ml-ws` with your workspace. Replace `cpu-cluster` with the compute cluster to use:
+
+    ```azurecli-interactive
+    az ml workspace update -g docs-ml-rg -w docs-ml-ws --image-build-compute cpu-cluster
+    ```
 
 > [!NOTE]
 > You can use the same compute cluster to train models and build Docker images for the workspace.
