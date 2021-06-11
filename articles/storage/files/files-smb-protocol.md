@@ -11,18 +11,12 @@ ms.subservice: files
 ---
 
 # SMB file shares in Azure Files
-Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol (preview). Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares do not support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account. With both SMB and NFS file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
+Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol (preview). Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. For all file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
-This article covers SMB Azure file shares. For more information about NFS Azure file shares, see [NFS file shares in Azure Files](files-nfs-protocol.md).
-
-SMB file shares are used for a variety of applications including end-user file shares and file shares that back databases and applications. The SMB protocol is tightly integrated into Windows, however Linux and macOS also have first-class SMB protocol support. To learn more about how to mount SMB Azure file shares, see:
-
-- [Mounting SMB file shares on Windows](storage-how-to-use-files-windows.md)
-- [Mounting SMB file shares on Linux](storage-how-to-use-files-linux.md)
-- [Mounting SMB file shares on macOS](storage-how-to-use-files-mac.md)
+This article covers SMB Azure file shares. For information about NFS Azure file shares, see [NFS file shares in Azure Files](files-nfs-protocol.md).
 
 ## Common scenarios
-SMB file shares are often used in the following scenarios:
+SMB file shares are used for a variety of applications including end-user file shares and file shares that back databases and applications. SMB file shares are often used in the following scenarios:
 
 - End-user file shares such as team shares, home directories, etc.
 - Backing storage for Windows-based applications, such as SQL Server databases or line-of-business applications written for Win32 or .NET local file system APIs. 
@@ -80,7 +74,7 @@ Update-AzStorageFileServiceProperty `
 ```
 
 ## Limitations
-SMB file shares in Azure Files support a subset of features supported by SMB protocol and the NTFS file system. Although most use cases and applications do not require these features, some applications may not work properly with Azure Files if they rely on unsupported features.
+SMB file shares in Azure Files support a subset of features supported by SMB protocol and the NTFS file system. Although most use cases and applications do not require these features, some applications may not work properly with Azure Files if they rely on unsupported features. The following features are not supported:
 
 - [SMB Direct](/windows-server/storage/file-server/smb-direct)  
 - SMB directory leasing
@@ -101,3 +95,7 @@ SMB Azure file shares are available in every Azure region, including all public 
 ## Next steps
 - [Plan for an Azure Files deployment](storage-files-planning.md)
 - [Create an Azure file share](storage-how-to-create-file-share.md)
+- Mount SMB file shares on your preferred operating system:
+    - [Mounting SMB file shares on Windows](storage-how-to-use-files-windows.md)
+    - [Mounting SMB file shares on Linux](storage-how-to-use-files-linux.md)
+    - [Mounting SMB file shares on macOS](storage-how-to-use-files-mac.md)

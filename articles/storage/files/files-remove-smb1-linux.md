@@ -12,7 +12,7 @@ ms.subservice: files
 # Remove SMB 1 on Linux
 Many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. This practice originates from security guidance about legacy and deprecated versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, older versions of SMB, especially SMB 1 aren't. SMB 1, also known as CIFS (Common Internet File System), is included with many Linux distributions. 
 
-SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
+SMB 1 is an outdated, inefficient, and insecure protocol. The good news is that Azure Files does not support SMB 1, and starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
 
 ## Linux distribution status
 Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentation), called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels that they support. For convenience, the following table details the availability of this module parameter on common Linux distributions.
@@ -36,7 +36,7 @@ Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy
 | SUSE Linux Enterprise 15 | No |
 | SUSE Linux Enterprise 15.1 | No |
 
-You can check to see if your Linux distribution supports the `disable_legacy_dialects` module parameter via the following command.
+You can check to see if your Linux distribution supports the `disable_legacy_dialects` module parameter via the following command:
 
 ```bash
 sudo modinfo -p cifs | grep disable_legacy_dialects
@@ -49,7 +49,7 @@ disable_legacy_dialects: To improve security it may be helpful to restrict the a
 ```
 
 ## Remove SMB 1
-Before disabling SMB 1, you must check to make sure that the SMB module is not currently loaded on your system (this happens automatically if you have mounted an SMB share). You can do this with the following command, which should output nothing if SMB is not loaded:
+Before disabling SMB 1, confirm that the SMB module is not currently loaded on your system (this happens automatically if you have mounted an SMB share). You can do this with the following command, which should output nothing if SMB is not loaded:
 
 ```bash
 lsmod | grep cifs

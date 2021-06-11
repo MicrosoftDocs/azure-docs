@@ -11,11 +11,9 @@ ms.custom: references_regions
 ---
 
 # NFS file shares in Azure Files
-Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol (preview). Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares do not support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account. With both SMB and NFS file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
+Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol (preview). Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. For all file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
-This article covers NFS Azure file shares. For more information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
-
-NFS Azure file shares are fully POSIX-compliant file systems, offering tighter integration for Linux applications. POSIX-compliant is a standard for file system semantics and APIs across variants of Unix and other *nix based operating systems. NFS 4.1 is currently only supported within new **FileStorage** storage account type (premium file shares only).
+This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
@@ -23,6 +21,11 @@ NFS file shares are often used in the following scenarios:
 - Backing storage for Linux/UNIX-based applications, such as line-of-business applications written using Linux or POSIX file system APIs (even if they don't require POSIX-compliance).
 - Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions(UID/GID).
 - New application and service development, particularly if that application or service has a requirement for random IO and hierarchical storage. 
+
+## Features
+- Fully POSIX-compliant file system.
+- Hard link support.
+- Symbolic link support.
 
 ## Security
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
