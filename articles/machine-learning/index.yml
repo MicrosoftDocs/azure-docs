@@ -12,10 +12,10 @@ metadata:
   ms.subservice: core
   ms.topic: landing-page
   ms.collection: collection
-  ms.author: larryfr
-  author: BlackMist
-  ms.date: 09/21/2020
-  ms.custom: contperf-fy21q1
+  ms.author: sgilley
+  author: sdgilley
+  ms.date: 06/11/2021
+  ms.custom: jordan-changes
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,11 +24,14 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Set up resources
+            url: quickstart-create-resources.md           
           - text: Train with the Python SDK
             url: tutorial-1st-experiment-hello-world.md      
           - text: Train with the v2 CLI (preview)
             url: how-to-train-cli.md   
-  - title: 'How to train models'
+
+  - title: 'Other model training options'
     linkLists:
       - linkListType: how-to-guide
         links:            
