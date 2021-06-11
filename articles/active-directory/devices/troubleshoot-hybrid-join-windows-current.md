@@ -400,7 +400,7 @@ Download the file Auth.zip from [https://github.com/CSS-Identity/DRS/tree/main/A
 1. Reproduce the issue.
 1. Use Switch Account to toggle back to the admin session running the tracing.
 1. From an elevated command prompt, run **stop-auth.cmd**.
-1. Zip and send the folder **Authlogs** from the folder where the scripts were executed from.
+1. Contact support with contents of the **Authlogs** folder. The Authlogs folder will be created in the directory where the scripts were executed from.
 
 ## Troubleshoot Post-Join Authentication issues
 
@@ -669,7 +669,7 @@ Download the file Auth.zip from https://github.com/CSS-Identity/DRS/tree/main/Au
 4.	Lock and Unlock the device. For Hybrid joined devices wait a minute to allow PRT acquisition task to complete.
 5.	Use Switch Account to toggle back to the admin session running the tracing.
 6.	From an elevated command prompt, run stop-auth.cmd.
-7.	Zip and send the folder Authlogs from the folder where the scripts were executed from.
+7. Contact support with contents of the **Authlogs** folder. The Authlogs folder will be created in the directory where the scripts were executed from.
 
 **Network traces**
 
