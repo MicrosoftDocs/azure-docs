@@ -15,7 +15,7 @@ This quickstart shows how to send messages to and receive messages from a Servic
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart. 
 
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. The Azure Service Bus client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, it is recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2019, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
+- **Microsoft Visual Studio 2019**. The Azure Service Bus client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, we recommend that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2019, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
 - **Create a Service Bus namespace and a queue**. Follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a Service Bus namespace and a queue. 
 
     > [!IMPORTANT]
@@ -261,109 +261,27 @@ In this section, you'll add code to retrieve messages from the queue.
             }
         }
     ```
+1. Build the project, and ensure that there are no errors.
+1. Run the receiver application. You should see the received messages. Press any key to stop the receiver and the application. 
 
-### Full code (receive messages)
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using Azure.Messaging.ServiceBus;
-
-namespace SBusQueueClient
-{
-    class Program
-    {
-        // connection string to your Service Bus namespace
-        static string connectionString = "<NAMESPACE CONNECTION STRING>";
-
-        // name of your Service Bus queue
-        static string queueName = "<QUEUE NAME>";
-
-        // the client that owns the connection and can be used to create senders and receivers
-        static ServiceBusClient client;
-
-        // the processor that reads and processes messages from the queue
-        static ServiceBusProcessor processor;
-
-        // handle received messages
-        static async Task MessageHandler(ProcessMessageEventArgs args)
-        {
-            string body = args.Message.Body.ToString();
-            Console.WriteLine($"Received: {body}");
-
-            // complete the message. messages is deleted from the queue. 
-            await args.CompleteMessageAsync(args.Message);
-        }
-
-        // handle any errors when receiving messages
-        static Task ErrorHandler(ProcessErrorEventArgs args)
-        {
-            Console.WriteLine(args.Exception.ToString());
-            return Task.CompletedTask;
-        }
-
-        static async Task ReceiveMessages()
-        {
-            // add handler to process messages
-            processor.ProcessMessageAsync += MessageHandler;
-
-            // add handler to process any errors
-            processor.ProcessErrorAsync += ErrorHandler;
-
-            // start processing 
-            await processor.StartProcessingAsync();
-
-            Console.WriteLine("Wait for a minute and then press any key to end the processing");
-            Console.ReadKey();
-
-            // stop processing 
-            Console.WriteLine("\nStopping the receiver...");
-            await processor.StopProcessingAsync();
-            Console.WriteLine("Stopped receiving messages");
-        }
-
-        static async Task Main()
-        {
-            // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-            // of the application, which is best practice when messages are being published or read
-            // regularly.
-            //
-
-            // Create the client object that will be used to create sender and receiver objects
-            client = new ServiceBusClient(connectionString);
-
-            // create a processor that we can use to process the messages
-            processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
-
-            try
-            {
-                // receive messages from the queue
-                await ReceiveMessages();
-            }
-            finally
-            {
-                // Calling DisposeAsync on client types is required to ensure that network
-                // resources and other unmanaged objects are properly cleaned up.
-                await processor.DisposeAsync();
-                await client.DisposeAsync();
-            }
-        }
-    }
-}
-
-
-```
+    ```console
+    Wait for a minute and then press any key to end the processing
+    Received: First message in the batch
+    Received: Second message in the batch
+    Received: Third message in the batch
+    
+    Stopping the receiver...
+    Stopped receiving messages
+    ```
 
 ### Test the app to receive messages to the queue
 Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
 Wait for a minute and then press any key to end the processing
-Received: First message in the batch
-Received: Second message in the batch
-Received: Third message in the batch
+Received: Message 1
+Received: Message 2
+Received: Message 3
 
 Stopping the receiver...
 Stopped receiving messages
@@ -375,6 +293,7 @@ Check the portal again.
 - In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages for the queue. 
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
+
 
 ## Next steps
 See the following documentation and samples:
