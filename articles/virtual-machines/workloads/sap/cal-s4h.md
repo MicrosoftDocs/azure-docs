@@ -173,7 +173,8 @@ We demonstrate the basic path to deployment here.
    ![SM50 in the preinstalled SAP GUI](./media/cal-s4h/gui_sm50.png)
 
     Or if you use the DBACockpit, the instance might look like this:
-
+ 
+ 
    ![SM50 in the DBACockpit SAP GUI](./media/cal-s4h/dbacockpit.png)
 
 Within a few hours, a healthy SAP S/4 appliance is deployed in Azure.
