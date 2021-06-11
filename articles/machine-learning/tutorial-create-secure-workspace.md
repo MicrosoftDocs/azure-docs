@@ -19,7 +19,9 @@ In this article, learn how to create and connect to a secure Azure Machine Learn
 ## Prerequisites
 
 * Familiarity with Azure Virtual Networks
+* While most of the steps in this article use the Azure portal or the Azure Machine Learning studio, some steps use the Azure CLI extension for Machine Learning.
 
+    [!INCLUDE cli-version-info]
 ## Create a virtual network
 
 To create a virtual network, use the following steps:
@@ -405,9 +407,6 @@ For more information on creating a compute cluster, including how to do so with 
 
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images (used for training and deployment). Instead, configure the workspace to use the compute cluster you created earlier. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
 
-> [!IMPORTANT]
-> The steps in this section use the 
-
 1. Navigate to [https://shell.azure.com/](https://shell.azure.com/) to open the Azure Cloud Shell.
 1. From the cloud shell, use the following command to install the 1.0 CLI for Azure Machine Learning:
 
@@ -415,19 +414,21 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
     az extension add -n azure-cli-ml
     ```
 
-1. To update the workspace to use the compute cluster to build Docker images. Replace `docs-ml-rg` with your reesource group. Replace `docs-ml-ws` with your workspace. Replace `cpu-cluster` with the compute cluster to use:
+1. To update the workspace to use the compute cluster to build Docker images. Replace `docs-ml-rg` with your resource group. Replace `docs-ml-ws` with your workspace. Replace `cpu-cluster` with the compute cluster to use:
 
     ```azurecli-interactive
     az ml workspace update -g docs-ml-rg -w docs-ml-ws --image-build-compute cpu-cluster
     ```
 
-> [!NOTE]
-> You can use the same compute cluster to train models and build Docker images for the workspace.
+    > [!NOTE]
+    > You can use the same compute cluster to train models and build Docker images for the workspace.
 
-
+At this point, you can use the workspace to run training jobs.
 ## Stop jump box
 
 > [!WARNING]
 > While it is running (started), the jump box will continue charging your subscription. To avoid excess cost, __stop__ the VM when it is not in use.
 >
 > Once it has been created, select the virtual machine in the Azure portal and then use the __Stop__ button. When you are ready to use it again, use the __Start__ button to start it.
+
+## Next steps
