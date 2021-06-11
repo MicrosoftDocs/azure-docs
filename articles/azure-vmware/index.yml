@@ -177,7 +177,9 @@ landingContent:
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md
           - text: Deploy VMs from the content library
-            url: deploy-vm-content-library.md            
+            url: deploy-vm-content-library.md   
+          - text: Deploy disaster recovery using VMware HCX
+            url: deploy-disaster-recovery-using-vmware-hcx.md         
 
 # card 8
   - title: VMware ecosystem

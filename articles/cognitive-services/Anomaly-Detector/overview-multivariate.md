@@ -36,7 +36,7 @@ To run the Notebook, you should get a valid Anomaly Detector API **subscription 
 
 ## Region support
 
-The public preview of Anomaly Detector multivariate is currently available in three regions: West US2, East US2, and West Europe.
+The public preview of Anomaly Detector multivariate is currently available in six regions: West US2, West Europe, East US2, South Central US, East US, and UK South.
 
 ## Algorithms
 
