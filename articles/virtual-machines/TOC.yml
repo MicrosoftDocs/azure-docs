@@ -792,13 +792,13 @@
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        href: https://azure.microsoft.com/resources/templates/sig-create/
       - name: Create an Image Definition in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
       - name: Create a VM from Image Version
-        href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+        href: https://azure.microsoft.com/resources/templates/vm-from-sig/
     - name: Ansible
       href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
