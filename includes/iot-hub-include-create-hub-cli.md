@@ -17,7 +17,10 @@ To create an IoT hub and a resource group:
     - If you prefer to use Cloud Shell, you can select the **Try It** button on the CLI commands to launch Cloud Shell in a split browser window. Or to open Cloud Shell in a separate window, right-click the link for [Cloud Shell](https://shell.azure.com/bash) and select the option to open in a new tab.
     - If you're using Azure CLI locally, start your CLI console app and log in to Azure CLI.
 
-[!INCLUDE [iot-hub-include-install-extension](iot-hub-include-install-extension.md)]
+1. Install or upgrade the *azure-iot* extension by running the following commands:
+    - Run `az upgrade`.  This command upgrades the CLI and extensions to the latest versions.
+    - Run `az extension list`. 
+    - If the extension named azure-iot isn't installed, install it by running `az extension add --name azure-iot`. 
 
 1. In your CLI app, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location. 
     >[!NOTE]
