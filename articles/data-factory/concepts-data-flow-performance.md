@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/10/2021
+ms.date: 06/07/2021
 ---
 
 # Mapping data flows performance and tuning guide
@@ -137,9 +137,6 @@ However, if most of your data flows execute in parallel, it is not recommended t
 > [!NOTE]
 > Time to live is not available when using the auto-resolve integration runtime
  
-> [!NOTE]
-> Quick re-use of existing clusters is a feature in the Azure Integration Runtime that is currently in public preview
-
 ## Optimizing sources
 
 For every source except Azure SQL Database, it is recommended that you keep **Use current partitioning** as the selected value. When reading from all other source systems, data flows automatically partitions data evenly based upon the size of the data. A new partition is created for about every 128 MB of data. As your data size increases, the number of partitions increase.
@@ -304,9 +301,6 @@ If your data flows execute in parallel, its recommended to not enable the Azure 
 ### Execute data flows sequentially
 
 If you execute your data flow activities in sequence, it is recommended that you set a TTL in the Azure IR configuration. ADF will reuse the compute resources resulting in a faster cluster start up time. Each activity will still be isolated receive a new Spark context for each execution. To reduce the time between sequential activities even more, set the "quick re-use" checkbox on the Azure IR to tell ADF to re-use the existing cluster.
-
-> [!NOTE]
-> Quick re-use of existing clusters is a feature in the Azure Integration Runtime that is currently in public preview
 
 ### Overloading a single data flow
 
