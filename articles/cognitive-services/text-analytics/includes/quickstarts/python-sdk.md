@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 05/20/2021
+ms.date: 06/11/2021
 ms.author: aahi
 ---
 
