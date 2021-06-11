@@ -8,7 +8,7 @@ manager: guillasi
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
-ms.date: 01/14/2020
+ms.date: 01/14/2021
 ms.author: metang
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
