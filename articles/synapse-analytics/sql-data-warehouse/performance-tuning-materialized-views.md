@@ -96,7 +96,7 @@ For each materialized view, there's a data storage cost and a cost for maintaini
 
 The maintenance workload gets higher when the number of materialized views and base table changes increase.   Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  
 
-You can run this query for the list of materialized view in a dedicated SQL pool:
+You can run this query to generate a list of materialized views in a dedicated SQL pool:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
