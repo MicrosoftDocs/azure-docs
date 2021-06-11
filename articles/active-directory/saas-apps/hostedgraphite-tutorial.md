@@ -124,7 +124,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows the Access menu with SAML Setup selected.](./media/hostedgraphite-tutorial/setup.png)
 
-3. Confirm these URls match your configuration done on the **Basic SAML Configuration** section of the Azure portal.
+3. Confirm these URLs match your configuration done on the **Basic SAML Configuration** section of the Azure portal.
 
     ![Screenshot shows Basic SAML Configuration.](./media/hostedgraphite-tutorial/configuration.png)
 
