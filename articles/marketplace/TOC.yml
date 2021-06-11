@@ -20,7 +20,7 @@
     - name: Manage tenants
       href: manage-tenants.md    
     - name: Find or create a company work account
-      href: company-work-accounts.md  
+      href: company-work-accounts.md
     - name: Notifying Microsoft
       href: submit-legal-notice.md
   - name: Manage users

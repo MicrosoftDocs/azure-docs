@@ -147,7 +147,11 @@
     - name: 404 status
       href: cdn-troubleshoot-endpoint.md
     - name: File compression
-      href: cdn-troubleshoot-compression.md    
+      href: cdn-troubleshoot-compression.md
+    - name: Allowed certificate authorities
+      href: cdn-troubleshoot-allowed-ca.md
+    - name: Subscription offers and bandwidth throttling
+      href: subscription-offerings.md      
 - name: Reference
   items:
   - name: Standard rules engine reference
