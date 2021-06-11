@@ -3,7 +3,7 @@ title: View authentication details for Microsoft Azure Maps
 description: Use the Azure portal to view authentication details for Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/17/2020
+ms.date: 06/11/2021
 ms.topic: include
 ms.service: azure-maps
 services: azure-maps
@@ -11,16 +11,20 @@ manager: philmea
 ---
 
 
-To view Azure Maps account authentication details in the Azure portal
+To view your Azure Maps account authentication details in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Navigate to the Azure portal menu. Select **All resources**, and then select your Azure Maps account.
 
-      :::image type="content" border="true" source="../media/how-to-manage-authentication/select-all-resources.png" alt-text="Select Azure Maps account.":::
-
 3. Select **Authentication** in the **Settings** menu.
 
-      :::image type="content" border="true" source="../media/how-to-manage-authentication/view-authentication-keys.png" alt-text="Authentication details.":::
+    :::image type="content" border="true" source="../media/how-to-manage-authentication/view-authentication-keys.png" alt-text="Authentication details.":::
 
-Once an Azure Maps account is created, the Azure Maps `x-ms-client-id` value is present in the Azure portal authentication details page. This value represents the account that will be used for REST API requests. This `x-ms-client-id` value should be stored in application configuration, and should be retrieved prior to making Azure Maps HTTP requests with Azure AD authentication.
+    Three values are present on the authentication page. These are created when the Azure Maps account is created. They are used to support two types of authentication in Azure Maps:
+
+    * **Azure Active Directory Authentication**.
+     The `Client ID` represents the account that is to be used for REST API requests. The `Client ID` value should be stored in application configuration, and should be retrieved prior to making Azure Maps HTTP requests that use Azure AD authentication.
+
+    * **Shared Key Authentication**.
+   The `Primary Key` and `Secondary Key` are used as the subscription key for Shared Key authentication. Shared Key authentication relies on passing the Azure Maps account generated key with each request to Azure Maps. It's recommended that you regularly regenerate your keys. To maintain current connections during regeneration, two keys are provided. One key can be in use, while regenerating the other. When you regenerate your keys, you must update any applications that access this account to use the new keys. For more information, see [Authentication with Azure Maps](azure-maps-authentication.md)

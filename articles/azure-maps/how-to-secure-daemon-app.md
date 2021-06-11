@@ -1,10 +1,10 @@
 ---
 title: How to secure a daemon application in Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: How to use the Azure portal to manage authentication and configure a trusted daemon application.
+description: This articles describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/10/2021
+ms.date: 06/11/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -14,20 +14,28 @@ custom.ms: subject-rbac-steps
 
 # Secure a daemon application
 
-This article describes how to use background processes, timers, and jobs that are hosted in a trusted and secured environment. Examples include Azure Web Jobs, Azure Function Apps, Windows Services, and any other reliable background service.
+This articles describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
 
-> [!Tip]
-> Microsoft recommends implementing Azure Active Directory (Azure AD) and Azure role-based access control (Azure RBAC) for production applications. For an overview of Azure AD concepts, see [Azure Maps Authentication](./azure-maps-authentication.md).
+Examples of a daemon applications are:
+
+- Azure Web Job
+- Azure Function App
+- Windows Service
+- A running and reliable background service
+
+## View Azure Maps Authentication Details
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
-## Scenario: Shared key authentication
+>[!IMPORTANT]
+>Microsoft recommends implementing Azure Active Directory (Azure AD) and Azure role-based access control (Azure RBAC) for production applications. For an overview of Azure AD concepts, see [Authentication with Azure Maps](azure-maps-authentication.md).
 
-It's recommended that you use the primary key as the subscription key when you [use shared key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). It's best to use the secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
+## Scenario: Shared key authentication with Azure Key Vault
 
-### Store the shared Key in Azure Key Vault
+Applications that use Shared Key authentication, should store the keys in a secure store. This scenario shows you how to safely store your application key as a secret in Azure Key Vault.  Instead of storing the shared key in plain text in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, it's recommend that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
 
-The primary and secondary key allow authorization to all APIs for the Azure Maps account. Applications should store the keys in a secure store such as Azure Key Vault. The application then can then retrieve the shared key as an Azure Key Vault secret, instead of storing the shared key in plain text of an application configuration file. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
+>[!IMPORTANT]
+>This scenario indirectly accesses Azure Active Directory through Azure Key Vault. However, it's recommended that you use Azure AD authentication directly. Using Azure AD directly avoids the additional complexity and operational requirements of using shared key authentication and setting up Key Vault.
 
 The following steps outline this process:
 
@@ -37,113 +45,162 @@ The following steps outline this process:
 4. Temporarily assign access to secrets `set` permission for you as the developer.
 5. Set the shared key in the Key Vault secrets and reference the secret ID as configuration for the daemon application.
 6. Remove your secrets `set` permission.
-7. Implement Azure AD authentication in the daemon application to retrieve the shared key secret from Azure Key Vault.
+7. Implement Azure Active Directory authentication in the daemon application to retrieve the shared key secret from Azure Key Vault.
 8. Create an Azure Maps REST API request with the shared key.
+9. Now, the daemon application can retrieve the shared key from the Key Vault. T
 
-> [!Tip]
-> If the app is hosted in the Azure environment, you should implement a managed identity to reduce the cost and complexity of managing a secret for authentication. To learn how to set up a managed identity, see [Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
-
-Now, the daemon application can retrieve the shared key from the Key Vault. The implementation with Azure Key Vault requires authentication through Azure AD to access the secret. Instead, we encourage direct Azure AD authentication to Azure Maps as a result of the additional complexity and operational requirements of using shared key authentication.
- 
-> [!IMPORTANT]
-> To simplify key regeneration, we recommend applications use one key at a time. Applications can then regenerate the unused key and deploy the new regenerated key to a secured secret store, such as Azure Key Vault.
+> [!TIP]
+> If the app is hosted in the Azure environment, it is recommended that you use a managed identity to reduce the cost and complexity of managing a secret for authentication. To learn how to set up a managed identity, see [Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
 
 ## Scenario: Azure AD role-based access control
 
-Once an Azure Maps account is created, the Azure Maps `x-ms-client-id` value is present in the Azure portal authentication details page. This value represents the account that will be used for REST API requests. This value should be stored in application configuration and retrieved prior to making HTTP requests. The objective of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
+Once an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved prior to making HTTP requests. The objective of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
 
-> [!Tip]
-> We recommend hosting on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services to enable benefits of managed identity components.
+> [!TIP]
+>To enable benefits of managed identity components, it's recommended that you host on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services.
 
-### Daemon hosted on Azure resources
+### Host a daemon on Azure resources
 
-When running on Azure resources, configure Azure managed identities to enable low cost, minimal credential management effort.
+When running on Azure resources, you can configure Azure managed identities to enable low cost, minimal credential management effort.
 
-See [Overview of Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) to enable the application access to a managed identity.
+To enable application access to a managed identity, see [Overview of managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 Some managed identity benefits are:
 
-* Azure system managed X509 certificate public key cryptography authentication.
-* Azure AD security with X509 certificates instead of client secrets.
-* Azure manages and renews all certificates associated with the Managed Identity resource.
-* Simplified credential operational management by removing any need for a secured secret store service like Azure Key Vault. 
+- Azure system managed X509 certificate public key cryptography authentication.
+- Azure AD security with X509 certificates instead of client secrets.
+- Azure manages and renews all certificates associated with the Managed Identity resource.
+- Simplified credential operational management by removing any need for a secured secret store service like Azure Key Vault.
 
-### Daemon hosted on non-Azure resources
+### Host a daemon on non-Azure resources
 
-When running on a non-Azure environment, managed identities are not available. Therefore you must configure a service principal through an Azure AD application registration for the daemon application.
+When running on a non-Azure environment, managed identities aren't available. Therefore, you must configure a service principal through an Azure AD application registration for the daemon application.
 
-1. In the Azure portal, in the list of Azure services, select **Azure Active Directory** > **App registrations** > **New registration**.  
+#### Create new application registration
 
-    > [!div class="mx-imgBorder"]
-    > ![App registration](./media/how-to-manage-authentication/app-registration.png)
+If you've already created your application registration, go to [Assign delegated API permissions](assign-delegated-api-permissions).
 
-2. If you've already registered your app, then continue to the next step. If you haven't registered your app, then enter a **Name**, choose a **Support account type**, and then select **Register**.  
+To create a new application registration:
 
-    > [!div class="mx-imgBorder"]
-    > ![App registration details](./media/how-to-manage-authentication/app-create.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-3. To assign delegated API permissions to Azure Maps, go to the application. Then under **App registrations**, select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
+2. Select **Azure Active Directory**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Add app API permissions](./media/how-to-manage-authentication/app-permissions.png)
+3. In the **Manage** menu, select **App registrations**.
 
-4. Select the check box next to **Access Azure Maps**, and then select **Add permissions**.
+4. Select the **+ New registration** tab.
 
-    > [!div class="mx-imgBorder"]
-    > ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
+      :::image type="content" border="true" source="./media/how-to-manage-authentication/app-registration.png" alt-text="View app registrations.":::
 
-5. Complete the following steps to create a client secret or configure certificate.
+5. Enter a **Name** and choose a **Support account type**.
 
-    * If your application uses server or application authentication, then on your app registration page, go to **Certificates & secrets**. Then either upload a public key certificate or create a password by selecting **New client secret**.
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/app-create.png" alt-text="Create app registration.":::
 
-        > [!div class="mx-imgBorder"]
-        > ![Create a client secret](./media/how-to-manage-authentication/app-keys.png)
+6. Select **Register**.  
 
-    * After you select **Add**, copy the secret and store it securely in a service such as Azure Key Vault. Review [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md) to securely store the certificate or secret. You'll use this secret to get tokens from Azure AD.
+#### Assign delegated API permissions
 
-        > [!div class="mx-imgBorder"]
-        > ![Add a client secret](./media/how-to-manage-authentication/add-key.png)
+To assign delegated API permissions to Azure Maps:
 
-### Grant role-based access for the daemon application to Azure Maps
+1. If you have not done so already, sign in to the [Azure portal](https://portal.azure.com).
 
-You grant *Azure role-based access control (Azure RBAC)* by assigning either the created Managed Identity or the service principal to one or more Azure Maps role definitions. To view Azure role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
+2. Select **Azure Active Directory**.
 
-> [!div class="mx-imgBorder"]
-> ![View available roles](./media/how-to-manage-authentication/view-role-definitions.png)
+3. In the **Manage** menu, select **App registrations**.
 
-1. Go to your **Azure Maps Account**. Select **Access control (IAM)** > **Role assignments**.
+4. Select your application registration.
 
-    > [!div class="mx-imgBorder"]
-    > ![Grant access using Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/app-select.png" alt-text="Select app registrations.":::
 
-2. On the **Role assignments** tab, **Add** a role assignment. 
+5. In the **Manage** menu, select **API permissions**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the roll assignments with Add selected.](./media/how-to-manage-authentication/add-role-assignment.png)
+6. Select **Add a permission**.
 
-3. Select a built-in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal** or Managed Identity with **User assigned managed identity** / **System assigned Managed identity**. Select the principal. Then select **Save**.
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/app-add-permissions.png" alt-text="Add app permission.":::
 
-    > [!div class="mx-imgBorder"]
-    > ![How to add role assignment](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+7. Select the **APIs my organization uses** tab.
 
-4. You can confirm the role assignment was applied on the role assignment tab.
+8. Type **Azure Maps** in the search box.
 
-## Request token with Managed Identity
+9. Select **Azure Maps**.
 
-Once a managed identity is configured for the hosting resource, use Azure SDK or REST API to acquire a token for Azure Maps, see details on [Acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md). Following the guide, the expectation is that an access token will be returned which can be used on REST API requests.
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/app-permissions.png" alt-text="Request app permission.":::
 
-## Request token with application registration
+10. Select the check box for **Access Azure Maps**.
 
-After you register your app and associate it with Azure Maps, you can request access tokens.
+11. Select **Add permissions**.
 
-* Azure AD resource ID `https://atlas.microsoft.com/`
-* Azure AD App ID
-* Azure AD Tenant ID
-* Azure AD App registration client secret
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/select-app-permissions.png" alt-text="Select app API permissions.":::
 
-Request:
+#### Create a client secret or configure certificate
+
+If your application uses server or application based authentication, you can either upload a public key certificate, or create a client secret.
+
+##### Upload a public key certificate
+
+To upload a public key certificate:
+
+1. In the **Manage** menu, select **Certificates & secrets**.
+
+2. Select **Upload certificate**.
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/upload-certificate.png" alt-text="Upload certificate.":::
+
+3. Select the file icon to the right of the text box.
+
+4. Choose a *.crt*, *.cer*, or *.pem* file.
+
+5. Select **Add**.
+
+    :::image type="content" border="true" source="./media/how-to-manage-authentication/upload-certificate-file.png" alt-text="Upload certificate file.":::
+
+##### Create a a client secret
+
+To create a client secret:
+
+1. In the **Manage** menu, select **Certificates & secrets**.
+
+2. Select **+ New client secret**.
+
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/new-client-secret.png" alt-text="New client secret.":::
+
+3. Type in a description for the client secret.
+
+4. Select **Add**.
+
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/new-client-secret-add.png" alt-text="Add new client secret.":::
+
+5. Copy the secret and store it securely in a service such as Azure Key Vault.
+
+      :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Add new client secret.":::
+
+     >[!IMPORTANT]
+     >To securely store the certificate or secret, see the [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md). You'll use this secret to get tokens from Azure AD.
+
+### Grant role-based access to Azure Maps
+
+You can grant *Azure role-based access control (Azure RBAC)* by assigning either the created managed identity or the service principal to one or more Azure Maps role definitions.
+
+To view the available Azure role definitions for Azure Maps, see [View built-in Azure Maps role definitions](how-to-manage-authentication.md#view-built-in-azure-maps-role-definitions).
+
+For detailed steps on how to assign an available Azure Maps role to the created managed identity or the service principal, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+
+### Request token with Managed Identity
+
+Once a managed identity is configured for the hosting resource, you can use Azure SDK or REST API to acquire a token for Azure Maps. To learn how to acquire an access token, see [Acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+### Request token with application registration
+
+After you register your app and associate it with Azure Maps, you can then request an access token with the following parameters:
+
+- Azure AD resource ID `https://atlas.microsoft.com/`
+- Azure AD App ID
+- Azure AD Tenant ID
+- Azure AD App registration client secret
+
+The request should have the following format:
 
 ```http
+
 POST /<Azure AD Tenant ID>/oauth2/token HTTP/1.1
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -151,7 +208,7 @@ Content-Type: application/x-www-form-urlencoded
 client_id=<Azure AD App ID>&resource=https://atlas.microsoft.com/&client_secret=<client secret>&grant_type=client_credentials
 ```
 
-Response:
+The response should appear like the following JSON code:
 
 ```json
 {
@@ -165,7 +222,7 @@ Response:
 }
 ```
 
-See [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md), for more detailed examples.
+For more detailed examples, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 
 ## Next steps
 
