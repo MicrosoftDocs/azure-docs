@@ -1,7 +1,7 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 05/26/2021
+ms.date: 06/11/2021
 ms.topic: how-to
 ---
 
@@ -242,6 +242,8 @@ The `justInTimeAccessPolicy` specifies two elements:
 After you onboard a customer to Azure Lighthouse, any eligible roles you included will be available to the specified user (or to users in any specified groups).
 
 Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting the **Manage eligible roles** button. After that, they can follow the [steps to activate the role](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) in Azure AD Privileged Identity Management.
+
+:::image type="content" source="../media/manage-eligible-roles.png" alt-text="Screenshot showing the Manage eligible roles button in the Azure portal.":::
 
 Once the eligible role has been activated, the user will have that role for the full duration specified in the eligible authorization. After that time period, they will no longer be able to use that role, unless they repeat the elevation process and elevate their access again.
 
