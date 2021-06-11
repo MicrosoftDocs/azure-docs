@@ -1,5 +1,5 @@
 ---
-title: Managed Identities and Bring Your Own Storage (BYOS)
+title: Bring Your Own Storage (BYOS) and Managed Identites
 titleSuffix: Azure Applied AI Services
 description: Understand how to use managed identities with BYOS accounts
 author: laujan
@@ -11,21 +11,21 @@ ms.date: 06/10/2021
 ms.author: lajanuar
 ---
 
-# Managed Identities and Bring Your Own Storage (Preview) 
+# Bring-your-own-storage (BYOS) accounts and Managed Identities (Preview)
 
 > [!IMPORTANT]
 > Assigning a role to a managed identity using the steps below is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
-If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer cannot access your account to read and list blob content. However, you can set up a Bring Your Own Storage (BYOS) account that allows direct access to storage content using an authorized Managed Identity. With a BYOS, you upload your form, OCR, and layout files to your own storage account where you control policies and network access.
+If you have a private Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer cannot access your account to read and list blob content. A bring-your-own-storage (BYOS) account in the Azure portal allows direct access to your storage content using an authorized Managed Identity. You upload your form, optical character recognition (OCR), and layout files to your BYOS account, where you control policies and network access, and Form Recognizer can access that account using a Managed Identity credential.
 
 > [!NOTE]
 >
-> * The [**Train Custom Model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API retrieves your training data from an Azure Storage blob container. If you have a private storage account, a Managed Identity credential **is required** for this operation.
+> * The [**Train Custom Model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API retrieves your training data from an Azure Storage blob container. If you have a private storage account, a Managed Identity credential **is required** for training operations.
 >
- > * The **Analyze** [**Receipt**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Business Card**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Invoice**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Identity Document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707), and [**Custom Form**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) APIs can extract data from a single document by posting requests as raw binary content. In those scenarios, there is no requirement for a Managed Identity credential. However, if you choose to store your documents in a private storage account and provide the URL in your POST request, a Managed Identity credential **is required**.
+ > * The **Analyze** [**Receipt**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Business Card**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Invoice**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Identity Document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707), and [**Custom Form**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) APIs can extract data from a single document by posting requests as raw binary content. In those scenarios, there is no requirement for a Managed Identity credential. If you choose to store your documents in a private storage account and provide the URL in your POST request, a Managed Identity credential **is required**.
 >
-> * For all operations using documents from storage accounts available via the public Internet, provide a shared access signature (**SAS**) URL for your Azure blog storage container in your POST request. To retrieve your SAS URL, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+> * For all operations using documents from storage accounts available via the public Internet, you will provide a shared access signature (**SAS**) URL for your Azure blog storage container in your POST request. To retrieve your SAS URL, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ There are two types of managed identity assignments:
 
 * A [**System-assigned**](#enable-a-system-assigned-managed-identity-in-the-azure-portal) managed identity is **enabled** directly on a service instance, in our case, Form Recognizer. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
-* [**User-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances, in this scenario, our storage account. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
+* A [**User-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances, in this scenario, your storage account. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
 
 ## Enable a system-assigned managed identity in the Azure portal
 
@@ -112,7 +112,7 @@ You have completed the steps to enable a service-assigned managed identity. With
     |------|--------|
     |**Subscription**| ***The subscription associated with your storage resource***.|
     |**Resource group**| ***Choose an existing resource group or select Create new to create a new resource group***.
-    | **Region**| ***Choose a region to deploy the user-assigned managed identity***.|
+    | **Region**| ***Choose the same region where your Form Recognizer resource and Azure blob storage account are deployed.***.|
     |**Name**| ***Choose a name for your user-assigned managed identity***.|
 
 5. Select **Review &plus; create**.
@@ -137,7 +137,7 @@ You have completed the steps to enable a service-assigned managed identity. With
 
     | Field | Value |
     |------|--------|
-    |**Role**| ***Storage Blob Data Reader****|
+    |**Role**| ***Storage Blob Data Reader***|
     |**Assign access to**|***User assigned managed identity***|
     |**Subscription**| ***The subscription associated with your storage resource***|
     |**Select**|***Enter your preferred user-assigned identity.***|
@@ -146,7 +146,7 @@ You have completed the steps to enable a service-assigned managed identity. With
 
 ### Assign a user-assigned managed identity to a resource
 
-1. Once you have created your user-assigned identity, and assigned it a role, navigate to Form Recognizer resource page in the Azure portal.
+1. Once you have created your user-assigned identity and assigned it the **Storage Blob Data Reader** role, navigate to your Form Recognizer resource page in the Azure portal.
 
 1. In the left rail, Select **Identity** from the Resource Management list:
 
@@ -163,7 +163,7 @@ You have completed the steps to enable a service-assigned managed identity. With
     |**Subscription** | ***The subscription associated with your storage resource*** |
     | **User assigned managed identities** | ***Select the same user-assigned managed identity resource that was assigned the Storage Blob Data Reader role in the [assign a role to your user-assigned managed identity](#assign-a-role-to-your-user-assigned-managed-identity).***
 
-That's it! You've learned how to implement system-assigned and user-assigned managed identities for your Form Recognizer and Azure storage resources. Now, you can train a custom model or analyze documents using files stored in your private storage account.
+ That's it! You've learned how to implement system-assigned and user-assigned managed identities for your Form Recognizer and Azure storage resources. Now, you can train a custom model or analyze documents using files stored in your BYOS account.
 
 ## Learn more about  managed identities
 
