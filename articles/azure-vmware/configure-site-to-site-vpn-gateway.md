@@ -2,7 +2,7 @@
 title: Configure a site-to-site VPN in vWAN for Azure VMware Solution 
 description: Learn how to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel into Azure VMware Solutions.
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 06/11/2021
 ---
 
 # Configure a site-to-site VPN in vWAN for Azure VMware Solution
@@ -12,8 +12,11 @@ In this article, we'll go through the steps to establish a VPN (IPsec IKEv1 and 
 :::image type="content" source="media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png" alt-text="Diagram showing VPN site-to-site tunnel architecture." border="false":::
 
 In this how to, you'll:
+
 - Create an Azure Virtual WAN hub and a VPN gateway with a public IP address attached to it. 
+
 - Create an Azure ExpressRoute gateway and establish an Azure VMware Solution endpoint. 
+
 - Enable a policy-based VPN on-premises setup. 
 
 ## Prerequisites
@@ -62,15 +65,22 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
  
 3. On the **Basics** tab, enter the required fields. 
 
-   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Screenshot of the Basics tab for the new VPN site.":::  
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Screenshot of the Basics tab for the new VPN site." lightbox="media/create-ipsec-tunnel/create-vpn-site-basics2.png":::  
 
-   1. Set the **Border Gateway Protocol** to **Enable**.  When enabled, it ensures that both Azure VMware Solution and the on-premises servers advertise their routes across the tunnel. If disabled, the subnets that need to be advertised must be manually maintained. If subnets are missed, HCX will fail to form the service mesh. For more information, see  [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   1. Select the **Region** from the list.
+
+   1. Provide a **Name** for the site-to-site VPN.
+
+   1. Provide the **Device vendor** of the on-premises VPN device, for example, Cisco.
    
-   1. For the **Private address space**, enter the on-premises CIDR block. It's used to route all traffic bound for on-premises across the tunnel. The CIDR block is only required if you don't enable BGP.
+   1. Provide the **Private address space**. Use the on-premises CIDR block to route all traffic bound for on-premises across the tunnel. The CIDR block is only required if you don't [configure Border Gateway Protocol (BGP) on Azure VPN Gateways](../vpn-gateway/bgp-howto.md)
 
-1. Select **Next : Links** and complete the required fields. Specifying link and provider names allow you to distinguish between any number of gateways that may eventually be created as part of the hub. BGP and autonomous system number (ASN) must be unique inside your organization.
+1. Select **Next : Links** and complete the required fields. Specifying link and provider names allow you to distinguish between any number of gateways that may eventually be created as part of the hub.  [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) and autonomous system number (ASN) must be unique inside your organization. BGP ensures that both Azure VMware Solution and the on-premises servers advertise their routes across the tunnel. If disabled, the subnets that need to be advertised must be manually maintained. If subnets are missed, HCX fails to form the service mesh. 
+ 
+   >[!IMPORTANT]
+   >By default, Azure assigns a private IP address from the GatewaySubnet prefix range automatically as the Azure BGP IP address on the Azure VPN gateway. The custom Azure APIPA BGP address is needed when your on premises VPN devices use an APIPA address (169.254.0.1 to 169.254.255.254) as the BGP IP. Azure VPN Gateway will choose the custom APIPA address if the corresponding local network gateway resource (on-premises network) has an APIPA address as the BGP peer IP. If the local network gateway uses a regular IP address (not APIPA), Azure VPN Gateway will revert to the private IP address from the GatewaySubnet range.
 
-   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Screenshot that shows link details.":::
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Screenshot that shows link details." lightbox="media/create-ipsec-tunnel/create-vpn-site-links.png":::
 
 1. Select **Review + create**. 
 
@@ -92,8 +102,11 @@ Policy-based VPN setups require on-premise and Azure VMware Solution networks to
    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Screenshot of the page in Azure for the Virtual WAN hub site showing an ellipsis selected to access Edit VPN connection to this hub." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. Edit the connection between the VPN site and the hub, and then select **Save**.
+
    - Internet Protocol Security (IPSec), select **Custom**.
+
    - Use policy-based traffic selector, select **Enable**
+
    - Specify the details for **IKE Phase 1** and **IKE Phase 2(ipsec)**. 
  
    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Screenshot of Edit VPN connection page."::: 
@@ -101,7 +114,9 @@ Policy-based VPN setups require on-premise and Azure VMware Solution networks to
    Your traffic selectors or subnets that are part of the policy-based encryption domain should be:
     
    - Virtual WAN hub `/24`
+
    - Azure VMware Solution private cloud `/22`
+
    - Connected Azure virtual network (if present)
 
 ## Step 5. Connect your VPN site to the hub
@@ -139,8 +154,11 @@ Policy-based VPN setups require on-premise and Azure VMware Solution networks to
       :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Screenshot of the ExpressRoute page for the private cloud, with Redeem authorization key selected.":::
 
    1. Paste the authorization key in the **Authorization Key** field.
+
    1. Paste the ExpressRoute ID into the **Peer circuit URI** field. 
+
    1. Select **Automatically associate this ExpressRoute circuit with the hub** check box. 
+
    1. Select **Add** to establish the link. 
 
 5. Test your connection by [creating an NSX-T segment](./tutorial-nsx-t-network-segment.md) and provisioning a VM on the network. Ping both the on-premise and Azure VMware Solution endpoints.
