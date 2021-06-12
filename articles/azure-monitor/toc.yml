@@ -31,6 +31,8 @@
       href: vm/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
+    - name: ASP.NET Core application
+      href: app/dotnet-quickstart.md
     - name: Node.js application
       href: app/nodejs-quick-start.md
     - name: Mobile application
