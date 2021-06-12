@@ -46,9 +46,9 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 | **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM insights<br>Service Map |
 
 
-## Azure Monitor agent (preview)
+## Azure Monitor agent
 
-The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in preview and will replace the Log Analytics agent and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
+The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace the Log Analytics agent, Azure Diagnostic extension and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
 
 Use the Azure Monitor agent if you need to:
 
@@ -58,9 +58,7 @@ Use the Azure Monitor agent if you need to:
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
 - Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Not available in preview.)
 
-Limitations of the Azure Monitor agent include:
-
-- Currently in public preview. See [Current limitations](azure-monitor-agent-overview.md#current-limitations) for a list of limitations during public preview.
+See [current feature gaps]((../faq.md#is-the-new-azure-monitor-agent-at-parity-with-existing-agents)) when compared to existing agents.
 
 ## Log Analytics agent
 
