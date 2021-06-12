@@ -9,13 +9,13 @@ ms.custom: references_region
 
 ---
 
-# Data collection rules in Azure Monitor (preview)
+# Data collection rules in Azure Monitor
 Data Collection Rules (DCR) define data coming into Azure Monitor and specify where that data should be sent or stored. This article provides an overview of data collection rules including their contents and structure and how you can create and work with them.
 
 ## Input sources
 Data collection rules currently support the following input sources:
 
-- Azure virtual machine with the Azure Monitor agent. See [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md).
+- Azure Monitor Agent running on virtual machines, virtual machine scalesets and Azure Arc for servers. See [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md).
 
 
 
@@ -69,7 +69,7 @@ You can currently use any of the following methods to create a DCR:
   - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## Sample data collection rule
-The sample data collection rule below is for virtual machines with Azure Management agent and has the following details:
+The sample data collection rule below is for virtual machines with Azure Monitor agent and has the following details:
 
 - Performance data
   - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 seconds and uploads every minute.

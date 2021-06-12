@@ -13,6 +13,9 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
+## Create rule (sample)
+
+[Template format](azure/templates/microsoft.insights/datacollectionrules)
 
 ## Create association with Azure VM
 

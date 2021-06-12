@@ -8,14 +8,14 @@ ms.date: 03/16/2021
 
 ---
 
-# Configure data collection for the Azure Monitor agent (preview)
+# Configure data collection for the Azure Monitor agent
 
 Data Collection Rules (DCR) define data coming into Azure Monitor and specify where it should be sent. This article describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
 
-For a complete description of data collection rules, see [Data collection rules in Azure Monitor (preview)](data-collection-rule-overview.md).
+For a complete description of data collection rules, see [Data collection rules in Azure Monitor](data-collection-rule-overview.md).
 
 > [!NOTE]
-> This article describes how to configure data for virtual machines with the Azure Monitor agent which is currently in preview. See [Overview of Azure Monitor agents](agents-overview.md) for a description of agents that are generally available and how to use them to collect data.
+> This article describes how to configure data for virtual machines with the Azure Monitor agent only.
 
 ## Data collection rule associations
 
@@ -110,12 +110,12 @@ Follow the steps below to create a data collection rule and association
 3. Create an association for each virtual machine to the data collection rule using the [REST API](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 
-## Create association using Resource Manager template
+## Create rule and association using Resource Manager template
 
 > [!NOTE]
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 
-You can create an association between an Azure virtual machine or Azure Arc enabled server using a Resource Manager template. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates.
+You can create a rule and an association for an Azure virtual machine or Azure Arc enabled server using Resource Manager templates. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates).
 
 
 ## Manage rules and association using PowerShell
