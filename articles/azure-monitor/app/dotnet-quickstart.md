@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet
 
 # Quickstart: Monitor an ASP.NET Core app with Azure Monitor Application Insights
 
-In this quickstart, you will instrument an ASP.NET Core app using the Application Insights SDK to gather client-side and server-side telemetry.
+In this quickstart, you'll instrument an ASP.NET Core app using the Application Insights SDK to gather client-side and server-side telemetry.
 
 ## Prerequisites
 
