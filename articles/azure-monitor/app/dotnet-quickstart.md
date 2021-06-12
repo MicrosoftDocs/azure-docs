@@ -17,7 +17,7 @@ In this quickstart, you'll instrument an ASP.NET Core app using the Application 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- .NET 5 SDK. [Install the latest .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) for Windows, macOS, or Linux.
+- .NET 5 SDK. [Install the latest .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) for your platform.
 
 ## Create an Application Insights resource
 
