@@ -30,7 +30,7 @@ ms.date: 05/21/2020
 Internet Information Services (IIS) logs counts of all request reaching IIS and inherently could differ from the total request reaching an application. Due to this it is not guaranteed that the request count collected by the SDKs will match the total IIS log count. 
 
 ## No data from my server
-*I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
+* I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
 * This is probably a firewall issue. [Set firewall exceptions for Application Insights to send data](../../azure-monitor/app/ip-addresses.md).
 * IIS Server might be missing some prerequisites, like .NET Extensibility 4.5 or ASP.NET 4.5.
 
