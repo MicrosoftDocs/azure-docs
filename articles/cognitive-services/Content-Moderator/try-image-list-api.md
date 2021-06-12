@@ -3,14 +3,14 @@ title: Moderate images with custom lists and the API console - Content Moderator
 titleSuffix: Azure Content Moderator
 description: You use the List Management API in Azure Content Moderator to create custom lists of images.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
+ms.author: pafarley
 
 ---
 
@@ -74,15 +74,17 @@ After you make changes to an image list, you must refresh its index for changes 
 
 6. Use key-value pair placeholders to assign more descriptive metadata to your list.
 
-       {
-          "Name": "MyExclusionList",
-          "Description": "MyListDescription",
-          "Metadata": 
-          {
+    ```json
+    {
+        "Name": "MyExclusionList",
+        "Description": "MyListDescription",
+        "Metadata": 
+        {
             "Category": "Competitors",
             "Type": "Exclude"
-          }
-       }
+        }
+    }
+    ```
 
    Add list metadata as key-value pairs, and not the actual images.
  

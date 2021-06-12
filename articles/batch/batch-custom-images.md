@@ -1,62 +1,70 @@
 ---
-title: Use the Shared Image Gallery to create a pool - Azure Batch | Microsoft Docs
-description: Create a Batch pool with the Shared Image Gallery to provision custom images to compute nodes that contain the software and data that you need for your application. Custom images are an efficient way to configure compute nodes to run your Batch workloads.
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.service: batch
-ms.topic: article
-ms.date: 08/28/2019
-ms.author: lahugh
+title: Use a managed image to create a custom image pool
+description: Create a Batch custom image pool from a managed image to provision compute nodes with the software and data for your application.
+ms.topic: conceptual
+ms.date: 11/18/2020
 ---
 
-# Use the Shared Image Gallery to create a pool
+# Use a managed image to create a custom image pool
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with the [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
+To create a custom image pool for your Batch pool's virtual machines (VMs), you can use a managed image to create a [Shared Image Gallery image](batch-sig-images.md). Using just a managed image is also supported, but only for API versions up to and including 2019-08-01.
 
-## Benefits of the Shared Image Gallery
+> [!IMPORTANT]
+> In most cases, you should create custom images using the Shared Image Gallery. By using the Shared Image Gallery, you can provision pools faster, scale larger quantities of VMs, and have improved reliability when provisioning VMs. To learn more, see [Use the Shared Image Gallery to create a custom pool](batch-sig-images.md).
 
-When you use the Shared Image Gallery for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your Shared Image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned.
-
-You can also have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create new disks for the VM.
-
-Using a Shared Image saves time in preparing your pool's compute nodes to run your Batch workload. It's possible to use an Azure Marketplace image and install software on each compute node after provisioning, but using a Shared Image is typically more efficient. Additionally, you can specify multiple replicas for the Shared Image so when you create pools with many VMs (more than 600 VMs), you'll save time on pool creation.
-
-Using a Shared Image configured for your scenario can provide several advantages:
-
-* **Use the same images across the regions.** You can create Shared Image replicas across different regions so all your pools utilize the same image.
-* **Configure the operating system (OS).** You can customize the configuration of the image's operating system disk.
-* **Pre-install applications.** Pre-installing applications on the OS disk is more efficient and less error-prone than installing applications after provisioning the compute nodes with a start task.
-* **Copy large amounts of data once.** Make static data part of the managed Shared Image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
-* **Grow pools to larger sizes.** With the Shared Image Gallery, you can create larger pools with your customized images along with more Shared Image replicas.
-* **Better Performance than custom image.** Using Shared Images, the time it takes for the pool to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
-* **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+This topic explains how to create a custom image pool using only a managed image.
 
 ## Prerequisites
 
-* **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
+- **A managed image resource**. To create a pool of virtual machines using a custom image, you need to have or create a managed image resource in the same Azure subscription and region as the Batch account. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
+  - Use a unique custom image for each pool you create.
+  - To create a pool with the image using the Batch APIs, specify the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`.
+  - The managed image resource should exist for the lifetime of the pool to allow scale-up and can be removed after the pool is deleted.
 
-* **A Shared Image Gallery image**. For more information and steps to prepare a Shared Image, see [Create a Shared Image Gallery with Azure CLI](../virtual-machines/linux/shared-images.md) or [Create a Shared Image Gallery using the Azure portal](../virtual-machines/linux/shared-images-portal.md).
+- **Azure Active Directory (Azure AD) authentication**. The Batch client API must use Azure AD authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+
+## Prepare a managed image
+
+In Azure, you can prepare a managed image from:
+
+- Snapshots of an Azure VM's OS and data disks
+- A generalized Azure VM with managed disks
+- A generalized on-premises VHD uploaded to the cloud
+
+To scale Batch pools reliably with a managed image, we recommend creating the managed image using *only* the first method: using snapshots of the VM's disks. The following steps show how to prepare a VM, take a snapshot, and create a managed image from the snapshot.
+
+### Prepare a VM
+
+If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operation.
 
 > [!NOTE]
-> Your Shared Image must be in the same subscription as the Batch account. Your Shared Image can be in different regions as long as it has replicas in the same region as your Batch account.
+> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties)VMs.
 
-## Create a pool from a Shared Image using the Azure CLI
+- Ensure the VM is created with a managed disk. This is the default storage setting when you create a VM.
+- Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
+- When using attached data disks, you need to mount and format the disks from within a VM to use them.
+- Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
+- Ensure that the OS disk is not encrypted.
+- Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.  
 
-To create a pool from your Shared Image using the Azure CLI, use the `az batch pool create` command. Specify the Shared Image ID in the `--image` field. Make sure the OS type and SKU matches the versions specified by `--node-agent-sku-id`
+### Create a VM snapshot
 
-```azurecli
-az batch pool create \
-    --id mypool --vm-size Standard_A1_v2 \
-    --target-dedicated-nodes 2 \
-    --image "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}" \
-    --node-agent-sku-id "batch.node.ubuntu 16.04"
-```
+A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) or [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md) VMs.
 
-## Create a pool from a Shared Image using C#
+### Create an image from one or more snapshots
 
-Alternatively, you can create a pool from a Shared Image using the C# SDK.
+To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image) command. You can create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
+
+## Create a pool from a managed image
+
+Once you have found the resource ID of your managed image, create a custom image pool from that image. The following steps show you how to create a custom image pool using either Batch Service or Batch Management.
+
+> [!NOTE]
+> Make sure that the identity you use for Azure AD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+>
+> The resource for the managed image must exist for the lifetime of the pool. If the underlying resource is deleted, the pool cannot be scaled.
+
+### Batch Service .NET SDK
 
 ```csharp
 private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
@@ -69,7 +77,7 @@ private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(Ima
 private static ImageReference CreateImageReference()
 {
     return new ImageReference(
-        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}");
+        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image definition name}");
 }
 
 private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
@@ -84,31 +92,63 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
         pool.Commit();
     }
-    ...
-}
 ```
 
-## Create a pool from a Shared Image using the Azure portal
+### Batch Management REST API
 
-Use the following steps to create a pool from a Shared Image in the Azure portal.
+REST API URI
 
-1. Open the [Azure portal](https://portal.azure.com).
-1. Go to **Batch accounts** and select your account.
-1. Select **Pools** and then **Add** to create a new pool.
-1. In the **Image Type** section, select **Shared Image Gallery**.
-1. Complete the remaining sections with information about your managed image.
-1. Select **OK**.
+```http
+ PUT https://management.azure.com/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Batch/batchAccounts/{account name}/pools/{pool name}?api-version=2020-03-01
+```
 
-![Create a pool with from a Shared image with the portal.](media/batch-custom-images/create-custom-pool.png)
+Request Body
+
+```json
+ {
+   "properties": {
+     "vmSize": "{VM size}",
+     "deploymentConfiguration": {
+       "virtualMachineConfiguration": {
+         "imageReference": {
+           "id": "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image name}"
+         },
+         "nodeAgentSkuId": "{Node Agent SKU ID}"
+       }
+     }
+   }
+ }
+```
 
 ## Considerations for large pools
 
-If you plan to create a pool with hundreds or thousands of VMs or more using a Shared Image, use the following guidance.
+If you plan to create a pool with hundreds of VMs or more using a custom image, it is important to follow the preceding guidance to use an image created from a VM snapshot.
 
-* **Shared Image Gallery replica numbers.**  For every pool with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 5 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
+Also note the following considerations:
 
-* **Resize timeout** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2000 VMs is at least 30 minutes.
+- **Size limits** - Batch limits the pool size to 2500 dedicated compute nodes, or 1000 low-priority nodes, when you use a custom image.
+
+  If you use the same image (or multiple images based on the same underlying snapshot) to create multiple pools, the total compute nodes in the pools can't exceed the preceding limits. We don't recommend using an image or its underlying snapshot for more than a single pool.
+
+  Limits may be reduced if you configure the pool with [inbound NAT pools](pool-endpoint-configuration.md).
+
+- **Resize timeout** - If your pool contains a fixed number of nodes (doesn't autoscale), increase the resizeTimeout property of the pool to a value such as 20-30 minutes. If your pool doesn't reach its target size within the timeout period, perform another [resize operation](/rest/api/batchservice/pool/resize).
+
+  If you plan a pool with more than 300 compute nodes, you might need to resize the pool multiple times to reach the target size.
+  
+By using the [Shared Image Gallery](batch-sig-images.md), you can create larger pools with your customized images along with more Shared Image replicas. Using Shared Images, the time it takes for the pool to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
+
+## Considerations for using Packer
+
+Creating a managed image resource directly with Packer can only be done with user subscription mode Batch accounts. For Batch service mode accounts, you need to create a VHD first, then import the VHD to a managed image resource. Depending on your pool allocation mode (user subscription, or Batch service), your steps to create a managed image resource will vary.
+
+Ensure that the resource used to create the managed image exists for the lifetimes of any pool referencing the custom image. Failure to do so can result in pool allocation failures and/or resize failures.
+
+If the image or the underlying resource is removed, you may get an error similar to: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. If you get this error, ensure that the underlying resource has not been removed.
+
+For more information on using Packer to create a VM, see [Build a Linux image with Packer](../virtual-machines/linux/build-image-with-packer.md) or [Build a Windows image with Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+- Learn how to use the [Shared Image Gallery](batch-sig-images.md) to create a custom pool.
+- For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).

@@ -1,15 +1,11 @@
 ---
-title: 'Build your own disaster recovery for Custom Topics in Azure Event Grid | Microsoft Docs'
-description: Survive regional outages to keep Azure Event Grid connected.
-services: event-grid
-author: banisadr
-
-ms.service: event-grid
+title: Disaster recovery for custom topics in Azure Event Grid
+description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
 ms.topic: tutorial
-ms.date: 05/16/2019
-ms.author: babanisa
-
+ms.date: 04/22/2021
+ms.custom: devx-track-csharp
 ---
+
 # Build your own disaster recovery for custom topics in Event Grid
 Disaster recovery focuses on recovering from a severe loss of application functionality. This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a particular region.
 
@@ -26,7 +22,7 @@ To simplify testing, deploy a [pre-built web app](https://github.com/Azure-Sampl
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 
 1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
@@ -73,7 +69,7 @@ First, create two Event Grid topics. These topics will act as your primary and s
    * Select Endpoint Type Web Hook.
    * Set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Event Grid Primary Event Subscription](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Screenshot that shows the "Create Event Subscription - Basic" page with the "Name", "Endpoint Type", and "Endpoint" values highlighted.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repeat the same flow to create your secondary topic and subscription. This time, replace the "-primary" suffix with "-secondary" for easier tracking. Finally, make sure you put it in a different Azure Region. While you can put it anywhere you want, it's recommended that you use the [Azure Paired Regions](../best-practices-availability-paired-regions.md). Putting the secondary topic and subscription in a different region ensures that your new events will flow even if the primary region goes down.
 
@@ -92,6 +88,9 @@ Now that you have a regionally redundant pair of topics and subscriptions setup,
 ### Basic client-side implementation
 
 The following sample code is a simple .NET publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
+
+> [!NOTE]
+> The following sample code is only for demonstration purposes and is not intended for production use. 
 
 ```csharp
 using System;
@@ -209,4 +208,4 @@ Similarly, you may want to implement failback logic based on your specific needs
 
 - Learn how to [receive events at an http endpoint](./receive-events.md)
 - Discover how to [route events to Hybrid Connections](./custom-event-to-hybrid-connection.md)
-- Learn about [disaster recovery using Azure DNS and Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)
+- Learn about [disaster recovery using Azure DNS and Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md)

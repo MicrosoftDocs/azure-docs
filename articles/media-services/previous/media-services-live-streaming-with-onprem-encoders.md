@@ -1,23 +1,23 @@
 ---
 title: Stream live with on-premises encoders that create multi-bitrate streams - Azure | Microsoft Docs
-description: 'This topic describes how to set up a channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more streaming endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Streaming, DASH.'
+description: This topic describes how to set up a channel that receives a multi-bitrate live stream from an on-premises encoder.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Working with Channels that receive multi-bitrate live stream from on-premises encoders
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
@@ -108,7 +108,7 @@ A channel provides an input endpoint (ingest URL) that you specify in the live e
 
 You can get the ingest URLs when you create the channel. For you to get these URLs, the channel does not have to be in the **Running** state. When you're ready to start pushing data to the channel, the channel must be in the **Running** state. After the channel starts ingesting data, you can preview your stream through the preview URL.
 
-You have an option of ingesting a fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, you cannot ingest RTMP over SSL.
+You have an option of ingesting a fragmented MP4 (Smooth Streaming) live stream over a TLS connection. To ingest over TLS, make sure to update the ingest URL to HTTPS. Currently, you cannot ingest RTMP over TLS.
 
 #### <a id="keyframe_interval"></a>Keyframe interval
 When you're using an on-premises live encoder to generate multi-bitrate stream, the keyframe interval specifies the duration of the group of pictures (GOP) as used by that external encoder. After the channel receives this incoming stream, you can deliver your live stream to client playback applications in any of the following formats: Smooth Streaming, Dynamic Adaptive Streaming over HTTP (DASH), and HTTP Live Streaming (HLS). When you're doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates the HLS segment packaging ratio (fragments per segment) based on the keyframe interval that's received from the live encoder.
@@ -221,7 +221,8 @@ Here are other considerations related to working with channels and related compo
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## Feedback
+## Suggestions and Feedback
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related topics

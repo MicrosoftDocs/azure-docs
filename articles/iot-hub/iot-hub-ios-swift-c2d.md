@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
+ms.custom: mqtt
 ---
 
 # Send cloud-to-device messages with IoT Hub (iOS)
@@ -45,6 +46,8 @@ At the end of this article, you run two Swift iOS projects:
 * The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 
 * The latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Simulate an IoT device
 
@@ -94,7 +97,7 @@ Along with installing the pods required for your project, the installation comma
 
 6. Run the project in the device emulator with the **Build and run** button or the key combo **command + r**.
 
-   ![Run the project](media/iot-hub-ios-swift-c2d/run-sample.png)
+   ![Screenshot shows the Build and run button in the device emulator.](media/iot-hub-ios-swift-c2d/run-sample.png)
 
 ## Get the IoT hub connection string
 
@@ -146,7 +149,7 @@ Along with installing the pods required for your project, the installation comma
 
 7. Run the project in the device emulator with the **Build and run** button or the key combo **Command + r**.
 
-   ![Run the project](media/iot-hub-ios-swift-c2d/run-app.png)
+   ![Screenshot shows the Build and run button.](media/iot-hub-ios-swift-c2d/run-app.png)
 
 ## Send a cloud-to-device message
 

@@ -1,13 +1,8 @@
 ---
-title: Samples - CAF Foundation blueprint - Deploy steps
-description: Deploy steps of the CAF Foundation blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/20/2019
+title: Deploy CAF Foundation blueprint sample
+description: Deploy steps for the CAF Foundation blueprint sample including blueprint artifact parameter details.
+ms.date: 03/12/2021
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
-ms.custom: fasttrack-new
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
 
@@ -27,8 +22,7 @@ before you begin.
 First, implement the blueprint sample by creating a new blueprint in your environment using the
 sample as a starter.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
@@ -56,8 +50,7 @@ Your copy of the blueprint sample has now been created in your environment. It's
 blueprint sample can be customized to your environment and needs, but that modification may move it
 away from the CAF Foundation blueprint.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -73,8 +66,7 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 subscription within the management group it was saved to. This step is where parameters are provided
 to make each deployment of the copy of the blueprint sample unique.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -98,7 +90,8 @@ to make each deployment of the copy of the blueprint sample unique.
 
    - Lock Assignment
 
-     Select the blueprint lock setting for your environment. For more information, see [blueprints resource locking](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. For more information, see
+     [blueprints resource locking](../../concepts/resource-locking.md).
 
    - Managed Identity
 
@@ -113,7 +106,7 @@ to make each deployment of the copy of the blueprint sample unique.
      - **Organization**: Enter your organization name, such as Contoso, must be unique.
      - **Azure Region**: Select the Azure Region for Deployment.
      - **Allowed locations**: Which Azure Regions will you allow resources to be built in?
-     
+
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
@@ -127,8 +120,9 @@ to make each deployment of the copy of the blueprint sample unique.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-> to estimate the cost of running resources deployed by this blueprint sample.
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the
+> [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of
+> running resources deployed by this blueprint sample.
 
 ## Artifact parameters table
 
@@ -152,9 +146,9 @@ following article to learn about the architecture:
 > [!div class="nextstepaction"]
 > [CAF Foundation blueprint - Overview](./index.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

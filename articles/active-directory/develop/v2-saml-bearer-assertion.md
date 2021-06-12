@@ -1,24 +1,16 @@
 ---
-title: Microsoft identity platform and SAML bearer assertion flow | Azure
+title: Microsoft identity platform & SAML bearer assertion flow | Azure
 description: Learn how to fetch data from Microsoft Graph without prompting the user for credentials using the SAML bearer assertion flow.
 services: active-directory
-documentationcenter: ''
-author: umeshbarapatre
+author: kenwith
 manager: CelesteDG
-editor: ''
-
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: ryanwi
-ms.reviewer: hirsin
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
+ms.author: kenwith
+ms.reviewer: paulgarn
 ---
 
 # Microsoft identity platform and OAuth 2.0 SAML bearer assertion flow
@@ -39,7 +31,7 @@ Now let us understand on how we can actually fetch SAML assertion programaticall
 
 ### Prerequisites
 
-Establish a trust relationship between the authorization server/environment (Microsoft 365) and the identity provider, or issuer of the SAML 2.0 bearer assertion (ADFS). To configure ADFS for single sign-on and as an identity provider you may refer to [this article](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
+Establish a trust relationship between the authorization server/environment (Microsoft 365) and the identity provider, or issuer of the SAML 2.0 bearer assertion (ADFS). To configure ADFS for single sign-on and as an identity provider you may refer to [this article](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365).
 
 Register the application in the [portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
 1. Sign in to the [app registration blade of the portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Please note that we are using the v2.0 endpoints for Graph API and hence need to register the application in this portal. Otherwise we could have used the registrations in Azure active directory). 

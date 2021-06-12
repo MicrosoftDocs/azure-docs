@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Manage Private Cloud VMs in Azure 
 description: Describes how to manage CloudSimple Private Cloud VMs in the Azure portal, including adding disks, changing VM capacity, and adding network interfaces
-author: sharaths-cs 
-ms.author: b-shsury 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -12,7 +12,7 @@ manager: dikamath
 
 # Manage your CloudSimple Private Cloud virtual machines in Azure
 
-To manage the virtual machines that you [created for your CloudSimple Private Cloud](azure-create-vm.md), sign to the [Azure portal](http://portal.azure.com). Search for and select the virtual (search under **All Services** or **Virtual Machines** on the side menu).
+To manage the virtual machines that you [created for your CloudSimple Private Cloud](azure-create-vm.md), sign to the [Azure portal](https://portal.azure.com). Search for and select the virtual (search under **All Services** or **Virtual Machines** on the side menu).
 
 ## Control virtual machine operation
 
@@ -24,7 +24,7 @@ The following controls are available from the **Overview** page for your selecte
 | Start | Start the specified VM.  |
 | Restart | Shut down and then power up the specified VM.  |
 | Stop | Shut down the specific VM.  |
-| Capture | Capture an image of the specified VM so it can be used as an image to create other VMs. See [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/classic/capture-image.md).   |
+| Capture | Capture an image of the specified VM so it can be used as an image to create other VMs. See [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Move | Move to the specified VM.  |
 | Delete | Remove the specified VM.  |
 | Refresh | Refresh the data in the display.  |

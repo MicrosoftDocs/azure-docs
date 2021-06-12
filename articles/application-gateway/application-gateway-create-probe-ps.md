@@ -1,21 +1,14 @@
 ---
-title: Create a custom probe - Azure Application Gateway - PowerShell | Microsoft Docs
+title: Create a custom probe using PowerShell
+titleSuffix: Azure Application Gateway
 description: Learn how to create a custom probe for Application Gateway by using PowerShell in Resource Manager
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2017
-ms.author: victorh
+ms.topic: how-to
+ms.date: 07/09/2020
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
@@ -200,5 +193,4 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn to configure SSL offloading by visiting: [Configure SSL Offload](application-gateway-ssl-arm.md)
-
+Learn to configure TLS offloading by visiting: [Configure TLS Offload](./tutorial-ssl-powershell.md)

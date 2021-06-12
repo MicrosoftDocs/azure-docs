@@ -1,34 +1,56 @@
 ---
-title: Azure App Configuration point-in-time snapshot | Microsoft Docs
-description: An overview of how point-in-time snapshot works in Azure App Configuration
+title: Retrieve key-value pairs from a point-in-time
+titleSuffix: Azure App Configuration
+description: Retrieve old key-value pairs using point-in-time snapshots in Azure App Configuration, which maintains a record of changes to key-values.
 services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: balans
-editor: ''
-
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 02/24/2019
-ms.author: yegu
+ms.topic: conceptual
+ms.date: 08/05/2020
 ---
 
 # Point-in-time snapshot
 
-Azure App Configuration keeps records of the precise times when a new key-value pair is created and then modified. These records form a complete timeline in key-value changes. An app configuration store can reconstruct the history of any key value and replay its past value at any given moment, up to the present. With this feature, you can “time-travel” backward and retrieve an old key value. For example, you can get yesterday's configuration settings, just before the most recent deployment, in order to recover a previous configuration and roll back the application.
+Azure App Configuration maintains a record of changes made to key-values. This record provides a timeline of key-value changes. You can reconstruct the history of any key-value and provide its past value at any moment within the key history period (7 days for Free tier stores, or 30 days for Standard tier stores). Using this feature, you can “time-travel” backward and retrieve an old key-value. For example, you can recover configuration settings used before the most recent deployment in order to roll back the application to the previous configuration.
 
 ## Key-value retrieval
 
-To retrieve past key values, specify a time at which key values are snapshot in the HTTP header of a REST API call. For example:
+You can use Azure portal or CLI to retrieve past key-values. In Azure CLI, use `az appconfig revision list`, adding appropriate parameters to retrieve the required values.  Specify the Azure App Configuration instance by providing either the store name (`--name <app-config-store-name>`) or by using a connection string (`--connection-string <your-connection-string>`). Restrict the output by specifying a specific point in time (`--datetime`) and by specifying the maximum number of items to return (`--top`).
 
-        GET /kv HTTP/1.1
-        Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+If you don't have Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md).
 
-Currently, App Configuration keeps seven days of change history.
+Retrieve all recorded changes to your key-values.
+
+```azurecli
+az appconfig revision list --name <your-app-config-store-name>.
+```
+
+Retrieve all recorded changes for the key `environment` and the labels `test` and `prod`.
+
+```azurecli
+az appconfig revision list --name <your-app-config-store-name> --key environment --label test,prod
+```
+
+Retrieve all recorded changes in the hierarchical key space `environment:prod`.
+
+```azurecli
+az appconfig revision list --name <your-app-config-store-name> --key environment:prod:* 
+```
+
+Retrieve all recorded changes for the key `color` at a specific point-in-time.
+
+```azurecli
+az appconfig revision list --connection-string <your-app-config-connection-string> --key color --datetime "2019-05-01T11:24:12Z" 
+```
+
+Retrieve the last 10 recorded changes to your key-values and return only the values for `key`, `label`, and `last_modified` time stamp.
+
+```azurecli-interactive
+az appconfig revision list --name <your-app-config-store-name> --top 10 --fields key label last_modified
+```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)  
+> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)

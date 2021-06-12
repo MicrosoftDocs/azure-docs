@@ -3,21 +3,21 @@ title: Upload files to a Media Services account in the Azure portal | Microsoft 
 description: This tutorial walks you through the steps of uploading files to a Media Services account in the Azure portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
-# Upload files to a Media Services account in the Azure portal 
+# Upload files to a Media Services account in the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
@@ -26,7 +26,7 @@ ms.author: juliako
 > 
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. For the up-to-date upload files with portal, see [Use portal to upload, encode, and stream content](../latest/asset-create-asset-upload-portal-quickstart.md).<br/>Also, check out: [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 In Azure Media Services, you upload your digital files to an asset. The asset can contain video, audio, images, thumbnail collections, text tracks, and closed caption files (and the metadata for these files). After the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
 
@@ -61,5 +61,3 @@ When the upload is finished, the new asset is listed in the **Assets** pane.
 * Learn how to [encode your uploaded assets](media-services-portal-encode.md).
 
 * You also can use Azure Functions to trigger an encoding job when a file arrives in the configured container. For more information, see the sample at [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
-
-

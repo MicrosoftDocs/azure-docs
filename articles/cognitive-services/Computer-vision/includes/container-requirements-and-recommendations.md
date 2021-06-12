@@ -1,22 +1,25 @@
 ---
-title: Container requirements and recommendations.
+title: Container requirements and recommendations
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 8/26/2019
-ms.author: dapine
+ms.topic: include
+ms.date: 04/09/2021
+ms.author: aahi
 ---
 
-The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
+> [!NOTE]
+> The requirements and recommendations are based on benchmarks with a single request per second, using an 8-MB image of a scanned business letter that contains 29 lines and a total of 803 characters.
 
-| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
-|-----------|---------|-------------|--|
-|Recognize Text|1 core, 8-GB memory, 0.5 TPS|2 cores, 8-GB memory, 1 TPS|0.5, 1|
+The following table describes the minimum and recommended allocation of resources for each Read OCR container.
+
+| Container | Minimum | Recommended |
+|-----------|---------|-------------|
+| Read 2.0-preview | 1 core, 8-GB memory |    8 cores, 16-GB memory |
+| Read 3.2 | 8 cores, 16-GB memory | 8 cores, 24-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.

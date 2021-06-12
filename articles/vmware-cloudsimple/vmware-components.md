@@ -1,6 +1,7 @@
 ---
-title: Azure VMware Solution by CloudSimple - Private cloud VMware components 
-description: Describes how VMware components are installed on private cloud 
+title: Private cloud VMware components 
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Learn how the CloudSimple service allows you to deploy VMware natively in Azure locations. Private Clouds are integrated with the rest of the Azure Cloud.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019
@@ -24,10 +25,10 @@ A Private Cloud VMware stack is deployed with the following software version.
 
 | Component | Version | Licensed version |
 |-----------|---------|------------------|
-| ESXi | 6.7U1 | Enterprise Plus |
-| vCenter | 6.7U1 | vCenter Standard |
+| ESXi | 6.7U2 | Enterprise Plus |
+| vCenter | 6.7U2 | vCenter Standard |
 | vSAN | 6.7 | Enterprise |
-| NSX Data Center | 2.3 | Advanced |
+| NSX Data Center | 2.4.1 | Advanced |
 
 ## ESXi
 

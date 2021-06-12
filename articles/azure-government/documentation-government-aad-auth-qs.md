@@ -1,26 +1,22 @@
 ---
 title: Azure Government Integrate Azure AD Authentication | Microsoft Docs
-description: Integrating Azure AD Authentication on Azure Government Quickstart
+description: This article demonstrates how to integrating Azure AD Authentication on Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
-manager: zakramer
 
-ms.assetid: 47e5e535-baa0-457e-8c41-f9fd65478b38
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/2/2017
-ms.author: yujhong
 
 ---
 # Integrate Azure AD Authentication with Web Apps on Azure Government
-The following quickstart helps you get started integrating Azure AD Authentication with applications on Azure Government. Azure Active Directory (Azure AD) Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](documentation-government-services-securityandidentity.md).
+The following quickstart helps you get started integrating Azure AD Authentication with applications on Azure Government. Azure Active Directory (Azure AD) Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](./compare-azure-government-global-azure.md).
 
-Learn more about [Azure Active Directory Authentication Scenarios](../active-directory/develop/authentication-scenarios.md). 
+Learn more about [Azure Active Directory Authentication Scenarios](../active-directory/develop/authentication-vs-authorization.md). 
 
 ## Integrate Azure AD login into a web application using OpenID Connect
 This section shows how to integrate Azure AD using the OpenID Connect protocol for signing in users into a web app. 

@@ -1,26 +1,26 @@
 ---
-title: Create an application gateway with SSL termination - Azure PowerShell
-description: Learn how to create an application gateway and add a certificate for SSL termination using Azure PowerShell.
+title: TLS termination using PowerShell
+titleSuffix: Azure Application Gateway
+description: Learn how to create an application gateway and add a certificate for TLS termination using Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 7/31/2019
+ms.topic: how-to
+ms.date: 11/14/2019
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
-# Create an application gateway with SSL termination using Azure PowerShell
+# Create an application gateway with TLS termination using Azure PowerShell
 
-You can use Azure PowerShell to create an [application gateway](overview.md) with a certificate for [SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
+You can use Azure PowerShell to create an [application gateway](overview.md) with a certificate for [TLS/SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Create a virtual machine scale set with the default backend pool
+* Create a self-signed certificate
+* Set up a network
+* Create an application gateway with the certificate
+* Create a virtual machine scale set with the default backend pool
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +30,7 @@ This article requires the Azure PowerShell module version 1.0.0 or later. Run `G
 
 ## Create a self-signed certificate
 
-For production use, you should import a valid certificate signed by trusted provider. For this article, you create a self-signed certificate using [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
+For production use, you should import a valid certificate signed by trusted provider. For this article, you create a self-signed certificate using [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). You can use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
 
 ```powershell
 New-SelfSignedCertificate `

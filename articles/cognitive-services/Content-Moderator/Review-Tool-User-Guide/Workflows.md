@@ -3,18 +3,20 @@ title: Define and use content workflows through the Review tool - Content Modera
 titleSuffix: Azure Cognitive Services
 description: You can use the Azure Content Moderator workflow designer to define custom workflows and thresholds based on your content policies.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: sajagtap
+ms.author: pafarley
 #Customer intent: use workflows from the Review tool
 ---
 
 # Define and use moderation workflows
+
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
 
 In this guide, you'll learn how to set up and use [workflows](../review-api.md#workflows) on the [Review tool](https://contentmoderator.cognitive.microsoft.com) website. Workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. This guide shows you how to use the Content Moderator connector (which is included by default) to filter content and set up human reviews in a typical moderation scenario.
 
@@ -80,4 +82,4 @@ Go to the **Image** tab under **Review** and verify that there is a newly create
 
 ## Next steps
 
-In this guide, you learned how to set up and use moderation workflows from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](../try-review-api-workflow.md) to learn how to create workflows programmatically.
+In this guide, you learned how to set up and use moderation workflows from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [API console guide](../try-review-api-workflow.md) to learn how to create workflows programmatically.

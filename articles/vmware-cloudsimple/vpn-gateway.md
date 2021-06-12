@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Set up a VPN gateway
 description: Describes how to set up Point-to-Site VPN gateway and Site-to-Site VPN gateway and create connections between your on-premises network and your CloudSimple Private Cloud
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -51,7 +51,7 @@ A Point-to-Site VPN gateway allows you to define an automatic addition policy fo
     > [!WARNING]
     > Enabling High Availability requires your on-premises VPN device to support connecting to two IP addresses. This option cannot be disabled once VPN gateway is deployed.
 
-5. Create the first connection from your on-premises network and click **Next**
+5. Create the first connection from your on-premises network and click **Next**.
 
     * Enter a name to identify the connection.
     * For the peer IP, enter your on-premises VPN gateway's public IP address.

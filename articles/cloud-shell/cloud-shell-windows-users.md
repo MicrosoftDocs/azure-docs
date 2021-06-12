@@ -66,4 +66,4 @@ Under `$HOME/.config/PowerShell`, you can create your profile files - `profile.p
 
 ## What's new in PowerShell Core 6
 
-For more information about what is new in PowerShell Core 6, reference the [PowerShell docs](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) and the [Getting Started with PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blog post.
+For more information about what is new in PowerShell Core 6, reference the [PowerShell docs](/powershell/scripting/whats-new/what-s-new-in-powershell-70) and the [Getting Started with PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blog post.

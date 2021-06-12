@@ -1,23 +1,18 @@
 ---
 title: What are Azure service health notifications?
 description: Service health notifications allow you to view service health messages published by Microsoft Azure.
-author: dkamstra
-services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.author: dukek
-ms.subservice: logs
+
 ---
 
-# View service health notifications by using the Azure portal
+# Use the Azure portal to view service health notifications
 
 Service health notifications are published by Azure, and contain information about the resources under your subscription. These notifications are a sub-class of activity log events, and can also be found in the activity log. Service health notifications can be informational or actionable, depending on the class.
 
 There are various classes of service health notifications:  
 
 - **Action required:** Azure might notice something unusual happen on your account, and work with you to remedy this. Azure sends you a notification, either detailing the actions you need to take or how to contact Azure engineering or support.  
-- **Assisted recovery:** An event has occurred and engineers have confirmed that you are still experiencing impact. Azure engineering needs to work with you directly to restore your services to full health.  
 - **Incident:** An event that impacts service is currently affecting one or more of the resources in your subscription.  
 - **Maintenance:** A planned maintenance activity that might impact one or more of the resources under your subscription.  
 - **Information:** Potential optimizations that might help improve your resource use. 
@@ -55,19 +50,18 @@ Properties.communicationId | The communication with which this event is associat
 ### Details on service health level information
 
 **Action Required** (properties.incidentType == ActionRequired)
-- Informational - Administrator action required to prevent impact to existing services
+- Informational - Administrator action is required to prevent impact to existing services.
     
 **Maintenance** (properties.incidentType == Maintenance)
-- Warning - emergency maintenance
-- Informational - standard planned maintenance
+- Warning - Emergency maintenance
+- Informational - Standard planned maintenance
 
 **Information** (properties.incidentType == Information)
-- Informational - Administrator may be required to prevent impact to existing services
+- Informational - Administrator may be required to prevent impact to existing services.
 
 **Security** (properties.incidentType == Security)
-- Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
-- Warning - Issues accessing specific services and/or specific regions are impacting a subset of customers.
-- Informational - Issues impacting management operations and/or latency, not impacting service availability.
+- Warning - Security advisory that affects existing services and may require administrator action.
+- Informational - Security advisory that affects existing services.
 
 **Service Issues** (properties.incidentType == Incident)
 - Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.

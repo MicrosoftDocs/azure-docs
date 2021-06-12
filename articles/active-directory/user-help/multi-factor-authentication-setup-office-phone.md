@@ -2,24 +2,25 @@
 title: Set up an office phone as your two-factor verification method - Azure Active Directory | Microsoft Docs
 description: Learn how to set up an office phone as your two-factor verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Set up an office phone as your two-factor verification method
 
 You can set up your office phone to act as your two-factor verification method.
 
->[!Note]
-> If the Office phone option is greyed out, it's possible that your organization doesn't allow you to use an office phone number for verification. In this case, you'll need to select another method or contact your administrator for more help.
+> [!Note]
+> If the **Office phone** option isn't available to select, it's possible that your organization doesn't allow you to use an office phone number for verification. In this case, you'll need to select another method or contact your administrator for more help. 
+> 
+> Combined Registration users won't see an option to use an extension with the **Office phone** option.
 
 ## Set up your office phone number as your verification method
 

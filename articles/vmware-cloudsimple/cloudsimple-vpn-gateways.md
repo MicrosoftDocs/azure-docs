@@ -1,6 +1,6 @@
 ---
 title:  Azure VMware Solution by CloudSimple - VPN gateways
-description: Learn about CloudSimple Site-to-Site VPN and Point-to-Site VPN concepts 
+description: Learn about CloudSimple site-to-site and point-to-site VPN gateways, which are used to send encrypted traffic between a CloudSimple region and other resources.
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/20/2019 
@@ -57,6 +57,10 @@ A Site-to-Site VPN connection uses the following default cryptographic parameter
 | Perfect Forward Secrecy Group (PFS Group) | None | None | None |
 | Life Time | 1,800 seconds | 1,800 seconds | 1,800 seconds |
 | Data Size | 4 GB | 4 GB | 4 GB |
+
+
+> [!IMPORTANT]
+> Set TCP MSS Clamping at 1200 on your VPN device. Or if your VPN devices do not support MSS clamping, you can alternatively set the MTU on the tunnel interface to 1240 bytes instead.
 
 ## Point-to-Site VPN gateway
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect DK depth camera
-description: Azure Kinect DK depth camera concepts
+description: Understand the operating principles and key features of the depth camera in your Azure Kinect DK.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk

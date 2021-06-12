@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.localizationpriority: high 
 ---
@@ -24,9 +24,9 @@ The system requirements include the supported platforms for clients connecting t
 
 ::: zone target="chromeless"
 
-# Review prerequisites
+## Review prerequisites
 
-1. You must have ordered your Data Box Disk using the Tutorial: Order your Azure Data Box Disk. You have received your disks and one connecting cable per disk.
+1. You must have ordered your Data Box Disk using the [Tutorial: Order your Azure Data Box Disk](data-box-disk-deploy-ordered.md). You have received your disks and one connecting cable per disk.
 2. You have a client computer available from which you can copy the data. Your client computer must:
 
     - Run a supported operating system.
@@ -52,7 +52,7 @@ For Windows client, following should also be installed.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## Other required software for Linux clients
@@ -61,8 +61,6 @@ For Linux client, the Data Box Disk toolset installs the following required soft
 
 - dislocker
 - OpenSSL
-
-::: zone target="docs"
 
 ## Supported connection
 
@@ -78,9 +76,8 @@ Here is a list of the supported storage types for the Data Box Disk.
 | General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
 | Blob storage account | |
 
->[!NOTE]
-> Azure Data Lake Storage Gen 2 accounts are not supported.
-
+> [!IMPORTANT]
+> Network File System (NFS) 3.0 protocol support in Azure Blob storage is not supported with Data Box Disk.
 
 ## Supported storage types for upload
 
@@ -93,6 +90,7 @@ Here is a list of the storage types supported for uploaded to Azure using Data B
 | Azure Files  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## Next step
 

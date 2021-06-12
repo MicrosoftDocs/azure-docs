@@ -1,6 +1,6 @@
 ---
 title: Provision nodes for VMware Solution by CloudSimple - Azure 
-description: Learn how to add nodes to your VMWare with CloudSimple deployment
+description: Learn how to add nodes to your VMWare with CloudSimple deployment in the Azure portal. You can set up pay-as-you go capacity for your private cloud environment.
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019
@@ -34,7 +34,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 7. Enter the prefix to identify the nodes.
 8. Select the location for the node resources.
 9. Select the dedicated location to host the node resources.
-10. Select the node type. You can choose the [CS28 or CS36 option](cloudsimple-node.md). The latter option includes the maximum compute and memory capacity.
+10. Select the [node type](cloudsimple-node.md).
 11. Select the number of nodes to provision.
 12. Select **Review + Create**.
 13. Review the settings. To modify any settings, click **Previous**.

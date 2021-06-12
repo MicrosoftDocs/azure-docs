@@ -1,29 +1,24 @@
 ---
-title: Azure Single Sign Out SAML Protocol | Microsoft Docs
+title: Azure Single Sign Out SAML Protocol
 description: This article describes the Single Sign-Out SAML Protocol in Azure Active Directory
 services: active-directory
-documentationcenter: .net
-author: rwike77
+author: kenwith
 manager: CelesteDG
-editor: ''
-
-ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2017
-ms.author: ryanwi
+ms.date: 03/22/2021
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
+ms.reviewer: paulgarn
 ---
 
 # Single Sign-Out SAML Protocol
 
-Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, the **LogoutURL** for the application must be explicitly registered with Azure AD during application registration. Azure AD uses the LogoutURL to redirect users after they're signed out.
+Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, the **LogoutURL** for the application must be explicitly registered with Azure AD during application registration. If the app is [added to the Azure App Gallery](v2-howto-app-gallery-listing.md) then this value can be set by default. Otherwise, the value must be determined and set by the person adding the app to their Azure AD tenant. Azure AD uses the LogoutURL to redirect users after they're signed out. 
+
+Azure AD supports redirect binding (HTTP GET), and not HTTP POST binding.
 
 The following diagram shows the workflow of the Azure AD single sign-out process.
 
@@ -44,7 +39,7 @@ The `LogoutRequest` element sent to Azure AD requires the following attributes:
 
 * `ID` - This identifies the sign-out request. The value of `ID` should not begin with a number. The typical practice is to append **id** to the string representation of a GUID.
 * `Version` - Set the value of this element to **2.0**. This value is required.
-* `IssueInstant` - This is a `DateTime` string with a Coordinate Universal Time (UTC) value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a value of this type, but doesn't enforce it.
+* `IssueInstant` - This is a `DateTime` string with a Coordinate Universal Time (UTC) value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a value of this type, but doesn't enforce it.
 
 ### Issuer
 The `Issuer` element in a `LogoutRequest` must exactly match one of the **ServicePrincipalNames** in the cloud service in Azure AD. Typically, this is set to the **App ID URI** that is specified during application registration.

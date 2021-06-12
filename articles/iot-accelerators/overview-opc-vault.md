@@ -1,6 +1,6 @@
 ---
 title: What is OPC Vault - Azure | Microsoft Docs
-description: Overview of OPC Vault
+description: This article provides an overview of OPC Vault. It can configure, register, and manage certificate lifecycle for OPC UA applications in the cloud.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -11,6 +11,9 @@ manager: philmea
 ---
 
 # What is OPC Vault?
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 OPC Vault is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud. This article describes the OPC Vault's simple use cases.
 
@@ -30,5 +33,4 @@ The following diagram illustrates the complete OPC Vault architecture.
 
 Now that you have learned about OPC Vault and its uses, here is the suggested next step:
 
-> [!div class="nextstepaction"]
-> [OPC Vault architecture](overview-opc-vault-architecture.md)
+[OPC Vault architecture](overview-opc-vault-architecture.md)

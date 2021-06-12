@@ -3,18 +3,21 @@ title: "Use moderation jobs using .NET - Content Moderator"
 titleSuffix: Azure Cognitive Services
 description: Use the Content Moderator .NET SDK to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: sajagtap
+ms.date: 10/24/2019
+ms.author: pafarley
+ms.custom: devx-track-csharp
 #The jobs how-to for .NET SDK
 ---
 
 # Define and use moderation jobs (.NET)
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows and reviews. This guide provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 
@@ -64,8 +67,7 @@ Modify the program's using statements.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -78,8 +80,8 @@ using System.Threading;
 Add the following code to create a Content Moderator client for your subscription.
 
 > [!IMPORTANT]
-> Update the **AzureRegion** and **CMSubscriptionKey** fields with
-> the values of your region identifier and subscription key.
+> Update the **AzureEndpoint** and **CMSubscriptionKey** fields with
+> the values of your endpoint URL and subscription key.
 
 ```csharp
 /// <summary>
@@ -91,16 +93,9 @@ Add the following code to create a Content Moderator client for your subscriptio
 public static class Clients
 {
     /// <summary>
-    /// The region/location for your Content Moderator account,
-    /// for example, westus.
-    /// </summary>
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    /// <summary>
     /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+    private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
     /// <summary>
     /// Your Content Moderator subscription key.
@@ -119,7 +114,7 @@ public static class Clients
         // Create and initialize an instance of the Content Moderator API wrapper.
         ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        client.Endpoint = AzureBaseURL;
+        client.Endpoint = AzureEndpoint;
         return client;
     }
 }
@@ -132,7 +127,7 @@ Add the following constants and static fields to the **Program** class in Progra
 > [!NOTE]
 > You set the TeamName constant to the name you used when you
 > created your Content Moderator subscription. You retrieve TeamName from the
-> [Content Moderator web site](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Content Moderator web site.
 > Once you log in, select **Credentials** from the **Settings** (gear) menu.
 >
 > Your team name is the value of the **Id** field in the **API** section.

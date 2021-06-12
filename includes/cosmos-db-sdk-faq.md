@@ -2,30 +2,30 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 8/12/2020
 ms.author: sngun
 ---
-**1. How will customers be notified of the retiring SDK?**
+**How will I be notified of the retiring SDK?**
 
-Microsoft will provide 12 month advance notification to the end of support of the retiring SDK in order to facilitate a smooth transition to a supported SDK. Further, customers will be notified through various communication channels – Azure Management Portal, Developer Center, blog post, and direct communication to assigned service administrators.
+Microsoft will provide 12 month's advance notice before the end of support of the retiring SDK to facilitate a smooth transition to a supported SDK. We'll notify you through various communication channels: the Azure portal, Azure updates, and direct communication to assigned service administrators.
 
-**2. Can customers author applications using a "to-be" retired Azure Cosmos DB SDK during the 12 month period?** 
+**Can I author applications by using a to-be-retired Azure Cosmos DB SDK during the 12-month period?** 
 
-Yes, customers will have full access to author, deploy and modify applications using the "to-be" retired Azure Cosmos DB SDK during the 12 month grace period. During the 12 month grace period, customers are advised to migrate to a newer supported version of Azure Cosmos DB SDK as appropriate.
+Yes, you'll be able to author, deploy, and modify applications by using the to-be-retired Azure Cosmos DB SDK during the 12-month notice period. We recommend that you migrate to a newer supported version of the Azure Cosmos DB SDK during the 12-month notice period, as appropriate. 
 
-**3. Can customers author and modify applications using a retired Azure Cosmos DB SDK after the 12 month notification period?**
+**After the retirement date, what happens to applications that use the unsupported Azure Cosmos DB SDK?** 
 
-After the 12 month notification period, the SDK will be retired. Any access to Azure Cosmos DB by an applications using a retired SDK will not be permitted by the Azure Cosmos DB platform. Further, Microsoft will not provide customer support on the retired SDK.
+After the retirement date, Azure Cosmos DB will no longer make bug fixes, add new features, or provide support to the retired SDK versions. If you prefer not to upgrade, requests sent from the retired versions of the SDK will continue to be served by the Azure Cosmos DB service. 
 
-**4. What happens to Customer’s running applications that are using unsupported Azure Cosmos DB SDK version?**
+**Which SDK versions will have the latest features and updates?**
 
-Any attempts made to connect to the Azure Cosmos DB service with a retired SDK version will be rejected. 
+New features and updates will be added only to the latest minor version of the latest supported major SDK version. We recommend that you always use the latest version to take advantage of new features, performance improvements, and bug fixes. If you're using an old, non-retired version of the SDK, your requests to Azure Cosmos DB will still function, but you won't have access to any new capabilities.  
 
-**5. Will new features and functionality be applied to all non-retired SDKs?**
+**What should I do if I can't update my application before a cutoff date?**
 
-New features and functionality will only be added to new versions. If you are using an old, non-retired, version of the SDK your requests to Azure Cosmos DB will still function as previous but you will not have access to any new capabilities.  
+We recommend that you upgrade to the latest SDK as early as possible. After an SDK is tagged for retirement, you'll have 12 months to update your application. If you're not able to update by the retirement date, requests sent from the retired versions of the SDK will continue to be served by Azure Cosmos DB, so your running applications will continue to function. But Azure Cosmos DB will no longer make bug fixes, add new features, or provide support to the retired SDK versions. 
 
-**6. What should I do if I cannot update my application before a cut-off date?**
+If you have a support plan and require technical support, [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) by filing a support ticket.
+    
 
-We recommend that you upgrade to the latest SDK as early as possible. Once an SDK has been tagged for retirement you will have 12 months to update your application. If, for whatever reason, you cannot complete your application update within this timeframe then please contact the [Cosmos DB Team](mailto:askcosmosdb@microsoft.com) and request their assistance before the cutoff date.
 

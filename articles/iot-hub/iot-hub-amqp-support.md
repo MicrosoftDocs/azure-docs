@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
+ms.custom:  [amqp, mqtt]
 ---
 
 # Communicate with your IoT hub by using the AMQP Protocol
@@ -27,7 +28,7 @@ The following information is required for the service client:
 | IoT hub hostname | `<iot-hub-name>.azure-devices.net` |
 | Key name | `service` |
 | Access key | A primary or secondary key that's associated with the service |
-| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub](./iot-hub-dev-guide-sas.md#security-token-structure).
 
 The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to connect to an IoT hub via a sender link.
 
@@ -222,7 +223,7 @@ The following information is required for the device client:
 |-------------|--------------|
 | IoT hub hostname | `<iot-hub-name>.azure-devices.net` |
 | Access key | A primary or secondary key that's associated with the device |
-| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub](./iot-hub-dev-guide-sas.md#security-token-structure).
 
 The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to connect to an IoT hub via a sender link.
 
@@ -258,7 +259,7 @@ The following link paths are supported as device operations:
 | Created by | Link type | Link path | Description |
 |------------|-----------|-----------|-------------|
 | Devices | Receiver link | `/devices/<deviceID>/messages/devicebound` | Cloud-to-device messages that are destined for devices are received on this link by each destination device. |
-| Devices | Sender link | `/devices/<deviceID>messages/events` | Device-to-cloud messages that are sent from a device are sent over this link. |
+| Devices | Sender link | `/devices/<deviceID>/messages/events` | Device-to-cloud messages that are sent from a device are sent over this link. |
 | Devices | Sender link | `/messages/serviceBound/feedback` | Cloud-to-device message feedback sent to the service over this link by devices. |
 
 ### Receive cloud-to-device commands (device client)

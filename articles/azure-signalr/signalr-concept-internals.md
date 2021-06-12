@@ -1,19 +1,18 @@
 ---
 title: Azure SignalR Service internals
-description: An overview of Azure SignalR Service internals.
+description: Learn about Azure SignalR Service internals, the architecture, the connections and how data is transmitted.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.custom: devx-track-dotnet
+ms.date: 11/13/2019
 ms.author: zhshang
 ---
 # Azure SignalR Service internals
 
-Azure SignalR Service is built on top of ASP.NET Core SignalR framework. It also supports ASP.NET SignalR as a preview feature.
+Azure SignalR Service is built on top of ASP.NET Core SignalR framework. It also supports ASP.NET SignalR by reimplementing ASP.NET SignalR's data protocol on top of the ASP.NET Core framework.
 
-> To support ASP.NET SignalR, Azure SignalR Service reimplements ASP.NET SignalR's data protocol on top of the ASP.NET Core framework
-
-You can easily migrate a local ASP.NET Core SignalR application to work with SignalR Service, with a few lines of code change.
+You can easily migrate a local ASP.NET Core SignalR application or ASP.NET SignalR application to work with SignalR Service, with a few lines of code change.
 
 The diagram below describes the typical architecture when you use the SignalR Service with your application server.
 
@@ -37,7 +36,7 @@ Once the application server is started,
 - For ASP.NET Core SignalR, Azure SignalR Service SDK opens 5 WebSocket connections per hub to SignalR Service. 
 - For ASP.NET SignalR, Azure SignalR Service SDK opens 5 WebSocket connections per hub to SignalR Service, and one per application WebSocket connection.
 
-5 WebSocket connections is the default value that can be changed in [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/use-signalr-service.md#connectioncount).
+5 WebSocket connections is the default value that can be changed in [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/run-asp-net-core.md#connectioncount).
 
 Messages to and from clients will be multiplexed into these connections.
 
@@ -52,21 +51,21 @@ There are two steps to establish persistent connections between the client and t
 
 1. Client sends a negotiate request to the application server. With Azure SignalR Service SDK, application server returns a redirect response with SignalR Service's URL and access token.
 
-- For ASP.NET Core SignalR, a typical redirect response looks like:
-    ```
-    {
-        "url":"https://test.service.signalr.net/client/?hub=chat&...",
-        "accessToken":"<a typical JWT token>"
-    }
-    ```
-- For ASP.NET SignalR, a typical redirect response looks like:
-    ```
-    {
-        "ProtocolVersion":"2.0",
-        "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
-        "AccessToken":"<a typical JWT token>"
-    }
-    ```
+    - For ASP.NET Core SignalR, a typical redirect response looks like:
+        ```
+        {
+            "url":"https://test.service.signalr.net/client/?hub=chat&...",
+            "accessToken":"<a typical JWT token>"
+        }
+        ```
+    - For ASP.NET SignalR, a typical redirect response looks like:
+        ```
+        {
+            "ProtocolVersion":"2.0",
+            "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
+            "AccessToken":"<a typical JWT token>"
+        }
+        ```
 
 1. After receiving the redirect response, client uses the new URL and access token to start the normal process to connect to SignalR Service.
 
@@ -80,7 +79,9 @@ When a client is connected to the SignalR Service, service runtime will find a s
 
 At this point, the application server receives an event with information from the new client. A logical connection to the client is created in the application server. The data channel is established from client to application server, via SignalR Service.
 
-SignalR service transmits data from the client to the pairing application server. And data from the application server will be sent to the mapped clients.
+SignalR Service transmits data from the client to the pairing application server. And data from the application server will be sent to the mapped clients.
+
+SignalR Service does not save or store customer data, all customer data received is transmitted to target server or clients in real-time.
 
 As you can see, the Azure SignalR Service is essentially a logical transport layer between  application server and clients. All persistent connections are offloaded to SignalR Service.
 Application server only needs to handle the business logic in hub class, without worrying about client connections.

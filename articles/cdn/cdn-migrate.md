@@ -1,9 +1,9 @@
 ---
-title: Migrate an Azure CDN profile from Verizon Standard to Verizon Premium | Microsoft Docs
+title: Migrate Azure CDN profile from Verizon Standard to Verizon Premium
 description: Learn about the details of migrating a profile from Verizon Standard to Verizon Premium.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -12,9 +12,9 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/21/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: 
 
 ---
@@ -38,7 +38,7 @@ To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Su
 
 **Azure CDN Premium from Verizon** profiles have the following additional features:
 - [Token authentication](cdn-token-auth.md): Allows users to obtain and use a token to fetch secure resources.
-- [Rules engine](cdn-rules-engine.md): Enables you to customize how HTTP requests are handled.
+- [Rules engine](./cdn-verizon-premium-rules-engine.md): Enables you to customize how HTTP requests are handled.
 - Advanced analytics tools:
    - [Detailed HTTP analytics](cdn-advanced-http-reports.md)
    - [Edge performance analytics](cdn-edge-performance.md)
@@ -46,5 +46,4 @@ To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Su
 
 
 ## Next steps
-To learn more about the rules engine, see [Azure CDN rules engine reference](cdn-rules-engine-reference.md).
-
+To learn more about the rules engine, see [Azure CDN rules engine reference](./cdn-verizon-premium-rules-engine-reference.md).

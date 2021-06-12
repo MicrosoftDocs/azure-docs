@@ -1,14 +1,15 @@
 ---
-title: 'Example: Creating a custom cognitive skill with the Bing Entity Search API - Azure Search'
-description: Demonstrates using the Bing Entity Search service in a custom skill mapped to a cognitive search indexing pipeline in Azure Search.
+title: 'Custom skill example using Bing Entity Search API'
+titleSuffix: Azure Cognitive Search
+description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.subservice: cognitive-search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 
 # Example: Create a custom skill using the Bing Entity Search API
@@ -19,7 +20,7 @@ In this example, learn how to create a web API custom skill. This skill will acc
 
 + Read about [custom skill interface](cognitive-search-custom-skill-interface.md) article if you aren't familiar with the input/output interface that a custom skill should implement.
 
-+ [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
++ Create a [Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.BingSearch) through the Azure Portal. A free tier is available and sufficient for this example.
 
 + Install [Visual Studio 2019](https://www.visualstudio.com/vs/) or later, including the Azure development workload.
 
@@ -31,15 +32,13 @@ Although this example uses an Azure Function to host a web API, it isn't require
 
 1. In Visual Studio, select **New** > **Project** from the File menu.
 
-1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other non-alphanumeric characters.
-
-1. Select **Azure Functions v2 (.NET Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
+1. In the New Project dialog, select **Azure Functions** as the template and select **Next**. Type a name for your project, and select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other non-alphanumeric characters.
 
 1. Select the type to be **HTTP Trigger**
 
 1. For Storage Account, you may select **None**, as you won't need any storage for this function.
 
-1. Select **OK** to create the function project and HTTP triggered function.
+1. Select **Create** to create the function project and HTTP triggered function.
 
 ### Modify the code to call the Bing Entity Search Service
 
@@ -65,13 +64,13 @@ namespace SampleSkills
 {
     /// <summary>
     /// Sample custom skill that wraps the Bing entity search API to connect it with a 
-    /// cognitive search pipeline.
+    /// AI enrichment pipeline.
     /// </summary>
     public static class BingEntitySearch
     {
         #region Credentials
         // IMPORTANT: Make sure to enter your credential and to verify the API endpoint matches yours.
-        static readonly string bingApiEndpoint = "https://api.cognitive.microsoft.com/bing/v7.0/entities/";
+        static readonly string bingApiEndpoint = "https://api.bing.microsoft.com/v7.0/entities";
         static readonly string key = "<enter your api key here>";  
         #endregion
 
@@ -442,11 +441,11 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
 }
 ```
 
-Here, we're counting on the built-in [entity recognition skill](cognitive-search-skill-entity-recognition.md) to be present in the skillset and to have enriched the document with the list of organizations. For reference, here's an entity extraction skill configuration that would be sufficient in generating the data we need:
+Here, we're counting on the built-in [entity recognition skill](cognitive-search-skill-entity-recognition-v3.md) to be present in the skillset and to have enriched the document with the list of organizations. For reference, here's an entity extraction skill configuration that would be sufficient in generating the data we need:
 
 ```json
 {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "name": "#1",
     "description": "Organization name extraction",
     "context": "/document/merged_content",
@@ -472,9 +471,10 @@ Here, we're counting on the built-in [entity recognition skill](cognitive-search
 ```
 
 ## Next steps
-Congratulations! You've created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
+Congratulations! You've created your first custom skill. Now you can follow the same pattern to add your own custom functionality. Click the following links to learn more.
 
-+ [Add a custom skill to a cognitive search pipeline](cognitive-search-custom-skill-interface.md)
++ [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

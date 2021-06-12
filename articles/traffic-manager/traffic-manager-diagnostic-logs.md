@@ -1,25 +1,25 @@
 ---
-title: Enable diagnostic logging in Azure Traffic Manager
-description: Learn how to enable diagnostic logging for your Traffic Manager profile and access the log files that are created as a result.
+title: Enable resource logging in Azure Traffic Manager
+description: Learn how to enable resource logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
-author: asudbring
-manager: twooley
+author: duongau
+
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: allensu
+ms.author: duau
 ---
 
-# Enable diagnostic logging in Azure Traffic Manager
+# Enable resource logging in Azure Traffic Manager
 
-This article describes how to enable diagnostic logging and access log data for a Traffic Manager profile.
+This article describes how to enable collection of diagnostic resource logs and access log data for a Traffic Manager profile.
 
-Azure Traffic Manager diagnostic logs can provide insight into the behavior of the Traffic Manager profile resource. For example, you can use the profile's log data to determine why individual probes have timed out against an endpoint.
+Azure Traffic Manager resource logs can provide insight into the behavior of the Traffic Manager profile resource. For example, you can use the profile's log data to determine why individual probes have timed out against an endpoint.
 
-## Enable diagnostic logging
+## Enable resource logging
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,22 +28,22 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
 
 1. **Retrieve the Traffic Manager profile:**
 
-    To enable diagnostic logging, you need the ID of a Traffic Manager profile. Retrieve the Traffic Manager profile that you want to enable diagnostic logging for with [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). The output includes the Traffic Manager profile's ID information.
+    To enable resource logging, you need the ID of a Traffic Manager profile. Retrieve the Traffic Manager profile that you want to enable resource logging for with [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). The output includes the Traffic Manager profile's ID information.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
-2. **Enable diagnostic logging for the Traffic Manager profile:**
+2. **Enable resource logging for the Traffic Manager profile:**
 
-    Enable diagnostic logging for the Traffic Manager profile using the ID obtained in the previous step with [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
+    Enable resource logging for the Traffic Manager profile using the ID obtained in the previous step with [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Verify diagnostic settings:**
 
-      Verify diagnostic settings for the Traffic Manager profile using [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). The following command displays the categories that are logged for a resource.
+      Verify diagnostic settings for the Traffic Manager profile using [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting). The following command displays the categories that are logged for a resource.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
@@ -61,14 +61,13 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
 
 ## Traffic Manager log schema
 
-All diagnostic logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events. 
-For top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/platform/tutorial-dashboards.md).
+All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events. 
+For top-level resource logs schema, see [Supported services, schemas, and categories for Azure Resource Logs](../azure-monitor/essentials/resource-logs-schema.md).
 
 The following table includes logs schema specific to the Azure Traffic Manager profile resource.
 
-|||||
+|Field Name|Field Type|Definition|Example|
 |----|----|---|---|
-|**Field Name**|**Field Type**|**Definition**|**Example**|
 |EndpointName|String|The name of the Traffic Manager endpoint whose health status is being recorded.|*myPrimaryEndpoint*|
 |Status|String|The health status of the Traffic Manager endpoint that was probed. The status can either be **Up** or **Down**.|**Up**|
 |||||
@@ -76,4 +75,3 @@ The following table includes logs schema specific to the Azure Traffic Manager p
 ## Next steps
 
 * Learn more about [Traffic Manager Monitoring](traffic-manager-monitoring.md)
-

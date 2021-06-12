@@ -1,6 +1,6 @@
 ---
 title: Sensitive Data - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about sensitive data mitigation in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Security Frame: Sensitive Data | Mitigations 
@@ -76,7 +76,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic, Web Forms, MVC5, MVC6 |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Browsers can store information for purposes of caching and history. These cached files are stored in a folder, like the Temporary Internet Files folder in the case of Internet Explorer. When these pages are referred again, the browser displays them from its cache. If sensitive information is displayed to the user (such as their address, credit card details, Social Security Number, or username), then this information could be stored in browser’s cache, and therefore retrievable through examining the browser's cache or by simply pressing the browser's "Back" button. Set cache-control response header value to “no-store” for all pages. |
+| **Steps** | Browsers can store information for purposes of caching and history. These cached files are stored in a folder, like the Temporary Internet Files folder in the case of Internet Explorer. When these pages are referred again, the browser displays them from its cache. If sensitive information is displayed to the user (such as their address, credit card details, Social Security Number, or username), then this information could be stored in browser's cache, and therefore retrievable through examining the browser's cache or by simply pressing the browser's "Back" button. Set cache-control response header value to "no-store" for all pages. |
 
 ### Example
 ```XML
@@ -84,7 +84,7 @@ ms.author: jegeib
   <system.webServer>
    <httpProtocol>
     <customHeaders>
-        <add name="Cache-Control" value="no-cache" />
+        <add name="Cache-Control" value="no-store" />
         <add name="Pragma" value="no-cache" />
         <add name="Expires" value="-1" />
     </customHeaders>
@@ -128,7 +128,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Specifying a Protected Configuration Provider](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Using Azure Key Vault to protect application secrets](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **References**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](/previous-versions/msp-n-p/ff647398(v=pandp.10)), [Specifying a Protected Configuration Provider](/previous-versions/68ze1hb2(v=vs.140)), [Using Azure Key Vault to protect application secrets](/azure/architecture/multitenant-identity/web-api) |
 | **Steps** | Configuration files such as the Web.config, appsettings.json are often used to hold sensitive information, including user names, passwords, database connection strings, and encryption keys. If you do not protect this information, your application is vulnerable to attackers or malicious users obtaining sensitive information such as account user names and passwords, database names and server names. Based on the deployment type (azure/on-prem), encrypt the sensitive sections of config files using DPAPI or services like Azure Key Vault. |
 
 ## <a id="autocomplete-input"></a>Explicitly disable the autocomplete HTML attribute in sensitive forms and inputs
@@ -139,7 +139,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Using AutoComplete in HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML Sanitization Vulnerability](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **References**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Using AutoComplete in HTML](/previous-versions/windows/internet-explorer/ie-developer/), [HTML Sanitization Vulnerability](/security-updates/SecurityBulletins/2010/ms10-071), [Autocomplete.,again?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Steps** | The autocomplete attribute specifies whether a form should have autocomplete on or off. When autocomplete is on, the browser automatically complete values based on values that the user has entered before. For example, when a new name and password is entered in a form and the form is submitted, the browser asks if the password should be saved.Thereafter when the form is displayed, the name and password are filled in automatically or are completed as the name is entered. An attacker with local access could obtain the clear text password from the browser cache. By default autocomplete is enabled, and it must explicitly be disabled. |
 
 ### Example
@@ -169,7 +169,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Sql Azure, OnPrem |
 | **Attributes**              | SQL Version - V12, SQL Version - MsSQL2016 |
-| **References**              | [Dynamic Data Masking](https://msdn.microsoft.com/library/mt130841) |
+| **References**              | [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking) |
 | **Steps** | The purpose of dynamic data masking is to limit exposure of sensitive data, preventing users who should not have access to the data from viewing it. Dynamic data masking does not aim to prevent database users from connecting directly to the database and running exhaustive queries that expose pieces of the sensitive data. Dynamic data masking is complementary to other SQL Server security features (auditing, encryption, row level security…) and it is highly recommended to use this feature in conjunction with them in addition in order to better protect the sensitive data in the database. Please note that this feature is supported only by SQL Server starting with 2016 and Azure SQL Database. |
 
 ## <a id="salted-hash"></a>Ensure that passwords are stored in salted hash format
@@ -191,7 +191,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | SQL Version - All |
-| **References**              | [Encrypting sensitive data in SQL server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [How to: Encrypt a Column of Data in SQL Server](https://msdn.microsoft.com/library/ms179331), [Encrypt by Certificate](https://msdn.microsoft.com/library/ms188061) |
+| **References**              | [Encrypting sensitive data in SQL server](/previous-versions/sql/sql-server-2008-r2/ff848751(v=sql.105)), [How to: Encrypt a Column of Data in SQL Server](/sql/relational-databases/security/encryption/encrypt-a-column-of-data), [Encrypt by Certificate](/sql/t-sql/functions/encryptbycert-transact-sql) |
 | **Steps** | Sensitive data such as credit card numbers has to be encrypted in the database. Data can be encrypted using column-level encryption or by an application function using the encryption functions. |
 
 ## <a id="tde-enabled"></a>Ensure that database-level encryption (TDE) is enabled
@@ -202,7 +202,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Understanding SQL Server Transparent Data Encryption (TDE)](https://technet.microsoft.com/library/bb934049(v=sql.105).aspx) |
+| **References**              | [Understanding SQL Server Transparent Data Encryption (TDE)](/previous-versions/sql/sql-server-2008-r2/bb934049(v=sql.105)) |
 | **Steps** | Transparent Data Encryption (TDE) feature in SQL server helps in encrypting sensitive data in a database and protect the keys that are used to encrypt the data with a certificate. This prevents anyone without the keys from using the data. TDE protects data "at rest", meaning the data and log files. It provides the ability to comply with many laws, regulations, and guidelines established in various industries. |
 
 ## <a id="backup"></a>Ensure that database backups are encrypted
@@ -213,7 +213,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | SQL Version - V12, SQL Version - MsSQL2014 |
-| **References**              | [SQL database backup encryption](https://msdn.microsoft.com/library/dn449489) |
+| **References**              | [SQL database backup encryption](/sql/relational-databases/backup-restore/backup-encryption) |
 | **Steps** | SQL Server has the ability to encrypt the data while creating a backup. By specifying the encryption algorithm and the encryptor (a Certificate or Asymmetric Key) when creating a backup, one can create an encrypted backup file. |
 
 ## <a id="api-browser"></a>Ensure that sensitive data relevant to Web API is not stored in browser's storage
@@ -259,7 +259,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Using Azure Disk Encryption to encrypt disks used by your virtual machines](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
+| **References**              | [Using Azure Disk Encryption to encrypt disks used by your virtual machines](../../storage/blobs/security-recommendations.md#data-protection) |
 | **Steps** | <p>Azure Disk Encryption is a new feature that is currently in preview. This feature allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. The Azure Disk Encryption solution supports the following three customer encryption scenarios:</p><ul><li>Enable encryption on new IaaS VMs created from customer-encrypted VHD files and customer-provided encryption keys, which are stored in Azure Key Vault.</li><li>Enable encryption on new IaaS VMs created from the Azure Marketplace.</li><li>Enable encryption on existing IaaS VMs already running in Azure.</li></ul>| 
 
 ## <a id="fabric-apps"></a>Encrypt secrets in Service Fabric applications
@@ -270,7 +270,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
-| **References**              | [Managing secrets in Service Fabric applications](https://azure.microsoft.com/documentation/articles/service-fabric-application-secret-management/) |
+| **References**              | [Managing secrets in Service Fabric applications](../../service-fabric/service-fabric-application-secret-management.md) |
 | **Steps** | Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. Use Azure Key Vault to manage keys and secrets in service fabric applications. |
 
 ## <a id="modeling-teams"></a>Perform security modeling and use Business Units/Teams where required
@@ -325,7 +325,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - Blob |
-| **References**              | [Azure Storage Service Encryption for Data at Rest (Preview)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
+| **References**              | [Azure Storage Service Encryption for Data at Rest (Preview)](../../storage/common/storage-service-encryption.md) |
 | **Steps** | <p>Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption and key management is totally transparent to users. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.</p><p>Encryption and Decryption Workflow:</p><ul><li>The customer enables encryption on the storage account</li><li>When the customer writes new data (PUT Blob, PUT Block, PUT Page, etc.) to Blob storage; every write is encrypted using 256-bit AES encryption, one of the strongest block ciphers available</li><li>When the customer needs to access data (GET Blob, etc.), data is automatically decrypted before returning to the user</li><li>If encryption is disabled, new writes are no longer encrypted and existing encrypted data remains encrypted until rewritten by the user. While encryption is enabled, writes to Blob storage will be encrypted. The state of data does not change with the user toggling between enabling/disabling encryption for the storage account</li><li>All encryption keys are stored, encrypted, and managed by Microsoft</li></ul><p>Please note that at this time, the keys used for the encryption are managed by Microsoft. Microsoft generates the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, customers will get the ability to manage their own >encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.</p>| 
 
 ## <a id="client-storage"></a>Use Client-Side Encryption to store sensitive data in Azure Storage
@@ -336,7 +336,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Storing Data Securely in Azure Blob Storage with Azure Encryption Extensions](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
+| **References**              | [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md), [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md), [Storing Data Securely in Azure Blob Storage with Azure Encryption Extensions](/archive/blogs/partnercatalystteam/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions) |
 | **Steps** | <p>The Azure Storage Client Library for .NET Nuget package supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with Azure Key Vault for storage account key management. Here is a brief description of how client side encryption works:</p><ul><li>The Azure Storage client SDK generates a content encryption key (CEK), which is a one-time-use symmetric key</li><li>Customer data is encrypted using this CEK</li><li>The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vault. The Storage client itself never has access to the KEK. It just invokes the key wrapping algorithm that is provided by Key Vault. Customers can choose to use custom providers for key wrapping/unwrapping if they want</li><li>The encrypted data is then uploaded to the Azure Storage service. Check the links in the references section for low-level implementation details.</li></ul>|
 
 ## <a id="pii-phones"></a>Encrypt sensitive or PII data written to phones local storage
@@ -347,7 +347,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, Xamarin  |
 | **Attributes**              | N/A  |
-| **References**              | [Manage settings and features on your devices with Microsoft Intune policies](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
+| **References**              | [Manage settings and features on your devices with Microsoft Intune policies](/mem/intune/configuration/), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
 | **Steps** | <p>If the application writes sensitive information like user's PII (email, phone number, first name, last name, preferences etc.)- on mobile's file system, then it should be encrypted before writing to the local file system. If the application is an enterprise application, then explore the possibility of publishing application using Windows Intune.</p>|
 
 ### Example
@@ -427,7 +427,7 @@ Set clientCredentialType to Certificate or Windows.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Security Mode - Transport, Security Mode - Message |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine](https://www.codemag.com/article/0611051) |
+| **References**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine](https://www.codemag.com/article/0611051) |
 | **Steps** | No transport or message security has been defined. Applications that transmit messages without transport or message security cannot guarantee the integrity or confidentiality of the messages. When a WCF security binding is set to None, both transport and message security are disabled. |
 
 ### Example

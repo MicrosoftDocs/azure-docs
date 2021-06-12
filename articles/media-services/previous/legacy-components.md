@@ -3,32 +3,44 @@ title: Azure Media Services legacy components | Microsoft Docs
 description: This topic discusses Azure Media Services legacy components.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Azure Media Services legacy components
 
-Over time, there have been steady improvements and enhancements to Media Service components. As a result, some legacy components have been retired. You can find the instructions on how to migrate your application from the legacy component to a current component in the following articles.
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## Legacy components and migration guidance
+Over time, we enhance Media Service components and retire legacy components. This article helps you migrate your application from a legacy component to a current component.
+ 
+## Retirement plans of legacy components and migration guidance
 
-### Media processors
-
-We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. These processors are being retired on November 30, 2019.
+The *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors are deprecated.
 
 * [Migrate from Windows Azure Media Encoder to Media Encoder Standard](migrate-windows-azure-media-encoder.md)
 * [Migrate from Azure Media Encoder to Media Encoder Standard](migrate-azure-media-encoder.md)
 
+The following Media Analytics media processors are either deprecated or soon to be deprecated:
+
+  
+ 
+| **Media processor name** | **Retirement date** | **Additional notes** |
+| --- | --- | ---|
+| Azure Media Indexer 2 | January 1st, 2020 | This media processor will be replaced by the [Media Services v3 AudioAnalyzerPreset Basic mode](../latest/analyze-video-audio-files-concept.md). For more information, see [Migrate from Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md). |
+| Azure Media Indexer | March 1, 2023 | This media processor will be replaced by the [Media Services v3 AudioAnalyzerPreset Basic mode](../latest/analyze-video-audio-files-concept.md). For more information, see [Migrate from Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md). |
+| Motion Detection | June 1st, 2020|No replacement plans at this time. |
+| Video Summarization |June 1st, 2020|No replacement plans at this time.|
+| Video Optical Character Recognition | June 1st, 2020 |This media processor was replaced by Azure Media Services Video Indexer. Also, consider using [Azure Media Services v3 API](../latest/analyze-video-audio-files-concept.md). <br/>See Compare Azure Media Services v3 presets and Video Indexer. |
+| Face Detector | June 1st, 2020 | This media processor was replaced by Azure Media Services Video Indexer. Also, consider using [Azure Media Services v3 API](../latest/analyze-video-audio-files-concept.md). <br/>See Compare Azure Media Services v3 presets and Video Indexer. |
+| Content Moderator | June 1st, 2020 |This media processor was replaced by Azure Media Services Video Indexer. Also, consider using [Azure Media Services v3 API](../latest/analyze-video-audio-files-concept.md). <br/>See Compare Azure Media Services v3 presets and Video Indexer. |
+
 ## Next steps
 
-[Migration guidance for moving from Media Services v2 to v3](../latest/migrate-from-v2-to-v3.md)
+[Migration guidance for moving from Media Services v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)

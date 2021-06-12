@@ -1,15 +1,17 @@
 ---
 title: Tutorial to ship Azure Data Box Heavy back| Microsoft Docs
-description: Learn how to ship your Azure Data Box Heavy to Microsoft
+description: In this tutorial, learn how to return Azure Data Box Heavy, including preparing to ship, shipping Data Box Heavy, verifying data upload, and erasing data.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to be able to return Data Box Heavy to upload on-premises data from my server onto Azure.
+ms.localizationpriority: high 
+
+# Customer intent: As an IT admin, I need to be able to return Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 
 ::: zone target = "docs"
@@ -20,7 +22,7 @@ ms.author: alkohli
 
 ::: zone target = "chromeless"
 
-# Return Azure Data Box Heavy and verify data upload to Azure
+## Return Azure Data Box Heavy and verify data upload to Azure
 
 ::: zone-end
 

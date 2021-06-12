@@ -1,22 +1,23 @@
 ---
 title: Media Encoder Standard schema | Microsoft Docs
-description: The article gives an overview of the Media Encoder Standard schema.
-author: Juliako
+description: This article describes some of the elements and types of the XML schema on which Media Encoder Standard presets are based.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Media Encoder Standard schema
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This article describes some of the elements and types of the XML schema on which [Media Encoder Standard presets](media-services-mes-presets-overview.md) are based. The article gives explanation of elements and their valid values.  
 
 ## <a name="Preset"></a> Preset (root element)

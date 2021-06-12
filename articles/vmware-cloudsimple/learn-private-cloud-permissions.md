@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Private Cloud permission model
 description: Describes the CloudSimple Private Cloud permission model, groups, and categories 
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -36,6 +36,9 @@ A group called **Cloud-Owner-Group** is created during the deployment of a Priva
 | Cloud-Global-VM-Admin-Group | Members of this group can manage virtual machines on the Private Cloud vCenter | [Cloud-VM-Admin-Role](#cloud-vm-admin-role) |
 
 To grant individual users permissions to manage the Private Cloud, create user accounts add to the appropriate groups.
+
+> [!CAUTION]
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group and service accounts must not be used to sign in to vSphere web UI.
 
 ## List of vCenter privileges for default roles
 

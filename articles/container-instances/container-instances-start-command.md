@@ -1,14 +1,8 @@
 ---
-title: Use a starting command line in Azure Container Instances
-description: Override the entrypoint configured in a container image when you deploy an Azure container instance
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
+title: Override entrypoint in container instance
+description: Set a command line to override the entrypoint in a container image when you deploy an Azure container instance
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
 ---
 
 # Set the command line in a container instance to override the default command line operation
@@ -55,8 +49,8 @@ The command line syntax varies depending on the Azure API or tool used to create
 
 |    |  Azure CLI   | Portal | Template | 
 | ---- | ---- | --- | --- |
-| Single command | `--command-line "python myscript.py arg1 arg2"` | **Command override**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Multiple commands | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Command override**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| **Single command** | `--command-line "python myscript.py arg1 arg2"` | **Command override**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **Multiple commands** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Command override**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## Azure CLI example
 
@@ -119,8 +113,8 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

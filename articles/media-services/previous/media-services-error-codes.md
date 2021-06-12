@@ -1,42 +1,43 @@
 ---
 title: Azure Media Services error codes | Microsoft Docs
-description: The topic gives an overview of Azure Media Services error codes.
-author: Juliako
+description: You may receive HTTP error codes from the service depending on issues such as authentication tokens expiring to actions that are not supported in Media Services. This article gives an overview of Azure Media Services v2 API error codes.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: d3a62a64-7608-4b17-8667-479b26ba0d6c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Azure Media Services error codes
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 When using Microsoft Azure Media Services, you may receive HTTP error codes from the service depending on issues such as authentication tokens expiring to actions that are not supported in Media Services. The following is a list of **HTTP error codes** that may be returned by Media Services and the possible causes for them.  
 
 ## 400 Bad Request
 The request contains invalid information and is rejected due to one of the following reasons:
 
 * An unsupported API version is specified. For the most current version, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
-* The API version of Media Services is not specified. For information on how to specify the API version, see [Media Services Operations REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+* The API version of Media Services is not specified. For information on how to specify the API version, see [Media Services Operations REST API Reference](/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > If you are using the .NET or Java SDKs to connect to Media Services, the API version is specified for you whenever you try and perform some action against Media Services.
   > 
   > 
-* An undefined property has been specified. The property name is in the error message. Only those properties that are members of a given entity can be specified. See [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) for a list of entities and their properties.
+* An undefined property has been specified. The property name is in the error message. Only those properties that are members of a given entity can be specified. See [Azure Media Services REST API Reference](/rest/api/media/operations/azure-media-services-rest-api-reference) for a list of entities and their properties.
 * An invalid property value has been specified. The property name is in the error message. See the previous link for valid property types and their values.
 * A property value is missing and is required.
 * Part of the URL specified contains a bad value.
 * An attempt was made to update a WriteOnce property.
 * An attempt was made to create a Job that has an input Asset with a primary AssetFile that was not specified or could not be determined.
-* An attempt was made to update a SAS Locator. SAS locators can only be created or deleted. Streaming locators can be updated. For more information, see [Locators](https://docs.microsoft.com/rest/api/media/operations/locator).
+* An attempt was made to update a SAS Locator. SAS locators can only be created or deleted. Streaming locators can be updated. For more information, see [Locators](/rest/api/media/operations/locator).
 * An unsupported operation or query was submitted.
 
 ## 401 Unauthorized
@@ -105,7 +106,7 @@ Possible status descriptions are:
 * "Server is busy. More than {0} requests per second can be throttled."
 * "Server is busy. More than {0} requests within {1} seconds can be throttled."
 
-To handle this error, we recommend using exponential back-off retry logic. That means using progressively longer waits between retries for consecutive error responses.  For more information, see [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680905.aspx).
+To handle this error, we recommend using exponential back-off retry logic. That means using progressively longer waits between retries for consecutive error responses.  For more information, see [Transient Fault Handling Application Block](/previous-versions/msp-n-p/hh680905(v=pandp.50)).
 
 > [!NOTE]
 > If you are using [Azure Media Services SDK for .Net](https://github.com/Azure/azure-sdk-for-media-services/tree/master), the retry logic for the 503 error has been implemented by the SDK.  
@@ -113,11 +114,10 @@ To handle this error, we recommend using exponential back-off retry logic. That 
 > 
 
 ## See Also
-[Media Services Management Error Codes](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Media Services Management Error Codes](/rest/api/media/)
 
 ## Next steps
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -1,56 +1,67 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: Azure Data Science Virtual Machine documentation
+summary: The Azure Data Science Virtual Machine (DSVM) is a virtual machine image pre-loaded 
+ with data science & machine learning tools. 
+ Use this VM to build intelligent applications for advanced analytics.
+
 metadata:
   title: Data Science Virtual Machine documentation - Azure
-  description: Learn how to use the Data Science Virtual Machine, an experimental environment in the Azure cloud that's built for data science. Popular data science and machine learning tools are preinstalled and preconfigured. This design gives you a head start in building intelligent applications for advanced analytics.
-  services: machine-learning
-  author: vijetajo
-  ms.service: machine-learning
-  ms.subservice: data-science-vm
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  description: The Azure Data Science Virtual Machine (DSVM) is a virtual machine image pre-loaded 
+    with data science & machine learning tools.  
+  ms.service: data-science-vm
   ms.topic: landing-page
-  ms.date: 08/19/2019
-  ms.author: vijetaj
-abstract:
-  description: The Azure Data Science Virtual Machine (DSVM) is a customized VM image with data science and machine learning tools. You can use this VM to build intelligent applications for advanced analytics. <a href="overview.md">Learn more</a>.
-sections:
+  ms.collection: collection
+  author: gvashishtha
+  ms.author: gopalv
+  ms.date: 09/13/2019
 
-- title: 5-minute quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to set up a Windows or Linux-based Data Science Virtual Machine:'
-  - type: paragraph
-    text: '<b>Windows DSVM</b>'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="provision-vm">Set up a Windows DSVM</a>
-    - html: <a href="vm-do-ten-things">Use a Windows DSVM</a>
-  - type: paragraph
-    text: '<b>Linux DSVM (Ubuntu | CentOS)</b>'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="linux-dsvm-intro">Set up a Linux CentOS DSVM</a>
-    - html: <a href="dsvm-ubuntu-intro">Set up a Linux Ubuntu DSVM</a>
-    - html: <a href="linux-dsvm-walkthrough">Use a Linux DSVM</a>
-- title: More Azure Machine Learning technologies
-  items:
-  - type: paragraph
-    text: 'Other technologies available in Azure Machine Learning:'
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure Machine Learning service
-      href: /azure/machine-learning/service/
-      image: 
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image: 
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # GET STARTED CARD
+  - title: Get started with your Data Science Virtual Machine
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Data Science Virtual Machine?
+            url: overview.md
+          - text: Tools Included on the Data Science Virtual Machine
+            url: tools-included.md
+          - text: Release Notes
+            url: release-notes.md
+      - linkListType: get-started
+        links:
+          - text: Create a Windows Data Science Virtual Machine
+            url: provision-vm.md
+          - text: Create an Ubuntu Data Science Virtual Machine
+            url: dsvm-ubuntu-intro.md
+
+# SECURITY
+  - title: Manage your Data Science Virtual Machine
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Enterprise security & guidance
+            url: dsvm-enterprise-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create auto-scaled Data Science Virtual Machine pools
+            url: dsvm-pools.md
+          - text: Integrate with Active Directory
+            url: dsvm-common-identity.md
+          - text: Secure resource access credentials
+            url: dsvm-secure-access-keys.md
+
+# MORE
+  - title: More Azure Machine Learning technologies
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Azure Machine Learning compute instance
+            url: ../concept-compute-instance.md
+          - text: Compare our ML products
+            url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure%2fmachine-learning%2fstudio%2fcontext%2fml-context

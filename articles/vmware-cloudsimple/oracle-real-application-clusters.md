@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Optimize your CloudSimple Private Cloud for Oracle RAC
 description: Describes how to deploy a new cluster and optimize a VM for Oracle Real Application Clusters (RAC) installation and configuration
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/06/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -74,7 +74,7 @@ Each Oracle virtual machine is configured with multiple disks for the host opera
 * Sharing is set to **No sharing**.
 * Redundancy is defined on the storage using vSAN policies.  
 
-![Oracle RAC data disk group configuration](media/oracle-vm-os-disks.png)
+![Diagram that shows the Oracle RAC OS disk physical configuration.](media/oracle-vm-os-disks.png)
 
 ### Data disk configuration
 
@@ -143,7 +143,7 @@ The fast recovery area (FRA) is file system managed by Oracle ASM disk group.  F
 * The disks must be configured as an ASM disk group.  
 * ASM redundancy is set to **External** redundancy.
 
-![Oracle RAC voting disk group configuration](media/oracle-vm-fra-disks.png)
+![Diagram that shows the Oracle RAC voting disk group configuration.](media/oracle-vm-fra-disks.png)
 
 ## Deploy CloudSimple Private Cloud vSphere cluster
 
@@ -164,7 +164,7 @@ To deploy a vSphere cluster on your Private Cloud, follow this process:
 
 vSAN policies define the failures to tolerate and disk striping for the data stored on the VM disks.  The storage policy created must be applied on the VM disks while creating the VM.
 
-1. [Sign in to the vSphere client](https://docs.azure.cloudsimple.com/vsphere-access) of your Private Cloud.
+1. [Sign in to the vSphere client](./vcenter-access.md) of your Private Cloud.
 2. From the top menu, select **Policies and Profiles**.
 3. From the left menu, select **VM Storage Policies** and then select **Create a VM storage Policy**.
 4. Enter a meaningful name for the policy and click **NEXT**.
@@ -215,7 +215,7 @@ Oracle uses shared disk to store the data, log, and redo log files.  You can cre
 9. For sharing, specify **Multi-writer**.
 10. For the virtual device node, select the new SCSI controller that was created in step 2.
 
-    ![Create disks on first VM](media/oracle-rac-new-hard-disk.png)
+    ![Screenshot that highlights the fields needed to create disks on the first VM.](media/oracle-rac-new-hard-disk.png)
 
 Repeat steps 2 – 10 for all the new disks required for the Oracle data, logs, and redo log files.
 
@@ -239,7 +239,7 @@ Repeat steps 2 – 7 for all the new disks required for the Oracle data, logs, a
 VM-to-host affinity rules ensure that the VM runs on the desired host.  You can define rules on vCenter to ensure the Oracle VM runs on the host with adequate resources and to meet any specific licensing requirements.
 
 1. In the CloudSimple portal, [escalate the privileges](escalate-private-cloud-privileges.md) of the cloudowner user.
-2. [Log in to the vSphere client](https://docs.azure.cloudsimple.com/vsphere-access) of your Private Cloud.
+2. Log in to the vSphere client of your Private Cloud.
 3. In the vSphere client, select the cluster where Oracle VMs are deployed and click **Configure**.
 4. Under Configure, select **VM/Host Groups**.
 5. Click **+**.

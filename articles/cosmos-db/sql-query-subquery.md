@@ -1,14 +1,16 @@
 ---
 title: SQL subqueries for Azure Cosmos DB
-description: Learn about SQL subqueries and their common use cases in Azure Cosmos DB
+description: Learn about SQL subqueries and their common use cases and different types of subqueries in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: tisande
 
 ---
 # SQL subquery examples for Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A subquery is a query nested within another query. A subquery is also called an inner query or inner select. The statement that contains a subquery is typically called an outer query.
 
@@ -514,5 +516,5 @@ Query output:
 
 ## Next steps
 
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Model document data](modeling-data.md)

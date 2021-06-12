@@ -1,15 +1,16 @@
 ---
-title: Integer claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: Integer claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: Integer claims transformation examples for custom policies
+titleSuffix: Azure AD B2C
+description: Integer claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -17,9 +18,9 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using the integer claims transformations of the Identity Experience Framework schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the integer claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
-## ConvertNumberToStringClaim 
+## ConvertNumberToStringClaim
 
 Converts a long data type into a string data type.
 
@@ -30,7 +31,7 @@ Converts a long data type into a string data type.
 
 In this example, the `numericUserId` claim with a value type of long is converted to a `UserId` claim with a value type of string.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="numericUserId" TransformationClaimType="inputClaim" />
@@ -45,6 +46,6 @@ In this example, the `numericUserId` claim with a value type of long is converte
 
 - Input claims:
     - **inputClaim**: 12334 (long)
-- Output claims: 
+- Output claims:
     - **outputClaim**: "12334" (string)
 

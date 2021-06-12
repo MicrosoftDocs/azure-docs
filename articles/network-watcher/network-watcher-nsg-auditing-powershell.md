@@ -1,20 +1,19 @@
 ---
-title: Automate NSG auditing with Azure Network Watcher Security group view | Microsoft Docs
+title: Automate NSG auditing - Security group view
+titleSuffix: Azure Network Watcher
 description: This page provides instructions on how to configure auditing of a Network Security Group
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
+author: damendo
 
-ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -22,7 +21,7 @@ ms.author: kumud
 
 Customers are often faced with the challenge of verifying the security posture of their infrastructure. This challenge is no different for their VMs in Azure. It is important to have a similar security profile based on the Network Security Group (NSG) rules applied. Using the Security Group View, you can now get the list of rules applied to a VM within an NSG. You can define a golden NSG security profile and initiate Security Group View on a weekly cadence and compare the output to the golden profile and create a report. This way you can identify with ease all the VMs that do not conform to the prescribed security profile.
 
-If you are unfamiliar with Network Security Groups, see [Network Security Overview](../virtual-network/security-overview.md).
+If you are unfamiliar with Network Security Groups, see [Network Security Overview](../virtual-network/network-security-groups-overview.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -188,16 +187,3 @@ SideIndicator            : <=
 ## Next steps
 
 If settings have been changed, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that are in question.
-
-
-
-
-
-
-
-
-
-
-
-
-

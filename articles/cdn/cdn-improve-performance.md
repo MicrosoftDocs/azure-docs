@@ -3,7 +3,7 @@ title: Improve performance by compressing files in Azure CDN | Microsoft Docs
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure CDN.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -12,9 +12,9 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Improve performance by compressing files in Azure CDN
@@ -49,20 +49,16 @@ The standard and premium CDN tiers provide the same compression functionality, b
     The CDN endpoint page opens.
 2. Select **Compression**.
 
-    ![CDN compression selection](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![Screenshot shows an Endpoint with Compression selected from the portal menu.](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     The compression page opens.
 3. Select **On** to turn on compression.
 
-    ![CDN file compression options](./media/cdn-file-compression/cdn-compress-standard.png)
+    ![Screenshot shows turning on Compression.](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Use the default MIME types, or modify the list by adding or removing MIME types.
 
    > [!TIP]
    > Although it is possible, it is not recommended to apply compression to compressed formats. For example, ZIP, MP3, MP4, or JPG.
-   > 
-
-   > [!NOTE]
-   > Modifying the default list of MIME types is currently not supported in Azure CDN Standard from Microsoft.
    > 
 
 5. After making your changes, select **Save**.
@@ -109,6 +105,8 @@ If the request supports more than one compression type, brotli compression takes
 
 When a request for an asset specifies gzip compression and the request results in a cache miss, Azure CDN performs gzip compression of the asset directly on the POP server. Afterward, the compressed file is served  from the cache.
 
+If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the CDN POP, then response sizes greater than 8MB are not supported. 
+
 ### Azure CDN from Verizon profiles
 
 For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, only eligible files are compressed. To be eligible for compression, a file must:
@@ -147,10 +145,10 @@ The following tables describe Azure CDN compression behavior for every scenario:
 ### Compression is enabled and file is eligible for compression
 | Client-requested format (via Accept-Encoding header) | Cached-file format | CDN response to the client | Notes |
 | --- | --- | --- | --- |
-| Compressed |Compressed |Compressed |CDN transcodes between supported formats. |
+| Compressed |Compressed |Compressed |CDN transcodes between supported formats. <br/>**Azure CDN from Microsoft** doesn't support transcoding between formats and instead fetches data from origin, compresses and caches separately for the format. |
 | Compressed |Uncompressed |Compressed |CDN performs a compression. |
 | Compressed |Not cached |Compressed |CDN performs a compression if the origin returns an uncompressed file. <br/>**Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. <br/>Files with the `Cache-Control: no-cache` header are never compressed. |
-| Uncompressed |Compressed |Uncompressed |CDN performs a decompression. |
+| Uncompressed |Compressed |Uncompressed |CDN performs a decompression. <br/>**Azure CDN from Microsoft** doesn't support decompression and instead fetches data from origin and caches separately for uncompressed clients. |
 | Uncompressed |Uncompressed |Uncompressed | |
 | Uncompressed |Not cached |Uncompressed | |
 

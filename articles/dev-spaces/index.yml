@@ -1,57 +1,46 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Dev Spaces
+### YamlMime:Landing
+
+title: Azure Dev Spaces documentation # < 60 chars
+summary: Azure Dev Spaces is retired as of May 15, 2021. Customers should use Bridge to Kubernetes. 
+
 metadata:
-  title: Azure Dev Spaces Documentation - Quickstarts
-  meta.description: Rapid Kubernetes development with containers and microservices on Azure.
+  title: Azure Dev Spaces documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Dev Spaces is retired as of May 15, 2021. Customers should use Bridge to Kubernetes.
   services: azure-dev-spaces
+  ms.service: azure-dev-spaces #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
   author: zr-msft
-  ms.service: azure-dev-spaces
-  ms.topic: landing-page
-  ms.date: 07/08/2019
   ms.author: zarhoads
   manager: gwallace
-abstract:
-  description: Azure Dev Spaces allows you to test and iteratively develop your entire microservices application by running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. Azure Dev Spaces reduces the burden and complexity of collaborating with your team in a shared Azure Kubernetes Service (AKS) cluster, as well as by running and debugging containers directly in AKS. Learn how to use Azure Dev Spaces by using these quickstarts.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to use Azure Dev Spaces to collaborate on microservices in AKS:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/media/common/i_configure-teams.svg
-      text: Develop microservices as part of a team
-      href: quickstart-team-development.md
-  - type: paragraph
-    text: 'Learn how to rapidly iterate and debug for an inner-loop development experience with Azure Dev Spaces:'
-  - type: list
-    style: icon48
-    items:
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Use Visual Studio Code and Java
-      href: quickstart-java.md
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Use Visual Studio Code and .NET Core
-      href: quickstart-netcore.md
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Use Visual Studio Code and Node.js
-      href: quickstart-nodejs.md
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
-      text: Use Visual Studio and .NET Core
-      href: quickstart-netcore-visualstudio.md
-  - type: paragraph
-    text: 'Learn how to develop microservices for almost any language by using the Azure CLI with Azure Dev Spaces:'
-  - type: list
-    style: icon48
-    items:
-    - image: 
-        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: Develop by using the Azure CLI
-      href: quickstart-cli.md
+  ms.date: 10/29/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+
+  - title: About Bridge to Kubernetes
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: How Bridge to Kubernetes works
+            url: /visualstudio/containers/overview-bridge-to-kubernetes?view=vs-2019
+        
+  # Card
+  - title: Using Visual Studio Code
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+
+  # Card
+  - title: Using Visual Studio
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes

@@ -3,20 +3,20 @@ title: Stream Azure Active Directory logs to Azure Monitor logs | Microsoft Docs
 description: Learn how to integrate Azure Active Directory logs with Azure Monitor logs
 services: active-directory
 documentationcenter: ''
-author: cawrites
-manager: daveba
+author: MarkusVi
+manager: mtillman
 editor: ''
 
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
-ms.author: chadam
-ms.reviewer: dhanyahk
+ms.date: 06/11/2021
+ms.author: markvi
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -43,6 +43,7 @@ You can route audit activity logs and sign-in activity logs to Azure Monitor log
 
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
+* **Provisioning logs**: With the [provisioning logs](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
 
 > [!NOTE]
 > B2C-related audit and sign-in activity logs are not supported at this time.
@@ -55,7 +56,16 @@ To use this feature, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * An Azure AD tenant.
 * A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
-* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+
+## Licensing requirements
+
+Using this feature requires an Azure AD Premium P1 or P2 tenant. 
+You can find the license type of your tenant on the **[Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)** page in **Azure Active Directory**.
+
+![Tenant information](./media/howto-integrate-activity-logs-with-log-analytics/tenant-information.png)
+ 
+If you want to know for how long the activity data is stored in a Premium tenant, see: [How long does Azure AD store the data?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
 
 ## Send logs to Azure Monitor
 

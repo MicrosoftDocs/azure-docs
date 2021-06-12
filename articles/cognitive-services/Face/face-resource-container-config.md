@@ -1,19 +1,22 @@
 ---
-title: Configure containers - FACE API
+title: Configure containers - Face
 titleSuffix: Azure Cognitive Services
-description: Configuration settings for containers.
+description: The Face container runtime environment is configured using the `docker run` command arguments. There are both required and optional settings.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: dapine
+ms.date: 04/29/2021
+ms.author: aahi
 ---
 
-# Configure Face Docker containers
+# Configure Face Docker containers (Retiring)
+
+> [!IMPORTANT]
+> The Face container preview is no longer accepting applications and the container has been deprecated as of April 29th 2021. The Face container will be fully retired on July 26th 2021.
 
 The **Face** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
@@ -48,7 +51,7 @@ Remember to add the _Face_ routing to the endpoint URI as shown in the example.
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](face-how-to-install-containers.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 <!-- specific to face only -->
 
@@ -62,7 +65,7 @@ The configuration settings in the `CloudAI` section provide container-specific o
 
 ### Storage scenario settings
 
-The Face container stores blob, cache, metadata, and queue data, depending on what's being stored. For example, training indexes and results for a large person group are stored as blob data. The Face container provides two different storage scenarios when interacting with and storing these types of data:
+The Face container stores blob, cache, metadata, and queue data, depending on what's being stored. For example, training indexes and results for a **LargePersonGroup** are stored as blob data. The Face container provides two different storage scenarios when interacting with and storing these types of data:
 
 * Memory  
   All four types of data are stored in memory. They're not distributed, nor are they persistent. If the Face container is stopped or removed, all of the data in storage for that container is destroyed.  
@@ -133,8 +136,10 @@ Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{API_KEY} | The endpoint key of the Cognitive Services resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | The endpoint value including region and face routing.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+| **{API_KEY}** | The endpoint key of the `Face` resource on the Azure `Face` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Face` Overview page.| See [gathering required parameters](face-how-to-install-containers.md#gathering-required-parameters) for explicit examples. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](face-how-to-install-containers.md#billing).

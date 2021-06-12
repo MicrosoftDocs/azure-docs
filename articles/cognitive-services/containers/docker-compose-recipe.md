@@ -3,14 +3,14 @@ title: Use Docker Compose to deploy multiple containers
 titleSuffix: Azure Cognitive Services
 description: Learn how to deploy multiple Cognitive Services containers. This article shows you how to orchestrate multiple Docker container images by using Docker Compose.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: conceptual 
-ms.date: 06/26/2019
-ms.author: dapine
-#As a potential customer, I want to know how to configure containers so I can reuse them.
+ms.topic: conceptual
+ms.date: 10/29/2020
+ms.author: aahi
+#Customer intent: As a potential customer, I want to know how to configure containers so I can reuse them.
 
 # SME: Brendan Walsh
 ---
@@ -19,28 +19,21 @@ ms.author: dapine
 
 This article shows you how to deploy multiple Azure Cognitive Services containers. Specifically, you'll learn how to use Docker Compose to orchestrate multiple Docker container images.
 
-> [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multi-container Docker applications. In Compose, you use a YAML file to configure your application’s services. Then, you create and start all the services from your configuration by running a single command.
+> [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multi-container Docker applications. In Compose, you use a YAML file to configure your application's services. Then, you create and start all the services from your configuration by running a single command.
 
-It can be useful to orchestrate multiple container images on a single host computer. In this article, we'll pull together the Recognize Text and Form Recognizer containers.
+It can be useful to orchestrate multiple container images on a single host computer. In this article, we'll pull together the Read and Form Recognizer containers.
 
 ## Prerequisites
 
 This procedure requires several tools that must be installed and run locally:
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.
 * [Docker Engine](https://www.docker.com/products/docker-engine). Confirm that the Docker CLI works in a console window.
 * An Azure resource with the correct pricing tier. Only the following pricing tiers work with this container:
   * **Computer Vision** resource with F0 or Standard pricing tier only.
   * **Form Recognizer** resource with F0 or Standard pricing tier only.
   * **Cognitive Services** resource with the S0 pricing tier.
-
-## Request access to the container registry
-
-Complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/). 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+* If you're using a gated preview container, You will need to complete the [online request form](https://aka.ms/csgate/) to use it.
 
 ## Docker Compose file
 
@@ -50,7 +43,7 @@ The YAML file defines all the services to be deployed. These services rely on ei
 version: '3.7'
 services:
   forms:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
+    image: "mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout"
     environment:
        eula: accept
        billing: # < Your form recognizer billing URL >
@@ -68,11 +61,11 @@ services:
       - "5010:5000"
 
   ocr:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
+    image: "mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview"
     environment:
       eula: accept
-      apikey: # < Your recognize text API key >
-      billing: # < Your recognize text billing URL >
+      apikey: # < Your computer vision API key >
+      billing: # < Your computer vision billing URL >
     ports:
       - "5021:5000"
 ```
@@ -85,9 +78,9 @@ services:
 A Docker Compose file enables the management of all the stages in a defined service's life cycle: starting, stopping, and rebuilding services; viewing the service status; and log streaming. Open a command-line interface from the project directory (where the docker-compose.yaml file is located).
 
 > [!NOTE]
-> To avoid errors, make sure that the host machine correctly shares drives with Docker Engine. For example, if E:\publicpreview is used as a directory in the docker-compose.yaml file, share drive E with Docker.
+> To avoid errors, make sure that the host machine correctly shares drives with Docker Engine. For example, if *E:\publicpreview* is used as a directory in the *docker-compose.yaml* file, share drive **E** with Docker.
 
-From the command-line interface, execute the following command to start (or restart) all the services defined in the docker-compose.yaml file:
+From the command-line interface, execute the following command to start (or restart) all the services defined in the *docker-compose.yaml* file:
 
 ```console
 docker-compose up
@@ -96,8 +89,8 @@ docker-compose up
 The first time Docker executes the **docker-compose up** command by using this configuration, it pulls the images configured under the **services** node and then downloads and mounts them:
 
 ```console
-Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
-latest: Pulling from microsoft/cognitive-services-form-recognizer
+Pulling forms (mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout:)...
+latest: Pulling from azure-cognitive-services/form-recognizer/layout
 743f2d6c1f65: Pull complete
 72befba99561: Pull complete
 2a40b9192d02: Pull complete
@@ -111,8 +104,8 @@ fd93b5f95865: Pull complete
 ef41dcbc5857: Pull complete
 4d05c86a4178: Pull complete
 34e811d37201: Pull complete
-Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:)...
-latest: Pulling from microsoft/cognitive-services-recognize-text
+Pulling ocr (mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview:)...
+latest: Pulling from /azure-cognitive-services/vision/read:3.1-preview
 f476d66f5408: Already exists
 8882c27f669e: Already exists
 d9af21273955: Already exists
@@ -164,19 +157,13 @@ Here's some example output:
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
-2ce533f88e80        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer   latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
+2ce533f88e80        mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout          latest
+4be104c126c5        mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview         latest
 ```
 
-### Test the Recognize Text container
+### Test containers
 
-Open a browser on the host machine and go to **localhost** by using the specified port from the docker-compose.yaml file, such as http://localhost:5021/swagger/index.html. You can use the "Try It" feature in the API to test the Recognize Text endpoint.
-
-![Recognize Text container](media/recognize-text-swagger-page.png)
-
-### Test the Form Recognizer container
-
-Open a browser on the host machine and go to **localhost** by using the specified port from the docker-compose.yaml file, such as http://localhost:5010/swagger/index.html. You can use the "Try It" feature in the API to test the Form Recognizer endpoint.
+Open a browser on the host machine and go to **localhost** by using the specified port from the *docker-compose.yaml* file, such as http://localhost:5021/swagger/index.html. For example, you could use the **Try It** feature in the API to test the Form Recognizer endpoint. Both containers swagger pages should be available and testable.
 
 ![Form Recognizer Container](media/form-recognizer-swagger-page.png)
 

@@ -1,29 +1,17 @@
 ---
 title: Configure Azure Blockchain Service transaction nodes
 description: How to configure Azure Blockchain Service transaction nodes
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
+ms.date: 05/11/2021
+ms.topic: how-to
+ms.reviewer: janders
 #Customer intent: As a network operator, I want to use the Azure portal to create and configure transaction nodes.
 ---
 
 # Configure Azure Blockchain Service transaction nodes
 
-To interact with Azure Blockchain Service, you do so through connecting to one or more transaction nodes in your blockchain member.  In order to interact with transaction nodes, you will need to configure your nodes for access.
-
-## Prerequisites
-
-* [Create an Azure Blockchain member](create-member.md)
-
-## Transaction node overview
-
 Transaction nodes are used to send blockchain transactions to Azure Blockchain Service through a public endpoint. The default transaction node contains the private key of the Ethereum account registered on the blockchain, and as such cannot be deleted.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 To view the default transaction node details:
 
@@ -36,7 +24,7 @@ To view the default transaction node details:
 
 ## Create transaction node
 
-You can add up to nine additional transaction nodes to your blockchain member, for a total of ten transaction nodes. By adding transaction nodes, you can increase scalability or distribute load. For example, you could have a transaction node endpoint for different client applications.
+You can add up to nine additional transaction nodes to your blockchain member, for a total of 10 transaction nodes. By adding transaction nodes, you can increase scalability or distribute load. For example, you could have a transaction node endpoint for different client applications.
 
 To add a transaction node:
 
@@ -62,9 +50,9 @@ To view a transaction node's endpoint details:
 
 1. In the Azure portal, navigate to one of your Azure Blockchain Service member transaction nodes and select **Overview**.
 
-    ![Endpoints](./media/configure-transaction-nodes/endpoints.png)
+    ![Screen capture shows the overview for transaction nodes for a blockchain member.](./media/configure-transaction-nodes/endpoints.png)
 
-Transaction node endpoints are secure and require authentication. You can connect to a transaction endpoint using Azure AD authentication, HTTPS basic authentication, and using an access key over HTTPS or Websocket over SSL.
+Transaction node endpoints are secure and require authentication. You can connect to a transaction endpoint using Azure AD authentication, HTTPS basic authentication, and using an access key over HTTPS or Websocket over TLS.
 
 ### Azure Active Directory access control
 
@@ -85,7 +73,7 @@ To grant Azure AD access control to your endpoint:
 
 1. Select **Save** to add the role assignment.
 
-For more information on Azure AD access control, see [Manage access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+For more information on Azure AD access control, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 
 For details on how to connect using Azure AD authentication, see [connect to your node using AAD authentication](configure-aad.md).
 
@@ -103,13 +91,13 @@ To use the URL, replace \<password\> with the password set when the node was pro
 
 ### Access keys
 
-For access key authentication, the access key is included in the endpoint URL. When the transaction node is provisioned, two access keys are generated. Either access key can be used for authentication. Two keys enable you change and rotate keys.
+For access key authentication, the access key is included in the endpoint URL. When the transaction node is provisioned, two access keys are generated. Either access key can be used for authentication. Two keys enable you to change and rotate keys.
 
 You can view a transaction node's access key details and copy endpoint addresses that include the access keys. Navigate to one of your Azure Blockchain Service member transaction nodes and select **Access Keys** in settings.
 
 ### Firewall rules
 
-Firewall rules enable you to limit the IP addresses that can attempt to authenticate to your transaction node.  If no firewall rules are configured for your transaction node, it cannot be accessed by any party.  
+Firewall rules enable you to limit the IP addresses that can attempt to authenticate to your transaction node.  If no firewall rules are configured for your transaction node, it cannot be accessed by any party.
 
 To view a transaction node's firewall rules, navigate to one of your Azure Blockchain Service member transaction nodes and select **Firewall rules** in settings.
 
@@ -135,9 +123,9 @@ You can view a transaction node's connection strings and copy endpoint addresses
 
 Sample code is provided to quickly enable connecting to your transaction node via Web3, Nethereum, Web3js, and Truffle.
 
-You can view a transaction node's sample connection code and copy it to use with popular developer tools. Navigate to one of your Azure Blockchain Service member transaction nodes and select **Sample Code** in settings.
+You can view a transaction node's sample connection code and copy it to use with popular developer tools. Go to one of your Azure Blockchain Service member transaction nodes and select **Sample Code** in settings.
 
-Choose the Web3 or Nethereum tab to view the code sample you want to use.
+Choose the Web3, Nethereum, Truffle, or Web3j tab to view the code sample you want to use.
 
 ![Sample code](./media/configure-transaction-nodes/sample-code.png)
 

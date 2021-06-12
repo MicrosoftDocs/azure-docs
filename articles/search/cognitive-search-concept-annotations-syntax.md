@@ -1,18 +1,16 @@
 ---
-title: Reference inputs and outputs in cognitive search pipelines - Azure Search
-description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in a cognitive search pipeline in Azure Search.
-services: search
-manager: nitinme
-author: luiscabrer
+title: Reference inputs and outputs in skillsets
+titleSuffix: Azure Cognitive Search
+description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
 
-ms.service: search
-ms.subservice: cognitive-search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+manager: nitinme
+author: LuisCabrer
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# How to reference annotations in a cognitive search skillset
+# How to reference annotations in an Azure Cognitive Search skillset
 
 In this article, you learn how to reference annotations in skill definitions, using examples to illustrate various scenarios. As the content of a document flows through a set of skills, it gets enriched with annotations. Annotations can be  used as inputs for further downstream enrichment, or mapped to an output field in an index. 
  
@@ -30,7 +28,7 @@ Before reviewing the syntax, let's revisit a few important concepts to better un
 <a name="example-1"></a>
 ## Example 1: Simple annotation reference
 
-In Azure Blob storage, suppose you have a variety of files containing references to people's names that you want to extract using entity recognition. In the skill definition below, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
+In Azure Blob Storage, suppose you have a variety of files containing references to people's names that you want to extract using entity recognition. In the skill definition below, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
 
 Because the default context is `"/document"`, the list of people can now be referenced as `"/document/people"`. In this specific case `"/document/people"` is an annotation, which could now be mapped to a field in an index, or used in another skill in the same skillset.
 
@@ -120,5 +118,5 @@ Notice that the cardinality of `"/document/people/*/lastname"` is larger than th
 ## See also
 + [How to integrate a custom skill into an enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md)

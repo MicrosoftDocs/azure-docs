@@ -1,10 +1,11 @@
 ---
-title: Cannot add custom domain by using Key Vault certificate in Azure API Management| Microsoft Docs
+title: Cannot add custom domain by using Key Vault certificate
+titleSuffix: Azure API Management
 description: Learn how to troubleshoot the issue in which you can't add a custom domain in Azure API Management by using a key vault certificate.
 services: api-management
 documentationcenter: ''
 author: genlin
-manager: cfowler
+manager: dcscontentpm
 editor: ''
 
 ms.service: api-management

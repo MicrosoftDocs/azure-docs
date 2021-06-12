@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 05/28/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -44,3 +44,7 @@ When using Azure for certificate authentication, the Azure VPN gateway performs 
 ### Does RADIUS authentication work with both IKEv2, and SSTP VPN?
 
 Yes, RADIUS authentication is supported for both IKEv2, and SSTP VPN. 
+
+### Does RADIUS authentication work with the OpenVPN client?
+
+RADIUS authentication is supported for the OpenVPN protocol only through PowerShell.

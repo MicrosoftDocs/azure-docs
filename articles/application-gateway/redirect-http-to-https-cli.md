@@ -1,48 +1,44 @@
 ---
-title: Create an application gateway with a certificate - Azure CLI | Microsoft Docs
-description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure CLI.
+title: HTTP to HTTPS redirection using CLI
+titleSuffix: Azure Application Gateway
+description: Learn how to create an HTTP to HTTPS redirection and add a certificate for TLS termination using the Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.author: victorh
-
 ---
+
 # Create an application gateway with HTTP to HTTPS redirection using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
+You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Add a listener and redirection rule
-> * Create a virtual machine scale set with the default backend pool
+* Create a self-signed certificate
+* Set up a network
+* Create an application gateway with the certificate
+* Add a listener and redirection rule
+* Create a virtual machine scale set with the default backend pool
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a self-signed certificate
 
 For production use, you should import a valid certificate signed by a trusted provider. For this tutorial, you create a self-signed certificate and pfx file using the openssl command.
 
-```azurecli-interactive
+```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
 Enter values that make sense for your certificate. You can accept the default values.
 
-```azurecli-interactive
+```console
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
@@ -82,7 +78,7 @@ az network public-ip create \
 
 ## Create the application gateway
 
-You can use [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
+You can use [az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
 
 The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created. In this example, you associate the certificate that you created and its password when you create the application gateway. 
 
@@ -117,7 +113,7 @@ az network application-gateway create \
 
 ### Add the HTTP port
 
-You can use [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) to add the HTTP port to the application gateway.
+You can use [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az_network-application_gateway_frontend_port_create) to add the HTTP port to the application gateway.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -129,7 +125,7 @@ az network application-gateway frontend-port create \
 
 ### Add the HTTP listener
 
-You can use [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) to add the listener named *myListener* to the application gateway.
+You can use [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create) to add the listener named *myListener* to the application gateway.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -142,7 +138,7 @@ az network application-gateway http-listener create \
 
 ### Add the redirection configuration
 
-Add the HTTP to HTTPS redirection configuration to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Add the HTTP to HTTPS redirection configuration to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -157,7 +153,7 @@ az network application-gateway redirect-config create \
 
 ### Add the routing rule
 
-Add the routing rule named *rule2* with the redirection configuration to the application gateway using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+Add the routing rule named *rule2* with the redirection configuration to the application gateway using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -171,7 +167,7 @@ az network application-gateway rule create \
 
 ## Create a virtual machine scale set
 
-In this example, you create a virtual machine scale set named *myvmss* that provides servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az-vmss-create).
+In this example, you create a virtual machine scale set named *myvmss* that provides servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
@@ -206,7 +202,7 @@ az vmss extension set \
 
 To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip). Copy the public IP address, and then paste it into the address bar of your browser.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -222,13 +218,4 @@ To accept the security warning if you used a self-signed certificate, select **D
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Add a listener and redirection rule
-> * Create a virtual machine scale set with the default backend pool
-
-
+- [Create an application gateway with internal redirection using the Azure CLI](redirect-internal-site-cli.md)

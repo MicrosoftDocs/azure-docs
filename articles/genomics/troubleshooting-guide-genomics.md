@@ -1,15 +1,14 @@
 ---
-title: 'Microsoft Genomics:Troubleshooting Guide | Microsoft Docs'
-titleSuffix: Azure
-description: Learn more about troubleshooting strategies
+title: Troubleshooting Guide
+titleSuffix: Microsoft Genomics
+description: Learn about troubleshooting strategies for using Microsoft Genomics, including error messages and how to resolve them.
 keywords: troubleshooting, error, debugging
-services: microsoft-genomics
+services: genomics
 author: ruchir
-editor: jasonwhowell
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
 
 ---

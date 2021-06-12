@@ -1,8 +1,8 @@
 ---
 title: Add Azure Kinect library to your Visual Studio project
-description: Add the Azure Kinect library to a project
+description: Learn how to add the Azure Kinect NuGet package to your Visual Studio Project.
 author: wes-b
-ms.author: tesych
+ms.author: wesbarc
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
@@ -17,7 +17,7 @@ This article walks you through the process of adding Azure Kinect NuGet package 
 
 To install the Azure Kinect NuGet package:
 
-1. You can find detailed instructions for installing a NuGet package in Visual Studio in the [Quickstart: Install and use a package in Visual Studio](https://docs.microsoft.com/nuget/quickstart/install-and-use-a-package-in-visual-studio).
+1. You can find detailed instructions for installing a NuGet package in Visual Studio in the [Quickstart: Install and use a package in Visual Studio](/nuget/quickstart/install-and-use-a-package-in-visual-studio).
 2. To add the package, you can use Package Manager UI by right-clicking References and choosing Manage NuGet Packages from Solution Explorer.
 3. Choose [nuget.org](https://www.nuget.org) as the Package source, select Browse tab, and search for `Microsoft.Azure.Kinect.Sensor`.
 4. Select that package from the list and install.

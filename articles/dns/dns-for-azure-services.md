@@ -1,11 +1,10 @@
 ---
-title: Use Azure DNS with other Azure services | Microsoft Docs
-description: Understand how to use Azure DNS to resolve names for other Azure services
+title: Use Azure DNS with other Azure services
+description: In this learning path, get started on how to use Azure DNS to resolve names for other Azure services
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
-editor: ''
+author: rohinkoul
+manager: kumudD
 tags: azure dns
 
 ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
@@ -15,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
-ms.author: victorh
+ms.date: 05/03/2021
+ms.author: rohink
 ---
 # How Azure DNS works with other Azure services
 
@@ -36,3 +35,8 @@ The following table outlines the supported record types you can use for various 
 | Azure App Service | [External IP](dns-custom-domain.md#app-service-web-apps) |For external IP addresses, you can create a DNS A record. Otherwise, you must create a CNAME record that maps to the azurewebsites.net name. For more information, see [Map a custom domain name to an Azure app](../app-service/app-service-web-tutorial-custom-domain.md). |
 | Azure Resource Manager VMs |[Public IP](dns-custom-domain.md#public-ip-address) |Resource Manager VMs can have public IP addresses. A VM with a public IP address also can be behind a load balancer. You can create a DNS A, CNAME, or alias record for the public address. You can use this custom name to bypass the VIP on the load balancer. |
 | Classic VMs |[Public IP](dns-custom-domain.md#public-ip-address) |Classic VMs created by using PowerShell or CLI can be configured with a dynamic or static (reserved) virtual address. You can create a DNS CNAME or an A record, respectively. |
+
+
+## Next steps
+
+* Learn how to [manage record sets and records](./dns-getstarted-portal.md) in your DNS zone.
