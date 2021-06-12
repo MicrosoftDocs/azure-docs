@@ -638,9 +638,6 @@
       - name: FreeBSD
         displayName: Linux distribution specific requirements, FreeBSD
         href: ./linux/freebsd-intro-on-azure.md
-      - name: FreeBSD Packet Filter
-        displayName: Linux distribution specific requirements, FreeBSD
-        href: ./linux/freebsd-pf-nat.md
       - name: Oracle Linux
         displayName: Linux distribution specific requirements, Oracle
         href: ./linux/oracle-create-upload-vhd.md

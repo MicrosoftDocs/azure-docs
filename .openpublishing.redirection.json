@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/freebsd-pf-nat.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/freebsd-pf-nat",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/static-web-apps/routes.md",
       "redirect_url": "/azure/static-web-apps/configuration",
       "redirect_document_id": true
