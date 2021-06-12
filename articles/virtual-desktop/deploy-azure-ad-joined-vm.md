@@ -29,7 +29,7 @@ The following configurations are currently supported with Azure AD joined VMs:
 * Personal Desktops with local profiles.
 * Pooled desktop or apps with local profiles, generally used as a jump box or for stateless applications.
 
-User accounts can be cloud-only or hybrid users.
+User accounts can be cloud-only or hybrid users from the same Azure AD tenant. External users are not supported at this time.
 
 ## Deploy Azure AD joined VMs
 
