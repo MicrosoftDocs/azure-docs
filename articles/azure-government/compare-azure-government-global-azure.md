@@ -401,7 +401,7 @@ For information on how to connect to Media Services v2, see [Access the Azure Me
 
 ### Media Services Video Indexer
 
-For more information, see [Create a Video Indexer account](../media-services/video-indexer/connect-to-azure.md#video-indexer-in-azure-government).
+For more information, see [Create a Video Indexer account](../azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure.md#create-a-new-account-on-azure).
 
 
 ## Migration
@@ -596,10 +596,14 @@ The following API Management **features are not currently available** in Azure G
 
 ### [App Service](../app-service/overview.md)
 
+The following App Service **resources are not currently available** in Azure Government:
+
+- App Service Certificate
+- App Service Managed Certificate
+- App Service Domain
+
 The following App Service **features are not currently available** in Azure Government:
 
-- Resource
-    - App Service Certificate
 - Deployment
     - Deployment options: only Local Git Repository and External Repository are available
 - Development tools

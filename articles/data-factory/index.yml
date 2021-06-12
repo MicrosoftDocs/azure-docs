@@ -55,7 +55,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Data Factory
-            url: https://docs.microsoft.com/learn/modules/intro-to-azure-data-factory/
+            url: /learn/modules/intro-to-azure-data-factory/
   - title: Data movement
     linkLists:
       - linkListType: concept
