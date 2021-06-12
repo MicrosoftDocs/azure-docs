@@ -84,7 +84,7 @@ Complete the following steps to instrument the app to send server-side telemetry
 
 1. In *Pages/Shared/_Layout.cshtml*, in the `<head>` element, add the highlighted line:
 
-    :::code language="razor" source="snippets/dotnet-quickstart/_layout.cshtml" range="3-10" highlight="9":::
+    :::code language="razor" source="snippets/dotnet-quickstart/_layout.cshtml" range="3-10" highlight="7":::
 
    This change uses the injected `JavaScriptSnippet` object to ensure the script is rendered in the head of every page in the app.
 
