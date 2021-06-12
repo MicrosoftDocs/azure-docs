@@ -126,16 +126,16 @@ In this example, you create a policy that emits a custom claim "JoinedData" to J
 
 ## Security considerations
 
-Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents through claims-mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims-mapping policy to protect themselves from claims-mapping policies created by malicious actors. This can be done in the following ways:
+Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents through claims-mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims-mapping policy to protect themselves from claims-mapping policies created by malicious actors. This can be done in one the following ways:
 
 - Configure a custom signing key
-- Update the application manifest to accept mapped claims.
+- Or, update the application manifest to accept mapped claims.
  
 Without this, Azure AD will return an [`AADSTS50146` error code](reference-aadsts-error-codes.md#aadsts-error-codes).
 
 ### Custom signing key
 
-In order to add a custom signing key to the service principal object, you can use the Azure PowerShell cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) to create a certificate key credential for your Application object.
+For multi-tenant apps, a custom signing key should be used.  Do not set `acceptMappedClaims` in the app manifest. If set up an app in portal, you get an app reg object and a service principal in your tenant.  That app is using the Azure global sign-in key.  When using the global sign-in key, however, you can't change claims .  To get custom claims in tokens, create a custom sign-in key and add it to service principal.  In order to add a custom signing key to the service principal object, you can use the Azure PowerShell cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) to create a certificate key credential for your application object.
 
 Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
 
@@ -145,7 +145,10 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 ### Update the application manifest
 
-Alternatively, you can set the `acceptMappedClaims` property to `true` in the [application manifest](reference-app-manifest.md). As documented on the [apiApplication resource type](/graph/api/resources/apiapplication#properties), this allows an application to use claims mapping without specifying a custom signing key.
+For single tenant apps, you can set the `acceptMappedClaims` property to `true` in the [application manifest](reference-app-manifest.md).  As documented on the [apiApplication resource type](/graph/api/resources/apiapplication#properties), this allows an application to use claims mapping without specifying a custom signing key. 
+
+> [!WARNING]
+> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
 
 This does require the requested token audience to use a verified domain name of your Azure AD tenant, which means you should ensure to set the `Application ID URI` (represented by the `identifierUris` in the application manifest) for example to `https://contoso.com/my-api` or (simply using the default tenant name) `https://contoso.onmicrosoft.com/my-api`.
 
