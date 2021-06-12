@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Monitor an ASP.NET Core app with Azure Monitor Application Insights'
-description: Provides instructions to quickly set up a Node.js Web App for monitoring with Azure Monitor Application Insights
+description: Quickly instrument an ASP.NET Core web app for monitoring with Azure Monitor Application Insights
 
 ms.topic: quickstart
 author: lgayhardt
@@ -52,11 +52,11 @@ Complete the following steps to create and configure a new ASP.NET Core web app:
     The previous command creates a new ASP.NET Core Razor Pages app in a directory named *ai.quickstart*. 
     
     > [!TIP]
-    > You may prefer to [use Visual Studio to create your app](/visualstudio/ide/quickstart-aspnet-core?view=vs-2019).
+    > You may prefer to [use Visual Studio to create your app](/visualstudio/ide/quickstart-aspnet-core).
 
 1. Using a text editor or IDE, modify *appsettings.json* to contain a value for `ApplicationInsights.InstrumentationKey`, as shown. Use the instrumentation key you copied earlier.
 
-      :::code language="json" source="snippets/dotnet-quickstart/appsettings.json" range="1-12" highlight="2-4":::
+    :::code language="json" source="snippets/dotnet-quickstart/appsettings.json" range="1-12" highlight="2-4":::
 
 ## Configure server-side telemetry
 
@@ -82,7 +82,7 @@ Complete the following steps to instrument the app to send server-side telemetry
 
     The previous change registers a `Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet` dependency containing the Application Insights client-side script element.
 
-1. In *Pages/Shared/_Layout.cshtml*, in the `<head>` element, add the following line:
+1. In *Pages/Shared/_Layout.cshtml*, in the `<head>` element, add the highlighted line:
 
     :::code language="razor" source="snippets/dotnet-quickstart/_layout.cshtml" range="3-10" highlight="9":::
 
@@ -99,7 +99,7 @@ It takes several minutes for telemetry to be ingested into Application Insights 
 
 ## Next steps
 
-- [Learn more about Application Insights in ASP.NET Core](asp-net-core)
+- [Learn more about Application Insights in ASP.NET Core](asp-net-core.md)
 - [Find runtime exceptions](tutorial-runtime-exceptions.md)
 - [Find performance issues](tutorial-performance.md)
 - [Alert on app health](tutorial-alert.md)
