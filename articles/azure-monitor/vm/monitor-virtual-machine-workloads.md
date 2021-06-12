@@ -254,6 +254,13 @@ There is an additional cost for Connection Manager. See [Network Watcher pricing
 
 Create a metric alert rule to create an alert from Connection Manager, see [Generate alerts](../../network-watcher/connection-monitor.md#generate-alerts)
 
+## Process on local machine
+
+Hybrid Runbook Worker
+Monitoring of some workloads requires a local process, for example a PowerShell script running on the local machine to connect to an application and collect and/or process data. Hybrid Runbook Worker which is part of Azure Automation can perform this function. 
+Installation of Hybrid Runbook Worker can be automated for Azure and Arc machines with the Log Analytics agent - https://docs.microsoft.com/en-us/azure/automation/automation-hybrid-runbook-worker.
+There is no direct charge for hybrid runbook worker, but there is a cost for each runbook.
+The runbook can access any resources on the local machine to gather required data, but it can’t send data directly to Azure Monitor or create an alert. To create an alert, have the runbook write an entry to a custom log and then configure that log to be collected by Azure Monitor. Create a log query alert rule that fires on that log entry.
 
 
 ## Next steps

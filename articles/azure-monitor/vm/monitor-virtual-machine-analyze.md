@@ -53,7 +53,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 
 - **Workbooks.** Open the workbook gallery with the VM insights workbooks for single machines. See [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks) for a list of the VM insights workbooks designed for individual machines.  |
 
-### Multiple machine experience
+## Multiple machine experience
 Access the mulitple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
 
 
@@ -124,7 +124,7 @@ There are three namespaces used by virtual machines:
 > [!NOTE]
 > For machines without the diagnostic extension installed, you'll see an option in the **Metric Namespace** dropdown called **Enable new guest memory metrics**. This option describes how to add the diagnostic extension to the machine to collect guest metrics. These same values are collected in Logs when VM insights is enabled.
 
-## Analyze log data with log queries
+## Analyze log data with Log Analytics
 Log Analytics allows you to perform custom analysis of your log data. Use Log Analytics when you want to dig deeper into the data used to create the views in VM insights. You may want to analyze different logic and aggregations of that data, correlate security data collected by Azure Security Center and Azure Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).
 
 ![Log query in Log Analytics]()
@@ -148,7 +148,7 @@ There are three namespaces used by virtual machines:
 | Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../agents/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../essentials/collect-custom-metrics-linux-telegraf.md). |
 
 
-## Workbooks
+## Visualize data with workbooks
 [Workbooks](../visualize/workbooks-overview.MD) provide interactive reports in the Azure portal, combining different kinds of data into a single view. Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
 Workbooks are helpful for scenarios such as:
@@ -190,28 +190,3 @@ See [Create interactive reports VM insights with workbooks](vminsights-workbooks
 
 * [Learn how to analyze data in Azure Monitor logs using log queries.](../logs/get-started-queries.md)
 * [Learn about alerts using metrics and logs in Azure Monitor.](../alerts/alerts-overview.md)
-
-
-
-
-
-## Analyze log data with Log Analytics
-VM insights provides 
-
-VM insights collects a predefined set of  set of performance counters that are written to the *InsightsMetrics* table. 
-
-
-[How to query logs from VM insights](../vm/vminsights-log-search.md) for details.
-
-| Table | Description | Source|
-|:---|:---|:---|
-| [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) | Traffic for open server ports on the monitored machine. | VM Insights |
-| [VMComputer](/azure/azure-monitor/reference/tables/vmcomputer) | Inventory data for servers collected by the Service Map and VM Insights solutions using the Dependency agent and Log analytics agent. | VM insights |
-| [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) | Traffic for inbound and outbound connections to and from monitored computers. | VM insights |
-| [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) | Process data for servers collected by the Service Map and VM Insights solutions using the Dependency agent and Log analytics agent. | VM insights |
-| ActivityLog | Configuration changes and history of when each virtual machine is stopped and started. | Activity Log |
-| InsightsMetrics |  |
-
-> [!NOTE]
-> Performance data collected by the Log Analytics agent writes to the *Perf* table while VM insights will collect it to the *InsightsMetrics* table. This is the same data, but the tables have a different structure. If you have existing queries based on *Perf*, the will need to be rewritten to use *InsightsMetrics*.
-
