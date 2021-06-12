@@ -99,7 +99,11 @@ It takes several minutes for telemetry to be ingested into Application Insights 
 
 ## Next steps
 
-- [Learn more about Application Insights in ASP.NET Core](asp-net-core.md)
-- [Find runtime exceptions](tutorial-runtime-exceptions.md)
-- [Find performance issues](tutorial-performance.md)
-- [Alert on app health](tutorial-alert.md)
+Congratulations! You can now use the telemetry sent by your app to:
+
+- [Find runtime exceptions](tutorial-runtime-exceptions.md).
+- [Find performance issues](tutorial-performance.md).
+- [Alert on app health](tutorial-alert.md).
+
+> [!div class="nextstepaction"]
+> [Learn more about Application Insights in ASP.NET Core](asp-net-core.md)
