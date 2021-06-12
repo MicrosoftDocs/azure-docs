@@ -29,7 +29,7 @@ To begin ingesting telemetry, create an Application Insights resource in your Az
 
 1. Complete the form that appears.
     1. Verify the selected **Subscription**.
-    1. Select or create a new **Resource Group**.
+    1. Select an existing or new **Resource Group**.
     1. Specify a **Name** for this Application Insights resource.
     1. Select a **Region** near your location.
     1. Set the **Resource Mode** to *Classic*. 
