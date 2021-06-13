@@ -26,7 +26,7 @@ Event Hubs captures diagnostic logs for the following categories:
 
 All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following sections.
 
-## Archive logs schema
+### Archive logs schema
 
 Archive log JSON strings include elements listed in the following table:
 
@@ -64,7 +64,7 @@ The following code is an example of an archive log JSON string:
 }
 ```
 
-## Operational logs schema
+### Operational logs schema
 
 Operational log JSON strings include elements listed in the following table:
 
@@ -97,14 +97,14 @@ Example:
 }
 ```
 
-### Event names
+#### Event names
 Event name is populated as operation type + resource type from the following enumerations. For example, `Create Queue`, `Retrieve Event Hu`, or `Delete Rule`. 
 
 | Operation type | Resource type | 
 | -------------- | ------------- | 
 | <ul><li>Create</li><li>Update</li><li>Delete</li><li>Retrieve</li><li>Unknown</li></ul> | <ul><li>Namespace</li><li>Queue</li><li>Topic</li><li>Subscription</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Rule</li>ConsumerGroup</li> |
 
-## Autoscale logs schema
+### Autoscale logs schema
 Autoscale log JSON includes elements listed in the following table:
 
 | Name | Description |
@@ -123,7 +123,7 @@ Here's an example autoscale event:
 }
 ```
 
-## Kafka coordinator logs schema
+### Kafka coordinator logs schema
 Kafka coordinator log JSON includes elements listed in the following table:
 
 | Name | Description |
@@ -136,7 +136,7 @@ Kafka coordinator log JSON includes elements listed in the following table:
 | `SubscriptionId` | Azure subscription ID |
 | `Message` | Informational or warning message, which provides details about actions done during the group coordination. |
 
-### Example
+#### Example
 
 ```json
 {
@@ -151,7 +151,7 @@ Kafka coordinator log JSON includes elements listed in the following table:
 }
 ```
 
-## Kafka user error logs schema
+### Kafka user error logs schema
 Kafka user error log JSON includes elements listed in the following table:
 
 | Name | Description |
@@ -165,7 +165,7 @@ Kafka user error log JSON includes elements listed in the following table:
 | `ResourceId` | Azure Resource Manager resource ID. |
 | `Message` | Informational message, which provides details about an error |
 
-## Event Hubs virtual network connection event schema
+### Event Hubs virtual network connection event schema
 Event Hubs virtual network (VNet) connection event JSON includes elements listed in the following table:
 
 | Name | Description |
@@ -180,7 +180,7 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 
 Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. [Enable IP filtering](../articles/event-hubs/event-hubs-ip-filtering.md), and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs IP filtering doesn't support IPv6 ranges. Note that you may see private endpoint addresses in the IPv6 format in the log. 
 
-### Example
+#### Example
 
 ```json
 {
@@ -195,7 +195,7 @@ Virtual network logs are generated only if the namespace allows access from **se
 }
 ```
 
-## Customer-managed key user logs
+### Customer-managed key user logs schema
 Customer-managed key user log JSON includes elements listed in the following table:
 
 | Name | Description |

@@ -37,51 +37,11 @@ Resource Logs aren't collected and stored until you create a diagnostic setting 
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Event Hubs are listed in [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md#resource-logs).
 
-### Azure Storage 
-The diagnostic logging information is stored in containers named **insights-logs-operationlogs** and **insights-metrics-pt1m**.
+If you use **Azure Storage** to store the diagnostic logging information, the information is stored in containers named **insights-logs-operationlogs** and **insights-metrics-pt1m**. Sample URL for an operation log: `https://<Azure Storage account>.blob.core.windows.net/insights-logs-operationallogs/resourceId=/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Namespace name>/y=<YEAR>/m=<MONTH-NUMBER>/d=<DAY-NUMBER>/h=<HOUR>/m=<MINUTE>/PT1H.json`. The URL for a metric log is similar. 
 
-Sample URL for an operation log: `https://<Azure Storage account>.blob.core.windows.net/insights-logs-operationallogs/resourceId=/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Namespace name>/y=<YEAR>/m=<MONTH-NUMBER>/d=<DAY-NUMBER>/h=<HOUR>/m=<MINUTE>/PT1H.json`. The URL for a metric log is similar. 
+If you use **Azure Event Hubs** to store the diagnostic logging information, the information is stored in event hubs named **insights-logs-operationlogs** and **insights-metrics-pt1m**. You can also select your own event hub. 
 
-### Azure Event Hubs
-The diagnostic logging information is stored in event hubs named **insights-logs-operationlogs** and **insights-metrics-pt1m**. You can also select your own event hub. 
-
-### Log Analytics 
-The diagnostic logging information is stored in tables named **AzureDiagnostics** and **AzureMetrics**. 
-
-### Sample operational log output (formatted)
-
-```json
-{
-	"Environment": "PROD",
-	"Region": "East US",
-	"ScaleUnit": "PROD-BL2-002",
-	"ActivityId": "a097a88a-33e5-4c9c-9c64-20f506ec1375",
-	"EventName": "Retrieve Namespace",
-	"resourceId": "/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/SPSBUS0213RG/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/SPSBUS0213NS",
-	"SubscriptionId": "<Azure subscription ID>",
-	"EventTimeString": "5/18/2021 3:25:55 AM +00:00",
-	"EventProperties": "{\"SubscriptionId\":\"<Azure subscription ID>\",\"Namespace\":\"spsbus0213ns\",\"Via\":\"https://spsbus0213ns.servicebus.windows.net/$Resources/topics?api-version=2017-04&$skip=0&$top=100\",\"TrackingId\":\"a097a88a-33e5-4c9c-9c64-20f506ec1375_M8CH3_M8CH3_G8\"}",
-	"Status": "Succeeded",
-	"Caller": "rpfrontdoor",
-	"category": "OperationalLogs"
-}
-```
-
-### Sample metric log output (formatted)
-
-```json
-{
-	"count": 1,
-	"total": 4,
-	"minimum": 4,
-	"maximum": 4,
-	"average": 4,
-	"resourceId": "/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/SPSBUS0213RG/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/SPSBUS0213NS",
-	"time": "2021-05-18T03:27:00.0000000Z",
-	"metricName": "IncomingMessages",
-	"timeGrain": "PT1M"
-}
-```
+If you use **Log Analytics** to store the diagnostic logging information, the information is stored in tables named **AzureDiagnostics** and **AzureMetrics**. 
 
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -104,6 +64,8 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 ### Filtering and splitting
 For metrics that support dimensions, you can apply filters using a dimension value. For example, add a filter with `EntityName` set to the name of an event hub. You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 
+:::image type="content" source="./media/monitor-event-hubs/metrics-filter-split.png" alt-text="Image showing filtering and splitting metrics":::
+
 ## Analyzing logs
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.
 
@@ -119,52 +81,40 @@ For a detailed reference of the logs and metrics, see [Azure Event Hubs monitori
 
 Following are sample queries that you can use to help you monitor your Azure Event Hubs resources: 
 
-+ Get management operations in the last 7 days. 
++ Get errors from the past 7 days
 
     ```Kusto
     AzureDiagnostics
     | where TimeGenerated > ago(7d)
-    | where ResourceProvider =="MICROSOFT.SERVICEBUS"
+    | where ResourceProvider =="MICROSOFT.EVENTHUB"
     | where Category == "OperationalLogs"
-    | summarize count() by EventName_s, _ResourceId
+    | summarize count() by "EventName"
     ```
 
 + Get access attempts to a key vault that resulted in "key not found" error.
 
     ```Kusto
     AzureDiagnostics
-    | where ResourceProvider == "MICROSOFT.SERVICEBUS" 
+    | where ResourceProvider == "MICROSOFT.EVENTHUB" 
     | where Category == "Error" and OperationName == "wrapkey"
-    | project Message, _ResourceId
-    ```
-
-+ Get errors from the past 7 days
-
-    ```Kusto
-    AzureDiagnostics
-    | where TimeGenerated > ago(7d)
-    | where ResourceProvider =="MICROSOFT.SERVICEBUS"
-    | where Category == "Error" 
-    | summarize count() by EventName_s, _ResourceId
+    | project Message
     ```
 
 + Get operations performed with a key vault to disable or restore the key.
 
     ```Kusto
     AzureDiagnostics
-    | where ResourceProvider == "MICROSOFT.SERVICEBUS"
-    | where (Category == "info" and (OperationName == "disable" or OperationName == "restore"))
-    | project Message, _ResourceId
+    | where ResourceProvider == "MICROSOFT.EVENTHUB"
+    | where Category == "info" and OperationName == "disable" or OperationName == "restore"
+    | project Message
     ```
-
-+ Get all the entities that have been autodeleted
++ Get capture failures and their duration in seconds
 
     ```kusto
     AzureDiagnostics
-    | where ResourceProvider == "MICROSOFT.SERVICEBUS"
-    | where Category == "OperationalLogs"
-    | where EventName_s startswith "AutoDelete"
-    | summarize count() by EventName_s, _ResourceId    
+    | where ResourceProvider == "MICROSOFT.EVENTHUB"
+    | where Category == "ArchiveLogs"
+    | summarize count() by "failures", "durationInSeconds"    
     ```
     
 ## Alerts
