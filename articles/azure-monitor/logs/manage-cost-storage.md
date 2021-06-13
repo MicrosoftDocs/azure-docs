@@ -19,83 +19,83 @@ ms.custom: devx-track-azurepowershell
 # Manage usage and costs with Azure Monitor Logs	
 
 > [!NOTE]
-> This article describes how to understand and control your costs for Azure Monitor Logs. A related article, [Monitoring usage and estimated costs](../usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. All prices and costs shown in this article are for example purposes only. 
+> This article describes how to understand and control your costs for Azure Monitor Logs. A related article, [Monitoring usage and estimated costs](../usage-estimated-costs.md), describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. All prices and costs in this article are for example purposes only. 
 
-Azure Monitor Logs is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't based only on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
+Azure Monitor Logs is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  Although this might be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't based only on the volume of data collected; it's also dependent on the selected plan, and how long you stored data generated from your connected sources.  
 
-In this article we review how you can proactively monitor ingested data volume and storage growth, and define limits to control those associated costs. 
+This article reviews how you can proactively monitor ingested data volume and storage growth. It also discuses how to define limits to control those associated costs. 
 
 ## Pricing model
 
-The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable depending on the following factors: 
+The default pricing for Log Analytics is a **Pay-As-You-Go** model that's based on ingested data volume and, optionally, for longer data retention. Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable, depending on the following factors: 
 
-  - Number of management solutions enabled and their configuration
-  - Number of VMs monitored
+  - The number of management solutions enabled and their configuration
+  - The number of monitored virtual machines (VMs)
   - Type of data collected from each monitored VM 
   
-In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers** which enable you to save as much as 30% compared to the Pay-As-You-Go price. The commitment tier pricing enables you to make a commitment to buy data ingestion starting at 100 GB/day at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) will be billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period. During the commitment period, you can change to a higher commitment tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower commitment tier until after the commitment period is finished. Billing for the commitment tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Commitment Tier pricing. 
+In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, which can save you as much as 30 percent compared to the Pay-As-You-Go price. With the commitment tier pricing, you can commit to buy data ingestion starting at 100 GB/day at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period. During the commitment period, you can change to a higher commitment tier (which restarts the 31-day commitment period), but you can't move back to Pay-As-You-Go or to a lower commitment tier until after you finish the commitment period. Billing for the commitment tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Commitment Tier pricing. 
 
 > [!NOTE]
-> Starting June 2, 2021, **Capacity Reservations** are now called **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Additionally, three new larger commitment tiers have been added at 1000, 2000 and 5000 GB/day. 
+> Starting June 2, 2021, **Capacity Reservations** are now called **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. There are also three new larger commitment tiers: 1000, 2000, and 5000 GB/day. 
 
-In all pricing tiers, an event's data size is calculated from a string representation of the properties that are stored in Log Analytics for this event, whether the data is sent from an agent or added during the ingestion process. This  includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the AzureActivity, Heartbeat and Usage types. To determine whether an event was excluded from billing for data ingestion, you can use the `_IsBillable` property as shown [below](#data-volume-for-specific-events). Usage is reported in GB (1.0E9 bytes). 
+In all pricing tiers, an event's data size is calculated from a string representation of the properties that are stored in Log Analytics for this event, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges; for example, the AzureActivity, Heartbeat, and Usage types. To determine whether an event was excluded from billing for data ingestion, you can use the `_IsBillable` property as shown [below](#data-volume-for-specific-events). Usage is reported in GB (1.0E9 bytes). 
 
 Also, some solutions, such as [Azure Defender (Security Center)](https://azure.microsoft.com/pricing/details/azure-defender/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), and [Configuration management](https://azure.microsoft.com/pricing/details/automation/) have their own pricing models. 
 
 ### Log Analytics Dedicated Clusters
 
-[Log Analytics Dedicated Clusters](logs-dedicated-clusters.md) are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters use a commitment tier pricing model that must be configured to at least 1000 GB/day. The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period, the commitment tier level cannot be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces is done at the cluster level using the configured commitment tier level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster) and [associating workspaces to it](customer-managed-keys.md#link-workspace-to-cluster). Commitment tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).
+[Log Analytics Dedicated Clusters](logs-dedicated-clusters.md) are collections of workspaces in a single managed Azure Data Explorer cluster to support advanced scenarios, like [Customer-Managed Keys](customer-managed-keys.md). Log Analytics Dedicated Clusters use a commitment tier pricing model that must be configured to at least 1000 GB/day. The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period, the commitment tier level can't be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces is done at the cluster level using the configured commitment tier level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster) and [associating workspaces to it](customer-managed-keys.md#link-workspace-to-cluster). For information about commitment tier pricing, see the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).
 
-The cluster commitment tier level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed at [Azure Monitor customer-managed key](customer-managed-keys.md#create-cluster).
+The cluster commitment tier level is programmatically configured with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. For more information, see [Azure Monitor customer-managed key](customer-managed-keys.md).
 
 There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](customer-managed-keys.md#customer-managed-key-operations). The two modes are: 
 
-1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. Per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
+- **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. Per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
 
-2. **Workspaces**: the commitment tier costs for your cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) for each workspace.) If the total data volume ingested into a cluster for a day is less than the commitment tier, then each workspace is billed for its ingested data at the effective per-GB commitment tier rate by billing them a fraction of the commitment tier, and the unused part of the commitment tier is billed to the cluster resource. If the total data volume ingested into a cluster for a day is more than the commitment tier, then each workspace is billed for a fraction of the commitment tier based on its fraction of the ingested data that day, and each workspace for a fraction of the ingested data above the commitment tier. There is nothing billed to the cluster resource if the total data volume ingested into a workspace for a day is above the commitment tier.
+- **Workspaces**: the commitment tier costs for your cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) for each workspace.) If the total data volume ingested into a cluster for a day is less than the commitment tier, each workspace is billed for its ingested data at the effective per-GB commitment tier rate by billing them a fraction of the commitment tier, and the unused part of the commitment tier is billed to the cluster resource. If the total data volume ingested into a cluster for a day is more than the commitment tier, each workspace is billed for a fraction of the commitment tier, based on its fraction of the ingested data that day and each workspace for a fraction of the ingested data above the commitment tier. If the total data volume ingested into a workspace for a day is above the commitment tier, nothing is billed to the cluster resource.
 
-In cluster billing options, data retention is billed for each workspace. Cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. Workspaces associated to a cluster no longer have their own pricing tier.
+In cluster billing options, data retention is billed for each workspace. Cluster billing starts when the cluster is created, regardless of whether workspaces are associated with the cluster. Workspaces associated to a cluster no longer have their own pricing tier.
 
 ## Estimating the costs to manage your environment 
 
-If you're not yet using Azure Monitor Logs, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate the cost of using Log Analytics. Start by entering "Azure Monitor" in the Search box, and clicking on the resulting Azure Monitor tile. Scroll down the page to Azure Monitor, and select Log Analytics from the Type dropdown.  Here you can enter the number of VMs and the GB of data you expect to collect from each VM. Typically 1 GB to 3 GB of data month is ingested from a typical Azure VM. If you're already evaluating Azure Monitor Logs already, you can use your data statistics from your own environment. See below for how to determine the [number of monitored VMs](#understanding-nodes-sending-data) and the [volume of data your workspace is ingesting](#understanding-ingested-data-volume). 
+If you're not yet using Azure Monitor Logs, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate the cost of using Log Analytics. In the **Search** box, enter "Azure Monitor", and then select the resulting Azure Monitor tile. Scroll down the page to **Azure Monitor**, and then select **Log Analytics** in the **Type** dropdown list. Here you can enter the number of virtual machiness and the number of gigabytes of data that you expect to collect from each VM. Typically, 1 GB to 3 GB of data per month is ingested from a typical Azure Virtual Machine. If you're already evaluating Azure Monitor Logs, you can use data statistics from your own environment. See below for how to determine the [number of monitored VMs](#understanding-nodes-sending-data) and the [volume of data your workspace is ingesting](#understanding-ingested-data-volume). 
 
 ## Understand your usage and estimate costs
 
-If you're using Azure Monitor Logs now, it's easy to understand what the costs are likely be based on recent usage patterns. To do this, use  **Log Analytics Usage and Estimated Costs** to review and analyze data usage. This shows how much data is collected by each solution, how much data is being retained and an estimate of your costs based on the amount of data ingested and any additional retention beyond the included amount.
+If you're using Azure Monitor Logs now, it's easy to understand what the costs are likely be, based on recent usage patterns. To do this, use **Log Analytics Usage and Estimated Costs** to review and analyze data usage. This shows how much data is collected by each solution, how much data is being retained, and an estimate of your costs based on the amount of data ingested and any additional retention beyond the included amount.
 
 :::image type="content" source="media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="Usage and estimated costs":::
 
-To explore your data in more detail, click on the icon at the top right of either of the charts on the **Usage and Estimated Costs** page. Now you can work with this query to explore more details of your usage.  
+To explore your data in more detail, select on the icon in the upper-right corner of either chart on the **Usage and Estimated Costs** page. Now you can work with this query to explore more details of your usage.  
 
 :::image type="content" source="media/manage-cost-storage/logs.png" alt-text="Logs view":::
 
 From the **Usage and Estimated Costs** page, you can review your data volume for the month. This includes all the billable data received and retained in your Log Analytics workspace.  
  
-Log Analytics charges are added to your Azure bill. You can see details of your Azure bill under the Billing section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
+Log Analytics charges are added to your Azure bill. You can see details of your Azure bill under the **Billing** section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
 ## Viewing Log Analytics usage on your Azure bill 
 
-Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. First, add a filter by "Resource type" (to microsoft.operationalinsights/workspace for Log Analytics and microsoft.operationalinsights/cluster for Log Analytics Clusters) will allow you to track your Log Analytics spend. Then for "Group by" select "Meter category" or "Meter". Other services such as Azure Defender (Security Center) and Azure Sentinel also bill their usage against Log Analytics workspace resources. To see the mapping to Service name, you can select the Table view instead of a chart. 
+Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) hub. For example, you can use the "Cost analysis" functionality to view your Azure resource expenses. To track your Log Analytics expenses, you can add a filter by "Resource type" (to microsoft.operationalinsights/workspace for Log Analytics and microsoft.operationalinsights/cluster for Log Analytics Clusters). For **Group by**, select **Meter category** or **Meter**. Other services, like Azure Defender (Security Center) and Azure Sentinel, also bill their usage against Log Analytics workspace resources. To see the mapping to the service name, you can select the Table view instead of a chart. 
 
-More understanding of your usage can be gained by [downloading your usage from the Azure portal](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). 
-In the downloaded spreadsheet, you can see usage per Azure resource (for example Log Analytics workspace) per day. In this Excel spreadsheet, usage from your Log Analytics workspaces can be found by first filtering on the "Meter Category" column to show "Log Analytics", "Insight and Analytics" (used by some of the legacy pricing tiers) and "Azure Monitor" (used by commitment tier pricing tiers), and then adding a filter on the "Instance ID" column that is "contains workspace" or "contains cluster" (the latter to include Log Analytics Cluster usage). The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](../../cost-management-billing/understand/review-individual-bill.md). 
+To gain more understanding of your usage, you can [download your usage from the Azure portal](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). 
+In the downloaded spreadsheet, you can see usage per Azure resource (for example, Log Analytics workspace) per day. In this Excel spreadsheet, usage from your Log Analytics workspaces can be found by first filtering on the "Meter Category" column to show "Log Analytics", "Insight and Analytics" (used by some of the legacy pricing tiers), and "Azure Monitor" (used by commitment tier pricing tiers), and then adding a filter on the "Instance ID" column that is "contains workspace" or "contains cluster" (the latter to include Log Analytics Cluster usage). The usage is shown in the "Consumed Quantity" column, and the unit for each entry is shown in the "Unit of Measure" column. For more information, see [Review your individual Azure subscription bill](../../cost-management-billing/understand/review-individual-bill.md). 
 
 ## Changing pricing tier
 
-To change the Log Analytics pricing tier of your workspace, 
+To change the Log Analytics pricing tier of your workspace:
 
-1. In the Azure portal, open **Usage and estimated costs** from your workspace where you'll see a list of each of the pricing tiers available to this workspace.
+1. In the Azure portal, open **Usage and estimated costs** from your workspace; you'll see a list of each of the pricing tiers available to this workspace.
 
-2. Review the estimated costs for each of the pricing tiers. This estimate is based on the last 31 days of usage, so this cost estimate relies on the last 31 days being representative of your typical usage. In the example below you can see how, based on the data patterns from the last 31 days, this workspace would cost less in the Pay-As-You-Go tier (#1) compared to the 100 GB/day commitment tier (#2).  
+2. Review the estimated costs for each pricing tier. This estimate is based on the last 31 days of usage, so this cost estimate relies on the last 31 days being representative of your typical usage. In the example below, you can see how, based on the data patterns from the last 31 days, this workspace would cost less in the Pay-As-You-Go tier (#1) compared to the 100 GB/day commitment tier (#2).  
 
 :::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Pricing tiers":::
     
-3. After reviewing the estimated costs based on the last 31 days of usage, if you decide to change the pricing tier, click **Select**.  
+3. After reviewing the estimated costs based on the last 31 days of usage, if you decide to change the pricing tier, select **Select**.  
 
 ### Changing pricing tier via ARM
 
-You can also [set the pricing tier via Azure Resource Manager](./resource-manager-workspace.md) using the `sku` object to set the pricing tier, and the `capacityReservationLevel` parameter if the pricing tier is `capacityresrvation`. (Learn more about [setting workspace properties via ARM](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces?tabs=json#workspacesku-object).) Here is a sample ARM template to set your workspace to a 300 GB/day commitment tier (which in ARM is called `capacityreservation`). 
+You can also [set the pricing tier via Azure Resource Manager](./resource-manager-workspace.md) using the `sku` object to set the pricing tier, and the `capacityReservationLevel` parameter if the pricing tier is `capacityresrvation`. (Learn more about [setting workspace properties via ARM](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces?tabs=json#workspacesku-object).) Here is a sample Azure Resource Manager template to set your workspace to a 300 GB/day commitment tier (in Resource Manager, it's called `capacityreservation`). 
 
 ```
 {
@@ -118,90 +118,90 @@ You can also [set the pricing tier via Azure Resource Manager](./resource-manage
 }
 ```
 
-To use this template via PowerShell, after [installing the Azure Az PowerShell module](/powershell/azure/install-az-ps), log into Azure using `Connect-AzAccount`, select the subscription containing your workspace using `Select-AzSubscription -SubscriptionId YourSubscriptionId`, and apply the template (saved in a file named template.json):
+To use this template in PowerShell, after [installing the Azure Az PowerShell module](/powershell/azure/install-az-ps), sign in to Azure using `Connect-AzAccount`, select the subscription containing your workspace using `Select-AzSubscription -SubscriptionId YourSubscriptionId`, and apply the template (saved in a file named template.json):
 
 ```
 New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -TemplateFile "template.json"
 ```
 
-To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the sku), omit the  `capacityReservationLevel` property. Learn more about [creating ARM templates](../../azure-resource-manager/templates/template-tutorial-create-first-template.md),  [adding a resource to your template](../../azure-resource-manager/templates/template-tutorial-add-resource.md), and [applying templates](../resource-manager-samples.md). 
+To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the SKU), omit the `capacityReservationLevel` property. Learn more about [creating ARM templates](../../azure-resource-manager/templates/template-tutorial-create-first-template.md),  [adding a resource to your template](../../azure-resource-manager/templates/template-tutorial-add-resource.md), and [applying templates](../resource-manager-samples.md). 
 
 ## Legacy pricing tiers
 
-Subscriptions which contained a Log Analytics workspace or Application Insights resource in it on April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019 and is still active, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)** and **Per Node (OMS)**. Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to 7 days. The Free Trial pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)**, and **Per Node (OMS)**. Workspaces in the Free Trial pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to 7 days. The Free Trial pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
 
 Usage on the Standalone pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". 
 
-The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that is not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. Note that on your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Usage is reported on three meters:
+The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. Note that on your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Usage is reported on three meters:
 
-1. Node: this is usage for the number of monitored nodes (VMs) in units of node*months.
-2. Data Overage per Node: this is the number of GB of data ingested in excess of the aggregated data allocation.
-3. Data Included per Node: this is the amount of ingested data that was covered by the aggregated data allocation. This meter is also used when the workspace is in all pricing tiers to show the amount of data covered by the Azure Defender (Security Center).
+- **Node**: this is usage for the number of monitored nodes (VMs) in units of node months.
+- **Data Overage per Node**: this is the number of GB of data ingested in excess of the aggregated data allocation.
+- **Data Included per Node**: this is the amount of ingested data that was covered by the aggregated data allocation. This meter is also used when the workspace is in all pricing tiers to show the amount of data covered by the Azure Defender (Security Center).
 
 > [!TIP]
-> If your workspace has access to the **Per Node** pricing tier, but you're wondering whether it would be cost less in a Pay-As-You-Go tier, you can [use the query below](#evaluating-the-legacy-per-node-pricing-tier) to easily get a recommendation. 
+> If your workspace has access to the **Per Node** pricing tier but you're wondering whether it would cost less in a Pay-As-You-Go tier, you can [use the query below](#evaluating-the-legacy-per-node-pricing-tier) to easily get a recommendation. 
 
-Workspaces created prior to April 2016 can also access the original **Standard** and **Premium** pricing tiers that have fixed data retention of 30 and 365 days respectively. New workspaces cannot be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it cannot be moved back. Data ingestion meters for these legacy tiers are called "Data analyzed".
+Workspaces created before April 2016 can also access the original **Standard** and **Premium** pricing tiers that have fixed data retention of 30 days and 365 days, respectively. New workspaces can't be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it can't be moved back. Data ingestion meters for these legacy tiers are called "Data analyzed."
 
 There are also some behaviors between the use of legacy Log Analytics tiers and how usage is billed for [Azure Defender (Security Center)](../../security-center/index.yml). 
 
-1. If the workspace is in the legacy Standard or Premium tier, Azure Defender will be billed only for Log Analytics data ingestion, not per node.
-2. If the workspace is in the legacy Per Node tier, Azure Defender will be billed using the current [Azure Defender node-based pricing model](https://azure.microsoft.com/pricing/details/security-center/). 
-3. In other pricing tiers (including commitment tiers), if Azure Defender was enabled before June 19, 2017, Azure Defender will be billed only for Log Analytics data ingestion. Otherwise Azure Defender will be billed using the current Azure Defender node-based pricing model.
+- If the workspace is in the legacy Standard or Premium tier, Azure Defender is billed only for Log Analytics data ingestion, not per node.
+- If the workspace is in the legacy Per Node tier, Azure Defender is billed using the current [Azure Defender node-based pricing model](https://azure.microsoft.com/pricing/details/security-center/). 
+- In other pricing tiers (including commitment tiers), if Azure Defender was enabled before June 19, 2017, Azure Defender is billed only for Log Analytics data ingestion. Otherwise, Azure Defender is billed using the current Azure Defender node-based pricing model.
 
 More details of pricing tier limitations are available at [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces).
 
 None of the legacy pricing tiers have regional-based pricing.  
 
 > [!NOTE]
-> To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
+> To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite, or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
 
 ## Log Analytics and Azure Defender (Security Center)
 
-[Azure Defender (Security Center)](../../security-center/index.yml) billing is closely tied to Log Analytics billing. Azure Defender provides 500 MB/node/day allocation against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) and the Update and UpdateSummary data types when the Update Management solution is not running on the workspace or solution targeting is enabled [learn more](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance). If the workspace is in the legacy Per Node pricing tier, the Azure Defender and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
+[Azure Defender (Security Center)](../../security-center/index.yml) billing is closely tied to Log Analytics billing. Azure Defender provides 500 MB/node/day allocation against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) and the Update and UpdateSummary data types when the Update Management solution isn't running on the workspace or solution targeting is enabled ([learn more](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)). If the workspace is in the legacy Per Node pricing tier, the Azure Defender and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
 
 ## Change the data retention period
 
-The following steps describe how to configure how long log data is kept by in your workspace. Data retention at the workspace level can be configured from 30 to 730 days (2 years) for all workspaces unless they are using the legacy Free pricing tier. Retention for individual data types can be set as low as 4 days. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about pricing for longer data retention.  To retain data longer than 730 days, consider using [Log Analytics workspace data export](logs-data-export.md).
+The following steps describe how to configure how long log data is kept by in your workspace. Data retention at the workspace level can be configured from 30 to 730 days (2 years) for all workspaces unless they're using the legacy Free Trial pricing tier. Retention for individual data types can be set as low as 4 days. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about pricing for longer data retention. To retain data longer than 730 days, consider using [Log Analytics workspace data export](logs-data-export.md).
 
 ### Workspace level default retention
 
-To set the default retention for your workspace, 
+To set the default retention for your workspace:
  
-1. In the Azure portal, from your workspace, select **Usage and estimated costs** from the left pane.
-2. On the **Usage and estimated costs** page, click **Data Retention** from the top of the page.
-3. On the pane, move the slider to increase or decrease the number of days and then click **OK**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.
+1. In the Azure portal, from your workspace, select **Usage and estimated costs** in the left pane.
+2. On the **Usage and estimated costs** page, select **Data Retention** at the top of the page.
+3. On the pane, move the slider to increase or decrease the number of days, and then select **OK**.  If you're on the *free* tier, you can't modify the data retention period; you need to upgrade to the paid tier to control this setting.
 
 :::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Change workspace data retention setting":::
 
-When the retention is lowered, there is a grace period of several days before the data older than the new retention setting is removed. 
+When the retention is lowered, there's a grace period of several days before the data older than the new retention setting is removed. 
 
-The **Data Retention** page allows retention settings of 30, 31, 60, 90, 120, 180, 270, 365, 550 and 730 days. If another setting is required, that can be configured using [Azure Resource Manager](./resource-manager-workspace.md) using the `retentionInDays` parameter. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter (eliminating the grace period). This may be useful for compliance-related scenarios where immediate data removal is imperative. This immediate purge functionality is only exposed via Azure Resource Manager. 
+The **Data Retention** page allows retention settings of 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. If another setting is required, that can be configured using [Azure Resource Manager](./resource-manager-workspace.md) using the `retentionInDays` parameter. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter (eliminating the grace period). This might be useful for compliance-related scenarios where immediate data removal is imperative. This immediate purge functionality is only exposed via Azure Resource Manager. 
 
-Workspaces with 30 days retention may actually retain data for 31 days. If it is imperative that data be kept for only 30 days, use the Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.  
+Workspaces with 30 days retention might actually retain data for 31 days. If it's imperative that data be kept for only 30 days, use the Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.  
 
-Two data types -- `Usage` and `AzureActivity` -- are retained for a minimum of 90 days by default, and there is no charge for this 90-day retention. If the workspace retention is increased above 90 days, the retention of these data types will also be increased.  These data types are also free from data ingestion charges. 
+By default, two data types - `Usage` and `AzureActivity` - are retained for a minimum of 90 days at no charge. If the workspace retention is increased to more than 90 days, the retention of these data types is also increased. These data types are also free from data ingestion charges. 
 
-Data types from workspace-based Application Insights resources (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents`, and `AppTraces`) are also retained for 90 days by default, and there is no charge for this 90-day retention. Their retention can be adjust using the retention by data type functionality. 
+Data types from workspace-based Application Insights resources (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents`, and `AppTraces`) are also retained for 90 days at no charge by default. Their retention can be adjusted using the retention by data type functionality. 
 
-The Log Analytics [purge API](/rest/api/loganalytics/workspacepurge/purge) does not affect retention billing and is intended to be used for very limited cases. To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types. 
+The Log Analytics [purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types. 
 
 ### Retention by data type
 
-It is also possible to specify different retention settings for individual data types from 4 to 730 days (except for workspaces in the legacy Free pricing tier) that override the workspace level default retention. Each data type is a sub-resource of the workspace. For instance the SecurityEvent table can be addressed in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
+It's also possible to specify different retention settings for individual data types from 4 to 730 days (except for workspaces in the legacy Free Trial pricing tier) that override the workspace-level default retention. Each data type is a sub-resource of the workspace. For example, the SecurityEvent table can be addressed in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Note that the data type (table) is case sensitive.  To get the current per-data-type retention settings of a particular data type (in this example SecurityEvent), use:
+Note that the data type (table) is case sensitive. To get the current per-data-type retention settings of a particular data type (in this example SecurityEvent), use:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
 ```
 
 > [!NOTE]
-> Retention is only returned for a data type if the retention has been explicitly set for it.  Data types which have not had retention explicitly set (and thus inherit the workspace retention) will not return anything from this call. 
+> Retention is only returned for a data type if the retention is explicitly set for it. Data types that don't have retention explicitly set (and thus inherit the workspace retention) don't return anything from this call. 
 
 To get the current per-data-type retention settings for all data types in your workspace that have had their per-data-type retention set, just omit the specific data type, for example:
 
@@ -209,7 +209,7 @@ To get the current per-data-type retention settings for all data types in your w
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
 ```
 
-To set the retention of a particular data type (in this example SecurityEvent) to 730 days, do
+To set the retention of a particular data type (in this example SecurityEvent) to 730 days, use:
 
 ```JSON
     PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
@@ -223,7 +223,7 @@ To set the retention of a particular data type (in this example SecurityEvent) t
 
 Valid values for `retentionInDays` are from 30 through 730.
 
-The `Usage` and `AzureActivity` data types cannot be set with custom retention. They will take on the maximum of the default workspace retention or 90 days. 
+The `Usage` and `AzureActivity` data types can't be set with custom retention. They take on the maximum of the default workspace retention or 90 days. 
 
 A great tool to connect directly to Azure Resource Manager to set retention by data type is the OSS tool [ARMclient](https://github.com/projectkudu/ARMClient).  Learn more about ARMclient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Here's an example using ARMClient, setting SecurityEvent data to a 730-day retention:
 
@@ -232,15 +232,15 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 ```
 
 > [!TIP]
-> Setting retention on individual data types can be used to reduce your costs for data retention.  For data collected starting in October 2019 (when this feature was released), reducing the retention for some data types can  reduce your  retention cost over time.  For data collected earlier, setting a lower retention for an individual type will not affect your retention costs.  
+> Setting retention on individual data types can be used to reduce your costs for data retention. For data collected starting in October 2019 (when this feature was released), reducing the retention for some data types can reduce your retention cost over time. For data collected earlier, setting a lower retention for an individual type won't affect your retention costs.  
 
 ## Manage your maximum daily data volume
 
-You can configure a daily cap and limit the daily ingestion for your workspace, but use care as your goal should not be to hit the daily limit.  Otherwise, you lose data for the remainder of the day, which can impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace.  As a result, your ability to observe and receive alerts when the health conditions of resources supporting IT services are impacted.  The daily cap is intended to be used as a way to manage an **unexpected increase** in data volume from your managed resources and stay within your limit, or when you want to limit unplanned charges for your workspace. It is not appropriate to set a daily cap so that it is met each day on a workspace.
+You can configure a daily cap and limit the daily ingestion for your workspace, but use care because your goal shouldn't be to hit the daily limit. Otherwise, you lose data for the remainder of the day, which can impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace. As a result, your ability to observe and receive alerts when the health conditions of resources supporting IT services are impacted. The daily cap is intended to be used as a way to manage an **unexpected increase** in data volume from your managed resources and stay within your limit, or when you want to limit unplanned charges for your workspace. It's not appropriate to set a daily cap so that it's met each day on a workspace.
 
-Each workspace has its daily cap applied on a different hour of the day. The reset hour is shown in the **Daily Cap** page (see below). This reset hour cannot be configured. 
+Each workspace has its daily cap applied on a different hour of the day. The reset hour is shown in the **Daily Cap** page (see below). This reset hour can't be configured. 
 
-Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. Latency inherent in applying the daily cap means that the cap is not applied at precisely the specified daily cap level. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached (see [below](#alert-when-daily-cap-reached)). 
+Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. Latency inherent in applying the daily cap means that the cap isn't applied at precisely the specified daily cap level. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under the **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit is reached (see [below](#alert-when-daily-cap-reached)). 
 
 > [!NOTE]
 > The daily cap cannot stop data collection as precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it is still billed. See [below](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
