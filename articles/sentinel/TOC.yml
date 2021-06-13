@@ -398,6 +398,6 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   - name: Feature availability for US Government clouds
-    href: /azure/security/fundamentals/feature-availability
+    href: ../security/fundamentals/feature-availability.md
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md

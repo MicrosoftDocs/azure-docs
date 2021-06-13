@@ -194,7 +194,7 @@ Learn how Security Center can protect your containerized environments in [Contai
 
 ### Assessments API expanded with two new fields
 
-We've added the following two fields to the [Assessments REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments):
+We've added the following two fields to the [Assessments REST API](/rest/api/securitycenter/assessments):
 
 - **FirstEvaluationDate** – The time that the recommendation was created and first evaluated. Returned as UTC time in ISO 8601 format.
 - **StatusChangeDate** – The time that the status of the recommendation last changed. Returned as UTC time in ISO 8601 format.
@@ -212,7 +212,7 @@ To access this information, you can use any of the methods in the table below.
 |                      |                                                                                                                                                                        |
 
 
-Learn more about the [Assessments REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments).
+Learn more about the [Assessments REST API](/rest/api/securitycenter/assessments).
 
 
 ### Asset inventory gets a cloud environment filter
