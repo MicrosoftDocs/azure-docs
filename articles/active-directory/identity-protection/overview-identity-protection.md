@@ -53,10 +53,11 @@ Identity Protection identifies risks in the following classifications:
 | Unfamiliar sign-in properties | Sign in with properties we've not seen recently for the given user. |
 | Leaked Credentials | Indicates that the user's valid credentials have been leaked. |
 | Password spray | Indicates that multiple usernames are being attacked using common passwords in a unified, brute-force manner. |
+| Suspicious Browser | Suspicious browser detection indicates anomalous behavior based on suspicious sign-ins activity across multiple tenants from different countries in the same browser. |
 | Azure AD threat intelligence | Microsoft's internal and external threat intelligence sources have identified a known attack pattern. |
 | New country | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). |
 | Activity from anonymous IP address | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). |
-| Suspicious inbox forwarding | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). |
+| Suspicious inbox forwarding | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding).| 
 
 More detail on these risks and how/when they are calculated can be found in the article, [What is risk](concept-identity-protection-risks.md).
 
