@@ -198,7 +198,7 @@ The query for metric measurement rules must include a numeric property called *A
 ### Create the alert rule
 Select **Logs** from the Azure Monitor menu to Open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the top left and select the correct workspace. Paste in the query that has the logic you want and click **Run** to verify that it returns the correct results.
 
-![]()
+![Metric measurement alert query results in Log Analytics]()
 
 Click **New alert rule** to create a rule with the current query. The rule will use your workspace for the **Resource**.
 
@@ -210,6 +210,7 @@ Scroll down to **Alert logic** and select **Metric measurement** for the **Based
 
 Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query will only use data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value will make the alert rule more responsive but also have a higher cost. Specify **15** to run the query every minutes.
 
+![Final metric measurement alert rule]()
 
 ### Number of results rule
 The **number of results** rule will create a single alert when a query returns at least a specified number of records.  The log query in this type of alert rule will typically identify the alerting condition, while the threshold for the alert rule determines if a sufficient number of records are returned.
@@ -254,7 +255,7 @@ InsightsMetrics
 ### Create the alert rule
 Select **Logs** from the Azure Monitor menu to Open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the top left and select the correct workspace. Paste in the query that has the logic you want and click **Run** to verify that it returns the correct results.
 
-![]()
+![Number results alert query results in Log Analytics]()
 
 Click **New alert rule** to create a rule with the current query. The rule will use your workspace for the **Resource**.
 
@@ -264,12 +265,7 @@ Scroll down to **Alert logic** and select **Number of results** for the **Based 
 
 Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query will only use data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value will make the alert rule more responsive but also have a higher cost. Specify **15** to run the query every minutes.
 
-![]()
-
-### Resulting alert
-
-
-
+![Final number of results alert rule]()
 
 
 

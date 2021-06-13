@@ -36,7 +36,7 @@ The following table lists the steps that must be performed for this configuratio
 
 
 ## No configuration
-Azure Monitor provides a basic level of monitoring for Azure virtual machines at no cost and with no configuration. Platform metrics for Azure virtual machines include important metrics such as CPU, network, and disk utilization and can be viewed on the [Overview page](monitor-virtual-machine-analyze.md#analysis-scenarios ) for the machine in the Azure portal. The Activity log is also collected automatically and includes the recent activity of the machine such as any configuration changers and when it's been stopped and started. | 
+Azure Monitor provides a basic level of monitoring for Azure virtual machines at no cost and with no configuration. Platform metrics for Azure virtual machines include important metrics such as CPU, network, and disk utilization and can be viewed on the [Overview page](monitor-virtual-machine-analyze.md#single-machine-experience) for the machine in the Azure portal. The Activity log is also collected automatically and includes the recent activity of the machine such as any configuration changers and when it's been stopped and started. 
 
 ## Create and prepare Log Analytics workspace
 You require at least one Log Analytics workspace to support VM insights and to collect telemetry from the Log Analytics agent. There is no cost for the workspace, but you do incur ingestion and retention costs when you collect data. See [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md) for details.
