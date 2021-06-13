@@ -47,7 +47,7 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. In the now-expanded **Entity mapping** section, select an entity type from the **Entity type** drop-down list.
 
-    :::image type="content" source="media/map-data-fields-to-entities/choose-entity-type.png" alt-text="Map fields to entities":::
+    :::image type="content" source="media/map-data-fields-to-entities/choose-entity-type.png" alt-text="Choose an entity type":::
 
 1. Select an **identifier** for the entity. Identifiers are attributes of an entity that can sufficiently identify it. Choose one from the **Identifier** drop-down list, and then choose a data field from the **Value** drop-down list that will correspond to the identifier. With some exceptions, the **Value** list is populated by the data fields in the table defined as the subject of the rule query.
 
