@@ -55,32 +55,6 @@ You may also have a condition where you have different data available for differ
 > When VM insights supports the Azure Monitor Agent which is currently in public preview, then it will send performance data from the guest operating system to Metrics so that you can use metric alerts.
 
 
-### Log alert rules
-[Log query alert rules](../alerts/alerts-log-query.md) are useful for alerting on any values stored in a Log Analytics workspace, including all of the data collected by VM insights. This also includes non-metric data such as events and logs and numeric data that isn't stored in Metrics. Since a log query can include almost limitless complexity, you'll probably use a log query alert whenever you can't use a metric alert.
-
-There are two types of log query alert rule in Azure Monitor:
-
-- [Metric measurement alerts](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for performance data collected by VM insights since they can create individual alerts for each computer.
-- [Number of results alerts](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../agents/log-analytics-agent.md) or for analyzing performance trends across multiple computers.
-
-
-
-### Metric measurement rule walkthrough
-This section walks through the creation of a metric measurement alert rule using performance data from VM insights. You can use this basic process with a variety of log queries to alert on different performance counters.
-
-Start by creating a new alert rule following the procedure in [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md). For the **Resource**, select the Log Analytics workspace that Azure Monitor VMs uses in your subscription. Since the target resource for log alert rules is always a Log Analytics workspace, the log query must include any filter for particular virtual machines or virtual machine scale sets. 
-
-For the **Condition** of the alert rule, use one of the queries in the [section below](#sample-alert-queries) as the **Search query**. The query must return a numeric property called *AggregatedValue*. It should summarize the data by computer so that you can create a separate alert for each virtual machine that exceeds the threshold.
-
-In the **Alert logic**, select **Metric measurement** and then provide a **Threshold value**. In **Trigger Alert Based On**, specify how many times the threshold must be exceeded before an alert is created. For example, you probably don't care if the processor exceeds a threshold once and then returns to normal, but you do care if it continues to exceed the threshold over multiple consecutive measurements.
-
-The **Evaluated based on** section defines how often the query is run and the time window for the query. In the example shown below, the query will run every 15 minutes and evaluate performance values collected over the previous 15 minutes. You can modify these values to make the alert rule more responsive, but this would result in additional cost.
-
-
-![Metric measurement alert rule](media/vminsights-alerts/metric-measurement-alert.png)
-
-
-
 ## Target resource and impacted resource
 Each alert in Azure Monitor has an **Affected resource** property. When you create an alert rule, you specify a target resource, which is the Azure resource with the data to analyze for the alert. This resource will typically define the **Affected resource** for the alert which is which is displayed in the standard alert view.
 
@@ -175,82 +149,16 @@ A metric called *Heartbeat* is included in each Log Analytics workspace. Each vi
 
 Use the guidance above to create metric measurement alert rules using each of the following queries. You can also modify these queries according to your particular requirements.
 
-### CPU
-#### CPU utilization for all machines
+| Description | Query |
+|:---|:---|
+| CPU utilization | `InsightsMetrics | where Origin == "vm.azm.ms" | where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId`  |
+| CPU utilization for all compute resources in a subscription | `InsightsMetrics | where Origin == "vm.azm.ms" | where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" and (_ResourceId contains "/providers/Microsoft.Compute/virtualMachines/" or _ResourceId contains "/providers/Microsoft.Compute/virtualMachineScaleSets/") | where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId` |
+| CPU utilization for all compute resources in a resource group | `InsightsMetrics | where Origin == "vm.azm.ms" | where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/" or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachineScaleSets/" | where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId` |
+| Available Memory in MB | `InsightsMetrics | where Origin == "vm.azm.ms" | where Namespace == "Memory" and Name == "AvailableMB" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId` | 
+| Available Memory in percentage | `InsightsMetrics | where Origin == "vm.azm.ms" | where Namespace == "Memory" and Name == "AvailableMB" | extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"]) | extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0 | summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer, _ResourceId ` |
 
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms" 
-| where Namespace == "Processor" and Name == "UtilizationPercentage" 
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
-```
 
-#### CPU utilization for Virtual machine scale set
-Modify with your subscription ID, resource group, and virtual machine scale set name.
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachineScaleSets/my-vm-scaleset" 
-| where Namespace == "Processor" and Name == "UtilizationPercentage"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
-```
-
-#### CPU utilization for specific virtual machine
-Modify with your subscription ID, resource group, and VM name.
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where _ResourceId =~ "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" 
-| where Namespace == "Processor" and Name == "UtilizationPercentage"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m)
-```
-
-#### CPU utilization for all compute resources in a subscription
-Modify with your subscription ID.
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" and (_ResourceId contains "/providers/Microsoft.Compute/virtualMachines/" or _ResourceId contains "/providers/Microsoft.Compute/virtualMachineScaleSets/")
-| where Namespace == "Processor" and Name == "UtilizationPercentage"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
-```
-
-#### CPU utilization for all compute resources in a resource group
-Modify with your subscription ID and resource group.
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/"
-or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachineScaleSets/" 
-| where Namespace == "Processor" and Name == "UtilizationPercentage"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
-```
-### Memory
-
-#### Available Memory in MB
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms"
-| where Namespace == "Memory" and Name == "AvailableMB"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
-```
-
-#### Available Memory in percentage
-
-```kusto
-InsightsMetrics 
-| where Origin == "vm.azm.ms" 
-| where Namespace == "Memory" and Name == "AvailableMB" 
-| extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"])
-| extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0 
-| summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer, _ResourceId 
-```
-
+##
 ### Disk
 #### Logical disk used - all disks on each computer
 
