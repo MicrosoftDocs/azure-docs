@@ -27,7 +27,7 @@ landingContent:
           - text: What is Azure Form Recognizer?
             url: overview.md
           - text: What are Azure Applied AI Services?
-            url: https://aka.ms/applied-ai-services-hub
+            url: ../../applied-ai-services/index.yml
       - linkListType: whats-new
         links:
           - text: What's new in Azure Form Recognizer?

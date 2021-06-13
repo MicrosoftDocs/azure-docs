@@ -401,7 +401,7 @@ For information on how to connect to Media Services v2, see [Access the Azure Me
 
 ### Media Services Video Indexer
 
-For more information, see [Create a Video Indexer account](../media-services/video-indexer/connect-to-azure.md#video-indexer-in-azure-government).
+For more information, see [Create a Video Indexer account](../azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure.md#create-a-new-account-on-azure).
 
 
 ## Migration

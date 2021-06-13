@@ -185,5 +185,5 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 ## Next steps
 
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](../templates/rollback-on-error.md).
-- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](../templates/syntax.md).
 - For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](../templates/secure-template-with-sas-token.md).
