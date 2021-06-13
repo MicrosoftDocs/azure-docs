@@ -63,7 +63,7 @@ The following table displays the current Security Center feature availability in
 | [Email notifications for security alerts](/azure/security-center/security-center-provide-security-contact-details)                                 | GA             | GA               |
 | [Auto provisioning for agents and extensions](/azure/security-center/security-center-enable-data-collection)                                       | GA             | GA               |
 | [Asset inventory](/azure/security-center/asset-inventory)                                                                                          | GA             | GA               |
-| [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](/azure/security-center/custom-dashboards-azure-workbooks)           | Public Preview | Public Preview   |
+| [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](/azure/security-center/custom-dashboards-azure-workbooks)           | GA             | GA               |
 | **Azure Defender plans and extensions**                                                                                                            |                |                  |
 | [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction)                                                             | GA             | GA               |
 | [Azure Defender for App Service](/azure/security-center/defender-for-app-service-introduction)                                                     | GA             | Not Available    |
