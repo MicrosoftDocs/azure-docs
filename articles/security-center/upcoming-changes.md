@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 06/12/2021
+ms.date: 06/13/2021
 ms.author: memildin
 
 ---
@@ -24,21 +24,10 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change                                                                                                                                                        | Estimated date for change |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | June 2021                  |
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | June 2021                 |
 | [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                     | Q3 2021                   |
 | [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)                       | Q3 2021                   |
 |                                                                                                                                                                       |                           |
-
-
-### Two recommendations from "Apply system updates" security control being deprecated
-
-**Estimated date for change:** June 2021
-
-The following two recommendations are being deprecated:
-
-- **OS version should be updated for your cloud service roles** - By default, Azure periodically updates your guest OS to the latest supported image within the OS family that you've specified in your service configuration (.cscfg), such as Windows Server 2016.
-- **Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version** - This recommendation's evaluations aren't as wide-ranging as we'd like them to be. The current version of this recommendation will eventually be replaced with an enhanced version that's better aligned with our customer's security needs.
 
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
