@@ -236,6 +236,9 @@ The following example configuration demonstrates how to override an error code.
 
 The `networking` section controls the network configuration of your static web app. To restrict access to your app, specify a list of allowed IP address blocks in `allowedIpRanges`.
 
+> [!NOTE]
+> Networking configuration is only available in the Azure Static Web Apps Standard plan.
+
 Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 ```json
