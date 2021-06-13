@@ -4,7 +4,7 @@ titleSuffix: Azure Applied AI Services
 description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key value pairs from documents.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/11/2021
@@ -38,7 +38,7 @@ To complete this quickstart, you must have:
 
 ## Try it out
 
-To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-2.1.azurewebsites.net/).
+To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-2-1.azurewebsites.net/).
 
 ### [v2.1](#tab/v2-1)
 

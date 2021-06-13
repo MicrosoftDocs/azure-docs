@@ -4,7 +4,7 @@ description: This article gives answers to frequently asked questions about Azur
 services: automation
 ms.subservice: 
 ms.topic: conceptual
-ms.date: 12/17/2020 
+ms.date: 06/04/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -28,7 +28,7 @@ When you deploy updates to a Linux machine, you can select update classification
 
 Because Update Management performs update enrichment in the cloud, you can flag some updates in Update Management as having a security impact, even though the local machine doesn't have that information. If you apply critical updates to a Linux machine, there might be updates that aren't marked as having a security impact on that machine and therefore aren't applied. However, Update Management might still report that machine as noncompliant because it has additional information about the relevant update.
 
-Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. For SUSE, selecting ONLY **Other updates** as the classification can install some other security updates if they are related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you might be required to rerun the update deployment and then verify the deployment through the update log.
+Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. For SUSE, selecting ONLY **Other updates** as the classification can install some other security updates if they're related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you might be required to rerun the update deployment and then verify the deployment through the update log.
 
 ### Can I deploy updates across Azure tenants?
 
@@ -52,25 +52,61 @@ For cloud jobs, Python 3.8 is supported. Scripts and packages from any 3.x versi
 
 For hybrid jobs on Windows Hybrid Runbook Workers, you can choose to install any 3.x version you want to use. For hybrid jobs on Linux Hybrid Runbook Workers, we depend on Python 3 version installed on the machine to run DSC OMSConfig and the Linux Hybrid Worker. We recommend installing version 3.6; however, different versions should also work if there are no breaking changes in method signatures or contracts between versions of Python 3.
 
-### Can Python 2 and Python 3 runbooks run in same automation account?
+### Can Python 2 and Python 3 runbooks run in same Automation account?
 
-Yes, there is no limitation for using Python 2 and Python 3 runbooks in same automation account.  
+Yes, there's no limitation for using Python 2 and Python 3 runbooks in same Automation account.  
 
 ### What is the plan for migrating existing Python 2 runbooks and packages to Python 3?
 
-Azure Automation does not plan to migrate Python 2 runbooks and packages to Python 3. You will have to perform this migration yourself. Existing and new Python 2 runbooks and packages will continue to work.
+Azure Automation doesn't plan to migrate Python 2 runbooks and packages to Python 3. You'll have to do this migration yourself. Existing and new Python 2 runbooks and packages will continue to work.
 
 ### What are the packages supported by default in Python 3 environment?
 
 Azure package 4.0.0 is installed by default in Python 3 Automation environment. You can manually import a higher version of Azure package to override the default version.
 
-### What if I run a Python 3 runbook that references a Python 2 package or vice-versa?
+### What if I run a Python 3 runbook that references a Python 2 package or the other way around?
 
 Python 2 and Python 3 have different execution environments. While a Python 2 runbook is running, only Python 2 packages can be imported and similar for Python 3.
 
 ### How do I differentiate between Python 2 and Python 3 runbooks and packages?
 
 Python 3 is a new runbook definition, which distinguishes between Python 2 and Python 3 runbooks. Similarly, another package kind is introduced for Python 3 packages.
+
+### How does a Hybrid Runbook Worker know which version of Python to run when both Python2 and Python3 are installed?
+
+For a Windows Runbook Worker, when running a Python 2 runbook it looks for the environment variable `PYTHON_2_PATH` first and validates whether it points to a valid executable file. For example, if the installation folder is `C:\Python2`, it would check if `C:\Python2\python.exe` is a valid path. If not found, then it looks for the `PATH` environment variable to do a similar check.
+
+For Python 3, it looks for the `PYTHON_3_PATH` env variable first and then falls back to the `PATH` environment variable.
+
+When using only one version of Python, you can add the installation path to the `PATH` variable. If you want to use both versions on the Runbook Worker, set `PYTHON_2_PATH` and `PYTHON_3_PATH` to the location of the module for those versions.
+
+### How does a Hybrid Runbook Worker locate the Python interpreter?
+
+Locating the Python module is controlled by environment variables as explained earlier.
+
+### Is Python 3 supported in Source Control?
+
+No. Source Control isn't currently supported for Python 3. By default, Python runbooks are synced as Python 2 runbooks.
+
+### How can a runbook author know what Python packages are available in an Azure sandbox?
+
+Use the following code to list the default installed modules:
+
+```python
+#!/usr/bin/env python3
+
+import pkg_resources
+installed_packages = pkg_resources.working_set
+installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
+   for i in installed_packages])
+
+for package in installed_packages_list:
+    print(package)
+```
+
+### How can a runbook author set which version of a package module to be used if there are multiple modules?
+
+The default version can be overridden by importing the Python packages in the Automation account. Preference is given to the imported version in the Automation account.
 
 ## Next steps
 

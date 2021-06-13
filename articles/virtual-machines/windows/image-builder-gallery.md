@@ -26,18 +26,6 @@ Be aware how many times you layer customizations. You can run the Sysprep comman
 ## Register the features
 To use Azure Image Builder, you need to register the feature.
 
-```powershell
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Check the status of the feature registration.
-
-```powershell
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Wait until `RegistrationState` is `Registered` before moving to the next step.
-
 Check your provider registrations. Make sure each returns `Registered`.
 
 ```powershell
