@@ -20,6 +20,7 @@ Here are some use cases for telemetry processors:
  * Conditionally add custom dimensions.
  * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
  * Drop specific span attribute(s) to control ingestion costs.
+ * Filter out some metrics to control ingestion costs.
 
 > [!NOTE]
 > If you are looking to drop specific (whole) spans for controlling ingestion cost,
@@ -51,7 +52,7 @@ The trace message or body is the primary display for logs in the Azure portal. L
 
 ## Telemetry processor types
 
-Currently, the three types of telemetry processors are attribute processors, span processors and log processors.
+Currently, the four types of telemetry processors are attribute processors, span processors, log processors, and metric filters.
 
 An attribute processor can insert, update, delete, or hash attributes of a telemetry item (`span` or `log`).
 It can also use a regular expression to extract one or more new attributes from an existing attribute.
@@ -61,6 +62,8 @@ It can also use a regular expression to extract one or more new attributes from 
 
 A log processor can update the telemetry name of logs.
 It can also use a regular expression to extract one or more new attributes from the log name.
+
+A metric filter can filter out metrics to help control ingestion cost.
 
 > [!NOTE]
 > Currently, telemetry processors process only attributes of type string. They don't process attributes of type Boolean or number.
@@ -88,6 +91,10 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
       },
       {
         "type": "log",
+        ...
+      },
+      {
+        "type": "metric-filter",
         ...
       }
     ]
@@ -546,3 +553,34 @@ All specified conditions must evaluate to true to result in a match.
 ]
 ```
 For more information, see [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md).
+
+## Metric filter
+
+Metric filter are used to exclude some metrics in order to help control ingestion cost.
+
+## Exclude criteria (metric filters)
+
+Metric filters only support `exclude` criteria. And metrics that match its `exclude` criteria will not be exported.
+
+To configure this option, under `exclude`, specify the `matchType` one or more `metricNames`.
+
+* **Required field**:
+  * `matchType` controls how items in `metricNames` are matched. Possible values are `regexp` and `strict`.
+  * `metricNames` must match at least one of the items.
+
+### Sample usage
+
+```json
+"processors": [
+  {
+    "type": "metric-filter",
+    "exclude": {
+      "matchType": "strict",
+      "metricNames": [
+        "metricA",
+        "metricB"
+      ]
+    }
+  }
+]
+```

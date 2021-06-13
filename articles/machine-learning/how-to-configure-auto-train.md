@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/29/2020
+ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
 ---
@@ -17,7 +17,7 @@ ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-am
 
 In this guide, learn how to set up an AutoML training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure these types of experiments.
 
-For an end to end example, see [Tutorial: Train a regression model with automated machine learning](tutorial-auto-train-models.md).
+For an end to end example, see [Tutorial: AutoML- train regression model](tutorial-auto-train-models.md).
 
 Configuration options available in automated ML:
 
@@ -148,7 +148,7 @@ Some examples include:
    ```
 
 
-1. Forecasting tasks require extra setup, see the [Autotrain a time-series forecast model](how-to-auto-train-forecast.md) article for more details. 
+1. Forecasting tasks require extra setup, see the [Set up AutoML for time-series forecasting](how-to-auto-train-forecast.md) article for more details. 
 
     ```python
     time_series_settings = {

@@ -48,4 +48,4 @@ When you use a template, you need to set the `enabledForDeployment` property to 
 ```
 
 ## Next steps
-For other options that you can configure when you create a Key Vault by using templates, see [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+For other options that you can configure when you create a Key Vault by using templates, see [Create a key vault](https://azure.microsoft.com/resources/templates/key-vault-create/).
