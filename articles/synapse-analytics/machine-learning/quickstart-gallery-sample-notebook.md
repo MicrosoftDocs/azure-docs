@@ -64,7 +64,7 @@ To save your notebook by selecting **Publish** on the workspace command bar.
 
 ## Copying the sample notebook
 
-To make a copy of this notebook, click the elipsis in the top command bar and select **Clone** to create a copy in your workspace or **Export** to download a copy of the notebook (`.ipynb`) file.
+To make a copy of this notebook, click the ellipsis in the top command bar and select **Clone** to create a copy in your workspace or **Export** to download a copy of the notebook (`.ipynb`) file.
 
 :::image type="content" source="media\quickstart-gallery-sample-notebook\copy-notebook.png" alt-text="Make a copy of the notebook with the Export or Clone command.":::
 
