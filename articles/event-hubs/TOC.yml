@@ -213,7 +213,7 @@
           href: apache-kafka-frequently-asked-questions.yml
     - name: Manage and monitor
       items:
-        - name: Monitor Event Hubs with Azure Monitoring
+        - name: Monitor Azure Event Hubs
           href: event-hubs-metrics-azure-monitor.md
         - name: Set up diagnostic logs
           href: event-hubs-diagnostic-logs.md
@@ -255,6 +255,8 @@
         href: move-cluster-across-regions.md
 - name: Reference
   items:
+    - name: Monitor data Reference
+      href: monitor-event-hubs-reference.md
     - name: SDKs
       href: sdks.md
     - name: .NET
