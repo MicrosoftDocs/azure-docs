@@ -214,7 +214,7 @@
     - name: Manage and monitor
       items:
         - name: Monitor Azure Event Hubs
-          href: monitor-azure-event-hubs.md
+          href: monitor-event-hubs.md
         - name: Set up diagnostic logs
           href: event-hubs-diagnostic-logs.md
         - name: Stream Azure Diagnostics data using Event Hubs
