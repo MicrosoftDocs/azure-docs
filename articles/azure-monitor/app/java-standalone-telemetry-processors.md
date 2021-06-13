@@ -558,9 +558,7 @@ For more information, see [Telemetry processor examples](./java-standalone-telem
 
 Metric filter are used to exclude some metrics in order to help control ingestion cost.
 
-## Exclude criteria (metric filters)
-
-Metric filters only support `exclude` criteria. And metrics that match its `exclude` criteria will not be exported.
+Metric filters only support `exclude` criteria. Metrics that match its `exclude` criteria will not be exported.
 
 To configure this option, under `exclude`, specify the `matchType` one or more `metricNames`.
 
