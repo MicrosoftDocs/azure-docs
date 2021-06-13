@@ -63,9 +63,9 @@ If you do not want members of the group to have standing access to a role, you c
 
 ## Scenarios not supported
 
-The following scenarios are not supported right now:  
+The following scenarios are not supported:  
 
-- Assign on-premises groups to Azure AD roles (built-in or custom)
+- Assign Azure AD roles (built-in or custom) to on-premises groups.
 
 ## Known issues
 
