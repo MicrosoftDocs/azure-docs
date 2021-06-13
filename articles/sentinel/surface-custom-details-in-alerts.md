@@ -35,7 +35,7 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 
-1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create &#10132; Scheduled query rule** at the top of the screen.
+1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 
 1. Click the **Set rule logic** tab.
 
