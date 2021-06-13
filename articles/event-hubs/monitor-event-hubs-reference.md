@@ -33,7 +33,7 @@ The following two types of errors are classified as **user errors**:
 | ---------- | ---------- | ----- | --- | --- | --- | 
 |Incoming Messages|  Yes | Count | Total | The number of events or messages sent to Event Hubs over a specified period. | Entity name|
 |Outgoing Messages| Yes | Count | Total | The number of events or messages received from Event Hubs over a specified period. | Entity name | 
-| Catpured Messages| No | Count| Total | The number of captured messages.  |  Entity name | 
+| Captured Messages| No | Count| Total | The number of captured messages.  |  Entity name | 
 |Incoming Bytes | Yes |  Bytes | Total | Incoming bytes for an event hub over a specified period.  | Entity name| 
 |Outgoing Bytes | Yes |  Bytes | Total |Outgoing bytes for an event hub over a specified period.  | Entity name | 
 | Size | No |  Bytes | Average |  Size of an event hub in bytes.|Entity name |
@@ -45,7 +45,7 @@ The following two types of errors are classified as **user errors**:
 ### Capture metrics
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ------------------- | ----------------- | --- | --- | --- | --- | 
-| Catpured Messages| No | Count| Total | The number of captured messages.  | Entity name |
+| Captured Messages| No | Count| Total | The number of captured messages.  | Entity name |
 | Captured Bytes | No | Bytes | Total | Captured bytes for an event hubs | Entity name | 
 | Capture Backlog | No | Count| Total | Capture backlog for an event hubs | Entity name | 
 
@@ -60,9 +60,9 @@ The following two types of errors are classified as **user errors**:
 ### Error metrics
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
 | ------------------- | ----------------- | --- | --- | --- | --- | 
-|Server Errors| No | Count | Total | The number of requests not processed because of an error in the Event Hubs service over a specified period. | Entity name<br/><br/>Operation Resul |
-|User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name<br/><br/>Operation Resul|
-|Quota Exceeded Errors | No |Count | Total | The number of quota exceeded errors over a specified period. | Entity name<br/><br/>Operation Result|
+|Server Errors| No | Count | Total | The number of requests not processed because of an error in the Event Hubs service over a specified period. | Entity name<br/><br/>Operation Result |
+|User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name<br/><br/>Operation Result|
+|Quota Exceeded Errors | No |Count | Total | The number of errors caused by exceeding quotas over a specified period. | Entity name<br/><br/>Operation Result|
 
 
 ## Metric dimensions
