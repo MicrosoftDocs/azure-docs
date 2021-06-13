@@ -2,21 +2,21 @@
 title: Configure the admin consent workflow - Azure Active Directory | Microsoft Docs
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
-author: kenwith
-manager: celestedg
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ---
 
-# Configure the admin consent workflow (preview)
+# Configure the admin consent workflow
 
-This article describes how to enable the admin consent workflow (preview) feature, which gives end users a way to request access to applications that require admin consent.
+This article describes how to enable the admin consent workflow feature, which gives end users a way to request access to applications that require admin consent.
 
 Without an admin consent workflow, a user in a tenant where user consent is disabled will be blocked when they try to access any app that requires permissions to access organizational data. The user sees a generic error message that says they're unauthorized to access the app and they should ask their admin for help. But often, the user doesn't know who to contact, so they either give up or create a new local account in the application. Even when an admin is notified, there isn't always a streamlined process to help the admin grant access and notify their users.
  
@@ -33,7 +33,7 @@ To enable the admin consent workflow and choose reviewers:
 3. In the filter search box, type "**Azure Active Directory**" and select **the Azure Active Directory** item.
 4. From the navigation menu, click **Enterprise applications**. 
 5. Under **Manage**, select **User settings**.
-6. Under **Admin consent requests (Preview)**, set **Users can request admin consent to apps they are unable to consent to** to **Yes**.
+6. Under **Admin consent requests**, set **Users can request admin consent to apps they are unable to consent to** to **Yes**.
 
    ![Configure admin consent workflow settings](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
@@ -57,11 +57,11 @@ After the admin consent workflow is enabled, users can request admin approval fo
 
 2. The **Approval required** message appears. The user types a justification for needing access to the app, and then selects **Request approval**.
 
-   ![Admin consent user request and justification](media/configure-admin-consent-workflow/end-user-justification.png)
+   ![Screenshot shows an Approval required dialog box where you can Request approval.](media/configure-admin-consent-workflow/end-user-justification.png)
 
 3. A **Request sent** message confirms that the request was submitted to the admin. If the user sends several requests, only the first request is submitted to the admin.
 
-   ![Admin consent user request and justification](media/configure-admin-consent-workflow/end-user-sent-request.png)
+   ![Screenshot shows the Request sent confirmation.](media/configure-admin-consent-workflow/end-user-sent-request.png)
 
  4. The user receives an email notification when their request is approved, denied, or blocked. 
 
@@ -73,7 +73,7 @@ To review the admin consent requests and take action:
 2. Select **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
 3. In the filter search box, type "**Azure Active Directory**" and select the **Azure Active Directory** item.
 4. From the navigation menu, click **Enterprise applications**.
-5. Under **Activity**, select **Admin consent requests (Preview)**.
+5. Under **Activity**, select **Admin consent requests**.
 
    > [!NOTE]
    > Reviewers will only see admin requests that were created after they were designated as a reviewer.
@@ -107,11 +107,7 @@ Requestors will receive email notifications when:
  
 ## Audit logs 
  
-The table below outlines the scenarios and audit values available for the admin consent workflow. 
-
-> [!NOTE]
-> The user context of the audit actor is currently missing in all scenarios. This is a known limitation in the preview version.
-
+The table below outlines the scenarios and audit values available for the admin consent workflow.
 
 |Scenario  |Audit Service  |Audit Category  |Audit Activity  |Audit Actor  |Audit log limitations  |
 |---------|---------|---------|---------|---------|---------|
@@ -142,7 +138,7 @@ No, for now requestors are only able to get updates via email notifications.
 
 **As a reviewer, is it possible to approve the application, but not for everyone?**
  
-If you're concerned about granting admin consent and allowing all users in the tenant to use the application, we recommend that you deny the request. Then manually grant admin consent by restricting access to the application by requiring user assignment, and assigning users or groups to the application. For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
+If you're concerned about granting admin consent and allowing all users in the tenant to use the application, we recommend that you deny the request. Then manually grant admin consent by restricting access to the application by requiring user assignment, and assigning users or groups to the application. For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
 
 ## Next steps
 
@@ -152,6 +148,6 @@ For more information on consenting to applications, see [Azure Active Directory 
 
 [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
 
-[Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)
+[Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
-[Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)

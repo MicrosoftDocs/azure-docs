@@ -1,10 +1,12 @@
 ---
 title: Frequently asked questions (FAQ) - LUIS
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: troubleshooting
-ms.date: 05/06/2020
-ms.author: diberry
+ms.date: 05/17/2021
 ---
+
 # Language Understanding Frequently Asked Questions (FAQ)
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
@@ -37,7 +39,7 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7.
 
 ### How do I edit my LUIS app programmatically?
-To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md#azure-resources-for-luis) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-how-to-azure-subscription.md).
+To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-how-to-azure-subscription.md).
 
 ### Where is the Pattern feature that provided regular expression matching?
 The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**.
@@ -70,7 +72,7 @@ Read more about [version import errors](luis-how-to-manage-versions.md#import-er
 
 ## Collaborating and contributing
 
-### How do I give collaborators access to LUIS with Azure Active Directory (Azure AD) or Role-based access control (RBAC)?
+### How do I give collaborators access to LUIS with Azure Active Directory (Azure AD) or Azure role-based access control (Azure RBAC)?
 
 See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-directory-resources)  and [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn how to give collaborators access.
 
@@ -84,7 +86,7 @@ You get 403 and 429 error status codes when you exceed the transactions per seco
 
 When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code.
 
-To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier) to a higher tier or [create a new resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) and [assign it to your app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-the-pricing-tier) to a higher tier or [create a new resource](luis-get-started-create-app.md#sign-in-to-luis-portal) and assign it to your app.
 
 Solutions for this error include:
 
@@ -99,9 +101,9 @@ This status code is returned when your transactions per second exceeds your pric
 
 Solutions include:
 
-* You can [increase your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier), if you are not at the highest tier.
+* You can [increase your pricing tier](luis-how-to-azure-subscription.md#change-the-pricing-tier), if you are not at the highest tier.
 * If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
-* You can gate your client application requests with a [retry policy](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) you implement yourself when you get this status code.
+* You can gate your client application requests with a [retry policy](/azure/architecture/best-practices/transient-faults#general-guidelines) you implement yourself when you get this status code.
 
 ### My endpoint query returned unexpected results. What should I do?
 
@@ -152,10 +154,6 @@ See the [boundaries](luis-limits.md) reference.
 
 See [Best practices for intents](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents).
 
-### I want to build an app in LUIS with more than the maximum number of entities. What should I do?
-
-See [Best practices for entities](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
-
 ### What are the limits on the number and size of phrase lists?
 For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-limits.md) reference.
 
@@ -170,7 +168,7 @@ The errors indicate that there is some discrepancy between your labels and the p
 * To help LUIS improve discrimination among intents, add more labels.
 * To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
 
-See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
+See the [Batch testing](./luis-how-to-batch-test.md) tutorial.
 
 ### When an app is exported then reimported into a new app (with a new app ID), the LUIS prediction scores are different. Why does this happen?
 
@@ -259,9 +257,9 @@ Your authoring/starter key is only allowed 1000 endpoint queries a month. Create
 The first issue is to isolate if the issue is related to LUIS or happens outside the LUIS middleware.
 
 #### Resolve issue in LUIS
-Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
+Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - This issue indicates you either need to change from an authoring key to an [endpoint key](luis-how-to-azure-subscription.md) or you need to change [service tiers](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.` - This issue indicates you either need to change from an authoring key to an [endpoint key](luis-how-to-azure-subscription.md) or you need to change [service tiers](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 
 #### Resolve issue in Azure Bot Service
 
@@ -279,7 +277,7 @@ If you are using the Azure Bot Service and the issue is that the **Test in Web C
 
 #### Resolve issue while debugging on local machine with Bot Framework.
 
-To learn more about local debugging of a bot, see [Debug a bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+To learn more about local debugging of a bot, see [Debug a bot](/azure/bot-service/bot-service-debug-bot).
 
 ## Integrating LUIS
 
@@ -289,7 +287,7 @@ If you select a LUIS template, and select the **Select** button in the template 
 ![LUIS template web app bot region](./media/luis-faq/web-app-bot-location.png)
 
 ### What LUIS regions support Bot Framework speech priming?
-[Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) is only supported for LUIS apps in the central (US) instance.
+[Speech priming](/bot-framework/bot-service-manage-speech-priming) is only supported for LUIS apps in the central (US) instance.
 
 ## API Programming Strategies
 
@@ -327,4 +325,4 @@ Videos:
 
 To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Microsoft Q&A question page for MSDN Language Understanding Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
+* [Microsoft Q&A question page for MSDN Language Understanding Intelligent Services (LUIS)](/answers/topics/azure-language-understanding.html)

@@ -3,12 +3,14 @@ title: StringEquals in Azure Cosmos DB query language
 description: Learn about how the StringEquals SQL system function in Azure Cosmos DB returns a Boolean indicating whether the first string expression matches the second
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: tisande
 ms.custom: query-reference
 ---
 # STRINGEQUALS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Returns a Boolean indicating whether the first string expression matches the second.  
   
@@ -55,7 +57,7 @@ SELECT STRINGEQUALS("abc", "abc", false) AS c1, STRINGEQUALS("abc", "ABC", false
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+Learn about [how this string system function uses the index](sql-query-string-functions.md).
 
 ## Next steps
 

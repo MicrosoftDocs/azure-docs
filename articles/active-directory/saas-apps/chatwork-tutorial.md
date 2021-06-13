@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Chatwork | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Chatwork.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 0982ee1d-7ae2-415b-9e47-cfc72e1885ca
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Chatwork
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate Chatwork with Azure Active Direc
 * Enable your users to be automatically signed-in to Chatwork with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -42,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Chatwork supports **SP** initiated SSO
 
-* Once you configure Chatwork you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Chatwork you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Chatwork from the gallery
 
@@ -85,7 +79,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://www.chatwork.com/s/<TENANT_NAME>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Chatwork Client support team](mailto:info@support.chatwork.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the private login URL which you set after **Chatwork SSO configuration**.
+
+1. Chatwork application expects the value of **Unique User Identifier** attribute matches the email address registered in Chatwork. The attribute is mapped to **user.principalname** by default. If the principalname is different from the email address, map  **Unique User Identifier** to **user.mail**.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -127,29 +123,28 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Chatwork SSO
 
-To configure single sign-on on **Chatwork** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Chatwork support team](mailto:info@support.chatwork.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Chatwork** side, please read the [Chatwork Admin Guide](https://download.chatwork.com/Chatwork_AdminGuide.pdf) and configure a Chatwork setting.
 
 ### Create Chatwork test user
 
-In this section, you create a user called B.Simon in Chatwork. Work with [Chatwork support team](mailto:info@support.chatwork.com) to add the users in the Chatwork platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Chatwork. Access the [Chatwork Admin Guide](https://download.chatwork.com/Chatwork_AdminGuide.pdf) and add the user in the Chatwork platform.
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Chatwork tile in the Access Panel, you should be automatically signed in to the Chatwork for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Chatwork tile in the Access Panel, you should be automatically signed in to the Chatwork for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Chatwork with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Chatwork with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [How to protect Chatwork with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

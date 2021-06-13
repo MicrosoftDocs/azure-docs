@@ -3,12 +3,14 @@ title: Learn how to manage database accounts in Azure Cosmos DB
 description: Learn how to manage Azure Cosmos DB resources by using the Azure portal, PowerShell, CLI, and Azure Resource Manager templates
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 05/13/2021
 ms.author: mjbrown
 ---
 
 # Manage an Azure Cosmos account
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article describes how to manage various tasks on an Azure Cosmos account using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates.
 
@@ -28,9 +30,12 @@ Please see [Create an Azure Cosmos DB account with PowerShell](manage-with-power
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager template
 
-Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](manage-sql-with-resource-manager.md)
+Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](./manage-with-templates.md)
 
 ## Add/remove regions from your database account
+
+> [!TIP]
+> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account.
 
 ### <a id="add-remove-regions-via-portal"></a>Azure portal
 
@@ -64,7 +69,7 @@ Please see [Add or remove regions with PowerShell](manage-with-powershell.md#upd
 
 Open the **Replicate Data Globally** tab and select **Enable** to enable multi-region writes. After you enable multi-region writes, all the read regions that you currently have on the account will become read and write regions.
 
-:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos account configures multi-master screenshot":::
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos account configures multi-region writes screenshot":::
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -72,11 +77,11 @@ Please see [Enable multiple-write regions with Azure CLI](manage-with-cli.md#ena
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-Please see [Enable multiple-write regions with PowerShell](manage-with-powershell.md#multi-master)
+Please see [Enable multiple-write regions with PowerShell](manage-with-powershell.md#multi-region-writes)
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager template
 
-An account can be migrated from single-master to multi-master by deploying the Resource Manager template used to create the account and setting `enableMultipleWriteLocations: true`. The following Azure Resource Manager template is a bare minimum template that will deploy an Azure Cosmos account for SQL API with two regions and multiple write locations enabled.
+An account can be migrated from single write region to multiple write regions by deploying the Resource Manager template used to create the account and setting `enableMultipleWriteLocations: true`. The following Azure Resource Manager template is a bare minimum template that will deploy an Azure Cosmos account for SQL API with two regions and multiple write locations enabled.
 
 ```json
 {
@@ -108,7 +113,7 @@ An account can be migrated from single-master to multi-master by deploying the R
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2021-03-15",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -199,7 +204,7 @@ Please see [Set failover priority with PowerShell](manage-with-powershell.md#mod
 The process for performing a manual failover involves changing the account's write region (failover priority = 0) to another region configured for the account.
 
 > [!NOTE]
-> Multi-master accounts cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region if using multi-homing API in the SDK.
+> Accounts with multiple write regions cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 

@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data exported from Azure to Data Box, to an on-premises data server.
 ---
-# Tutorial: Copy data from Azure Data Box via NFS (Preview)
+# Tutorial: Copy data from Azure Data Box via NFS
 
 This tutorial describes how to connect to and copy data from the local web UI of your Data Box to an on-premises data server via NFS. The data on your Data Box is exported from your Azure Storage account.
 
@@ -22,8 +22,6 @@ In this tutorial, you learn how to:
 > * Prerequisites
 > * Connect to Data Box
 > * Copy data from Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## Prerequisites
 
@@ -41,15 +39,17 @@ Before you begin, make sure that:
 
 [!INCLUDE [data-box-shares](../../includes/data-box-shares.md)]
 
-If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
+If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients. Data Box can connect as many as five NFS clients at a time.
 
-1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
+1. Supply the IP addresses of the allowed clients that can access the share:
 
-    ![Configure NFS client access 1](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
+    1.  In the local web UI, go to the **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
 
-2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
+        ![Open NFS client access](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
 
-    ![Configure NFS client access 2](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
+    1. To add an NFS client, supply the client's IP address and click **Add**. Data Box can connect as many as five NFS clients at a time. When you finish, click **OK**.
+
+         ![Add an NFS client](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
 
 2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
 
@@ -73,11 +73,11 @@ Once you're connected to the Data Box shares, the next step is to copy data.
 
 [!INCLUDE [data-box-export-review-logs](../../includes/data-box-export-review-logs.md)]
 
- You can now begin data copy. If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
+ You can now begin data copy. If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [`rsync`](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 
 The `cp` command is one of best options to copy a directory. For more information on the usage, go to [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
-If using rsync option for a multi-threaded copy, follow these guidelines:
+If using the `rsync` option for a multi-threaded copy, follow these guidelines:
 
 * Install the **CIFS Utils** or **NFS Utils** package depending on the filesystem your Linux client is using.
 
@@ -85,7 +85,7 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 
     `sudo apt-get install nfs-utils`
 
-* Install **Rsync** and **Parallel** (varies depending on the Linux distributed version).
+* Install `rsync` and **Parallel** (varies depending on the Linux distributed version).
 
     `sudo apt-get install rsync`
    

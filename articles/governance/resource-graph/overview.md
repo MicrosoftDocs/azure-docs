@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 07/25/2020
+ms.date: 05/01/2021
 ms.topic: overview
 ---
 # What is Azure Resource Graph?
@@ -45,6 +45,11 @@ With Azure Resource Graph, you can:
 - View the last 14 days of change history made to the resource to see what properties changed and
   when. (preview)
 
+> [!NOTE]
+> As a _preview_ feature, some `type` objects have additional non-Resource Manager properties
+> available. For more information, see
+> [Extended properties (preview)](./concepts/query-language.md#extended-properties).
+
 ## How Resource Graph is kept current
 
 When an Azure resource is updated, Resource Graph is notified by Resource Manager of the change.
@@ -73,8 +78,8 @@ First, for details on operations and functions that can be used with Azure Resou
 
 ## Permissions in Azure Resource Graph
 
-To use Resource Graph, you must have appropriate rights in [Role-based access
-control](../../role-based-access-control/overview.md) (RBAC) with at least read access to the
+To use Resource Graph, you must have appropriate rights in [Azure role-based access
+control (Azure RBAC)](../../role-based-access-control/overview.md) with at least read access to the
 resources you want to query. Without at least `read` permissions to the Azure object or object
 group, results won't be returned.
 
@@ -120,14 +125,14 @@ For more information, see
 ## Running your first query
 
 Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly
-in Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to your
-portal workflow. For more information, see
+in the Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to
+your portal workflow. For more information, see
 [First query with Azure Resource Graph Explorer](./first-query-portal.md).
 
 Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. The query is
 structured the same for each language. Learn how to enable Resource Graph with:
 
-- [Azure portal and Resource Graph Explorer](./first-query-portal.md) 
+- [Azure portal and Resource Graph Explorer](./first-query-portal.md)
 - [Azure CLI](./first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
 - [Python](./first-query-python.md#add-the-resource-graph-library)

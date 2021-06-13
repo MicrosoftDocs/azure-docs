@@ -1,16 +1,16 @@
 ---
 title: Expand existing host pool with new session hosts - Azure
-description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop.
+description: How to expand an existing host pool with new session hosts in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 10/09/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Expand an existing host pool with new session hosts
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 
 As you ramp up usage within your host pool, you may need to expand your existing host pool with new session hosts to handle the new load.
 
@@ -35,7 +35,7 @@ To expand your host pool by adding virtual machines:
 
 1. Sign in to the Azure portal.
 
-2. Search for and select **Windows Virtual Desktop**.
+2. Search for and select **Azure Virtual Desktop**.
 
 3. In the menu on the left side of the screen, select **Host pools**, then select the name of the host pool you want to add virtual machines to.
 
@@ -50,7 +50,7 @@ To expand your host pool by adding virtual machines:
 8. Enter the number of session hosts you want to add to your host pool into **Number of VMs**. For example, if you're expanding your host pool by five hosts, enter **5**.
 
     >[!NOTE]
-    >You can't edit the size or image of the VMs because it's important to ensure that all VMs in the host pool are the same size.
+    >Although it's possible to edit the image and prefix of the VMs, we don't recommended editing them if you have VMs with different images in the same host pool. Edit the image and prefix only if you plan on removing VMs with older images from the affected host pool.
 
 9. For the **virtual network information**, select the virtual network and subnet to which you want the virtual machines to be joined to. You can select the same virtual network your existing machines currently use or choose a different one that's more suitable to the region you selected in step 7.
 
@@ -65,7 +65,7 @@ To expand your host pool by adding virtual machines:
 
 ## Next steps
 
-Now that you've expanded your existing host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
+Now that you've expanded your existing host pool, you can sign in to a Azure Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
 - [Connect with the Windows Desktop client](./connect-windows-7-10.md)
 - [Connect with the web client](./connect-web.md)

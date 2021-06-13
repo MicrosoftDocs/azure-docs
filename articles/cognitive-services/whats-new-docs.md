@@ -1,62 +1,47 @@
 ---
-title: "Cognitive Services docs: What's new for July 1, 2020 - July 31, 2020"
-description: "What's new in the Cognitive Services docs for July 1, 2020 - July 31, 2020."
+title: "Cognitive Services: What's new in docs"
+description: "What's new in the Cognitive Services docs for February 1, 2020 - February 28, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 08/03/2020
+ms.date: 03/08/2021
 ---
 
-# Cognitive Services docs: What's new for July 1, 2020 - July 31, 2020
+# Cognitive Services docs: What's new for February 1, 2021 - February 28, 2021
 
-Welcome to what's new in the Cognitive Services docs from July 1, 2020 through July 31, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from February 1, 2021 through February 28, 2021. This article lists some of the major changes to docs during this period.
+
+## Cognitive Services
+
+### New articles
+
+- [Azure Policy Regulatory Compliance controls for Azure Cognitive Services](security-controls-policy.md)
+
+## Containers
+
+### New articles
+
+- [Azure Cognitive Services containers frequently asked questions (FAQ)](./containers/container-faq.yml)
+
+### Updated articles
+
+- [Azure Cognitive Services container image tags and release notes](./containers/container-image-tags.md)
 
 ## Form Recognizer
 
-### New articles
+### Updated articles
 
-- [Tutorial: Create a form-processing app with AI Builder](/azure/cognitive-services/form-recognizer/tutorial-ai-builder)
-
-## Personalizer
-
-### New articles
-
-- [Tutorial: Use Personalizer in .NET chat bot](/azure/cognitive-services/personalizer/tutorial-use-personalizer-chat-bot)
-
-## QnA Maker
-
-### New articles
-
-- [Plan your QnA Maker app](/azure/cognitive-services/qnamaker/concepts/plan)
-
-## Speech Service
-
-### New articles
-
-- [Custom Commands encryption of data at rest](/azure/cognitive-services/speech-service/custom-commands-encryption-of-data-at-rest)
-- [Custom keyword basics](/azure/cognitive-services/speech-service/custom-keyword-basics)
-- [Use Custom Commands with Custom Voice](/azure/cognitive-services/speech-service/how-to-custom-commands-use-custom-voice)
-- [Batch processing kit for Speech containers](/azure/cognitive-services/speech-service/speech-container-batch-processing)
+- [Deploy the sample labeling tool](./form-recognizer/deploy-label-tool.md)
+- [What is Form Recognizer?](./form-recognizer/overview.md)
+- [Train a Form Recognizer model with labels using the sample labeling tool](./form-recognizer/label-tool.md)
 
 ## Text Analytics
 
-### New articles
+### Updated articles
 
-- [How to: Use Text Analytics for Health (preview)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
-
-## Community contributors
-
-The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
-
-- [milestonedev](https://github.com/milestonedev) - Justin Miles (2)
-- [felixvanleeuwen](https://github.com/felixvanleeuwen) (1)
-- [LoicB](https://github.com/LoicB) - Loic Beylot (1)
-- [nkgami](https://github.com/nkgami) - Hiroki Nakagami (1)
-- [RussellJQA](https://github.com/RussellJQA) - Russell Johnson (1)
-- [ryotokuro](https://github.com/ryotokuro) - Taiyue Tan (1)
-- [smorcuend](https://github.com/smorcuend) - Sergio Morcuende (1)
-- [swildermann](https://github.com/swildermann) - Sven Wildermann (1)
+- [Text Analytics API v3 language support](./text-analytics/language-support.md)
+- [How to call the Text Analytics REST API](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

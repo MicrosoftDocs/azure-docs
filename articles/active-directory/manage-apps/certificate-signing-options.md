@@ -2,17 +2,14 @@
 title: Advanced SAML token certificate signing options for Azure AD apps
 description: Learn how to use advanced certificate signing options in the SAML token for pre-integrated apps in Azure Active Directory
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: celestedg
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -70,5 +67,5 @@ Next, change the certificate signing options in the SAML token for that applicat
 
 ## Next steps
 
-* [Configure single sign-on to applications that are not in the Azure Active Directory App Gallery](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configure single sign-on to applications that are not in the Azure Active Directory App Gallery](./configure-saml-single-sign-on.md)
+* [Troubleshoot SAML-based single sign-on](./debug-saml-sso-issues.md)

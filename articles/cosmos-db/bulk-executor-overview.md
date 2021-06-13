@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB bulk executor library overview
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
  
 Azure Cosmos DB is a fast, flexible, and globally distributed database service that is designed to elastically scale out to support: 
 
@@ -20,6 +21,9 @@ The bulk executor library helps you leverage this massive throughput and storage
 
 > [!NOTE] 
 > Currently, bulk executor library supports import and update operations and this library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only.
+
+> [!IMPORTANT]
+> The bulk executor library is not currently supported on [serverless](serverless.md) accounts. On .NET, it is recommended to use the [bulk support](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/) available in the V3 version of the SDK.
  
 ## Key features of the bulk executor library  
  
@@ -45,5 +49,5 @@ The bulk executor library makes sure to maximally utilize the throughput allocat
   
 * Learn more by trying out the sample applications consuming the bulk executor library in [.NET](bulk-executor-dot-net.md) and [Java](bulk-executor-java.md).  
 * Check out the bulk executor SDK information and release notes in [.NET](sql-api-sdk-bulk-executor-dot-net.md) and [Java](sql-api-sdk-bulk-executor-java.md).
-* The bulk executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](spark-connector.md) article.  
+* The bulk executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](./create-sql-api-spark.md) article.  
 * The bulk executor library is also integrated into a new version of [Azure Cosmos DB connector](../data-factory/connector-azure-cosmos-db.md) for Azure Data Factory to copy data.

@@ -2,11 +2,12 @@
 title: Virtual machines in an Azure Resource Manager template | Microsoft Azure
 description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -159,7 +160,7 @@ Use these opportunities for getting the latest API versions:
 
 ## Parameters and variables
 
-[Parameters](../../azure-resource-manager/templates/template-syntax.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
+[Parameters](../../azure-resource-manager/templates/syntax.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
 
 ```json
 "parameters": {
@@ -171,7 +172,7 @@ Use these opportunities for getting the latest API versions:
 
 When you deploy the example template, you enter values for the name and password of the administrator account on each VM and the number of VMs to create. You have the option of specifying parameter values in a separate file that's managed with the template, or providing values when prompted.
 
-[Variables](../../azure-resource-manager/templates/template-syntax.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
+[Variables](../../azure-resource-manager/templates/syntax.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
 
 ```json
 "variables": { 
@@ -204,7 +205,7 @@ When you deploy the example template, you enter values for the name and password
 }, 
 ```
 
-When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/template-best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
+When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
 
 ## Resource loops
 
@@ -243,7 +244,7 @@ Keep in mind that creating a loop for one resource in the template may require y
 
 ## Dependencies
 
-Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
+Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../../azure-resource-manager/templates/resource-dependency.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
 
 ```json
 "dependsOn": [
@@ -278,7 +279,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 
 ## Disks and images
    
-In Azure, vhd files can represent [disks or images](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
+In Azure, vhd files can represent [disks or images](../managed-disks-overview.md). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
     
 ### Create new virtual machines and new disks from a platform image
 
@@ -447,7 +448,7 @@ It’s not a problem to use the same template to create resources or to update e
 
 ## Next Steps
 
-- Create your own template using [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+- Create your own template using [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 - Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](ps-template.md).
-- Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md).
 - For the JSON syntax and properties of resource types in templates, see [Azure Resource Manager template reference](/azure/templates/).

@@ -5,8 +5,9 @@ author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -14,7 +15,7 @@ ms.author: banders
 
 This article applies to customers who signed up for Azure online with a credit card and have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If you have a Microsoft Customer Agreement billing account, see [pay your bill for Microsoft Azure](../understand/pay-bill.md) instead.
 
-If your payment isn't received or if we can't process your payment, you will get an email and see an alert in the Azure portal telling you that your subscription is past due. If your default payment method is credit card, the [Account Administrator](billing-subscription-transfer.md#whoisaa) can settle the outstanding charges in the Azure portal. If you pay by invoice (check/wire transfer), send your payment to the location listed at the bottom of your invoice.
+If your payment isn't received or if we can't process your payment, you will get an email and see an alert in the Azure portal telling you that your subscription is past due. If your default payment method is credit card, the [Account Administrator](../understand/subscription-transfer.md#whoisaa) can settle the outstanding charges in the Azure portal. If you pay by invoice (check/wire transfer), send your payment to the location listed at the bottom of your invoice.
 
 > [!IMPORTANT]
 > * If you have multiple subscriptions using the same credit card and they are all past due, you must pay the entire outstanding balance at once.

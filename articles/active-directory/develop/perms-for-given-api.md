@@ -7,22 +7,22 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
+ms.custom: aaddev
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
-# How to select permissions for a given API 
+# How to select permissions for a given API
 
 ## Recommended documents
 
 - Learn more about how client applications use [delegated and application permission requests](./developer-glossary.md#permissions) to access resources.
-- See step-by-step instructions on how to [configure a client application's permission requests](./quickstart-register-app.md)
-- For more depth, learn how resource applications expose [scopes](./developer-glossary.md#scopes) and [application roles](./developer-glossary.md#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
+- See step-by-step instructions on how to [configure a client application's permission requests](./quickstart-configure-app-access-web-apis.md)
+- For more depth, learn how resource applications expose [scopes](./developer-glossary.md#scopes) and [application roles](./developer-glossary.md#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal.
 
 ## Next steps
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

@@ -3,12 +3,15 @@ title: StringToArray in Azure Cosmos DB query language
 description: Learn about SQL system function StringToArray in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # StringToArray (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns expression translated to an Array. If expression cannot be translated, returns undefined.  
   
 ## Syntax
@@ -27,7 +30,7 @@ StringToArray(<str_expr>)
   Returns an array expression or undefined. 
   
 ## Remarks
-  Nested string values must be written with double quotes to be valid JSON. For details on the JSON format, see [json.org](https://json.org/)
+  Nested string values must be written with double quotes to be valid JSON. For details on the JSON format, see [json.org](https://json.org/). This system function will not utilize the index.
   
 ## Examples
   
@@ -85,10 +88,6 @@ Here is the result set.
 ```json
 [{}]
 ```
-
-## Remarks
-
-This system function will not utilize the index.
 
 ## Next steps
 

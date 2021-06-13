@@ -1,27 +1,27 @@
 ---
-title: Windows Virtual Desktop diagnose issues - Azure
-description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
+title: Azure Virtual Desktop diagnose issues - Azure
+description: How to use the Azure Virtual Desktop diagnostics feature to diagnose issues.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Identify and diagnose Windows Virtual Desktop issues
+# Identify and diagnose Azure Virtual Desktop issues
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
 
-Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. To learn more about the diagnostic capabilities of Windows Virtual Desktop, see [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md).
+Azure Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. To learn more about the diagnostic capabilities of Azure Virtual Desktop, see [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md).
 
-Connections that don't reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
+Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
 
 ## Common error scenarios
 
-Error scenarios are categorized in internal to the service and external to Windows Virtual Desktop.
+The WVDErrors table tracks errors across all activity types. The column called "ServiceError" provides an additional flag marked either "True" or "False." This flag will tell you whether the error is related to the service.
 
-* Internal Issue: specifies scenarios that can't be mitigated by the customer and need to be resolved as a support issue. When providing feedback through the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the correlation ID and approximate time frame of when the issue occurred.
-* External Issue: relate to scenarios that can be mitigated by the customer. These are external to Windows Virtual Desktop.
+* If the value is "True," the service team may have already investigated this issue. If this impacts user experience and appears a high number of times, we recommend you submit a support ticket for Azure Virtual Desktop.
+* If the value is "False," this is may be a misconfiguration that you can fix yourself. The error message can give you a clue about where to start.
 
 The following table lists common errors your admins might run into.
 
@@ -40,7 +40,7 @@ The following table lists common errors your admins might run into.
 |Failed to unassign user from application group|Could not unpublish an app group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the app group is published to. |
 |There was an error retrieving the available locations |Check location of VM used in the create host pool wizard. If image is not available in that location, add image in that location or choose a different VM location. |
 
-### External connection error codes
+### Connection error codes
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
@@ -65,6 +65,6 @@ After assigning a user to an app group, the Azure portal displays a warning that
 
 ## Next steps
 
-To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop environment](environment-setup.md).
+To learn more about roles within Azure Virtual Desktop, see [Azure Virtual Desktop environment](environment-setup.md).
 
-To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
+To see a list of available PowerShell cmdlets for Azure Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).

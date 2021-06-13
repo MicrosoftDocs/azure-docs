@@ -29,11 +29,11 @@ When you enable Enterprise State Roaming, your organization is automatically gra
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
 1. Select **Azure Active Directory** > **Devices** > **Enterprise State Roaming**.
-1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](/azure/active-directory/device-management-azure-portal).
+1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](./device-management-azure-portal.md).
   
    ![image of device setting labeled Users may sync settings and app data across devices](./media/enterprise-state-roaming-enable/device-settings.png)
   
-For a Windows 10 device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](hybrid-azuread-join-manual-steps.md). 
+For a Windows 10 device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](./hybrid-azuread-join-plan.md). 
 
 ## Data storage
 
@@ -90,7 +90,7 @@ The data retention policy is not configurable. Once the data is permanently dele
 ## Next steps
 
 * [Enterprise State Roaming overview](enterprise-state-roaming-overview.md)
-* [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md)
+* [Settings and data roaming FAQ](enterprise-state-roaming-faqs.yml)
 * [Group Policy and MDM settings for settings sync](enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 roaming settings reference](enterprise-state-roaming-windows-settings-reference.md)
 * [Troubleshooting](enterprise-state-roaming-troubleshooting.md)

@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2020
+ms.date: 09/16/2020
 ms.author: yelevin
 
 ---
-# Connect Windows security events 
+# Connect Windows security events
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 The Security Events connector lets you stream all security events from your Windows systems (servers and workstations, physical and virtual) to your Azure Sentinel workspace. This enables you to view Windows security events in your dashboards, to use them in creating custom alerts, and to rely on them to improve your investigations, giving you more insight into your organization's network and expanding your security operations capabilities. You can select which events to stream from among the following sets: <a name="event-sets"></a>
 
@@ -39,10 +41,10 @@ The Security Events connector lets you stream all security events from your Wind
     | **Common** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137, 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
 > [!NOTE]
-> Security Events collection within the context of a single workspace can be configured from either Azure Security Center or Azure Sentinel, but not both. If you are onboarding Azure Sentinel in a workspace that is already running Azure Security Center, and is set to collect Security Events, you have two options:
-> - Leave the Security Events collection in Azure Security Center as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Security Center. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
+> Security Events collection within the context of a single workspace can be configured from either Azure Security Center or Azure Sentinel, but not both. If you are onboarding Azure Sentinel in a workspace that is already getting Azure Defender alerts from Azure Security Center, and is set to collect Security Events, you have two options:
+> - Leave the Security Events collection in Azure Security Center as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
 >
-> - [Disable Security Events collection](../security-center/security-center-enable-data-collection.md) in Azure Security Center, and only then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Security Center, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
+> - [Disable Security Events collection](../security-center/security-center-enable-data-collection.md) in Azure Security Center, and only then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
 
 ## Set up the Windows Security Events connector
 
@@ -50,9 +52,9 @@ To collect your Windows security events in Azure Sentinel:
 
 1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Security Events**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
-1. Verify that you have the appropriate permissions as described under **Prerequisites**.
+1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
-1. Download and install the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) (also known as the Microsoft Monitoring Agent or MMA) on the machines for which you want to stream security events into Azure Sentinel.
+1. Download and install the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (also known as the Microsoft Monitoring Agent or MMA) on the machines for which you want to stream security events into Azure Sentinel.
 
     For Azure Virtual Machines:
     
@@ -69,9 +71,9 @@ To collect your Windows security events in Azure Sentinel:
     >
     > To allow Windows systems without the necessary internet connectivity to still stream events to Azure Sentinel, download and install the **OMS Gateway** on a separate machine, using the link on the lower right, to act as a proxy.  You will still need to install the Log Analytics agent on each Windows system whose events you want to collect.
     >
-    > For more information on this scenario, see the [**Log Analytics gateway** documentation](../azure-monitor/platform/gateway.md).
+    > For more information on this scenario, see the [**Log Analytics gateway** documentation](../azure-monitor/agents/gateway.md).
 
-    For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/platform/agent-windows.md).
+    For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/agents/agent-windows.md).
 
 1. Select which event set ([All, Common, or Minimal](#event-sets)) you want to stream.
 

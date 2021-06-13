@@ -1,19 +1,19 @@
 ---
 title: 'Scenario: Custom isolation for VNets'
 titleSuffix: Azure Virtual WAN
-description: Scenarios for routing - prevent selected VNets from being able to reach each other
+description: Learn about Virtual WAN routing custom isolation scenarios to prevent specific set of VNets from being able to reach another specific set of VNets, but the VNets are required to reach all branches.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 
 ---
 # Scenario: Custom isolation for VNets
 
-When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for VNets, the goal is to prevent specific set of VNets from being able to reach other specific set of VNets. However, the VNets are required to reach all branches (VPN/ER/User VPN). For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for VNets, the goal is to prevent a specific set of VNets from being able to reach other specific set of VNets. However, the VNets are required to reach all branches (VPN/ER/User VPN). For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 ## <a name="design"></a>Design
 
@@ -21,11 +21,11 @@ In order to figure out how many route tables will be needed, you can build a con
 
 | From | To:| *Blue VNets* | *Red VNets* | *Branches*|
 |---|---|---|---|---|
-| **Blue VNets** |   &#8594;|      X        |               |       X      |
-| **Red VNets**  |   &#8594;|              |       X       |       X      |
-| **Branches**   |   &#8594;|     X        |       X       |       X      |
+| **Blue VNets** |   &#8594;|   Direct     |           |  Direct |
+| **Red VNets**  |   &#8594;|              |   Direct  |  Direct |
+| **Branches**   |   &#8594;|   Direct     |   Direct  |  Direct |
 
-Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow.
+Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) communicates with a destination (the "To" side of the flow, the column headers in italics). In this scenario there are no firewalls or Network Virtual Appliances, so communications flows directly over Virtual WAN (hence the word "Direct" in the table).
 
 The number of different row patterns will be the number of route tables we will need in this scenario. In this case, three route route tables that we will call **RT_BLUE** and **RT_RED** for the virtual networks, and **Default** for the branches. Remember, the branches always have to be associated to the Default routing table.
 

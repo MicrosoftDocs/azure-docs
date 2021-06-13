@@ -13,6 +13,12 @@
     href: documentation-government-get-started-connect-with-portal.md
   - name: Azure CLI
     href: documentation-government-get-started-connect-with-cli.md
+  - name: DoD DISA STIGs
+    items:
+    - name: Deploy Linux VM
+      href: documentation-government-stig-linux-vm.md
+    - name: Deploy Windows VM
+      href: documentation-government-stig-windows-vm.md
   - name: PowerShell
     href: documentation-government-get-started-connect-with-ps.md
   - name: Visual Studio
@@ -43,12 +49,14 @@
       href: documentation-government-manage-marketplace.md
   - name: Industry segments
     items:
-    - name: Export Control
+    - name: Export controls
       href: documentation-government-overview-itar.md
-    - name: Justice and Public Safety
+    - name: Justice and public safety
       href: documentation-government-overview-jps.md
     - name: Department of Defense
-      href: documentation-government-overview-dod.md        
+      href: documentation-government-overview-dod.md
+    - name: Worldwide public sector
+      href: documentation-government-overview-wwps.md
 - name: How-to guides
   items: 
   - name: Develop
@@ -61,12 +69,14 @@
       href: documentation-government-get-started-connect-to-storage.md    
     - name: Use Cognitive Services API
       href: documentation-government-cognitiveservices.md     
-    - name: Integrate Azure AD Authentication
+    - name: Integrate Azure AD authentication
       href: documentation-government-aad-auth-qs.md
   - name: Secure
     items:
     - name: Impact Level 5 isolation guidance 
       href: documentation-government-impact-level-5.md
+    - name: Azure secure isolation guidance
+      href: azure-secure-isolation-guidance.md
     - name: Secure Azure computing architecture 
       href: compliance/secure-azure-computing-architecture.md
   - name: Deploy
@@ -77,7 +87,7 @@
       href: documentation-government-ase-disa-cap.md
 - name: Compliance
   items:
-  - name: Trusted Internet Connection with Azure
+  - name: Trusted Internet Connections with Azure
     href: compliance/compliance-tic.md
   - name: Azure services by audit scope
     href: compliance/azure-services-in-fedramp-auditscope.md
@@ -93,8 +103,12 @@
       href: documentation-government-extension.md
     - name: Marketplace for partners
       href: documentation-government-manage-marketplace-partners.md
-  - name: CSP for Azure Government
-    href: documentation-government-csp-application.md
+  - name: Cloud Solution Providers
+    items:
+    - name: CSP application process
+      href: documentation-government-csp-application.md
+    - name: Authorized reseller list
+      href: documentation-government-csp-list.md
 - name: Resources
   items:
   - name: Azure Government Website
@@ -110,4 +124,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Trial
-    href: https://azuregov.microsoft.com/trial/azuregovtrial
+    href: https://azure.microsoft.com/en-us/global-infrastructure/government/request/

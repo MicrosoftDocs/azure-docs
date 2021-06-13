@@ -38,7 +38,7 @@ It's important to understand that when acquiring a token interactively, the cont
 
 MSAL.NET is a multi-framework library and has framework-specific code to host a browser in a UI control (for example, on .NET Classic it uses WinForms, on Xamarin it uses native mobile controls etc.). This control is called `embedded` web UI. Alternatively, MSAL.NET is also able to kick off the system OS browser.
 
-Generally, it's recommended that you use the platform default, and this is typically the system browser. The system browser is better at remembering the users that have logged in before. If you need to change this behavior, use `WithUseEmbeddedWebView(bool)`
+Generally, it's recommended that you use the platform default, and this is typically the system browser. The system browser is better at remembering the users that have logged in before. To change this behavior, use `WithUseEmbeddedWebView(bool)`
 
 ### At a glance
 
@@ -60,11 +60,11 @@ By default, MSAL.NET supports the system web browser on Xamarin.iOS, Xamarin.And
 
 Using the system browser has the significant advantage of sharing the SSO state with other applications and with web applications without needing a broker (Company portal / Authenticator). The system browser was used, by default, in MSAL.NET for the Xamarin iOS and Xamarin Android platforms because, on these platforms, the system web browser occupies the whole screen, and the user experience is better. The system web view isn't distinguishable from a dialog. On iOS, though, the user might have to give consent for the browser to call back the application, which can be annoying.
 
-## System browser experience on .NET Core
+## System browser experience on .NET 
 
 On .NET Core, MSAL.NET will start the system browser as a separate process. MSAL.NET doesn't have control over this browser, but once the user finishes authentication, the web page is redirected in such a way that MSAL.NET can intercept the Uri.
 
-You can also configure apps written for .NET Classic to use this browser, by specifying
+You can also configure apps written for .NET Classic or .NET 5 to use this browser by specifying:
 
 ```csharp
 await pca.AcquireTokenInteractive(s_scopes)
@@ -138,7 +138,7 @@ You can also enable embedded webviews in Xamarin.iOS and Xamarin.Android apps. S
 
 As a developer using MSAL.NET targeting Xamarin, you may choose to use either embedded webviews or system browsers. This is your choice depending on the user experience and security concerns you want to target.
 
-Currently, MSAL.NET doesn't yet support the Android and iOS brokers. Therefore if you need to provide single sign-on (SSO), the system browser might still be a better option. Supporting brokers with the embedded web browser is on the MSAL.NET backlog.
+Currently, MSAL.NET doesn't yet support the Android and iOS brokers. Therefore to provide single sign-on (SSO), the system browser might still be a better option. Supporting brokers with the embedded web browser is on the MSAL.NET backlog.
 
 ### Differences between embedded webview and system browser
 There are some visual differences between embedded webview and system browser in MSAL.NET.

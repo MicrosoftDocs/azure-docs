@@ -1,17 +1,18 @@
 ---
 title: Monitoring - Azure Database for MySQL
 description: This article describes the metrics for monitoring and alerting for Azure Database for MySQL, including CPU, storage, and connection statistics.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 8/13/2020
+ms.custom: references_regions
+ms.date: 10/21/2020
 ---
 # Monitoring in Azure Database for MySQL
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of your server.
 
 ## Metrics
-All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../azure-monitor/data-platform.md).
 
 ### List of metrics
 These metrics are available for Azure Database for MySQL:
@@ -29,7 +30,7 @@ These metrics are available for Azure Database for MySQL:
 |storage_limit|Storage limit|Bytes|The maximum storage for this server.|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
 |connections_failed|Failed Connections|Count|The number of failed connections to the server.|
-|seconds_behind_master|Replication lag in seconds|Count|The number of seconds the replica server is lagging against the master server. (Not applicable for Basic tier servers)|
+|seconds_behind_master|Replication lag in seconds|Count|The number of seconds the replica server is lagging against the source server. (Not applicable for Basic tier servers)|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 |backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used. This metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained in the [concepts article](concepts-backup.md). For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.|
@@ -48,28 +49,12 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 
 ## Planned maintenance notification
 
-**Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance to your Azure Database for MySQL. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
+[Planned maintenance notifications](./concepts-planned-maintenance-notification.md) allow you to receive alerts for upcoming planned maintenance to your Azure Database for MySQL. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
 
-> [!Note]
-> We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
-
-### To receive planned maintenance notification
-
-1. In the [portal](https://portal.azure.com), select **Service Health**.
-2. In the **Alerts** section, select **Health alerts**.
-3. Select **+ Add service health alert** and fill in the fields.
-4. Fill out the required fields. 
-5. Choose the **Event type**, select **Planned maintenance** or **Select all**
-6. In **Action groups** define how you would like to receive the alert (get an email, trigger a logic app etc.)  
-7. Ensure Enable rule upon creation is set to Yes.
-8. Select **Create alert rule** to complete your alert
-
-For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!IMPORTANT]
-> Planned maintenance notifications are currently available in preview in all regions **except** West Central US
+Learn more about how to set up notifications in the [planned maintenance notifications](./concepts-planned-maintenance-notification.md) document.
 
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
-- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../azure-monitor/data-platform.md).
 - Read our blog on [best practices for monitoring your server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).
+- Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for MySQL - Single Server

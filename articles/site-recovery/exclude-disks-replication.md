@@ -202,7 +202,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Our paging file settings on the source VM are as follows:
 
-![Paging file settings on source virtual machine](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![Screenshot of the Virtual Memory dialog with the D: Drive [Pagefile volume] line highlighted showing a Paging File Size (MB) of 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. We enable replication for the VM.
 2. We exclude DB-Disk1 from replication.
@@ -255,12 +255,12 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Our paging file settings on the Azure VM are as follows:
 
-![Paging file settings on Azure virtual machine](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+![Screenshot of the Virtual Memory dialog with the C: Drive line highlighted showing a Paging File Size setting of "System managed".](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## Next steps
 
 - Learn more about guidelines for the temporary storage disk:
     - [Learn about](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) using SSDs in Azure VMs to store SQL Server TempDB and Buffer Pool Extensions
-    - [Review ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) performance best practices for SQL Server in Azure VMs.
+    - [Review ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) performance best practices for SQL Server in Azure VMs.
 - After your deployment is set up and running, [learn more](failover-failback-overview.md) about different types of failover.

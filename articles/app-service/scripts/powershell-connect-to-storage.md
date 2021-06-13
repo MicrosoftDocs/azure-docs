@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Connect to a storage account'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to connect an app to a storage account.
 tags: azure-service-management
@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Connect an App Service app to a storage account

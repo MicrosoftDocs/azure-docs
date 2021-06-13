@@ -5,7 +5,7 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 10/20/2019
 ---
 
@@ -21,7 +21,7 @@ Partners and customers can use the app template & following guidance to develop 
 1. Set of IoT sensors sending telemetry data to a gateway device
 2. Gateway devices sending telemetry and aggregated insights to IoT Central
 3. Data is routed to the desired Azure service for manipulation
-4. Azure services like ASA or Azure Functions can be used to reformat data streams and send to the desired storage accounts 
+4. Azure services like ASA or Azure Functions can be used to reformat data streams and send to the desired storage accounts
 5. Processed data is stored in hot storage for near real-time actions or cold storage for additional insight enhancements that is based on ML or batch analysis. 
 6. Logic Apps can be used to power various business workflows in end-user business applications
 

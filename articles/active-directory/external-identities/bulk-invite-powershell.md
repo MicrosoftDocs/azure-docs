@@ -14,7 +14,7 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 
-#customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
+# Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 
 ms.collection: M365-identity-device-management
 ---
@@ -117,7 +117,7 @@ foreach ($email in $invitations)
 
 The script sends an invitation to the email addresses in the Invitations.csv file. You should see output similar to the following for each user:
 
-![PowerShell output showing pending user acceptance](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Screenshot that shows PowerShell output that includes pending user acceptance.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## Verify users exist in the directory
 

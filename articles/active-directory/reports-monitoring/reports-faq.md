@@ -34,7 +34,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?**
 
-**A:** You can use the [Identity Protection risk detections API](../identity-protection/graph-get-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
+**A:** You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
 
 ---
 
@@ -46,7 +46,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How soon should I see activities data after getting a premium license?**
 
-**A:** If you already have activities data as a free license, then you can see it immediately. If you don’t have any data, then it will take one or two days for the data to show up in the reports.
+**A:** If you already have activities data as a free license, then you can see it immediately. If you don’t have any data, then it will take up to 3 days for the data to show up in the reports.
 
 ---
 
@@ -78,15 +78,15 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ---
 
-**Q: Can I get Office 365 activity log information through the Azure portal?**
+**Q: Can I get Microsoft 365 activity log information through the Azure portal?**
 
-**A:** Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, if you want a full view of the Office 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
+**A:** Even though Microsoft 365 activity and Azure AD activity logs share a lot of the directory resources, if you want a full view of the Microsoft 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
 
 ---
 
-**Q: Which APIs do I use to get information about Office 365 Activity logs?**
+**Q: Which APIs do I use to get information about Microsoft 365 Activity logs?**
 
-**A:** Use the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) to access the Office 365 Activity logs through an API.
+**A:** Use the [Microsoft 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview) to access the Microsoft 365 Activity logs through an API.
 
 ---
 
@@ -141,8 +141,8 @@ Here, you can view all the policies that impacted the sign-in and the result for
 
 **A:** Conditional Access status can have the following values:
 
-* **Not Applied**: This means that there was no CA policy with the user and app in scope. 
-* **Success**: This means that there was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
+* **Not Applied**: This means that there was no Conditional Access policy with the user and app in scope. 
+* **Success**: This means that there was a Conditional Access policy with the user and app in scope and Conditional Access policies were successfully satisfied. 
 * **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
     
 **Q: What are all possible values for the Conditional Access policy result?**
@@ -156,8 +156,8 @@ Here, you can view all the policies that impacted the sign-in and the result for
     
 **Q: The policy name in the all sign-in report does not match the policy name in CA. Why?**
 
-**A:** The policy name in the all sign-in report is based on the CA policy name at the time of the sign-in. This can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
+**A:** The policy name in the all sign-in report is based on the Conditional Access policy name at the time of the sign-in. This can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
 
 **Q: My sign-in was blocked due to a Conditional Access policy, but the sign-in activity report shows that the sign-in succeeded. Why?**
 
-**A:** Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a Conditional Access policy. 
+**A:** Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a Conditional Access policy.

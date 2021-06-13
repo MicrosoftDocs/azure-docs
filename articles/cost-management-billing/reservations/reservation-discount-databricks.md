@@ -4,6 +4,7 @@ description: Learn how an Azure Databricks pre-purchase discount applies to your
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders

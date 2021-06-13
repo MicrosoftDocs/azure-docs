@@ -2,15 +2,14 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
+ms.date: 06/09/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
 
 This document lists some of the most common Microsoft Azure limits, which are also sometimes called quotas.
 
-To learn more about Azure pricing, see [Azure pricing overview](https://azure.microsoft.com/pricing/). There, you can estimate your costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/). You also can go to the pricing details page for a particular service, for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](../../cost-management-billing/manage/getting-started.md).
+To learn more about Azure pricing, see [Azure pricing overview](https://azure.microsoft.com/pricing/). There, you can estimate your costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/). You also can go to the pricing details page for a particular service, for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](../../cost-management-billing/cost-management-billing-overview.md).
 
 ## Managing limits
 
@@ -22,14 +21,17 @@ To learn more about Azure pricing, see [Azure pricing overview](https://azure.mi
 > When the limit can be adjusted, the tables include **Default limit** and **Maximum limit** headers. The limit can be raised above the default limit but not above the maximum limit.
 >
 > If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](../templates/error-resource-quota.md).
+>
+> The terms *soft limit* and *hard limit* often are used informally to describe the current, adjustable limit (soft limit) and the maximum limit (hard limit). If a limit isn't adjustable, there won't be a soft limit, only a hard limit.
+>
 
 [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) aren't eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade your Azure Free Trial subscription to a Pay-As-You-Go subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md) and the [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
 
 Some limits are managed at a regional level.
 
-Let's use vCPU quotas as an example. To request a quota increase with support for vCPUs, you must decide how many vCPUs you want to use in which regions. You then make a specific request for Azure resource group vCPU quotas for the amounts and regions that you want. If you need to use 30 vCPUs in West Europe to run your application there, you specifically request 30 vCPUs in West Europe. Your vCPU quota isn't increased in any other region--only West Europe has the 30-vCPU quota.
+Let's use vCPU quotas as an example. To request a quota increase with support for vCPUs, you must decide how many vCPUs you want to use in which regions. You then request an increase in vCPU quotas for the amounts and regions that you want. If you need to use 30 vCPUs in West Europe to run your application there, you specifically request 30 vCPUs in West Europe. Your vCPU quota isn't increased in any other region--only West Europe has the 30-vCPU quota.
 
-As a result, decide what your Azure resource group quotas must be for your workload in any one region. Then request that amount in each region into which you want to deploy. For help in how to determine your current quotas for specific regions, see [Resolve errors for resource quotas](../templates/error-resource-quota.md).
+As a result, decide what your quotas must be for your workload in any one region. Then request that amount in each region into which you want to deploy. For help in how to determine your current quotas for specific regions, see [Resolve errors for resource quotas](../templates/error-resource-quota.md).
 
 ## General limits
 
@@ -63,13 +65,19 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ## App Service limits
 
-The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
-
 [!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
 
 ## Automation limits
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## Azure App Configuration
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
+
+## Azure API for FHIR service limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
 
 ## Azure Cache for Redis limits
 
@@ -121,7 +129,7 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
 
 ## Azure Kubernetes Service limits
 
@@ -145,6 +153,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
 
+### Autoscale
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
+
 ### Log queries and language
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-log-queries.md)]
@@ -155,15 +167,29 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ### Application Insights
 
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
+[!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
 ## Azure Policy limits
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
+## Azure Quantum limits
+
+[!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
+
+## Azure RBAC limits
+
+The following limits apply to [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+
+[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
+
 ## Azure SignalR Service limits
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## Azure VMware Solution limits
+
+[!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
 
 ## Backup limits
 
@@ -201,7 +227,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [azure-data-lake-analytics-limits](../../../includes/azure-data-lake-analytics-limits.md)]
 
-## Data Lake Store limits
+## Data Lake Storage limits
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
 
@@ -225,12 +251,7 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
 
 ## Event Hubs limits
-
-[!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
-
-## Identity Manager limits
-
-[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+[!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]
 
 ## IoT Central limits
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
@@ -246,6 +267,11 @@ The following table details the features and limits of the Basic, Standard, and 
 ## Key Vault limits
 
 [!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+
+## Managed identity limits
+
+[!INCLUDE [Managed-Identity-Limits](../../../includes/managed-identity-limits.md)]
+
 
 ## Media Services limits
 
@@ -271,6 +297,14 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 [!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
 
+### Virtual Network Gateway limits
+
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### NAT Gateway limits
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
+
 ### Virtual WAN limits
 
 [!INCLUDE [virtual-wan-limits](../../../includes/virtual-wan-limits.md)]
@@ -287,6 +321,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ### Private Link limits
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+## Purview limits
+
+The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md)
 
 ### Traffic Manager limits
 
@@ -312,10 +350,6 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## Role-based access control limits
-
-[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
-
 ## Service Bus limits
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/service-bus-quotas-table.md)]
@@ -328,9 +362,14 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
 
+The maximum number of private endpoints per Azure SQL Database logical server is 250.
+
 ## Azure Synapse Analytics limits
 
-For Azure Synapse Analytics limits, see [Azure Synapse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+[!INCLUDE [synapse-analytics-limits](../../../includes/synapse-analytics-limits.md)]
+
+## Azure Files and Azure File Sync
+To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
 
 ## Storage limits
 
@@ -346,16 +385,6 @@ For more information on limits for standard storage accounts, see [Scalability t
 ### Azure Blob storage limits
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### Azure Files limits
-
-For more information on Azure Files limits, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
-
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
-
-### Azure File Sync limits
-
-[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### Azure Queue storage limits
 
@@ -374,10 +403,10 @@ For more information, see [Virtual machine sizes](../../virtual-machines/sizes.m
 
 #### Disk encryption sets
 
-There's a limitation of 50 disk encryption sets per region, per subscription. For more
+There's a limitation of 1000 disk encryption sets per region, per subscription. For more
 information, see the encryption documentation for
-[Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) or
-[Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) virtual machines. If you
+[Linux](../../virtual-machines/disk-encryption.md#restrictions) or
+[Windows](../../virtual-machines/disk-encryption.md#restrictions) virtual machines. If you
 need to increase the quota, contact Azure support.
 
 ### Managed virtual machine disks

@@ -2,7 +2,8 @@
 title: Disaster recovery for custom topics in Azure Event Grid
 description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
 ms.topic: tutorial
-ms.date: 07/07/2020
+ms.date: 04/22/2021
+ms.custom: devx-track-csharp
 ---
 
 # Build your own disaster recovery for custom topics in Event Grid
@@ -68,7 +69,7 @@ First, create two Event Grid topics. These topics will act as your primary and s
    * Select Endpoint Type Web Hook.
    * Set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Event Grid Primary Event Subscription](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Screenshot that shows the "Create Event Subscription - Basic" page with the "Name", "Endpoint Type", and "Endpoint" values highlighted.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repeat the same flow to create your secondary topic and subscription. This time, replace the "-primary" suffix with "-secondary" for easier tracking. Finally, make sure you put it in a different Azure Region. While you can put it anywhere you want, it's recommended that you use the [Azure Paired Regions](../best-practices-availability-paired-regions.md). Putting the secondary topic and subscription in a different region ensures that your new events will flow even if the primary region goes down.
 
@@ -87,6 +88,9 @@ Now that you have a regionally redundant pair of topics and subscriptions setup,
 ### Basic client-side implementation
 
 The following sample code is a simple .NET publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
+
+> [!NOTE]
+> The following sample code is only for demonstration purposes and is not intended for production use. 
 
 ```csharp
 using System;

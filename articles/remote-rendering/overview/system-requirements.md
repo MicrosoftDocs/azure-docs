@@ -5,14 +5,10 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
+ms.custom: references_regions
 ---
 
 # System requirements
-
-> [!IMPORTANT]
-> **Azure Remote Rendering** is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This chapter lists the minimum system requirements to work with *Azure Remote Rendering* (ARR).
 
@@ -20,7 +16,7 @@ This chapter lists the minimum system requirements to work with *Azure Remote Re
 
 * Windows 10 version 1903 or higher.
 * Up-to-date graphics drivers.
-* Optional: H265 hardware video decoder, if you want to use local preview of remotely rendered content (for example in Unity).
+* Optional: [H265 hardware video decoder](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7), if you want to use local preview of remotely rendered content (for example in Unity).
 
 > [!IMPORTANT]
 > Windows update doesn't always deliver the very latest GPU drivers, check your GPU manufacturer's website for latest drivers:
@@ -48,7 +44,7 @@ It's important to use the latest HEVC codec, as newer versions have significant 
 1. Start the **Microsoft Store**.
 1. Click the **"..."** button in the top right.
 1. Select **Downloads and Updates**.
-1. Search the list for **HEVC Video Extensions from Device Manufacturer**.
+1. Search the list for **HEVC Video Extensions from Device Manufacturer**. If this item is not listed under updates, the most recent version is already installed.
 1. Make sure the listed codec has at least version **1.0.21821.0**.
 1. Click the **Get Updates** button and wait for it to install.
 
@@ -60,26 +56,60 @@ See dedicated chapter for [network requirements](../reference/network-requiremen
 
 For troubleshooting network issues, refer to the [Troubleshooting Guide](../resources/troubleshoot.md#unstable-holograms).
 
+### Network firewall
+
+### SDK version >= 0.1.76
+
+Remote Rendering virtual machines use shared IP addresses from the following IP ranges:
+
+| Name             | Region         | IP prefix         |
+|------------------|:---------------|:------------------|
+| Australia East   | australiaeast  | 20.53.44.240/28   |
+| East US          | eastus         | 20.62.129.224/28  |
+| East US 2        | eastus2        | 20.49.103.240/28  |
+| Japan East       | japaneast      | 20.191.165.112/28 |
+| North Europe     | northeurope    | 52.146.133.64/28  |
+| South Central US | southcentralus | 20.65.132.80/28   |
+| Southeast Asia   | southeastasia  | 20.195.64.224/28  |
+| UK South         | uksouth        | 51.143.209.144/28 |
+| West Europe      | westeurope     | 20.61.99.112/28   |
+| West US 2        | westus2        | 20.51.9.64/28     |
+
+Make sure that your firewalls (on device, inside routers, etc.) don't block these IP ranges and the following port ranges:
+
+| Port              | Protocol  | Allow    |
+|-------------------|---------- |----------|
+| 49152-65534       | TCP / UDP | Outgoing |
+
+#### SDK version < 0.1.76
+
+Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
+
+| Port              | Protocol | Allow    | Description |
+|-------------------|----------|----------|-------------|
+| 50051             | TCP      | Outgoing | Initial connection (HTTP handshake) |
+| 8266              | UDP      | Outgoing | Data transfer |
+| 5000, 5433, 8443  | TCP      | Outgoing | Required for [ArrInspector tool](../resources/tools/arr-inspector.md)|
+
+
 ## Software
 
 The following software must be installed:
 
 * The latest version of **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio tools for Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
+* [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(download)](https://git-scm.com/downloads)
-* Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+* Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Ensure that the latest version is installed by checking for updates in the store.
 
 ## Unity
 
-For development with Unity, install
-
-* Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-* Install these modules in Unity:
-  * **UWP** - Universal Windows Platform Build Support
-  * **IL2CPP** - Windows Build Support (IL2CPP)
+For development with Unity, install a current version of Unity 2019.3 or 2019.4 LTS [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
+Make sure to include the following modules in your Unity installation:
+* **UWP** - Universal Windows Platform Build Support
+* **IL2CPP** - Windows Build Support (IL2CPP)
 
 ## Next steps
 

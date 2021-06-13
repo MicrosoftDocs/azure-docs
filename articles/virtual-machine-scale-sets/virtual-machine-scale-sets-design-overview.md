@@ -6,7 +6,6 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
@@ -37,7 +36,7 @@ Some features are currently only available in VMs:
 ## Storage
 
 ### Scale sets with Azure Managed Disks
-Scale sets can be created with [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) instead of traditional Azure storage accounts. Managed Disks provide the following benefits:
+Scale sets can be created with [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) instead of traditional Azure storage accounts. Managed Disks provide the following benefits:
 - You do not have to pre-create a set of Azure storage accounts for the scale set VMs.
 - You can define [attached data disks](virtual-machine-scale-sets-attached-disks.md) for the VMs in your scale set.
 - Scale sets can be configured to [support up to 1,000 VMs in a set](virtual-machine-scale-sets-placement-groups.md). 
@@ -61,5 +60,3 @@ A scale set built on a Marketplace image (also known as a platform image) and co
 A scale set configured with user-managed storage accounts is currently limited to 100 VMs (and 5 storage accounts are recommended for this scale).
 
 A scale set built on a custom image (one built by you) can have a capacity of up to 600 VMs when configured with Azure Managed disks. If the scale set is configured with user-managed storage accounts, it must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image and user-managed storage is 20. If you turn off overprovisioning, you can go up to 40.
-
-For more VMs than these limits allow, you need to deploy multiple scale sets as shown in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).

@@ -3,25 +3,29 @@ title: Call service endpoints by using HTTP or HTTPS
 description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: conceptual
-ms.date: 06/09/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.topic: how-to
+ms.date: 05/25/2021
 tags: connectors
 ---
 
 # Call service endpoints over HTTP or HTTPS from Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that send requests to service endpoints over HTTP or HTTPS. For example, you can monitor the service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow. If you want to receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger or Response action](../connectors/connectors-native-reqres.md).
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that can send outbound requests to endpoints on other services and systems over HTTP or HTTPS. To receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger and Response action](../connectors/connectors-native-reqres.md).
+
+For example, you can monitor a service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow.
 
 * To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes any content from the endpoint's response to the actions in your logic app.
 
 * To call an endpoint from anywhere else in your workflow, [add the HTTP action](#http-action). The endpoint's response determines how your workflow's remaining actions run.
 
-This article shows how to add an HTTP trigger or action to your logic app's workflow.
+This article shows how to use the HTTP trigger and HTTP action so that your logic app can send outbound calls to other services and systems.
+
+For information about encryption, security, and authorization for outbound calls from your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), self-signed certificates, or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * The URL for the target endpoint that you want to call
 
@@ -91,21 +95,103 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
 
-<a name="tls-support"></a>
+## Trigger and action outputs
 
-## Transport Layer Security (TLS)
+Here is more information about the outputs from an HTTP trigger or action, which returns this information:
 
-Based the target endpoint's capability, outbound calls support Transport Layer Security (TLS), which was previously Secure Sockets Layer (SSL), versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported version possible.
+| Property | Type | Description |
+|----------|------|-------------|
+| `headers` | JSON object | The headers from the request |
+| `body` | JSON object | The object with the body content from the request |
+| `status code` | Integer | The status code from the request |
+|||
 
-For example, if the endpoint supports 1.2, the HTTP connector uses 1.2 first. Otherwise, the connector uses the next highest supported version.
+| Status code | Description |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Accepted |
+| 400 | Bad request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 500 | Internal server error. Unknown error occurred. |
+|||
 
-<a name="self-signed"></a>
+<a name="single-tenant-authentication"></a>
 
-## Self-signed certificates
+## Authentication for single-tenant environment
 
-* For logic apps in the global, multi-tenant Azure environment, the HTTP connector doesn't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
+If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
 
-* For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Logic Apps REST API, and install the public certificate at the `TrustedRoot` location.
+* [TSL/SSL certificate](#tsl-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and provide the thumbprint for your thumbprint for your TSL/SSL certificate.
+
+* [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
+
+<a name="tsl-ssl-certificate-authentication"></a>
+
+### TSL/SSL certificate authentication
+
+1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_ROOT_CERTIFICATES`.
+
+1. For the setting value, provide the thumbprint for your TSL/SSL certificate as the root certificate to be trusted.
+
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+
+For example, if you're working in Visual Studio Code, follow these steps:
+
+1. Open your logic app project's **local.settings.json** file.
+
+1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_ROOT_CERTIFICATES` setting:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         <...>
+      }
+   }
+   ```
+
+For more information, review the following documentation:
+
+* [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Private client certificates - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
+
+<a name="client-certificate-authentication"></a>
+
+### Client certificate or Azure AD OAuth with "Certificate" credential type authentication
+
+1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_USER_PROFILE`.
+
+1. For the setting value, specify `1`.
+
+   `"WEBSITE_LOAD_USER_PROFILE": "1"`
+
+For example, if you're working in Visual Studio Code, follow these steps:
+
+1. Open your logic app project's **local.settings.json** file.
+
+1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_USER_PROFILE` setting:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_USER_PROFILE": "1",
+         <...>
+      }
+   }
+   ```
+
+For more information, review the following documentation:
+
+* [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Private client certificates - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
 
 ## Content with multipart/form-data type
 
@@ -152,6 +238,14 @@ Here is the same example that shows the HTTP action's JSON definition in the und
    "type": "Http"
 }
 ```
+
+## Content with application/x-www-form-urlencoded type
+
+To provide form-urlencoded data in the body for an HTTP request, you have to specify that the data has the `application/x-www-form-urlencoded` content type. In the HTTP trigger or action, add the `content-type` header. Set the header value to `application/x-www-form-urlencoded`.
+
+For example, suppose you have a logic app that sends an HTTP POST request to a website, which supports the `application/x-www-form-urlencoded` type. Here's how this action might look:
+
+![Screenshot that shows an HTTP request with the 'content-type' header set to 'application/x-www-form-urlencoded'](./media/connectors-native-http/http-action-urlencoded.png)
 
 <a name="asynchronous-pattern"></a>
 
@@ -210,7 +304,7 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 ## Disable checking location headers
 
-Some endpoints, services, systems, or APIs return a "202 ACCEPTED" response that don't have a `location` header. To avoid having an HTTP action continually check the request status when the `location` header doesn't exist, you can have these options:
+Some endpoints, services, systems, or APIs return a `202 ACCEPTED` response that doesn't have a `location` header. To avoid having an HTTP action continually check the request status when the `location` header doesn't exist, you can have these options:
 
 * [Disable the HTTP action's asynchronous operation pattern](#disable-asynchronous-operations) so that the action doesn't continually poll or check the request's status. Instead, the action waits for the receiver to respond with the status and results after the request finishes processing.
 
@@ -224,10 +318,10 @@ Some endpoints, services, systems, or APIs return a "202 ACCEPTED" response that
 
 If an HTTP trigger or action includes these headers, Logic Apps removes these headers from the generated request message without showing any warning or error:
 
-* `Accept-*`
+* `Accept-*` headers except for `Accept-version`
 * `Allow`
-* `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
-* `Cookie`
+* `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type`, which are honored when you use the POST and PUT operations. However, Logic Apps drops these headers when you use the GET operation.
+* `Cookie` header, but Logic Apps honors any value that you specify using the **Cookie** property.
 * `Expires`
 * `Host`
 * `Last-Modified`
@@ -239,34 +333,12 @@ Although Logic Apps won't stop you from saving logic apps that use an HTTP trigg
 
 ## Connector reference
 
-For more information about trigger and action parameters, see these sections:
+For technical information about trigger and action parameters, see these sections:
 
 * [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### Output details
-
-Here is more information about the outputs from an HTTP trigger or action, which returns this information:
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `headers` | JSON object | The headers from the request |
-| `body` | JSON object | The object with the body content from the request |
-| `status code` | Integer | The status code from the request |
-|||
-
-| Status code | Description |
-|-------------|-------------|
-| 200 | OK |
-| 202 | Accepted |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 500 | Internal server error. Unknown error occurred. |
-|||
-
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-
+* [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Connectors for Logic Apps](../connectors/apis-list.md)

@@ -179,6 +179,14 @@ You can put the storage account in an Azure virtual network that you manage, and
 
 To give Microsoft trusted services access to a storage account through a firewall, you can set up an exception on that storage account for those services. This solution permits Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts behind firewalls as trusted services. Specifically, for a logic app in global multi-tenant Azure to access these storage accounts, you first [enable managed identity support](../logic-apps/create-managed-service-identity.md) on the logic app. Then, you use the HTTP action or trigger in your logic app and [set their authentication type to use your logic app's managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). For this scenario, you can use *only* the HTTP action or trigger.
 
+> [!NOTE]
+> If you use the managed identity capability for authenticating access to your storage account, 
+> you can't use the built-in Azure Blob Storage operations. You have to use the HTTP trigger 
+> or action that has the managed identity set up to authenticate your storage account connection. 
+> To run the necessary storage operations, you then have to call the corresponding REST APIs 
+> for Azure Blob Storage. For more information, review the 
+> [Blob service REST API](/rest/api/storageservices/blob-service-rest-api).
+
 To set up the exception and managed identity support, follow these general steps:
 
 1. On your storage account, under **Settings**, select **Firewalls and virtual networks**. Under **Allow access from**, select the **Selected networks** option so that the related settings appear.
@@ -204,9 +212,8 @@ To set up the exception and managed identity support, follow these general steps
 
 ### Access storage accounts through Azure API Management
 
-If you use a dedicated tier for [API Management](../api-management/api-management-key-concepts.md), you can front the Storage API by using API Management and permitting the latter's IP addresses through the firewall. Basically, add the Azure virtual network that's used by API Management to the storage account's firewall setting. You can then use either the API Management action or the HTTP action to call the Azure Storage APIs. However, if you choose this option, you have to handle the authentication process yourself. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
+If you use a dedicated tier for [API Management](../api-management/api-management-key-concepts.md), you can front the Storage API by using API Management and permitting the latter's IP addresses through the firewall. Basically, add the Azure virtual network that's used by API Management to the storage account's firewall setting. You can then use either the API Management action or the HTTP action to call the Azure Storage APIs. However, if you choose this option, you have to handle the authentication process yourself. For more info, see [Simple enterprise integration architecture](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-

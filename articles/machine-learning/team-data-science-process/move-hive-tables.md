@@ -1,6 +1,6 @@
 ---
 title: Create Hive tables and load data from Blob storage - Team Data Science Process
-description: Use Hive queries to create Hive tables and load data from Azure blob storage. Partition Hive tables and use the Optimized Row Columnar (ORC) formatting to improve query performance.
+description: Use Hive queries to create Hive tables and load data from Azure Blob Storage. Partition Hive tables and use the Optimized Row Columnar (ORC) formatting to improve query performance.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -14,7 +14,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Create Hive tables and load data from Azure Blob Storage
 
-This article presents generic Hive queries that create Hive tables and load data from Azure blob storage. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
+This article presents generic Hive queries that create Hive tables and load data from Azure Blob Storage. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
 
 ## Prerequisites
 This article assumes that you have:
@@ -23,8 +23,8 @@ This article assumes that you have:
 * Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Setup Clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 * Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Manage Apache Hadoop clusters](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
-## Upload data to Azure blob storage
-If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](../../machine-learning/data-science-virtual-machine/overview.md), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you provide a data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
+## Upload data to Azure Blob Storage
+If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](../../machine-learning/data-science-virtual-machine/overview.md), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you provide a data schema and Azure Blob Storage configuration in the appropriate fields to be ready for submission.
 
 We assume that the data for Hive tables is in an **uncompressed** tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster.
 
@@ -95,7 +95,7 @@ hive -e "<hive query>" > <local path in the head node>
 
 In the following example, the output of Hive query is written into a file `hivequeryoutput.txt` in directory `C:\apps\temp`.
 
-![Output of Hive query](./media/move-hive-tables/output-hive-results-1.png)
+![Screenshot shows the output of the Hive query in a Hadoop Command Line window.](./media/move-hive-tables/output-hive-results-1.png)
 
 **Output Hive query results to an Azure blob**
 
@@ -107,7 +107,7 @@ insert overwrite directory wasb:///<directory within the default container> <sel
 
 In the following example, the output of Hive query is written to a blob directory `queryoutputdir` within the default container of the Hadoop cluster. Here, you only need to provide the directory name, without the blob name. An error is thrown if you provide both directory and blob names, such as `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Output of Hive query](./media/move-hive-tables/output-hive-results-2.png)
+![Screenshot shows the previous command in the Hadoop Command Line window.](./media/move-hive-tables/output-hive-results-2.png)
 
 If you open the default container of the Hadoop cluster using Azure Storage Explorer, you can see the output of the Hive query as shown in the following figure. You can apply the filter (highlighted by red box) to only retrieve the blob with specified letters in names.
 

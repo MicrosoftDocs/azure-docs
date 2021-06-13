@@ -2,7 +2,7 @@
 title: Use Azure Service Bus Explorer to perform data operations on Service Bus (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 01/20/2020
 ---
 
 # Use Service Bus Explorer to perform data operations on Service Bus (Preview)
@@ -25,13 +25,16 @@ The Azure Service Bus Explorer expands the portal functionality beyond the manag
 
 ## Prerequisites
 
-To use the Service Bus Explorer tool, you will need to provision an Azure Service Bus namespace. 
+To use the Service Bus Explorer tool, you will need to do the following tasks: 
 
-Once the Service Bus namespace is provisioned, you need to create a Queue to send and receive message from or a Topic with a Subscription to test out the functionality.
-
-To know more about how to create Queues, Topics and Subscriptions, refer to the below links
-   * [Quickstart - Create Queues](service-bus-quickstart-portal.md)
-   * [Quickstart - Create Topics](service-bus-quickstart-topics-subscriptions-portal.md)
+- Provision an Azure Service Bus namespace.
+- Create a queue to send and receive message from or a topic with a subscription to test out the functionality. To learn how to create queues, topics and subscriptions, see the following articles: 
+    - [Quickstart - Create Queues](service-bus-quickstart-portal.md)
+    - [Quickstart - Create Topics](service-bus-quickstart-topics-subscriptions-portal.md)
+- Ensure that you are a member of one of these roles on the namespace: 
+    - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
+    - [Contributor](../role-based-access-control/built-in-roles.md#contributor) 
+    - [Owner](../role-based-access-control/built-in-roles.md#owner)
 
 
 ## Using the Service Bus Explorer
@@ -40,7 +43,7 @@ To use the Azure Service Bus explorer, you need to navigate to the Service Bus n
 
 If you are looking to perform operations against a Queue, pick **'Queues'** from the navigation menu. If you are looking to perform operations against a Topic (and it's related subscriptions), pick **Topics**. 
 
-:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png"alt-text="Entity select":::
+:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Entity select":::
 
 After picking the **'Queues'** or **'Topics'**, pick the specific Queue or Topic.
 
@@ -99,7 +102,7 @@ To receive a message from a Queue (or its deadletter subqueue)
 
 When the receive operation is successful, the message details will display on the grid as below. You can select the message from the grid to display its details.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Screenshot of the Queues window in the Azure Service Bus Explorer with message details displayed for an active message that is selected in the queue.":::
 
 
 ### Peeking a message from a Queue
@@ -151,7 +154,7 @@ Just like with a queue, the ***Receive*** operation can be performed against a s
 
 When the receive operation is successful, the received message will display on the grid as below. To view the message details, click on the message.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Screenshot of the Receive tab in the Azure Service Bus Explorer with message details displayed for an active message that has been received.":::
 
 ### Peeking a message from a Subscription
 

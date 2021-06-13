@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault solution in Azure Monitor | Microsoft Docs
 description: You can use the Azure Key Vault solution in Azure Monitor to review Azure Key Vault logs.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/27/2019
+ms.date: 03/27/2019 
+ms.custom: devx-track-azurepowershell
 
 ---
 
 # Azure Key Vault Analytics solution in Azure Monitor
 
 > [!NOTE]
-> This solution is deprecated. [We now recommend using Azure Monitor for Key Vault](./key-vault-insights-overview.md).
+> This solution is deprecated. [We now recommend using Key Vault insights](./key-vault-insights-overview.md).
 
 ![Key Vault symbol](media/azure-key-vault/key-vault-analytics-symbol.png)
 
@@ -38,10 +38,10 @@ Use the following instructions to install and configure the Azure Key Vault solu
 1. In the Azure portal, navigate to the Key Vault resource to monitor
 2. Select *Diagnostics settings* to open the following page
 
-   ![image of Azure Key Vault tile](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Screenshot of the Diagnostics settings page for the Key Vault resource ContosoKVSCUS.The option to Turn on diagnostics is highlighted.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Click *Turn on diagnostics* to open the following page
 
-   ![image of Azure Key Vault tile](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Screenshot of the page for configuring Diagnostics settings. The options for Send to Log Analytics, AuditEvent log, and AllMetrics are selected.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Give a name to the diagnostic setting.
 5. Click the checkbox for *Send to Log Analytics*
 6. Select an existing Log Analytics workspace, or create a workspace
@@ -71,9 +71,9 @@ The following table shows data collection methods and other details about how da
 | Azure |  |  |&#8226; |  |  | on arrival |
 
 ## Use Azure Key Vault
-After you [install the solution](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), view the Key Vault data by clicking the **Key Vault Analytics** tile from the Azure Monitor **Overview** page. Open this page from the **Azure Monitor** menu by clicking **More** under the **Insights** section. 
+After you [install the solution](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview), view the Key Vault data by clicking the **Key Vault Analytics** tile from the Azure Monitor **Overview** page. Open this page from the **Azure Monitor** menu by clicking **More** under the **Insights** section. 
 
-![image of Azure Key Vault tile](media/azure-key-vault/log-analytics-keyvault-tile.png)
+![Screenshot of the Key Vault Analytics tile on the Azure Monitor Overview page showing a graph of key vault operations volume over time.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
 After you click the **Key Vault Analytics** tile, you can view summaries of your logs and then drill in to details for the following categories:
 
@@ -82,9 +82,9 @@ After you click the **Key Vault Analytics** tile, you can view summaries of your
 * Average operational latency by operation
 * Quality of service for operations with the number of operations that take more than 1000 ms and a list of operations that take more than 1000 ms
 
-![image of Azure Key Vault dashboard](media/azure-key-vault/log-analytics-keyvault01.png)
+![Screenshot of the Azure Key Vault dashboard showing tiles with graphic data for All Operations, Failed Operations, and Average Operational Latency.](media/azure-key-vault/log-analytics-keyvault01.png)
 
-![image of Azure Key Vault dashboard](media/azure-key-vault/log-analytics-keyvault02.png)
+![Screenshot of the Azure Key Vault dashboard showing tiles with data for Average Operational Latency, Quality of Service, and Recommended Searches.](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### To view details for any operation
 1. On the **Overview** page, click the **Key Vault Analytics** tile.
@@ -145,5 +145,5 @@ Data collected before the change is not visible in the new solution. You can con
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
-* Use [Log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed Azure Key Vault data.
+* Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Azure Key Vault data.
 

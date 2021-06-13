@@ -37,15 +37,15 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- [An Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
+- [An Azure AD B2C tenant](./tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ## Scenario description
 
 The Experian integration includes the following components:
 
-- Azure AD B2C – The authorization server, responsible for verifying the user’s credentials, also known as the identity provider
+- Azure AD B2C – The authorization server, responsible for verifying the user's credentials, also known as the identity provider
 
-- Experian – The Experian service takes inputs provided by the user and verifies the user’s identity
+- Experian – The Experian service takes inputs provided by the user and verifies the user's identity
 
 - Custom Rest API – This API implements the integration between Azure AD B2C and the Experian service.
 
@@ -72,14 +72,14 @@ The following architecture diagram shows the implementation.
 
 ### Part 1 - Deploy the API
 
-Deploy the provided API code to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >You'll need the URL of the deployed service to configure Azure AD with the required settings.
 
 ### Part 2 - Deploy the client certificate
 
-The Experian API call is protected by a client certificate. This client certificate will be provided by Experian. Following the  instructions mentioned in this [document](https://docs.microsoft.com/azure/app-service/environment/certificates#private-client-certificate), the certificate must be uploaded to the Azure App service. The sample policy uses these keys steps in the process:
+The Experian API call is protected by a client certificate. This client certificate will be provided by Experian. Following the  instructions mentioned in this [document](../app-service/environment/certificates.md#private-client-certificate), the certificate must be uploaded to the Azure App service. The sample policy uses these keys steps in the process:
 
 - Upload the certificate
 
@@ -87,7 +87,7 @@ The Experian API call is protected by a client certificate. This client certific
 
 ### Part 3 - Configure the API
 
-Application settings can be [configured in the App service in Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). With this method,  settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
+Application settings can be [configured in the App service in Azure](../app-service/configure-common.md#configure-app-settings). With this method,  settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|
@@ -105,18 +105,18 @@ Application settings can be [configured in the App service in Azure](https://doc
 
 ### Part 4 - Create API policy keys
 
-Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys) and create two policy keys – one for the API username, and one for the API password that you defined above for HTTP basic authentication.
+Refer to this [document](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) and create two policy keys – one for the API username, and one for the API password that you defined above for HTTP basic authentication.
 
 >[!NOTE]
 >You'll need the keys for configuring the policies later.
 
 ### Part 5 - Replace the configuration values
 
-In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance
+In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy), find the following placeholders and replace with the corresponding values from your instance
 
 |                      Placeholder                       |                                   Replace with value                                 |                   Example                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |
-| {your_tenant_name}                                     | Your tenant short name                                                           | “yourtenant” from yourtenant.onmicrosoft.com |
+| {your_tenant_name}                                     | Your tenant short name                                                           | "yourtenant" from yourtenant.onmicrosoft.com |
 | {your_trustframeworkbase_policy}                       | Azure AD B2C name of your TrustFrameworkBase policy                  | B2C_1A_experian_TrustFrameworkBase           |
 | {your_tenant_IdentityExperienceFramework_appid}        | App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant      | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_tenant_ ProxyIdentityExperienceFramework _appid} | App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef         |
@@ -124,11 +124,11 @@ In the provided custom policies, find the following placeholders and replace wit
 | {your_tenant_extensions_app_objectid}                  | Object ID of your tenant's storage application                                   | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_api_username_key_name}                           | Name of the username key you created [here](#part-4---create-api-policy-keys)             | B2C\_1A\_RestApiUsername                     |
 | {your_api_password_key_name}                           | Name of the password key you created [here](#part-4---create-api-policy-keys)             | B2C\_1A\_RestApiPassword                     |
-| {your_app_service_URL}                                 | URL of the app service you've set up                                             | <https://yourapp.azurewebsites.net>          |
+| {your_app_service_URL}                                 | URL of the app service you've set up                                             | `https://yourapp.azurewebsites.net`          |
 
 ### Part 6 - Configure the Azure AD B2C policy
 
-Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
+Refer to this [document](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
 
 >[!NOTE]
 >This sample policy is based on [Local Accounts starter
@@ -163,6 +163,6 @@ pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starte
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

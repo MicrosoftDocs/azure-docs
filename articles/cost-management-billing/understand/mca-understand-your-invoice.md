@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/08/2021
 ms.author: banders
 ---
 
@@ -16,9 +17,25 @@ This article applies to an Azure billing account for a Microsoft Customer Agreem
 
 Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](download-azure-invoice.md).
 
+Watch the [Understand your Microsoft Customer Agreement invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA) video to learn about your invoice and how to analyze the charges on it.
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
+
 ## Billing period
 
 You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**.
+
+If you're migrating from an EA to a Microsoft Customer Agreement, you continue to receive invoices for your EA until the migration date. The new invoice for your Microsoft Customer Agreement is generated on the fifth day of the month after you migrate. The first invoice shows a partial charge from the migration date. Later invoices are generated every month and show all the charges for each month.
+
+### Changes for pay-as-you-go subscriptions
+
+When a subscription is transitioned, transferred, or canceled, the last invoice generated contains charges for the previous billing cycle and the new incomplete billing cycle.
+
+For example:
+
+Assume that your pay-as-you-go subscription billing cycle is from the day 8 to day 7 of each month. The subscription was transferred to a Microsoft Customer Agreement on November 16. The last pay-as-you-go invoice has charges for October 8, 2020 through November 7, 2020. It also has the charges for the new partial billing cycle for the Microsoft Customer Agreement from November 8, 2020 through November 16, 2020. Here's an example image.
+
+:::image type="content" source="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" alt-text="Example image of an invoice showing the last billing cycle." lightbox="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" :::
 
 ## Invoice terms and descriptions
 

@@ -14,6 +14,7 @@ ms.date: 08/04/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
+ms.custom: devx-track-csharp
 ---
 
 # Export and import Azure Notification Hubs registrations in bulk
@@ -122,7 +123,7 @@ In addition to the input and output URLs, this example creates a `NotificationHu
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-Once the call is completed, the job is continued by the notification hub, and you can check its status with the call to [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
+Once the call is completed, the job is continued by the notification hub, and you can check its status with the call to [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync).
 
 At the completion of the job, you can inspect the results by looking at the following files in your output directory:
 

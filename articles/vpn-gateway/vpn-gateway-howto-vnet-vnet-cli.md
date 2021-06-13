@@ -1,13 +1,13 @@
 ---
 title: 'Connect a VNet to a VNet using a VNet-to-VNet connection: Azure CLI'
-description: Connect virtual networks together by using a VNet-to-VNet connection and Azure CLI.
+description: Learn how to connect virtual networks together by using a VNet-to-VNet connection and Azure CLI.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/14/2018
+ms.date: 09/02/2020
 ms.author: cherylmc 
 ms.custom: devx-track-azurecli
 
@@ -66,7 +66,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 * [VNets that reside in the same subscription:](#samesub) The steps for this configuration use TestVNet1 and TestVNet4.
 
-  ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+  ![Diagram that shows V Net-to-V Net steps for V Nets that reside in the same subscription.](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 * [VNets that reside in different subscriptions:](#difsub) The steps for this configuration use TestVNet1 and TestVNet5.
 
@@ -130,7 +130,7 @@ We use the following values in the examples:
    ```azurecli
    az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
    ```
-3. Create an additional address space for the backend subnet. Notice that in this step, we specify both the address space that we created earlier, and the additional address space that we want to add. This is because the [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) command overwrites the previous settings. Make sure to specify all of the address prefixes when using this command.
+3. Create an additional address space for the backend subnet. Notice that in this step, we specify both the address space that we created earlier, and the additional address space that we want to add. This is because the [az network vnet update](/cli/azure/network/vnet) command overwrites the previous settings. Make sure to specify all of the address prefixes when using this command.
 
    ```azurecli
    az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -374,5 +374,5 @@ This step is split into two CLI sessions marked as **[Subscription 1]**, and **[
 
 ## Next steps
 
-* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see the [Virtual Machines documentation](https://docs.microsoft.com/azure/).
+* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see the [Virtual Machines documentation](../index.yml).
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 05/04/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,14 +19,14 @@ ms.collection: M365-identity-device-management
 
 Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find leaked username and password pairs. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection user risk detections](../identity-protection/concept-identity-protection-risks.md#user-risk). 
 
-There are two locations where this policy may be assigned. Organizations should choose one of the following options to enable a user risk-based Conditional Access policy requiring a secure password change.
+There are two locations where this policy may be configured, Conditional Access and Identity Protection. Configuration using a Conditional Access policy is the preferred method providing more context including enhanced diagnostic data, report-only mode integration, Graph API support, and the ability to utilize other Conditional Access attributes in the policy.
 
 ## Enable with Conditional Access policy
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies. For more info, [set naming standards for your policies](./plan-conditional-access.md#set-naming-standards-for-your-policies).
 1. Under **Assignments**, select **Users and groups**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
@@ -59,8 +59,8 @@ There are two locations where this policy may be assigned. Organizations should 
 
 [Sign-in risk-based Conditional Access](howto-conditional-access-policy-risk.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[What is Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

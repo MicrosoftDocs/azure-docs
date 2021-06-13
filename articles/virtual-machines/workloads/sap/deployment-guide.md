@@ -8,10 +8,8 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -67,8 +65,8 @@ ms.author: sedusch
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
-[azure-cli]:../../../cli-install-nodejs.md
-[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]:/cli/azure/install-classic-cli
+[azure-cli-2]:/cli/azure/install-azure-cli
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -124,6 +122,8 @@ ms.author: sedusch
 [deployment-guide-5.1-new]:deployment-guide.md#7bf24f59-7347-4c7a-b094-4693e4687ee5 (Readiness check for new Azure Extension for SAP)
 [deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for the Azure Extension for SAP configuration)
 [deployment-guide-5.2-new]:deployment-guide.md#464ac96d-7d3c-435d-a5ae-3faf3bfef4b3 (Health check for the new Azure Extension for SAP configuration)
+
+
 [deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Troubleshooting Azure Extension for SAP)
 [deployment-guide-5.3-new]:deployment-guide.md#b7afb8ef-a64c-495d-bb37-2af96688c530 (Troubleshooting the new Azure Extension for SAP)
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Troubleshooting Azure Extension for SAP - Contact Support)
@@ -252,7 +252,7 @@ ms.author: sedusch
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -540,11 +540,11 @@ Because different versions of an operating system or DBMS have different patch r
 You use different steps to create a private image for Linux than to create one for Windows.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > To prepare a Windows image that you can use to deploy multiple virtual machines, the Windows settings (like Windows SID and hostname) must be abstracted or generalized on the on-premises VM. You can use [sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)) to do this.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > To prepare a Linux image that you can use to deploy multiple virtual machines, some Linux settings must be abstracted or generalized on the on-premises VM. You can use `waagent -deprovision`  to do this. For more information, see [Capture a Linux virtual machine running on Azure][virtual-machines-linux-capture-image] and the [Azure Linux agent user guide][virtual-machines-linux-agent-user-guide-command-line-options].
 >
@@ -681,11 +681,11 @@ In this scenario, the VM Agent is **not** automatically installed during deploym
 For more information about the Azure VM Agent, see the following resources.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > [Azure Virtual Machine Agent overview][virtual-machines-windows-agent-user-guide]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > [Azure Linux Agent User Guide][virtual-machines-linux-agent-user-guide]
 >
@@ -910,8 +910,8 @@ For more information about user-defined routes, see [User-defined routes and IP 
 ### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configure the Azure Extension for SAP
 
 > [!NOTE]
-> General Support Statement: Please always open an incident with SAP on component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR if you need support for the Azure Extension for SAP.
-> There are dedicated Microsoft support engineers working in the SAP support system to help our joint customers.
+> General Support Statement:  
+> Support for the Azure Extension for SAP is provided through SAP support channels. If you need assistance with the Azure Extension for SAP, please open a support case with [SAP Support](https://support.sap.com/). 
 
 When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters. For more information, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-9.1].
 
@@ -961,9 +961,8 @@ The script output includes the following information:
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI for Linux VMs
 
-To install the Azure Extension for SAP by using Azure CLI:
-
-   1. Install Azure classic CLI, as described in [Install the Azure classic CLI][azure-cli].
+1. Install the Azure Extension for SAP by using the Azure CLI:
+   1. Install the [Azure classic CLI][azure-cli].
    1. Sign in with your Azure account:
 
       ```console
@@ -976,28 +975,27 @@ To install the Azure Extension for SAP by using Azure CLI:
       azure config mode arm
       ```
 
-   1. Enable Azure Extension for SAP:
+   1. Enable the extension:
 
       ```console
       azure vm enable-aem <resource-group-name> <vm-name>
       ```
 
-1. Install using Azure CLI 2.0
-
-   1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].
+1. Install the Azure CLI AEM Extension by using the Azure CLI 2.0:
+   1. Install [Azure CLI 2.0][azure-cli-2]. Ensure that you use at least version 2.19.1 or later (use the latest version).
    1. Sign in with your Azure account:
 
       ```azurecli
       az login
       ```
 
-   1. Install Azure CLI AEM Extension
-  
+   1. Install the Azure CLI AEM Extension. Ensure that you use version 0.2.2 or later.
+    
       ```azurecli
       az extension add --name aem
       ```
   
-   1. Install the extension with
+   1. Enable the extension:
   
       ```azurecli
       az vm aem set -g <resource-group-name> -n <vm name>
@@ -1020,10 +1018,10 @@ To install the Azure Extension for SAP by using Azure CLI:
 
 #### <a name="2ad55a0d-9937-4943-9dd2-69bc2b5d3de0"></a>Configure the new Azure Extension for SAP with Azure PowerShell
 
-The new VM Extension for SAP uses a Managed Identity assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using PowerShell, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example disks and network interfaces.
+The new VM Extension for SAP uses a managed identity that's assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using PowerShell, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example, disks and network interfaces.
 
 > [!NOTE]
-> The following steps require Owner privileges over the resource group or individual resources (virtual machine, data disks etc.)
+> The following steps require Owner privileges over the resource group or individual resources (virtual machine, data disks, and so on)
 
 1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 1. Make sure to uninstall the current version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
@@ -1041,48 +1039,31 @@ The new VM Extension for SAP uses a Managed Identity assigned to the VM to acces
 
 #### <a name="c8749c24-fada-42ad-b114-f9aae2dc37da"></a>Configure the new Azure Extension for SAP with Azure CLI
 
-The new VM Extension for SAP uses a Managed Identity assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using Azure CLI, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example disks and network interfaces.
+The new VM Extension for SAP uses a managed identity that's assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using Azure CLI, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example, disks and network interfaces.
 
 > [!NOTE]
-> The following steps require Owner privileges over the resource group or individual resources (virtual machine, data disks etc.)
+> The following steps require Owner privileges over the resource group or individual resources (virtual machine, data disks, and so on)
 
-1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
-1. Make sure to uninstall the current version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
-1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].
-
+1. Ensure that you use SAP Host Agent 7.21 PL 47 or later.
+1. Ensure that you uninstall the current version of the VM Extension for SAP. You can't install both versions of the VM Extension for SAP on the same VM. 
+1. Install the lastest version of [Azure CLI 2.0][azure-cli-2] (version 2.19.1 or later).
 1. Sign in with your Azure account:
 
    ```azurecli
    az login
    ```
 
-1. Follow the steps in the [Configure managed identities for Azure resources on an Azure VM using Azure CLI][qs-configure-cli-windows-vm] article to enable a System-Assigned Managed Identity to the VM. User-Assigned Managed Identities are not supported by the VM extension for SAP. However, you can enable both, a system-assigned and a user-assigned identity.
-
-   Example:
+1. Install the Azure CLI AEM Extension. Ensure that you use version 0.2.2 or later.
+  
    ```azurecli
-   az vm identity assign -g <resource-group-name> -n <vm name>
+   az extension add --name aem
    ```
-
-1. Assign the Managed Identity access to the resource group of the VM or to all network interfaces, managed disks and the VM itself as described in [Assign a managed identity access to a resource using Azure CLI][howto-assign-access-cli]
-
-    Example:
-
-    ```azurecli
-    spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
-    rgId=$(az group show -g <resource-group-name> --query id --out tsv)
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-    ```
-
-1. Run the following Azure CLI command to install the Azure Extension for SAP.
-    The extension is currently only supported in AzureCloud. Azure China 21Vianet, Azure Government or any of the other special environments are not yet supported.
-
-    ```azurecli
-    # For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    #For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-    ```
+  
+1. Enable the new extension:
+  
+   ```azurecli
+   az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
+   ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and Troubleshooting
 
@@ -1309,7 +1290,7 @@ If some of the infrastructure data is not delivered correctly as indicated by th
 > [!NOTE]
 > There are two versions of the VM extension. This chapter covers the default VM extension. If you have installed the new VM extension, please see chapter [Troubleshooting the new Azure Extension for SAP][deployment-guide-5.3-new].
 
-#### ![Windows][Logo_Windows] Azure performance counters do not show up at all
+#### ![Windows logo.][Logo_Windows] Azure performance counters do not show up at all
 
 The AzureEnhancedMonitoring Windows service collects performance metrics in Azure. If the service has not been installed correctly or if it is not running in your VM, no performance metrics can be collected.
 
@@ -1352,13 +1333,13 @@ The AzureEnhancedMonitoring Windows service exists and is enabled, but fails to 
 
 The configuration is incorrect. Restart the Azure Extension for SAP in the VM, as described in [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
-#### ![Windows][Logo_Windows] Some Azure performance counters are missing
+#### ![Windows logo.][Logo_Windows] Some Azure performance counters are missing
 
 The AzureEnhancedMonitoring Windows service collects performance metrics in Azure. The service gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Diagnostics. Storage counters are used from your logging on the storage subscription level.
 
 If troubleshooting by using SAP Note [1999351] doesn't resolve the issue, rerun the `Set-AzVMAEMExtension` configuration script. You might have to wait an hour because storage analytics or diagnostics counters might not be created immediately after they are enabled. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.
 
-#### ![Linux][Logo_Linux] Azure performance counters do not show up at all
+#### ![Linux logo.][Logo_Linux] Azure performance counters do not show up at all
 
 Performance metrics in Azure are collected by a daemon. If the daemon is not running, no performance metrics can be collected.
 
@@ -1391,7 +1372,7 @@ Executing azperfli.exe as described earlier you can get a result that is indicat
 The messages are caused by the fact that Standard Managed Disks are not delivering the APIs used by the SAP Extension for SAP to check on statistics of the Standard Azure Storage Accounts. This is not a matter of concern. Reason for introducing the collecting data for Standard Disk Storage accounts was throttling of inputs and outputs that occurred frequently. Managed disks will avoid such throttling by limiting the number of disks in a storage account. Therefore, not having that type of that data is not critical.
 
 
-#### ![Linux][Logo_Linux] Some Azure performance counters are missing
+#### ![Linux logo.][Logo_Linux] Some Azure performance counters are missing
 
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Diagnostics. Storage counters come from the logs in your storage subscription.
 
@@ -1404,7 +1385,7 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun
 > [!NOTE]
 > There are two versions of the VM extension. This chapter covers the new VM extension. If you have installed the default VM extension, please see chapter [Troubleshooting the Azure Extension for SAP][deployment-guide-5.3].
 
-#### ![Windows][Logo_Windows] Azure performance counters do not show up at all
+#### ![Windows logo.][Logo_Windows] Azure performance counters do not show up at all
 
 The AzureEnhancedMonitoring process collects performance metrics in Azure. If the process is not running in your VM, no performance metrics can be collected.
 
@@ -1420,13 +1401,13 @@ is empty.
 
 The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine or install the VM extension again.
 
-#### ![Windows][Logo_Windows] Some Azure performance counters are missing
+#### ![Windows logo.][Logo_Windows] Some Azure performance counters are missing
 
 The AzureEnhancedMonitoring Windows process collects performance metrics in Azure. The process gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
 
 If troubleshooting by using SAP Note [1999351] does not resolve the issue, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows\\&lt;version>\\logapp.txt to the incident.
 
-#### ![Linux][Logo_Linux] Azure performance counters do not show up at all
+#### ![Linux logo.][Logo_Linux] Azure performance counters do not show up at all
 
 Performance metrics in Azure are collected by a daemon. If the daemon is not running, no performance metrics can be collected.
 
@@ -1440,7 +1421,7 @@ The directory \\var\\lib\\waagent\\ does not have a subdirectory for the Azure E
 
 The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine and/or install the VM extension again.
 
-#### ![Linux][Logo_Linux] Some Azure performance counters are missing
+#### ![Linux logo.][Logo_Linux] Some Azure performance counters are missing
 
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
 

@@ -1,6 +1,6 @@
 ---
 title: Work with Azure Functions Core Tools 
-description: Learn how to code and test Azure functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
+description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
@@ -26,18 +26,20 @@ Developing functions on your local computer and publishing them to Azure using C
 
 ## Core Tools versions
 
-There are three versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
+There are three versions of Azure Functions Core Tools.<sup>*</sup> The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
 
 + [**Version 3.x/2.x**](#v2): Supports either [version 3.x or 2.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2) and use platform-specific package managers or npm for installation.
 
 + **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-Unless otherwise noted, the examples in this article are for version 3.x.
+You can only install one version of Core Tools on a given computer. Unless otherwise noted, the examples in this article are for version 3.x.
+
+<sup>*</sup> An experimental version of Azure Functions is available that lets you run C# functions on the .NET 6.0 preview. To learn more, see the [Azure Functions v4 early preview](https://aka.ms/functions-dotnet6earlypreview-wiki) page.
 
 ## Prerequisites
 
-Azure Functions Core Tools currently depends on the Azure CLI for authenticating with your Azure account. 
-This means that you must [install the Azure CLI locally](/cli/azure/install-azure-cli) to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+Azure Functions Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. 
+This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
 ## Install the Azure Functions Core Tools
 
@@ -151,7 +153,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 ## Create a local Functions project
 
-A functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+A Functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 Version 3.x/2.x requires you to select a default language for your project when it is initialized. In version 3.x/2.x, all functions added use default language templates. In version 1.x, you specify the language each time you create a function.
 
@@ -162,7 +164,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Use the following command to create your Java project: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. For an example using the Maven archetype, see the [Command line quickstart](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+> Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Use the following command to create your Java project: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. For an example using the Maven archetype, see the [Command line quickstart](./create-first-function-cli-java.md).  
 
 When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
 In version 3.x/2.x, when you run the command you must choose a runtime for your project. 
@@ -253,20 +255,21 @@ Even when using the Microsoft Azure Storage Emulator for development, you may wa
 
   ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
-+ Use Core Tools to download the connection string from Azure with one of the following commands:
++ Use Core Tools from the project root to download the connection string from Azure with one of the following commands:
 
   + Download all settings from an existing function app:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Get the Connection string for a specific storage account:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    When you aren't already signed in to Azure, you're prompted to do so.
+    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. 
 
 ## <a name="create-func"></a>Create a function
 
@@ -331,7 +334,7 @@ To run a Functions project, run the Functions host. The host enables triggers fo
 # [C\#](#tab/csharp)
 
 ```
-func start --build
+func start
 ```
 
 # [Java](#tab/java)
@@ -352,7 +355,7 @@ func start
 ```
 func start
 ```
-This command must be [run in a virtual environment](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
+This command must be [run in a virtual environment](./create-first-function-cli-python.md).
 
 # [TypeScript](#tab/ts)
 
@@ -364,11 +367,7 @@ npm start
 ---
 
 >[!NOTE]  
-> Version 1.x of the Functions runtime requires the `host` command, as in the following example:
->
-> ```
-> func host start
-> ```
+> Version 1.x of the Functions runtime instead requires `func host start`. 
 
 `func start` supports the following options:
 
@@ -500,7 +499,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 The Azure Functions Core Tools supports two types of deployment: deploying function project files directly to your function app via [Zip Deploy](functions-deployment-technologies.md#zip-deploy) and [deploying a custom Docker container](functions-deployment-technologies.md#docker-container). You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you'll deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
 
 >[!IMPORTANT]
->You must have the [Azure CLI](/cli/azure/install-azure-cli) installed locally to be able to publish to Azure from Core Tools.  
+>You must have the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) installed locally to be able to publish to Azure from Core Tools.  
 
 A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder.     
 
@@ -515,7 +514,7 @@ func azure functionapp publish <FunctionAppName>
 >[!IMPORTANT]
 > Java uses Maven to publish your local project to Azure. Use the following command to publish to Azure: `mvn azure-functions:deploy`. Azure resources are created during initial deployment.
 
-This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command uses [remote build](functions-deployment-technologies.md#remote-build) and deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
+This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI or Azure PowerShell, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command uses [remote build](functions-deployment-technologies.md#remote-build) and deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
 
 >[!IMPORTANT]
 > When you create a function app in the Azure portal, it uses version 3.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
@@ -569,15 +568,11 @@ The recommended way to monitor the execution of your functions is by integrating
 
 ### Application Insights integration
 
-Application Insights integration should be enabled when you create your function app in Azure. If for some reason your function app isn't connected to an Application Insights instance, it's easy to do this integration in the Azure portal. 
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+Application Insights integration should be enabled when you create your function app in Azure. If for some reason your function app isn't connected to an Application Insights instance, it's easy to do this integration in the Azure portal. To learn more, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
 ### Enable streaming logs
 
 You can view a stream of log files being generated by your functions in a command-line session on your local computer. 
-
-#### Native streaming logs
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 

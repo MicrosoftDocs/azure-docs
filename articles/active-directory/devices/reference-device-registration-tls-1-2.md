@@ -49,7 +49,7 @@ Any machines that act as proxies between devices and the Azure AD Device Registr
 
 ## Update AD FS servers
 
-Any AD FS servers used to communicate with the Azure AD Device Registration Service must ensure that TLS 1.2 is enabled. See [Managing SSL/TLS Protocols and Cipher Suites for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) for information on how to enable/verify this configuration.
+Any AD FS servers used to communicate with the Azure AD Device Registration Service must ensure that TLS 1.2 is enabled. See [Managing SSL/TLS Protocols and Cipher Suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) for information on how to enable/verify this configuration.
 
 ## Client updates
 
@@ -65,4 +65,4 @@ The following clients are known to be unable to support TLS 1.2. Update your cli
 
 ## Next steps
 
-[TLS/SSL overview (Schannel SSP)](https://docs.microsoft.com/windows-server/security/tls/tls-ssl-schannel-ssp-overview)
+[TLS/SSL overview (Schannel SSP)](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)

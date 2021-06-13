@@ -7,7 +7,8 @@ ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
 ms.date: 08/01/2018
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 # Edit textual runbooks in Azure Automation
@@ -95,4 +96,4 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Credentials](./shared-resources/credentials.md).
 * [Schedules](./shared-resources/schedules.md).
 * [Variables](./shared-resources/variables.md).
-* [PowerShell cmdlet reference](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [PowerShell cmdlet reference](/powershell/module/az.automation).

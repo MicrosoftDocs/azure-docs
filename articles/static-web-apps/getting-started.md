@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Building your first static web app with Azure Static Web Apps"
-description: Learn to build an Azure Static Web Apps instance with your preferred front-end framework.
+title: "Quickstart: Building your first static site with the Azure Static Web Apps"
+description: Learn to deploy a static site to Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  quickstart
-ms.date: 05/08/2020
+ms.date: 08/13/2020
 ms.author: cshoe
 ---
 
-# Quickstart: Building your first static web app
+# Quickstart: Building your first static site with Azure Static Web Apps
 
-Azure Static Web Apps publishes websites to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using your preferred front-end framework from a GitHub repository.
+Azure Static Web Apps publishes a website by building apps from a code repository. In this quickstart, you deploy an  application to Azure Static Web apps using the Visual Studio Code extension.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
@@ -19,153 +19,103 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 - [GitHub](https://github.com) account
 - [Azure](https://portal.azure.com) account
+- [Visual Studio Code](https://code.visualstudio.com)
+- [Azure Static Web Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
+- [Install Git](https://www.git-scm.com/downloads)
 
-## Create a repository
+[!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
-This article uses GitHub template repositories to make it easy for you to create a new repository. The templates feature starter apps built with different front-end frameworks.
+[!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
-# [Angular](#tab/angular)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/angular-basic/generate
-- Name your repository **my-first-static-web-app**
-
-# [React](#tab/react)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/react-basic/generate
-- Name your repository **my-first-static-web-app**
-
-# [Vue](#tab/vue)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vue-basic/generate
-- Name your repository **my-first-static-web-app**
-
-# [No Framework](#tab/vanilla-javascript)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vanilla-basic/generate
-- Name your repository **my-first-static-web-app**
-
-> [!NOTE]
-> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
-
----
-
-Click the **Create repository from template** button.
-
-:::image type="content" source="media/getting-started/create-template.png" alt-text="Create repository from template":::
+Next, open Visual Studio Code and go to **File > Open Folder** to open the repository you cloned to your machine in the editor.
 
 ## Create a static web app
 
-Now that the repository is created, you can create a static web app from the Azure portal.
+1. Inside Visual Studio Code, select the Azure logo in the Activity Bar to open the Azure extensions window.
 
-- Navigate to the [Azure portal](https://portal.azure.com)
-- Click **Create a Resource**
-- Search for **Static Web Apps**
-- Click **Static Web Apps (Preview)**
-- Click **Create**
+    :::image type="content" source="media/getting-started/extension-azure-logo.png" alt-text="Azure Logo":::
 
-### Basics
+    > [!NOTE]
+    > Azure and GitHub sign in are required. If you are not already signed in to Azure and GitHub from Visual Studio Code, the extension will prompt you to sign in to both during the creation process.
 
-Begin by configuring your new app and linking it to a GitHub repository.
+1. Under the _Static Web Apps_ label, select the **plus sign**.
 
-:::image type="content" source="media/getting-started/basics-tab.png" alt-text="Basics tab":::
+    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
 
-- Select your _Azure subscription_
-- Select or create a new _Resource Group_
-- Name the app **my-first-static-web-app**.
-  - Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
-- Select a _Region_ closest to you
-- Select the **Free** _SKU_
-- Click the **Sign-in with GitHub** button and authenticate with GitHub
+1. The command palate opens at the top of the editor and prompts you to name your application.
 
-Once you sign in with GitHub, then enter the repository information.
+    Type **my-first-static-web-app** and press **Enter**.
 
-:::image type="content" source="media/getting-started/repository-details.png" alt-text="Repository details":::
+    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
-- Select your preferred _Organization_
-- Select **my-first-web-static-app** from the _Repository_ drop-down
-- Select **master** from the _Branch_ drop-down
-- Click the **Next: Build >** button to edit the build configuration
+1. Select the presets that match your application type.
 
-:::image type="content" source="media/getting-started/next-build-button.png" alt-text="Next Build button":::
+    # [No Framework](#tab/vanilla-javascript)
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
 
-> [!NOTE]
->  If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+    Enter **./** as the location for the application files.
 
-### Build
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application files location":::
 
-Next, add configuration details specific to your preferred front-end framework.
+    Select **Skip for now** as the location for the Azure Functions API.
 
-# [Angular](#tab/angular)
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
 
-- Enter **/** in the _App location_ box
-- Clear the default value from the _Api location_ box
-- Enter **dist/angular-basic** in the _App artifact location_ box
+    Enter **./** as the build output location.
 
-# [React](#tab/react)
+    :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Application build output location":::
 
-- Enter **/** in the _App location_ box
-- Clear the default value from the _Api location_ box
-- Enter **build** in the _App artifact location_ box
+    # [Angular](#tab/angular)
 
-# [Vue](#tab/vue)
+    Although there is an Angular preset, select the **Custom** option so you can provide an appropriate output location for this application.
 
-- Enter **/** in the _App location_ box
-- Clear the default value from the _Api location_ box
-- Enter **dist** in the _App artifact location_ box
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: Angular":::
 
-# [No Framework](#tab/vanilla-javascript)
+    Enter **./** as the location for the application files.
 
-- Enter **/** in the _App location_ box
-- Clear the default value from the _Api location_ box
-- Clear the default value from _App artifact location_ box
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application files location: Angular":::
 
----
+    Select **Skip for now** as the location for the Azure Functions API.
 
-Click the **Review + create** button.
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location: Angular":::
 
-:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
+    Enter **dist/angular-basic** as the build output location.
 
-To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
+    :::image type="content" source="media/getting-started/extension-angular.png" alt-text="Application build output location: Angular":::
 
-### Review + create
+    # [React](#tab/react)
 
-After the request validates, you can continue to create the application.
+    :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="Application presets: React":::
 
-Click the **Create** button
+    # [Vue](#tab/vue)
 
-:::image type="content" source="media/getting-started/create-button.png" alt-text="Create button":::
+    :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Application presets: Vue":::
 
-Once the resource is created, click the **Go to resource** button
+    ---
 
-:::image type="content" source="media/getting-started/resource-button.png" alt-text="Go to resource button":::
+1. Select a location nearest you and press **Enter**.
 
-## View the website
+    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Resource location":::
 
-There are two aspects to deploying a static app. The first provisions the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
+1. Once the app is created, a confirmation notification is shown in Visual Studio Code.
 
-Before you can navigate to your new static site, the deployment build must first finish running.
+    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
 
-The Static Web Apps overview window displays a series of links that help you interact with your web app.
+    Next, click on the button **Open Actions in GitHub**. This page shows you the build status of the application.
 
-:::image type="content" source="media/getting-started/overview-window.png" alt-text="Overview window":::
+    Once the GitHub Action is complete, then you can browse to the published website.
 
-1. Clicking on the banner that says, "Click here to check the status of your GitHub Actions runs" takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
+1. To view the website in the browser, right-click on the project in the Static Web Apps extension, and select **Browse Site**.
 
-2. Once GitHub Actions workflow is complete, you can click on the _URL_ link to open the website in new tab.
+    :::image type="content" source="media/getting-started/extension-browse-site.png" alt-text="Browse site":::
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
+If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the extension.
 
-1. Open the [Azure portal](https://portal.azure.com)
-1. Search for **my-first-web-static-app** from the top search bar
-1. Click on the app name
-1. Click on the **Delete** button
-1. Click **Yes** to confirm the delete action
+In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and right-click on **my-first-static-web-app** and select **Delete**.
+
+:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Delete app":::
 
 ## Next steps
 

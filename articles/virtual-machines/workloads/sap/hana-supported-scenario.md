@@ -1,48 +1,47 @@
 ---
 title: Supported scenarios for SAP HANA on Azure (Large Instances)| Microsoft Docs
-description: Scenarios supported and their architecture details for SAP HANA on Azure (Large Instances)
+description: Learn about scenarios supported for SAP HANA on Azure (Large Instances) and their architectural details.
 services: virtual-machines-linux
 documentationcenter:
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor:
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2019
-ms.author: saghorpa
+ms.date: 05/18/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---
 # Supported scenarios for HANA Large Instances
-This article describes the supported scenarios and architecture details for HANA Large Instances (HLI).
+This article describes the supported scenarios and architectural details for HANA Large Instances (HLI).
 
 >[!NOTE]
 >If your required scenario is not mentioned in this article, contact the Microsoft Service Management team to assess your requirements.
 Before you set up the HLI unit, validate the design with SAP or your service implementation partner.
 
 ## Terms and definitions
-Let's understand the terms and definitions that are used in this article:
+Let's understand the terms and definitions used in this article:
 
-- **SID**: A system identifier for the HANA system
-- **HLI**: Hana Large Instances
-- **DR**: Disaster recovery
-- **Normal DR**: A system setup with a dedicated resource for DR purposes only
-- **Multipurpose DR**: A DR-site system that's configured to use a non-production environment alongside a production instance that's configured for a DR event 
-- **Single-SID**: A system with one instance installed
-- **Multi-SID**: A system with multiple instances configured; also called an MCOS environment
-- **HSR**: SAP HANA System Replication
+- **SID**: A system identifier for the HANA system.
+- **HLI**: Hana Large Instances.
+- **DR**: Disaster recovery (DR).
+- **Normal DR**: A system setup with a dedicated resource for DR purposes only.
+- **Multipurpose DR**: A DR site system that's configured to use a non-production environment alongside a production instance that's configured for a DR event. 
+- **Single-SID**: A system with one instance installed.
+- **Multi-SID**: A system with multiple instances configured; also called an MCOS environment.
+- **HSR**: SAP HANA system replication.
 
 ## Overview
 HANA Large Instances supports a variety of architectures to help you accomplish your business requirements. The following sections cover the architectural scenarios and their configuration details. 
 
-The derived architecture design is purely from an infrastructure perspective, and you must consult SAP or your implementation partners for the HANA deployment. If your scenarios are not listed in this article, contact the Microsoft account team to review the architecture and derive a solution for you.
+The derived architectural designs are purely from an infrastructure perspective. Consult SAP or your implementation partners for the HANA deployment. If your scenarios aren't listed in this article, contact the Microsoft account team to review the architecture and derive a solution for you.
 
 > [!NOTE]
-> These architectures are fully compliant with Tailored Data Integration (TDI) design and supported by SAP.
+> These architectures are fully compliant with Tailored Data Integration (TDI) design and are supported by SAP.
 
 This article describes the details of the two components in each supported architecture:
 
@@ -54,7 +53,7 @@ This article describes the details of the two components in each supported archi
 Each provisioned server comes preconfigured with sets of Ethernet interfaces. The Ethernet interfaces configured on each HLI unit are categorized into four types:
 
 - **A**: Used for or by client access.
-- **B**: Used for node-to-node communication. This interface is configured on all servers (irrespective of the topology requested) but used only for  scale-out scenarios.
+- **B**: Used for node-to-node communication. This interface is configured on all servers irrespective of the topology requested. However, it is used only for scale-out scenarios.
 - **C**: Used for node-to-storage connectivity.
 - **D**: Used for node-to-iSCSI device connection for STONITH setup. This interface is configured only when an HSR setup is requested.  
 
@@ -69,33 +68,33 @@ Each provisioned server comes preconfigured with sets of Ethernet interfaces. Th
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
-You choose the interface based on the topology that's configured on the HLI unit. For example, interface “B” is set up for node-to-node communication, which is useful when you have a scale-out topology configured. This interface isn't used for single node, scale-up configurations. For more information about interface usage, review your required scenarios (later in this article). 
+You choose the interface based on the topology that's configured on the HLI unit. For example, interface “B” is set up for node-to-node communication, which is useful when you have a scale-out topology configured. This interface isn't used for single node scale-up configurations. For more information about interface usage, review your required scenarios (later in this article). 
 
-If necessary, you can define additional NIC cards on your own. However, the configurations of existing NICs *can't* be changed.
+If necessary, you can define more NIC cards on your own. However, the configurations of existing NICs *can't* be changed.
 
 >[!NOTE]
 >You might find additional interfaces that are physical interfaces or bonding. 
 You should consider only the previously mentioned interfaces for your use case. Any others can be ignored.
 
-The distribution for units with two assigned IP addresses should look like:
+The distribution for units with two assigned IP addresses should look as follows:
 
-- Ethernet “A” should have an assigned IP address that's within the server IP pool address range that you submitted to Microsoft. This IP address should be maintained in the */etc/hosts* directory of the OS.
+- Ethernet “A” should have an assigned IP address that's within the server IP pool address range that you submitted to Microsoft. This IP address should be maintained in the */etc/hosts* directory of the operating system (OS).
 
 - Ethernet “C” should have an assigned IP address that's used for communication to NFS. This address does *not* need to be maintained in the *etc/hosts* directory to allow instance-to-instance traffic within the tenant.
 
-For HANA System Replication or HANA scale-out deployment, a blade configuration with two assigned IP addresses is not suitable. If you have only two assigned IP addresses and you want to deploy such a configuration, contact SAP HANA on Azure Service Management. They can assign you a third IP address in a third VLAN. For HANA Large Instances units with three assigned IP addresses on three NIC ports, the following usage rules apply:
+For HANA system replication or HANA scale-out deployment, a blade configuration with two assigned IP addresses isn't suitable. If you have only two assigned IP addresses and you want to deploy such a configuration, contact SAP HANA on Azure Service Management. They can assign you a third IP address in a third VLAN. For HANA Large Instances units with three assigned IP addresses on three NIC ports, the following usage rules apply:
 
-- Ethernet “A” should have an assigned IP address that's outside of the server IP pool address range that you submitted to Microsoft. This IP address should not be maintained in the *etc/hosts* directory of the OS.
+- Ethernet “A” should have an assigned IP address that's outside of the server IP pool address range that you submitted to Microsoft. This IP address shouldn't be maintained in the *etc/hosts* directory of the OS.
 
 - Ethernet “B” should be maintained exclusively in the *etc/hosts* directory for communication between the various instances. These are the IP addresses to be maintained in scale-out HANA configurations as the IP addresses that HANA uses for the inter-node configuration.
 
-- Ethernet “C” should have an assigned IP address that's used for communication to NFS storage. This type of address should not be maintained in the *etc/hosts* directory.
+- Ethernet “C” should have an assigned IP address that's used for communication to NFS storage. This type of address shouldn't be maintained in the *etc/hosts* directory.
 
-- Ethernet “D” should be used exclusively for access to STONITH devices for Pacemaker. This interface is required when you configure HANA System Replication and want to achieve auto failover of the operating system by using an SBD-based device.
+- Ethernet “D” should be used exclusively for access to STONITH devices for Pacemaker. This interface is required when you configure HANA system replication and want to achieve auto failover of the operating system by using an SBD-based device.
 
 
 ### Storage
-Storage is preconfigured based on the requested topology. The volume sizes and mount points vary depending on the number of servers, the number of SKUs, and the configured topology. For more information, review your required scenarios (later in this article). If you require more storage, you can purchase it in 1-TB increments.
+Storage is preconfigured based on the requested topology. The volume sizes and mount points vary depending on the number of servers and SKUs, and the configured topology. For more information, review your required scenarios (later in this article). If you require more storage, you can purchase it in 1-TB increments.
 
 >[!NOTE]
 >The mount point /usr/sap/\<SID> is a symbolic link to the /hana/shared mount point.
@@ -103,7 +102,7 @@ Storage is preconfigured based on the requested topology. The volume sizes and m
 
 ## Supported scenarios
 
-The architecture diagrams in the next sections use the following notations:
+The architectural diagrams in the next sections use the following notations:
 
 [ ![Table of architecture diagrams](media/hana-supported-scenario/Legends.png)](media/hana-supported-scenario/Legends.png#lightbox)
 
@@ -287,7 +286,7 @@ The following mount points are preconfigured:
 
 ## HSR with STONITH for high availability
  
-This topology support two nodes for the HANA System Replication configuration. This configuration is supported only for single HANA instances on a node. This means that MCOS scenarios are *not* supported.
+This topology support two nodes for the HANA system replication configuration. This configuration is supported only for single HANA instances on a node. This means that MCOS scenarios are *not* supported.
 
 > [!NOTE]
 > As of December 2019, this architecture is supported only for the SUSE operating system.
@@ -337,7 +336,7 @@ The following mount points are preconfigured:
 
 ## High availability with HSR and DR with storage replication
  
-This topology supports two nodes for the HANA System Replication configuration. Both normal and multipurpose DRs are supported. These configurations are supported only for single HANA instances on a node. This means that MCOS scenarios are *not* supported with these configurations.
+This topology supports two nodes for the HANA system replication configuration. Both normal and multipurpose DRs are supported. These configurations are supported only for single HANA instances on a node. This means that MCOS scenarios are *not* supported with these configurations.
 
 In the diagram, a multipurpose scenario is depicted at the DR site, where the HLI unit is used for the QA instance while production operations are running from the primary site. During DR failover (or failover test), the QA instance at the DR site is taken down. 
 
@@ -438,7 +437,7 @@ The following mount points are preconfigured:
 
 ## Scale-out with standby
  
-This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, one or more nodes with a worker role, and one or more nodes as standby. However, there can be only one master node at any single point in time.
+This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, one or more nodes with a worker role, and one or more nodes as standby. However, there can be only one master node at any point in time.
 
 
 ### Architecture diagram  
@@ -473,7 +472,7 @@ The following mount points are preconfigured:
 
 ## Scale-out without standby
  
-This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, and one or more nodes with a worker role. However, there can be only one master node at any single point in time.
+This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, and one or more nodes with a worker role. However, there can be only one master node at any point in time.
 
 
 ### Architecture diagram  
@@ -559,7 +558,7 @@ The following mount points are preconfigured:
 
 ## Single node with DR using HSR
  
-This topology supports one node in a scale-up configuration with one SID, with HANA System Replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but multi-SID (MCOS) systems are supported as well.
+This topology supports one node in a scale-up configuration with one SID, with HANA system replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but multi-SID (MCOS) systems are supported as well.
 
 ### Architecture diagram  
 
@@ -580,7 +579,7 @@ The following network interfaces are preconfigured:
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
-The following mount points are preconfigured on both the HLI units (Primary and DR):
+The following mount points are preconfigured on both HLI units (Primary and DR):
 
 | Mount point | Use case | 
 | --- | --- |
@@ -593,14 +592,14 @@ The following mount points are preconfigured on both the HLI units (Primary and 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](./hana-overview-architecture.md).
-- The primary node syncs with the DR node by using HANA System Replication. 
+- The primary node syncs with the DR node by using HANA system replication. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 
 
 ## Single node HSR to DR (cost optimized) 
  
- This topology supports one node in a scale-up configuration with one SID, with HANA System Replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but multi-SID (MCOS) systems are supported as well. At the DR site, an HLI unit is used for the QA instance while production operations are running from the primary site. During DR failover (or failover test), the QA instance at the DR site is taken down.
+ This topology supports one node in a scale-up configuration with one SID, with HANA system replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but multi-SID (MCOS) systems are supported as well. At the DR site, an HLI unit is used for the QA instance while production operations are running from the primary site. During DR failover (or failover test), the QA instance at the DR site is taken down.
 
 ### Architecture diagram  
 
@@ -645,12 +644,12 @@ The following mount points are preconfigured:
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](./hana-overview-architecture.md).
 - At the DR site: The volumes and mount points are configured (marked as “PROD Instance at DR site”) for the production HANA instance installation at the DR HLI unit. 
 - At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
-- The primary node syncs with the DR node by using HANA System Replication. 
+- The primary node syncs with the DR node by using HANA system replication. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 ## High availability and disaster recovery with HSR 
  
- This topology support two nodes for the HANA System Replication configuration for the local regions' high availability. For the DR, the third node at the DR region syncs with the primary site by using HSR (async mode). 
+ This topology support two nodes for the HANA system replication configuration for the local regions' high availability. For the DR, the third node at the DR region syncs with the primary site by using HSR (async mode). 
 
 ### Architecture diagram  
 
@@ -690,12 +689,12 @@ The following mount points are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - At the DR site: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
-- The primary site node syncs with the DR node by using HANA System Replication. 
+- The primary site node syncs with the DR node by using HANA system replication. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 ## High availability and disaster recovery with HSR (cost optimized)
  
- This topology supports two nodes for the HANA System Replication configuration for the local regions' high availability. For the DR, the third node at the DR region syncs with the primary site by using HSR (async mode), while another instance (for example, QA) is already running out from the DR node. 
+ This topology supports two nodes for the HANA system replication configuration for the local regions' high availability. For the DR, the third node at the DR region syncs with the primary site by using HSR (async mode), while another instance (for example, QA) is already running out from the DR node. 
 
 ### Architecture diagram  
 
@@ -739,12 +738,12 @@ The following mount points are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - At the DR site: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
 - At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
-- The primary site node syncs with the DR node by using HANA System Replication. 
+- The primary site node syncs with the DR node by using HANA system replication. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 ## Scale-out with DR using HSR
  
-This topology supports multiple nodes in a scale-out with a DR. You can request this topology with or without the standby node. The primary site node syncs with the DR site node by using HANA System Replication (async mode).
+This topology supports multiple nodes in a scale-out with a DR. You can request this topology with or without the standby node. The primary site node syncs with the DR site node by using HANA system replication (async mode).
 
 
 ### Architecture diagram  
@@ -786,10 +785,13 @@ The following mount points are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - At the DR site: The volumes and mount points are configured for the production HANA instance installation at the DR HLI unit. 
-- The primary site node syncs with the DR node by using HANA System Replication. 
+- The primary site node syncs with the DR node by using HANA system replication. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 
 ## Next steps
+
+Learn about:
+
 - [Infrastructure and connectivity](./hana-overview-infrastructure-connectivity.md) for HANA Large Instances
 - [High availability and disaster recovery](./hana-overview-high-availability-disaster-recovery.md) for HANA Large Instances

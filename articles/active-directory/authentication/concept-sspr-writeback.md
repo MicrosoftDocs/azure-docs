@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ Password writeback provides the following features:
 
 * **Enforcement of on-premises Active Directory Domain Services (AD DS) password policies**: When a user resets their password, it's checked to ensure it meets your on-premises AD DS policy before committing it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you define in AD DS.
 * **Zero-delay feedback**: Password writeback is a synchronous operation. Users are notified immediately if their password doesn't meet the policy or can't be reset or changed for any reason.
-* **Supports password changes from the access panel and Office 365**: When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to AD DS.
+* **Supports password changes from the access panel and Microsoft 365**: When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to AD DS.
 * **Supports password writeback when an admin resets them from the Azure portal**: When an admin resets a user's password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
 * **Doesn't require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
 
@@ -43,7 +43,7 @@ Password writeback provides the following features:
 To get started with SSPR writeback, complete the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-writeback.md)
+> [Tutorial: Enable self-service password reset (SSPR) writeback](./tutorial-enable-sspr-writeback.md)
 
 ## How password writeback works
 
@@ -86,7 +86,7 @@ Password writeback is a highly secure service. To ensure your information is pro
 * **Tenant-specific service-bus relay**
    * When you set up the service, a tenant-specific service bus relay is set up that's protected by a randomly generated strong password that Microsoft never has access to.
 * **Locked down, cryptographically strong, password encryption key**
-   * After the service bus relay is created, a strong symmetric key is created that'is used to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
+   * After the service bus relay is created, a strong symmetric key is created that is used to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
 * **Industry standard Transport Layer Security (TLS)**
    1. When a password reset or change operation occurs in the cloud, the plaintext password is encrypted with your public key.
    1. The encrypted password is placed into an HTTPS message that's sent over an encrypted channel by using Microsoft TLS/SSL certs to your service bus relay.
@@ -136,7 +136,7 @@ Passwords are written back in all the following situations:
    * Any administrator self-service force change password operation, for example, password expiration.
    * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com).
    * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com).
-   * Any administrator-initiated end-user password reset from the [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
+   * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http).
 
 ## Unsupported writeback operations
 
@@ -145,7 +145,7 @@ Passwords aren't written back in any of the following situations:
 * **Unsupported end-user operations**
    * Any end user resetting their own password by using PowerShell version 1, version 2, or the Microsoft Graph API.
 * **Unsupported administrator operations**
-   * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Microsoft Graph API (the [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) is supported).
+   * Any administrator-initiated end-user password reset from PowerShell version 1, or version 2.
    * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com).
    * Any administrator cannot use password reset tool to reset their own password for password writeback.
 
@@ -157,4 +157,4 @@ Passwords aren't written back in any of the following situations:
 To get started with SSPR writeback, complete the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-writeback.md)
+> [Tutorial: Enable self-service password reset (SSPR) writeback](./tutorial-enable-sspr-writeback.md)

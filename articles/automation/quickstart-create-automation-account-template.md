@@ -1,19 +1,17 @@
 ---
-title: "Quickstart: Create an Automation account - Azure template"
+title: 'Quickstart: Create an Automation account - Azure template'
 titleSuffix: Azure Automation
 description: This quickstart shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
-documentationcenter: na
-author: mgoedtel
-Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
-ms.service: automation
-ms.devlang: na
+ms.author: magoedte
+ms.date: 01/07/2021
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/23/2020
-ms.author: magoedte
-ms.custom: mvc,subject-armqs
-
+ms.custom:
+  - mvc
+  - subject-armqs
+  - mode-arm
+# Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
 ---
 
 # Quickstart: Create an Automation account by using ARM template
@@ -24,7 +22,7 @@ Azure Automation delivers a cloud-based automation and configuration service tha
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -40,13 +38,13 @@ This sample template performs the following:
 * Adds sample Automation runbooks to the account.
 
 >[!NOTE]
->Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](manage-runas-account.md).
+>Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](create-run-as-account.md).
 
 After you complete these steps, you need to [configure diagnostic settings](automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-automation/).
 
-:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json" range="1-324" highlight="58-122":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.automation/101-automation/azuredeploy.json":::
 
 ### API versions
 
@@ -56,7 +54,7 @@ The following table lists the API version for the resources used in this example
 |:---|:---|:---|
 | [Workspace](/azure/templates/microsoft.operationalinsights/workspaces) | workspaces | 2020-03-01-preview |
 | [Automation account](/azure/templates/microsoft.automation/automationaccounts) | automation | 2020-01-13-preview |
-| [Workspace Linked services](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | worksapces | 2020-03-01-preview |
+| [Workspace Linked services](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | workspaces | 2020-03-01-preview |
 
 ### Before you use the template
 
@@ -80,17 +78,17 @@ The JSON template specifies a default value for the other parameters that would 
 
 If you're new to Azure Automation and Azure Monitor, it's important that you understand the following configuration details. They can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
-* Review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+* Review [additional details](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
 * Review [workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../azure-monitor/platform/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
+* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../azure-monitor/logs/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
 ## Deploy the template
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Automation account, a Log Analytics workspace, and links the Automation account to the workspace.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 2. Enter the values.
 
@@ -102,7 +100,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, open the Automation account you just created. 
+2. In the Azure portal, open the Automation account you just created.
 
 3. From the left-pane, select **Runbooks**. On the **Runbooks** page, listed are three tutorial runbooks created with the Automation account.
 

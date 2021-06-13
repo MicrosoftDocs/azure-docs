@@ -167,7 +167,7 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in Azure A
 ```
 
   > [!NOTE]
-  > For more information on how to add users and Active Directory registration, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > For more information on how to add users and Active Directory registration, see [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 After you finish the previous steps, your app registration (client) can call the Azure FarmBeats APIs by using an access token via bearer authentication.
 

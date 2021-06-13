@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart (Python) | Microsoft Docs
+title: Quickstart - Send telemetry to Azure IoT Hub quickstart (Python) | Microsoft Docs
 description: In this quickstart, you run a sample Python application to send simulated telemetry to an IoT hub and use a utility to read telemetry from the IoT hub.
 author: wesmc7777
 manager: philmea
@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
-ms.custom: [mvc, mqtt, devx-track-python, 'Role: Cloud Development']
+ms.custom: [mvc, mqtt, devx-track-python, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 06/16/2020
-# As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
+#Customer intent: As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (Python)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-In this quickstart, you send telemetry from a simulated device application through Azure IoT Hub to a back-end application for processing. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. This quickstart uses two pre-written Python applications: one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
+In this quickstart, you send telemetry from a simulated device application through Azure IoT Hub to a back-end application for processing. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. This quickstart uses two pre-written Python applications: one to send the telemetry and one to read the telemetry from the hub. Note that there are synchronous and asynchronous versions of the application to send telemetry. Before you run any of these applications, you create an IoT hub and register a device with the hub.
 
 ## Prerequisites
 
@@ -25,19 +25,11 @@ In this quickstart, you send telemetry from a simulated device application throu
 
 * [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
 
-* [A sample Python project](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip).
+* [A sample Python project](https://github.com/Azure-Samples/azure-iot-samples-python/) from github. Download or clone the samples by using the **Code** button in the github repository.
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### Add Azure IoT Extension
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -64,7 +56,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:
@@ -91,22 +83,27 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
 
-1. In a local terminal window, navigate to the root folder of the sample Python project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
+> [!NOTE]
+> The following steps use the synchronous sample, **SimulatedDeviceSync.py**. You can perform the same steps with the asynchronous sample, **SimulatedDeviceAsync.py**.
 
-1. Open the **SimulatedDevice.py** file in a text editor of your choice.
+1. Download or clone the azure-iot-samples-python repository using the **Code** button on the [azure-iot-samples-python repository page](https://github.com/Azure-Samples/azure-iot-samples-python/).
 
-    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.py**.
+1. In a local terminal window, navigate to the root folder of the sample Python project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder. Both the synchronous and asynchronous samples are located in the same folder.
 
-1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
+1. Open the **SimulatedDeviceSync.py** file in a text editor of your choice.
+
+1. Create an environment variable that contains your connection string and restart the editor to pick up the new variable. The environment variable should be named *ConnectionString* to match the sample code.
+
+1. In the local terminal window, run the following command to install the required libraries for the simulated device application:
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-1. In the local terminal window, run the following commands to run the simulated device application:
+1. In the local terminal window, run the following command to run the simulated device application:
 
     ```cmd/sh
-    python SimulatedDevice.py
+    python SimulatedDeviceSync.py
     ```
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
@@ -130,13 +127,13 @@ The back-end application connects to the service-side **Events** endpoint on you
     | `EVENTHUB_COMPATIBLE_PATH`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
     | `IOTHUB_SAS_KEY`                | Replace the value of the variable with the service primary key you made a note of earlier. |
 
-3. In the local terminal window, run the following commands to install the required libraries for the back-end application:
+3. In the local terminal window, run the following command to install the required libraries for the back-end application:
 
     ```cmd/sh
     pip install azure-eventhub
     ```
 
-4. In the local terminal window, run the following commands to build and run the back-end application:
+4. In the local terminal window, run the following command to build and run the back-end application:
 
     ```cmd/sh
     python read_device_to_cloud_messages_sync.py

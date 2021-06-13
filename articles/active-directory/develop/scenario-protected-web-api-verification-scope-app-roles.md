@@ -1,7 +1,7 @@
 ---
 title: Verify scopes and app roles protected web API | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to build a protected web API and configure your application's code.
+description: Verify that the API is only called by applications on behalf of users who have the right scopes and by daemon apps that have the right application roles.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -105,7 +105,7 @@ public class TodoListController : ApiController
 {
     public IEnumerable<TodoItem> Get()
     {
-        ValidateAppRole("access_as_application");
+        HttpContext.ValidateAppRole("access_as_application");
         ...
     }
 ```
@@ -149,5 +149,5 @@ Checking the inverse condition allows only apps that sign in a user to call your
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-protected-web-api-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-protected-web-api-production.md).

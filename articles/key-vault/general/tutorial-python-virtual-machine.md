@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Use Azure Key Vault with a virtual machine in Python | Microsoft Docs
-description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
+description: In this tutorial, you configure a virtual machine a Python application to read a secret from your key vault.
 services: key-vault
 author: msmbaldwin
 
@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-python
+ms.custom: mvc, devx-track-python, devx-track-azurecli
 
 # Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 
@@ -80,7 +80,7 @@ Note the value of `publicIpAddress` in the output.
 
 ## Assign an identity to the VM
 
-Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
+Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign) command:
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"
@@ -165,4 +165,4 @@ az group delete -g myResourceGroup
 
 ## Next steps
 
-[Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+[Azure Key Vault REST API](/rest/api/keyvault/)

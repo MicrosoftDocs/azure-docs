@@ -1,9 +1,10 @@
 ---
 title: Understand reservation discount - Azure Database for PostgreSQL Single server
 description: Learn how a reservation discount is applied to Azure Database for PostgreSQL Single servers.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ---
@@ -34,7 +35,7 @@ For the rest of these examples, assume that the Azure Database for PostgreSQL Si
 
 * **Example 4**: You run one 16 vCore Azure Database for PostgreSQL Single server from 1 pm to 1:45 pm. You run another 16 vCore Azure Database for PostgreSQL Single server from 1:30 to 2 pm. You're charged the pay-as-you-go price for the 15-minute overlap. The reservation discount applies to the compute usage for the rest of the time.
 
-To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](./understand-reserved-instance-usage-ea.md).
 
 ## Next steps
 

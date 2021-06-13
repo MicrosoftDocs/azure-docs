@@ -1,6 +1,6 @@
 ---
 title: Deploy template - IntelliJ IDEA
-description: Learn how to create your first Azure Resource Manager template using the IntelliJ IDEA, and how to deploy it.
+description: Learn how to create your first Azure Resource Manager template (ARM template) using the IntelliJ IDEA, and how to deploy it.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 
 # Create and deploy ARM templates by using the IntelliJ IDEA
 
-Learn how to deploy an Azure Resource Manager (ARM) template to Azure using the IntelliJ IDEA, and the process of editing and update the template directly from the IDE. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+Learn how to deploy an Azure Resource Manager template (ARM template) to Azure using the IntelliJ IDEA, and the process of editing and update the template directly from the IDE. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see the [template deployment overview](overview.md).
 
 ![Resource Manager template portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -28,9 +28,9 @@ To complete this article, you need:
 
 ## Deploy a Quickstart template
 
-Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for ARM templates. The template used in this article is called [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). It defines an Azure Storage account resource.
+Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for ARM templates. The template used in this article is called [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-account-create/). It defines an Azure Storage account resource.
 
-1. Right-click and save the [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) and [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) to your local computer.
+1. Right-click and save the [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json) and [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json) to your local computer.
 
 1. If your Azure Toolkit are properly installed and signed-in, you should see Azure Explorer in your IntelliJ IDEA's sidebar. Right-click on the **Resource Management** and select **Create Deployment**.
 
@@ -62,7 +62,7 @@ Instead of creating a template from scratch, you open a template from [Azure Qui
 
 1. You can edit the two files on this page and deploy the changes to Azure. Here we modify the value of **storageAccountType** in parameter files, from `Standard_LRS` to `Standard_GRS`. Then, click **Update Deployment** on the bottom and confirm the update.
 
-    ![Resource Manager template edit deployment](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Screenshot shows the Resource Manager template with the Update Deployment prompt displayed.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. After update deployment completed, you can verify on the portal that the created storage account is changed to `Standard_GRS`.
 

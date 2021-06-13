@@ -1,34 +1,34 @@
 ---
 title: ARM template frequently asked questions
-description: Frequently asked questions (FAQ) about Azure Resource Manager templates.
+description: Frequently asked questions (FAQ) about Azure Resource Manager templates (ARM templates).
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
 
 # Frequently asked questions about ARM templates
 
-This article answers frequently asked questions about Azure Resource Manager (ARM) templates.
+This article answers frequently asked questions about Azure Resource Manager templates (ARM templates).
 
 ## Getting started
 
 * **What are ARM templates, and why should I use them?**
 
   ARM templates are JSON files where you define what you want to deploy to Azure. Templates help you implement an infrastructure-as-code solution for Azure. Your organization can repeatedly and reliably deploy the required infrastructure to different environments.
-  
+
   To learn more about how ARM templates help you manage your Azure infrastructure, see [What are ARM templates?](overview.md)
 
 * **How do I get started with templates?**
 
-  To simplify authoring ARM templates, you need the right tools. We recommend installing [Visual Studio Code](https://code.visualstudio.com/) and the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For a quick introduction to these tools, see [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+  To simplify authoring ARM templates, you need the right tools. We recommend installing [Visual Studio Code](https://code.visualstudio.com/) and the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For a quick introduction to these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
   When you're ready to learn about creating ARM templates, start the [beginner tutorial series on ARM templates](template-tutorial-create-first-template.md). These tutorials take you step by step through the process of constructing an ARM template. You learn about the different sections of the template and how to they work together. This content is also available as a [Microsoft Learn module](/learn/modules/authoring-arm-templates/).
 
 * **Should I use ARM templates or Terraform to deploy to Azure?**
 
   Use the option that you like the best. Both services assist you with automating deployments to Azure.
-  
+
   We believe there are benefits to using ARM templates over other infrastructure-as-code services. To learn about those benefits, see [Why choose ARM templates?](overview.md#why-choose-arm-templates)
 
 ## Build 2020
@@ -43,18 +43,18 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
   To learn about the new template language, [sign up for notifications](https://aka.ms/armLangUpdates).
 
-  To learn about template specs, see [Azure Resource Manager template specs (Preview)](template-specs.md).
+  To learn about template specs, see [Azure Resource Manager template specs](template-specs.md).
 
 ## Creating and testing templates
 
 * **Where can I learn about best practices for ARM templates?**
 
-  For recommendations about how you implement your templates, see [ARM template best practices](template-best-practices.md). After creating a template, run the [ARM test toolkit](https://github.com/azure/arm-ttk). It checks whether your template matches recommended practices.
+  For recommendations about how you implement your templates, see [ARM template best practices](./best-practices.md). After creating a template, run the [ARM test toolkit](https://github.com/azure/arm-ttk). It checks whether your template matches recommended practices.
 
 * **I have set up my environment through the portal. Is there some way to get the template from an existing resource group?**
 
   Yes, you can [export the template](export-template-portal.md) from a resource group. The exported template is a good starting point for learning about templates, but you'll probably want to revise it before using it in a production environment.
-  
+
   When exporting the template, you can select which resources you want to include in the template.
 
 * **Can I create a resource group in an ARM template and deploy resources to it?**
@@ -63,11 +63,11 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Can I create a subscription in an ARM template?**
 
-  Not yet, but we're working on it.
+  Yes, for more information, see [Programmatically create Azure subscriptions with the latest APIs](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md).
 
 * **How can I test my template before deploying it?**
 
-  We recommend running the [ARM test toolkit](https://github.com/azure/arm-ttk) and the [what-if operation](template-deploy-what-if.md) on your templates before deploying them. The test toolkit checks whether your template uses best practices. It provides warnings when it identifies changes that could improve how you've implemented your template.
+  We recommend running the [ARM test toolkit](https://github.com/azure/arm-ttk) and the [what-if operation](./deploy-what-if.md) on your templates before deploying them. The test toolkit checks whether your template uses best practices. It provides warnings when it identifies changes that could improve how you've implemented your template.
 
   The what-if operation shows the changes your template will make to your environment. You can see unintended changes before they're deployed. What-if also returns any errors it can detect during preflight validation. For example, if your template contains a syntactical error, it returns that error. It also returns any errors it can determine about the final state of the deployed resources. For example, if your template deploys a storage account with a name that is already in use, what-if returns that error.
 
@@ -83,7 +83,7 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **I've heard you're working on a new template language. Where can I find out more about it?**
 
-  To learn about the new template language, [sign up for notifications](https://aka.ms/armLangUpdates).
+  To learn about the new language, see [What is Bicep (Preview)?](../bicep/overview.md).
 
 * **Is there a plan to support creating templates in YAML?**
 
@@ -95,17 +95,13 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Will you offer a tool to convert my JSON templates to the new template language?**
 
-  Yes.
+  Yes. See [Converting ARM templates between JSON and Bicep](../bicep/decompile.md).
 
 ## Template Specs
 
-* **How can I get involved in the preview release of Template Specs?**
-
-  [Join the wait list](https://aka.ms/templateSpecsWaitlist) for template specs.
-
 * **How are template specs and Azure Blueprints related?**
 
-  Azure Blueprints will use template specs in its implementation by replacing the `blueprint definition` resource with a `template spec` resource. We will provide a migration path to convert the blueprint definition into a template spec, but the blueprint definition APIs will still be supported. There are no changes to the `blueprint assignment` resource. Blueprints will remain a user-experience to compose a governed environment in Azure.
+  Azure Blueprints will use template specs in its implementation by replacing the `blueprint definition` resource with a `template spec` resource. We'll provide a migration path to convert the blueprint definition into a template spec, but the blueprint definition APIs will still be supported. There are no changes to the `blueprint assignment` resource. Blueprints will remain a user-experience to compose a governed environment in Azure.
 
 * **Do template specs replace linked templates?**
 
@@ -119,11 +115,11 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Can I include a script in my template to do tasks that aren't possible in a template?**
 
-  Yes, use [deployment scripts](deployment-script-template.md). You can include Azure PowerShell or Azure CLI scripts in your templates. The feature is in preview.
+  Yes, use [deployment scripts](deployment-script-template.md). You can include Azure PowerShell or Azure CLI scripts in your templates.
 
 * **Can I still use custom script extensions and desired state configuration (DSC)?**
 
-  Those options are still available and haven't changed. Deployment scripts are designed to perform actions that are not related to the VM guest. If you need to run a script on a host operating system in a VM, then the custom script extension and/or DSC would be a better choice. However, deployment scripts have advantages, such as setting the timeout duration.
+  Those options are still available and haven't changed. Deployment scripts are designed to perform actions that aren't related to the VM guest. If you need to run a script on a host operating system in a VM, then the custom script extension and/or DSC would be a better choice. However, deployment scripts have advantages, such as setting the timeout duration.
 
 * **Are deployment scripts supported in Azure Government?**
 
@@ -133,11 +129,11 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Can I preview the changes that will happen before deploying a template?**
 
-  Yes, use the [what-if feature](template-deploy-what-if.md). It evaluates the current state of your environment and compares it to the state that will exist after deployment. You can examine the summarized changes to make sure the template doesn't have any unexpected results.
+  Yes, use the [what-if feature](./deploy-what-if.md). It evaluates the current state of your environment and compares it to the state that will exist after deployment. You can examine the summarized changes to make sure the template doesn't have any unexpected results.
 
 * **Can I use what-if with both incremental and complete modes?**
 
-  Yes, both [deployment modes](deployment-modes.md) are supported. For an example of using incremental mode, see [Run what-if operation](template-deploy-what-if.md#run-what-if-operation). For an example of using complete mode, see [Confirm deletion](template-deploy-what-if.md#confirm-deletion).
+  Yes, both [deployment modes](deployment-modes.md) are supported. For an example of using incremental mode, see [Run what-if operation](./deploy-what-if.md#run-what-if-operation). For an example of using complete mode, see [Confirm deletion](./deploy-what-if.md#confirm-deletion).
 
 * **Does what-if work with linked templates?**
 
@@ -149,7 +145,7 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **When I use what-if, I see changes in properties that aren't in my template. Is this "noise" expected?**
 
-  What-if is in preview. We're working on reducing the noise. You help us improve by submitting issues in our GitHub repo here: https://aka.ms/WhatIfIssues
+  We're working on reducing the noise. You help us improve by submitting issues in our GitHub repo here: https://aka.ms/WhatIfIssues
 
 ## Template visualizer
 
@@ -177,11 +173,11 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Can I integrate ARM templates into Azure Pipelines?**
 
-  Yes. For an explanation of how to use template and pipelines, see [Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines](deployment-tutorial-pipeline.md) and [Integrate ARM templates with Azure Pipelines](add-template-to-azure-pipelines.md).
+  Yes. For an explanation of how to use template and pipelines, see [Tutorial: Continuous integration of ARM templates with Azure Pipelines](deployment-tutorial-pipeline.md) and [Integrate ARM templates with Azure Pipelines](add-template-to-azure-pipelines.md).
 
 * **Can I use GitHub actions to deploy a template?**
 
-  Yes, see [Deploy Azure Resource Manager templates by using GitHub Actions](deploy-github-actions.md).
+  Yes, see [Deploy ARM templates by using GitHub Actions](deploy-github-actions.md).
 
 ## Next steps
 

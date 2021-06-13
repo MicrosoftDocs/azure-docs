@@ -7,17 +7,17 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.author: stefanazaric
+ms.reviewer: jrasnick 
 ---
 
-# Use file metadata in queries
+# Use file metadata in serverless SQL pool queries
 
-The SQL on-demand Query service can address multiple files and folders as described in the [Query folders and multiple files](query-folders-multiple-csv-files.md) article. In this article, you learn how to use metadata information about file and folder names in the queries.
+Serverless SQL pool can address multiple files and folders as described in the [Query folders and multiple files](query-folders-multiple-csv-files.md) article. In this article, you learn how to use metadata information about file and folder names in the queries.
 
 Sometimes, you may need to know which file or folder source correlates to a specific row in the result set.
 
-You can use function `filepath` and `filename` to return file names and/or the path in the result set. Or you can use them to filter data based on the file name and/or folder path. These functions are described in the syntax section [filename function](query-data-storage.md#filename-function) and [filepath function](query-data-storage.md#filepath-function). Below you will find short descriptions along samples.
+You can use function `filepath` and `filename` to return file names and/or the path in the result set. Or you can use them to filter data based on the file name and/or folder path. These functions are described in the syntax section [filename function](query-data-storage.md#filename-function) and [filepath function](query-data-storage.md#filepath-function). In the following sections, you'll find short descriptions along samples.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ ORDER BY
 
 The filepath function returns a full or partial path:
 
-- When called without a parameter, it returns the full file path that the row originates from.
+- When called without a parameter, it returns the full file path that the row originates from. When DATA_SOURCE is used in OPENROWSET, it returns path relative to DATA_SOURCE. 
 - When called with a parameter, it returns part of the path that matches the wildcard on the position specified in the parameter. For example, parameter value 1 would return part of the path that matches the first wildcard.
 
 The following sample reads NYC Yellow Taxi data files for the last three months of 2017. It returns the number of rides per file path. The OPENROWSET part of the query specifies which files will be read.

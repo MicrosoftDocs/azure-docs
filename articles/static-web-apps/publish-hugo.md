@@ -5,11 +5,11 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 05/11/2021
 ms.author: aapowell
 ---
 
-# Tutorial: Publish a Hugo site to Azure Static Web Apps Preview
+# Tutorial: Publish a Hugo site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [Hugo](https://gohugo.io/) web application to [Azure Static Web Apps](overview.md). The final result is a new Azure Static Web App with associated GitHub Actions that give you control over how the app is built and published.
 
@@ -48,7 +48,7 @@ Create a Hugo app using the Hugo Command Line Interface (CLI):
    cd static-app
    ```
 
-1. Initialize a git repo.
+1. Initialize a Git repo.
 
    ```bash
     git init
@@ -83,7 +83,7 @@ You need a repository on GitHub to connect to Azure Static Web Apps. The followi
 1. Push your local repo up to GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## Deploy your web app
@@ -93,58 +93,75 @@ The following steps show you how to create a new static site app and deploy it t
 ### Create the application
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Click **Create a Resource**
+1. Select **Create a Resource**
 1. Search for **Static Web Apps**
-1. Click **Static Web Apps (Preview)**
-1. Click **Create**
+1. Select **Static Web Apps**
+1. Select **Create**
+1. On the _Basics_ tab, enter the following values.
 
-   :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Create a Azure Static Web Apps resource in the portal":::
+    | Property | Value |
+    | --- | --- |
+    | _Subscription_ | Your Azure subscription name. |
+    | _Resource group_ | **my-hugo-group**  |
+    | _Name_ | **hugo-static-app** |
+    | _Plan type_ | **Free** |
+    | _Region for Azure Functions API and staging environments_ | Select a region closest to you. |
+    | _Source_ | **GitHub** |
 
-1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
+1. Select **Sign in with GitHub** and authenticate with GitHub.
 
-1. In _Resource group_, select **New**. In _New resource group name_, enter **hugo-static-app** and select **OK**.
+1. Enter the following GitHub values.
 
-1. Next, a name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`.
+    | Property | Value |
+    | --- | --- |
+    | _Organization_ | Select your desired GitHub organization. |
+    | _Repository_ | Select **hugo-static-app**. |
+    | _Branch_ | Select **main**. |
 
-1. For _Region_, select an available region close to you.
-
-1. For _SKU_, select **Free**.
-
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Details filled out":::
-
-1. Click the **Sign in with GitHub** button.
-
-1. Select the **Organization** under which you created the repo.
-
-1. Select the **hugo-static-app** as the _Repository_ .
-
-1. For the _Branch_ select **master**.
-
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Completed GitHub information":::
-
-### Build
-
-Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
-
-1. Click the **Next: Build >** button to edit the build configuration
-
-1. Set _App location_ to **/**.
-
-1. Set _App artifact location_ to **public**.
-
-   A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
+1. In the _Build Details_ section, select **Hugo** from the _Build Presets_ drop-down and keep the default values.
 
 ### Review and create
 
-1. Click the **Review + Create** button to verify the details are all correct.
+1. Select the **Review + Create** button to verify the details are all correct.
 
-1. Click **Create** to start the creation of the Azure Static Web Apps and provision a GitHub Action for deployment.
+1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
 
-1. Wait for the GitHub Action to complete.
+1. Once the deployment completes click, **Go to resource**.
 
-1. In the Azure portal's _Overview_ window of newly created Azure Static Web Apps resource, click the _URL_ link to open your deployed application.
+1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Action to complete.
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Deployed application":::
+
+#### Custom Hugo version
+
+When you generate a Static Web App, a [workflow file](./github-actions-workflow.md) is generated which contains the publishing configuration settings for the application. You can designate a specific Hugo version in the workflow file by providing a value for `HUGO_VERSION` in the `env` section. The following example configuration demonstrates how to set set Hugo to a specific version.
+
+```yaml
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/" # App source code path
+          api_location: "api" # Api source code path - optional
+          output_location: "public" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
+        env:
+          HUGO_VERSION: 0.58.0
+```
 
 ## Clean up resources
 

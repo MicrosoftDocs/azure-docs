@@ -1,10 +1,10 @@
 ---
 title: Configure Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
 
 ---
@@ -81,6 +81,36 @@ This setting specifies the Node.js version to use, both at runtime and during au
 
 ::: zone-end
 
+## Get port number
+
+You Node.js app needs to listen to the right port to receive incoming requests.
+
+::: zone pivot="platform-windows"  
+
+In App Service on Windows, Node.js apps are hosted with [IISNode](https://github.com/Azure/iisnode), and your Node.js app should listen to the port specified in the `process.env.PORT` variable. The following example shows how you do it in a simple Express app:
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+App Service sets the environment variable `PORT` in the Node.js container, and forwards the incoming requests to your container at that port number. To receive the requests, your app should listen to that port using `process.env.PORT`. The following example shows how you do it in a simple Express app:
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
 ::: zone pivot="platform-linux"
 
 ## Customize build automation
@@ -113,9 +143,34 @@ For more information on how App Service runs and builds Node.js apps in Linux, s
 
 The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, or with NPM, or with a custom command.
 
-- [Run custom command](#run-custom-command)
-- [Run npm start](#run-npm-start)
-- [Run with PM2](#run-with-pm2)
+|Tool|Purpose|
+|--|--|
+|[Run with PM2](#run-with-pm2)|**Recommended** -  Production or staging use. PM2 provides a full-service app management platform.|
+|[Run npm start](#run-npm-start)|Development use only.|
+|[Run custom command](#run-custom-command)|Either development or staging.|
+
+
+### Run with PM2
+
+The container automatically starts your app with PM2 when one of the common Node.js files is found in your project:
+
+- *bin/www*
+- *server.js*
+- *app.js*
+- *index.js*
+- *hostingstart.js*
+- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
+
+You can also configure a custom start file with the following extensions:
+
+- A *.js* file
+- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+
+To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+```
 
 ### Run custom command
 
@@ -146,27 +201,6 @@ To use a custom *package.json* in your project, run the following command in the
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
 ```
 
-### Run with PM2
-
-The container automatically starts your app with PM2 when one of the common Node.js files is found in your project:
-
-- *bin/www*
-- *server.js*
-- *app.js*
-- *index.js*
-- *hostingstart.js*
-- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
-
-You can also configure a custom start file with the following extensions:
-
-- A *.js* file
-- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
-
-To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
-
-```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
-```
 
 ## Debug remotely
 
@@ -308,6 +342,19 @@ if (req.secure) {
 
 ::: zone-end
 
+
+::: zone pivot="platform-linux"
+
+## Monitor with Application Insights
+
+Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell)
+
+This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](../azure-monitor/app/javascript.md). 
+
+For more information, see the [Application Insights extension release notes](../azure-monitor/app/web-app-extension-release-notes.md).
+
+::: zone-end
+
 ## Troubleshooting
 
 When a working Node.js app behaves differently in App Service or has errors, try the following:
@@ -336,4 +383,3 @@ When a working Node.js app behaves differently in App Service or has errors, try
 > [App Service Linux FAQ](faq-app-service-linux.md)
 
 ::: zone-end
-

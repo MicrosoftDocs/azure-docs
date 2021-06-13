@@ -3,17 +3,16 @@ title: Operating system upgrade for the SAP HANA on Azure (Large Instances)| Mic
 description: Perform Operating system upgrade for SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor:
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
-ms.author: juergent
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -26,7 +25,7 @@ This document describes the details on operating system upgrades on the HANA Lar
 During HLI unit provisioning, the Microsoft operations team installs the operating system.
 Over the time, you are required to maintain the operating system (Example: Patching, tuning, upgrading etc.) on the HLI unit.
 
-Before you do major changes to the operating system (for example, Upgrade SP1 to SP2), you need to contact Microsoft Operations team by opening a support ticket to consult.
+Before you do major changes to the operating system (for example, Upgrade SP1 to SP2), you shall contact Microsoft Operations team by opening a support ticket to consult.
 
 Include in your ticket:
 
@@ -35,11 +34,9 @@ Include in your ticket:
 * The patch level you are planning to apply.
 * The date you are planning this change. 
 
-We would recommend you open this ticket at least one week before the desirable upgrade date due to having Operations team checking if a firmware upgrade will be necessary on your server blade.
-
+We would recommend you open this ticket at least one week prior to the desirable upgrade, which will let opration team know about the desired firmware version.
 
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
 
 ## Known issues
 
@@ -52,17 +49,23 @@ The following are the few common known issues during the upgrade:
 Operating system configuration can drift from the recommended settings over time due to patching, system upgrades, and changes made by customers. Additionally, Microsoft identifies updates needed for existing systems to ensure they are optimally configured for the best performance and resiliency. Following instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
 
 ### Compatible eNIC/fNIC driver versions
-  In order to have proper network performance and system stability, it is advised to ensure that the OS-specific appropriate version of eNIC and fNIC drivers are installed as depicted in following compatibility table. Servers are delivered to customers with compatible versions. Note that, in some cases, during OS/Kernel patching, drivers can get rolled back to the default driver versions. Ensure that appropriate driver version is running post OS/Kernel patching operations.
+  In order to have proper network performance and system stability, it is advised to ensure the OS-specific appropriate version of eNIC and fNIC drivers are installed as depicted in following compatibility table. Servers are delivered to customers with compatible versions. In some cases, during OS/Kernel patching, drivers can get rolled back to the default driver versions. Ensure appropriate driver version is running post OS/Kernel patching operations.
        
       
   |  OS Vendor    |  OS Package Version     |  Firmware Version  |  eNIC Driver	|  fNIC Driver | 
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  2.3.0.47    |   2.0.0.54   |
   |   SuSE        |  SLES 12 SP2            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
-  |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.43    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  4.0.0.6     |   2.0.0.60   |  
+  |   SuSE        |  SLES 12 SP4            |   4.1.1b           |  4.0.0.6     |   2.0.0.60   |  
+  |   SuSE        |  SLES 12 SP5            |   3.2.3i           |  4.0.0.8     |   2.0.0.60   |
+  |   SuSE        |  SLES 12 SP5            |   4.1.1b           |  4.0.0.6     |   2.0.0.59   |
+  |   SuSE        |  SLES 15 SP1            |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
+  |   Red Hat     |  RHEL 7.6               |   3.2.3i           |  3.1.137.5   |   2.0.0.50   |
+  |   Red Hat     |  RHEL 7.6               |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
  
 
 ### Commands for driver upgrade and to clean old rpm packages
@@ -85,6 +88,15 @@ rpm -ivh <enic/fnic.rpm>
 modinfo enic
 modinfo fnic
 ```
+
+#### Steps for eNIC/fNIC drivers installation during OS Upgrade
+
+* Upgrade OS version
+* Remove old rpm packages
+* Install compatible eNIC/fNIC drivers as per installed OS version
+* Reboot system
+* After reboot, check the eNIC/fNIC version
+
 
 ### SuSE HLIs GRUB update failure
 SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state after upgrade. The below procedure fixes this issue.
@@ -114,7 +126,6 @@ blacklist edac_core
 ```
 A reboot is required to take changes in place. Execute `lsmod` command and verify the module is not present there in output.
 
-
 ### Kernel parameters
    Make sure the correct setting for `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` and `intel_idle.max_cstate` are applied.
 
@@ -123,7 +134,6 @@ A reboot is required to take changes in place. Execute `lsmod` command and verif
 * transparent_hugepage=never
 * numa_balancing=disable
 * mce=ignore_ce
-
 
 #### Execution Steps
 
@@ -140,4 +150,4 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 ## Next steps
 - Refer [Backup and restore](hana-overview-high-availability-disaster-recovery.md) for OS backup Type I SKU class.
-- Refer [OS Backup for Type II SKUs of Revision 3 stamps](os-backup-type-ii-skus.md) for Type II SKU class.
+- Refer [OS Backup](./large-instance-os-backup.md) for HLI.

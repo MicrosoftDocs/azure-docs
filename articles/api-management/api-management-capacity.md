@@ -39,7 +39,7 @@ To follow the steps from this article, you must have:
 
 ## What is capacity
 
-![Capacity metric](./media/api-management-capacity/capacity-ingredients.png)
+![Diagram that explains the Capacity metric.](./media/api-management-capacity/capacity-ingredients.png)
 
 **Capacity** is an indicator of load on an API Management instance. It reflects resources usage (CPU, memory) and network queue lengths. CPU and memory usage reveals resources consumption by:
 
@@ -104,4 +104,4 @@ Low **capacity metric** doesn't necessarily mean that your API Management instan
 ## Next steps
 
 - [How to scale or upgrade an Azure API Management service instance](upgrade-and-scale.md)
-- [Optimize and save on your cloud spending](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Optimize and save on your cloud spending](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

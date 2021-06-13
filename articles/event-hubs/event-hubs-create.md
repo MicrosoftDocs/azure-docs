@@ -1,12 +1,12 @@
 ---
 title: Azure Quickstart - Create an event hub using the Azure portal
-description: In this quickstart, you learn how to create an Azure event hub using Azure portal and then send and receive events using .NET Standard SDK.
+description: In this quickstart, you learn how to create an Azure event hub using Azure portal.
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 05/25/2021
 ---
 
 # Quickstart: Create an event hub using Azure portal
-Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
+Azure Event Hubs is a Big Data streaming platform and event ingestion service that can receive and process millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 In this quickstart, you create an event hub using the [Azure portal](https://portal.azure.com).
 
@@ -15,15 +15,13 @@ In this quickstart, you create an event hub using the [Azure portal](https://por
 To complete this quickstart, make sure that you have:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio 2019](https://www.visualstudio.com/vs) or later.
-- [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Create a resource group
 
 A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. To create a resource group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the left navigation, click **Resource groups**. Then click **Add**.
+1. In the left navigation, select **Resource groups**. Then select **Add**.
 
    ![Resource groups - Add button](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
@@ -37,9 +35,9 @@ A resource group is a logical collection of Azure resources. All resources are d
 
 ## Create an Event Hubs namespace
 
-An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following actions:
+An Event Hubs namespace provides a unique scoping container, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following actions:
 
-1. In the Azure portal, and click **Create a resource** at the top left of the screen.
+1. In the Azure portal, and select **Create a resource** at the top left of the screen.
 1. Select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu. 
     
    ![Search for Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
@@ -50,9 +48,9 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
    1. Select the **subscription** in which you want to create the namespace.  
    1. Select the **resource group** you created in the previous step.   
    1. Enter a **name** for the namespace. The system immediately checks to see if the name is available.  
-   1. Select a **location** for the namespace.      
-   1. Choose the **pricing tier** (Basic or Standard).    
-   1. Leave the **throughput units** settings as it is. To learn about throughput units, see [Event Hubs scalability](event-hubs-scalability.md#throughput-units).  
+   1. Select a **location** for the namespace.
+   1. Choose **Basic** for the **pricing tier**. To learn about differences between tiers, see [Quotas and limits](event-hubs-quotas.md), [Event Hubs Premium](event-hubs-premium-overview.md), and [Event Hubs Dedicated](event-hubs-dedicated-overview.md) articles. 
+   1. Leave the **throughput units** (for standard tier) or **processing units** (for premium tier) settings as it is. To learn about throughput units or processing units: [Event Hubs scalability](event-hubs-scalability.md).  
    1. Select **Review + Create** at the bottom of the page.
       
       ![Create an event hub namespace](./media/event-hubs-quickstart-portal/create-event-hub1.png)
@@ -75,24 +73,28 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
 To create an event hub within the namespace, do the following actions:
 
 1. On the Event Hubs Namespace page, select **Event Hubs** in the left menu.
-1. At the top of the window, click **+ Event Hub**.
+1. At the top of the window, select **+ Event Hub**.
    
     ![Add Event Hub - button](./media/event-hubs-quickstart-portal/create-event-hub4.png)
-1. Type a name for your event hub, then click **Create**.
+1. Type a name for your event hub, then select **Create**.
    
     ![Create event hub](./media/event-hubs-quickstart-portal/create-event-hub5.png)
-1. You can check the status of the event hub creation in alerts. After the event hub is created, you see it in the list of event hubs as shown in the following image:
+
+    The **partition count** setting allows you to parallelize consumption across many consumers. For more information, see [Partitions](event-hubs-scalability.md#partitions).
+
+    The **message retention** setting specifies how long the Event Hubs service keeps data. For more information, see [Event retention](event-hubs-features.md#event-retention).
+1. You can check the status of the event hub creation in alerts. After the event hub is created, you see it in the list of event hubs.
 
     ![Event hub created](./media/event-hubs-quickstart-portal/event-hub-created.png)
-
+    
 ## Next steps
 
-In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials: 
+In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see these tutorials: 
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
-- [Java](get-started-java-send-v2.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)

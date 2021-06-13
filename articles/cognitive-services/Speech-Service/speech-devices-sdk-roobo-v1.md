@@ -69,4 +69,4 @@ Roobo provides a tool that captures all audio to flash memory. It might help you
 
 ## Next steps
 
-* [Run the Android sample app](speech-devices-sdk-android-quickstart.md)
+* [Run the Android sample app](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android)

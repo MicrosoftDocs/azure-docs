@@ -1,7 +1,7 @@
 ---
 title: Recommended security practices
 description: When using Azure Lighthouse, it's important to consider security and access control.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
 ---
 
@@ -12,18 +12,18 @@ When using [Azure Lighthouse](../overview.md), it's important to consider securi
 > [!TIP]
 > These recommendations also apply to [enterprises managing multiple tenants](enterprise.md) with Azure Lighthouse.
 
-## Require Azure Multi-Factor Authentication
+## Require Azure AD Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
+[Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
 
-We suggest that you ask your customers to implement Azure Multi-Factor Authentication in their tenants as well.
+We recommend that you ask your customers to implement Azure AD Multi-Factor Authentication in their tenants as well.
 
 ## Assign permissions to groups, using the principle of least privilege
 
 To make management easier, use Azure Active Directory (Azure AD) groups for each role required to manage your customers' resources. This lets you add or remove individual users to the group as needed, rather than assigning permissions directly to each user.
 
 > [!IMPORTANT]
-> In order to add permissions for an Azure AD group, the **Group type** must be **Security** and not **Office 365**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> In order to add permissions for an Azure AD group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 When creating your permission structure, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors.
 
@@ -42,5 +42,6 @@ Keep  in mind that when you [onboard customers through a public managed service 
 
 ## Next steps
 
-- [Deploy Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+- Review the [security baseline information](../security-baseline.md) to understand how guidance from the Azure Security Benchmark applies to Azure Lighthouse.
+- [Deploy Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).

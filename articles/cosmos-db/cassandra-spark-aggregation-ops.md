@@ -12,6 +12,7 @@ ms.date: 09/24/2018
 ---
 
 # Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article describes basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark. 
 
@@ -25,9 +26,10 @@ import org.apache.spark.sql.cassandra._
 //Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
+import org.apache.spark.sql.functions._
 
-//CosmosDB library for multiple retry
-import com.microsoft.azure.cosmosdb.cassandra
+//if using Spark 2.x, CosmosDB library for multiple retry
+//import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
 spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
@@ -35,15 +37,22 @@ spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
 spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")
-spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")
+// if using Spark 2.x
+// spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")
+
 //Throughput-related...adjust as needed
 spark.conf.set("spark.cassandra.output.batch.size.rows", "1")
-spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10")
+//spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10") // Spark 2.x
+spark.conf.set("spark.cassandra.connection.remoteConnectionsPerExecutor", "10") // Spark 3.x
 spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")
 spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
+
+> [!NOTE]
+> If you are using Spark 3.0 or higher, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector(see above). You will see that connection related properties are defined within the notebook above. Using the syntax below, connection properties can be defined in this manner without needing to be defined at the cluster level (Spark context initialization). However, when using operations that require spark context (e.g. `CassandraConnector(sc)` for some of the operations shown below), connection properties need to be defined at the cluster level.
+
 ## Sample data generator
 
 ```scala
@@ -74,7 +83,7 @@ sc.cassandraTable("books_ks", "books").count
 
 **Output:**
 ```bash
-res48: Long = 5
+count: Long = 5
 ```
 
 ### Dataframe API
@@ -123,6 +132,7 @@ readBooksDF.createOrReplaceTempView("books_vw")
 ### SQL
 
 ```sql
+%sql
 select * from books_vw;
 select count(*) from books_vw where book_pub_year > 1900;
 select count(book_id) from books_vw;
@@ -211,7 +221,8 @@ spark
 ### SQL
 
 ```sql
-select min(book_price) from books_vw;
+%sql
+select avg(book_price) from books_vw;
 ```
 
 **Output:**
@@ -251,6 +262,7 @@ spark
 ### SQL
 
 ```sql
+%sql
 select max(book_price) from books_vw;
 ```
 **Output:**

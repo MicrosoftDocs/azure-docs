@@ -22,7 +22,7 @@ To get started:
 
 1. [Set up Application Insights for your web pages](./javascript.md). 
    
-    (In this example, we'll focus on processing page view data from the client browsers, but you could also set up Application Insights for the server side of your [Java](./java-get-started.md) or [ASP.NET](./asp-net.md) app and process request, dependency and other server telemetry.)
+    (In this example, we'll focus on processing page view data from the client browsers, but you could also set up Application Insights for the server side of your [Java](./java-in-process-agent.md) or [ASP.NET](./asp-net.md) app and process request, dependency and other server telemetry.)
 2. Publish your app, and watch telemetry data appearing in your Application Insights resource.
 
 ## Create storage in Azure
@@ -57,7 +57,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
     ![Choose event types](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../platform/metrics-charts.md) and individual events in [diagnostic search](./diagnostic-search.md). 
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../essentials/metrics-charts.md) and individual events in [diagnostic search](./diagnostic-search.md). 
    
     And also, the data will export to your storage. 
 2. Inspect the exported data, either in the portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
@@ -78,7 +78,7 @@ Make sure that the server allows access to Azure services:
 ![Browse, Servers, your server, Settings, Firewall, Allow Access to Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## Create a table in Azure SQL Database
-Connect to the database created in the previous section with your preferred management tool. In this walkthrough, we will be using [SQL Server Management Tools](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
+Connect to the database created in the previous section with your preferred management tool. In this walkthrough, we will be using [SQL Server Management Tools](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 ![Connect to Azure SQL Database](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -129,21 +129,21 @@ In this sample, we are using data from page views. To see the other data availab
 ## Create an Azure Stream Analytics instance
 From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![Screenshot shows the Stream analytics job page with the Create button highlighted.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![New stream analytics job](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 When the new job is created, select **Go to resource**.
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![Screenshot shows the Deployment succeeded message and Go to resource button.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### Add a new input
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![Screenshot shows the Inputs page with the Add button selected.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 Set it to take input from your Continuous Export blob:
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![Screenshot shows the New input window with Input alias, Source, and Storage account drop-down menu options selected.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 Now you'll need the Primary Access Key from your Storage Account, which you noted earlier. Set this as the Storage Account Key.
 
@@ -248,7 +248,7 @@ FROM [dbo].[PageViewsTable]
 
 [diagnostic]: ./diagnostic-search.md
 [export]: ./export-telemetry.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md
 

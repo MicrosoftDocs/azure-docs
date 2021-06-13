@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.custom: devx-track-javascript
+ms.date: 04/05/2021
+ms.custom: devx-track-js
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -155,7 +155,7 @@ This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs](../
 
 *Example*
 
-This trigger definition checks for email every day inside the inbox for an Office 365 Outlook account:
+This trigger definition checks for email every day inside the inbox for a work or school account:
 
 ```json
 "When_a_new_email_arrives": {
@@ -1106,7 +1106,7 @@ This action runs code that gets your logic app's name and returns the text "Hell
 
 *Example 2*
 
-This action runs code in a logic app that triggers when a new email arrives in an Office 365 Outlook account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
+This action runs code in a logic app that triggers when a new email arrives in a work or school account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
 
 The code extracts the email addresses from the trigger's `Body` property and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the send approval email action as a dependency in the `explicitDependencies` > `actions` attribute.
 
@@ -1131,7 +1131,7 @@ The code extracts the email addresses from the trigger's `Body` property and ret
 
 ### Function action
 
-This action calls a previously created [Azure function](../azure-functions/functions-create-first-azure-function.md).
+This action calls a previously created [Azure function](../azure-functions/functions-get-started.md).
 
 ```json
 "<Azure-function-name>": {
@@ -1511,7 +1511,7 @@ Unlike other actions, the **Response** action has special restrictions:
 
 * Your workflow can use the **Response** action anywhere *except* inside **Foreach** loops, **Until** loops, including sequential loops, and parallel branches. 
 
-* The original HTTP request gets your workflow's response only when all actions required by the **Response** action are finished within the [HTTP request timeout limit](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+* The original request gets your workflow's response only when all actions required by the **Response** action are finished within the [HTTP timeout limit](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
   However, if your workflow calls another logic app as a nested workflow, the parent workflow waits until the nested workflow finishes, no matter how much time passes before the nested workflow finishes.
 
@@ -2316,6 +2316,9 @@ This loop action contains actions that run until the specified condition is true
 | <*loop-timeout*> | String | The limit on the longest time that the loop can run. The default `timeout` value is `PT1H`, which is the required [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
 
+> [!NOTE]
+> If the expression depends on the output from any action within the Until loop, make sure that you account for any failure that results from that action.
+
 *Example*
 
 This loop action definition sends an HTTP request to the specified URL until one of these conditions is met:
@@ -2404,7 +2407,7 @@ You can change the default behavior for triggers and actions with the `operation
 | Operation option | Type | Description | Trigger or action | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#disable-asynchronous-pattern). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
-| `OptimizedForHighThroughput` | String | Change the [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) on the number of action executions per 5 minutes to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>To set this option, see [Run in high throughput mode](#run-high-throughput-mode). | All actions | 
+| `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
 | `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>This option works the same way as setting the `runtimeConfiguration.concurrency.repetitions` property to `1`. You can set either property, but not both. <p><p>To set this option, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Run the trigger for each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p><p>This option works the same way as setting the `runtimeConfiguration.concurrency.runs` property to `1`. You can set either property, but not both. <p>To set this option, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
 ||||
@@ -2417,9 +2420,7 @@ By default, logic app workflow instances all run at the same time (concurrently 
 
 When you turn on the trigger's concurrency control, trigger instances run in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this default concurrency limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of new workflow instances that can run in parallel.
 
-Here are some considerations for when you want to enable concurrency on a trigger:
-
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
+Here are some considerations to review before you enable concurrency on a trigger:
 
 * You can't disable concurrency after you enable the concurrency control.
 
@@ -2456,9 +2457,9 @@ Here are some considerations for when you want to enable concurrency on a trigge
 
 #### Edit in code view 
 
-In the underlying trigger definition, add the `runtimeConfiguration.concurrency.runs` property, which can have a value that ranges from `1` to `50`.
+In the underlying trigger definition, add the `runtimeConfiguration.concurrency.runs` property, and set the value based on the [trigger concurrency limits](logic-apps-limits-and-config.md#concurrency-debatching). To run your workflow sequentially, set the property value to `1`.
 
-Here is an example that limits concurrent runs to 10 instances:
+This example limits concurrent runs to 10 instances:
 
 ```json
 "<trigger-name>": {
@@ -2719,25 +2720,6 @@ In the action's underlying JSON definition, add and set the ["operationOptions" 
    "type": "Http",
    "inputs": { "<action-inputs>" },
    "operationOptions": "DisableAsyncPattern",
-   "runAfter": {}
-}
-```
-
-<a name="run-high-throughput-mode"></a>
-
-### Run in high throughput mode
-
-For a single logic app definition, the number of actions that execute every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise this limit to the [maximum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possible, set the `operationOptions` property to `OptimizedForHighThroughput`. 
-This setting puts your logic app into "high throughput" mode.
-
-> [!NOTE]
-> High throughput mode is in preview. You can also distribute a workload across more than one logic app as necessary.
-
-```json
-"<action-name>": {
-   "type": "<action-type>",
-   "inputs": { "<action-inputs>" },
-   "operationOptions": "OptimizedForHighThroughput",
    "runAfter": {}
 }
 ```

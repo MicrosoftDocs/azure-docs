@@ -141,12 +141,12 @@ First, let use define a class representing a notification.
 ```python
 class Notification:
     def __init__(self, notification_format=None, payload=None, debug=0):
-        valid_formats = ['template', 'apple', 'fcm',
+        valid_formats = ['template', 'apple', 'gcm',
                          'windows', 'windowsphone', "adm", "baidu"]
         if not any(x in notification_format for x in valid_formats):
             raise Exception(
                 "Invalid Notification format. " +
-                "Must be one of the following - 'template', 'apple', 'fcm', 'windows', 'windowsphone', 'adm', 'baidu'")
+                "Must be one of the following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
 
         self.format = notification_format
         self.payload = payload
@@ -202,7 +202,7 @@ def make_http_request(self, url, payload, headers):
 def send_notification(self, notification, tag_or_tag_expression=None):
     url = self.Endpoint + self.HubName + '/messages' + self.API_VERSION
 
-    json_platforms = ['template', 'apple', 'fcm', 'adm', 'baidu']
+    json_platforms = ['template', 'apple', 'gcm', 'adm', 'baidu']
 
     if any(x in notification.format for x in json_platforms):
         content_type = "application/json"
@@ -238,8 +238,8 @@ def send_apple_notification(self, payload, tags=""):
     self.send_notification(nh, tags)
 
 
-def send_fcm_notification(self, payload, tags=""):
-    nh = Notification("fcm", payload)
+def send_google_notification(self, payload, tags=""):
+    nh = Notification("gcm", payload)
     self.send_notification(nh, tags)
 
 
@@ -338,13 +338,13 @@ hub.send_apple_notification(alert_payload)
 ### Android
 
 ```python
-fcm_payload = {
+gcm_payload = {
     'data':
         {
             'msg': 'Hello!'
         }
 }
-hub.send_fcm_notification(fcm_payload)
+hub.send_google_notification(gcm_payload)
 ```
 
 ### Kindle Fire
@@ -410,7 +410,7 @@ Notice the Tags HTTP header, which gets added to the HTTP request (in the exampl
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, Service Bus Notification Tags, and X W N S Type values outlined in red.][3]
+![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, a Service Bus Notification Tag, and X W N S Type values outlined in red.][3]
 
 ### Send notification specifying multiple tags
 
@@ -421,7 +421,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, Service Bus Notification Tags, and X W N S Type values outlined in red.][4]
+![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, multiple Service Bus Notification Tags, and X W N S Type values outlined in red.][4]
 
 ### Templated notification
 

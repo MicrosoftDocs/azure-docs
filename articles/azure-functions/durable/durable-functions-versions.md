@@ -3,7 +3,7 @@ title: Durable Functions versions overview - Azure Functions
 description: Learn about Durable Functions versions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 12/23/2020
 ms.author: azfuncdf
 ---
 
@@ -39,7 +39,34 @@ This section describes how to migrate your existing version 1.x Durable Function
 
 ### Upgrade the extension
 
-Install version 2.x of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your project. See [Register Azure Functions binding extensions](../functions-bindings-register.md) for more information.
+Install the latest 2.x version of the Durable Functions bindings extension in your project.
+
+#### JavaScript, Python, and PowerShell
+
+Durable Functions 2.x is available in version 2.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles).
+
+Python support in Durable Functions requires Durable Functions 2.x.
+
+To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 2.x (`[2.*, 3.0.0)`).
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
+    }
+}
+```
+
+> [!NOTE]
+> If Visual Studio Code is not displaying the correct templates after you change the extension bundle version, reload the window by running the *Developer: Reload Window* command (<kbd>Ctrl+R</kbd> on Windows and Linux, <kbd>Command+R</kbd> on macOS).
+
+#### .NET
+
+Update your .NET project to use the latest version of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask).
+
+See [Register Azure Functions binding extensions](../functions-bindings-register.md#local-csharp) for more information.
 
 ### Update your code
 

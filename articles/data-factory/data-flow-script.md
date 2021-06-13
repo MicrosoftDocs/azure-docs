@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2020
+ms.date: 02/15/2021
 ---
 
 # Data flow script (DFS)
@@ -171,13 +171,13 @@ aggregate(groupBy(movie),
 Use this code in your data flow script to create a new derived column called ```DWhash``` that produces a ```sha1``` hash of three columns.
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 You can also use this script below to generate a row hash using all columns that are present in your stream, without needing to name each column:
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### String_agg equivalent
@@ -186,7 +186,7 @@ This code will act like the T-SQL ```string_agg()``` function and will aggregate
 ```
 source1 aggregate(groupBy(year),
 	string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### Count number of updates, upserts, inserts, deletes
@@ -205,6 +205,65 @@ This snippet will add a new Aggregate transformation to your data flow which wil
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### Check for NULLs in all columns
+This is a snippet that you can paste into your data flow to generically check all of your columns for NULL values. This technique leverages schema drift to look through all columns in all rows and uses a Conditional Split to separate the rows with NULLs from the rows with no NULLs. 
+
+```
+split(contains(array(columns()),isNull(#item)),
+	disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### AutoMap schema drift with a select
+When you need to load an existing database schema from an unknown or dynamic set of incoming columns, you must map the right-side columns in the Sink transformation. This is only needed when you are loading an existing table. Add this snippet before your Sink to create a Select that auto-maps your columns. Leave your Sink mapping to auto-map.
+
+```
+select(mapColumn(
+		each(match(true()))
+	),
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> automap
+```
+
+### Persist column data types
+Add this script inside a Derived Column definition to store the column names and data types from your data flow to a persistent store using a sink.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+	each(match(type=='integer'), $$ = 'integer'),
+	each(match(type=='short'), $$ = 'short'),
+	each(match(type=='complex'), $$ = 'complex'),
+	each(match(type=='array'), $$ = 'array'),
+	each(match(type=='float'), $$ = 'float'),
+	each(match(type=='date'), $$ = 'date'),
+	each(match(type=='timestamp'), $$ = 'timestamp'),
+	each(match(type=='boolean'), $$ = 'boolean'),
+	each(match(type=='long'), $$ = 'long'),
+	each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
+```
+
+### Fill down
+Here is how to implement the common "Fill Down" problem with data sets when you want to replace NULL values with the value from the previous non-NULL value in the sequence. Note that this operation can have negative performance implications because you must create a synthetic window across your entire data set with a "dummy" category value. Additionally, you must sort by a value to create the proper data sequence to find the previous non-NULL value. This snippet below creates the synthetic category as "dummy" and sorts by a surrogate key. You can remove the surrogate key and use your own data-specific sort key. This code snippet assumes you've already added a Source transformation called ```source1```
+
+```
+source1 derive(dummy = 1) ~> DerivedColumn
+DerivedColumn keyGenerate(output(sk as long),
+	startAt: 1L) ~> SurrogateKey
+SurrogateKey window(over(dummy),
+	asc(sk, true),
+	Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
+```
+
+### Moving Average
+Moving average can be implemented very easily in data flows by using a Windows transformation. This example below creates a 15-day moving average of stock prices for Microsoft.
+
+```
+window(over(stocksymbol),
+	asc(Date, true),
+	startRowOffset: -7L,
+	endRowOffset: 7L,
+	FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1
 ```
 
 ## Next steps

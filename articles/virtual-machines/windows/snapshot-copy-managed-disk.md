@@ -1,17 +1,17 @@
 ---
-title: Create a snapshot of a virtual hard drive in Azure 
-description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues.
+title: Create a snapshot of a virtual hard drive using the portal or PowerShell
+description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues using the portal or PowerShell.
 author: roygara
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
-ms.subservice: disks
 
 ---
-# Create a snapshot
+# Create a snapshot using the portal or PowerShell
 
 A snapshot is a full, read-only copy of a virtual hard drive (VHD). You can take a snapshot of an OS or data disk VHD to use as a backup, or to troubleshoot virtual machine (VM) issues.
 
@@ -77,4 +77,4 @@ The following steps show how to copy the VHD disk and create the snapshot config
 
 ## Next steps
 
-Create a virtual machine from a snapshot by creating a managed disk from a snapshot and then attaching the new managed disk as the OS disk. For more information, see the sample in [Create a VM from a snapshot with PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+Create a virtual machine from a snapshot by creating a managed disk from a snapshot and then attaching the new managed disk as the OS disk. For more information, see the sample in [Create a VM from a snapshot with PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot).

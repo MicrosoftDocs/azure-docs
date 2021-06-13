@@ -1,5 +1,5 @@
 ---
-title: Building retail solutions with Azure IoT Central | Microsoft Docs
+title: What are the Azure IoT Central retail solutions | Microsoft Docs
 description: Learn about using Azure IoT Central application templates to build connected logistics, digital distribution center, in-store analytics, condition monitoring, checkout, smart inventory management, and retail solutions.
 author: avneet723
 ms.author: avneets 
@@ -10,11 +10,11 @@ ms.subservice: iot-central-retail
 services: iot-central
 ---
 
-# Building retail solutions with Azure IoT Central
+# What are the IoT Central retail solutions?
 
 Azure IoT Central is an IoT app platform that reduces the burden and cost associated with developing, managing, and maintaining enterprise-grade IoT solutions. Choosing to build with Azure IoT Central gives you the opportunity to focus your time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
 
-This article, describes several retail-specific IoT Central application templates. As a solution builder, you can use these templates to build IoT solutions that optimize supply chains, improve in-store experiences for customers, and track inventory more efficiently.
+This article, describes several retail-specific IoT Central application templates. You can use these templates to build IoT solutions that optimize supply chains, improve in-store experiences for customers, and track inventory more efficiently.
 
 :::image type="content" source="media/overview-iot-central-retail/retail-app-templates.png" alt-text="Azure IoT Retail Overview":::
 
@@ -36,9 +36,9 @@ The benefits of a connected logistics solution include:
 
 The following screenshots show the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Connected Logistics Dashboard":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Screenshot that shows the top half of the connected logistics operations dashboard.":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Connected Logistics Dashboard":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Screenshot that shows the bottom half of the connected logistics operations dashboard.":::
 
 To learn more, see the [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md) tutorial.
 
@@ -67,7 +67,7 @@ To learn more, see the [Deploy and walk through a digital distribution center ap
 
 For many retailers, environmental conditions within their stores are a key differentiator from their competitors. Retailers want to maintain pleasant conditions within their stores for the benefit of their customers.  
 
-As a solution builder, you can use the IoT Central in-store analytics condition monitoring application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using of  different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights helping the retailer to reduce operating costs and create a great experience for their customers.
+You can use the IoT Central in-store analytics condition monitoring application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using of  different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights helping the retailer to reduce operating costs and create a great experience for their customers.
 
 Use the application template to:
 
@@ -89,7 +89,7 @@ To learn more, see the [Create an in-store analytics application in Azure IoT Ce
 
 For some retailers, the checkout experience within their stores is a key differentiator from their competitors. Retailers want to deliver a smooth checkout experience within their stores to encourage customers to return.  
 
-As a solution builder, you can use the IoT Central in-store analytics checkout application template to build a solution that delivers insights from around the checkout zone of a store to retail staff. For example, sensors can provide information about queue lengths and average wait times for each checkout lane.
+You can use the IoT Central in-store analytics checkout application template to build a solution that delivers insights from around the checkout zone of a store to retail staff. For example, sensors can provide information about queue lengths and average wait times for each checkout lane.
 
 Use the application template to:
 
@@ -131,7 +131,7 @@ To learn more, see the [Deploy and walk through a smart inventory management app
 
 In the increasingly competitive retail landscape, retailers constantly face pressure to close the gap between demand and fulfillment. A new trend that has emerged to address the growing consumer demand is to house inventory near the end customers and the stores they visit.
 
-The IoT Central micro-fulfillment center application template enables solution builders to monitor and manage all aspects of their fully automated fulfillment centers. The template includes a set of simulated condition monitoring sensors and robotic carriers to accelerate the solution development process. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences for their customers.
+The IoT Central micro-fulfillment center application template enables you to monitor and manage all aspects of your fully automated fulfillment centers. The template includes a set of simulated condition monitoring sensors and robotic carriers to accelerate the solution development process. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences for their customers.
 
 The application template enables you to: 
 
@@ -155,28 +155,25 @@ The video analytics application uses a [live video analytics (LVA)](#live-video-
 
 The application template includes four application dashboards:
 
-* **Setup** provides information about the application design and lets you add and delete cameras.
-* **Manage** lets you manage your cameras. For example, you can configure the cameras, view status information, and start cameras running.
-* **Real Cameras** lets you view information from your real cameras such as detection counts and camera events.
-* **Monitor** lets you view detailed information from all of your cameras.
+* **Getting Started** provides links to resources to help you get started using the application template.
+* **Demo Dashboard** provides an illustration of the types of information you can display from your connected cameras.
+* **(Sample) Real Camera Management** uses simulated cameras to show how you can manage your cameras from the application.
+* **(Sample) Real Camera Monitor** uses simulated cameras to show how you can monitor your cameras from the application.
 
 :::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Video analytics - object and motion detection":::
 
 To learn more about the architecture of the solution, see [Video analytics application architecture](architecture-video-analytics.md).
 
-To learn how to deploy the solution, see the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md) tutorial.
+To learn how to deploy the solution, see the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-deploy.md) tutorial.
 
 ### Live video analytics
 
-Live video analytics provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video, and publish the results, which could be video or video analytics, to Azure services. The Azure services could be running in the cloud or the edge. You can use the platform to enhance IoT solutions with video analytics.
+[Live video analytics](https://github.com/Azure/live-video-analytics) provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video, and publish the results, which could be video or video analytics, to Azure services. The Azure services could be running in the cloud or the edge. You can use the platform to enhance IoT solutions with video analytics.
 
 ## Next steps
 
 To get started building a retail solution:
 
 * Get started with the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial that walks you through how to build a solution with one of the in-store analytics application templates.
+* [Deploy and walk through the video analytics application template](./tutorial-video-analytics-deploy.md).
 * [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md).
-* [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center.md).
-* [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management.md).
-* [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md).
-* Learn more about IoT Central in the [IoT Central overview](../preview/overview-iot-central.md).

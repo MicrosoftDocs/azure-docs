@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 # How to implement faceted navigation in Azure Cognitive Search
 
@@ -58,7 +59,7 @@ In application code, the pattern is to use facet query parameters to return the 
 
 ### Query basics
 
-In Azure Cognitive Search, a request is specified through one or more query parameters (see [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) for a description of each one). None of the query parameters are required, but you must have at least one in order for a query to be valid.
+In Azure Cognitive Search, a request is specified through one or more query parameters (see [Search Documents](/rest/api/searchservice/Search-Documents) for a description of each one). None of the query parameters are required, but you must have at least one in order for a query to be valid.
 
 Precision, understood as the ability to filter out irrelevant hits, is achieved through one or both of these expressions:
 
@@ -225,7 +226,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `interval:<integer>`, and `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Cognitive Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) for usage details.
+A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `interval:<integer>`, and `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Cognitive Search API)](/rest/api/searchservice/Search-Documents) for usage details.
 
 Along with facets, the request formulated by your application should also build filters to narrow down the set of candidate documents based on a facet value selection. For a bike store, faceted navigation provides clues to questions like *What colors, manufacturers, and types of bikes are available?*. Filtering answers questions like *Which exact bikes are red, mountain bikes, in this price range?*. When you click "Red" to indicate that only Red products should be shown, the next query the application sends includes `$filter=Color eq 'Red'`.
 
@@ -315,7 +316,7 @@ When you add a filter to a faceted query, you might want to retain the facet sta
 
 **Make sure you get accurate facet counts**
 
-Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Cognitive Search (Microsoft Q&A question page)](https://docs.microsoft.com/answers/topics/azure-cognitive-search.html)).
+Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Cognitive Search (Microsoft Q&A question page)](/answers/topics/azure-cognitive-search.html)).
 
 Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each shard reports the top N facets by document count, which is then combined into a single result. If some shards have many matching values, while others have fewer, you may find that some facet values are missing or under-counted in the results.
 
@@ -329,7 +330,7 @@ Labels are typically defined in the HTML or form (`index.cshtml` in the sample a
 <a name="rangefacets"></a>
 
 ## Filter based on a range
-Faceting over ranges of values is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Cognitive Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Faceting over ranges of values is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Cognitive Search API)](/rest/api/searchservice/Search-Documents).
 
 Azure Cognitive Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Cognitive Search creates the appropriate ranges given the inputs you've provided. For instance, if you specify range values of 10|20|30, it automatically creates ranges of 0-10, 10-20, 20-30. Your application can optionally remove any intervals that are empty. 
 
@@ -400,4 +401,3 @@ For more insights on design principles for faceted navigation, we recommend the 
 
 * [Design Patterns: Faceted Navigation](https://alistapart.com/article/design-patterns-faceted-navigation)
 * [Front End Concerns When Implementing Faceted Search – Part 1](https://articles.uie.com/faceted_search2/)
-

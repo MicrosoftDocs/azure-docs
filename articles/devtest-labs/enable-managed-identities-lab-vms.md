@@ -20,36 +20,37 @@ To add a user assigned managed identity for lab VMs, follow these steps:
 
 1. [Create a user-assigned managed identity in your subscription](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Navigate to the **Configuration and policies** page for your lab.
-2. Select **Identity (Preview)** on the left menu.
-3. Select the **Virtual machine** tab.
-4. Select **Add** to select an existing identity from a pre-populated dropdown list. 
+1. Select **Identity (Preview)** on the left menu.
+1. Select the **Virtual machine** tab.
+1. Select **Add** to select an existing identity from a pre-populated dropdown list. 
 
-    ![Add identity button](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-5. Select an existing **user-managed identity** from the dropped-down list, and select **OK**. 
+    > [!div class="mx-imgBorder"]
+    > ![Add identity button](./media/enable-managed-identities-lab-vms/add-identity-button.png)
+1. Select an existing **user-managed identity** from the dropped-down list, and select **OK**. 
 
-    ![Add identity](./media/enable-managed-identities-lab-vms/add-identity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add identity](./media/enable-managed-identities-lab-vms/add-identity.png)
 
 ## Use API
 
 1.	After creating an identity, note the resource ID of the identity. It should look like the following sample: 
 
-    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-2. Run a PUT HTTPS method to add a new **ServiceRunner** resource to the lab as shown in the following example. 
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+    
+2. Perform a PUT HTTPS method on the lab resource to add one or multiple user assigned identities to the **managementIdentities** field.
 
-    Service runner resource is a proxy resource to manage and control managed identities in DevTest Labs. The service runner name can be any valid name, but we recommend you use the name of the managed identity resource.
 
     ```json
     {
-        "identity": {
-            "type": "userAssigned",
-            "userAssignedIdentities": { 
-                "[userAssignedIdentityResourceId]": {}
-            }
-			},
         "location": "southeastasia",
         "properties": {
-            "identityUsageType": "VirtualMachine"
-        }
+	    ...
+            "managementIdentities": {
+               "/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}": {}
+	    },
+	    ...
+        },
+	...
     }
     ```
 

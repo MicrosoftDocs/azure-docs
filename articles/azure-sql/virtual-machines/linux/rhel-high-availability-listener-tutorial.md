@@ -1,8 +1,7 @@
 ---
 title: Configure an availability group listener for SQL Server on RHEL virtual machines in Azure - Linux virtual machines | Microsoft Docs
 description: Learn about setting up an availability group listener in SQL Server on RHEL virtual machines in Azure
-ms.service: virtual-machines-linux
-ms.subservice:
+ms.service: virtual-machines-sql
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
@@ -35,7 +34,7 @@ Completed [Tutorial: Configure availability groups for SQL Server on RHEL virtua
 
 ## Create the load balancer in the Azure portal
 
-The following instructions take you through steps 1 through 4 from the [Create and configure the load balancer in the Azure portal](../windows/availability-group-load-balancer-portal-configure.md#create-and-configure-the-load-balancer-in-the-azure-portal) section of the [Load balancer - Azure portal](../windows/availability-group-load-balancer-portal-configure.md) article.
+The following instructions take you through steps 1 through 4 from the [Create and configure the load balancer in the Azure portal](../windows/availability-group-load-balancer-portal-configure.md#create--configure-load-balancer) section of the [Load balancer - Azure portal](../windows/availability-group-load-balancer-portal-configure.md) article.
 
 ### Create the load balancer
 
@@ -257,6 +256,10 @@ At this point, the resource group has a load balancer that connects to all SQL S
     ```
 
 1. Check your cluster resources using the command `sudo pcs resource`, and you should see that the primary instance is now `<VM2>`.
+
+    > [!NOTE]
+    > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource

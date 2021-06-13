@@ -2,7 +2,8 @@
 title: Resource Manager and classic deployment
 description: Describes the differences between the Resource Manager deployment model and the classic (or Service Management) deployment model.
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 04/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
 
@@ -11,7 +12,7 @@ ms.date: 02/06/2020
 
 In this article, you learn about Azure Resource Manager and classic deployment models. The Resource Manager and classic deployment models represent two different ways of deploying and managing your Azure solutions. You work with them through two different API sets, and the deployed resources can contain important differences. The two models aren't compatible with each other. This article describes those differences.
 
-To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for all new resources. If possible, Microsoft recommends that you redeploy existing resources through Resource Manager.
+To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for all new resources. If possible, Microsoft recommends that you redeploy existing resources through Resource Manager. If you've used Cloud Services, you can migrate your solution to [Cloud Services (extended support)](../../cloud-services-extended-support/overview.md).
 
 If you're new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](overview.md).
 
@@ -34,7 +35,7 @@ When Resource Manager was added, all resources were retroactively added to defau
 
 There are three scenarios to be aware of:
 
-1. Cloud Services doesn't support Resource Manager deployment model.
+1. [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) doesn't support the Resource Manager deployment model. [Cloud Services (extended support)](../../cloud-services-extended-support/overview.md) supports the Resource Manager deployment model.
 2. Virtual machines, storage accounts, and virtual networks support both Resource Manager and classic deployment models.
 3. All other Azure services support Resource Manager.
 
@@ -89,7 +90,7 @@ Here are the components and their relationships for classic deployment:
 
 The classic solution for hosting a virtual machine includes:
 
-* A required cloud service that acts as a container for hosting virtual machines (compute). Virtual machines are automatically provided with a network interface card and an IP address assigned by Azure. Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.
+* Cloud Services (classic) acts as a container for hosting virtual machines (compute). Virtual machines are automatically provided with a network interface card and an IP address assigned by Azure. Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.
 * A required storage account that stores the virtual hard disks for a virtual machine, including the operating system, temporary, and additional data disks (storage).
 * An optional virtual network that acts as an additional container, in which you can create a subnetted structure and choose the subnet on which the virtual machine is located (network).
 
@@ -116,10 +117,10 @@ To learn about connecting virtual networks from different deployment models, see
 
 If you're ready to migrate your resources from classic deployment to Resource Manager deployment, see:
 
-1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
-3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)
+1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-deep-dive.md)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md)
+3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md)
+4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../../virtual-machines/migration-classic-resource-manager-cli.md)
 
 ## Frequently asked questions
 

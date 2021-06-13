@@ -1,7 +1,7 @@
 ---
 title: Stages of a blueprint deployment
-description: Learn the security and artifact related steps the Azure Blueprints services goes through while creating a blueprint assignment.
-ms.date: 05/06/2020
+description: Learn the security and artifact-related steps the Azure Blueprints services goes through while creating a blueprint assignment.
+ms.date: 05/01/2021
 ms.topic: conceptual
 ---
 # Stages of a blueprint deployment
@@ -34,7 +34,7 @@ The rights are granted automatically if the assignment is done through the porta
 assignment is done through the REST API, granting the rights needs to be done with a separate API
 call. The Azure Blueprints AppId is `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, but the service
 principal varies by tenant. Use
-[Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md)
+[Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)
 and REST endpoint [servicePrincipals](/graph/api/resources/serviceprincipal) to get the service
 principal. Then, grant the Azure Blueprints the _Owner_ role through the
 [Portal](../../../role-based-access-control/role-assignments-portal.md),
@@ -95,8 +95,9 @@ subscription.
 
 ## Next steps
 
-- Understand how to use [static and dynamic parameters](parameters.md).
-- Learn to customize the [blueprint sequencing order](sequencing-order.md).
-- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Understand how to use [static and dynamic parameters](./parameters.md).
+- Learn to customize the [blueprint sequencing order](./sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](./resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

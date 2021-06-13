@@ -1,14 +1,11 @@
 ---
 title: XML format in Azure Data Factory 
 description: 'This topic describes how to deal with XML format in Azure Data Factory.'
-author: linda33wj
-manager: shwang
-ms.reviewer: craigg
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/10/2020
-ms.author: jingwang
+ms.date: 04/29/2021
+ms.author: jianleishen
 ---
 
 # XML format in Azure Data Factory
@@ -17,7 +14,7 @@ ms.author: jingwang
 
 Follow this article when you want to **parse the XML files**. 
 
-XML format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md). It is supported as source but not sink.
+XML format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md),  [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md). It is supported as source but not sink.
 
 ## Dataset properties
 
@@ -30,8 +27,8 @@ For a full list of sections and properties available for defining datasets, see 
 | encodingName     | The encoding type used to read/write test files. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
 | nullValue | Specifies the string representation of null value.<br/>The default value is **empty string**. | No |
 | compression | Group of properties to configure file compression. Configure this section when you want to do compression/decompression during activity execution. | No |
-| type<br>(*under `compression`*) | The compression codec used to read/write XML files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, or **lz4**. to use when saving the file. Default is not compressed.<br>**Note** currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate".<br>**Note** when using copy activity to decompress **ZipDeflate** file(s) and write to file-based sink data store, by default files are extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`, use `preserveZipFileNameAsFolder` on [copy activity source](#xml-as-source) to control whether to preserve zip file name as folder structure. | No.  |
-| level<br/>(*under `compression`*) | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. | No       |
+| type<br>(*under `compression`*) | The compression codec used to read/write XML files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy**, or **lz4**. Default is not compressed.<br>**Note** currently Copy activity doesn't support "snappy" & "lz4", and mapping data flow doesn't support "ZipDeflate", "TarGzip" and "Tar".<br>**Note** when using copy activity to decompress **ZipDeflate**/**TarGzip**/**Tar** file(s) and write to file-based sink data store, by default files are extracted to the folder:`<path specified in dataset>/<folder named as source compressed file>/`, use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` on [copy activity source](#xml-as-source) to control whether to preserve the name of the compressed file(s) as folder structure. | No.  |
+| level<br/>(*under `compression`*) | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic. | No       |
 
 Below is an example of XML dataset on Azure Blob Storage:
 
@@ -80,13 +77,16 @@ Supported **XML read settings** under `formatSettings`:
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type of formatSettings must be set to **XmlReadSettings**. | Yes      |
 | validationMode | Specifies whether to validate the XML schema.<br>Allowed values are **none** (default, no validation), **xsd** (validate using XSD), **dtd** (validate using DTD). | No |
+| namespaces | Whether to enable namespace when parsing the XML files. Allowed values are: **true** (default), **false**. | No |
 | namespacePrefixes | Namespace URI to prefix mapping, which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No |
+| detectDataType | Whether to detect integer, double, and Boolean data types. Allowed values are: **true** (default), **false**.| No |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
+| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings` or `TarReadSettings`*) | Applies when input dataset is configured with **TarGzip**/**Tar** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, Data Factory writes decompressed files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read and write to XML format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to XML files either using XML dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+In mapping data flows, you can read XML format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to XML files either using XML dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
 
 ### Source properties
 
@@ -103,6 +103,7 @@ The below table lists the properties supported by an XML source. You can edit th
 | Validation mode | Specifies whether to validate the XML schema. | No | `None` (default, no validation)<br>`xsd` (validate using XSD)<br>`dtd` (validate using DTD). | validationMode |
 | Namespaces | Whether to enable namespace when parsing the XML files. | No | `true` (default) or `false` | namespaces |
 | Namespace prefix pairs | Namespace URI to prefix mapping, which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No | Array with pattern`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
 ### XML source script example
 
@@ -110,21 +111,21 @@ The below script is an example of an XML source configuration in mapping data fl
 
 ```
 source(allowSchemaDrift: true,
-	validateSchema: false,
-	validationMode: 'xsd',
-	namespaces: true) ~> XMLSource
+    validateSchema: false,
+    validationMode: 'xsd',
+    namespaces: true) ~> XMLSource
 ```
 
 The below script is an example of an XML source configuration using inline dataset mode.
 
 ```
 source(allowSchemaDrift: true,
-	validateSchema: false,
-	format: 'xml',
-	fileSystem: 'filesystem',
-	folderPath: 'folder',
-	validationMode: 'xsd',
-	namespaces: true) ~> XMLSource
+    validateSchema: false,
+    format: 'xml',
+    fileSystem: 'filesystem',
+    folderPath: 'folder',
+    validationMode: 'xsd',
+    namespaces: true) ~> XMLSource
 ```
 
 ## XML connector behavior

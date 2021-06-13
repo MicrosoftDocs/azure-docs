@@ -1,13 +1,12 @@
 ---
 title: Global parameters
 description: Set global parameters for each of your Azure Data Factory environments
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
-ms.date: 08/05/2020
+author: minhe-msft
+ms.author: hemin
+ms.date: 05/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Global parameters in Azure Data Factory
@@ -18,13 +17,13 @@ Global parameters are constants across a data factory that can be consumed by a 
 
 ## Creating global parameters
 
-To create a global parameter, go to the *Global parameters* tab in the *Manage* section. Select **New** to open the creation side-nav.
+To create a global parameter, go to the *Global parameters* tab in the **Manage** section. Select **New** to open the creation side-nav.
 
-![Create global parameters](media/author-global-parameters/create-global-parameter-1.png)
+![Screenshot that highlights the New button you select to create global parameters.](media/author-global-parameters/create-global-parameter-1.png)
 
 In the side-nav, enter a name, select a data type, and specify the value of your parameter.
 
-![Create global parameters](media/author-global-parameters/create-global-parameter-2.png)
+![Screenshot that shows where you add the name, data type, and value for the new global parameter.](media/author-global-parameters/create-global-parameter-2.png)
 
 After a global parameter is created, you can edit it by clicking the parameter's name. To alter multiple parameters at once, select **Edit all**.
 
@@ -38,11 +37,33 @@ Global parameters can be used in any [pipeline expression](control-flow-expressi
 
 ## <a name="cicd"></a> Global parameters in CI/CD
 
-Global parameters have unique CI/CD process relative to other entities in Azure Data Factory. When you publish a factory or export an ARM template with global parameters, a folder called *globalParameters* is created with a file called *your-factory-name_GlobalParameters.json*. This file is a JSON object that contains each global parameter type and value in the published factory.
+There are two ways to integrate global parameters in your continuous integration and deployment solution:
+
+* Include global parameters in the ARM template
+* Deploy global parameters via a PowerShell script
+
+For general use cases, it is recommended to include global parameters in the ARM template. This integrates natively with the solution outlined in [the CI/CD doc](continuous-integration-deployment.md). In case of automatic publishing and  Purview connection, **PowerShell script** method is required. You can find more about PowerShell script method later. Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the **Manage** hub.
+
+![Include in ARM template](media/author-global-parameters/include-arm-template.png)
+
+> [!NOTE]
+> The **Include in ARM template** configuration is only available in "Git mode". Currently it is disabled in "live mode" or "Data Factory" mode. In case of automatic publishing or Purview connection, do not use Include global parameters method; use PowerShell script method. 
+
+> [!WARNING]
+>You cannot use  ‘-‘ in the parameter name. You will receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". But, you can use the ‘_’ in the parameter name. 
+
+Adding global parameters to the ARM template adds a factory-level setting that will override other factory-level settings such as a customer-managed key or git configuration in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, it's better to deploy global parameters via a PowerShell script in the steps highlighted below. 
+
+
+### Deploying using PowerShell
+
+The following steps outline how to deploy global parameters via PowerShell. This is useful when your target factory has a factory-level setting such as customer-managed key.
+
+When you publish a factory or export an ARM template with global parameters, a folder called *globalParameters* is created with a file called *your-factory-name_GlobalParameters.json*. This file is a JSON object that contains each global parameter type and value in the published factory.
 
 ![Publishing global parameters](media/author-global-parameters/global-parameters-adf-publish.png)
 
-If you're deploying to a new environment such as TEST or PROD, its recommended to create a copy of this global parameters file and overwrite the appropriate environment-specific values. When you republish the original global parameters file will get overwritten, but the copy for the other environment will be untouched.
+If you're deploying to a new environment such as TEST or PROD, it's recommended to create a copy of this global parameters file and overwrite the appropriate environment-specific values. When you republish the original global parameters file will get overwritten, but the copy for the other environment will be untouched.
 
 For example, if you have a factory named 'ADF-DEV' and a global parameter of type string named 'environment' with a value 'dev', when you publish a file named *ADF-DEV_GlobalParameters.json* will get generated. If deploying to a test factory named 'ADF_TEST', create a copy of the JSON file (for example named ADF-TEST_GlobalParameters.json) and replace the parameter values with the environment-specific values. The parameter 'environment' may have a value 'test' now. 
 

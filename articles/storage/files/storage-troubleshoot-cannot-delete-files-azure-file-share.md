@@ -7,7 +7,8 @@ ms.author: kartup
 manager: dcscontentpm
 ms.date: 10/25/2019
 ms.service: storage
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 services: storage
 tags: ''
 ---
@@ -29,7 +30,7 @@ Not enough quota is available to process this command
 
 ## Cause
 
-Error 1816 occurs when you reach the upper limit of concurrent open handles allowed for a file, on the computer where the file share is being mounted. For more information, see the [Azure Storage performance and scalability checklist](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
+Error 1816 occurs when you reach the upper limit of concurrent open handles allowed for a file, on the computer where the file share is being mounted. For more information, see the [Azure Storage performance and scalability checklist](../blobs/storage-performance-checklist.md).
 
 ## Resolution
 
@@ -39,7 +40,7 @@ Reduce the number of concurrent open handles by closing some handles.
 
 ### Install the latest Azure PowerShell module
 
-* [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 ### Connect to Azure:
 
@@ -87,4 +88,4 @@ To close an open handle, use the following command:
 
 * [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)

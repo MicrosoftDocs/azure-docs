@@ -42,6 +42,9 @@ conceptualContent:
         - url: ./service/send-transaction.md
           itemType: tutorial
           text: Follow a tutorial and write a smart contract
+        - url: /learn/paths/ethereum-blockchain-development
+          itemType: learn
+          text: Follow the Microsoft Learn blockchain path
         - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
           itemType: video
           text: Watch how to deploy and configure your network

@@ -3,6 +3,7 @@ title: Monitor a live ASP.NET web app with Azure Application Insights  | Microso
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises or in VMs.
 ms.topic: conceptual
 ms.date: 08/26/2019
+ms.custom: devx-track-dotnet
 
 ---
 
@@ -88,7 +89,7 @@ These are some steps that you can perform to confirm that your installation was 
 
 - Confirm that the applicationInsights.config file is present in the target app directory and contains your ikey.
 
-- If you suspect that data is missing, you can run a query in [Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry.
+- If you suspect that data is missing, you can run a query in [Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -125,7 +126,7 @@ To fix update your web.config:
 </dependentAssembly>
 ```
 
-We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+We are tracking this issue [here](https://github.com/MohanGsk/ApplicationInsights-Home).
 
 
 ### Application diagnostic messages
@@ -316,9 +317,9 @@ For applications already instrumented at compile time:
 
 View your telemetry:
 
-* [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage
+* [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
-* [Analytics](../log-query/log-query-overview.md) for more advanced queries
+* [Analytics](../logs/log-query-overview.md) for more advanced queries
 
 Add more telemetry:
 
@@ -336,4 +337,3 @@ Add more telemetry:
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

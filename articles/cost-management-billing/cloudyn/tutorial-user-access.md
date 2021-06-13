@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.custom: seodec18
 ms.reviewer: benshy
 ROBOTS: NOINDEX
@@ -73,7 +74,7 @@ You cannot remove yourself as a user.
 
 ## Delete or export personal data
 
-If you want to delete or export personal data from Cloudyn, you need to create a support ticket. When the support ticket is created, it acts as formal request - a Data Subject Request. Microsoft then takes prompt action to remove the account and delete any customer or personal data. To learn about how you can request to have your data deleted or exported, see [Data Subject Requests of Cloudyn Data](https://www.cloudyn.com/cloudyn-gdpr-requests).
+If you want to delete or export personal data from Cloudyn, you need to create a support ticket. When the support ticket is created, it acts as formal request - a Data Subject Request. Microsoft then takes prompt action to remove the account and delete any customer or personal data.
 
 ## Create and manage entities
 
@@ -130,4 +131,4 @@ In this tutorial, you learned how to:
 If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to the following article.
 
 > [!div class="nextstepaction"]
-> [Activate Azure subscriptions and accounts](../../cost-management/activate-subs-accounts.md)
+> [Activate Azure subscriptions and accounts](./activate-subs-accounts.md)

@@ -1,15 +1,12 @@
 ---
 title: Clean up SSISDB logs with Azure Elastic Database Jobs
 description: "This article describes how to clean up SSISDB logs by using Azure Elastic Database jobs to trigger the stored procedure that exists for this purpose"
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
+ms.custom: devx-track-azurepowershell
 ---
 
 # Clean up SSISDB logs with Azure Elastic Database Jobs
@@ -53,7 +50,7 @@ $SSISDBServerAdminPassword = $(Read-Host "Please enter the target server admin p
 $SSISDBName = "SSISDB",
 
 # Parameters needed to set job scheduling to trigger execution of cleanup stored procedure
-$RunJobOrNot = $(Read-Host "Please indicate whether you want to run the job to cleanup SSISDB logs outside the log retention window immediately(Y/N). Make sure the retention window is set appropriately before running the following powershell scripts. Those removed SSISDB logs cannot be recoverd"),
+$RunJobOrNot = $(Read-Host "Please indicate whether you want to run the job to cleanup SSISDB logs outside the log retention window immediately(Y/N). Make sure the retention window is set appropriately before running the following powershell scripts. Those removed SSISDB logs cannot be recovered"),
 $IntervalType = $(Read-Host "Please enter the interval type for the execution schedule of SSISDB log cleanup stored procedure. For the interval type, Year, Month, Day, Hour, Minute, Second can be supported."),
 $IntervalCount = $(Read-Host "Please enter the detailed interval value in the given interval type for the execution schedule of SSISDB log cleanup stored procedure"),
 # StartTime of the execution schedule is set as the current time as default. 
@@ -115,7 +112,7 @@ $TargetDatabase = $SSISDBName
 $CreateJobUser = "CREATE USER SSISDBLogCleanupUser FROM LOGIN SSISDBLogCleanupUser"
 $GrantStoredProcedureExecution = "GRANT EXECUTE ON internal.cleanup_server_retention_window_exclusive TO SSISDBLogCleanupUser"
 
-$TargetDatabase | % {
+$TargetDatabase | ForEach-Object -Process {
   $Params.Database = $_
   $Params.Query = $CreateJobUser
   Invoke-SqlCmd @Params
@@ -140,7 +137,7 @@ $SqlText = "EXEC internal.cleanup_server_retention_window_exclusive"
 $Job | Add-AzureRmSqlElasticJobStep -Name "step to execute cleanup stored procedure" -TargetGroupName $SSISDBTargetGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText
 
 # Run the job to immediately start cleanup stored procedure execution for once
-IF(($RunJobOrNot = "Y") -Or ($RunJobOrNot = "y"))
+if ($RunJobOrNot -eq 'Y')
 {
 Write-Output "Start a new execution of the stored procedure for SSISDB log cleanup immediately..."
 $JobExecution = $Job | Start-AzureRmSqlElasticJob
@@ -154,7 +151,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ## Clean up logs with Transact-SQL
 
-The following sample Transact-SQL scripts create a new Elastic Job to trigger the stored procedure for SSISDB log cleanup. For more info, see [Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs](../sql-database/elastic-jobs-tsql.md).
+The following sample Transact-SQL scripts create a new Elastic Job to trigger the stored procedure for SSISDB log cleanup. For more info, see [Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
 
 1. Create or identify an empty S0 or higher Azure SQL Database to be the SSISDBCleanup Job Database. Then create an Elastic Job Agent in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 

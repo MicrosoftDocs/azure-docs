@@ -138,7 +138,7 @@ To delete backup data for the Azure file share:
 
 ## Unregister a storage account
 
-To protect your file shares in a particular storage account by using a different recovery services vault, first [stop protection for all file shares](#stop-protection-on-a-file-share) in that storage account. Then unregister the account from the current recovery services vault used for protection.
+To protect your file shares in a particular storage account by using a different Recovery Services vault, first [stop protection for all file shares](#stop-protection-on-a-file-share) in that storage account. Then unregister the account from the current Recovery Services vault used for protection.
 
 The following procedure assumes that the protection was stopped for all file shares in the storage account you want to unregister.
 

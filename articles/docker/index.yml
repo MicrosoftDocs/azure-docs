@@ -32,7 +32,7 @@ landingContent:
           - text: Run a Python (Django) web app with PostgreSQL in Azure App Service
             url: ../app-service/tutorial-python-postgresql-app.md
           - text: Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
-            url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
+            url: /azure/developer/jenkins/pipeline-with-github-and-docker
 
   # Card
   - title: Resources

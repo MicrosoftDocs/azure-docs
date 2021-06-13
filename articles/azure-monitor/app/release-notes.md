@@ -2,6 +2,7 @@
 title: Release notes for Azure Application Insights | Microsoft Docs
 description: The latest updates for Application Insights SDKs.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 07/27/2020
 
 ---
@@ -37,7 +38,7 @@ Get started with code-based monitoring:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
 

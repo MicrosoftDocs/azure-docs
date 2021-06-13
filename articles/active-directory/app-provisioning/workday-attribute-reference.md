@@ -1,19 +1,19 @@
 ---
-title: Workday attribute reference
-description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
+title: Workday attribute reference for Azure Active Directory
+description: Learn which which attributes that you can fetch from Workday using XPATH queries in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/25/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: celested
+ms.reviewer: arvinh
 ---
 
-# Workday attribute reference
+# Workday attribute reference for Azure Active Directory
 
 This section provides a list of attributes that you can fetch from Workday using XPATH queries. Based on the Workday Web Services API version, you plan to use, refer to the appropriate section. 
 
@@ -142,7 +142,7 @@ To configure additional XPATHs, refer to the section [Tutorial: Managing your co
 | 18 | CountryRegionReference                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Country\_Region\_Descriptor/text\(\)                                                                                                                                                                                   |
 | 19 | EmailAddress                          | wd:Worker/wd:Worker\_Data/wd:Personal\_Data/wd:Contact\_Data/wd:Email\_Address\_Data\[wd:Usage\_Data/@wd:Public='1' and string\(wd:Usage\_Data/wd:Type\_Data/wd:Type\_Reference/wd:ID\[@wd:type='Communication\_Usage\_Type\_ID'\]\)='WORK'\]/wd:Email\_Address/text\(\)                                                                                                               |
 | 20 | EmployeeID                            | wd:Worker/wd:Worker\_Reference/wd:ID\[@wd:type='Employee\_ID'\]/text\(\)                                                                                                                                                                                                                                                                                                               |
-| 21 | FacilityLocation                      | wd:Worker/wd:Worker\_Data/wd:Organization\_Data/wd:Worker\_Organization\_Data\[translate\(string\(wd:Organization\_Data/wd:Organization\_Type\_Reference/wd:ID\[@wd:type='Organization\_Type\_ID'\]\),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'\)='FACILITY'\]/wd:Organization\_Reference/@wd:Descriptor                                 0                                                                                                                                                                                                                                                                                                                                      |
+| 21 | FacilityLocation                      | wd:Worker/wd:Worker\_Data/wd:Organization\_Data/wd:Worker\_Organization\_Data\[translate\(string\(wd:Organization\_Data/wd:Organization\_Type\_Reference/wd:ID\[@wd:type='Organization\_Type\_ID'\]\),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'\)='FACILITY'\]/wd:Organization\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                                                                                       |
 | 22 | Fax                                   | wd:Worker/wd:Worker\_Data/wd:Personal\_Data/wd:Contact\_Data/wd:Phone\_Data\[wd:Usage\_Data/@wd:Public='1' and string\(wd:Usage\_Data/wd:Type\_Data/wd:Type\_Reference/wd:ID\[@wd:type='Communication\_Usage\_Type\_ID'\]\)='WORK' and string\(wd:Phone\_Device\_Type\_Reference/wd:ID\[@wd:type='Phone\_Device\_Type\_ID'\]\)='Fax'\]/@wd:Workday_Traditional_Formatted_Phone      |
 | 23 | FirstName                             | wd:Worker/wd:Worker\_Data/wd:Personal\_Data/wd:Name\_Data/wd:Legal\_Name\_Data/wd:Name\_Detail\_Data/wd:First\_Name/text\(\)                                                                                                                                                                                                                                                           |
 | 24 | JobClassificationID                   | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Job\_Classification\_Summary\_Data/wd:Job\_Classification\_Reference/wd:ID\[@wd:type='Job\_Classification\_Reference\_ID'\]/text\(\)                                                                                                                                     |

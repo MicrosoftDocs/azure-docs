@@ -1,15 +1,16 @@
 ---
 title: Package models
 titleSuffix: Azure Machine Learning
-description: 'Package a model as a Dockerfile'
+description: 'Package a model. Models can be packaged as either a docker image, which you can then download, or you can create a Dockerfile and use it to build the image.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
-ms.topic: conceptual
-
+ms.topic: how-to
+ms.reviewer: larryfr
+ms.custom: deploy
 ---
 
 # How to package a registered model with Docker

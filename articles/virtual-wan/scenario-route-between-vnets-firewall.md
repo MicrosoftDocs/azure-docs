@@ -1,13 +1,13 @@
 ---
 title: 'Scenario: Azure Firewall custom routing for Virtual WAN'
 titleSuffix: Azure Virtual WAN
-description: Scenarios for routing - routing traffic between VNets directly, but use Azure Firewall for VNet ->Internet/Branch and Branch to VNet traffic flows
+description: Learn about routing scenarios to route traffic between VNets directly, but use Azure Firewall for VNet -> Internet/Branch and Branch to VNet traffic flows.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -24,10 +24,10 @@ In order to figure out how many route tables will be needed, you can build a con
 
 | From           | To:      | *VNets*      | *Branches*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **VNets**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Branches**   |   &#8594;|    AzFW      |       X       |       X      |
+| **VNets**      |   &#8594;|    Direct    |     AzFW      |     AzFW     |
+| **Branches**   |   &#8594;|    AzFW      |    Direct     |    Direct    |
 
-In the previous table, an "X" represents direct connectivity between two connections without the traffic traversing the Azure Firewall in Virtual WAN, and "AzFW" indicates that the flow will go through the Azure Firewall. Since there are two distinct connectivity patterns in the matrix, we will need two route tables that will be configured as follows:
+In the previous table, an "Direct" represents direct connectivity between two connections without the traffic traversing the Azure Firewall in Virtual WAN, and "AzFW" indicates that the flow will go through the Azure Firewall. Since there are two distinct connectivity patterns in the matrix, we will need two route tables that will be configured as follows:
 
 * Virtual networks:
   * Associated route table: **RT_VNet**
@@ -36,6 +36,8 @@ In the previous table, an "X" represents direct connectivity between two connect
   * Associated route table: **Default**
   * Propagating to route tables: **Default**
 
+> [!NOTE]
+> You can create a separate Virtual WAN instance with one single Secure Virtual Hub in each region, and then you can connect each Virtual WAN to each other via Site-to-Site VPN.
 
 For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 

@@ -128,7 +128,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Configure Login Auditing](https://msdn.microsoft.com/library/ms175850.aspx) |
+| **References**              | [Configure Login Auditing](/sql/ssms/configure-login-auditing-sql-server-management-studio) |
 | **Steps** | <p>Database Server login auditing must be enabled to detect/confirm password guessing attacks. It is important to capture failed login attempts. Capturing both successful and failed login attempts provides additional benefit during forensic investigations</p>|
 
 ## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
@@ -139,7 +139,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure |
 | **Attributes**              | SQL Version - V12 |
-| **References**              | [Get Started with SQL Database Threat Detection](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **References**              | [Get Started with SQL Database Threat Detection](../../azure-sql/database/threat-detection-configure.md)|
 | **Steps** |<p>Threat Detection detects anomalous database activities indicating potential security threats to the database. It provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities.</p><p>Users can explore the suspicious events using Azure SQL Database Auditing to determine if they result from an attempt to access, breach or exploit data in the database.</p><p>Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems</p>|
 
 ## <a id="analytics"></a>Use Azure Storage Analytics to audit access of Azure Storage
@@ -150,7 +150,7 @@ ms.author: jegeib
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A |
-| **References**              | [Using Storage Analytics to monitor authorization type](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **References**              | [Using Storage Analytics to monitor authorization type](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
 | **Steps** | <p>For each storage account, one can enable Azure Storage Analytics to perform logging and store metrics data. The storage analytics logs provide important information such as authentication method used by someone when they access storage.</p><p>This can be really helpful if you are tightly guarding access to storage. For example, in Blob Storage you can set all of the containers to private and implement the use of an SAS service throughout your applications. Then you can check the logs regularly to see if your blobs are accessed using the storage account keys, which may indicate a breach of security, or if the blobs are public but they shouldn’t be.</p>|
 
 ## <a id="sufficient-logging"></a>Implement sufficient Logging
@@ -161,7 +161,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **References**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Steps** | <p>The lack of a proper audit trail after a security incident can hamper forensic efforts. Windows Communication Foundation (WCF) offers the ability to log successful and/or failed authentication attempts.</p><p>Logging failed authentication attempts can warn administrators of potential brute-force attacks. Similarly, logging successful authentication events can provide a useful audit trail when a legitimate account is compromised. Enable WCF's service security audit feature |
 
 ### Example
@@ -190,7 +190,7 @@ The following is an example configuration with auditing enabled
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **References**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Steps** | <p>Developed solution is configured not to generate an exception when it fails to write to an audit log. If WCF is configured not to throw an exception when it is unable to write to an audit log, the program will not be notified of the failure and auditing of critical security events may not occur.</p>|
 
 ### Example
@@ -239,5 +239,5 @@ Configure WCF to notify the program whenever it is unable to write to an audit l
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Introduction to IoT Hub operations monitoring](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **References**              | [Introduction to IoT Hub operations monitoring](../../iot-hub/iot-hub-operations-monitoring.md) |
 | **Steps** | <p>Design for collecting and storing audit data gathered through IoT Hub Operations Monitoring. Enable the following monitoring categories:</p><ul><li>Device identity operations</li><li>Device-to-cloud communications</li><li>Cloud-to-device communications</li><li>Connections</li><li>File uploads</li></ul>|

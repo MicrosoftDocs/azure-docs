@@ -4,6 +4,8 @@
   items:
   - name: Overview of Azure Backup
     href: backup-overview.md
+  - name: What's new in Azure Backup
+    href: whats-new.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/backup/
 - name: Quickstarts
@@ -44,17 +46,14 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Support matrices
     items:
     - name: Azure Backup support matrix
       href: backup-support-matrix.md
+    - name: Backup Center support matrix
+      href: backup-center-support-matrix.md
     - name: Azure VM backup support matrix
       href: backup-support-matrix-iaas.md
     - name: DPM/Azure Backup Server (MABS) support matrix
@@ -67,44 +66,76 @@
       href: sap-hana-backup-support-matrix.md
     - name: Azure file share backup support matrix
       href: azure-file-share-support-matrix.md
-    - name: Supported VM SKUs for Azure Policy  
+    - name: Azure Disk Backup support matrix
+      href: disk-backup-support-matrix.md
+    - name: Azure Blobs backup support matrix
+      href: blob-backup-support-matrix.md
+    - name: Active Directory domain controllers
+      href: active-directory-backup-restore.md
+    - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
-      href: backup-azure-backup-faq.md
+      href: backup-azure-backup-faq.yml
+    - name: FAQ-Backup Center
+      href: backup-center-faq.yml
     - name: FAQ-Azure VM backup
-      href: backup-azure-vm-backup-faq.md
+      href: backup-azure-vm-backup-faq.yml
     - name: FAQ-MARS agent
-      href: backup-azure-file-folder-backup-faq.md
+      href: backup-azure-file-folder-backup-faq.yml
     - name: FAQ-Back up Azure Files
-      href: backup-azure-files-faq.md
+      href: backup-azure-files-faq.yml
+    - name: FAQ- Azure Disk Backup
+      href: disk-backup-faq.yml
     - name: FAQ-Back up SQL Server databases on Azure VMs
-      href: faq-backup-sql-server.md
+      href: faq-backup-sql-server.yml
     - name: FAQ-Back up SAP HANA databases on Azure VMs
-      href: sap-hana-faq-backup-azure-vm.md
+      href: sap-hana-faq-backup-azure-vm.yml
     - name: FAQ-Azure Backup Server and DPM
-      href: backup-azure-dpm-azure-server-faq.md
+      href: backup-azure-dpm-azure-server-faq.yml
     - name: FAQ-Azure Backup monitor alert
-      href: backup-azure-monitor-alert-faq.md
+      href: backup-azure-monitor-alert-faq.yml
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
     href: guidance-best-practices.md
+  - name: Glossary of terms
+    href: azure-backup-glossary.md
 - name: How to guides
   items:
-  - name: Recovery Services vault
+  - name: Vaults
+    items:
+    - name: Recovery Services vault
+      items:
+      - name: Overview
+        href: backup-azure-recovery-services-vault-overview.md
+      - name: Create
+        href: backup-create-rs-vault.md
+      - name: Delete
+        href: backup-azure-delete-vault.md
+      - name: Move
+        href: backup-azure-move-recovery-services-vault.md
+      - name: Manage
+        href: backup-azure-manage-windows-server.md
+    - name: Backup vault
+      items:
+      - name: Overview
+        href: backup-vault-overview.md
+  - name: Backup Center
     items:
     - name: Overview
-      href: backup-azure-recovery-services-vault-overview.md
-    - name: Create
-      href: backup-create-rs-vault.md
-    - name: Delete
-      href: backup-azure-delete-vault.md
-    - name: Move
-      href: backup-azure-move-recovery-services-vault.md
-    - name: Manage
-      href: backup-azure-manage-windows-server.md
+      href: backup-center-overview.md
+    - name: Monitor and Operate
+      href: backup-center-monitor-operate.md
+    - name: Obtain insights
+      href: backup-center-obtain-insights.md
+    - name: Govern environment
+      href: backup-center-govern-environment.md
+    - name: Perform actions
+      href: backup-center-actions.md
+    - name: Community resources
+      href: backup-center-community.md
   - name: Azure VM backup
     items:
     - name: Overview
@@ -141,6 +172,10 @@
       items:
       - name: Manage Azure VM backups
         href: backup-azure-manage-vms.md
+      - name: Manage recovery points
+        href: manage-recovery-points.md
+      - name: Modify backup policy with Azure CLI
+        href: modify-vm-policy-cli.md
   - name: SQL Server database on Azure VM backup
     items:
     - name: Overview
@@ -155,6 +190,10 @@
       href: restore-sql-database-azure-vm.md
     - name: Manage
       href: manage-monitor-sql-database-backup.md
+  - name: Azure Database for PostgreSQL backup
+    items:
+    - name: Backup
+      href: backup-azure-database-postgresql.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview
@@ -173,12 +212,48 @@
         href: backup-azure-system-state.md
     - name: Restore
       items:
+      - name: Overview
+        href: about-restore-microsoft-azure-recovery-services.md
       - name: Recover files from Azure to Windows Server
         href: backup-azure-restore-windows-server.md
+      - name: Restore all files in a volume
+        href: restore-all-files-volume-mars.md
       - name: Restore Windows Server System State
         href: backup-azure-restore-system-state.md
     - name: Manage
       href: backup-azure-manage-mars.md
+  - name: Azure Disk backup
+    items:
+    - name: Overview
+      href: disk-backup-overview.md
+    - name: From the Azure portal
+      items:
+      - name: Backup
+        href: backup-managed-disks.md
+      - name: Restore
+        href: restore-managed-disks.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-managed-disks-ps.md
+      - name: Restore
+        href: restore-managed-disks-ps.md
+  - name: Azure Blobs backup
+    items:
+    - name: Overview
+      href: blob-backup-overview.md
+    - name: From the Azure portal
+      items:
+      - name: Configure and manage
+        href: blob-backup-configure-manage.md
+      - name: Restore
+        href: blob-restore.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-blobs-storage-account-ps.md
+      - name: Restore
+        href: restore-blobs-storage-account-ps.md
   - name: Azure File share backup
     items:
     - name: Overview
@@ -241,7 +316,7 @@
         href: backup-mabs-add-storage.md
       - name: What's New in MABS
         href: backup-mabs-whats-new-mabs.md
-      - name: Release notes MABS 
+      - name: Release notes MABS
         href: backup-mabs-release-notes-v3.md
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
@@ -263,6 +338,8 @@
       href: backup-azure-alternate-dpm-server.md
     - name: Restore VMware VMs with Azure Backup Server
       href: restore-azure-backup-server-vmware.md
+    - name: Back up the MABS server
+      href: backup-the-mabs-server.md
   - name: Azure Backup Server on Azure Stack
     items:
     - name: Install Azure Backup Server
@@ -307,7 +384,7 @@
       href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
-    - name: Using Azure Monitor
+    - name: Using Azure Monitor Logs
       href: backup-azure-monitoring-use-azuremonitor.md
   - name: Reports
     items:
@@ -315,10 +392,14 @@
       items:
       - name: Configure Azure Backup reports
         href: configure-reports.md
+      - name: Email Azure Backup reports
+        href: backup-reports-email.md
     - name: Configure Diagnostics Events for Recovery Services Vaults
       items:
       - name: Using Diagnostics Settings for Recovery Services Vaults
         href: backup-azure-diagnostic-events.md
+      - name: Using System Functions
+        href: backup-reports-system-functions.md
       - name: Log Analytics Data Model for Resource Specific Diagnostics Events
         href: backup-azure-reports-data-model.md
       - name: Log Analytics Data Model for Azure Backup (Azure Diagnostics mode)
@@ -343,6 +424,8 @@
         href: backup-azure-sql-automation.md
       - name: Azure PowerShell Samples
         href: powershell-backup-samples.md
+    - name: Use Azure CLI
+      href: create-manage-azure-services-using-azure-command-line-interface.md
     - name: Use Azure Backup REST API
       items:
       - name: Create Recovery Services vault
@@ -357,15 +440,17 @@
         href: backup-azure-arm-userestapi-restoreazurevms.md
       - name: Manage Azure Backup jobs
         href: backup-azure-arm-userestapi-managejobs.md
+    - name: Query backup information using ARG
+      href: query-backups-using-azure-resource-graph.md
     - name: Resource Manager templates
       href: backup-rm-template-samples.md
   - name: Security
     items:
     - name: Overview
       href: security-overview.md
-    - name: Role-Based Access Control
+    - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
-    - name: Soft delete 
+    - name: Soft delete
       items:
       - name: Overview
         href: backup-azure-security-feature-cloud.md
@@ -383,17 +468,23 @@
       href: backup-encryption.md
     - name: Encryption using customer-managed keys
       href: encryption-at-rest-with-cmk.md
-    - name: Built-in security controls
-      href: backup-security-controls.md
+    - name: Transport Layer Security
+      href: transport-layer-security.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
+  - name: Access tier
+    items:
+    - name: Archive tier
+      href: archive-tier-support.md
   - name: Troubleshoot
     items:
     - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
+    - name: Azure VM file recovery
+      href: backup-azure-vm-file-recovery-troubleshoot.md
     - name: Azure Backup agent or VM extension timed out
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
     - name: Azure Backup agent
@@ -406,6 +497,8 @@
       href: backup-azure-scdpm-troubleshooting.md
     - name: Azure File share
       href: troubleshoot-azure-files.md
+    - name: Azure Disk Backup
+      href: disk-backup-troubleshoot.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
     - name: SAP HANA backup in Azure VMs
@@ -417,20 +510,23 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
-    href: /cli/azure/backup?view=azure-cli-latest
+    href: /cli/azure/backup
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
   - name: PowerShell – Azure Backup agent
-    href: /powershell/module/msonlinebackup
+    href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
   - name: REST - Backup
     href: /rest/api/backup/
   - name: REST - Recovery Services vault
     href: /rest/api/recoveryservices/
   - name: Resource Manager template
     href: /azure/templates/microsoft.recoveryservices/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Compliance 
+  - name: Compliance
     href: compliance-offerings.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/

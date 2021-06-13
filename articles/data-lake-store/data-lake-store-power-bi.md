@@ -23,7 +23,7 @@ Before you begin this tutorial, you must have the following:
 1. Launch Power BI Desktop on your computer.
 2. From the **Home** ribbon, click **Get Data**, and then click More. In the **Get Data** dialog box, click **Azure**, click **Azure Data Lake Store**, and then click **Connect**.
    
-    ![Connect to Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Connect to Data Lake Storage Gen1")
+    ![Screenshot of the Get Data dialog box with the Azure Data Lake Store option highlighted and the Connect option called out.](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Connect to Data Lake Storage Gen1")
 3. If you see a dialog box about the connector being in a development phase, opt to continue.
 4. In the **Azure Data Lake Store** dialog box, provide the URL to your Data Lake Storage Gen1 account, and then click **OK**.
    
@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have the following:
     ![Sign into Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Sign into Data Lake Storage Gen1")
 6. After you have successfully signed in, click **Connect**.
    
-    ![Connect to Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Connect to Data Lake Storage Gen1")
+    ![Screenshot of the Azure Data Lake Store dialog box with the Connect option called out.](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Connect to Data Lake Storage Gen1")
 7. The next dialog box shows the file that you uploaded to your Data Lake Storage Gen1 account. Verify the info and then click **Load**.
    
     ![Load data from Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Load data from Data Lake Storage Gen1")
@@ -48,19 +48,19 @@ Before you begin this tutorial, you must have the following:
     In the next steps, we will update the query to convert the imported data in the desired format.
 9. From the **Home** ribbon, click **Edit Queries**.
    
-    ![Edit queries](./media/data-lake-store-power-bi/edit-queries.png "Edit queries")
+    ![Screenshot of the Home ribbon with the Edit Queries option called out.](./media/data-lake-store-power-bi/edit-queries.png "Edit queries")
 10. In the Query Editor, under the **Content** column, click **Binary**.
     
-    ![Edit queries](./media/data-lake-store-power-bi/convert-query1.png "Edit queries")
+    ![Screenshot of the Query Editor with the Content column called out.](./media/data-lake-store-power-bi/convert-query1.png "Edit queries")
 11. You will see a file icon, that represents the **Drivers.txt** file that you uploaded. Right-click the file, and click **CSV**.    
     
-    ![Edit queries](./media/data-lake-store-power-bi/convert-query2.png "Edit queries")
+    ![Screenshot of the Query Editor with the CSV option called out.](./media/data-lake-store-power-bi/convert-query2.png "Edit queries")
 12. You should see an output as shown below. Your data is now available in a format that you can use to create visualizations.
     
-    ![Edit queries](./media/data-lake-store-power-bi/convert-query3.png "Edit queries")
+    ![Screenshot of the Query Editor with the output displayed as expected.](./media/data-lake-store-power-bi/convert-query3.png "Edit queries")
 13. From the **Home** ribbon, click **Close and Apply**, and then click **Close and Apply**.
     
-    ![Edit queries](./media/data-lake-store-power-bi/load-edited-query.png "Edit queries")
+    ![Screenshot of the Home ribbon with the close and Apply option called out.](./media/data-lake-store-power-bi/load-edited-query.png "Edit queries")
 14. Once the query is updated, the **Fields** tab will show the new fields available for visualization.
     
     ![Updated fields](./media/data-lake-store-power-bi/updated-query-fields.png "Updated fields")

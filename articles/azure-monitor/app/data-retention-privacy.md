@@ -3,7 +3,7 @@ title: Data retention and storage in Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Data collection, retention, and storage in Application Insights
@@ -38,7 +38,7 @@ There are three sources of data:
   
   * Each SDK has a number of [modules](./configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
-* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java EE servers](./java-agent.md) can have such agents.
+* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java EE servers](java-2x-agent.md) can have such agents.
 * [Availability tests](./monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
 
 ### What kinds of data are collected?
@@ -115,7 +115,7 @@ Yes, certain Telemetry Channels will persist data locally if an endpoint cannot 
 
 Telemetry channels that utilize local storage create temp files in the TEMP or APPDATA directories, which are restricted to the specific account running your application. This may happen when an endpoint was temporarily unavailable or you hit the throttling limit. Once this issue is resolved, the telemetry channel will resume sending all the new and persisted data.
 
-This persisted data is not encrypted locally. If this is a concern, review the data and restrict the collection of private data. (For more information, see [How to export and delete private data](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
+This persisted data is not encrypted locally. If this is a concern, review the data and restrict the collection of private data. (For more information, see [How to export and delete private data](../logs/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
 
 If a customer needs to configure this directory with specific security requirements, it can be configured per framework. Please make sure that the process running your application has write access to this directory, but also make sure this directory is protected to avoid telemetry being read by unintended users.
 
@@ -123,7 +123,7 @@ If a customer needs to configure this directory with specific security requireme
 
 `C:\Users\username\AppData\Local\Temp` is used for persisting data. This location isn't configurable from the config directory and the permissions to access this folder are restricted to the specific user with required credentials. (For more information, see [implementation](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
 
-###  .Net
+###  .NET
 
 By default `ServerTelemetryChannel` uses the current user’s local app data folder `%localAppData%\Microsoft\ApplicationInsights` or temp folder `%TMP%`. (See [implementation](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) here.)
 
@@ -149,7 +149,15 @@ Via code:
 ### NetCore
 
 By default `ServerTelemetryChannel` uses the current user’s local app data folder `%localAppData%\Microsoft\ApplicationInsights` or temp folder `%TMP%`. (See [implementation](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) here.) 
+
 In a Linux environment, local storage will be disabled unless a storage folder is specified.
+
+> [!NOTE]
+> With the release 2.15.0-beta3 and greater local storage is now automatically created for Linux, Mac, and Windows. For non Windows systems the SDK will automatically create a local storage folder based on the following logic:
+> - `${TMPDIR}` - if `${TMPDIR}` environment variable is set this location is used.
+> - `/var/tmp` - if the previous location does not exist we try `/var/tmp`.
+> - `/tmp` - if both the previous locations do not exist we try `tmp`. 
+> - If none of those locations exist local storage is not created and manual configuration is still required. [For full implementation details](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
 
 The following code snippet shows how to set `ServerTelemetryChannel.StorageFolder` in the `ConfigureServices()` method of your `Startup.cs` class:
 
@@ -227,7 +235,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## Personal data stored in Application Insights
 
-Our [Application Insights personal data article](../platform/personal-data-mgmt.md) discusses this issue in-depth.
+Our [Application Insights personal data article](../logs/personal-data-mgmt.md) discusses this issue in-depth.
 
 #### Can my users turn off Application Insights?
 Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
@@ -280,7 +288,11 @@ For [SDKs for other platforms][platforms], see their documents.
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 > [!NOTE]
-> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../platform/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](./ip-collection.md) will walk you through your options.
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../logs/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](./ip-collection.md) will walk you through your options.
+
+## Can I modify or update data after it has been collected?
+
+No, data is read-only, and can only be deleted via the purge functionality. To learn more visit [Guidance for personal data stored in Log Analytics and Application Insights](../logs/personal-data-mgmt.md#delete).
 
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [https://www.maxmind.com](https://www.maxmind.com).
@@ -294,7 +306,7 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 [client]: ./javascript.md
 [config]: ./configuration-with-applicationinsights-config.md
 [greenbrown]: ./asp-net.md
-[java]: ./java-get-started.md
+[java]: ./java-in-process-agent.md
 [platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ./monitor-performance-live-website-now.md

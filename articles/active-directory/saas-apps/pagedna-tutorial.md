@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with PageDNA | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PageDNA.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: c8765864-45f4-48c2-9d86-986a4aa431e4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory integration with PageDNA
@@ -30,7 +23,7 @@ Integrating PageDNA with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed in to PageDNA (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-For details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+For details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -198,13 +191,12 @@ A user named Britta Simon is now created in PageDNA. You don't have to do anythi
 
 In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you select **PageDNA** in the My Apps portal, you should be automatically signed in to the PageDNA subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select **PageDNA** in the My Apps portal, you should be automatically signed in to the PageDNA subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-* [List of tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [List of tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
 
-* [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-* [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

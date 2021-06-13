@@ -1,12 +1,9 @@
 ---
 title: Scale VMware/physical disaster recovery with Azure Site Recovery 
 description: Learn how to set up disaster recovery to Azure for large numbers of on-premises VMware VMs or physical servers with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
 
 
 ---
@@ -201,7 +198,7 @@ You can prepare in advance for failover as follows:
     - Estimate end-to-end RTO for your apps.
     - Estimate end-to-end RPO for your workloads.
     - Identify IP address range conflicts.
-    - As you run drills, we recommend that you don't use production networks for drills, avoid using the same subnet names in production and test networks, and clean up test failovers after every drill.
+    - As you run drills, we recommend that you don't use production networks for drills and clean up test failovers after every drill.
 
 To run a large-scale failover, we recommend the following:
 
@@ -210,7 +207,7 @@ To run a large-scale failover, we recommend the following:
     - [Learn more](recovery-plan-overview.md) about recovery plans.
 2. Add Azure Automation runbook scripts to recovery plans, to automate any manual tasks on Azure. Typical tasks include configuring load balancers, updating DNS etc. [Learn more](site-recovery-runbook-automation.md)
 2. Before failover, prepare Windows machines so that they comply with the Azure environment. [Failover limits](#plan-azure-subscriptions-and-quotas) are higher for machines that comply. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) about runbooks.
-4.	Trigger failover with the [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell cmdlet, together with a recovery plan.
+4.	Trigger failover with the [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) PowerShell cmdlet, together with a recovery plan.
 
 
 

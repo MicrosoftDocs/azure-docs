@@ -1,16 +1,16 @@
 ---
-title: Use SCIM, Microsoft Graph, and Azure AD to provision users and enrich apps with data
-description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs.
+title: Use SCIM, Microsoft Graph, and Azure Active Directory to provision users and enrich apps with data
+description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/26/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvinh, celested
+ms.reviewer: arvinh
 ---
 
 
@@ -41,24 +41,24 @@ Today, IT admins provision users by manually creating user accounts or periodica
 ```json
 POST /Users
 {
-	"schemas": [
-	    "urn:ietf:params:scim:schemas:core:2.0:User",
-	    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
-	"externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
-	"userName": "BillG",
-	"active": true,
-	"meta": {
-		"resourceType": "User"
-	},
-	"name": {
-		"formatted": "Bill Gates",
-		"familyName": "Gates",
-		"givenName": "Bill"
-	},
-	"roles": []
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
+    "externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
+    "userName": "BillG",
+    "active": true,
+    "meta": {
+        "resourceType": "User"
+    },
+    "name": {
+        "formatted": "Bill Gates",
+        "familyName": "Gates",
+        "givenName": "Bill"
+    },
+    "roles": []
 }
 ```
-    
+
 ## Scenario 2: Automatically remove users from my app
 The customers using my application are security focused and have governance requirements to remove accounts when employees don't need them anymore. How can I automate deprovisioning from my application?
 
@@ -114,5 +114,5 @@ My application creates information about a user that customers need in Azure AD.
 
 ## Related articles
 
-- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview)
 - [Integrating a custom SCIM app with Azure AD](use-scim-to-provision-users-and-groups.md)

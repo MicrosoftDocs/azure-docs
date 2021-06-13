@@ -15,9 +15,6 @@ The following reflect how functions are affected by swapping slots:
 - Traffic redirection is seamless; no requests are dropped because of a swap.
 - If a function is running during a swap, execution continues and the next triggers are routed to the swapped app instance.
 
-> [!NOTE]
-> Slots are currently not available for the Linux Consumption plan.
-
 ## Why use slots?
 
 There are a number of advantages to using deployment slots. The following scenarios describe common uses for slots:
@@ -51,7 +48,38 @@ Keep in mind the following points:
 
 ## Manage settings
 
-[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
+Some configuration settings are slot-specific. The following lists detail which settings change when you swap slots, and which remain the same.
+
+**Slot-specific settings**:
+
+* Publishing endpoints
+* Custom domain names
+* Non-public certificates and TLS/SSL settings
+* Scale settings
+* WebJobs schedulers
+* IP restrictions
+* Always On
+* Diagnostic settings
+* Cross-origin resource sharing (CORS)
+
+**Non slot-specific settings**:
+
+* General settings, such as framework version, 32/64-bit, web sockets
+* App settings (can be configured to stick to a slot)
+* Connection strings (can be configured to stick to a slot)
+* Handler mappings
+* Public certificates
+* WebJobs content
+* Hybrid connections *
+* Virtual network integration *
+* Service endpoints *
+* Azure Content Delivery Network *
+
+Features marked with an asterisk (*) are planned to be unswapped. 
+
+> [!NOTE]
+> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
+>
 
 ### Create a deployment setting
 
@@ -90,7 +118,7 @@ All slots scale to the same number of workers as the production slot.
 
 ## Add a slot
 
-You can add a slot via the [CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) or through the portal. The following steps demonstrate how to create a new slot in the portal:
+You can add a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_create) or through the portal. The following steps demonstrate how to create a new slot in the portal:
 
 1. Navigate to your function app.
 
@@ -104,12 +132,12 @@ You can add a slot via the [CLI](/cli/azure/functionapp/deployment/slot?view=azu
 
 ## Swap slots
 
-You can swap slots via the [CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
+You can swap slots via the [CLI](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
 
 1. Navigate to the function app.
 1. Select **Deployment slots**, and then select **Swap**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Swap the deployment slot." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Screenshot that shows the 'Deployment slot' page with the 'Add Slot' action selected." border="true":::
 
 1. Verify the configuration settings for your swap and select **Swap**
     
@@ -123,7 +151,7 @@ If a swap results in an error or you simply want to "undo" a swap, you can roll 
 
 ## Remove a slot
 
-You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) or through the portal. The following steps demonstrate how to remove a slot in the portal:
+You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_delete) or through the portal. The following steps demonstrate how to remove a slot in the portal:
 
 1. Navigate to **Deployment slots** in the function app, and then select the slot name.
 
@@ -131,7 +159,7 @@ You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot?view=
 
 1. Select **Delete**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Delete the deployment slot in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Screenshot that shows the 'Overview' page with the 'Delete' action selected." border="true":::
 
 1. Type the name of the deployment slot you want to delete, and then select **Delete**.
 
@@ -143,13 +171,13 @@ You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot?view=
 
 ## Automate slot management
 
-Using the [Azure CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest), you can automate the following actions for a slot:
+Using the [Azure CLI](/cli/azure/functionapp/deployment/slot), you can automate the following actions for a slot:
 
-- [create](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
-- [delete](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
-- [list](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [swap](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
-- [auto-swap](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+- [create](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_create)
+- [delete](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_delete)
+- [list](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_list)
+- [swap](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_swap)
+- [auto-swap](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_auto_swap)
 
 ## Change App Service plan
 
@@ -178,7 +206,7 @@ Azure Functions deployment slots have the following limitations:
 
 - The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under the App Service plan.
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
-- Slots aren't available for the Linux Consumption plan.
+- When slots are enabled, your Functions app is set to read-only mode in the portal.
 
 ## Support levels
 
@@ -192,7 +220,7 @@ There are two levels of support for deployment slots:
 | Windows Consumption       | General availability |
 | Windows Premium           | General availability  |
 | Windows Dedicated         | General availability |
-| Linux Consumption         | Unsupported          |
+| Linux Consumption         | Preview          |
 | Linux Premium             | General availability  |
 | Linux Dedicated           | General availability |
 

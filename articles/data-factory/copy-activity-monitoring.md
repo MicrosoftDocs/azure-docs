@@ -1,17 +1,11 @@
 ---
 title: Monitor copy activity
 description: Learn about how to monitor the copy activity execution in Azure Data Factory. 
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.author: jingwang
-
+ms.date: 03/22/2021
+ms.author: jianleishen
 ---
 # Monitor copy activity
 
@@ -25,7 +19,7 @@ Once you've created and published a pipeline in Azure Data Factory, you can asso
 
 To monitor the Copy activity run, go to your data factory **Author & Monitor** UI. On the **Monitor** tab, you see a list of pipeline runs, click the **pipeline name** link to access the list of activity runs in the pipeline run.
 
-![Monitor copy activity run](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Monitor pipeline run](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 At this level, you can see links to copy activity input, output, and errors (if the Copy activity run fails), as well as statistics like duration/status. Clicking the **Details** button (eyeglasses) next to the copy activity name will give you deep details on your copy activity execution. 
 
@@ -59,10 +53,10 @@ Copy activity execution details and performance characteristics are also returne
 | rowsCopied | Number of rows copied to sink. This metric does not apply when copying files as-is without parsing them, for example, when source and sink datasets are binary format type, or other format type with identical settings.  | Int64 value (no unit) |
 | rowsSkipped | Number of incompatible rows that were skipped. You can enable incompatible rows to be skipped by setting `enableSkipIncompatibleRow` to true. | Int64 value (no unit) |
 | copyDuration | Duration of the copy run. | Int32 value, in seconds |
-| throughput | Rate of data transfer. | Floating point number, in KBps |
+| throughput | Rate of data transfer, calculated by `dataRead` divided by `copyDuration`. | Floating point number, in KBps |
 | sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int32 value (no unit) |
 | sinkPeakConnections| Peak number of concurrent connections established to the sink data store during the Copy activity run.| Int32 value (no unit) |
-| sqlDwPolyBase | Whether PolyBase is used when data is copied into SQL Data Warehouse. | Boolean |
+| sqlDwPolyBase | Whether PolyBase is used when data is copied into Azure Synapse Analytics. | Boolean |
 | redshiftUnload | Whether UNLOAD is used when data is copied from Redshift. | Boolean |
 | hdfsDistcp | Whether DistCp is used when data is copied from HDFS. | Boolean |
 | effectiveIntegrationRuntime | The integration runtime (IR) or runtimes used to power the activity run, in the format `<IR name> (<region if it's Azure IR>)`. | Text (string) |

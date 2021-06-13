@@ -11,13 +11,6 @@ ms.date: 1/8/2019
 
 # Create users in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-> [!NOTE]
-> The term "users" refers to users within a Hyperscale (Citus)
-> server group. To learn instead about Azure subscription users and their
-> privileges, visit the [Azure role-based access control (Azure RBAC)
-> article](../role-based-access-control/built-in-roles.md) or review [how to
-> customize roles](../role-based-access-control/custom-roles.md).
-
 ## The server admin account
 
 The PostgreSQL engine uses
@@ -30,8 +23,8 @@ comes with several roles pre-defined:
 * `postgres`
 * `citus`
 
-Since Hyperscale is a managed PaaS service, only Microsoft can sign in with the
-`postgres` super user role. For limited administrative access, Hyperscale
+Since Hyperscale (Citus) is a managed PaaS service, only Microsoft can sign in with the
+`postgres` super user role. For limited administrative access, Hyperscale (Citus)
 provides the `citus` role.
 
 Permissions for the `citus` role:
@@ -55,13 +48,13 @@ Notably, the `citus` role has some restrictions:
 As mentioned, the `citus` admin account lacks permission to create additional
 users. To add a user, use the Azure portal interface.
 
-1. Go to the **Roles** page for your Hyperscale server group, and click **+ Add**:
+1. Go to the **Roles** page for your Hyperscale (Citus) server group, and click **+ Add**:
 
-   ![The roles page](media/howto-hyperscale-create-users/1-role-page.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="The roles page":::
 
 2. Enter the role name and password. Click **Save**.
 
-   ![Add role](media/howto-hyperscale-create-users/2-add-user-fields.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Add role":::
 
 The user will be created on the coordinator node of the server group,
 and propagated to all the worker nodes. Roles created through the Azure
@@ -93,11 +86,11 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## How to delete a user role or change their password
 
-To update a user, visit the **Roles** page for your Hyperscale server group,
+To update a user, visit the **Roles** page for your Hyperscale (Citus) server group,
 and click the ellipses **...** next to the user. The ellipses will open a menu
 to delete the user or reset their password.
 
-   ![Edit a role](media/howto-hyperscale-create-users/edit-role.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Edit a role":::
 
 The `citus` role is privileged and can't be deleted.
 

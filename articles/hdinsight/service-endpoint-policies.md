@@ -1,9 +1,6 @@
 ---
 title: Configure service endpoint policies - Azure HDInsight
 description: Learn how to configure service endpoint policies for your virtual network with Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/15/2020
@@ -86,7 +83,7 @@ Use the following process to create the necessary service endpoint policies:
 
     If you prefer to set up your service endpoint policy using PowerShell, using the following code snippet.
     
-    ```json
+    ```powershell
     #Script to assign SEP 
     $subscriptionId = "<subscription id>"
     $rgName = "<resource group name>"

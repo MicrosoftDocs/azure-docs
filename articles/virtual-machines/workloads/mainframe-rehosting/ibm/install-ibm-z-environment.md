@@ -1,8 +1,9 @@
 ---
 title: Install IBM zD&T dev/test environment on Azure | Microsoft Docs
 description: Deploy IBM Z Development and Test Environment (zD&T) on Azure Virtual Machine (VM) infrastructure as a service (IaaS).
-services: virtual-machines-linux
-ms.service: virtual-machines-linux
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 ms.author: edprice
@@ -90,12 +91,13 @@ The installation file for the web server is **ZDT\_Install\_EE\_V12.0.0.1.tgz**.
 
 	```
 	cd ZDT
-	chmod 755 ZDT\_Install\_EE\_V12.0.0.0.tgz
+	tar zxvf ZDT\_Install\_EE\_V12.0.0.0.tgz
 	```
 
 2. Run the installer:
 
 	```
+	chmod 755 ZDT\_Install\_EE\_V12.0.0.0.x86_64
 	./ZDT_Install_EE_V12.0.0.0.x86_64
 	```
 

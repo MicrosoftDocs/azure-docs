@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 11/04/2019
  ms.author: cherylmc
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 You can use the `Resize-AzVirtualNetworkGateway` PowerShell cmdlet to upgrade or downgrade a Generation1 or Generation2 SKU (all VpnGw SKUs can be resized except Basic SKUs). If you are using the Basic gateway SKU, [use these instructions instead](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) to resize your gateway.
@@ -18,5 +18,3 @@ The following PowerShell example shows a gateway SKU being resized to VpnGw2.
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 ```
-
-You can also resize a gateway in the Azure portal by going to the **Configuration** page for your virtual network gateway and selecting a different SKU from the dropdown.
