@@ -34371,6 +34371,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md",
+      "redirect_url": "/azure/sentinel/microsoft-365-defender-sentinel-integration#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
