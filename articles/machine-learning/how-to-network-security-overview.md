@@ -10,7 +10,7 @@ ms.author: peterlu
 author: peterclu
 ms.date: 03/02/2021
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1
+ms.custom: devx-track-python, references_regions, contperf-fy21q1, security
 
 ---
 
@@ -155,7 +155,7 @@ If your storage is in a VNet, you first must perform additional configuration st
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-To enable full studio functionality while inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). The studio supports storage accounts using either service endpoints or private endpoints.
+To enable full studio functionality while inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md). The studio supports storage accounts using either service endpoints or private endpoints.
 
 ### Limitations
 
