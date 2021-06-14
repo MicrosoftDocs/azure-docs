@@ -13,26 +13,24 @@ ms.custom: devx-track-azurepowershell
 # Mount SMB Azure file share on Windows
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be seamlessly used in Windows and Windows Server. This article discusses the considerations for using an Azure file share with Windows and Windows Server.
 
-In order to use an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. 
+In order to use an Azure file share via the public endpoint outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 cannot mount Azure file shares via the public endpoint.
 
-You can use Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support accessing file shares in which environment:
-
-| Windows version | SMB version | Mountable in Azure VM | Mountable on-premises |
+| Windows version | SMB version | Maximum SMB channel encryption |
 |-|-|-|-|
-| Windows Server 2019 | SMB 3.1.1 | Yes | Yes |
-| Windows 10<sup>1</sup> | SMB 3.1.1 | Yes | Yes |
-| Windows Server semi-annual channel<sup>2</sup> | SMB 3.1.1 | Yes | Yes |
-| Windows Server 2016 | SMB 3.1.1 | Yes | Yes |
-| Windows 10, version 1507 | SMB 3.0 | Yes | Yes |
-| Windows 8.1 | SMB 3.0 | Yes | Yes |
-| Windows Server 2012 R2 | SMB 3.0 | Yes | Yes |
-| Windows Server 2012 | SMB 3.0 | Yes | Yes |
-| Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
+| Windows 10, version 21H1 | SMB 3.1.1 | AES-256-GCM |
+| Windows Server semi-annual channel, version 21H1 | SMB 3.1.1 | AES-256-GCM |
+| Windows Server 2019 | SMB 3.1.1 | AES-128-GCM |
+| Windows 10<br />Versions: 1607, 1809, 1909, 2004, and 20H2 | SMB 3.1.1 | AES-128-GCM |
+| Windows Server semi-annual channel<br />Versions: 2004 and 20H2 | SMB 3.1.1 | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | AES-128-GCM |
+| Windows 10, version 1507 | SMB 3.0 | AES-128-GCM |
+| Windows 8.1 | SMB 3.0 | AES-128-CCM |
+| Windows Server 2012 R2 | SMB 3.0 | AES-128-CCM |
+| Windows Server 2012 | SMB 3.0 | AES-128-CCM |
+| Windows 7<sup>1</sup> | SMB 2.1 | Not supported |
+| Windows Server 2008 R2<sup>1</sup> | SMB 2.1 | Not supported |
 
-<sup>1</sup>Windows 10, versions 1607, 1809, 1909, 2004, 20H2, and 21H1.  
-<sup>2</sup>Windows Server, versions 2004 and 20H2.  
-<sup>3</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
+<sup>1</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
