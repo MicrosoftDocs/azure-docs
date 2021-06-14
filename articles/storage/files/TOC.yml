@@ -279,8 +279,6 @@
       href: storage-troubleshooting-files-performance.md
     - name: Troubleshoot Azure Files on Linux (NFS)
       href: storage-troubleshooting-files-nfs.md
-    - name: Troubleshoot deleting Azure file shares
-      href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Reference
