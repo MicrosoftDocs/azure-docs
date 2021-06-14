@@ -108,7 +108,7 @@ conceptualContent:
           itemType: overview
           text: App Service, Functions, and Logic Apps on Azure Arc (preview)
     # Card
-    - title: Management services
+    - title: Management services supporting Azure Arc
       links:
         - url: ../azure-monitor/overview.md?toc=/azure/azure-arc/toc.json
           itemType: overview
