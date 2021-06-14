@@ -144,8 +144,6 @@
       href: custom-translator/how-to-view-system-test-results.md
     - name: Manage settings
       href: custom-translator/how-to-manage-settings.md
-    - name: Migrate from Hub
-      href: custom-translator/how-to-migrate.md
     - name: Unsupported language deployments
       href: custom-translator/unsupported-language-deployments.md
   - name: Concepts
