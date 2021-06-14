@@ -60,7 +60,7 @@ Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government
 
     g. Confirm *Password*.
 
-    h. Check if using an exisitng Windows Server license.
+    h. Check if using an existing Windows Server license.
 
     :::image type="content" source="./media/stig-windows-instance-details.png" alt-text="Instance details section where you provide a name for the virtual machine and select its region, image, and size" border="false":::
 
