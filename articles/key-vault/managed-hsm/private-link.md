@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Integrate Managed HSM with Azure Private Link
 
-Azure Private Link Service enables you to access Azure Services (for example, Managed HSM, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
+Azure Private Link Service enables you to access Azure Services (for example, Managed HSM, Azure Storage, and Azure Cosmos DB etc.) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
 
 An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
@@ -23,7 +23,7 @@ For more information, see [What is Azure Private Link?](../../private-link/priva
 
 To integrate a managed HSM with Azure Private Link, you will need the following:
 
-- A Managed HSM. See [Provision and activate a managed HSM using Azure CLI for more details](quick-create-cli).
+- A Managed HSM. See [Provision and activate a managed HSM using Azure CLI](quick-create-cli) for more details.
 - An Azure virtual network.
 - A subnet in the virtual network.
 - Owner or contributor permissions for both the managed HSM and the virtual network.
@@ -36,12 +36,12 @@ Your private endpoint uses a private IP address in your virtual network.
 ## Establish a private link connection to Managed HSM using CLI (Initial Setup)
 
 ```azurecli
-az login                                                         # Login to Azure CLI
-az account set --subscription {SUBSCRIPTION ID}                  # Select your Azure Subscription
-az group create -n {RESOURCE GROUP} -l {REGION}                  # Create a new Resource Group
-az provider register -n Microsoft.KeyVault                       # Register KeyVault as a provider
-az keyvault update -n {VAULT NAME} -g {RG} --default-action deny # Turn on Key Vault Firewall
-az network vnet create -g {RG} -n {vNet NAME} -location {REGION} # Create a Virtual Network
+az login                                                                   # Login to Azure CLI
+az account set --subscription {SUBSCRIPTION ID}                            # Select your Azure Subscription
+az group create -n {RESOURCE GROUP} -l {REGION}                            # Create a new Resource Group
+az provider register -n Microsoft.KeyVault                                 # Register KeyVault as a provider
+az keyvault update-hsm --hsm-name {HSM NAME} -g {RG} --default-action deny # Turn on firewall
+az network vnet create -g {RG} -n {vNet NAME} -location {REGION}           # Create a Virtual Network
 
     # Create a Subnet
 az network vnet subnet create -g {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
@@ -50,21 +50,21 @@ az network vnet subnet create -g {RG} --vnet-name {vNet NAME} --name {subnet NAM
 az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
 
     # Create a Private DNS Zone
-az network private-dns zone create --resource-group {RG} --name privatelink.vaultcore.azure.net
+az network private-dns zone create --resource-group {RG} --name privatelink.managedhsm.azure.net
 
     # Link the Private DNS Zone to the Virtual Network
-az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.managedhsm.azure.net --name {dnsZoneLinkName} --registration-enabled true
 
 ```
 
 ### Create a Private Endpoint (Automatically Approve) 
 ```azurecli
-az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/{KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/managedHSMs/{HSM NAME}" --group-id managedhsm --connection-name {Private Link Connection Name} --location {AZURE REGION}
 ```
 
 ### Create a Private Endpoint (Manually Request Approval) 
 ```azurecli
-az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/{KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/managedHSMs/{HSM NAME}" --group-id managedhsm --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
 ```
 
 ### Manage Private Link Connections
@@ -74,13 +74,13 @@ az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME}
 az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
 
 # Approve a Private Link Connection Request
-az keyvault private-endpoint-connection approve --approval-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
+az keyvault private-endpoint-connection approve --approval-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} –-name {PRIVATE LINK CONNECTION NAME}
 
 # Deny a Private Link Connection Request
-az keyvault private-endpoint-connection reject --rejection-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
+az keyvault private-endpoint-connection reject --rejection-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} –-name {PRIVATE LINK CONNECTION NAME}
 
 # Delete a Private Link Connection Request
-az keyvault private-endpoint-connection delete --resource-group {RG} --vault-name {KEY VAULT NAME} --name {PRIVATE LINK CONNECTION NAME}
+az keyvault private-endpoint-connection delete --resource-group {RG} --hsm-name {HSM NAME} --name {PRIVATE LINK CONNECTION NAME}
 ```
 
 ### Add Private DNS Records
@@ -91,19 +91,19 @@ az network nic show --ids {PE NIC}                         # look for the proper
 
 # https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
 az network private-dns zone list -g {RG}
-az network private-dns record-set a add-record -g {RG} -z "privatelink.vaultcore.azure.net" -n {KEY VAULT NAME} -a {NIC IP}
-az network private-dns record-set list -g {RG} -z "privatelink.vaultcore.azure.net"
+az network private-dns record-set a add-record -g {RG} -z "privatelink.managedhsm.azure.net" -n {HSM NAME} -a {NIC IP}
+az network private-dns record-set list -g {RG} -z "privatelink.managedhsm.azure.net"
 
 # From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
-nslookup {KEY VAULT NAME}.vault.azure.net
-nslookup {KEY VAULT NAME}.privatelink.vaultcore.azure.net
+nslookup {HSM NAME}.managedhsm.azure.net
+nslookup {HSM NAME}.privatelink.managedhsm.azure.net
 ```
 
 ---
 
 ## Validate that the private link connection works
 
-You should validate that the resources within the same subnet of the private endpoint resource are connecting to your key vault over a private IP address, and that they have the correct private DNS zone integration.
+You should validate that the resources within the same subnet of the private endpoint resource are connecting to your HSM over a private IP address, and that they have the correct private DNS zone integration.
 
 First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md)
 
@@ -117,54 +117,53 @@ In the "Networking" tab:
 Open the command line and run the following command:
 
 ```console
-nslookup <your-key-vault-name>.vault.azure.net
+nslookup <your-HSM-name>.managedhsm.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a key vault over a public endpoint, you will see a result that looks like this:
+If you run the ns lookup command to resolve the IP address of a managed HSM over a public endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup <your-key-vault-name>.vault.azure.net
+c:\ >nslookup <your-hsm-name>.managedhsm.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  (public IP address)
-Aliases:  <your-key-vault-name>.vault.azure.net
+Aliases:  <your-hsm-name>.managedhsm.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a key vault over a private endpoint, you will see a result that looks like this:
+If you run the ns lookup command to resolve the IP address of a managed HSM over a private endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup your_vault_name.vault.azure.net
+c:\ >nslookup your_hsm_name.managedhsm.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  10.1.0.5 (private IP address)
-Aliases:  <your-key-vault-name>.vault.azure.net
-          <your-key-vault-name>.privatelink.vaultcore.azure.net
+Aliases:  <your-hsm-name>.managed.azure.net
+          <your-hsm-name>.privatelink.managedhsm.azure.net
 ```
 
 ## Troubleshooting Guide
 
 * Check to make sure the private endpoint is in the approved state. 
-    1. You can check and fix this in Azure portal. Open the Key Vault resource, and click the Networking option. 
-    2. Then select the Private endpoint connections tab. 
-    3. Make sure connection state is Approved and provisioning state is Succeeded. 
-    4. You may also navigate to the private endpoint resource and review same properties there, and double-check that the virtual network matches the one you are using.
+    1. Use ```az keyvault private-endpoint-connections show``` subcommand to see the status of a private endpoint connection.
+    2. Make sure connection state is Approved and provisioning state is Succeeded. 
+    3. Make sure the virtual network matches the one you are using.
 
 * Check to make sure you have a Private DNS Zone resource. 
-    1. You must have a Private DNS Zone resource with the exact name: privatelink.vaultcore.azure.net. 
+    1. You must have a Private DNS Zone resource with the exact name: privatelink.managedhsm.azure.net. 
     2. To learn how to set this up please see the following link. [Private DNS Zones](../../dns/private-dns-privatednszone.md)
     
 * Check to make sure the Private DNS Zone is linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned. 
-    1. If the Private Zone DNS is not linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the key vault. 
+    1. If the Private Zone DNS is not linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the HSM. 
     2. Navigate to the Private DNS Zone resource in the Azure portal and click the virtual network links option. 
-    4. The virtual network that will perform calls to the key vault must be listed. 
+    4. The virtual network that will perform calls to the HSM must be listed. 
     5. If it's not there, add it. 
     6. For detailed steps, see the following document [Link Virtual Network to Private DNS Zone](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
-* Check to make sure the Private DNS Zone is not missing an A record for the key vault. 
+* Check to make sure the Private DNS Zone is not missing an A record for the HSM. 
     1. Navigate to the Private DNS Zone page. 
-    2. Click Overview and check if there is an A record with the simple name of your key vault (i.e. fabrikam). Do not specify any suffix.
+    2. Click Overview and check if there is an A record with the simple name of your HSM. Do not specify any suffix.
     3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 3600 (1 hour). 
     4. Make sure you specify the correct private IP address. 
     
@@ -182,15 +181,13 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations**:  Private Endpoint for Azure Key Vault is only available in Azure public regions.
+**Maximum Number of Private Endpoints per Managed HSM**: 64.
 
-**Maximum Number of Private Endpoints per Key Vault**: 64.
-
-**Default Number of Key Vaults with Private Endpoints per Subscription**: 400.
+**Default Number of Managed HSM with Private Endpoints per Subscription**: 400.
 
 For more, see [Azure Private Link service: Limitations](../../private-link/private-link-service-overview.md#limitations)
 
 ## Next Steps
 
 - Learn more about [Azure Private Link](../../private-link/private-link-service-overview.md)
-- Learn more about [Azure Key Vault](overview.md)
+- Learn more about [Managed HSM](overview.md)

@@ -18,7 +18,7 @@ ms.author: ambapat
 
 Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs. For more information on Managed HSM you may review the [Overview](overview.md). 
 
-In this quickstart, you create and activate a managed HSM with Azure CLI. Once that you have completed that, you will store a secret.
+In this quickstart, you create and activate a managed HSM with Azure CLI.
 
 ## Prerequisites
 
@@ -125,4 +125,5 @@ In this quickstart you created a Key Vault and stored a secret in it. To learn m
 
 - Read an [Overview of Managed HSM](overview.md)
 - Learn about [Managing keys in a managed HSM](key-management.md)
+- Learn about [Role management for a managed HSM](role-management.md)
 - Review [Managed HSM best practices](best-practices.md)
