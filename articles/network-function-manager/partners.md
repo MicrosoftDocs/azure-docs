@@ -5,11 +5,11 @@ author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 06/09/2021
+ms.date: 06/14/2021
 ms.author: cherylmc
 
 ---
-# Network Function Manager Partners (Preview)
+# Network Function Manager partners (Preview)
 
 We have a growing ecosystem of partners offering their network function as managed applications for use with this service. 
 
@@ -19,9 +19,9 @@ For Preview, the following SKUs are currently available.
 
 |Function |Category|Link|
 | ---  | --- | --- |
-| Affirmed Private Mobile Service  | Mobile Packet Core |[Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165526)|
-|Celona Edge |Mobile Packet Core |[Azure Marketplace](https://ms.portal.azure.com/)|
-| Metaswitch Fusion Core | Mobile Packet Core | [Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165525)|
+| Affirmed Private Mobile Service  | mobile packet core |[Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165526)|
+|Celona Edge |mobile packet core |[Azure Marketplace](https://ms.portal.azure.com/)|
+| Metaswitch Fusion Core | mobile packet core | [Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165525)|
 | NetFoundry ZTNA | Other| [Azure Marketplace](https://ms.portal.azure.com/)|
 | Nuage Networks SD-WAN From Nokia | SD-WAN| [Azure Marketplace](https://ms.portal.azure.com/)|
 | Versa SD-WAN| SD-WAN |[Azure Marketplace](https://ms.portal.azure.com/)|

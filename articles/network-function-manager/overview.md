@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: overview
-ms.date: 06/09/2021
+ms.date: 06/14/2021
 ms.author: cherylmc
 ms.custom: references_regions
 
@@ -13,21 +13,21 @@ ms.custom: references_regions
 # What is Azure Network Function Manager? (Preview)
 
 
-Azure Network Function Manager offers an [Azure Marketplace](https://azure.microsoft.com/marketplace/) experience for deploying network functions such as Mobile Packet Core, SD-WAN Edge, and VPN services to your [Azure Stack Edge device](https://azure.microsoft.com/products/azure-stack/edge/) running in your on-premises environment. You can now rapidly deploy a private mobile network service or SD-WAN solution on your edge device directly from the Azure management portal. Network Function Manager brings network functions from a growing ecosystem of [partners](#partners). This preview is supported on [Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-overview.md). 
+Azure Network Function Manager offers an [Azure Marketplace](https://azure.microsoft.com/marketplace/) experience for deploying network functions such as mobile packet core, SD-WAN edge, and VPN services to your [Azure Stack Edge device](https://azure.microsoft.com/products/azure-stack/edge/) running in your on-premises environment. You can now rapidly deploy a private mobile network service or SD-WAN solution on your edge device directly from the Azure management portal. Network Function Manager brings network functions from a growing ecosystem of [partners](#partners). This preview is supported on [Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-overview.md). 
 
 ## <a name="preview"></a>Preview features
 
-* **Consistent management experience –** Network Function Manager provides a consistent Azure management experience for network functions from different partners deployed at your enterprise edge. This lets you simplify governance and management. You can use your familiar Azure tools and SDK to automate the deployment of network functions through declarative templates. You can also apply Azure role-based access control (Azure RBAC) for a global deployment of network functions on your Azure Stack Edge devices.
+* **Consistent management experience –** Network Function Manager provides a consistent Azure management experience for network functions from different partners deployed at your enterprise edge. This lets you simplify governance and management. You can use your familiar Azure tools and SDK to automate the deployment of network functions through declarative templates. You can also apply Azure role-based access control [Azure RBAC](../role-based-access-control/overview.md) for a global deployment of network functions on your Azure Stack Edge devices.
 
-* **Azure Marketplace experience for 5G network functions –** Accelerate the deployment of private mobile network solution on your Azure Stack Edge device by selecting from your choice of LTE, 5G Mobile Packet Core network function directly from the Azure Marketplace.
+* **Azure Marketplace experience for 5G network functions –** Accelerate the deployment of private mobile network solution on your Azure Stack Edge device by selecting from your choice of LTE and 5G mobile packet core network function directly from the Azure Marketplace.
 
-* **Seamless cloud-to-edge experience for SD-WAN VPN solution –** Network Function Manager extends the Azure management experience for Marketplace network functions that you are familiar with in the public cloud to your edge device. This lets you take advantage of a consistent deployment experience for your choice of SD-WAN VPN partner network functions deployed in the Azure public cloud or Azure Stack Edge device.
+* **Seamless cloud-to-edge experience for SD-WAN and VPN solutions –** Network Function Manager extends the Azure management experience for Marketplace network functions that you are familiar with in the public cloud to your edge device. This lets you take advantage of a consistent deployment experience for your choice of SD-WAN and VPN partner network functions deployed in the Azure public cloud or Azure Stack Edge device.
 
-* **Azure Managed Applications experience for network functions on enterprise edge –** Network function manager enables a simplified deployment experience for specialized network functions, such as Mobile Packet Core, on your Azure Stack Edge device. We have prevalidated the lifecycle management for approved network function images from partners. You can have confidence that your network function resources are deployed in a consistent state across your entire fleet. For more information, see [Azure Managed Applications](../azure-resource-manager/managed-applications/overview.md).
+* **Azure Managed Applications experience for network functions on enterprise edge –** Network Function Manager enables a simplified deployment experience for specialized network functions, such as mobile packet core, on your Azure Stack Edge device. We have prevalidated the lifecycle management for approved network function images from partners. You can have confidence that your network function resources are deployed in a consistent state across your entire fleet. For more information, see [Azure Managed Applications](../azure-resource-manager/managed-applications/overview.md).
 
-* **Network acceleration and choice of dynamic or static IP allocation for network functions –** Network function manager and Azure Stack Edge Pro support improved network performance for network function workloads. Specialized network functions, such as Mobile Packet Core, can now be deployed on the Azure Stack Edge device with faster data path performance on the access point network and user plane network. You can also choose from static or dynamic IP allocation for different virtual interfaces for your network function deployment. Check with your network function partner on support for these networking capabilities.  
+* **Network acceleration and choice of dynamic or static IP allocation for network functions –** Network Function Manager and [Azure Stack Edge Pro](../databox-online/azure-stack-edge-gpu-overview.md) support improved network performance for network function workloads. Specialized network functions, such as mobile packet core, can now be deployed on the Azure Stack Edge device with faster data path performance on the access point network and user plane network. You can also choose from static or dynamic IP allocation for different virtual interfaces for your network function deployment. Check with your network function partner on support for these networking capabilities.  
 
-## <a name="managed"></a>Azure Managed Applications for Network Functions
+## <a name="managed"></a>Azure Managed Applications for network functions
 
 The network functions that are available to be deployed using Network Function Manager are engineered to specifically run on your Azure Stack Edge device. The network function offer is published to Azure Marketplace as an [Azure Managed Application](../azure-resource-manager/managed-applications/overview.md). Customers can deploy the offer directly from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/), or from the Network Function Manager device resource via the Azure portal. 
 
@@ -47,7 +47,7 @@ Network function partners may create different resources, depending on their app
 
 * **Customer resource group –** This resource group will contain an application placeholder for the managed application. Partners can use this to expose whatever customer properties they choose here. 
 
-* **Managed resource group –** You can't configure or change resources in this resource group directly, as this is controlled by the publisher of the managed application. This resource group will contain the Network Function Manager **Network Functions** resource.
+* **Managed resource group –** You can't configure or change resources in this resource group directly, as this is controlled by the publisher of the managed application. This resource group will contain the Network Function Manager **network functions** resource.
 
 :::image type="content" source="./media/overview/managed-app-resource-groups.png" alt-text="Diagram of managed application resource groups.":::
 
@@ -67,7 +67,7 @@ You should also verify that the device **Status**, located in the properties sec
 
 ### <a name="partner-prereq"></a>Partner prerequisites 
 
-Customers can choose from one or more Network Function Manager [Partners](#partners) to deploy their network function on an Azure Stack Edge device. Each partner has networking requirements for deployment of their network function to an Azure Stack Edge device. Refer to the product documentation from the network function partners to complete the following configuration tasks:
+Customers can choose from one or more Network Function Manager [partners](#partners) to deploy their network function on an Azure Stack Edge device. Each partner has networking requirements for deployment of their network function to an Azure Stack Edge device. Refer to the product documentation from the network function partners to complete the following configuration tasks:
 
 * [Configure network on different ports](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 * [Enable compute network on your Azure Stack Edge device](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network). 
@@ -87,17 +87,17 @@ The accounts you use to create the Network Function Manager device resource must
 
 | Name | Action|
 |---|---|
-| Microsoft.DataBoxEdge/dataBoxEdgeDevices/read|Required to read the Azure Stack Edge resource on which network functions will be deployed |
+| Microsoft.DataBoxEdge/dataBoxEdgeDevices/read|Required to read the Azure Stack Edge resource on which network functions will be deployed. |
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action |Required to read the properties section of Azure Stack edge resource. |
-|Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write |Required to create the Network Function Manager device resource on Azure Stack Edge resource|
-| Microsoft.HybridNetwork/devices/* | Required to create, update, delete the Network Function Manager device resource |
+|Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write |Required to create the Network Function Manager device resource on Azure Stack Edge resource.|
+| Microsoft.HybridNetwork/devices/* | Required to create, update, delete the Network Function Manager device resource. |
 
 The accounts you use to create the Azure managed applications resource must be assigned to a [custom role](../role-based-access-control/custom-roles.md) that is assigned the necessary actions from the following table: 
 
 |Name |Action |
 |---|---|
 |[Managed Application Contributor Role](../role-based-access-control/built-in-roles.md#managed-application-contributor-role)|Required to create Managed app resources.|
-|Microsoft.HybridNetwork/networkFunctions/write |Required to create network function resource in managed resource group.| 
+|Microsoft.HybridNetwork/networkFunctions/write |Required to create network function resource in the managed resource group.| 
 
 ## <a name="managed-identity"></a>Managed Identity 
 
@@ -112,7 +112,7 @@ To create a user-assigned managed identity for deploying network functions:
 
 ## <a name="port-firewall"></a>Port requirements and firewall rules
 
-Network Function Manager (NFM) services running on the Azure Stack Edge require outbound connectivity to the NFM cloud service for management traffic to deploy network functions. NFM is fully integrated with the Azure Stack Edge service. Review the networking port requirements and firewall rules for Azure Stack Edge device.  
+Network Function Manager (NFM) services running on the Azure Stack Edge require outbound connectivity to the NFM cloud service for management traffic to deploy network functions. NFM is fully integrated with the Azure Stack Edge service. Review the networking port requirements and firewall rules for the [Azure Stack Edge](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements) device.  
 
 Network Function partners will have different requirements for firewall and port configuration rules to manage traffic to the partner management portal. Check with your network function partner for specific requirements.  
 
@@ -130,7 +130,7 @@ With the current release, Network Function Manager is a regional service. For re
 
 ## <a name="partners"></a>Partner solutions
 
-See the [Network Function Manager Partners page](partners.md) for a growing ecosystem of partners offering their Marketplace managed applications for private mobile network, SD-WAN, and VPN solutions.
+See the Network Function Manager [partners page](partners.md) for a growing ecosystem of partners offering their Marketplace managed applications for private mobile network, SD-WAN, and VPN solutions.
 
 ## <a name="faq"></a>FAQ
 
