@@ -101,11 +101,11 @@ Application writes using the Microsoft Graph API of Azure AD are abstracted from
  >[!NOTE]
  >Writes are immediately replicated to the secondary replica to which the logical session's reads were issued.
 
-#### Backup protection
+#### Service Level Backup
 
-The directory implements soft deletes, instead of hard deletes, for users and tenants for easy recovery in case of accidental deletes by a customer. If your tenant administrator accidental deletes users, they can easily undo and restore the deleted users.
-
-Azure AD implements daily backups of all data, and therefore can authoritatively restore data in case of any logical deletions or corruptions. The data tier employs error correcting codes, so that it can check for errors and automatically correct particular types of disk errors.
+Azure AD implements daily backup of directory data and can use these backups to restore data in case of any service wide issue.
+ 
+The directory also implements soft deletes instead of hard deletes for selected object types. This allows the tenant administrator to undo deletions within 30 days any accidental deletes of these objects. See more information [here](https://docs.microsoft.com/en-us/graph/api/directory-deleteditems-restore) on restoring deleted objects.
 
 #### Metrics and monitors
 
