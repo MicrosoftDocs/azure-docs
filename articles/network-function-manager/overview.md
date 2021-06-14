@@ -31,7 +31,7 @@ Azure Network Function Manager offers an [Azure Marketplace](https://azure.micro
 
 The network functions that are available to be deployed using Network Function Manager are engineered to specifically run on your Azure Stack Edge device. The network function offer is published to Azure Marketplace as an [Azure Managed Application](../azure-resource-manager/managed-applications/overview.md). Customers can deploy the offer directly from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/), or from the Network Function Manager device resource via the Azure portal. 
 
-:::image type="content" source="./media/overview/managed-app-workflow.png" alt-text="Diagram of managed application workflow.":::
+:::image type="content" source="./media/overview/managed-app-workflows.png" alt-text="Diagram of managed application workflow.":::
 
 All network function offerings that are available to be deployed using Network Function Manager have a managed application that is available in Azure Marketplace. Managed applications allow partners to:
 
