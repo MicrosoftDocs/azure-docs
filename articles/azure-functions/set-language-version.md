@@ -26,7 +26,7 @@ You can change the runtime version used by your function app. Because of the pot
 ::: zone pivot="programming-language-csharp"
 ## Update functions app language version on Windows
 
-For .NET, the language version is defined by the runtime version of your function apps. To learn more on hot set runtime version for your functions app, refer to [set runtime version article](./set-runtime-version.md). To learn on the .NET major versions that are supported, refer to [supported-languages article](./supported-languages.md)
+For .NET, the language version is defined by the runtime version of your function apps. To learn more on how set runtime version for your functions app, refer to [set runtime version article](./set-runtime-version.md). To learn on the .NET major versions that are supported, refer to [supported-languages article](./supported-languages.md)
 
 ::: zone-end
 
