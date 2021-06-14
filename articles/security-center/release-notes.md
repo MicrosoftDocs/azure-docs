@@ -26,10 +26,25 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in June include:
 
+- [New alert for Azure Defender for Key Vault](#new-alert-for-azure-defender-for-key-vault)
 - [Recommendations to encrypt with customer-managed keys (CMKs) disabled by default](#recommendations-to-encrypt-with-customer-managed-keys-cmks-disabled-by-default)
 - [Prefix for Kubernetes alerts changed from "AKS_" to "K8S_"](#prefix-for-kubernetes-alerts-changed-from-aks_-to-k8s_)
 - [Deprecated two recommendations from "Apply system updates" security control](#deprecated-two-recommendations-from-apply-system-updates-security-control)
 
+
+### New alert for Azure Defender for Key Vault
+
+To expand the threat protections provided by Azure Defender for Key Vault, we've added the following alert:
+
+| Alert (alert type)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | MITRE tactic | Severity |
+|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
+| Access from a suspicious IP address to a key vault<br>(KV_SuspiciousIPAccess)  | A key vault has been successfully accessed by an IP that has been identified by Microsoft Threat Intelligence as a suspicious IP address. This may indicate that your infrastructure has been compromised. We recommend further investigation. Learn more about [Microsoft's threat intelligence capabilities](https://go.microsoft.com/fwlink/?linkid=2128684). | Credential Access                            | Medium   |
+|||
+
+For more information, see:
+- [Introduction to Azure Defender for Key Vault](defender-for-resource-manager-introduction.md)
+- [Respond to Azure Defender for Key Vault alerts](defender-for-key-vault-usage.md)
+- [List of alerts provided by Azure Defender for Key Vault](alerts-reference.md#alerts-azurekv)
 
 
 ### Recommendations to encrypt with customer-managed keys (CMKs) disabled by default
@@ -881,7 +896,7 @@ Related links:
 
 ### CSV export of filtered list of recommendations 
 
-In November 2020, we added filters to the recommendations page ([Recommendations list now includes filters](release-notes-archive.md#recommendations-list-now-includes-filters)). In December, we expanded those filters ([Recommendations page has new filters for environment, severity, and available responses](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+In November 2020, we added filters to the recommendations page ([Recommendations list now includes filters](release-notes-archive.md#recommendations-list-now-includes-filters)). In December, we expanded those filters ([Recommendations page has new filters for environment, severity, and available responses](release-notes-archive.md#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
 
 With this announcement, we're changing the behavior of the **Download to CSV** button so that the CSV export only includes the recommendations currently displayed in the filtered list. 
 
