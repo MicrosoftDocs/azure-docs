@@ -19,7 +19,7 @@ ms.date: 03/12/2019
 
 This article describes key rotation for a [server](logical-servers.md) using a TDE protector from Azure Key Vault. Rotating the logical TDE Protector for a server means switching to a new asymmetric key that protects the databases on the server. Key rotation is an online operation and should only take a few seconds to complete, because this only decrypts and re-encrypts the database's data encryption key, not the entire database.
 
-This guide discusses two options to rotate the TDE protector on the server.
+This guide discusses both automated and manual methods to rotate the TDE protector on the server.
 
 > [!NOTE]
 > A paused dedicated SQL pool in Azure Synapse Analytics must be resumed before key rotations.
@@ -73,7 +73,7 @@ Use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/a
 # set the AutoRotation parameter to true to enable auto-rotation of the TDE protector
 Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <keyVaultKeyId> `
    -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName> `
-    -AutoRotation <boolean>
+    -AutoRotationEnabled <boolean>
 ```
 
 
@@ -84,7 +84,7 @@ Use the [az sql server tde-key set](/cli/azure/sql/server/tde-key#az-sql-server-
 ```azurecli
 
 # set the AutoRotation parameter to true to enable auto-rotation of the TDE protector
-az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <logicalServerName> --auto-rotation <boolean>
+az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <logicalServerName> --auto-rotation-enabled <boolean>
 ```
 
 ## Manual key rotation
