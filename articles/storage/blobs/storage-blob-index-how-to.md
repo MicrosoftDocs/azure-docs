@@ -4,7 +4,7 @@ description: See examples of how to use blob index tags to categorize, manage, a
 author: normesta
 
 ms.author: normesta
-ms.date: 03/05/2021
+ms.date: 06/14/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -12,25 +12,20 @@ ms.reviewer: klaasl
 ms.custom: devx-track-csharp
 ---
 
-# Use blob index tags (preview) to manage and find data on Azure Blob Storage
+# Use blob index tags to manage and find data on Azure Blob Storage
 
 Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
 
-> [!IMPORTANT]
-> Blob index tags are currently in **PREVIEW** and is available in all public regions. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md).
+To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
 ## Prerequisites
 
 # [Portal](#tab/azure-portal)
 
-- An Azure subscription registered and approved for access to the blob index preview
+- An Azure subscription registered and approved for access
 - Access to the [Azure portal](https://portal.azure.com/)
 
 # [.NET v12 SDK](#tab/net)
-
-As blob index is in preview, the .NET storage package is released in the preview NuGet feed. This library is subject to change during the preview period.
 
 1. Set up your Visual Studio project to get started with the Azure Blob Storage client library v12 for .NET. To learn more, see [.NET Quickstart](storage-quickstart-blobs-dotnet.md)
 
@@ -317,5 +312,5 @@ static async Task FindBlobsByTagsExample()
 
 ## Next steps
 
- - Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md )
+ - Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md )
  - Learn more about lifecycle management, see [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
