@@ -39,7 +39,7 @@ To access the workbook:
 
 ### Identify apps running on ADAL
 
-The Sign-ins workbook has a new table at the bottom of the page that can show you which recently used apps are using ADAL as shown below. Update these apps to use MSAL.
+The Sign-ins workbook has a new table at the bottom of the page that can show you which recently used apps are using ADAL as shown below. You can also export a list of the apps. Update these apps to use MSAL.
 
 :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/active-directory-auth-library-apps-present.png" alt-text="Screenshot of sign-ins workbook displaying apps that use Active Directory Authentication Library.":::
 
