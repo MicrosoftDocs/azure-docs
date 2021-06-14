@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 06/21/2021
 ms.author: ambapat
 
 #Customer intent:As a security admin who is new to Azure, I want to provision and activate a managed HSM
