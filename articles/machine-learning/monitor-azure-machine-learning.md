@@ -109,6 +109,7 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
 | AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
+| ModelsChangeEvent | Events from changes made to the Model. |
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
