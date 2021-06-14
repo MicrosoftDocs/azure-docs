@@ -16,8 +16,8 @@ In this quickstart, you'll instrument an ASP.NET Core app using the Application 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- .NET 5 SDK. [Install the latest .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) for your platform.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- .NET 5.0 SDK or later. [Install the latest .NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) for your platform.
 
 ## Create an Application Insights resource
 
@@ -43,7 +43,7 @@ To begin ingesting telemetry, create an Application Insights resource in your Az
 
 Complete the following steps to create and configure a new ASP.NET Core web app:
 
-1. Create a new ASP.NET Core Razor Pages app.
+1. Create a new ASP.NET Core Razor Pages app:
     
     ```dotnetcli
     dotnet new razor -o ai.quickstart
@@ -70,7 +70,7 @@ Complete the following steps to instrument the app to send client-side telemetry
 
 1. In *Pages/_ViewImports.cshtml*, add the following line:
 
-    ```razor
+    ```cshtml
     @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
     ```
 
@@ -88,7 +88,7 @@ It takes several minutes for telemetry to be ingested into Application Insights 
 
 1. Run the web app using `dotnet run` or your IDE.
 1. In the Azure portal, when viewing your Application Insights resource, select **Live metrics** under **Investigate**.
-1. Back in the web app, select the *Home* and *Privacy* links repeatedly.
+1. Select the **Home** and **Privacy** links repeatedly.
 1. Observe activity on the **Live metrics** display as requests are made in the app.
 
 ## Next steps
