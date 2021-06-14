@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 06/14/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -134,7 +134,9 @@ In this example, we will select Windows Server 2019 Datacenter Core, version 201
  
 :::image type="content" source="media/azure-stack-edge-create-virtual-machine-marketplace-image/marketplace-image-1.png" alt-text="List of marketplace images":::
 
-Below is a list of URNs for some of the most common images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
+### Marketplace images used widely
+
+Below is a list of URNs for some of the most commonly used images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
 
 
 | OS              | SKU                                     | Version               | URN                                                                                       |
