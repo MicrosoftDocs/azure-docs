@@ -16,7 +16,7 @@ ms.reviewer: mbullwin
 > See [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md) for more details on the migration process and the behavior of smart detection after the migration.
 > 
 
-Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 This method can be used when deploying new Application Insights resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
 ## Smart detection rule configuration
@@ -196,4 +196,3 @@ Learn more about automatically detecting:
 - [Failure anomalies](./proactive-failure-diagnostics.md)
 - [Memory Leaks](./proactive-potential-memory-leak.md)
 - [Performance anomalies](./proactive-performance-diagnostics.md)
-
