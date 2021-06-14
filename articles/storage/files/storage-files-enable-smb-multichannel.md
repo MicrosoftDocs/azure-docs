@@ -6,7 +6,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/17/2021
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable SMB Multichannel on a FileStorage account (preview) 

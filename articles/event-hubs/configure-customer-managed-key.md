@@ -2,14 +2,14 @@
 title: Configure your own key for encrypting Azure Event Hubs data at rest 
 description: This article provides information on how to configure your own key for encrypting Azure Event Hubs data rest. 
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 05/04/2021
 ---
 
 # Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal
 Azure Event Hubs provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). The Event Hubs service uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key (BYOK) or customer-managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key will be encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one time setup process on your namespace.
 
-> [!NOTE]
-> - The BYOK capability is supported by [Event Hubs dedicated single-tenant](event-hubs-dedicated-overview.md) clusters. It can't be enabled for standard Event Hubs namespaces.
+> [!IMPORTANT]
+> - The BYOK capability is supported by **premium** and **dedicated** tiers of Event Hubs.
 > - The encryption can be enabled only for new or empty namespaces. If the namespace contains event hubs, the encryption operation will fail.
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
@@ -20,9 +20,8 @@ This article shows how to configure a key vault with customer-managed keys by us
 > Using customer-managed keys with Azure Event Hubs requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. These properties are enabled by default when you create a new key vault in the Azure portal. However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
 
 ## Enable customer-managed keys
-To enable customer-managed keys in the Azure portal, follow these steps:
+To enable customer-managed keys in the Azure portal, follow these steps. If you are using the dedicated tier, navigate to your Event Hubs Dedicated cluster first.
 
-1. Navigate to your Event Hubs Dedicated cluster.
 1. Select the namespace on which you want to enable BYOK.
 1. On the **Settings** page of your Event Hubs namespace, select **Encryption**. 
 1. Select the **Customer-managed key encryption at rest** as shown in the following image. 

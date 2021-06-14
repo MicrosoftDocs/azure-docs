@@ -18,7 +18,9 @@ ms.date: 09/16/2020
 ms.author: yelevin
 
 ---
-# Connect Windows security events 
+# Connect Windows security events
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 The Security Events connector lets you stream all security events from your Windows systems (servers and workstations, physical and virtual) to your Azure Sentinel workspace. This enables you to view Windows security events in your dashboards, to use them in creating custom alerts, and to rely on them to improve your investigations, giving you more insight into your organization's network and expanding your security operations capabilities. You can select which events to stream from among the following sets: <a name="event-sets"></a>
 

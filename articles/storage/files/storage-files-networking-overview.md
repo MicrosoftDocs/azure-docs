@@ -19,6 +19,9 @@ This article focuses on how to configure networking for when your use case calls
 
 Networking configuration for Azure file shares is done on the Azure storage account. A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. Storage accounts expose multiple settings that help you secure network access to your file shares: network endpoints, storage account firewall settings, and encryption in transit. 
 
+> [!Important]  
+> Azure Files supports multiple network routing options. The default option, Microsoft routing, works with all Azure Files configurations. The internet routing option does not support AD domain join scenarios or Azure File Sync.
+
 We recommend reading [Planning for an Azure Files deployment](storage-files-planning.md) prior to reading this conceptual guide.
 
 :::row:::

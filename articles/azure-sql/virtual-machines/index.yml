@@ -8,6 +8,7 @@ metadata:
   description: Find documentation about SQL Server installed to Azure virtual machines, both Windows and Linux.
   services: virtual-machines-sql
   ms.service:  virtual-machines-sql
+  ms.subservice: service-overview
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma

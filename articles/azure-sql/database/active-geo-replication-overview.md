@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 04/28/2021
 ---
 
@@ -19,8 +19,11 @@ ms.date: 04/28/2021
 Active geo-replication is an Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different data center (region).
 
 > [!NOTE]
-> Active geo-replication for Azure SQL Hyperscale [is now in public preview](https://aka.ms/hsgeodr). Current limitations include: only one geo-secondary in the same or a different region, only forced failover supported, restore database from geo-secondary not supported, using a geo-secondary as the source database for Database Copy, or as the primary for another geo-secondary is not supported.
-
+> Active geo-replication for Azure SQL Hyperscale is [now in public preview](https://aka.ms/hsgeodr). Current limitations include: only one geo-secondary in the same or a different region, forced and planned failover not currently supported, restore database from geo-secondary not supported, using a geo-secondary as the source database for Database Copy, or as the primary for another geo-secondary is not supported.
+> In the case you need to make the geo secondary writable, you can do so by breaking the geo-replication link with the steps below:
+> 1. Make the secondary database a read-write standalone database using the cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary). Any data changes committed to the primary but not yet replicated to the secondary will be lost. These changes could be recovered when the old primary is available, or in some cases by restoring the old primary to the latest available point in time.
+> 2. If the old primary is available, delete it, then set up geo-replication for the new primary (a new secondary will be seeded). 
+> 3. Update connection strings in your application accordingly.
 
 > [!NOTE]
 > Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of instances of SQL Managed Instance, use [Auto-failover groups](auto-failover-group-overview.md).

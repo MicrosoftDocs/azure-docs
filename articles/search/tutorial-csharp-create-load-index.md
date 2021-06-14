@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 05/21/2021
 ms.custom: devx-track-csharp
 ms.devlang: dotnet
 ---
@@ -98,6 +98,14 @@ Note your **Search resource name**. You will need this to connect the Azure Func
 
 > [!CAUTION]
 > While you may be tempted to use your Search admin key in the Azure Function, that isn't following the principle of least privilege. The Azure Function will use the query key to conform to least privilege. 
+
+## Rollback bulk import file changes
+
+Use the following git command in the VS Code integrated terminal at the `bulk-insert` directory, to rollback the changes. They are not needed to continue the tutorial and you shouldn't save or push these secrets to your repo. 
+
+```git
+git checkout .
+```
 
 ## Next steps
 

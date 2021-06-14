@@ -397,6 +397,12 @@ To run Apache Spark jobs, see [Run Apache Spark jobs on AKS][aks-spark].
 
 For more information about running machine learning (ML) workloads on Kubernetes, see [Kubeflow Labs][kubeflow-labs].
 
+For information on using Azure Kubernetes Service with Azure Machine Learning, see the following articles:
+
+* [Deploy a model to Azure Kubernetes Service][azureml-aks].
+* [Deploy a deep learning model for inference with GPU][azureml-gpu].
+* [High-performance serving with Triton Inference Server][azureml-triton].
+
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -416,3 +422,6 @@ For more information about running machine learning (ML) workloads on Kubernetes
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[azureml-aks]: ../machine-learning/how-to-deploy-azure-kubernetes-service.md
+[azureml-gpu]: ../machine-learning/how-to-deploy-inferencing-gpus.md
+[azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
