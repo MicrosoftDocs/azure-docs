@@ -50,7 +50,7 @@ Resets the password for the service account connected to contoso.com.
 ### PARAMETERS
 
 #### -EACredential
-Credentials for an Enterprise Administrator account in the Acitve Directory.
+Credentials for an Enterprise Administrator account in the Active Directory.
 
 ```yaml
 Type: PSCredential
@@ -151,7 +151,7 @@ Accept wildcard characters: False
 ```
 
 #### -Confirm
-Parameter switch for promting for confirmation.
+Parameter switch for prompting for confirmation.
 
 ```yaml
 Type: SwitchParameter
@@ -1609,7 +1609,7 @@ Sets the current synchronization cycle settings for the sync scheduler.
 PS C:\> Set-ADSyncScheduler -SyncCycleEnabled $true
 ```
 
-Sets the current synchonization cycle setting for SyncCycleEnabled to True.
+Sets the current synchronization cycle setting for SyncCycleEnabled to True.
 
 ### PARAMETERS
 
@@ -2084,7 +2084,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## Sync-ADSyncCSObject
 
 ### SYNOPSIS
-Runs sync aka preview on connector space object.
+Runs sync preview on connector space object.
 
 ### SYNTAX
 
@@ -2104,7 +2104,7 @@ Sync-ADSyncCSObject -Identifier <Guid> [-Commit] [<CommonParameters>]
 ```
 
 ### DESCRIPTION
-Runs sync aka preview on connector space object.
+Runs sync preview on connector space object.
 
 ### EXAMPLES
 
