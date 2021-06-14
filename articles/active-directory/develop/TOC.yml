@@ -319,7 +319,7 @@
       - name: Migrate apps from ADAL to MSAL
         href: msal-migration.md
         displayName: migration
-      - name: List all apps running on ADAL
+      - name: List all apps using ADAL
         href: howto-get-list-of-all-active-directory-auth-library-apps.md
       - name: National clouds and MSAL
         href: msal-national-cloud.md
