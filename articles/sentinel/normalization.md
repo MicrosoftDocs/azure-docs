@@ -343,11 +343,10 @@ In addition to parsing string, the parsing phase may require more processing of 
     let RCodeTable = datatable(ResponseCode:int,ResponseCodeName:string) [ 0, 'NOERROR', 1, 'FORMERR'....];
     ...
      | lookup RCodeTable on ResponseCode
-     | extend EventResultDetails = case (isnotempty(ResponseCodeName), 
-         ResponseCodeName, 
-    ResponseCode between (3841 .. 4095),
-        'Reserved for Private Use', 
-    'Unassigned')
+     | extend EventResultDetails = case (
+         isnotempty(ResponseCodeName), ResponseCodeName, 
+         ResponseCode between (3841 .. 4095), 'Reserved for Private Use', 
+         'Unassigned')
     ```
 
 > [!NOTE]
