@@ -55,7 +55,7 @@ The migration tool location determines the network connectivity requirements. As
 
 Other networking considerations include:
 
-  - DMS located in a VNET is assigned a [dynamic public IP](/azure/dms/faq#setup) to the service. At creation time, you can place the service inside a virtual network that has connectivity via a [ExpressRoute](/azure/expressroute/expressroute-introduction) or over [a site to site VPN. ](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+  - DMS located in a VNET is assigned a [dynamic public IP](../dms/faq#setup) to the service. At creation time, you can place the service inside a virtual network that has connectivity via a [ExpressRoute](/azure/expressroute/expressroute-introduction) or over [a site to site VPN. ](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 
   - When using an Azure Virtual Machine to run the migration tools, assign it a public IP address and then only allow it to connect to the on-premises MySQL instance.
 
