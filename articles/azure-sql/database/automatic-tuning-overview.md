@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 03/23/2021
 ---
 # Automatic tuning in Azure SQL Database and Azure SQL Managed Instance

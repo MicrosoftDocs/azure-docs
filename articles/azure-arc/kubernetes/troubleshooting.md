@@ -197,12 +197,26 @@ When you are connecting your cluster to Azure Arc or when you are enabling custo
 Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
 ```
 
-The above warning is observed when you have used a service principal to log into Azure and this service principal doesn't have permissions to get information of the application used by Azure Arc service. Run the following commands to grant the required permissions:
+The above warning is observed when you have used a service principal to log into Azure and this service principal doesn't have permissions to get information of the application used by Azure Arc service. To avoid this error, execute the following steps:
 
-```console
-az ad app permission add --id <service-principal-app-id> --api 00000002-0000-0000-c000-000000000000 --api-permissions 3afa6a7d-9b1a-42eb-948e-1650a849e176=Role
-az ad app permission admin-consent --id <service-principal-app-id>
-```
+1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+
+    ```console
+    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    ```
+
+1. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
+    - If you are enabling custom locations feature as part of connecting the cluster to Arc, run the following command:
+
+        ```console
+        az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
+        ```
+
+    - If you are enabling custom locations feature on an existing Arc enabled Kubernetes cluster, run the following command:
+
+        ```console
+        az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
+        ```
 
 Once above permissions are granted, you can now proceed to [enabling the custom location feature](custom-locations.md#enable-custom-locations-on-cluster) on the cluster.
 

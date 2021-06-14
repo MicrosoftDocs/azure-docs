@@ -20,8 +20,14 @@ items:
     href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
+  - name: Onboarding Azure data sources at scale
+    items:
+    - name: Azure data sources readiness check at scale
+      href: tutorial-data-sources-readiness.md
+    - name: Azure Purview MSI configuration at scale
+      href: tutorial-msi-configuration.md
   - name: Starter kit
-    items: 
+    items:
     - name: Scan data
       href: tutorial-scan-data.md
     - name: Navigate home page and search
@@ -198,6 +204,8 @@ items:
   items:
     - name: Supported classifications
       href: supported-classifications.md
+    - name: Azure Purview product glossary
+      href: reference-purview-glossary.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
 - name: Resources

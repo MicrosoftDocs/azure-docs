@@ -87,7 +87,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "TransfersPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk
 ```
 
 ### Logical disk data rate
@@ -97,7 +97,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "BytesPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk
 ```
 
 ### Network interfaces bytes received - all interfaces

@@ -39,7 +39,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 | | Azure Monitor agent (preview) | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|:---|:---|
-| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc) | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
+| **Environments supported** (see table below for supported operating systems) | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc) | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
 | **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
 | **Data collected** | Syslog<br>Performance | Syslog<br>Performance | Performance | Syslog<br>Performance| Process dependencies<br>Network connection metrics |
 | **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
@@ -136,8 +136,9 @@ The following tables list the operating systems that are supported by the Azure 
 | Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:|
 | Windows Server 2019                                      | X | X | X | X |
+| Windows Server 2019 Core                                 | X |   |   |   |
 | Windows Server 2016                                      | X | X | X | X |
-| Windows Server 2016 Core                                 |   |   |   | X |
+| Windows Server 2016 Core                                 | X |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
@@ -164,13 +165,16 @@ The following tables list the operating systems that are supported by the Azure 
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
+| Red Hat Enterprise Linux Server 8.3                         | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
 | SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
 | SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
+| SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
+| SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
 | Ubuntu 20.04 LTS                                            | X | X | X |   |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |

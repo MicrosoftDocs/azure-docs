@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: shkale-msft
 ms.author: shkale
-ms.reviewer: mathoma
+ms.reviewer: cawrites
 ms.date: 10/29/2020
 ---
 # Quickstart: Import a BACPAC file to a database in Azure SQL Database or Azure SQL Managed Instance

@@ -376,13 +376,9 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. You'll find a video listed with the name `sample-cvr-with-inference-metadata`. This is the name chosen in your pipeline topology file.
 1. Select the video.
 1. On the video details page, click the **Play** icon
-
+1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon (circled in red)
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="Screenshot of video playback":::
-   
-1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Bounding box icon":::
 
 > [!NOTE]
 > Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.

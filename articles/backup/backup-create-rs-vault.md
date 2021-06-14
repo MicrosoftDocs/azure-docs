@@ -2,7 +2,7 @@
 title: Create and configure Recovery Services vaults
 description: In this article, learn how to create and configure Recovery Services vaults that store the backups and recovery points. Learn how to use Cross Region Restore to restore in a secondary region.
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 06/01/2021
 ms.custom: references_regions 
 ---
 
