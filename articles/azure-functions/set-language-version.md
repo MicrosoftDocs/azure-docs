@@ -34,8 +34,7 @@ For .NET, the language version is defined by the runtime version of your functio
 
 
 
-::: zone pivot="programming-language-python, programming-language-javascript,programming-language-powershell, programming-language-java,
-programming-language-csharp"
+::: zone pivot="programming-language-python, programming-language-javascript,programming-language-powershell, programming-language-java,programming-language-csharp"
 ## Update functions app language version on Linux
 
 To set a Linux function app to a specific language version, you specify the language as well as the version of the language in 'LinuxFxVersion' field in site config. For example: if we want to pin a node 10 function app with latest runtime version
