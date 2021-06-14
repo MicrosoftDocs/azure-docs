@@ -59,7 +59,7 @@ MySQL server default configurations may not adequately support a workload. There
 
   - **skip\_name\_resolve**: user to perform client hostname resolution. If the DNS is slow, the connection will be slow. When disabling name resolution, the GRANT statements must use IP addresses only. Any GRANT statements made previously would need to be redone to use the IP.
 
-Run the following command to export the server parameters to a file for review. Using some simple parsing, the output can be used to reapply the same server parameters after the migration, if appropriate to the Azure Database for MySQL server. Reference [Configure server parameters in Azure Database for MySQL using the Azure portal.](../howto-server-parameters.md)
+Run the following command to export the server parameters to a file for review. Using some simple parsing, the output can be used to reapply the same server parameters after the migration, if appropriate to the Azure Database for MySQL server. Reference [Configure server parameters in Azure Database for MySQL using the Azure portal](../../howto-server-parameters.md).
 
 `mysql -u root -p -A -e "SHOW GLOBAL VARIABLES;" > settings.txt`
 
@@ -67,7 +67,7 @@ The MySQL 5.5.60 default installed server parameters can be found in the [append
 
 Before migration begins, export the source MySQL configuration settings. Compare those values to the Azure landing zone instance settings after the migration. If any settings were modified from the default in the target Azure landing zone instance, ensure that these are set back after the migration. Also, the migration user should verify the server parameters can be set before the migration.
 
-For a list of server parameters that cannot be configured, reference [Non-configurable server parameters.](../concepts-server-parameters.md#non-configurable-server-parameters)
+For a list of server parameters that cannot be configured, reference [Non-configurable server parameters](../../concepts-server-parameters.md#non-configurable-server-parameters).
 
 ### Egress and Ingress
 
@@ -75,13 +75,13 @@ For each respective data migration tool and path, the source and the target MySQ
 
 Review any timeout parameters that may be affected by the datasets. These include:
 
-  - [connect\_timeout ](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_connect_timeout)
+  - [connect\_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_connect_timeout)
 
-  - [wait\_timeout ](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout)
+  - [wait\_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout)
 
 Additionally, review any parameters that will affect maximums:
 
-  - [max\_allowed\_packet ](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet)
+  - [max\_allowed\_packet](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet)
 
 > [!NOTE]
 > A common migration error is `MySQL server has gone away`. The parameters mentioned here are the typical culprits for resolving this error.
