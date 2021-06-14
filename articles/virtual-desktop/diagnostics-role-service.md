@@ -3,7 +3,7 @@ title: Azure Virtual Desktop diagnose issues - Azure
 description: How to use the Azure Virtual Desktop diagnostics feature to diagnose issues.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 05/12/2021
+ms.date: 06/14/2021
 ms.author: helohr
 manager: femila
 ---
