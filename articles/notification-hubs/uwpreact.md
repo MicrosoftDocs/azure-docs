@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/14/2021
 ms.custom: template-concept
 ---
 
@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 This article provides an overview of the Azure Notification Hub sample application built to demonstrate the capabilities of Azure Notification Hub on multiple platforms. The application uses a land survey scenario, in which the desktop **Contoso Land Survey** application sends notifications, which both Android and iOS Contoso applications can receive.
 
-You can download the [complete sample from GitHub](https://github.com/Azure/azure-notificationhubs-samples/NotificationHubSample).
+You can download the [complete sample from GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/main/NotificationHubSample).
 
 ## Prerequisites
 
