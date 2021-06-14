@@ -81,9 +81,9 @@ A private link resource is the destination target of a given private endpoint. T
 |**Cognitive Services** | (Microsoft.CognitiveServices/accounts    | account |
 |**Azure File Sync** | Microsoft.StorageSync/storageSyncServices    | Afs |
     
-  
-
-  
+>[!NOTE]
+> You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
+ 
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
