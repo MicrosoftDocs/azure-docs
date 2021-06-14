@@ -238,17 +238,17 @@ private MeetingUIClient createMeetingClient() {
 
 private Map<IconType, Integer> getIconConfig() {
     Map<IconType, Integer> iconConfig = new HashMap<>();
-    iconConfig.put(IconType.VIDEO_OFF, R.drawable.video_camera_off);
-    iconConfig.put(IconType.VIDEO_ON, R.drawable.video_camera);
-    iconConfig.put(IconType.MIC_ON, R.drawable.microphone_fill);
-    iconConfig.put(IconType.MIC_OFF, R.drawable.microphone_off);
-    iconConfig.put(IconType.MIC_PROHIBITED, R.drawable.mic_none);
-    iconConfig.put(IconType.DEVICE_AUDIO, R.drawable.device_filled);
-    iconConfig.put(IconType.SPEAKER, R.drawable.volume_high);
-    iconConfig.put(IconType.SPEAKER_OFF, R.drawable.speaker_off);
-    iconConfig.put(IconType.HEADSET, R.drawable.headset);
-    iconConfig.put(IconType.BLUETOOTH, R.drawable.bluetooth_audio);
-    iconConfig.put(IconType.HANGUP, R.drawable.close_app_bar);
+    iconConfig.put(MeetingUIClientIconType.VIDEO_OFF, R.drawable.video_camera_off);
+    iconConfig.put(MeetingUIClientIconType.VIDEO_ON, R.drawable.video_camera);
+    iconConfig.put(MeetingUIClientIconType.MIC_ON, R.drawable.microphone_fill);
+    iconConfig.put(MeetingUIClientIconType.MIC_OFF, R.drawable.microphone_off);
+    iconConfig.put(MeetingUIClientIconType.MIC_PROHIBITED, R.drawable.mic_none);
+    iconConfig.put(MeetingUIClientIconType.DEVICE_AUDIO, R.drawable.device_filled);
+    iconConfig.put(MeetingUIClientIconType.SPEAKER, R.drawable.volume_high);
+    iconConfig.put(MeetingUIClientIconType.SPEAKER_OFF, R.drawable.speaker_off);
+    iconConfig.put(MeetingUIClientIconType.HEADSET, R.drawable.headset);
+    iconConfig.put(MeetingUIClientIconType.BLUETOOTH, R.drawable.bluetooth_audio);
+    iconConfig.put(MeetingUIClientIconType.HANGUP, R.drawable.close_app_bar);
     return iconConfig;
 }
 ```

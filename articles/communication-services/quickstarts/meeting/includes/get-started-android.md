@@ -153,7 +153,7 @@ Add `.TeamsEmbedAndroidGettingStarted` to `android:name`, `android:name` to `too
 
 ### Set up the layout for the app
 
-Create a button with an ID of `join_meeting`. Navigate to the layout file (`app/src/main/res/layout/activity_main.xml`) and replace the content of file with the following:
+Create a button with an ID of `join_meeting`. Navigate to the layout file (`app/src/main/res/layout/activity_main.xml`) and replace the content of file with the following code:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### Request permissions at runtime
 
-For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, permissions are granted at runtime instead of when the app is installed. To support this, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
+For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, permissions are granted at runtime instead of when the app is installed. To request permissions, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
 
 ```java
 /**
@@ -270,13 +270,13 @@ The following classes and interfaces handle some of the major features of the Az
 | MeetingUIClientInCallScreenProvider | MeetingUIClientInCallScreenProvider is used to provide customizations on main call screen in the UI. |
 | MeetingUIClientStagingScreenProvider | MeetingUIClientStagingScreenProvider is used to provide customizations on staging call screen in the UI. |
 | MeetingUIClientConnectingScreenProvider | MeetingUIClientConnectingScreenProvider is used to provide customizations on connecting call screen in the UI. |
-| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app specific icon. |
-| MeetingUIClientCall | MeetingUIClientCall describes the call and provides API's to control it. |
+| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app-specific icon. |
+| MeetingUIClientCall | MeetingUIClientCall describes the call and provides APIs to control it. |
 | MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `CONNECTING`, `WAITING_IN_LOBBY`, `CONNECTED`, and `ENDED`. |
 | MeetingUIClientUserRole | MeetingUIClientUserRole is used for setting the user roles in group call. |
 | MeetingUIClientAudioRoute | MeetingUIClientAudioRoute is used for local audio routes like `Earpiece` or `SpeakerOn`. |
 | MeetingUIClientLayoutMode | MeetingUIClientLayoutMode is used for allowing to select different in call UI modes. |
-| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize is used notify what kind of size avatar is requested by a delegate. |
+| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize is used to notify what kind of size avatar is requested by a delegate. |
 | MeetingUIClientCallEventListener | The MeetingUIClientCallEventListener is used to receive events, such as changes in call state. |
 | MeetingUIClientCallIdentityProvider | The MeetingUIClientCallIdentityProvider is used to map user details to the users in a meeting. |
 | MeetingUIClientCallUserEventListener | The MeetingUIClientCallUserEventListener provides information about user actions in the UI. |
@@ -339,7 +339,7 @@ private void joinMeeting() {
 
 ### Get a Microsoft Teams meeting link
 
-A Microsoft Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+A Microsoft Teams meeting link can be retrieved using Graph APIs. The steps a meeting link are detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
 The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
@@ -359,7 +359,7 @@ The Microsoft Teams SDK supports over 100 strings in over 50 languages. By defau
 
 1. Determine the list of languages your app supports
 2. Open MicrosoftTeamsSDK.gradle file
-3. In the defaultConfig block the resConfigs property is set to "en" by default. Add the languages that your app needs. Reference: [Android Documentation](https://developer.android.com/studio/build/shrink-code#unused-alt-resources)
+3. In the defaultConfig block, the resConfigs property is set to "en" by default. Add the languages that your app needs. Reference: [Android Documentation](https://developer.android.com/studio/build/shrink-code#unused-alt-resources)
 
 ## Sample Code
 
