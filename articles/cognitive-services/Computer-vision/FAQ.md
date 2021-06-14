@@ -17,7 +17,7 @@ ms.custom: seodec18
 # Computer Vision API Frequently Asked Questions
 
 > [!TIP]
-> If you can't find answers to your questions in this FAQ, try asking the Computer Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on UserVoice
+> If you can't find answers to your questions in this FAQ, try asking the Computer Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
 
 ---
 
@@ -30,7 +30,7 @@ ms.custom: seodec18
 
 **Question**: *Can I deploy the OCR (Read) capability on-premise?*
 
-**Answer**: Yes, the OCR (Read) cloud API is also available as a Docker container for on-premise deployment. Learn [how to deploy the OCR containers](/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers).
+**Answer**: Yes, the OCR (Read) cloud API is also available as a Docker container for on-premise deployment. Learn [how to deploy the OCR containers](./computer-vision-how-to-install-containers.md).
 
 ---
 
@@ -39,4 +39,3 @@ ms.custom: seodec18
 **Answer**: The Vision API includes the deep learning powered OCR capabilities with the latest Read feature. We are constantly trying to improve our services to work across all scenarios.
 
 ---
-

@@ -57,6 +57,28 @@ For more information about how to encode and decode messages sent using differen
 | dt-dataschema | This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. | No | $dt-dataschema |
 | dt-subject | The name of the component that is sending the device-to-cloud messages. | Yes | $dt-subject |
 
+## Application Properties of **D2C** IoT Hub messages
+
+A common use of application properties is to send a timestamp from the device using the `iothub-creation-time-utc` property to record when the message was sent by the device. The format of this timestamp must be UTC with no timezone information. For example, `2021-04-21T11:30:16Z` is valid, `2021-04-21T11:30:16-07:00` is invalid:
+
+```json
+{
+  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
+  "messageSource":"telemetry",
+  "deviceId":"sample-device-01",
+  "schema":"default@v1",
+  "templateId":"urn:modelDefinition:mkuyqxzgea:e14m1ukpn",
+  "enqueuedTime":"2021-01-29T16:45:39.143Z",
+  "telemetry":{
+    "temperature":8.341033560421833
+  },
+  "messageProperties":{
+    "iothub-creation-time-utc":"2021-01-29T16:45:39.021Z"
+  },
+  "enrichments":{}
+}
+```
+
 ## System Properties of **C2D** IoT Hub messages
 
 | Property | Description  |User Settable?|

@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Use your own data"
+title: "Tutorial: Upload data and train a model"
 titleSuffix: Azure Machine Learning
-description: Part 3 of the Azure Machine Learning get-started series shows how to use your own data in a remote training run.
+description: How to upload and use your own data in a remote training run. This is part 3 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,22 +10,18 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/29/2021
-ms.custom: tracking-python, contperf-fy21q3
+ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Tutorial: Use your own data (part 3 of 3)
+# Tutorial: Upload data and train a model (part 3 of 3)
 
-This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning.
+This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is *part 3 of a three-part tutorial series*.  
 
-This tutorial is *part 3 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work you completed in [Part 1: Run "Hello World!"](tutorial-1st-experiment-hello-world.md), and [Part 2: Train a model](tutorial-1st-experiment-sdk-train.md).
-
-In [Part 2: Train a model](tutorial-1st-experiment-sdk-train.md), data was downloaded through the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you'll want to use your own data in a remote training run. This article shows the workflow that you can use to work with your own data in Azure Machine Learning.
+In [Part 2: Train a model](tutorial-1st-experiment-sdk-train.md), you trained a model in the cloud, using sample data from `PyTorch`.  You also downloaded that data through the `torchvision.datasets.CIFAR10` method in the PyTorch API. In this tutorial, you'll use the downloaded data to learn the workflow for working with your own data in Azure Machine Learning.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Configure a training script to use data in a local directory.
-> * Test the training script locally.
 > * Upload data to Azure.
 > * Create a control script.
 > * Understand the new Azure Machine Learning concepts (passing parameters, datasets, datastores).
@@ -171,7 +167,7 @@ To run this script in Azure Machine Learning, you need to make your training dat
 >[!NOTE] 
 > Azure Machine Learning allows you to connect other cloud-based datastores that store your data. For more details, see the [datastores documentation](./concept-data.md).  
 
-1. Create a new Python control script called *upload-data.py* in the **get-started** folder:
+1. Create a new Python control script in the **get-started** folder (make sure it is in **get-started**, *not* in the **/src** folder).  Name the script *upload-data.py* and copy this code into the file:
     
     ```python
     # upload-data.py
@@ -245,6 +241,9 @@ if __name__ == "__main__":
     print("")
     print(aml_url)
 ```
+
+> [!TIP]
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
 
 ### Understand the code changes
 

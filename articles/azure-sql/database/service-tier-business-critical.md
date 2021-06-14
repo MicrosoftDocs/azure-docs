@@ -4,13 +4,13 @@ titleSuffix:  Azure SQL Database & Azure SQL Managed Instance
 description: Learn about the business critical service tier for Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/04/2018
 ---
 # Business Critical tier - Azure SQL Database and Azure SQL Managed Instance 

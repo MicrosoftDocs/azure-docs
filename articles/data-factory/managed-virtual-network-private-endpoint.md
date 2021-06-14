@@ -5,7 +5,7 @@ ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions]
+ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell]
 ms.date: 07/15/2020
 ---
 
@@ -29,7 +29,13 @@ Benefits of using Managed Virtual Network:
 - Managed Virtual Network along with Managed private endpoints protects against data exfiltration. 
 
 > [!IMPORTANT]
->Currently, the managed VNet is only supported in the same region as Azure Data Factory region.
+>Currently, the managed Virtual Network is only supported in the same region as Azure Data Factory region.
+
+> [!Note]
+>As Azure Data Factory managed Virtual Network is still in public preview, there is no SLA guarantee.
+
+> [!Note]
+>Existing public Azure integration runtime can't switch to Azure integration runtime in Azure Data Factory managed virtual network and vice versa.
  
 
 ![ADF Managed Virtual Network architecture](./media/managed-vnet/managed-vnet-architecture-diagram.png)
@@ -52,7 +58,7 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 > [!WARNING]
 > If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using a managed private endpoint. If a private endpoint does not already exist, you must create one in such scenarios. 
 
-A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
+A private endpoint connection is created in a "Pending" state when you create a managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 
 ![Manage private endpoint](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
 
@@ -66,6 +72,11 @@ Only a Managed private endpoint in an approved state can send traffic to a given
 Interactive authoring capabilities is used for functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when creating or editing an Azure Integration Runtime which is in ADF-managed virtual network. The backend service will pre-allocate compute for interactive authoring functionalities. Otherwise, the compute will be allocated every time any interactive operation is performed which will take more time. The Time To Live (TTL) for interactive authoring is 60 minutes, which means it will automatically become disabled after 60 minutes of the last interactive authoring operation.
 
 ![Interactive authoring](./media/managed-vnet/interactive-authoring.png)
+
+## Activity execution time using managed virtual network
+By design, Azure integration runtime in managed virtual network takes longer queue time than public Azure integration runtime as we are not reserving one compute node per data factory, so there is a warm up for each activity to start, and it occurs primarily on virtual network join rather than Azure integration runtime. For non-copy activities including pipeline activity and external activity, there is a 60 minutes Time To Live (TTL) when you trigger them at the first time. Within TTL, the queue time is shorter because the node is already warmed up. 
+> [!NOTE]
+> Copy activity doesn't have TTL support yet.
 
 ## Create managed virtual network via Azure PowerShell
 ```powershell
@@ -113,7 +124,7 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 ## Limitations and known issues
 ### Supported Data Sources
-Below data sources are supported to connect through private link from ADF Managed Virtual Network.
+Below data sources have native Private Endpoint support and can be connected through private link from ADF Managed Virtual Network.
 - Azure Blob Storage (not including Storage account V1)
 - Azure Table Storage (not including Storage account V1)
 - Azure Files (not including Storage account V1)
@@ -127,6 +138,16 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
+- Azure Machine Learning
+
+> [!Note]
+> You still can access all data sources that are supported by Data Factory through public network.
+
+> [!NOTE]
+> Because Azure SQL Managed Instance doesn't support native Private Endpoint right now, you can access it from managed Virtual Network using Private Linked Service and Load Balancer. Please see [How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint](tutorial-managed-virtual-network-sql-managed-instance.md).
+
+### On premises Data Sources
+To access on premises data sources from managed Virtual Network using Private Endpoint, please see this tutorial [How to access on premises SQL Server from Data Factory Managed VNET using Private Endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md).
 
 ### Azure Data Factory Managed Virtual Network is available in the following Azure regions:
 - Australia East
@@ -136,12 +157,15 @@ Below data sources are supported to connect through private link from ADF Manage
 - Canada East
 - Central India
 - Central US
+- East Asia
 - East US
 - East US2
 - France Central
+- Germany West Central
 - Japan East
 - Japan West
 - Korea Central
+- North Central US
 - North Europe
 - Norway East
 - South Africa North

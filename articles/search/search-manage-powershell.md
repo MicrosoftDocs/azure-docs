@@ -9,7 +9,8 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 02/09/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage your Azure Cognitive Search service with PowerShell

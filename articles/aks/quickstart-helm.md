@@ -83,7 +83,7 @@ To connect a Kubernetes cluster locally, use the Kubernetes command-line client,
 
 ## Download the sample application
 
-This quickstart uses [an example Node.js application from the Azure Dev Spaces sample repository][example-nodejs]. Clone the application from GitHub and navigate to the `dev-spaces/samples/nodejs/getting-started/webfrontend` directory.
+This quickstart uses [an example Node.js application][example-nodejs]. Clone the application from GitHub and navigate to the `dev-spaces/samples/nodejs/getting-started/webfrontend` directory.
 
 ```console
 git clone https://github.com/Azure/dev-spaces

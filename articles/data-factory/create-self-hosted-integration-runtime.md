@@ -5,7 +5,8 @@ ms.service: data-factory
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 02/10/2021
+ms.date: 02/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create and configure a self-hosted integration runtime
@@ -186,6 +187,9 @@ Here are details of the application's actions and arguments:
     2. Optionally, select **Show authentication key** to see the key text.
 
     3. Select **Register**.
+
+> [!NOTE]
+> Release Notes are available on the same [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Service account for Self-hosted integration runtime
 

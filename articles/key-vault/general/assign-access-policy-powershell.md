@@ -9,7 +9,8 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 
 ---

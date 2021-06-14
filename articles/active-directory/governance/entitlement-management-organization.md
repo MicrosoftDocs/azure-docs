@@ -3,7 +3,7 @@ title: Add a connected organization in Azure AD entitlement management - Azure A
 description: Learn how to allow people outside your organization to request access packages so that you can collaborate on projects.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/11/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 

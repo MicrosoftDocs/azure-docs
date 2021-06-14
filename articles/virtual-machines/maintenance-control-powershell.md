@@ -7,7 +7,8 @@ ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 #pmcontact: shants
 ---
 

@@ -21,11 +21,14 @@ ms.author: yelevin
 
 # Bring your own Machine Learning (ML) into Azure Sentinel
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 Machine Learning (ML) is one of the major underpinnings of Azure Sentinel, and one of the main attributes that set it apart. Azure Sentinel offers ML in several experiences: built-in to the [Fusion](fusion.md) correlation engine and Jupyter notebooks, and the newly available Build-Your-Own ML (BYO ML) platform. 
 
 ML detection models can adapt to individual environments and to changes in user behavior, to reduce [false positives](false-positives.md) and identify threats that wouldn't be found with a traditional approach. Many security organizations understand the value of ML for security, though not many of them have the luxury of professionals who have expertise in both security and ML. We designed the framework presented here for security organizations and professionals to grow with us in their ML journey. Organizations new to ML, or without the necessary expertise, can get significant protection value out of Azure Sentinel's built-in ML capabilities.
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="machine learning framework":::
+
 
 ## What is the Bring Your Own Machine Learning (BYO-ML) platform?
 

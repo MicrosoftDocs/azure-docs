@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/11/2021
+ms.date: 06/03/2021
 ms.custom: devx-track-python
 ---
 
@@ -17,10 +17,12 @@ ms.custom: devx-track-python
 
 In this article, learn how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
 
-> [!WARNING]
-> Access to data storage behind a firewall is only supported in code first experiences. Using the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) to access data behind a firewall is not supported. To work with data storage on a private network with the studio, you must first [set up a virtual network](../virtual-network/quick-create-portal.md) and [give the studio access to data stored inside of a virtual network](how-to-enable-studio-virtual-network.md).
-
 ## Azure Firewall
+
+> [!IMPORTANT]
+> Azure Firewall is an Azure service that provides security _for Azure Virtual Network resources_. Some other Azure Services, such as Azure Storage Accounts, have their own firewall settings that _apply to the public endpoint for that specific service instance_. The information in this document is specific to Azure Firewall.
+> 
+> For information on service instance firewall settings, see [Use studio in a virtual network](how-to-enable-studio-virtual-network.md#firewall-settings).
 
 When using Azure Firewall, use __destination network address translation (DNAT)__ to create NAT rules for inbound traffic. For outbound traffic, create __network__ and/or __application__ rules. These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
@@ -102,6 +104,18 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
 
 1. To restrict access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
+### Diagnostics for support
+
+If you need to gather diagnostics information when working with Microsoft support, use the following steps:
+
+1. Add a __Network rule__ to allow traffic to and from the `AzureMonitor` tag.
+1. Add __Application rules__ for the following hosts. Select __http, https__ for the __Protocol:Port__ for these hosts:
+
+    + **dc.applicationinsights.azure.com**
+    + **dc.applicationinsights.microsoft.com**
+    + **dc.services.visualstudio.com**
+
+    For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ## Other firewalls
 
 The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
@@ -143,7 +157,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | Compute instance | \*.instances.azureml.ms |  |  |
 
 > [!IMPORTANT]
-> Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ port __18881__.
+> Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ ports __18881, 443, and 8787__.
 
 **Associated resources used by Azure Machine Learning**
 
@@ -162,6 +176,8 @@ Also, use the information in [forced tunneling](how-to-secure-training-vnet.md#f
 
 For information on restricting access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
+> [!TIP]
+> If you are working with Microsoft Support to gather diagnostics information, you must allow outbound traffic to the IP addresses used by Azure Monitor hosts. For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ### Python hosts
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 

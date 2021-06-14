@@ -2670,7 +2670,7 @@ And returns this result:
 
 This example uses the `json()` and `xml()` functions to convert XML that has a single child element in the root element into a JSON object named `person` for that child element:
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 And returns this result:
 
@@ -2693,7 +2693,7 @@ And returns this result:
 
 This example uses the `json()` and `xml()` functions to convert XML that has multiple child elements in the root element into an array named `person` that contains JSON objects for those child elements:
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id="2"> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 And returns this result:
 
@@ -4884,10 +4884,9 @@ xml('<value>')
 
 *Example 1*
 
-This example creates the XML version for this string,
-which contains a JSON object:
+This example converts the string to XML:
 
-`xml(json('{ \"name\": \"Sophia Owen\" }'))`
+`xml('<name>Sophia Owen</name>')`
 
 And returns this result XML:
 
@@ -4896,6 +4895,19 @@ And returns this result XML:
 ```
 
 *Example 2*
+
+This example creates the XML version for this string,
+which contains a JSON object:
+
+`xml(json('{ "name": "Sophia Owen" }'))`
+
+And returns this result XML:
+
+```xml
+<name>Sophia Owen</name>
+```
+
+*Example 3*
 
 Suppose you have this JSON object:
 
@@ -4910,7 +4922,7 @@ Suppose you have this JSON object:
 
 This example creates XML for a string that contains this JSON object:
 
-`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
+`xml(json('{"person": {"name": "Sophia Owen", "city": "Seattle"}}'))`
 
 And returns this result XML:
 

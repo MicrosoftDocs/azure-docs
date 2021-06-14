@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Train your first machine learning model - Python"
+title: "Tutorial: Train a first Python machine learning model "
 titleSuffix: Azure Machine Learning
-description: Part 2 of the Azure Machine Learning get-started series shows how to train a machine learning model.
+description: How to train a machine learning model in Azure Machine Learning. This is part 2 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python, contperf-fy21q3
+ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
 ---
 
 # Tutorial: Train your first machine learning model (part 2 of 3)
 
-This tutorial shows you how to train a machine learning model in Azure Machine Learning.
+This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
 
-This tutorial is *part 2 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work that you completed in [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series.
+ In [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series, you learned how to use a control script to run a job in the cloud.  
 
 In this tutorial, you take the next step by submitting a script that trains a machine learning model. This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
 
@@ -177,6 +177,9 @@ if __name__ == "__main__":
     aml_url = run.get_portal_url()
     print(aml_url)
 ```
+
+> [!TIP]
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
 
 ### Understand the code changes
 
@@ -344,8 +347,7 @@ This time when you visit the studio, go to the **Metrics** tab where you can now
 
 ## Next steps
 
-In this session, you upgraded from a basic "Hello world!" script to a more realistic training script that required a specific Python environment to run. You saw how to take a local Conda environment to the cloud with Azure Machine Learning environments. Finally, you
-saw how in a few lines of code you can log metrics to Azure Machine Learning.
+In this session, you upgraded from a basic "Hello world!" script to a more realistic training script that required a specific Python environment to run. You saw how to use curated Azure Machine Learning environments. Finally, you saw how in a few lines of code you can log metrics to Azure Machine Learning.
 
 There are other ways to create Azure Machine Learning environments, including [from a pip requirements.txt](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) file or [from an existing local Conda environment](/python/api/azureml-core/azureml.core.environment.environment#from-existing-conda-environment-name--conda-environment-name-).
 
