@@ -27,6 +27,10 @@ The Microsoft identity platform performs identity and access management (IAM) on
 ## Prerequisites
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The Azure account must have permission to manage applications in Azure Active Directory (Azure AD):
+  - [Application administrator](../roles/permissions-reference.md#application-administrator). 
+  - [Application developer](../roles/permissions-reference.md#application-developer).
+  - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator).
 - Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
 
 ## Register an application
