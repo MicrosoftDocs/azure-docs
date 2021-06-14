@@ -113,7 +113,7 @@ uncompressed.
 ### Custom Guest Configuration configuration on Linux
 
 Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine with the
-name of the [InSpec profile](https://www.inspec.io/docs/reference/profiles/). **Name** is the only
+name of the [InSpec profile](https://docs.chef.io/inspec/profiles/). **Name** is the only
 required resource property. Create a YAML file and a Ruby script file, as detailed below.
 
 First, create the YAML file used by InSpec. The file provides basic information about the
