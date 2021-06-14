@@ -29,7 +29,7 @@ SIEM/SOC teams are typically inundated with security alerts and incidents on a r
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
-A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
+A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
 
 Playbooks are created and applied at the subscription level, but the **Playbooks** tab (in the new **Automation** blade) displays all the playbooks available across any selected subscriptions.
 
