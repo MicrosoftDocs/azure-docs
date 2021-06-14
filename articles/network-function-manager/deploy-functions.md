@@ -5,7 +5,7 @@ description: In this tutorial, learn how to deploy a network function as a manag
 author: cherylmc
 ms.service: vnf-manager
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 06/14/2021
 ms.author: cherylmc
 
 ---
@@ -36,7 +36,7 @@ In this tutorial, you learn how to deploy a network function on Azure Stack Edge
    :::image type="content" source="./media/deploy-functions/select.png" alt-text="Screenshot of vendor SKU." lightbox="./media/deploy-functions/select.png":::
 1. Depending on the selected SKU, you will be redirected to the Marketplace portal for the network function managed application.
  
-   Every network function partner will have different requirements for deploying their network function on Azure Stack Edge. Additionally, some network functions such as Mobile Packet Core and SD-WAN edge, may require you to configure management, LAN, and WAN ports and allocate IP addresses on these ports before you deploy the network functions. Check with your partner on the required properties and Azure Stack Edge device network configuration.
+   Every network function partner will have different requirements for deploying their network function on Azure Stack Edge. Additionally, some network functions such as mobile packet core and SD-WAN edge, may require you to configure management, LAN, and WAN ports and allocate IP addresses on these ports before you deploy the network functions. Check with your partner on the required properties and Azure Stack Edge device network configuration.
    
    > [!IMPORTANT]
    > For all network functions that support static IP address for management, LAN, or WAN virtual network interfaces, ensure that you don’t use the first four IP addresses from the IP address range assigned for the specific port. These IP addresses are reserved IP address for the Azure Stack Edge service.
