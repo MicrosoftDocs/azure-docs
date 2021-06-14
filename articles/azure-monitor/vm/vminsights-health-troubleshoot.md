@@ -105,7 +105,7 @@ Verify that the system assigned identity is enabled on the virtual machine. Sele
 
 ![System assigned identity](media/vminsights-health-troubleshoot/system-identity.png)
 
-##### Verify data collection rule
+#### Verify data collection rule
 Verify that the data collection rule specifying health extension as a data source is associated with the virtual machine.
 
 ### Error message for bad request due to insufficient permissions
