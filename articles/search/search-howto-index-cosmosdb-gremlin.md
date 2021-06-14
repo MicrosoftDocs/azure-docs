@@ -34,7 +34,7 @@ By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make ev
 
 ### Step 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header). You can use [Postman](search-get-started-postman.md) or any REST API client to send HTTPS requests to Azure Cognitive Search.
+For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header). You can use [Postman](./search-get-started-rest.md) or any REST API client to send HTTPS requests to Azure Cognitive Search.
 
 Copy and save the following values for use in your request:
 

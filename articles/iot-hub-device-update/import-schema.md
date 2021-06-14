@@ -54,7 +54,7 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 
 ## Example import request body
 
-If you are using the sample import manifest output from the [How to add a new update](./import-update.md#review-the-generated-import-manifest) page, and want to call the Device Update [REST API](https://docs.microsoft.com/rest/api/deviceupdate/updates) directly to perform the import, the corresponding request body should look like this:
+If you are using the sample import manifest output from the [How to add a new update](./import-update.md#review-the-generated-import-manifest) page, and want to call the Device Update [REST API](/rest/api/deviceupdate/updates) directly to perform the import, the corresponding request body should look like this:
 
 ```json
 {

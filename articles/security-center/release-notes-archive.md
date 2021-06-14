@@ -696,7 +696,7 @@ Learn more about Security Center's container security in the following articles:
 - [Details of the integration with Azure Container Registry](defender-for-container-registries-introduction.md)
 - [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
 - [How-to scan your registries and harden your Docker hosts](container-security.md)
-- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-akscluster)
+- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-k8scluster)
 - [Security alerts from the threat protection features for Azure Kubernetes Service hosts](alerts-reference.md#alerts-containerhost)
 - [Security recommendations for containers](recommendations-reference.md#recs-compute)
 
@@ -786,7 +786,7 @@ The recommendations also include the Quick fix capability to help speed up the d
 
 Learn more about these two new recommendations in the [Compute and app recommendations](recommendations-reference.md#recs-compute) table.
 
-Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent).
+Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](./faq-data-collection-agents.yml#what-is-the-log-analytics-agent-).
 
 Learn more about [extensions for Azure Arc machines](../azure-arc/servers/manage-vm-extensions.md).
 

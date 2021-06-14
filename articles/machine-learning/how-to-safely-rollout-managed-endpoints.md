@@ -51,7 +51,7 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 * If you have not already set the environment variable $ENDPOINT_NAME, do so now:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
 
 * (Recommended) Clone the samples repository and switch to the repository's `cli/` directory: 
 
@@ -60,7 +60,7 @@ git clone https://github.com/Azure/azureml-examples
 cd azureml-examples/cli
 ```
 
-The commands in this tutorial are in the file `how-to-deploy-declarative-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/canary-declarative-flow/` subdirectory.
+The commands in this tutorial are in the file `deploy-declarative-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/canary-declarative-flow/` subdirectory.
 
 ## Confirm your existing deployment is created
 
@@ -80,7 +80,7 @@ In the deployment described in [Deploy and score a machine learning model with a
 
 Update the deployment with:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 
 > [!IMPORTANT]
 > Update using the YAML is declarative. That is, changes in the YAML will be reflected in the underlying Azure Resource Manager resources (endpoints & deployments). This approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *ALL* changes to endpoints/deployments go through the YAML (even `instance_count`). As a side effect, if you remove a deployment from the YAML and run `az ml endpoint update` using the file, that deployment will be deleted. 
@@ -93,13 +93,13 @@ To deploy your new model, add a new section to the `deployments` section of your
 
 Update the deployment: 
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="create_green" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="create_green" :::
 
 ### Test the new deployment
 
 The configuration specified 0% traffic to your just-created `green` deployment. To test it, you can invoke it directly by specifying the `--deployment` name:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="test_green" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="test_green" :::
 
 If you want to use a REST client to invoke the deployment directly without going through traffic rules, set the following HTTP header: `azureml-model-deployment: <deployment-name>`.
 
@@ -111,7 +111,7 @@ Once you have tested your `green` deployment, the `4-flight-green.yml` file demo
 
 Other than the highlighted lines, the configuration file is otherwise unchanged. Update your deployment with:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
 
 Now, your `green` deployment will receive 10% of requests. 
 
@@ -123,7 +123,7 @@ Once you're satisfied that your `green` deployment is fully satisfactory, switch
 
 And update the deployment: 
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
 
 ## Remove the old deployment
 
@@ -133,10 +133,10 @@ Complete the swap-over to your new model by deleting the older `blue` deployment
 
 Update the deployment with:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
 
 ## Delete the endpoint and deployment
 
 If you are not going use the deployment, you should delete it with:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
