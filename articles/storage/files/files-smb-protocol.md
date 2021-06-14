@@ -58,7 +58,7 @@ SMB protocol settings can be toggled via the Azure PowerShell module.
 
 To changing the SMB protocol settings, you must [install the 3.7.1-preview version](https://www.powershellgallery.com/packages/Az.Storage/3.7.1-preview) of the Azure Storage PowerShell module.
 
-Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment befor running these PowerShell commands.
+Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
 
 ```PowerShell
 $resourceGroupName = "<resource-group>"
