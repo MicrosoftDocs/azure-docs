@@ -13,7 +13,7 @@ ms.service: iot-hub-device-update
 Device Update for IoT Hub uses [IoT Plug and Play](../iot-pnp/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
 
 Concepts: 
-* Understand the [IoT Plug and Play device client](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device?pivots=programming-language-csharp#implement-telemetry,-properties,-and-commands). 
+* Understand the [IoT Plug and Play device client](../iot-pnp/concepts-developer-guide-device.md?pivots=programming-language-csharp#implement-telemetry-properties-and-commands). 
 * See how the [Device Update agent is implemented](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
 ## ADU Core Interface
@@ -77,7 +77,7 @@ IoT Hub Device Twin sample
 ```
 
 Note: 
-The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component, learn more [here](https://docs.microsoft.com/azure/iot-pnp/concepts-convention#sample-multiple-components-writable-property).
+The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component, learn more [here](../iot-pnp/concepts-convention.md#sample-multiple-components-writable-property).
 
 ### Service Metadata
 

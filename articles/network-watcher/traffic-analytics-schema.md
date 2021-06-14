@@ -174,5 +174,5 @@ Listed below are the fields in the schema and what they signify
 1. Some field names are appended with \_s or \_d. These do NOT signify source and destination but indicate the data types string and decimal respectively.
 
 ### Next Steps
-To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.md)
+To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.yml)
 To see details about functionality, see [Traffic analytics documentation](traffic-analytics.md)

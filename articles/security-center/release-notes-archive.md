@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/04/2021
+ms.date: 06/14/2021
 ms.author: memildin
 
 ---
@@ -20,6 +20,175 @@ This page provides you with information about:
 - Bug fixes
 - Deprecated functionality
 
+## December 2020
+
+Updates in December include:
+
+- [Azure Defender for SQL servers on machines is generally available](#azure-defender-for-sql-servers-on-machines-is-generally-available)
+- [Azure Defender for SQL support for Azure Synapse Analytics dedicated SQL pool is generally available](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Global Administrators can now grant themselves tenant-level permissions](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
+- [Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
+- [New security alerts page in the Azure portal (preview)](#new-security-alerts-page-in-the-azure-portal-preview)
+- [Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
+- [Asset inventory tools and filters updated](#asset-inventory-tools-and-filters-updated)
+- [Recommendation about web apps requesting SSL certificates no longer part of secure score](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
+- [Recommendations page has new filters for environment, severity, and available responses](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)
+- [Continuous export gets new data types and improved deployifnotexist policies](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
+
+
+### Azure Defender for SQL servers on machines is generally available
+
+Azure Security Center offers two Azure Defender plans for SQL Servers:
+
+- **Azure Defender for Azure SQL database servers** - defends your Azure-native SQL Servers 
+- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multi-cloud, and on-premises environments
+
+With this announcement, **Azure Defender for SQL** now protects your databases and their data wherever they're located.
+
+Azure Defender for SQL includes vulnerability assessment capabilities. The vulnerability assessment tool includes the following advanced features:
+
+- **Baseline configuration** (New!) to intelligently refine the results of vulnerability scans to those that might represent real security issues. After you've established your baseline security state, the vulnerability assessment tool only reports deviations from that baseline state. Results that match the baseline are considered as passing subsequent scans. This lets you and your analysts focus your attention where it matters.
+- **Detailed benchmark information** to help you *understand* the discovered findings, and why they relate to your resources.
+- **Remediation scripts** to help you mitigate identified risks.
+
+Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
+
+
+### Azure Defender for SQL support for Azure Synapse Analytics dedicated SQL pool is generally available
+
+Azure Synapse Analytics (formerly SQL DW) is an analytics service that combines enterprise data warehousing and big data analytics. Dedicated SQL pools are the enterprise data warehousing features of Azure Synapse. Learn more in [What is Azure Synapse Analytics (formerly SQL DW)?](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+
+Azure Defender for SQL protects your dedicated SQL pools with:
+
+- **Advanced threat protection** to detect threats and attacks 
+- **Vulnerability assessment capabilities** to identify and remediate security misconfigurations
+
+Azure Defender for SQL's support for Azure Synapse Analytics SQL pools is automatically added to Azure SQL databases bundle in Azure Security Center. You'll find a new “Azure Defender for SQL” tab in your Synapse workspace page in the Azure portal.
+
+Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
+
+
+### Global Administrators can now grant themselves tenant-level permissions
+
+A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
+
+To assign yourself tenant-level permissions, follow the instructions in [Grant tenant-wide permissions to yourself](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
+
+
+### Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)
+
+We've added two new cloud-native breadth threat protection capabilities for your Azure environment.
+
+These new protections greatly enhance your resiliency against attacks from threat actors, and significantly increase the number of Azure resources protected by Azure Defender.
+
+- **Azure Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
+    - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+    - [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+    - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
+    - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
+    - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
+    - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
+
+
+### New security alerts page in the Azure portal (preview)
+
+Azure Security Center's security alerts page has been redesigned to provide:
+
+- **Improved triage experience for alerts** - helping to reduce alerts fatigue and focus on the most relevant threats easier, the list includes customizable filters and grouping options
+- **More information in the alerts list** - such as MITRE ATT&ACK tactics
+- **Button to create sample alerts** - to evaluate Azure Defender capabilities and test your alerts configuration (for SIEM integration, email notifications, and workflow automations), you can create sample alerts from all Azure Defender plans
+- **Alignment with Azure Sentinel's incident experience** - for customers who use both products, switching between them is now a more straightforward experience and it's easy to learn one from the other
+- **Better performance** for large alerts lists
+- **Keyboard navigation** through the alert list
+- **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
+
+To access the new experience, use the 'try it now' link from the banner at the top of the security alerts page.
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
+
+To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+
+### Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance 
+
+The Security Center experience within SQL provides access to the following Security Center and Azure Defender for SQL features:
+
+- **Security recommendations** – Security Center periodically analyzes the security state of all connected Azure resources to identify potential security misconfigurations. It then provides recommendations on how to remediate those vulnerabilities and improve organizations’ security posture.
+- **Security alerts** – a detection service that continuously monitors Azure SQL activities for threats such as SQL injection, brute-force attacks, and privilege abuse. This service triggers detailed and action-oriented security alerts in Security Center and provides options for continuing investigations with Azure Sentinel, Microsoft’s Azure-native SIEM solution.
+- **Findings** – a vulnerability assessment service that continuously monitors Azure SQL configurations and helps remediate vulnerabilities. Assessment scans provide an overview of Azure SQL security states together with detailed security findings.	 
+
+:::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Azure Security Center's security features for SQL are available from within Azure SQL":::
+
+
+### Asset inventory tools and filters updated
+
+The inventory page in Azure Security Center has been refreshed with the following changes:
+
+- **Guides and feedback** added to the toolbar. This opens a pane with links to related information and tools. 
+- **Subscriptions filter** added to the default filters available for your resources.
+- **Open query** link for opening the current filter options as an Azure Resource Graph query (formerly called "View in resource graph explorer").
+- **Operator options** for each filter. Now you can choose from more logical operators other than '='. For example, you might want to find all resources with active recommendations whose titles include the string 'encrypt'. 
+
+    :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Controls for the operator option in asset inventory's filters":::
+
+Learn more about inventory in [Explore and manage your resources with asset inventory](asset-inventory.md).
+
+
+### Recommendation about web apps requesting SSL certificates no longer part of secure score
+
+The recommendation "Web apps should request an SSL certificate for all incoming requests" has been moved from the security control **Manage access and permissions** (worth a maximum of 4 pts) into **Implement security best practices** (which is worth no points). 
+
+Ensuring a web app requests a certificate certainly makes it more secure. However, for public-facing web apps it's irrelevant. If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP. Learn more in [Configure TLS mutual authentication for Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
+
+With this change, the recommendation is now a recommended best practice that does not impact your score. 
+
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+
+### Recommendations page has new filters for environment, severity, and available responses
+
+Azure Security Center monitors all connected resources and generates security recommendations. Use these recommendations to strengthen your hybrid cloud posture and track compliance with the policies and standards relevant to your organization, industry, and country.
+
+As Security Center continues to expand its coverage and features, the list of security recommendations is growing every month. For example, see [29 preview recommendations added to increase coverage of Azure Security Benchmark](release-notes-archive.md#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
+
+With the growing list, there's a need to filter the recommendations to find the ones of greatest interest. In November, we added filters to the recommendations page (see [Recommendations list now includes filters](release-notes-archive.md#recommendations-list-now-includes-filters)).
+
+The filters added this month provide options to refine the recommendations list according to:
+
+- **Environment** - View recommendations for your AWS, GCP, or Azure resources (or any combination)
+- **Severity** - View recommendations according to the severity classification set by Security Center
+- **Response actions** - View recommendations according to the availability of Security Center response options: Fix, Deny, and Enforce
+
+    > [!TIP]
+    > The response actions filter replaces the **Quick fix available (Yes/No)** filter. 
+    > 
+    > Learn more about each of these response options:
+    > - [Fix button](security-center-remediate-recommendations.md#fix-button)
+    > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
+
+:::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control" lightbox="./media/release-notes/added-recommendations-filters.png":::
+
+### Continuous export gets new data types and improved deployifnotexist policies
+
+Azure Security Center's continuous export tools enable you to export Security Center's recommendations and alerts for use with other monitoring tools in your environment.
+
+Continuous export lets you fully customize what will be exported, and where it will go. For full details, see  [Continuously export Security Center data](continuous-export.md).
+
+These tools have been enhanced and expanded in the following ways:
+
+- **Continuous export's deployifnotexist policies enhanced**. The policies now:
+
+    - **Check whether the configuration is enabled.** If it isn't, the policy will show as non-compliant and create a compliant resource. Learn more about the supplied Azure Policy templates in the "Deploy at scale with Azure Policy tab" in [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
+
+    - **Support exporting security findings.** When using the Azure Policy templates, you can configure your  continuous export to include findings. This is relevant when exporting recommendations that have 'sub' recommendations, like findings from vulnerability assessment scanners or specific system updates for the 'parent' recommendation "System updates should be installed on your machines".
+    
+    - **Support exporting secure score data.**
+
+- **Regulatory compliance assessment data added (in preview).** You can now continuously export updates to regulatory compliance assessments, including for any custom initiatives, to a Log Analytics workspace or Event Hub. This feature is unavailable on national/sovereign clouds.
+
+    :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="The options for including regulatory compliant assessment information with your continuous export data.":::
 
 ## November 2020
 
@@ -100,7 +269,7 @@ Learn more in [Auto provisioning agents and extensions from Azure Security Cente
 
 ### Secure score is now available in continuous export (preview)
 
-With continuous export of secure score, you can stream changes to your score in real time to Azure Event Hubs or a Log Analytics workspace. Use this capability to:
+With continuous export of secure score, you can stream changes to your score in real-time to Azure Event Hubs or a Log Analytics workspace. Use this capability to:
 
 - track your secure score over time with dynamic reports
 - export secure score data to Azure Sentinel (or any other SIEM)
@@ -425,7 +594,7 @@ Learn more in [Workload protection best-practices using Kubernetes admission con
 
 ### Vulnerability assessment findings are now available in continuous export
 
-Use continuous export to stream your alerts and recommendations in real time to Azure Event Hubs, Log Analytics workspaces, or Azure Monitor. From there, you can integrate this data with SIEMs (such as Azure Sentinel, Power BI, Azure Data Explorer, and more.
+Use continuous export to stream your alerts and recommendations to Azure Event Hubs, Log Analytics workspaces, or Azure Monitor. From there, you can integrate this data with SIEMs (such as Azure Sentinel, Power BI, Azure Data Explorer, and more.
 
 Security Center's integrated vulnerability assessment tools return findings about your resources as actionable recommendations within a 'parent' recommendation such as "Vulnerabilities in your virtual machines should be remediated". 
 
@@ -696,7 +865,7 @@ Learn more about Security Center's container security in the following articles:
 - [Details of the integration with Azure Container Registry](defender-for-container-registries-introduction.md)
 - [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
 - [How-to scan your registries and harden your Docker hosts](container-security.md)
-- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-akscluster)
+- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-k8scluster)
 - [Security alerts from the threat protection features for Azure Kubernetes Service hosts](alerts-reference.md#alerts-containerhost)
 - [Security recommendations for containers](recommendations-reference.md#recs-compute)
 
@@ -786,7 +955,7 @@ The recommendations also include the Quick fix capability to help speed up the d
 
 Learn more about these two new recommendations in the [Compute and app recommendations](recommendations-reference.md#recs-compute) table.
 
-Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent).
+Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](./faq-data-collection-agents.yml#what-is-the-log-analytics-agent-).
 
 Learn more about [extensions for Azure Arc machines](../azure-arc/servers/manage-vm-extensions.md).
 
@@ -1250,7 +1419,7 @@ Use Security Center to receive recommendations not only from Microsoft but also 
 In order to enable enterprise level scenarios on top of Security Center, it's now possible to consume Security Center alerts and recommendations in additional places except the Azure portal or API. These can be directly exported to an Event Hub and to Log Analytics workspaces. Here are a few workflows you can create around these new capabilities:
 
 - With export to Log Analytics workspace, you can create custom dashboards with Power BI.
-- With export to Event Hub, you'll be able to export Security Center alerts and recommendations to your third-party SIEMs, to a third-party solution in real time, or Azure Data Explorer.
+- With export to Event Hub, you'll be able to export Security Center alerts and recommendations to your third-party SIEMs, to a third-party solution, or Azure Data Explorer.
 
 
 ### Onboard on-prem servers to Security Center from Windows Admin Center (preview)

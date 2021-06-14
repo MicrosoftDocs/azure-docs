@@ -31,7 +31,7 @@ Previous versions also currently supported include: `3.0.2`
 | update (conditional)           | Yes       | Yes       | Yes       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
 | delete                         | Yes       | Yes       | Yes       |  See Note  below.                                   |
-| delete (conditional)           | No        | No        | No        |                                                     |
+| delete (conditional)           | Yes       | Yes        | Yes        |                                                     |
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -63,7 +63,9 @@ All the operations that are supported that extend the RESTful API.
 | Patient/$export        | Yes       | Yes       | Yes       |         |
 | Group/$export          | Yes       | Yes       | Yes       |         |
 | $convert-data          | Yes       | Yes       | Yes       |         |
-| $validate          | Yes       | Yes       | Yes       |         |
+| $validate              | Yes       | Yes       | Yes       |         |
+| $member-match          | Yes       | Yes       | Yes       |         |
+| $patient-everything    | No        | No        | Yes       |         |
 
 ## Persistence
 

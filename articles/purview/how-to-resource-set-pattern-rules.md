@@ -19,6 +19,7 @@ Pattern rules are currently supported in the following source types:
 - Azure Data Lake Storage Gen2
 - Azure Blob Storage
 - Azure Files
+- Amazon S3
 
 
 ## How to create a resource set pattern rule
