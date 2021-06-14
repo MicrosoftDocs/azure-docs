@@ -484,7 +484,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    > file's shortcut menu, and select **Configure Webhook Redirect Endpoint**. The prompt now 
    > appears so you can provide the forwarding URL.
 
-   Visual Studio Code adds the forwarding URL to the **local.settings.json** file in your project's root folder. In the `Values` object, the property named `Workflows.WebhookRedirectHostUri` now appears and is set to the forwarding URL, for example:
+   Visual Studio Code adds the forwarding URL to the **local.settings.json** file in your project's root folder. In the `Values` object, the property that's named `Workflows.WebhookRedirectHostUri` now appears and is set to the forwarding URL, for example:
    
    ```json
    {
@@ -735,7 +735,7 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
 1. In your logic app project, open the **connections.json** file, which is created after you add the first connection-based trigger or action to your workflow, and find the `managedApiConnections` object.
 
-1. For each connection that you created, find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
+1. For each connection that you created, copy and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
 
    This example **connections.json** file contains two connections, an AS2 connection and an Office 365 connection with these `connectionRuntimeUrl` values:
 
@@ -980,7 +980,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Standard)" extension pane and the deployed workflow.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. To view all the workflows in the logic app, expand your logic app, and then expand the node named **Workflows**.
+1. To view all the workflows in the logic app, expand your logic app, and then expand the node that's named **Workflows**.
 
 1. To view a specific workflow, open the workflow's shortcut menu, and select **Open in Designer**, which opens the workflow in read-only mode.
 
@@ -988,7 +988,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    * In Visual Studio Code, open your project's **workflow.json** file in the workflow designer, make your edits, and redeploy your logic app to Azure.
 
-   * In the Azure portal, [find and open your logic app](#manage-deployed-apps-portal). Find, edit, and save the workflow.
+   * In the Azure portal, [find and open your logic app](#manage-deployed-apps-portal). You can then open, edit, and save your workflow.
 
 1. To open the deployed logic app in the Azure portal, open the logic app's shortcut menu, and select **Open in Portal**.
 
@@ -1016,7 +1016,7 @@ Stopping a logic app affects workflow instances in the following ways:
 
   1. In Visual Studio Code, on the left toolbar, select the Azure icon. 
   1. In the **Azure: Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
-  1. Expand your logic app, and then expand the node named **Workflows**.
+  1. Expand your logic app, and then expand the node that's named **Workflows**.
   1. Open a workflow, and edit any part of that workflow's trigger.
   1. Save your changes. This step resets the trigger's current state.
   1. Repeat for each workflow.
@@ -1032,7 +1032,7 @@ Deleting a logic app affects workflow instances in the following ways:
 
 * The Logic Apps service doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to re-save any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
 <a name="manage-deployed-apps-portal"></a>
 
@@ -1098,7 +1098,7 @@ Through the Azure portal, you can add blank workflows to a **Logic App (Standard
 
 To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
-1. In your Visual Studio Code project, expand the folder named **workflow-designtime**, and open the **local.settings.json** file.
+1. In your Visual Studio Code project, expand the folder that's named **workflow-designtime**, and open the **local.settings.json** file.
 
 1. Add the `Workflows.{yourWorkflowName}.operationOptions` property and set the value to `WithStatelessRunHistory`, for example:
 
@@ -1297,7 +1297,7 @@ To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCo
 
 When you try to start a debugging session, you get the error, **"Error exists after running preLaunchTask 'generateDebugSymbols'"**. To resolve this problem, edit the **tasks.json** file in your project to skip symbol generation.
 
-1. In your project, expand the folder named **.vscode**, and open the **tasks.json** file.
+1. In your project, expand the folder that's named **.vscode**, and open the **tasks.json** file.
 
 1. In the following task, delete the line, `"dependsOn: "generateDebugSymbols"`, along with the comma that ends the preceding line, for example:
 

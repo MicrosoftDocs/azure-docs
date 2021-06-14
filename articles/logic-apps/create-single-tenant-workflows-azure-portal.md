@@ -192,7 +192,7 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
    > If the **Add an action** pane shows the error message, `The access token expiry UTC time '{token-expiration-date-time}' is earlier than current UTC time '{current-date-time}'`, 
    > save your workflow, reload the page, reopen your workflow, and try adding the action again.
 
-   This example uses the Office 365 Outlook action named **Send an email (V2)**.
+   This example uses the Office 365 Outlook action that's named **Send an email (V2)**.
 
    ![Screenshot that shows the designer and the **Add an action** pane with the Office 365 Outlook "Send an email" action selected.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
 
@@ -256,7 +256,7 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
    ![Screenshot that shows the Azure portal and API Connection pane with "JSON View" selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-view-json.png)
 
-1. Find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
+1. Copy and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
 
    ![Screenshot that shows the "connectionRuntimeUrl" property value selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-runtime-url.png)
 
@@ -600,7 +600,7 @@ Deleting a workflow affects workflow instances in the following ways:
 
 * Azure Logic Apps doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to re-save any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
 1. In the Azure portal, find and open your logic app.
 
