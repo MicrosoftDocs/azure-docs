@@ -140,8 +140,12 @@ In this section, you create a function app and related resources in your Azure s
             };
         } catch(err) {
             context.res = {
-                status: 500, 
-                body: JSON.stringify(err)
+                status: 500,
+                contentType: 'application/json',
+                body: {
+                    "success": false,
+                    "message": err
+                }
             };
         }
     }
