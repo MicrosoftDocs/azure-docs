@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in *public preview*.
+> Azure SQL Database ledger is currently in public preview and available in West Central US.
 
 Azure SQL Database ledger provides a form of data integrity called *forward integrity*, which provides evidence of data tampering on data in your ledger tables. For example, if a banking transaction occurs on a ledger table where a balance has been updated to value `x`, and an attacker later modifies the data by changing the balance from `x` to `y`, database verification will detect this tampering activity.  
 
