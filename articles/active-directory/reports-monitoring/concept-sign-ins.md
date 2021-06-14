@@ -1,6 +1,6 @@
 ---
-title: Sign-ins logs in Azure Active Directory | Microsoft Docs
-description: Overview of the sign-ins logs in Azure Active Directory.  
+title: Sign-in logs in Azure Active Directory | Microsoft Docs
+description: Overview of the sign-in logs in Azure Active Directory.  
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -20,7 +20,7 @@ ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
-# Sign-ins logs in Azure Active Directory
+# Sign-in logs in Azure Active Directory
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
@@ -72,9 +72,9 @@ The sign-in activity report is available in [all editions of Azure AD](reference
 
 The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
-![Open sign-ins logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
+![Open sign-in logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-Additionally, you can get directly get to the sign-ins logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+Additionally, you can get directly get to the sign-in logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
 
 ## What is the default view?
