@@ -2,33 +2,33 @@
 title: Language Runtime Support Policy
 description: Learn about Azure Functions language runtime support policy 
 ms.topic: conceptual
-ms.date: 11/27/2021
+ms.date: 06/14/2021
 ---
 
 # Language runtime support policy
 
 This article explains Azure functions language runtime support policy. 
 
-## Deprecation process
+## Retirement process
 
-Azure Functions runtime is built around various components, including operating systems, Azure Functions Host and language specific workers. To ensure full support coverages for function apps, Azure Functions will retire its support for programming language versions that reach their End-Of-Life dates in phases. For most language versions, retirement date will coincide with the community End-Of-Life date. 
+Azure Functions runtime is built around various components, including operating systems, Azure Functions Host and language-specific workers. To ensure full support coverages for function apps, Azure Functions will retire its support for programming language versions that reach their End-Of-Life dates in phases. For most language versions, retirement date will coincide with the community End-Of-Life date. 
 
 ### Notification phase
 
-We will send notification emails regarding a language deprecation process at least 1 year in advance to let you know that the language version that you use in your functions apps is approaching End-Of-Life date. Upon the notification, you should prepare to upgrade the language version that your functions apps use to a supported version.
+We'll send notification emails to function app users about upcoming language version retirements. The notifications will be at least one year prior to the date of retirement. Upon the notification, you should prepare to upgrade the language version that your functions apps use to a supported version.
 
-### Deprecation phase
+### Retirement phase
 
-* __Phase 1:__ On the date of EOL of a language, users will no longer be able to create new functions app using the language. For at least the next 60 days after EOL date, existing function apps that are affected could still run on the platform and be updated. During this phase, you are highly encouraged to upgrade the language version of your affected function apps to a supported version.
+* __Phase 1:__ On the date of EOL of a language, users will no longer be able to create new functions app using the language. For at least the next 60 days after EOL date, existing function apps that are affected could still run on the platform and be updated. During this phase, you're highly encouraged to upgrade the language version of your affected function apps to a supported version.
 
-* __Phase 2:__ After the first phase, it is not guaranteed that function apps using deprecated languages will be able to run on the platform. 
+* __Phase 2:__ After the first phase, it is not guaranteed that function apps using retired languages will be able to run on the platform. 
 
 
-## Deprecation policy exceptions
+## Retire,emt policy exceptions
 
-There are few exceptions to the deprecation policy outlined above. Here are list of languages that have reached or are approaching their EOL dates but still supported on the platform until further notice. Note that when these languages reach their EOL dates, there will be no update or security patch. Therefore, developing and running your function apps with these languages are is highly discouraged.
+There are few exceptions to the retirement policy outlined above. Here is a list of languages that have reached or are approaching their EOL dates but still supported on the platform until further notice. When these languages reach their EOL dates, there will be no update or security patch. So, developing and running your function apps with these languages are highly discouraged.
 
-|Language Versions                        |EOL Date         |Expected Deprecation Date|
+|Language Versions                        |EOL Date         |Expected Retirement Date|
 |-----------------------------------------|-----------------|----------------|
 |Node 6|30 April 2019|TBA| 
 |Node 8|31 December 2019|TBA| 
@@ -39,7 +39,7 @@ There are few exceptions to the deprecation policy outlined above. Here are list
 
 ## Language version support timeline
 
-To learn more about specific language version support policy timeline, please visit the following external resources:
+To learn more about specific language version support policy timeline, visit the following external resources:
 * .NET - [dotnet.microsoft.com](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 * Node - [github.com](https://github.com/nodejs/Release#release-schedule)
 * Java - [azul.com](https://www.azul.com/products/azul-support-roadmap/)

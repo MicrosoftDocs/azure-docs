@@ -11,13 +11,11 @@ zone_pivot_groups: "programming-languages-set-functions-lang-workers"
 
 A function app runs on a specific version of language runtime. By default, function apps are created in the latest programming language's major version that is supported. This article explains how to configure a function app in Azure to run on the version you choose. 
 
----
-
 ::: zone pivot="programming-language-javascript,programming-language-powershell, programming-language-java"
 
 ## Update functions app language version on Windows
 
-_This section doesn't apply when running your function app [on Linux](#Update-functions-app-language-version-on-Linux)._
+_This section doesn't apply when running your function app [on Linux](#update-functions-app-language-version-on-linu)._
 
 You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
 
@@ -28,7 +26,7 @@ You can change the runtime version used by your function app. Because of the pot
 ::: zone pivot="programming-language-csharp"
 ## Update functions app language version on Windows
 
-For .NET, the language version is defined by the runtime version of your function apps. To learn, refer to the article on how to [set runtime version](./set-language-version). To learn on the .NET major versions that are supported, refer to [supported-languages article](./supported-languages)
+For .NET, the language version is defined by the runtime version of your function apps. To learn more on hot set runtime version for your functions app, refer to [set runtime version article](./set-runtime-version.md). To learn on the .NET major versions that are supported, refer to [supported-languages article](./supported-languages.md)
 
 ::: zone-end
 
@@ -92,7 +90,7 @@ You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md
 
 
 Similarly, the function app restarts after the change is made to the site config.
----
+
 ::: zone-end
 
 ## Next steps
