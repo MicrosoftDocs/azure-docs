@@ -17,12 +17,8 @@ summary: This article answers frequently asked questions about importing Azure K
 
 
 sections:
-  - name: Ignored
+  - name: Frequently asked questions
     questions:
-      - question: |    
-          Frequently asked questions
-        answer: |
-
       - question: |
           How can I import a certificate in Azure Key Vault?
         answer: |
@@ -102,9 +98,9 @@ sections:
           Why can't I see the App Service certificate that I imported to Key Vault? 
         answer: |
           If you've imported the certificate successfully, you should be able to confirm it by going to the **Secrets** pane.
-          
-          
-additionalContent: |
-
-  ## Next steps
-  - [Azure Key Vault certificates](./about-certificates.md)
+  - name: Frequently asked questions
+    questions:
+      - question: |
+          Next steps
+        answer: |
+          - [Azure Key Vault certificates](./about-certificates.md)
