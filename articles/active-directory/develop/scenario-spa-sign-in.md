@@ -3,7 +3,7 @@ title: Single-page app sign-in & sign-out
 titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (sign-in)
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 
 ms.service: active-directory

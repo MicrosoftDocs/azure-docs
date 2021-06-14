@@ -3,7 +3,7 @@ title: Move single-page app to production
 titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (move to production)
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 
 ms.service: active-directory

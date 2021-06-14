@@ -3,7 +3,7 @@ title: Issues on Internet Explorer (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Use the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer browser.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 
 ms.service: active-directory
