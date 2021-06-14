@@ -23,7 +23,7 @@ For more information, see [What is Azure Private Link?](../../private-link/priva
 
 To integrate a managed HSM with Azure Private Link, you will need the following:
 
-- A Managed HSM. See [Provision and activate a managed HSM using Azure CLI](quick-create-cli) for more details.
+- A Managed HSM. See [Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) for more details.
 - An Azure virtual network.
 - A subnet in the virtual network.
 - Owner or contributor permissions for both the managed HSM and the virtual network.

@@ -25,7 +25,7 @@
   - name: Secure access to your Managed HSM
     href: secure-your-managed-hsm.md
   - name: Use private endpoints
-    href: private-endpoints.md
+    href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
   - name: Disaster recovery
