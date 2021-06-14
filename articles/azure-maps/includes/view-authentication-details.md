@@ -3,7 +3,7 @@ title: View authentication details for Microsoft Azure Maps
 description: Use the Azure portal to view authentication details for Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/11/2021
+ms.date: 06/14/2021
 ms.topic: include
 ms.service: azure-maps
 services: azure-maps
@@ -21,7 +21,7 @@ To view your Azure Maps account authentication details in the Azure portal
 
     :::image type="content" border="true" source="../media/how-to-manage-authentication/view-authentication-keys.png" alt-text="Authentication details.":::
 
-    Three values are present on the authentication page. These are created when the Azure Maps account is created. They are used to support two types of authentication in Azure Maps:
+    Three values are are created when the Azure Maps account is created. They are used to support two types of authentication in Azure Maps:
 
     * **Azure Active Directory Authentication**.
      The `Client ID` represents the account that is to be used for REST API requests. The `Client ID` value should be stored in application configuration, and should be retrieved prior to making Azure Maps HTTP requests that use Azure AD authentication.
