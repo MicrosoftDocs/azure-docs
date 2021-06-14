@@ -162,7 +162,7 @@ The following table can help troubleshoot events using the downloaded version of
 
 ## Authentication details
 
-The **Authentication Details** tab located within the [sign-ins report](../reports-monitoring/concept-sign-ins.md) provides the following information, for each authentication attempt:
+The **Authentication details** tab located within the [sign-ins report](../reports-monitoring/concept-sign-ins.md) provides the following information, for each authentication attempt:
 
 - A list of authentication policies applied (such as Conditional Access, per-user MFA, Security Defaults)
 - The sequence of authentication methods used to sign-in
