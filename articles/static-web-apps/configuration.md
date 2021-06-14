@@ -22,7 +22,7 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 - Custom MIME types
 
 > [!NOTE]
-> The [_routes.json_ file](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) is deprecated. Use _staticwebapp.config.json_ to configure routing and other settings related to your static web app.
+> [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) that was previously used to configure routing is deprecated. Use _staticwebapp.config.json_ as described in this article to configure routing and other settings related to your static web app.
 
 ## File location
 
