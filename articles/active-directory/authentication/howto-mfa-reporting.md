@@ -28,6 +28,7 @@ The sign-ins report provides you with information about the usage of managed app
 
 - Was the sign-in challenged with MFA?
 - How did the user complete MFA?
+- Which authentication methods were used during a sign-in?
 - Why was the user unable to complete MFA?
 - How many users are challenged for MFA?
 - How many users are unable to complete the MFA challenge?
