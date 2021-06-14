@@ -572,6 +572,9 @@ veterinarian
 
 ## Use the API asynchronously with the Analyze operation
 
+
+You can use the Analyze operation to perform asynchronous batch requests for: NER, key phrase extraction, sentiment analysis, and PII detection. The below sample shows a basic example on one operation. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md)
+
 # [Version 3.1 preview](#tab/version-3-1)
 
 [!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
@@ -660,7 +663,7 @@ Recognized entity: Bill Gates, entity category: Person, entity subcategory: null
 Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.990000.
 ```
 
-You can also use the Analyze operation to perform NER, key phrase extraction, sentiment analysis and detect PII. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro) on GitHub.
+You can also use the Analyze operation to perform NER, key phrase extraction, sentiment analysis and detect PII. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeActionsAsync.java) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 
