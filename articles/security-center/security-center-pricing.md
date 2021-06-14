@@ -6,7 +6,7 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/23/2021
+ms.date: 06/10/2021
 ---
 
 # Azure Security Center free vs Azure Defender enabled

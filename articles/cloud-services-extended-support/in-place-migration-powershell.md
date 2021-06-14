@@ -113,7 +113,7 @@ Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 
 
 ## 5) Migrate your Cloud Services 
-Before starting the migration, understand how the [migration steps](https://docs.microsoft.com/azure/cloud-services-extended-support/in-place-migration-overview#migration-steps) works and what each step does. 
+Before starting the migration, understand how the [migration steps](./in-place-migration-overview.md#migration-steps) works and what each step does. 
 
 * [Migrate a Cloud Service not in a virtual network](#51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
 * [Migrate a Cloud Service in a virtual network](#51-option-2---migrate-a-cloud-service-in-a-virtual-network)
@@ -199,4 +199,5 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 
 ## Next steps
+
 Review the [Post migration changes](post-migration-changes.md) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment.

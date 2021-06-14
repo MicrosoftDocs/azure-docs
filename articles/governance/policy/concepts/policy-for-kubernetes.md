@@ -196,11 +196,10 @@ Lastly, verify that the latest add-on is installed by running this Azure CLI com
 similar to the following output:
 
 ```output
-"addonProfiles": {
-    "azurepolicy": {
+{
+        "config": null,
         "enabled": true,
         "identity": null
-    },
 }
 ```
 

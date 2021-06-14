@@ -31,23 +31,23 @@ Combining data from a twin graph in Azure Digital Twins with time series data in
 In order to get the plugin running on your own ADX cluster that contains time series data, start by running the following command in ADX in order to enable the plugin:
 
 ```kusto
-.enable plugin azure_digital_twins_query_request. 
+.enable plugin azure_digital_twins_query_request
 ```
 
 This command requires **All Databases admin** permission. For more information on the command, see the [.enable plugin documentation](/azure/data-explorer/kusto/management/enable-plugin). 
 
-Once the plugin is enabled, you can invoke it within an ADX Kusto query like this: 
+Once the plugin is enabled, you can invoke it within an ADX Kusto query with the following command. There are two placeholders, `<Azure-Digital-Twins-endpoint>` and `<Azure-Digital-Twins-query>`, which are strings representing the Azure Digital Twins instance endpoint and Azure Digital Twins query, respectively. 
 
 ```kusto
-evaluate azure_digital_twins_query_request(Azure Digital Twinsendpoint, Azure Digital Twinsquery) 
+evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azure-Digital-Twins-query>) 
 ```
-
-where `Azure Digital Twinsendpoint` and `Azure Digital Twinsquery` are strings representing the Azure Digital Twins instance endpoint and Azure Digital Twins query, respectively. 
 
 The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API. 
 
 >[!IMPORTANT]
 >The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Azure AD token is used to authenticate. Information on how to assign this role can be found in [Concepts: Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
+
+For more information on using the plugin, see the [Kusto documentation for the azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin).
 
 To see example queries and complete a walkthrough with sample data, see [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) in GitHub.
 
@@ -123,8 +123,8 @@ For instance, if you want to represent a property with three fields for roll, pi
 
 ## Next steps
 
-View sample queries using the Azure Digital Twins query plugin for ADX, including a walkthrough that runs the queries in an example scenario:
-* [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) 
+* View the plugin documentation for the Kusto language in ADX: [azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin)
 
-Read about another strategy for analyzing historical data in Azure Digital Twins:
-* [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md)
+* View sample queries using the plugin, including a walkthrough that runs the queries in an example scenario: [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) 
+
+* Read about another strategy for analyzing historical data in Azure Digital Twins: [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md)

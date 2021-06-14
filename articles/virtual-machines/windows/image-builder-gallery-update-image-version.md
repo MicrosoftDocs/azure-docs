@@ -19,16 +19,6 @@ We will be using a sample .json template to configure the image. The .json file 
 ## Register the features
 To use Azure Image Builder, you need to register the feature.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
-
 Check your registration.
 
 ```azurecli-interactive

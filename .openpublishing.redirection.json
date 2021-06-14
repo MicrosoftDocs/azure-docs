@@ -13874,6 +13874,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/disaster-recovery-for-virtual-machines.md",
+      "redirect_url": "/azure/azure-vmware/deploy-disaster-recovery-using-vmware-hcx",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/lifecycle-management-of-azure-vmware-solution-vms.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
       "redirect_document_id": false
@@ -14522,6 +14527,11 @@
       "source_path_from_root": "/articles/cdn/cdn-rules-engine.md",
       "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cdn/cdn-troubleshoot-allowed-ca.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cdn/cdn-rules-engine-reference.md",
@@ -20559,6 +20569,11 @@
       "redirect_url": "/azure/event-hubs/security-baseline",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/event-hubs/event-hubs-metrics-azure-monitor.md",
+      "redirect_url": "/azure/event-hubs/monitor-event-hubs",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/expressroute/expressroute-global-reach-app-scenario.md",
       "redirect_url": "/azure/expressroute/expressroute-global-reach",
@@ -28737,7 +28752,7 @@
     {
       "source_path_from_root": "/articles/machine-learning/concept-managed-endpoints.md",
       "redirect_url": "/azure/machine-learning/concept-endpoints",
-      "redireect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
@@ -32571,6 +32586,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/postgresql/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mariaDB/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/postgresql/concepts-compute-unit-and-storage.md",
       "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
       "redirect_document_id": false
@@ -34343,6 +34373,11 @@
     {
       "source_path_from_root": "/articles/sentinel/tutorial-detect-threats.md",
       "redirect_url": "/azure/sentinel/tutorial-detect-threats-built-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md",
+      "redirect_url": "/azure/sentinel/microsoft-365-defender-sentinel-integration#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules",
       "redirect_document_id": false
     },
     {
@@ -37044,6 +37079,21 @@
       "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac.md",
       "redirect_url": "/azure/storage/common/storage-auth-aad-rbac-portal",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-cli.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-portal.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-powershell.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-azure-cli.md",
@@ -42376,8 +42426,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-troubleshoot-allowed-ca.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/waf-front-door-custom-rules.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-allowed-certificate-authority.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
       "redirect_document_id": false
     },
     {
@@ -44309,6 +44369,11 @@
       "source_path_from_root": "/articles/connectors/connectors-create-api-yammer",
       "redirect_url": "/connectors/yammer/",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
+      "redirect_url": "/connectors/todo/",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",

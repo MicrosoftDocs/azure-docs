@@ -103,13 +103,13 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
 
 ### Build the image
 
-In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+1. In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
 
-&nbsp;&nbsp;&nbsp;&nbsp;*getting-started\MXChip\AZ3166\tools\rebuild.bat*
+    *getting-started\MXChip\AZ3166\tools\rebuild.bat*
 
-After the build completes, confirm that the binary file was created in the following path:
+1. After the build completes, confirm that the binary file was created in the following path:
 
-&nbsp;&nbsp;&nbsp;&nbsp;*getting-started\MXChip\AZ3166\build\app\mxchip_azure_iot.bin*
+    *getting-started\MXChip\AZ3166\build\app\mxchip_azure_iot.bin*
 
 ### Flash the image
 
