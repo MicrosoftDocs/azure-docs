@@ -41,9 +41,9 @@ If you're using a private endpoint to the Azure Files share, it's important to r
 - This approach requires the file share virtual network to be peered to the lab account. The virtual network for the Azure Storage account must be peered to the virtual network for the lab account before the lab is created.
 
 > [!NOTE]
-> File shares larger than 5 TB are only available for [locally-redundant storage accounts](../storage/files/storage-files-how-to-create-large-file-share.md#restrictions).
+> By default, standard file shares can span up to 5 TiB. See [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md) for information on how to create file shares than span up to 100 TiB.
 
-Follow these steps to create a VM connected to an Azure Files share.
+Follow these steps to create a VM connected to an Azure file share.
 
 1. Create an [Azure Storage account](../storage/files/storage-how-to-create-file-share.md). On the **Connectivity method** page, choose **public endpoint** or **private endpoint**.
 2. If you've chosen the private method, create a [private endpoint](../private-link/tutorial-private-endpoint-storage-portal.md) in order for the file shares to be accessible from the virtual network. Create a [private DNS zone](../dns/private-dns-privatednszone.md), or use an existing one. Private Azure DNS zones provide name resolution within a virtual network.
