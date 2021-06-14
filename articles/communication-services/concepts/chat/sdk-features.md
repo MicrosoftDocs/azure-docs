@@ -35,7 +35,7 @@ The following list presents the set of features which are currently available in
 |                   | Update the content of your sent message                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |	
 |                   | Delete a message you previously sent                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |	
 |                   | Read receipts for messages that have been read by other participants in a chat                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |	
-|                   | Get notified when participants are actively typing a message in a chat thread                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   |	
+|                   | Get notified when participants are actively typing a message in a chat thread                                         | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |	
 |                   | Get all messages in a chat thread                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Send Unicode emojis as part of message content                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |Real-time notifications (enabled by proprietary signaling package**)|  Chat clients can subscribe to get real-time updates for incoming messages and other operations occurring in a chat thread. To see a list of supported updates for real-time notifications, see [Chat concepts](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |	

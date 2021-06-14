@@ -4,10 +4,10 @@ description: Learn how to create an Azure file share that can be mounted using t
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 05/11/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # How to create an NFS share

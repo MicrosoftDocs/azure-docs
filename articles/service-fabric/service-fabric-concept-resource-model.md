@@ -2,7 +2,8 @@
 title: Azure Service Fabric application resource model  
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual 
-ms.date: 10/21/2019
+ms.date: 10/21/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Service Fabric application resource model

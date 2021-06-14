@@ -75,6 +75,20 @@ To add or change the PO number for a billing profile, use the following steps.
 1. Select **Update PO number**.
 1. Enter a PO number and then select **Update**.
 
+## Update your tax ID
+
+Ensure you update your tax ID after moving your subscriptions. The tax ID is used for tax exemption calculations and appears on your invoice.
+
+**To update billing account information**
+
+1. Sign in to the [Microsoft Store for Business](https://businessstore.microsoft.com/) or [Microsoft Store for Education](https://educationstore.microsoft.com/).
+1. Select **Manage**, and then select **Billing accounts**.
+1. On **Overview**, select **Edit billing account information**.
+1. Make your updates, and then select **Save**.
+
+[Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
+
+
 ## Service and marketing emails
 
 You're prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:

@@ -6,7 +6,7 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 05/08/2021
+ms.date: 06/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
@@ -24,7 +24,6 @@ The Azure SQL Database data source supports the following functionality:
 
 ### Known limitations
 
-> * Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) in Azure SQL Database.
 > * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated". 
 
 ## Prerequisites
@@ -86,13 +85,13 @@ To use a service principal, you can use an existing one or create a new one.
 The service principal or managed identity must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification.
 
 - [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
-- If you are using managed identity, your Purview account has its own managed identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure SQL Database with the exact Purview's managed identity or your own service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). You need to assign proper permission (e.g. `db_owner` or `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+- If you are using managed identity, your Purview account has its own managed identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure SQL Database with the exact Purview's managed identity or your own service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). You need to assign proper permission (e.g. `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
     GO
     
-    EXEC sp_addrolemember 'db_owner', [Username]
+    EXEC sp_addrolemember 'db_datareader', [Username]
     GO
     ```
 

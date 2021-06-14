@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/17/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
 
@@ -81,11 +81,17 @@ You can assign roles using the Azure portal, Azure CLI, Azure PowerShell, Azure 
 
 For more information, see [Steps to assign an Azure role](role-assignments-steps.md).
 
+## Groups
+
+Role assignments are transitive for groups which means that if a user is a member of a group and that group is a member of another group that has a role assignment, the user will have the permissions in the role assignment.
+
+![Diagram showing how role assignments are transitive for groups.](./media/overview/rbac-groups-transitive.png)
+
 ## Multiple role assignments
 
 So what happens if you have multiple overlapping role assignments? Azure RBAC is an additive model, so your effective permissions are the sum of your role assignments. Consider the following example where a user is granted the Contributor role at the subscription scope and the Reader role on a resource group. The sum of the Contributor permissions and the Reader permissions is effectively the Contributor role for the subscription. Therefore, in this case, the Reader role assignment has no impact.
 
-![Diagram showing how when multiple role assignments overlap.](./media/overview/rbac-multiple-roles.png)
+![Diagram showing how multiple role assignments overlap.](./media/overview/rbac-multiple-roles.png)
 
 ## Deny assignments
 

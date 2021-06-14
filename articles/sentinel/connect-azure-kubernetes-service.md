@@ -17,6 +17,8 @@ This connector lets you stream your Azure Kubernetes Service (AKS) diagnostics l
 
 Learn more about [monitoring Azure Kubernetes Service](../azure-monitor/containers/container-insights-overview.md) and about [AKS diagnostic telemetry](../aks/view-control-plane-logs.md).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## Prerequisites
 
 To ingest AKS logs into Azure Sentinel:

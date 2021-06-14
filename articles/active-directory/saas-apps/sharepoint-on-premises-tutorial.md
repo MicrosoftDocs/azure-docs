@@ -102,7 +102,7 @@ $realm = "urn:sharepoint:federation"
 $loginUrl = "https://login.microsoftonline.com/dc38a67a-f981-4e24-ba16-4443ada44484/wsfed"
 
 # Define the claim types used for the authorization
-$userIdentifier = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
+$userIdentifier = New-SPClaimTypeMapping -IncomingClaimType `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
 $role = New-SPClaimTypeMapping "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming
 
 # Let SharePoint trust the Azure AD signing certificate
@@ -193,7 +193,7 @@ The basic configuration of the trust between SharePoint and Azure AD is now fini
 
 ## Sign in as a member user
 
-Azure Active Directory has [two type of users](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-user-properties): Guest users and Member users. Let's start with a member user, which is merely a user that is homed in your organization.
+Azure Active Directory has [two type of users](../external-identities/user-properties.md): Guest users and Member users. Let's start with a member user, which is merely a user that is homed in your organization.
 
 ### Create a member user in Azure Active Directory
 
@@ -298,7 +298,7 @@ As a conclusion, to ensure that guest accounts are all identified with the same 
 
     1. Select **Unique User Identifier (Name ID)**, change its **Source Attribute** property to **user.localuserprincipalname**, and click **Save**.
     
-    1. Select **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**, change its **Source Attribute** property to **user.localuserprincipalname**, and click **Save**.
+    1. Select `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`, change its **Source Attribute** property to **user.localuserprincipalname**, and click **Save**.
     
     1. The **User Attributes & Claims** should look like this:
     

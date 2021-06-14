@@ -244,5 +244,5 @@ The image-, voice-, video-, and text-understanding capabilities of VideoFrameAna
 
 In this article, you learned how to run near real-time analysis on live video streams by using the Face and Computer Vision services. You also learned how you can use our sample code to get started.
 
-Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). To provide broader API feedback, go to our UserVoice site.
+Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). To provide broader API feedback, go to our [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743) site.
 

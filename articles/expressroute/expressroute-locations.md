@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Connectivity providers and locations: Azure ExpressRoute | Microsoft Docs'
 description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by connectivity provider.
 services: expressroute
@@ -33,35 +33,7 @@ ExpressRoute locations (sometimes referred to as peering locations or meet-me-lo
 
 You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region.
 
-## <a name="locations"></a>Azure regions to ExpressRoute locations within a geopolitical region.
-The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
-
-| **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
-| --- | --- | --- |
-| **Australia Government** |Australia Central, Australia Central 2 |Canberra, Canberra2 |
-| **Europe** | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK West, UK South, West Europe |Amsterdam, Amsterdam2, Berlin, Copenhagen, Dublin, Frankfurt, Frankfurt2, Geneva, London, London2, Madrid, Marseille, Milan, Munich, Newport(Wales), Oslo, Paris, Stavanger, Stockholm, Zurich |
-| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, Montreal, New York, Phoenix, Quebec City, Queretaro(Mexico), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Toronto, Toronto2, Vancouver, Washington DC, Washington DC2 |
-| **Asia** | East Asia, Southeast Asia | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei |
-| **India** | India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Japan** | Japan West, Japan East |Osaka, Tokyo, Tokyo2 |
-| **Oceania** | Australia Southeast, Australia East |Auckland, Melbourne, Perth, Sydney, Sydney2 |
-| **South Korea** | Korea Central, Korea South |Busan, Seoul|
-| **UAE** | UAE Central, UAE North | Dubai, Dubai2 |
-| **South Africa** | South Africa West, South Africa North |Cape Town, Johannesburg |
-| **South America** | Brazil South |Bogota, Rio de Janeiro, Sao Paulo |
-
-
-## Regions and geopolitical boundaries for national clouds
-The table below provides information on regions and geopolitical boundaries for national clouds.
-
-| **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
-| --- | --- | --- |
-| **US Government cloud** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Atlanta,Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
-| **China East** |China East, China East2 |Shanghai, Shanghai2 |
-| **China North** |China North, China North2 |Beijing, Beijing2 |
-| **Germany** |Germany Central, Germany East |Berlin, Frankfurt |
-
-Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
+[!INCLUDE [expressroute-azure-regions-geopolitical-region](../../includes/expressroute-azure-regions-geopolitical-region.md)]
 
 ## <a name="partners"></a>ExpressRoute connectivity providers
 
@@ -105,7 +77,7 @@ The following table shows locations by service provider. If you want to view ava
 | **du datamena** |Supported |Supported | Dubai2 |
 | **eir** |Supported |Supported |Dublin|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Supported |Supported |Singapore, Singapore2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Amsterdam2, Atlanta, Berlin, Bogota, Canberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Frankfurt2, Geneva, Hong Kong SAR, London, London2, Los Angeles, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Rio de Janeiro, Sao Paulo, Seattle, Seoul, Silicon Valley, Singapore, Stockholm, Sydney, Tokyo, Toronto, Washington DC, Zurich |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Amsterdam2, Atlanta, Berlin, Bogota, Canberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Frankfurt2, Geneva, Hong Kong SAR, London, London2, Los Angeles, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Rio de Janeiro, Sao Paulo, Seattle, Seoul, Silicon Valley, Singapore, Singapore2, Stockholm, Sydney, Tokyo, Toronto, Washington DC, Zurich |
 | **Etisalat UAE** |Supported |Supported |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supported |Supported |Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Supported |Supported |Taipei|
@@ -157,6 +129,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Supported |Supported | London2, Washington DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supported |Supported |Chennai, Mumbai2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported |Hong Kong2, Singapore, Singapore2 |
+| **[SK Telecom](http://b2b.tworld.co.kr/bizts/solution/solutionTemplate.bs?solutionId=0085)** |Supported |Supported |Seoul |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Supported |Supported |Osaka, Tokyo |
 | **[Sohonet](https://www.sohonet.com/fastlane/)** |Supported |Supported |London2 |
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Supported |Supported |Auckland, Sydney |
@@ -260,6 +233,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[Airgate Technologies, Inc.](https://www.airgate.ca/)** | Equinix, Cologix | Toronto, Montreal |
 | **[Alaska Communications](https://www.alaskacommunications.com/Business)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
+| **[Aptum Technologies](https://aptum.com/services/cloud/managed-azure/)**| Equinix | Montreal, Toronto |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokyo |
 | **[Axtel](https://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
 | **[Beanfield Metroconnect](https://www.beanfield.com/business/cloud-exchange)** |Megaport |Toronto|
@@ -271,7 +245,6 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | Frankfurt, Hamburg |
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Amsterdam | 
 | **[CMC Telecom](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapore | 
-| **[Aptum Technologies](https://aptum.com/services/cloud/managed-azure/)**| Equinix | Montreal, Toronto |
 | **[CoreAzure](https://www.coreazure.com/)**| Equinix | London |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | Dallas, Silicon Valley, Washington DC |
 | **[Crown Castle](https://fiber.crowncastle.com/solutions/added/cloud-connect)**| Equinix | Atlanta, Chicago, Dallas, Los Angeles, New York, Washington DC |
@@ -299,10 +272,10 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**|Equinix | Amsterdam, Dublin, London, Paris |
 | **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/services/cloud-connect/)** | Equinix | Amsterdam |
-| **[Tata Teleservices](https://www.tatateleservices.com/business-services/data-services/secure-cloud-connect)** | Tata Communications | Chennai, Mumbai |
 | **Rogers** | Cologix, Equinix | Montreal, Toronto |
 | **[Spectrum Enterprise](https://enterprise.spectrum.com/services/cloud/cloud-connect.html)** | Equinix | Chicago, Dallas, Los Angeles, New York, Silicon Valley | 
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | London | 
+| **[Tata Teleservices](https://www.tatateleservices.com/business-services/data-services/secure-cloud-connect)** | Tata Communications | Chennai, Mumbai |
 | **[TDC Erhverv](https://tdc.dk/Produkter/cloudaccessplus)** | Equinix | Amsterdam | 
 | **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Amsterdam |
 | **[Telekom Deutschland GmbH](https://cloud.telekom.de/de/infrastruktur/managed-it-services/managed-hybrid-infrastructure-mit-microsoft-azure)** | Interxion | Amsterdam, Frankfurt |
@@ -331,8 +304,8 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[QTS Data Centers](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud )** | Megaport, PacketFabric |
 | **[Stream Data Centers]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
 | **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach, Megaport, PacketFabric |
-| **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach, Megaport |
 | **[T5 Datacenters](https://t5datacenters.com/)** | IX Reach |
+| **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach, Megaport |
 
 ## Connectivity through National Research and Education Networks (NREN)
 

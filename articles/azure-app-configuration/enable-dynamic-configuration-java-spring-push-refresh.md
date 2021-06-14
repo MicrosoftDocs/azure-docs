@@ -43,12 +43,13 @@ In this tutorial, you learn how to:
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
+- An existing Azure App Configuration Store.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Setup Push Refresh
 
-Open *pom.xml* and update the file with the following dependencies.
+1. Open *pom.xml* and update the file with the following dependencies.
 
 ```xml
         <dependency>
@@ -64,13 +65,13 @@ Open *pom.xml* and update the file with the following dependencies.
         </dependency>
 ```
 
-Setup [Maven App Service Deployment](/azure/app-service/quickstart-java?tabs=javase)
+1. Setup [Maven App Service Deployment](/azure/app-service/quickstart-java?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 
 ```console
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ```
 
-Configure Azure App Configuration Push Refresh and Azure Service Bus
+1. Open bootstrap.properties and configure Azure App Configuration Push Refresh and Azure Service Bus
 
 ```properties
 # Azure App Configuration Properties
@@ -87,7 +88,7 @@ management.endpoints.web.exposure.include= "appconfiguration-refresh"
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
 
 > [!NOTE]
-> Primary token name should be store in App Configuration and Primary token secret should be a Key Vault Reference.
+> The Primary token name should be store in App Configuration and Primary token secret should be stored in App Configuration as a Key Vault Reference for added security.
 
 > [!NOTE]
 > Event Grid Web Hooks requires validation on creation. This can be done by following the [guide](/azure/event-grid/webhook-event-delivery), or by starting your application with Azure App Configuration Spring Web Library configured and it will register it for you.
@@ -126,7 +127,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
     mvn spring-boot:deploy
     ```
 
-## Set up Event subscription
+## Set up an Event subscription
 
 1. Open the App Configuration resource in the Azure portal, then click on `+ Event Subscription` in the `Events` pane.
 
@@ -162,7 +163,7 @@ You can also use *curl* to test your application, for example:
 curl -X GET http://localhost:8080
 ```
 
-1. Select **Configuration Explorer**, and update the values of the following keys:
+1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and update the values of the following keys:
 
     | Key | Value |
     |---|---|
@@ -176,7 +177,7 @@ curl -X GET http://localhost:8080
 
 ## Next steps
 
-In this tutorial, you enabled your .NET Core app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your Java app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

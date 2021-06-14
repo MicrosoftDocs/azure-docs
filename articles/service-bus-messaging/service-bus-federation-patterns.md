@@ -101,7 +101,7 @@ the subordinate zone corresponding to your primary queue or topic:
 
 | CNAME record                 | Alias
 |------------------------------|-------------------------------------------------------------
-| `servicebus.test.example.com`  | `test1.test.example.com`
+| `servicebus.test.example.com`  | `sb1.test.example.com`
 
 Using a DNS client that allows for querying CNAME and SRV records explicitly
 (the built-in clients of Java and .NET only allow for simple resolution of names

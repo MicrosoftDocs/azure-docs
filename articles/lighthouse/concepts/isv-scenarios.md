@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse in  ISV scenarios
 description: The capabilities of Azure Lighthouse can be used by ISVs for more flexibility with customer offerings.
-ms.date: 12/18/2020
+ms.date: 05/11/2021
 ms.topic: conceptual
 ---
 
@@ -32,4 +32,4 @@ To enable this architecture, the ISV needs to obtain the object ID for a user gr
 ## Next steps
 
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
-- Learn about [Azure delegated resource management](azure-delegated-resource-management.md).
+- Learn more about [Azure Lighthouse architecture](architecture.md).

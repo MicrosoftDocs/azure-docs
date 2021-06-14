@@ -24,7 +24,7 @@ Security Center identifies Azure Resource Manager based ACR registries in your s
 
 **Azure Defender for container registries** includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images'  vulnerabilities. The integrated scanner is powered by Qualys, the industry-leading vulnerability scanning vendor.
 
-When issues are found – by Qualys or Security Center – you'll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-compute).
+When issues are found – by Qualys or Security Center – you'll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-container).
 
 Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. Security Center provides details of each reported vulnerability and a severity classification. Additionally, it gives guidance for how to remediate the specific vulnerabilities found on each image.
 
@@ -61,7 +61,7 @@ Below is a high-level diagram of the components and benefits of protecting your 
 
 
 
-## FAQ for Azure Container Registry image scanning
+## FAQ - Azure Container Registry image scanning
 
 ### How does Security Center scan an image?
 Security Center pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner. The scanner extracts a list of known vulnerabilities.
@@ -84,6 +84,9 @@ Yes. If you have an organizational need to ignore a finding, rather than remedia
 ### Why is Security Center alerting me to vulnerabilities about an image that isn’t in my registry?
 Security Center provides vulnerability assessments for every image pushed or pulled in a registry. Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
 
+### What should I do if the scan results for my image aren’t shown?
+Wait a few minutes and if the results don’t appear, try pushing the image again to trigger a new scan. 
+If they still don’t appear, contact our support team. 
 
 ## Next steps
 

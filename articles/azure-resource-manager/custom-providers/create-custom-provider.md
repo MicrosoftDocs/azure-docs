@@ -315,7 +315,7 @@ Use the `create` command to create or update a custom resource provider. This ex
 ```azurecli-interactive
 az custom-providers resource-provider create --resource-group $rgName --name $funcName \
 --action name=ping endpoint=https://myTestSite.azurewebsites.net/api/{requestPath} routing_type=Proxy \
---resource-type name=users endpoint=https://myTestSite.azurewebsites.net/api{requestPath} routing_type="Proxy, Cache"
+--resource-type name=users endpoint=https://myTestSite.azurewebsites.net/api/{requestPath} routing_type="Proxy, Cache"
 ```
 
 ```json
@@ -329,7 +329,7 @@ az custom-providers resource-provider create --resource-group $rgName --name $fu
 
 "resourceTypes": [
   {
-    "endpoint": "https://myTestSite.azurewebsites.net/api{requestPath}",
+    "endpoint": "https://myTestSite.azurewebsites.net/api/{requestPath}",
     "name": "users",
     "routingType": "Proxy, Cache"
   }

@@ -1,11 +1,11 @@
 ---
 title: "How to use table tags to train your custom form model - Form Recognizer"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn how to effectively use supervised table tag labeling.
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 03/15/2021
@@ -44,7 +44,7 @@ Here are some examples of when using table tags would be appropriate:
 Follow our quickstart to train and use your  custom Form Recognizer model:
 
 > [!div class="nextstepaction"]
-> [Train with labels using the sample labeling tool](quickstarts/label-tool.md)
+> [Train with labels using the sample labeling tool](label-tool.md)
 
 ## See also
 

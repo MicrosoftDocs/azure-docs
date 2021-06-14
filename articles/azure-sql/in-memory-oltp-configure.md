@@ -4,11 +4,11 @@ description: Adopt In-Memory OLTP to improve transactional performance in an exi
 services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
-ms.subservice: development
+ms.subservice: performance
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: MightyPen
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: mathoma
 ms.date: 11/07/2018
 ---
 # Use In-Memory OLTP to improve your application performance in Azure SQL Database and Azure SQL Managed Instance

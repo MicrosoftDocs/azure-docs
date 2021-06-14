@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/07/2021
+ms.date: 05/11/2021
 ms.author: alkohli
 ms.custom: references_regions
 ---
@@ -279,9 +279,9 @@ A.  If the container names have uppercase letters, those names are automatically
 
 
 ### Q. I was notified of copy errors during a data upload from my Data Box. What should I do?
-A.  When non-retryable data copy errors prevent any files in your import order from uploading to Azure, the errors are logged in the data copy log and you get a notification. You can't fix the errors. The upload has completed with errors. The notification is sent to make sure you know that the files didn't upload so you can fix any configuration errors before you try again. When you confirm that you're ready to proceed, the data will be secure erased from the device. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8). If you don't respond, the order completes automatically after 14 days.
+A.  When non-retryable data copy errors prevent any files in your import order from uploading to Azure, the errors are logged in the data copy log and you get a notification. You can't fix the errors. The upload has completed with errors. The notification is sent to make sure you know that the files didn't upload so you can fix any configuration errors before you try again. When you confirm that you're ready to proceed, the data will be secure erased from the device. If you don't respond, the order completes automatically after 14 days.
 
-For error information, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md). For steps to proceed with your import order, see [Verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).  
+For error information and steps to proceed with your order, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).  
 
 
 ### Q. How do I verify the data I copied onto Data Box?

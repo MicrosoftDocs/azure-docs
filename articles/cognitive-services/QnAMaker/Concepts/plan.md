@@ -24,23 +24,32 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Mak
 | [App Service resource and App Plan Service](azure-resources.md#app-service-and-app-service-plan) resource | Query prediction endpoint |
 | [Application Insights](azure-resources.md#application-insights) resource | Query prediction telemetry |
 
-# [QnA Maker managed (preview release)](#tab/v2)
+
+# [Custom question answering (preview release)](#tab/v2)
 
 | Resource | Purpose |
 |--|--|
-| [QnA Maker](azure-resources.md#qna-maker-resource) resource | Authoring, query prediction endpoint and telemetry|
+| [Text Analytics](azure-resources.md#qna-maker-resource) resource | Authoring, query prediction endpoint and telemetry|
 | [Cognitive Search](azure-resources.md#cognitive-search-resource) resource | Data storage and search |
 
 ---
 ### Resource planning
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 The free tier, `F0`, of each resource works and can provide both the authoring and query prediction experience. You can use this tier to learn authoring and query prediction. When you move to a production or live scenario, reevaluate your resource selection.
 
-#### QnA Maker resource
+# [Custom question answering (preview release)](#tab/v2)
 
-A single QnA Maker resource can host more than one knowledge base. The number of knowledge bases is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to knowledge bases](azure-resources.md#index-usage).
+Custom question answering (Preview) is a free feature, and the throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs. To target 10 transactions per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
 
-#### Knowledge base size and throughput
+### Text Analytics resource
+
+A single Text Analytics resource with the custom question answering feature enabled can host more than one knowledge base. The number of knowledge bases is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to knowledge bases](azure-resources.md#index-usage).
+
+---
+
+### Knowledge base size and throughput
 
 When you build a real app, plan sufficient resources for the size of your knowledge base and for your expected query prediction requests.
 
@@ -76,24 +85,34 @@ The first knowledge base created on your QnA Maker resource sets the language fo
 
 You can structure your QnA Maker resources by language or you can use [Translator](../../translator/translator-info-overview.md) to change a query from another language into the knowledge base's language before sending the query to the query prediction endpoint.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-You can now have knowledge bases in different languages within the same QnA Maker resource. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
+You can now have knowledge bases in different languages within the same Text Analytics resource where the custom question answering feature is enabled. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
 
-![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
 
 > [!NOTE]
-> If you enable language settings per knowledge base, you cannot create as many knowledge bases in your QnA Maker resource. For [more details on language settings limitations](./azure-resources.md).
+> If you enable multiple languages per knowledge base, you cannot create as many knowledge bases in your Text Analytics resource. For [more details on language settings limitations](./azure-resources.md).
 
 ---
 
 ### Ingest data sources
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 You can use one of the following ingested [data sources](../Concepts/data-sources-and-content.md) to create a knowledge base:
 
 * Public URL
 * Private SharePoint URL
 * File
+
+# [Custom question answering (preview release)](#tab/v2)
+
+Custom question answering also supports unstructured content. You can upload a file that has unstructured content.
+
+Currently we do not support URLs for unstructured content.
+
+---
 
 The ingestion process converts [supported content types](../reference-document-format-guidelines.md) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
@@ -174,9 +193,9 @@ There's a [two-phase answer ranking](query-knowledge-base.md#how-qna-maker-proce
 
 Apply the [latest runtime updates](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) to automatically manage service updates.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-In QnA Maker managed (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
+In Custom question answering (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
 
 ---
 
@@ -190,9 +209,9 @@ Scaling, throughput, and resiliency are determined by the [Azure resources](../h
 
 All queries to your knowledge base are stored in Application Insights. Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-In the managed deployment, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
+For Custom question answering, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
 
 
 ---
