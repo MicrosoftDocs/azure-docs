@@ -50,7 +50,7 @@ The KQL functions implementing the DNS information model have the following name
 | Name | Description | Usage instructions |
 | --- | --- | --- |
 | **imDNS** | Aggregative parser that uses *union* to include normalized events from all DNS sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
-| **imDNS\<vendor\>** | Source-specific parsers implement normalization for a specific source, such as *imDNSWindowsMMA*. |- Add a source-specific parser for a source when there is no built-in normalizing parser. Update the aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
+| **imDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *imDNSWindowsMMA*. |- Add a source-specific parser for a source when there is no built-in normalizing parser. Update the aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
 | | | |
 
 The parsers can be deployed from https://aka.ms/AzSentinelDns
