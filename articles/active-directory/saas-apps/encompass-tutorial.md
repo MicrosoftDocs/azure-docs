@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.voxmobile.com/voxportal/ws/saml/consume`
 
 	> [!NOTE]
-	> This values is not real. Update this value with the actual Reply URL. Contact [Encompass Client support team](https://www.voxmobile.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> This value is not real. Update this value with the actual Reply URL. Contact [Encompass Client support team](https://www.voxmobile.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
