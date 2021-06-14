@@ -18,33 +18,40 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-This article describes how to configure sign-in settings for local accounts in your Azure B2C tenant. A local account refers to an account that is created in your Azure AD B2C tenant either by an admin or by the user through self-service sign-up. Azure AD B2C serves as the identity provider for these accounts, and usernames and passwords are stored locally.
+This article describes how to configure sign-in settings for your Azure AD B2C local accounts. A local account refers to an account that is created in your Azure AD B2C directory when a user signs up for your application or an admin creates the account. Usernames and passwords are stored locally and Azure AD B2C serves as the identity provider for local accounts.
 
-Several sign-in options are available for local accounts:
+Several sign-in methods are available for local accounts:
 
-- **Email**: Users can sign up and sign in with their email address and password. Email sign-up is enabled by default in your local account identity provider settings. [Learn more about email sign-in](sign-in-options.md#email-sign-in)
-- **Username**: Users can sign up and sign in with a username and password. [Learn more about username sign-in](sign-in-options.md#username-sign-in)
-- **Phone (or "passwordless authentication")**: Users can sign up and sign in for the app using a phone number as their primary sign-in identifier. They don't need to sign in with a password. One-time passwords are sent to your users via SMS text messages. [Learn more about phone sign-in and pricing.](sign-in-options.md#phone-sign-in)
-- **Phone or email**: Users can sign up or sign in by entering a phone number or an email address. Based on the user input, Azure AD B2C takes the user to the corresponding flow in the sign-up or sign-in page. [Learn more.](sign-in-options.md#phone-or-email-sign-in)
-- **Phone recovery**: If you've enabled phone sign-up or sign-in, phone recovery lets users provide an email address that can be used to recover their account when they don't have their phone. [Learn more](sign-in-options.md#phone-recovery).
+- **Email**: Users can sign up and sign in to your app with their email address and password. Email sign-up is enabled by default in your local account identity provider settings.
+- **Username**: Users can sign up and sign in with a username and password.
+- **Phone (or "passwordless authentication")**: Users can sign up and sign in to your app using a phone number as their primary sign-in identifier. They don't need to sign in with a password. One-time passwords are sent to your users via SMS text messages.
+- **Phone or email**: Users can sign up or sign in by entering a phone number or an email address. Based on the user input, Azure AD B2C takes the user to the corresponding flow in the sign-up or sign-in page.
+- **Phone recovery**: If you've enabled phone sign-up or sign-in, phone recovery lets users provide an email address that can be used to recover their account when they don't have their phone.
 
-To manage settings for social or enterprise identities, where the identity of the user is managed by a federated identity provider like Facebook, and Google, see [Add an identity provider](add-identity-provider.md).
+To learn more about these methods, see [Sign-in options](sign-in-options.md). 
+
+To configure settings for social or enterprise identities, where the identity of a user is managed by a federated identity provider like Facebook or Google, see [Add an identity provider](add-identity-provider.md).
 
 ::: zone pivot="b2c-user-flow"
 
 ## Configure local account identity provider settings
 
-You can configure the local identity providers available to be used within a user flow by enabling or disabling the providers (email, username, or phone number).  You can have more than one local identity provider enabled at the tenant level.
 
-A user flow can only be configured to use one of the local account identity providers at any one time. Each user flow can have a different local account identity provider set, if more than one has been enabled at the tenant level.
+You can choose the local account sign-in methods (email, username, or phone number) you want to allow in your tenant by configuring the **Local account** provider in your list of Azure AD B2C **Identity providers**. Then when you set up a user flow, you can choose one of the local account sign-in options you've enabled tenant-wide. You can select only one local account sign-in method for a user flow, but you can select a different option for each user flow.
+
+To set your local account sign-in options at the tenant level: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Identity providers**.
 1. In the identity provider list, select **Local account**.
-1. In the **Configure local IDP** page, selected at least one of the allowable identity types consumers can use to create their local accounts in your Azure AD B2C tenant.
-1. Select **Save**.
+1. In the **Configure local IDP** page, select one or more identity types you want to allow consumers to use when creating their local accounts in your Azure AD B2C tenant. By selecting an option, you enable it for your tenant, and it becomes available for use in your user flows.
+
+   - **Phone**: 
+   - **Username**: Users can create their own unique user id. An email address will be collected from the user and verified.
+   - **Email**: Users will be prompted for an email address which will be verified at sign-up and become their user id.
+2. Select **Save**.
 
 ## Configure your user flow
 
