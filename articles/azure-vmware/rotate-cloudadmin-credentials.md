@@ -72,6 +72,6 @@ In this step, you'll update HCX Connector with the new credentials.
 
 Now that you've rotated your cloudadmin credentials for Azure VMware Solution, you may want to learn about:
 
-- [Configure NSX network components in Azure VMware Solution](configure-nsx-network-components-azure-portal.md)
+- [Configuring NSX network components in Azure VMware Solution](configure-nsx-network-components-azure-portal.md)
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
-- [Deploy disaster recovery of virtual machines using Azure VMware Solution](disaster-recovery-for-virtual-machines.md)
+- [Deploying disaster recovery for Azure VMware Solution workloads using VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)
