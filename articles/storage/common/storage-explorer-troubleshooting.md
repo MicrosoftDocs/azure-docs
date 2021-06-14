@@ -106,7 +106,7 @@ If you're unsure of where the certificate is coming from, follow these steps to 
 2. Run OpenSSL.
     * Windows: Open the installation directory, select **/bin/**, and then double-click **openssl.exe**.
     * Mac and Linux: Run `openssl` from a terminal.
-3. Run `s_client -showcerts -connect microsoft.com:443`.
+3. Run `openssl s_client -showcerts -connect microsoft.com:443`.
 4. Look for self-signed certificates. If you're unsure of which certificates are self-signed, make note of anywhere the subject `("s:")` and issuer `("i:")` are the same.
 5. When you find self-signed certificates, for each one, copy and paste everything from (and including) `-----BEGIN CERTIFICATE-----` through `-----END CERTIFICATE-----` into a new .cer file.
 6. Open Storage Explorer and go to **Edit** > **SSL Certificates** > **Import Certificates**. Then use the file picker to find, select, and open the .cer files that you created.
