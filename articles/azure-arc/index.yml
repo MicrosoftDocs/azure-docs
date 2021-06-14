@@ -45,56 +45,6 @@ highlightedContent:
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 
-# productDirectory section (optional)
-productDirectory:
-  title: Azure Arc enabled services
-  summary: See how to run services anywhere.
-  items: 
-    # Card
-    - title: Azure Arc enabled servers
-      # imageSrc should be square in ratio with no whitespace
-      imageSrc: ./media/manage-450-machines-azure-arc.svg
-      links:
-        - url: ./servers/onboard-portal.md
-          text: Connect machines to Azure Arc from the Azure portal
-        - url: ./servers/onboard-service-principal.md
-          text: Connect machines at scale using a service principal
-        - url: ./servers/onboard-dsc.md
-          text: Connect machines to Azure with PowerShell DSC
-        - url: ./servers/index.yml
-          text: See more...
-    # Card
-    - title: Azure Arc enabled Kubernetes
-      imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
-      links:
-        - url: ./kubernetes/quickstart-connect-cluster.md
-          text: Connect cluster
-        - url: ./kubernetes/tutorial-use-gitops-connected-cluster.md
-          text: Deploy configurations using GitOps
-        - url: ./kubernetes/index.yml
-          text: See more...
-    # Card
-    - title: Azure Arc enabled data services (preview)
-      imageSrc: ./media/manage-756-azure-arc.svg
-      links:
-        - url: ./data/install-client-tools.md
-          text: Install tools
-        - url: ./data/create-sql-managed-instance.md
-          text: Create SQL Managed Instance
-        - url: ./data/create-postgresql-hyperscale-server-group.md
-          text: Create PostgreSQL Hyperscale
-        - url: ./data/index.yml
-          text: See more...
-    # Card
-    - title: Azure Arc enabled SQL Server (preview)
-      imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
-      links:
-        - url: /sql/sql-server/azure-arc/assess
-          text: Assess your SQL instances
-        - url: /sql/sql-server/azure-arc/overview
-          text: See more...
-
-# conceptualContent section (optional)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   title: Get started # < 60 chars (optional)
