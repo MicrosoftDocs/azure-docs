@@ -6,7 +6,7 @@ services: cognitive-services
 author: metanMSFT
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019

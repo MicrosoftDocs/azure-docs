@@ -568,8 +568,8 @@
         href: cognitive-search-skill-ocr.md
       - name: PII Detection
         href: cognitive-search-skill-pii-detection.md  
-      - name: Sentiment
-        href: cognitive-search-skill-sentiment.md
+      - name: Sentiment (V3)
+        href: cognitive-search-skill-sentiment-v3.md
       - name: Shaper
         href: cognitive-search-skill-shaper.md
       - name: Text Merger
@@ -591,6 +591,8 @@
         href: cognitive-search-skill-named-entity-recognition.md
       - name: Entity Recognition
         href: cognitive-search-skill-entity-recognition.md
+      - name: Sentiment
+        href: cognitive-search-skill-sentiment.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
