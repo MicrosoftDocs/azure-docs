@@ -291,7 +291,7 @@ Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 To ensure the performance of the parser, note the following filtering recommendations:
 
 -	Always filter on built-in rather than parsed fields. While it's sometimes easier to filter using parsed fields, it has a dramatic performance impact.
--	Use operators that provide optimized performance. In particular, `==`, `has`, and `startswith`. Using operators such as `contains` or `matches regex` also dramatically impacts performance.
+-	Use operators that provide optimized performance. In particular, `==`, `has`, `startswith`, and `hassuffix`. Using operators such as `contains` or `matches regex` also dramatically impacts performance.
 
 Filtering recommendations for performance may not always be trivial to follow. For example, using `has` is less accurate than `contains`. In other cases, matching the built-in field, such as `SyslogMessage`, is less accurate than comparing an extracted field, such as `DvcAction`. In such cases, we recommend that you still pre-filter using a performance-optimizing operator over a built-in field, and repeat the filter using more accurate conditions after parsing.
 
