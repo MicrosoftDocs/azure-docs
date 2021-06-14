@@ -28,6 +28,7 @@ By design, a managed instance needs a minimum of 32 IP addresses in a subnet. As
   - service tier
   - hardware generation
   - number of vCores
+  - [maintenance window](../database/maintenance-window.md)
 - Plans to scale up/down or change service tier
 
 > [!IMPORTANT]
@@ -40,7 +41,7 @@ Size your subnet according to the future instance deployment and scaling needs. 
 - Azure uses five IP addresses in the subnet for its own needs
 - Each virtual cluster allocates additional number of addresses 
 - Each managed instance uses number of addresses that depends on pricing tier and hardware generation
-- Each scaling request temporarly allocates additional number of addresses
+- Each scaling request temporally allocates additional number of addresses
 
 > [!IMPORTANT]
 > It is not possible to change the subnet address range if any resource exists in the subnet. It is also not possible to move managed instances from one subnet to another. Whenever possible, please consider using bigger subnets rather than smaller to prevent issues in the future.
@@ -60,7 +61,7 @@ VC = virtual cluster
 
 Update operation typically requires virtual cluster resize. In some circumstances, update operation will require virtual cluster creation (for more details check [management operations article](sql-managed-instance-paas-overview.md#management-operations)). In case of virtual cluster creation, number of additional addresses required is equal to number of addresses represented by VC usage column summed with addresses required for instances placed in that virtual cluster (instance usage column).
 
-One additional thing that should be taken into consideration when determing subnet size is [maintenance window feature](../database/maintenance-window.md). Specifying another maintenance window for managed instance during its creation or afterwards means that it must be placed in virtual cluster with corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
+One additional thing that should be taken into consideration when determining subnet size is [maintenance window feature](../database/maintenance-window.md). Specifying another maintenance window for managed instance during its creation or afterwards means that it must be placed in virtual cluster with corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
 
 ### Address requirements for update scenarios
 
@@ -84,7 +85,7 @@ During scaling operation instances temporarily require additional IP capacity th
   
 ## Recommended subnet calculator
 
-When new create or update request comes, managed instance service communicates with compute platform with a request for new nodes that need to be added. Based on the compute response, deployment system either expands existing virtual cluster or creates a new one. Even if in most cases operation will be completed within same virtual cluster, there is no guarantee from the compute side that new one will not be spawned. This will increase number of IP addresses required for performing create or update operation and also reserve additonal IP addresses in the subnet for newly created virtual cluster.
+When new create or update request comes, managed instance service communicates with compute platform with a request for new nodes that need to be added. Based on the compute response, deployment system either expands existing virtual cluster or creates a new one. Even if in most cases operation will be completed within same virtual cluster, there is no guarantee from the compute side that new one will not be spawned. This will increase number of IP addresses required for performing create or update operation and also reserve additional IP addresses in the subnet for newly created virtual cluster.
 
 Taking into the account potential creation of new virtual cluster during subsequent create request or instance update, recommended formula for calculating total number of IP addresses required is:
 
