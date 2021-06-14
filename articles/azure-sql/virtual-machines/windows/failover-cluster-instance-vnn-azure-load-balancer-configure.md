@@ -213,7 +213,7 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
 
 > [!NOTE]
-> Since there is no private IP address for the external lad balancer, users cannot directly use teh VNN DNS name as it resolves the IP address within the subnet. Use either the public IP address of the public LB or configure another DNS mapping on the DNS server. 
+> Since there is no private IP address for the external load balancer, users cannot directly use teh VNN DNS name as it resolves the IP address within the subnet. Use either the public IP address of the public LB or configure another DNS mapping on the DNS server. 
 
 ---
 
