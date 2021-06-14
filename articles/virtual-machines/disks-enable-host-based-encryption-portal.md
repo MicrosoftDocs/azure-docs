@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Use the Azure portal to enable end-to-end encryption using encryption at host
 
-When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see:
+When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, and other managed disk encryption types, see:
 
 * Linux: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
@@ -29,7 +29,7 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 ## Prerequisites
 
-You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:
+You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Follow the steps below to enable the feature for your subscription:
 
 1. **Azure portal**: Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
 
@@ -61,7 +61,7 @@ Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk
 
 ## Deploy a VM
 
-Now that the feature has been enabled, you can deploy your VM and it will use encryption at host. Alternatively, for existing VMs, you can deallocate and then reallocate them to use encryption at host.
+Now that you've setup an Azure Key Vault and disk encryption set, you can deploy your VM and it will use encryption at host.
 
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. Create a new virtual machine, select an appropriate region and a supported VM size.
