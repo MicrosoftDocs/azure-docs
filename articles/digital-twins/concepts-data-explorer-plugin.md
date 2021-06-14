@@ -123,11 +123,8 @@ For instance, if you want to represent a property with three fields for roll, pi
 
 ## Next steps
 
-View the plugin documentation for the Kusto language in ADX:
-* [azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin)
+* View the plugin documentation for the Kusto language in ADX: [azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin)
 
-View sample queries using the plugin, including a walkthrough that runs the queries in an example scenario:
-* [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) 
+* View sample queries using the plugin, including a walkthrough that runs the queries in an example scenario: [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) 
 
-Read about another strategy for analyzing historical data in Azure Digital Twins:
-* [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md)
+* Read about another strategy for analyzing historical data in Azure Digital Twins: [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md)
