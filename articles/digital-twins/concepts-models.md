@@ -228,7 +228,7 @@ This section describes the current set of samples in more detail.
 
 Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [How-to: Manage DTDL models](how-to-manage-model.md#upload-models).
 
-However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use this [Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
+However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use the [Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
 
 ### Model visualizer 
 
