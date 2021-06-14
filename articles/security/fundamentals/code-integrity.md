@@ -48,7 +48,7 @@ Even with this layered protection, it's still possible that some server in the f
 
 ## Next steps
 
-Learn how [Windows 10](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control) uses configurable code integrity.
+Learn how [Windows 10](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control) uses configurable code integrity.
 
 To learn more about what we do to drive platform integrity and security, see:
 
