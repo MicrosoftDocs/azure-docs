@@ -1,5 +1,5 @@
 ---
-title: What is Azure Machine Learning
+title: What is Azure Machine Learning?
 description: Azure Machine Learning is an integrated data science solution for data scientists and MLops to model and deploy ML applications at cloud scale.
 services: machine-learning
 ms.service: machine-learning
@@ -51,9 +51,9 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
-## Build ML models in Python or R
+## Build ML models in with the Python SDK
 
-Start training on your local machine using the Azure Machine Learning <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
+Start training on your local machine using the Azure Machine Learning <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>. Then, you can scale out to the cloud. 
 
 With many available [compute targets](how-to-create-attach-compute-studio.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
