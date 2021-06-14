@@ -75,7 +75,7 @@ Let's jump straight into creating the identity. If you run into a problem, check
 1. Select **Azure Active Directory**.
 1. Select **App registrations**.
 1. Select **New registration**.
-1. Name the application. Select a supported account type, which determines who can use the application. Under **Redirect URI**, select **Web** for the type of application you want to create. Enter the URI where the access token is sent to. You can't create credentials for a [Native application](../manage-apps/application-proxy-configure-native-client-application.md). You can't use that type for an automated application. After setting the values, select **Register**.
+1. Name the application. Select a supported account type, which determines who can use the application. Under **Redirect URI**, select **Web** for the type of application you want to create. Enter the URI where the access token is sent to. You can't create credentials for a [Native application](../app-proxy/application-proxy-configure-native-client-application.md). You can't use that type for an automated application. After setting the values, select **Register**.
 
    ![Type a name for your application](./media/howto-create-service-principal-portal/create-app.png)
 

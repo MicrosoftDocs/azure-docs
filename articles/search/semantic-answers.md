@@ -108,7 +108,10 @@ Given the query "how do clouds form", the following answer is returned in the re
                 "North America",
                 "Vancouver"
             ]
+    ]
         }
+}
+
 ```
 
 ## Tips for producing high-quality answers

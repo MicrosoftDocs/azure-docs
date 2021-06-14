@@ -3,11 +3,11 @@ title: 'Azure AD ECMA Connector Host configuration'
 description: This article describes how to configure the Azure AD ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -69,7 +69,7 @@ The following sections will guide you through establishing connectivity with the
 2. In the portal, navigate to Azure Active Directory, **Enterprise Applications**.
 3. Click on **New Application**.
  ![Add new application](.\media\on-premises-ecma-configure\configure-4.png)
-4. Locate your application and click **Create**.
+4. Locate the "On-premises provisioning" application from the gallery and click **Create**.
 
 ### Configure the application and test
   1. Once it has been created, click he **Provisioning page**.
