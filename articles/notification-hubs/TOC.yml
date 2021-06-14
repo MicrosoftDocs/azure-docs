@@ -87,7 +87,7 @@
   - name: PowerShell
     href: samples-powershell.md
   - name: UWP React Native sample overview
-    href: uwpreact.md
+    href: uwp-react.md
 - name: Concepts
   items: 
   - name: Transport Layer Security (TLS)

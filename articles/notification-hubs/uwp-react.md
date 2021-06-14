@@ -352,7 +352,7 @@ To run the sample, the following prerequisites are required:
 - **[SQL Server database instance](#create-resource-sql-database):** A SQL Server database hosted on Azure.
 - **ASP.NET app backend:** Web API backend built over .NET 5.0, which connects with Azure Notification Hub hosted as Azure App Service. For more information, see [Quickstart: Deploy an ASP.NET web app](/azure/app-service/quickstart-dotnetcore?tabs=net50&pivots=development-environment-vs).
 
-If you don't want to deploy all the resources manually, you can use the Azure Resource Manager template.json file provided in the GitHub repository to deploy all the necessary instances in one step. The template file is available in the repo in /azure-template. For more information about how to use resource manager templates, see [Tutorial: Use Azure Quickstart templates](/azure/azure-resource-manager/templates/template-tutorial-quickstart-template?tabs=azure-powershell).
+If you don't want to deploy all the resources manually, you can use the Azure Resource Manager template.json file provided in the GitHub repository to deploy all the necessary instances in one step. The template file is available in the repo in /azure-template. For more information about how to use Resource Manager templates, see [Tutorial: Use Azure Quickstart templates](/azure/azure-resource-manager/templates/template-tutorial-quickstart-template?tabs=azure-powershell).
 
 ### Set up notifications for Android and iOS
 
@@ -367,9 +367,9 @@ To build the sample, follow these steps.
 
 [Create a SQL Server database instance](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal) in the Azure portal. For example:
 
-:::image type="content" source="media/uwpreact/resources-sql.png" alt-text="SQL instance resources":::
+:::image type="content" source="media/uwp-react/resources-sql.png" alt-text="SQL instance resources":::
 
-:::image type="content" source="media/uwpreact/template-screenshot.png" alt-text="Deployment template":::
+:::image type="content" source="media/uwp-react/template-screenshot.png" alt-text="Deployment template":::
 
 ### Create resource: notification hub
 
@@ -400,7 +400,7 @@ You can run the API solution locally or on any IIS server, or deploy it as an Az
 5. Select **Azure App Service (Windows)**, then select **Next**.
 6. You are redirected to the following dialog, from which you can select the appropriate subscription name and AppService instances. Your backend will be deployed to Azure, and you will be redirected to a new URL.
 
-   :::image type="content" source="media/uwpreact/publish.png" alt-text="Publish project":::
+   :::image type="content" source="media/uwp-react/publish.png" alt-text="Publish project":::
 
 7. Once the backend is published, add the generated URL into **config.js**, located under the **/app** folder. Be sure to append `/api/` after the URL.
 
@@ -420,7 +420,7 @@ Open the **app** folder in your preferred terminal or shell window. Then, do the
 ### Android
 
 1. Configure Firebase on your React-Native project to make sure you are able to use the notification capabilities.
-2. After you have successfully configured the Firebase project, download the **google-services.json** file from the Firebase portal. 
+2. After you have successfully configured the Firebase project, download the **google-services.json** file from the Firebase portal.
 3. Replace **./app/android/app/google-services.json** with this new file. Make sure the application package name matches the one configured in Firebase. The package name is configured in the **AndroidManifest.xml** file.
 4. For more information about how to configure notifications in a React Native application, see [Tutorial: Send push notifications to React Native](/azure/developer/mobile-apps/notification-hubs-backend-service-react-native).
 5. After the notifications are configured, run `npm run start` to start the metro server in one console window. If your Windows application is already running, you can skip this step.
