@@ -151,7 +151,7 @@ The descriptors used for a user are `Acting Process`, `Target Process`, and `Par
 - **Network connection**. An **Acting Process** initiated a network connection to communicate with **Target Process** on a remote system.
 - **DNS request**.	An **Acting Process** initiated a DNS query
 - **Sign-in**.	An **Acting Process** initiated a signing into a remote system that ran a **Target Process** on its behalf.
-- **Process creation**.	An Acting Process has initiated a Target Process creation. The Parent Process is the parent of the acting process.
+- **Process creation**.	An **Acting Process** has initiated a **Target Process** creation. The **Parent Process** is the parent of the acting process.
 
 The following table describes the supported identifiers for processes:
 
