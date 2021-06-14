@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 1. Click the **Azure Confidential Computing (Virtual Machine)** template.
 
-    ![Deploy a VM](media/quick-create-portal/compute-virtual-machine.png)
+    ![Deploy a VM](media/quick-create-marketplace/portal-search-marketplace.png)
 
 1. On the Virtual machine landing page, select **Create**.
 
@@ -118,6 +118,11 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 
 > [!NOTE]
 > If you see a PuTTY security alert about the server's host key not being cached in the registry, choose from the following options. If you trust this host, select **Yes** to add the key to PuTTy's cache and continue connecting. If you want to carry on connecting just once, without adding the key to the cache, select **No**. If you don't trust this host, select **Cancel** to abandon the connection.
+
+## Intel SGX Drivers
+
+> [!NOTE]
+> Intel SGX drivers as already part of the Ubuntu & Windows Azure Gallery Images. No special installation of the drivers is required. Optionally you can also update the existing drivers shipped in the images by visiting the [Intel SGX DCAP drivers list](https://01.org/intel-software-guard-extensions/downloads).
 
 ## Optional: Testing enclave apps built with Open Enclave SDK (OE SDK) <a id="Install"></a>
 
