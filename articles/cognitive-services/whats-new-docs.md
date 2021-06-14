@@ -38,7 +38,7 @@ Welcome to what's new in the Cognitive Services docs from May 1, 2021 through Ma
 - [Form Recognizer prebuilt business cards model](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
 - [Quickstart: Get started with the client library SDKs or REST API](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
 - [What's new in Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new.md)
-- [Form Recognizer landing page](form-recognizer.md)
+- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer/form-recognizer.md)
 
 ## Translator
 
