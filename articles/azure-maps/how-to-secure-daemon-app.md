@@ -108,7 +108,7 @@ To assign delegated API permissions to Azure Maps:
 
 3. In the **Manage** menu, select **App registrations**.
 
-4. Select your application registration.
+4. Select your application.
 
     :::image type="content" border="true" source="./media/how-to-manage-authentication/app-select.png" alt-text="Select app registrations.":::
 
@@ -169,7 +169,7 @@ To create a client secret:
 
    :::image type="content" border="true" source="./media/how-to-manage-authentication/new-client-secret-add.png" alt-text="Add new client secret.":::
 
-5. Copy the secret and store it securely in a service such as Azure Key Vault.
+5. Copy the secret and store it securely in a service such as Azure Key Vault. Also, We'll use the secret in the [Request token with Managed Identity](#request-token-with-managed-identity) section of this article.
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Add new client secret.":::
 
@@ -190,41 +190,65 @@ Once a managed identity is configured for the hosting resource, you can use Azur
 
 ### Request token with application registration
 
-After you register your app and associate it with Azure Maps, you can then request an access token with the following parameters:
+After you register your app and associate it with Azure Maps, you'll need then request an access token with the parameters that identify your application's identity and credentials.
 
-- Azure AD resource ID `https://atlas.microsoft.com/`
-- Azure AD App ID
-- Azure AD Tenant ID
-- Azure AD App registration client secret
+To get the required parameters:
 
-The request should have the following format:
+1. If you haven't done so already, sign in to the [Azure portal](https://portal.azure.com).
 
-```http
+2. Select **Azure Active Directory**.
 
-POST /<Azure AD Tenant ID>/oauth2/token HTTP/1.1
-Host: login.microsoftonline.com
-Content-Type: application/x-www-form-urlencoded
+3. In the **Manage** menu, select **App registrations**.
 
-client_id=<Azure AD App ID>&resource=https://atlas.microsoft.com/&client_secret=<client secret>&grant_type=client_credentials
-```
+4. Select your application.
 
-The response should appear like the following JSON code:
+5. You should see the Overview page. Copy the Application (client ID) and the Directory (tenant) ID.
+
+      :::image type="content" border="true" source="./media/how-to-manage-authentication/get-token-params.png" alt-text="Copy token parameters.":::
+
+We'll use the [Postman](https://www.postman.com/) application to create the token request, but you can use a different API development environment.
+
+1. In the Postman app, select **New**.
+
+2. In the **Create New** window, select **Collection**.
+
+3. Select **New** again.
+
+4. In the **Create New** window, select **Request**.
+
+5. Enter a **Request name** for the request, such as *POST Token Request*.
+
+6. Select the collection you previously created, and then select **Save**.
+
+7. Select the **POST** HTTP method.
+
+8. Enter the following URL to address bar (replace `<Tenant ID>` with the Directory (Tenant) ID, the `<Client ID>` with the Application (Client) ID), and `<Client Secret>` with your client secret:
+
+    ```http
+    https://login.microsoftonline.com/<Tenant ID>/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id=<Client ID>&client_secret=<Client Secret>%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
+    ```
+
+9. Select **Send**
+
+10. You should see the following JSON response:
 
 ```json
 {
     "token_type": "Bearer",
-    "expires_in": "...",
-    "ext_expires_in": "...",
-    "expires_on": "...",
-    "not_before": "...",
-    "resource": "https://atlas.microsoft.com/",
-    "access_token": "ey...gw"
+    "expires_in": 86399,
+    "ext_expires_in": 86399,
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFq..."
 }
 ```
 
-For more detailed examples, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).
+For more details about authentication flow, see [OAuth 2.0 client credentials flow on the Microsoft identity platform](../active-directory/develop/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret.md)
+
 
 ## Next steps
+
+For more detailed examples:
+> [!div class="nextstepaction"]
+> [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
