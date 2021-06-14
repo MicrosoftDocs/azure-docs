@@ -511,8 +511,8 @@ WEBSITE_VNET_BLOCK_FOR_SETUP_SCM_SITE
 | `WEBJOBS_DISABLE_SCHEDULE`| Set to `1` to turn off all scheduled triggering. Jobs can still be manually invoked. |
 | `WEBJOBS_ROOT_PATH`| Absolute or relative path of webjob files. In case of a relative path, the value is combined with the default root path (`D:/home/site/wwwroot/` or `/home/site/wwwroot/`). |
 | `WEBJOBS_LOG_TRIGGERED_JOBS_TO_APP_LOGS`| Set to true to send output from triggered WebJobs to the application logs pipeline (which supports file system, blobs and tables). |
-| `WEBJOBS_SHUTDOWN_FILE` | File that App Service creates when a shutdown request is  |detected. It's the web job process's responsibility to detect the presence of this file and initiate shutdown. When using the WebJobs SDK, this part is handled automatically. |
-| `WEBJOBS_PATH` | Read-only. Root path of currently running job (will be under some  |temporary directory). |
+| `WEBJOBS_SHUTDOWN_FILE` | File that App Service creates when a shutdown request is detected. It's the web job process's responsibility to detect the presence of this file and initiate shutdown. When using the WebJobs SDK, this part is handled automatically. |
+| `WEBJOBS_PATH` | Read-only. Root path of currently running job (will be under some temporary directory). |
 | `WEBJOBS_NAME` | Read-only. Current job name. |
 | `WEBJOBS_TYPE` | Read-only. Current job type (`triggered` or `continuous`). |
 | `WEBJOBS_DATA_PATH` | Read-only. Current job metadata path to contain the job's logs, history, and any artifact of the job. |
