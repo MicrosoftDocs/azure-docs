@@ -15,7 +15,7 @@ Data Collection Rules (DCR) define data coming into Azure Monitor and specify wh
 ## Input sources
 Data collection rules currently support the following input sources:
 
-- Azure Monitor Agent running on virtual machines, virtual machine scalesets and Azure Arc for servers. See [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md).
+- Azure Monitor Agent running on virtual machines, virtual machine scale sets and Azure Arc for servers. See [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md).
 
 
 
