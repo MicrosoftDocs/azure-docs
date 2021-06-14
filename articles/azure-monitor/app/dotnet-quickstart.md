@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Monitor an ASP.NET Core app with Azure Monitor Application Insights'
-description: Quickly instrument an ASP.NET Core web app for monitoring with Azure Monitor Application Insights
+description: Instrument an ASP.NET Core web app for monitoring with Azure Monitor Application Insights
 
 ms.topic: quickstart
 author: lgayhardt
@@ -66,7 +66,7 @@ In the `ConfigureServices` method of *Startup.cs*, add the Application Insights 
 
 ## Configure client-side telemetry
 
-Complete the following steps to instrument the app to send server-side telemetry:
+Complete the following steps to instrument the app to send client-side telemetry:
 
 1. In *Pages/_ViewImports.cshtml*, add the following line:
 
@@ -80,7 +80,7 @@ Complete the following steps to instrument the app to send server-side telemetry
 
     :::code language="razor" source="snippets/dotnet-quickstart/_layout.cshtml" range="3-10" highlight="7":::
 
-   This change uses the injected `JavaScriptSnippet` object to ensure the script is rendered in the head of every page in the app.
+   This change uses the injected `JavaScriptSnippet` object to ensure the script element is rendered in the head of every page in the app.
 
 ## Validate telemetry ingestion
 
@@ -88,8 +88,8 @@ It takes several minutes for telemetry to be ingested into Application Insights 
 
 1. Run the web app using `dotnet run` or your IDE.
 1. In the Azure portal, when viewing your Application Insights resource, select **Live metrics** under **Investigate**.
-1. Select the *Home* and *Privacy* links repeatedly.
-1. Observe activity on the **Live metrics** screens as requests are made in the app.
+1. Back in the web app, select the *Home* and *Privacy* links repeatedly.
+1. Observe activity on the **Live metrics** display as requests are made in the app.
 
 ## Next steps
 
