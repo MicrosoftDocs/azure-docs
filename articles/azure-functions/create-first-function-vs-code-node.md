@@ -176,8 +176,7 @@ Use the table below to resolve the most common issues encountered when using thi
 |Problem|Solution|
 |--|--|
 |Can't create a local function project?|You do not have the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.|
-|Can't run the function locally?|The most common issues to resolve when running a local Functions project are:
-1) You do not have the Azure Functions Core Tools installed. 2) If you have trouble running on Windows, make sure that the default terminal shell for Visual Studio Code isn't set to WSL Bash.|
+|Can't run the function locally?|Usually you do not have the Azure Functions Core Tools installed or, if you have trouble running on Windows, make sure that the default terminal shell for Visual Studio Code isn't set to WSL Bash.|
 |Can't deploy function to Azure?|Review the Output for error information. The bell icon in the lower right corner is another way to view the output. Did you publish to an existing function app? That action overwrites the content of that app in Azure.|
 |Couldn't run the cloud-based Function app?|Remember to use the query string to send in parameters.|
 
