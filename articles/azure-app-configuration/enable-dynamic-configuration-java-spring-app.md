@@ -47,7 +47,7 @@ To use automated refresh, start with a Spring Boot app that uses App Configurati
 
 Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azure-spring-cloud-appconfiguration-config-web` using the following code.
 
-**Spring Boot 2.4**
+**Spring Boot**
 
 ```xml
 <dependency>
@@ -58,7 +58,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
 ```
 
 > [!NOTE]
-> If you need to support an older version of Spring Boot see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
+> If you need support for older dependencies see our [previous library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
 
 1. Update `bootstrap.properties` to enable refresh
 
