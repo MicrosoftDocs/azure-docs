@@ -4,10 +4,11 @@ description: This article describes how to use Azure role-based access control (
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2020
+ms.date: 06/14/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
+
 # Manage role permissions and security
 
 Azure role-based access control (Azure RBAC) enables access management for Azure resources. Using [Azure RBAC](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. You can grant role-based access to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
@@ -252,6 +253,126 @@ The following sections describe the minimum required permissions needed for enab
 |Create / edit saved search     | Microsoft.OperationalInsights/workspaces/write           | Workspace        |
 |Create / edit scope config  | Microsoft.OperationalInsights/workspaces/write   | Workspace|
 
+## Custom Azure Automation Contributor role
+
+Create a custom role for Azure Automation Contributor and use this role for actions related to the Automation account. Please use the steps below to create thus custom role:
+
+### Through Azure portal
+
+1. Review [Create or update Azure custom roles using the Azure portal](/role-based-access-control/custom-roles-portal.md) as may be necessary.
+
+1. Create a JSON file that has the following format:
+
+   ```json
+   {
+    "properties": {
+        "roleName": "Azure Automation Contributor - Custom - Portal",
+        "description": "Allows access to manage Azure Automation and its resources",
+        "type": "CustomRole",
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.Insights/metrics/read",
+                    "Microsoft.Insights/diagnosticSettings/*",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Automation/automationAccounts/*",
+                    "Microsoft.Support/*"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ],
+        "assignableScopes": [
+            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+        ]
+      }
+   }
+   ```
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to your Automation account and select **Access control (IAM)**.
+
+1. Select **Add**, and then **Add custom role**. This opens the custom roles editor.
+
+   :::image type="content" source="./media/automation-role-based-access-control/add-custom-role.png" alt-text="Adding a custom role from portal.":::
+
+1. Select a file box, and select the folder button to open the Open dialog box.
+
+1. Select your JSON file and then select **Open**.
+
+1. Complete the remaining steps as normal. It can take a few minutes for your custom role to appear everywhere.
+
+### Through PowerShell
+
+1. To create a custom role using PowerShell, you will need the prerequisites as mentioned in [Create or update Azure custom roles using Azure PowerShell](/role-based-access-control/custom-roles-powershell.md).
+
+1. Create a JSON file that has the following format:
+
+    ```json
+    { 
+        "Name": "Azure Automation Contributor CustomRole",
+        "Id": "",
+        "IsCustom": true,
+        "Description": "Allows access to manage Azure Automation and its resources",
+        "Actions": [
+            "Microsoft.Authorization/*/read",
+            "Microsoft.Insights/alertRules/*",
+            "Microsoft.Insights/metrics/read",
+            "Microsoft.Insights/diagnosticSettings/*",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/subscriptions/resourceGroups/read",
+            "Microsoft.Automation/automationAccounts/*",
+            "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "AssignableScopes": [
+            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+        ] 
+    } 
+    ```
+
+1. To add the custom role to the subscription, run the following PowerShell script:
+
+    ```powershell
+    $ErrorActionPreference = "Stop" 
+
+    $customRoleDefinitionPath = Join-Path $PSScriptRoot "AzureAutomationContributorCustomRole.json"
+    $customRoleName = 'Azure Automation Contributor CustomRole'
+
+    try
+    {
+        Login-AzAccount 
+
+        $customRole = Get-AzRoleDefinition -Name $customRoleName 
+
+        if ($null -eq $customRole){ 
+            Write-Output "Role $customRoleName does not exist. Creating now..." 
+            New-AzRoleDefinition -InputFile $customRoleDefinitionPath 
+        } 
+        else { 
+            Write-Output "Role $customRoleName already exists. Updating now..." 
+            $customRoleDefinition = Get-Content -Path $customRoleDefinitionPath -Raw 
+            $customRoleDefinition = ConvertFrom-Json -InputObject $customRoleDefinition 
+            $customRoleDefinition.Id = $customRole.Id 
+            Set-Content -Path $customRoleDefinitionPath -Value $(ConvertTo-Json $customRoleDefinition) 
+            Set-AzRoleDefinition -InputFile $customRoleDefinitionPath | Out-Null 
+        } 
+
+        Write-Output "Successfully configured role $customRoleName" 
+        Get-AzRoleDefinition -Name $customRoleName 
+
+    } 
+    catch
+    { 
+        Write-Warning "Error occured while configuring role $customRoleName" 
+        Write-Warning "Exception: $_"
+    }  
+    ```
 ## Update management permissions
 
 Update management reaches across multiple services to provide its service. The following table shows the permissions needed to manage update management deployments:
