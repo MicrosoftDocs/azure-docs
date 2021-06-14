@@ -41,7 +41,7 @@ Do the following steps to create a Windows VM image:
 
    The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
 
-   You can use any Gen1 VM with a fixed-size VHD in Azure Marketplace. For a list of Azure Marketplace images that are commonly used, see [Azure Marketplace items available for Azure Stack Hub](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images).
+   You can use any Windows Gen1 VM with a fixed-size VHD in Azure Marketplace. For a list of commonly used Azure Marketplace images that could work, see [Azure Marketplace items available for Azure Stack Hub](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images).
 
 2. Generalize the virtual machine. To generalize the VM, [connect to the virtual machine](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm), open a command prompt, and run the following `sysprep` command:
 
