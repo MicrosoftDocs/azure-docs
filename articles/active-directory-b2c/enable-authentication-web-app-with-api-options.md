@@ -1,6 +1,6 @@
 ---
-title: Enable web application options using Azure Active Directory B2C
-description:  Enable the use of web application options by using several ways.
+title: Enable web application  that calls a web API options using Azure Active Directory B2C
+description:  Enable the use of web application  that calls a web API options by using several ways.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,11 +13,11 @@ ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication in a sample web application using Azure Active Directory B2C options
+# Configure authentication in a sample web application  that calls a web API using Azure Active Directory B2C options
 
-This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your web application. Before you start, it is important to familiarize yourself with the following articles: [Configure authentication in a sample web application](configure-authentication-sample-web-app.md) or [Enable authentication in your own web application](enable-authentication-web-application.md).
+This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your web application that calls a web API. Before you start, familiarize yourself with the following articles: [Configure authentication in a sample web application](configure-authentication-sample-web-app-with-api.md) or [Enable authentication in your own web application](enable-authentication-web-app-with-api.md).
 
-[!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
+[!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)] 
 
 To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Under the project root folder, open the `appsettings.json` file. This file contains information about your Azure AD B2C identity provider. 
 
@@ -97,8 +97,8 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
 
 [!INCLUDE [active-directory-b2c-app-integration-domain-hint](../../includes/active-directory-b2c-app-integration-domain-hint.md)]
 
-1. Check the domain name of your external identity provider. For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). 
-1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
+1. Check the domain name of your external identity provider. For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure. 
 1. In the *OnRedirectToIdentityProviderFunc* function, add the following line of code to the *OnRedirectToIdentityProvider* function:
     
     ```csharp
@@ -110,7 +110,6 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
       await Task.CompletedTask.ConfigureAwait(false);
     }
     ```
-
 
 [!INCLUDE [active-directory-b2c-app-integration-ui-locales](../../includes/active-directory-b2c-app-integration-ui-locales.md)]
 
@@ -126,6 +125,7 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
       // More code
       await Task.CompletedTask.ConfigureAwait(false);
     }
+    ```
     ```
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-parameters](../../includes/active-directory-b2c-app-integration-custom-parameters.md)]
@@ -144,9 +144,8 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
     }
     ```
 
-
 [!INCLUDE [active-directory-b2c-app-integration-id-token-hint](../../includes/active-directory-b2c-app-integration-id-token-hint.md)]
-
+ 
 1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
 1. In your custom policy, define an [ID token hint technical profile](id-token-hint.md).
 1. Add the following line of code to the *OnRedirectToIdentityProvider* function:
