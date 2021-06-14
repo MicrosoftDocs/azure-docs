@@ -247,7 +247,7 @@ All specified conditions must evaluate to true to result in a match.
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
 
 > [!NOTE]
-> If the `include` or `exclude` configuration donot have `spanNames` specified, then the matching criteria is applied on both `spans` and `logs`.
+> If the `include` or `exclude` configuration do not have `spanNames` specified, then the matching criteria is applied on both `spans` and `logs`.
 
 ### Sample usage
 
@@ -514,7 +514,7 @@ All specified conditions must evaluate to true to result in a match.
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
 
 > [!NOTE]
-> Log processors donot support `spanNames`.
+> Log processors do not support `spanNames`.
 
 ### Sample usage
 
