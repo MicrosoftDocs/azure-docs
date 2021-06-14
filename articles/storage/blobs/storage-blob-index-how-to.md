@@ -53,17 +53,17 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 
 # [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), select your storage account 
+1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
 
-2. Navigate to the **Containers** option under **Blob service**, select your container
+2. Navigate to the **Containers** option under **Data storage**, and select your container.
 
 3. Select the **Upload** button and browse your local file system to find a file to upload as a block blob.
 
-4. Expand the **Advanced** dropdown and go to the **Blob Index Tags** section
+4. Expand the **Advanced** dropdown and go to the **Blob Index Tags** section.
 
-5. Input the key/value blob index tags that you want applied to your data
+5. Input the key/value blob index tags that you want applied to your data.
 
-6. Select the **Upload** button to upload the blob
+6. Select the **Upload** button to upload the blob.
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Screenshot of the Azure portal showing how to upload a blob with index tags.":::
 
@@ -113,17 +113,17 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
 
 # [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), select your storage account 
+1. In the [Azure portal](https://portal.azure.com/), select your storage account.
 
-2. Navigate to the **Containers** option under **Blob Service**, select your container
+2. Navigate to the **Containers** option under **Data storage**, select your container.
 
-3. Select your blob from the list of blobs within the selected container
+3. Select your blob from the list of blobs within the selected container.
 
-4. The blob overview tab will display your blob's properties including any **Blob Index Tags**
+4. The blob overview tab will display your blob's properties including any **Blob Index Tags**.
 
-5. You can get, set, modify, or delete any of the key/value index tags for your blob
+5. You can get, set, modify, or delete any of the key/value index tags for your blob.
 
-6. Select the **Save** button to confirm any updates to your blob
+6. Select the **Save** button to confirm any updates to your blob.
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot of the Azure portal showing how to get, set, update, and delete index tags on blobs.":::
 
@@ -194,13 +194,13 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 
 1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
 
-2. Navigate to the **Containers** option under **Blob service**, select your container
+2. Navigate to the **Containers** option under **Data storage**, select your container.
 
-3. Select the **Blob Index tags filter** button to filter within the selected container
+3. Select the **Blob Index tags filter** button to filter within the selected container.
 
-4. Enter a blob index tag key and tag value
+4. Enter a blob index tag key and tag value.
 
-5. Select the **Blob Index tags filter** button to add additional tag filters (up to 10)
+5. Select the **Blob Index tags filter** button to add additional tag filters (up to 10).
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot of the Azure portal showing how to Filter and find tagged blobs using index tags":::
 
