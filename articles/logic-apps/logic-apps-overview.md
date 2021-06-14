@@ -172,7 +172,19 @@ All these services help you connect and bring together disparate systems. Each s
 
 ## Get started
 
-Before you can start with Azure Logic Apps, you need an Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). Otherwise, try this [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), which monitors new content on a website through an RSS feed and sends email when new content appears.
+Before you can start with Azure Logic Apps, you need an Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+
+When you're ready, try one or more of the following quickstart guides for Logic Apps. Learn how to create a basic workflow that monitors an RSS feed and sends an email for new content.
+
+* [Create a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Create a logic app in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
+* [Create a logic app in Visual Studio Code (VS Code)](quickstart-create-logic-apps-visual-studio-code.md)
+
+You might also want to explore other quickstart guides for Logic Apps:
+
+* [Create a logic app using an Azure Resource Manager (ARM) template](quickstart-create-deploy-azure-resource-manager-template.md)
+* [Create a multi-tenant logic app using the Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md)
+
 
 ## Other resources
 
