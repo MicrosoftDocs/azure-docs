@@ -11,10 +11,10 @@ ms.date: 05/31/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
+# Quickstart: Set up and manage Teams access tokens
+
 > [!IMPORTANT]
 > To enable/disable custom Teams endpoint experience, complete [this form](https://forms.office.com/r/B8p5KqCH19).
-
-# Quickstart: Set up and manage Teams access tokens
 
 In this quickstart, we are going to build .NET console application to authenticate AAD user token using MSAL library and exchange it for Teams' access token via ACS identity SDK. Team's access token can be used in ACS calling SDK to build custom Teams endpoint. Chat functionality is available via Graph API.
 
@@ -24,7 +24,7 @@ In this quickstart, we are going to build .NET console application to authentica
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](./create-communication-resource.md).
 - Enable custom Teams endpoint experience via  [this form](https://forms.office.com/r/B8p5KqCH19)
 - Having Azure Active Directory with users that have Teams license
 
@@ -43,7 +43,7 @@ Admin is a role, that has extended permissions in the AAD and can also provision
 1. Contoso's Admin creates or selects existing *Application* in Azure Active Directory. Property *Supported account types* defines whether users from different tenant can authenticate to the *Application*. Property *Redirect URI* redirects successful authentication request to Contoso's *Server*.
 1. Contoso's Admin extends *Application*'s manifest with Azure Communication Services' VoIP permission. 
 1. Contoso's Admin enables experience via [this form](https://forms.office.com/r/B8p5KqCH19)
-1. Contoso's Admin creates or selects existing Communication Services, that will be used for authentication of the exchanging requests. AAD user tokens will be exchanged for Teams' access tokens. You can read more about creation of [new Communication Services resource here](../create-communication-resource.md).
+1. Contoso's Admin creates or selects existing Communication Services, that will be used for authentication of the exchanging requests. AAD user tokens will be exchanged for Teams' access tokens. You can read more about creation of [new Communication Services resource here](./create-communication-resource.md).
 1. Fabrikam's Admin provisions new service principal for Azure Communication Services in the Fabrikam's tenant
 1. Fabrikam's Admin grants Azure Communication Services VoIP permission to the Contoso's *Application*. This step is required only if Contoso's *Application* isn't verified.
 
@@ -55,7 +55,7 @@ Following *Application* settings influence the experience:
 - Property *Supported account types* defines whether the *Application* is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
 - *Redirect URI* defines URI where authentication request is redirected after authentication. For this scenario, you can use "Public client/native(mobile & desktop)" and fill in "http://localhost" as URI.
 - 
-[Here you can find detailed documentation.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application). 
+[Here you can find detailed documentation.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application). 
 
 When the *Application* is registered, you can see in the overview following identifier that will be used in followings steps: **Application (client) ID**.
 
@@ -64,7 +64,7 @@ When the *Application* is registered, you can see in the overview following iden
 In the *Authentication* pane of your *Application*, you can see Configured platform for *Public client/native(mobile & desktop)* with Redirect URI pointing to *localhost*. In the bottom of the screen, you can find toggle *Allow public client flows*, which for this quickstart will be set to **Yes**.
 
 ### 3. Verify application (Optional)
-In the *Branding* pane, you can verify your platform within Microsoft identity platform. This one time process will remove requirement for Fabrikam's admin to give admin consent to this application. You can find details on how to verify your application [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-configure-publisher-domain).
+In the *Branding* pane, you can verify your platform within Microsoft identity platform. This one time process will remove requirement for Fabrikam's admin to give admin consent to this application. You can find details on how to verify your application [here](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
 
 ### 4. Define Azure Communication Services' VoIP permission in application
 
@@ -94,7 +94,7 @@ AAD Admin fills in following [form](https://forms.office.com/r/B8p5KqCH19) to en
 
 Communication Service resource will be used to authenticate all requests for exchanging AAD user tokens for Teams access tokens. Exchange can be triggered via ACS Identity SDK, which is authenticated with access key or Azure RBAC. You can get the access key in the Azure portal or configure Azure RBAC via *Access control (IAM)* pane.
 
-If you want to [create new Communication Services resource, follow this guide](../create-communication-resource.md).
+If you want to [create new Communication Services resource, follow this guide](./create-communication-resource.md).
 
 ### 7. Provision Azure Communication Services service principal
 
@@ -156,7 +156,7 @@ Contoso's developer needs to set up *Client application* for authentication of u
 
 Microsoft Authentication Library (MSAL) enables developers to acquire tokens from the Microsoft identity platform endpoint to authenticate users and access secure web APIs. It can be used to provide secure access to Azure Communication Services. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
 
-You can find more details how to set up different environments in public documentation. [Microsoft Authentication Library (MSAL) overview](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview).
+You can find more details how to set up different environments in public documentation. [Microsoft Authentication Library (MSAL) overview](https://docs.microsoft.com/azure/active-directory/develop/msal-overview).
 
 *Note: Following sections describes how to exchange AAD access token for Teams access token for console application in .NET.*
 
