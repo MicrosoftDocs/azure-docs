@@ -98,9 +98,9 @@ If you want to [create new Communication Services resource, follow this guide](.
 
 ### 7. Provision Azure Communication Services service principal
 
-To enable custom Teams endpoint experience in tenant, AAD admin must provision service principal named Azure Communication Services with Application ID: *1fd5118e-2576-4263-8130-9503064c837a*. If you don't see this application in your Enterprise applications pane in Azure Active Directory, it has to be added manually.
+To enable custom Teams endpoint experience in Fabrikam's tenant, Fabrikam's AAD admin must provision service principal named Azure Communication Services with Application ID: *1fd5118e-2576-4263-8130-9503064c837a*. If you don't see this application in your Enterprise applications pane in Azure Active Directory, it has to be added manually.
 
-AAD Admin connects to the Azure's Tenant via PowerShell. 
+Fabrikam's AAD Admin connects to the Azure's Tenant via PowerShell. 
 
 *Note: Replace [Tenant_ID] with ID of your tenant, that can be found in the Azure portal on the overview page of the AAD.*
 
@@ -132,7 +132,7 @@ If Contoso's *Application* isn't verified, the AAD admin must grant permission t
 1. Fabrikam's AAD Admin navigates to the link in the browser. 
 1. Fabrikam's AAD admin logs in and grants permissions on behalf of the organization
 
-Service principal of Contoso's *Application* in Fabrikams' tenant is created if consent is granted. Fabrikam's admin can review consent in AAD:
+Service principal of Contoso's *Application* in Fabrikam's tenant is created if consent is granted. Fabrikam's admin can review consent in AAD:
 
 1. Sign in into Azure portal as Admin
 1. Go to Azure Active Directory
@@ -154,7 +154,7 @@ Contoso's developer needs to set up *Client application* for authentication of u
 1. Contoso's developer configures MSAL library to authenticate user for *Application* created in previous steps by Admin for Azure Communication Services' VoIP permission
 1. Contoso's developer initializes ACS identity SDK and exchanges incoming AAD user token for Teams' access token via SDK. Teams' access token is then returned to *Client application*.
 
-Microsoft Authentication Library (MSAL) enables developers to acquire tokens from the Microsoft identity platform endpoint to authenticate users and access secure web APIs. It can be used to provide secure access to Azure Communication Services. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
+Microsoft Authentication Library (MSAL) enables developers to acquire AAD user tokens from the Microsoft identity platform endpoint to authenticate users and access secure web APIs. It can be used to provide secure access to Azure Communication Services. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
 
 You can find more details how to set up different environments in public documentation. [Microsoft Authentication Library (MSAL) overview](https://docs.microsoft.com/azure/active-directory/develop/msal-overview).
 
@@ -218,7 +218,7 @@ namespace TeamsAccessTokensQuickstart
 
 ### 1. Receive AAD user token via MSAL library
 
-Use MSAL library to authenticate user against AAD for Contoso's *Application* with Azure Communication Services' VoIP permission. Configure client for Contoso's *Application* (*parameter applicationId*) in public cloud (*parameter authority*). AAD Token will be returned to the redirect URI (*parameter redirectUri*). Credentials will be taken from interactive pop-up window, that will open in your default browser.
+Use MSAL library to authenticate user against AAD for Contoso's *Application* with Azure Communication Services' VoIP permission. Configure client for Contoso's *Application* (*parameter applicationId*) in public cloud (*parameter authority*). AAD user token will be returned to the redirect URI (*parameter redirectUri*). Credentials will be taken from interactive pop-up window, that will open in your default browser.
 
 *Note: Redirect URI has to match the value defined in the *Application*. Check first step in the Admin guide to see how to configure Redirect URI.*
 
@@ -247,7 +247,7 @@ Variable *aadUserToken* now carries valid Azure Active Directory user token, tha
 
 Valid AAD user token authenticates user against AAD for third party application with Azure Communication Services' VoIP permission. The following code is used ACS identity SDK to facilitate exchange of AAD user token for Teams access token.
 
-*Note: Replace value "&lt;Connection-String&gt;" with valid connection string or use Azure RBAC for authentication.*
+*Note: Replace value "&lt;Connection-String&gt;" with valid connection string or use Azure RBAC for authentication. You can find more details in [this quickstart](./access-tokens.md).*
 
 ```csharp
 var identityClient = new CommunicationIdentityClient("<Connection-String>");
