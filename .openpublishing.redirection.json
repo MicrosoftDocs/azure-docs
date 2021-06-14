@@ -3599,6 +3599,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/app-service-authentication-how-to.md",
+      "redirect_url": "/azure/app-service/overview-authentication-authorization#more-resources",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/app-service-diagnostics.md",
       "redirect_url": "/azure/app-service/overview-diagnostics",
       "redirect_document_id": false

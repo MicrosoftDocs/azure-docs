@@ -213,11 +213,9 @@
       href: configure-domain-traffic-manager.md
     - name: Migrate an active domain
       href: manage-custom-dns-migrate-domain.md
-  - name: Secure app
+  - name: Authenticate users
     items:
-    - name: Add SSL cert
-      href: configure-ssl-certificate.md
-    - name: Authenticate users
+    - name: Configure identity providers
       items:
       - name: Authenticate with Azure AD
         href: configure-authentication-provider-aad.md
@@ -231,8 +229,20 @@
         href: configure-authentication-provider-openid-connect.md
       - name: Authenticate using Sign in with Apple (Preview)
         href: configure-authentication-provider-apple.md
-    - name: Advanced auth
-      href: app-service-authentication-how-to.md
+    - name: Customize sign-ins/outs
+      href: configure-authentication-customize-sign-in-out.md
+    - name: Access user identities
+      href: configure-authentication-user-identities.md
+    - name: Work with tokens
+      href: configure-authentication-oauth-tokens.md
+    - name: Manage API versions
+      href: configure-authentication-api-version.md
+    - name: File-based configuration
+      href: configure-authentication-file-based.md
+  - name: Secure app
+    items:
+    - name: Add SSL cert
+      href: configure-ssl-certificate.md
     - name: Restrict access
       href: app-service-ip-restrictions.md
     - name: Use a managed identity
@@ -311,6 +321,8 @@
     href: /rest/api/appservice/
   - name: Resource Manager template
     href: /azure/templates/microsoft.web/allversions
+  - name: App settings reference
+    href: reference-app-settings.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
