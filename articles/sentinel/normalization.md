@@ -353,12 +353,12 @@ The parser has to prepare the fields in the result set to ensure that the normal
 
 The following KQL operators are used to prepare fields:
 
-|Operator  |Description  |When to use in a parser  |
+|Operator  |Description  | When to use in a parser  |
 |---------|---------|---------|
 |**extend**     | Creates calculated fields and adds them to the record        |  `Extend` is used if the normalized fields are parsed or transformed from the original data. For more information, see the example in the [Parsing](#parsing) section above.`     |
-|**project-rename**     | Renames fields        |     If a field exists in the original event and only needs to be renamed, use `project-rename`. The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
+|**project-rename**     | Renames fields        |     If a field exists in the original event and only needs to be renamed, use `project-rename`. <br><br>The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
 |**project-away**     |      Removes fields.   |Use `project-away` for specific fields that you want to remove from the result set.         |
-|**project**     |  Selects fields that were either existing before, or were created as part of the statement. Removes all other fields.       |   Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
+|**project**     |  Selects fields that were either existing before, or were created as part of the statement. Removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
 |   |         |         |
 
 
