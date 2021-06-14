@@ -29,7 +29,7 @@ This article shows you how to access an [Azure SQL Database ledger](ledger-overv
 
 ## How does the integration work?
 
-Azure SQL Server calculates the digests of the [ledger databases](ledger-overview.md#ledger-database) periodically and stores them in Confidential Ledger. At any time, you can validate the integrity of the data. Download the digests from Confidential Ledger and compare them to the digests stored in a SQL Database ledger. The following steps explain the process.
+Azure SQL server calculates the digests of the [ledger databases](ledger-overview.md#ledger-database) periodically and stores them in Confidential Ledger. At any time, you can validate the integrity of the data. Download the digests from Confidential Ledger and compare them to the digests stored in a SQL Database ledger. The following steps explain the process.
 
 ## 1. Find the digest location
 
