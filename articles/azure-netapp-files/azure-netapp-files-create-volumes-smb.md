@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -83,9 +83,16 @@ Before creating an SMB volume, you need to create an Active Directory connection
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Click **Protocol** and complete the following information:  
-    * Select **SMB** as the protocol type for the volume. 
-    * Select your **Active Directory** connection from the drop-down list.
-    * Specify the name of the shared volume in  **Share name**.
+    * Select **SMB** as the protocol type for the volume.  
+
+    * Select your **Active Directory** connection from the drop-down list.  
+    
+    * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
+        - It must be unique within each subnet in the region. 
+        - It must start with an alphabetical character.
+        - It can contain only letters, numbers, or dashes (`-`). 
+        - The length must not exceed 80 characters.   
+        
     * If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
         This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
         See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information. 

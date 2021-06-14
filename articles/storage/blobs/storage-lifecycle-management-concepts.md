@@ -83,12 +83,6 @@ There are two ways to add a policy through the Azure portal.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
 
-   The **Last accessed** option is available in preview in the following regions:
-
-    - France Central
-    - Canada East
-    - Canada Central
-
    > [!IMPORTANT]
    > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
    
