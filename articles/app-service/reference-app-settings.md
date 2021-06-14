@@ -31,9 +31,9 @@ In [Azure App Service](overview.md), certain settings are available to the deplo
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for websocket's concurrent requests. For **Standard** tier and above, the value is `-1`, but there's still a per VM limit based on your VM size (see [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)). ||
 | `WEBSITE_PRIVATE_EXTENSIONS` | Set to `0` to disable the use of private site extensions. ||
 | `WEBSITE_TIME_ZONE` | By default, the time zone for the app is always UTC. You can change it to any of the valid values that are listed in [TimeZone](/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10)). If the specified value isn't recognized, UTC is used. | `Atlantic Standard Time` |
-| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | In the case of a storage volume failover or reconfiguration, your app is switched over to a standby storage volume. The default setting of `1` prevents your worker process from recycling when the storage infrastructure changes. If you are running a Windows Communication Foundation (WCF) app, disable it by setting it to `0`. Note that the setting is slot-specific, so you should set it in all slots. ||
-| `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively "autohealed" when it's using more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VN instance has triggered one of these rules, the recovery process is a overlapping restart of the instance. Set to `false` to disable this recovery behavior. The default is `true`. For more information, see [Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). ||
-| `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than 3 times in 24 hours, a debugger process is attached to the main worker process on that instance, and collects a memory dump when the worker process crashes again. This memory dump is then analyzed and the call stack of the thread that caused the crash is logged in your App Service’s logs. Set to `false` to disable this automatic monitoring behavior. The default is `true`. For more information, see [Proactive Crash Monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html). ||
+| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | In the case of a storage volume failover or reconfiguration, your app is switched over to a standby storage volume. The default setting of `1` prevents your worker process from recycling when the storage infrastructure changes. If you are running a Windows Communication Foundation (WCF) app, disable it by setting it to `0`. The setting is slot-specific, so you should set it in all slots. ||
+| `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively "autohealed" when it's using more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VN instance has triggered one of these rules, the recovery process is an overlapping restart of the instance. Set to `false` to disable this recovery behavior. The default is `true`. For more information, see [Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). ||
+| `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance, and collects a memory dump when the worker process crashes again. This memory dump is then analyzed and the call stack of the thread that caused the crash is logged in your App Service’s logs. Set to `false` to disable this automatic monitoring behavior. The default is `true`. For more information, see [Proactive Crash Monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html). ||
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the SAS URI.  ||
 | `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`. This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. ||
 | `WEBSITE_CRASHMONITORING_SETTINGS` | A JSON with the following format:`{"StartTimeUtc": "2020-02-10T08:21","MaxHours": "<elapsed-hours-from-StartTimeUtc>","MaxDumpCount": "<max-number-of-crash-dumps>"}`. Required to configure [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) if `WEBSITE_CRASHMONITORING_ENABLED` is specified. To only log the call stack without saving the crash dump in the storage account, add `,"UseStorageAccount":"false"` in the JSON. ||
@@ -61,14 +61,14 @@ The following table shows environment variables prefixes that App Service uses f
 
 | Setting name | Description |
 |-|-|
-| `APPSETTING_` | Signifies that a variable is set by the customer as a app setting in the app configuration. It's injected into a .NET app as an app setting. |
+| `APPSETTING_` | Signifies that a variable is set by the customer as an app setting in the app configuration. It's injected into a .NET app as an app setting. |
 | `MAINSITE_` | Signifies a variable is specific to the app itself. |
 | `SCMSITE_` | Signifies a variable is specific to the Kudu app. |
 | `SQLCONNSTR_` | Signifies a SQL Server connection string in the app configuration. It's injected into a .NET app as a connection string. |
-| `SQLAZURECONNSTR_` | Signifies a Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
+| `SQLAZURECONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `POSTGRESQLCONNSTR_` | Signifies a PostgreSQL connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `CUSTOMCONNSTR_` | Signifies a custom connection string in the app configuration. It's injected into a .NET app as a connection string. |
-| `MYSQLCONNSTR_` | Signifies a Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
+| `MYSQLCONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `AZUREFILESSTORAGE_` | A connection string to a custom Azure File storage for a container app. |
 | `AZUREBLOBSTORAGE_` | A connection string to a custom Azure Blobs storage for a container app. |
 
@@ -101,12 +101,12 @@ Kudu build configuration applies to native Windows apps and is used to control t
 | `SCM_BUILD_ARGS` | Add things at the end of the msbuild command line, such that it overrides any previous parts of the default command line. | To do a clean build: `-t:Clean;Compile`|
 | `SCM_SCRIPT_GENERATOR_ARGS` | Kudu uses the `azure site deploymentscript` command described [here](http://blog.amitapple.com/post/38418009331/azurewebsitecustomdeploymentpart2) to generate a deployment script. It automatically detects the language framework type and determines the parameters to pass to the command. This setting overrides the automatically generated parameters. | To treat your repository as plain content files: `--basic -p <folder-to-deploy>` |
 | `SCM_TRACE_LEVEL` | Build trace level. The default is `1`. Set to higher values, up to 4, for more tracing. | `4` |
-| `SCM_COMMAND_IDLE_TIMEOUT` | Timeout in seconds for each command that the build process launches to wait before without producing any output. After that, the command is considered idle and killed. The default is `60` (one minute). Note that on Azure, there is a general idle request timeout that disconnects clients after 230 seconds. However, the command will still continue running server-side after that. | |
-| `SCM_LOGSTREAM_TIMEOUT` | Timeout of inactivity in seconds before stopping log streaming. The default is `1800` (30 minutes).| |
+| `SCM_COMMAND_IDLE_TIMEOUT` | Time out in seconds for each command that the build process launches to wait before without producing any output. After that, the command is considered idle and killed. The default is `60` (one minute). In Azure, there's also a general idle request timeout that disconnects clients after 230 seconds. However, the command will still continue running server-side after that. | |
+| `SCM_LOGSTREAM_TIMEOUT` | Time out of inactivity in seconds before stopping log streaming. The default is `1800` (30 minutes).| |
 | `SCM_SITEEXTENSIONS_FEED_URL` | URL of the site extensions gallery. The default is `https://www.nuget.org/api/v2/`. The URL of the old feed is `http://www.siteextensions.net/api/v2/`. | |
 | `SCM_USE_LIBGIT2SHARP_REPOSITORY` | Set to `0` to use git.exe instead of libgit2sharp for git operations. | |
-| `WEBSITE_LOAD_USER_PROFILE` | In case of the error `The specified user does not have a valid profile.` during ASP.NET build automation (such as during Git deployment), set this to `1` to load a full user profile in the build environment. This setting is only applicable when `WEBSITE_COMPUTE_MODE` is `Dedicated`. | |
-| `WEBSITE_SCM_IDLE_TIMEOUT_IN_MINUTES` | Timeout in minutes for the SCM (Kudu) site. The default is `20`. | |
+| `WEBSITE_LOAD_USER_PROFILE` | In case of the error `The specified user does not have a valid profile.` during ASP.NET build automation (such as during Git deployment), set this variable to `1` to load a full user profile in the build environment. This setting is only applicable when `WEBSITE_COMPUTE_MODE` is `Dedicated`. | |
+| `WEBSITE_SCM_IDLE_TIMEOUT_IN_MINUTES` | Time out in minutes for the SCM (Kudu) site. The default is `20`. | |
 | `SCM_DO_BUILD_DURING_DEPLOYMENT` | With [ZIP deploy](deploy-zip.md), the deployment engine assumes that a ZIP file is ready to run as-is and doesn't run any build automation. To enable the same build automation as in [Git deploy](deploy-local-git.md), set to `true`. |
 
 <!-- 
@@ -155,7 +155,7 @@ The following variables are related to the Java runtime.
 | `AZURE_TOMCAT90_CMDLINE` | Native Windows apps only. Read-only. Command-line arguments for starting Tomcat 9. | |
 | `AZURE_TOMCAT90_HOME` | Native Windows apps only. Read-only. Path to the Tomcat 9 installation. | |
 | `AZURE_SITE_HOME` | The value added to the Java args as `-Dsite.home`. The default is the value of `HOME`. | |
-| `HTTP_PLATFORM_PORT` | Added to Java args as `-Dport.http`. The following environment variables used by different Java web frameworks are set to this: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. ||
+| `HTTP_PLATFORM_PORT` | Added to Java args as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. ||
 | `AZURE_LOGGING_DIR` | Native Windows apps only. Added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. ||
 <!-- 
 
@@ -186,8 +186,8 @@ MEMCACHESHIM_PORT
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITE_DNS_SERVER` | IP address of primary DNS server for outgoing connections (such as to a back end service). The default DNS server for App Service is Azure DNS, whose IP address is `168.63.129.16`. If your app uses [VNet integration](web-sites-integrate-with-vnet.md) or is in an [App Service environment](environment/intro.md), it inherits the DNS server configuration from the VNet by default. | `10.0.0.1` |
-| `WEBSITE_DNS_ALT_SERVER` | IP address of fallback DNS server for outgoing connections. See above for more information. | |
+| `WEBSITE_DNS_SERVER` | IP address of primary DNS server for outgoing connections (such as to a back-end service). The default DNS server for App Service is Azure DNS, whose IP address is `168.63.129.16`. If your app uses [VNet integration](web-sites-integrate-with-vnet.md) or is in an [App Service environment](environment/intro.md), it inherits the DNS server configuration from the VNet by default. | `10.0.0.1` |
+| `WEBSITE_DNS_ALT_SERVER` | IP address of fallback DNS server for outgoing connections. See `WEBSITE_DNS_SERVER`. | |
 
 <!-- 
 DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
@@ -278,7 +278,7 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 | `DIAGNOSTICS_TEXTTRACEMAXLOGFILESIZEBYTES` | Maximum size of the log file in bytes. The default is `131072` (128 KB). ||
 | `DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES` | Maximum size of the log folder in bytes. The default is `1048576` (1 MB). ||
 | `DIAGNOSTICS_TEXTTRACEMAXNUMLOGFILES` | Maximum number of log files to keep. The default is `20`. | |
-| `DIAGNOSTICS_TEXTTRACETURNOFFPERIOD` | Timeout in milliseconds to keep application logging enabled. The default is `43200000` (12 hours). ||
+| `DIAGNOSTICS_TEXTTRACETURNOFFPERIOD` | Time out in milliseconds to keep application logging enabled. The default is `43200000` (12 hours). ||
 | `WEBSITE_LOG_BUFFERING` | By default, log buffering is enabled. Set to `0` to disable it. ||
 | `WEBSITE_ENABLE_PERF_MODE` | For native Windows apps, set to `TRUE` to turn off IIS log entries for successful requests returned within 10 seconds. This is a quick way to do performance benchmarking by removing extended logging. ||
 
@@ -315,8 +315,8 @@ The following are 'fake' environment variables that don't exist if you enumerate
 | `WEBSITE_LOCAL_CACHE_READWRITE_OPTION` | Read-write options of the local cache. Available options are: <br/>- `ReadOnly`: Cache is read-only.<br/>- `WriteWithCopyBack`: Allow writes to local cache and copy periodically to shared storage. Applicable only for single instance apps as the SCM site points to local cache.<br/>- `WriteButDiscardChanges`: Allow writes to local cache but discard changes made locally. |
 | `WEBSITE_LOCAL_CACHE_SIZEINMB` | Size of the local cache in MB. Default is `1000` (1 GB). |
 | `WEBSITE_LOCALCACHE_READY` | Read-only flag indicating if the app using local cache. |
-| `WEBSITE_DYNAMIC_CACHE` | Due to network file shared nature to allow multiple instance access, the dynamic cache improves performance by caching the recently accessed files locally on an instance. Cache is invalidated when file is modified. The cache location is `%SYSTEMDRIVE%\local\DynamicCache` (same `%SYSTEMDRIVE%\local` quota is applied). By default, full content caching is enabled (set to `1`), which includes both file content and directory/file metadata (timestamps, size, directory content). To conserve local disk use, set to `2` to cache only directory/file metadata (timestamps, size, directory content). To turn off caching, set to `0`. |
-| `WEBSITE_READONLY_APP` | When using dynamic cache, you can disable write access to the app root (`D:\home\site\wwwroot` or `/home/site/wwwroot`)  by setting this variable to `1`. With the exception of the `App_Data` directory, no exclusive locks are allowed, so that deployments don't get blocked by locked files. |
+| `WEBSITE_DYNAMIC_CACHE` | Due to network file shared nature to allow access for multiple instances, the dynamic cache improves performance by caching the recently accessed files locally on an instance. Cache is invalidated when file is modified. The cache location is `%SYSTEMDRIVE%\local\DynamicCache` (same `%SYSTEMDRIVE%\local` quota is applied). By default, full content caching is enabled (set to `1`), which includes both file content and directory/file metadata (timestamps, size, directory content). To conserve local disk use, set to `2` to cache only directory/file metadata (timestamps, size, directory content). To turn off caching, set to `0`. |
+| `WEBSITE_READONLY_APP` | When using dynamic cache, you can disable write access to the app root (`D:\home\site\wwwroot` or `/home/site/wwwroot`)  by setting this variable to `1`. Except for the `App_Data` directory, no exclusive locks are allowed, so that deployments don't get blocked by locked files. |
 
 <!-- 
 HTTP_X_LOCALCACHE_READY_CHECK
@@ -361,7 +361,7 @@ WEBSITE_SOCKET_STATISTICS_ENABLED
 | `WEBSITE_NETWORK_HEALTH_DNS_ENDPOINTS` | |
 | `WEBSITE_NETWORK_HEALTH_URI_ENDPOINTS` | |
 | `WEBSITE_NETWORK_HEALTH_INTEVALSECS` | Interval of the network health check in seconds. The minimum value is 30 seconds. | |
-| `WEBSITE_NETWORK_HEALTH_TIMEOUT_INTEVALSECS` | Timeout of the network health check in seconds. | |
+| `WEBSITE_NETWORK_HEALTH_TIMEOUT_INTEVALSECS` | Time out of the network health check in seconds. | |
 
 -->
 <!-- | CONTAINER_WINRM_USERNAME |
@@ -372,7 +372,7 @@ WEBSITE_SOCKET_STATISTICS_ENABLED
 | Setting name | Description |
 |-|-|
 | `WEBSITE_KEYVAULT_REFERENCES` | Read-only. Contains information (including statuses) for all Key Vault references that are currently configured in the app. |
-| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to to a Key Vault reference, the app cannot resolve the key vault reference at app creation or update if one of the following is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](../key-vault/general/overview-vnet-service-endpoints.md).<br/>To avoid errors at create or update time, set this variable to `1`. |
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app cannot resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](../key-vault/general/overview-vnet-service-endpoints.md).<br/>To avoid errors at create or update time, set this variable to `1`. |
 | `WEBSITE_DELAY_CERT_DELETION` | This env var can be set to 1 by users in order to ensure that a certificate that a worker process is dependent upon is not deleted until it exits. |
 | `WEBSITE_ALLOW_DOUBLE_ESCAPING_URL` | TODO |
 
@@ -392,12 +392,12 @@ https://github.com/cgillum/easyauth/wiki/Advanced-Application-Settings
 | `WEBSITE_AUTH_DISABLE_IDENTITY_FLOW`  | When set to `true`, disables assigning the thread principal identity in ASP.NET-based web applications (including v1 Function Apps). This is designed to allow developers to protect access to their site with auth, but still have it use a separate login mechanism within their app logic. The default is `false`. |
 | `WEBSITE_AUTH_HIDE_DEPRECATED_SID` | `true` or `false`  |
 | `WEBSITE_AUTH_NONCE_DURATION`||
-| `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` | When set to `true` and users click on links to your site which contain URL fragments, the login process will ensure that the URL fragment part of your URL does not get lost in the login redirect process. For more information, see [Customize sign-in and sign-out in Azure App Service authentication](configure-authentication-customize-sign-in-out.md#preserve-url-fragments). |
+| `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` | When set to `true` and users click on app links that contain URL fragments, the login process will ensure that the URL fragment part of your URL does not get lost in the login redirect process. For more information, see [Customize sign-in and sign-out in Azure App Service authentication](configure-authentication-customize-sign-in-out.md#preserve-url-fragments). |
 | `WEBSITE_AUTH_USE_LEGACY_CLAIMS` | To maintain backward compatibility across upgrades, the authentication module uses the legacy claims mapping of short to long names in the `/.auth/me` API, so certain mappings are excluded (e.g. "roles"). To get the more modern version of the claims mappings, set this variable to `False`. In the "roles" example, it would be mapped to the long claim name "http://schemas.microsoft.com/ws/2008/06/identity/claims/role". |
 | `WEBSITE_AUTH_CONFIG_DIR` | TODO |
 | `WEBSITE_AUTH_DISABLE_WWWAUTHENTICATE` | TODO |
 | `WEBSITE_AUTH_STATE_DIRECTORY`  | TODO |
-| `WEBSITE_AUTH_TOKEN_CONTAINER_SASURL` | A fully-qualified blob container URL. Instructs the auth module to store and load all encrypted tokens to the specified blob storage container instead of using the default local file system.  |
+| `WEBSITE_AUTH_TOKEN_CONTAINER_SASURL` | A fully qualified blob container URL. Instructs the auth module to store and load all encrypted tokens to the specified blob storage container instead of using the default local file system.  |
 | `WEBSITE_AUTH_TOKEN_REFRESH_HOURS` | Any positive decimal number |
 | `WEBSITE_AUTH_TRACE_LEVEL`||
 | `WEBSITE_AUTH_VALIDATE_NONCE`| `true` or `false`  |
@@ -509,8 +509,8 @@ WEBSITE_VNET_BLOCK_FOR_SETUP_SCM_SITE
 | `WEBJOBS_HISTORY_SIZE`| For triggered jobs, maximum number of runs kept in the history directory per job. The default is `50`. |
 | `WEBJOBS_STOPPED`| Set to `1` to disable running any job, and stop all currently running jobs. |
 | `WEBJOBS_DISABLE_SCHEDULE`| Set to `1` to turn off all scheduled triggering. Jobs can still be manually invoked. |
-| `WEBJOBS_ROOT_PATH`| Absolute or relative path of webjob files. In case of a relative path, the value is combined with the default root path (`D:/home/site/wwwroot/` or `/home/site/wwwroot/`). |
-| `WEBJOBS_LOG_TRIGGERED_JOBS_TO_APP_LOGS`| Set to true to send output from triggered WebJobs to the application logs pipeline (which supports file system, blobs and tables). |
+| `WEBJOBS_ROOT_PATH`| Absolute or relative path of webjob files. For a relative path, the value is combined with the default root path (`D:/home/site/wwwroot/` or `/home/site/wwwroot/`). |
+| `WEBJOBS_LOG_TRIGGERED_JOBS_TO_APP_LOGS`| Set to true to send output from triggered WebJobs to the application logs pipeline (which supports file system, blobs, and tables). |
 | `WEBJOBS_SHUTDOWN_FILE` | File that App Service creates when a shutdown request is detected. It's the web job process's responsibility to detect the presence of this file and initiate shutdown. When using the WebJobs SDK, this part is handled automatically. |
 | `WEBJOBS_PATH` | Read-only. Root path of currently running job (will be under some temporary directory). |
 | `WEBJOBS_NAME` | Read-only. Current job name. |
@@ -536,7 +536,7 @@ WEBSITE_VNET_BLOCK_FOR_SETUP_SCM_SITE
 | `WEBSITE_PLACEHOLDER_MODE` | Read-only. Shows whether the function app is running on a placeholder host (`generalized`) or its own host (`specialized`). |
 | `WEBSITE_DISABLE_ZIP_CACHE` | When your app runs from a [ZIP package](deploy-run-package.md) ( `WEBSITE_RUN_FROM_PACKAGE=1`), the five most recently deployed ZIP packages are cached in the app's file system (D:\home\data\SitePackages). Set this variable to `1` to disable this cache. For Linux consumption apps, the ZIP package cache is disabled by default. |
 | `FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED` | TODO |
-| `WEBSITE_SKIP_FUNCTION_APP_WARMUP` | Apps can use appsetting to opt out of warmup. Restricted to linux only since this is primarily for static sites which use linux dynamic function apps. Linux dynamic sites are used as placeholder sites for static sites. Function apps don't get specialized until static sites are deployed. This allows function apps used by static sites to skip warmup and using up containers before any content is deployed. TODO |
+| `WEBSITE_SKIP_FUNCTION_APP_WARMUP` | Apps can use appsetting to opt out of warmup. Restricted to linux only since this is primarily for static sites that use Linux dynamic function apps. Linux dynamic sites are used as placeholder sites for static sites. Function apps don't get specialized until static sites are deployed. This allows function apps used by static sites to skip warmup and using up containers before any content is deployed. TODO |
 <!--
  WEBSITE_IDLE_TIMEOUT_IN_MINUTES | removed WEBSITE_IDLE_TIMEOUT_IN_MINUTES because they aren't used in Linux Consumption.???
 | `WEBSITE_DISABLE_FUNCTIONS_STARTUPCONTEXT_CACHE`| This env var can be set to 1 by users in order to avoid using the Functions StartupContext Cache feature. |
