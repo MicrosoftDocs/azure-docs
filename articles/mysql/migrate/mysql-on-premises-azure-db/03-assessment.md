@@ -173,7 +173,7 @@ Many tools and methods can be used to assess the MySQL data workloads and enviro
 
 Although [Azure Migrate](/azure/migrate/migrate-services-overview) doesn't support migrating MySQL database workloads directly, it can be used when administrators are unsure of what users and applications are consuming the data, whether hosted in a virtual or hardware-based machine. [Dependency analysis](/azure/migrate/concepts-dependency-visualization) can be accomplished by installing and running the monitoring agent on the machine hosting the MySQL workload. The agent gathers the information over a set period, such as a month. The dependency data can be analyzed to find unknown connections being made to the database. The connection data can help identify application owners that need to be notified of the pending migration.
 
-In addition to the dependency analysis of applications and user connectivity data, Azure Migrate can also be used to analyze the [Hyper-V, VMware, or physical servers](../../../../migrate/migrate-appliance-architecture.md) to provide utilization patterns of the database workloads to help suggest the proper target environment.
+In addition to the dependency analysis of applications and user connectivity data, Azure Migrate can also be used to analyze the [Hyper-V, VMware, or physical servers](../../../migrate/migrate-appliance-architecture.md) to provide utilization patterns of the database workloads to help suggest the proper target environment.
 
 ### Telgraf for Linux
 
