@@ -23,6 +23,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## June 2021
 
+* [Azure NetApp Files storage service add-ons](storage-service-add-ons.md)
+
+    The new Azure NetApp Files **Storage service add-ons** menu option provides an Azure portal “launching pad” for supported third-party, ecosystem add-ons to the Azure NetApp Files storage service. With this new portal menu option, you can enter a landing page by clicking an add-on tile to quickly access the add-on.  
+
+    **NetApp add-ons** is the first category of add-ons introduced under **Storage service add-ons**. It provides access to **NetApp Cloud Compliance**. Clicking the **NetApp Cloud Compliance** tile opens a new browser and directs you to the add-on installation page. 
+
 * Features now generally available (GA)   
 
     The following Azure NetApp Files features are now generally available. You no longer need to register the features before using them:
