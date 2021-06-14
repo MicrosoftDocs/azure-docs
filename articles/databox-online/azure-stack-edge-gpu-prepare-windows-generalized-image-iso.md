@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 06/14/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to quickly deploy new Windows virtual machines on my Azure Stack Edge Pro GPU device, and I want to use an ISO image for OS installation.
 ---
@@ -128,6 +128,9 @@ After creating the new virtual machine, follow these steps to mount your ISO ima
 
    ![In BIOS settings, the first item under Startup order should be CD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-14.png)
 
+   > [!NOTE]
+   > If you install the Windows Server 2019 Standard operating system on your virtual machine, you'll need to change the **BIOS** setting to **IDE** before you [generalize the VHD](#generalize-the-vhd). 
+
 3. Under **DVD Drive**, select **Image file**, and browse to your ISO image.  
 
    ![In DVD drive settings, select the image file for your VHD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-15.png)
@@ -140,7 +143,9 @@ To finish building your virtual machine, you need to start the virtual machine a
 
 [!INCLUDE [Connect to Hyper-V VM](../../includes/azure-stack-edge-connect-to-hyperv-vm.md)]
 
-## Generalize the VHD  
+## Generalize the VHD
+
+Use the *sysprep* utility to generalize the VHD.
 
 [!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
 
