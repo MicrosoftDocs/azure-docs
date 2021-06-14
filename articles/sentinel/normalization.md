@@ -132,7 +132,7 @@ The descriptors used for a user are **Actor**, **Target User**, and **Updated Us
 |**Network connection**     |    A process running as **Actor** on the source host, communicating with a process running as **Target User** on the destination host     |         |
 |**DNS request**     | An **Actor** initiated a DNS query        |         |
 |**Sign-in**     |    An **Actor** signed in to a system as a **Target User**.     |A (Target) User signed in         |
-|**Process creation**     |   An **Actor** has initiated process creation (the user associated with the initiating process). The process created runs under the credentials of a **Target User** (the user related to the target process).      |  The process created runs under the credentials of a (Target) **User**.       |
+|**Process creation**     |   An **Actor** (the user associated with the initiating process) has initiated process creation. The process created runs under the credentials of a **Target User** (the user related to the target process).      |  The process created runs under the credentials of a (Target) **User**.       |
 |**Email**     |     An **Actor** sends an email to **Target User**    |         |
 |     |         |         |
 
