@@ -6,7 +6,7 @@ documentationcenter: na
 author: batamig
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/14/2021
 ms.author: bagol
 
 ---
@@ -28,7 +28,7 @@ The Agari Phishing Defense and Brand Protection connector connects Brand Protect
 
 For more information, see the [Agari Developers Site](https://developers.agari.com/agari-platform) and [Connect Agari Phishing Defense and Brand Protection to Azure Sentinel](connect-agari-phishing-defense.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#data-connection-methods).
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** [Agari](https://support.agari.com/hc/en-us/articles/360000645632-How-to-access-Agari-Support)
 
@@ -68,7 +68,7 @@ Alcide kAudit connector automatically exports your Kubernetes cluster audit logs
 
 For more information about connecting to Azure Sentinel, see [Connect Alcide kAudit to Azure Sentinel](connect-alcide-kaudit.md).
 
-**Data ingestion method:** [Azure Functions and REST API](connect-data-sources.md#data-connection-methods).
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** [Alcide](https://www.alcide.io/company/contact-us/)
 
@@ -78,7 +78,7 @@ The Alsid for Active Directory connector exports Alsid Indicators of Exposures, 
 
 For more information about connecting to Azure Sentinel, see [Connect Alsid for Active Directory to Azure Sentinel](connect-alsid-active-directory.md).
 
-**Data ingestion method:** [Log Analytics Agent](connect-data-sources.md#data-connection-methods). The connector also uses a log parser based on a Kusto function.
+**Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs). The connector also uses a log parser based on a Kusto function.
 
 **Supported by:** [Alsid](https://www.alsid.com/contact-us/)
 
@@ -86,7 +86,7 @@ For more information about connecting to Azure Sentinel, see [Connect Alsid for 
 
 The AWS data connector imports AWS CloudTrail management events into Azure Sentinel. To enable this connector, see [Connect Azure Sentinel to AWS CloudTrail](connect-aws.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** Microsoft
 
@@ -94,7 +94,7 @@ The AWS data connector imports AWS CloudTrail management events into Azure Senti
 
 The Apache HTTP Server data connector ingests Apache HTTP Server events into Azure Sentinel. For more information, see the [Apache Logs documentation](https://httpd.apache.org/docs/2.4/logs.html).
 
-**Data ingestion method:** **Log Analytics agent**. The connector also uses a log parser based on a Kusto function.
+**Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs). The connector also uses a log parser based on a Kusto function.
 
 **Supported by:** Microsoft
 
@@ -102,7 +102,7 @@ The Apache HTTP Server data connector ingests Apache HTTP Server events into Azu
 
 The Apache Tomcat data connector ingests [Apache Tomcat](http://tomcat.apache.org/) events into Azure Sentinel. For more information, see the [Apache Tomcat documentation](http://tomcat.apache.org/tomcat-10.0-doc/logging.html).
 
-**Data ingestion method:** **Log Analytics agent**. The connector also uses a log parser based on a Kusto function.
+**Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs). The connector also uses a log parser based on a Kusto function.
 
 **Supported by:** Microsoft
 
@@ -120,7 +120,7 @@ For more information about connecting to Azure Sentinel, see [Connect Aruba Clea
 
 The [Atlassian Confluence](https://www.atlassian.com/software/confluence) Audit data connector ingests Confluence Audit Records. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more. For more information, see [View the audit log](https://support.atlassian.com/confluence-cloud/docs/view-the-audit-log/).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -128,7 +128,7 @@ The [Atlassian Confluence](https://www.atlassian.com/software/confluence) Audi
 
 The Atlassian Jira Audit data connector ingests Jira Audit Records events into Azure Sentinel. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more. For more information, see [Audit records](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -148,7 +148,7 @@ The Barracuda WAF connector connects your Barracuda WAF logs to Azure Sentinel. 
 
 For more information about connecting to Azure Sentinel, see [Connect Barracuda WAF to Azure Sentinel](connect-barracuda.md).
 
-**Data ingestion method:** native integration between Barracuda and the **Log Analytics agent**.
+**Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs).
 
 **Supported by:** [Barracuda](https://www.barracuda.com/support)
 
@@ -158,7 +158,7 @@ The BETTER MTD Connector enables enterprises to connect their Better MTD instanc
 
 For more information about connecting to Azure Sentinel, see [Connect BETTER Mobile Threat Defense to Azure Sentinel](connect-better-mtd.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** BETTER Mobile
 
@@ -168,7 +168,7 @@ The Beyond Security beSECURE connector connects your Beyond Security beSECURE sc
 
 For more information about connecting to Azure Sentinel, see [Connect Beyond Security beSECURE to Azure Sentinel](connect-besecure.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Beyond Security](https://beyondsecurity.freshdesk.com/support/home)
 
@@ -244,7 +244,7 @@ The Cisco Umbrella data connector ingests Cisco Umbrella events stored in Amazon
 
 For more information about connecting to Azure Sentinel, see [Connect Cisco Umbrella to Azure Sentinel](connect-cisco-umbrella.md).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -254,7 +254,7 @@ The Citrix Analytics (Security) data connector exports risky event data from Cit
 
 For more information about connecting to Azure Sentinel, see [Connect Citrix Analytics (Security) to Azure Sentinel](connect-citrix-analytics.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Citrix](https://www.citrix.com/support/)
 
@@ -275,7 +275,7 @@ For more information about connecting to Azure Sentinel, see [Connect Citrix WAF
 
 The Cognni data connector offers a quick and simple integration to Azure Sentinel. You can use Cognni to autonomously map previously unclassified important information and detect related incidents. Cognni helps you recognize risks to your important information, understand the severity of the incidents, and investigate the details you need to remediate, fast enough to make a difference.
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Cognni](https://cognni.ai/contact-support/)
 
@@ -293,7 +293,7 @@ For more information about connecting to Azure Sentinel, see [Connect CyberArk E
 
 The Cyberpion Security Logs data connector ingests logs from the Cyberpion system directly into Azure Sentinel. For more information, see [Azure Sentinel](https://www.cyberpion.com/resource-center/integrations/azure-sentinel/) in the Cyberpion documentation.
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** Cyberpion
 
@@ -301,7 +301,7 @@ The Cyberpion Security Logs data connector ingests logs from the Cyberpion syste
 
 The ESET Enterprise Inspector data connector ingests detections from ESET Enterprise Inspector using the REST API provided in ESET Enterprise Inspector version 1.4 and later. For more information, see [REST API](https://help.eset.com/eei/1.5/en-US/api.html) in the ESET Enterprise Inspector documentation.
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** [ESET](https://support.eset.com/en)
 
@@ -309,7 +309,7 @@ The ESET Enterprise Inspector data connector ingests detections from ESET Enterp
 
 The ESET SMC data connector ingests ESET SMC threat events, audit logs, firewall events, and website filters into Azure Sentinel. For more information, see [Syslog server](https://help.eset.com/esmc_admin/70/en-US/admin_server_settings_syslog.html) in the ESET SMC documentation.
 
-**Data ingestion method:** **Log Analytics agent**.
+**Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs).
 
 **Supported by:** [ESET](https://support.eset.com/en)
 
@@ -337,7 +337,7 @@ The F5 BIG-IP connector connects your F5 LTM, system, and ASM logs to Azure Sent
 
 For more information about connecting to Azure Sentinel, see [Connect F5 BIG-IP to Azure Sentinel](connect-f5-big-ip.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** Microsoft
 
@@ -377,7 +377,7 @@ The Forcepoint DLP data connector automatically exports DLP incident data from F
 
 For more information about connecting to Azure Sentinel, see [Connect Forcepoint DLP to Azure Sentinel](connect-forcepoint-dlp.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Forcepoint](https://support.forcepoint.com/)
 
@@ -424,7 +424,7 @@ To get credentials, follow the instructions at [Perform Google Workspace Domain-
 
 For more information about connecting to Azure Sentinel, see [Connect Google Workspace (formerly G Suite) to Azure Sentinel](connect-google-workspace.md).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -480,7 +480,7 @@ The Morphisec Data Connector for Azure Sentinel integrates vital insights from y
 
 The Netskope Cloud Security Platform connector ingests Netskope logs and events into Azure Sentinel. For more information, see [The Netskope Cloud Security Platform](https://www.netskope.com/platform).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -488,7 +488,7 @@ The Netskope Cloud Security Platform connector ingests Netskope logs and events 
 
 The NGINX HTTP Server data connector ingests NGINX HTTP Server events into Azure Sentinel. For more information, see [Module ngx_http_log_module](https://nginx.org/en/docs/http/ngx_http_log_module.html).
 
-**Data ingestion method:** **Log Analytics agent**. The connector also uses a log parser based on a Kusto function.
+**Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs). The connector also uses a log parser based on a Kusto function.
 
 **Supported by:** Microsoft
 
@@ -496,7 +496,7 @@ The NGINX HTTP Server data connector ingests NGINX HTTP Server events into Azure
 
 The NXLog BSM macOS data connector uses the Sun BSM Auditing API to capture audit events directly from the kernel on the macOS platform. This data connector can efficiently export macOS audit events to Azure Sentinel in real time. For more information, see the [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [NXLog](https://nxlog.co/community-forum)
 
@@ -506,7 +506,7 @@ The NXLog DNS Logs data connector uses Event Tracing for Windows (ETW) to collec
 
 For more information about connecting to Azure Sentinel, see [Connect NXLog (Windows) DNS Logs to Azure Sentinel](connect-nxlog-dns.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [NXLog](https://nxlog.co/community-forum)
 
@@ -516,7 +516,7 @@ The NXLog LinuxAudit data connector supports custom audit rules and collects log
 
 For more information about connecting to Azure Sentinel, see [Connect NXLog LinuxAudit to Azure Sentinel](connect-nxlog-linuxaudit.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [NXLog](https://nxlog.co/community-forum)
 
@@ -526,7 +526,7 @@ The Okta Single Sign-On (SSO) data connector ingests audit and event logs from t
 
 For more information about connecting to Azure Sentinel, see [Connect Okta SSO to Azure Sentinel](connect-okta-single-sign-on.md).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -552,7 +552,7 @@ For more information about connecting to Azure Sentinel, see [Connect One Identi
 
 The OracleWebLogicServer data connector ingests OracleWebLogicServer events into Azure Sentinel. For more information, see the [Oracle WebLogic Server documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/index.html).
 
-**Data ingestion method:** **Log Analytics agent**. The connector also uses a log parser based on a Kusto function.
+**Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs). The connector also uses a log parser based on a Kusto function.
 
 **Supported by:** Microsoft
 
@@ -562,7 +562,7 @@ The Orca Security Alerts connector automatically exports Alerts logs to Azure Se
 
 For more information about connecting to Azure Sentinel, see [Connect Orca Security to Azure Sentinel](connect-orca-security-alerts.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Orca Security](http://support.orca.security/)
 
@@ -592,7 +592,7 @@ The Perimeter 81 Activity Logs data connector connects Perimeter 81 activity log
 
 For more information about connecting to Azure Sentinel, see [Connect Perimeter 81 logs to Azure Sentinel](connect-perimeter-81-logs.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Perimeter 81](https://support.perimeter81.com/)
 
@@ -602,7 +602,7 @@ The POD Email Security data connector gets POD Email Protection data. With this 
 
 For more information about connecting to Azure Sentinel, see [Connect Proofpoint On Demand (POD) Email Security to Azure Sentinel](connect-proofpoint-pod.md).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -612,7 +612,7 @@ The Proofpoint TAP connector ingests Proofpoint TAP logs and events into Azure S
 
 For more information about connecting to Azure Sentinel, see [Connect Proofpoint TAP to Azure Sentinel](connect-proofpoint-tap.md).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -640,7 +640,7 @@ The Qualys VM data connector ingests vulnerability host detection data into Azur
 
 For more information about connecting to Azure Sentinel, see [Connect Qualys VM to Azure Sentinel](connect-qualys-vm.md).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -658,7 +658,7 @@ For more information about connecting to Azure Sentinel, see [Connect Salesforce
 
 The SentinelOne data connector ingests SentinelOne events into Azure Sentinel. Events include server objects like Threats, Agents, Applications, Activities, Policies, Groups, and more. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more.
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -676,7 +676,7 @@ The Sophos Cloud Optix data connector connects your Sophos Cloud Optix logs to A
 
 For more information about connecting to Azure Sentinel, see [Connect Sophos Cloud Optix to Azure Sentinel](connect-sophos-cloud-optix.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Sophos](https://secure2.sophos.com/en-us/support.aspx)
 
@@ -696,7 +696,7 @@ The Squadra Technologies secRMM data connector pushes USB removable storage secu
 
 For more information about connecting to Azure Sentinel, see [Connect Squadra Technologies secRMM to Azure Sentinel](connect-squadra-secrmm.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Squadra Technologies](https://www.squadratechnologies.com/Contact.aspx)
 
@@ -706,7 +706,7 @@ The [Squid Proxy](http://www.squid-cache.org/) data connector connects Squid Pro
 
 For more information about connecting to Azure Sentinel, see [Connect Squid Proxy to Azure Sentinel](connect-squid-proxy.md).
 
-**Data ingestion method:** **Log Analytics agent**. The connector also uses a log parser based on a Kusto function.
+**Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs). The connector also uses a log parser based on a Kusto function.
 
 **Supported by:** Microsoft
 
@@ -716,7 +716,7 @@ The Symantec ICDx data connector connects Symantec security solutions logs to Az
 
 For more information about connecting to Azure Sentinel, see [Connect Symantec ICDx to Azure Sentinel](connect-symantec.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Broadcom Symantec](https://support.broadcom.com/security)
 
@@ -782,7 +782,7 @@ For more information about connecting to Azure Sentinel, see [Connect Trend Micr
 
 The Trend Micro XDR data connector ingests workbench alerts from the Trend Micro XDR API into Azure Sentinel. To create an account and an API authentication token, follow the instructions at [Obtaining API Keys for Third-Party Access](https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/ObtainingAPIKeys).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** [Trend Micro](https://success.trendmicro.com/technical-support)
 
@@ -792,7 +792,7 @@ The VMware Carbon Black Endpoint Standard data connector ingests Carbon Black En
 
 For more information about connecting to Azure Sentinel, see [Connect VMware Carbon Black Cloud Endpoint Standard to Azure Sentinel](connect-vmware-carbon-black.md).
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by:** Microsoft
 
@@ -828,7 +828,7 @@ For more information about connecting to Azure Sentinel, see [Connect WireX Netw
 
 The Workplace data connector ingests common Workplace events into Azure Sentinel through Webhooks. Webhooks enable custom integration apps to subscribe to events in Workplace and receive updates in real time. When a change occurs, Workplace sends an HTTPS POST request with event information to a callback data connector URL. For more information, see the Webhooks documentation. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more.
 
-**Data ingestion method:** **Azure Functions and the REST API**.
+**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
 
 **Supported by**: Microsoft
 
@@ -838,7 +838,7 @@ Zimperium Mobile Threat Defense data connector connects the Zimperium threat log
 
 For more information about connecting to Azure Sentinel, see [Connect Zimperium to Azure Sentinel](connect-zimperium-mtd.md).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** [Zimperium](https://www.zimperium.com/support)
 
@@ -846,7 +846,7 @@ For more information about connecting to Azure Sentinel, see [Connect Zimperium 
 
 The Zoom Reports data connector ingests Zoom Reports events into Azure Sentinel. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more. To get credentials, follow the instructions at [JWT With Zoom](https://marketplace.zoom.us/docs/guides/auth/jwt).
 
-**Data ingestion method:** **REST API**.
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
 
 **Supported by:** Microsoft
 
@@ -864,6 +864,6 @@ For more information about connecting to Azure Sentinel, see [Connect Zscaler to
 
 The ZPA data connector ingests Zscaler Private Access events into Azure Sentinel. For more information, see the [Zscaler Private Access documentation](https://help.zscaler.com/zpa).
 
-**Data ingestion method:** [Log Analytics Agent](connect-data-sources.md#data-connection-methods). The connector also uses a log parser based on a Kusto function.
+**Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs). The connector also uses a log parser based on a Kusto function.
 
 **Supported by:** Microsoft
