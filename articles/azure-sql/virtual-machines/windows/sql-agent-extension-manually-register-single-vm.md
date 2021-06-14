@@ -97,7 +97,7 @@ To register your SQL Server VM directly in full mode, use the following Azure Po
 
 To learn more about full mode, see [management modes](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 
-### Upgrade to full from lightweight
+### Upgrade to full
 
 SQL Server VMs that have registered the extension in *lightweight* mode can upgrade to _full_ using the Azure portal, the Azure CLI, or Azure PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine.
 
@@ -207,7 +207,12 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ---
 
-## Verify mode
+## Verify 
+
+You can verify which mode the extension is registered in using Azure Powershell, and you can verify the registration status using the Azure portal, the Azure CLI, and Azure PowerShell. 
+
+
+### Verify mode 
 
 You can view the current mode of your SQL Server IaaS agent by using Azure PowerShell:
 
@@ -217,13 +222,11 @@ $sqlvm = Get-AzSqlVM -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName
 $sqlvm.SqlManagementType
 ```
 
-
-
-## Verify registration status
+### Verify registration status
 
 You can verify if your SQL Server VM has already been registered with the SQL IaaS Agent extension by using the Azure portal, the Azure CLI, or Azure PowerShell.
 
-### Azure portal
+#### Azure portal
 
 To verify the registration status using the Azure portal, follow these steps:
 
@@ -234,7 +237,7 @@ To verify the registration status using the Azure portal, follow these steps:
 
    ![Verify status with SQL RP registration](./media/sql-agent-extension-manually-register-single-vm/verify-registration-status.png)
 
-### Command line
+#### Command line
 
 Verify current SQL Server VM registration status using either Azure CLI or Azure PowerShell. `ProvisioningState` will show `Succeeded` if registration was successful.
 
