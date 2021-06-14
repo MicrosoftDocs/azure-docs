@@ -2,14 +2,14 @@
 title: Unexpected consent prompt when signing in to an application | Microsoft Docs
 description: How to troubleshoot when a user sees a consent prompt for an application you have integrated with Azure AD that you did not expect
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ---

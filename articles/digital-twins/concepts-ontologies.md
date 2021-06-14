@@ -55,7 +55,7 @@ No matter which strategy you choose for integrating an ontology into Azure Digit
 1. Proceed with your chosen ontology integration strategy from above: [Adopt](concepts-ontologies-adopt.md), [Convert](concepts-ontologies-convert.md), or [Author](concepts-models.md) your models based on your ontology.
     1. If necessary, [extend](concepts-ontologies-extend.md) your ontology to customize it to your needs.
 1. [Validate](how-to-parse-models.md) your models to verify they are working DTDL documents.
-1. Upload your finished models to Azure Digital Twins, using the [APIs](how-to-manage-model.md#upload-models) or a sample like the [Azure Digital Twins model uploader](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader).
+1. Upload your finished models to Azure Digital Twins, using the [APIs](how-to-manage-model.md#upload-models) or a sample like the [Azure Digital Twins model uploader](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels).
 
 After this, you should be able to use your models in your Azure Digital Twins instance. 
 
