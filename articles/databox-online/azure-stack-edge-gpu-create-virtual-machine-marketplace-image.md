@@ -134,7 +134,7 @@ In this example, we will select Windows Server 2019 Datacenter Core, version 201
  
 :::image type="content" source="media/azure-stack-edge-create-virtual-machine-marketplace-image/marketplace-image-1.png" alt-text="List of marketplace images":::
 
-### Marketplace images used widely
+### Commonly used Marketplace images
 
 Below is a list of URNs for some of the most commonly used images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
 
