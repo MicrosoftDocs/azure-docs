@@ -64,9 +64,12 @@ The console supports the following certificate types:
   > [!IMPORTANT]
   > We recommend that you don't use the default self-signed certificate. The certificate is not secure and should be used for test environments only. The owner of the certificate can't be validated, and the security of your system can't be maintained. Never use this option for production networks.
 
+See [Manage certificates](how-to-manage-individual-sensors.md#manage-certificates) for more information about working with certificates.
+
 ### Sign in and activate the sensor
 
 **To sign in and activate:**
+
 
 1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
