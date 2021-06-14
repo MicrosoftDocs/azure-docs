@@ -3,7 +3,7 @@ title: Apache Kafka output binding for Azure Functions
 description: Learn to write to an Apache Kafka stream from an Azure Functions app.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 05/28/2021
+ms.date: 06/14/2021
 ms.author: cshoe
 ---
 
