@@ -43,7 +43,7 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 	 :::image type="content" source="media/ledger/ledger-portal-verify.png" alt-text="Azure portal verify database button":::
 
    > > [!IMPORTANT]
-   > If you have not configured automatic digest storage for your database digests and are instead manually managing digests, do not copy this script.  Continue on to step 6.
+   > If you haven't configured automatic digest storage for your database digests and are instead manually managing digests, don't copy this script. Continue to step 6.
 
 1. Open **Query editor** in the left menu.
 
@@ -53,19 +53,19 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 
    :::image type="content" source="media/ledger/ledger-portal-run-query-editor.png" alt-text="Screenshot that shows the Azure portal Run query editor to verify the database.":::
 
-1. If you are using manual digest storage, enter the following T-SQL into the **Query Editor** to retrieve your latest database digest. Copy the digest from the results returned for the next step.
+1. If you're using manual digest storage, enter the following T-SQL into the query editor to retrieve your latest database digest. Copy the digest from the results returned for the next step.
 
    ```sql
    EXECUTE sp_generate_database_ledger_digest
    ```
    
-1. In **Query editor**, paste the following T-SQL, replacing `<database_digest>` with the digest you copied in Step 6 and select **Run**.
+1. In the query editor, paste the following T-SQL, replacing `<database_digest>` with the digest you copied in step 6, and select **Run**.
 
    ```sql
    EXECUTE sp_verify_database_ledger N'<database_digest>'
    ```
 
-1. Verification will return the following in the **Results** window.
+1. Verification returns the following messages in the **Results** window.
 
    - If there was no tampering in your database, the message is:
 
@@ -73,7 +73,7 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
    Ledger verification successful
    ```
 
-   - If there was tampering in your database, the following error will be in the **Messages** window.
+   - If there was tampering in your database, the following error appears in the **Messages** window.
   
    ```output
    Failed to execute query. Error: The hash of block xxxx in the database ledger does not match the hash provided in the digest for this block.
@@ -81,9 +81,9 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 
 # [T-SQL using automatic digest storage](#tab/t-sql-automatic)
 
-1. Connect to your database using either [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
+1. Connect to your database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
-1. Create a new query with the following T-SQL statement.
+1. Create a new query with the following T-SQL statement:
 
    ```sql
    DECLARE @digest_locations NVARCHAR(MAX) = (SELECT * FROM sys.database_ledger_digest_locations FOR JSON AUTO, INCLUDE_NULL_VALUES);SELECT @digest_locations as digest_locations;
@@ -96,15 +96,15 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
    END CATCH
    ```
 
-1. Execute the query. **digest_locations** returns the current location of where your database digests are stored, as well as any previous locations.  **Result** will return the success or failure of ledger verification.
+1. Execute the query. You'll see that **digest_locations** returns the current location of where your database digests are stored and any previous locations. **Result** returns the success or failure of ledger verification.
 
-   :::image type="content" source="media/ledger/verification_script_exectution.png" alt-text="Screenshot of running ledger verification using Azure Data Studio":::
+   :::image type="content" source="media/ledger/verification_script_exectution.png" alt-text="Screenshot of running ledger verification by using Azure Data Studio.":::
 
-1. Open the **digest_locations** result set to view the locations of your digests. The below example shows two digest storage locations for this database.  
+1. Open the **digest_locations** result set to view the locations of your digests. The following example shows two digest storage locations for this database: 
 
    - **path** indicates the location of the digests.
    - **last_digest_block_id** indicates the block ID of the last digest stored in the **path** location.
-   - **is_current** indicates whether the location in **path** is the current (true) or previous (false).
+   - **is_current** indicates whether the location in **path** is the current (true) or previous (false) one.
 
    ```json
    [
@@ -122,9 +122,9 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
    ```
 
    > [!IMPORTANT]
-   > When running ledger verification, it is important to inspect the location of **digests_location** to ensure digests used in verification are retrieved from the locations you expect. This ensures that a privileged user has not changed locations of digest storage to an unprotected storage location, such as Azure Storage without a configured and locked immutability policy.
+   > When you run ledger verification, inspect the location of **digest_locations** to ensure digests used in verification are retrieved from the locations you expect. You want to make sure that a privileged user hasn't changed locations of digest storage to an unprotected storage location, such as Azure Storage, without a configured and locked immutability policy.
 
-1. Verification will return the following in the **Results** window.
+1. Verification returns the following message in the **Results** window.
 
    - If there was no tampering in your database, the message is:
 
@@ -141,7 +141,7 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 # [T-SQL using manual digest storage](#tab/t-sql-manual)
 
 1. Connect to your database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
-1. Create a new query with the following T-SQL statement.
+1. Create a new query with the following T-SQL statement:
 
    ```sql
    /****** This will retrieve the latest digest file  ******/

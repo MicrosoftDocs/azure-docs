@@ -29,12 +29,12 @@ This article shows you how to access an [Azure SQL Database ledger](ledger-overv
 
 ## How does the integration work?
 
-Azure SQL server calculates the digests of the [ledger databases](ledger-overview.md#ledger-database) periodically and stores them in Confidential Ledger. At any time, you can validate the integrity of the data. Download the digests from Confidential Ledger and compare them to the digests stored in a SQL Database ledger. The following steps explain the process.
+Azure SQL Server calculates the digests of the [ledger databases](ledger-overview.md#ledger-database) periodically and stores them in Confidential Ledger. At any time, you can validate the integrity of the data. Download the digests from Confidential Ledger and compare them to the digests stored in a SQL Database ledger. The following steps explain the process.
 
 ## 1. Find the digest location
 
 > [!NOTE]
-> The query will return more than one row if multiple Confidential Ledger instances were used to store the digest. For each row, repeat steps 2 through 6 to download the digests from all instances of Confidential Ledger.
+> The query returns more than one row if multiple Confidential Ledger instances were used to store the digest. For each row, repeat steps 2 through 6 to download the digests from all instances of Confidential Ledger.
 
 Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) to run the following query. The output shows the endpoint of the Confidential Ledger instance where the digests are stored.
 
@@ -65,7 +65,7 @@ credential = AzureCliCredential()
 
 ## 4. Download the digests from Confidential Ledger
 
-The following Python script downloads the digests from Confidential Ledger. The script uses the [Confidential Ledger client library for Python.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/confidentialledger/azure-confidentialledger)
+The following Python script downloads the digests from Confidential Ledger. The script uses the [Confidential Ledger client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/confidentialledger/azure-confidentialledger).
 
 ```python
 from azure.identity import AzureCliCredential
