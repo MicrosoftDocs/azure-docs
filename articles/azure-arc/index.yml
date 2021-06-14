@@ -83,3 +83,13 @@ conceptualContent:
         - url: ./kubernetes/deploy-azure-iot-edge-workloads.md
           itemType: deploy
           text: Deploy Azure IoT edge workloads
+    - title: Azure Arc enabled data services (preview)
+      links:
+        - url: ./data/install-client-tools.md
+          text: Install tools
+        - url: ./data/create-sql-managed-instance.md
+          text: Create SQL Managed Instance
+        - url: ./data/create-postgresql-hyperscale-server-group.md
+          text: Create PostgreSQL Hyperscale
+        - url: ./data/index.yml
+          text: See more...
