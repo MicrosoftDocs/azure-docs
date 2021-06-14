@@ -38,33 +38,20 @@ Cognitive Services runs on Azure infrastructure that [accrues costs](https://azu
 
 When you create or use Cognitive Services resources, you might get charged for the following meters based on the services that you use:
 
-**Vision**
-
 | Service | Meter(s) | Billing information | 
 |---------|-------|---------------------|
+| **Vision** | | |
 | [Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Free, Standard (S1) | Billed by the number of transactions. Price per transaction varies per feature (Read, OCR, Spatial Analysis). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
 | [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) | Free, Standard | <li>Predictions are billed by the number of transactions.</li><li>Training is billed by compute hour(s).</li><li>Image storage is billed by number of images (up to 6 MB per image).</li>|
 | [Face](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/) | Free, Standard | Billed by the number of transactions. |
-
-**Speech** 
-
-| Service | Meter(s) | Billing information | 
-|---------|-------|---------------------|
+| **Speech** | | |
 | [Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) | Free, Standard | Billing varies by feature (speech-to-text, text-to-speech, speech translation, speaker recognition). Primarily, billing is by transaction count or character count. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
-
-**Language**
-
-| Service | Meter(s) | Billing information | 
-|---------|-------|---------------------|
+| **Language** | | |
 | [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) | Free Authoring, Free Prediction, Standard | Billed by number of transactions. Price per transaction varies by feature (speech requests, text requests). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). |
 | [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) | Free, Standard | Subscription fee billed monthly. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). | 
 | [Text Analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) | Free, Standard | Billed by number of text records. | 
 | [Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/) | Free, Pay-as-you-go (S1), Volume discount (S2, S3, S4, C2, C3, C4, D3) | Pricing varies by meter and feature. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/). <li>Text translation is billed by number of characters translated.</li><li>Document translation is billed by characters translated.</li><li>Custom translation is billed by characters of source and target training data.</li> |  
-
-**Decision**
-
-| Service | Meter(s) | Billing information | 
-|---------|-------|---------------------|
+| **Decision** | | |
 | [Anomaly Detector](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/) | Free, Standard | Billed by the number of transactions. | 
 | [Content Moderator](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) | Free, Standard | Billed by the number of transactions. |
 | [Personalizer](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/) | Free, Standard (S0) | Billed by transactions per month. There are storage and transaction quotas. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/). | 
