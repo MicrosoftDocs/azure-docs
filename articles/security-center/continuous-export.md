@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 06/13/2021
 ms.author: memildin
 
 ---
@@ -46,14 +46,16 @@ This article describes how to configure continuous export to Log Analytics works
 
 Continuous export can export the following data types whenever they change:
 
-- Security alerts
-- Security recommendations 
-- Security findings which can be thought of as 'sub' recommendations like findings from vulnerability assessment scanners or specific system updates. You can select to include them with their 'parent' recommendations such as "System updates should be installed on your machines".
-- Secure score (per subscription or per control)
-- Regulatory compliance data
+- Security alerts.
+- Security recommendations.
+- Security findings. These can be thought of as 'sub' recommendations and belong to a 'parent' recommendation. For example:
+    - The recommendation "System updates should be installed on your machines" will have a ‘sub’ recommendation for every outstanding system update.
+    - The recommendation “Vulnerabilities in your virtual machines should be remediated” will have a ‘sub’ recommendation for every vulnerability identified by the vulnerability scanner.
+    > [!NOTE]
+    > If you’re configuring a continuous export with the REST API, always include the parent with the findings. 
+- (Preview feature) Secure score per subscription or per control.
+- (Preview feature) Regulatory compliance data.
 
-> [!NOTE]
-> The exporting of secure score and regulatory compliance data is a preview feature. 
 
 ## Set up a continuous export 
 

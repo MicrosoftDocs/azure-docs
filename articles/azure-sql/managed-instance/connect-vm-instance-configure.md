@@ -79,7 +79,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
    | **Location** | The location for the resource group | This value is populated based on the resource group selected. |
    | **Virtual machine name**  | Any valid name | For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming).|
    |**Admin Username**|Any valid username|For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). Don't use "serveradmin" as that is a reserved server-level role.<br>You use this username any time you [connect to the VM](#connect-to-the-virtual-machine).|
-   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>You use this password any time you [connect to the VM](#connect-to-the-virtual-machine).|
+   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).<br>You use this password any time you [connect to the VM](#connect-to-the-virtual-machine).|
    | **Virtual Machine Size** | Any valid size | The default in this template of **Standard_B2s** is sufficient for this quickstart. |
    | **Location**|[resourceGroup().location].| Don't change this value. |
    | **Virtual Network Name**|The virtual network in which you created the managed instance|
