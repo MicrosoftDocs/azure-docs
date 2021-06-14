@@ -3,43 +3,37 @@ title: How to target Azure Functions language versions
 description: Azure Functions supports multiple versions of programing languages. Learn how to specify the languages runtime of a function app hosted in Azure.
 
 ms.topic: conceptual
-ms.date: 02/9/2021
+ms.date: 06/14/2021
+zone_pivot_groups: "programming-languages-set-functions-lang-workers"
 ---
 
 # How to target Azure Functions language versions
 
-__INTRO_TODO__
+A function app runs on a specific version of language runtime. By default, function apps are created in the latest programming language's major version that is supported. This article explains how to configure a function app in Azure to run on the version you choose. 
 
 ---
 
 
-## View and update the current runtime version
+## View and update the current language version
 
 _This section doesn't apply when running your function app [on Linux](#manual-version-updates-on-linux)._
 
 You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
 
-> [!IMPORTANT]
-> Although the runtime version is determined by the `FUNCTIONS_EXTENSION_VERSION` setting, you should make this change in the Azure portal and not by changing the setting directly. This is because the portal validates your changes and makes other related changes as needed.
+::: zone pivot="programming-language-javascript,programming-language-powershell, programming-language-java"
 
-# [Portal](#tab/portal)
+[!INCLUDE [Set the language runtime version in the portal](../../includes/functions-view-update-language-version-portal.md)]
+::: zone-end
 
-[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-language-version-portal.md)]
+::: zone pivot="programming-language-sharp"
 
-> [!NOTE]
-> Using the Azure portal, you can't change the runtime version for a function app that already contains functions.
+For .NET, the language version is defined by the runtime version of your function apps. To learn, refer to the article on how to [set runtime version](./set-language-version). To learn on the .NET major versions that are supported, refer to [supported-languages article](./supported-languages)
 
-# [Azure CLI](#tab/azurecli)
-
-__TODO__
-
-# [PowerShell](#tab/powershell)
-__TODO__
+::: zone-end
 
 
 
-
-
+::: zone pivot="programming-language-python, programming-language-javascript,programming-language-powershell, programming-language-java"
 ## Updating language version on Linux
 
 To set a Linux function app to a specific language version, you specify the language as well as the version of the language in 'LinuxFxVersion' field in site config. For example: if we want to pin a node 10 function app with latest runtime version
@@ -100,9 +94,8 @@ Similarly, the function app restarts after the change is made to the site config
 > Note that setting `LinuxFxVersion` to image url directly for consumption apps will opt them out of placeholders and other cold start optimizations.
 
 ---
+::: zone-end
 
 ## Next steps
-
-
 > [!div class="nextstepaction"]
 > [See Supported Languages in Azure Functions](./supported-languages.md)
