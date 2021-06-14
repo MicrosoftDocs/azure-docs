@@ -223,7 +223,7 @@ For further details, see the [Service Fabric 6.5 Release Notes](https://github.c
 
 | Release date | Release |
 |---|---|
-| November 30, 2018 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | December 12, 2018 | [Azure Service Fabric 6.4 Refresh Release for Windows clusters](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  |
+| November 30, 2018 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/) | December 12, 2018 | [Azure Service Fabric 6.4 Refresh Release for Windows clusters](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) |
 | February 4, 2019 | [Azure Service Fabric 6.4 Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) |
 | March 4, 2019 | [Azure Service Fabric 6.4 Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) |
 | April 8, 2019 | [Azure Service Fabric 6.4 Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) |
