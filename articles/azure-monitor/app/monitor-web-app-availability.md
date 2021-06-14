@@ -149,4 +149,4 @@ In addition to the raw results, you can also view two key Availability metrics i
 * [Availability Alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
 * [Troubleshooting](troubleshoot-availability.md)
-* [Web Tests Azure Resource Manager template](https://docs.microsoft.com/azure/templates/microsoft.insights/webtests?tabs=json)
+* [Web Tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)

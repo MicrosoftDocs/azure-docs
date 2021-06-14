@@ -130,7 +130,7 @@ Ultimately, the same type of restrictions needs to be applied across the organiz
 ## Lab configuration
 
 ### How do I create a lab from a Resource Manager template?
-We offer a [GitHub repository of lab Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) that you can deploy as-is or modify to create custom templates for your labs. Each template has a link to deploy the lab as it's in your own Azure subscription. Or, you can customize the template and [deploy by using PowerShell or Azure CLI](../azure-resource-manager/templates/deploy-powershell.md).
+We offer a [GitHub repository of lab Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/dtl-create-lab) that you can deploy as-is or modify to create custom templates for your labs. Each template has a link to deploy the lab as it's in your own Azure subscription. Or, you can customize the template and [deploy by using PowerShell or Azure CLI](../azure-resource-manager/templates/deploy-powershell.md).
 
 
 ### Can I have all virtual machines to be created in a common resource group instead having each machine in its own resource group?

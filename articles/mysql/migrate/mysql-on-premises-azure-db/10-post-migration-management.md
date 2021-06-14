@@ -21,13 +21,13 @@ ms.date: 06/11/2021
 
 Once the migration has been successfully completed, the next phase it to manage the new cloud-based data workload resources. Management operations include both control plane and data plane activities. Control plane activities are those related to the Azure resources versus data plane, which is **inside** the Azure resource (in this case MySQL).
 
-Azure Database for MySQL provides for the ability to monitor both of these types of operational activities using Azure-based tools such as [Azure Monitor,](/azure/azure-monitor/overview) [Log Analytics](/azure/azure-monitor/platform/design-logs-deployment) and [Azure Sentinel.](/azure/sentinel/overview) In addition to the Azure-based tools, security information and event management (SIEM) systems can be configured to consume these logs as well.
+Azure Database for MySQL provides for the ability to monitor both of these types of operational activities using Azure-based tools such as [Azure Monitor,](../../../azure-monitor/overview.md) [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) and [Azure Sentinel.](../../../sentinel/overview.md) In addition to the Azure-based tools, security information and event management (SIEM) systems can be configured to consume these logs as well.
 
 Whichever tool is used to monitor the new cloud-based workloads, alerts need to be created to warn Azure and database administrators of any suspicious activity. If a particular alert event has a well-defined remediation path, alerts can fire automated [Azure run books](/azure/automation/automation-quickstart-create-runbook) to address the event.
 
-The first step to creating a fully monitored environment is to enable MySQL log data to flow into Azure Monitor. Reference [Configure and access audit logs for Azure Database for MySQL in the Azure portal](/azure/mysql/howto-configure-audit-logs-portal) for more information.
+The first step to creating a fully monitored environment is to enable MySQL log data to flow into Azure Monitor. Reference [Configure and access audit logs for Azure Database for MySQL in the Azure portal](../../howto-configure-audit-logs-portal.md) for more information.
 
-Once log data is flowing, use the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) query language to query the various log information. Administrators unfamiliar with KQL can find a SQL to KQL cheat sheet [here](/azure/data-explorer/kusto/query/sqlcheatsheet) or the [Get started with log queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries) page.
+Once log data is flowing, use the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) query language to query the various log information. Administrators unfamiliar with KQL can find a SQL to KQL cheat sheet [here](/azure/data-explorer/kusto/query/sqlcheatsheet) or the [Get started with log queries in Azure Monitor](../../../azure-monitor/logs/get-started-queries.md) page.
 
 For example, to get the memory usage of the Azure Database for MySQL:
 
@@ -69,17 +69,17 @@ The Azure portal and Windows PowerShell can be used for managing the Azure Datab
 
 After the modules are installed, reference tutorials like the following to learn ways you can take advantage of scripting your management activities:
 
-  - [Tutorial: Design an Azure Database for MySQL using PowerShell ](/azure/mysql/tutorial-design-database-using-powershell)
+  - [Tutorial: Design an Azure Database for MySQL using PowerShell](../../tutorial-design-database-using-powershell.md)
 
-  - [How to back up and restore an Azure Database for MySQL server using PowerShell ](/azure/mysql/howto-restore-server-powershell)
+  - [How to back up and restore an Azure Database for MySQL server using PowerShell](../../howto-restore-server-powershell.md)
 
-  - [Configure server parameters in Azure Database for MySQL using PowerShell ](/azure/mysql/howto-configure-server-parameters-using-powershell)
+  - [Configure server parameters in Azure Database for MySQL using PowerShell](../../howto-configure-server-parameters-using-powershell.md)
 
-  - [Auto grow storage in Azure Database for MySQL server using PowerShell ](/azure/mysql/howto-auto-grow-storage-powershell)
+  - [Auto grow storage in Azure Database for MySQL server using PowerShell](../../howto-auto-grow-storage-powershell.md)
 
-  - [How to create and manage read replicas in Azure Database for MySQL using PowerShell ](/azure/mysql/howto-read-replicas-powershell)
+  - [How to create and manage read replicas in Azure Database for MySQL using PowerShell](../../howto-read-replicas-powershell.md)
 
-  - [Restart Azure Database for MySQL server using PowerShell ](/azure/mysql/howto-restart-server-powershell)
+  - [Restart Azure Database for MySQL server using PowerShell](../../howto-restart-server-powershell.md)
 
 ## Azure Database for MySQL upgrade process
 
@@ -95,7 +95,7 @@ The [Planned maintenance notification](/azure/mysql/concepts-monitoring#planned-
 
 ## WWI scenario
 
-WWI decided to utilize the Azure Activity logs and enable MySQL logging to flow to a [Log Analytics workspace.](/azure/azure-monitor/platform/design-logs-deployment) This workspace is configured to be a part of [Azure Sentinel](/azure/sentinel/) such that any [Threat Analytics](/azure/mysql/concepts-data-access-and-security-threat-protection) events would be surfaced, and incidents created.
+WWI decided to utilize the Azure Activity logs and enable MySQL logging to flow to a [Log Analytics workspace.](../../../azure-monitor/logs/design-logs-deployment.md) This workspace is configured to be a part of [Azure Sentinel](../../../sentinel/index.yml) such that any [Threat Analytics](/azure/mysql/concepts-data-access-and-security-threat-protection) events would be surfaced, and incidents created.
 
 The MySQL DBAs installed the Azure Database for [MySQL Azure PowerShell cmdlets](/azure/mysql/quickstart-create-mysql-server-database-using-azure-powershell) to make managing the MySQL Server automated versus having to log to the Azure portal each time.
 
