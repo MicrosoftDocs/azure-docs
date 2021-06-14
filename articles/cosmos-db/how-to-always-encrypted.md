@@ -76,7 +76,7 @@ The Azure Cosmos DB service never sees the plain text of properties encrypted wi
 
 - **Randomized encryption:** It uses a method that encrypts data in a less predictable manner. Randomized encryption is more secure, but prevents queries from filtering on encrypted properties.
 
-See [Generating the initialization vector (IV)](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-cryptography#step-1-generating-the-initialization-vector-iv) to learn more about deterministic and randomized encryption in Always Encrypted.
+See [Generating the initialization vector (IV)](/sql/relational-databases/security/encryption/always-encrypted-cryptography#step-1-generating-the-initialization-vector-iv) to learn more about deterministic and randomized encryption in Always Encrypted.
 
 ## Setup Azure Key Vault
 
