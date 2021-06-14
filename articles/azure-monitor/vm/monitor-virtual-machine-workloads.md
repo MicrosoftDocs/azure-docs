@@ -16,11 +16,6 @@ This article describes how to monitor workloads that are running on the guest op
 > This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md).
 
 
-> [!NOTE]
-> The requirements for monitoring logic to implement for your workloads will depend on your particular set of workloads and business requirements. 
-These are data sources commonly used by management packs in System Center Operations Manager which you may already be using for monitoring your applications. See [Converting management packs](monitor-virtual-machine-scom.md) for a strategy on converting management pack logic in Azure Monitor using the details in this article.
-
-
 ## Existing insights
 Use the following insights to monitor particular workloads running on your virtual machines.
 
