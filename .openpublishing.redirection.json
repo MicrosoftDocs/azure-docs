@@ -44241,6 +44241,81 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/mysql/migrate/index.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/representative-use-case.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/02-representative-use-case",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/assessment.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/03-assessment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/planning.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/04-planning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/migration-methods.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/05-migration-methods",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/test-plans.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/06-test-plans",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/performance-baselines.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/07-performance-baselines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/data-migration.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/08-data-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/data-migration-with-mysql-workbench.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/09-data-migration-with-mysql-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/post-migration-management.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/10-post-migration-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/optimization.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/11-optimization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/business-continuity-and-disaster-recovery.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/12-business-continuity-and-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/security.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/13-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/summary.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/14-summary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/appendix.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/15-appendix",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/howto-build-services-resilent-to-metadata-refresh.md",
       "redirect_url": "/azure/active-directory/develop/howto-build-services-resilient-to-metadata-refresh",
       "redirect_document_id": false
@@ -67141,8 +67216,23 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/files/storage-files-compare-protocols.md",
+      "redirect_url": "/azure/storage/files/files-nfs-protocol",
+      "redireect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
       "redirect_url": "/azure/iot-develop/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-files-how-to-create-large-file-share.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-troubleshoot-cannot-delete-files-azure-file-share.md",
+      "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#unable-to-modify-moverename-or-delete-a-file-or-directory",
       "redirect_document_id": false
     }
   ]
