@@ -9,7 +9,7 @@ ms.date: 06/11/2021
 
 This article shows you how to set up a class that focuses on forensics side of ethical hacking. Penetration testing, a practice used by the ethical hacking community, occurs when someone attempts to gain access to the system or network to demonstrate vulnerabilities that a malicious attacker may exploit.
 
-In an ethical hacking class, students can learn modern techniques for defending against vulnerabilities. Each student gets a Windows Server host virtual machine that has three nested virtual machines – two virtual machine with [Seed](https://seedsecuritylabs.org/lab_env.html) image and another machine with [Kali Linux](https://www.kali.org/) image. The Seed virtual machine is used for exploiting purposes and Kali virtual machine provides access to the tools needed to execute forensic tasks.
+In an ethical hacking class, students can learn modern techniques for defending against vulnerabilities. Each student gets a host virtual machine that has three nested virtual machines – two virtual machine with [Seed](https://seedsecuritylabs.org/lab_env.html) image and another machine with [Kali Linux](https://www.kali.org/) image. The Seed virtual machine is used for exploiting purposes and Kali virtual machine provides access to the tools needed to execute forensic tasks.
 
 This article has two main sections. The first section covers how to create the classroom lab. The second section covers how to create the template machine with nested virtualization enabled and with the tools and images needed. In this case, two Seed images and a Kali Linux image on a machine that has [VirtualBox](https://www.virtualbox.org/) enabled to host the images.
 
@@ -43,7 +43,7 @@ The rest of this article will cover the manual steps to completing the tasks abo
 
 Kali is a Linux distribution that includes tools for penetration testing and security auditing.
 
-1. Download the ova image from [Kali Linux VM VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines).  Remember the default username and password noted on the download page.
+1. Download the ova image from [Kali Linux VM VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines).  I would recommend the 32bit version.  Remember the default username and password noted on the download page.
 2. Open VirtualBox Manager and [import the .ova image.](https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html).  The Kali licensing agreement will need to be reviewed and accepted to continue.
 
 #### Note:
