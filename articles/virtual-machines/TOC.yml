@@ -1841,6 +1841,6 @@
   - name: FAQ
     items:
     - name: Linux
-      href: ./linux/faq.md
+      href: ./linux/faq.yml
     - name: Windows
-      href: ./windows/faq.md
+      href: ./windows/faq.yml

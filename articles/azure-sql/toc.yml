@@ -1328,7 +1328,7 @@
     - name: Resources
       items:
       - name: FAQ
-        href: virtual-machines/windows/frequently-asked-questions-faq.md
+        href: virtual-machines/windows/frequently-asked-questions-faq.yml
       - name: Pricing
         href: virtual-machines/windows/pricing-guidance.md
       - name: Archived classic RM docs 
@@ -1367,7 +1367,7 @@
     - name: Resources
       items:
       - name: FAQ
-        href: virtual-machines/linux/frequently-asked-questions-faq.md
+        href: virtual-machines/linux/frequently-asked-questions-faq.yml
       - name: SQL Server on Linux Documentation
         href: /sql/linux/sql-server-linux-overview
       - name: SQL Server Data Tools (SSDT)

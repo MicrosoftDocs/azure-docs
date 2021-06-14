@@ -1,6 +1,6 @@
 ---
 title: Monitor delegated resources at scale
-description: Learn how to effectively use Azure Monitor Logs in a scalable way across the customer tenants you're managing.
+description: Azure Lighthouse helps you use Azure Monitor Logs in a scalable way across customer tenants.
 ms.date: 05/10/2021
 ms.topic: how-to
 ---
