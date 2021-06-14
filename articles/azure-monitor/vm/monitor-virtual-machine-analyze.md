@@ -51,7 +51,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 - **Connection monitor.**  Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-overview.md) to monitor connections between the current virtual machine and other virtual machines. 
 
 
-- **Workbooks.** Open the workbook gallery with the VM insights workbooks for single machines. See [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks) for a list of the VM insights workbooks designed for individual machines.  |
+- **Workbooks.** Open the workbook gallery with the VM insights workbooks for single machines. See [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks) for a list of the VM insights workbooks designed for individual machines.  
 
 ## Multiple machine experience
 Access the mulitple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.

@@ -26,8 +26,59 @@ ms.date: 05/26/2021
 
 
 
+## Choosing the alert type
+The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). 
+The type of alert rule that you create for a particular scenario will depend on where the data is located that you're alerting on. You may have cases though where data for a particular alerting scenario is available in both Metrics and Logs, and you need to determine which rule type to use. You may also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
+
+It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in metrics. VM insights currently sends all of its data to Logs, so you must install Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when its either not available in Metrics or you require additional logic beyond the relatively simple logic for a metric alert rule.
+
+### Metric alert rules
+[Metric alert rules](../alerts/alerts-metric.md) are useful for alerting when a particular metric exceeds a threshold. For example, when the CPU of a machine is running high. The target of a metric alert rule can be a specific machine, a resource group, or a subscription. This allows you to create a single rule that applies to a group of machines.
+
+Metric rules for virtual machines can use the following data:
+
+- Host metrics for Azure virtual machines which are collected automatically. 
+- Metrics that are collected by Azure Monitor agent from the quest operating system. 
+
+
+> [!NOTE]
+> When VM insights supports the Azure Monitor Agent which is currently in public preview, then it will send performance data from the guest operating system to Metrics so that you can use metric alerts.
+
+
+
+### Log query alerts
+There are two types of [log query alert rule](../alerts/alerts-metric.md) in Azure Monitor, each of which support distinct scenarios for monitoring virtual machines.
+
+- [Metric measurement alerts](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These are ideal for non-numeric data such and Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers.
+- [Number of results alerts](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../agents/log-analytics-agent.md) or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple machines have the same error condition.
+### Target resource and impacted resource
+Each alert in Azure Monitor has an **Affected resource** property which is defined by the target of the rule. For metric alert rules, the affected resource will be the computer which allows you to easily identify it in the standard alert view. Log query alerts will be associated with the workspace resource instead of the machine, even when you use a metric measurement alert that creates an alert for each computer. You need to view the details of the alert to view the computer that was affected. 
+The computer name is stored in the **Impacted resource** property which you can view in the details of the alert. It's also displayed as a dimension in emails that are sent from the alert.
+
+![Alert view]()
+
+
+You may want to have a view that lists the alerts with the affected computer. You can do this with a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Following is a query that can be used to display alerts. Use the data source  **Azure Resource Graph** in the workbook.
+
+```kusto
+alertsmanagementresources
+| extend dimension = properties.context.context.condition.allOf
+| mv-expand dimension
+| extend dimension = dimension.dimensions
+| mv-expand dimension
+| extend Computer = dimension.value
+| extend AlertStatus = properties.essentials.alertState
+| summarize count() by Alert=name, tostring(AlertStatus), tostring(Computer)
+| project Alert, AlertStatus, Computer
+```
 ## Common alert rules
-The following section lists common alert rules for virtual machines in Azure Monitor. These assume that you followed in the configuration steps in [Monitor virtual machines with Azure Monitor - Configure monitoring](monitor-virtual-machine-onboard.md) to enable VM insights. See the sections below for more details on the different types of alerts used with virtual machines if you aren't familiar with alert rules in Azure. 
+The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log query metric measurement alerts are provided for each. See [Choosing the alert type](#choosing-the-alert-type) section above for guidance on which type of alert to use. 
+
+If you're not familiar with the process for creating alert rules in Azure Monitor, see the following for guidance:
+
+- [Create, view, and manage metric alerts using Azure Monitor](../alerts/alerts-metric.md)
+- [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md)
+
 
 ### Machine unavailable
 The most basic requirement is to send an alert when a machine is unavailable. It could be stopped, the guest operating system could be hung, or the agent could be unresponsive. There are a variety of ways to configure this alerting, but the most common is to use the heartbeat sent from the Log Analytics agent. 
@@ -224,32 +275,9 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface |
 ```
 
-### Choosing the alert type
-The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). 
-The type of alert rule that you create for a particular scenario will depend on where the data is located that you're alerting on. You may have cases though where data for a particular alerting scenario is available in both Metrics and Logs, and you need to determine which rule type to use. You may also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
-
-It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in metrics. VM insights currently sends all of its data to Logs, so you must install Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when its either not available in Metrics or you require additional logic beyond the relatively simple logic for a metric alert rule.
-
-
-### Metric alert rules
-[Metric alert rules](../alerts/alerts-metric.md) are useful for alerting when a particular metric exceeds a threshold. For example, when the CPU of a machine is running high. The target of a metric alert rule can be a specific machine, a resource group, or a subscription. This allows you to create a single rule that applies to a group of machines.
-
-Metric rules for virtual machines can use the following data:
-
-- Host metrics for Azure virtual machines which are collected automatically. 
-- Metrics that are collected by Azure Monitor agent from the quest operating system. 
-
-
-> [!NOTE]
-> When VM insights supports the Azure Monitor Agent which is currently in public preview, then it will send performance data from the guest operating system to Metrics so that you can use metric alerts.
 
 
 
-### Log query alerts
-There are two types of log query alert rule in Azure Monitor, each of which support distinct scenarios for monitoring virtual machines.
-
-- [Metric measurement alerts](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. 
-- [Number of results alerts](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../agents/log-analytics-agent.md) or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple machines have the same error condition.
 
 
 ## Comparison of log query alert types
@@ -325,26 +353,6 @@ Scroll down to **Evaluated based on**. **Period** specifies the time span for th
 
 
 
-## Target resource and impacted resource
-Each alert in Azure Monitor has an **Affected resource** property which is defined by the target of the rule. For metric alert rules, the affected resource will be the computer which allows you to easily identify it in the standard alert view. Log query alerts will be associated with the workspace resource instead of the machine, even when you use a metric measurement alert that creates an alert for each computer. You need to view the details of the alert to view the computer that was affected. 
-The computer name is stored in the **Impacted resource** property which you can view in the details of the alert. It's also displayed as a dimension in emails that are sent from the alert.
-
-![Alert view]()
-
-
-You may want to have a view that lists the alerts with the affected computer. You can do this with a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Following is a query that can be used to display alerts. Use the data source  **Azure Resource Graph** in the workbook.
-
-```kusto
-alertsmanagementresources
-| extend dimension = properties.context.context.condition.allOf
-| mv-expand dimension
-| extend dimension = dimension.dimensions
-| mv-expand dimension
-| extend Computer = dimension.value
-| extend AlertStatus = properties.essentials.alertState
-| summarize count() by Alert=name, tostring(AlertStatus), tostring(Computer)
-| project Alert, AlertStatus, Computer
-```
 
 
 ## Next steps
