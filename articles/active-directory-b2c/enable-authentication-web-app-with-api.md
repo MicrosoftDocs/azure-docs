@@ -321,7 +321,7 @@ public async Task<IActionResult> TodoListAsync()
 
 ## Add the app settings
 
-Azure AD B2C identity provider settings are stored in the `appsettings.json` file. Open appsettings.json and add the app settings as described in the [Step 6: Configure the sample web app](configure-authentication-sample-web-app-with-api.md#step-5-configure-the-sample-web-app).
+Azure AD B2C identity provider settings are stored in the `appsettings.json` file. Open appsettings.json and add the app settings as described in the [Step 5: Configure the sample web app](configure-authentication-sample-web-app-with-api.md#step-5-configure-the-sample-web-app).
 
 ## Run your application
 

@@ -180,9 +180,9 @@ Under the project root folder, open the `appsettings.json` file. This file conta
 |AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, `https://contoso.b2clogin.com`.|
 |AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name). For example, `contoso.onmicrosoft.com`.|
 |AzureAdB2C|ClientId| The web application ID from [step 2.1](#21-register-the-web-api-app).|
-|AzureAdB2C | ClientSecret | The web application secret from [2.3 Create a web app client secret](#24-create-a-web-app-client-secret). | 
+|AzureAdB2C | ClientSecret | The web application secret from [step 2.4](#24-create-a-web-app-client-secret). | 
 |AzureAdB2C|SignUpSignInPolicyId|The user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
-| TodoList | TodoListScope | The scopes you from [step 2.4](#25-grant-the-web-app-permissions-for-the-web-api).|
+| TodoList | TodoListScope | The scopes you from [step 2.5](#25-grant-the-web-app-permissions-for-the-web-api).|
 | TodoList | TodoListBaseAddress | The base URI of your web API, for example `https://localhost:44332`|
 
 Your final configuration file should look like the following JSON:

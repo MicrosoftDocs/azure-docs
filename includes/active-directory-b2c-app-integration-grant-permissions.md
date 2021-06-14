@@ -14,7 +14,6 @@ ms.author: mimart
 1. Under **Permission**, expand **tasks**, and then select the scopes that you defined earlier. For example, *tasks.read* and *tasks.write*.
 1. Select **Add permissions**.
 1. Select **Grant admin consent for (your tenant name)**.
-1. If you're prompted to select an account, select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
 1. Select **Yes**.
 1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for both scopes.
 1. From the list of **Configured permissions**, select your scope and copy the scope full name. 
