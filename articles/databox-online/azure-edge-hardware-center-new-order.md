@@ -48,11 +48,11 @@ To create an order from the Azure Edge Hardware Center for Azure Stack Edge reso
 
    1. Select **Try Azure Hardware Center**.
 
-      ![Screenshot of option for creating a resource from the Azure Hardware Center](media/azure-stack-edge-gpu-deploy-prep/azure-hardware-center-create-resource-01.png)
+      ![Screenshot of option for creating a resource from the Azure Hardware Center](media/azure-edge-hardware-center-new-order/azure-hardware-center-create-resource-01.png)
 
    1. Select a product family from the selected subscriptions. For example, select **Azure Stack Edge**.<!--1) What determines "selected subscriptions"? 2) Find out all available product families.-->
 
-    ![Screenshot of option for selecting a product family for an order in the Azure Hardware Center](media/azure-stack-edge-gpu-deploy-prep/azure-hardware-center-create-resource-02.png)
+    ![Screenshot of option for selecting a product family for an order in the Azure Hardware Center](media/azure-edge-hardware-center-new order/azure-hardware-center-create-resource-02.png)
 
 STOPPED HERE - 06/14/2021
 
@@ -108,7 +108,7 @@ STOPPED HERE - 06/14/2021
 
     After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-    ![Go to the Azure Stack Edge Pro resource](media/azure-edge-hardware-center-new-order/azure-stack-edge-resource-1.png)
+    ![Go to the Azure Stack Edge Pro resource](media/azure-edge-hardware-center-new-order/placeholder.png)
 
 After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
