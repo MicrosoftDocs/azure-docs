@@ -988,7 +988,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    * In Visual Studio Code, open your project's **workflow.json** file in the workflow designer, make your edits, and redeploy your logic app to Azure.
 
-   * In the Azure portal, [find and open your logic app](#manage-deployed-apps-portal). You can then open, edit, and save your workflow.
+   * In the Azure portal, [open your logic app](#manage-deployed-apps-portal). You can then open, edit, and save your workflow.
 
 1. To open the deployed logic app in the Azure portal, open the logic app's shortcut menu, and select **Open in Portal**.
 

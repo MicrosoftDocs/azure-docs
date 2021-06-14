@@ -423,7 +423,7 @@ After Application Insights opens, you can review various metrics for your logic 
 
 To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
-1. In the [Azure portal](https://portal.azure.com), find and open your **Logic App (Standard)** resource.
+1. In the [Azure portal](https://portal.azure.com), open your **Logic App (Standard)** resource.
 
 1. On the logic app's menu, under **Settings**, select **Configuration**.
 
@@ -485,7 +485,7 @@ Stopping a logic app affects workflow instances in the following ways:
 
   To stop each workflow from triggering on unprocessed items since the last run, clear the trigger state before you restart the logic app by following these steps:
 
-  1. In the Azure portal, find and open your logic app.
+  1. In the Azure portal, open your logic app.
   1. On the logic app menu, under **Workflows**, select **Workflows**.
   1. Open a workflow, and edit any part of that workflow's trigger.
   1. Save your changes. This step resets the trigger's current state.
@@ -496,7 +496,7 @@ Stopping a logic app affects workflow instances in the following ways:
 
 ### Restart, stop, or start a single logic app
 
-1. In the Azure portal, find and open your logic app.
+1. In the Azure portal, open your logic app.
 
 1. On the logic app menu, select **Overview**.
 
@@ -602,7 +602,7 @@ Deleting a workflow affects workflow instances in the following ways:
 
 * If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
-1. In the Azure portal, find and open your logic app.
+1. In the Azure portal, open your logic app.
 
 1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select a single or multiple workflows to delete.
 
