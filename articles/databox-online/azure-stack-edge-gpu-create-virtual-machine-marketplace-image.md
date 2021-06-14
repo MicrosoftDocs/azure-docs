@@ -33,16 +33,16 @@ For more information, go to [Deploy a VM on your Azure Stack Edge Pro device usi
 
 ## Prerequisites
 
-Before you can use Azure Marketplace images for Azure Stack Edge, make sure that you are connected to Azure in either of the following ways.
+Before you can use Azure Marketplace images for Azure Stack Edge, make sure you're connected to Azure in either of the following ways.
 
 [!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 
 ## Search for Azure Marketplace images
 
-You will now identify a specific Azure Marketplace image that you wish to use. Azure Marketplace hosts thousands of VM images. 
+You'll now identify a specific Azure Marketplace image that you wish to use. Azure Marketplace hosts thousands of VM images. 
 
-To find some of the most common Marketplace images that match your search criteria, run the following command.  
+To find some of the most commonly used Marketplace images that match your search criteria, run the following command.  
 
 ```azurecli
 az vm image list --all [--publisher <Publisher>] [--offer <Offer>] [--sku <SKU>]
