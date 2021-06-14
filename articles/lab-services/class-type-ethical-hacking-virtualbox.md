@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 06/11/2021
 ---
 
-# Set up a lab to teach ethical hacking class
+# Set up a lab to teach ethical hacking class with VirtualBox
 
 This article shows you how to set up a class that focuses on forensics side of ethical hacking. Penetration testing, a practice used by the ethical hacking community, occurs when someone attempts to gain access to the system or network to demonstrate vulnerabilities that a malicious attacker may exploit.
 
@@ -43,11 +43,11 @@ The rest of this article will cover the manual steps to completing the tasks abo
 
 Kali is a Linux distribution that includes tools for penetration testing and security auditing.
 
-1. Download the ova image from [Kali Linux VM VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines).  I would recommend the 32bit version.  Remember the default username and password noted on the download page.
+1. Download the ova image from [Kali Linux VM VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines).  I would recommend the 32bit version, the 64bit version loads with errors.  Remember the default username and password noted on the download page.
 2. Open VirtualBox Manager and [import the .ova image.](https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html).  The Kali licensing agreement will need to be reviewed and accepted to continue.
 
 #### Note:
-- By default the Hard disk is set to an 80 gig limit, but is dynamically allocated.  Lab service machines are limited to 128 gigs of hard drive space, so be careful of exceeding the disk space.
+- By default the Hard disk is set to an 80 gig limit, but is dynamically allocated.  Lab Service machines are limited to 128 gigs of hard drive space, so be careful of exceeding the disk space.
 - The Kali image has USB 2.0 enable which requires [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) or set the USB controller to 1.0 under the USB tab.
 
 ### Setup Seed Lab images
