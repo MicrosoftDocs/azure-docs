@@ -129,7 +129,7 @@ When you're configuring an automation rule and adding a **run playbook** action,
 
 #### Permissions in a multi-tenant architecture
 
-Automation rules fully support cross-workspace and multi-tenant deployments (in the case of multi-tenant, using [Azure Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)).
+Automation rules fully support cross-workspace and [multi-tenant deployments](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse) (in the case of multi-tenant, using [Azure Lighthouse](../lighthouse/index.yml)).
 
 Therefore, if your Azure Sentinel deployment uses a multi-tenant architecture, you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
 
@@ -141,10 +141,8 @@ In the specific case of a Managed Security Service Provider (MSSP), where a serv
 
 - **An automation rule created in the customer workspace (while signed into the service provider tenant) is configured to run a playbook located in the customer tenant**.
 
-    This configuration is used when there is no need to protect intellectual property. For this scenario to work, permissions to execute the playbook need to be granted to Azure Sentinel in ***both tenants***. In the customer tenant, you grant them in the **Manage playbook permissions** panel, just like in the scenario above. To grant the relevant permissions in the service provider tenant, 
-    <!-- This needs to be better explained to me -->
-    you need to include the **Azure Security Insights** app in your Azure Lighthouse delegation template with the **Azure Sentinel Automation Contributor** role.
-    <!-- until here -->
+    This configuration is used when there is no need to protect intellectual property. For this scenario to work, permissions to execute the playbook need to be granted to Azure Sentinel in ***both tenants***. In the customer tenant, you grant them in the **Manage playbook permissions** panel, just like in the scenario above. To grant the relevant permissions in the service provider tenant, you need to add an additional Azure Lighthouse delegation that grants access rights to the **Azure Security Insights** app, with the **Azure Sentinel Automation Contributor** role, on the resource group where the playbook resides.
+
     The scenario looks like this:
 
     :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="Multi-tenant automation rule architecture":::
