@@ -91,9 +91,7 @@ For example, you can define trading partners, agreements, schemas, maps, and oth
 
 In a logic app, each workflow always starts with a single [trigger](#trigger). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. Following the trigger, one or more [actions](#action) run operations that, for example, process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
 
-For example, the following workflow starts with a Dynamics trigger that has a built-in condition named **When a record is updated**. The actions include transforming XML, calling a web app that updates data, evaluating a condition that controls which actions to take, and sending an email notification with the results. When the trigger detects an event that meets the condition, the trigger fires, and the actions in the workflow start to run. Each time the trigger fires, the Logic Apps service creates a workflow instance that runs the actions.
-
-![Logic Apps Designer - example workflow](./media/logic-apps-overview/azure-logic-apps-designer.png)
+// PLACEHOLDER FOR NEW EXAMPLE WORKFLOW
 
 You can visually create workflows using the Logic Apps designer in the Azure portal, Visual Studio Code, or Visual Studio. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Logic Apps supports Azure Resource Manager templates.
 
