@@ -39,7 +39,7 @@ This video provides an overview of how to delegate access governance from catalo
 
 Follow these steps to assign a user to the access package manager role:
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

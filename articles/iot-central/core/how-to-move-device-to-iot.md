@@ -7,10 +7,10 @@ ms.date: 02/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+
+# This article applies to operators and device developers.
 ---
 # How to transfer a device to Azure IoT Central from IoT Hub
-
-*This article applies to operators and device developers.*  
 
 This article describes how to transfer a device to an Azure IoT Central application from an IoT Hub. 
 
@@ -29,7 +29,7 @@ To interact with IoT Central, there must be a device template that models the pr
 
 ## Next steps
 
-If you're a device developer, some suggested next steps are to:
+Some suggested next steps are to:
 
 - Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
 - Learn how to [How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application](how-to-connect-devices-x509.md)

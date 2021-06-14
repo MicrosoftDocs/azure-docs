@@ -1,7 +1,7 @@
 ---
 title:  "Tutorial: Managed identity to invoke Azure Functions"
 description: Use managed identity to invoke Azure Functions from an Azure Spring Cloud app
-author:  MarkGardner
+author:  markjgardner
 ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
@@ -168,6 +168,6 @@ This sample will invoke the Http triggered function by first requesting an acces
 
 ## Next steps
 
-* [How to enable system-assigned managed identity for Azure Spring Cloud application](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
+* [How to enable system-assigned managed identity for Azure Spring Cloud application](./how-to-enable-system-assigned-managed-identity.md)
 * [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [Configure client apps to access your App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

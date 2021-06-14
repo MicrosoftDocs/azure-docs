@@ -1,42 +1,42 @@
 ---
-title: Configure GPU for Windows Virtual Desktop - Azure
-description: How to enable GPU-accelerated rendering and encoding in Windows Virtual Desktop.
+title: Configure GPU for Azure Virtual Desktop - Azure
+description: How to enable GPU-accelerated rendering and encoding in Azure Virtual Desktop.
 author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
 ---
 
-# Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop
+# Configure graphics processing unit (GPU) acceleration for Azure Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 
-Windows Virtual Desktop supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly crucial for graphics-intensive apps.
+Azure Virtual Desktop supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly crucial for graphics-intensive apps.
 
-Follow the instructions in this article to create a GPU optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding. This article assumes you already have a Windows Virtual Desktop tenant configured.
+Follow the instructions in this article to create a GPU optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding. This article assumes you already have a Azure Virtual Desktop tenant configured.
 
 ## Select an appropriate GPU optimized Azure virtual machine size
 
 Select one of Azure's [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), or [NVv4-series](../virtual-machines/nvv4-series.md) VM sizes. These are tailored for app and desktop virtualization and enable most apps and the Windows user interface to be GPU accelerated. The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density, while smaller and fractional-GPU sizes allow more fine-grained control over cost and quality.
 
 >[!NOTE]
->Azure's NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Windows Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They do not support GPU acceleration for most apps or the Windows user interface.
+>Azure's NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Azure Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They do not support GPU acceleration for most apps or the Windows user interface.
 
 ## Create a host pool, provision your virtual machine, and configure an app group
 
 Create a new host pool using a VM of the size you selected. For instructions, see [Tutorial: Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
 
-Windows Virtual Desktop supports GPU-accelerated rendering and encoding in the following operating systems:
+Azure Virtual Desktop supports GPU-accelerated rendering and encoding in the following operating systems:
 
 * Windows 10 version 1511 or newer
 * Windows Server 2016 or newer
 
-You must also configure an app group, or use the default desktop app group (named "Desktop Application Group") that's automatically created when you create a new host pool. For instructions, see [Tutorial: Manage app groups for Windows Virtual Desktop](./manage-app-groups.md).
+You must also configure an app group, or use the default desktop app group (named "Desktop Application Group") that's automatically created when you create a new host pool. For instructions, see [Tutorial: Manage app groups for Azure Virtual Desktop](./manage-app-groups.md).
 
 ## Install supported graphics drivers in your virtual machine
 
-To take advantage of the GPU capabilities of Azure N-series VMs in Windows Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) to install drivers. Only drivers distributed by Azure are supported.
+To take advantage of the GPU capabilities of Azure N-series VMs in Azure Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) to install drivers. Only drivers distributed by Azure are supported.
 
 * For Azure NV-series or NVv3-series VMs, only NVIDIA GRID drivers, and not NVIDIA CUDA drivers, support GPU acceleration for most apps and the Windows user interface. If you choose to install drivers manually, be sure to install GRID drivers. If you choose to install drivers using the Azure VM extension, GRID drivers will automatically be installed for these VM sizes.
 * For Azure NVv4-series VMs, install the AMD drivers provided by Azure. You may install them automatically using the Azure VM extension, or you may install them manually.
@@ -95,7 +95,7 @@ To verify that apps are using the GPU for rendering, try any of the following:
 
 To verify that Remote Desktop is using GPU-accelerated encoding:
 
-1. Connect to the desktop of the VM using Windows Virtual Desktop client.
+1. Connect to the desktop of the VM using Azure Virtual Desktop client.
 2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. To determine if GPU-accelerated encoding is used, look for event ID 170. If you see "AVC hardware encoder enabled: 1" then GPU encoding is used.
 
@@ -103,7 +103,7 @@ To verify that Remote Desktop is using GPU-accelerated encoding:
 
 To verify that Remote Desktop is using fullscreen video encoding:
 
-1. Connect to the desktop of the VM using Windows Virtual Desktop client.
+1. Connect to the desktop of the VM using Azure Virtual Desktop client.
 2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. To determine if fullscreen video encoding  is used, look for event ID 162. If you see "AVC Available: 1 Initial Profile: 2048" then AVC 444 is used.
 

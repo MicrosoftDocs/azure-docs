@@ -13,16 +13,16 @@ ms.custom: references_regions
 ---
 # Tutorial: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
 
-In this tutorial, you will learn how to enable the Synapse built-in Azure Log Analytics connector for collecting and sending the Apache Spark application metrics and logs to your [Azure Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). You can then leverage an Azure monitor workbook to visualize the metrics and logs.
+In this tutorial, you will learn how to enable the Synapse built-in Azure Log Analytics connector for collecting and sending the Apache Spark application metrics and logs to your [Azure Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). You can then leverage an Azure monitor workbook to visualize the metrics and logs.
 
 ## Configure Azure Log Analytics Workspace information in Synapse Studio
 
 ### Step 1: Create an Azure Log Analytics workspace
 
 You can follow below documents to create a Log Analytics workspace:
-- [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)
-- [Create a Log Analytics workspace with Azure CLI](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace-cli)
-- [Create and configure a Log Analytics workspace in Azure Monitor using PowerShell](https://docs.microsoft.com/azure/azure-monitor/logs/powershell-workspace-configuration)
+- [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md)
+- [Create a Log Analytics workspace with Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md)
+- [Create and configure a Log Analytics workspace in Azure Monitor using PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
 ### Step 2: Prepare a Spark configuration file
 
@@ -43,7 +43,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 
 > [!NOTE]
 >
-> You need to grant read secret permission to the users who will submit Spark applications. Please see [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)
+> You need to grant read secret permission to the users who will submit Spark applications. Please see [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md)
 
 To configure an Azure Key Vault to store the workspace key, follow the steps:
 
@@ -75,7 +75,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 
 > [!NOTE]
 >
-> You need to grant read secret permission to the Synapse workspace. Please see [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)
+> You need to grant read secret permission to the Synapse workspace. Please see [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md)
 
 To configure an Azure Key Vault linked service in Synapse Studio to store the workspace key, follow the steps:
 
@@ -117,7 +117,7 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 > - For Azure China clouds, the "spark.synapse.logAnalytics.keyVault.uriSuffix" parameter should be "ods.opinsights.azure.cn". 
 > - For Azure Gov clouds, the "spark.synapse.logAnalytics.keyVault.uriSuffix" parameter should be "ods.opinsights.azure.us". 
 
-[uri_suffix]: https://docs.microsoft.com/azure/azure-monitor/logs/data-collector-api#request-uri
+[uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
 
 ### Step 3: Upload your Spark configuration to a Spark pool
@@ -204,18 +204,14 @@ And you can customize the workbook by Kusto query and configure alerts.
 
 Azure Monitor alerts allow users to use a Log Analytics query to evaluate metrics and logs every set frequency, and fire an alert based on the results.
 
-For more information, see [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
+For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## Limitation
 
- - Azure Synapse Analytics workspace with [managed virtual network](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-vnet) enabled is not supported.
- - The following regions aren't currently supported:
-   - East US 2
-   - Norway East
-   - UAE North
+Azure Synapse Analytics workspace with [managed virtual network](../security/synapse-workspace-managed-vnet.md) enabled is not supported.
 
 ## Next steps
 
- - Learn how to [Use serverless Apache Spark pool in Synapse Studio](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio).
- - Learn how to [Run a Spark application in notebook](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks).
- - Learn how to [Create Apache Spark job definition in Synapse Studio](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-job-definitions).
+ - Learn how to [Use serverless Apache Spark pool in Synapse Studio](../quickstart-create-apache-spark-pool-studio.md).
+ - Learn how to [Run a Spark application in notebook](./apache-spark-development-using-notebooks.md).
+ - Learn how to [Create Apache Spark job definition in Synapse Studio](./apache-spark-job-definitions.md).

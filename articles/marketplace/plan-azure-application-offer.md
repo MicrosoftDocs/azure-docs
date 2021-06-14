@@ -28,7 +28,7 @@ Designing, building, and testing Azure application offers requires technical kno
 
 Review the following resources as you plan your Azure application offer for the commercial marketplace.
 
-- [Understand Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
+- [Understand Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md)
 - Quickstarts:
     - [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     - [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
@@ -190,9 +190,9 @@ You define the preview audience using Azure subscription IDs, along with an opti
 
 ## Technical configuration
 
-For managed applications that emit metering events using the [Marketplace metering service APIs](partner-center-portal/marketplace-metering-service-apis.md), you must provide the identity that your service will use when emitting metering events.
+For managed applications that emit metering events using the [Marketplace metering service APIs](marketplace-metering-service-apis.md), you must provide the identity that your service will use when emitting metering events.
 
-This configuration is required if you want to use [Batch usage event](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). In case you want to submit [usage event](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), you can also use the [instance metadata service](../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
+This configuration is required if you want to use [Batch usage event](marketplace-metering-service-apis.md#metered-billing-batch-usage-event). In case you want to submit [usage event](marketplace-metering-service-apis.md#metered-billing-single-usage-event), you can also use the [instance metadata service](../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
 
 - **Azure Active Directory tenant ID** (required): Inside the Azure portal, you must [create an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) for your Azure Active Directory (Azure AD) app, to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your Azure Active Directory. In the **Display name** column, select the app. Then look for **Properties**, and then for the **Directory (tenant) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`).
 - **Azure Active Directory application ID** (required): You also need your [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) and an authentication key. To find your application ID, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your your Azure Active Directory. In the **Display name** column, select the app and then look for the **Application (client) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
@@ -205,7 +205,7 @@ This configuration is required if you want to use [Batch usage event](partner-ce
 You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two tabs toward the end of the process:
 
 - **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Provider program](./cloud-solution-providers.md) for more information.
-- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. For detailed information on how to prepare your offer for evaluation, see [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md). For details about IP co-sell requirements, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). For more information about marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](cloud-solution-providers.md).
+- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. For detailed information on how to prepare your offer for evaluation, see [Co-sell option in the commercial marketplace](./co-sell-configure.md). For details about IP co-sell requirements, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). For more information about marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](cloud-solution-providers.md).
 
 To learn more, see [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 05/17/2021
 ms.author: jeedes
 ---
 # Tutorial: Integrate Atlassian Cloud with Azure Active Directory
@@ -35,8 +35,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment. 
 
-* Atlassian Cloud supports **SP and IDP** initiated SSO
-* Atlassian Cloud supports [Automatic user provisioning and deprovisioning](atlassian-cloud-provisioning-tutorial.md)
+* Atlassian Cloud supports **SP and IDP** initiated SSO.
+* Atlassian Cloud supports [Automatic user provisioning and deprovisioning](atlassian-cloud-provisioning-tutorial.md).
 
 ## Adding Atlassian Cloud from the gallery
 
@@ -181,6 +181,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
       c. The final attribute mappings should look as follows.
 
       ![image 4](./media/atlassian-cloud-tutorial/default-attributes-2.png)
+
+ > [!NOTE]
+ > You can set multiple security policies by selecting **Authentication policies** option from the left drawer. An authentication policy allows you to specify authentication settings for different sets of users and configurations in your organization. It verifies that users who access the Atlassian organization are genuine. For more information, please refer [Authentication policies](https://support.atlassian.com/security-and-access-policies/docs/understand-authentication-policies/).
      
 ### Create an Azure AD test user
 
@@ -241,7 +244,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Atlassian Cloud for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Atlassian Cloud tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Atlassian Cloud for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Atlassian Cloud tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Atlassian Cloud for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

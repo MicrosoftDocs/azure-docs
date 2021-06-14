@@ -37,6 +37,7 @@ Configure **Virtual machine size** and **Virtual machine image** settings as sho
 | Virtual machine size | <p>The size you pick here depends on the workload you want to run:</p><ul><li>Small or Medium – good for a basic setup of accessing Jupyter Notebooks</li><li>Small GPU (Compute) – best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning</li></ul> | 
 | Virtual machine image | <p>Choose one of the following images based on your operating system needs:</p><ul><li>[Data Science Virtual Machine – Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019)</li><li>[Data Science Virtual Machine – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)</li></ul> |
 
+When you create a lab with the **Small GPU (Compute)** size, you have the option to [Install GPU drivers](./how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed).  This option installs recent NVIDIA drivers and Compute Unified Device Architecture (CUDA) toolkit which are required to enable high-performance computing with the GPU.  For more information, see the article [Set up a lab with GPU virtual machines](./how-to-setup-lab-gpu.md).
 
 ### Template virtual machine
 Once you create a lab, a template VM will be created based on the virtual machine size and image you chose. You configure the template VM with everything you want to provide to your students for this class. To learn more, see [how to manage the template virtual machine](how-to-create-manage-template.md). 
@@ -45,6 +46,53 @@ The Data Science VM images by default come with many of data science frameworks 
 
 - [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io/): A web application that allows data scientists to take raw data, run computations, and see the results all in the same environment. It will run locally in the template VM.  
 - [Visual Studio Code](https://code.visualstudio.com/): An integrated development environment (IDE) that provides a rich interactive experience when writing and testing a notebook. For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
+
+If you are using the **Small GPU (Compute)** size, we recommend that you verify that the Data Science frameworks and libraries are properly set up with the GPU.  To properly set up the frameworks and libraries, you may need to install a different version of the NVIDIA Drivers and CUDA toolkit.  For example, to validate that the GPU is configured for TensorFlow, you can connect to the template VM and run the following Python-TensorFlow code in Jupyter Notebooks:
+
+```python
+import tensorflow as tf
+from tensorflow.python.client import device_lib
+
+print(device_lib.list_local_devices())
+```
+
+If the output from the above code looks like the following, this means that the GPU isn't configured for TensorFlow:
+
+```python
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 15833696144144374634
+]
+```
+To properly configure the GPU, you should consult the framework's or library's documentation.  Continuing with the above example, TensorFlow provides the following guidance:
+- [TensorFlow GPU Support](https://www.tensorflow.org/install/gpu)
+
+Their guidance covers the required version of the [NVIDIA drivers](https://www.nvidia.com/drivers) and [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit-archive).  Their guidance also includes installing the [NVIDIA CUDA Deep Neural Network library (cudDNN)](https://developer.nvidia.com/cudnn).
+
+After you've followed TensorFlow's steps to configure the GPU, when you rerun the above code, you should see output similar to the following:
+
+```python
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 15833696144144374634
+, name: "/device:GPU:0"
+device_type: "GPU"
+memory_limit: 11154792128
+locality {
+  bus_id: 1
+  links {
+  }
+}
+incarnation: 2659412736190423786
+physical_device_desc: "device: 0, name: NVIDIA Tesla K80, pci bus id: 0001:00:00.0, compute capability: 3.7"
+]
+```
 
 ### Provide notebooks for the class
 The next task is to provide students with notebooks that you want them to use. To provide your own notebooks, you can save notebooks locally on the template VM. 
@@ -123,7 +171,6 @@ Now, to connect to the VM, follow these steps:
     ![X2Go client](./media/class-type-jupyter-notebook/x2go-client.png)
 2. Enter the password to connect to the VM. (You may have to give X2Go permission to bypass your firewall to finish connecting.)
 3.	You should now see the graphical interface for your Ubuntu Data Science VM.
-
 
 #### SSH tunnel to Jupyter server on the VM
 Some students may want to connect directly from their local computer directly to the Jupyter server inside their VMs. The SSH protocol enables port forwarding between the local computer and a remote server (in our case, the student’s lab VM), so that an application running on a certain port on the server is **tunneled** to the mapping port on the local computer. Students should follow these steps to SSH tunnel to the Jupyter server on their lab VMs:

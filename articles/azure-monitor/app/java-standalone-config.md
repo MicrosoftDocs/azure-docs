@@ -36,14 +36,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.3.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.1.1.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.3.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.1.1.jar` is located.
 
 ## Connection string
 
@@ -290,8 +290,8 @@ If you want to enable this feature:
 }
 ```
 
-You can also enable this feature using the environment variable 
-`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
+You can also enable this feature by setting the environment variable 
+`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED` to `true`
 (which will then take precedence over enabled specified in the json configuration).
 
 ## Suppressing specific auto-collected telemetry
@@ -329,7 +329,7 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 }
 ```
 
-You can also suppress these instrumentations using these environment variables:
+You can also suppress these instrumentations by setting these environment variables to `false`:
 
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
@@ -342,13 +342,14 @@ You can also suppress these instrumentations using these environment variables:
 
 (which will then take precedence over enabled specified in the json configuration).
 
-> NOTE
+> [!NOTE]
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
 > see [sampling overrides](./java-standalone-sampling-overrides.md).
 
 ## Heartbeat
 
-By default, Application Insights Java 3.0 sends a heartbeat metric once every 15 minutes. If you are using the heartbeat metric to trigger alerts, you can increase the frequency of this heartbeat:
+By default, Application Insights Java 3.x sends a heartbeat metric once every 15 minutes.
+If you are using the heartbeat metric to trigger alerts, you can increase the frequency of this heartbeat:
 
 ```json
 {
@@ -364,7 +365,9 @@ By default, Application Insights Java 3.0 sends a heartbeat metric once every 15
 
 ## HTTP Proxy
 
-If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](./ip-addresses.md)), you can configure Application Insights Java 3.0 to use an HTTP proxy:
+If your application is behind a firewall and cannot connect directly to Application Insights
+(see [IP addresses used by Application Insights](./ip-addresses.md)),
+you can configure Application Insights Java 3.x to use an HTTP proxy:
 
 ```json
 {
@@ -375,8 +378,8 @@ If your application is behind a firewall and cannot connect directly to Applicat
 }
 ```
 
-Application Insights Java 3.0 also respects the global `-Dhttps.proxyHost` and `-Dhttps.proxyPort` if those are set
-(and `-Dhttp.nonProxyHosts` if needed).
+Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties
+if those are set (and `http.nonProxyHosts` if needed).
 
 ## Metric interval
 
@@ -420,11 +423,11 @@ The setting applies to all of these metrics:
 
 ## Self-diagnostics
 
-"Self-diagnostics" refers to internal logging from Application Insights Java 3.0.
+"Self-diagnostics" refers to internal logging from Application Insights Java 3.x.
 
 This functionality can be helpful for spotting and diagnosing issues with Application Insights itself.
 
-By default, Application Insights Java 3.0 logs at level `INFO` to both the file `applicationinsights.log`
+By default, Application Insights Java 3.x logs at level `INFO` to both the file `applicationinsights.log`
 and the console, corresponding to this configuration:
 
 ```json
@@ -446,7 +449,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.0.3.jar` is located.
+`applicationinsights-agent-3.1.1.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 

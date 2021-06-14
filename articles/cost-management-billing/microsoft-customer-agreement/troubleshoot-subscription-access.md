@@ -38,4 +38,4 @@ You could have multiple accounts with Microsoft that use the same email address.
 
 ## Next steps
 
-- Read the [Microsoft Customer Agreement documentation](https://docs.microsoft.com/azure/cost-management-billing/microsoft-customer-agreement/). 
+- Read the [Microsoft Customer Agreement documentation](./index.yml).

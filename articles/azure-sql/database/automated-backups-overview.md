@@ -5,11 +5,11 @@ description: Azure SQL Database and Azure SQL Managed Instance automatically cre
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
-ms.reviewer: mathoma, stevestein, danil
+ms.reviewer: mathoma, danil
 ms.date: 03/10/2021
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
@@ -44,7 +44,7 @@ For a SQL Database the backup storage redundancy can be configured at the time o
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Configurable Backup Storage Redundancy for Azure SQL Database is currently available in public preview in Brazil South and generally available in Southeast Asia Azure region  only. This feature is not yet available for Hyperscale tier. 
+> Configurable Backup Storage Redundancy for Azure SQL Database is currently available in public preview in all Azure regions and generally available in Southeast Asia Azure region  only. This feature is not yet available for Hyperscale tier. 
 
 ### Backup usage
 
@@ -366,7 +366,7 @@ For more information, see [Backup Retention REST API](/rest/api/sql/backupshortt
 ## Configure backup storage redundancy
 
 > [!NOTE]
-> Configurable storage redundancy for backups for SQL Managed Instance can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option. For SQL Database, public preview of this feature is currently available in Brazil South and it is generally available in Southeast Asia Azure region. 
+> Configurable storage redundancy for backups for SQL Managed Instance can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option. For SQL Database, public preview of this feature is currently available in all Azure regions and it is generally available in Southeast Asia Azure region. 
 
 A backup storage redundancy of a managed instance can be set during instance creation only. For a SQL Database it can be set when creating the database or can be updated for an existing database. The default value is geo-redundant storage. For differences in pricing between locally-redundant, zone-redundant and geo-redundant backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 

@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: windows
-ms.date: 06/26/2020
+ms.date: 06/26/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Log Analytics virtual machine extension for Windows

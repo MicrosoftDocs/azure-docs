@@ -3,7 +3,7 @@ title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 05/12/2021
 ---
 
 # Use managed identities in Azure Kubernetes Service
@@ -16,7 +16,7 @@ Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernet
 
 You must have the following resource installed:
 
-- The Azure CLI, version 2.15.1 or later
+- The Azure CLI, version 2.23.0 or later
 
 ## Limitations
 
@@ -39,8 +39,8 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, and Cluster Autoscaler operations | Contributor role for Node resource group | supported
-| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Not currently supported
+| Control plane | not visible | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, and Cluster Autoscaler operations | Contributor role for Node resource group | Supported
+| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported (Preview)
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
 | Add-on | azure-policy (gatekeeper) | No identity required | NA | No
@@ -78,32 +78,12 @@ Finally, get credentials to access the cluster:
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
-## Update an AKS cluster to managed identities (Preview)
+## Update an AKS cluster to managed identities
 
 You can now update an AKS cluster currently working with service principals to work with managed identities by using the following CLI commands.
 
-First, Register the Feature Flag for system-assigned identity:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
-```
-
-Update the system-assigned identity:
-
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
-```
-
-Register the Feature Flag for user-assigned identity:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
-```
-
-Update the user-assigned identity:
-
-```azurecli-interactive
-az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
 > Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
@@ -227,7 +207,6 @@ A Kubelet identity enables access to be granted to the existing identity prior t
 ### Limitations
 
 - Only works with a User-Assigned Managed cluster.
-- Azure Government isn't currently supported.
 - Azure China 21Vianet isn't currently supported.
 
 First, register the feature flag for Kubelet identity:

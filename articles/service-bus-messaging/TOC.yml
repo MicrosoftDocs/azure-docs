@@ -36,8 +36,6 @@
         href: service-bus-nodejs-how-to-use-queues.md
       - name: PHP
         href: service-bus-php-how-to-use-queues.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-queues.md
     - name: Send and receive messages (old versions/packages)
       items:
       - name: .NET (Microsoft.Azure.ServiceBus)
@@ -66,8 +64,6 @@
         href: service-bus-nodejs-how-to-use-topics-subscriptions.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-topics-subscriptions.md
     - name: Publish and subscribe for messages (old versions/packages)
       items:
       - name: .NET (Microsoft.Azure.ServiceBus)
@@ -98,6 +94,8 @@
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   - name: Advanced features
     items: 
+    - name: Overview of advanced features
+      href: advanced-features-overview.md
     - name: Message sessions
       href: message-sessions.md
     - name: Duplicate message detection
@@ -112,6 +110,12 @@
       href: service-bus-dead-letter-queues.md
     - name: Message deferral
       href: message-deferral.md
+    - name: Prefetch messages
+      href: service-bus-prefetch.md
+    - name: Chain entities with auto-forwarding
+      href: service-bus-auto-forwarding.md
+    - name: Transaction processing
+      href: service-bus-transactions.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
     - name: Geo-disaster recovery and geo-replication
@@ -141,16 +145,12 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/service-bus-messaging/TOC.json
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:
-      - name: Use Shared Access Signatures
-        items:
-        - name: Migrate from ACS to SAS
-          href: service-bus-migrate-acs-sas.md
-        - name: Authentication with Shared Access Signatures
-          href: service-bus-sas.md
+      - name: Authentication with Shared Access Signatures
+        href: service-bus-sas.md
       - name: Use Azure Active Directory
         items:
         - name: Authenticate with managed identities for Azure resources
@@ -204,14 +204,6 @@
         href: service-bus-amqp-request-response.md
       - name: AMQP errors
         href: service-bus-amqp-troubleshoot.md
-    - name: Advanced features
-      items:
-      - name: Prefetch messages
-        href: service-bus-prefetch.md
-      - name: Chain entities with auto-forwarding
-        href: service-bus-auto-forwarding.md
-      - name: Transaction processing
-        href: service-bus-transactions.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
   - name: Migrate
@@ -226,8 +218,8 @@
       href: service-bus-end-to-end-tracing.md
     - name: Diagnostic logs
       href: service-bus-diagnostic-logs.md
-    - name: Azure Monitor metrics
-      href: service-bus-metrics-azure-monitor.md   
+    - name: Monitoring Azure Service Bus
+      href: monitor-service-bus.md
   - name: Integrate
     items:
     - name: Integrate with RabbitMQ
@@ -287,6 +279,8 @@
       href: service-bus-resource-manager-exceptions.md
 - name: Reference
   items:
+  - name: Monitor data reference
+    href: monitor-service-bus-reference.md
   - name: .NET
     items:
     - name: Migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus
@@ -302,9 +296,9 @@
     - name: Migrate from azure-servicebus to azure-messaging-servicebus
       href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
     - name: azure-messaging-servicebus (latest)
-      href: /java/api/overview/azure/servicebus?view=azure-java-preview
+      href: /java/api/com.azure.messaging.servicebus?view=azure-java-stable
     - name: azure-servicebus  
-      href: /java/api/overview/azure/servicebus
+      href: /java/api/com.microsoft.azure.servicebus?view=azure-java-stable
   - name: Python
     items: 
     - name: Migrate from azure-servicebus version 0.50 to version 7

@@ -2,14 +2,14 @@
 title: What is application management in Azure Active Directory
 description: An overview of using Azure Active Directory (AD) as an Identity and Access Management (IAM) system for your cloud and on-premises applications.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 01/22/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: 
 ---
 
@@ -53,7 +53,7 @@ You can use Azure AD as your identity system for just about any app. Many apps a
 
 You can manually configure most apps for single sign-on if they aren't already in the gallery. Azure AD provides several SSO options. Some of the most popular are SAML-based SSO and OIDC-based SSO. To learn more about integrating apps to enable SSO, see [single sign-on options](sso-options.md). 
 
-Does your organization use on-premises apps? You can integrate them using App Proxy. To learn more, see [Provide remote access to on-premises applications through Azure AD's Application Proxy](application-proxy.md).
+Does your organization use on-premises apps? You can integrate them using App Proxy. To learn more, see [Provide remote access to on-premises applications through Azure AD's Application Proxy](../app-proxy/application-proxy.md).
 
 >[!TIP]
 >When building your own line-of-business applications, you can integrate them with Azure AD to support single sign-on. To learn more about developing apps for Azure AD, see [Microsoft identity platform](..//develop/v2-overview.md).

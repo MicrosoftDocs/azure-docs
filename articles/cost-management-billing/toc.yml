@@ -126,10 +126,12 @@
       href: manage/azure-plan-subscription-transfer-partners.md
     - name: Get started in the Azure EA portal
       href: manage/ea-portal-get-started.md
+    - name: Request Withholding Tax credit - India
+      href: manage/withholding-tax-credit-india.md
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/cost-management-security-baseline?toc=/azure/cost-management-billing/toc.json
 - name: How-to guides
   items:
   - name: Configure Cost Management + Billing
@@ -218,7 +220,7 @@
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
       - name: Create MPA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-      - name: Create subscriptions programmatically - preview APIs
+      - name: Create subscriptions programmatically - legacy APIs
         href: manage/programmatically-create-subscription-preview.md
     - name: Manage Enterprise Agreement subscriptions
       items:
@@ -448,8 +450,6 @@
       href: manage/review-enterprise-billing.md
     - name: Review subscription use
       href: manage/review-subscription-billing.md
-    - name: Review resource usage
-      href: manage/review-service-usage-api.md
 - name: Cloudyn
   items:
   - name: Overview

@@ -1,5 +1,5 @@
 ---
-title: Register Oracle source and setup scans (preview) in Azure Purview
+title: Register Oracle source and setup scans in Azure Purview
 description: This article outlines how to register Oracle source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ---
-# Register and Scan Oracle source (preview)
+# Register and Scan Oracle source
 
 This article outlines how to register an Oracle data base in Purview and set up a scan.
 
@@ -147,10 +147,15 @@ To create and run a new scan, do the following:
 6.  **Driver location**: Specify the path to the JDBC driver location in
     your VM where self-host integration runtime is running. This should
     be the path to valid JAR folder location.
+    > [!Note]
+    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
 7.  **Maximum memory available**: Maximum memory (in GB) available on
     customer's VM to be used by scanning processes. This is dependent on
     the size of SAP S/4HANA source to be scanned.
+
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 

@@ -2,7 +2,8 @@
 title: Archive Tier support (Preview)
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 06/03/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Archive Tier support (Preview)
@@ -72,19 +73,29 @@ Supported clients:
 
         `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
+1. Add the date range for which you want to view the recovery  points. For example, if you want to view the recovery points from the last 124 days to last 95 days, use the following command:
+
+   ```azurepowershell
+    $startDate = (Get-Date).AddDays(-124)
+    $endDate = (Get-Date).AddDays(-95) 
+
+    ```
+    >[!NOTE]
+    >The span of the start date and the end date should not be more than 30 days.<br><br>To view recovery points for a different time range, modify the start and the end date accordingly.
 ## Use PowerShell
 
 ### Check archivable recovery points
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
-This will list all the recovery points associated with a particular backup item that are ready to be moved to archive.
+This will list all recovery points associated with a particular backup item that are ready to be moved to archive (from the start date to the end date). You can also modify the start dates and the end dates.
 
 ### Check why a recovery point cannot be moved to archive
 
 ```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $false -TargetTier VaultArchive
 $rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
 ```
 
@@ -114,8 +125,10 @@ $RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivabl
 ### Move to archive
 
 ```azurepowershell
-Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[0] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
+
+Where, `$rp[0]` is the first recovery point in the list. If you want to move other recovery points, use `$rp[1]`, `$rp[2]`, and so on.
 
 This command moves an archivable recovery point to archive. It returns a job that can be used to track the move operation both from portal and with PowerShell.
 
@@ -124,7 +137,7 @@ This command moves an archivable recovery point to archive. It returns a job tha
 This command returns all the archived recovery points.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 ```
 
 ### Restore with PowerShell
@@ -144,7 +157,7 @@ For more information about the various restore methods for Azure virtual machine
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The additional parameters required are **RehydrationPriority** and **RehydrationDuration**.
+To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` command requires two additional parameters, **RehydrationDuration** and **RehydrationPriority**.
 
 ### View jobs from PowerShell
 
@@ -286,6 +299,12 @@ There are several error codes that come up when a recovery point can't be moved 
 ### What will happen to archive recovery points if I stop protection and retain data?
 
 The recovery point will remain in archive forever. For more information, see [Impact of stop protection on recovery points](manage-recovery-points.md#impact-of-stop-protection-on-recovery-points).
+
+### Is Cross Region restore supported from archive tier?
+
+When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross region restore is enabled. Once backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
+
+While restoring from recovery point in archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
 
 ## Next steps
 

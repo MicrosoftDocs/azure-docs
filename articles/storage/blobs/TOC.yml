@@ -1,8 +1,8 @@
-- name: Azure Blob storage documentation
+- name: Azure Blob Storage documentation
   href: ./index.yml
 - name: Overview
   items:
-  - name: What is Azure Blob storage?
+  - name: What is Azure Blob Storage?
     href: storage-blobs-overview.md
   - name: Compare core storage services
     href: ../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -97,6 +97,14 @@
         href: simulate-primary-region-failure.md
     - name: Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
+    - name: Add role assignment conditions
+      items:
+      - name: Portal
+        href: ../common/storage-auth-abac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: PowerShell
+        href: ../common/storage-auth-abac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: CLI
+        href: ../common/storage-auth-abac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Samples
     items:
     - name: .NET
@@ -125,7 +133,17 @@
         href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
         - name: Authorize with Azure AD
-          href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: Authorize with Azure roles
+            href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Authorize with conditions
+            href: ../common/storage-auth-abac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Actions and attributes for conditions
+            href: ../common/storage-auth-abac-attributes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Security for conditions
+            href: ../common/storage-auth-abac-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Example conditions
+            href: ../common/storage-auth-abac-examples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authorize with Shared Key
           href: /rest/api/storageservices/authorize-with-shared-key
         - name: Delegate access with shared access signatures (SAS)
@@ -137,7 +155,7 @@
       - name: Security recommendations
         href: security-recommendations.md
       - name: Security baseline
-        href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: /security/benchmark/azure/baselines/storage-security-baseline?toc=%2fazure%2fstorage%2fblobs%2ftoc.json?toc=/azure/storage/blobs/TOC.json
       - name: Azure Storage encryption at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
@@ -310,13 +328,7 @@
         - name: Azure CLI
           href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
-        items:
-        - name: Portal
-          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure CLI
-          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: assign-azure-role-data-access.md
       - name: Authenticate and authorize with Azure AD
         items:
         - name: Authorize with a managed identity
@@ -515,7 +527,7 @@
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
-    - name: Azure Blob storage reference
+    - name: Azure Blob Storage reference
       href: ../blobs/reference.md
     - name: AzCopy v10
       items:
@@ -771,6 +783,8 @@
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage access control
       items:
+      - name: Azure portal
+        href: data-lake-storage-acl-azure-portal.md
       - name: Storage Explorer
         href: data-lake-storage-explorer-acl.md
       - name: PowerShell
@@ -829,6 +843,8 @@
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
     - name: JavaScript
       href: https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6
+    - name: C++
+      href: https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake
     - name: REST
       href: /rest/api/storageservices/data-lake-storage-gen2
     - name: Azure CLI

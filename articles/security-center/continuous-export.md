@@ -1,12 +1,11 @@
 ---
 title: Continuous export can send Azure Security Center's alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 description: Learn how to configure continuous export of security alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/24/2020
+ms.date: 06/13/2021
 ms.author: memildin
 
 ---
@@ -38,7 +37,7 @@ This article describes how to configure continuous export to Log Analytics works
 |----|:----|
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li></ul>|
+|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) China Gov|
 |||
 
@@ -47,14 +46,16 @@ This article describes how to configure continuous export to Log Analytics works
 
 Continuous export can export the following data types whenever they change:
 
-- Security alerts
-- Security recommendations 
-- Security findings which can be thought of as 'sub' recommendations like findings from vulnerability assessment scanners or specific system updates. You can select to include them with their 'parent' recommendations such as "System updates should be installed on your machines".
-- Secure score (per subscription or per control)
-- Regulatory compliance data
+- Security alerts.
+- Security recommendations.
+- Security findings. These can be thought of as 'sub' recommendations and belong to a 'parent' recommendation. For example:
+    - The recommendation "System updates should be installed on your machines" will have a ‘sub’ recommendation for every outstanding system update.
+    - The recommendation “Vulnerabilities in your virtual machines should be remediated” will have a ‘sub’ recommendation for every vulnerability identified by the vulnerability scanner.
+    > [!NOTE]
+    > If you’re configuring a continuous export with the REST API, always include the parent with the findings. 
+- (Preview feature) Secure score per subscription or per control.
+- (Preview feature) Regulatory compliance data.
 
-> [!NOTE]
-> The exporting of secure score and regulatory compliance data is a preview feature and isn't available on government clouds. 
 
 ## Set up a continuous export 
 
@@ -76,7 +77,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
 1. Select the appropriate export frequency:
-    - **Streaming** – assessments will be sent in real-time when a resource’s health state is updated (if no updates occur, no data will be sent).
+    - **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
     - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
 
 1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:

@@ -1,7 +1,7 @@
 ---
 title: Update an existing assignment from the portal
 description: Learn about the mechanism for updating an existing blueprint assignment from the portal in Azure Blueprints.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: how-to
 ---
 # How to update an existing blueprint assignment
@@ -20,7 +20,8 @@ an existing assignment, including:
 1. Select **Assigned blueprints** from the page on the left.
 
 1. In the list of blueprints, select the blueprint assignment. Then use the **Update assignment**
-   button OR right-click the blueprint assignment and select **Update assignment**.
+   button OR select and hold (or right-click) the blueprint assignment and select **Update
+   assignment**.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Screenshot of the Blueprint assignment page with the 'Update assignment' button highlighted." border="false":::
 
@@ -34,8 +35,8 @@ an existing assignment, including:
 
    :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot of an updated blueprint assignment showing the lock mode changed." border="false":::
 
-1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed
-   resources** updates by selected assignment operation.
+1. Explore details about other **Assignment operations** using the dropdown list. The table of
+   **Managed resources** updates by selected assignment operation.
 
    :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot of an updated blueprint assignment showing the assignment operations and their status." border="false":::
 
@@ -68,7 +69,7 @@ but any change that would result in an error through Resource Manager will also 
 failure of the assignment.
 
 There's no limit on how many times an assignment can be updated. If an error occurs, determine the
-error and make another update to the assignment.  Example error scenarios:
+error and make another update to the assignment. Example error scenarios:
 
 - A bad parameter
 - An already existing object

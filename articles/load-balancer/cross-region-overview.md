@@ -149,5 +149,5 @@ Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support
 ## Next steps
 
 - See [Tutorial: Create a cross-region load balancer using the Azure portal](tutorial-cross-region-portal.md) to create a cross-region load balancer.
-- See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to create a standard regional load balancer.
+- Learn more about [cross-region load balancer](https://www.youtube.com/watch?v=3awUwUIv950).
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
