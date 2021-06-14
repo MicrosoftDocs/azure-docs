@@ -43,7 +43,7 @@ To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT webs
 ### [v2.1](#tab/v2-1)
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott-2.1.azurewebsites.net/)
+> [Try Prebuilt Models](https://fott.azurewebsites.net/)
 
 ### [v2.0](#tab/v2-0)
 
