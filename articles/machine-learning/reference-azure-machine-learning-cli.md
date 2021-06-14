@@ -125,7 +125,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myresourcegroup -w myworkspace
     ```
 
-    For more information, see [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach-aks)
+    For more information, see [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az_ml_computetarget_attach-aks)
 
 ### Compute clusters
 
@@ -227,7 +227,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     >
     > The full runconfig schema can be found in this [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). The schema is self-documenting through the `description` key of each object. Additionally, there are enums for possible values, and a template snippet at the end.
 
-    For more information, see [az ml run submit-script](/cli/azure/ml/run#az_ml_run_submit_script).
+    For more information, see [az ml run submit-script](/cli/azure/ml(v1)/run#az_ml_run_submit_script).
 
 * View a list of experiments:
 
@@ -420,7 +420,7 @@ The following commands demonstrate how to work with machine learning pipelines:
     az ml run submit-pipeline -n myexperiment -y mypipeline.yml
     ```
 
-    For more information, see [az ml run submit-pipeline](/cli/azure/ml/run#az_ml_run_submit_pipeline).
+    For more information, see [az ml run submit-pipeline](/cli/azure/ml(v1)/run#az_ml_run_submit_pipeline).
 
     For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md).
 
