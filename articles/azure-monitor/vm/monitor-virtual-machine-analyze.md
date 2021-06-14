@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure virtual machines with Azure Monitor - Analyze monitoring data
-description: Describes how to collect and analyze monitoring data from virtual machines in Azure using Azure Monitor.
+description: Describes the different features of Azure Monitor that allow you to analyze the health and performance of your virtual machines.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -87,7 +87,7 @@ This can confusing if you're new to Azure Monitor, but the following details sho
 - Numeric data can be stored in both Metrics and Logs so it can be analyzed in different ways and support different types of alerts.
 - Performance data from the guest operating system will be sent to Logs by VM insights using the Log Analytics agent and Dependency agent.
 - Performance data from the guest operating system will only be sent to Metrics if the diagnostic extension is installed. The diagnostic extension is only available for Azure virtual machines. See [Send guest performance data to Metrics (optional)](monitor-virtual-machine-onboard.md#send-guest-performance-data-to-metrics-optional)
-- A specific set of performance counters is available for metric alerts even though the data is stored in Logs. These counters cannot be analyzed with Metrics explorer. See [Monitoring virtual machines with Azure Monitor - Alerts](monitor-virtual-machine-alerts.md#types-of-alert-rules) for details.
+- A specific set of performance counters is available for metric alerts even though the data is stored in Logs. These counters cannot be analyzed with Metrics explorer. See [Monitoring virtual machines with Azure Monitor - Alerts](monitor-virtual-machine-alerts.md#choosing-the-alert type) for details.-
 
 > [!NOTE]
 > The Azure Monitor Agent, currently in public preview, will replace the Log Analytics agent and have the ability to send client performance data to both Logs and Metrics. When this agent becomes generally available with VM insights, then all performance data will sent to both Logs and Metrics significantly simplifying this logic. 
@@ -135,17 +135,6 @@ You don't necessarily need to understand how to write a log query to use Log Ana
 
 When you launch the Launch Log Analytics from VM insights using the properties pane in either the **Performance** or **Map** view, it lists the tables that have data for the selected computer. Click on a table to open Log Analytics with a simple query that returns all records in that table for the selected computer. Work with these results or modify the query for more complex analysis. The [scope](../log/../logs/scope.md) set to the workspace meaning that you have access data for all computers using that workspace. 
 
-
-## Analyze metric data with metrics explorer
-Select  **Metrics** from the virtual machine's menu to open metrics explorer which allows you to analyze metric data for virtual machines. See [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md) for details on using this tool. 
-
-There are three namespaces used by virtual machines:
-
-| Namespace | Description | Requirement |
-|:---|:---|:---|
-| Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
-| Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../agents/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
-| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../agents/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../essentials/collect-custom-metrics-linux-telegraf.md). |
 
 
 ## Visualize data with workbooks

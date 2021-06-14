@@ -170,8 +170,6 @@
         href: vm/monitor-virtual-machine-alerts.md
       - name: Monitor workloads
         href: vm/monitor-virtual-machine-workloads.md
-      - name: Convert management pack logic
-        href: vm/monitor-virtual-machine-scom.md
       displayname: VM
   - name: Deploy
     items:
