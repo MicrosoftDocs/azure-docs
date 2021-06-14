@@ -54,7 +54,7 @@ When you create or use Cognitive Services resources, you might get charged for t
 
 **Language**
 
-| Service | Meter | Billing information | 
+| Service | Meter(s) | Billing information | 
 |---------|-------|---------------------|
 | [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) | Free Authoring, Free Prediction, Standard | Billed by number of transactions. Price per transaction varies by feature (speech requests, text requests). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). |
 | [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) | Free, Standard | Subscription fee billed monthly. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). | 
