@@ -276,9 +276,11 @@ A parser is a KQL query saved as a workspace function. Once saved, it can be use
 
 #### Filtering
 
-Most tables include information that is relevant to more than one normalized schema, in addition, some tables, such as Syslog, also have data from multiple sources. Other tables, such as custom tables, may include information from a single source that provides more than one event type and can fit various schemas.
+In many cases, a table includes multiple types of events. For example:
+* The Syslog table has data from multiple sources.
+* Custom tables may include information from a single source that provides more than one event type and can fit various schemas.
 
-Therefore, a parser should first filter only the records that are relevant for the target schema.
+Therefore, a parser should first filter only the records that are relevant to the target schema.
 
 Filtering in KQL is done using the `where` operator. For example, **Sysmon event 1** reports process creation and should be normalized to the **ProcessEvent** schema. The **Sysmon event 1** event is part of the `Event` table, and the following filter should be used:
 
