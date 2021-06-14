@@ -6,7 +6,7 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 06/13/2021
 ---
 
 # Create rich, interactive reports of Security Center data
@@ -23,7 +23,7 @@ Within Azure Security Center, you can access the built-in reports to track your 
 
 | Aspect                          | Details                                                                                                                                      |
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                       |
+| Release state:                  | General Availability (GA)                                                                                                                    |
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | To save workbooks, you must have at least Workbook Contributor permissions on the target resource group                                      |
 | Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov) |
