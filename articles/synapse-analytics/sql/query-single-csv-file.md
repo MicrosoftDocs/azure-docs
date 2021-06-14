@@ -177,7 +177,6 @@ FROM OPENROWSET(
         DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
-        FIRSTROW = 2,
         HEADER_ROW = TRUE
     )
     WITH (
@@ -191,7 +190,7 @@ WHERE
     AND year = 2017;
 ```
 
-Option `HEADER_ROW = { TRUE | FALSE }` reads first row in the CSV file as HEADER ROW and shows values as column names instead of default names (C1, C2, etc).
+Using `HEADER_ROW = TRUE` is great for exploration purposes and showing column names, but for best performance please check [Use appropriate data types section in Best practices](best-practices-serverless-sql-pool#use-appropriate-data-types). Also, you can read more about [OPENROWSET here](develop-openrowset.md).
 
 ## Custom quote character
 
