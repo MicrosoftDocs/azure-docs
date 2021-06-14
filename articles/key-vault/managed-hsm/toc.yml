@@ -24,6 +24,8 @@
     href: role-management.md
   - name: Secure access to your Managed HSM
     href: secure-your-managed-hsm.md
+  - name: Use private endpoints
+    href: private-endpoints.md
   - name: Set up logging for managed HSM
     href: logging.md
   - name: Disaster recovery
@@ -34,6 +36,8 @@
     href: backup-restore.md
   - name: Recovery management with soft-delete and purge protection
     href: recovery.md
+
+
 - name: Concepts 
   items:
   - name: Security domain
