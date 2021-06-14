@@ -57,17 +57,20 @@ landingContent:
             url: ./virtual-desktop-fall-2019/set-up-service-alerts-2019.md
 
   # Card
-  - title: Connect to Azure Virtual Desktop
+  - title: Azure Virtual Desktop for users
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Windows Desktop client
-            url: connect-windows-7-10.md
-          - text: Web client
-            url: connect-web.md
-          - text: Android client
-            url: connect-android.md
-          - text: macOS client
-            url: connect-macos.md
-          - text: iOS client
-            url: connect-ios.md
+          - text: Connect with Windows Desktop
+            url: ./use-clients-access/connect-windows-7-10.md
+          - text: Connect with the web client
+            url: ./use-clients-access/connect-web.md
+          - text: Connect with Android
+            url: ./use-clients-access/connect-android.md
+          - text: Connect with macOS
+            url: ./use-clients-access/connect-macos.md
+          - text: Connect with iOS
+            url: ./use-clients-access/connect-ios.md
+          - text: Connect with Linux or thin clients 
+            url: ./use-clients-access/linux-overview.md
+

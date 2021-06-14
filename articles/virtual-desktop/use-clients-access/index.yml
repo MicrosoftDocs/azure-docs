@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Windows Virtual Desktop documentation for users
-summary: Connecting to Windows Virtual Desktop made easy.
+title: Azure Virtual Desktop documentation for users
+summary: Connecting to Azure Virtual Desktop made easy.
 
 metadata:
-  title: Windows Virtual Desktop user documentation
-  description: With Windows Virtual Desktop, you can use Windows 10 Enterprise in the cloud.
+  title: Azure Virtual Desktop user documentation
+  description: With Azure Virtual Desktop, you can use Windows 10 Enterprise in the cloud.
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
   author: Heidilohr
   ms.author: helohr
-  ms.date: 04/29/2021
+  ms.date: 06/15/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
