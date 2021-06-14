@@ -31,8 +31,7 @@ You can use this smartphone app to:
 
 You can install the app from one of the app stores:
 
-- Link to Android app store <!-- Badge generator: https://play.google.com/intl/en_us/badges/ -->
-- Link to Apple app store <!-- Badge generator: https://tools.applemediaservices.com/app-store -->
+:::image type="content" source="media/iot-phone-app-how-to/play-store-badge.png" alt-text="Get it on Google Play" link="https://play.google.com/store/apps/details?id=com.microsoft.emmx&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" border="false"::: :::image type="content" source="media/iot-phone-app-how-to/app-store-badge.png" alt-text="Download on the App Store" link="https://apps.apple.com/us/app/microsoft-edge-web-browser/id1288723196?itsct=apps_box_badge&amp;itscg=30200" border="false":::
 
 ## App features
 
