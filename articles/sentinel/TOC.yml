@@ -73,7 +73,7 @@
       href: sentinel-solutions.md
     - name: Solutions catalog
       href: sentinel-solutions-catalog.md
-  - name: Normalize your data across tables
+  - name: Normalization and the Azure Sentinel Information Model (ASIM)
     href: normalization.md
   - name: Use Azure Data Explorer for long-term log retention
     href: store-logs-in-azure-data-explorer.md

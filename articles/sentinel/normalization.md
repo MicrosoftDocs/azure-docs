@@ -41,9 +41,12 @@ This article describes the Azure Sentinel Information model and how you can crea
 
 The Azure Sentinel Information Model includes the following components:
 
-- **Normalized schemas** cover standard sets of predictable event types that you can use when building unified capabilities. Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values.
-- **Parsers** map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). Deploy the Microsoft-developed normalizing parsers from the [Azure Sentinel GitHub **Parsers** folder](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Normalized parsers are located in subfolders starting with **ASim**.
-- **Content for each normalized schema** includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content.
+|Component  |Description  |
+|---------|---------|
+|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values.      |
+|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Deploy the Microsoft-developed normalizing parsers from the [Azure Sentinel GitHub **Parsers** folder](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Normalized parsers are located in subfolders starting with **ASim**.       |
+|**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content.     |
+|     |         |
 
 The following image shows how non-normalized data can be translated into normalized content and used in Azure Sentinel. For example, you can start with a custom, product-specific, non-normalized table, and use a parser and a normalization schema to convert that table to normalized data. Use your normalized data in both Microsoft and custom analytics, rules, workbooks, queries, and more.
 
@@ -53,9 +56,12 @@ The following image shows how non-normalized data can be translated into normali
 
 The Azure Sentinel Information Model uses the following terms:
 
-- **Reporting device**. The system that sends the records to Azure Sentinel. This system may not be the subject system for the record that's being sent.
-- **Record**. A unit of data sent from the reporting device. A record is often referred to as `log`, `event`, or `alert`, but can also be other types of data.
-- **Content**, **Content Item**, or	**Content**: The different, customizable, or user-created artifacts than can be used with Azure Sentinel. Those artifacts include, for example, Analytics rules, Hunting queries and workbooks. A content item is one such artifact.
+|Term  |Description  |
+|---------|---------|
+|**Reporting device**     |   The system that sends the records to Azure Sentinel. This system may not be the subject system for the record that's being sent.      |
+|**Record**     |A unit of data sent from the reporting device. A record is often referred to as `log`, `event`, or `alert`, but can also be other types of data.         |
+|**Content**, **Content Item**, or	**Content**     |The different, customizable, or user-created artifacts than can be used with Azure Sentinel. Those artifacts include, for example, Analytics rules, Hunting queries and workbooks. A content item is one such artifact.|
+|     |         |
 
 ## Normalized schemas
 
