@@ -1,7 +1,7 @@
 ---
 title: Manage the device inventory on the cloud
 description: Learn how to manage your device inventory on the cloud.
-ms.date: 06/10/2021
+ms.date: 06/14/2021
 ms.topic: how-to
 ---
 
@@ -12,8 +12,6 @@ The device inventory can be used to view a comprehensive perspective of all netw
 :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen.":::
 
 Some of the benefits of the device inventory include:
-
-- Collect information on all devices within the network.
 
 - Group devices by site, device type, vendor, or VLAN.
 
@@ -31,12 +29,17 @@ You can see a quick view of all devices in your inventory through the main indic
 
 Here you can see the:
 
-- Total number of devices
-- The number of important devices
-- The number of new devices
-- The total number inactive devices
-- A count of the devices by class
-- A count of the devices by type
+- The total number of devices.
+
+- The number of important devices.
+
+- The number of new devices.
+
+- The number of inactive devices.
+
+- A number of the devices by class.
+
+- A number of the devices by type.
 
 Any device deleted on a sensor will display here as an inactive device.
 
@@ -56,7 +59,7 @@ The following table describes the table columns in the device inventory.
 | **VLAN** | The VLAN of the device. |
 | **OS platform** | The OS of the device, if detected. |
 | **Importance** | The level of importance the device is set to.|
-| **Sensor** | The name of the sensor. ????? |
+| **Sensor** | The name of the sensor the data is originating from. |
 | **Zone** | The zone that contains this device. |
 | **First seen** | The date and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
 | **Programming functionality** | ??????? |
@@ -161,3 +164,6 @@ To view a specific devices information, select the device and the device informa
 You can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
 
 Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
+
+## See next
+
