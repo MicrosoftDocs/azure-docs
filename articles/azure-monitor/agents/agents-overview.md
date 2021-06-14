@@ -46,7 +46,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 | **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM insights<br>Service Map |
 
 
-## Azure Monitor agent (preview)
+## Azure Monitor agent
 
 The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in preview and will replace the Log Analytics agent and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
 

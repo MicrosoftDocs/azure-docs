@@ -79,7 +79,7 @@ A hybrid machine is ay machine not running in Azure. This is a virtual machine r
 
 There is no additional cost for Azure Arc enabled servers, but there may be some cost for different options that you enable. See [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/) for details. There will be a cost for the data collected in the workspace once the hybrid machines are enabled for VM insights. 
 
-## Machines that can't use Azure Arc
+### Machines that can't use Azure Arc
 If you have any hybrid machines that match the following criteria, they won't be able to use Azure Arc. You still can monitor these machines with Azure Monitor, but you need to manually install their agents. See [Enable VM insights for a hybrid virtual machine](vminsights-enable-hybrid.md) to manually install the Log Analytics agent and Dependency agent on those hybrid machines that can't use Azure Arc. 
 
 - The operating system of the machine is not supported by Azure Arc enabled servers agent. See [Supported operating systems](../../azure-arc/servers/agent-overview.md#prerequisites).
@@ -97,21 +97,19 @@ See [Enable VM insights overview](vminsights-enable-overview.md) for different o
 
 
 
-## Send guest performance data to Metrics (optional)
-The [diagnostics extension](../agents/diagnostics-extension-overview.md) was developed for Azure virtual machines before the development of Azure Monitor. It can only be used for Azure virtual machines and can be challenging to configure at scale. You need to configure each virtual machine either in the Azure portal or using a resource manager template. 
+## Send guest performance data to Metrics
+The [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) will replace the Log Analytics agent when it fully supports Azure Monitor, Azure Security Center, and Azure Sentinel. Until that time, it can be installed with the Log Analytics agent to send performance data from the guest operating of machines to Metrics. This allows you to evaluate this data with metrics explorer and use metric alerts.
 
-The diagnostic extension is required for the following scenarios that are not currently supported by the VM insights and the Log Analytics agent. If you don't require these scenarios, then deploying the diagnostic extension will add unnecessary complexity to your environment.
+Azure Monitor agent requires at least one Data Collection Rule (DCR) that defines which data it should collect and where it should send that data. A single DCR can be used by any machines in the same resource group.
 
-- Collect data from logs not supported by the Log Analytics agent. This will typically be to support a workload monitoring scenario. See [Summary of agents](../agents/agents-overview.md#summary-of-agents) for a comparison of the data collected.
-- Send guest performance data to Azure Metrics for analysis in metrics explorer and metric alerts. Note that you can create metric alerts for certain guest performance counters stored in Logs. See [Monitoring virtual machines with Azure Monitor - Alerts](monitor-virtual-machine-alerts.md) for details.
-- Send guest performance and event data to Azure Event Hubs to forward it outside of Azure.
+Create a single DCR for each resource group with machines to monitor using the following data source. Be careful to not send data to Logs since this would be redundant with the data already being collected by Log Analytics agent. 
 
-> [!NOTE]
-> The diagnostic extension only supports Azure virtual machines. It does not support hybrid machines even if they're using Azure Arc.
+Data source type: Performance Counters
+Destination: Azure Monitor Metrics
 
-Install the diagnostics extension for a single Windows virtual machine in the Azure portal from the **Diagnostics setting** option in the VM menu. Select the option to enable **Azure Monitor** in the **Sinks** tab. To enable the extension from a template or command line for multiple virtual machines, see [Installation and configuration](../agents/diagnostics-extension-overview.md#installation-and-configuration). Unlike the Log Analytics agent, the data to collect is defined in the configuration for the extension on each virtual machine. See [Install and configure Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md#install-and-configure-telegraf) for details on configuring the Telegraf agents on Linux virtual machines. The **Diagnostic setting** menu option is available for Linux, but it will only allow you to send data to Azure storage.
+You can install Azure Monitor agent on individual machines using the same methods for Azure virtual machines and Azure Arc enabled servers. This includes onboarding individual machines with the Azure portal or resource manager templates, or enable machines at scale using Azure Policy. For hybrid machines that can't use Azure Arc, you will need to install the agent manually.
 
-![Diagnostic setting](media/monitor-vm-azure/diagnostic-setting.png)
+See [Create rule and association in Azure portal](/agents/data-collection-rule-azure-monitor-agent.md) to create a DCR and deploy the Azure Monitor agent to one or more agents using the Azure portal. Other installation methods are described at [Install the Azure Monitor agent](../agents/azure-monitor-agent-install.md). See [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#azure-monitor-agent) to create a policy that will automatically deploy the agent and DCR to any new machines as they're created.
 
 
 ## Next steps
