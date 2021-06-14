@@ -31,6 +31,17 @@ Welcome to what's new in the Cognitive Services docs from May 1, 2021 through Ma
 - [Quickstart: Get started with the client library SDKs or REST API](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
 - [What's new in Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new.md)
 
+## Translator
+
+### New articles
+
+- [Frequently asked questions—Translator API](translator/translator-faq.md)
+
+### Updated articles
+
+#### Document Translation is now GA
+- [Get started with Document Translation](translator/document-translation/get-started-with-document-translation.md)
+- All nine reference pages have been updated to remove the preview parameter from the REST API endpoint.
 ## Personalizer
 
 ### Updated articles
