@@ -191,10 +191,10 @@ You can enable soft delete in accounts that have a hierarchical namespace by usi
    cd myProject
    ```
 
-2. Install the `Azure.Storage.Files.DataLake -v 12.6.0-alpha.20201209.1` version of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package by using the `dotnet add package` command. 
+2. Install the `Azure.Storage.Files.DataLake -v 12.7.0` version of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package by using the `dotnet add package` command. 
 
    ```console
-   dotnet add package Azure.Storage.Files.DataLake -v 12.6.0-alpha.20201209.1 -s https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json
+   dotnet add package Azure.Storage.Files.DataLake -v -v 12.7.0 -s https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json
    ```
 
 3. Then, add these using statements to the top of your code file.

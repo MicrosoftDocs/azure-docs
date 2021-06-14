@@ -186,7 +186,7 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 >[!IMPORTANT]
 > This section section applies only to accounts that have a hierarchical namespace.
 
-1. Make sure that you have installed the  `Azure.Storage.Files.DataLake -v 12.6.0-alpha.20201209.1` version of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package, and that you've added the appropriate using statements to the top of your code file. See [Enable soft delete by using .NET](soft-delete-blob-enable.md#enable-soft-delete-by-using-net).
+1. Make sure that you have installed the  `Azure.Storage.Files.DataLake -v 12.7.0` version of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package, and that you've added the appropriate using statements to the top of your code file. See [Enable soft delete by using .NET](soft-delete-blob-enable.md#enable-soft-delete-by-using-net).
 
 2. The following code deletes a directory, and then restores a soft deleted directory.
 
