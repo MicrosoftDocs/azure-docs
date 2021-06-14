@@ -243,23 +243,12 @@ Follow the steps in the article [Enable passwordless security key sign in to on-
 > [!IMPORTANT] 
 > These steps must also be completed for any hybrid Azure AD joined devices to utilize FIDO2 security keys for Windows 10 sign-in.
 
-### Security key AAGUID
 
-The [FIDO2 specification](https://www.w3.org/TR/webauthn/) requires each security key provider to provide an Authenticator Attestation GUID (AAGUID) during attestation. An AAGUID is a 128-bit identifier indicating the key type, for example the make and model. 
+### Key restrictions policy
 
-*The manufacturer must ensure that the AAGUID is identical across all their keys of the same type. Keys must be different from the AAGUIDs of all other types of keys. To ensure this difference, manufacturers should randomly generate the keys.*
+When you deploy the security key, you can optionally restrict the use of FIDO2 keys only to specific manufacturers that have been approved by your organization. Restricting keys requires the Authenticator Attestation GUID (AAGUID). [There are two ways to get your AAGUID](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key#security-key-authenticator-attestation-guid-aaguid).
 
-For more information, see [Web Authentication: An API for accessing Public Key Credentials - Level 2 (w3.org)](https://www.w3.org/TR/webauthn/)
-
-There are two ways to get your AAGUID. Ask your security key provider or view the authentication method details of the key per user.
-
-![View AAGUID for security key](media/howto-authentication-passwordless-deployment/security-key-aaguid-details.png)
-
-#### Key restrictions policy
-
-When you deploy the security key, you can optionally restrict the use of FIDO2 keys only to specific manufacturers that have been approved by your organization.
-
-![How to enforce ikey restrictions](media/howto-authentication-passwordless-deployment/security-key-enforce-key-restriction.png)
+![How to enforce key restrictions](media/howto-authentication-passwordless-deployment/security-key-enforce-key-restriction.png)
 
 
 If the security key is restricted, and the user tries to register the FIDO2 security key, they receive the following error:
