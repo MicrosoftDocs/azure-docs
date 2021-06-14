@@ -167,7 +167,7 @@ The following table describes the values that you need to update:
 |**Value**|**Description**|
 |---------|---------|
 |`Cluster Network Name`| The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.|
-|`SQL Server FCI/AG listener IP Address Resource Name`|The resource name for the SQL Server FCI's or AG listener's IP address. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
+|`SQL Server FCI IP Address Resource Name`|The resource name for the SQL Server FCI's or AG listener's IP address. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
 |`ILBIP`|The IP address of the internal load balancer (ILB). This address is configured in the Azure portal as the ILB's frontend address. This is also the SQL Server FCI's IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI/AG listener IP Address Resource Name>`.|
 |`nnnnn`|The probe port that you configured in the load balancer's health probe. Any unused TCP port is valid.|
 |"SubnetMask"| The subnet mask for the cluster parameter. It must be the TCP IP broadcast address: `255.255.255.255`.| 
@@ -200,7 +200,7 @@ The following table describes the values that you need to update:
 |**Value**|**Description**|
 |---------|---------|
 |`Cluster Network Name`| The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.|
-|`SQL Server FCI/AG listener IP Address Resource Name`|The resource name for the SQL Server FCI's or AG listener's IP address. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
+|`SQL Server FCI IP Address Resource Name`|The resource name for the SQL Server FCI's or AG listener's IP address. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
 |`ELBIP`|The IP address of the external load balancer (ILB). This address is configured in the Azure portal as the ELB's frontend address. |
 |`nnnnn`|The probe port that you configured in the load balancer's health probe. Any unused TCP port is valid.|
 |"SubnetMask"| The subnet mask for the cluster parameter. It must be the TCP IP broadcast address: `255.255.255.255`.| 
