@@ -89,7 +89,7 @@ As listed in [Restrictions and limitations](#restrictions-and-limitations), the 
 ![Diagram of AMPLS limits](./media/private-link-security/ampls-limits.png)
 
 > [!NOTE]
-> If you use Log Analytics solutions that require an Automation account, such as Update Management, Change Tracking or Inventory, you should also setup a separare Private Link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](https://docs.microsoft.com/azure/automation/how-to/private-link-security).
+> If you use Log Analytics solutions that require an Automation account, such as Update Management, Change Tracking or Inventory, you should also setup a separare Private Link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](../../automation/how-to/private-link-security.md).
 
 
 ## Example connection

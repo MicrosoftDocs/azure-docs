@@ -208,7 +208,7 @@ For more information, see [Create, view, and manage log alerts using Azure Monit
 
 ## Limitation
 
-Azure Synapse Analytics workspace with [managed virtual network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) enabled is not supported.
+Azure Synapse Analytics workspace with [managed virtual network](../security/synapse-workspace-managed-vnet.md) enabled is not supported.
 
 ## Next steps
 

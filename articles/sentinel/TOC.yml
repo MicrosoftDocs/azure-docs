@@ -295,6 +295,8 @@
         href: map-data-fields-to-entities.md
       - name: Surface custom details in alerts
         href: surface-custom-details-in-alerts.md
+      - name: Customize alert details
+        href: customize-alert-details.md
       - name: Export and import analytics rules
         href: import-export-analytics-rules.md
       - name: Work with SOC-ML anomaly rules
@@ -418,6 +420,6 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   - name: Feature availability for US Government clouds
-    href: /azure/security/fundamentals/feature-availability
+    href: ../security/fundamentals/feature-availability.md
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md
