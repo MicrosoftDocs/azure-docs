@@ -15,6 +15,14 @@ Welcome to what's new in the Cognitive Services docs from May 1, 2021 through Ma
 
 ## Containers
 
+### New articles
+
+- [Install and run Translator containers](translator/containers/translator-how-to-install-container.md)
+- [Configure Translator Docker containers](translator/containers/translator-container-configuration.md)
+- [Container: Translator translate method](translator/containers/translator-container-supported-parameters.md)
+
+
+
 ### Updated articles
 
 - [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags.md)
