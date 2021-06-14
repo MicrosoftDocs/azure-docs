@@ -12,7 +12,7 @@ ms.subservice: disks
 
 This article covers how to deploy and configure a disk pool. Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
-In this article you will configure and deploy a disk pool. In order for a disk pool to work correctly, you must complete the following steps:
+This article covers how to configure and deploy a disk pool. In order for a disk pool to work correctly, you must complete the following steps:
 - Register for the preview.
 - Delegate a subnet to your disk pool.
 - Assign RBAC permissions to each disk pool resource.
@@ -21,7 +21,7 @@ In this article you will configure and deploy a disk pool. In order for a disk p
 
 ## Register for the preview
 
-Register your subscription to the **Microsoft.StoragePool** provider to get access to and use disk pools.
+To be able to create and use disk pools, register your subscription to the **Microsoft.StoragePool** provider.
 
 1. Sign in to the Azure portal
 1. On the Azure portal menu, search for and select **Subscriptions**.
