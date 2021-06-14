@@ -180,15 +180,9 @@ Prepare for and plan the key lifecycle.
 
  **Key activation** - End users must self-activate the security key. End users register their security keys at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) and enable the second factor (PIN or biometric) at first use. For first-time users, they can use TAP to register their security information.
 
- **Disabling a key** - If an administrator wishes to remove a FIDO2 key associated with a User Account, they can do so by deleting the key from the user’s authentication method as shown below. For more information, see 
+ **Disabling a key** - If an administrator wishes to remove a FIDO2 key associated with a User Account, they can do so by deleting the key from the user’s authentication method as shown below. For more information, see [Disable a key](howto-authentication-passwordless-security-key.md#disable-a-key)
 
-1. Login to the [Azure AD portal](https://portal.azure.com) and search for the user account from which the FIDO key is to be removed.
-
-2. Select Authentication methods, select FIDO2 security key, then right-click and select Delete. 
-
-![View Authentication Method details](media/howto-authentication-passwordless-deployment/security-key-view-details.png)
-
-  
+ 
 
 **Issue a new key**: User can register the new FIDO2 key by going to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 
 
