@@ -39,8 +39,6 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + Jupyter notebooks: use our [example notebooks](https://github.com/Azure/MachineLearningNotebooks) or create your own notebooks to leverage our <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK for Python</a> samples for your machine learning. 
 
-+ R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
-
 + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 + [Machine learning extension for Visual Studio Code (preview)](how-to-set-up-vs-code-remote.md) provides you with a full-featured development environment for building and managing your machine learning projects.
