@@ -19,7 +19,7 @@ Affirmed has combined its mobile core-technology with Azure’s capabilities to 
 
 - **Private Network Service Manager - Affirmed Networks**: Private Network Service Manager is the application that operators use to deploy, monitor, and manage private mobile core networks on the Azure platform. It features a complete set of management capabilities including simple self-activation and management of private network resources through a programmatic GUI-driven portal.
 
-- **Azure Network Functions Manager** Azure Network Functions Manager (NFM) is a fully managed cloud-native orchestration service that enables customers to deploy and provision network functions on Azure Stack Edge Pro with GPU for a consistent hybrid experience using the Azure portal.
+- **Azure Network Functions Manager**: Azure Network Functions Manager (NFM) is a fully managed cloud-native orchestration service that enables customers to deploy and provision network functions on Azure Stack Edge Pro with GPU for a consistent hybrid experience using the Azure portal.
 
 - **Azure Cloud**: A public cloud computing platform with solutions including Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS) that can be used for services such as analytics, virtual computing, storage, networking, and much more.
 
@@ -60,7 +60,7 @@ APNS provides the following key benefits to operators and their customers:
 - **Data Privacy & Security** - APNS uses Azure to deliver security and compliance across private networks and enterprise applications. Operators can confidently deploy the solution for industry use cases that require stringent data privacy laws, such as healthcare, government, public safety, and defense.
 
 ## Next steps
-- Learn how to [deploy the Affirmed private Network Sevrice solution](deploy-affirmed-private-network-service-solution.md)
+- Learn how to [deploy the Affirmed private Network Service solution](deploy-affirmed-private-network-service-solution.md)
 
 
 
