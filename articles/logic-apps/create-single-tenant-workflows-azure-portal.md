@@ -1,6 +1,6 @@
 ---
-title: Create workflows in single-tenant Azure Logic Apps using the Azure portal
-description: Create automated workflows that integrate apps, data, services, and systems using single-tenant Azure Logic Apps and the Azure portal.
+title: Create workflows with single-tenant Azure Logic Apps (Standard) in the Azure portal
+description: Create automated workflows to integrate apps, data, services, and systems with single-tenant Azure Logic Apps (Standard) in the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 05/25/2021
 ---
 
-# Create an integration workflow using single-tenant Azure Logic Apps and the Azure portal
+# Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
 
-This article shows how to create an example automated integration workflow that runs in the *single-tenant Azure Logic Apps environment* by using the **Logic App (Standard)** resource type. If you're new to the new single-tenant model and logic app resource type, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using the **Logic App (Standard)** resource type and the Azure portal. This resource type can host multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless). Also, workflows in the same logic app and tenant run in the same process as the redesigned Azure Logic Apps runtime, so they share the same resources and provide better performance. For more information about the single-tenant Azure Logic Apps offering, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 While this example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
 > [!TIP]
-> If you don't have an Office 365 account, you can use any other available action that can send 
-> messages from your email account, for example, Outlook.com.
-> 
-> To create this example workflow using Visual Studio Code instead, follow the steps in 
-> [Create integration workflows using single tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
+> If you don't have an Office 365 account, you can use any other available action 
+> that can send messages from your email account, for example, Outlook.com.
+>
+> To create this example workflow in Visual Studio Code instead, follow the steps in 
+> [Create integration workflows using single-tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
 > Both options provide the capability to develop, run, and deploy logic app workflows in the same kinds of environments. 
 > However, with Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
 
