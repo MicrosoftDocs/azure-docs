@@ -15,7 +15,7 @@ A function app runs on a specific version of language runtime. By default, funct
 
 ## Update functions app language version on Windows
 
-_This section doesn't apply when running your function app [on Linux](#update-functions-app-language-version-on-linu)._
+_This section doesn't apply when running your function app [on Linux](#update-functions-app-language-version-on-linux)._
 
 You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
 
