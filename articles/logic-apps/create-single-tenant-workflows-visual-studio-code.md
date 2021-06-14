@@ -114,7 +114,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
 * To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
 
-* To test the example workflow in this article, you need a tool that can send calls to the endpoint created by the Request trigger. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
+* To test the example workflow in this article, you need a tool that can send calls to the endpoint created by the Request trigger. If you don't have such a tool, you can download, install, and use the [Postman](https://www.postman.com/downloads/) app.
 
 * If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
@@ -590,7 +590,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses `Logic Apps requests` as the collection name.
 
-      Postman's request pane opens so that you can send a request to the callback URL for the Request trigger.
+      In Postman, the request pane opens so that you can send a request to the callback URL for the Request trigger.
 
       ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
@@ -727,7 +727,7 @@ After you make updates to your logic app, you can run another test by rerunning 
 
 <a name="firewall-setup"></a>
 
-##  Find domain names for firewall access
+## Find domain names for firewall access
 
 Before you deploy and run your logic app workflow in the Azure portal, if your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow.
 
@@ -812,7 +812,7 @@ Deployment for the **Logic App (Standard)** resource type requires a hosting pla
 
       ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-single-tenant-workflows-visual-studio-code/create-app-service-plan.png)
 
-   1. Provide a name for your hosting plan plan, and then select a pricing tier for your selected plan.
+   1. Provide a name for your hosting plan, and then select a pricing tier for your selected plan.
 
       For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
 
@@ -1032,7 +1032,7 @@ Deleting a logic app affects workflow instances in the following ways:
 
 * The Logic Apps service doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to re-save any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
 <a name="manage-deployed-apps-portal"></a>
 

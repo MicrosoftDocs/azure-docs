@@ -304,7 +304,7 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
    1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses `Logic Apps requests` as the collection name.
 
-      Postman's request pane opens so that you can send a request to the endpoint URL for the Request trigger.
+      In the Postman app, the request pane opens so that you can send a request to the endpoint URL for the Request trigger.
 
       ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-azure-portal/postman-request-pane.png)
 
@@ -600,7 +600,7 @@ Deleting a workflow affects workflow instances in the following ways:
 
 * Azure Logic Apps doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to re-save any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
 1. In the Azure portal, find and open your logic app.
 
