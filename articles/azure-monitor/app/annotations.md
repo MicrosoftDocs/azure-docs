@@ -14,10 +14,11 @@ Annotations show where you deployed a new build, or other significant events. An
 
 Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
-If the following criteria is met, then the deployment task will create the release annotation automatically:
-1. The resource you are deploying to is linked to Application Insights (via the `APPINSIGHTS_INSTRUMENTATIONKEY` app setting).
-2. The Application Insights resource is in the same subscription as the resource you are deploying to.
-3. You are using one of these Azure DevOps pipeline tasks:
+If all the following criteria are met, the deployment task creates the release annotation automatically:
+
+- The resource you're deploying to is linked to Application Insights (via the `APPINSIGHTS_INSTRUMENTATIONKEY` app setting).
+- The Application Insights resource is in the same subscription as the resource you're deploying to.
+- You're using one of the following Azure DevOps pipeline tasks:
 
     | Task code                 | Task name                     | Versions     |
     |---------------------------|-------------------------------|--------------|
