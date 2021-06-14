@@ -15,7 +15,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 ## Create rule (sample)
 
-[Template format](azure/templates/microsoft.insights/datacollectionrules)
+View [template format](/azure/templates/microsoft.insights/datacollectionrules)
 
 ## Create association with Azure VM
 

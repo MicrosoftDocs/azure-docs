@@ -48,7 +48,7 @@ Azure virtual machines, virtual machine scale sets, and Azure Arc enabled server
 
 
 ## Supported regions
-Azure Monitor agent is available in all public regions. Government regions and clouds are not currently supported.
+Azure Monitor agent is available in all public regions that supports Log Analytics. Government regions and clouds are not currently supported.
 
 ## Coexistence with other agents
 The Azure Monitor agent can coexist with the existing agents so that you can continue to use their existing functionality during evaluation or migration. This is particularly important because of the limitations supporting existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention. 

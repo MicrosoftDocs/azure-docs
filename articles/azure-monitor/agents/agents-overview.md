@@ -58,7 +58,7 @@ Use the Azure Monitor agent if you need to:
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
 - Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Not available in preview.)
 
-See [current feature gaps]((../faq.md#is-the-new-azure-monitor-agent-at-parity-with-existing-agents)) when compared to existing agents.
+See [current feature gaps](../faq.md#is-the-new-azure-monitor-agent-at-parity-with-existing-agents) when compared to existing agents.
 
 ## Log Analytics agent
 
