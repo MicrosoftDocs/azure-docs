@@ -980,7 +980,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Standard)" extension pane and the deployed workflow.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. To view all the workflows in the logic app, expand your logic app, and then expand the **Workflows** node.
+1. To view all the workflows in the logic app, expand your logic app, and then expand the node named **Workflows**.
 
 1. To view a specific workflow, open the workflow's shortcut menu, and select **Open in Designer**, which opens the workflow in read-only mode.
 
@@ -1016,7 +1016,7 @@ Stopping a logic app affects workflow instances in the following ways:
 
   1. In Visual Studio Code, on the left toolbar, select the Azure icon. 
   1. In the **Azure: Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
-  1. Expand your logic app, and then expand the **Workflows** node.
+  1. Expand your logic app, and then expand the node named **Workflows**.
   1. Open a workflow, and edit any part of that workflow's trigger.
   1. Save your changes. This step resets the trigger's current state.
   1. Repeat for each workflow.
@@ -1098,7 +1098,7 @@ Through the Azure portal, you can add blank workflows to a **Logic App (Standard
 
 To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
-1. In your Visual Studio Code project, expand the **workflow-designtime** folder, and open the **local.settings.json** file.
+1. In your Visual Studio Code project, expand the folder named **workflow-designtime**, and open the **local.settings.json** file.
 
 1. Add the `Workflows.{yourWorkflowName}.operationOptions` property and set the value to `WithStatelessRunHistory`, for example:
 
@@ -1297,7 +1297,7 @@ To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCo
 
 When you try to start a debugging session, you get the error, **"Error exists after running preLaunchTask 'generateDebugSymbols'"**. To resolve this problem, edit the **tasks.json** file in your project to skip symbol generation.
 
-1. In your project, expand the **.vscode** folder, and open the **tasks.json** file.
+1. In your project, expand the folder named **.vscode**, and open the **tasks.json** file.
 
 1. In the following task, delete the line, `"dependsOn: "generateDebugSymbols"`, along with the comma that ends the preceding line, for example:
 
