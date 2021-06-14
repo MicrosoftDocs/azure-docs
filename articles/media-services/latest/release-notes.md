@@ -26,6 +26,12 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+## May 2021
+
+### Availability Zones default support in Media Services
+
+Media Services now supports [Availability Zones](concept-availability-zones.md), providing fault-isolated locations within the same Azure region.  Media Services accounts are zone redundant by default now and there is no additional configuration or settings required. This only applies to regions that have [Availability Zones support](../../availability-zones/az-region.md#azure-regions-with-availability-zones)
+
 ## March 2021
 
 ### New language support added to the AudioAnalyzer preset
@@ -281,7 +287,7 @@ Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear 
 
 #### Deprecation of media processors
 
-We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) article. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces these legacy media processors.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) article. Azure Media Services Video Indexer replaces these legacy media processors.
 
 For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -495,7 +501,7 @@ CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players
 
 ### Video Indexer
 
-Video Indexer GA release was announced in August. For new information about currently supported features, see [What is Video Indexer](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
+Video Indexer GA release was announced in August. For new information about currently supported features, see [What is Video Indexer](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md?bc=%2fazure%2fmedia-services%2fvideo-indexer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json). 
 
 ### Plans for changes
 

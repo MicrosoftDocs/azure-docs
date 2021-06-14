@@ -86,11 +86,11 @@ Add AppSettings to the App.Config.
 
 Add the following `using` directives and make sure to add a reference to System.Configuration to the project.
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -109,11 +109,11 @@ using System.IO;
 
 The following method is used by Key Vault classes that need to authenticate for access to your key vault.
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 private async static Task<string> GetToken(string authority, string resource, string scope)
@@ -136,11 +136,11 @@ private async static Task<string> GetToken(string authority, string resource, st
 
 In the Main() method, add the following code.
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -174,11 +174,11 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 
 Add the following code to encrypt a blob and upload it to your Azure storage account. The **ResolveKeyAsync** method that is used returns an IKey.
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 // Retrieve the key that you created previously.
@@ -212,11 +212,11 @@ The private key of an RSA Key remains in Key Vault, so for decryption to occur, 
 
 Add the following to decrypt the blob that you just uploaded.
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 // In this case, we will not pass a key and only pass the resolver because
@@ -258,11 +258,11 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret
 
 In your console application, you can use the same call as before to retrieve this secret as a SymmetricKey.
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(

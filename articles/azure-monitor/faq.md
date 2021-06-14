@@ -164,7 +164,7 @@ Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [E
 
 ### How can I confirm that the Log Analytics agent is able to communicate with Azure Monitor?
 
-From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
+From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
 
 ### How do I stop the Log Analytics agent from communicating with Azure Monitor?
 
@@ -229,7 +229,7 @@ Here's how AMA impacts the two SCOM related monitor scenarios:
 - **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective.  
 
 > [!NOTE] 
-> You can run both scenarios above with MMA and AMA side-by-side without any impact*
+> You can run both scenarios above with MMA and AMA side-by-side without any impact.
 
 
 ### Will the new Azure Monitor agent support data collection for the various Log Analytics solutions?
@@ -239,7 +239,7 @@ The solution specific VM extensions exist to collect scenario specific data or p
 
 Here’s a diagram explaining the **new extensibility architecture**:
 
-![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch-diag.png)
+![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch-new.png)
 
 
 ### Which Log Analytics solutions are supported on the new Azure Monitor Agent?
@@ -254,6 +254,12 @@ Log Analytics solutions can be enabled using the new Azure Monitor Agent either 
 | **VM Insights with metrics support** | Private preview on AMA |
 | **VM Insights guest health (new)** | Public preview: [VM insights guest health (preview)](vm/vminsights-health-overview.md) |
 | **SQL Monitoring (new)** | Public preview exclusively on AMA: [SQL insights (preview)](insights/sql-insights-overview.md) |
+
+
+### How can I collect Windows security events using the new Azure Monitor Agent?
+There's two ways you can collect Security events using the new agent, when sending to Log Analytics workspace(s):
+- You can use AMA to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace.
+- If you have Sentinel enabled on the workspace, the Security Events flow via AMA into the ['SecurityEvent'](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (same as using Log Analytics Agent). This will always require the solution to be enabled first.
 
 
 ### Can the new Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?

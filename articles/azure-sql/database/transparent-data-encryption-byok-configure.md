@@ -5,7 +5,7 @@ description: "Learn how to configure an Azure SQL Database and Azure Synapse Ana
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang:
 ms.topic: how-to
 author: shohamMSFT
@@ -69,7 +69,7 @@ Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvau
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
-For adding permissions to your server on a Managed HSM, add the 'Managed HSM Crypto Service Encryption' local RBAC role to the server. This will enable the server to perform get, wrap key, unwrap key operations on the keys in the Managed HSM.
+For adding permissions to your server on a Managed HSM, add the 'Managed HSM Crypto Service Encryption User' local RBAC role to the server. This will enable the server to perform get, wrap key, unwrap key operations on the keys in the Managed HSM.
 [Instructions for provisioning server access on Managed HSM](../../key-vault/managed-hsm/role-management.md)
 
 ## Add the Key Vault key to the server and set the TDE Protector

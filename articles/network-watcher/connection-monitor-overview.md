@@ -93,7 +93,7 @@ The script configures only Windows Firewall locally. If you have a network firew
 
 All subscriptions that have a virtual network are enabled with Network Watcher. When you create a virtual network in your subscription, Network Watcher is automatically enabled in the virtual network's region and subscription. This automatic enabling doesn't affect your resources or incur a charge. Ensure that Network Watcher isn't explicitly disabled on your subscription. 
 
-For more information, see [Enable Network Watcher](./network-watcher-create.md).
+Do ensure that Network Watcher is [available for your region](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher&regions=all). For more information, see [Enable Network Watcher](./network-watcher-create.md).
 
 ## Create a connection monitor 
 
@@ -277,7 +277,7 @@ Use Log Analytics to create custom views of your monitoring data. All data that 
 
 #### Metrics in Azure Monitor
 
-In connection monitors that were created before the Connection Monitor experience, all four metrics are available: % Probes Failed, AverageRoundtripMs, ChecksFailedPercent, and RoundTripTimeMs. In connection monitors that were created in the Connection Monitor experience, data is available only for ChecksFailedPercent and RoundTripTimeMs metrics.
+In connection monitors that were created before the Connection Monitor experience, all four metrics are available: % Probes Failed, AverageRoundtripMs, ChecksFailedPercent, and RoundTripTimeMs. In connection monitors that were created in the Connection Monitor experience, data is available only for ChecksFailedPercent, RoundTripTimeMs and Test Result metrics.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
@@ -285,10 +285,10 @@ When you use metrics, set the resource type as Microsoft.Network/networkWatchers
 
 | Metric | Display name | Unit | Aggregation type | Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent (classic) | % Probes Failed (classic) | Percentage | Average | Percentage of connectivity monitoring probes failed. | No dimensions |
-| AverageRoundtripMs (classic) | Avg. Round-trip Time (ms) (classic) | Milliseconds | Average | Average network RTT for connectivity monitoring probes sent between source and destination. |             No dimensions |
-| ChecksFailedPercent | % Checks Failed | Percentage | Average | Percentage of failed checks for a test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs | Round-trip Time (ms) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ProbesFailedPercent (classic) | % Probes Failed (classic) | Percentage | Average | Percentage of connectivity monitoring probes failed.<br>This metric is available only for Connection monitor classic  | No dimensions |
+| AverageRoundtripMs (classic) | Avg. Round-trip Time (ms) (classic) | Milliseconds | Average | Average network RTT for connectivity monitoring probes sent between source and destination.<br>This metric is available only for Connection monitor classic |             No dimensions |
+| ChecksFailedPercent | % Checks Failed | Percentage | Average | Percentage of failed checks for a test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| RoundTripTimeMs | Round-trip Time (ms) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 | TestResult | Test Result | Count | Average | Connection monitor test result <br>Interpretation of result values is as follows: <br>0- Indeterminate <br>1- Pass <br>2- Warning <br>3- Fail| SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### Metric based alerts for Connection Monitor
@@ -365,6 +365,17 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 
 ### Are classic VMs supported?
 No, Connection Monitor does not support Classic VMs. It is recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).
+
+### My topology is not decorated or my hops have missing information?
+From non-Azure to Azure, topology can only be decorated if destination Azure resource and connection monitor resource are in same region 
+
+### My Connection Monitor creation is failing with error "We don't allow creating different endpoints for the same VM"?
+Same Azure VM cannot be used with different configurations in the same connection monitor. 
+For example, using same VM with a filter and without a filter in same connection monitor is not supported.
+
+### The test failure reason is "Nothing to Display"?
+Issues displayed on the Connection Monitor dashboard are found during topology discovery or hop exploration. There can be cases where the threshold set for % loss or RTT is breached but no issues are found on hops.
+
 
 ## Next Steps
     

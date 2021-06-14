@@ -29,7 +29,7 @@ Here are the steps that are covered in this article:
 
 ## Prerequisites
 
-Before you can set up a private endpoint, you'll need an [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) where the endpoint can be deployed. If you don't have a VNet already, you can follow one of the Azure Virtual Network [quickstarts](../virtual-network/quick-create-portal.md) to set this up.
+Before you can set up a private endpoint, you'll need an [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) where the endpoint can be deployed. If you don't have a VNet already, you can follow one of the [Azure Virtual Network quickstarts](../virtual-network/quick-create-portal.md) to set this up.
 
 ## Manage private endpoints for an Azure Digital Twins instance 
 
@@ -47,7 +47,7 @@ To create a private endpoint and link it to an Azure Digital Twins instance, use
 Here is an example that uses the command to create a private endpoint, with only the required parameters.
 
 ```azurecli-interactive
-az network private-endpoint create --connection-name {private_link_service_connection} --name {name_for_private_endpoint} --resource-group {resource_group} --subnet {subnet_ID} --private-connection-resource-id "/subscriptions/{subscription_ID}/resourceGroups/{resource_group}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{Azure_Digital_Twins_instance_name}" 
+az network private-endpoint create --connection-name <private-link-service-connection> --name <name-for-private-endpoint> --resource-group <resource-group> --subnet <subnet-ID> --private-connection-resource-id "/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<Azure-Digital-Twins-instance-name>" 
 ```
 
 For a full list of required and optional parameters, as well as more private endpoint creation examples, see the [az network private-endpoint create reference documentation](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create).
@@ -85,13 +85,13 @@ In the Azure CLI, you can disable or enable public network access by adding a `-
 To **disable** public network access for an Azure Digital Twins instance, use the `--public-network-access` parameter like this:
 
 ```azurecli-interactive
-az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --public-network-access Disabled
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --public-network-access Disabled
 ```
 
 To **enable** public network access on an instance where it's currently disabled, use the following similar command:
 
 ```azurecli-interactive
-az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --public-network-access Enabled
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --public-network-access Enabled
 ```
 
 ### Use the ARMClient command tool 

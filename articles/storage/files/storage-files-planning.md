@@ -62,6 +62,9 @@ Although from a technical perspective it's considerably easier to mount your Azu
 - **Private endpoints**: Private endpoints give your storage account a dedicated IP address from within the address space of the virtual network. This enables network tunneling without needing to open on-premises networks up to all the of the IP address ranges owned by the Azure storage clusters. 
 - **DNS forwarding**: Configure your on-premises DNS to resolve the name of your storage account (`storageaccount.file.core.windows.net` for the public cloud regions) to resolve to the IP address of your private endpoints.
 
+> [!Important]  
+> Azure Files supports multiple network routing options. The default option, Microsoft routing, works with all Azure Files configurations. The internet routing option does not support AD domain join scenarios or Azure File Sync.
+
 To plan for the networking associated with deploying an Azure file share, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
 ## Encryption

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/11/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # How to create an NFS share

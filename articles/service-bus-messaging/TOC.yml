@@ -36,8 +36,6 @@
         href: service-bus-nodejs-how-to-use-queues.md
       - name: PHP
         href: service-bus-php-how-to-use-queues.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-queues.md
     - name: Send and receive messages (old versions/packages)
       items:
       - name: .NET (Microsoft.Azure.ServiceBus)
@@ -66,8 +64,6 @@
         href: service-bus-nodejs-how-to-use-topics-subscriptions.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-topics-subscriptions.md
     - name: Publish and subscribe for messages (old versions/packages)
       items:
       - name: .NET (Microsoft.Azure.ServiceBus)
@@ -98,6 +94,8 @@
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   - name: Advanced features
     items: 
+    - name: Overview of advanced features
+      href: advanced-features-overview.md
     - name: Message sessions
       href: message-sessions.md
     - name: Duplicate message detection

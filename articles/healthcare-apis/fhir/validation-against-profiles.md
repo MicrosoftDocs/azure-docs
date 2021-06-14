@@ -61,6 +61,93 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 
 ## Accessing profiles and storing profiles
 
+### Storing profiles
+
+For storing profiles to the server, you can do a `POST` request:
+
+```rest
+POST http://<your FHIR service base URL>/{Resource}
+```
+
+In which the field `{Resource}` will be replaced by `StructureDefinition`, and you would have your `StructureDefinition` resource `POST`ed to the server in `JSON` or `XML` format. For example, if you would like to store `us-core-allergyintolerance` profile, you would do:
+
+```rest
+POST http://my-fhir-server.azurewebsites.net/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+```
+
+Where the US Core Allergy Intolerance profile would be stored and retrieved:
+
+```json
+{
+    "resourceType" : "StructureDefinition",
+    "id" : "us-core-allergyintolerance",
+    "text" : {
+        "status" : "extensions"
+    },
+    "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance",
+    "version" : "3.1.1",
+    "name" : "USCoreAllergyIntolerance",
+    "title" : "US  Core AllergyIntolerance Profile",
+    "status" : "active",
+    "experimental" : false,
+    "date" : "2020-06-29",
+        "publisher" : "HL7 US Realm Steering Committee",
+    "contact" : [
+    {
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.healthit.gov"
+        }
+      ]
+    }
+  ],
+    "description" : "Defines constraints and extensions on the AllergyIntolerance resource for the minimal set of data to query and retrieve allergy information.",
+
+...
+```
+
+Most profiles have the resource type `StructureDefinition`, but they can also be of the types `ValueSet` and `CodeSystem`, which are [terminology](http://hl7.org/fhir/terminologies.html) resources. For example, if you `POST` a `ValueSet` profile in a JSON form, the server will return the stored profile with the assigned `id` for the profile, just as it would with `StructureDefinition`. Below is an example you would get when you upload a [Condition Severity](https://www.hl7.org/fhir/valueset-condition-severity.html) profile, which specifies the criteria for a condition/diagnosis severity grading:
+
+```json
+{
+    "resourceType": "ValueSet",
+    "id": "35ab90e5-c75d-45ca-aa10-748fefaca7ee",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-05-07T21:34:28.781+00:00",
+        "profile": [
+            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+        ]
+    },
+    "text": {
+        "status": "generated"
+    },
+    "extension": [
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+            "valueCode": "pc"
+        }
+    ],
+    "url": "http://hl7.org/fhir/ValueSet/condition-severity",
+    "identifier": [
+        {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:2.16.840.1.113883.4.642.3.168"
+        }
+    ],
+    "version": "4.0.1",
+    "name": "Condition/DiagnosisSeverity",
+    "title": "Condition/Diagnosis Severity",
+    "status": "draft",
+    "experimental": false,
+    "date": "2019-11-01T09:29:23+11:00",
+    "publisher": "FHIR Project team",
+...
+```
+
+You can see that the `resourceType` is a `ValueSet`, and the `url` for the profile also specifies that this is a type `ValueSet`: `"http://hl7.org/fhir/ValueSet/condition-severity"`.
+
 ### Viewing profiles
 
 You can access your existing custom profiles in the server using a `GET` request. All valid profiles, such as the profiles with valid canonical URLs in Implementation Guides, should be accessible by querying:
@@ -110,55 +197,6 @@ Our FHIR server does not return `StructureDefinition` instances for the base pro
 - `http://hl7.org/fhir/Observation.profile.json.html`
 - `http://hl7.org/fhir/Patient.profile.json.html`
 
-### Storing profiles
-
-For storing profiles to the server, you can do a `POST` request:
-
-```rest
-POST http://<your FHIR service base URL>/{Resource}
-```
-
-In which the field `{Resource}` will be replaced by `StructureDefinition`, and you would have your `StructureDefinition` resource `POST`ed to the server in `JSON` or `XML` format.
-
-Most profiles have the resource type `StructureDefinition`, but they can also be of the types `ValueSet` and `CodeSystem`, which are [terminology](http://hl7.org/fhir/terminologies.html) resources. For example, if you `POST` a `ValueSet` profile in a JSON form, the server will return the stored profile with the assigned `id` for the profile, just as it would with `StructureDefinition`. Below is an example you would get when you upload a [Condition Severity](https://www.hl7.org/fhir/valueset-condition-severity.html) profile, which specifies the criteria for a condition/diagnosis severity grading:
-
-```json
-{
-    "resourceType": "ValueSet",
-    "id": "35ab90e5-c75d-45ca-aa10-748fefaca7ee",
-    "meta": {
-        "versionId": "1",
-        "lastUpdated": "2021-05-07T21:34:28.781+00:00",
-        "profile": [
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
-        ]
-    },
-    "text": {
-        "status": "generated",
-        "div": "<div>!-- Snipped for Brevity --></div>"
-    },
-    "extension": [
-        {
-            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-            "valueCode": "pc"
-        }
-    ],
-    "url": "http://hl7.org/fhir/ValueSet/condition-severity",
-    "identifier": [
-        {
-            "system": "urn:ietf:rfc:3986",
-            "value": "urn:oid:2.16.840.1.113883.4.642.3.168"
-        }
-    ],
-    "version": "4.0.1",
-    "name": "Condition/DiagnosisSeverity",
-    "title": "Condition/Diagnosis Severity",
-    "status": "draft",
-    "experimental": false,
-    "date": "2019-11-01T09:29:23+11:00",
-    "publisher": "FHIR Project team",
-...
-```
 
 ### Profiles in the capability statement
 

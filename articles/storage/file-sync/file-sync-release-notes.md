@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 4/7/2021
+ms.date: 5/20/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,6 +20,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| V12.1 Release - [KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | May 20, 2021 | Supported |
 | V12 Release - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | March 26, 2021 | Supported |
 | V11.3 Release - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | April 7, 2021 | Supported |
 | V11.2 Release - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | February 2, 2021 | Supported |
@@ -44,6 +45,14 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 12.1.0.0
+The following release notes are for version 12.1.0.0 of the Azure File Sync agent released May 20, 2021. These notes are in addition to the release notes listed for version 12.0.0.0.
+
+### Improvements and issues that are fixed 
+The v12.0 agent release had two bugs which are fixed in this release:
+- Agent auto-update fails to update the agent to a later version.
+- FileSyncErrorsReport.ps1 script does not provide the list of per-item errors.
 
 ## Agent version 12.0.0.0
 The following release notes are for version 12.0.0.0 of the Azure File Sync agent (released March 26, 2021).
