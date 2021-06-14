@@ -97,7 +97,7 @@ Create multiple instances of the Azure App Configuration Push task within the sa
 
 **How can I create Key Vault references using this task?**
 
-To create Key Vault references, set the "Content Type" parameter to *application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf*. If not all key-values in a configuration file are Key Vault references, put Key Vault references and normal key-values in separate configuration files, and push them separately.
+To create Key Vault references, set the "Content Type" parameter to *application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8*. If not all key-values in a configuration file are Key Vault references, put Key Vault references and normal key-values in separate configuration files, and push them separately.
 
 **Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
 
