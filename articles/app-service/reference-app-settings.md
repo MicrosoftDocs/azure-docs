@@ -235,7 +235,7 @@ For more information, see [Use a TLS/SSL certificate in your code in Azure App S
 | `WEBSITES_PORT` | For a custom container, the custom port number on the container to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. ||
 | `WEBSITE_CPU_CORES_LIMIT` | By default, a Windows container runs with all available cores for your chosen pricing tier. To reduce the number of cores, set to the number of desired cores limit. For more information, see [Customize the number of compute cores](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores).||
 | `WEBSITE_MEMORY_LIMIT_MB` | By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. Set to the desired memory limit in MB. The cumulative total of this setting across apps in the same plan must not exceed the amount allowed by the chosen pricing tier. For more information, see [Customize container memory](configure-custom-container.md?pivots=container-windows#customize-container-memory). ||
-| `MACHINEKEY_Decryption` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `decryption` value, set it as an app setting. ||
+| `MACHINEKEY_Decryption` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `decryption` value, set it as an app setting. ||
 | `MACHINEKEY_DecryptionKey` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `decryptionKey` value, set it as an app setting. ||
 | `MACHINEKEY_Validation` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `validation` value, set it as an app setting. ||
 | `MACHINEKEY_ValidationKey` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `validationKey` value, set it as an app setting. ||
@@ -508,15 +508,15 @@ WEBSITE_VNET_BLOCK_FOR_SETUP_SCM_SITE
 | `WEBJOBS_IDLE_TIMEOUT`| For triggered jobs, timeout in seconds, after which the job is aborted if it's in idle, has no CPU time or output. |
 | `WEBJOBS_HISTORY_SIZE`| For triggered jobs, maximum number of runs kept in the history directory per job. The default is `50`. |
 | `WEBJOBS_STOPPED`| Set to `1` to disable running any job, and stop all currently running jobs. |
-| `WEBJOBS_DISABLE_SCHEDULE`|Set to `1` to turn off all scheduled triggering. Jobs can still be manually invoked. |
+| `WEBJOBS_DISABLE_SCHEDULE`| Set to `1` to turn off all scheduled triggering. Jobs can still be manually invoked. |
 | `WEBJOBS_ROOT_PATH`| Absolute or relative path of webjob files. In case of a relative path, the value is combined with the default root path (`D:/home/site/wwwroot/` or `/home/site/wwwroot/`). |
 | `WEBJOBS_LOG_TRIGGERED_JOBS_TO_APP_LOGS`| Set to true to send output from triggered WebJobs to the application logs pipeline (which supports file system, blobs and tables). |
- `WEBJOBS_SHUTDOWN_FILE` | File that App Service creates when a shutdown request is  |detected. It's the web job process's responsibility to detect the presence of this file and initiate shutdown. When using the WebJobs SDK, this part is handled automatically.
- `WEBJOBS_PATH` | Read-only. Root path of currently running job (will be under some  |temporary directory).
- `WEBJOBS_NAME` | Read-only. Current job name. |
- `WEBJOBS_TYPE` | Read-only. Current job type (`triggered` or `continuous`). |
- `WEBJOBS_DATA_PATH` | Read-only. Current job metadata path to contain the job's logs,  |history, and any artifact of the job. |
- `WEBJOBS_RUN_ID` | Read-only. For triggered jobs, current run ID of the job. |
+| `WEBJOBS_SHUTDOWN_FILE` | File that App Service creates when a shutdown request is  |detected. It's the web job process's responsibility to detect the presence of this file and initiate shutdown. When using the WebJobs SDK, this part is handled automatically. |
+| `WEBJOBS_PATH` | Read-only. Root path of currently running job (will be under some  |temporary directory). |
+| `WEBJOBS_NAME` | Read-only. Current job name. |
+| `WEBJOBS_TYPE` | Read-only. Current job type (`triggered` or `continuous`). |
+| `WEBJOBS_DATA_PATH` | Read-only. Current job metadata path to contain the job's logs, history, and any artifact of the job. |
+| `WEBJOBS_RUN_ID` | Read-only. For triggered jobs, current run ID of the job. |
 
 ## Functions
 
