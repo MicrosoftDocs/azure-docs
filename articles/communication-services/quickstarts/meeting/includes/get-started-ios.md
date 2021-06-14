@@ -190,13 +190,13 @@ The following classes and interfaces handle some of the major features of the Az
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingUIClient | The MeetingUIClient is the main entry point to the Teams Embed library. |
 | MeetingUIClientMeetingJoinOptions | MeetingUIClientMeetingJoinOptions are used for configurable options such as display name. |
-| MeetingUIClientGroupCallJoinOptions | MeetingUIClientMeetingJoinOptions are used for configurable options such as display name. |
+| MeetingUIClientGroupCallJoinOptions | MeetingUIClientGroupCallJoinOptions are used for configurable options such as display name. |
 | MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting. |
 | MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group ID to join. |
 | MeetingUIClientInCallScreenDelegate | MeetingUIClientInCallScreenDelegate is used to provide customizations on main call screen in the UI. |
 | MeetingUIClientStagingScreenDelegate | MeetingUIClientStagingScreenDelegate is used to provide customizations on staging call screen in the UI. |
 | MeetingUIClientConnectingScreenDelegate | MeetingUIClientConnectingScreenDelegate is used to provide customizations on connecting call screen in the UI. |
-| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app spefic icon. |
+| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app specific icon. |
 | MeetingUIClientCall | MeetingUIClientCall describes the call and provides API's to control it. |
 | MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `connecting`, `waitingInLobby`, `connected`, and `ended`. |
 | MeetingUIClientUserRole | MeetingUIClientUserRole is used for setting the user roles in group call. |

@@ -81,7 +81,7 @@ In your app-level `build.gradle`, add the following line at the end of the file:
 
 ```groovy
 apply from: 'MicrosoftTeamsSDK/MicrosoftTeamsSDK.gradle'
-```
+ ```
 
 Sync project with gradle files.
 
@@ -180,7 +180,7 @@ Create a button with an ID of `join_meeting`. Navigate to the layout file (`app/
 
 With the layout created, the basic scaffolding of the activity along with required bindings can be added. The activity will handle requesting runtime permissions, creating the meeting client, and joining a meeting when the button is pressed. Each will be covered in its own section. 
 
-The `onCreate` method will be overridden to invoke `getAllPermissions`,  `createAgent` and add the bindings for the `Join Meeting` button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+The `onCreate` method will be overridden to add the bindings for the `Join Meeting` button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 Navigate to **MainActivity.java** and replace the content with the following code:
 
@@ -209,29 +209,21 @@ public class MainActivity extends AppCompatActivity {
 
     private final String displayName = "John Smith";
 
-    private MeetingUIClient meetingUIClient;
-    private MeetingUIClientJoinOptions meetingJoinOptions;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
         
-        getAllPermissions();
-        createMeetingClient();
-
-        Button joinMeeting = findViewById(R.id.join_meeting);
-        joinMeeting.setOnClickListener(l -> joinMeeting());
+        Button joinMeetingButton = findViewById(R.id.join_meeting);
+        joinMeetingButton.setOnClickListener(l -> joinMeeting());
     }
-
-    private void createMeetingClient() {
-        // See section on creating meeting client
-    }
-
+    
     private void joinMeeting() {
-        // See section on joining a meeting
+    // See section on joining a meeting
+    }
+
+    private MeetingUIClient createMeetingClient() {
+        // See section on creating meeting client
     }
 
     private void getAllPermissions() {
@@ -275,28 +267,37 @@ The following classes and interfaces handle some of the major features of the Az
 | MeetingUIClientJoinOptions | MeetingUIClientJoinOptions are used for configurable options such as display name. |
 | MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting. |
 | MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group ID to join. |
-| MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `connecting`, `waitingInLobby`, `connected`, and `ended`. |
-| MeetingUIClientEventListener | The MeetingUIClientEventListener is used to receive events, such as changes in call state. |
-| MeetingUIClientIdentityProvider | The MeetingUIClientIdentityProvider is used to map user details to the users in a meeting. |
-| MeetingUIClientUserEventListener | The MeetingUIClientUserEventListener is used to provides information about user actions in the UI. |
+| MeetingUIClientInCallScreenProvider | MeetingUIClientInCallScreenProvider is used to provide customizations on main call screen in the UI. |
+| MeetingUIClientStagingScreenProvider | MeetingUIClientStagingScreenProvider is used to provide customizations on staging call screen in the UI. |
+| MeetingUIClientConnectingScreenProvider | MeetingUIClientConnectingScreenProvider is used to provide customizations on connecting call screen in the UI. |
+| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app specific icon. |
+| MeetingUIClientCall | MeetingUIClientCall describes the call and provides API's to control it. |
+| MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `CONNECTING`, `WAITING_IN_LOBBY`, `CONNECTED`, and `ENDED`. |
+| MeetingUIClientUserRole | MeetingUIClientUserRole is used for setting the user roles in group call. |
+| MeetingUIClientAudioRoute | MeetingUIClientAudioRoute is used for local audio routes like `Earpiece` or `SpeakerOn`. |
+| MeetingUIClientLayoutMode | MeetingUIClientLayoutMode is used for allowing to select different in call UI modes. |
+| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize is used notify what kind of size avatar is requested by a delegate. |
+| MeetingUIClientCallEventListener | The MeetingUIClientCallEventListener is used to receive events, such as changes in call state. |
+| MeetingUIClientCallIdentityProvider | The MeetingUIClientCallIdentityProvider is used to map user details to the users in a meeting. |
+| MeetingUIClientCallUserEventListener | The MeetingUIClientCallUserEventListener provides information about user actions in the UI. |
 
 ## Create a MeetingClient from the user access token
 
 An authenticated meeting client can be instantiated with a user access token. This token is generated by a service with authentication specific to the application. To learn more about user access tokens, check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<USER_ACCESS_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
 ```java
-private void createMeetingClient() { 
+private MeetingUIClient createMeetingClient() { 
     try {
         CommunicationTokenRefreshOptions refreshOptions = new CommunicationTokenRefreshOptions(tokenRefresher, true, "<USER_ACCESS_TOKEN>");
         CommunicationTokenCredential credential = new CommunicationTokenCredential(refreshOptions);
-        meetingUIClient = new MeetingUIClient(credential);
+        return new MeetingUIClient(credential);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create meeting client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
 
-## Setup Token refreshing
+### Setup Token refreshing
 
 Create a Callable `tokenRefresher` method. Then create a `fetchToken` method to get the user token. [You can find instructions on how to do so here](../../access-tokens.md?pivots=programming-language-java)
 
@@ -311,29 +312,36 @@ public String fetchToken() {
 }
 ```
 
-## Get the Teams meeting link
-
-The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
-You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
-
 ## Start a meeting using the meeting client
 
-Joining a meeting can be done via the `MeetingUIClient`, and just requires a `MeetingUIClientTeamsMeetingLinkLocator` and the `MeetingUIClientJoinOptions`. Replace `<MEETING_URL>` with a teams meeting url.
+The `joinMeeting` method is set as the action that will be performed when the *Join Meeting* button is tapped. Joining a meeting can be done via the `MeetingUIClient`, and just requires a `MeetingUIClientTeamsMeetingLinkLocator` and the `MeetingUIClientJoinOptions`.
+Note to replace `<MEETING_URL>` with a Microsoft Teams meeting link.
 
 ```java
 /**
  * Join a meeting with a meetingURL.
  */
 private void joinMeeting() {
+    getAllPermissions();
+    MeetingUIClient meetingUIClient = createMeetingClient();
+    
+    MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+    
+    MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
+    
     try {
-        MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
         meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
+
+### Get a Microsoft Teams meeting link
+
+A Microsoft Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Launch the app and join a meeting
 
@@ -342,6 +350,16 @@ The app can now be launched using the "Run App" button on the toolbar (Shift+F10
 :::image type="content" source="../media/android/quickstart-android-join-meeting.png" alt-text="Screenshot showing the completed application.":::
 
 :::image type="content" source="../media/android/quickstart-android-joined-meeting.png" alt-text="Screenshot showing the completed application after meeting has been joined.":::
+
+## Add localization support based on your app
+
+The Microsoft Teams SDK supports over 100 strings in over 50 languages. By default only English is enabled. The rest of them can be enabled in the gradle file.
+
+#### Add localizations to the SDK based on what your app supports
+
+1. Determine the list of languages your app supports
+2. Open MicrosoftTeamsSDK.gradle file
+3. In the defaultConfig block the resConfigs property is set to "en" by default. Add the languages that your app needs. Reference: [Android Documentation](https://developer.android.com/studio/build/shrink-code#unused-alt-resources)
 
 ## Sample Code
 

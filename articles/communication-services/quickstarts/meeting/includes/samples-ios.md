@@ -458,7 +458,7 @@ func provideScreenBackgroudColor() -> UIColor? {
 }
 ```
 
-## Customize on staging call screen
+### Customize on staging call screen
 
 The `MeetingUIClient` provides support to customize the staging call screen UI. Currently it supports customizing the UI using `MeetingUIClientStagingScreenDelegate` protocol methods.
 While joining the call or meeting, set the join options property `enableCallStagingScreen` to `true` to display the staging screen.
@@ -512,7 +512,7 @@ func provideStagingScreenBackgroundColor() -> UIColor? {
 }
 ```
 
-## Customize on connecting call screen
+### Customize on connecting call screen
 
 The `MeetingUIClient` provides support to customize the connecting call screen UI. Currently it supports customizing the UI using `MeetingUIClientConnectingScreenDelegate` protocol methods.
 Use the icon configuration method `set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposed in `MeetingUIClient` to change only the icons displayed and use the functionality provided by the `MeetingUIClient`.
@@ -611,7 +611,7 @@ public func unmute(completionHandler: @escaping (Error?) -> Void)
 
 meetingUIClientCall?.unmute { [weak self] (error) in
     if error != nil {
-        print("Mute call failed: \(error!)")
+        print("Unmute call failed: \(error!)")
     }
 }
 ```
@@ -641,7 +641,7 @@ public func showCallRoster(completionHandler: @escaping (Error?) -> Void)
 public func getSupportedLayoutModes() -> [MeetingUIClientLayoutMode]
 public func changeLayout(mode: MeetingUIClientLayoutMode, completionHandler: @escaping (Error?) -> Void)
 
-// Hangs up the call or leaves the meeting.
+// Hang up the call or leave the meeting.
 public func hangUp(completionHandler: @escaping (Error?) -> Void)
 
 // Set the user role for an active call.
