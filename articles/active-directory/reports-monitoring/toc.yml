@@ -111,6 +111,6 @@
   - name: Reporting latencies
     href: reference-reports-latencies.md
   - name: Frequently asked questions
-    href: reports-faq.md
+    href: reports-faq.yml
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
