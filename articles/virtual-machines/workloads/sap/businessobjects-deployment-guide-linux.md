@@ -507,96 +507,98 @@ select version();
 
 ## Post-installation
 
-After multi-instance installation of SAP BOBI Platform, additional post configuration steps need to be performed to support application high availability.
+After a multi-instance installation of the SAP BOBI platform, you need to perform additional, post-configuration steps, to support application high availability.
 
-### Configuring cluster name
+### Configure the cluster name
 
-In multi-instance deployment of SAP BOBI Platform, you want to run several CMS servers together in a cluster. A cluster consists of two or more CMS servers working together against a common CMS system database. If a node that is running on CMS fails, a node with another CMS will continue to service BI platform requests. By default in SAP BOBI platform, a cluster name reflects the hostname of the first CMS that you install.
+In a multi-instance deployment of the SAP BOBI platform, you want to run several CMS servers together in a cluster. A cluster consists of two or more CMS servers working together against a common CMS system database. If a node that is running on CMS fails, a node with another CMS will continue to service BI platform requests. By default in the SAP BOBI platform, a cluster name reflects the hostname of the first CMS that you install.
 
-To configure the cluster name on Linux, follow the instruction mentioned in [SAP Business Intelligence Platform Administrator Guide](https://help.sap.com/viewer/2e167338c1b24da9b2a94e68efd79c42/4.3). After configuring the cluster name, follow SAP Note [1660440](https://launchpad.support.sap.com/#/notes/1660440) to set default system entry on the CMC or BI Launchpad sign in page.
+To configure the cluster name on Linux, follow the instructions in the [SAP Business Intelligence Platform Administrator Guide](https://help.sap.com/viewer/2e167338c1b24da9b2a94e68efd79c42/4.3). After configuring the cluster name, follow SAP Note [1660440](https://launchpad.support.sap.com/#/notes/1660440) to set the default system entry on the CMC or BI launchpad sign-in page.
 
-### Configure Input and Output Filestore location to Azure NetApp Files
+### Configure input and output filestore location to Azure NetApp Files
 
-Filestore refers to the disk directories where the actual SAP BusinessObjects files are. The default location of file repository server for SAP BOBI platform is located in the local installation directory. In multi-instance deployment, it's important to set up filestore on a shared storage like Azure NetApp Files so it can be accessed from all storage tier servers.
+Filestore refers to the disk directories where the actual SAP BusinessObjects files are. The default location of file repository server for the SAP BOBI platform is located in the local installation directory. In a multi-instance deployment, it's important to set up the filestore on a shared storage, such as Azure NetApp Files. This allows access to the filestore from all storage tier servers.
 
-1. If not created, follow the instruction provided in above section > **Provision Azure NetApp Files** to create NFS volumes in Azure NetApp Files.
+1. If you haven't already created NFS volumes, create them in Azure NetApp Files. (Follow the instructions in the previous section, "Provision Azure NetApp Files.")
 
-2. Mount the NFS volume as instructed in above section > **Mount Azure NetApp Files volume**
+2. Mount the NFS volume. (Follow the instructions in the previous section, "Mount Azure NetApp Files volume.")
 
-3. Follow SAP Note [2512660](https://launchpad.support.sap.com/#/notes/0002512660) to change the path of file repository (Input and Output).
+3. Follow SAP Note [2512660](https://launchpad.support.sap.com/#/notes/0002512660) to change the path of file repository (both input and output).
 
-### Tomcat clustering - session replication
+### Session replication in Tomcat clustering
 
-Tomcat supports clustering of two or more application servers for session replication and failover. SAP BOBI platform sessions are serialized, a user session can fail over seamlessly to another instance of tomcat, even when an application server fails.
+Tomcat supports clustering two or more application servers for session replication and failover. SAP BOBI platform sessions are serialized, so a user session can fail over seamlessly to another instance of Tomcat, even when an application server fails.
 
-For example, if a user is connected to a web server that fails while the user is navigating a folder hierarchy in SAP BI application. With a correctly configured cluster, the user may continue navigating the folder hierarchy without being redirected to sign in page.
+For example, suppose a user is connected to a web server that fails while the user is navigating a folder hierarchy in a SAP BI application. With a correctly configured cluster, the user can continue navigating the folder hierarchy without being redirected to the sign-in page.
 
-In SAP Note [2808640](https://launchpad.support.sap.com/#/notes/2808640), steps to configure tomcat clustering is provided using multicast. But in Azure, multicast isn't supported. So to make Tomcat cluster work in Azure, you must use [StaticMembershipInterceptor](https://tomcat.apache.org/tomcat-8.0-doc/config/cluster-interceptor.html#Static_Membership) (SAP Note [2764907](https://launchpad.support.sap.com/#/notes/2764907)). Check [Tomcat Clustering using Static Membership for SAP BusinessObjects BI Platform](https://blogs.sap.com/2020/09/04/sap-on-azure-tomcat-clustering-using-static-membership-for-sap-businessobjects-bi-platform/) on SAP blog to set up tomcat cluster in Azure.
+See SAP Note [2808640](https://launchpad.support.sap.com/#/notes/2808640) for steps to configure Tomcat clustering by using multicast. Note that Azure, however, doesn't support multicast. So to make the Tomcat cluster work in Azure, you must use [StaticMembershipInterceptor](https://tomcat.apache.org/tomcat-8.0-doc/config/cluster-interceptor.html#Static_Membership) (SAP Note [2764907](https://launchpad.support.sap.com/#/notes/2764907)). For more information, see the blog post [Tomcat Clustering using Static Membership for SAP BusinessObjects BI Platform](https://blogs.sap.com/2020/09/04/sap-on-azure-tomcat-clustering-using-static-membership-for-sap-businessobjects-bi-platform/).
 
 ### Load-balancing web tier of SAP BI platform
 
-In SAP BOBI multi-instance deployment, Java Web Application servers (web tier) are running on two or more hosts. To distribute user load evenly across web servers, you can use a load balancer between end users and web servers. In Azure, you can either use Azure Load Balancer or Azure Application Gateway to manage traffic to your web application servers. Details about each offering are explained in following section.
+In a SAP BOBI multi-instance deployment, Java Web Application servers (web tier) are running on two or more hosts. To distribute the user load evenly across web servers, you can use a load balancer between end users and web servers. In Azure, you can either use Azure Load Balancer or Azure Application Gateway to manage traffic to your web application servers. Details about each offering are explained in following section.
 
-1. [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) is a high performance, low latency layer 4 (TCP, UDP) load balancer that distributes traffic among healthy Virtual Machines. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational Virtual Machine(s). You can either choose a public load balancer or internal load balancer depending on whether you want SAP BI Platform accessible from internet or not. Its zone redundant, ensuring high-availability across Availability Zones.
+#### Azure Load Balancer
 
-   Refer to Internal Load Balancer section in below figure where web application server runs on port 8080, default Tomcat HTTP Port, which will be monitored by health probe. So any incoming request that comes from end users will get redirected to the web application servers (azusbosl1 or azusbosl2) in the backend pool. Load balancer doesn’t support TLS/SSL Termination (also known as TLS/SSL Offloading). If you are using Azure load balancer to distribute traffic across web servers, we recommend using Standard Load Balancer.
+[Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) is a high performance, low latency layer 4 (TCP, UDP) load balancer. It distributes traffic among healthy virtual machines (VMs). A load balancer health probe monitors a specified port on each VM, and only distributes traffic to an operational VM. You can either choose a public load balancer or an internal load balancer, depending on whether or not you want SAP BI platform accessible from the internet. It's zone redundant, ensuring high-availability across availability zones.
 
-   > [!NOTE]
-   > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md).
+In the following diagram, refer to the Internal Load Balancer section. The web application server runs on port 8080, the default Tomcat HTTP port, which will be monitored by health probe. Any incoming request that comes from end users is redirected to the web application servers (`azusbosl1` or `azusbosl2`). Load Balancer doesn’t support TLS/SSL termination (also known as TLS/SSL offloading). If you're using Load Balancer to distribute traffic across web servers, use Standard Load Balancer.
 
-   ![Azure Load Balancer to balance traffic across Web Servers](media/businessobjects-deployment-guide/businessobjects-deployment-load-balancer.png)
+> [!NOTE]
+> When VMs without public IP addresses are placed in the pool of internal (no public IP address) Standard Load Balancer, there will be no outbound internet connectivity, unless you perform additional configuration to allow routing to public end points. For more information, see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md).
 
-2. [Azure Application Gateway (AGW)](../../../application-gateway/overview.md) provide Application Delivery Controller (ADC) as a service, which is used to help application to direct user traffic to one or more web application servers. It offers various layer 7 load-balancing capabilities like TLS/SSL Offloading, Web Application Firewall (WAF), Cookie-based session affinity and others for your applications.
+![Diagram that shows Azure Load Balancer balancing traffic across web servers.](media/businessobjects-deployment-guide/businessobjects-deployment-load-balancer.png)
 
-   In SAP BI Platform, application gateway directs application web traffic to the specified resources in a backend pool - azusbosl1 or azusbos2. You assign a listener to port, create rules, and add resources to a backend pool. In below figure, application gateway with private frontend IP address (10.31.3.20) act as entry point for the users, handles incoming TLS/SSL (HTTPS - TCP/443) connections, decrypt the TLS/SSL and passing on the unencrypted request (HTTP - TCP/8080) to the servers in the backend pool. With in-built TLS/SSL termination feature, we just need to maintain one TLS/SSL certificate on application gateway, which simplifies operations.
+#### Azure Application Gateway
 
-   ![Application Gateway to balance traffic across Web Servers](media/businessobjects-deployment-guide/businessobjects-deployment-application-gateway.png)
+[Azure Application Gateway](../../../application-gateway/overview.md) provides Application Delivery Controller (ADC) as a service. This service is used to help the application to direct user traffic to one or more web application servers. It offers various layer 7 load-balancing capabilities, such as TLS/SSL offloading, web application firewall (WAF), and cookie-based session affinity.
 
-   To configure Application Gateway for SAP BOBI Web Server, you can refer to [Load Balancing SAP BOBI Web Servers using Azure Application Gateway](https://blogs.sap.com/2020/09/17/sap-on-azure-load-balancing-web-application-servers-for-sap-bobi-using-azure-application-gateway/) on SAP blog.
+In SAP BI platform, Application Gateway directs application web traffic to the specified resources, either `azusbosl1` or `azusbos2`. You assign a listener to a port, create rules, and add resources to a pool. In the following diagram, Application Gateway has a private IP address (10.31.3.20) that acts as an entry point for users. It also handles incoming TLS/SSL (HTTPS - TCP/443) connections, decrypts the TLS/SSL, and passes on the unencrypted request (HTTP - TCP/8080) to the servers. It simplifies operations to maintain just one TLS/SSL certificate on Application Gateway.
 
-   > [!NOTE]
-   > We recommend to use Azure Application Gateway to load balance the traffic to web server as it provide feature likes like SSL offloading, Centralize SSL management to reduce encryption and decryption overhead on server, Round-Robin algorithm to distribute traffic, Web Application Firewall (WAF) capabilities, high-availability and so on.
+![Diagram that shows Application Gateway balancing traffic across web servers.](media/businessobjects-deployment-guide/businessobjects-deployment-application-gateway.png)
 
-## SAP BusinessObjects BI Platform Reliability on Azure
+To configure Application Gateway for a SAP BOBI web server, see the blog post [Load Balancing SAP BOBI Web Servers using Azure Application Gateway](https://blogs.sap.com/2020/09/17/sap-on-azure-load-balancing-web-application-servers-for-sap-bobi-using-azure-application-gateway/).
 
-SAP BusinessObjects BI Platform includes different tiers, which are optimized for specific tasks and operations. When a component from any one tier becomes unavailable, SAP BOBI application will either become inaccessible or certain functionality of the application won’t work. So one need to make sure that each tier is designed to be reliable to keep application operational without any business disruption.
+> [!NOTE]
+> Azure Application Gateway is preferable to load balance the traffic to a web server. It provides helpful features, such as SSL offloading, centralized SSL management to reduce encryption and decryption overhead on the server, a round-robin algorithm to distribute traffic, WAF capabilities, and high availability.
 
-This guide will explore how features native to Azure in combination with SAP BOBI platform configuration improves the availability of SAP deployment. This section focuses on the following options for SAP BOBI Platform reliability on Azure -
+## SAP BOBI platform reliability on Azure
 
-- **Back up and Restore:** It's a process of creating periodic copies of data and applications to separate location. So it can be restored or recovered to previous state if the original data or applications are lost or damaged.
+SAP BOBI platform includes different tiers, which are optimized for specific tasks and operations. When a component from any one tier becomes unavailable, a SAP BOBI application either becomes inaccessible or limited in its functionality. Make sure that each tier is designed to be reliable, to keep the application operational without any business disruption.
 
-- **High Availability:** A high available platform has at least two of everything within Azure region to keep the application operational if one of the servers becomes unavailable.
-- **Disaster Recovery:** It's a process of restoring your application functionality if there are any catastrophic loss like entire Azure Region becomes unavailable because of some natural disaster.
+This guide explores how features native to Azure, in combination with the SAP BOBI platform configuration, improves the availability of SAP deployment. This section focuses on the following options:
 
-Implementation of this solution varies based on the nature of the system setup in Azure. So customer needs to tailor their backup/restore, high availability and disaster recovery solution based on their business requirement.
+- **Backup and restore:** It's a process of creating periodic copies of data and applications to a separate location. You can restore or recover to a previous state if the original data or applications are lost or damaged.
 
-## Back-up and restore
+- **High availability:** A highly available platform has at least two of everything within an Azure region, to keep the application operational if one of the servers becomes unavailable.
+- **Disaster recovery:** It's a process of restoring your application functionality if there's any catastrophic loss, such as an entire Azure region becoming unavailable because of some natural disaster.
 
-Backup and Restore is a process of creating periodic copies of data and applications to separate location. So it can be restored or recovered to previous state if the original data or applications are lost or damaged. It's also an essential component of any business disaster recovery strategy.
+Implementation of this solution varies based on the nature of the system setup in Azure. Tailor you backup/restore, high availability, and disaster recovery solutions according to your business requirements.
 
-To develop comprehensive backup and restore strategy for SAP BOBI Platform, identify the components that lead to system downtime or disruption in the application. In SAP BOBI Platform, backup of following components are vital to protect the application.
+## Backup and restore
 
-- SAP BOBI Installation Directory (Managed Premium Disks)
-- File Repository Server (Azure NetApp Files or Azure Premium Files)
-- CMS Database (Azure Database for MySQL or Database on Azure VM)
+Backup and restore is an essential component of any business disaster recovery strategy. To develop a comprehensive strategy for SAP BOBI platform, identify the components that lead to system downtime or disruption in the application. In the SAP BOBI platform, backup of following components are vital to protect the application:
 
-Following section describes how to implement backup and restore strategy for each component on SAP BOBI Platform.
+- SAP BOBI installation directory (Managed Premium Disks)
+- File repository server (Azure NetApp Files or Azure Premium Files)
+- CMS database (Azure Database for MySQL or a database on Azure Virtual Machines)
 
-### Backup & restore for SAP BOBI installation directory
+The following section describes how to implement a backup and restore strategy for each of these components.
 
-In Azure, the simplest way to back up application servers and all the attached disks is by using [Azure Backup](../../../backup/backup-overview.md) Service. It provides independent and isolated backups to guard unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scaling are simple, backups are optimized and can be restored easily when needed.
+### Backup and restore for SAP BOBI installation directory
 
-As part of backup process, snapshot is taken and the data is transferred to the Recovery Service vault with no impact on production workloads. The snapshot provides different level of consistency as described in [Snapshot Consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) article. You can also choose to back up subset of the data disks in VM by using selective disks backup and restore functionality. For more information, see [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md) document and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.yml).
+In Azure, the simplest way to back up application servers and all the attached disks is by using [Azure Backup](../../../backup/backup-overview.md). It provides independent and isolated backups to guard against unintended destruction of the data on your VMs. Backups are stored in a recovery services vault, with built-in management of recovery points. Configuration and scaling are simple, backups are optimized, and you can easily restore when you need to.
 
-#### Backup & restore for file repository server
+As part of backup process, a snapshot is taken, and the data is transferred to the vault with no impact on production workloads. For more information, see [Snapshot consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency). You can also choose to back up a subset of the data disks in your VM, by using the selective disks backup and restore functionality. For more information, see [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md) and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.yml).
 
-Based on your SAP BOBI deployment on Linux, filestore of SAP BOBI platform can be Azure NetApp Files. Choose from the following options for backup and restore based on the storage you use for filestore.
+#### Backup and restore for file repository server
 
-- **Azure NetApp Files**, you can create an on-demand snapshots and schedule automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your ANF volume. For more information, see [Manage snapshots by using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+Based on your SAP BOBI deployment on Linux, you can use Azure NetApp Files as the filestore of your SAP BOBI platform. Choose from the following options for backup and restore based on the storage you use for filestore.
 
-- If you have created separate NFS server, make sure you implement the back and restore strategy for the same.
+- **Azure NetApp Files:** You can create on-demand snapshots, and schedule automatic snapshots by using snapshot policies. Snapshot copies provide a point-in-time copy of your volume. For more information, see [Manage snapshots by using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
-#### Backup & restore for CMS and audit database
+- If you have created a separate NFS server, make sure you implement the backup and restore strategy for the same server.
+
+#### Backup and restore for CMS and audit databases
 
 For SAP BOBI Platform running on Linux virtual machines, the CMS and audit database can run on any of the supported databases as described in the [support matrix](businessobjects-deployment-guide.md#support-matrix) of SAP BusinessObjects BI platform planning and implementation guide on Azure. So it's important that you adopt the backup and restore strategy based on the database used for CMS and audit data store.
 
