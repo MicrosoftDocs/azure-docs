@@ -69,15 +69,15 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 
    - If there was no tampering in your database, the message is:
 
-   ```output
-   Ledger verification successful
-   ```
+       ```output
+       Ledger verification successful
+       ```
 
    - If there was tampering in your database, the following error appears in the **Messages** window.
   
-   ```output
-   Failed to execute query. Error: The hash of block xxxx in the database ledger does not match the hash provided in the digest for this block.
-   ```
+       ```output
+       Failed to execute query. Error: The hash of block xxxx in the database ledger does not match the hash provided in the digest for this block.
+       ```
 
 # [T-SQL using automatic digest storage](#tab/t-sql-automatic)
 
@@ -106,20 +106,20 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
    - **last_digest_block_id** indicates the block ID of the last digest stored in the **path** location.
    - **is_current** indicates whether the location in **path** is the current (true) or previous (false) one.
 
-   ```json
-   [
-    {
-        "path": "https:\/\/digest1.blob.core.windows.net\/sqldbledgerdigests\/janderstestportal2server\/jandersnewdb\/2021-05-20T04:39:47.6570000",
-        "last_digest_block_id": 10016,
-        "is_current": true
-    },
-    {
-        "path": "https:\/\/jandersneweracl.confidential-ledger.azure.com\/sqldbledgerdigests\/janderstestportal2server\/jandersnewdb\/2021-05-20T04:39:47.6570000",
-        "last_digest_block_id": 1704,
-        "is_current": false
-    }
-   ]
-   ```
+       ```json
+       [
+        {
+            "path": "https:\/\/digest1.blob.core.windows.net\/sqldbledgerdigests\/janderstestportal2server\/jandersnewdb\/2021-05-20T04:39:47.6570000",
+            "last_digest_block_id": 10016,
+            "is_current": true
+        },
+        {
+            "path": "https:\/\/jandersneweracl.confidential-ledger.azure.com\/sqldbledgerdigests\/janderstestportal2server\/jandersnewdb\/2021-05-20T04:39:47.6570000",
+            "last_digest_block_id": 1704,
+            "is_current": false
+        }
+       ]
+       ```
 
    > [!IMPORTANT]
    > When you run ledger verification, inspect the location of **digest_locations** to ensure digests used in verification are retrieved from the locations you expect. You want to make sure that a privileged user hasn't changed locations of digest storage to an unprotected storage location, such as Azure Storage, without a configured and locked immutability policy.
