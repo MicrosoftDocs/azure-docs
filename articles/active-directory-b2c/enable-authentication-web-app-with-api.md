@@ -1,6 +1,6 @@
 ---
 title: Enable authentication in a web that calls a web API using Azure Active Directory B2C building blocks
-description:  The building blocks of Azure Active Directory B2C to sign in and sign up users in an ASP.NET web application that calls a web API.
+description:  The building blocks of an ASP.NET web application that calls a web API using Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -15,7 +15,7 @@ ms.custom: "b2c-support"
 
 # Enable authentication in your own web application that calls a web API using Azure Active Directory B2C
 
-This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own ASP.NET web application that calls a web API. Learn how create an ASP.NET Core web application with ASP.NET Core middleware that uses the [OpenID Connect](openid-connect.md) protocol. Use this article in conjunction with [Configure authentication in a sample web application that calls a web API](configure-authentication-sample-web-app-with-api.md), substituting the sample web app with your own web app.
+This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own ASP.NET web application that calls a web API. Learn how create an ASP.NET Core web application with ASP.NET Core middleware that uses the [OpenID Connect](openid-connect.md) protocol. Use this article with [Configure authentication in a sample web application that calls a web API](configure-authentication-sample-web-app-with-api.md), substituting the sample web app with your own web app.
 
 This article focus on the web application project. For instructions how to create the web API, see the [to do list web API sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C).
 
@@ -146,7 +146,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 ## Add the UI elements
 
-To add user interface elements, use a partial view that contains logic for checking whether a user is signed in or not. If the user is not signed in, the partial view renders the sign-in button. If the user is signed in, it shows the user's display name and sign-out button.
+To add user interface elements, use a partial view. The partial view contains logic for checking whether a user is signed in or not. If the user is not signed in, the partial view renders the sign-in button. If the user is signed in, it shows the user's display name and sign-out button.
   
 Create a new file `_LoginPartial.cshtml` inside the `Views/Shared` folder with the following code snippet:
 

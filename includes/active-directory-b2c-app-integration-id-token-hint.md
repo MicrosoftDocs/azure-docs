@@ -9,6 +9,6 @@ ms.author: mimart
 ---
 ## Pass ID token hint
 
-A relying party application can send an inbound JWT token as part of the OAuth2 authorization request. The JWT token can be issued by the relying party application, or an identity provider. The app then passes the token as a hint about the user, or the authorization request. Azure AD B2C validates the signature, issuer name, and token audience, and extracts the claim from the inbound token.
+A relying party application can send an inbound JWT token as part of the OAuth2 authorization request.  The inbound token is a hint about the user, or the authorization request. Azure AD B2C validates the token, and extracts the claim.
 
 To include an ID token hint in the authentication request, follow these steps:
