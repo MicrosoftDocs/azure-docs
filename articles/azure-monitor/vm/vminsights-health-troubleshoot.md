@@ -108,7 +108,7 @@ Verify that the system assigned identity is enabled on the virtual machine. Sele
 ##### Verify data collection rule
 Verify that the data collection rule specifying health extension as a data source is associated with the virtual machine.
 
-## Error message for bad request due to insufficient permissions
+### Error message for bad request due to insufficient permissions
 This error indicates that the **Microsoft.WorkloadMonitor** resource provider wasn’t registered in the subscription. See [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for details on registering this resource provider. 
 
 ![Bad request](media/vminsights-health-troubleshoot/bad-request.png)
