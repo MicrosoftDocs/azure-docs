@@ -30,7 +30,7 @@ The following operations are disabled by default in a virtual network:
 
 The studio supports reading data from the following datastore types in a virtual network:
 
-* Azure Blob
+* Azure Storage Account (blob & file)
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
