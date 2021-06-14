@@ -31,7 +31,7 @@ The following table lists the steps that must be performed for this configuratio
 | [Send Activity log to Log Analytics workspace](#send-activity-log-to-log-analytics-workspace) | Send the Activity log to the workspace to analyze it with other log data. |
 | [Prepare hybrid machines](#prepare-hybrid-machines) | Hybrid machines either need the Azure Arc agent installed so they can be managed like Azure virtual machines or have their agents installed manually. |
 | [Enable VM insights on machines](#enable-vm-insights-on-machines) | Onboard machines to VM insights, which deploys required agents and begins collecting data from guest operating system. |
-| [Send guest performance data to Metrics (optional)](#send-guest-performance-data-to-metrics-optional) | Optionally install the diagnostic extension on Azure virtual machines to send performance data to Azure Monitor Metrics. |
+| [Send guest performance data to Metrics](#send-guest-performance-data-to-metrics) |Install the Azure Monitor agent to send performance data to Azure Monitor Metrics. |
 
 
 

@@ -40,7 +40,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 
 - **Metrics.**  Open metrics explorer with the scope set to the machine. This is the same as selecting one of the performance charts from the **Overview** page except that the metric isn't already added.
 
-- **Diagnostic settings.** Enable and configure [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. Note that this option is different than the **Diagnostic settings** option for other Azure resources. See [Monitor virtual machines with Azure Monitor - Configure monitoring](monitor-virtual-machine-onboard.md#send-guest-performance-data-to-metrics-optional) for more information on the diagnostic extension.  
+- **Diagnostic settings.** Enable and configure [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. Note that this option is different than the **Diagnostic settings** option for other Azure resources. Only enable the diagnostic extension if you need to send data to Azure Event Hubs or Azure Storage.
 
 
 - **Advisor recommendations.** Recommendations for the current virtual machine from [Azure Advisor](../../advisor/index.yml).
@@ -86,11 +86,7 @@ This can confusing if you're new to Azure Monitor, but the following details sho
 - Any non-numeric data such as events is stored in Logs. Metrics can only include numeric data that's sampled at regular intervals.
 - Numeric data can be stored in both Metrics and Logs so it can be analyzed in different ways and support different types of alerts.
 - Performance data from the guest operating system will be sent to Logs by VM insights using the Log Analytics agent and Dependency agent.
-- Performance data from the guest operating system will only be sent to Metrics if the diagnostic extension is installed. The diagnostic extension is only available for Azure virtual machines. See [Send guest performance data to Metrics (optional)](monitor-virtual-machine-onboard.md#send-guest-performance-data-to-metrics-optional)
-- A specific set of performance counters is available for metric alerts even though the data is stored in Logs. These counters cannot be analyzed with Metrics explorer. See [Monitoring virtual machines with Azure Monitor - Alerts](monitor-virtual-machine-alerts.md#choosing-the-alert type) for details.-
-
-> [!NOTE]
-> The Azure Monitor Agent, currently in public preview, will replace the Log Analytics agent and have the ability to send client performance data to both Logs and Metrics. When this agent becomes generally available with VM insights, then all performance data will sent to both Logs and Metrics significantly simplifying this logic. 
+- Performance data from the guest operating system will be sent to Metrics by Azure Monitor agent.
 
 
 ## Analyze data with VM insights
@@ -109,20 +105,14 @@ Use the **Map** view to see running processes on machines and their dependencies
 ## Analyze metric data with metrics explorer
 Metrics explorer allows you plot charts, visually correlate trends, and investige spikes and dips in metrics' values. See [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md) for details on using this tool. 
 
-> [!NOTE]
-> You will only have host metrics for a machine unless the diagnostic extension is installed. This is the same data collected by VM insights, but that data is stored in Logs and note available in metrics explorer. For machines without the diagnostic extension installed, you'll see an option in the **Metric Namespace** dropdown called **Enable new guest memory metrics**. This option describes how to add the diagnostic extension to the machine to collect guest metrics. These same values are collected in Logs when VM insights is enabled.
-
-
 There are three namespaces used by virtual machines:
 
 | Namespace | Description | Requirement |
 |:---|:---|:---|
 | Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
 | Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../agents/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
-| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../agents/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../essentials/collect-custom-metrics-linux-telegraf.md). |
+| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) installed with a [Data Collection Rule](../agents/data-collection-rule-overview.md). |
 
-> [!NOTE]
-> For machines without the diagnostic extension installed, you'll see an option in the **Metric Namespace** dropdown called **Enable new guest memory metrics**. This option describes how to add the diagnostic extension to the machine to collect guest metrics. These same values are collected in Logs when VM insights is enabled.
 
 ## Analyze log data with Log Analytics
 Log Analytics allows you to perform custom analysis of your log data. Use Log Analytics when you want to dig deeper into the data used to create the views in VM insights. You may want to analyze different logic and aggregations of that data, correlate security data collected by Azure Security Center and Azure Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).
