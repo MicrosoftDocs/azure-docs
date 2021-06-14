@@ -25,7 +25,7 @@ There are two levels of support:
 
 ### Language major version support
 
-Azure Functions provides a guarantee of support for the programming language major versions. For most of the programming languages, there will be minor or patch versions that are going to be released after the major versions of the programming languages started to be supported on the platform. Once these new minor versions are available, your functions apps programming language minor versions will be automatically upgraded to newer versions. 
+Azure Functions provides a guarantee of support for the programming language major versions. For most of the programming languages, there will be minor or patch versions(i.e. Python 3.9.1 and Node 14.17) updates that are going to be released after the major versions started to be supported on the platform. Once these new minor versions are available, your functions apps programming language minor versions will be automatically upgraded to newer versions. 
 
 > [!NOTE]
 >We encourage you to not pin your function apps to a specific minor/patch version of programming language, as the platform might remove the support of older minor versions at any time after new minor versions are available.  
