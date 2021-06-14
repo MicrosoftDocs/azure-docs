@@ -23,19 +23,19 @@ An [Azure Landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) is 
 
 Since WWI is based in San Francisco, all resources for the Azure landing zone were created in the `US West 2` region. The following resources were created to support the migration:
 
-  - [Azure Database for MySQL ](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
+  - [Azure Database for MySQL ](../quickstart-create-mysql-server-database-using-azure-portal.md)
 
-  - [Azure Database Migration Service (DMS) ](/azure/dms/quickstart-create-data-migration-service-portal)
+  - [Azure Database Migration Service (DMS) ](../../dms/quickstart-create-data-migration-service-portal.md)
 
-  - [Express Route ](/azure/expressroute/expressroute-introduction)
+  - [Express Route ](../../expressroute/expressroute-introduction.md)
 
-  - [Azure Virtual Network](/azure/virtual-network/quick-create-portal) with [hub and spoke design](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with corresponding [virtual network peerings](/azure/virtual-network/virtual-network-peering-overview) establish.
+  - [Azure Virtual Network](../../virtual-network/quick-create-portal.md) with [hub and spoke design](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with corresponding [virtual network peerings](../../virtual-network/virtual-network-peering-overview.md) establish.
 
-  - [App Service ](/azure/app-service/overview)
+  - [App Service ](../../app-service/overview.md)
 
-  - [Application Gateway ](/azure/load-balancer/quickstart-load-balancer-standard-internal-portal?tabs=option-1-create-internal-load-balancer-standard)
+  - [Application Gateway ](../../load-balancer/quickstart-load-balancer-standard-internal-portal.md?tabs=option-1-create-internal-load-balancer-standard)
 
-  - [Private endpoints](/azure/private-link/private-endpoint-overview) for the App Services and MySQL instance
+  - [Private endpoints](../../private-link/private-endpoint-overview.md) for the App Services and MySQL instance
 
 > [!NOTE]
 > As part of this guide, two ARM templates (one with private endpoints, one without) were provided in order to deploy a potential Azure landing zone for a MySQL migration project. The private endpoints ARM template provides a more secure and production like scenario. Additional manual Azure landing zone configuration may be necessary, depending on the requirements.
@@ -59,15 +59,15 @@ The migration tool location determines the network connectivity requirements. As
 
 Other networking considerations include:
 
-  - DMS located in a VNET is assigned a [dynamic public IP](/azure/dms/faq#setup) to the service. At creation time, you can place the service inside a virtual network that has connectivity via a [ExpressRoute](/azure/expressroute/expressroute-introduction) or over [a site to site VPN. ](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+  - DMS located in a VNET is assigned a [dynamic public IP](../../dms/faq.md#setup) to the service. At creation time, you can place the service inside a virtual network that has connectivity via a [ExpressRoute](../../expressroute/expressroute-introduction.md) or over [a site to site VPN. ](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
   - When using an Azure Virtual Machine to run the migration tools, assign it a public IP address and then only allow it to connect to the on-premises MySQL instance.
 
-  - Outbound firewalls must ensure outbound connectivity to Azure Database for MySQL. The MySQL gateway IP addresses are available on th[e Connectivity Architecture in Azure Database for MySQL](/azure/mysql/concepts-connectivity-architecture#azure-database-for-mysql-gateway-ip-addresses) page.
+  - Outbound firewalls must ensure outbound connectivity to Azure Database for MySQL. The MySQL gateway IP addresses are available on th[e Connectivity Architecture in Azure Database for MySQL](../concepts-connectivity-architecture.md#azure-database-for-mysql-gateway-ip-addresses) page.
 
 ## SSL/TLS connectivity
 
-In addition to the application implications of migrating to SSL-based communication, the SSL/TLS connection types are also something that needs to be considered. After creating the Azure Database for MySQL database, review the SSL settings, and read the [SSL/TLS connectivity in Azure Database for MySQL](/azure/mysql/concepts-ssl-connection-security) article to understand how the TLS settings can affect the security posture.
+In addition to the application implications of migrating to SSL-based communication, the SSL/TLS connection types are also something that needs to be considered. After creating the Azure Database for MySQL database, review the SSL settings, and read the [SSL/TLS connectivity in Azure Database for MySQL](../concepts-ssl-connection-security.md) article to understand how the TLS settings can affect the security posture.
 
 > [!Important]
 > Pay attention to the disclaimer on the page. Enforcement of TLS version is not be enabled by default. Once TLS is enabled, the only way to disable it is to re-enable SSL.

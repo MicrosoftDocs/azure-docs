@@ -23,12 +23,12 @@ Moving to a cloud-based service doesn’t mean the entire internet has access to
 
 ## Authentication
 
-Azure Database for MySQL supports the basic authentication mechanisms for MySQL user connectivity, but also supports [integration with Azure Active Directory.](/azure/mysql/concepts-azure-ad-authentication) This security integration works by issuing tokens that act like passwords during the MySQL login process. [Configuring Active Directory integration](/azure/mysql/howto-configure-sign-in-azure-ad-authentication) is incredibly simple to do and supports not only users, but AAD groups as well.
+Azure Database for MySQL supports the basic authentication mechanisms for MySQL user connectivity, but also supports [integration with Azure Active Directory.](../concepts-azure-ad-authentication.md) This security integration works by issuing tokens that act like passwords during the MySQL login process. [Configuring Active Directory integration](../howto-configure-sign-in-azure-ad-authentication.md) is incredibly simple to do and supports not only users, but AAD groups as well.
 
 This tight integration allows administrators and applications to take advantage of the enhanced security features of [Azure Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection) to surface any identity issues.
 
 > [!NOTE] 
-> This security feature is supported by MySQL 5.7 and later. Most [application drivers](/azure/mysql/howto-configure-sign-in-azure-ad-authentication) are supported as long as the `clear-text` option is provided.
+> This security feature is supported by MySQL 5.7 and later. Most [application drivers](../howto-configure-sign-in-azure-ad-authentication.md) are supported as long as the `clear-text` option is provided.
 
 ## Threat protection
 
@@ -36,7 +36,7 @@ if a user or application credentials are compromised, logs are not likely to ref
 
 ## Audit logging
 
-MySQL has a robust built-in audit log feature. By default, this [audit log feature is disabled](/azure/mysql/concepts-audit-logs) in Azure Database for MySQL. Server level logging can be enabled by changing the `audit\_log\_enabled` server parameter. Once enabled, logs can be accessed through [Azure Monitor](/azure/azure-monitor/overview) and [Log Analytics](/azure/azure-monitor/platform/design-logs-deployment) by turning on [diagnostic logging.](/azure/mysql/howto-configure-audit-logs-portal#set-up-diagnostic-logs)
+MySQL has a robust built-in audit log feature. By default, this [audit log feature is disabled](../concepts-audit-logs.md) in Azure Database for MySQL. Server level logging can be enabled by changing the `audit\_log\_enabled` server parameter. Once enabled, logs can be accessed through [Azure Monitor](../../azure-monitor/overview.md) and [Log Analytics](../../azure-monitor/logs/design-logs-deployment.md) by turning on [diagnostic logging.](../howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)
 
 To query for user connection-related events, run the following KQL query:
 
@@ -51,19 +51,19 @@ AzureDiagnostics
 
 ## Encryption
 
-Data in the MySQL instance is encrypted at rest by default. Any automated backups are also encrypted to prevent potential leakage of data to unauthorized parties. This encryption is typically performed with a key that is created when the instance is created. In addition to this default encryption key, administrators have the option to [bring your own key (BYOK).](/azure/mysql/concepts-data-encryption-mysql)
+Data in the MySQL instance is encrypted at rest by default. Any automated backups are also encrypted to prevent potential leakage of data to unauthorized parties. This encryption is typically performed with a key that is created when the instance is created. In addition to this default encryption key, administrators have the option to [bring your own key (BYOK).](../concepts-data-encryption-mysql.md)
 
 When using a customer-managed key strategy, it's vital to understand responsibilities around key lifecycle management. Customer keys are stored in an [Azure Key Vault](/azure/key-vault/general/basic-concepts) and then accessed via policies. it's vital to follow all recommendations for key management, the loss of the encryption key equates to the loss of data access.
 
 In addition to a customer-managed key, use service-level keys to [add double encryption.](/azure/mysql/concepts-infrastructure-double-encryption) Implementing this feature can provide highly encrypted data at rest, but it does come with encryption performance penalties. Testing should be performed.
 
-Data can be encrypted during transit using SSL/TLS. As previously discussed, it may be necessary to [modify your applications](/azure/mysql/howto-configure-ssl) to support this change and also configure the appropriate TLS validation settings.
+Data can be encrypted during transit using SSL/TLS. As previously discussed, it may be necessary to [modify your applications](../howto-configure-ssl.md) to support this change and also configure the appropriate TLS validation settings.
 
 ## Firewall
 
 Once users are set up and the data is encrypted at rest, the migration team should review the network data flows. Azure Database for MySQL provides several mechanisms to secure the networking layers by limiting access to only authorized users, applications, and devices.
 
-The first line of defense for protecting the MySQL instance is to implement [firewall rules.](/azure/mysql/concepts-firewall-rules) IP addresses can be limited to only valid locations when accessing the instance via internal or external IPs. If the MySQL instance is destined to only serve internal applications, then [restrict public access. ](/azure/mysql/howto-deny-public-network-access)
+The first line of defense for protecting the MySQL instance is to implement [firewall rules.](../concepts-firewall-rules.md) IP addresses can be limited to only valid locations when accessing the instance via internal or external IPs. If the MySQL instance is destined to only serve internal applications, then [restrict public access. ](../howto-deny-public-network-access.md)
 
 When moving an application to Azure along with the MySQL workload, it's likely there are been multiple virtual networks setup in a hub and spoke pattern that requires [Virtual Network Peering](/azure/virtual-network/virtual-network-peering-overview) to be configured.
 
@@ -72,7 +72,7 @@ When moving an application to Azure along with the MySQL workload, it's likely t
 To limit access to the Azure Database for MySQL to internal Azure resources, enable [Private Link.](/azure/mysql/concepts-data-access-security-private-link) Private Link ensures that the MySQL instance is assigned a private IP rather than a public IP address.
 
 > [!NOTE]
-> There are many other [basic Azure Networking considerations](/azure/mysql/concepts-data-access-and-security-vnet) that must be taken into account that are not the focus of this guide.
+> There are many other [basic Azure Networking considerations](../concepts-data-access-and-security-vnet.md) that must be taken into account that are not the focus of this guide.
 
 Review a set of potential [security baseline](/azure/mysql/security-baseline) tasks that can be implemented across all Azure resources. Not all of the items described on the reference link apply to the specific data workloads or Azure resources.
 

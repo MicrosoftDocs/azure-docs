@@ -13,7 +13,7 @@ ms.date: 06/11/2021
 
 # MySQL on-premises to Azure Database for MySQL migration guide Introduction
 
-This migration guide is designed to provide stackable and actionable information for MySQL customers and software integrators seeking to migrate MySQL workloads to [Azure Database for MySQL.](/azure/mysql/overview) This guide gives applicable knowledge that applies to most cases and provides guidance that leads to the successful planning and execution of a MySQL migration to Azure.
+This migration guide is designed to provide stackable and actionable information for MySQL customers and software integrators seeking to migrate MySQL workloads to [Azure Database for MySQL.](../overview.md) This guide gives applicable knowledge that applies to most cases and provides guidance that leads to the successful planning and execution of a MySQL migration to Azure.
 
 The process of moving existing databases and MySQL workloads into the cloud can present challenges concerning the workload functionality and the connectivity of existing applications. The information presented throughout this guide offers helpful links and recommendations focusing on a successful migration and ensure workloads and applications continue operating as originally intended.
 
@@ -25,9 +25,9 @@ MySQL has a rich history in the open-source community and has become popular wit
 
 ## Azure Database for MySQL
 
-[Azure Database for MySQL](/azure/mysql/overview) is a Platform as a Service (PaaS) offering by Microsoft, where the MySQL environment is fully managed. In this fully managed environment, the operating system and software updates are automatically applied, and the implementation of high availability and protection of the data.
+[Azure Database for MySQL](../overview.md) is a Platform as a Service (PaaS) offering by Microsoft, where the MySQL environment is fully managed. In this fully managed environment, the operating system and software updates are automatically applied, and the implementation of high availability and protection of the data.
 
-In addition to the PaaS offering, it's still possible to run MySQL in Azure VMs. Reference the [Choose the right MySQL Server option in Azure](/azure/mysql/select-right-deployment-type) article to decide what deployment type is most appropriate for the target data workload.
+In addition to the PaaS offering, it's still possible to run MySQL in Azure VMs. Reference the [Choose the right MySQL Server option in Azure](../select-right-deployment-type.md) article to decide what deployment type is most appropriate for the target data workload.
 
 ![Comparison of MySQL environments](./media/image3.jpg)
 
@@ -36,4 +36,8 @@ In addition to the PaaS offering, it's still possible to run MySQL in Azure VMs.
 This guide focuses entirely on migrating the on-premises MySQL workloads to the Platform as a Service Azure Database for MySQL offering due to its various advantages over Infrastructure as a Service (IaaS) such as scale-up and scale-out, pay-as-you-go, high availability, security, and manageability features.  
 
 > [!div class="nextstepaction"]
+<<<<<<< HEAD:articles/mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
 > [Representative Use Case](./02-representative-use-case.md)
+=======
+> [Representative Use Case](./representative-use-case.md)
+>>>>>>> fbd066cbcaefd1af2d0c76cc96c1d623b6a8fe4c:articles/mysql/migrate/index.md
