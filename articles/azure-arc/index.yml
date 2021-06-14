@@ -65,6 +65,9 @@ conceptualContent:
         - url: ./servers/manage-vm-extensions.md
           itemType: how-to-guide
           text: Manage and use Azure VM extensions
+        - url: /sql/sql-server/azure-arc/overview
+          itemType: overview
+          text: Enable Arc enabled SQL Server (preview)
     # Card
     - title: Azure Arc enabled Kubernetes
       links:
@@ -98,3 +101,24 @@ conceptualContent:
         - url: ./data/index.yml
           itemType: get-started
           text: See more...
+    # Card
+    - title: Application services
+      links:
+        - url: ../app-service/overview-arc-integration.md
+          itemType: overview
+          text: App Service, Functions, and Logic Apps on Azure Arc (preview)
+    # Card
+    - title: Management services
+      links:
+        - url: ../azure-monitor/overview.md
+          itemType: overview
+          text: Azure Monitor overview
+        - url: ../governance/policy/overview.md
+          itemType: overview
+          text: Azure Policy overview
+        - url: ../security-center/azure-defender.md
+          itemType: overview
+          text: Azure Defender overview
+        - url: ../automation/automation-intro.md
+          itemType: overview
+          text: Azure Automation overview
