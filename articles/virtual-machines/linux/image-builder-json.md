@@ -137,7 +137,7 @@ This optional section can be used to ensure that dependencies are completed befo
     "dependsOn": [],
 ```
 
-For more information, see [Define resource dependencies](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
+For more information, see [Define resource dependencies](../../azure-resource-manager/templates/resource-dependency.md#dependson).
 
 ## Identity
 

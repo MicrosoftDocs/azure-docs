@@ -38,6 +38,8 @@ landingContent:
       links:
         - text: Connect an MXCHIP AZ3166 to Azure IoT
           url: quickstart-devkit-mxchip-az3166.md
+        - text: Connect an MXCHIP AZ3166 to Azure IoT Hub
+          url: quickstart-devkit-mxchip-az3166-iot-hub.md
         - text: Connect a Microchip ATSAME54-XPro to Azure IoT
           url: quickstart-devkit-microchip-atsame54-xpro.md
         - text: Connect an NXP MIMXRT1050-EVKB to Azure IoT

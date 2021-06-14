@@ -1,13 +1,13 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 05/26/2021
+ms.date: 06/11/2021
 ms.topic: how-to
 ---
 
 # Create eligible authorizations
 
-When onboarding customers to Azure Lighthouse, you create authorizations to grant specified Azure built-in roles to users in your managing tenant. You can also create eligible authorizations that use [Azure Active Directory (Azure AD) Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to let users in your managing tenant temporarily elevate their role. This lets you grant additional permissions on a just-in-time basis so that users only have those permissions for a set duration.
+When onboarding customers to Azure Lighthouse, you create authorizations to grant specified Azure built-in roles to users in your managing tenant. You can also create eligible authorizations that use [Azure Active Directory (Azure AD) Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) to let users in your managing tenant temporarily elevate their role. This lets you grant additional permissions on a just-in-time basis so that users only have those permissions for a set duration.
 
 Creating eligible authorizations lets you minimize the number of permanent assignments of users to privileged roles, helping to reduce security risks related to privileged access by users in your tenant.
 
@@ -26,7 +26,7 @@ The EMS E5 or Azure AD Premium P2 license must be held by the managing tenant, n
 
 Any extra costs associated with an eligible role will apply only during the period of time in which the user elevates their access to that role.
 
-For information about licenses for users, see [License requirements to use Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements).
+For information about licenses for users, see [License requirements to use Privileged Identity Management](../../active-directory/privileged-identity-management/subscription-requirements.md).
 
 ## How eligible authorizations work
 
@@ -227,7 +227,7 @@ Within the `eligibleAuthorizations` parameter, the `principalId` specifies the I
 > [!IMPORTANT]
 > Be sure to include the same `principalId` in the `authorizations` section of your template with a different role from the eligible authorization, such as Reader (or another Azure built-in role that includes Reader access). If you don't, the user won't be able to elevate their role in the Azure portal.
 
-The `roleDefinitionId` contains the role definition ID for an [Azure built-in role](/azure/role-based-access-control/built-in-roles) that the user will be eligible to use on a just-in-time basis.
+The `roleDefinitionId` contains the role definition ID for an [Azure built-in role](../../role-based-access-control/built-in-roles.md) that the user will be eligible to use on a just-in-time basis.
 
 The `justInTimeAccessPolicy` specifies two elements:
 
@@ -241,12 +241,14 @@ The `justInTimeAccessPolicy` specifies two elements:
 
 After you onboard a customer to Azure Lighthouse, any eligible roles you included will be available to the specified user (or to users in any specified groups).
 
-Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting the **Manage eligible roles** button. After that, they can follow the [steps to activate the role](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role) in Azure AD Privileged Identity Management.
+Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting **Manage eligible roles**. After that, they can follow the [steps to activate the role](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) in Azure AD Privileged Identity Management.
+
+:::image type="content" source="../media/manage-eligible-roles.png" alt-text="Screenshot showing the Manage eligible roles button in the Azure portal.":::
 
 Once the eligible role has been activated, the user will have that role for the full duration specified in the eligible authorization. After that time period, they will no longer be able to use that role, unless they repeat the elevation process and elevate their access again.
 
 ## Next steps
 
 - Learn how to [onboard customers to Azure Lighthouse using ARM templates](onboard-customer.md).
-- Learn more about [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure).
+- Learn more about [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).
 - Learn more about [tenants, users, and roles in Azure Lighthouse](../concepts/tenants-users-roles.md).
