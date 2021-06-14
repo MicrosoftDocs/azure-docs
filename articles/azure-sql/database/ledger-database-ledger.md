@@ -36,7 +36,7 @@ The data for transactions and blocks is physically stored as rows in two system 
 To view the database ledger, run the following T-SQL statements in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
 > [!IMPORTANT]
-> Viewing the database ledger requires the *View Ledger Content* permission. For details on permissions related to ledger tables, see [Permissions](/sql/relational-databases/security/permissions-database-engine#asdbpermissions). 
+> Viewing the database ledger requires the **VIEW LEDGER CONTENT** permission. For details on permissions related to ledger tables, see [Permissions](/sql/relational-databases/security/permissions-database-engine#asdbpermissions). 
 
 ```sql
 SELECT * FROM sys.database_ledger_transactions
