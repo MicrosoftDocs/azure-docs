@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 1. Click the **Azure Confidential Computing (Virtual Machine)** template.
 
-    ![Deploy a VM](media/quick-create-portal/compute-virtual-machine.png)
+    ![Deploy a VM](media/quick-create-marketplace/portal-search-marketplace.png)
 
 1. On the Virtual machine landing page, select **Create**.
 
