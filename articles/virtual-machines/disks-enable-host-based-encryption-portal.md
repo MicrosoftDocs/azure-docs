@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 06/14/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -61,7 +61,7 @@ Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk
 
 ## Deploy a VM
 
-You must deploy a new VM to enable encryption at host, it cannot be enabled on existing VMs.
+Now that the feature has been enabled, you can deploy your VM and it will use encryption at host. Alternatively, for existing VMs, you can deallocate and then reallocate them to use encryption at host.
 
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. Create a new virtual machine, select an appropriate region and a supported VM size.
