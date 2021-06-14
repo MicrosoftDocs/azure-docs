@@ -1,7 +1,7 @@
 ---
 title: Connect MXChip IoT DevKit to Azure IoT Hub Remote Monitoring
 description: In this tutorial, learn how to send status of sensors on IoT DevKit AZ3166 to the Azure IoT Remote Monitoring solution accelerator.
-author: liydu
+author: JimacoMS4
 manager: jeffya
 ms.service: iot-hub
 services: iot-hub

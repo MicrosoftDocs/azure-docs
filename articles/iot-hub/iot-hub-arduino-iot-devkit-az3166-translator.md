@@ -1,7 +1,7 @@
 ---
 title: Make translator w/Azure Functions, Cognitive Services, IoT DevKit
 description: Use the microphone on an IoT DevKit to receive a voice message and then use Azure Cognitive Services for processing it into translated text in English
-author: liydu
+author: JimacoMS4
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Send email when door is opened using Azure Functions
 description: Monitor the magnetic sensor to detect when a door is opened and use Azure Functions to send an email notification.
-author: liydu
+author: JimacoMS4
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

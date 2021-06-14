@@ -1,7 +1,7 @@
 ---
 title: Retrieve a Twitter message with Azure Functions | Microsoft Docs
 description: Use the motion sensor to detect shaking and use Azure Functions to find a random tweet with a hashtag that you specify
-author: liydu
+author: JimacoMS4
 manager: jeffya
 ms.service: iot-hub
 services: iot-hub
