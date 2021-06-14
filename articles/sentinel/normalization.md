@@ -133,7 +133,7 @@ The descriptors used for a user are **Actor**, **Target User**, and **Updated Us
 |**DNS request**     | An **Actor** initiated a DNS query        |         |
 |**Sign-in**     |    An **Actor** signed in to a system as a **Target User**.     |A (Target) User signed in         |
 |**Process creation**     |   An **Actor** (the user associated with the initiating process) has initiated process creation. The process created runs under the credentials of a **Target User** (the user related to the target process).      |  The process created runs under the credentials of a (Target) **User**.       |
-|**Email**     |     An **Actor** sends an email to **Target User**    |         |
+|**Email**     |     An **Actor** sends an email to a **Target User**    |         |
 |     |         |         |
 
 The following table describes the supported identifiers for a user:
