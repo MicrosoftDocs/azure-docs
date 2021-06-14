@@ -216,8 +216,6 @@
   items:
   - name: Security best practices
     href: security-guide.md
-  - name: Linux support
-    href: linux-overview.md
   - name: Azure CLI
     href: /cli/azure/desktopvirtualization
   - name: Estimate Azure Monitor costs
