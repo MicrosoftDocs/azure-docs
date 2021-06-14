@@ -83,29 +83,29 @@ This is likely because VM Guest Agent couldn’t acquire the lock for the servic
 
 ## Usage errors
 
-## Error message that no data is available 
+### Error message that no data is available 
 
 ![No data](media/vminsights-health-troubleshoot/no-data.png)
 
 
-### Verify that the virtual machine meets configuration requirements
+#### Verify that the virtual machine meets configuration requirements
 
 1. Verify that the virtual machine is an Azure virtual machine. Azure Arc for servers is not currently supported.
 2. Verify that the virtual machine is running a [supported operating system](vminsights-health-enable.md?current-limitations.md).
 3. Verify that the virtual machine is installed in a [supported region](vminsights-health-enable.md?current-limitations.md).
 4. Verify that the Log Analytics workspace is installed in a [supported region](vminsights-health-enable.md?current-limitations.md).
 
-### Verify that the VM is properly onboarded
+#### Verify that the VM is properly onboarded
 Verify that the Azure Monitor agent extension and Guest VM Health agent are successfully provisioned on the virtual machine. Select **Extensions** from the virtual machine's menu in the Azure portal and make sure that the two agents are listed.
 
 ![VM extensions](media/vminsights-health-troubleshoot/extensions.png)
 
-### Verify the system assigned identity is enabled on the virtual machine
+#### Verify the system assigned identity is enabled on the virtual machine
 Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. If user managed identity is enabled, regardless of the status of the system managed identity, Azure Monitor agent will not be able to communicate with the configuration service, and the guest health extension will not work.
 
 ![System assigned identity](media/vminsights-health-troubleshoot/system-identity.png)
 
-### Verify data collection rule
+##### Verify data collection rule
 Verify that the data collection rule specifying health extension as a data source is associated with the virtual machine.
 
 ## Error message for bad request due to insufficient permissions
@@ -113,9 +113,9 @@ This error indicates that the **Microsoft.WorkloadMonitor** resource provider wa
 
 ![Bad request](media/vminsights-health-troubleshoot/bad-request.png)
 
-## Health shows as "unknown" after guest health is enabled.
+### Health shows as "unknown" after guest health is enabled.
 
-### Verify that performance counters on Windows nodes are working correctly 
+#### Verify that performance counters on Windows nodes are working correctly 
 Guest health relies on the agent being able to collect performance counters from the node. he base set of performance counter libraries may become corrupted and may need to be rebuilt. Follow the instructions at [Manually rebuild performance counter library values](/troubleshoot/windows-server/performance/rebuild-performance-counter-library-values) to rebuild the performance counters.
 
 
