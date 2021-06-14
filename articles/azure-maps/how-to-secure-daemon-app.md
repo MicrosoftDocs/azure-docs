@@ -39,9 +39,9 @@ Applications that use Shared Key authentication, should store the keys in a secu
 
 The following steps outline this process:
 
-1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal).
-2. Create an [Azure AD service principal](../active-directory/fundamentals/service-accounts-principal) by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
-3. Assign the service principal access to Azure Key secrets `get` permission. For details on how to set permissions, see [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal).
+1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
+2. Create an [Azure AD service principal](../active-directory/fundamentals/service-accounts-principal.md) by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
+3. Assign the service principal access to Azure Key secrets `get` permission. For details on how to set permissions, see [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
 4. Temporarily assign access to secrets `set` permission for you as the developer.
 5. Set the shared key in the Key Vault secrets and reference the secret ID as configuration for the daemon application.
 6. Remove your secrets `set` permission.
@@ -78,7 +78,7 @@ When running on a non-Azure environment, managed identities aren't available. As
 
 #### Create new application registration
 
-If you've already created your application registration, go to [Assign delegated API permissions](assign-delegated-api-permissions).
+If you've already created your application registration, go to [Assign delegated API permissions](#assign-delegated-api-permissions).
 
 To create a new application registration:
 
@@ -241,7 +241,7 @@ We'll use the [Postman](https://www.postman.com/) application to create the toke
 }
 ```
 
-For more information about authentication flow, see [OAuth 2.0 client credentials flow on the Microsoft identity platform](../active-directory/develop/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret.md)
+For more information about authentication flow, see [OAuth 2.0 client credentials flow on the Microsoft identity platform](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret.md)
 
 
 ## Next steps
