@@ -59,6 +59,9 @@ Yes.
 ## Will this break my custom scripts, custom images or OS images that have scratch files or page files on a local temp disk?
 If the custom OS image points to the local temp disk, the image might not work correctly with this diskless size.
 
+## Error "changing from resource disk to non-resource disk VM size and vice-versa is not allowed"
+When receiving this error in the Portal, ensure you are resizing a VM to another VM in the same family. For example, if you are resizing from Standard_E8s_v4, ensure you select Standard_E32s_v4 and not Standard_E32s_v3. In the context of the above error, resource disk refers to a VM SKU with a temporary disk, and non-resource disk refers to a VM SKU without a temporary disk.
+
 ## Have questions or feedback?
 Fill out the [feedback form]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
