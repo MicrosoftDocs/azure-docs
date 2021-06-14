@@ -6,7 +6,7 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 01/11/2021
+ms.date: 05/05/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
 
@@ -113,7 +113,7 @@ In the example above, replace the placeholders with your subscription ID and res
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group.
+1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group. To speed up your CDN purge, you can add the `--no-wait` option to `az cdn endpoint purge`.
 
     ```yaml
         - name: Upload to blob storage
@@ -167,6 +167,7 @@ In the example above, replace the placeholders with your subscription ID and res
         - name: logout
           run: |
                 az logout
+          if: always()
     ```
 
 ## Review your deployment

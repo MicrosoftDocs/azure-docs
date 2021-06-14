@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.author: alzam
+ms.author: alzam 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure Azure Active Directory authentication for User VPN
@@ -84,31 +85,32 @@ A User VPN configuration defines the parameters for connecting remote clients.
 
    ![Screenshot shows the User V P N configurations menu item selected.](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. click **+Create user VPN config**.
+2. Click **+Create user VPN config**.
 
    ![Screenshot shows the Create user V P N config link.](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. Enter the information and click **Create**.
-
+3. Under **Basics**, specify the following parameters
    * **Configuration name** - Enter the name you want to call your User VPN Configuration.
-   * **Tunnel type** - Select OpenVPN.
+    * **Tunnel type** - Select OpenVPN from the dropdown menu.
+4. Navigate to **Azure Active Directory**. Toggle **Azure Active Directory** to 'Yes' and supply the following values based on your tenant details. 
    * **Authentication method** - Select Azure Active Directory.
    * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Azure AD tenant. 
    * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
    * **AAD Tenant** - `https://login.microsoftonline.com/<your Directory ID>`
   
-   ![Screenshot shows the Create new User V P N configuration pane where you can enter the values.](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
+   ![Screenshot shows the Create new User V P N configuration pane where you can enter the values.](media/virtual-wan-point-to-site-azure-ad/configure-aad-profile.png)
 
 ## <a name="hub"></a>Edit hub assignment
 
 1. Navigate to the **Hubs** blade under the virtual WAN.
 2. Select the hub that you want to associate the vpn server configuration to and click the ellipsis (...).
 
-   ![Screenshot shows Edit virtual hub selected from the menu.](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
+   ![Screenshot shows Edit virtual hub selected from the menu.](media/virtual-wan-point-to-site-azure-ad/select-hub.png)
 3. Click **Edit virtual hub**.
 4. Check the **Include point-to-site gateway** check box and pick the **Gateway scale unit** that you want.
 
-   ![Screenshot shows the Edit virtual hub dialog box where you can select your Gateway scale unit.](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png" alt-text="Screenshot shows the Edit virtual hub dialog box where you can select your Gateway scale unit."lightbox="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png":::
+
 5. Enter the **Address pool** from which the VPN clients will be assigned IP addresses.
 6. Click **Confirm**.
 7. The operation will can take up to 30 minutes to complete.

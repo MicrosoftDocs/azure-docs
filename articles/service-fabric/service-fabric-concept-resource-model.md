@@ -2,12 +2,13 @@
 title: Azure Service Fabric application resource model  
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual 
-ms.date: 10/21/2019
+ms.date: 10/21/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Service Fabric application resource model
 
-You have multiple options for deploying Azure Service Fabric applications on your Service Fabric cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
+You have multiple options for deploying Azure Service Fabric applications on your Service Fabric cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
 Managing your applications as resources in Resource Manager can help you gain improvements in these areas:
 
@@ -184,7 +185,7 @@ Get information about the application resource model:
 
 * [Model an application in Service Fabric](service-fabric-application-model.md)
 * [Service Fabric application and service manifests](service-fabric-application-and-service-manifests.md)
-* [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
+* [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources)
 * [Manage applications and services as Azure resources](service-fabric-best-practices-infrastructure-as-code.md)
 
 

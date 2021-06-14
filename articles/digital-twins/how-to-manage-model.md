@@ -17,21 +17,21 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) of your Azure Digital Twins instance using the [DigitalTwinModels APIs](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
-
-Management operations include upload, validation, retrieval, and deletion of models. 
+This article describes how to manage the [models](concepts-models.md) in your Azure Digital Twins instance. Management operations include upload, validation, retrieval, and deletion of models. 
 
 ## Prerequisites
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## Ways to manage models
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer showing a sample model graph." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png":::
 
 ## Create models
 
-Models for Azure Digital Twins are written in DTDL, and saved as *.json* files. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL documents.
+Models for Azure Digital Twins are written in DTDL, and saved as .json files. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL documents.
 
 Consider an example in which a hospital wants to digitally represent their rooms. Each room contains a smart soap dispenser for monitoring hand-washing, and sensors to monitor traffic through the room.
 
@@ -42,7 +42,7 @@ The first step towards the solution is to create models to represent aspects of 
 > [!NOTE]
 > This is a sample body for a .json file in which a model is defined and saved, to be uploaded as part of a client project. The REST API call, on the other hand, takes an array of model definitions like the one above (which is mapped to a `IEnumerable<string>` in the .NET SDK). So to use this model in the REST API directly, surround it with brackets.
 
-This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The model also defines a relationship *hasDevices*, which will be used to connect any [digital twins](concepts-twins-graph.md) based on this *Room* model to the actual devices.
+This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The model also defines a relationship *hasDevices*, which will be used to connect any [digital twins](concepts-twins-graph.md) based on this Room model to the actual devices.
 
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
@@ -95,7 +95,7 @@ Instead, if you want to make changes to a model—such as updating `displayName`
 
 ### Model versioning
 
-To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.
+To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you want to change.
 
 Next, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
 
@@ -151,7 +151,7 @@ The rest of this section breaks down model deletion into closer detail, and show
 
 Generally, models can be deleted at any time.
 
-The exception is models that other models depend on, either with an `extends` relationship or as a component. For example, if a *ConferenceRoom* model extends a *Room* model, and has a *ACUnit* model as a component, you cannot delete *Room* or *ACUnit* until *ConferenceRoom* removes those respective references. 
+The exception is models that other models depend on, either with an `extends` relationship or as a component. For example, if a ConferenceRoom model extends a Room model, and has a ACUnit model as a component, you cannot delete Room or ACUnit until ConferenceRoom removes those respective references. 
 
 You can do this by updating the dependent model to remove the dependencies, or deleting the dependent model completely.
 

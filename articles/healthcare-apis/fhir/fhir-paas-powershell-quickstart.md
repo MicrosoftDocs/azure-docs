@@ -7,7 +7,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
-ms.author: cavoeg
+ms.author: cavoeg 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Deploy Azure API for FHIR using PowerShell

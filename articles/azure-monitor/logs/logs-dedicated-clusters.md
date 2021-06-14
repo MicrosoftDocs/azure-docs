@@ -4,7 +4,8 @@ description: Customers who ingest more than 1 TB a day of monitoring data may us
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 09/16/2020
+ms.date: 09/16/2020 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Azure Monitor Logs Dedicated Clusters
@@ -16,7 +17,7 @@ The capabilities that require dedicated clusters are:
 - **[Customer-managed Keys](../logs/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Customers can control Microsoft support engineers access requests for data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data.
-- **[Multi-workspace](../logs/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned capacity reservation tiers take into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for capacity reservation discount.
+- **[Multi-workspace](../logs/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned commitment tier takes into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for commitment tier discount.
 
 Dedicated clusters require customers to commit using a capacity of at least 1 TB of data ingestion per day. Migration to a dedicated cluster is simple. There is no data loss or service interruption. 
 
@@ -33,19 +34,19 @@ All operations on the cluster level require the `Microsoft.OperationalInsights/c
 
 ## Cluster pricing model
 
-Log Analytics Dedicated Clusters use a Capacity Reservation pricing model which of at least 1000 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate.  Capacity Reservation pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
+Log Analytics Dedicated Clusters use a Commitment Tier pricing model which of at least 1000 GB/day. Any usage above the tier level will be billed at effective per-GB rate of that Commitment Tier.  Commitment Tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-The cluster capacity reservation level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day.
+The cluster Commitment Tier level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000, 2000 or 5000 GB/day.
 
 There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when configuring your cluster. 
 
 1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. 
 
-2. **Workspaces**: the Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Security Center](../../security-center/index.yml) for each workspace.)
+2. **Workspaces**: the Commitment Tier costs for your Cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Azure Security Center](../../security-center/index.yml) for each workspace.) This full details of this pricing model are explained [here]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters). 
 
-If your workspace is using legacy Per Node pricing tier, when it is linked to a cluster it will be billed based on data ingested against the cluster’s Capacity Reservation, and no longer per node. Per node data allocations from Azure Security Center will continue to be applied.
+If your workspace is using legacy Per Node pricing tier, when it is linked to a cluster it will be billed based on data ingested against the cluster’s Commitment Tier, and no longer Per Node. Per-node data allocations from Azure Security Center will continue to be applied.
 
-More details are billing for Log Analytics dedicated clusters are available [here]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
+Complete details are billing for Log Analytics dedicated clusters are available [here]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 
 ## Asynchronous operations and status check
 
@@ -71,9 +72,9 @@ The following properties must be specified:
 - **ClusterName**: Used for administrative purposes. Users are not exposed to this name.
 - **ResourceGroupName**: As for any Azure resource, clusters belong to a resource group. We  recommended you use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md)
 - **Location**: A cluster is located in a specific Azure region. Only workspaces located in this region can be linked to this cluster.
-- **SkuCapacity**: You must specify the *capacity reservation* level (sku) when creating a *cluster* resource. The *capacity reservation* level can be in the range of 1,000 GB to 3,000 GB per day. You can update it in steps of 100 later if needed. If you need capacity reservation level higher than 3,000 GB per day, contact us at LAIngestionRate@microsoft.com. For more information on cluster costs, see [Manage Costs for Log Analytics clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **SkuCapacity**: You must specify the Commitment Tier (sku) when creating a cluster resource. The Commitment Tier can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Manage Costs for Log Analytics clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters). Note that commitment tiers were formerly called capacity reservations. 
 
-After you create your *Cluster* resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
+After you create your *cluster* resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
 You can have up to 2 active clusters per subscription per region. If cluster is deleted, it is still reserved for 14 days. You can have up to 4 reserved clusters per subscription per region (active or recently deleted).
 
@@ -293,8 +294,8 @@ After you create your *Cluster* resource and it is fully provisioned, you can ed
 
 - **keyVaultProperties** - Updates the key in Azure Key Vault. See [Update cluster with Key identifier details](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). It contains the following parameters: *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType** - The *billingType* property determines the billing attribution for the *cluster* resource and its data:
-  - **Cluster** (default) - The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
-  - **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model.
+  - **Cluster** (default) - The costs for your Cluster are attributed to the *Cluster* resource.
+  - **Workspaces** - The costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Commitment Tier. See [Log Analytics Dedicated Clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model.
   - **Identity** - The identity to be used to authenticate to your Key Valt. This can be System-assigned or User-assigned.
 
 >[!IMPORTANT]
@@ -390,9 +391,9 @@ The same as for 'clusters in a resource group', but in subscription scope.
 
 
 
-### Update capacity reservation in cluster
+### Update commitment tier in cluster
 
-When the data volume to your linked workspaces change over time and you want to update the capacity reservation level appropriately. The Capacity is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. Note that you don’t have to provide the full REST request body but should include the sku.
+When the data volume to your linked workspaces change over time and you want to update the Commitment Tier level appropriately. The tier is specified in units of GB and can have values of 1000, 2000 or 5000 GB/day. Note that you don’t have to provide the full REST request body but should include the sku.
 
 **CLI**
 

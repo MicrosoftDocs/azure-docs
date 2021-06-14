@@ -395,7 +395,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | batchaccounts | Yes | Yes | Batch accounts can't be moved directly from one region to another, but you can use a template to export a template, modify it, and deploy the template to the new region. <br/><br/> Learn about [moving a Batch account across regions](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
+> | batchaccounts | Yes | Yes | Batch accounts can't be moved directly from one region to another, but you can use a template to export a template, modify it, and deploy the template to the new region. <br/><br/> Learn about [moving a Batch account across regions](../../batch/account-move.md) |
 
 ## Microsoft.Billing
 
@@ -906,7 +906,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | Yes | Yes | No |
-> | AKS cluster | **pending** | **pending** | No<br/><br/> [Learn more](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) about moving to another region.
+> | AKS cluster | **pending** | **pending** | No<br/><br/> [Learn more](../../dev-spaces/index.yml) about moving to another region.
 
 ## Microsoft.DevTestLab
 
@@ -1443,7 +1443,7 @@ Jump to a resource provider namespace:
 > | privateendpointredirectmaps | No | No | No |
 > | privateendpoints | No | No | No |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP addresses. |
+> | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | Yes | Yes | No |
 > | routefilters | No | No | No |
 > | routetables | Yes | Yes | No |

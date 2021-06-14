@@ -349,7 +349,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
    sudo mkdir -p /data/avrofiles
    ```
 
-1. Update directory permissions to make it writeable by the container.
+1. Update directory permissions to make it writable by the container.
 
    ```bash
    sudo chmod ugo+rw /data/avrofiles

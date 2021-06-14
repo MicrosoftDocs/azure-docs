@@ -22,7 +22,7 @@
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
   - name: Connect an MXCHIP device
-    href: /azure/iot-develop/quickstart-devkit-mxchip-az3166
+    href: ../iot-develop/quickstart-devkit-mxchip-az3166.md
   - name: Connect a device module
     href: tutorial-migrate-device-to-module.md
   - name: Preview - Connect and analyze data with Time Series Insights Gen2
@@ -75,6 +75,8 @@
     href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
+  - name: Code samples
+    href: /samples/browse/?expanded=azure&products=azure-iot-pnp
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
   - name: IoT Glossary

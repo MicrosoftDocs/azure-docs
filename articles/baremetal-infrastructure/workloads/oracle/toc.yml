@@ -14,7 +14,7 @@
   href: oracle-baremetal-provision.md
 - name: High availability and disaster recovery
   items: 
-    - name: Overview
+    - name: HA/DR Overview
       href: concepts-oracle-high-availability.md
     - name: High availability features
       href: high-availability-features.md
@@ -22,3 +22,15 @@
       href: options-considerations-high-availability.md
     - name: Choose how to recover 
       href: oracle-high-availability-recovery.md
+- name: SnapCenter integration
+  items:
+    - name: SnapCenter overview
+      href: netapp-snapcenter-integration-oracle-baremetal.md
+    - name: Set up SnapCenter to route traffic
+      href: set-up-snapcenter-to-route-traffic.md
+    - name: Configure SnapCenter
+      href: configure-snapcenter-oracle-baremetal.md
+    - name: Create on-demand backup
+      href: create-on-demand-backup-oracle-baremetal.md
+    - name: Restore Oracle Database
+      href: restore-oracle-database-baremetal.md

@@ -37,5 +37,5 @@ g.addV('vertex-one').property('ttl', 123)
 ```
 
 ## Next steps
-* [Cosmos DB Optimistic Concurrency](faq.md#how-does-the-sql-api-provide-concurrency)
+* [Cosmos DB Optimistic Concurrency](faq.yml#how-does-the-sql-api-provide-concurrency-)
 * [Time to Live (TTL)](time-to-live.md) in Azure Cosmos DB

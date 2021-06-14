@@ -56,6 +56,21 @@ To change the vCores for all worker nodes, adjust the **vCores** slider under
 adjusted independently. Adjust the **vCores** slider under  **Configuration
 (coordinator node)**.
 
+## Increase storage on nodes
+
+In addition to adding new nodes, you can increase the disk space of existing
+nodes. Increasing disk space can allow you to do more with existing worker
+nodes before needing to add more worker nodes.
+
+To change the storage for all worker nodes, adjust the **storage** slider under
+**Configuration (per worker node)**. The coordinator node's storage can be
+adjusted independently. Adjust the **storage** slider under  **Configuration
+(coordinator node)**.
+
+> [!NOTE]
+> Once increased and saved, the storage per node cannot be decreased using the
+> slider.
+
 ## Next steps
 
 - Learn more about server group [performance

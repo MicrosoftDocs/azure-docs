@@ -6,7 +6,8 @@ author: mscatyao
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.author: caya
+ms.author: caya 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure mutual authentication with Application Gateway through PowerShell (Preview)

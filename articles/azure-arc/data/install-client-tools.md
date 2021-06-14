@@ -14,7 +14,7 @@ ms.topic: how-to
 # Install client tools for deploying and managing Azure Arc enabled data services
 
 > [!IMPORTANT]
-> If you are updating to a new monthly release, please be sure to also update to the latest version of Azure Data Studio, the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool, and the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] and Azure Arc extensions for Azure Data Studio.
+> If you are updating to a new monthly release, please be sure to also update to the latest version of Azure Data Studio, the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool and Azure Arc extensions for Azure Data Studio.
 
 This document walks you through the steps for installing the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], Azure Data Studio, Azure CLI (az), and the Kubernetes CLI tool (kubectl) on your client machine.
 

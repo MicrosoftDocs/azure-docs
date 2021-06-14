@@ -38,7 +38,7 @@ After you have built a self-contained package and added the executable to your p
 DTDLValidator
 ```
 
-With the default options, the sample will search for `*.json` files in the current directory and all subdirectories. You can also add the following option to have the sample search in the indicated directory and all subdirectories for files with the extension *.dtdl*:
+With the default options, the sample will search for .json files in the current directory and all subdirectories. You can also add the following option to have the sample search in the indicated directory and all subdirectories for files with the extension .dtdl:
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 
@@ -54,7 +54,7 @@ For more information about this sample, see the source code or run `DTDLValidato
 
 ## Use the .NET parser library 
 
-The [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) library provides model access to the DTDL definitions, essentially acting as the equivalent of C# reflection for DTDL. This library can be used independently of any [Azure Digital Twins SDK](how-to-use-apis-sdks.md), especially for DTDL validation in a visual or text editor. It is useful for making sure your model definition files are valid before you try to upload them to the service.
+The [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) library provides model access to the DTDL definitions, essentially acting as the equivalent of C# reflection for DTDL. This library can be used independently of any [Azure Digital Twins SDK](concepts-apis-sdks.md), especially for DTDL validation in a visual or text editor. It is useful for making sure your model definition files are valid before you try to upload them to the service.
 
 To use the parser library, you provide it with a set of DTDL documents. Typically, you would retrieve these model documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. 
 
