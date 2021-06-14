@@ -4,20 +4,26 @@ description: "Understanding the existing MySQL workload is one of the best inves
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: arunkumarthiags 
+author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 05/26/2021
+ms.date: 06/11/2021
 ---
 
 # MySQL on-premises to Azure Database for MySQL migration guide Performance Baselines
 
+## Prerequisites
+
+[Test plans](06-test-plans.md)
+
+## Overview
+
 Understanding the existing MySQL workload is one of the best investments that can be made to ensure a successful migration. Excellent system performance depends on adequate hardware and great application design. Items such as CPU, memory, disk, and networking need to be sized and configured appropriately for the anticipated load. Hardware and configuration are part of the system performance equation. The developer must understand the database query load and the most expensive queries to execute. Focusing on the most expensive queries can make a substantial difference in the overall performance metrics.
 
-Creating baselines of query performance is vital to a migration project. The performance baselines can be used to verify the Azure landing zone configuration for the migrated data workloads. Most systems will be run 24/7 and have different peak load times. It's important to capture the peak workloads for the baseline. Metrics should captured several times. Later in the document, we explore the source server parameters and how they're essential to the overall performance baseline picture. The server parameters should not be overlooked during a migration project.
+Creating baselines of query performance is vital to a migration project. The performance baselines can be used to verify the Azure landing zone configuration for the migrated data workloads. Most systems will be run 24/7 and have different peak load times. It's important to capture the peak workloads for the baseline. Metrics are captured several times. Later in the document, we explore the source server parameters and how they're essential to the overall performance baseline picture. The server parameters should not be overlooked during a migration project.
 
-### Tools
+## Tools
 
 Below are tools used to gather server metrics and database workload information. Use the captured metrics to determine the appropriate Azure Database for MySQL tier and the associated scaling options.
 
@@ -25,7 +31,7 @@ Below are tools used to gather server metrics and database workload information.
 
   - [Percona Monitoring and Management (PMM)](https://www.percona.com/software/database-tools/percona-monitoring-and-management) : a best-of-breed open-source database monitoring solution. It helps to reduce complexity, optimize performance, and improve the security of business-critical database environments, no matter the deployed location.
 
-### Server Parameters
+## Server parameters
 
 MySQL server default configurations may not adequately support a workload. There is a plethora of server parameters in MySQL, but in most cases the migration team should focus on a handful. The following parameters should be evaluated in the **source** and **target** environments. Incorrect configurations can affect the speed of the migration. We will revisit these parameters again when we execute the migration steps.
 
@@ -53,38 +59,38 @@ MySQL server default configurations may not adequately support a workload. There
 
   - **skip\_name\_resolve**: user to perform client hostname resolution. If the DNS is slow, the connection will be slow. When disabling name resolution, the GRANT statements must use IP addresses only. Any GRANT statements made previously would need to be redone to use the IP.
 
-Run the following command to export the server parameters to a file for review. Using some simple parsing, the output can be used to reapply the same server parameters after the migration, if appropriate to the Azure Database for MySQL server. Reference [Configure server parameters in Azure Database for MySQL using the Azure portal.](../howto-server-parameters.md)
+Run the following command to export the server parameters to a file for review. Using some simple parsing, the output can be used to reapply the same server parameters after the migration, if appropriate to the Azure Database for MySQL server. Reference [Configure server parameters in Azure Database for MySQL using the Azure portal](../../howto-server-parameters.md).
 
 `mysql -u root -p -A -e "SHOW GLOBAL VARIABLES;" > settings.txt`
 
-The MySQL 5.5.60 default installed server parameters can be found in Appendix C.
+The MySQL 5.5.60 default installed server parameters can be found in the [appendix](15-appendix.md#default-server-parameters-mysql-55-and-azure-database-for-mysql).
 
 Before migration begins, export the source MySQL configuration settings. Compare those values to the Azure landing zone instance settings after the migration. If any settings were modified from the default in the target Azure landing zone instance, ensure that these are set back after the migration. Also, the migration user should verify the server parameters can be set before the migration.
 
-For a list of server parameters that cannot be configured, reference [Non-configurable server parameters.](../concepts-server-parameters.md#non-configurable-server-parameters)
+For a list of server parameters that cannot be configured, reference [Non-configurable server parameters](../../concepts-server-parameters.md#non-configurable-server-parameters).
 
-#### Egress and Ingress
+### Egress and Ingress
 
 For each respective data migration tool and path, the source and the target MySQL server parameters will need to be modified to support the fastest possible egress and ingress. Depending on the tool, the parameters could be different. For example, a tool that performs a migration in parallel may need more connections on the source and the target versus a single threaded tool.
 
 Review any timeout parameters that may be affected by the datasets. These include:
 
-  - [connect\_timeout ](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_connect_timeout)
+  - [connect\_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_connect_timeout)
 
-  - [wait\_timeout ](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout)
+  - [wait\_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout)
 
 Additionally, review any parameters that will affect maximums:
 
-  - [max\_allowed\_packet ](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet)
+  - [max\_allowed\_packet](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet)
 
 > [!NOTE]
 > A common migration error is `MySQL server has gone away`. The parameters mentioned here are the typical culprits for resolving this error.
 
-### WWI Scenario
+## WWI scenario
 
 WWI reviewed their Conference database workload and determined it had a very small load. Although a basic tier server would work for them, they did not want to perform work later to migrate to another tier. The server being deployed will eventually host the other MySQL data workloads and so they picked the `General Performance` tier.
 
-In reviewing the MySQL database, the MySQL 5.5 server is running with the defaults server parameters that are set during the initial install.  
+In reviewing the MySQL database, the MySQL 5.5 server is running with the defaults server parameters that are set during the initial install.
 
 > [!div class="nextstepaction"]
-> [Data Migration](./data-migration.md)
+> [Data Migration](./08-data-migration.md)
