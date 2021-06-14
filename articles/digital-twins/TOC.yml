@@ -41,6 +41,8 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md
+  - name: Querying with Azure Data Explorer
+    href: concepts-data-explorer-plugin.md   
   - name: Developer interfaces
     items:
     - name: Azure Digital Twins Explorer
@@ -83,9 +85,9 @@
       href: how-to-authenticate-client.md
     - name: Create an app registration
       items:
-      - name: Portal version
+      - name: Portal
         href: how-to-create-app-registration-portal.md
-      - name: CLI version
+      - name: CLI
         href: how-to-create-app-registration-cli.md
     - name: Move instance to a different region
       href: how-to-move-regions.md
@@ -123,6 +125,8 @@
       href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md
+    - name: Ingest OPC UA data to Azure Digital Twins
+      href: how-to-ingest-opcua-data.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
@@ -162,7 +166,7 @@
       - name: 404 Sub-Domain not found
         href: troubleshoot-error-404.md
       - name: Azure Digital Twins Explorer authentication
-        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
+        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md  
 - name: Reference
   items:
   - name: REST API reference

@@ -151,7 +151,7 @@ In a search index, the document key uniquely identifies each document. The field
 
   Another potential issue about the storage name is that it might contain characters that are invalid for document keys, such as dashes. You can handle invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also encode document keys when passing them in API calls such as [Lookup Document (REST)](/rest/api/searchservice/lookup-document). In .NET, you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) to encode characters.
 
-+ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](https://docs.microsoft.com/rest/api/searchservice/naming-rules). As above, you can use the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters.
++ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). As above, you can use the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters.
 
 + A third option is to add a custom metadata property to the blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed.
 

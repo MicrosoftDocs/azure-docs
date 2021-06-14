@@ -21,7 +21,7 @@ ms.service: digital-twins
 
 When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as the custom client app built in the [Tutorial: Code a client app](tutorial-code.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
-This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up using the [Azure portal](https://portal.azure.com).
+This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up using the [Azure portal](https://portal.azure.com). It also covers how to [collect important values](#collect-important-values) that you'll need in order to use the app registration to authenticate.
 
 ## Azure AD app registrations
 
@@ -49,13 +49,46 @@ When you are finished, select the *Register* button.
 
 When the registration is finished setting up, the portal will redirect you to its details page.
 
-## Collect client ID and tenant ID
+## Collect important values
 
-Next, collect some important values about the app registration from its details page:
+Next, collect some important values about the app registration that you'll need in order to use the app registration to authenticate a client application. These values include:
+* **resource name**
+* **client ID**
+* **tenant ID**
+* **client secret**
 
-:::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Screenshot of the Azure portal view showing the important values for the app registration.":::
+To work with Azure Digital Twins, the **resource name** is `http://digitaltwins.azure.net`.
 
-Take note of the _**Application (client) ID**_ and _**Directory (tenant) ID**_ shown on **your** page. These are the values a client app will need to use this registration to authenticate with Azure Digital Twins.
+The following sections describe how to find the other values.
+
+### Collect client ID and tenant ID
+
+The **client ID** and **tenant ID** values can be collected from the app registration's details page in the Azure portal:
+
+:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Screenshot of the Azure portal showing the important values for the app registration.":::
+
+Take note of the **Application (client) ID** and **Directory (tenant) ID** shown on **your** page.
+
+### Collect client secret
+
+To set up a **client secret** for your app registration, start on your app registration page in the Azure portal. 
+
+1. Select **Certificates and secrets** from the registration's menu, and then select **+ New client secret**.
+
+    :::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Screenshot of the Azure portal showing an Azure AD app registration and a highlight around 'New client secret'.":::
+
+1. Enter whatever values you want for Description and Expires, and select **Add**.
+
+    :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Screenshot of the Azure portal while adding a client secret.":::
+
+1. Verify that the client secret is visible on the **Certificates & secrets** page with Expires and Value fields. 
+
+1. Take note of its **Secret ID** and **Value** to use later (you can also copy them to the clipboard with the Copy icons).
+
+    :::image type="content" source="media/how-to-create-app-registration/client-secret-value.png" alt-text="Screenshot of the Azure portal showing how to copy the client secret value.":::
+
+>[!IMPORTANT]
+>Make sure to copy the values now and store them in a safe place, as they can't be retrieved again. If you can't find them later, you'll have to create a new secret.
 
 ## Provide Azure Digital Twins API permission
 

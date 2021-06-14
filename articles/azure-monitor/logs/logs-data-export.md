@@ -590,7 +590,6 @@ Supported tables currently are limited to those specified below. All data from t
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
 | AWSCloudTrail |  |
-| AzureActivityV2 |  |
 | AzureAssessmentRecommendation |  |
 | AzureDevOpsAuditing |  |
 | BehaviorAnalytics |  |
