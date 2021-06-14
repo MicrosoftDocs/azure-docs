@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/14/2021
 ms.author: aahi
 ---
 
@@ -21,7 +21,7 @@ ms.author: aahi
 Text Analytics for health is a feature of the Text Analytics API service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
 
 * [The web-based API (asynchronous)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
-* [A Docker container (synchronous)](#hosted-asynchronous-web-api-response)   
+* [A Docker container (synchronous)](#structure-the-api-request-for-the-container)   
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
@@ -96,6 +96,9 @@ You must have JSON documents in this format: ID, text, and language.
 Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the [data limits](../concepts/data-limits.md?tabs=version-3) article under Concepts. The collection is submitted in the body of the request.
 
 ### Structure the API request for the hosted asynchronous web API
+
+> [!NOTE]
+> The hosted web API and SDK methods are asynchronous only.  
 
 For both the container and hosted web API, you must create a POST request. You can [use Postman](text-analytics-how-to-call-api.md), a cURL command or the **API testing console** in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Health) to quickly construct and send a POST request to the hosted web API in your desired region. In the API v3.1-preview.5 endpoint, the `loggingOptOut` boolean query parameter can be used to enable logging for troubleshooting purposes.  It's default is TRUE if not specified in the request query.
 
@@ -277,6 +280,9 @@ The following is an example of the response of a GET request.  The output is ava
 
 
 ### Structure the API request for the container
+
+> [!NOTE]
+> The container is synchronous only. You cannot use the SDK to send requests to the Text Analytics for health container. See [How to install and run Text Analytics containers](/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare) for steps on downloading and using the container.  
 
 You can [use Postman](text-analytics-how-to-call-api.md) or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
 
