@@ -1456,7 +1456,7 @@
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "articles/cosmos-db/spark-connector.md",
+    "source_path_from_root": "/articles/cosmos-db/spark-connector.md",
     "redirect_url": "/azure/cosmos-db/create-sql-api-spark",
     "redirect_document_id": false
   },
