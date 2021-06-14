@@ -299,7 +299,7 @@ Then you can deploy your Java app to Azure using the following command.
 mvn package azure-webapp:deploy
 ```
 
-::: zone pivot="platform-windows"
+::: zone pivot="platform-linux"
 
 > [!NOTE]
 > For JBoss EAP, run `mvn package azure-webapp:deploy -DskipTests` to disable testing, as it requires Wildfly to be installed locally. 
