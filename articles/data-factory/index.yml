@@ -20,10 +20,6 @@ landingContent:
         links:
           - text: What is Azure Data Factory?
             url: ./introduction.md
-      - linkListType: concept
-        links:
-          - text: Pipelines and activities in Azure Data Factory
-            url: ./concepts-pipelines-activities.md
       - linkListType: reference
         links:
           - text: Whitepapers
@@ -40,6 +36,10 @@ landingContent:
             url: https://feedback.azure.com/forums/270578-azure-data-factory
   - title: Get started
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Pipelines and activities in Azure Data Factory
+            url: ./concepts-pipelines-activities.md    
       - linkListType: quickstart
         links:
           - text: Azure Data Factory UI
