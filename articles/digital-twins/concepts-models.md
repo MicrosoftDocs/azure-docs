@@ -98,7 +98,7 @@ This section goes into more detail about **properties** and **telemetry** in DTD
 ### Difference between properties and telemetry
 
 Here's some additional guidance on conceptually distinguishing between DTDL **property** and **telemetry** in Azure Digital Twins.
-* **Properties** are expected to have backing storage. This means that you can read a property at any time and retrieve its value. If the property is writeable, you can also store a value in the property.  
+* **Properties** are expected to have backing storage. This means that you can read a property at any time and retrieve its value. If the property is writable, you can also store a value in the property.  
 * **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there is no trace of the event at a later time. You can't come back to it and read it later. 
   - In C# terms, telemetry is like a C# event. 
   - In IoT terms, telemetry is typically a single measurement sent by a device.
@@ -228,7 +228,7 @@ This section describes the current set of samples in more detail.
 
 Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [How-to: Manage DTDL models](how-to-manage-model.md#upload-models).
 
-However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use this [Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
+However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use the [Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
 
 ### Model visualizer 
 

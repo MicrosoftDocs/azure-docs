@@ -120,22 +120,25 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
     1. Create a manifest file with the following configuration. You may want to adjust the ``dnsPolicy`` according to your needs. Consult [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) for more information.
     
         ```yml
-            apiVersion: v1
-            kind: Pod
-            metadata:
-              name: test-pod
-            spec:
-              volumes:
-              - name: shared-data
-                emptyDir: {}
-              containers:
-              - name: nginx
-                image: nginx
-                volumeMounts:
-                - name: shared-data
-                  mountPath: /usr/share/nginx/html
-          hostNetwork: true
-          dnsPolicy: ClusterFirstWithHostNet    
+        apiVersion: v1
+        dnsPolicy: ClusterFirstWithHostNet
+        hostNetwork: true
+        kind: Pod
+        metadata: 
+          name: test-pod
+        spec: 
+          containers: 
+            - 
+              name: nginx
+          emptyDir: {}
+          image: nginx
+          volumeMounts: 
+            - 
+              mountPath: /usr/share/nginx/html
+              name: shared-data
+          volumes: 
+            - 
+              name: shared-data  
         ```
     1. Create the pod.
         ```bash

@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 06/04/2021
 ---
 
 # Networking overview - Azure Database for PostgreSQL - Flexible Server
@@ -41,6 +41,8 @@ The following characteristics apply whether you choose to use the private access
 * The server has a fully qualified domain name (fqdn). For the hostname property in connection strings, we recommend using the fqdn instead of an IP address.
 * Both options control access at the server-level, not at the database- or table-level. You would use PostgreSQL’s roles properties to control database, table, and other object access.
 
+>[!NOTE]
+> Since Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or modify configuration files such as `pg_hba.conf`. The content of the file is automatically updated based on the network settings.
 
 ## Private access (VNet integration)
 Private access with virtual network (vnet) integration provides private and secure communication for your PostgreSQL flexible server.
@@ -88,7 +90,7 @@ Private DNS zone settings and VNET peering are independent of each other.
 * If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See [how to link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) documentation.
 
 > [!NOTE]
-> Private DNS zone names that end with `private.postgres.database.azure.com` can only be linked.
+> Private DNS zone names that end with `postgres.database.azure.com` can only be linked.
 
 ### Unsupported virtual network scenarios
 

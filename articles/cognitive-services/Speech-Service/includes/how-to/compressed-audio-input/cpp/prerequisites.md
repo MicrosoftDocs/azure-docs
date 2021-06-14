@@ -32,7 +32,7 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
-> - On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more gstreamer plugins needs to be installed if stream media format plugin is not in the above installed plugins. 
+> - On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more GStreamer plugins needs to be installed if stream media format plugin is not in the above installed plugins. 
 
 
 ---

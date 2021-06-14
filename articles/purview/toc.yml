@@ -204,6 +204,8 @@ items:
   items:
     - name: Supported classifications
       href: supported-classifications.md
+    - name: Azure Purview product glossary
+      href: reference-purview-glossary.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
 - name: Resources

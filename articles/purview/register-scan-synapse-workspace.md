@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 3/31/2021
+ms.date: 06/11/2021
 ---
 
 # Register and scan Azure Synapse Analytics workspaces
@@ -31,7 +31,7 @@ Azure Synapse Analytics workspace scans support capturing metadata and schema fo
 ### **Step 1**: Register your source
 
 > [!NOTE]
-> Only Azure Synapse workspace *contributors* who are also *data source administrators* in Azure Purview can perform this step.
+> Only users with at least a *Reader* role on the Azure Synapse workspace who are also *data source administrators* in Azure Purview can perform this step.
 
 To register a new Azure Synapse Source in your data catalog, do the following:
 
@@ -59,15 +59,18 @@ To register a new Azure Synapse Source in your data catalog, do the following:
 
 #### Set up authentication for enumerating dedicated SQL database resources
 
-1. In the Azure portal, go to the **Resource group** or **Subscription** that the Azure Synapse workspace is in.  
+1. In the Azure portal, go to the Azure Synapse workspace resource.  
 1. On the left pane, select **Access Control (IAM)**. 
 
    > [!NOTE]
-   > You must be an *owner* or *user access administrator* to add a role in the **Resource group** or **Subscription** fields. 
-
-1. Select the **Add** button. 
-1. Set the **Reader** role and then, in the **Select** box, enter your Azure Purview account name, which represents its managed service identity (MSI). 
+   > You must be an *owner* or *user access administrator* to add a role on the resource.
+   
+1. Select the **Add** button.   
+1. Set the **Reader** role and enter your Azure Purview account name, which represents its managed service identity (MSI).
 1. Select **Save** to finish assigning the role.
+
+> [!NOTE]
+> If you're planning to register and scan multiple Azure Synapse workspaces in your Azure Purview account, you can also assign the role from a higher level, such as a resource group or a subscription. 
 
 #### Set up authentication for enumerating serverless SQL database resources
 
@@ -84,6 +87,9 @@ To register a new Azure Synapse Source in your data catalog, do the following:
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+> [!NOTE]
+> Repeat the previous step for all serverless SQL databases in your Synapse workspace. 
+
 
 1. In the Azure portal, go to the **Resource group** or **Subscription** that the Azure Synapse workspace is in.
 1. On the left pane, select **Access Control (IAM)**. 
@@ -103,7 +109,7 @@ You can set up authentication for an Azure Synapse source in either of two ways:
 - Use a service principal
 
 > [!NOTE]
-> You must set up authentication on each dedicated SQL database in your Azure Synapse workspace that you intend to register and scan. The permissions that are mentioned in the following sections for serverless SQL database apply to all databases within your workspace. That is, you'll have to set it up only once.
+> You must set up authentication on each dedicated SQL database in your Azure Synapse workspace that you intend to register and scan. The permissions that are mentioned in the following sections for serverless SQL database apply to all databases within your workspace. That is, you'll have to set up authentication only once.
 
 #### Use a managed identity for dedicated SQL databases
 
@@ -130,13 +136,15 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+> [!NOTE]
+> Repeat the previous step for all serverless SQL databases in your Synapse workspace. 
 
 #### Use a service principal for dedicated SQL databases
 
 > [!NOTE]
 > You must first set up a new *credential* of type *Service Principal* by following the instructions in [Credentials for source authentication in Azure Purview](manage-credentials.md).
 
-1. Go to your **Azure Synapse workspace**
+1. Go to your **Azure Synapse workspace**.
 1. Go to the **Data** section, and then look for one of your dedicated SQL databases.
 1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
 1. Add the **Service Principal ID** as **db_datareader** on the dedicated SQL database. You do so by running the following command in your SQL script:
@@ -148,6 +156,8 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     EXEC sp_addrolemember 'db_datareader', [ServicePrincipalID]
     GO
     ```
+> [!NOTE]
+> Repeat the previous step for all dedicated SQL databases in your Synapse workspace. 
 
 #### Use a service principal for serverless SQL databases
 
@@ -161,6 +171,8 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+> [!NOTE]
+> Repeat the previous step for all serverless SQL databases in your Synapse workspace. 
 
 ### **Step 4**: Set up Azure Synapse workspace firewall access
 
@@ -183,7 +195,7 @@ To create and run a new scan, do the following:
 1. Select **View details**, and then select **New scan**. Alternatively, you can select the **Scan quick action** icon on the source tile.
 
 1. On the **Scan** details pane, in the **Name** box, enter a name for the scan.
-1. In the **Type** dropdown list, select the types of resources you want to scan within this source. **SQL Database** is the only type we support currently within an Azure Synapse workspace.
+1. In the **Type** dropdown list, select the types of resources that you want to scan within this source. **SQL Database** is the only type we currently support within an Azure Synapse workspace.
    
     :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup.png" alt-text="Screenshot of the details pane for the Azure Synapse source scan.":::
 
