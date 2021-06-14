@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Analysis Services server by using 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 4/20/2021
+ms.date: 5/25/2021
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -52,10 +52,10 @@ To safeguard the performance of the system, a memory limit is enforced for all q
 
 |                                                           | Request Memory limit |
 |-----------------------------------------------------------|----------------------|
-| **Live connect from Power BI**                            | 10 GB  |
-| **DirectQuery from Power BI report in Shared workspace**  | 1 GB   |
-| **DirectQuery from Power BI report in Premium workspace** | 10 GB  |
-| **[Power BI Q&A](/power-bi/create-reports/power-bi-tutorial-q-and-a)** | 100 MB |
+| Live connect from Power BI                            | 10 GB  |
+| DirectQuery from Power BI report in Shared workspace  | 1 GB   |
+| DirectQuery from Power BI report in Premium workspace | 10 GB  |
+| Power BI Q&A | 100 MB |
 
 ## See also
 [Connect to Azure Analysis Services](analysis-services-connect.md)   

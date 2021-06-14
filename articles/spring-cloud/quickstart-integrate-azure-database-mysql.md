@@ -9,13 +9,13 @@ ms.date: 05/13/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart - Integrate Azure Spring Cloud with Azure Database for MySQL
+# Quickstart: Integrate Azure Spring Cloud with Azure Database for MySQL
 
-In the default configuration, Pet Clinic deployed in the [Quickstart: Build and deploy apps to Azure Spring Cloud](quickstart-deploy-apps.md) Azure Spring Cloud uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
+Pet Clinic, as deployed in the default configuration [Quickstart: Build and deploy apps to Azure Spring Cloud](quickstart-deploy-apps.md), uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
 
 ## Variables preparation
 
-You will use the following values. Save them in a text file or environment variables to avoid errors.
+We will use the following values. Save them in a text file or environment variables to avoid errors.
 
 ```bash
 export RESOURCE_GROUP=<resource-group-name> # customize this
@@ -157,4 +157,4 @@ az spring-cloud app update --name visits-service \
 
 ## Next steps
 * [Bind an Azure Database for MySQL instance to your Azure Spring Cloud application](how-to-bind-mysql.md)
-* [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](/connect-managed-identity-to-azure-sql.md)
+* [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](./connect-managed-identity-to-azure-sql.md)

@@ -30,6 +30,10 @@ This article focuses on managing digital twins; to work with relationships and t
 
 [!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 ## Create a digital twin
 
 To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the service client like this:
@@ -131,14 +135,14 @@ The defined properties of the digital twin are returned as top-level properties 
 * `$etag`: A standard HTTP field assigned by the web server. This is updated to a new value every time the twin is updated, which can be useful to determine whether the twin's data has been updated on the server since a previous check. You can use `If-Match` to perform updates and deletes that only complete if the entity's etag matches the etag provided. For more information on these operations, see the documentation for [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) and [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
 * `$metadata`: A set of other properties, including:
   - The DTMI of the model of the digital twin.
-  - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
+  - Synchronization status for each writable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see this [IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
   - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
 You can read more about the serialization helper classes like `BasicDigitalTwin` in [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](concepts-cli.md).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 

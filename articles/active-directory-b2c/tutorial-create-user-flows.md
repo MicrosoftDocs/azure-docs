@@ -8,13 +8,13 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 06/07/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Tutorial: Create user flows in Azure Active Directory B2C
+# Tutorial: Create user flows and custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -42,13 +42,13 @@ A user flow lets you determine how users interact with your application when the
 
 ::: zone pivot="b2c-user-flow"
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-- [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
+- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-- [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
+- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
 - [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application). Skip the prerequisites and the reset of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
 
 ::: zone-end

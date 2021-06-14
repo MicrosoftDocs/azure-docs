@@ -3,9 +3,9 @@ title: Get storage account type and SKU name with .NET
 titleSuffix: Azure Storage
 description: Learn how to get Azure Storage account type and SKU name using the .NET client library.
 services: storage
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 11/12/2020
 ms.service: storage
 ms.subservice: common

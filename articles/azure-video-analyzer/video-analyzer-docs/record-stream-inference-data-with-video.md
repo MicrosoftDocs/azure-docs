@@ -128,7 +128,7 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
 1. Next, under the **livePipelineSet** and **pipelineTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
 
     `"pipelineTopologyName" : "CVRHttpExtensionObjectTracking"`
-1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-cvr-inferencing`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.  
+1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-cvr-with-inference-metadata`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.  
 
 1. Examine the settings for the HTTP extension node.
 
@@ -296,7 +296,7 @@ When the video sink node starts to record media, it emits this event of type **M
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation": "sample-cvr-inferencing"
+    "outputLocation": "sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -321,7 +321,7 @@ As the name suggests, the RecordingStarted event is sent when recording has star
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation": "sample-cvr-inferencing"
+    "outputLocation": "sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -348,7 +348,7 @@ When you deactivate the live pipeline, the video sink node stops recording media
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation": "sample-cvr-inferencing"
+    "outputLocation": "sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -373,16 +373,12 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
 1. Select **Videos** in the **Video Analyzers** list.
-1. You'll find a video listed with the name `sample-cvr-inferencing`. This is the name chosen in your pipeline topology file.
+1. You'll find a video listed with the name `sample-cvr-with-inference-metadata`. This is the name chosen in your pipeline topology file.
 1. Select the video.
 1. On the video details page, click the **Play** icon
-
+1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon (circled in red)
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="Screenshot of video playback":::
-   
-1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Bounding box icon":::
 
 > [!NOTE]
 > Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.

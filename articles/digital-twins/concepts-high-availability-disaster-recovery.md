@@ -79,4 +79,4 @@ For best practices on HA/DR, see the following Azure guidance on this topic:
 Read more about getting started with Azure Digital Twins solutions:
  
 * [What is Azure Digital Twins?](overview.md)
-* [Quickstart: Explore a sample scenario](quickstart-azure-digital-twins-explorer.md)
+* [Quickstart: Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md)

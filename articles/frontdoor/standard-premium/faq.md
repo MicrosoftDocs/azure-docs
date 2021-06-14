@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 05/18/2021
 ms.author: duau
 ---
 
@@ -64,11 +64,11 @@ Origin group can be composed of Storage, Web App, Kubernetes instances, or any o
 
 ### What regions is the service available in?
 
-Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all the POPs (Point of Presence). 
+Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all edge locations. 
 
-### What are the POP locations for Azure Front Door?
+### Where are the edge locations for Azure Front Door?
 
-Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](../../cdn/cdn-pop-locations.md).
+For the complete list of Azure Front Door edge locations, see [Azure Front Door edge locations](edge-locations.md).
 
 ### Is Azure Front Door a dedicated deployment for my application or is it shared across customers?
 
@@ -245,7 +245,7 @@ For having successful HTTPS connections to your backend whether for health probe
 
 * **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the TLS handshake doesn't have `myapp-centralus.contosonews.net` or `*myapp-centralus*.contosonews.net` in the subject name. Then Front Door will refuse the connection and result in an error. 
     * **Solution**: It isn't recommended from a compliance standpoint but you can work around this error by disabling the certificate subject name check for your Front Door. You can find this option under Settings in Azure portal and under BackendPoolsSettings in the API.
-* **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](troubleshoot-allowed-certificate-authority.md) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
+* **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ### Can I use client/mutual authentication with Azure Front Door?
 
@@ -268,6 +268,12 @@ Audit logs are available for Azure Front Door. In the portal, select **Activity 
 ### Can I set alerts with Azure Front Door?
 
 Yes, Azure Front Door does support alerts. Alerts are configured on metrics. 
+
+## Billing
+
+### Will I be billed for the Azure Front Door resources that are disabled?
+
+Azure Front Door resources, like Front Door profiles, are not billed if disabled.
 
 ## Next steps
 

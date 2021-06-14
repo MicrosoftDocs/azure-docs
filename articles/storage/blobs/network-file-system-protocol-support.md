@@ -1,5 +1,5 @@
 ---
-title: Network File System 3.0 support in Azure Blob storage (preview) | Microsoft Docs
+title: Network File System 3.0 support in Azure Blob Storage (preview) | Microsoft Docs
 description: Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer that runs on-premises.
 author: normesta
 ms.subservice: blobs
@@ -11,12 +11,12 @@ ms.reviewer: yzheng
 ms.custom: references_regions
 ---
 
-# Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)
+# Network File System (NFS) 3.0 protocol support in Azure Blob Storage (preview)
 
 Blob storage now supports the Network File System (NFS) 3.0 protocol. This support provides Linux file system compatibility at object storage scale and prices and enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance and block blob storage accounts with premium performance tier in all public regions.
+> NFS 3.0 protocol support in Azure Blob Storage is in public preview. It supports GPV2 storage accounts with standard tier performance and block blob storage accounts with premium performance tier in all public regions.
 
 It's always been a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that applications often use traditional file protocols such as NFS or Server Message Block (SMB) to access data. Also, native cloud storage services focused on object storage that have a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations. 
 
@@ -101,13 +101,13 @@ The status of items that appear in this tables will change over time as support 
 
 | Storage feature | Premium | Standard |Storage Feature | Premium | Standard |
 |-----------------|---------|----------|----------------|---------|----------|
-| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | 	✔️ | [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2) | ⛔ | 	⛔ |
-| [Access tiers for Azure Blob storage](storage-blob-storage-tiers.md) |	✔️ | 	✔️ | [Blob index tags](storage-blob-index-how-to.md) |	⛔ | ⛔ |
+| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | 	✔️ | [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2) | ✔️ | 	✔️ |
+| [Access tiers for Azure Blob Storage](storage-blob-storage-tiers.md) |	✔️ | 	✔️ | [Blob index tags](storage-blob-index-how-to.md) |	⛔ | ⛔ |
 | [Azure Blob Storage lifecycle management](storage-lifecycle-management-concepts.md) | ✔️  |	✔️ | [Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |	⛔ |
 |  [Azure Storage blob inventory](blob-inventory.md) |	✔️  |	✔️ | [Change Feed](storage-blob-change-feed.md) |	⛔ |	⛔ |
 | [Azure Monitor](monitor-blob-storage.md) |	✔️ |	✔️ | [Blob versioning](versioning-enable.md) | ⛔ |	⛔ |
 | [Blob snapshots](snapshots-overview.md) |	✔️  |	✔️ | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | ⛔ |	⛔ |
-| [Private endpoints](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  |	✔️ | [Azure Backup integration](/azure/backup/blob-backup-overview) | ⛔ |	⛔ |
+| [Private endpoints](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  |	✔️ | [Azure Backup integration](../../backup/blob-backup-overview.md) | ⛔ |	⛔ |
 | [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  |	✔️ | [Soft delete for containers](soft-delete-container-overview.md) |	⛔ |	⛔ |
 | [Firewall rules](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  |	✔️ | [Soft delete for blobs](soft-delete-blob-overview.md) |	⛔ |	⛔ |
 | [Disallow shared key authorization](../common/shared-key-authorization-prevent.md)  | ✔️ |	✔️ | [Last access time tracking for lifecycle management](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview) |	⛔|	⛔ |
@@ -159,4 +159,4 @@ A transaction is not charged during the preview. Pricing for transactions is sub
 
 - To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
-- To optimize performance, see [Network File System (NFS) 3.0 performance considerations in Azure Blob storage (preview)](network-file-system-protocol-support-performance.md).
+- To optimize performance, see [Network File System (NFS) 3.0 performance considerations in Azure Blob Storage (preview)](network-file-system-protocol-support-performance.md).

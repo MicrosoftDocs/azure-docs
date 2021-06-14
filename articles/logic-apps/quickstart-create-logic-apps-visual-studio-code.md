@@ -3,7 +3,7 @@ title: Quickstart - Create integration workflows with Azure Logic Apps in Visual
 description: Create and manage workflow definitions with multi-tenant Azure Logic Apps in Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, deli, logicappspm
+ms.reviewer: azla
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/25/2021

@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 5/20/2021
+ms.date: 5/25/2021
 ms.custom: how-to
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
@@ -59,14 +59,14 @@ az upgrade
 Add and configure the Azure ML extension:
 
 ```azurecli
-az extension add  ml
+az extension add -n ml
 ```
 
 For more on configuring the ML extension, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
 
 * The example repository
 
-Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli-preview/experiment/using-cli/assets/endpoints/batch`.
+Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli/endpoints/batch`.
 
 ## Create a compute target
 
@@ -88,7 +88,7 @@ az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpo
 
 Below is the YAML file defining the MLFlow batch endpoint:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/create-batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/create-batch-endpoint.yml":::
 
 | Key | Description |
 | --- | ----------- |
@@ -239,7 +239,7 @@ az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpo
 
 This sample uses a non-MLflow model. When using non-MLflow, you'll need to specify the environment and a scoring script in the YAML file:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/add-deployment.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/add-deployment.yml" :::
 
 More deployment attributes for the non-MLflow model:
 
@@ -294,7 +294,7 @@ auth_token=$(az account get-access-token --query accessToken -o tsv)
 3. Use the `scoring_uri`, the access token, and JSON data to POST a request and start a batch scoring job:
 
 ```bash
-curl --location --request POST '$scoring_uri' --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
+curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
 "properties": {
   "dataset": {
     "dataInputType": "DataUrl",

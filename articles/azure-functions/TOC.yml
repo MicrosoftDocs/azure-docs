@@ -58,8 +58,10 @@
         - name: Azure Arc (preview)
           items:
           - name: Publish code project
+            displayName: Arc, container, Kubernetes
             href: create-first-function-arc-cli.md
           - name: Publish Linux container
+            displayName: Arc, container, Kubernetes
             href: create-first-function-arc-custom-container.md
     - name: Connect to a database
       items:
@@ -79,18 +81,18 @@
       href: functions-twitter-email.md
     - name: Develop Python functions with VS Code
       href: /azure/python/tutorial-vs-code-serverless-python-01
-    - name: Create serverless APIs using Visual Studio  
+    - name: Create serverless APIs using Visual Studio
       href: openapi-apim-integrate-visual-studio.md
       displayName: OpenAPI, Swagger
     - name: Networking
-      items:  
+      items:
         - name: Connect to a Virtual Network
           href: functions-create-vnet.md
-          displayName: vnet 
+          displayName: vnet
         - name: Establish private site access
           href: functions-create-private-site-access.md
         - name: Use an outbound NAT gateway
-          href: functions-how-to-use-nat-gateway.md  
+          href: functions-how-to-use-nat-gateway.md
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Create a serverless web app
@@ -136,13 +138,13 @@
               href: ./scripts/functions-cli-create-serverless-python.md
             - name: Scalable Premium plan app
               href: ./scripts/functions-cli-create-premium-plan.md
-            - name: Dedicated (App Service) plan app  
+            - name: Dedicated (App Service) plan app
               href: ./scripts/functions-cli-create-app-service-plan.md
         - name: Integrate services
           items:
             - name: Connect Azure Storage
               href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
-            - name: Connect Azure Cosmos DB  
+            - name: Connect Azure Cosmos DB
               href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
             - name: Python mount Files share
               href: ./scripts/functions-cli-mount-files-storage-linux.md
@@ -183,7 +185,7 @@
         - name: Dedicated plan
           href: dedicated-plan.md
         - name: Event-driven scaling
-          href: event-driven-scaling.md  
+          href: event-driven-scaling.md
     - name: Deployments
       href: functions-deployment-technologies.md
     - name: Events and messaging
@@ -215,7 +217,7 @@
           href: functions-dotnet-class-library.md
         - name: C# (isolated process)
           displayName: .NET isolated, .NET 5
-          href: dotnet-isolated-process-guide.md  
+          href: dotnet-isolated-process-guide.md
         - name: C# script (.csx)
           href: functions-reference-csharp.md
         - name: F#
@@ -289,7 +291,7 @@
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
                 - name: C# isolated (.NET 5)
-                  href: dotnet-isolated-process-developer-howtos.md  
+                  href: dotnet-isolated-process-developer-howtos.md
                 - name: Java using Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java using Eclipse
@@ -352,6 +354,8 @@
           href: functions-manually-run-non-http.md
         - name: Bring dependencies to function apps
           href: bring-dependency-to-functions.md
+        - name: Develop Python worker extensions
+          href: develop-python-worker-extensions.md
     - name: Deploy
       items:
         - name: Continuous deployment
@@ -393,7 +397,7 @@
           href: configure-monitoring.md
           displayName: App Insights, Application Insights, logs, logging
         - name: Analyze telemetry data
-          href: analyze-telemetry-data.md  
+          href: analyze-telemetry-data.md
           displayName: App Insights, Application Insights, Kusto
         - name: Streaming logs
           href: streaming-logs.md
@@ -639,7 +643,7 @@
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: Table storage
-          items: 
+          items:
             - name: Overview
               href: functions-bindings-storage-table.md
               displayName: Table storage

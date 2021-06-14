@@ -117,6 +117,82 @@ Here is more information about the outputs from an HTTP trigger or action, which
 | 500 | Internal server error. Unknown error occurred. |
 |||
 
+<a name="single-tenant-authentication"></a>
+
+## Authentication for single-tenant environment
+
+If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
+
+* [TSL/SSL certificate](#tsl-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and provide the thumbprint for your thumbprint for your TSL/SSL certificate.
+
+* [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
+
+<a name="tsl-ssl-certificate-authentication"></a>
+
+### TSL/SSL certificate authentication
+
+1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_ROOT_CERTIFICATES`.
+
+1. For the setting value, provide the thumbprint for your TSL/SSL certificate as the root certificate to be trusted.
+
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+
+For example, if you're working in Visual Studio Code, follow these steps:
+
+1. Open your logic app project's **local.settings.json** file.
+
+1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_ROOT_CERTIFICATES` setting:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         <...>
+      }
+   }
+   ```
+
+For more information, review the following documentation:
+
+* [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Private client certificates - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
+
+<a name="client-certificate-authentication"></a>
+
+### Client certificate or Azure AD OAuth with "Certificate" credential type authentication
+
+1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_USER_PROFILE`.
+
+1. For the setting value, specify `1`.
+
+   `"WEBSITE_LOAD_USER_PROFILE": "1"`
+
+For example, if you're working in Visual Studio Code, follow these steps:
+
+1. Open your logic app project's **local.settings.json** file.
+
+1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_USER_PROFILE` setting:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_USER_PROFILE": "1",
+         <...>
+      }
+   }
+   ```
+
+For more information, review the following documentation:
+
+* [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Private client certificates - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
+
 ## Content with multipart/form-data type
 
 To handle content that has `multipart/form-data` type in HTTP requests, you can add a JSON object that includes the `$content-type` and `$multipart` attributes to the HTTP request's body by using this format.
@@ -188,41 +264,6 @@ By default, all HTTP-based actions in Azure Logic Apps follow the standard [asyn
      !["Asynchronous Pattern" setting](./media/connectors-native-http/asynchronous-pattern-setting.png)
 
 * The HTTP action's underlying JavaScript Object Notation (JSON) definition implicitly follows the asynchronous operation pattern.
-
-<a name="tsl-ssl-certificate-authentication"></a>
-
-## TSL/SSL certificate authentication
-
-If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you try to call an HTTPS endpoint from your workflow by using the HTTP operation and a TSL/SSL certificate for authentication, the call fails unless you also complete these steps:
-
-1. In your logic ap resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_ROOT_CERTIFICATES`.
-
-1. For the setting value, provide the thumbprint for your TSL/SSL certificate as the root certificate to be trusted.
-
-   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
-
-For example, if you're working in Visual Studio Code, follow these steps:
-
-1. Open your logic app project's **local.settings.json** file.
-
-1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_ROOT_CERTIFICATES` setting:
-
-   ```json
-   {
-      "IsEncrypted": false,
-      "Values": {
-         <...>
-         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
-         <...>
-      }
-   }
-   ```
-
-For more information, review the following documentation:
-
-* [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
-* [Private client certificates - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
 
 <a name="disable-asynchronous-operations"></a>
 

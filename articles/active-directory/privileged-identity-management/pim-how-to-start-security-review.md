@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 4/27/2021
+ms.date: 05/28/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -28,17 +28,17 @@ This article describes how to create one or more access reviews for privileged A
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
->  Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
+> Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
 
 ## Prerequisites
 
-[Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator)
+[Global Administrator](../roles/permissions-reference.md#global-administrator)
 
 ## Open access reviews
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the Privileged role administrator role.
+1. Sign in to [Azure portal](https://portal.azure.com/) as a user that is assigned the Global Administrator role.
 
-2. Select **Identity Governance**
+2. Select **Identity Governance**.
  
 3. Select **Azure AD roles** under **Azure AD Privileged Identity Management**.
  

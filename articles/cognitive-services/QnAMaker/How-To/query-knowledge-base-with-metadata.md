@@ -49,12 +49,6 @@ Because results are required only for the restaurant "Paradise", you can set a f
 
 ## Filter by source
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
-In the QnA Maker GA version you cannot filter results by a content source.
-
-# [Custom question answering (preview release)](#tab/v2)
-
 In case you have multiple content sources in your knowledge base and you would like to limit the results to a particular set of sources, you can do that using the reserved keyword `source_name_metadata` as shown below.
 
 ```json

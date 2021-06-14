@@ -42,7 +42,7 @@ items:
   - name: 8 Monitor
     href: get-started-monitor.md
     displayName: get, started
-  - name: 9 Explore the Knowledge Center
+  - name: 9 Explore the Knowledge center
     href: get-started-knowledge-center.md
     displayName: get, started
   - name: 10 Add an administrator
@@ -66,6 +66,7 @@ items:
         href: quickstart-create-workspace-powershell.md
         displayName: quickstart
       - name: ARM template
+        displayname: Resource Manager
         href: quickstart-deployment-template-workspaces.md
       displayName: quickstart
     - name: Link a Power BI workspace
@@ -590,12 +591,6 @@ items:
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Submit Spark job definitions
       href: ./spark/apache-spark-job-definitions.md
-    - name: Connect and monitor Azure Synapse Spark Application level metrics
-      href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
-    - name: Monitor Apache Spark Application-level metrics with Prometheus and Grafana
-      href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-    - name: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
-      href: ./spark/apache-spark-azure-log-analytics.md
   - name: Concepts
     items:
     - name: Apache Spark 
@@ -606,8 +601,14 @@ items:
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
-    - name: Synapse runtimes
-      href: ./spark/apache-spark-version-support.md
+    - name: Azure Synapse runtimes
+      items:
+        - name: Runtime overview
+          href: ./spark/apache-spark-version-support.md
+        - name: Azure Synapse Apache Spark 2.4 runtime
+          href: ./spark/apache-spark-24-runtime.md
+        - name: Azure Synapse Apache Spark 3.0 runtime
+          href: ./spark/apache-spark-3-runtime.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
@@ -656,21 +657,25 @@ items:
           href: ./spark/apache-spark-performance-hyperspace.md
     - name: Manage and monitor
       items:
-      - name: Spark pool history server
+      - name: Navigate the Apache Spark pool history server
         href: ./spark/apache-spark-history-server.md
       - name: Monitor Spark applications
         href: monitoring/apache-spark-applications.md
-      - name: Apache Spark pools
+      - name: Monitor Spark pools
         href: monitoring/how-to-monitor-spark-pools.md
-      - name: Analyze JSON with Apache Spark
-        href: how-to-analyze-complex-schema.md
+      - name: Connect and monitor Azure Synapse Spark Application level metrics
+        href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+      - name: Monitor Apache Spark application level metrics with Prometheus and Grafana
+        href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
+      - name: Use Azure Log Analytics to collect and visualize metrics and logs (preview)
+        href: ./spark/apache-spark-azure-log-analytics.md      
     - name: Data sources
       items:
         - name: Azure Cosmos DB
           href: ./synapse-link/how-to-query-analytical-store-spark.md
         - name: Azure Data Explorer (Kusto)
           href: ./spark/data-sources/apache-spark-kusto-connector.md
-        - name: Azure SQL Data Warehouse
+        - name: Azure SQL Dedicated
           href: ./spark/synapse-spark-sql-pool-import-export.md
         - name: Azure SQL and SQL Server 
           href: ./spark/data-sources/apache-spark-sql-connector.md
@@ -682,36 +687,56 @@ items:
     items:
     - name: Synapse Link for Azure Cosmos DB
       href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Synapse Link for Dataverse
+      href: /powerapps/maker/data-platform/export-to-data-lake?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Quickstarts
     items:
     - name: Connect to Synapse Link for Cosmos DB
       href: quickstart-connect-synapse-link-cosmos-db.md
   - name: Concepts
     items:
-    - name: Analytical Store Overview
-      href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Synapse Link supported features
-      href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
-    - name: Synapse Link FAQ
-      href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Synapse Link use cases
-      href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Cosmos DB
+      items:
+      - name: Analytical Store Overview
+        href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Synapse Link supported features
+        href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
+      - name: Cosmos DB FAQ
+        href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Synapse Link use cases
+        href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Dataverse
+      items: 
+      - name: What is Dataverse
+        href: /powerapps/maker/data-platform/data-platform-intro?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Configuration settings in Synapse Link
+        href: /powerapps/maker/data-platform/azure-synapse-link-advanced-configuration?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Dataverse FAQ
+        href: /powerapps/maker/data-platform/export-data-lake-faq?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   # - name: Tutorials
   #   items:  
   - name: How-to guides
     items:
-    - name: Configure Synapse Link
-      href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Connect to Azure Synapse Link for Cosmos DB
-      href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-    - name: Use Power BI and serverless SQL pool to analyze Azure Cosmos DB
-      href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Query Azure Cosmos DB analytical store with Apache Spark
-      href: ./synapse-link/how-to-query-analytical-store-spark.md
-    - name: Copy data from Synapse Link into a dedicated SQL pool using Apache Spark
-      href: ./synapse-link/how-to-copy-to-sql-pool.md  
-    - name: Query Azure Cosmos DB analytical store with serverless SQL pool
-      href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Cosmos DB
+      items:
+      - name: Configure Synapse Link
+        href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Connect to Azure Synapse Link for Cosmos DB
+        href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+      - name: Use Power BI and serverless SQL pool to analyze Azure Cosmos DB
+        href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query Azure Cosmos DB analytical store with Apache Spark
+        href: ./synapse-link/how-to-query-analytical-store-spark.md
+      - name: Copy data from Synapse Link into a dedicated SQL pool using Apache Spark
+        href: ./synapse-link/how-to-copy-to-sql-pool.md  
+      - name: Query Azure Cosmos DB analytical store with serverless SQL pool
+        href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Dataverse
+      items:
+      - name: Configure Synapse Link for Dataverse
+        href: /powerapps/maker/data-platform/azure-synapse-link-synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Export data to Azure Synapse 
+        href: /dynamics365/customer-insights/audience-insights/export-azure-synapse-analytics?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Pipeline and data flow
   items:
   # - name: Overview
@@ -726,6 +751,8 @@ items:
       href: quickstart-copy-activity-load-sql-pool.md
     - name: Transform data using mapping data flows
       href: quickstart-data-flow.md
+    - name: Transform data using Apache Spark job definition
+      href: quickstart-transform-data-using-spark-job-definition.md
   - name: Concepts
     items:
     - name: Pipeline and activity
@@ -1009,6 +1036,8 @@ items:
       items:
       - name: Execute Data Flow activity
         href: ../data-factory/control-flow-execute-data-flow-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Synapse Notebook Activity
+        href: synapse-notebook-activity.md
       - name: Synapse SQL Pool Stored Procedure Activity
         href: ./data-integration/sql-pool-stored-procedure-activity.md
       - name: Azure Function Activity
@@ -1167,6 +1196,8 @@ items:
       href: machine-learning/what-is-machine-learning.md
   - name: Quickstarts
     items:
+    - name: Use a sample notebook from the gallery
+      href: machine-learning/quickstart-gallery-sample-notebook.md
     - name: Create a new Azure Machine Learning linked service
       href: machine-learning/quickstart-integrate-azure-machine-learning.md
   - name: Concepts
@@ -1198,6 +1229,9 @@ items:
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
     - name: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
       href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
+    - name: ADLS read/write using filesystem spec and linked service
+      displayname: machine learning
+      href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts

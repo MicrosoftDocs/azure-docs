@@ -374,6 +374,9 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Deploy at scale
+        displayname: Deploy Azure Monitor agent at scale
+        href: deploy-scale.md#azure-monitor-agent-preview  
       - name: FAQ
         displayname: Azure Monitor agent FAQ
         href: faq.md#azure-monitor-agent-preview
@@ -873,6 +876,8 @@
     - name: Smart Detection
       href: app/proactive-diagnostics.md
       items:
+      - name: Upgrade to alerts
+        href: alerts/alerts-smart-detections-migration.md
       - name: Failure anomalies
         href: app/proactive-failure-diagnostics.md
       - name: Performance anomalies
@@ -1079,6 +1084,8 @@
         href: containers/container-insights-azure-redhat-setup.md
       - name: Enable for Azure Red Hat OpenShift v4
         href: containers/container-insights-azure-redhat4-setup.md
+      - name: Enable with Azure Policy
+        href: containers/container-insights-enable-aks-policy.md
       - name: Region mappings
         href: containers/container-insights-region-mapping.md
     - name: Monitor performance
@@ -1202,7 +1209,7 @@
             - name: Pricing
               href: insights/network-performance-monitor-pricing-faq.md
             - name: FAQ
-              href: insights/network-performance-monitor-faq.md
+              href: insights/network-performance-monitor-faq.yml
         - name: Office 365
           href: insights/solution-office-365.md
         - name: Service Map solution

@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 05/25/2021
+ms.date: 06/08/2021
 ms.reviewer: laobri
 ---
 
@@ -45,7 +45,7 @@ For the Azure Machine Learning CLI, jobs are authored in YAML format. A job aggr
 
 The "hello world" job has all three:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
 
 This is just an example job which doesn't output anything other than a line in the log file. Typically you want to generate additional artifacts, such as model binaries and accompanying metadata, in addition to the system-generated logs.
 
@@ -71,11 +71,11 @@ This directory contains two job files, a conda environment file, and a source co
 
 The basic command job is configured via the `job.yml`:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
 This job can be created and run via `az ml job create` using the `--file/-f` parameter. However, the job targets a compute named `cpu-cluster` which does not yet exist. To run the job locally first, you can override the compute target with `--set`:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_local":::
 
 While running this job locally is slower than running `python main.py` in a local Python environment with the required packages, the above allows you to:
 
@@ -95,9 +95,9 @@ While running this job locally is slower than running `python main.py` in a loca
 
 You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
 
-Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [plan and manage cost for AmlCompute](concept-plan-manage-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
 Use `az ml compute create -h` for more details on compute create options.
 
@@ -105,7 +105,7 @@ Use `az ml compute create -h` for more details on compute create options.
 
 With `cpu-cluster` created you can run the basic training job, which outputs a model and accompanying metadata. Let's review the job YAML file in detail:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
 | Key | Description |
 | --- | ----------- |
@@ -122,11 +122,11 @@ Creating this job uploads any specified local assets, like the source code direc
 
 To run the lightgbm/iris training job:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris":::
 
 Once the job is complete, you can download the outputs:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_outputs":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="download_outputs":::
 
 > [!IMPORTANT]
 > Replace `$run_id` with your run ID, which can be found in the console output or in the studio's run details page.
@@ -135,11 +135,11 @@ This will download the logs and any captured artifacts locally in a directory na
 
 ## Sweep hyperparameters
 
-Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI. For more information on Azure Machine Learning's hyperparameter tuning offering, see the [Hyperparameters tuning a model](how-to-tune-hyperparameters.md).
+Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI.
 
 You can modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
 
 | Key | Description |
 | --- | ----------- |
@@ -156,7 +156,7 @@ You can modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
 
 Create job and open in the studio:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_sweep":::
 
 > [!TIP]
 > Hyperparameter sweeps can be used with distributed command jobs.
@@ -171,25 +171,25 @@ Be sure to set the `compute.instance_count`, which defaults to 1, to the desired
 
 An example YAML file for distributed PyTorch training on the CIFAR-10 dataset:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
 
 Notice this refers to local data, which is not present in the cloned examples repository. You first need to download, extract, and relocate the CIFAR-10 dataset locally, placing it in the proper location in the project directory:
 
-:::code language="bash" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_cifar":::
+:::code language="bash" source="~/azureml-examples-main/cli/train.sh" id="download_cifar":::
 
 Create the job and open in the studio:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="pytorch_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pytorch_cifar":::
 
 ### TensorFlow
 
 An example YAML file for distributed TensorFlow training on the MNIST dataset:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
 
 Create the job and open in the studio:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="tensorflow_mnist":::
 
 ### MPI
 
@@ -199,11 +199,11 @@ To launch an MPI job, specify `mpi` as the type and the number of processes per 
 
 An example YAML specification, which runs a TensorFlow job on MNIST using Horovod:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
 
 Create the job and open in the studio:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="tensorflow_mnist_horovod":::
 
 ## Next steps
 

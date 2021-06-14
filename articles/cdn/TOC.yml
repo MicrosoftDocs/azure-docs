@@ -149,7 +149,9 @@
     - name: File compression
       href: cdn-troubleshoot-compression.md
     - name: Allowed certificate authorities
-      href: cdn-troubleshoot-allowed-ca.md      
+      href: cdn-troubleshoot-allowed-ca.md
+    - name: Subscription offers and bandwidth throttling
+      href: subscription-offerings.md      
 - name: Reference
   items:
   - name: Standard rules engine reference
@@ -195,10 +197,10 @@
       href: cdn-pop-locations.md
     - name: POP locations by abbreviation
       items:
-      - name: Verizon
-        href: cdn-pop-abbreviations.md
       - name: Microsoft
         href: microsoft-pop-abbreviations.md
+      - name: Verizon
+        href: cdn-pop-abbreviations.md
   - name: Azure Content Delivery Network billing
     href: cdn-billing.md
   - name: Azure Roadmap

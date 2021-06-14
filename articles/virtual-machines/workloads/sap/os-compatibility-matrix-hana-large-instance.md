@@ -7,6 +7,7 @@ author: Ajayan1008
 manager: hrushib
 editor:
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

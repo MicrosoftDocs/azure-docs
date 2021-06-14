@@ -22,8 +22,10 @@ Translate text.
 Send a `POST` request to:
 
 ```HTTP
-https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
+http://localhost:{port}/translate?api-version=3.0
 ```
+
+Example: http://<span></span>localhost:5000/translate?api-version=3.0
 
 ## Request parameters
 
@@ -34,22 +36,21 @@ Request parameters passed on the query string are:
 | Query parameter | Description |
 | --- | --- |
 | api-version | _Required parameter_.  <br>Version of the API requested by the client. Value must be `3.0`. |
-| to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](../reference/v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
 | from | _Required parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope.|
+| to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](../reference/v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
 
 ### Optional parameters
 
 | Query parameter | Description |
 | --- | --- |
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
-| includeAlignment | _Optional parameter_.  <br>Specifies whether to include alignment projection from source text to translated text. Possible values are: `true` or `false` (default). |
 | includeSentenceLength | _Optional parameter_.  <br>Specifies whether to include sentence boundaries for the input text and the translated text. Possible values are: `true` or `false` (default). |
 
 Request headers include:
 
 | Headers | Description |
 | --- | --- |
-| Authentication header(s) | _Required request header_.  <br>See [available options for authentication](/azure/cognitive-services/translator/reference/v3-0-reference#authentication). |
+| Authentication header(s) | _Required request header_.  <br>See [available options for authentication](../reference/v3-0-reference.md#authentication). |
 | Content-Type | _Required request header_.  <br>Specifies the content type of the payload.  <br>Accepted value is `application/json; charset=UTF-8`. |
 | Content-Length | _Required request header_.  <br>The length of the request body. |
 | X-ClientTraceId | _Optional_.  <br>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
@@ -109,7 +110,7 @@ If an error occurs, the request will also return a JSON error response. The erro
 This example shows how to translate a single sentence from English to Simplified Chinese.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 The response body is:
@@ -131,7 +132,7 @@ The `translations` array includes one element, which provides the translation of
 Translating multiple strings at once is simply a matter of specifying an array of strings in the request body.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
 The response contains the translation of all pieces of text in the exact same order as in the request.
@@ -157,7 +158,7 @@ The response body is:
 This example shows how to translate the same input to several languages in one request.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 The response body is:
@@ -185,7 +186,7 @@ It's common to translate content which includes markup such as content from an H
 Here is a sample request to illustrate.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
 
 The response is:
@@ -213,7 +214,7 @@ The markup to supply uses the following syntax.
 For example, consider the English sentence "The word wordomatic is a dictionary entry." To preserve the word _wordomatic_ in the translation, send the request:
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 The result is:
@@ -239,4 +240,3 @@ The following table lists array element and character limits for the Translator 
 | Operation | Maximum size of array element | Maximum number of array elements | Maximum request size (characters) |
 |:----|:----|:----|:----|
 | translate | 10,000 | 100 | 10,000 |
-

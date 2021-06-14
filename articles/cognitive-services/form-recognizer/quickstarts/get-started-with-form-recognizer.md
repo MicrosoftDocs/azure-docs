@@ -4,7 +4,7 @@ titleSuffix: Azure Applied AI Services
 description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/14/2021
@@ -26,8 +26,6 @@ Use Form Recognizer to:
 * Analyze Layout
 * Analyze using a Prebuilt model (invoices, receipts, ID documents)
 * Train & Analyze a custom Form
-
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## Prerequisites
 
@@ -146,11 +144,11 @@ Configure the project settings fill in the fields with the following values:
 * **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 
 * **Source connection** - The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers. Create a new connection, click the **Add Connection** button. Fill in the fields with the following values:
-   * **Display Name** - The connection display name.
-   * **Description** - Your project description.
-   * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container.
+  * **Display Name** - The connection display name.
+  * **Description** - Your project description.
+  * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container.
 
-   [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+  * [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
    :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
 
@@ -215,13 +213,15 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
-    :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="Training view.":::
+    :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
+
+    
 
 #### Analyze a custom form
 
 Select the Analyze (light bulb) icon on the left to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
-:::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
+   :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="Training view.":::
 
 ## Next steps
 

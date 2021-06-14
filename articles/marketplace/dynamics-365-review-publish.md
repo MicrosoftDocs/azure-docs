@@ -1,5 +1,5 @@
 ---
-title: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace).
+title: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace)
 description: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace).
 ms.reviewer: emuench 
 ms.service: marketplace 
@@ -54,4 +54,4 @@ After you select **Review and publish**, we will perform certification and other
 ## Next steps
 
 - If you enabled _Third-party app license management through Microsoft_ for your offer, after you sell your offer, you’ll need to register the deal in Partner Center. To learn more, see [Managing licensing in marketplace offers](/partner-center/csp-commercial-marketplace-licensing).
-- [Update an existing offer in the Commercial Marketplace](partner-center-portal/update-existing-offer.md)
+- [Update an existing offer in the Commercial Marketplace](update-existing-offer.md)

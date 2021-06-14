@@ -50,7 +50,7 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 The rest of the steps in this tutorial have been tested with the latest version of the extension.
 
 > [!NOTE]
-> The extension uses the 2.0 CLI by default. To switch to the non 2.0 CLI experience, set the `azureML.experimental.V2Config` setting in Visual Studio Code to `false`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
+> The Azure Machine Learning VS Code extension uses the 2.0 CLI by default. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
 
 ## Sign in to your Azure Account
 
@@ -82,5 +82,5 @@ Alternatively, use the `> Azure ML: Set Default Workspace` command in the comman
 - [Manage your Azure Machine Learning resources](how-to-manage-resources-vscode.md)
 - [Develop on a remote compute instance locally](how-to-set-up-vs-code-remote.md)
 - [Use a compute instances as a remote Jupyter server](how-to-set-up-vs-code-remote.md)
-- [Train & deploy image classification model using the Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
+- [Train an image classification model using the Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
 - [Run and debug machine learning experiments locally](how-to-debug-visual-studio-code.md)

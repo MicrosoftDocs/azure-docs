@@ -202,11 +202,11 @@ landingContent:
         links:
           - text: App Service, Functions, and Logic Apps on Azure Arc (preview)
             url: overview-arc-integration.md
+      - linkListType: quickstart
+        links:
+          - text: Create an App Service app on Azure Arc (preview)
+            url: quickstart-arc.md            
       - linkListType: tutorial
         links:            
           - text: Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
             url: manage-create-arc-environment.md
-      - linkListType: quickstart
-        links:
-          - text: Create an App Service app on Azure Arc (preview)
-            url: quickstart-arc.md
