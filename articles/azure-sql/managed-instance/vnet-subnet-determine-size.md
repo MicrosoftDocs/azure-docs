@@ -59,9 +59,9 @@ VC = virtual cluster
 
   \* Column total displays number of addresses that would be taken when one instance is deployed in subnet. Each additional instance in subnet adds number of addresses represented with instance usage column. Addresses represented with Azure usage column are shared across multiple virtual clusters while addresses represented with VC usage column are shared across instances placed in that virtual cluster.
 
-Update operation typically requires virtual cluster resize. In some circumstances, update operation will require virtual cluster creation (for more details check [management operations article](sql-managed-instance-paas-overview.md#management-operations)). In case of virtual cluster creation, number of additional addresses required is equal to number of addresses represented by VC usage column summed with addresses required for instances placed in that virtual cluster (instance usage column).
+Additional input for consideration when determining subnet size (especially when multiple instances will be deployed inside the same subnet) is [maintenance window feature](../database/maintenance-window.md). Specifying another maintenance window for managed instance during its creation or afterwards means that it must be placed in virtual cluster with corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
 
-One additional thing that should be taken into consideration when determining subnet size is [maintenance window feature](../database/maintenance-window.md). Specifying another maintenance window for managed instance during its creation or afterwards means that it must be placed in virtual cluster with corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
+Update operation typically requires virtual cluster resize (for more details check [management operations article](management-operations-overview.md)). When new create or update request comes, managed instance service communicates with compute platform with a request for new nodes that need to be added. Based on the compute response, deployment system either expands existing virtual cluster or creates a new one. Even if in most cases operation will be completed within same virtual cluster, there is no guarantee from the compute side that new one will not be spawned. This will increase number of IP addresses required for performing create or update operation and also reserve additional IP addresses in the subnet for newly created virtual cluster.
 
 ### Address requirements for update scenarios
 
@@ -85,24 +85,25 @@ During scaling operation instances temporarily require additional IP capacity th
   
 ## Recommended subnet calculator
 
-When new create or update request comes, managed instance service communicates with compute platform with a request for new nodes that need to be added. Based on the compute response, deployment system either expands existing virtual cluster or creates a new one. Even if in most cases operation will be completed within same virtual cluster, there is no guarantee from the compute side that new one will not be spawned. This will increase number of IP addresses required for performing create or update operation and also reserve additional IP addresses in the subnet for newly created virtual cluster.
+Taking into the account potential creation of new virtual cluster during subsequent create request or instance update, and maintenance window requirement of virtual cluster per window, recommended formula for calculating total number of IP addresses required is:
 
-Taking into the account potential creation of new virtual cluster during subsequent create request or instance update, recommended formula for calculating total number of IP addresses required is:
+**Formula: 5 + a * 12 + b * 16 + c * 16**
 
-**Formula: 5 + a * 16 + b * 12 + c * 16**
-
-- a = number of BC instances
-- b = number of GP instances
+- a = number of GP instances
+- b = number of BC instances
 - c = number of different maintenance window configurations
 
 Explanation:
 - 5 = number of IP addresses reserved by Azure
-- 16 addresses per BC = 6 for virtual cluster, 5 for managed instance, 5 additional for scaling operation
-- 12 addresses per GP = 6 for virtual cluster, 3 for managed instance, 3 additional for scaling operation
-- 16 addresses = scenario where new virtual cluster is created. Each maintenance window slot requires its own virtual cluster.
+- 12 addresses per GP instance = 6 for virtual cluster, 3 for managed instance, 3 additional for scaling operation
+- 16 addresses per BC instance = 6 for virtual cluster, 5 for managed instance, 5 additional for scaling operation
+- 16 addresses as a backup = scenario where new virtual cluster is created
+
+Example: 
+- You plan to have three general purpose and two business critical managed instances deployed in the same subnet. All instances will have same maintenance window configured. That means you need 5 + 3 * 12 + 2 * 16 + 1 * 16 = 85 IP addresses. As IP ranges are defined in power of 2, your subnet requires minimum IP range of 128 (2^7) for this deployment. Therefore, you need to reserve the subnet with subnet mask of /25.
 
 > [!NOTE]
-> Even though it is possible to deploy managed instances in the subnet with number of IP addresses less than the subnet calculator output, always consider using bigger subnets rather than smaller to avoid issue with lack of IP addresses for scaling managed instance in the future.
+> Even though it is possible to deploy managed instances in the subnet with number of IP addresses less than the subnet calculator output, always consider using bigger subnets rather than smaller to avoid issue with lack of IP addresses in the future.
 
 ## Next steps
 
