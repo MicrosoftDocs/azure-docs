@@ -47,6 +47,7 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
 2. Open VirtualBox Manager and [import the .ova image.](https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html).  The Kali licensing agreement will need to be reviewed and accepted to continue.
 
 #### Note:
+- The VirtualBox default Ram for the Kali VM is 2 gig (2048), I would recommend increasing the Ram to at least 4 gig (4096) or more depending on your needs.  This can be changed by the students on their VMs.  Changing the Ram size within VirtualBox does not change the Lab Services VM size.
 - By default the Hard disk is set to an 80 gig limit, but is dynamically allocated.  Lab Service machines are limited to 128 gigs of hard drive space, so be careful of exceeding the disk space.
 - The Kali image has USB 2.0 enable which requires [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) or set the USB controller to 1.0 under the USB tab.
 
