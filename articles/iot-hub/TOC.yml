@@ -373,16 +373,6 @@
               href: iot-hub-raspberry-pi-kit-node-get-started.md
             - name: Raspberry Pi with C
               href: iot-hub-raspberry-pi-kit-c-get-started.md
-        - name: Use MXChip IoT DevKit
-          items:
-            - name: Translate voice message with Azure Cognitive Services
-              href: iot-hub-arduino-iot-devkit-az3166-translator.md
-            - name: Retrieve a Twitter message with Azure Functions
-              href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
-            - name: Send messages to an MQTT server using Eclipse Paho APIs
-              href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
-            - name: Monitor the magnetic sensor and send email notifications with Azure Functions
-              href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: Extended IoT scenarios
       items:
         - name: Manage cloud device messaging with Azure IoT Tools for VS Code
