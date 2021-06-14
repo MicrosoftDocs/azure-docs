@@ -76,6 +76,8 @@ When you select a sink transformation icon in your map, the slide-in panel on th
 * Pre SQL duration & Post SQL duration: The time spent running pre/post SQL commands
 * Pre commands duration & post commands duration: The time spent running any pre/post operations for file based source/sinks. For example move or delete files after processing.
 * Merge duration: The time spent merging the file, merge files are used for file based sinks when writing to single file or when "File name as column data" is used. If significant time is spent in this metric, you should avoid using these options.
+* Stage time: Total amount of time spent inside of Spark to complete the operation as a stage.
+* Temporary staging stable: Name of the temporary table used by data flows to stage data in the database.
   
 ## Error rows
 
