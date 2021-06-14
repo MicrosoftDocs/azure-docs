@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 06/09/2021
+ms.date: 06/14/2021
 ms.author: cherylmc
 
 ---
@@ -19,7 +19,7 @@ For Preview, the following SKUs are currently available.
 
 |Function |Category|Link|
 | ---  | --- | --- |
-| Affirmed Private Mobile Service  | Mobile Packet Core |[Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165526)|
+| Affirmed Private Network Service  | Mobile Packet Core |[Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165526)|
 |Celona Edge |Mobile Packet Core |[Azure Marketplace](https://ms.portal.azure.com/)|
 | Metaswitch Fusion Core | Mobile Packet Core | [Configuration guide](https://go.microsoft.com/fwlink/?linkid=2165525)|
 | NetFoundry ZTNA | Other| [Azure Marketplace](https://ms.portal.azure.com/)|

@@ -22,6 +22,8 @@
 - name: Resource
   expanded: true
   items:
+  - name: Azure private MEC
+    href: https://go.microsoft.com/fwlink/?linkid=2165316
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
