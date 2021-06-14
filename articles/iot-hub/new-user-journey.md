@@ -1,3 +1,16 @@
+---
+title: Journey for learning IoT Hub for New Users IoT Hub Journey | Microsoft Docs
+description: : Journey for new users to learn IoT Hub
+author: robinsh
+ms.service: iot-hub
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
+ms.date: 06/12/2021
+ms.author: robinsh
+ms.custom: ""
+---
+
 # IoT Concepts
 
 ## Connect and securely connect
@@ -38,24 +51,29 @@ Typically, IoT devices send telemetry from the sensors to back-end services in t
 *  A back-end service sending a command to a device to change the frequency at which it sends telemetry to help diagnose a problem. 
 *  A device monitoring a batch reactor in a chemical plant, sending an alert when the temperature exceeds a certain value.
 
-### Telemetry - Receive information back from the device such as data collected by a sensor
+https://docs.microsoft.com/en-us/azure/iot-central/core/overview-iot-central-developer
+### Telemetry - Receive information back from the device such as data collected by a sensor.
 
-What is telemetry? IoT Devices send events (notifications, acknowledgements, telemetry) sent to an application to gain insights. Applications may require specific subsets of events for processing or storage at different endpoints.
+What is telemetry? Telemetry is data that a device sends to an IoT Hub. IoT Devices send events (notifications, acknowledgements, telemetry) to an application to gain insights. Applications may require specific subsets of events for processing or storage at different endpoints.
 
 How does IoT support telemetry?
 
-### Properties on a device, such a temperature
+### Properties are state values or data that applications can access. For example, the curent firmware version of the device, or writable properties that can be updated, such a temperature.
 https://docs.microsoft.com/en-us/javascript/api/azure-iot-common/message?view=azure-node-latest
 
-Properties are data that applications can access. They can be read or set from the IoT Hub, and can be used to send notifications when an action has completed. An example is specific properties on a device, such as temperature. 
+Properties can be read or set from the IoT Hub, and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. This can be a writable property that can be updated on the device.  
 
-### Commands - Execute a method on an application on a device such as rebooting the device
-
-Execute methods (e.g. commands) directly on connected devices, using a request-response pattern over dedicated IoT device endpoints.
+### Commands can be used to execute methods directly on connected devices. An example of a command is rebooting the device.
 
 ## View and Act on Data collected from your devices
 
-Telemetry and notifications from devices (more descriptions)
+A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints and is available for a max of 7 days and can be used to take actions on a device. 
+
+You can also use Message Routing to send data to other endpoints further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services, also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
+
+Event Grid enables additional ways to interact with data from your services. 
+
+=================
 
 IoT devices have different characteristics when compared to other clients such as browsers and mobile apps. The [device SDKs](iot-hub-devguide-sdks.md) help you address the challenges of connecting devices securely and reliably to your back-end service. 
 Specifically, IoT devices:
