@@ -67,8 +67,8 @@ To expand your host pool by adding virtual machines:
 
 Now that you've expanded your existing host pool, you can sign in to a Azure Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
-- [Connect with the Windows Desktop client](./connect-windows-7-10.md)
-- [Connect with the web client](./connect-web.md)
-- [Connect with the Android client](./connect-android.md)
-- [Connect with the macOS client](./connect-macos.md)
-- [Connect with the iOS client](./connect-ios.md)
+- [Connect with the Windows Desktop client](./use-clients-access/connect-windows-7-10.md)
+- [Connect with the web client](./use-clients-access/connect-web.md)
+- [Connect with the Android client](./use-clients-access/connect-android.md)
+- [Connect with the macOS client](./use-clients-access/connect-macos.md)
+- [Connect with the iOS client](./use-clients-access/connect-ios.md)

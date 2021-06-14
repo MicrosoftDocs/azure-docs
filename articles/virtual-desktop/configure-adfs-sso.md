@@ -43,8 +43,8 @@ Before configuring AD FS single sign-on, you must have the following setup runni
 
 The following Azure Virtual Desktop clients support this feature:
 
-* [Windows Desktop client](connect-windows-7-10.md)
-* [Web client](connect-web.md)
+* [Windows Desktop client](./use-clients-access/connect-windows-7-10.md)
+* [Web client](./use-clients-access/connect-web.md)
 
 ## Configure the certificate authority to issue certificates
 
@@ -286,5 +286,5 @@ UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplic
 
 Now that you've configured single sign-on, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session using your new credentials, check out these articles:
 
-* [Connect with the Windows Desktop client](connect-windows-7-10.md)
-* [Connect with the web client](connect-web.md)
+* [Connect with the Windows Desktop client](./use-clients-access/connect-windows-7-10.md)
+* [Connect with the web client](./use-clients-access/connect-web.md)

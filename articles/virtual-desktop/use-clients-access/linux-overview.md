@@ -9,7 +9,7 @@ manager: femila
 ---
 # Thin client support
 
-You can access Azure Virtual Desktop resources from your thin client devices with the [web client](connect-web.md) or the following supported clients, provided by our partners. We're working with a number of partners to enable supported Azure Virtual Desktop clients on other platforms.
+You can access Azure Virtual Desktop resources from your thin client devices with the [web client](./use-clients-access/connect-web.md) or the following supported clients, provided by our partners. We're working with a number of partners to enable supported Azure Virtual Desktop clients on other platforms.
 
 ## Connect with your thin client device
 

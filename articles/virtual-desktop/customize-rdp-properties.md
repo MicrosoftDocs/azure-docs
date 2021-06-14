@@ -126,8 +126,8 @@ CustomRdpProperty : <CustomRDPpropertystring>
 
 Now that you've customized the RDP properties for a given host pool, you can sign in to a Azure Virtual Desktop client to test them as part of a user session. These next how-to guides will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](connect-windows-7-10.md)
-- [Connect with the web client](connect-web.md)
-- [Connect with the Android client](connect-android.md)
-- [Connect with the macOS client](connect-macos.md)
-- [Connect with the iOS client](connect-ios.md)
+- [Connect with the Windows Desktop client](./use-clients-access/connect-windows-7-10.md)
+- [Connect with the web client](./use-clients-access/connect-web.md)
+- [Connect with the Android client](./use-clients-access/connect-android.md)
+- [Connect with the macOS client](./use-clients-access/connect-macos.md)
+- [Connect with the iOS client](./use-clients-access/connect-ios.md)

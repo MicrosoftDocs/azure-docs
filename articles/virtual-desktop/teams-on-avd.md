@@ -24,7 +24,7 @@ With media optimization for Microsoft Teams, the Windows Desktop client handles 
 Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do these things:
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
-- Install the [Windows Desktop client](connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Install the [Windows Desktop client](./use-clients-access/connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
 
 ## Install the Teams desktop app
