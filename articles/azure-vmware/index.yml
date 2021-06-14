@@ -179,7 +179,7 @@ landingContent:
           - text: Deploy VMs from the content library
             url: deploy-vm-content-library.md   
           - text: Deploy disaster recovery using VMware HCX
-            url: disaster-recovery-for-virtual-machines.md         
+            url: deploy-disaster-recovery-using-vmware-hcx.md         
 
 # card 8
   - title: VMware ecosystem

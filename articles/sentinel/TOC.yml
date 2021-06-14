@@ -282,10 +282,14 @@
       href: monitor-data-connector-health.md
   - name: Analytics rules
     items:
-    - name: Map data fields to entities
-      href: map-data-fields-to-entities.md
-    - name: Surface custom details in alerts
-      href: surface-custom-details-in-alerts.md
+    - name: Alert enrichment
+      items:
+      - name: Map data fields to entities
+        href: map-data-fields-to-entities.md
+      - name: Surface custom details in alerts
+        href: surface-custom-details-in-alerts.md
+      - name: Customize alert details
+        href: customize-alert-details.md
     - name: Export and import analytics rules
       href: import-export-analytics-rules.md
     - name: Create incidents from alerts

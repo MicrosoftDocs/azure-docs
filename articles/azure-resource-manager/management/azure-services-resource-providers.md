@@ -2,7 +2,7 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 06/14/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -103,8 +103,8 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
-| Microsoft.Kubernetes | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
-| Microsoft.KubernetesConfiguration | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
+| Microsoft.Kubernetes | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/) |
+| Microsoft.KubernetesConfiguration | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/) |
 | Microsoft.Kusto | [Azure Data Explorer](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |

@@ -29,7 +29,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
     * [Manual QoS capacity pool](manual-qos-capacity-pool-introduction.md)
 
-## May 2021
+* [Shared AD support for multiple accounts to one Active Directory per region per subscription](create-active-directory-connections.md#shared_ad) (Preview)   
+
+    To date, Azure NetApp Files supports only a single Active Directory (AD) per region, where only a single NetApp account could be configured to access the AD. The new **Shared AD** feature enables all NetApp accounts to share an AD connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common AD configuration to create an SMB volume, a NFSv4.1 Kerberos volume, or a dual-protocol volume. When you use this feature, the AD connection will be visible in all NetApp accounts that are under the same subscription and same region.
+
+## May 2021 
 
 * Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
 
