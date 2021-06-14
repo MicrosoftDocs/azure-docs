@@ -13,7 +13,7 @@ Before creating custom policies, read the overview information at
 To learn about creating Guest Configuration policies for Windows, see the page
 [How to create Guest Configuration policies for Windows](./guest-configuration-create.md)
 
-When auditing Linux, Guest Configuration uses [Chef InSpec](https://www.inspec.io/). The InSpec
+When auditing Linux, Guest Configuration uses [Chef InSpec](https://www.inspec.io/?azure-portal=true). The InSpec
 profile defines the condition that the machine should be in. If the evaluation of the configuration
 fails, the policy effect **auditIfNotExists** is triggered and the machine is considered
 **non-compliant**.
@@ -113,7 +113,7 @@ uncompressed.
 ### Custom Guest Configuration configuration on Linux
 
 Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine with the
-name of the [InSpec profile](https://www.inspec.io/docs/reference/profiles/). **Name** is the only
+name of the [InSpec profile](https://www.inspec.io/?azure-portal=truedocs/reference/profiles/). **Name** is the only
 required resource property. Create a YAML file and a Ruby script file, as detailed below.
 
 First, create the YAML file used by InSpec. The file provides basic information about the
