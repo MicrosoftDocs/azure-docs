@@ -93,7 +93,7 @@ Request a token from the Azure AD token endpoint. In your Azure AD request, use 
 | Azure public cloud     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure Government cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).  To view specific scenarios, see [the table of scenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
+For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).  To view specific scenarios, see [the table of scenarios](./how-to-manage-authentication.md#choose-an-authentication-and-authorization-scenario).
 
 ## Manage and rotate shared keys
 

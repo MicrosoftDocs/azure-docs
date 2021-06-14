@@ -1,7 +1,7 @@
 ---
 title: How to secure a daemon application in Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: This articles describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
+description: This article describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/11/2021
@@ -14,9 +14,9 @@ custom.ms: subject-rbac-steps
 
 # Secure a daemon application
 
-This articles describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
+This article describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
 
-Examples of a daemon applications are:
+Examples of a daemon application are:
 
 - Azure Web Job
 - Azure Function App
@@ -35,7 +35,7 @@ Examples of a daemon applications are:
 Applications that use Shared Key authentication, should store the keys in a secure store. This scenario shows you how to safely store your application key as a secret in Azure Key Vault.  Instead of storing the shared key in plain text in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, it's recommend that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
 
 >[!IMPORTANT]
->This scenario indirectly accesses Azure Active Directory through Azure Key Vault. However, it's recommended that you use Azure AD authentication directly. Using Azure AD directly avoids the additional complexity and operational requirements of using shared key authentication and setting up Key Vault.
+>This scenario indirectly accesses Azure Active Directory through Azure Key Vault. However, we recommend that you use Azure AD authentication directly. Using Azure AD directly avoids the additional complexity and operational requirements of using shared key authentication and setting up Key Vault.
 
 The following steps outline this process:
 
@@ -54,14 +54,14 @@ The following steps outline this process:
 
 ## Scenario: Azure AD role-based access control
 
-Once an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved prior to making HTTP requests. The objective of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
+Once an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved before making HTTP requests. The objective of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
 
 > [!TIP]
 >To enable benefits of managed identity components, it's recommended that you host on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services.
 
 ### Host a daemon on Azure resources
 
-When running on Azure resources, you can configure Azure managed identities to enable low cost, minimal credential management effort.
+When running on Azure resources, you can configure Azure-managed identities to enable low cost, minimal credential management effort.
 
 To enable application access to a managed identity, see [Overview of managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -74,7 +74,7 @@ Some managed identity benefits are:
 
 ### Host a daemon on non-Azure resources
 
-When running on a non-Azure environment, managed identities aren't available. Therefore, you must configure a service principal through an Azure AD application registration for the daemon application.
+When running on a non-Azure environment, managed identities aren't available. As such, you must configure a service principal through an Azure AD application registration for the daemon application.
 
 #### Create new application registration
 
@@ -134,7 +134,7 @@ To assign delegated API permissions to Azure Maps:
 
 #### Create a client secret or configure certificate
 
-If your application uses server or application based authentication, you can either upload a public key certificate, or create a client secret.
+If your application uses server or application-based authentication, you can either upload a public key certificate, or create a client secret.
 
 ##### Upload a public key certificate
 
@@ -171,7 +171,7 @@ To create a client secret:
 
 5. Copy the secret and store it securely in a service such as Azure Key Vault. Also, We'll use the secret in the [Request token with Managed Identity](#request-token-with-managed-identity) section of this article.
 
-      :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Add new client secret.":::
+      :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Copy client secret.":::
 
      >[!IMPORTANT]
      >To securely store the certificate or secret, see the [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md). You'll use this secret to get tokens from Azure AD.
@@ -241,7 +241,7 @@ We'll use the [Postman](https://www.postman.com/) application to create the toke
 }
 ```
 
-For more details about authentication flow, see [OAuth 2.0 client credentials flow on the Microsoft identity platform](../active-directory/develop/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret.md)
+For more information about authentication flow, see [OAuth 2.0 client credentials flow on the Microsoft identity platform](../active-directory/develop/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret.md)
 
 
 ## Next steps
