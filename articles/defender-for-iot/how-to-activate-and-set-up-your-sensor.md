@@ -70,14 +70,13 @@ See [Manage certificates](how-to-manage-individual-sensors.md#manage-certificate
 
 **To sign in and activate:**
 
-
 1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Azure Defender for IoT sensor.":::
 
 1. Enter the credentials defined during the sensor installation, or select the **Password recovery** option. If you purchased a preconfigured sensor from Arrow, generate a password first. For more information on password recovery, see [Investigate password failure at initial sign-in](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
-1. After you sign in, the **Activation** dialog box opens. Select **Upload** and go to the activation file that you downloaded during sensor onboarding.
+1. After you sign in, the **Activation** dialog box opens. Select **Upload** and go to the activation file that you downloaded during the sensor onboarding.
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/activation-upload-screen-with-upload-button.png" alt-text="Select Upload and go to the activation file.":::
 
