@@ -119,7 +119,7 @@ The ledger feature doesn't allow users to modify its content. However, an attack
 
 The [ledger verification](ledger-digest-management-and-database-verification.md) process takes as input one or more previously generated database digests and recomputes the hashes stored in the database ledger based on the current state of the ledger tables. If the computed hashes don't match the input digests, the verification fails, indicating that the data has been tampered with. Ledger then reports all inconsistencies that it has detected.
 
-Because the ledger verification recomputes all of the hashes for transactions in the database, it can be a resource-intensive process for databases with large amounts of data. Users should run the ledger verification only when they need to verify the integrity of their database, rather than running it in continuously. 
+Because the ledger verification recomputes all of the hashes for transactions in the database, it can be a resource-intensive process for databases with large amounts of data. Users should run the ledger verification only when they need to verify the integrity of their database, rather than running it continuously. 
 
 Ideally, users should run ledger verification only when the organization that's hosting the data goes through an audit and needs to provide cryptographic evidence about the integrity of the data to another party. To reduce the cost of verification, the feature exposes options to verify individual ledger tables or only a subset of the ledger tables.
 
