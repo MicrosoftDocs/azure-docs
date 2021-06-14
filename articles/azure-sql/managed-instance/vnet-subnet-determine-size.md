@@ -41,7 +41,7 @@ Size your subnet according to the future instance deployment and scaling needs. 
 - Azure uses five IP addresses in the subnet for its own needs
 - Each virtual cluster allocates additional number of addresses 
 - Each managed instance uses number of addresses that depends on pricing tier and hardware generation
-- Each scaling request temporally allocates additional number of addresses
+- Each scaling request temporarily allocates additional number of addresses
 
 > [!IMPORTANT]
 > It is not possible to change the subnet address range if any resource exists in the subnet. It is also not possible to move managed instances from one subnet to another. Whenever possible, please consider using bigger subnets rather than smaller to prevent issues in the future.
