@@ -190,7 +190,7 @@ WHERE
     AND year = 2017;
 ```
 
-Using `HEADER_ROW = TRUE` is great for exploration purposes and showing column names, but for best performance please check [Use appropriate data types section in Best practices](best-practices-serverless-sql-pool#use-appropriate-data-types). Also, you can read more about [OPENROWSET here](develop-openrowset.md).
+This syntax is supported in `PARSER_VERSION = '2.0'` only. Using `HEADER_ROW = TRUE` is great for exploration purposes and showing column names, but for best performance please check [Use appropriate data types section in Best practices](best-practices-serverless-sql-pool#use-appropriate-data-types). Also, you can read more about [OPENROWSET syntax here](develop-openrowset.md#syntax).
 
 ## Custom quote character
 
