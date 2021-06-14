@@ -432,7 +432,7 @@ For more information, see [Telemetry processor examples](./java-standalone-telem
 ## Log processor
 
 > [!NOTE]
-> This feature is available only in version 3.1.1 and later.
+> Log processors are available starting from version 3.1.1.
 
 The log processor modifies either the log message body or attributes of a log based on the log message body. It can support the ability to include or exclude logs.
 
@@ -555,6 +555,9 @@ All specified conditions must evaluate to true to result in a match.
 For more information, see [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md).
 
 ## Metric filter
+
+> [!NOTE]
+> Metric filters are available starting from version 3.1.1.
 
 Metric filter are used to exclude some metrics in order to help control ingestion cost.
 
