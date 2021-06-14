@@ -30,7 +30,7 @@ If your subscription has an Application Insights resource linked to it and you u
 
 ### Configure release annotations
 
-If you can't use one the deployment tasks in the pervious section, then you need to add an inline script task in your deployment pipeline.
+If you can't use one the deployment tasks in the previous section, then you need to add an inline script task in your deployment pipeline.
 
 1. Navigate to a new or existing pipeline and select a task.
     :::image type="content" source="./media/annotations/task.png" alt-text="Screenshot of task in stages selected." lightbox="./media/annotations/task.png":::

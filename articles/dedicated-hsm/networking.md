@@ -138,7 +138,7 @@ There are a couple of architectures you can use as an alternative to Global VNet
 
 ## Next steps
 
-- [Frequently asked questions](faq.md)
+- [Frequently asked questions](faq.yml)
 - [Supportability](supportability.md)
 - [High availability](high-availability.md)
 - [Physical Security](physical-security.md)

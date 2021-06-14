@@ -20570,6 +20570,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/event-hubs/event-hubs-metrics-azure-monitor.md",
+      "redirect_url": "/azure/event-hubs/monitor-event-hubs",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/expressroute/expressroute-global-reach-app-scenario.md",
       "redirect_url": "/azure/expressroute/expressroute-global-reach",
       "redirect_document_id": false
@@ -32581,6 +32586,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/postgresql/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mariaDB/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/postgresql/concepts-compute-unit-and-storage.md",
       "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
       "redirect_document_id": false
@@ -34353,6 +34373,11 @@
     {
       "source_path_from_root": "/articles/sentinel/tutorial-detect-threats.md",
       "redirect_url": "/azure/sentinel/tutorial-detect-threats-built-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md",
+      "redirect_url": "/azure/sentinel/microsoft-365-defender-sentinel-integration#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules",
       "redirect_document_id": false
     },
     {
