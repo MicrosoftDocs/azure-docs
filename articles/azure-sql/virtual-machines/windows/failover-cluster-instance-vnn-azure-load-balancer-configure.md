@@ -95,12 +95,15 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 ## Set load-balancing rules
 
-1. On the load balancer pane, select **Load-balancing rules**.
+Set the load-balancing rules for the load balancer. 
 
-1. Select **Add**.
 
 # [Private load balancer](#tab/ilb)
 
+Set the load-balancing rules for the private load balancer by following these steps: 
+
+1. On the load balancer pane, select **Load-balancing rules**.
+1. Select **Add**.
 1. Set the load-balancing rule parameters:
 
    - **Name**: A name for the load-balancing rules.
@@ -113,8 +116,14 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
    - **Idle timeout (minutes)**: 4.
    - **Floating IP (direct server return)**: Enabled.
 
+1. Select **OK**.
+
 # [Public load balancer](#tab/elb)
 
+Set the load-balancing rules for the public load balancer by following these steps: 
+
+1. On the load balancer pane, select **Load-balancing rules**.
+1. Select **Add**.
 1. Set the load-balancing rule parameters:
 
    - **Name**: A name for the load-balancing rules.
@@ -127,9 +136,11 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
    - **Idle timeout (minutes)**: 4.
    - **Floating IP (direct server return)**: Disabled.
 
+1. Select **OK**.
+
 ---
 
-1. Select **OK**.
+
 
 ## Configure cluster probe
 
