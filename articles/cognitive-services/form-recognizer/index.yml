@@ -7,7 +7,7 @@ metadata:
   title: Form Recognizer documentation - Quickstarts, Tutorials, API Reference - Azure Applied AI Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Form Recognizer, part of Azure Applied AI Services, uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and field data without manual data labeling or intensive coding. You can also do supervised learning with manually labeled data. Models trained with labeled data can perform better and can work with more complicated documents. # Required; article description that is displayed in search results. < 160 chars.
   services: cognitive-services
-  ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: applied-ai-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: forms-recognizer
   ms.topic: landing-page # Required
   author: laujan #Required; your GitHub user alias, with correct capitalization.
@@ -27,7 +27,7 @@ landingContent:
           - text: What is Azure Form Recognizer?
             url: overview.md
           - text: What are Azure Applied AI Services?
-            url: https://aka.ms/applied-ai-services-hub
+            url: ../../applied-ai-services/index.yml
       - linkListType: whats-new
         links:
           - text: What's new in Azure Form Recognizer?
