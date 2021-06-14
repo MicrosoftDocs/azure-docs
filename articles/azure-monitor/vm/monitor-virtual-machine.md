@@ -23,7 +23,7 @@ This article introduces the scenario, provides general concepts for monitoring v
 | [Monitor workloads](monitor-virtual-machine-workloads.md) | Monitor applications and other workloads running on your virtual machines. |
 
 > [!IMPORTANT]
-> This scenario does not include features that are not generally available. This includes features in public preview such as [Azure Monitor agent](../../agents/azure-monitor-agent-overview.md) and [virtual machine guest health](vminsights-health-overview.md) that have the potential to significantly modify the recommendations made here. The scenario will be updated as preview features move into general availability.
+> This scenario does not include features that are not generally available. This includes features in public preview such as [virtual machine guest health](vminsights-health-overview.md) that have the potential to significantly modify the recommendations made here. The scenario will be updated as preview features move into general availability.
 
 
 ## Types of machines
