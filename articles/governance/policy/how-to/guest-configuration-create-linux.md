@@ -13,7 +13,7 @@ Before creating custom policies, read the overview information at
 To learn about creating Guest Configuration policies for Windows, see the page
 [How to create Guest Configuration policies for Windows](./guest-configuration-create.md)
 
-When auditing Linux, Guest Configuration uses [Chef InSpec](https://www.inspec.io/?azure-portal=true). The InSpec
+When auditing Linux, Guest Configuration uses [Chef InSpec](https://community.chef.io/tools/chef-inspec). The InSpec
 profile defines the condition that the machine should be in. If the evaluation of the configuration
 fails, the policy effect **auditIfNotExists** is triggered and the machine is considered
 **non-compliant**.
