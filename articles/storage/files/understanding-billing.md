@@ -54,7 +54,7 @@ Azure Files supports storage capacity reservations, which enable you to achieve 
 
 - **Capacity size**: Capacity reservations can be for either 10 TiB or 100 TiB, with more significant discounts for purchasing a higher capacity reservation. You can purchase multiple reservations, including reservations of different capacity sizes to meet your workload requirements. For example, if your production deployment has 120 TiB of file shares, you could purchase one 100 TiB reservation and two 10 TiB reservations to meet the total capacity requirements.
 - **Term**: Reservations can be purchased for either a one year or three year term, with more significant discounts for purchasing a longer reservation term. 
-- **Tier**: The tier of Azure Files for the capacity reservation. Reservations for Azure Files currently are available for the hot and cool tiers.
+- **Tier**: The tier of Azure Files for the capacity reservation. Reservations for Azure Files currently are available for the premium, hot, and cool tiers.
 - **Location**: The Azure region for the capacity reservation. Capacity reservations are available in a subset of Azure regions.
 - **Redundancy**: The storage redundancy for the capacity reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
 
