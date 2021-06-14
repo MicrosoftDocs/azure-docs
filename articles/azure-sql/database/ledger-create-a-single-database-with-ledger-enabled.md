@@ -11,7 +11,7 @@ ms.reviewer: vanto
 ms.date: 05/25/2021
 ---
 
-# Quickstart: Create an Azure SQL Database with ledger enabled
+# Quickstart: Create a database in Azure SQL Database with ledger enabled
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
@@ -26,7 +26,7 @@ You need an active Azure subscription. If you don't have one, [create a free acc
 
 ## Create a ledger database and configure digest storage
 
-Create a single ledger database in the [serverless compute tier](serverless-tier-overview.md) and configure uploading ledger digests to an Azure Storage account.
+Create a single ledger database in the [serverless compute tier](serverless-tier-overview.md), and configure uploading ledger digests to an Azure Storage account.
 
 ### Use the Azure portal
 
@@ -73,7 +73,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 
 1. On the **Configure ledger** pane, in the **Ledger** section, select the **Enable for all future tables in this database** checkbox. This setting ensures that all future tables in the database will be ledger tables. For this reason, all data in the database will show any evidence of tampering. By default, new tables will be created as updatable ledger tables, even if you don't specify `LEDGER = ON` in [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql). You can also leave this option unselected. You're then required to enable ledger functionality on a per-table basis when you create new tables by using Transact-SQL.
 
-1. In the **Digest storage** section, **Enable automatic digest storage** is automatically selected. Then, a new Azure Storage account and container where your digests are stored is created.
+1. In the **Digest Storage** section, **Enable automatic digest storage** is automatically selected. Then, a new Azure Storage account and container where your digests are stored is created.
 
 1. Select **Apply**.
 

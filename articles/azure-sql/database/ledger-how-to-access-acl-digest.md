@@ -18,14 +18,14 @@ ms.author: janders
 > [!NOTE]
 > Azure SQL Database ledger is currently in public preview and available in West Central US.
 
-This article shows you how to access an [Azure SQL Database ledger](ledger-overview.md) digest stored in [Azure Confidential Ledger (ACL)](../../confidential-ledger/index.yml) to get end-to-end security and integrity guarantees. Throughout this article, we'll explain how to access and verify integrity of the stored information.
+This article shows you how to access an [Azure SQL Database ledger](ledger-overview.md) digest stored in [Azure Confidential Ledger](../../confidential-ledger/index.yml) to get end-to-end security and integrity guarantees. Throughout this article, we'll explain how to access and verify integrity of the stored information.
 
 ## Prerequisites
 
 - Python 2.7, 3.5.3, or later.
-- Azure SQL Database with ledger enabled. If you haven't already created a database in SQL Database, see [Quickstart: Create a database in Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
+- Azure SQL Database with ledger enabled. If you haven't already created a database in SQL Database, see [Quickstart: Create a database in SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md).
 - [Azure Confidential Ledger client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/confidentialledger/azure-confidentialledger).
-- A running instance of [Azure Confidential Ledger](../../confidential-ledger/index.yml).
+- A running instance of [Confidential Ledger](../../confidential-ledger/index.yml).
 
 ## How does the integration work?
 
@@ -48,7 +48,7 @@ We're interested in the value in the path column from the query output. It consi
 
 ## 3. Obtain an Azure AD token
 
-The Confidential Ledger API accepts an Azure Active Directory (Azure AD) bearer token as the caller identity. This identity needs access to ACL via Azure Resource Manager during provisioning. When you enable ledger in SQL Database, you're automatically given administrator access to Confidential Ledger. To obtain a token, you need to authenticate by using the [Azure CLI](/cli/azure/install-azure-cli) with the same account that was used with the Azure portal. After you've authenticated, you can use [AzureCliCredential](/python/api/azure-identity/azure.identity.azureclicredential) to retrieve a bearer token and call the Confidential Ledger API.
+The Confidential Ledger API accepts an Azure Active Directory (Azure AD) bearer token as the caller identity. This identity needs access to Confidential Ledger via Azure Resource Manager during provisioning. When you enable ledger in SQL Database, you're automatically given administrator access to Confidential Ledger. To obtain a token, you need to authenticate by using the [Azure CLI](/cli/azure/install-azure-cli) with the same account that was used with the Azure portal. After you've authenticated, you can use [AzureCliCredential](/python/api/azure-identity/azure.identity.azureclicredential) to retrieve a bearer token and call the Confidential Ledger API.
 
 Sign in to Azure AD by using the identity with access to Confidential Ledger.
 

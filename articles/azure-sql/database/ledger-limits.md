@@ -25,7 +25,7 @@ This article provides an overview of the limitations of ledger tables used with 
 | Function | Limitation |
 | :--- | :--- |
 | Disabling [ledger database](ledger-database-ledger.md)   | After a ledger database is enabled, it can't be disabled. |
-| Maximum number of columns | When an [updatable ledger table](ledger-updatable-ledger-tables.md) is created, it adds four [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns to the ledger table. An [append-only ledger table](ledger-append-only-ledger-tables.md) adds two columns to the ledger table. These new columns count against the maximum supported number of columns in SQL Database (1024). |
+| Maximum number of columns | When an [updatable ledger table](ledger-updatable-ledger-tables.md) is created, it adds four [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns to the ledger table. An [append-only ledger table](ledger-append-only-ledger-tables.md) adds two columns to the ledger table. These new columns count against the maximum supported number of columns in SQL Database (1,024). |
 | Restricted data types | XML, SqlVariant, User-defined type, and FILESTREAM data types aren't supported. |
 | In-memory tables | In-memory tables aren't supported. |
 | Sparse column sets | Sparse column sets aren't supported. |
