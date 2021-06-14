@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova
-ms.date: 06/11/2021
+ms.reviewer: mathoma, bonova, srbozovi, wiassaf
+ms.date: 06/14/2021
 ---
 # Determine required subnet size & range for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,13 +33,14 @@ By design, a managed instance needs a minimum of 32 IP addresses in a subnet. As
 > [!IMPORTANT]
 > A subnet size with 16 IP addresses (subnet mask /28) will allow deploying managed instance inside it, but it should be used only for deploying single instance used for evaluation or in dev/test scenarios, in which scaling operations will not be performed.
 
-## Determine subnet size
+## Estimate subnet size
 
 Size your subnet according to the future instance deployment and scaling needs. Following parameters can help you in forming a calculation:
 
 - Azure uses five IP addresses in the subnet for its own needs
 - Each virtual cluster allocates additional number of addresses 
 - Each managed instance uses number of addresses that depends on pricing tier and hardware generation
+- Each scaling request temporarly allocates additional number of addresses
 
 > [!IMPORTANT]
 > It is not possible to change the subnet address range if any resource exists in the subnet. It is also not possible to move managed instances from one subnet to another. Whenever possible, please consider using bigger subnets rather than smaller to prevent issues in the future.
@@ -58,13 +59,6 @@ VC = virtual cluster
   \* Column total displays number of addresses that would be taken when one instance is deployed in subnet. Each additional instance in subnet adds number of addresses represented with instance usage column. Addresses represented with Azure usage column are shared across multiple virtual clusters while addresses represented with VC usage column are shared across instances placed in that virtual cluster.
 
 Update operation typically requires virtual cluster resize. In some circumstances, update operation will require virtual cluster creation (for more details check [management operations article](sql-managed-instance-paas-overview.md#management-operations)). In case of virtual cluster creation, number of additional addresses required is equal to number of addresses represented by VC usage column summed with addresses required for instances placed in that virtual cluster (instance usage column).
-
-**Example 1**: You plan to have one general purpose managed instance (Gen4 hardware) and one business critical managed instance (Gen5 hardware). That means you need a minimum of 5 + 1 + 1 * 5 + 6 + 1 * 5 = 22 IP addresses to be able to deploy. As IP ranges are defined in power of 2, your subnet requires minimum IP range of 32 (2^5) for this deployment.<br><br>
-As mentioned above, in some circumstances, update operation will require virtual cluster creation. This means that, as an example, in case of an update to the Gen5 business critical managed instance that requires a virtual cluster creation, you will need to have additional 6 + 5 = 11 IP addresses available. Since you are already using 22 of the 32 addresses, there is no available addresses for this operation. Therefore, you need to reserve the subnet with subnet mask of /26 (64 addresses).
-
-**Example 2**: You plan to have three general purpose (Gen5 hardware) and two business critical managed instances (Gen5 hardware) placed in same subnet. That means you need 5 + 6 + 3 * 3 + 2 * 5 = 30 IP addresses. Therefore, you need to reserve the subnet with subnet mask of /26. Selecting a subnet mask of /27 would cause the remaining number of addresses to be 2 (32 – 30), this would prevent update operations for all instances as additional addresses are required in subnet for performing instance scaling.
-
-**Example 3**: You plan to have one general purpose managed instance (Gen5 hardware) and perform vCores update operation from time to time. That means you need 5 + 6 + 1 * 3 + 3 = 17 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27.
 
 ### Address requirements for update scenarios
 
@@ -86,8 +80,25 @@ During scaling operation instances temporarily require additional IP capacity th
 
   \* Gen4 hardware is being phased out and is no longer available for new deployments. Update hardware generation from Gen4 to Gen5 to take advantage of the capabilities specific to Gen5 hardware generation.
   
-> [!IMPORTANT]
-> When new create or update request comes, managed instance service communicates with compute platform with a request for new nodes that need to be added. Based on the compute response, deployment system either expands existing virtual cluster or creates a new one. Even if in most cases operation will be completed within same virtual cluster, there is no guarantee from the compute side that new one will not be spawned. This will increase number of IP addresses required for performing create or update operation and also reserve additonal IP addresses in the subnet for newly created virtual cluster.
+## Recommended subnet calculator
+
+When new create or update request comes, managed instance service communicates with compute platform with a request for new nodes that need to be added. Based on the compute response, deployment system either expands existing virtual cluster or creates a new one. Even if in most cases operation will be completed within same virtual cluster, there is no guarantee from the compute side that new one will not be spawned. This will increase number of IP addresses required for performing create or update operation and also reserve additonal IP addresses in the subnet for newly created virtual cluster.
+
+Taking into the account potential creation of new virtual cluster during subsequent create request or instance update, recommended formula for calculating total number of IP addresses required is:
+
+**Formula: 5 + n * 16 + m * 12 + 16**
+
+- n = number of BC instances
+- m = number of GP instances
+
+Explanation:
+- 5 = number of IP addresses reserved by Azure
+- 16 addresses per BC = 6 for virtual cluster, 5 for managed instance, 5 additional for scaling operation
+- 12 addresses per GP = 6 for virtual cluster, 3 for managed instance, 3 additional for scaling operation
+- 16 addresses = scenario where new virtual cluster is created
+
+> [!NOTE]
+> Even though it is possible to deploy managed instances in the subnet with number of IP addresses less than the subnet calculator output, always consider using bigger subnets rather than smaller to avoid issue with lack of IP addresses for scaling managed instance in the future.
 
 ## Next steps
 
