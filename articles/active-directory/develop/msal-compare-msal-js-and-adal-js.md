@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/10/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the differences between the ADAL.js and MSAL.js libraries so I can migrate my applications to MSAL.js.
