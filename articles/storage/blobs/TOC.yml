@@ -315,6 +315,8 @@
         href: storage-blob-copy.md
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
+      - name: Enable blob inventory reports 
+        href: blob-inventory-how-to.md
       - name: Calculate blobs count and total size
         href: calculate-blob-count-size.md
     - name: Authorize access to blob data

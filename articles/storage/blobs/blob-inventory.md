@@ -1,5 +1,5 @@
 ---
-title: Use Azure Storage inventory to manage blob data (preview)
+title: Azure Storage blob inventory (preview)
 description: Azure Storage inventory is a tool to help get an overview of all your blob data within a storage account.
 services: storage
 author: normesta
@@ -13,7 +13,7 @@ ms.subservice: blobs
 ms.custom: references_regions
 ---
 
-# Use Azure Storage blob inventory to manage blob data (preview)
+# Azure Storage blob inventory (preview)
 
 The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements. 
 
@@ -22,7 +22,7 @@ The Azure Storage blob inventory feature provides an overview of your containers
 Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled on the account.
 
 > [!IMPORTANT]
-> Blob inventory is currently in PREVIEW and is available on storage accounts in all public regions.
+> Azure Storage Blob inventory is currently in PREVIEW and is available on storage accounts in all public regions.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Pricing and billing
@@ -51,38 +51,7 @@ The following list describes features and capabilities that are available in the
 
 ## Enabling inventory reports
 
-Enable blob inventory reports by adding a policy with one or more rules to your storage account. Add, edit, or remove a policy by using the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to the [Azure portal](https://portal.azure.com/).
-
-2. Select one of your storage accounts.
-
-3. Under **Data management**, select **Blob inventory (preview)**.
-
-4. Select **Add your first inventory rule**.
-
-   The **Add a rule** page appears.
-
-5. In the **Add a rule** page, name your new rule.
-
-6. Choose a container.
-
-7. Under **Object type to inventory**, choose whether to create a report for blobs or containers.
-
-   If you select **Blob**, then under **Blob subtype**, choose the types of blobs that you want to include in your report, and whether to include blob versions and/or snapshots in your inventory report. 
-
-   > [!NOTE]
-   > Versions and snapshots must be enabled on the account to save a new rule with the corresponding option enabled.
-
-8. Select the fields that you would like to include in your report, and the format of your reports.
-
-9. Choose how often you want to generate reports.
-
-9. Optionally, add a prefix match to filter blobs in your inventory report.
-
-10. Select **Save**.
-
-    :::image type="content" source="./media/blob-inventory/portal-blob-inventory.png" alt-text="Screenshot showing how to add a blob inventory rule by using the Azure portal":::
+Enable blob inventory reports by adding a policy with one or more rules to your storage account. For guidance, see [Enable Azure Storage blob inventory reports (preview)](blob-inventory-how-to.md).
 
 ## Upgrading an inventory policy 
 
@@ -367,5 +336,6 @@ An object replication policy can prevent an inventory job from writing inventory
 
 ## Next steps
 
+- [Enable Azure Storage blob inventory reports (preview)](blob-inventory-how-to.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
 - [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
