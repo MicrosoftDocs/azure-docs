@@ -5,7 +5,7 @@ description: Use this quickstart to connect your applications to the Metrics Adv
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 10/14/2020

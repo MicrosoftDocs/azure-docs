@@ -169,7 +169,7 @@ landingContent:
       - linkListType: how-to-guide      
         links:
           - text: Monitor Event Hubs using Azure Monitor
-            url: event-hubs-metrics-azure-monitor.md
+            url: monitor-event-hubs.md
           - text: Set up diagnostic logs
             url: event-hubs-diagnostic-logs.md
           - text: Automatically scale up

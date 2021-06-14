@@ -63,7 +63,7 @@ az vm create \
 ```
 
 ### Template
-Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)
+Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",
