@@ -80,6 +80,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Guangzhou Dimai Digital Limited Co.
 * Guangzhou Shikun Electronics., Ltd.
 * Hisilicon Technologies Co., Ltd.
+* LG Electronics, Inc.
 * MediaTek Inc.
 * Montage LZ Technologies Hong Kong Limited
 * Panasonic Corporation
@@ -107,6 +108,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * KAONMEDIA CO., Ltd.
 * KDDI Corporation
 * K-Tronics (Suzhou) Technology Co., Ltd.
+* LG Electronics, Inc.
 * Mega Fame Electronics Co. Limited
 * MINGCAI NEW CENTURY (HK) CO., LIMITED
 * MIRC Electronics Limited

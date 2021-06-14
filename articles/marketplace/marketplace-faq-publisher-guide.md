@@ -66,7 +66,7 @@ For more information, see [Welcome to the commercial marketplace](index.yml) and
 
 ### How can my own employees use our offers from the marketplace without being charged?
 
-To prevent Microsoft from charging your employees and assessing the store service fee on the sale of your offer, you must first create a [private plan](/azure/marketplace/private-offers) for the offer with a $0 price and send this offer to the internal users who want to purchase it.
+To prevent Microsoft from charging your employees and assessing the store service fee on the sale of your offer, you must first create a [private plan](./private-offers.md) for the offer with a $0 price and send this offer to the internal users who want to purchase it.
 
 You can also use our [Private Marketplace](/marketplace/create-manage-private-azure-marketplace) functionality to ensure internal users are only purchasing specific offers that are approved by your administrator.
 

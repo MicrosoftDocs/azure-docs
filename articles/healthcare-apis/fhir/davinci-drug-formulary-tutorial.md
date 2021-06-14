@@ -1,6 +1,6 @@
 ---
-title: Tutorial - DaVinci Drug Formulary - Azure API for FHIR
-description: This tutorial walks through setting up the Azure API for FHIR to pass the Touchstone tests against the DaVinci Drug Formulary  implementation guide.
+title: Tutorial - Da Vinci Drug Formulary - Azure API for FHIR
+description: This tutorial walks through setting up the Azure API for FHIR to pass the Touchstone tests against the DaVinci Drug Formulary implementation guide.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,17 +8,18 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 06/01/2021
+ms.date: 06/07/2021
 ---
 
-# DaVinci Drug Formulary
+# Da Vinci Drug Formulary
 
-In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [DaVinci Payer Data Exchange US Drug Formulary Implementation Guide](http://hl7.org/fhir/us/Davinci-drug-formulary/).
+In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange US Drug Formulary Implementation Guide](http://hl7.org/fhir/us/Davinci-drug-formulary/).
 
 ## Touchstone capability statement
 
-The first test that we'll focus on is testing the Azure API for FHIR against the [DaVinci Drug Formulary capability
-statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to missing search parameters and missing profiles.
+The first test that we'll focus on is testing the Azure API for FHIR against the [Da Vinci Drug Formulary capability
+statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to
+missing search parameters and missing profiles.
 
 ### Define search parameters
 
@@ -42,13 +43,13 @@ Outside of defining search parameters, the only other update you need to make to
 
 To assist with creation of these search parameters and profiles, we have the [Da Vinci Formulary](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary.http) sample HTTP file on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone. You should get a successful run:
 
-:::image type="content" source="media/cms-tutorials/davinci-test-script-execution.png" alt-text="DaVinci test script execution.":::
+:::image type="content" source="media/cms-tutorials/davinci-test-script-execution.png" alt-text="Da Vinci test script execution.":::
 
 ## Touchstone query test
 
-The second test is the [query capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). This test validates that you can search for specific `CoveragePlan` and `Drug` resources using various parameters. The best path would be to test against resources that you already have in your database, but we also have the [DaVinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) HTTP file available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
+The second test is the [query capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). This test validates that you can search for specific Coverage Plan and Drug resources using various parameters. The best path would be to test against resources that you already have in your database, but we also have the [Da VinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) HTTP file available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
 
-:::image type="content" source="media/cms-tutorials/davinci-test-execution-results.png" alt-text="DaVinci test execution results.":::
+:::image type="content" source="media/cms-tutorials/davinci-test-execution-results.png" alt-text="Da Vinci test execution results.":::
 
 ## Next steps
 

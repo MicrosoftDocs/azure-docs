@@ -321,7 +321,7 @@
   - name: REST
     items:
     - name: Data service
-      href: /rest/api/maps/data v2
+      href: /rest/api/maps/data-v2
     - name: Elevation service
       href: /rest/api/maps/elevation
     - name: Geolocation service
@@ -353,7 +353,7 @@
       - name: Dataset service
         href: /rest/api/maps/v2/dataset
       - name: Feature State service
-        href: /rest/api/maps/v2/featurestate
+        href: /rest/api/maps/v2/feature-state
       - name: Tileset service
         href: /rest/api/maps/v2/tileset
       - name: WFS service

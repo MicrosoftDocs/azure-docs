@@ -21,7 +21,7 @@ As with any mission critical system, having a backup and restore as well as a di
 
 Azure Database for MySQL supports automatic backups for 7 days by default. It may be appropriate to modify this to the current maximum of 35 days. It is important to be aware that if the value is changed to 35 days, there will be charges for any extra backup storage over 1x of the storage allocated.
 
-There are several current limitations to the database backup feature as described in the [Backup and restore in Azure Database for MySQL](/azure/mysql/concepts-backup) docs article. It is important to understand them when deciding what additional strategies that should be implemented.
+There are several current limitations to the database backup feature as described in the [Backup and restore in Azure Database for MySQL](../concepts-backup.md) docs article. It is important to understand them when deciding what additional strategies that should be implemented.
 
 Some items to be aware of include:
 
@@ -32,22 +32,22 @@ Some items to be aware of include:
   - Tiers that allow up to 16TB have backups that are snapshot based
 
     > [!NOTE] 
-    > [Some regions](/azure/mysql/concepts-pricing-tiers#storage) do not yet support storage up to 16TB.
+    > [Some regions](../concepts-pricing-tiers.md#storage) do not yet support storage up to 16TB.
 
 #### Restore
 
 Redundancy (local or geo) must be configured during server creation. However, a geo-restore can be performed and allows the modification of these options during the restore process. Performing a restore operation will temporarily stop connectivity and any applications will be down during the restore process.
 
 During a database restore, any supporting items outside of the database will also need to be restored. 
-Review the migration process. See [Perform post-restore tasks](/azure/mysql/concepts-backup#perform-post-restore-tasks) for more information.
+Review the migration process. See [Perform post-restore tasks](../concepts-backup.md#perform-post-restore-tasks) for more information.
 
 ### Read Replicas
 
-[Read replicas](/azure/mysql/concepts-read-replicas) can be used to increase the MySQL read throughput, improve performance for regional users and to implement disaster recovery. When creating one or more read replicas, be aware that additional charges will apply for the same compute and storage as the primary server.
+[Read replicas](../concepts-read-replicas.md) can be used to increase the MySQL read throughput, improve performance for regional users and to implement disaster recovery. When creating one or more read replicas, be aware that additional charges will apply for the same compute and storage as the primary server.
 
 ### Deleted Servers
 
-If an administrator or bad actor deletes the server in the Azure Portal or via automated methods, all backups and read replicas will also be deleted. It is important that [resource locks](/azure/azure-resource-manager/management/lock-resources) are created on the Azure Database for MySQL resource group to add an extra layer of deletion prevention to the instances.
+If an administrator or bad actor deletes the server in the Azure Portal or via automated methods, all backups and read replicas will also be deleted. It is important that [resource locks](../../azure-resource-manager/management/lock-resources.md) are created on the Azure Database for MySQL resource group to add an extra layer of deletion prevention to the instances.
 
 ### Regional Failure
 
@@ -58,7 +58,7 @@ Although rare, if a regional failure occurs geo-redundant backups or a read repl
 
 #### Load Balancers
 
-If the application is made up of many different instances around the world, it may not be feasible to update all of the clients. Utilize an [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) to implement a seamless failover functionality. Although helpful and time-saving, these tools are not required for regional failover capability.
+If the application is made up of many different instances around the world, it may not be feasible to update all of the clients. Utilize an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) or [Application Gateway](../../application-gateway/overview.md) to implement a seamless failover functionality. Although helpful and time-saving, these tools are not required for regional failover capability.
 
 ### WWI Scenario
 

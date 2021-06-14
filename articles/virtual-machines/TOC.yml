@@ -792,13 +792,13 @@
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        href: https://azure.microsoft.com/resources/templates/sig-create/
       - name: Create an Image Definition in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
       - name: Create a VM from Image Version
-        href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+        href: https://azure.microsoft.com/resources/templates/vm-from-sig/
     - name: Ansible
       href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
@@ -811,7 +811,7 @@
       href: managed-disk-from-image-version.md
     - name: Purchase plan information
       href: marketplace-images.md
-  - name: Image builder (Preview)
+  - name: Image builder
     items:
     - name: Overview
       displayName: Image builder, images, building
@@ -967,6 +967,8 @@
     href: disks-shared-enable.md
   - name: Encryption
     items:
+    - name: Disk encryption overview
+      href: disk-encryption-overview.md
     - name: Server-side encryption
       items:
       - name: Server-side encryption overview
@@ -1041,7 +1043,9 @@
         - name: Disk encryption troubleshooting
           href: ./linux/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./linux/disk-encryption-faq.md
+          href: ./linux/disk-encryption-faq.yml
+        - name: Upgrade from previous to current version
+          href: ./linux/disk-encryption-upgrade.md
         - name: Disk encryption - previous version
           items:
           - name: Overview
@@ -1072,7 +1076,7 @@
         - name: Disk encryption troubleshooting
           href: ./windows/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./windows/disk-encryption-faq.md
+          href: ./windows/disk-encryption-faq.yml
         - name: Disk encryption - previous version
           items:
           - name: Overview
@@ -1260,7 +1264,7 @@
         displayName: Find unattached disks
         href: disks-find-unattached-portal.md
     - name: Disks FAQs
-      href: faq-for-disks.md
+      href: faq-for-disks.yml
   - name: Code samples
     items:
     - name: CLI
