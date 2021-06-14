@@ -17,7 +17,7 @@ ms.reviewer: paulgarn, hirsin, jeedes, luleon
 
 # Customize claims emitted in tokens for a specific app in a tenant
 
-Claims customization is used by tenant admins to customize the claims emitted in tokens for a specific application in their tenant. You can use claims-mapping policies to:
+A claim is information that an identity provider states about a user inside the token they issue for that user. Claims customization is used by tenant admins to customize the claims emitted in tokens for a specific application in their tenant. You can use claims-mapping policies to:
 
 - select which claims are included in tokens.
 - create claim types that do not already exist.
