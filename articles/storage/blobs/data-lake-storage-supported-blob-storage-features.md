@@ -35,7 +35,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Lifecycle management policies (delete blob)|Generally available|Generally available|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Logging in Azure Monitor|Preview |Preview|[Monitoring Azure Storage](./monitor-blob-storage.md)|
 |Snapshots|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Blob snapshots](snapshots-overview.md)|
-|Static websites|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
+|Static websites|Preview<div role="complementary" aria-labelledby="preview-form"></div>|Preview<div role="complementary" aria-labelledby="preview-form"></div>|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
 |Immutable storage|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
 |Azure Storage inventory|Preview|Preview|[Use Azure Storage inventory to manage blob data (preview)](blob-inventory.md)|
