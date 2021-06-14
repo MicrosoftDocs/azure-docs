@@ -2479,4 +2479,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 #### System.Object
 
+## Next Steps
 
+- [What is hybrid identity?](./whatis-hybrid-identity.md)
+- [What is Azure AD Connect and Connect Health?](whatis-azure-ad-connect.md)
