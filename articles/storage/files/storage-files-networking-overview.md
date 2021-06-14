@@ -33,23 +33,23 @@ We recommend reading [Planning for an Azure Files deployment](storage-files-plan
    :::column-end:::
 :::row-end:::
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
 ## Accessing your Azure file shares
-When you deploy an Azure file share within a storage account, your file share is immediately accessible via the storage account's public endpoint. This means that authenticated requests, such as requests authorized by a user's logon identity, can originate securely from inside or outside of Azure. 
+SMB Azure file shares are immediately accessible via the storage account's public endpoint with SMB 3.1.1 and SMB 3.0. This means that authenticated requests, such as requests authorized by a user's logon identity, can originate securely from inside or outside of Azure. NFS Azure file shares are only accessible through the storage account's public endpoint if the public endpoint is restricted to Azure virtual networks.
 
-In many customer environments, an initial mount of the Azure file share on your on-premises workstation will fail, even though mounts from Azure VMs succeed. The reason for this is that many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. This practice originates from security guidance about legacy and deprecated versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, older versions of SMB, especially SMB 1.0 aren't. Azure file shares may only be externally accessed via SMB 3.x and the FileREST protocol (which is also an internet safe protocol) via the public endpoint.
+For many environments, you may wish to apply additional network configuration to their Azure file shares:
 
-Since the easiest way to access your Azure SMB file share from on-premises is to open your on-premises network to port 445, Microsoft recommends the following steps to remove SMB 1.0 from your environment:
+- With respect to SMB file shares, many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. This practice originates from legacy security guidance about deprecated and non-internet safe versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, organizational or ISP policies may not be possible to change. 
 
-1. Ensure that SMB 1.0 is removed or disabled on your organization's devices. All currently supported versions of Windows and Windows Server support removing or disabling SMB 1.0, and starting with Windows 10, version 1709, SMB 1.0 is not installed on the Windows by default. To learn more about how to disable SMB 1.0, see our OS-specific pages:
-    - [Securing Windows/Windows Server](/windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3)
-    - [Securing Linux](files-remove-smb1-linux.md)
-1. Ensure that no products within your organization require SMB 1.0 and remove the ones that do. We maintain an [SMB1 Product Clearinghouse](https://aka.ms/stillneedssmb1), which contains all the first and third-party products known to Microsoft to require SMB 1.0. 
-1. (Optional) Use a third-party firewall with your organization's on-premises network to prevent SMB 1.0 traffic from leaving your organizational boundary.
+- With respect to NFS file shares, restricted public endpoint access restricts mounts to inside of Azure only.
 
-If your organization requires port 445 to be blocked per policy or regulation, or your organization requires traffic to Azure to follow a deterministic path, you can use Azure VPN Gateway or ExpressRoute to tunnel traffic to your Azure file shares. NFS shares do not require any of this, as they do not need port 445.
-
-> [!Important]  
-> Even if you decide use an alternate method to access your Azure file shares, Microsoft still recommends removing SMB 1.0 from your environment.
+- Some organizations require traffic to Azure to follow a deterministic path.
 
 ### Tunneling traffic over a virtual private network or ExpressRoute
 When you establish a network tunnel between your on-premises network and Azure, you are peering your on-premises network with one or more virtual networks in Azure. A [virtual network](../../virtual-network/virtual-networks-overview.md), or VNet, is similar to a traditional network that you'd operate on-premises. Like an Azure storage account or an Azure VM, a VNet is an Azure resource that is deployed in a resource group. 
@@ -147,7 +147,7 @@ There are two approaches to restricting access to a storage account to a virtual
 - Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address.
 
 > [!NOTE]
-> NFS shares cannot access the storage account's public endpoint via the public IP address, they can only access the storage account's public endpoint using virtual networks. NFS shares may also access the storage account using private endpoints.
+> NFS file shares can only access the storage account's public endpoint via virtual networks. NFS shares may freely access the storage account's private endpoints.
 
 To learn more about how to configure the storage account firewall, see [configure Azure storage firewalls and virtual networks](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 

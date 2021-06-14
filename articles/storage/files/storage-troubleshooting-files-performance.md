@@ -13,6 +13,13 @@ ms.subservice: files
 
 This article lists some common problems related to Azure file shares. It provides potential causes and workarounds for when you encounter these problems.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## High latency, low throughput, and general performance issues
 
 ### Cause 1: Share was throttled

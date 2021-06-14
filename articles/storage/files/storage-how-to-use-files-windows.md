@@ -1,5 +1,5 @@
 ---
-title: Use an Azure file share with Windows | Microsoft Docs
+title: Mount SMB Azure file share on Windows | Microsoft Docs
 description: Learn to use Azure file shares with Windows and Windows Server. Use Azure file shares with SMB 3.x on Windows installations running on-premises or on Azure VMs.
 author: roygara
 ms.service: storage
@@ -10,15 +10,15 @@ ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ---
 
-# Use an Azure file share with Windows
+# Mount SMB Azure file share on Windows
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be seamlessly used in Windows and Windows Server. This article discusses the considerations for using an Azure file share with Windows and Windows Server.
 
 In order to use an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. 
 
 You can use Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support accessing file shares in which environment:
 
-| Windows version        | SMB version | Mountable in Azure VM | Mountable on-premises |
-|------------------------|-------------|-----------------------|-----------------------|
+| Windows version | SMB version | Mountable in Azure VM | Mountable on-premises |
+|-|-|-|-|
 | Windows Server 2019 | SMB 3.1.1 | Yes | Yes |
 | Windows 10<sup>1</sup> | SMB 3.1.1 | Yes | Yes |
 | Windows Server semi-annual channel<sup>2</sup> | SMB 3.1.1 | Yes | Yes |
@@ -30,15 +30,21 @@ You can use Azure file shares on a Windows installation that is running either i
 | Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
 
-<sup>1</sup>Windows 10, versions 1607, 1809, 1909, 2004, and 20H2  
+<sup>1</sup>Windows 10, versions 1607, 1809, 1909, 2004, 20H2, and 21H1.  
 <sup>2</sup>Windows Server, versions 2004 and 20H2.  
 <sup>3</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
 
-## Prerequisites 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
+## Prerequisites 
 Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. To learn about ways to work around a blocked 445 port, see the [Cause 1: Port 445 is blocked](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) section of our Windows troubleshooting guide.
 
 ## Using an Azure file share with Windows

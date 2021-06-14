@@ -21,6 +21,13 @@ If you are new to Azure file shares, we recommend reading our [planning guide](s
 > Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC only. AES Kerberos encryption is not yet supported.
 > Azure Files supports authentication for Azure AD DS with full synchronization with Azure AD. If you have enabled scoped synchronization in Azure AD DS which only sync a limited set of identities from Azure AD, authentication and authorization is not supported.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Prerequisites
 
 Before you enable Azure AD over SMB for Azure file shares, make sure you have completed the following prerequisites:
