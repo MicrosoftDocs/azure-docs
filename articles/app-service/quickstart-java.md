@@ -299,8 +299,12 @@ Then you can deploy your Java app to Azure using the following command.
 mvn package azure-webapp:deploy
 ```
 
+::: zone pivot="platform-windows"
+
 > [!NOTE]
 > For JBoss EAP, run `mvn package azure-webapp:deploy -DskipTests` to disable testing, as it requires Wildfly to be installed locally. 
+
+::: zone-end
 
 Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
