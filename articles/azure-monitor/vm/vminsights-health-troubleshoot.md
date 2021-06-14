@@ -46,7 +46,7 @@ sudo rm /etc/systemd/system/vmGuestHealthAgent.service.bak
 ```
 
 ### Installation Failed to Exit Code 37
-Your installation didn’t succeed and your installation error messageis similar to the following: 
+Your installation didn’t succeed and your installation error message is similar to the following: 
 
 ```
 Exiting with the following error: "Failed to install VM Guest Health Agent: exit status 1"install vmGuestHealthAgent service execution failed with exit code 37
