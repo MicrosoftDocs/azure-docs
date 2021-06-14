@@ -87,8 +87,7 @@ To create and run a new scan, do the following:
 
 1.  In the Management Center, click on Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
-    the steps mentioned
-    [here](./manage-integration-runtimes.md)
+    the steps mentioned [here](./manage-integration-runtimes.md)
     to setup a self-hosted integration runtime
 
 2.  Navigate to **Sources**.
@@ -117,7 +116,7 @@ To create and run a new scan, do the following:
 
     The username and password can be accessed from the two properties as shown below
 
-    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-username-password.png" alt-text="databricks-username-password-details" border="true":::
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="databricks-username-password-details" border="true":::
 
     d. **Metastore JDBC Driver Location**: Specify the path to the JDBC
     driver location on your VM where self-host integration runtime is
@@ -134,7 +133,7 @@ To create and run a new scan, do the following:
     **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
     
     The driver class can be accessed from the property as shown below.
-    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class.png" alt-text="databricks-driver-class-details" border="true":::
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class-name.png" alt-text="databricks-driver-class-details" border="true":::
 
     f.  **Metastore JDBC URL**: Provide the Connection URL value and define
     connection to Metastore DB server URL. For example,
@@ -143,7 +142,7 @@ To create and run a new scan, do the following:
     **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
     
     The JDBC URL can be accessed from the Connection URL property as shown below.
-    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-url.png" alt-text="databricks-jdbc-url-details" border="true":::
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
 
     To this url, append the path to the location where SSL certificate is placed on your VM. The SSL certificate can be downloaded from [here](../mysql/howto-configure-ssl.md).
 
@@ -158,7 +157,7 @@ To create and run a new scan, do the following:
     **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
 
     The database name can be accessed from the JDBC URL property as shown below. For Example: organization1829255636414785
-    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-database-name.png" alt-text="databricks-database-name-details" border="true":::
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="databricks-database-name-details" border="true":::
 
     h.  **Schema**: Specify a list of Hive schemas to import. For example,
     schema1; schema2. 
