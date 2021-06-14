@@ -38,7 +38,7 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |
 |
 
-For support with commercial marketplace benefits, contact [Partner Center support](https://partner.microsoft.com/support/v2/?stage=1).
+For questions about Marketplace Rewards, contact [Partner Center support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Next steps
 
