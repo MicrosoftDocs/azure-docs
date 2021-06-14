@@ -2,7 +2,7 @@
 title: Run jobs end-to-end using templates
 description: With only CLI commands, you can create a pool, upload input data, create jobs and associated tasks, and download the resulting output data.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 06/14/2021
 ms.custom: seodec18, devx-track-azurecli
 ---
 # Use Azure Batch CLI templates and file transfer
