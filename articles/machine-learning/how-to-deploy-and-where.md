@@ -18,6 +18,9 @@ adobe-target: true
 
 Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud.
 
+> [!TIP]
+> Managed online endpoints (preview) provide a way to deploy your trained model without your having to create and manage the underlying infrastructure. For more information, see [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+
 The workflow is similar no matter where you deploy your model:
 
 1. Register the model
@@ -103,7 +106,7 @@ For more information on `az ml model register`, consult the [reference documenta
 ### Register a model from an Azure ML training run
 
 ```azurecli-interactive
-az ml model register -bidaf_onnx  --asset-path outputs/model.onnx  --experiment-name myexperiment --run-id myrunid --tag area=qna
+az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-name myexperiment --run-id myrunid --tag area=qna
 ```
 
 [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]

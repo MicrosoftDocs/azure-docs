@@ -7,6 +7,22 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
+In this quickstart, you'll learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for JavaScript.
+
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting)
+
+## Prerequisites 
+
+* A [Teams deployment](/deployoffice/teams-install). 
+* A working [chat app](../get-started.md). 
+
+## Enable Teams interoperability 
+
+A Communication Services user that joins a Teams meeting as a guest user can access the meeting's chat only when they've joined the Teams meeting call. See the [Teams interop](../../voice-video-calling/get-started-teams-interop.md) documentation to learn how to add a Communication Services user to a Teams meeting call.
+
+You must be a member of the owning organization of both entities to use this feature.
+
 ## Joining the meeting chat 
 
 Once Teams interoperability is enabled, a Communication Services user can join the Teams call as an external user using the Calling SDK. Joining the call will add them as a participant to the meeting chat as well, where they can send and receive messages with other users on the call. The user will not have access to chat messages that were sent before they joined the call. To join the meeting and start chatting, you can follow the next steps.
@@ -57,7 +73,7 @@ Create an **index.html** file in the root directory of your project. We'll use t
 
 Replace the code in index.html with the following snippet.
 The text boxes at the top of the page will be used to enter the Teams meeting context and meeting thread ID. The 'Join Teams Meeting' button will be used to join the specified meeting.
-A chat pop-up will appear at the bottom of the page. It can be used to send messages on the meeting thread, and it will display in real time any messages sent on the thread while the ACS user is a member.
+A chat pop-up will appear at the bottom of the page. It can be used to send messages on the meeting thread, and it will display in real time any messages sent on the thread while the Communication Services user is a member.
 
 ```html
 <!DOCTYPE html>
@@ -323,9 +339,9 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-:::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
+:::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
-Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting. After the ACS user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting.
+Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting. After the Communication Services user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting.
 
 > [!NOTE] 
-> Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.  
+> Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.

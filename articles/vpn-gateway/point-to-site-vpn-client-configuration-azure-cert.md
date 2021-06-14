@@ -1,20 +1,20 @@
 ---
 title: 'Create & install P2S VPN client configuration files: certificate authentication'
 titleSuffix: Azure VPN Gateway
-description: Learn how to create and install Windows, Linux, Linux (strongSwan), and macOS X VPN client configuration files for P2S certificate authentication.
+description: Learn how to generate and install VPN client configuration files for Windows, Linux (strongSwan), and macOS. This article applies to VPN Gateway P2S configurations that use certificate authentication.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 06/03/2021
 ms.author: cherylmc
 ---
 
-# Create and install VPN client configuration files for native Azure certificate authentication P2S configurations
+# Generate and install VPN client configuration files for P2S certificate authentication
 
-VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows, Mac IKEv2 VPN, or Linux clients to connect to a virtual network over Point-to-Site connections that use native Azure certificate authentication.
+When you connect to an Azure VNet using Point-to-Site and certificate authentication, you use the VPN client that is natively installed on the operating system from which you are connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients for Windows, Mac IKEv2 VPN, or Linux.
 
-Client configuration files are specific to the VPN configuration for the virtual network. If there are any changes to the Point-to-Site VPN configuration after you generate the VPN client configuration files, such as the VPN protocol type or authentication type, be sure to generate new VPN client configuration files for your user devices.
+The VPN client configuration files that you generate are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the Point-to-Site VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
 * For more information about Point-to-Site connections, see [About Point-to-Site VPN](point-to-site-about.md).
 * For OpenVPN instructions, see [Configure OpenVPN for P2S](vpn-gateway-howto-openvpn.md) and [Configure OpenVPN clients](vpn-gateway-howto-openvpn-clients.md).
@@ -25,8 +25,6 @@ Client configuration files are specific to the VPN configuration for the virtual
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
-Before you begin, make sure that all connecting users have a valid certificate installed on the user's device. For more information about installing a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
-
 You can generate client configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file. Unzip the file to view the following folders:
 
 * **WindowsAmd64** and **WindowsX86**, which contain the Windows 32-bit and 64-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
@@ -35,11 +33,11 @@ You can generate client configuration files using PowerShell, or by using the Az
 ### <a name="zipportal"></a>Generate files using the Azure portal
 
 1. In the Azure portal, navigate to the virtual network gateway for the virtual network that you want to connect to.
-1. On the virtual network gateway page, select **Point-to-site configuration**.
+1. On the virtual network gateway page, select **Point-to-site configuration** to open the Point-to-site configuration page.
+1. At the top of the Point-to-site configuration page, select **Download VPN client**. This doesn't download VPN client software, it generates the configuration package used to configure VPN clients. It takes a few minutes for the client configuration package to generate.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/download-client.png" alt-text="Download the VPN client":::
-1. At the top of the Point-to-site configuration page, select **Download VPN client**. It takes a few minutes for the client configuration package to generate.
-1. Your browser indicates that a client configuration zip file is available. It is named the same name as your gateway. Unzip the file to view the folders.
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/download-client.png" alt-text="Download the VPN client configuration.":::
+1. Once the configuration package has been generated, your browser indicates that a client configuration zip file is available. It's named the same name as your gateway. Unzip the file to view the folders.
 
 ### <a name="zipps"></a>Generate files using PowerShell
 
@@ -57,9 +55,9 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 [!INCLUDE [Windows instructions](../../includes/vpn-gateway-p2s-client-configuration-windows.md)]
 
-## <a name="installmac"></a>Mac (OS X)
+## <a name="installmac"></a>Mac (macOS)
 
- You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. Azure does not provide mobileconfig file for native Azure certificate authentication. The **Generic** contains all of the information that you need for configuration. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Note that the VPN gateway Basic SKU does not support IKEv2. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder.<br>The Generic folder contains the following files:
+ You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. Azure does not provide mobileconfig file for native Azure certificate authentication. The **Generic** folder contains all of the information that you need for configuration. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Note that the VPN gateway Basic SKU does not support IKEv2. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder.<br>The Generic folder contains the following files:
 
 * **VpnSettings.xml**, which contains important settings like server address and tunnel type. 
 * **VpnServerRoot.cer**, which contains the root certificate required to validate the Azure VPN Gateway during P2S connection setup.

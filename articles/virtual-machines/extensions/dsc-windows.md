@@ -122,7 +122,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 Azure VM extensions can be deployed with Azure Resource Manager templates.
 Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
 A sample Resource Manager template that includes the DSC extension for Windows can be found on the
-[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/automation-configuration/automation-configuration/nested/provisionServer.json#L91).
+[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration/nested/provisionServer.json#L91).
 
 ## Troubleshoot and support
 

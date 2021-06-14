@@ -2,12 +2,12 @@
 title: Use Azure Storage inventory to manage blob data (preview)
 description: Azure Storage inventory is a tool to help get an overview of all your blob data within a storage account.
 services: storage
-author: twooley
+author: normesta
 
 ms.service: storage
 ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: twooley
+ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
@@ -26,14 +26,7 @@ Blob inventory is supported for both general purpose version 2 (GPv2) and premiu
 
 ### Preview regions
 
-The blob inventory preview is available on storage accounts in the following regions:
-
-- France Central
-- Canada Central
-- Canada East
-- East US
-- East US2
-- West Europe
+The blob inventory preview is available on storage accounts in all public regions except for West US.
 
 ### Pricing and billing
 

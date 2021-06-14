@@ -67,8 +67,8 @@ ms.custom: include file
 | &nbsp; |[Generic OData](../connector-odata.md) |
 | &nbsp; |[Generic ODBC](../connector-odbc.md) |
 | **Services and apps** |[Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) |
-| &nbsp; |[Common Data Service for Apps](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concur (Preview)](../connector-concur.md) |
+| &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics AX](../connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../connector-dynamics-crm-office-365.md) |

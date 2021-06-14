@@ -25,10 +25,12 @@
     href: tutorial-respond-threats-playbook.md
   - name: Create KQL queries (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
-  - name: Deploy the Azure Sentinel solution for SAP
-    href: sap-deploy-solution.md
+  - name: Create a Power BI report from Azure Sentinel
+    href: powerbi.md
 - name: Concepts
   items:
+  - name: Understand and manage costs and billing
+    href: azure-sentinel-billing.md
   - name: Classify data using entities
     href: entities-in-azure-sentinel.md
   - name: Manage access
@@ -116,7 +118,7 @@
         href: connect-asc-iot.md
       - name: Domain name server
         href: connect-dns.md
-      - name: Dynamics 365 (new!)
+      - name: Dynamics 365
         href: connect-dynamics-365.md
       - name: Microsoft 365 Defender
         href: connect-microsoft-365-defender.md
@@ -130,7 +132,7 @@
           href: connect-azure-atp.md
         - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
           href: connect-office-365-advanced-threat-protection.md
-      - name: Office 365 (now with Teams!)
+      - name: Office 365 (includes Teams)
         href: connect-office-365.md
       - name: Windows firewall
         href: connect-windows-firewall.md
@@ -278,14 +280,24 @@
       href: connect-azure-stack.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
-  - name: Deploy solutions
+  - name: Analytics rules
     items:
-    - name: Discover and deploy solutions
-      href: sentinel-solutions-deploy.md
-    - name: Advanced - Deploy the SAP data connector on-premises
-      href: sap-solution-deploy-alternate.md
-  - name: Work with SOC-ML anomaly rules
-    href: work-with-anomaly-rules.md
+    - name: Alert enrichment
+      items:
+      - name: Map data fields to entities
+        href: map-data-fields-to-entities.md
+      - name: Surface custom details in alerts
+        href: surface-custom-details-in-alerts.md
+      - name: Customize alert details
+        href: customize-alert-details.md
+    - name: Export and import analytics rules
+      href: import-export-analytics-rules.md
+    - name: Create incidents from alerts
+      href: create-incidents-from-alerts.md
+    - name: Work with SOC-ML anomaly rules
+      href: work-with-anomaly-rules.md
+  - name: Discover and deploy solutions
+    href: sentinel-solutions-deploy.md
   - name: Create custom entity activities
     href: customize-entity-activities.md
   - name: Use user and entity behavior analytics
@@ -294,18 +306,12 @@
       href: enable-entity-behavior-analytics.md
     - name: Investigate with UEBA
       href: investigate-with-ueba.md
-  - name: Map data fields to entities
-    href: map-data-fields-to-entities.md
   - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces
     href: multiple-workspace-view.md
   - name: Set up customer-managed keys (CMK)
     href: customer-managed-keys.md
-  - name: Surface custom details in alerts
-    href: surface-custom-details-in-alerts.md
-  - name: Create incidents from alerts
-    href: create-incidents-from-alerts.md
   - name: Collaborate in Microsoft Teams
     href: collaborate-in-microsoft-teams.md
   - name: Manage your SOC better with incident metrics
@@ -325,12 +331,26 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
+- name: Integrate SAP and Azure Sentinel
+  items:
+    - name: Deploy SAP continuous threat monitoring
+      href: sap-deploy-solution.md
+    - name: Deployment requirements
+      href: sap-solution-detailed-requirements.md
+    - name: Available SAP logs
+      href: sap-solution-log-reference.md
+    - name: SAP workbook, rules, and watchlists
+      href: sap-solution-security-content.md
+    - name: Deploy the SAP data connector on-premises
+      href: sap-solution-deploy-alternate.md
 - name: Reference
   items:
   - name: Top Azure Sentinel workbooks
     href: top-workbooks.md
   - name: Azure CLI
     href: /cli/azure/sentinel
+  - name: Azure Sentinel PowerShell
+    href: /powershell/module/az.securityinsights/
   - name: Azure RBAC roles
     items:
     - name: All Azure roles
@@ -367,14 +387,6 @@
     href: cef-name-mapping.md
   - name: MCAS alerts not onboarded to Microsoft 365 Defender
     href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
-  - name: SAP solution references
-    items:
-      - name: Detailed SAP solution requirements
-        href: sap-solution-detailed-requirements.md
-      - name: Available SAP logs
-        href: sap-solution-log-reference.md
-      - name: SAP solution security content reference
-        href: sap-solution-security-content.md
 - name: Resources
   items:
   - name: Useful resources
@@ -386,4 +398,6 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   - name: Feature availability for US Government clouds
-    href: /azure/security/fundamentals/feature-availability
+    href: ../security/fundamentals/feature-availability.md
+  - name: Archived what's new (older than six months)
+    href: whats-new-archive.md

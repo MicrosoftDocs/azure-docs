@@ -1,12 +1,12 @@
 ---
-title: What is the Immersive Reader?
-titleSuffix: Azure Cognitive Services
+title: What is Azure Immersive Reader?
+titleSuffix: Azure Applied AI Services
 description: Immersive Reader is a tool that is designed to help people with learning differences or help new readers and language learners with reading comprehension.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
@@ -16,9 +16,9 @@ keywords: readers, language learners, display pictures, improve reading, read co
 #Customer intent: As a developer, I want to learn more about the Immersive Reader, which is a new offering in Cognitive Services, so that I can embed this package of content into a document to accommodate users with reading differences.
 ---
 
-# What is Immersive Reader?
+# What is Azure Immersive Reader?
 
-[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft One Note to improve your web applications. 
+[Immersive Reader](https://www.onenote.com/learningtools) is part of [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md), and is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft One Note to improve your web applications. 
 
 This documentation contains the following types of articles:  
 

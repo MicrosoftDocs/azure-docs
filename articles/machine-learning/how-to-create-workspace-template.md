@@ -72,7 +72,7 @@ The example template has two **required** parameters:
 
 For more information on templates, see the following articles:
 
-* [Author Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
+* [Author Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md)
 * [Microsoft.MachineLearningServices resource types](/azure/templates/microsoft.machinelearningservices/allversions)
 

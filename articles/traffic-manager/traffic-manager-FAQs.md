@@ -10,7 +10,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/03/2021
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)

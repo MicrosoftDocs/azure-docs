@@ -5,7 +5,7 @@ description: add different data feeds to Metrics Advisor
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
@@ -214,7 +214,7 @@ The timestamp field must match one of these two formats:
 * **Table Name**: Specify a table to query against. This can be found in your Azure Storage Account instance. Click **Tables** in the **Table Service** section.
 
 * **Query**
-You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy-MM-ddTHH:mm:ss format string in script. Tip: Use Azure storage explorer to create a query with specific time range and make sure it runs okay, then do the replacement.
+You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy-MM-ddTHH:mm:ss format string in script. Tip: Use Azure Storage Explorer to create a query with specific time range and make sure it runs okay, then do the replacement.
 
     ``` mssql
     date ge datetime'@StartTime' and date lt datetime'@EndTime'

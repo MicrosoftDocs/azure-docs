@@ -233,6 +233,8 @@
         href: azure-stack-edge-gpu-virtual-machine-overview.md
       - name: View supported VMs
         href: azure-stack-edge-gpu-virtual-machine-sizes.md              
+      - name: View supported API profiles
+        href: azure-stack-edge-profiles-azure-resource-manager-versions.md
       - name: Create VM image
         items:
         - name: Custom image from Azure VM
@@ -242,7 +244,9 @@
         - name: Generalized image from ISO
           href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
         - name: Use specialized image
-          href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
+          href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
+        - name: Use Azure Marketplace image
+          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
       - name: Deploy VMs
         items:
         - name: Via Azure portal
@@ -271,6 +275,8 @@
           href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: Install custom script extension
           href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+        - name: Install GPU extension
+          href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
         - name: Back up VM disks 
           href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
         - name: Troubleshoot
@@ -278,7 +284,11 @@
           - name: Connect to VM console
             href: azure-stack-edge-gpu-connect-virtual-machine-console.md
           - name: VM image upload
-            href: azure-stack-edge-troubleshoot-virtual-machine-image-upload.md    
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
+          - name: VM deployment
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
+          - name: GPU extension issues
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
     - name: Manage certificates
       items:
       - name: Requirements
@@ -337,12 +347,18 @@
         href: azure-stack-edge-gpu-enable-azure-monitor.md
     - name: Troubleshoot
       items:
-      - name: Device issues 
-        href: azure-stack-edge-gpu-troubleshoot.md
       - name: Ordering issues
         href: azure-stack-edge-troubleshoot-ordering.md   
       - name: Activation issues
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
+      - name: Device logs and diagnostics 
+        href: azure-stack-edge-gpu-troubleshoot.md
+      - name: Azure Resource Manager issues 
+        href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
+      - name: Blob issues
+        href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
+      - name: IoT Edge issues
+        href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
@@ -431,6 +447,8 @@
           href: azure-stack-edge-troubleshoot.md
         - name: Ordering issues
           href: azure-stack-edge-troubleshoot-ordering.md
+        - name: IoT Edge
+          href: azure-stack-edge-troubleshoot-iot-edge.md
         - name: Contact Microsoft Support
           href: azure-stack-edge-contact-microsoft-support.md    
     - name: Monitor

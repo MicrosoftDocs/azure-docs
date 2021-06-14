@@ -2,7 +2,6 @@
 title: Connect BareMetal Infrastructure instances in Azure
 description: Learn how to identify and interact with BareMetal instances in the Azure portal or Azure CLI.
 ms.topic: how-to
-ms.subservice: workloads
 ms.date: 04/06/2021
 ---
 

@@ -209,8 +209,6 @@
               href: azure-disk-csi.md
             - name: Azure Files CSI drivers (preview)
               href: azure-files-csi.md
-            - name: CSI Secrets Store driver (preview)
-              href: csi-secrets-store-driver.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
@@ -295,11 +293,13 @@
           href: azure-disk-customer-managed-keys.md
         - name: Enable host-based encryption
           href: enable-host-encryption.md
+        - name: CSI Secrets Store driver (preview)
+          href: csi-secrets-store-driver.md
     - name: Monitoring and logging
       items:
         - name: View cluster metrics
           href: view-metrics.md
-        - name: Azure Monitor for containers
+        - name: Container insights
           href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
         - name: View the control plane component logs
@@ -393,8 +393,6 @@
       items:
         - name: Common issues
           href: troubleshooting.md
-        - name: Checking for best practices
-          href: kube-advisor-tool.md
         - name: SSH node access
           href: ssh.md
         - name: Linux performance tools
