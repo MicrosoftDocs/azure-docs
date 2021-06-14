@@ -60,9 +60,13 @@ A metric called *Heartbeat* is included in each Log Analytics workspace. Each vi
 
 
 ### CPU Alerts
-
 #### Metric alert rules
-Create a metric alert using the **Percentage CPU** metric.
+
+| Target | Metric |
+|:---|:---|
+| Host | Percentage CPU |
+| Windows guest | \Processor Information(_Total)\% Processor Time |
+| Linux guest | cpu/usage_active |
 
 #### Log alert rules
 
@@ -94,6 +98,13 @@ InsightsMetrics
 
 ### Memory alerts
 
+#### Metric alert rules
+
+| Target | Metric |
+|:---|:---|
+| Windows guest | \Memory\% Committed Bytes in Use<br>\Memory\Available Bytes |
+| Linux guest | mem/available<br>mem/available_percent |
+
 #### Log alert rules
 
 **Available Memory in MB** 
@@ -118,13 +129,16 @@ InsightsMetrics
 ``` 
 
 
-## Disk alerts
+### Disk alerts
 
-### Metric alert rules
-Create a metric alert using the **Percentage CPU** metric.
+#### Metric alert rules
 
+| Target | Metric |
+|:---|:---|
+| Windows guest | \Logical Disk\(_Total)\% Free Space<br>\Logical Disk\(_Total)\Free Megabytes |
+| Linux guest | disk/free<br>disk/free_percent |
 
-### Log query alert rules
+#### Log query alert rules
 
 **Logical disk used - all disks on each computer** 
 
@@ -144,6 +158,7 @@ InsightsMetrics
 | where Namespace == "LogicalDisk" and Name == "FreeSpacePercentage"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
+```
 
 **Logical disk IOPS**
 
@@ -162,6 +177,12 @@ InsightsMetrics
 
 ## Network alerts
 
+#### Metric alert rules
+
+| Target | Metric |
+|:---|:---|
+| Windows guest | \Network Interface\Bytes Sent/sec<br>\Logical Disk\(_Total)\Free Megabytes |
+| Linux guest | disk/free<br>disk/free_percent |
 
 ### Log query alert rules
 
@@ -207,34 +228,21 @@ InsightsMetrics
 The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). 
 The type of alert rule that you create for a particular scenario will depend on where the data is located that you're alerting on. You may have cases though where data for a particular alerting scenario is available in both Metrics and Logs, and you need to determine which rule type to use. You may also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
 
-It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in metrics. Since VM insights currently sends all of its data to Logs, you may not have the data you require in Metrics. Use Log query alerts with metric data when its either not available in Metrics or you require additional logic beyond the relatively simple logic for a metric alert rule.
+It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in metrics. VM insights currently sends all of its data to Logs, so you must install Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when its either not available in Metrics or you require additional logic beyond the relatively simple logic for a metric alert rule.
 
-You may also have a condition where you have different data available for different machines. For example, you may want an alert rule for high CPU applied to a combination of Azure and hybrid virtual machines. You could use a metric alert rule for the Azure virtual machines, but host metrics aren't collected for hybrid machines. Instead of creating a metric and log alert rule, you may choose to standardize on a sing log query alert rule that applies to all machines.
 
-> [!NOTE]
-> The Azure Monitor Agent, currently in public preview, will replace the Log Analytics agent and have the ability to send client performance data to both Logs and Metrics. When this agent becomes generally available with VM insights, then all performance data will sent to both Logs and Metrics significantly simplifying this logic. 
 ### Metric alert rules
 [Metric alert rules](../alerts/alerts-metric.md) are useful for alerting when a particular metric exceeds a threshold. For example, when the CPU of a machine is running high. The target of a metric alert rule can be a specific machine, a resource group, or a subscription. This allows you to create a single rule that applies to a group of machines.
 
 Metric rules for virtual machines can use the following data:
 
-- Host metrics for Azure virtual machines which are collected automatically. Some of these values reflect the same value as the guest operating system making them useful for alerting. The metrics displayed on the **Overview** page of the virtual machine, including **CPU**, **Network**, **Disk Bytes**, and **Disk operations/sec**, are good examples of host metrics valuable for alerting.
-- Metrics that are collected by the diagnostic extension from the quest operating system. These will only be collected if you have the [diagnostic extension](monitor-virtual-machine-onboard.md#send-guest-performance-data-to-metrics-optional) installed.
-- Certain performance counters stored in logs using the process described at [Create Metric Alerts for Logs in Azure Monitor](../alerts/alerts-metric-logs.md). These counters must be collected from the Log Analytics workspace and stored in the **Perf** table as described in [Monitoring virtual machines with Azure Monitor - Workloads](monitor-virtual-machine-workloads.md#custom-performance-counters). This will result in additional cost since this is the same data being collected by VM insights and sent to Logs.
+- Host metrics for Azure virtual machines which are collected automatically. 
+- Metrics that are collected by Azure Monitor agent from the quest operating system. 
+
 
 > [!NOTE]
 > When VM insights supports the Azure Monitor Agent which is currently in public preview, then it will send performance data from the guest operating system to Metrics so that you can use metric alerts.
 
-
-
-
-
-| Method | Description |
-|:---|:---|
-| Log query alert - separate alerts | Create a metric measurement alert using the process described above. |
-| Log query alert - single alert | This also uses the *Heartbeat* table from VM insights, but it creates a single alert for all computers instead of a separate alert for each computer. Create a **Number of Results** alert rule using the query `Heartbeat | summarize LastHeartbeat=max(TimeGenerated) by Computer | where LastHeartbeat < ago(5m)`. The **Trigger alert** property should be **Total breaches Greater than 0**. |
-| Metric heartbeat | A metric called *Heartbeat* is included in each Log Analytics workspace. Each virtual machine connected to that workspace will send a heartbeat metric value each minute. Since the computer is a dimension on the metric, you can fire an alert when any computer fails to send a heartbeat. |
-| Activity log |  |
 
 
 ### Log query alerts
@@ -257,35 +265,13 @@ InsightsMetrics
 The **metric measurement** rule will create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for virtual machine performance data since they create individual alerts for each computer. The log query in this type of alert rule needs to return a value for each machine. The threshold in the alert rule will determine if the value should fire an alert.
 
 #### Query
-The query for metric measurement rules must include a numeric property called *AggregatedValue*. This is the value that's compared to the threshold in the alert rule. 
-
-The query needs to determine a value for each machine and return only those that exceed the threshold. When the alert rule runs the query, it will use records over a specific time period, the previous 5 minutes or previous hour for example. The logic of the query determines which value for each machine that should be used. Following are common examples that you may use:
-
-**Use the last sampled value.**
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms" 
-| where Namespace == "Processor" and Name == "UtilizationPercentage" 
-| summarize AggregatedValue = arg_max(TimeGenerated,Val) by bin(TimeGenerated, 15m), Computer```
-
-
-**Use the average value over time period.**
+The query for metric measurement rules must include a record for each machine with a numeric property called *AggregatedValue*. This is the value that's compared to the threshold in the alert rule. The query doesn't need to compare this value to a threshold since the threshold is defined in the alert rule.
 
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "Processor" and Name == "UtilizationPercentage" 
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer
-```
-
-**Use the maximum value over the time period.**
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms" 
-| where Namespace == "Processor" and Name == "UtilizationPercentage" 
-| summarize AggregatedValue = max(Val) by bin(TimeGenerated, 15m), Computer
 ```
 
 
@@ -313,21 +299,6 @@ The **number of results** rule will create a single alert when a query returns a
 #### Query
 In this example, the threshold for the CPU utilization is included in the query. The number of records returned from the query will be the number of machines exceeding that threshold. The threshold for the alert rule is the minimum number of machines required to fire the alert. If you want an alert when a single machine is in error, then the threshold for the alert rule will be zero.
 
-The query needs to determine a value for each machine and return only those that exceed the threshold. When the alert rule runs the query, it will use records over a specific time period, the previous 5 minutes or previous hour for example. The logic of the query determines which value for each machine that should be used. Following are common examples that you may use:
-
-**Use the last sampled value.**
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms" 
-| where Namespace == "Processor" and Name == "UtilizationPercentage" 
-| summarize LastUtilization = arg_max(TimeGenerated,Val) by Computer
-| where LastUtilization > 80
-```
-
-
-**Use the average value over time period.**
-
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms" 
@@ -336,15 +307,6 @@ InsightsMetrics
 | where AverageUtilization > 80
 ```
 
-**Use the maximum value over the time period.**
-
-```kusto
-InsightsMetrics
-| where Origin == "vm.azm.ms" 
-| where Namespace == "Processor" and Name == "UtilizationPercentage" 
-| summarize MaximumUtilization = max(Val) by Computer
-| where MaximumUtilization > 80
-```
 
 #### Create the alert rule
 Select **Logs** from the Azure Monitor menu to Open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the top left and select the correct workspace. Paste in the query that has the logic you want and click **Run** to verify that it returns the correct results.
