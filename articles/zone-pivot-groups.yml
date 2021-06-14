@@ -829,8 +829,8 @@ groups:
     title: Python
 # Owner: msangapu
 - id: app-service-ide
-  title: Development experience
-  prompt: Choose a development experience
+  title: Development environment
+  prompt: Choose a development environment
   pivots:
   - id: development-environment-vs
     title: Visual Studio
@@ -1261,6 +1261,19 @@ groups:
     title: Facility Ontology 1.0 
   - id: facility-ontology-v2
     title: Facility Ontology 2.0 
+# Owner: veyalla
+- id: how-to-troubleshoot-monitoring-and-faq-zpg
+  title: Azure Monitor for IoT Edge FAQ
+  prompt: Choose a topic
+  pivots:
+  - id: metrics-collection
+    title: Metrics collection
+  - id: custom-metrics
+    title: Custom metrics
+  - id: alerts
+    title: Alerts
+  - id: workbooks
+    title: Workbooks
 # Owner: barclayn
 - id: identity-mi-methods
   title: Managed identities methods

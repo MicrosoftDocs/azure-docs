@@ -5,7 +5,7 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/17/2021
+ms.date: 06/08/2021
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -25,8 +25,8 @@ The following table lists quota information specific to Azure Service Bus messag
 | Maximum size of any messaging entity name: namespace, subscription, or subscription rule |Entity |- |50 characters. |
 | Maximum size of a message ID | Entity |- | 128 |
 | Maximum size of a message session ID | Entity |- | 128 |
-| Message size for a queue, topic, or subscription entity |Entity |Incoming messages that exceed these quotas are rejected, and an exception is received by the calling code. |Maximum message size: 256 KB for [Standard tier](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB for [Premium tier](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />Due to system overhead, this limit is less than these values.<br /><br />Maximum header size: 64 KB.<br /><br />Maximum number of header properties in property bag: **byte/int.MaxValue**.<br /><br />Maximum size of property in property bag: No explicit limit. Limited by maximum header size. |
-| Message property size for a queue, topic, or subscription entity |Entity | The exception `SerializationException` is generated. |Maximum message property size for each property is 32,000. Cumulative size of all properties can't exceed 64,000. This limit applies to the entire header of the brokered message, which has both user properties and system properties, such as sequence number, label, and message ID. |
+| Message size for a queue, topic, or subscription entity |Entity |Incoming messages that exceed these quotas are rejected, and an exception is received by the calling code. |Maximum message size: 256 KB for [Standard tier](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB for [Premium tier](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />Due to system overhead, this limit is less than these values.<br /><br />Maximum header size: 64 KB.<br /><br />Maximum number of header properties in property bag: **byte/int.MaxValue**.<br /><br />Maximum size of property in property bag: Both the property name and value are limited at 32KB. |
+| Message property size for a queue, topic, or subscription entity |Entity | The exception `SerializationException` is generated. |Maximum message property size for each property is 32 KB. Cumulative size of all properties can't exceed 64 KB. This limit applies to the entire header of the brokered message, which has both user properties and system properties, such as sequence number, label, and message ID. |
 | Number of subscriptions per topic |Entity |Subsequent requests for creating additional subscriptions for the topic are rejected. As a result, if configured through the portal, an error message is shown. If called from the management API, an exception is received by the calling code. |2,000 per-topic for the Standard tier and Premium tier. |
 | Number of SQL filters per topic |Entity |Subsequent requests for creation of additional filters on the topic are rejected, and an exception is received by the calling code. |2,000 |
 | Number of correlation filters per topic |Entity |Subsequent requests for creation of additional filters on the topic are rejected, and an exception is received by the calling code. |100,000 |

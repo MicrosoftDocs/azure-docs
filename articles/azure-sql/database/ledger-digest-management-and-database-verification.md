@@ -34,7 +34,7 @@ The verification process and the integrity of the database depend on the integri
 
 ### Automatic generation and storage of database digests
 
-Azure SQL Database ledger integrates with the [immutable storage feature of Azure Blob Storage](../../storage/blobs/storage-blob-immutable-storage.md) and [Azure Confidential Ledger](/azure/confidential-ledger/). This integration provides secure storage services in Azure to help protect the database digests from potential tampering. This integration provides a simple and cost-effective way for users to automate digest management without having to worry about their availability and geographic replication. 
+Azure SQL Database ledger integrates with the [immutable storage feature of Azure Blob Storage](../../storage/blobs/storage-blob-immutable-storage.md) and [Azure Confidential Ledger](../../confidential-ledger/index.yml). This integration provides secure storage services in Azure to help protect the database digests from potential tampering. This integration provides a simple and cost-effective way for users to automate digest management without having to worry about their availability and geographic replication. 
 
 You can configure automatic generation and storage of database digests through the Azure portal, PowerShell, or the Azure CLI. When you configure automatic generation and storage, database digests are generated on a predefined interval of 30 seconds and uploaded to the selected storage service. If no transactions occur in the system in the 30-second interval, a database digest won't be generated and uploaded. This mechanism ensures that database digests are generated only when data has been updated in your database.
 
@@ -138,4 +138,4 @@ Return codes for `sp_verify_database_ledger` and `sp_verify_database_ledger_from
 - [Azure SQL Database ledger overview](ledger-overview.md)
 - [Updatable ledger tables](ledger-updatable-ledger-tables.md)   
 - [Append-only ledger tables](ledger-append-only-ledger-tables.md)   
-- [Database ledger](ledger-database-ledger.md)   
+- [Database ledger](ledger-database-ledger.md)
