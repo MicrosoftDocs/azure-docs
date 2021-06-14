@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Security Code Analysis documentation FAQ
+  title: Microsoft Security Code Analysis documentation FAQ | Azure
   description: Learn about the Microsoft Security Code Analysis extension by reviewing frequently asked questions (FAQs).
   author: sukhans
   manager: sukhans
@@ -15,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.workload: na
     
-title: Frequently asked questions
+title: Frequently asked questions | Azure
 summary: |
   > [!Note]
   > Effective March 1, 2022, the Microsoft Security Code Analysis (MSCA) extension will be retired. Existing MSCA customers will retain their access to MSCA through March 1, 2022. Please refer to the [OWASP Source Code Analysis Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) for alternative options in Azure DevOps. For customers planning to migrate to GitHub, you can check out [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
