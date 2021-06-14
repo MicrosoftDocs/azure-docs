@@ -70,7 +70,7 @@ To configure a source code update trigger, you need to provide the task a person
 |Public repo    | repo:status<br/>public_repo        | Code (Read)        |
 |Private repo   | repo (Full control)    | Code (Read)      |
 
-To create a PAT, see the [GitHub](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) or [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) documentation.
+To create a PAT, see the [GitHub](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) or [Azure DevOps](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) documentation.
 
 ## Automate OS and framework patching
 
