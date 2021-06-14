@@ -33,7 +33,7 @@ By design, a managed instance needs a minimum of 32 IP addresses in a subnet. As
 > [!IMPORTANT]
 > A subnet size with 16 IP addresses (subnet mask /28) will allow deploying managed instance inside it, but it should be used only for deploying single instance used for evaluation or in dev/test scenarios, in which scaling operations will not be performed.
 
-## Estimate subnet size
+## Determine subnet size
 
 Size your subnet according to the future instance deployment and scaling needs. Following parameters can help you in forming a calculation:
 
@@ -59,6 +59,8 @@ VC = virtual cluster
   \* Column total displays number of addresses that would be taken when one instance is deployed in subnet. Each additional instance in subnet adds number of addresses represented with instance usage column. Addresses represented with Azure usage column are shared across multiple virtual clusters while addresses represented with VC usage column are shared across instances placed in that virtual cluster.
 
 Update operation typically requires virtual cluster resize. In some circumstances, update operation will require virtual cluster creation (for more details check [management operations article](sql-managed-instance-paas-overview.md#management-operations)). In case of virtual cluster creation, number of additional addresses required is equal to number of addresses represented by VC usage column summed with addresses required for instances placed in that virtual cluster (instance usage column).
+
+One additional thing that should be taken into consideration when determing subnet size is [maintenance window feature](../database/maintenance-window.md). Specifying another maintenance window for managed instance during its creation or afterwards means that it must be placed in virtual cluster with corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
 
 ### Address requirements for update scenarios
 
@@ -86,16 +88,17 @@ When new create or update request comes, managed instance service communicates w
 
 Taking into the account potential creation of new virtual cluster during subsequent create request or instance update, recommended formula for calculating total number of IP addresses required is:
 
-**Formula: 5 + n * 16 + m * 12 + 16**
+**Formula: 5 + a * 16 + b * 12 + c * 16**
 
-- n = number of BC instances
-- m = number of GP instances
+- a = number of BC instances
+- b = number of GP instances
+- c = number of different maintenance window configurations
 
 Explanation:
 - 5 = number of IP addresses reserved by Azure
 - 16 addresses per BC = 6 for virtual cluster, 5 for managed instance, 5 additional for scaling operation
 - 12 addresses per GP = 6 for virtual cluster, 3 for managed instance, 3 additional for scaling operation
-- 16 addresses = scenario where new virtual cluster is created
+- 16 addresses = scenario where new virtual cluster is created. Each maintenance window slot requires its own virtual cluster.
 
 > [!NOTE]
 > Even though it is possible to deploy managed instances in the subnet with number of IP addresses less than the subnet calculator output, always consider using bigger subnets rather than smaller to avoid issue with lack of IP addresses for scaling managed instance in the future.
