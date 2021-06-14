@@ -180,7 +180,7 @@ Prepare for and plan the key lifecycle.
 
  **Key activation** - End users must self-activate the security key. End users register their security keys at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) and enable the second factor (PIN or biometric) at first use. For first-time users, they can use TAP to register their security information.
 
- **Disabling a key** - If an administrator wishes to remove a FIDO2 key associated with a User Account, they can do so by deleting the key from the user’s authentication method as shown below.
+ **Disabling a key** - If an administrator wishes to remove a FIDO2 key associated with a User Account, they can do so by deleting the key from the user’s authentication method as shown below. For more information, see 
 
 1. Login to the [Azure AD portal](https://portal.azure.com) and search for the user account from which the FIDO key is to be removed.
 
@@ -246,7 +246,7 @@ Follow the steps in the article [Enable passwordless security key sign in to on-
 
 ### Key restrictions policy
 
-When you deploy the security key, you can optionally restrict the use of FIDO2 keys only to specific manufacturers that have been approved by your organization. Restricting keys requires the Authenticator Attestation GUID (AAGUID). [There are two ways to get your AAGUID](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key#security-key-authenticator-attestation-guid-aaguid).
+When you deploy the security key, you can optionally restrict the use of FIDO2 keys only to specific manufacturers that have been approved by your organization. Restricting keys requires the Authenticator Attestation GUID (AAGUID). [There are two ways to get your AAGUID](howto-authentication-passwordless-security-key.md#security-key-authenticator-attestation-guid-aaguid).
 
 ![How to enforce key restrictions](media/howto-authentication-passwordless-deployment/security-key-enforce-key-restriction.png)
 
