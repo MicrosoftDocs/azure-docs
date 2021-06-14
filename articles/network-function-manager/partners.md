@@ -9,7 +9,7 @@ ms.date: 06/14/2021
 ms.author: cherylmc
 
 ---
-# Network Function Manager Partners (Preview)
+# Network Function Manager partners (Preview)
 
 We have a growing ecosystem of partners offering their network function as managed applications for use with this service. 
 

@@ -67,7 +67,7 @@ You should also verify that the device **Status**, located in the properties sec
 
 ### <a name="partner-prereq"></a>Partner prerequisites 
 
-Customers can choose from one or more Network Function Manager [Partners](#partners) to deploy their network function on an Azure Stack Edge device. Each partner has networking requirements for deployment of their network function to an Azure Stack Edge device. Refer to the product documentation from the network function partners to complete the following configuration tasks:
+Customers can choose from one or more Network Function Manager [partners](#partners) to deploy their network function on an Azure Stack Edge device. Each partner has networking requirements for deployment of their network function to an Azure Stack Edge device. Refer to the product documentation from the network function partners to complete the following configuration tasks:
 
 * [Configure network on different ports](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 * [Enable compute network on your Azure Stack Edge device](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network). 
@@ -112,7 +112,7 @@ To create a user-assigned managed identity for deploying network functions:
 
 ## <a name="port-firewall"></a>Port requirements and firewall rules
 
-Network Function Manager (NFM) services running on the Azure Stack Edge require outbound connectivity to the NFM cloud service for management traffic to deploy network functions. NFM is fully integrated with the Azure Stack Edge service. Review the networking port requirements and firewall rules for Azure Stack Edge device.  
+Network Function Manager (NFM) services running on the Azure Stack Edge require outbound connectivity to the NFM cloud service for management traffic to deploy network functions. NFM is fully integrated with the Azure Stack Edge service. Review the networking port requirements and firewall rules for the [Azure Stack Edge](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements) device.  
 
 Network Function partners will have different requirements for firewall and port configuration rules to manage traffic to the partner management portal. Check with your network function partner for specific requirements.  
 
@@ -130,7 +130,7 @@ With the current release, Network Function Manager is a regional service. For re
 
 ## <a name="partners"></a>Partner solutions
 
-See the [Network Function Manager Partners page](partners.md) for a growing ecosystem of partners offering their Marketplace managed applications for private mobile network, SD-WAN, and VPN solutions.
+See the Network Function Manager [partners page](partners.md) for a growing ecosystem of partners offering their Marketplace managed applications for private mobile network, SD-WAN, and VPN solutions.
 
 ## <a name="faq"></a>FAQ
 
