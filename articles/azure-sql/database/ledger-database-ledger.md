@@ -20,7 +20,7 @@ ms.author: janders
 
 The database ledger is part of the ledger feature of Azure SQL Database. The database ledger incrementally captures the state of a database as the database evolves over time, while updates occur on ledger tables. It logically uses a blockchain and [Merkle tree data structures](/archive/msdn-magazine/2018/march/blockchain-blockchain-fundamentals). 
 
-To capture state, the database ledger stores an entry for every transaction. It captures metadata about the transaction, such as its commit timestamp and the identity of the user who executed it. It also captures the Merkle tree root of the rows updated in each ledger table. These entries are then appended to a tamper-evident data structure to allow verification of integrity in the future.
+To capture the state of the database, the database ledger stores an entry for every transaction. It captures metadata about the transaction, such as its commit timestamp and the identity of the user who executed it. It also captures the Merkle tree root of the rows updated in each ledger table. These entries are then appended to a tamper-evident data structure to allow verification of integrity in the future.
 
 :::image type="content" source="media/ledger/merkle-tree.png" alt-text="Diagram that shows a Merkle tree for the ledger feature.":::
 
