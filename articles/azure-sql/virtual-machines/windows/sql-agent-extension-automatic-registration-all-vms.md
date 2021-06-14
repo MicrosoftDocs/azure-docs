@@ -19,6 +19,9 @@ Enable the automatic registration feature in the Azure portal to automatically r
 
 This article teaches you to enable the automatic registration feature. Alternatively, you can [register a single VM](sql-agent-extension-manually-register-single-vm.md), or [register your VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md) with the SQL IaaS Agent extension. 
 
+> [!NOTE]
+> Starting in July 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
+
 ## Overview
 
 Registering your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) to unlock a full feature set of benefits. 
