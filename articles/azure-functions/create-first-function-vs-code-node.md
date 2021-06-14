@@ -120,7 +120,14 @@ In this section, you create a function app and related resources in your Azure s
             const name = (req.query.name || (req.body && req.body.name));
             const sport = (req.query.sport || (req.body && req.body.sport));
         
-            if (!name || !sport) throw ("Incoming data is missing");
+            // fail if incoming data is required
+            if (!name || !sport) {
+    
+                context.res = {
+                    status: 400
+                };
+                return;
+            }
             
             // Add or change code here
             const message = `${name} likes ${sport}`;
@@ -140,12 +147,7 @@ In this section, you create a function app and related resources in your Azure s
             };
         } catch(err) {
             context.res = {
-                status: 500,
-                contentType: 'application/json',
-                body: {
-                    "success": false,
-                    "message": err
-                }
+                status: 500
             };
         }
     }
@@ -163,7 +165,9 @@ In this section, you create a function app and related resources in your Azure s
     }
     ```
 
-1. [Redeploy the function](#run-the-function-locally) app locally.
+1. 
+
+1. [Redeploy the function](#deploy-the-project-to-azure) to Azure.
 
 ## Troubleshooting
 
