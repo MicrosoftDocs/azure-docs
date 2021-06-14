@@ -49,17 +49,17 @@ There are policy initiatives for Windows and Linux virtual machines, comprising 
 - Install the Azure Monitor agent extension on the virtual machine
 - Create and deploy the association to link the virtual machine to a data collection rule
 
-  ![Partial screenshot from the Azure Policy Definitions page showing two built-in policy initiaves for configuring Azure Monitor Agent.](media/deploy-scale/builtin-ama-dcr-initiatives-1.png)  
+  ![Partial screenshot from the Azure Policy Definitions page showing two built-in policy initiaves for configuring Azure Monitor Agent.](media/deploy-scale/built-in-ama-dcr-initiatives.png)  
 
 ### Built-in policy  
 You may choose to use the individual policies as per your needs, from the respective policy initiative. For example if you only want to automatically install the agent, simply use the first policy from the initiative as shown below:  
 
-  ![Partial screenshot from the Azure Policy Definitions page showing policies contained within the initiative for configuring Azure Monitor Agent.](media/deploy-scale/builtin-ama-dcr-policy-1.png)  
+  ![Partial screenshot from the Azure Policy Definitions page showing policies contained within the initiative for configuring Azure Monitor Agent.](media/deploy-scale/built-in-ama-dcr-policy.png)  
 
 ### Remediation
 The initiatives or policies will apply to each virtual machine as it's created. A [remediation task](../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to **existing resources**, so this allows you to configure the Azure Monitor agent for any resources that were already created. When you create the assignment using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md) for details on the remediation.
 
-![Initiative remediation for AMA](media/deploy-scale/builtin-ama-dcr-remediation.png)
+![Initiative remediation for AMA](media/deploy-scale/built-in-ama-dcr-remediation.png)
 
 
 ## Diagnostic settings
