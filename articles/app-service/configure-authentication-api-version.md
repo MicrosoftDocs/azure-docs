@@ -215,7 +215,7 @@ az webapp auth update --name <my_app_name> \
 --runtime-version <version>
 ```
 
-Replace `<my_app_name>` with the name of your app. Also replace `<my_resource_group>` with the name of the resource group for your app. Also, replace `<version>` with a valid version of the 1.x runtime or `~1` for the latest version. You can find the release notes on the different runtime versions [here] (https://github.com/Azure/app-service-announcements) to help determine the version to pin to.
+Replace `<my_app_name>` with the name of your app. Also replace `<my_resource_group>` with the name of the resource group for your app. Also, replace `<version>` with a valid version of the 1.x runtime or `~1` for the latest version. See the [release notes on the different runtime versions](https://github.com/Azure/app-service-announcements) to help determine the version to pin to.
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az_login) to sign in.
 

@@ -144,7 +144,7 @@ This section will walk you through updating the configuration to include your ne
     ```json
     "apple" : {
        "registration" : {
-            "clientId": "<client id>",
+            "clientId": "<client ID>",
             "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_CLIENT_SECRET" 
         },
        "login": {

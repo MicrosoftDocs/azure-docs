@@ -155,7 +155,7 @@ If you [enable application logging](troubleshoot-diagnostic-logs.md), you will s
 
 - [How-To: Configure your App Service or Azure Functions app to use Azure AD login](configure-authentication-provider-aad.md)
 - [Customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md)
-- [Auuthenticate native client apps](configure-authentication-client-apps.md)
+<!-- - [Authenticate native client apps](configure-authentication-client-apps.md) -->
 - [Work with OAuth tokens and sessions](configure-authentication-oauth-tokens.md)
 - [Access user claims](configure-authentication-user-identities.md)
 - [File-based configuration](configure-authentication-file-based.md)

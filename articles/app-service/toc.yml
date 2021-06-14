@@ -235,8 +235,6 @@
       href: configure-authentication-user-identities.md
     - name: Work with tokens
       href: configure-authentication-oauth-tokens.md
-    - name: Authenticate native client apps
-      href: configure-authentication-client-apps.md
     - name: Manage API versions
       href: configure-authentication-api-version.md
     - name: File-based configuration
@@ -323,6 +321,8 @@
     href: /rest/api/appservice/
   - name: Resource Manager template
     href: /azure/templates/microsoft.web/allversions
+  - name: App settings reference
+    href: reference-app-settings.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
