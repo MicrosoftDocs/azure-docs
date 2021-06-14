@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/01/2021
+ms.date: 06/21/2021
 ms.author: mbaldwin
 author: msmbaldwin
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Managed HSM is and if it offers anything that could be used in my organization.
@@ -31,6 +31,7 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 - **Centralized key management**: Manage critical, high-value keys across your organization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
 - **Isolated access control**: Managed HSM "local RBAC" access control model allows designated HSM cluster administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
+- **Private endpoints**: Use private endpoints to securely and privately connect to Managed HSM from your application running in a virtual network.
 - **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity HSM adapters.
 - **Monitor and audit**: fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
 - **Data residency**: Managed HSM doesn't store/process customer data outside the region the customer deploys the HSM instance in.
@@ -53,4 +54,4 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 - See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)
 - [Managed HSM Status](https://status.azure.com)
 - [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
-- [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)
+- [Managed HSM region availability](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)
