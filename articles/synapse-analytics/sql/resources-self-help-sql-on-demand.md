@@ -455,6 +455,26 @@ If you are trying to create some SQL objects, users, or change permissions in a 
 
 Create a separate database and reference the synchronized [tables](../metadata/table.md) using 3-part names and cross-database queries.
 
+## Cosmos DB
+
+### Some rows are not returned
+
+- There is a synchronization delay between transactional and analytical store. The document that you entered in the Cosmos DB transactional store might appear in analytical store after 2-3 minutes.
+- The document might violate some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints). 
+
+### Query returns `NULL` values
+
+Synapse SQL will return `NULL` instead of the values that you see in the transaction store in the following cases:
+- There is a synchronization delay between transactional and analytical store. The value that you entered in Cosmos DB transactional store might appear in analytical store after 2-3 minutes.
+- Possibly wrong column name or path expression in the `WITH` clause. Column name (or path expression after the column type) in the `WITH` clause must match the property names in Cosmos DB collection. Comparison is case-sensitive (for example, `productCode` and `ProductCode` are different properties). Make sure that your column names exactly match the Cosmos DB property names.
+- The property might not be moved to the analytical storage because it violates some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints), such as more than 1000  properties or more than 127 nesting levels.
+- If you are using well-defined [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation) the value in transactional store might have a wrong type. Well-defined schema locks the types for each property by sampling the documents. Any value added in the transactional store that doesn't match the type is treated as a wrong value and not migrated to the analytical store. 
+- If you are using full-fidelity [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation) make sure that you are adding type suffix after property name like `$.price.int64`. If you don't see a value for the referenced path, maybe it is stored under different type path, for example `$.price.float64`. See [how to query Cosmos Db collections in the full-fidelity schema](query-cosmos-db-analytical-store.md#query-items-with-full-fidelity-schema).
+
+### Column is not compatible with external data type
+
+The value specified in the `WITH` clause doesn't not match the underlying Cosmos DB types in analytical storage and cannot be implicitly converted. Use `VARCHAR` type in the schema.
+
 ## Delta Lake
 
 Delta Lake support is currently in public preview in serverless SQL pools. There are some known issues that you might see during the preview.
