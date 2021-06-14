@@ -13,19 +13,20 @@ A function app runs on a specific version of language runtime. By default, funct
 
 ---
 
+::: zone pivot="programming-language-javascript,programming-language-powershell, programming-language-java"
 
-## View and update the current language version
+## Update functions app language version on Windows
 
-_This section doesn't apply when running your function app [on Linux](#manual-version-updates-on-linux)._
+_This section doesn't apply when running your function app [on Linux](#Update-functions-app-language-version-on-Linux)._
 
 You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
 
-::: zone pivot="programming-language-javascript,programming-language-powershell, programming-language-java"
 
 [!INCLUDE [Set the language runtime version in the portal](../../includes/functions-view-update-language-version-portal.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-sharp"
+::: zone pivot="programming-language-csharp"
+## Update functions app language version on Windows
 
 For .NET, the language version is defined by the runtime version of your function apps. To learn, refer to the article on how to [set runtime version](./set-language-version). To learn on the .NET major versions that are supported, refer to [supported-languages article](./supported-languages)
 
@@ -33,8 +34,9 @@ For .NET, the language version is defined by the runtime version of your functio
 
 
 
-::: zone pivot="programming-language-python, programming-language-javascript,programming-language-powershell, programming-language-java"
-## Updating language version on Linux
+::: zone pivot="programming-language-python, programming-language-javascript,programming-language-powershell, programming-language-java,
+programming-language-csharp"
+## Update functions app language version on Linux
 
 To set a Linux function app to a specific language version, you specify the language as well as the version of the language in 'LinuxFxVersion' field in site config. For example: if we want to pin a node 10 function app with latest runtime version
 
@@ -43,7 +45,9 @@ Set `LinuxFxVersion` to `node|10`.
 To see the full list of supported languages in Linux functions apps, please refer to this [article](./supported-languages.md)
 
 > [!NOTE]
-To learn about setting a Linux function app to a specific language version __and__ runtime version (for example, node 10 with host runtime version of 2), please visit this [article](./set-runtime-version.md#manual-version-updates-on-linux) 
+>To learn about setting a Linux function app to a specific language version __and__ runtime version (for example, node 10 with host runtime version of 2), please visit this [article](./set-runtime-version.md#manual-version-updates-on-linux) 
+>
+
 
 # [Azure CLI](#tab/azurecli-linux)
 
@@ -89,10 +93,6 @@ You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md
 
 
 Similarly, the function app restarts after the change is made to the site config.
-
-> [!NOTE]
-> Note that setting `LinuxFxVersion` to image url directly for consumption apps will opt them out of placeholders and other cold start optimizations.
-
 ---
 ::: zone-end
 
