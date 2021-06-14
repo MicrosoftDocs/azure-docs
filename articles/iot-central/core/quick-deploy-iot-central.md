@@ -80,19 +80,7 @@ To get you started quickly, this article uses the **IoT Plug and Play** smartpho
 
 Install the app on your smartphone from one of the app stores:
 
-:::row:::
-   :::column span="1":::
-      <a href='https://play.google.com/store/apps/details?id=com.microsoft.emmx&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
-   :::column-end:::
-   :::column span="":::
-      <a href="https://apps.apple.com/us/app/microsoft-edge-web-browser/id1288723196?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1512000000&h=2b07ceed1a2964095c8e9a2163ec0ee2" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
-   :::column-end:::
-:::row-end:::
-
-<!-- TODO Badge generator: https://play.google.com/intl/en_us/badges/ -->
-
-- Link to Android app store 
-- Link to Apple app store 
+:::image type="content" source="media/quick-deploy-iot-central/play-store-badge.png" alt-text="Get it on Google Play" link="https://play.google.com/store/apps/details?id=com.microsoft.emmx&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" border="false"::: :::image type="content" source="media/quick-deploy-iot-central/app-store-badge.png" alt-text="Download on the App Store" link="https://apps.apple.com/us/app/microsoft-edge-web-browser/id1288723196?itsct=apps_box_badge&amp;itscg=30200" border="false":::
 
 To connect the **IoT Plug and Play** app to you Iot Central application:
 
