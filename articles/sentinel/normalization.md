@@ -46,7 +46,8 @@ The Azure Sentinel Information Model includes the following components:
 |**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values.      |
 |**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Deploy the Microsoft-developed normalizing parsers from the [Azure Sentinel GitHub **Parsers** folder](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Normalized parsers are located in subfolders starting with **ASim**.       |
 |**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content.     |
-|     |         |
+
+<br>
 
 The following image shows how non-normalized data can be translated into normalized content and used in Azure Sentinel. For example, you can start with a custom, product-specific, non-normalized table, and use a parser and a normalization schema to convert that table to normalized data. Use your normalized data in both Microsoft and custom analytics, rules, workbooks, queries, and more.
 
@@ -61,7 +62,8 @@ The Azure Sentinel Information Model uses the following terms:
 |**Reporting device**     |   The system that sends the records to Azure Sentinel. This system may not be the subject system for the record that's being sent.      |
 |**Record**     |A unit of data sent from the reporting device. A record is often referred to as `log`, `event`, or `alert`, but can also be other types of data.         |
 |**Content**, or **Content Item**     |The different, customizable, or user-created artifacts than can be used with Azure Sentinel. Those artifacts include, for example, Analytics rules, Hunting queries and workbooks. A content item is one such artifact.|
-|     |         |
+
+<br>
 
 ## Normalized schemas
 
@@ -79,7 +81,8 @@ Schema references outline the fields that comprise each schema. The following co
 |**Field class**     |Fields may have several classes, which define when the fields should be implemented by a parser: <br><br>-	**Mandatory** fields must appear in every parser. If your source does not provide information for this value, or the data cannot be otherwise added, it will not support most content items that reference the normalized schema.<br>-	**Recommended** fields should be normalized if available. However, they may not be available in every source, and any content item that references that normalized schema should take availability into account. <br>-	**Optional** fields, if available, can be normalized or left in their original form. Typically, a minimal parser would not normalize them for performance reasons.    |
 |**Entities**     | Events evolve around entities, such as users, hosts, processes, or files, and each entity may require several fields to describe it. For example, a host may have a name and an IP address. <br><br>A single record may include multiple entities of the same type, such as both a source and destination host. <br><br>The Azure Sentinel Information Model defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the network session schema does not include process information, some event sources do provide process information that can be added. For more information, see [Entities](#entities). |
 |**Aliases**     |  In some cases, different users expect a field to have different names. For example, in DNS terminology, one would expect a field named `query`, while more generally, it holds a domain name. Aliases solve this issue of ambiguity by allowing multiple names for a specified value. The alias class would be the same as the field that it aliases.       |
-|     |         |
+
+<br>
 
 ### Logical types
 
@@ -91,9 +94,9 @@ Each schema field has a type. Some have built-in, Azure Log Analytics types such
 |**Enumerated**     |  String       |   A list of values as explicitly defined for the field. The schema definition lists the accepted values.      |
 |**Date/Time**     |  Depending on the ingestion method capability, use any of the following physical representations in descending priority: <br><br>- Log Analytics built-in datetime type <br>- An integer field using Log Analytics datetime numerical representation. <br>- A string field using Log Analytics datetime numerical representation <br>- A string field storing a supported [Log Analytics date/time format](/azure/data-explorer/kusto/query/scalar-data-types/datetime).       |  [Log Analytics date and time representation](/azure/kusto/query/scalar-data-types/datetime) is similar but different than Unix time representation. For more information, see the [conversion guidelines](/azure/kusto/query/datetime-timespan-arithmetic). <br><br>**Note**: When applicable, the time should be time zone adjusted. |
 |**MAC Address**     |  String       | Colon-Hexadecimal notation        |
-|**IP Address**     |String         |    Azure Sentinel schemas do not have separate IPv4 and IPv6 addresses. Any IP address field may include either an IPv4 address or IPv6 address, as follows: <br><br>- **IPv4** in a dot-decimal notation <br>- **IPv6** in 8 hextets notation, allowing for the short forms described here.     |
-|**Country**     |   String      |    A string using ISO 3166-1, according to the following priority: <br><br> -Alpha-2 codes, such as `US` for the United States <br> - Alpha-3 codes, such as `USA` for the United States) <br>- Short name     |
-|**Region**     | String        |   The country subdivision name, using ISO 3166-2      |
+|**IP Address**     |String         |    Azure Sentinel schemas do not have separate IPv4 and IPv6 addresses. Any IP address field may include either an IPv4 address or IPv6 address, as follows: <br><br>- **IPv4** in a dot-decimal notation, for example  <br>- **IPv6** in 8 hextets notation, allowing for the short form<br><br>For example:<br>`192.168.10.10` (IPv4)<br>`FEDC:BA98:7654:3210:FEDC:BA98:7654:3210` (IPv6)<br>`1080::8:800:200C:417A` (IPv6 short form)     |
+|**Country**     |   String      |    A string using [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html), according to the following priority: <br><br> - Alpha-2 codes, such as `US` for the United States <br> - Alpha-3 codes, such as `USA` for the United States) <br>- Short name<br><br>The list of code can be found on the [International Standards Organization (ISO) Web Site](https://www.iso.org/obp/ui/#search)|
+|**Region**     | String        |   The country subdivision name, using ISO 3166-2<br><br>The list of code can be found on the [International Standards Organization (ISO) Web Site](https://www.iso.org/obp/ui/#search)|
 |**City**     |  String       |         |
 |**Longitude**     | Double        |  ISO 6709 coordinate representation (signed decimal)       |
 |**Latitude**     | Double        |    ISO 6709 coordinate representation (signed decimal)     |
@@ -101,7 +104,8 @@ Each schema field has a type. Some have built-in, Azure Log Analytics types such
 |**SHA1**     |   String      | 40-hex characters        |
 |**SHA256**     | String        |  64-hex characters       |
 |**SHA512**     |   String      |  128-hex characters       |
-|     |         |         |
+
+<br>
 
 ### Entities
 
@@ -114,7 +118,8 @@ To enable entity functionality, entity representation has the following guidelin
 |**Descriptors and aliasing**     | Since a single event often includes more than one entity of the same type, such as source and destination hosts, *descriptors* are used as a prefix to identify all of the fields that are associated with a specific entity. <br><br>To maintain normalization, the Azure Sentinel Information Model uses a small set of standard descriptors, picking the most appropriate ones for the specific role of the entities.  <br><br>If a single entity of a type is relevant for an event, there is no need to use a descriptor. Also, a set of fields without a descriptor aliases the most used entity for each type.  |
 |**Identifiers and types**     | A normalized schema allows for several identifiers for each entity, which we expect to coexist in events. If the source event has other entity identifiers that cannot be mapped to the normalized schema, keep them in the source form or use the `AdditionalFields` dynamic field. <br><br>To maintain the type information for the identifiers, store the type, when applicable, in a field with the same name and a suffix of `Type`. For example, `UserIdType`.         |
 |**Attributes**     |   Entities often have other attributes that do not serve as an identifier, and can also be qualified with a descriptor. For example, if the source user has domain information, the normalized field is `SrcUserDomain`.      |
-|     |         |
+
+<br>
 
 Each schema explicitly defines the central entities and entity fields. The following guidelines enable you to:
 
@@ -134,7 +139,8 @@ The descriptors used for a user are **Actor**, **Target User**, and **Updated Us
 |**Sign-in**     |    An **Actor** signed in to a system as a **Target User**.     |A (Target) User signed in         |
 |**Process creation**     |   An **Actor** (the user associated with the initiating process) has initiated process creation. The process created runs under the credentials of a **Target User** (the user related to the target process).      |  The process created runs under the credentials of a (Target) **User**.       |
 |**Email**     |     An **Actor** sends an email to a **Target User**    |         |
-|     |         |         |
+
+<br>
 
 The following table describes the supported identifiers for a user:
 
@@ -142,7 +148,8 @@ The following table describes the supported identifiers for a user:
 |---------|---------|---------|
 |**UserId**     |    String     |   A machine-readable, alphanumeric, unique representation of a user in a system. <br><br>Format and supported types include:<br>    -	**SID** (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>    -	**UID** (Linux): `4578`<br>    -	**AADID** (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>    -	**OktaId**: `00urjk4znu3BcncfY0h7`<br>    -	**AWSId**: `72643944673`<br><br>    Store the ID type in the `UserIdType` field. If other IDs are available, we recommend that you normalize the field names to `UserSid`, `UserUid`, `UserAADID`, `UserOktaId` and `UserAwsId`, respectively.       |
 |**Username**     |  String       |   A username, including domain information when available, in one of the following formats and in the following order of priority: <br> -	**Upn/Email**: `johndow@contoso.com` <br>  -	**Windows**: `Contoso\johndow` <br> -	**DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM` <br>  -	**Simple**: `johndow`. Use this form only if domain information is not available. <br><br> Store the Username type in the `UsernameType` field.    |
-|     |         |         |
+
+<br>
 
 #### The Process entity
 
@@ -161,7 +168,8 @@ The following table describes the supported identifiers for processes:
 |**Guid**     |  String       |   The OS-assigned process GUID. The GUID is commonly unique across system restarts, while the ID is often reused.   |
 |**Path**     |    String     |   The full pathname of the process, including directory and file name.       |
 |**Name**     |  Alias       |  The process name is an alias to the path.   |
-|     |         |         |
+
+<br>
 
 For more information, see the Auth schema documentation.
 
@@ -191,7 +199,8 @@ The following table describes the supported identifiers for devices:
 |**FQDN**     |  String       |   A fully qualified domain name   |
 |**IpAddr**     |    IP Address     |   While devices may have multiple IP addresses, events usually have a single identifying IP address. The exception is a gateway device that may have two relevant IP addresses. For a gateway device, use `UpstreamIpAddr` and `DownstreamIpAddr`.      |
 |**HostId**     |  String       |     |
-|     |         |         |
+
+<br>
 
 > [!NOTE]
 > `Domain` is a typical attribute of a device, but is not a complete identifier.
@@ -209,7 +218,8 @@ This event has the following entities:
 |**New Logon**     |    `Target`     |  `TargetUser`       |  The user for which the sign-in was performed.       |
 |**Process**     |    -     |     `ActingProcess`    |   The process that attempted the sign-in.      |
 |**Network information**     |   -      |   `Src`      |     The machine from which a sign-in attempt was performed.    |
-|     |         |         |         |
+
+<br>
 
 Based on these entities, [Windows event 4624](/windows/security/threat-protection/auditing/event-4624) is normalized as follows (some fields are optional):
 
@@ -234,7 +244,8 @@ Based on these entities, [Windows event 4624](/windows/security/threat-protectio
 |**SrcPortNumber**     |  IpPort       |  0       |         |
 |**TargetHostname**     |   Computer      |  WIN-GG82ULGC9GO	       |         |
 |**Hostname**     |     Computer    |     Alias    |         |
-|     |         |         |         |
+
+<br>
 
 ## Parsers
 
@@ -323,7 +334,8 @@ The KQL operators that perform parsing are listed below, ordered by their perfor
 |[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is significantly less efficient than a single `parse` or `extract_all` and should be avoided.      |
 |[parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)  | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
 |[parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)     |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
-|     |         |
+
+<br>
 
 In addition to parsing string, the parsing phase may require more processing of the original values, including:
 
@@ -366,8 +378,8 @@ The following KQL operators are used to prepare fields:
 |**project-rename**     | Renames fields        |     If a field exists in the original event and only needs to be renamed, use `project-rename`. <br><br>The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
 |**project-away**     |      Removes fields.   |Use `project-away` for specific fields that you want to remove from the result set.         |
 |**project**     |  Selects fields that were either existing before, or were created as part of the statement. Removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
-|   |         |         |
 
+<br>
 
 ### Handle parsing variants
 
@@ -382,7 +394,8 @@ When handling variants, use the following guidelines:
 |The different variants represent *different* event types, commonly mapped to different schemas     |  Use separate parsers       |
 |The different variants represent the *same* event type, but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping, as demonstrated in the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM/Infoblox).      |
 |If `union` is unavoidable     |  When using `union` is unavoidable, make sure to use the following guidelines:<br><br>-	Pre-filter using built-in fields in each one of the subqueries. <br>-	Ensure that the filters are mutually exclusive. <br>-	Consider not parsing less critical information, reducing the number of subqueries.       |
-|     |         |
+
+<br>
 
 ### Deploy parsers
 
@@ -487,5 +500,5 @@ This article describes normalization in Azure Sentinel and the Azure Sentinel In
 
 For more information, see:
 
-- [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel Network normalization schema reference (Public preview)](normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md)
