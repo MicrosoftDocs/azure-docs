@@ -1,7 +1,7 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 06/11/2021
+ms.date: 06/15/2021
 ms.topic: how-to
 ---
 
@@ -222,14 +222,19 @@ Each of your eligible authorizations must be defined in the `eligibleAuthorizati
 }
 ```
 
-Within the `eligibleAuthorizations` parameter, the `principalId` specifies the ID for the Azure AD user or group to which this eligible authorization will apply. Don't use an ID of a service principal account, since there's currently no way for a service principal account to elevate its access and use an eligible role.
+Each entry within the `eligibleAuthorizations` parameter contains three elements that define an eligible authorization: `principalId`, `roleDefinitionId`, and `justInTimeAccessPolicy`.
+
+`principalId` specifies the ID for the Azure AD user or group to which this eligible authorization will apply. Don't use an ID of a service principal account, since there's currently no way for a service principal account to elevate its access and use an eligible role.
 
 > [!IMPORTANT]
 > Be sure to include the same `principalId` in the `authorizations` section of your template with a different role from the eligible authorization, such as Reader (or another Azure built-in role that includes Reader access). If you don't, the user won't be able to elevate their role in the Azure portal.
 
-The `roleDefinitionId` contains the role definition ID for an [Azure built-in role](../../role-based-access-control/built-in-roles.md) that the user will be eligible to use on a just-in-time basis.
+`roleDefinitionId` contains the role definition ID for an [Azure built-in role](../../role-based-access-control/built-in-roles.md) that the user will be eligible to use on a just-in-time basis.
 
-The `justInTimeAccessPolicy` specifies two elements:
+> [!IMPORTANT]
+> If you include multiple eligible authorizations that use the same `roleDefinitionId`, each of these must have identical settings for `justInTimeAccessPolicy`.
+
+`justInTimeAccessPolicy` specifies two elements:
 
 - `multiFactorAuthProvider` can either be set to **Azure**, which will require authentication using Azure multi-factor authorization (MFA), or to **None** if no multi-factor authentication will be required.
 - `maximumActivationDuration` sets the total length of time for which the user will have the eligible role. This value must use the ISO 8601 duration format. The minimum value is PT30M (30 minutes) and the maximum value is PT8H (8 hours).
