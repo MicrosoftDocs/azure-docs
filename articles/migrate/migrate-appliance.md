@@ -93,8 +93,8 @@ The Azure Migrate appliance needs connectivity to the internet.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com  | Used for access control and identity management by Azure Active Directory
-management.azure.com | Create Azure AD app for the appliance services to authenticate themselves with Azure Migrate.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com  <br/> *.microsoftazuread-sso.com | Used for access control and identity management by Azure Active Directory
+management.azure.com | Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.<br/> Note: Ensure servers to replicate have access to this.
 aka.ms/* | Allow access to aka links; used to download and install the latest updates for appliance services.
@@ -111,7 +111,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.portal.azure.us  | Navigate to the Azure portal.
 graph.windows.net | Sign in to your Azure subscription.
 login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory
-management.usgovcloudapi.net | Create Azure AD app for the appliance services to authenticate themselves with Azure Migrate.
+management.usgovcloudapi.net |  Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to aka links; used to download and install the latest updates for appliance services.
@@ -129,8 +129,8 @@ The appliance needs access to the following URLs (directly or via proxy) over an
 **URL** | **Details**  
 --- | --- | 
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com | Used for access control and identity management by Azure Active Directory
-management.azure.com | Create Azure AD app for the appliance services to authenticate themselves with Azure Migrate.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> *.microsoftazuread-sso.com  | Used for access control and identity management by Azure Active Directory
+management.azure.com |  Used for resource deployments and management operations
 *.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
 aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
