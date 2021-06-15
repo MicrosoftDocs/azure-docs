@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 06/08/2021
 ms.author: nitinme
 ---
 
@@ -71,6 +71,8 @@ Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.C
 
 ## Purge a deleted resource 
 
+Once you delete a resource, you won't be able to create another one with the same name for 48 hours. To create a resource with the same name, you will need to purge the deleted resource.
+
 To purge a deleted cognitive service resource, use the following commands. Where applicable, replace:
 
 * `{subscriptionID}` with your Azure subscription ID
@@ -79,7 +81,7 @@ To purge a deleted cognitive service resource, use the following commands. Where
 * `{location}` with the location of your resource
 
 > [!NOTE]
-> After a resource is purged, you will not be able to create another resource with the same name for 48 hours.
+> Once a resource is purged, it is permanently deleted and cannot be restored. You will lose all data and keys associated with the resource.
 
 ### Using the REST API
 

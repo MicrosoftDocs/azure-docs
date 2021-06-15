@@ -66,7 +66,7 @@ While you can create assessments for multiple regions in an Azure Migrate projec
 
 ## Can we use the same Azure Migrate project to migrate to multiple subscriptions? 
 
-Yes, you can migrate to multiple subscriptions in the same target region for an Azure Migrate project. You can select the target subscription while enabling replication for a machine or a set of machines. The target region is locked post first replication for agentless VMware migrations and during the replication appliance and Hyper-V provider installation for agent-based migrations and agentless Hyper-V migrations respectively.
+Yes, you can migrate to multiple subscriptions (same Azure tenant) in the same target region for an Azure Migrate project. You can select the target subscription while enabling replication for a machine or a set of machines. The target region is locked post first replication for agentless VMware migrations and during the replication appliance and Hyper-V provider installation for agent-based migrations and agentless Hyper-V migrations respectively.
 
 ## What are the migration options in Azure Migrate: Server Migration?
 
