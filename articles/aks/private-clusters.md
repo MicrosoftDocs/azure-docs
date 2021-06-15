@@ -93,9 +93,9 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 
 #### Register the `EnablePrivateClusterPublicFQDN` preview feature
 
-To use the new Run Comm API, you must enable the `EnablePrivateClusterPublicFQDN` feature flag on your subscription.
+To use the new Enable Private Cluster Public FQDN API, you must enable the `EnablePrivateClusterPublicFQDN` feature flag on your subscription.
 
-Register the `RunCommandPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `EnablePrivateClusterPublicFQDN` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnablePrivateClusterPublicFQDN"
