@@ -303,7 +303,7 @@ sections:
           > [!WARNING]
           > Non-distributable artifacts typically have restrictions on how and where they can be distributed and shared. Use this feature only to push artifacts to private registries. Ensure that you are in compliance with any terms that cover redistributing non-distributable artifacts.
           
-		  ## Diagnostics and health checks
+          ## Diagnostics and health checks
 
       - question:  |
           Check health with `az acr check-health`
@@ -518,7 +518,7 @@ sections:
           
           Configure the Docker proxy to output of the previous command and the port 8888 (for example 10.0.75.1:8888)
           
-		  ## Tasks
+          ## Tasks
 
       - question:  |
           How do I batch cancel runs?
