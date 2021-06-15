@@ -26,6 +26,10 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 
 ## 2021-06-21
 
+### Azure Machine Learning CLI v2
+
+*Improvements*: Support for custom containers. By specifying a liveness route, readiness route, and scoring route in your endpoint YAML, you can bring a custom Docker container like TFServing or Torchserve for use in an Azure Machine Learning online endpoint.
+
 ### Azure Machine Learning SDK for Python v1.31.0
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
