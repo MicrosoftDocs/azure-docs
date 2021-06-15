@@ -290,40 +290,18 @@ To get started, see [Use blob index tags to manage and find data](storage-blob-i
 > [!IMPORTANT]
 > You must register your subscription before you can use the blob index on your storage accounts. See the [Conditions and known issues](#conditions-and-known-issues) section of this article.
 
-### Register your subscription
-
-You'll need to register your subscription before you can use the feature. To submit a request, run the following PowerShell or CLI commands.
-
-#### Register by using PowerShell
-
-```powershell
-Register-AzProviderFeature -FeatureName BlobIndex -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-#### Register by using Azure CLI
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name BlobIndex
-az provider register --namespace 'Microsoft.Storage'
-```
-
 ## Conditions and known issues
 
 This section describes known issues and conditions.
 
-- You must first register your subscription before you can use blob index for your storage account.
 - Only general-purpose v2 accounts are supported. Premium block blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 - When filtering is scoped to a single container, the `@container` can only be passed if all the index tags in the filter expression are equality checks (key=value).
 - When using the range operator with the `AND` condition, you can only specify the same index tag key name (`"Age" > '013' AND "Age" < '100'`).
 - Versioning and blob index aren't supported. Blob index tags are preserved for versions but aren't passed to the blob index engine.
 - There is no API to determine if index tags are indexed.
-- Account failover isn't supported. The blob index may not update properly after failover.
 - Lifecycle management only supports equality checks with blob index match.
 - `Copy Blob` doesn't copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation.
-- `Copy Blob` (Async copy) from another storage account with applied tags on the destination blob causes the blob index engine to not return the blob and its tags in the filter set. Use `Copy Blob` from URL (Sync copy).
-- Tags are persisted on snapshot creation. However, promoting a snapshot isn't supported and may result in an empty tag set.
 
 ## FAQ
 

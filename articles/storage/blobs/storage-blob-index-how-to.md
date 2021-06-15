@@ -29,7 +29,7 @@ To learn more about this feature along with known issues and limitations, see [M
 
 1. Set up your Visual Studio project to get started with the Azure Blob Storage client library v12 for .NET. To learn more, see [.NET Quickstart](storage-quickstart-blobs-dotnet.md)
 
-2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.7.0-preview.1** or newer to your project. You can also run the PowerShell command: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
+2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.7.0** or newer to your project. You can also run the PowerShell command: `Install-Package Azure.Storage.Blobs -Version 12.7.0`
 
    To learn how, see [Find and install a package](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
