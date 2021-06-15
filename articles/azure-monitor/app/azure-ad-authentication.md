@@ -382,7 +382,7 @@ Internal logs could be turned on using following setup, once this is enabled, er
 
 ```javascript
 let appInsights = require("applicationinsights");
-appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000").setInternalLogging(true, true);
+appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").setInternalLogging(true, true);
 ```
 ---
 ## Next Steps
