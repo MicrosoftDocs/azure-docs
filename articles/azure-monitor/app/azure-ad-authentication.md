@@ -128,7 +128,7 @@ Below is an example on how to configure Java agent to use service principal for 
 
 The `opencensus-ext-azure` package takes a dependency on [Azure Identity](https://pypi.org/project/azure-identity/). This library offers different types of [credentials](/python/api/overview/azure/identity-readme?view=azure-python#credentials), which are used by the exporter to authenticate the requests made to the Application Insights backend. It is the responsibility of the user to provide appropriate credentials that are authorized to access the Application Insights resource that they are sending telemetry to if they wish to utilize this feature.
 
-Construct the appropriate [credentials](/python/api/overview/azure/identity-readme?view=azure-python#credentials) and pass it into the constructor of the Azure Monitor exporter.
+Construct the appropriate [credentials](/python/api/overview/azure/identity-readme?view=azure-python#credentials) and pass it into the constructor of the Azure Monitor exporter. Make sure your connection string is setup with the instrumentation key and ingestion endpoint of your resource.
 Below are the following types of authentication that are supported by the Opencensus Azure Monitor exporters. Managed identities are recommended to be used in production environments.
 
 
