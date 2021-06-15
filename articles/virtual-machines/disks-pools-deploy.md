@@ -39,7 +39,7 @@ In order for your disk pool to correctly function with your client machines, you
 
 1. Go to the virtual networks blade in the Azure portal and select the virtual network to use for the disk pool.
 1. From here, you can either:
-    - Select Subnets from the virtual network blade and select +Subnet.
+    - Select **Subnets** from the virtual network blade and select **+Subnet**.
 
     Or
 
