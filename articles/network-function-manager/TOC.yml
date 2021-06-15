@@ -22,6 +22,8 @@
 - name: Resource
   expanded: true
   items:
+  - name: Network Function Manager product page
+    href: https://go.microsoft.com/fwlink/?linkid=2166098
   - name: Azure private MEC
     href: https://go.microsoft.com/fwlink/?linkid=2165316
   - name: Azure Roadmap
