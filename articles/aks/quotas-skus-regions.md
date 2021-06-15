@@ -33,6 +33,7 @@ Each node in an AKS cluster contains a fixed amount of compute resources such as
 - Standard_A0
 - Standard_A1
 - Standard_A1_v2
+- Standard_B1ls
 - Standard_B1s
 - Standard_B1ms
 - Standard_F1
