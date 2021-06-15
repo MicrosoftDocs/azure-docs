@@ -452,7 +452,6 @@ These event samples represent an event notification.
   }
 ]
 
-
 ```
 **Event type: Microsoft.AgFoodPlatform.ApplicationDataChanged**
 
@@ -512,6 +511,35 @@ These event samples represent an event notification.
     "eventTime": "2021-03-05T11:33:41.3434992Z"
   }
 ```
+**Event type: Microsoft.AgFoodPlatform.TillageDataChanged**
+```json
+  {
+    "data": {
+      "actionType": "Updated",
+      "farmerId": "UNIQUE-FARMER-ID",
+      "source": "sample source",
+      "modifiedDateTime": "2021-06-15T10:31:07Z",
+      "eTag": "6405f027-0000-0100-0000-60c8816b0000",
+      "id": "c9858c3f-fb94-474a-a6de-103b453df976",
+      "createdDateTime": "2021-06-15T10:31:07Z",
+      "name": "sample name",
+      "description":"sample description"
+      "properties": {
+        "_orgId": "498221",
+        "_fieldId": "e61b83f4-3a12-431e-8010-596f2466dc27",
+        "_cropSeason": "2010"
+      }
+    },
+    "id": "f06f6686-1fa8-41fd-be99-46f40f495cce",
+    "topic": "/subscriptions/da9091ec-d18f-456c-9c21-5783ee7f4645/resourceGroups/internal-farmbeats-resources/providers/Microsoft.AgFoodPlatform/farmBeats/internal-eus",
+    "subject": "/farmers/10e3d7bf-c559-48be-af31-4e00df83bfcd/tillageData/c9858c3f-fb94-474a-a6de-103b453df976",
+    "eventType": "Microsoft.AgFoodPlatform.TillageDataChanged",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2021-06-15T10:31:07.6778047Z"
+  }
+```
+
 **Event type: Microsoft.AgFoodPlatform.PlantingDataChanged**
 ```json
   {
