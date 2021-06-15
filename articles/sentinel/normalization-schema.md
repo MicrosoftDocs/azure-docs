@@ -1,5 +1,5 @@
 ---
-title: Azure Sentinel Network normalization schema reference (Public preview) | Microsoft Docs
+title: Azure Sentinel network normalization schema reference (Public preview) | Microsoft Docs
 description: This article displays the Azure Sentinel data normalization schema.
 services: sentinel
 cloud: na
