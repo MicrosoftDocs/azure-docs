@@ -775,6 +775,9 @@
       - name: Web Application Firewall
         tocHref: /azure/web-application-firewall/
         topicHref: /azure/web-application-firewall/
+  - name: Network Function Manager
+    tocHref: /azure/network-function-manager/
+    topicHref: /azure/network-function-manager/
   - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
