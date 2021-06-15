@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Download and run Fabrikam Fiber CallCenter
 
-1. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application from Github.
+1. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application from GitHub.
 
 2. Verify that the Fabrikam Fiber CallCenter application builds and runs without error.  Launch Visual Studio as **administrator** and open the [VS2015\FabrikamFiber.CallCenter.sln][link-fabrikam-github] file. Press F5 to run and debug the application.
 
