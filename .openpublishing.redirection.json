@@ -56450,6 +56450,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-custom-roles-activate.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
       "redirect_document_id": false
