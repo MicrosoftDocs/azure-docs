@@ -64,7 +64,7 @@ Learn more about the IoT Hub Device SDKS in the [IoT Device Development Document
 
 ## SDK and hardware compatibility
 
-For more information about choosing a device SDK, see [Overview of Azure device SDKs](../iot-develop/about-iot-sdks.md).
+For more information about choosing a device SDK, see [Overview of Azure IoT Device SDKs](../iot-develop/about-iot-sdks.md).
 
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/) or individual repository.
 

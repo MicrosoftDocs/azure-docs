@@ -48831,6 +48831,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-platform-support.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md",
       "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
       "redirect_document_id": false
