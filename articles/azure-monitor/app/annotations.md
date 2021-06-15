@@ -14,16 +14,20 @@ Annotations show where you deployed a new build, or other significant events. An
 
 Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
-If your subscription has an Application Insights resource linked to it and you use one of the following deployment tasks, then you don't need to configure anything else.
+If all the following criteria are met, the deployment task creates the release annotation automatically:
 
-| Task code                 | Task name                     | Versions     |
-|---------------------------|-------------------------------|--------------|
-| AzureAppServiceSettings   | Azure App Service Settings    | Any          |
-| AzureRmWebAppDeployment   | Azure App Service deploy      | V3 and above |
-| AzureFunctionApp          | Azure Functions               | Any          |
-| AzureFunctionAppContainer | Azure Functions for container | Any          |
-| AzureWebAppContainer      | Azure Web App for Containers  | Any          |
-| AzureWebApp               | Azure Web App                 | Any          |
+- The resource you're deploying to is linked to Application Insights (via the `APPINSIGHTS_INSTRUMENTATIONKEY` app setting).
+- The Application Insights resource is in the same subscription as the resource you're deploying to.
+- You're using one of the following Azure DevOps pipeline tasks:
+
+    | Task code                 | Task name                     | Versions     |
+    |---------------------------|-------------------------------|--------------|
+    | AzureAppServiceSettings   | Azure App Service Settings    | Any          |
+    | AzureRmWebAppDeployment   | Azure App Service deploy      | V3 and above |
+    | AzureFunctionApp          | Azure Functions               | Any          |
+    | AzureFunctionAppContainer | Azure Functions for container | Any          |
+    | AzureWebAppContainer      | Azure Web App for Containers  | Any          |
+    | AzureWebApp               | Azure Web App                 | Any          |
 
 > [!NOTE]
 > If you’re still using the Application Insights annotation deployment task, you should delete it.
@@ -60,33 +64,23 @@ You can use the CreateReleaseAnnotation PowerShell script to create annotations 
 2. Make a local copy of the script below and call it CreateReleaseAnnotation.ps1.
 
     ```powershell
-    param( 
+    param(
+        [parameter(Mandatory = $true)][string]$aiResourceId,
+        [parameter(Mandatory = $true)][string]$releaseName,
+        [parameter(Mandatory = $false)]$releaseProperties = @()
+    )
     
-        [parameter(Mandatory = $true)][string]$aiResourceId, 
+    $annotation = @{
+        Id = [GUID]::NewGuid();
+        AnnotationName = $releaseName;
+        EventTime = (Get-Date).ToUniversalTime().GetDateTimeFormats("s")[0];
+        Category = "Deployment";
+        Properties = ConvertTo-Json $releaseProperties -Compress
+    }
     
-        [parameter(Mandatory = $true)][string]$releaseName, 
-    
-        [parameter(Mandatory = $false)]$releaseProperties = @() 
-    
-    ) 
-    
-    $annotation = @{ 
-    
-        Id = [GUID]::NewGuid(); 
-    
-        AnnotationName = $releaseName; 
-    
-        EventTime = (Get-Date).ToUniversalTime().GetDateTimeFormats("s")[0]; 
-    
-        Category = "Deployment"; 
-    
-        Properties = ConvertTo-Json $releaseProperties -Compress 
-    
-    } 
-    
-    $body = (ConvertTo-Json $annotation -Compress) -replace '(\\+)"', '$1$1"' -replace "`"", "`"`"" 
-    
-    az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) " 
+    $body = (ConvertTo-Json $annotation -Compress) -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
+
+    az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) "
     ```
 
 3. Call the PowerShell script with the following code, replacing the angle-bracketed placeholders with your values. The -releaseProperties are optional.
