@@ -402,7 +402,9 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/use-bastion.png" alt-text="Image of use bastion dialog":::
 
-## Create a compute cluster
+## Create a compute cluster and compute instance
+
+A compute cluster is used by your training jobs. A compute instance provides an Jupyter Notebook experience on a shared compute resource attached to your workspace.
 
 1. From an Azure Bastion connection to the jump box, open the __Microsoft Edge__ browser on the remote desktop.
 1. In the remote browser session, go to __https://ml.azure.com__. When prompted, authenticate using your Azure AD account.
@@ -419,13 +421,31 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
 
 1. From the __Virtual Machine__ dialog, select __Next__ to accept the default virtual machine configuration.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-new-compute-vm.png" alt-text="Screenshot of vm settings":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-new-compute-vm.png" alt-text="Screenshot of compute cluster vm settings":::
     
 1. From the __Configure Settings__ dialog, enter __cpu-cluster__ as the __Compute name__. Set the __Subnet__ to __Training__ and then select __Create__ to create the cluster.
 
+    > [!TIP]
+    > Compute clusters dynamically scale the nodes in the cluster as needed. We recommend leaving the minimum number of nodes at 0 to reduce costs when the cluster is not in use.
+
     :::image type="content" source="./media/tutorial-create-secure-workspace/studio-new-compute-settings.png" alt-text="Screenshot of new compute cluster settings":::
 
-For more information on creating a compute cluster, including how to do so with Python and the CLI, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
+1. From studio, select __Compute__, __Compute instance__, and then __+ New__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance.png" alt-text="Screenshot of new compute instance workflow":::
+
+1. From the __Virtual Machine__ dialog, select __Next__ to accept the default virtual machine configuration.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-vm.png" alt-text="Screenshot of compute instance vm settings":::
+
+1. From the __Configure Settings__ dialog, enter a unique __Computer name__ and set the __Subnet__ to __Training__. Finally, select __Create__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-settings.png" alt-text="Screenshot of compute instance settings":::
+
+For more information on creating a compute cluster and compute cluster, including how to do so with Python and the CLI, see the following articles:
+
+* [Create a compute cluster](how-to-create-attach-compute-cluster.md)
+* [Create a compute instance](how-to-create-manage-compute-instance.md)
 
 ## Configure image builds
 
@@ -447,12 +467,27 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
     > [!NOTE]
     > You can use the same compute cluster to train models and build Docker images for the workspace.
 
-At this point, you can use the workspace to run training jobs.
-## Stop jump box
+## Use the workspace
+
+At this point, you can use studio to interactively work with notebooks on the compute instance and run training jobs ont the compute cluster. For a tutorial on using the compute instance and compute cluster, see [run a Python script](tutorial-1st-experiment-hello-world.md).
+
+## Stop compute instance and jump box
 
 > [!WARNING]
-> While it is running (started), the jump box will continue charging your subscription. To avoid excess cost, __stop__ the VM when it is not in use.
->
-> Once it has been created, select the virtual machine in the Azure portal and then use the __Stop__ button. When you are ready to use it again, use the __Start__ button to start it.
+> While it is running (started), the compute instance and jump box will continue charging your subscription. To avoid excess cost, __stop__ them when they are not in use.
+
+The compute cluster dynamically scales between the minimum and maximum node count set when you created it. If you accepted the defaults, the minimum is 0, which effectively turns the cluster off when not in use.
+### Stop the compute instance
+
+From studio, select __Compute__, __Compute clusters__, and then select the compute instance. Finally, select __Stop__ from the top of the page.
+
+:::image type="content" source="./media/tutorial-create-secure-workspace/compute-instance-stop.png" alt-text="Screenshot of stop button for compute instance":::
+### Stop the jump box
+
+Once it has been created, select the virtual machine in the Azure portal and then use the __Stop__ button. When you are ready to use it again, use the __Start__ button to start it.
+
+:::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-stop.png" alt-text="Screenshot of stop button for the VM":::
 
 ## Next steps
+
+Now that you have created a secure workspace and can access studio, learn how to [run a Python script](tutorial-1st-experiment-hello-world.md) using Azure Machine Learning.
