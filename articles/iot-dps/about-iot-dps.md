@@ -103,7 +103,7 @@ DPS is available in many regions. The updated list of existing and newly announc
 ## Availability
 There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
-## Quotas
+## Quotas and Limits
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
