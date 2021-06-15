@@ -44311,36 +44311,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/mysql/concepts-migrate-dbforge-studio-for-mysql.md",
-      "redirect_url": "/azure/mysql/migrate/concepts-migrate-dbforge-studio-for-mysql",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/concepts-migrate-dump-restore.md",
-      "redirect_url": "/azure/mysql/migrate/concepts-migrate-dump-restore",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/concepts-migrate-import-export.md",
-      "redirect_url": "/azure/mysql/migrate/concepts-migrate-import-export",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/how-to-migrate-rds-mysql-workbench.md",
-      "redirect_url": "/azure/mysql/migrate/how-to-migrate-rds-mysql-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/howto-migrate-online.md",
-      "redirect_url": "/azure/mysql/migrate/howto-migrate-online",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/howto-troubleshoot-common-errors.md",
-      "redirect_url": "/azure/mysql/migrate/howto-troubleshoot-common-errors",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/develop/howto-build-services-resilent-to-metadata-refresh.md",
       "redirect_url": "/azure/active-directory/develop/howto-build-services-resilient-to-metadata-refresh",
       "redirect_document_id": false
