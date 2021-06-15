@@ -1,4 +1,3 @@
-
 ---
 title: Journey for learning IoT Hub for New Users | Microsoft Docs
 description: This journey shows new users how to learn and use IoT Hub
