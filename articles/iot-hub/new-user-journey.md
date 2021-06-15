@@ -87,6 +87,6 @@ Properties can be read or set from the IoT Hub, and can be used to send notifica
 
 A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of 7 days, and can be used to take actions on a device. 
 
-You can also use Message Routing to send data to other endpoints for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services, also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. For a tutorial showing multiple uses of message routing, see the [Routing Tutorial](tutorial-routing.)
+You can also use Message Routing to send data to other endpoints for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services, also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. For a tutorial showing multiple uses of message routing, see the [Routing Tutorial](tutorial-routing.md.)
 
 Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless archictures. Learn more about [Event Grid](https://azure.microsoft.com/services/event-grid/). 
