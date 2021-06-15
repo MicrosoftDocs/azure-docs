@@ -61,7 +61,7 @@ The application should be designed to retry on any exception unless it is a know
 
 ## Common error status codes <a id="error-codes"></a>
 
-| Status Code | Transient/Retry | Description | 
+| Status Code | Retriable | Description | 
 |----------|-------------|-------------|
 | 400 | No | Bad request (Depends on the error message)| 
 | 401 | No | [Not authorized](troubleshoot-unauthorized.md) | 
