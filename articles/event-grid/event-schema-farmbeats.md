@@ -53,7 +53,7 @@ The tables below elaborate on the properties within data object for each event.
 
 |Property | Type| Description|
 |----| ----| ----|
-id|	string|	User-defined id of the resource, such as Farm ID, Farmer ID etc.
+id|	string|	User-defined ID of the resource, such as Farm ID, Farmer ID etc.
 actionType|	string|	Indicates the change triggered during publishing of the event. Applicable values are Created, Updated, Deleted
 status| string|	Contains the user-defined status of the resource.
 properties|	object|	It contains user-defined key-value pairs
@@ -67,12 +67,12 @@ description| string|	Textual description of the resource
 
 |Property | Type| Description|
 |----| ----| ----|
-id|	string|	User-defined Id of boundary
+id|	string|	User-defined ID of boundary
 actionType|	string|	Indicates the change that is triggered during publishing of the event. Applicable values are Created, Updated, Deleted.
-parentId|	string|	Id of the parent boundary belongs to.
+parentId|	string|	ID of the parent boundary belongs to.
 parentType|	string|	Type of the parent boundary belongs to.
 isPrimary|	boolean|	Indicates if the boundary is primary.
-farmerId|	string|	Contains the id of the farmer associated with boundary.
+farmerId|	string|	Contains the ID of the farmer associated with boundary.
 properties|	object|	It contains user-defined key-value pairs.
 modifiedDateTime| date-time|Date-time when resource was last modified, sample format: yyyy-MM-ddTHH:mm:ssZ.
 createdDateTime|date-time|Date-time when resource was created, sample format: yyyy-MM-ddTHH:mm:ssZ.
@@ -84,9 +84,9 @@ description| string|	Textual description of the resource.
 
 Property|	Type|	Description
 |----| ----| ----|
-id|	string|	User-defined Id of the field
-farmId|	string|	User-defined Id of the farm that  field is associated with
-farmerId|	string|	User-defined Id of the farmer that field is associated with
+id|	string|	User-defined ID of the field
+farmId|	string|	User-defined ID of the farm that  field is associated with
+farmerId|	string|	User-defined ID of the farmer that field is associated with
 name|	string|	User-defined name of the field
 actionType|	string|	Indicates the change that triggered publishing of the event. Applicable values are Created, Updated, Deleted
 properties|	object|	It contains user-defined key-value pairs
@@ -100,11 +100,11 @@ description|string|	Textual description of the resource
 
 Property|	Type|	Description
 |----| ----| ----|
-id|	string|	User-defined Id of the seasonal field
-farmId|	string|	User-defined Id of the farm that seasonal field is associated with
-farmerId|	string|	User-defined Id of the farmer that seasonal field is associated with
-seasonId|	string|	User-defined Id of the season that seasonal field is associated with
-fieldId|	string|	User-defined Id of the field that seasonal field is associated with
+id|	string|	User-defined ID of the seasonal field
+farmId|	string|	User-defined ID of the farm that seasonal field is associated with
+farmerId|	string|	User-defined ID of the farmer that seasonal field is associated with
+seasonId|	string|	User-defined ID of the season that seasonal field is associated with
+fieldId|	string|	User-defined ID of the field that seasonal field is associated with
 name|	string|	User-defined name of the seasonal field
 actionType|	string|	Indicates the change that triggered publishing of the event. Applicable values are Created, Updated, Deleted
 properties|	object|	It contains user-defined key-value pairs
@@ -118,12 +118,12 @@ description| string|	Textual description of the resource
 
 Property|	Type|	Description
 |----|----|----|
-id|String| Unique Id of the job.
+id|String| Unique ID of the job.
 name| string| User-defined name of the job.
 status|string|Various states a job can be in.
 isCancellationRequested| boolean|Flag that gets set when job cancellation is requested.
 description|string| Textual description of the job.
-farmerId|string| Id of the farmer for which job was created.
+farmerId|string| ID of the farmer for which job was created.
 message|string| Status message to capture more details of the job.
 lastActionDateTime|date-time|Date-time when last action was taken on the job, sample format: yyyy-MM-ddTHH:mm:ssZ.
 createdDateTime|date-time|Date-time when resource was created, sample format: yyyy-MM-ddTHH:mm:ssZ.
@@ -133,7 +133,7 @@ createdDateTime|date-time|Date-time when resource was created, sample format: yy
 
 Property|	Type|	Description
 |----|----|----|
-id|	string|	User-defined Id of the resource, such as Farm ID, Farmer ID etc.
+id|	string|	User-defined ID of the resource, such as Farm ID, Farmer ID etc.
 status|	string|	Contains the status of the job. 
 actionType|string|
 source|	string|	Message from FarmBeats giving details about the job.	
