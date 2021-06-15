@@ -178,7 +178,7 @@ documentCollection.setId("YourContainerName");
 documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
 ```
 
-# [Java SDK 2.x.x Async API](#tab/java-v2-sync)
+# [Java SDK 2.x.x Async API](#tab/java-v2-async)
 
 ```java
 // Create Async client.
