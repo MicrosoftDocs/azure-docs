@@ -3,10 +3,10 @@ title: Authenticate with managed identities
 description: Access resources protected by Azure Active Directory without signing in with credentials or secrets by using a managed identity
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 03/30/2021 
-ms.custom: devx-track-azurepowershell
+ms.date: 06/30/2021
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
@@ -77,7 +77,7 @@ To set up the managed identity that you want to use, follow the link for that id
 Unlike user-assigned identities, you don't have to manually create the system-assigned identity. To set up the system-assigned identity for your logic app, here are the options that you can use:
 
 * [Azure portal](#azure-portal-system-logic-app)
-* [Azure Resource Manager templates](#template-system-logic-app)
+* [Azure Resource Manager template (ARM template)](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -107,9 +107,9 @@ Unlike user-assigned identities, you don't have to manually create the system-as
 
 <a name="template-system-logic-app"></a>
 
-#### Enable system-assigned identity in Azure Resource Manager template
+#### Enable system-assigned identity in an ARM template
 
-To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To enable the system-assigned managed identity for your logic app in the template, add the `identity` object and the `type` child property to the logic app's resource definition in the template, for example:
+To automate creating and deploying Azure resources such as logic apps, you can use an [ARM template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To enable the system-assigned managed identity for your logic app in the template, add the `identity` object and the `type` child property to the logic app's resource definition in the template, for example:
 
 ```json
 {
@@ -157,7 +157,7 @@ When Azure creates your logic app resource definition, the `identity` object get
 To set up a user-assigned managed identity for your logic app, you must first create that identity as a separate standalone Azure resource. Here are the options that you can use:
 
 * [Azure portal](#azure-portal-user-identity)
-* [Azure Resource Manager templates](#template-user-identity)
+* [ARM template](#template-user-identity)
 * Azure PowerShell
   * [Create user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
   * [Add role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
@@ -217,9 +217,9 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 <a name="template-user-identity"></a>
 
-#### Create user-assigned identity in an Azure Resource Manager template
+#### Create user-assigned identity in an ARM template
 
-To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), which support [user-assigned identities for authentication](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md). In your template's `resources` section, your logic app's resource definition requires these items:
+To automate creating and deploying Azure resources such as logic apps, you can use an [ARM template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), which support [user-assigned identities for authentication](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md). In your template's `resources` section, your logic app's resource definition requires these items:
 
 * An `identity` object with the `type` property set to `UserAssigned`
 
@@ -308,68 +308,63 @@ If your template also includes the managed identity's resource definition, you c
 
 ## Give identity access to resources
 
-Before you can use your logic app's managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource. Here are the options that you can use:
+Before you can use your logic app's managed identity for authentication, on the Azure resource where you plan to use the identity, you have to set up access using Azure role-based access control (Azure RBAC). To complete this task, assign the appropriate role to that identity on the Azure resource through any of the following options:
 
 * [Azure portal](#azure-portal-assign-access)
-* [Azure Resource Manager template](../role-based-access-control/role-assignments-template.md)
-* Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) - For more information, see [Add role assignment by using Azure RBAC and Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Azure CLI ([az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)) - For more information, see [Add role assignment by using Azure RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
+* [ARM template](../role-based-access-control/role-assignments-template.md)
+* [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Azure CLI](../role-based-access-control/role-assignments-cli.md)
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
 
-### Assign access in the Azure portal
+### Assign access using the Azure portal
 
-On the target Azure resource where you want the managed identity to have access, give that identity role-based access to the target resource.
+On the Azure resource where you want to use the managed identity, assign your identity a role that grants the necessary access to the target resource.
 
-1. In the [Azure portal](https://portal.azure.com), go to the Azure resource where you want your managed identity to have access.
+1. In the [Azure portal](https://portal.azure.com), open the Azure resource where you want to use the identity.
 
-1. From the resource's menu, select **Access control (IAM)** > **Role assignments** where you can review the current role assignments for that resource. On the toolbar, select **Add** > **Add role assignment**.
+1. On the resource menu, select **Access control (IAM)** > **Add** > **Add role assignment**.
 
-   ![Select "Add" > "Add role assignment"](./media/create-managed-service-identity/add-role-to-resource.png)
+   > [!NOTE]
+   > If the **Add role assignment** option is disabled, you don't have permissions to assign roles. 
+   > For more information, review [Azure AD built-in roles](../active-directory/roles/permissions-reference.md).
 
-   > [!TIP]
-   > If the **Add role assignment** option is disabled, you most likely don't have permissions. 
-   > For more information about the permissions that let you manage roles for resources, see 
-   > [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
+1. On the **Roles** tab, find and select the appropriate role that grants your identity the necessary access to the target resource. For more information, review [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. Under **Add role assignment**, select a **Role** that gives your identity the necessary access to the target resource.
+   For this example, your identity requires a [role that can access blobs in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights). So, select the role that's named **Storage Blob Data Contributor**.
 
-   For this topic's example, your identity needs a [role that can access the blob in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights), so select the **Storage Blob Data Contributor** role for the managed identity.
-
-   ![Select "Storage Blob Data Contributor" role](./media/create-managed-service-identity/select-role-for-identity.png)
-
-1. Follow these steps for your managed identity:
+1. Based on your managed identity, follow the corresponding steps:
 
    * **System-assigned identity**
 
-     1. In the **Assign access to** box, select **Logic App**. When the **Subscription** property appears, select the Azure subscription that's associated with your identity.
+     1. Open the **Assign access to** list, and select **Logic App**. When the **Subscription** property appears, select the Azure subscription that's associated with your identity.
 
         ![Select access for system-assigned identity](./media/create-managed-service-identity/assign-access-system.png)
 
-     1. Under the **Select** box, select your logic app from the list. If the list is too long, use the **Select** box to filter the list.
+     1. In the **Select** box, find and select your logic app.
 
         ![Select logic app for system-assigned identity](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
 
    * **User-assigned identity**
 
-     1. In the **Assign access to** box, select **User assigned managed identity**. When the **Subscription** property appears, select the Azure subscription that's associated with your identity.
+     1. Open the **Assign access to** list, and select **User assigned managed identity**. When the **Subscription** property appears, select the Azure subscription that's associated with your identity.
 
         ![Select access for user-assigned identity](./media/create-managed-service-identity/assign-access-user.png)
 
-     1. Under the **Select** box, select your identity from the list. If the list is too long, use the **Select** box to filter the list.
+     1. In the **Select** box, find and select your identity.
 
         ![Select your user-assigned identity](./media/create-managed-service-identity/add-permissions-select-user-assigned-identity.png)
 
 1. When you're done, select **Save**.
 
-   The target resource's role assignments list now shows the selected managed identity and role. This example shows how you can use the system-assigned identity for one logic app and a user-assigned identity for a group of other logic apps.
+   The resource's **Role assignments** list now includes your managed identity and its role. In this example, you can use the system-assigned identity for one logic app and the user-assigned identity for a group of other logic apps.
 
    ![Added managed identities and roles to target resource](./media/create-managed-service-identity/added-roles-for-identities.png)
 
-   For more information, [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
+   For more information, review [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
-1. Now follow the [steps to authenticate access with the identity](#authenticate-access-with-identity) in a trigger or action that supports managed identities.
+1. Next, to use your managed identity with a trigger or action that supports managed identities, [follow the steps to authenticate access using the identity](#authenticate-access-with-identity).
 
 <a name="authenticate-access-with-identity"></a>
 
@@ -600,7 +595,7 @@ For example, here's the underlying connection resource definition for an Azure A
 To stop using a managed identity for your logic app, you have these options:
 
 * [Azure portal](#azure-portal-disable)
-* [Azure Resource Manager templates](#template-disable)
+* [ARM template](#template-disable)
 * Azure PowerShell
   * [Remove role assignment](../role-based-access-control/role-assignments-powershell.md)
   * [Delete user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
@@ -656,9 +651,9 @@ The managed identity is now disabled on your logic app.
 
 <a name="template-disable"></a>
 
-### Disable managed identity in Azure Resource Manager template
+### Disable managed identity in an ARM template
 
-If you created the logic app's managed identity by using an Azure Resource Manager template, set the `identity` object's `type` child property to `None`.
+If you created the logic app's managed identity by using an ARM template, set the `identity` object's `type` child property to `None`.
 
 ```json
 "identity": {
