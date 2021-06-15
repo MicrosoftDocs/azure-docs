@@ -132,15 +132,6 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | Not available | Not available | Not available | Not available |
 
-
-### Azure Communication Services
-
-Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | Not available | Not available | Not available |
-| User assigned | ![Available][check] | Not available | Not available | Not available |
-
-
 ### Azure Container Instances
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -487,6 +478,14 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Available][check] |
 | Azure Germany | `https://*.asazure.cloudapi.de` | ![Available][check] |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Available][check] |
+
+### Azure Communication Services
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not available | Not available | Not available |
+| User assigned | ![Available][check] | Not available | Not available | Not available |
+
 
 > [!Note]
 > Microsoft Power BI also [supports managed identities](../../stream-analytics/powerbi-output-managed-identity.md).

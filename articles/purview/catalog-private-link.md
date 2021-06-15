@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 06/11/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
@@ -86,6 +86,16 @@ The DNS resource records for PurviewA, when resolved in the VNet hosting the pri
 | `PurviewA.privatelink.purview.azure.com` | A | \<private endpoint IP address\> |
 | `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
  
+ > [!important]
+ > If you do not use DNS Forwarders and instead you manage A records directly in your on-premises DNS servers to resolve the endpoints through their private IP addresses, you may need to create additional A records in your DNS Servers:
+
+| Name | Type | Value |
+| ---------- | -------- | --------------- |
+| `PurviewA.scan.Purview.azure.com` | A | \<private endpoint IP address\> |
+| `PurviewA.catalog.Purview.azure.com` | A | \<private endpoint IP address\> |
+
+<br> 
+
 _Example for Azure Purview DNS name resolution from outside the VNet or when Azure Private Endpoint is not configured:_
 
    :::image type="content" source="media/catalog-private-link/purview-name-resolution-external.png" alt-text="Purview Name Resolution from outside CorpNet":::
