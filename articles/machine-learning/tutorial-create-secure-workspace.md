@@ -61,7 +61,7 @@ To create a virtual network, use the following steps:
     >
     > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
 
-    1. Make note of the the default __IPv4 address space__. In the screenshot, the value is __172.17.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the 172.17.0.0/16 value.
+    1. Look at the default __IPv4 address space__ value. In the screenshot, the value is __172.17.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the 172.17.0.0/16 value.
     1. Select the __Default__ subnet and then select __Remove subnet__.
     
         :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet":::
@@ -202,7 +202,7 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 1. Select __Next : Resource__, and then set __Target sub-resource__ to __file__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-resource.png" alt-text="Add the sub-resource of 'file'":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-resource.png" alt-text="Add the subresource of 'file'":::
 
 1. Select __Next : Configuration__, and then use the following values:
     * __Virtual network__: The network you created previously
@@ -326,7 +326,7 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 ## Enable studio
 
-Azure Machine Learning studio is a web-based application that lets you easily manage your workspace. However, it needs some additional configuration before it can be used with resources secured inside a VNet. Use the following steps to enable studio:
+Azure Machine Learning studio is a web-based application that lets you easily manage your workspace. However, it needs some extra configuration before it can be used with resources secured inside a VNet. Use the following steps to enable studio:
 
 1. From the Azure portal, select your storage account and then select __Access control (IAM)__.
 
@@ -340,7 +340,7 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/storage-add-blob-data-reader.png" alt-text="Screenshot of adding storage blob data reader role":::
 
-1. When using an Azure Storage Account that has a private endpoint, add the workspace managed identity as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
+1. When using an Azure Storage Account that has a private endpoint, add the workspace-managed identity as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-select.png" alt-text="Screenshot of storage private endpoints":::
 
@@ -404,7 +404,7 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
 
 ## Create a compute cluster and compute instance
 
-A compute cluster is used by your training jobs. A compute instance provides an Jupyter Notebook experience on a shared compute resource attached to your workspace.
+A compute cluster is used by your training jobs. A compute instance provides a Jupyter Notebook experience on a shared compute resource attached to your workspace.
 
 1. From an Azure Bastion connection to the jump box, open the __Microsoft Edge__ browser on the remote desktop.
 1. In the remote browser session, go to __https://ml.azure.com__. When prompted, authenticate using your Azure AD account.
@@ -438,7 +438,7 @@ A compute cluster is used by your training jobs. A compute instance provides an 
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-vm.png" alt-text="Screenshot of compute instance vm settings":::
 
-1. From the __Configure Settings__ dialog, enter a unique __Computer name__ and set the __Subnet__ to __Training__. Finally, select __Create__.
+1. From the __Configure Settings__ dialog, enter a unique __Computer name__, set the __Subnet__ to __Training__, and then select __Create__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-settings.png" alt-text="Screenshot of compute instance settings":::
 
@@ -452,7 +452,7 @@ For more information on creating a compute cluster and compute cluster, includin
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images (used for training and deployment). Instead, configure the workspace to use the compute cluster you created earlier. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
 
 1. Navigate to [https://shell.azure.com/](https://shell.azure.com/) to open the Azure Cloud Shell.
-1. From the cloud shell, use the following command to install the 1.0 CLI for Azure Machine Learning:
+1. From the Cloud Shell, use the following command to install the 1.0 CLI for Azure Machine Learning:
 
     ```azurecli-interactive
     az extension add -n azure-cli-ml
@@ -469,14 +469,14 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
 
 ## Use the workspace
 
-At this point, you can use studio to interactively work with notebooks on the compute instance and run training jobs ont the compute cluster. For a tutorial on using the compute instance and compute cluster, see [run a Python script](tutorial-1st-experiment-hello-world.md).
+At this point, you can use studio to interactively work with notebooks on the compute instance and run training jobs on the compute cluster. For a tutorial on using the compute instance and compute cluster, see [run a Python script](tutorial-1st-experiment-hello-world.md).
 
 ## Stop compute instance and jump box
 
 > [!WARNING]
 > While it is running (started), the compute instance and jump box will continue charging your subscription. To avoid excess cost, __stop__ them when they are not in use.
 
-The compute cluster dynamically scales between the minimum and maximum node count set when you created it. If you accepted the defaults, the minimum is 0, which effectively turns the cluster off when not in use.
+The compute cluster dynamically scales between the minimum and maximum node count set when you created it. If you accepted the defaults, the minimum is 0, which effectively turns off the cluster when not in use.
 ### Stop the compute instance
 
 From studio, select __Compute__, __Compute clusters__, and then select the compute instance. Finally, select __Stop__ from the top of the page.
