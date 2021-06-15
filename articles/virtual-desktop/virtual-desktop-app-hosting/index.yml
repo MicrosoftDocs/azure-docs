@@ -21,9 +21,9 @@ landingContent:
   - title: About Azure Virtual Desktop for independent software vendors
     linkLists:
       - linkListType: overview
-        links:
+        links: 
           - text: What is Azure Virtual Desktop, and how can I use it to host and stream my apps?
-            url: 
+            url: ../overview.md
 
   # Card
   - title: Get started with Azure Virtual Desktop
@@ -31,8 +31,8 @@ landingContent:
       - linkListType: get-started
         links:
           - text: How to set up your deployment
-            url: 
+            url: ../configure-adfs-sso.md
       - linkListType: how-to-guide
         links:
           - text: How to estimate costs
-            url: 
+            url: ../azure-monitor-costs.md
