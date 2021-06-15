@@ -24,6 +24,38 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
 
+## 2021-06-21
+
+### Azure Machine Learning SDK for Python v1.31.0
++ **Bug fixes and improvements**
+  + **automl-client-core-nativeclient**
+    + Fix high cardinality guardrails to be more aligned with docs
+  + **azure-cli-ml**
+    + The default AML Compute node scale down time has changed from 120 seconds to 1800 seconds.
+  + **azureml-automl-core**
+    + Enabling NER scenario to AutoML DNN NLP package
+    + Data Cleaning: Samples with target values in [None, "", "nan", np.nan] will be dropped prior to featurization and/or model training.
+  + **azureml-automl-dnn-nlp**
+    + Enabling NER scenario to AutoML DNN NLP package
+  + **azureml-automl-runtime**
+    + Fix high cardinality guardrails to be more aligned with docs
+    + Enabling NER scenario to AutoML DNN NLP package
+    + Data Cleaning: Samples with target values in [None, "", "nan", np.nan] will be dropped prior to featurization and/or model training.
+  + **azureml-core**
+    + Documentation improvement of platform property of Environment class.
+    + The default AML Compute node scale down time has changed from 120 seconds to 1800 seconds.
+    + The default troubleshooting link displayed on the portal for troubleshooting failed runs has been updated to: https://aka.ms/azureml-run-troubleshooting
+  + **azureml-interpret**
+    + Prevent flush task queue error on remote AzureML runs that use ExplanationClient by increasing timeout
+  + **azureml-pipeline-core**
+    + Add jar parameter to synapse step
+  + **azureml-pipeline-steps**
+    + Add jar parameter to synapse step
+  + **azureml-train-automl-client**
+    + Enabling NER scenario to AutoML DNN NLP package
+  + **azureml-train-automl-runtime**
+    + Fix high cardinality guardrails to be more aligned with docs
+
 ## 2021-06-07
 
 ### Azure Machine Learning SDK for Python v1.30.0
