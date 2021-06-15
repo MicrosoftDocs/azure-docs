@@ -8549,6 +8549,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure/marketplace/third-party-license.md
+      "redirect_url": "/azure/marketplace/ISV-app-license"
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation.md",
       "redirect_url": "/azure/marketplace/marketplace-iot-edge",
       "redirect_document_id": false
