@@ -1,6 +1,6 @@
 ---
-title: Third-party app license management through Microsoft - Azure and Microsoft AppSource
-description: Learn about managing third-party app licenses through Microsoft.
+title: ISV app license management - Microsoft AppSource and Azure Marketplace
+description: Learn about managing ISV app licenses through Microsoft.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.reviewer: dannyevers
 ms.date: 04/30/2021
 ---
 
-# Third-party app license management through Microsoft
+# ISV app license management
 
 > [!IMPORTANT]
 > This capability is currently in Public Preview.
@@ -19,7 +19,7 @@ Applies to the following offer type:
 
 - Dynamics 365 for Customer Engagement & Power Apps
 
-_Third-party app license management through Microsoft_ enables independent software vendors (ISVs) who build solutions using Dynamics 365 suite of products to manage and enforce licenses for their solutions using systems provided by Microsoft. By adopting this approach you can:
+_ISV app license management_ enables independent software vendors (ISVs) who build solutions using Dynamics 365 suite of products to manage and enforce licenses for their solutions using systems provided by Microsoft. By adopting this approach you can:
 
 - Enable your customers to assign and unassign your solution’s licenses using familiar tools such as Microsoft 365 Admin Center, which they use to manage Office and Dynamics licenses.
 - Have the Power Platform enforce your licenses at runtime to ensure that only licensed users can access your solution.
@@ -27,11 +27,11 @@ _Third-party app license management through Microsoft_ enables independent softw
 
 
 > [!NOTE]
-> Third-party app license management through Microsoft is only available to ISVs participating in the ISV Connect program. Microsoft is not involved in the sale of licenses.
+> ISV app license management is only available to ISVs participating in the ISV Connect program. Microsoft is not involved in the sale of licenses.
 
 ## Prerequisites
 
-To manage your app licenses through Microsoft, you need to comply with the following pre-requisites.
+To manage your ISV app licenses, you need to comply with the following pre-requisites.
 
 1. Have a valid [Microsoft Partner Network account](/partner-center/mpn-create-a-partner-center-account).
 1. Be signed up for commercial marketplace program. For more information, see [Create a commercial marketplace account in Partner Center](create-account.md).
@@ -40,7 +40,7 @@ To manage your app licenses through Microsoft, you need to comply with the follo
 
 ## High-level process
 
-This table illustrates the high-level process to manage third-party apps through Microsoft:
+This table illustrates the high-level process to manage ISV app licenses:
 
 | Step | Details |
 | ------------ | ------------- |
@@ -55,7 +55,7 @@ This table illustrates the high-level process to manage third-party apps through
 
 ## Enabling app license management through Microsoft
 
-When creating an offer, there are two check boxes on the Offer setup tab used to enable app license management on an offer.
+When creating an offer, there are two check boxes on the Offer setup tab used to enable ISV app license management on an offer.
 
 ### Enable app license management through Microsoft check box
 
