@@ -69,7 +69,7 @@ items:
   - name: Supported Browsers
     href: supported-browsers.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md
+    href: frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Register & scan
