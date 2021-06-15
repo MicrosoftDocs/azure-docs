@@ -28,10 +28,6 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          Frequently asked questions
-        answer: |
-
-      - question: |
           What does it mean when a feature is in preview?
         answer: |
           When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment.
