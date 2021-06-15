@@ -69,7 +69,7 @@ The table below lists the individual Gateway IP addresses and also Gateway IP ad
 Periodically, we will retire Gateways using old hardware and migrate the traffic to new Gateways as per the process outlined at [Azure SQL Database traffic migration to newer Gateways](gateway-migration.md). We strongly encourage customers to use the **Gateway IP address subnets** in order to not be impacted by this activity in a region.
 
 > [!IMPORTANT]
-> Logins for SQL Database or Azure Synapse can land on **any of the Gateways in a region**. For consistent connectivity to SQL Database or Azure Synapse,  allow network traffic to and from **ALL** Gateway IP addresses **and Gateway IP address subnets for the region.
+> Logins for SQL Database or Azure Synapse can land on **any of the Gateways in a region**. For consistent connectivity to SQL Database or Azure Synapse,  allow network traffic to and from **ALL** Gateway IP addresses and Gateway IP address subnets for the region.
 
 | Region name          | Gateway IP addresses | Gateway IP address subnets |
 | --- | --- | --- |
