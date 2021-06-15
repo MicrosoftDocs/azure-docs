@@ -14,7 +14,21 @@ ms.topic: how-to
 ---
 # How to create a secure workspace
 
-In this article, learn how to create and connect to a secure Azure Machine Learning workspace.
+In this article, learn how to create and connect to a secure Azure Machine Learning workspace. A secure workspace uses Azure Virtual Network to create a security boundary around resources used by Azure Machine Learning. 
+
+In this tutorial, you accomplish the following tasks:
+
+> [!div class="checklist"]
+> * Create an Azure Virtual Network (VNet) to __secure communications between services in the virtual network__.
+> * Create a Network Security Group (NSG) to __configure what network traffic is allowed into and out of the VNet__.
+> * Create an Azure Storage Account (blob and file) behind the VNet. This service is used as __default storage for the workspace__.
+> * Create an Azure Key Vault behind the VNet. This service is used to __store secrets used by the workspace__. For example, the security information needed to access the storage account.
+> * Create an Azure Container Registry (ACR). This service is used as a repository for Docker images. __Docker images provide the compute environments needed when training a machine learning model or deploying a trained model as an endpoint__.
+> * Create an Azure Machine Learning workspace.
+> * Create a jump box. A jump box is an Azure Virtual Machine that is behind the VNet. Since the VNet restricts access from the public internet, __the jump box is used as a way to connect to resources behind the VNet__.
+> * Configure Azure Machine Learning studio to work behind a VNet. The studio provides a __web interface for Azure Machine Learning__.
+> * Create an Azure Machine Learning compute cluster. A compute cluster is used when __training machine learning models in the cloud__. In configurations where Azure Container Registry is behind the VNet, it is also used to build Docker images.
+> * Connect to the jump box and use the Azure Machine Learning studio.
 
 ## Prerequisites
 
@@ -398,9 +412,19 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
     > [!TIP]
     > If your Azure AD account has access to multiple subscriptions or directories, use the __Directory and Subscription__ dropdown to select the one that contains the workspace.
 
+    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-select-workspace.png" alt-text="Screenshot of the select workspace dialog":::
+
 1. From studio, select __Compute__, __Compute clusters__, and then __+ New__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-new-compute-cluster.png" alt-text="Screenshot of new compute cluster workflow":::
+
 1. From the __Virtual Machine__ dialog, select __Next__ to accept the default virtual machine configuration.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-new-compute-vm.png" alt-text="Screenshot of vm settings":::
+    
 1. From the __Configure Settings__ dialog, enter __cpu-cluster__ as the __Compute name__. Set the __Subnet__ to __Training__ and then select __Create__ to create the cluster.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-new-compute-settings.png" alt-text="Screenshot of new compute cluster settings":::
 
 For more information on creating a compute cluster, including how to do so with Python and the CLI, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
 
