@@ -21,7 +21,9 @@ ms.custom: H1Hack27Feb2017
 >[!IMPORTANT]
 >This documentation doesn't replace the SAP HANA administration documentation or SAP Notes. We expect you have expertise in SAP HANA administration and operations, especially with the topics of backup, restore, high availability, and disaster recovery. In this article, screenshots from SAP HANA Studio are shown. Content, structure, and the nature of the screens of SAP administration tools and the tools themselves might change from SAP HANA release to release.
 
-In this article, we'll walk through the steps of backing up and restoring SAP HANA on HANA Large Instances (otherwise known as BareMetal Infrastructure). Some of the processes described in this documentation are simplified. They aren't intended as detailed steps to be included in operation handbooks. To create operation handbooks for your configurations, run and test your processes with your specific HANA versions and releases. You can then document the processes specific to your configurations.
+In this article, we'll walk through the steps of backing up and restoring SAP HANA on HANA Large Instances (otherwise known as BareMetal Infrastructure). 
+
+Some of the processes described in this documentation are simplified. They aren't intended as detailed steps to be included in operation handbooks. To create operation handbooks for your configurations, run and test your processes with your specific HANA versions and releases. You can then document the processes specific to your configurations.
 
 One of the most important aspects of operating databases is to protect them from catastrophic events. Such events may be caused by anything from natural disasters to simple user errors. Backing up a database, with the ability to restore it to any point in time, such as before someone deleted critical data, offers critical protection. You can restore your database to a state that's as close as possible to the way it was prior to the disruption.
 
