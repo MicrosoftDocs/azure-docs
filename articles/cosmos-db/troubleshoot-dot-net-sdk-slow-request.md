@@ -18,21 +18,21 @@ Cosmos DB slow requests can happen for multiple reasons. This guide is to help r
 
 ## Application design
 
-Most issue are caused by not following these guidelines. Follow the the [performance guide](performance-tips-dotnet-sdk-v3-sql). 
+Most issues are caused by not following these guidelines. Follow the [performance guide](performance-tips-dotnet-sdk-v3-sql). 
 
 Key points:
 1. Application in same region as Cosmos DB service
 2. Singleton instance of the SDK instance. The SDK has several caches that have to be initialized which may slow down the first few requests. 
 3. Use Direct + TCP connectivity mode
-4. Avoid High CPU. Make sure to look at Max CPU and not average which is the default for most logging systems. Anything above roughly 40% can cause the latency to start to increase. Cross partition queries can result in spikes in workload which don't show up in l
+4. Avoid High CPU. Make sure to look at Max CPU and not average, which is the default for most logging systems. Anything above roughly 40% can cause the latency to start to increase.
 
 ## 429 or Throttles
 
-This is the most common reason for slow requests. Cosmos DB will throttle requests if it exceeds the the allocated RUs for the database or container. The SDK has built in logic to retry on these requests. The [request rate too large](troubleshoot-request-rate-too-large#how-to-investigate) troubleshooting explains how to check if the requests are being throttled and how to scale the Cosmos DB service to avoid the issue in the future.
+This is the most common reason for slow requests. Cosmos DB will throttle requests if it exceeds the allocated RUs for the database or container. The SDK has built in logic to retry on these requests. The [request rate too large](troubleshoot-request-rate-too-large#how-to-investigate) troubleshooting explains how to check if the requests are being throttled and how to scale the Cosmos DB service to avoid the issue in the future.
 
 ## Capture the diagnostics
 
-All response in the SDK including CosmosException have a Diagnostics property. This diagnostics records all the information related to the single request including if there was retries or any transient failures. This is needed for the Cosmos DB team to be able to root cause any latency issues.
+All responses in the SDK including CosmosException have a Diagnostics property. The diagnostics records all the information related to the single request including if there was retries or any transient failures. This is needed for the Cosmos DB team to be able to root cause any latency issues.
 
 The Diagnostics is returned as a string and should not be parsed. The string changes with each version as it is improved to better troubleshoot different scenarios.
 
@@ -49,7 +49,7 @@ if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpa
 The json structure should not be parsed as it will change with each version of the SDK. The json represents a tree structure of the request going through the SDK. This is covering a few key things to look.
 
 ## CPU History
-High CPU is a very common cause to slow requests. Most logging systems record an average over a minute or sometime longer duration. It's possible for the SDK to have a spike in workload that causes the CPU to go to 100% for only a few seconds then drop back down. The SDK does a best effort to log the CPU history at a 10 second interval to ensure this is not an issue. If the CPU is high based the values in the diagnostics then it is likely the cause of the additional latency. Try scaling the application hosting process to reduce workload for a single instance.
+High CPU is a very common cause to slow requests. Most logging systems record an average over a minute or sometime longer duration. It's possible for the SDK to have a spike in workload that causes the CPU to go to 100% for only a few seconds then drop back down. The SDK does a best effort to log the CPU history at a 10-second interval to ensure high CPU is not an issue. If the CPU is high based the values in the diagnostics then it is likely the cause of the extra latency. Try scaling the application hosting process to reduce workload for a single instance.
 
 ```json
 {
@@ -66,7 +66,7 @@ If the request is slow first verify all the suggestions above.
 
 If it is still slow different patterns point to different issues:
 * Always consistently slow this points to a networking issue or infrastructure issue.
-* Slow only for a short period of time. This points to a issue with Cosmos DB service.
+* Slow only for a short period of time. This points to an issue with Cosmos DB service.
 * Single request this likely a transient networking issues.
 * First request shows multiple HttpResponseStats. This is expected to initialize caches.
 * Direct mode shows multiple HttpResponseStats on a few requests. The cache is stale and the SDK is refreshing the caches.
@@ -94,7 +94,7 @@ Single StoreResult is slow:
 
 * Always consistently slow requests points to a networking or infrastructure issue.
 * Single request or a very small percentage that does not violate Cosmos DB SLA. These should be ignored as it doesn't violate the Cosmos DB SLA. 
-* Multiple StoreResults with the same StorePhysicalAddress. This points to a issue with the Cosmos DB service. 
+* Multiple StoreResults with the same StorePhysicalAddress. This points to an issue with the Cosmos DB service. 
 * Multiple StoreResults to multiple StorePhysicalAddress from a single machine. There is something wrong with the machine
 
 | Number of requests | Scenario | Description | 
@@ -103,7 +103,7 @@ Single StoreResult is slow:
 | All | All | An issue with the infrastructure or networking. |
 | SLA Violated | Requests contain multiple failure error codes like 410 | This likely points to an issue with the Cosmos DB service |
 | SLA Violated | StorePhysicalAddress is the same with no failure status code  | This likely an issue with Cosmos DB service |
-| SLA Violated | StorePhysicalAddress have the same partition id but different replica ids with no failure status code | This likely is an issue with the Cosmos DB service |
+| SLA Violated | StorePhysicalAddress have the same partition ID but different replica IDs with no failure status code | This likely is an issue with the Cosmos DB service |
 | SLA Violated | StorePhysicalAddress are random with no failure status code | This likely points to an issue with the machine |
 
 RntbdRequestStats show the time for the different stages of sending and receiving a request.
