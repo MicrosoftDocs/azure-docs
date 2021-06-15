@@ -93,19 +93,6 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 * **Concurrent connections and Instances** - By default, you have 15 concurrent connections on two instances in the cluster (for a total of 30 concurrent requests). If you need more concurrent requests, open a support ticket and provide details about your needs.
 
-## Performance expectations
-
-The performance of the system is dependent on the number of RUs, concurrent connections, and the type of operations you're performing (Put, Post, etc.). Below are some general ranges of what you can expect based on configured RUs. In general, performance scales linearly with an increase in RUs:
-
-| # of RUs | Resources/sec |    Max Storage (GB)*    |
-|----------|---------------|--------|                 
-| 400      | 5-10          |     10   |
-| 1,000    | 100-150       |      25  |
-| 10,000   | 225-400       |      250  |
-| 100,000  | 2,500-4,000   |      2,500  |
-
-Note: Per Cosmos DB requirement, there is a requirement of a minimum throughput of 40 RU/s per GB of storage. 
-
 ## Next steps
 
 In this article, you've read about the supported FHIR features in Azure API for FHIR. Next deploy the Azure API for FHIR.

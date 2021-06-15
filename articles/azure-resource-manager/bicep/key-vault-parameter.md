@@ -12,7 +12,7 @@ ms.date: 06/01/2021
 Instead of putting a secure value (like a password) directly in your Bicep file or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. When a [module](./modules.md) expects a `string` parameter with `secure:true` modifier, you can use the `getSecret` function to obtain a key vault secret. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
 
 This article's focus is how to pass a sensitive value as a Bicep parameter. The article doesn't cover how to set a virtual machine property to a certificate's URL in a key vault.
-For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
+For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
 ## Deploy key vaults and secrets
 
