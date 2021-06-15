@@ -17,6 +17,16 @@ ms.author: lajanuar
 
 Review the latest updates to the text Translator service. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## May 2021
+
+### [Document Translation ― now in general availability](https://www.microsoft.com/translator/blog/2021/05/25/translate-full-documents-with-document-translation-%e2%80%95-now-in-general-availability/)
+
+* **Feature release**: Translator's [Document Translation](document-translation/overview.md)  feature is generally available. Document Translation was specifically designed to translate large files and batch documents with rich content while preserving original structure and format . You can also use custom glossaries and custom models built with [Custom Translator](custom-translator/overview.md) to ensure your documents are translated quickly and accurately.
+
+### [Translator service available in containers](https://www.microsoft.com/translator/blog/2021/05/25/translator-service-now-available-in-containers/)
+
+* **New release**: Translator service is available in containers as a gated preview. You must [submit an online request](https://aka.ms/csgate-translator) and have it approved prior to getting started. Containers enable you to run several Translator service features in your own environment and are great for specific security and data governance requirements. *See*, [Install and run Translator containers (preview)](containers/translator-how-to-install-container.md)
+
 ## February 2021
 
 ### [Document Translation public preview](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
