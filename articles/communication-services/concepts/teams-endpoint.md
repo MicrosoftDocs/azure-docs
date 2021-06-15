@@ -20,13 +20,15 @@ Communication Services can be used to build custom Teams endpoint. With ACS SDKs
 
 Developers can use ACS Identity SDK to exchange AAD user tokens for Teams' access tokens. Voice, video, and screen sharing capabilities are provided via ACS Calling SDKs. Following diagram shows overview of the process to integrate calling experience.
 
-*Note: Following diagram shows multitenant use case, where company Fabrikam is customer of company Contoso.*
+> [!NOTE]
+> Following diagram shows multitenant use case, where company Fabrikam is customer of company Contoso.
 
 ![Process to enable calling feature for custom Teams endpoint experience](./media/teams-identity-calling-overview.png)
 
 Chat capability is available via Graph APIs. Communication Services isn't required to use chat. You can learn more about Graph API in [the documentation](https://docs.microsoft.com/graph/api/channel-post-messages). 
 
-*Note: Following diagram shows multitenant use case, where company Fabrikam is customer of company Contoso.*
+> [!NOTE]
+> Following diagram shows multitenant use case, where company Fabrikam is customer of company Contoso.
 
 ![Process to enable chat feature for custom Teams endpoint experience](./media/teams-identity-chat-overview.png)
 

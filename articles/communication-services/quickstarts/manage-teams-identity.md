@@ -70,7 +70,8 @@ In the *Branding* pane, you can verify your platform within Microsoft identity p
 
 Go to the details of *Application* and select "Manifest" pane. In the manifest find property called: *"requiredResourceAccess"*. It is array of objects, that defines *Application's* permissions. Extend the manifest with the VoIP permissions for the first party application Azure Communication Services. Add following object to the array.
 
-*Note: Do not change the GUIDs in the snippet as they are uniquely identifying application and permissions.*
+> [!NOTE] 
+> Do not change the GUIDs in the snippet as they are uniquely identifying application and permissions.
 
 ```json
 {
@@ -102,7 +103,8 @@ To enable custom Teams endpoint experience in Fabrikam's tenant, Fabrikam's AAD 
 
 Fabrikam's AAD Admin connects to the Azure's Tenant via PowerShell. 
 
-*Note: Replace [Tenant_ID] with ID of your tenant, that can be found in the Azure portal on the overview page of the AAD.*
+> [!NOTE]
+> Replace [Tenant_ID] with ID of your tenant, that can be found in the Azure portal on the overview page of the AAD.
 
 ```azurepowershell
 Connect-AzureAD -TenantId "[Tenant_ID]"
@@ -116,7 +118,8 @@ Install-Module AzureAD
 
 After connecting and authentication to the Azure, run following command to provision the Communication Services' service principal. 
 
-*Note: Parameter AppId refers to the first party application Azure Communication Services. Don't change this value*
+> [!NOTE]
+> Parameter AppId refers to the first party application Azure Communication Services. Don't change this value.
 
 ```azurepowershell
 New-AzureADServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
@@ -137,7 +140,7 @@ Service principal of Contoso's *Application* in Fabrikam's tenant is created if 
 1. Sign in into Azure portal as Admin
 1. Go to Azure Active Directory
 1. Go to "Enterprise applications" pane
-1. Set filter *Application type" to "All applications"
+1. Set filter "Application type" to "All applications"
 1. In the field to filter applications, insert the name of the Contoso's application
 1. Select "Apply" to filter results
 1. Select service principle with required name 
@@ -158,7 +161,8 @@ Microsoft Authentication Library (MSAL) enables developers to acquire AAD user t
 
 You can find more details how to set up different environments in public documentation. [Microsoft Authentication Library (MSAL) overview](https://docs.microsoft.com/azure/active-directory/develop/msal-overview).
 
-*Note: Following sections describes how to exchange AAD access token for Teams access token for console application in .NET.*
+> [!NOTE]
+> Following sections describes how to exchange AAD access token for Teams access token for console application in .NET.
 
 ### Create new application
 
@@ -220,7 +224,8 @@ namespace TeamsAccessTokensQuickstart
 
 Use MSAL library to authenticate user against AAD for Contoso's *Application* with Azure Communication Services' VoIP permission. Configure client for Contoso's *Application* (*parameter applicationId*) in public cloud (*parameter authority*). AAD user token will be returned to the redirect URI (*parameter redirectUri*). Credentials will be taken from interactive pop-up window, that will open in your default browser.
 
-*Note: Redirect URI has to match the value defined in the *Application*. Check first step in the Admin guide to see how to configure Redirect URI.*
+> [!NOTE] 
+> Redirect URI has to match the value defined in the *Application*. Check first step in the Admin guide to see how to configure Redirect URI.
 
 ```csharp
 const string applicationId = "Contoso's_Application_ID";
@@ -247,7 +252,8 @@ Variable *aadUserToken* now carries valid Azure Active Directory user token, tha
 
 Valid AAD user token authenticates user against AAD for third party application with Azure Communication Services' VoIP permission. The following code is used ACS identity SDK to facilitate exchange of AAD user token for Teams access token.
 
-*Note: Replace value "&lt;Connection-String&gt;" with valid connection string or use Azure RBAC for authentication. You can find more details in [this quickstart](./access-tokens.md).*
+> [!NOTE]
+> Replace value "&lt;Connection-String&gt;" with valid connection string or use Azure RBAC for authentication. You can find more details in [this quickstart](./access-tokens.md).
 
 ```csharp
 var identityClient = new CommunicationIdentityClient("<Connection-String>");
