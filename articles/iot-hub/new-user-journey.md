@@ -40,9 +40,9 @@ If you have many devices to set up and don't want to manually provision each one
 
 *  [Create and provision IoT Edge devices using X.509 certificates](../iot-edge/how-to-auto-provision-x509-certs.md)
 
-*  [Create and provision IoT Edge devices with a TPM](..iot-edge/how-to-auto-provision-simulated-device-linux.md)
+*  [Create and provision IoT Edge devices with a TPM](../iot-edge/how-to-auto-provision-simulated-device-linux.md)
 
-*  [Create and provision IoT Edge devices using symmetric keys](..iot-edge/how-to-auto-provision-symmetric-keys.md)
+*  [Create and provision IoT Edge devices using symmetric keys](../iot-edge/how-to-auto-provision-symmetric-keys.md)
 
 The security token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the TLS connection establishment. The security-token-based method can be used without the X.509 authentication, which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
 
