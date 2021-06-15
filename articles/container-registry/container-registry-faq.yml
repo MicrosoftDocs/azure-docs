@@ -16,9 +16,10 @@ summary: |
   * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
   * [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
   
+  ## Resource management
 
 sections:
-  - name: Resource management
+  - name: General
     questions:
       - question: |
           Can I create an Azure Container Registry using a Resource Manager template?
@@ -94,9 +95,8 @@ sections:
         answer: |
           It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for a few minutes before verifying this change.
           
-          
-  - name: Registry operations
-    questions:
+          ## Registry operations
+ 
       - question: |
           How do I access Docker Registry HTTP API V2?
         answer: |
@@ -303,8 +303,8 @@ sections:
           > [!WARNING]
           > Non-distributable artifacts typically have restrictions on how and where they can be distributed and shared. Use this feature only to push artifacts to private registries. Ensure that you are in compliance with any terms that cover redistributing non-distributable artifacts.
           
-  - name: Diagnostics and health checks
-    questions:
+		  ## Diagnostics and health checks
+
       - question:  |
           Check health with `az acr check-health`
         answer: |
@@ -518,8 +518,8 @@ sections:
           
           Configure the Docker proxy to output of the previous command and the port 8888 (for example 10.0.75.1:8888)
           
-  - name: Tasks
-    questions:
+		  ## Tasks
+
       - question:  |
           How do I batch cancel runs?
         answer: |
