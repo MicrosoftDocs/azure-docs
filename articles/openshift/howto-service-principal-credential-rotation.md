@@ -1,5 +1,5 @@
 ---
-title: Service Principal Credential Rotation
+title: Rotate service principal credentials for an Azure Red Hat OpenShift (ARO) cluster
 description: Discover how to rotate service principal credentials in Azure Red Hat OpenShift (ARO).
 author: swiencki
 ms.author: b-swiencki
@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 05/31/2021
 #Customer intent: As an operator I need to rotate service principal credentials
 ---
-# Service Principal Credential Rotation for your Azure Red Hat OpenShift (ARO) Cluster
+# Rotate service principal credentials for your Azure Red Hat OpenShift (ARO) Cluster
 The article provides the necessary detail to rotate service principal credentials in Azure Red Hat OpenShift clusters ([ARO](https://github.com/Azure/ARO-RP)).
 
 ## Before You Begin
@@ -26,7 +26,7 @@ CLI](/cli/azure/install-azure-cli).
 
 The following instructions use bash syntax.
 
-## Service Principal Credential Rotation
+## Service principal credential rotation
 >[!IMPORTANT]
 >  Service principal credential rotation can take upwards of 2 hours depending on cluster state.
 
@@ -34,7 +34,7 @@ Service principal credential rotation has two methods:
  - [Automated service principal credential rotation](#Automated-Service-Principal-Credential-Rotation)
  - [User provided secret-id and client-secret service principal credential rotation](#User-Provided-secret-id-and-client-secret-Service-Principal-Credential-Rotation)
 
-### Automated Service Principal Credential Rotation <a id="Automated-Service-Principal-Credential-Rotation"></a>
+### Automated service principal credential rotation <a id="Automated-Service-Principal-Credential-Rotation"></a>
 >[!IMPORTANT]
 >  Automated service principal credential rotation requires the ARO cluster to be created with Azure CLI version 2.24.0 or greater.
 
@@ -47,7 +47,7 @@ Automatically rotate service principal credentials with the following command:
 az aro update --refresh-credentials --name MyManagedCluster --resource-group MyResourceGroup
 ```
 
-### User Provided secret-id and client-secret Service Principal Credential Rotation <a id="User-Provided-secret-id-and-client-secret-Service-Principal-Credential-Rotation"></a>
+### User provided secret-id and client-secret service principal credential rotation <a id="User-Provided-secret-id-and-client-secret-Service-Principal-Credential-Rotation"></a>
 
 
 Manually rotate service principal credentials with user provided secret-id and client-secret with the following instructions:
