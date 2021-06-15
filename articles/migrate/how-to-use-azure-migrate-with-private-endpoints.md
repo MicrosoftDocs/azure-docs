@@ -254,7 +254,7 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 
 1. Select **+ Add**, and select **Add role assignment**.
 
-   ![Screenshot that shows Add role assignment.](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/migrate/media/how-to-use-azure-migrate-with-private-endpoints/storage-role-assignment.png)
+   ![Screenshot that shows Add role assignment.](./media/how-to-use-azure-migrate-with-private-endpoints/storage-role-assignment.png)
 
 1. On the **Add role assignment** page in the **Role** box, select the appropriate role from the permissions list previously mentioned. Enter the name of the vault noted previously, and select **Save**.
 
