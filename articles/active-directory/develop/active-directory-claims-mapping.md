@@ -139,9 +139,9 @@ For multi-tenant apps, a custom signing key should be used.  Do not set `acceptM
 
 Add the following information to the service principal:
 
-- Private key (as a [key credential](/graph/api/resources/keycredential?view=graph-rest-1.0))
-- Password (as a [password credential](/graph/api/resources/passwordcredential?view=graph-rest-1.0))
-- Public key (as a [key credential](/graph/api/resources/keycredential?view=graph-rest-1.0))
+- Private key (as a [key credential](/graph/api/resources/keycredential))
+- Password (as a [password credential](/graph/api/resources/passwordcredential))
+- Public key (as a [key credential](/graph/api/resources/keycredential))
 
 Extract the private and public key base-64 encoded from the PFX file export of your certificate. Make sure that the `keyId` for the `keyCredential` used for "Sign" matches the `keyId` of the `passwordCredential`. You can generate the `customkeyIdentifier` by getting the hash of the cert's thumbprint.
 
