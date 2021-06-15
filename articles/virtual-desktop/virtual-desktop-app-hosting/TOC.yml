@@ -1,0 +1,24 @@
+- name: Azure Virtual Desktop
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Virtual Desktop?
+    href: 
+- name: How to use Azure Virtual Desktop
+  items:
+  - name: Architecture
+    href: 
+  - name: Use MSIX app attach for apps
+    href: 
+  - name: Stream custom apps
+    href: 
+  - name: License hosting 
+    href: 
+  - name: Set up metered licensing
+    href: 
+  - name: Secure your deployment
+    href: 
+  - name: Estimate total costs 
+    href: 
+  - name: Estimate streaming costs 
+    href: 

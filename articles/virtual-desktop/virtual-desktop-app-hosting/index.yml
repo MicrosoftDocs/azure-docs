@@ -23,22 +23,16 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Virtual Desktop, and how can I use it to host and stream my apps?
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+            url: 
 
-  # Card (optional)
-  - title: Get started
+  # Card
+  - title: Get started with Azure Virtual Desktop
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: How to set up your deployment
+            url: 
       - linkListType: how-to-guide
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: how-to-guide
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: How to estimate costs
+            url: 
