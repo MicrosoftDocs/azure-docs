@@ -63,12 +63,14 @@ Complete the following steps to create and configure a new ASP.NET Core web app:
 1. Using a text editor or IDE, modify *appsettings.json* to contain a value for `ApplicationInsights.InstrumentationKey`, as shown. Use the instrumentation key you copied earlier.
 
     :::code language="json" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/appsettings.json" range="1-12" highlight="2-4":::
+    
+    > [!IMPORTANT] The Application Insights SDK expects the `ApplicationInsights.InstrumentationKey` configuration value. Be sure to name it correctly!
 
 ## Configure server-side telemetry
 
 In the `ConfigureServices` method of *Startup.cs*, add the Application Insights service to the pipeline. Add the highlighted line:
 
-:::code language="csharp" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/startup.cs" highlight="4":::
+:::code language="csharp" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/pages/shared/startup.cs" highlight="4":::
 
 ## Configure client-side telemetry
 
