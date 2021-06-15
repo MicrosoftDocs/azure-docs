@@ -3,9 +3,8 @@ ms.service: sql-database
 ms.subservice: deployment-configuration
 ms.topic: include
 ms.date: 12/17/2020
-author: danimir
-ms.author: danil
-ms.reviewer: mathoma, urmilano
+author: MashaMSFT
+ms.author: mathoma
 ---
 
   You can use one of these quickstarts to create and then configure a database:

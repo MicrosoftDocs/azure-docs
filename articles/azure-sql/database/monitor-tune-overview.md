@@ -7,8 +7,8 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: danimir
-ms.author: danil
+author: AlainDormehlMSFT
+ms.author: aldorme
 ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 03/17/2021
 ---
