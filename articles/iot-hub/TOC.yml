@@ -10,7 +10,7 @@
     - name: Get started
       href: quickstart-send-telemetry-cli.md
     - name: Explore IoT device development
-      href: ../iot-develop/index.md
+      href: ../iot-develop/index.yml
     - name: Control a device
       items:
         - name: Node.js
