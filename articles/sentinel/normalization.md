@@ -92,8 +92,8 @@ Each schema field has a type. Some have built-in, Azure Log Analytics types such
 |**Date/Time**     |  Depending on the ingestion method capability, use any of the following physical representations in descending priority: <br><br>- Log Analytics built-in datetime type <br>- An integer field using Log Analytics datetime numerical representation. <br>- A string field using Log Analytics datetime numerical representation <br>- A string field storing a supported [Log Analytics date/time format](/azure/data-explorer/kusto/query/scalar-data-types/datetime).       |  [Log Analytics date and time representation](/azure/kusto/query/scalar-data-types/datetime) is similar but different than Unix time representation. For more information, see the [conversion guidelines](/azure/kusto/query/datetime-timespan-arithmetic). <br><br>**Note**: When applicable, the time should be time zone adjusted. |
 |**MAC Address**     |  String       | Colon-Hexadecimal notation        |
 |**IP Address**     |String         |    Azure Sentinel schemas do not have separate IPv4 and IPv6 addresses. Any IP address field may include either an IPv4 address or IPv6 address, as follows: <br><br>- **IPv4** in a dot-decimal notation <br>- **IPv6** in 8 hextets notation, allowing for the short forms described here.     |
-|**Country**     |   String      |    A string using ISO 3166-1, according to the following priority: <br><br> -Alpha-2 codes, such as `US` for the United States <br> - Alpha-3 codes, such as `USA` for the United States) <br>- Short name     |
-|**Region**     | String        |   The country subdivision name, using ISO 3166-2      |
+|**Country**     |   String      |    A string using [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html), according to the following priority: <br><br> -Alpha-2 codes, such as `US` for the United States <br> - Alpha-3 codes, such as `USA` for the United States) <br>- Short name<br><br>The list of code can be found on the [International Standards Organization (ISO) Web Site](https://www.iso.org/obp/ui/#search)|
+|**Region**     | String        |   The country subdivision name, using ISO 3166-2<br><br>The list of code can be found on the [International Standards Organization (ISO) Web Site](https://www.iso.org/obp/ui/#search)|
 |**City**     |  String       |         |
 |**Longitude**     | Double        |  ISO 6709 coordinate representation (signed decimal)       |
 |**Latitude**     | Double        |    ISO 6709 coordinate representation (signed decimal)     |
@@ -101,7 +101,6 @@ Each schema field has a type. Some have built-in, Azure Log Analytics types such
 |**SHA1**     |   String      | 40-hex characters        |
 |**SHA256**     | String        |  64-hex characters       |
 |**SHA512**     |   String      |  128-hex characters       |
-|     |         |         |
 
 ### Entities
 
@@ -134,7 +133,6 @@ The descriptors used for a user are **Actor**, **Target User**, and **Updated Us
 |**Sign-in**     |    An **Actor** signed in to a system as a **Target User**.     |A (Target) User signed in         |
 |**Process creation**     |   An **Actor** (the user associated with the initiating process) has initiated process creation. The process created runs under the credentials of a **Target User** (the user related to the target process).      |  The process created runs under the credentials of a (Target) **User**.       |
 |**Email**     |     An **Actor** sends an email to a **Target User**    |         |
-|     |         |         |
 
 The following table describes the supported identifiers for a user:
 
@@ -142,7 +140,6 @@ The following table describes the supported identifiers for a user:
 |---------|---------|---------|
 |**UserId**     |    String     |   A machine-readable, alphanumeric, unique representation of a user in a system. <br><br>Format and supported types include:<br>    -	**SID** (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>    -	**UID** (Linux): `4578`<br>    -	**AADID** (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>    -	**OktaId**: `00urjk4znu3BcncfY0h7`<br>    -	**AWSId**: `72643944673`<br><br>    Store the ID type in the `UserIdType` field. If other IDs are available, we recommend that you normalize the field names to `UserSid`, `UserUid`, `UserAADID`, `UserOktaId` and `UserAwsId`, respectively.       |
 |**Username**     |  String       |   A username, including domain information when available, in one of the following formats and in the following order of priority: <br> -	**Upn/Email**: `johndow@contoso.com` <br>  -	**Windows**: `Contoso\johndow` <br> -	**DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM` <br>  -	**Simple**: `johndow`. Use this form only if domain information is not available. <br><br> Store the Username type in the `UsernameType` field.    |
-|     |         |         |
 
 #### The Process entity
 
@@ -161,7 +158,6 @@ The following table describes the supported identifiers for processes:
 |**Guid**     |  String       |   The OS-assigned process GUID. The GUID is commonly unique across system restarts, while the ID is often reused.   |
 |**Path**     |    String     |   The full pathname of the process, including directory and file name.       |
 |**Name**     |  Alias       |  The process name is an alias to the path.   |
-|     |         |         |
 
 For more information, see the Auth schema documentation.
 
@@ -191,7 +187,6 @@ The following table describes the supported identifiers for devices:
 |**FQDN**     |  String       |   A fully qualified domain name   |
 |**IpAddr**     |    IP Address     |   While devices may have multiple IP addresses, events usually have a single identifying IP address. The exception is a gateway device that may have two relevant IP addresses. For a gateway device, use `UpstreamIpAddr` and `DownstreamIpAddr`.      |
 |**HostId**     |  String       |     |
-|     |         |         |
 
 > [!NOTE]
 > `Domain` is a typical attribute of a device, but is not a complete identifier.
@@ -209,7 +204,6 @@ This event has the following entities:
 |**New Logon**     |    `Target`     |  `TargetUser`       |  The user for which the sign-in was performed.       |
 |**Process**     |    -     |     `ActingProcess`    |   The process that attempted the sign-in.      |
 |**Network information**     |   -      |   `Src`      |     The machine from which a sign-in attempt was performed.    |
-|     |         |         |         |
 
 Based on these entities, [Windows event 4624](/windows/security/threat-protection/auditing/event-4624) is normalized as follows (some fields are optional):
 
@@ -234,7 +228,6 @@ Based on these entities, [Windows event 4624](/windows/security/threat-protectio
 |**SrcPortNumber**     |  IpPort       |  0       |         |
 |**TargetHostname**     |   Computer      |  WIN-GG82ULGC9GO	       |         |
 |**Hostname**     |     Computer    |     Alias    |         |
-|     |         |         |         |
 
 ## Parsers
 
@@ -323,7 +316,6 @@ The KQL operators that perform parsing are listed below, ordered by their perfor
 |[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is significantly less efficient than a single `parse` or `extract_all` and should be avoided.      |
 |[parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)  | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
 |[parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)     |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
-|     |         |
 
 In addition to parsing string, the parsing phase may require more processing of the original values, including:
 
@@ -366,7 +358,6 @@ The following KQL operators are used to prepare fields:
 |**project-rename**     | Renames fields        |     If a field exists in the original event and only needs to be renamed, use `project-rename`. <br><br>The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
 |**project-away**     |      Removes fields.   |Use `project-away` for specific fields that you want to remove from the result set.         |
 |**project**     |  Selects fields that were either existing before, or were created as part of the statement. Removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
-|   |         |         |
 
 
 ### Handle parsing variants
@@ -382,7 +373,6 @@ When handling variants, use the following guidelines:
 |The different variants represent *different* event types, commonly mapped to different schemas     |  Use separate parsers       |
 |The different variants represent the *same* event type, but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping, as demonstrated in the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM/Infoblox).      |
 |If `union` is unavoidable     |  When using `union` is unavoidable, make sure to use the following guidelines:<br><br>-	Pre-filter using built-in fields in each one of the subqueries. <br>-	Ensure that the filters are mutually exclusive. <br>-	Consider not parsing less critical information, reducing the number of subqueries.       |
-|     |         |
 
 ### Deploy parsers
 
