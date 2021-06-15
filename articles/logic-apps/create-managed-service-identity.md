@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, subject-rbac-steps
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
 
-To easily access other resources that are protected by Azure Active Directory (Azure AD) and authenticate your identity, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly Managed Service Identity or MSI), rather than credentials, secrets, or Azure AD tokens. Azure manages this identity for you and helps secure your credentials because you don't have to manage secrets or directly use Azure AD tokens.
+To authenticate your logic app's identity and to access other resources that are protected by Azure Active Directory (Azure AD), your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly Managed Service Identity or MSI), rather than credentials, secrets, or Azure AD tokens. Azure manages this identity for you and helps secure your credentials because you don't have to manage secrets or directly use Azure AD tokens.
 
 Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md) managed identities. Your logic app or individual connections can use either the system-assigned identity or a *single* user-assigned identity, which you can share across a group of logic apps, but not both.
 
@@ -134,7 +134,7 @@ To automate creating and deploying Azure resources such as logic apps, you can u
 }
 ```
 
-When Azure creates your logic app resource definition, the `identity` object gets these additional properties:
+When Azure creates your logic app resource definition, the `identity` object gets these other properties:
 
 ```json
 "identity": {
@@ -174,7 +174,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 1. In the [Azure portal](https://portal.azure.com), in the search box on any page, enter `managed identities`, and select **Managed Identities**.
 
-   ![Find and select "Managed Identities"](./media/create-managed-service-identity/find-select-managed-identities.png)
+   ![Screenshot that shows the portal with "Managed Identities" selected.](./media/create-managed-service-identity/find-select-managed-identities.png)
 
 1. Under **Managed Identities**, select **Add**.
 
