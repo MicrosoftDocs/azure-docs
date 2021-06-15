@@ -84,6 +84,8 @@
   - name: User experience
     expanded: true
     items:
+    - name: Sign-in options
+      href: sign-in-options.md
     - name: User flows and custom policies
       href: user-flow-overview.md
     - name: Custom policy overview

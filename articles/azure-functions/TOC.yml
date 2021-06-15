@@ -684,7 +684,7 @@
     - name: host.json 1.x reference
       href: functions-host-json-v1.md
     - name: Networking FAQ
-      href: functions-networking-faq.md
+      href: functions-networking-faq.yml
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn

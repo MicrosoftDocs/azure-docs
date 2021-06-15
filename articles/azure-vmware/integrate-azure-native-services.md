@@ -7,9 +7,7 @@ ms.date: 06/14/2021
 
 # Integrate and deploy Azure native services
 
-Microsoft Azure native services let you monitor, manage, and protect your virtual machines (VMs) in a hybrid environment (Azure, Azure VMware Solution, and on-premises). For more information, see [Supported features for VMs](../security-center/security-center-services.md).
-
-The Azure native services that you can integrate with Azure VMware Solution include:
+Microsoft Azure native services let you monitor, manage, and protect your virtual machines (VMs) in a hybrid environment (Azure, Azure VMware Solution, and on-premises). The Azure native services that you can integrate with Azure VMware Solution include:
 
 - **Log Analytics workspace:** Each workspace has its own data repository and configuration for storing log data. Data sources and solutions are configured to store their data in a specific workspace. Easily deploy the Log Analytics agent using Azure Arc enabled servers VM extension support for new and existing VMs. 
 - **Azure Security Center:** Unified infrastructure security management system that strengthens security of data centers, and provides advanced threat protection across hybrid workloads in the cloud or on premises. 
@@ -41,7 +39,7 @@ In this article, you'll integrate Azure native services in your Azure VMware Sol
 
 ## Enable Azure Security Center
 
-Azure Security Center provides advanced threat protection across your Azure VMware Solution and on-premises virtual machines (VMs). It assesses the vulnerability of Azure VMware Solution VMs and raise alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution. 
+Azure Security Center provides advanced threat protection across your Azure VMware Solution and on-premises virtual machines (VMs). It assesses the vulnerability of Azure VMware Solution VMs and raise alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution. For more information, see [Supported features for VMs](../security-center/security-center-services.md).
 
 Azure Security Center offers many features, including:
 - File integrity monitoring
