@@ -39,7 +39,7 @@ The sign-in flow involves following steps:
 1. The user chooses to sign in with Azure AD "Corporate" account. Azure AD B2C takes the user to the Azure AD authorization endpoint, where they sign in with their work account.
 1. If the Azure AD SSO session is active, Azure AD issues an access token without prompting the user to sign in again. If the Azure AD session expires or becomes invalid, the user is prompted to sign in again.
 
-![The sign-in OpenID connect flow](./media/publish-app-to-azure-ad-app-gallery/app-gallery-sign-in-flow.png)
+![The sign-in OpenID connect flow.](./media/publish-app-to-azure-ad-app-gallery/app-gallery-sign-in-flow.png)
 
 Depending on the user's SSO session and Azure AD identity settings, the user might be prompted to:
 
@@ -64,7 +64,7 @@ If you haven't already done so, [register a web application](tutorial-register-a
 
 To allow employees and consumers from any Azure AD tenant to sign in using Azure AD B2C, follow the guidance for [setting up sign-in for multi-tenant Azure AD](identity-provider-azure-ad-multi-tenant.md?pivots=b2c-custom-policy).
 
-During setup, you [create a multi-tenant app](/identity-provider-azure-ad-multi-tenant.md#register-an-application). Later, you register this app with the Azure App gallery.
+During setup, you [create a multi-tenant app](identity-provider-azure-ad-multi-tenant.md#register-an-application). Later, you register this app with the Azure App gallery.
 
 ## Step 3. Prepare your app
 
