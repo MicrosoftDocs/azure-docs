@@ -6,11 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-<<<<<<< HEAD
-ms.date: 06/07/2021
-=======
-ms.date: 06/08/2021
->>>>>>> d490e4e6274555802630b385ba0e8546891d882a
+ms.date: 06/15/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
