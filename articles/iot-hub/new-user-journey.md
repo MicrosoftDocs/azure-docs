@@ -14,6 +14,7 @@ ms.custom: ""
 # IoT Concepts
 
 IoT devices have different characteristics when compared to other clients such as browsers and mobile apps. The [device SDKs](iot-hub-devguide-sdks.md) help you address the challenges of connecting devices securely and reliably to your back-end service. 
+
 Specifically, IoT devices:
 
 - Are often embedded systems with no human operator (unlike a phone).
