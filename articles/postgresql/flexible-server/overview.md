@@ -7,6 +7,7 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 06/14/2021
+ms.custom: references_regions
 ---
 
 # Overview - Azure Database for PostgreSQL - Flexible Server
@@ -87,7 +88,7 @@ The flexible server comes with a built-in PgBouncer, a connection pooler. You ca
 
 ## Azure regions
 
-One of the advantage of running your workload in Azure is it's global reach. The flexible server is available today in following Azure regions:
+One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
 | Region | Availability | Zone-redundant HA | 
 | --- | --- | --- |
@@ -112,7 +113,7 @@ One of the advantage of running your workload in Azure is it's global reach. The
 | West US | :heavy_check_mark: | :x: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: |
 
-We continue to add more regions for flexible server.
+<!-- We continue to add more regions for flexible server. -->
 
 ## Migration
 
