@@ -11,7 +11,7 @@ ms.date: 05/31/2021
 # Rotate service principal credentials for your Azure Red Hat OpenShift (ARO) Cluster
 The article provides the necessary detail to rotate service principal credentials in Azure Red Hat OpenShift clusters ([ARO](https://github.com/Azure/ARO-RP)).
 
-## Before You Begin
+## Before you begin
 The article assumes that there is an existing ARO cluster with the latest updates applied.
 
 The minimum Azure CLI requirements to rotate service principal credentials within an ARO cluster is 2.24.0.
@@ -71,7 +71,7 @@ az aro update --secret-id $SP_ID --client-secret $SP_SECRET \
 ```
 
 ## Troubleshoot
-### Service Principal Expiration Date
+### Service principal expiration date
 Service principal credentials have a set expiration date of a year and should be rotated within that given timeframe.
 
 If the expiration date has passed the following errors are possible:
@@ -103,7 +103,7 @@ or manually create a new client secret and run `az aro update --client-secret <C
 ```
 The cluster has not been created using Azure CLI 2.24.0 or greater. Use the [user provided secret-id and client-secret service principal credential rotation](#User-Provided-secret-id-and-client-secret-Service-Principal-Credential-Rotation) method instead.
 
-### Azure CLI ARO Update Help
+### Azure CLI ARO update help
 For more details please see the Azure CLI ARO update help command:
 ```azurecli-interactive
 # Azure CLI ARO update help
