@@ -48,7 +48,7 @@ The following diagram provides a reference architecture for on-premises to Azure
 
 Upfront planning will ease the migration and reduce the risks. Some of tips to ease the migration are:
 
-- Gather data on the desired data movement source and targets,
+- Gather data on the source and targets services,
 - Make sure you have a list of your connectivity points and all necessary network ports.
 - Your StorageX server in Azure will need to be part of your Active Directory infrastructure. Ensure you engage an administrator with Active Directory privileges to add the server to Active Directory.
 - For easier implementation use [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=Overview).
@@ -85,7 +85,7 @@ Use the following methods to identify the bandwidth headroom to Azure that is fr
 
 #### Creating a StorageX service account
 
-For SMB migrations, we recommend creating a service account to run the StorageX services. This enables access to be traced in the case of a problem, while giving the proper privileges to grant full access.
+For SMB migrations, service account to run the StorageX services is recommended. Service account enables access to be traced for support reasons, while giving the proper privileges to grant full access.
 
 The process that runs data movement policies on the StorageX universal data engines uses the StorageX service account. Account must have all necessary privileges assigned to it in the Active Directory domain.
 
@@ -100,7 +100,7 @@ The StorageX service account requires the following privileges:
 - SeAuditPrivilege
 - SeInteractiveLogonRight
 
-For NFS access, you must create an export rule for the IP of the StorageX server and grant access for RW and root. For example, "root=10.2.3.12, rw=10.2.3.12", where 10.2.3.12 is the StorageX server IP address.
+NFS access requires an export rule for the IP of the StorageX server, and grant access for RW and root. For example, "root=10.2.3.12, rw=10.2.3.12", where 10.2.3.12 is the StorageX server IP address.
 
 ## Implementation guide
 
@@ -132,13 +132,13 @@ Once all prerequisites are met, you can start with the implementation:
     - Kibana
     - Any supporting software (for example, Java)
 
-    The installation script has an XML configuration file where these different services can be specifically configured, but we do not generally recommend manually modifying the configuration.
+    The installation script has an XML configuration file where these different services can be customized, but we do not recommend manually modifying the configuration.
 
     To install, right-click the **StorageXPOCSilentInstaller - Shortcut** on the Desktop and select **Run as administrator**. After the installation starts, you will be asked for the StorageX service account and the password for that account.
 
     :::image type="content" source="./media/storagex-quick-start-guide/storagex-cli-1.jpg" alt-text="Screenshot of installation CLI":::
 
-    Installation script will continue installing all the services. When the installation process is finished, you will see the message on the command line interface.
+    Installation script will continue installing all the services. When the installation process is finished, you will see the message on the command-line interface.
 
     :::image type="content" source="./media/storagex-quick-start-guide/storagex-cli-2.jpg" alt-text="Screenshot that shows finished installation":::
 
@@ -160,9 +160,7 @@ Once the installation finishes, and all services are started, we can start migra
 
 ## Support
 
-If you need help with your Data Dynamics StorageX installation in Azure, both Microsfot and Data Dynamics can help:
-- Contact Microsoft for issues tied to infrastructure
-- Contact Data Dynamics for issues tied to Data Dynamics StorageX.
+In case of issues Microsoft and Data Dynamics can provide help using regular support channels. Contact Microsoft for infrastructure issues or with any Azure service. Contact Data Dynamics for issues tied to Data Dynamics StorageX installation.
 
 ### How to open a case with Azure
 
@@ -170,7 +168,7 @@ In the [Azure portal](https://portal.azure.com) search for support in the search
 
 ### How to open a case with Data Dynamics
 
-Go to the [Data Dynamics Support Portal](https://www.datdynsupport.com/). If you have not registered, provide your email address, and our Support team will create an account for you. Once you have signed in, open a user request. If you have already opened an Azure support case, please note that when creating the request.
+Go to the [Data Dynamics Support Portal](https://www.datdynsupport.com/). If you have not registered, provide your email address, and our Support team will create an account for you. Once you have signed in, open a user request. If you have already opened an Azure support case, note support request number when creating the request.
 
 ## Next steps
 
