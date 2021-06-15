@@ -246,23 +246,23 @@ Soon after the daily limit is reached, the collection of billable data types sto
 > The daily cap cannot stop data collection as precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it is still billed. See [below](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
 
 > [!WARNING]
-> The daily cap does not stop the collection of data types WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update and UpdateSummary, except for workspaces in which Azure Defender (Security Center) was installed before June 19, 2017. 
+> The daily cap doesn't stop the collection of data types **WindowsEvent**, **SecurityAlert**, **SecurityBaseline**, **SecurityBaselineSummary**, **SecurityDetection**, **SecurityEvent**, **WindowsFirewall**, **MaliciousIPCommunication**, **LinuxAuditLog**, **SysmonEvent**, **ProtectionStatus**, **Update**, and **UpdateSummary**, except for workspaces in which Azure Defender (Security Center) was installed before June 19, 2017. 
 
 ### Identify what daily data limit to define
 
-Review [Log Analytics Usage and estimated costs](../usage-estimated-costs.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won?t be able to monitor your resources after the limit is reached. 
+To understand the data ingestion trend and the daily volume cap to define, review [Log Analytics Usage and estimated costs](../usage-estimated-costs.md). Consider it with care, because you can't monitor your resources after the limit is reached. 
 
-### Set the Daily Cap
+### Set the daily cap
 
 The following steps describe how to configure a limit to manage the volume of data that Log Analytics workspace will ingest per day.  
 
-1. From your workspace, select **Usage and estimated costs** from the left pane.
-2. On the **Usage and estimated costs** page for the selected workspace, click **Data Cap** from the top of the page. 
-3. Daily cap is **OFF** by default? click **ON** to enable it, and then set the data volume limit in GB/day.
+1. From your workspace, select **Usage and estimated costs** in the left pane.
+2. On the **Usage and estimated costs** page for the selected workspace, select **Data Cap** at the top of the page. 
+3. By default, **Daily cap** is set to **OFF**. To enable it, select **ON**, and then set the data volume limit in GB/day.
 
 :::image type="content" source="media/manage-cost-storage/set-daily-volume-cap-01.png" alt-text="Log Analytics configure data limit":::
 	
-The daily cap can be configured via ARM by setting the `dailyQuotaGb` parameter under `WorkspaceCapping` as described at [Workspaces - Create Or Update](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+You can use Azure Resource Manager to configure the daily cap. To configure it, set the `dailyQuotaGb` parameter under `WorkspaceCapping` as described at [Workspaces - Create Or Update](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
 
 You can track changes made to the daily cap using this query:
 
@@ -272,9 +272,9 @@ _LogOperation | where Operation == "Workspace Configuration" | where Detail cont
 
 Learn more about the [_LogOperation](./monitor-workspace.md) function. 
 
-### View the effect of the Daily Cap
+### View the effect of the daily cap
 
-To view the effect of the daily cap, it's important to account for the security data types not included in the daily cap, and the reset hour for your workspace. The daily cap reset hour is visible in the **Daily Cap** page.  The following query can be used to track the data volumes subject to the Daily Cap between daily cap resets. In this example, the workspace's reset hour is 14:00.  You'll need to update this for your workspace.
+To view the effect of the daily cap, it's important to account for the security data types that aren't included in the daily cap, and the reset hour for your workspace. The daily cap reset hour is visible on the **Daily Cap** page. The following query can be used to track the data volumes that are subject to the daily cap between daily cap resets. In this example, the workspace's reset hour is 14:00. You'll need to update this for your workspace.
 
 ```kusto
 let DailyCapResetHour=14;
@@ -288,9 +288,9 @@ Usage
 
 (In the Usage data type, the units of `Quantity` are in MB.)
 
-### Alert when Daily Cap reached
+### Alert when daily cap is reached
 
-While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view, and manage alerts](../alerts/alerts-metric.md).
+Azure portal has a visual cue when your data limit threshold is met, but this behavior doesn't necessarily align to how you manage operational issues that require immediate attention. To receive an alert notification, you can create a new alert rule in Azure Monitor. To learn more, see [how to create, view, and manage alerts](../alerts/alerts-metric.md).
 
 To get you started, here are the recommended settings for the alert querying the `Operation` table using the `_LogOperation` function ([learn more](./monitor-workspace.md)). 
 
@@ -306,19 +306,24 @@ To get you started, here are the recommended settings for the alert querying the
 - Alert rule name: Daily data limit reached
 - Severity: Warning (Sev 1)
 
-Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
+After an alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team in the following ways:
+
+- Email and text messages
+- Automated actions using webhooks
+- Azure Automation runbooks
+- [Integrated with an external ITSM solution](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## Troubleshooting why usage is higher than expected
 
-Higher usage is caused by one, or both of:
-- More nodes than expected sending data to Log Analytics workspace: see [Understanding nodes sending data](#understanding-nodes-sending-data)
-- More data than expected being sent to Log Analytics workspace (perhaps due to starting to use a new solution or a configuration change to an existing solution): see [Understanding ingested data volume](#understanding-ingested-data-volume) 
+Higher usage is caused by one, or both, of the following:
+- More nodes than expected sending data to Log Analytics workspace. For information, see the [Understanding nodes sending data](#understanding-nodes-sending-data) section of this articl.
+- More data than expected being sent to Log Analytics workspace (perhaps due to starting to use a new solution or a configuration change to an existing solution). For information, see the [Understanding ingested data volume](#understanding-ingested-data-volume) section of this article.
 
-If you observe high data ingestion reported using the `Usage` records (see [below](#data-volume-by-solution)), but you don't observe the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible you have significant late arriving data. [Here](#late-arriving-data) is more information on how to diagnose this. 
+If you observe high data ingestion reported using the `Usage` records (see the [Data volume by solution](#data-volume-by-solution) section), but you don't observe the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible that you have significant late-arriving data. For information about how to diagnose this, see the [Late arriving data](#late-arriving-data) section of this article. 
 
 ## Understanding nodes sending data
 
-To understand the number of nodes reporting heartbeats from the agent each day in the last month, use
+To understand the number of nodes that are reporting heartbeats from the agent each day in the last month, use this query:
 
 ```kusto
 Heartbeat 
@@ -326,7 +331,7 @@ Heartbeat
 | summarize nodes = dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart
 ```
-The get a count of nodes sending data in the last 24 hours use the query: 
+The get a count of nodes sending data in the last 24 hours, use this query: 
 
 ```kusto
 find where TimeGenerated > ago(24h) project Computer
@@ -335,7 +340,7 @@ find where TimeGenerated > ago(24h) project Computer
 | summarize nodes = dcount(computerName)
 ```
 
-To get a list of nodes sending any data (and the amount of data sent by each) the follow query can be used:
+To get a list of nodes sending any data (and the amount of data sent by each), use this query:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _BilledSize, Computer
@@ -346,7 +351,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 
 ### Nodes billed by the legacy Per Node pricing tier
 
-The [legacy Per Node pricing tier](#legacy-pricing-tiers) bills for nodes with hourly granularity and also doesn't count nodes only sending a set of security data types. Its daily count of nodes would be close to the following query:
+The [legacy Per Node pricing tier](#legacy-pricing-tiers) bills for nodes with hourly granularity and also doesn't count nodes that are only sending a set of security data types. Its daily count of nodes would be close to the following query:
 
 ```kusto
 find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
@@ -359,7 +364,7 @@ find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(n
 | sort by day asc
 ```
 
-The number of units on your bill is in units of node*months which is represented by `billableNodeMonthsPerDay` in the query. 
+The number of units on your bill is in units of node months, which is represented by `billableNodeMonthsPerDay` in the query. 
 If the workspace has the Update Management solution installed, add the Update and UpdateSummary data types to the list in the where clause in the above query. Finally, there is some additional complexity in the actual billing algorithm when solution targeting is used that is not represented in the above query. 
 
 
