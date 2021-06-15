@@ -348,7 +348,7 @@ Add and implement  `MeetingUIClientInCallScreenProvider` methods to the class an
 ```java
 @Override
 public int onProvideJoinButtonBackground() {
-    return R.drawable.join_now_button;
+    return R.drawable.join_button_background;
 }
 
 @Override
