@@ -234,7 +234,7 @@
     {
       "path_to_root": "azure-functions-python-worker-extension",
       "url": "https://github.com/Azure-Samples/python-worker-extension-timer",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },    
     {
@@ -783,6 +783,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.security-benchmark.json",
-    ".openpublishing.redirection.media-services.json"
+    ".openpublishing.redirection.media-services.json",
+    "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json"
   ]
 }
