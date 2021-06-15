@@ -336,9 +336,9 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/storage-add-role.png" alt-text="Screenshot of + Add menu.":::
 
-1. From the Add role assignment dialog, set the __Role__ to __Storage Blob Data Reader__ and then type the name of your Azure Machine Learning workspace in the __Select__ field. Select the item that appears and then select __Save__.
+1. From the Add role assignment dialog, set the __Role__ to __Storage Blob Data Contributor__ and then type the name of your Azure Machine Learning workspace in the __Select__ field. Select the item that appears and then select __Save__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-add-blob-data-reader.png" alt-text="Screenshot of adding storage blob data reader role":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-add-blob-data-contributor.png" alt-text="Screenshot of adding storage blob data Contributor role":::
 
 1. When using an Azure Storage Account that has a private endpoint, add the workspace-managed identity as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
 
@@ -366,7 +366,6 @@ There are several ways that you can connect to the secured workspace. The steps 
 | ----- | ----- |
 | [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) | Connects on-premises networks to the VNet over a private connection. Connection is made over the public internet. |
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. |
-| Enable public internet access | Enables access to the workspace from the public internet. Communication between the workspace and other resources in the VNet are still secured. |
 
 > [!IMPORTANT]
 > When using a __VPN gateway__ or __ExpressRoute__, you will need to plan how name resolution works between your on-premises resources and those in the VNet. For more information, see [Use a custom DNS server](how-to-custom-dns.md).
