@@ -148,6 +148,8 @@
       href: signin-appauth-ios.md
     - name: Android using App Auth
       href: signin-appauth-android.md
+    - name: Publish your app to Azure AD app gallery
+      href: publish-app-to-azure-ad-app-gallery.md
     - name: Secure API Management API
       href: secure-api-management.md
       displayName: apim, api management, migrate, b2clogin.com
