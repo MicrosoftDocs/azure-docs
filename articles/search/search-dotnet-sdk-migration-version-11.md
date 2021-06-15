@@ -113,7 +113,7 @@ Field definitions are streamlined: [SearchableField](/dotnet/api/azure.search.do
 | [DocumentSuggestResult](/dotnet/api/microsoft.azure.search.models.documentsuggestresult-1) | [SuggestResults](/dotnet/api/azure.search.documents.models.suggestresults-1) |
 | [SearchParameters](/dotnet/api/microsoft.azure.search.models.searchparameters) |  [SearchOptions](/dotnet/api/azure.search.documents.searchoptions)  |
 | [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparametersparameters) |  [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) |
-| [SearchParameters.Filter](dotnet/api/microsoft.azure.search.models.searchparameters.filter) |  [SearchFilter](/dotnet/api/azure.search.documents.searchfilter) (a new class for constructing OData filter expressions) |
+| [SearchParameters.Filter](/dotnet/api/microsoft.azure.search.models.searchparameters.filter) |  [SearchFilter](/dotnet/api/azure.search.documents.searchfilter) (a new class for constructing OData filter expressions) |
 
 ### JSON serialization
 
