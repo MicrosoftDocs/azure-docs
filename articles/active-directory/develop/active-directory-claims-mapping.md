@@ -128,15 +128,271 @@ In this example, you create a policy that emits a custom claim "JoinedData" to J
 
 Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents through claims-mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims-mapping policy to protect themselves from claims-mapping policies created by malicious actors. This can be done in one the following ways:
 
-- Configure a custom signing key
-- Or, update the application manifest to accept mapped claims.
+- [Configure a custom signing key](#configure-a-custom-signing-key)
+- Or, [update the application manifest](#update-the-application-manifest) to accept mapped claims.
  
 Without this, Azure AD will return an [`AADSTS50146` error code](reference-aadsts-error-codes.md#aadsts-error-codes).
 
-### Custom signing key
+### Configure a custom signing key
 
-For multi-tenant apps, a custom signing key should be used.  Do not set `acceptMappedClaims` in the app manifest. If set up an app in portal, you get an app reg object and a service principal in your tenant.  That app is using the Azure global sign-in key.  When using the global sign-in key, however, you can't change claims .  To get custom claims in tokens, create a custom sign-in key and add it to service principal.  In order to add a custom signing key to the service principal object, you can use the Azure PowerShell cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) to create a certificate key credential for your application object.
+For multi-tenant apps, a custom signing key should be used.  Do not set `acceptMappedClaims` in the app manifest. If set up an app in the Azure portal, you get an app registration object and a service principal in your tenant.  That app is using the Azure global sign-in key, which cannot be used for customizing claims in tokens.  To get custom claims in tokens, create a custom sign-in key from a certificate and add it to service principal.  For testing purposes, you can use a self-signed certificate. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
 
+Add the following information to the service principal:
+
+- Private key (as a [key credential](/graph/api/resources/keycredential?view=graph-rest-1.0))
+- Password (as a [password credential](/graph/api/resources/passwordcredential?view=graph-rest-1.0))
+- Public key (as a [key credential](/graph/api/resources/keycredential?view=graph-rest-1.0))
+
+Extract the private and public key base-64 encoded from the PFX file export of your certificate. Make sure that the `keyId` for the `keyCredential` used for "Sign" matches the `keyId` of the `passwordCredential`. You can generate the `customkeyIdentifier` by getting the hash of the cert's thumbprint.
+
+#### Request
+
+The "key" value in the `keyCredentials` property is shortened for readability. The value is base-64 encoded. For the private key the property usage is "Sign". For the public key the property usage is "Verify".
+
+```
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+
+Content-type: servicePrincipals/json
+
+{
+    "keyCredentials":[
+        {
+            "customKeyIdentifier": "lY85bR8r6yWTW6jnciNEONwlVhDyiQjdVLgPDnkI5mA=",
+            "endDateTime": "2021-04-22T22:10:13Z",
+            "keyId": "4c266507-3e74-4b91-aeba-18a25b450f6e",
+            "startDateTime": "2020-04-22T21:50:13Z",
+            "type": "X509CertAndPassword",
+            "usage": "Sign",
+            "key":"MIIKIAIBAz.....HBgUrDgMCERE20nuTptI9MEFCh2Ih2jaaLZBZGeZBRFVNXeZmAAgIH0A==",
+            "displayName": "CN=contoso"
+        },
+        {
+            "customKeyIdentifier": "lY85bR8r6yWTW6jnciNEONwlVhDyiQjdVLgPDnkI5mA=",
+            "endDateTime": "2021-04-22T22:10:13Z",
+            "keyId": "e35a7d11-fef0-49ad-9f3e-aacbe0a42c42",
+            "startDateTime": "2020-04-22T21:50:13Z",
+            "type": "AsymmetricX509Cert",
+            "usage": "Verify",
+            "key": "MIIDJzCCAg+gAw......CTxQvJ/zN3bafeesMSueR83hlCSyg==",
+            "displayName": "CN=contoso"
+        }
+
+    ],
+    "passwordCredentials": [
+        {
+            "customKeyIdentifier": "lY85bR8r6yWTW6jnciNEONwlVhDyiQjdVLgPDnkI5mA=",
+            "keyId": "4c266507-3e74-4b91-aeba-18a25b450f6e",
+            "endDateTime": "2022-01-27T19:40:33Z",
+            "startDateTime": "2020-04-20T19:40:33Z",
+            "secretText": "mypassword"
+        }
+    ]
+}
+```
+
+#### Configure a custom signing key using PowerShell
+
+Use PowerShell to [instantiate an MSAL Public Client Application](msal-net-initializing-client-applications.md#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](v2-oauth2-auth-code-flow.md) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
+
+To run this script you need:
+1. The application/client ID of the app configured to customize claims.
+2. An app registration to sign in a user and get an access token for Microsoft Graph. Get the application (client) ID of this app in the Overview section – we will need it for the script. The app registration should have the following configuration:
+    - Redirect URI of "http://localhost" under 'Mobile and desktop applications platform'
+    - API permissions Microsoft Graph delegated permissions  **Application.ReadWrite.All** and **User.Read** (make sure you grant Admin consent to these permissions)
+3. The user who logs in to get the MS Graph Access Token should be one of the following Azure AD Administrative Role (which is required update the service principal):
+    - Cloud Application Administrator
+    - Application Administrator
+    - Global Administrator
+4. A signing certificate to configure for our application. You can either create a self-signed certificate or obtain one from your Trusted Certificate Authority. We will need the following certificate components for our script:
+    - public key (typically a .cer file)
+    - private key in PKCS#12 format (in .pfx file)
+    - password for the private key (pfx file)
+
+> [!IMPORTANT]
+> The private key must be in PKCS#12 format since Azure AD does not support other format types. Using the wrong format can result in the the error “Invalid certificate: Key value is invalid certificate” when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
+
+```powershell
+
+$fqdn="fourthcoffeetest.onmicrosoft.com" # this is used for the 'issued to' and 'issued by' field of the certificate
+$pwd="mypassword" # password for exporting the certificate private key
+$location="C:\\temp" # path to folder where both the pfx and cer file will be written to
+
+# Create a self-signed cert
+$cert = New-SelfSignedCertificate -certstorelocation cert:\currentuser\my -DnsName $fqdn
+$pwdSecure = ConvertTo-SecureString -String $pwd -Force -AsPlainText
+$path = 'cert:\currentuser\my\' + $cert.Thumbprint
+$cerFile = $location + "\\" + $fqdn + ".cer"
+$pfxFile = $location + "\\" + $fqdn + ".pfx"
+ 
+# Export the public and private keys
+Export-PfxCertificate -cert $path -FilePath $pfxFile -Password $pwdSecure
+Export-Certificate -cert $path -FilePath $cerFile
+
+$ClientID = "<app-id>"
+$loginURL       = "https://login.microsoftonline.com"
+$tenantdomain   = "fourthcoffeetest.onmicrosoft.com"
+$redirectURL = "http://localhost" # this reply URL is needed for PowerShell Core 
+[string[]] $Scopes = "https://graph.microsoft.com/.default"
+$pfxpath = $pfxFile # path to pfx file
+$cerpath = $cerFile # path to cer file
+$SPOID = "<service-principal-id>"
+$graphuri = "https://graph.microsoft.com/v1.0/serviceprincipals/$SPOID"
+$password = $pwd  # password for the pfx file
+ 
+ 
+# choose the correct folder name for MSAL based on PowerShell version 5.1 (.Net) or PowerShell Core (.Net Core)
+ 
+if ($PSVersionTable.PSVersion.Major -gt 5)
+    { 
+        $core = $true
+        $foldername =  "netcoreapp2.1"
+    }
+else
+    { 
+        $core = $false
+        $foldername = "net45"
+    }
+ 
+# Load the MSAL/microsoft.identity/client assembly -- needed once per PowerShell session
+[System.Reflection.Assembly]::LoadFrom((Get-ChildItem C:/Users/<username>/.nuget/packages/microsoft.identity.client/4.32.1/lib/$foldername/Microsoft.Identity.Client.dll).fullname) | out-null
+  
+$global:app = $null
+  
+$ClientApplicationBuilder = [Microsoft.Identity.Client.PublicClientApplicationBuilder]::Create($ClientID)
+[void]$ClientApplicationBuilder.WithAuthority($("$loginURL/$tenantdomain"))
+[void]$ClientApplicationBuilder.WithRedirectUri($redirectURL)
+ 
+$global:app = $ClientApplicationBuilder.Build()
+  
+Function Get-GraphAccessTokenFromMSAL {
+    [Microsoft.Identity.Client.AuthenticationResult] $authResult  = $null
+    $AquireTokenParameters = $global:app.AcquireTokenInteractive($Scopes)
+    [IntPtr] $ParentWindow = [System.Diagnostics.Process]::GetCurrentProcess().MainWindowHandle
+    if ($ParentWindow)
+    {
+        [void]$AquireTokenParameters.WithParentActivityOrWindow($ParentWindow)
+    }
+    try {
+        $authResult = $AquireTokenParameters.ExecuteAsync().GetAwaiter().GetResult()
+    }
+    catch {
+        $ErrorMessage = $_.Exception.Message
+        Write-Host $ErrorMessage
+    }
+     
+    return $authResult
+}
+  
+$myvar = Get-GraphAccessTokenFromMSAL
+if ($myvar)
+{
+    $GraphAccessToken = $myvar.AccessToken
+    Write-Host "Access Token: " $myvar.AccessToken
+    #$GraphAccessToken = "eyJ0eXAiOiJKV1QiL ... iPxstltKQ"
+    
+ 
+    #  this is for PowerShell Core
+    $Secure_String_Pwd = ConvertTo-SecureString $password -AsPlainText -Force
+ 
+    # reading certificate files and creating Certificate Object
+    if ($core)
+    {
+        $pfx_cert = get-content $pfxpath -AsByteStream -Raw
+        $cer_cert = get-content $cerpath -AsByteStream -Raw
+        $cert = Get-PfxCertificate -FilePath $pfxpath -Password $Secure_String_Pwd
+    }
+    else
+    {
+        $pfx_cert = get-content $pfxpath -Encoding Byte
+        $cer_cert = get-content $cerpath -Encoding Byte
+        # Write-Host "Enter password for the pfx file..."
+        # calling Get-PfxCertificate in PowerShell 5.1 prompts for password
+        # $cert = Get-PfxCertificate -FilePath $pfxpath
+        $cert = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new($pfxpath, $password)
+    }
+ 
+    # base 64 encode the private key and public key
+    $base64pfx = [System.Convert]::ToBase64String($pfx_cert)
+    $base64cer = [System.Convert]::ToBase64String($cer_cert)
+ 
+    # getting id for the keyCredential object
+    $guid1 = New-Guid
+    $guid2 = New-Guid
+ 
+    # get the custom key identifier from the certificate thumbprint:
+    $hasher = [System.Security.Cryptography.HashAlgorithm]::Create('sha256')
+    $hash = $hasher.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($cert.Thumbprint))
+    $customKeyIdentifier = [System.Convert]::ToBase64String($hash)
+ 
+    # get end date and start date for our keycredentials
+    $endDateTime = ($cert.NotAfter).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
+    $startDateTime = ($cert.NotBefore).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
+ 
+    # building our json payload
+    $object = [ordered]@{    
+    keyCredentials = @(       
+         [ordered]@{            
+            customKeyIdentifier = $customKeyIdentifier
+            endDateTime = $endDateTime
+            keyId = $guid1
+            startDateTime = $startDateTime 
+            type = "X509CertAndPassword"
+            usage = "Sign"
+            key = $base64pfx
+            displayName = "CN=fourthcoffeetest" 
+        },
+        [ordered]@{            
+            customKeyIdentifier = $customKeyIdentifier
+            endDateTime = $endDateTime
+            keyId = $guid2
+            startDateTime = $startDateTime 
+            type = "AsymmetricX509Cert"
+            usage = "Verify"
+            key = $base64cer
+            displayName = "CN=fourthcoffeetest"   
+        }
+        )  
+    passwordCredentials = @(
+        [ordered]@{
+            customKeyIdentifier = $customKeyIdentifier
+            keyId = $guid1           
+            endDateTime = $endDateTime
+            startDateTime = $startDateTime
+            secretText = $password
+        }
+    )
+    }
+ 
+    $json = $object | ConvertTo-Json -Depth 99
+    Write-Host "JSON Payload:"
+    Write-Output $json
+ 
+    # Request Header
+    $Header = @{}
+    $Header.Add("Authorization","Bearer $($GraphAccessToken)")
+    $Header.Add("Content-Type","application/json")
+ 
+    try 
+    {
+        Invoke-RestMethod -Uri $graphuri -Method "PATCH" -Headers $Header -Body $json
+    } 
+    catch 
+    {
+        # Dig into the exception to get the Response details.
+        # Note that value__ is not a typo.
+        Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+        Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+    }
+ 
+    Write-Host "Complete Request"
+}
+else
+{
+    Write-Host "Fail to get Access Token"
+}
+```
+
+#### Validate token signing key
 Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
 
 ```
