@@ -27,7 +27,7 @@ Specifically, IoT devices:
 ## Connect and securely connect
 
 Per-device authentication enables each device to connect securely to IoT Hub and for each device to be managed securely.
-https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub You have complete control over device access and can control connections at the per-device level.
+https://docs.microsoft.com/azure/iot-hub/about-iot-hub You have complete control over device access and can control connections at the per-device level.
 
 ### Devices have a secure identity
 (../azure/iot-edge/how-to-register-device?view=iotedge-2020-11&tabs=azure-portal)
@@ -42,9 +42,9 @@ If you have many devices to set up and don't want to manually provision each one
 
 *  [Create and provision IoT Edge devices using X.509 certificates](/azure/iot-edge/how-to-auto-provision-x509-certs)
 
-*  [Create and provision IoT Edge devices with a TPM](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-auto-provision-simulated-device-linux)
+*  [Create and provision IoT Edge devices with a TPM](https://docs.microsoft.com/azure/iot-edge/how-to-auto-provision-simulated-device-linux)
 
-*  [Create and provision IoT Edge devices using symmetric keys](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-auto-provision-symmetric-keys?view=iotedge-2020-11)
+*  [Create and provision IoT Edge devices using symmetric keys](https://docs.microsoft.com//azure/iot-edge/how-to-auto-provision-symmetric-keys?view=iotedge-2020-11)
 
 The security token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the TLS connection establishment. The security-token-based method can be used without the X.509 authentication, which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
 
@@ -79,7 +79,7 @@ What is telemetry? Telemetry is data that a device sends to an IoT Hub. IoT Devi
 How does IoT support telemetry?
 
 ### Properties are state values or data that applications can access. For example, the curent firmware version of the device, or writable properties that can be updated, such a temperature, are properties.
-https://docs.microsoft.com/en-us/javascript/api/azure-iot-common/message?view=azure-node-latest
+https://docs.microsoft.com/javascript/api/azure-iot-common/message?view=azure-node-latest
 
 Properties can be read or set from the IoT Hub, and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. This can be a writable property that can be updated on the device.  
 
