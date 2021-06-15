@@ -55,7 +55,7 @@ Here is an example of manually creating and configuring a TelemetryConfiguration
 ```csharp
 var config = new TelemetryConfiguration
 {
-	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
 }
 var credential = new DefaultAzureCredential();
 config. SetAzureTokenCredential (credential);
