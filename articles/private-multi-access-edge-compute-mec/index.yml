@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: kumud
   ms.author: KumudD
-  ms.date: 01/16/2021
+  ms.date: 06/15/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -56,3 +56,15 @@ landingContent:
         links:
           - text: Deploy Affirmed Private Network Service on Azure
             url: deploy-affirmed-private-network-service-solution.md
+
+  # Card
+  - title: About Azure Network Function Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Network Function Manager?
+            url: ../network-function-manager/overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy a network function
+            url: ../network-function-manager/deploy-functions.md
