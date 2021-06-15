@@ -28,7 +28,7 @@ The following Remote Desktop clients support the Start VM on Connect feature:
 - [The web client](./use-clients-access/connect-web.md)
 - [The Windows client (version 1.2748 or later)](./use-clients-access/connect-windows-7-10.md)
 - [The Android client (version 10.0.10 or later)](./use-clients-access/connect-android.md)
-- [The macOS client (version 10.6.4 or later)](../use-clients-access/connect-macos.md)
+- [The macOS client (version 10.6.4 or later)](./use-clients-access/connect-macos.md)
 
 You can check for announcements about updates and client support on the [Tech Community forum](https://aka.ms/wvdtc).
 
