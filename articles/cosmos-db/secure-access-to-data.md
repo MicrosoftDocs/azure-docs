@@ -6,7 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 ms.custom: devx-track-csharp
 
 ---
@@ -20,7 +20,7 @@ Azure Cosmos DB provides three ways to control access to your data.
 | Access control type | Characteristics |
 |---|---|
 | [Primary keys](#primary-keys) | Shared secret allowing any management or data operation. It comes in both read-write and read-only variants. |
-| [Role-based access control](#rbac) (Preview) | Fine-grained, role-based permission model using Azure Active Directory (AAD) identities for authentication. |
+| [Role-based access control](#rbac) | Fine-grained, role-based permission model using Azure Active Directory (AAD) identities for authentication. |
 | [Resource tokens](#resource-tokens)| Fine-grained permission model based on native Azure Cosmos DB users and permissions. |
 
 ## <a id="primary-keys"></a> Primary keys

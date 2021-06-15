@@ -6,7 +6,7 @@ services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
@@ -74,6 +74,8 @@ The JSON output has three parts:
 
 The Invoice service will extract the text, tables, and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg)).
 
+### Key Value Pairs 
+
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Customer being invoiced | Microsoft Corp |  |
@@ -103,6 +105,8 @@ The Invoice service will extract the text, tables, and 26 invoice fields. Follow
 | ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | number | Explicit previously unpaid balance | $500.00 | 500 |
 
+### Line items
+
 Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](./media/sample-invoice.jpg))
 
 |Name| Type | Description | Text (line item #1) | Value (standardized output) |
@@ -117,6 +121,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Date | date| Date corresponding to each line item. Often it is a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
 
+The invoice key value pairs and line items extracted are in the documentResults section of the JSON output. 
 
 ## Next steps
 

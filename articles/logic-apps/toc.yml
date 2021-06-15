@@ -207,8 +207,8 @@
         href: logic-apps-enterprise-integration-edifact-decode.md
       - name: Handle EDIFACT files with UNH2.5 segment
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-      - name: Exchange RosettaNet messages
-        href: logic-apps-enterprise-integration-rosettanet.md
+    - name: Exchange RosettaNet messages
+      href: logic-apps-enterprise-integration-rosettanet.md
     - name: Exchange X12 messages
       href: logic-apps-enterprise-integration-x12.md
       items: 
@@ -332,8 +332,6 @@
       href: logic-apps-enterprise-integration-transform.md
     - name: Twilio
       href: ../connectors/connectors-create-api-twilio.md
-    - name: Wunderlist
-      href: ../connectors/connectors-create-api-wunderlist.md
     - name: X12
       href: logic-apps-enterprise-integration-x12.md
     - name: XML Validation

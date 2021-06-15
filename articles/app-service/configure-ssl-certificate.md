@@ -58,7 +58,9 @@ To secure a custom domain in a TLS binding, the certificate has additional requi
 > [!NOTE]
 > Before creating a free managed certificate, make sure you have [fulfilled the prerequisites](#prerequisites) for your app.
 
-The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional TLS/SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
+The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a TLS/SSL server certificate that's fully managed by App Service and renewed continuously and automatically in six-month increments, 45 days before expiration. You create the certificate and bind it to a custom domain, and let App Service do the rest.
+
+The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.
 - Does not support usage as a client certificate by certificate thumbprint (removal of certificate thumbprint is planned).
@@ -150,6 +152,10 @@ In the **Key Vault Status** page, click **Key Vault Repository** to create a new
 
 Once you've selected the vault, close the **Key Vault Repository** page. The **Step 1: Store** option should show a green check mark for success. Keep the page open for the next step.
 
+> [!NOTE]
+> Currently, App Service Certificate only supports Key Vault access policy but not RBAC model.
+>
+
 ### Verify domain ownership
 
 From the same **Certificate Configuration** page you used in the last step, click **Step 2: Verify**.
@@ -192,6 +198,10 @@ If you use Azure Key Vault to manage your certificates, you can import a PKCS12 
 By default, the App Service resource provider doesn’t have access to the Key Vault. In order to use a Key Vault for a certificate deployment, you need to [authorize the resource provider read access to the KeyVault](../key-vault/general/assign-access-policy-cli.md). 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd`  is the resource provider service principal name for App Service, and it's the same for all Azure subscriptions. For Azure Government cloud environment, use `6a02c803-dafd-4136-b4c3-5a6f318b4714` instead as the resource provider service principal name.
+
+> [!NOTE]
+> Currently, Key Vault Certificate only supports Key Vault access policy but not RBAC model.
+> 
 
 ### Import a certificate from your vault to your app
 

@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 06/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
@@ -44,7 +44,7 @@ There are multiple scenarios that organizations can now enable using filters for
 Filters for devices are an option when creating a Conditional Access policy in the Azure portal or using the Microsoft Graph API.
 
 > [!IMPORTANT]
-> Device state and filters for devices cannot be used together in Conditional Access policy. Filters for devices provides more granular targeting including support for targeting device state information through the `trustType` and `isCompliant` property.
+> Device state and filters for devices cannot be used together in Conditional Access policy.
 
 The following steps will help create two Conditional Access policies to support the first scenario under [Common scenarios](#common-scenarios). 
 

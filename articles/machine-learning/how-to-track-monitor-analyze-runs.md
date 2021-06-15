@@ -21,7 +21,6 @@ This article shows how to do the following tasks:
 
 * Monitor run performance.
 * Create a custom view. 
-* Add run display name.
 * Add a run description. 
 * Tag and find runs.
 * Run search over your run history. 
@@ -178,7 +177,8 @@ You'll need the following items:
     
     # [Studio](#tab/azure-studio)
     
-    ---
+    ---    
+   
 ## Custom View 
     
 To view your runs in the studio: 
@@ -193,20 +193,8 @@ In the **All runs'** page, you can filter the runs list by tags, experiments, co
 
 1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Screenshot: create a custom view":::
     
-
-## Run display name
-A run display name is an optional, non-unique, user-friendly property that can be added to a run to help annotate runs and provide more meaningful information to the run. 
-
-To edit the run display name, navigate to the **Run Details** page and select the **Edit** icon next to the run. By default, the run display name is set to the run ID. The run ID is the unique identifier for the run and can be added as a column in the runs list view. 
-
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: add a display name":::
-
-The following image shows the edited run display name. 
-
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name-runs-list.png" alt-text="Screenshot: display name in runs list":::
-
 
 ## Run description 
 
@@ -214,7 +202,7 @@ A run description can be added to a run to provide more context and information 
 
 Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit, or delete descriptions for your run. To persist the changes to the runs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for run descriptions, which allows images to be embedded and deep linking as shown below.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description.gif" alt-text="Screenshot: create a run description"::: 
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Screenshot: create a run description"::: 
 
 ## Tag and find runs
 
@@ -274,7 +262,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     You can add, edit, or delete run tags from the studio. Navigate to the **Run Details** page for your run and select the edit, or pencil icon to add, edit, or delete tags for your runs. You can also search and filter on these tags from the runs list page.
     
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/tags.gif" alt-text="Screenshot: Add, edit, or delete run tags":::
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-tags.gif" alt-text="Screenshot: Add, edit, or delete run tags":::
     
     ---
 

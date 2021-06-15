@@ -7,7 +7,8 @@ author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Backend pool management
@@ -309,7 +310,6 @@ A Backend Pool configured by IP address has the following limitations:
   * Limit of 100 IP addresses in the backend pool
   * The backend resources must be in the same virtual network as the load balancer
   * A Load Balancer with IP-based Backend Pool cannot function as a Private Link service
-  * This feature is not currently supported in the Azure portal
   * ACI containers are not currently supported by this feature
   * Load balancers or services such as Application Gateway cannot be placed in the backend pool of the load balancer
   * Inbound NAT Rules cannot be specified by IP address

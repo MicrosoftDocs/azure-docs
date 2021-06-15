@@ -69,11 +69,11 @@ The motion detection processor node enables you to detect motion in live video. 
 
 #### HTTP extension processor
 
-The HTTP extension processor node enables you to extend the pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Learn more about the [processor here](pipeline-extension.md#http-extension-processor). Additionally, this node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the HTTP endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports JPEG, PNG, BMP, and RAW formats. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
+The HTTP extension processor node enables you to extend the pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Additionally, this node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the HTTP endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports JPEG, PNG, BMP, and RAW formats. Learn more about the [processor here](pipeline-extension.md#http-extension-processor).
 
 #### gRPC extension processor
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Just like the HTTP extension process, this node also has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Just like the HTTP extension process, this node also has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. Learn more about the [processor here](pipeline-extension.md#grpc-extension-processor).
 
 #### Cognitive Services extension processor
 
@@ -81,7 +81,7 @@ The Cognitive Services extension processor node enables you to extend the pipeli
 
 #### Signal gate processor
 
-The signal gate processor node enables you to conditionally forward media from one node to another. An example use case is to insert a signal gate processor node between the RTSP source node and the video sink node, and using the output of a motion detector processor node to trigger the gate. With such a pipeline, you would be recording video only when motion is detected. You can also use the output from HTTP or gRPC extension node to trigger the gate, instead of motion detection processor node, thus enabling recording of video when something interesting is detected.
+The signal gate processor node enables you to conditionally forward media from one node to another. The signal gate processor node must be immediately followed by a video sink or file sink. An example use case is to insert a signal gate processor node between the RTSP source node and the video sink node, and using the output of a motion detector processor node to trigger the gate. With such a pipeline, you would be recording video only when motion is detected. You can also use the output from HTTP or gRPC extension node to trigger the gate, instead of motion detection processor node, thus enabling recording of video when something interesting is detected.
 
 #### Object tracker processor
 

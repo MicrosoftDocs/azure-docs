@@ -14,9 +14,9 @@ ms.custom: references_regions
 # Semantic search in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search is in public preview, available through the preview REST API and portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview, available through the preview REST API and portal. Preview features are offered [as-is](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Semantic search is billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-Semantic search is a collection of query-related capabilities that add semantic relevance and language understanding to search results. This article is a high-level introduction to semantic search all-up, with descriptions of each feature and how they work collectively. The embedded video describes the technology, and the section at the end covers availability and pricing.
+Semantic search is a collection of query-related capabilities that bring semantic relevance and language understanding to search results. This article is a high-level introduction to semantic search all-up, with descriptions of each feature and how they work collectively. The embedded video describes the technology, and the section at the end covers availability and pricing.
 
 Semantic search is a premium feature. We recommend this article for background, but if you'd rather get started, follow these steps:
 
@@ -28,7 +28,9 @@ Semantic search is a premium feature. We recommend this article for background, 
 
 ## What is semantic search?
 
-Semantic search is an optional layer of query-related AI. When enabled on your search service, it extends the traditional query execution pipeline in two ways. First, it adds an optional semantic ranking model; and second, it returns captions and answers in the response.
+Semantic search is collection of features that improve the quality of search results. When enabled on your search service, it extends the query execution pipeline in two ways. First, it adds secondary ranking over an initial result set, promoting the most semantically relevant results to the top of the list. Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
+
+## How semantic ranking works
 
 *Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience.
 
@@ -79,11 +81,11 @@ In Cognitive Search, mechanisms that might be helpful for the above scenarios in
 
 ## Availability and pricing
 
-Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early June, semantic features are offered free of charge.
+Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early July, semantic features are offered free of charge.
 
 | Feature | Tier | Region | Sign up | Projected pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | Starting June 1, expected pricing is USD $500/month for the first 250,000 queries, and $2 for each additional 1,000 queries.  |
+| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | Starting in early July, expected pricing is USD $500/month for the first 250,000 queries, and $2 for each additional 1,000 queries.  |
 | Spell check | Any | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | None (free) |
 
 There is one [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup) for both semantic features and spell check. 

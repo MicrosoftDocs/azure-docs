@@ -11,13 +11,13 @@ ms.date: 04/20/2021
 
 # Detailed configuration for hosted test drives
 
-This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement or Dynamics 365 for Operations.
+This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement & Power Apps or Dynamics 365 for Operations.
 
-## Configure for Dynamics 365 Customer Engagement
+## Configure for Dynamics 365 Customer Engagement & Power Apps
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
-3. Find an existing **Dynamics 365 for Customer Engagement** offer or create a new **Dynamics 365 for Customer Engagement** offer.
+3. Find an existing **Dynamics 365 for Customer Engagement & Power Apps** offer or create a new **Dynamics 365 for Customer Engagement & Power Apps** offer.
 4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save**.
 
     [![Selecting the 'Enable a test drive' check box.](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
@@ -56,9 +56,10 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 ## Configure for Dynamics 365 Operations
 
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
 3. Find an existing **Dynamics 365 for Operations** offer or create a new **Dynamics 365 for Operations** offer.
-4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save**.
+4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save draft**.
 
     [![Select the 'Enable a test drive' check box.](media/test-drive/enable-test-drive-check-box-operations.png)](media/test-drive/enable-test-drive-check-box-operations.png#lightbox)
 

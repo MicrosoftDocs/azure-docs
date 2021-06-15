@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 06/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -25,7 +25,7 @@ Azure AD B2C relies the Azure AD platform. The following Azure AD features can b
 
 |Feature  |Azure AD  | Azure AD B2C |
 |---------|---------|---------|
-| [Groups](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | Groups can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. [Consumer accounts](user-overview.md#consumer-user) don't support groups. |
+| [Groups](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | Groups can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. [Consumer accounts](user-overview.md#consumer-user) can not be member of any group. |
 | [Inviting External Identities guests](../active-directory//external-identities/add-users-administrator.md)| You can invite guest users and configure External Identities features such as federation and sign-in with Facebook and Google accounts. | You can invite only a Microsoft account or an Azure AD user as a guest to your Azure AD tenant for accessing applications or managing tenants. For [consumer accounts](user-overview.md#consumer-user), you use Azure AD B2C user flows and custom policies to manage users and sign-up or sign-in with external identity providers, such as Google or Facebook. |
 | [Roles and administrators](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)| Fully supported for administrative and user accounts. | Roles are not supported with [consumer accounts](user-overview.md#consumer-user). Consumer accounts don't have access to any Azure resources.|
 | [Custom domain names](../active-directory/fundamentals/add-custom-domain.md) |  You can use Azure AD custom domains for administrative accounts only. | [Consumer accounts](user-overview.md#consumer-user) can sign in with a username, phone number, or any email address. You can use [custom domains](custom-domain.md) in your redirect URLs.|
@@ -177,7 +177,27 @@ It's recommended that you protect all administrator accounts with multi-factor a
 
 You can enable [Azure AD security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) to force all administrative accounts to use MFA.
 
+## Get your tenant name
 
+To get your Azure AD B2C tenant name, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. In the **Overview**, copy the **Domain name**.
+
+![Screenshot demonstrates how to get the Azure AD B2C tenant name.](./media/tenant-management/get-azure-ad-b2c-tenant-name.png)  
+
+## Get your tenant ID
+
+To get your Azure AD B2C tenant ID, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the **Overview**, copy the **Tenant ID**.
+
+![Screenshot demonstrates how to get the Azure AD B2C tenant ID.](./media/tenant-management/get-azure-ad-b2c-tenant-id.png)  
 
 ## Next steps
 

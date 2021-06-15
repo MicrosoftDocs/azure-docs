@@ -73,36 +73,49 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
 1. On the Azure portal, search (field on top) for **Azure Arc**
 1. Select **Kuberntes cluster** on the left-hand-side menu in the **Infrastructure** section
 1. Under the list of clusters, locate the one to which you want to install Event Grid, and select it. The **Overview** page for the cluster is displayed.
+
+    :::image type="content" source="./media/install-k8s-extension/select-kubernetes-cluster.png" alt-text="Select your Kubernetes cluster":::
 1. Select **Extensions** in the **Settings** group on the left menu.
 1. Select **+ Add**. A page showing the available Azure Arc Kubernetes extensions is displayed.
-1. Select **Event Grid**.
-1. Select **Create** on the Event Grid on Kubernetes with Azure Arc page.
-1. The **Basics** tab on the **Install Event Grid** page is shown. The **Project Details** section shows read-only subscription and resource group values because Azure Arc extensions are deployed under the same Azure subscription and resource group of the connected cluster on which they're installed.
-1. Provide a name in the **Event Grid extension name** field. This name should be unique among other Azure Arc extensions deployed to the same Azure Arc connected cluster.
-1. For **Release namespace**, you may want to provide the name of a Kubernetes namespace where Event Grid components will be deployed into. For example, you might want to have a single namespace for all Azure Arc-enabled services deployed to your cluster. The default is **eventgrid-system**. If the namespace provided doesn't exist, it's created for you.
-1. On the **Event Grid broker** details section, the service type is shown. The Event Grid broker, which is the component that exposes the topic endpoints to which events are sent, is exposed as a Kubernetes service type **ClusterIP**. Hence, the IPs assigned to all topics use the private IP space configured for the cluster.
-1. Provide the **storage class name** that you want to use for the broker and that's supported by your Kubernetes distribution. For example, if you're using AKS, you could use `azurefile`, which uses Azure Standard storage. For more information on predefined storage classes supported by AKS, see [Storage Classes in AKS](../../aks/concepts-storage.md#storage-classes). If you're using other Kubernetes distributions, see your Kubernetes distribution documentation for predefined storage classes supported or the way you can provide your own.
-1. **Storage size**. Default is 1 GiB. Consider the ingestion rate when determining the size of your storage. Ingestion rate in MiB/second measured as the size of your events times the publishing rate (events per second) across all topics on the Event Grid broker is a key factor when allocating storage. Events are transient in nature and once they're delivered, there is no storage consumption for those events. While ingestion rate is a main driver for storage use, it isn't the only one. Metadata holding topic and event subscription configuration also consumes storage space, but that normally requires a lower amount of storage space than the events ingested and being delivered by Event Grid.
-1. **Memory limit**. Default is 1 GiB. 
-1. **Memory request**. Default is 200 MiB. This field isn't editable.
 
-    :::image type="content" source="./media/install-k8s-extension/basics-page.png" alt-text="Install Event Grid extension - Basics page":::
-1. Select **Next: Configuration** at the bottom of the page.
-1. **Enable HTTP (not secure) communication**. Check this box if you want to use a non-secured channel when clients communicate with the Event Grid broker.
+    :::image type="content" source="./media/install-k8s-extension/cluster-extensions-add.png" alt-text="Cluster extensions - Add button":::    
+1. On the **New resource** page, select **Event Grid on Kubernetes Extension**.
 
-    > [!IMPORTANT]
-    > Enabling this option will make all communication with the Event Grid broker use HTTP as transport. Hence, any publishing client and the Event Grid operator won't communicate with the Event Grid broker securely. You should use this option only during early stages of development.
-1. If you didn't enable HTTP communication, select each of the PKI certificate files that you procured and meet the [PKI certificate requirements](#pki-certificate-requirements).
+    :::image type="content" source="./media/install-k8s-extension/select-event-grid-extension.png" alt-text="Select Event Grid on Kubernetes extension":::        
+1. On the **Event Grid on Kubernetes Extension** page, select **Create**.
 
-    :::image type="content" source="./media/install-k8s-extension/configuration-page.png" alt-text="Install Event Grid extension - Configuration page":::
-1. Select the **Next: Monitoring** at the bottom of the page.
-1. **Enable metrics** by checking this option, Event Grid on Kubernetes exposes metrics for topics and event subscriptions using the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/).
+    :::image type="content" source="./media/install-k8s-extension/select-create-extension.png" alt-text="Select Create Kubernetes extension":::            
+1. The **Basics** tab of the **Install Event Grid** page, follow these steps. 
+    1. The **Project Details** section shows read-only subscription and resource group values because Azure Arc extensions are deployed under the same Azure subscription and resource group of the connected cluster on which they're installed.
+    1. Provide a name in the **Event Grid extension name** field. This name should be unique among other Azure Arc extensions deployed to the same Azure Arc connected cluster.
+    1. For **Release namespace**, you may want to provide the name of a Kubernetes namespace where Event Grid components will be deployed into. For example, you might want to have a single namespace for all Azure Arc-enabled services deployed to your cluster. The default is **eventgrid-system**. If the namespace provided doesn't exist, it's created for you.
+    1. On the **Event Grid broker** details section, the service type is shown. The Event Grid broker, which is the component that exposes the topic endpoints to which events are sent, is exposed as a Kubernetes service type **ClusterIP**. Hence, the IPs assigned to all topics use the private IP space configured for the cluster.
+    1. Provide the **storage class name** that you want to use for the broker and that's supported by your Kubernetes distribution. For example, if you're using AKS, you could use `azurefile`, which uses Azure Standard storage. For more information on predefined storage classes supported by AKS, see [Storage Classes in AKS](../../aks/concepts-storage.md#storage-classes). If you're using other Kubernetes distributions, see your Kubernetes distribution documentation for predefined storage classes supported or the way you can provide your own.
+    1. **Storage size**. Default is 1 GiB. Consider the ingestion rate when determining the size of your storage. Ingestion rate in MiB/second measured as the size of your events times the publishing rate (events per second) across all topics on the Event Grid broker is a key factor when allocating storage. Events are transient in nature and once they're delivered, there is no storage consumption for those events. While ingestion rate is a main driver for storage use, it isn't the only one. Metadata holding topic and event subscription configuration also consumes storage space, but that normally requires a lower amount of storage space than the events ingested and being delivered by Event Grid.
+    1. **Memory limit**. Default is 1 GiB. 
+    1. **Memory request**. Default is 200 MiB. This field isn't editable.
 
-    :::image type="content" source="./media/install-k8s-extension/monitoring-page.png" alt-text="Install Event Grid extension - Monitoring page":::    
-1. Select **Next: Tags** to navigate to the **Tags** page. Define [tags](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), if necessary.
+        :::image type="content" source="./media/install-k8s-extension/basics-page.png" alt-text="Install Event Grid extension - Basics page":::
+    1. Select **Next: Configuration** at the bottom of the page.
+1. In the **Configuration** tab of the **Install Event Grid** page, do the following steps: 
+    1. **Enable HTTP (not secure) communication**. Check this box if you want to use a non-secured channel when clients communicate with the Event Grid broker.
 
-    :::image type="content" source="./media/install-k8s-extension/tags-page.png" alt-text="Install Event Grid extension - Tags page":::
-1. Select **Review + create** at the bottom of the page.
+        > [!IMPORTANT]
+        > Enabling this option will make all communication with the Event Grid broker use HTTP as transport. Hence, any publishing client and the Event Grid operator won't communicate with the Event Grid broker securely. You should use this option only during early stages of development.
+    1. If you didn't enable HTTP communication, select each of the PKI certificate files that you procured and meet the [PKI certificate requirements](#pki-certificate-requirements).
+
+        :::image type="content" source="./media/install-k8s-extension/configuration-page.png" alt-text="Install Event Grid extension - Configuration page":::
+    1. Select the **Next: Monitoring** at the bottom of the page.
+1. In the **Monitoring** tab of the **Install Event Grid** page, do the following steps:
+    1. Select **Enable metrics** (optional). If you select this option, Event Grid on Kubernetes exposes metrics for topics and event subscriptions using the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/).
+
+        :::image type="content" source="./media/install-k8s-extension/monitoring-page.png" alt-text="Install Event Grid extension - Monitoring page":::    
+    1. Select **Next: Tags** to navigate to the **Tags** page. 
+1. On the **Tags** page, do the following steps:
+    1. Define [tags](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), if necessary.
+
+        :::image type="content" source="./media/install-k8s-extension/tags-page.png" alt-text="Install Event Grid extension - Tags page":::
+    1. Select **Review + create** at the bottom of the page.
 1. On the **Review + create** tab, select **Create**.
     
     :::image type="content" source="./media/install-k8s-extension/review-create-page.png" alt-text="Install Event Grid extension - Review and Create page":::   
@@ -113,9 +126,20 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     ```bash
     kubectl get pods -n \<release-namespace-name\>
     ```
+
+    Here's the sample output:
+
+    ```bash
+    NAME                                  READY   STATUS    RESTARTS   AGE
+    eventgrid-broker-568f75976-wxkd2      1/1     Running   0          2m28s
+    eventgrid-operator-6c4c6c675d-ttjv5   1/1     Running   0          2m28s    
+    ```
+
     > [!IMPORTANT]
     > A Custom Location needs to be created before attempting to deploy Event Grid topics. To create a custom location, you can select the **Context** page at the bottom 5 minutes after the "Your deployment is complete" notification is shown. Alternatively, you can create a custom location using the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ExtendedLocation%2FCustomLocations). For more information, see the [Custom Location documentation](../../azure-arc/kubernetes/custom-locations.md).
-1. After the deployment succeeds, you'll be able to see an entry on the **Extensions** page with the name you provided to your Event Grid extension.
+1. After the deployment succeeds, you'll be able to see an entry on the **Extensions** page with the name you provided to your Event Grid extension. If you see **Pending** for the **Install status**, wait for a few minutes and then select **Refresh** on the toolbar. 
+
+    :::image type="content" source="./media/install-k8s-extension/extension-installed.png" alt-text="Event Grid extension - installed":::   
 
 ## Install using Azure CLI
 

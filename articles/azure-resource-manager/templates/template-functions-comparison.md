@@ -2,8 +2,9 @@
 title: Template functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 05/11/2021
 ---
+
 # Comparison functions for ARM templates
 
 Resource Manager provides several functions for making comparisons in your Azure Resource Manager template (ARM template):
@@ -15,13 +16,13 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [less](#less)
 * [lessOrEquals](#lessorequals)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## coalesce
 
 `coalesce(arg1, arg2, arg3, ...)`
 
 Returns first non-null value from the parameters. Empty strings, empty arrays, and empty objects are not null.
+
+In Bicep, use the `??` operator instead. See [Coalesce ??](../bicep/operators-logical.md#coalesce-).
 
 ### Parameters
 
@@ -37,8 +38,6 @@ The value of the first non-null parameters, which can be a string, int, array, o
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) shows the output from different uses of coalesce.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -84,31 +83,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param objectToTest object = {
-  'null1': null
-  'null2': null
-  'string': 'default'
-  'int': 1
-  'object': {
-    'first': 'default'
-  }
-  'array': [
-    1
-  ]
-}
-
-output stringOutput string = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.string
-output intOutput int = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.int
-output objectOutput object = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.object
-output arrayOutput array = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.array
-output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -123,7 +97,9 @@ The output from the preceding example with the default values is:
 
 `equals(arg1, arg2)`
 
-Checks whether two values equal each other. The `equals` function is not supported in Bicep. Use the `==` operator instead.
+Checks whether two values equal each other.
+
+In Bicep, use the `==` operator instead. See [Equals ==](../bicep/operators-comparison.md#equals-).
 
 ### Parameters
 
@@ -140,8 +116,6 @@ Returns **True** if the values are equal; otherwise, **False**.
 
 The equals function is often used with the `condition` element to test whether a resource is deployed.
 
-# [JSON](#tab/json)
-
 ```json
 {
   "condition": "[equals(parameters('newOrExisting'),'new')]",
@@ -157,18 +131,9 @@ The equals function is often used with the `condition` element to test whether a
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-> [!NOTE]
-> `Conditions` are not yet implemented in Bicep. See [Conditions](https://github.com/Azure/bicep/issues/186).
-
----
-
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) checks different types of values for equality. All the default values return True.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -231,36 +196,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 1
-param firstString string = 'a'
-param secondString string = 'a'
-param firstArray array = [
-  'a'
-  'b'
-]
-param secondArray array = [
-  'a'
-  'b'
-]
-param firstObject object = {
-  'a': 'b'
-}
-param secondObject object = {
-  'a': 'b'
-}
-
-output checInts bool = firstInt == secondInt
-output checkStrings bool = firstString == secondString
-output checkArrays bool = firstArray == secondArray
-output checkObjects bool = firstObject == secondObject
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -271,8 +206,6 @@ The output from the preceding example with the default values is:
 | checkObjects | Bool | True |
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses [not](template-functions-logical.md#not) with **equals**.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -289,14 +222,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-output checkNotEquals bool = ! (1 == 2)
-```
-
----
-
 The output from the preceding example is:
 
 | Name | Type | Value |
@@ -307,7 +232,9 @@ The output from the preceding example is:
 
 `greater(arg1, arg2)`
 
-Checks whether the first value is greater than the second value. The `greater` function is not supported in Bicep. Use the `>` operator instead.
+Checks whether the first value is greater than the second value.
+
+In Bicep, use the `>` operator instead. See [Greater than >](../bicep/operators-comparison.md#greater-than-).
 
 ### Parameters
 
@@ -323,8 +250,6 @@ Returns **True** if the first value is greater than the second value; otherwise,
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) checks whether the one value is greater than the other.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -363,20 +288,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 2
-param firstString string = 'A'
-param secondString string = 'a'
-
-output checkInts bool = firstInt > secondInt
-output checkStrings bool = firstString > secondString
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -388,7 +299,9 @@ The output from the preceding example with the default values is:
 
 `greaterOrEquals(arg1, arg2)`
 
-Checks whether the first value is greater than or equal to the second value. The `greaterOrEquals` function is not supported in Bicep. Use the `>=` operator instead.
+Checks whether the first value is greater than or equal to the second value.
+
+In Bicep, use the `>=` operator instead. See [Greater than or equal >=](../bicep/operators-comparison.md#greater-than-or-equal-).
 
 ### Parameters
 
@@ -404,8 +317,6 @@ Returns **True** if the first value is greater than or equal to the second value
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) checks whether the one value is greater than or equal to the other.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -444,20 +355,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 2
-param firstString string = 'A'
-param secondString string = 'a'
-
-output checkInts bool = firstInt >= secondInt
-output checkStrings bool = firstString >= secondString
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -469,7 +366,9 @@ The output from the preceding example with the default values is:
 
 `less(arg1, arg2)`
 
-Checks whether the first value is less than the second value. The `less` function is not supported in Bicep. Use the `<` operator instead.
+Checks whether the first value is less than the second value.
+
+In Bicep, use the `<` operator instead. See [Less than <](../bicep/operators-comparison.md#less-than-).
 
 ### Parameters
 
@@ -485,8 +384,6 @@ Returns **True** if the first value is less than the second value; otherwise, **
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) checks whether the one value is less than the other.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -525,20 +422,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 2
-param firstString string = 'A'
-param secondString string = 'a'
-
-output checkInts bool = firstInt < secondInt
-output checkStrings bool = firstString < secondString
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -550,7 +433,9 @@ The output from the preceding example with the default values is:
 
 `lessOrEquals(arg1, arg2)`
 
-Checks whether the first value is less than or equal to the second value. The `lessOrEquals` function is not supported in Bicep. Use the `<=` operator instead.
+Checks whether the first value is less than or equal to the second value.
+
+In Bicep, use the `<=` operator instead. See [Less than or equal <=](../bicep/operators-comparison.md#less-than-or-equal-).
 
 ### Parameters
 
@@ -566,8 +451,6 @@ Returns **True** if the first value is less than or equal to the second value; o
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) checks whether the one value is less than or equal to the other.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -606,20 +489,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 2
-param firstString string = 'A'
-param secondString string = 'a'
-
-output checkInts bool = firstInt <= secondInt
-output checkStrings bool = firstString <= secondString
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -629,4 +498,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).

@@ -13,29 +13,29 @@ ms.date: 05/27/2021
 # Create a query that invokes semantic ranking and returns semantic captions
 
 > [!IMPORTANT]
-> Semantic search is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search  is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In Cognitive Search, you can formulate a query request that invokes a semantic ranking algorithm over a result set and returns semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases. Both captions and answers are returned in query requests formulated using the "semantic" query type.
+Semantic search is a premium feature in Azure Cognitive Search that invokes a semantic ranking algorithm over a result set and returns semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases. Both captions and answers are returned in query requests formulated using the "semantic" query type.
 
 Captions and answers are extracted verbatim from text in the search document. The semantic subsystem determines what part of your content has the characteristics of a caption or answer, but it does not compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic search.
 
 ## Prerequisites
 
-+ A Cognitive Search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe. If you have an existing S1 or greater service in one of these regions, you can request access without having to create a new service.
++ A Cognitive Search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe. If you have an existing S1 or greater service in one of these regions, you can sign up for the preview without having to create a new service.
 
-+ Access to semantic search preview: [sign up](https://aka.ms/SemanticSearchPreviewSignup)
++ [Sign up for the preview](https://aka.ms/SemanticSearchPreviewSignup). Expected turnaround is about two business days.
 
-+ An existing search index with content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage)
++ An existing search index with content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ A search client for sending queries
++ A search client for sending queries.
 
-  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
+  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query. You can also use [Azure.Search.Documents 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2).
 
-+ A [query request](/rest/api/searchservice/preview-api/search-documents) must include the semantic option and other parameters described in this article.
++ A [query request](/rest/api/searchservice/preview-api/search-documents) must include `queryType=semantic` and other parameters described in this article.
 
 ## What's a semantic query type?
 
-In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic reranking model that can assess the context and meaning of matching results, promote more relevant matches to the top, and return semantic answers and captions.
+In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* [has parameters](#query-using-rest) that invoke the semantic reranking model that can assess the context and meaning of matching results, promote more relevant matches to the top, and return semantic answers and captions.
 
 The following request is representative of a minimal semantic query (without answers).
 
@@ -55,15 +55,17 @@ The difference lies in relevance and scoring. As defined in this preview release
 
 Only the top 50 matches from the initial results can be semantically ranked, and all results include captions in the response. Optionally, you can specify an **`answer`** parameter on the request to extract a potential answer. For more information, see [Semantic answers](semantic-answers.md).
 
-## Query with Search explorer
+## Query in Azure portal
 
 [Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after completing the following steps:
 
-1. Complete the [preview sign up](https://aka.ms/SemanticSearchPreviewSignup). Support for semantic query types must be enabled internally for your service.
+1. Open the portal with this syntax: `https://portal.azure.com/?feature.semanticSearch=true`, on a search service for which the preview is enabled.
 
-1. Open the portal with this syntax: `https://portal.azure.com/?feature.semanticSearch=true`
+1. Click **Search explorer** at the top of the overview page.
 
-Query options include switches to enable semantic queries, searchFields, and spell correction. You can also paste the required query parameters into the query string.
+1. Choose an index that has content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
+
+1. In Search explorer, set query options that enable semantic queries, searchFields, and spell correction. You can also paste the required query parameters into the query string.
 
 :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Query options in Search explorer" border="true":::
 
@@ -122,41 +124,53 @@ While content in a search index can be composed in multiple languages, the query
 
 #### Step 2: Set searchFields
 
-Add searchFields to the request. It's optional but highly recommended.
+Add searchFields to the request. It's optional but strongly recommended.
 
 ```json
 "searchFields": "HotelName,Category,Description",
 ```
 
-The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to what fields are the most important to process.
+The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to which fields are the most important to process.
 
 In contrast with other parameters, searchFields is not new. You might already be using searchFields in existing code for simple or full Lucene queries. If so, revisit how the parameter is used so that you can check for field order when switching to a semantic query type.
 
-Choose only fields of type edm.string and top-level string fields in collections. Avoid numeric fields, complex fields, and complex field collections. If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
+##### Allowed data types
 
-Field order is critical. For a single field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
+When setting searchFields, choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types). If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
 
-For two or more fields:
+| Data type | Example from hotels-sample-index |
+|-----------|----------------------------------|
+| Edm.String | HotelName, Category, Description |
+| Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
+| Collection(Edm.String) | Tags (a comma-delimited list of strings) |
 
-+ First field should always be concise (such as a title or name), ideally under 25 words.
+##### Order of fields in searchFields
 
-+ If the index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details`, and not machine focused such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there is no concise title field).
+Field order is critical because the semantic ranker limits the amount of content it can process while still delivering a reasonable response time. Content from fields at the start of the list are more likely to be included; content from the end could be truncated if the maximum limit is reached. For more information, see [Pre-processing during semantic ranking](semantic-ranking.md#pre-processing).
 
-+ Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
++ If you're specifying just one field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
+
++ For two or more fields in searchFields:
+
+  + The first field should always be concise (such as a title or name), ideally a string that is under 25 words.
+
+  + If the index has a URL field that is human readable such as `www.domain.com/name-of-the-document-and-other-details`, (rather than machine focused, such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there is no concise title field).
+
+  + Follow the above fields with other descriptive fields, where the answer to semantic queries may be found, such as the main content of a document.
 
 #### Step 3: Remove orderBy clauses
 
-Remove any orderBy clauses, if they exist in an existing request. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
+Remove any orderBy clauses from existing query code. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
 
 #### Step 4: Add answers
 
-Optionally, add "answers" if you want to include additional processing that provides an answer. 
+Optionally, add "answers" if you want to include additional processing that provides an answer. For details about this parameter, see [How to specify semantic answers](semantic-answers.md).
 
 ```json
 "answers": "extractive|count-3",
 ```
 
-Answers (and captions) are extracted from passages found in fields listed in searchFields. This is why you want to include content-rich fields in searchFields to get the best answers in a response. Answers are not guaranteed on every request. Your content must include text that has the characteristics of an answer. For more information, see [How to return semantic answers](semantic-answers.md).
+Answers (and captions) are extracted from passages found in fields listed in searchFields. This is why you want to include content-rich fields in searchFields, so that you can get the best answers in a response. Answers are not guaranteed on every request. The query must look like a question, and the content must include text that looks like an answer.
 
 #### Step 5: Add other parameters
 

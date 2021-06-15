@@ -106,9 +106,10 @@ For example, the `connection` property for a Azure Blob trigger definition might
 
 Some connections in Azure Functions are configured to use an identity instead of a secret. Support depends on the extension using the connection. In some cases, a connection string may still be required in Functions even though the service to which you are connecting supports identity-based connections.
 
-
 Identity-based connections are supported by the following trigger and binding extensions in all plans:
 
+> [!NOTE]
+> Identity-based connections are not supported with Durable Functions.
 
 | Extension name | Extension version                                                                                     |
 |----------------|-------------------------------------------------------------------------------------------------------|
@@ -118,26 +119,24 @@ Identity-based connections are supported by the following trigger and binding ex
 | Azure Service Bus    | [Version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) |
 
 
-Storage connections used by the Functions runtime for core behaviors still require the `AzureWebJobsStorage` setting. Support for identity-based connections is available and follows the below format.
+The storage connections used by the Functions runtime (`AzureWebJobsStorage`) may also be configured using an identity-based connection. See [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity) below.
 
-```json
-AzureWebJobsStorage {
-    "blobServiceUri": "https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net", 
-    "queueServiceUri": "https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net", 
-    "fileServiceUri": "https://<STORAGE_ACCOUNT_NAME>.file.core.windows.net", 
-    "tableServiceUri": "https://<STORAGE_ACCOUNT_NAME>.table.core.windows.net", 
-    "credential": "managedidentity"
-} 
-```
+When hosted in the Azure Functions service, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity is used by default. When run in other contexts, such as local development, your developer identity is used instead, although this can be customized using alternative connection parameters.
 
-When your AzureWebJobsStorage storage account follows the `https://<accountName>.blob/queue/file/table.core.windows.net` format, is not using a custom DNS, and not running in sovereign clouds, the following simplified format can be used.
+#### Grant permission to the identity
 
-```json
-AzureWebJobsStorage {
-    "accountName": "<STORAGE_ACCOUNT_NAME>", 
-    "credential": "managedidentity"
-} 
-```
+Whatever identity is being used must have permissions to perform the intended actions. This is typically done by assigning a role in Azure RBAC or specifying the identity in an access policy, depending on the service to which you are connecting. Refer to the documentation for each extension on what permissions are needed and how they can be set.
+
+> [!IMPORTANT]
+> Some permissions might be exposed by the target service that are not necessary for all contexts. Where possible, adhere to the **principle of least privilege**, granting the identity only required privileges. For example, if the app just needs to read from a blob, use the [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role as the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) includes excessive permissions for a read operation.
+The following roles cover the primary permissions needed for each extension in normal operation:
+
+| Service     | Example built-in roles |
+|-------------|------------------------|
+| Azure Blobs  | [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
+| Azure Queues | [Storage Queue Data Reader](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage Queue Data Message Processor](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage Queue Data Message Sender](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage Queue Data Contributor](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
+| Event Hubs   |    [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
+| Service Bus | [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
 
 #### Connection properties
 
@@ -145,12 +144,12 @@ An identity-based connection for an Azure service accepts the following properti
 
 | Property    | Required for Extensions | Environment variable | Description |
 |---|---|---|---|
-| Service URI | Azure Blob, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` |  The data plane URI of the service to which you are connecting. |
+| Service URI | Azure Blob<sup>1</sup>, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` | The data plane URI of the service to which you are connecting. |
 | Fully Qualified Namespace | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs and Service Bus namespace. |
 
-Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
+<sup>1</sup> Both blob and queue service URI's are required for Azure Blob.
 
-When hosted in the Azure Functions service, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity is used by default. When run in other contexts, such as local development, your developer identity is used instead, although this can be customized using alternative connection parameters.
+Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
 
 ##### Local development
 
@@ -177,6 +176,7 @@ To connect using an Azure Active Directory service principal with a client ID an
 | Client secret | `<CONNECTION_NAME_PREFIX>__clientSecret` | A client secret that was generated for the app registration. |
 
 Example of `local.settings.json` properties required for identity-based connection with Azure Blob: 
+
 ```json
 {
   "IsEncrypted": false,
@@ -189,22 +189,18 @@ Example of `local.settings.json` properties required for identity-based connecti
 }
 ```
 
-#### Grant permission to the identity
+#### Connecting to host storage with an identity
 
-Whatever identity is being used must have permissions to perform the intended actions. This is typically done by assigning a role in Azure RBAC or specifying the identity in an access policy, depending on the service to which you are connecting. Refer to the documentation for each service on what permissions are needed and how they can be set.
+Azure Functions by default uses the `AzureWebJobsStorage` connection for core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This can be  configured to leverage an identity as well.
 
-The following roles cover the primary permissions needed for each extension in normal operation:
+> [!CAUTION]
+> Some apps reuse `AzureWebJobsStorage` for storage connections in their triggers, bindings, and/or function code. Make sure that all uses of `AzureWebJobsStorage` are able to use the identity-based connection format before changing this connection from a connection string.
 
-| Service     | Example built-in roles |
-|-------------|------------------------|
-| Azure Blobs  | [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
-| Azure Queues | [Storage Queue Data Reader](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage Queue Data Message Processor](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage Queue Data Message Sender](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage Queue Data Contributor](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
-| Event Hubs   |    [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
-| Service Bus | [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
+To configure the connection in this way, make sure the app's identity has the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in order to support the core host functionality. You may need additional permissions if you use "AzureWebJobsStorage" for any other purposes.
 
-> [!IMPORTANT]
-> Some permissions might be exposed by the service that are not necessary for all contexts. Where possible, adhere to the **principle of least privilege**, granting the identity only required privileges. For example, if the app just needs to read from a blob, use the [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role as the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) includes excessive permissions for a read operation.
+If using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can set `AzureWebJobsStorage__accountName` to the name of your storage account. 
 
+If instead using a storage account in a sovereign cloud or with custom DNS, set `AzureWebJobsStorage__serviceUri` to the URI for your blob service. If "AzureWebJobsStorage" will be used for any other service, you may instead specify `AzureWebJobsStorage__blobServiceUri`, `AzureWebJobsStorage__queueServiceUri`, and `AzureWebJobsStorage__tableServiceUri` separately.
 
 ## Reporting Issues
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
