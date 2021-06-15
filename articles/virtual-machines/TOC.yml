@@ -1448,11 +1448,17 @@
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
   - name: Linux Active Directory sign-in
-    href: ./linux/login-using-aad.md
+    displayName: aad
+    items:
+    - name: SSH with Azure Active Directory
+      href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
+      items:
+      - name: Previous version being deprecated August 15, 2021
+        href: ./linux/login-using-aad.md
 - name: Updates and maintenance
   items:
   - name: Overview
-    displayName: Updates and maintenance
+    displayName: maintenance, updates, live-migration
     href: updates-maintenance-overview.md
   - name: Automatic OS image upgrade
     items:
@@ -1461,12 +1467,18 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
     - name: Maintenance control for OS image upgrade
       items:
-      - name: Overview (Preview)
+      - name: Overview
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell (Preview)
+      - name: PowerShell 
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-powershell.md
+      - name: CLI 
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-cli.md
+      - name: Portal 
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-portal.md
   - name: Automatic VM guest patching (Preview)
     items:
     - name: Overview
@@ -1835,6 +1847,6 @@
   - name: FAQ
     items:
     - name: Linux
-      href: ./linux/faq.md
+      href: ./linux/faq.yml
     - name: Windows
-      href: ./windows/faq.md
+      href: ./windows/faq.yml

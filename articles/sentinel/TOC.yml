@@ -35,7 +35,7 @@
       href: https://docs.microsoft.com/security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json
   - name: Data collection and analysis
     items:
-    - name: Normalizing and parsing data
+    - name: Normalization and the Azure Sentinel Information Model (ASIM)
       href: normalization.md
     - name: Classifying data with entities
       href: entities-in-azure-sentinel.md
@@ -381,8 +381,12 @@
       href: data-source-schema-reference.md
     - name: CEF log field mapping
       href: cef-name-mapping.md
+    - name: Normalization
+    items:
     - name: Network normalization schema
       href: normalization-schema.md
+    - name: DNS normalization schema
+      href: dns-normalization-schema.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks
