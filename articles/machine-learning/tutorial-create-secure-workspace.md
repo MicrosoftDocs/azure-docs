@@ -488,6 +488,19 @@ Once it has been created, select the virtual machine in the Azure portal and the
 
 :::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-stop.png" alt-text="Screenshot of stop button for the VM":::
 
+## Clean up resources
+
+If you plan to continue using the secured workspace and other resources, skip this section.
+
+To delete all resources created in this tutorial, use the following steps:
+
+1. In the Azure portal, select __Resource groups__ on the far left.
+1. From the list, select the resource group that you created in this tutorial.
+1. Select __Delete resource group__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/delete-resources.png" alt-text="Screenshot of delete resource group button":::
+
+1. Enter the resource group name, then select __Delete__.
 ## Next steps
 
 Now that you have created a secure workspace and can access studio, learn how to [run a Python script](tutorial-1st-experiment-hello-world.md) using Azure Machine Learning.
