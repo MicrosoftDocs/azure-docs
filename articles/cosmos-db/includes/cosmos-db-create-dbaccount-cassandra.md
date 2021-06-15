@@ -1,12 +1,15 @@
 ---
+ title: include file
+ description: include file
+ services: cosmos-db
  author: SnehaGunda
- ms.author: sngun
  ms.service: cosmos-db
  ms.topic: include
  ms.date: 05/19/2021
+ ms.author: sngun
  ms.custom: include file
 ---
-
+   
 1. From the Azure portal menu or the **Home page**, select **Create a resource**.
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
@@ -17,18 +20,18 @@
 
    |Setting|Value|Description |
    |---|---|---|
-   |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos account. |
-   |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-   |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-31 characters in length.|
-   |API|The type of account to create|Select **Core (SQL)** to create a document database and query by using SQL syntax. <br><br>The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. Currently, you must create a separate account for each API. <br><br>[Learn more about the SQL API](../articles/cosmos-db/introduction.md).|
+   | Subscription|Your subscription|Select the Azure subscription that you want to use for this Azure Cosmos DB account. |
+   | Resource Group|Create new<br><br>Then enter the same name as Account Name|Select **Create new**. Then enter a new resource group name for your account. For simplicity, use the same name as your Azure Cosmos account name. |
+   | Account Name|Enter a unique name|Enter a unique name to identify your Azure Cosmos DB account. Your account URI will be *cassandra.cosmos.azure.com* appended to your unique account name.<br><br>The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
+   | API|Cassandra|The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) for document databases, Gremlin for graph databases, MongoDB for document databases, Azure Table, and Cassandra. You must create a separate account for each API. <br><br>Select **Cassandra**, because in this quickstart you are creating a table that works with the Cassandra API. <br><br>[Learn more about the Cassandra API](../cassandra-introduction.md).|
    |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
-   |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../articles/cosmos-db/set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../articles/cosmos-db/serverless.md) mode.|
+   |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode.|
    |Apply Azure Cosmos DB free tier discount|**Apply** or **Do not apply**|With Azure Cosmos DB free tier, you will get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
 
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png" alt-text="The new account page for Azure Cosmos DB":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-cassandra/azure-cosmos-db-create-new-account.png" alt-text="The new account page for Azure Cosmos DB Cassandra API":::
 
 1. In the **Global Distribution** tab, configure the following details. You can leave the default values for the purpose of this quickstart:
 
@@ -45,9 +48,9 @@
 
 1. Optionally you can configure additional details in the following tabs:
 
-   * **Networking** - Configure [access from a virtual network](../articles/cosmos-db/how-to-configure-vnet-service-endpoint.md).
-   * **Backup Policy** - Configure either [periodic](../articles/cosmos-db/configure-periodic-backup-restore.md) or [continuous](../articles/cosmos-db/continuous-backup-restore-portal.md) backup policy.
-   * **Encryption** - Use either service-managed key or a [customer-managed key](../articles/cosmos-db/how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
+   * **Networking** - Configure [access from a virtual network](../how-to-configure-vnet-service-endpoint.md).
+   * **Backup Policy** - Configure either [periodic](../configure-periodic-backup-restore.md) or [continuous](../continuous-backup-restore-portal.md) backup policy.
+   * **Encryption** - Use either service-managed key or a [customer-managed key](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
    * **Tags** - Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
 1. Select **Review + create**.
@@ -57,5 +60,3 @@
    :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png" alt-text="The Azure portal Notifications pane":::
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
-
-   :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-2.png" alt-text="The Azure Cosmos DB account page":::

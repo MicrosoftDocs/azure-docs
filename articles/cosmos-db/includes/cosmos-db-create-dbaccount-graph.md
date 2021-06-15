@@ -27,9 +27,9 @@
    |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos account. |
    |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
    |Account Name|Enter a unique name|Enter a unique name to identify your Azure Cosmos DB account. Your account URI will be *gremlin.azure.com* appended to your unique account name.<br><br>The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
-   API|Gremlin (graph)|The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) for document databases, Gremlin for graph databases, MongoDB for document databases, Azure Table, and Cassandra. You must create a separate account for each API. <br><br>Select **Gremlin (graph)**, because in this quickstart you are creating a table that works with the Gremlin API. <br><br>[Learn more about the Gremlin API](../articles/cosmos-db/graph-introduction.md).|
+   API|Gremlin (graph)|The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) for document databases, Gremlin for graph databases, MongoDB for document databases, Azure Table, and Cassandra. You must create a separate account for each API. <br><br>Select **Gremlin (graph)**, because in this quickstart you are creating a table that works with the Gremlin API. <br><br>[Learn more about the Gremlin API](../graph-introduction.md).|
    |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
-   |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../articles/cosmos-db/set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../articles/cosmos-db/serverless.md) mode.|
+   |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode.|
    |Apply Azure Cosmos DB free tier discount|**Apply** or **Do not apply**|With Azure Cosmos DB free tier, you will get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
 
    > [!NOTE]
@@ -52,9 +52,9 @@
 
 1. Optionally you can configure additional details in the following tabs:
 
-   * **Networking** - Configure [access from a virtual network](../articles/cosmos-db/how-to-configure-vnet-service-endpoint.md).
-   * **Backup Policy** - Configure either [periodic](../articles/cosmos-db/configure-periodic-backup-restore.md) or [continuous](../articles/cosmos-db/continuous-backup-restore-portal.md) backup policy.
-   * **Encryption** - Use either service-managed key or a [customer-managed key](../articles/cosmos-db/how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
+   * **Networking** - Configure [access from a virtual network](../how-to-configure-vnet-service-endpoint.md).
+   * **Backup Policy** - Configure either [periodic](../configure-periodic-backup-restore.md) or [continuous](../continuous-backup-restore-portal.md) backup policy.
+   * **Encryption** - Use either service-managed key or a [customer-managed key](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
    * **Tags** - Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
 1. Select **Review + create**.

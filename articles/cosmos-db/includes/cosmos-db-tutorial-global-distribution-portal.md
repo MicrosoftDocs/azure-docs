@@ -16,7 +16,7 @@ Azure Cosmos DB is available in all [Azure regions][azureregions] worldwide. Aft
 1. In the [Azure portal](https://portal.azure.com/), in the left bar, click **Azure Cosmos DB**.
 2. In the **Azure Cosmos DB** page, select the database account to modify.
 3. In the account page, click **Replicate data globally** from the menu.
-4. In the **Replicate data globally** page, select the regions to add or remove by clicking regions in the map, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) or the [Distribute data globally with Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md) article for more information.
+4. In the **Replicate data globally** page, select the regions to add or remove by clicking regions in the map, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) or the [Distribute data globally with Azure Cosmos DB](../distribute-data-globally.md) article for more information.
    
     ![Click the regions in the map to add or remove them][1]
     
@@ -30,7 +30,7 @@ There are two common scenarios for configuring two or more regions:
 
 For delivering low-latency to end users, it is recommended that you deploy both the application and Azure Cosmos DB in the regions that correspond to where the application's users are located.
 
-For BCDR, it is recommended to add regions based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions][bcdr] article.
+For BCDR, it is recommended to add regions based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../../best-practices-availability-paired-regions.md) article.
 
 <!--
 
@@ -54,7 +54,6 @@ While all regions associated with your Cosmos DB database account can serve read
 [3]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-manual-failover-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[bcdr]: ../articles/best-practices-availability-paired-regions.md
-[consistency]: ../articles/cosmos-db/consistency-levels.md
+[consistency]: ../consistency-levels.md
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/cosmos-db/
