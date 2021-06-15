@@ -1448,11 +1448,17 @@
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
   - name: Linux Active Directory sign-in
-    href: ./linux/login-using-aad.md
+    displayName: aad
+    items:
+    - name: SSH with Azure Active Directory
+      href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
+      items:
+      - name: Previous version being deprecated August 15, 2021
+        href: ./linux/login-using-aad.md
 - name: Updates and maintenance
   items:
   - name: Overview
-    displayName: Updates and maintenance
+    displayName: maintenance, updates, live-migration
     href: updates-maintenance-overview.md
   - name: Automatic OS image upgrade
     items:
