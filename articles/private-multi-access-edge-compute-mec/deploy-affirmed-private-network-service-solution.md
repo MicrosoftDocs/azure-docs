@@ -14,7 +14,7 @@ This article provides a high-level overview of the process of deploying Affirmed
 
 The following diagram shows the system architecture of the Affirmed Private Network Service, including the resources required to deploy.
 
-![Affirmed Private Network Service Deployment](media/deploy-affirmed-private-network-service/deploy-affirmed-private-network-service.png)
+![Affirmed Private Network Service deployment](media/deploy-affirmed-private-network-service/deploy-affirmed-private-network-service.png)
 
 ## Collect required information
 
