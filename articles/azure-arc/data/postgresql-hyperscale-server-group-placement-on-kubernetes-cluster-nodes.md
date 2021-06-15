@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
@@ -370,4 +370,4 @@ You can achieve this in several ways:
 
 ## Next steps
 
-[Scale out your Azure Arc enabled PostgreSQL Hyperscale server group by adding more worker nodes](scale-out-postgresql-hyperscale-server-group.md)
+[Scale out your Azure Arc enabled PostgreSQL Hyperscale server group by adding more worker nodes](scale-out-in-postgresql-hyperscale-server-group.md)

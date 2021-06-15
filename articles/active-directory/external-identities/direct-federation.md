@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 06/10/2021
 
 ms.author: mimart
 author: msmimart
@@ -119,7 +119,7 @@ Next, your partner organization needs to configure their IdP with the required c
 Azure AD B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed below. For more information about setting up a trust between your SAML IdP and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for Single Sign-On](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
-> The target domain for SAML/WS-Fed IdP federation must not be DNS-verified on Azure AD. The authentication URL domain must match the target domain or it must be the domain of an allowed IdP. See the [Limitations](#limitations) section for details.
+> The target domain for SAML/WS-Fed IdP federation must not be DNS-verified on Azure AD. See the [Limitations](#limitations) section for details.
 
 #### Required SAML 2.0 attributes and claims
 The following tables show requirements for specific attributes and claims that must be configured at the third-party IdP. To set up federation, the following attributes must be received in the SAML 2.0 response from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually.
@@ -145,7 +145,7 @@ Required claims for the SAML 2.0 token issued by the IdP:
 Azure AD B2B can be configured to federate with IdPs that use the WS-Fed protocol with some specific requirements as listed below. Currently, the two WS-Fed providers have been tested for compatibility with Azure AD include AD FS and Shibboleth. For more information about establishing a relying party trust between a WS-Fed compliant provider with Azure AD, see the "STS Integration Paper using WS Protocols" available in the [Azure AD Identity Provider Compatibility Docs](https://www.microsoft.com/download/details.aspx?id=56843).
 
 > [!NOTE]
-> The target domain for federation must not be DNS-verified on Azure AD. The authentication URL domain must match either the target domain or the domain of an allowed IdP. See the [Limitations](#limitations) section for details.
+> The target domain for federation must not be DNS-verified on Azure AD. See the [Limitations](#limitations) section for details.
 
 #### Required WS-Fed attributes and claims
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/13/2021
+ms.date: 05/27/2021
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.1593.3244**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
+This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.1606.3320**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
 
 ## What's new
 

@@ -651,7 +651,7 @@ If either of these checks fail, the policy evaluation falls back to the specifie
 **conflictEffect**.
 
 > [!IMPORTANT]
-> It's recommeneded that Modify definitions that include aliases use the _audit_ **conflict effect**
+> It's recommended that Modify definitions that include aliases use the _audit_ **conflict effect**
 > to avoid failing requests using API versions where the mapped property isn't 'Modifiable'. If the
 > same alias behaves differently between API versions, conditional modify operations can be used to
 > determine the modify operation used for each API version.

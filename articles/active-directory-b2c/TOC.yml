@@ -24,9 +24,9 @@
     href: tutorial-create-tenant.md
   - name: 2 - Register an application
     href: tutorial-register-applications.md
-  - name: 3 - Create user flows
+  - name: 3 - Create user flows and custom policies
     href: tutorial-create-user-flows.md
-  - name: 4 - Authenticate users
+  - name: Authenticate users
     items:
     - name: ASP.NET
       href: tutorial-web-app-dotnet.md
@@ -37,7 +37,7 @@
     - name: Python
       href: tutorial-web-app-python.md
       displayName: flask
-  - name: 5 - Grant API access
+  - name: Grant API access
     items:
     - name: ASP.NET
       href: tutorial-web-api-dotnet.md
@@ -45,7 +45,7 @@
       href: tutorial-desktop-app-webapi.md
     - name: Single page
       href: tutorial-single-page-app-webapi.md
-  - name: 6 - Clean up and delete tenant
+  - name: Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
   href: code-samples.md
@@ -84,6 +84,8 @@
   - name: User experience
     expanded: true
     items:
+    - name: Sign-in options
+      href: sign-in-options.md
     - name: User flows and custom policies
       href: user-flow-overview.md
     - name: Custom policy overview
@@ -105,10 +107,30 @@
     href: tenant-management.md
   - name: App integration
     items:
-    - name: Register a web application
-      href: tutorial-register-applications.md
+    - name: ASP.NET Core web app
+      items:
+      - name: Configure a sample web app
+        href: configure-authentication-sample-web-app.md
+      - name: Enable authentication in your app
+        href: enable-authentication-web-application.md
+      - name: Authentication options
+        href: enable-authentication-web-application-options.md
+    - name: ASP.NET Core web app that calls API
+      items:
+      - name: Configure a sample web app that calls API
+        href: configure-authentication-sample-web-app-with-api.md
+      - name: Enable authentication in your app
+        href: enable-authentication-web-app-with-api.md
+      - name: Authentication options
+        href: enable-authentication-web-app-with-api-options.md
+    - name: Single-page application (SPA)
+      items:
+      - name: Configure a sample SPA app
+        href: configure-authentication-sample-spa-app.md
+      - name: Authentication options
+        href: enable-authentication-spa-app-options.md
     - name: Register a single-page application (SPA)
-      href: tutorial-register-spa.md
+      href: tutorial-register-spa.md    
     - name: SAML application
       items:
       - name: Configure a SAML application
@@ -128,6 +150,8 @@
       href: signin-appauth-ios.md
     - name: Android using App Auth
       href: signin-appauth-android.md
+    - name: Publish your app to Azure AD app gallery
+      href: publish-app-to-azure-ad-app-gallery.md
     - name: Secure API Management API
       href: secure-api-management.md
       displayName: apim, api management, migrate, b2clogin.com
@@ -158,7 +182,7 @@
     items:
     - name: Local account identity provider
       href: identity-provider-local.md
-      displayName: Username, Email, Phone authorization, Phone sing-in
+      displayName: Username, Email, Phone authorization, Phone sign-in
     - name: Add an identity provider
       href: add-identity-provider.md
     - name: AD FS
@@ -475,14 +499,16 @@
           href: id-token-hint.md
         - name: JWT token issuer
           href: jwt-issuer-technical-profile.md
-        - name: OAuth1
+        - name: OAuth1 identity provider
           href: oauth1-technical-profile.md
-        - name: OAuth2
+        - name: OAuth2 identity provider
           href: oauth2-technical-profile.md
+        - name: OAuth2 custom error
+          href: oauth2-error-technical-profile.md
         - name: One-time password
           href: one-time-password-technical-profile.md
           displayName: otp
-        - name: OpenID Connect
+        - name: OpenID Connect identity provider
           href: openid-connect-technical-profile.md
         - name: Phone factor
           href: phone-factor-technical-profile.md
@@ -551,7 +577,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
-    href: faq.md
+    href: ./faq.yml
   - name: Getting help
     href: ../active-directory/develop/developer-support-help-options.md
   - name: Pricing

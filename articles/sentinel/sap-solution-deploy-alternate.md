@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 05/12/2021
+ms.date: 05/19/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -34,20 +34,31 @@ For more information, see [Azure Sentinel SAP solution detailed SAP requirements
 
 Create an Azure key vault that you can dedicate to your Azure Sentinel SAP data connector.
 
-Run the following command to create your Azure key vault:
+Run the following command to create your Azure key vault and grant access to an Azure service principal: 
 
 ``` azurecli
 kvgp=<KVResourceGroup>
 
 kvname=<keyvaultname>
 
+spname=<sp-name>
+
+kvname=<keyvaultname>
+# Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
+az ad sp create-for-rbac –name $spname 
+
+SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
+
 #Create key vault
 az keyvault create \
   --name $kvname \
   --resource-group $kvgp
+  
+# Add access to SP
+az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID --secret-permissions get list set
 ```
 
-For more information, see [Quickstart: Create a key vault using the Azure CLI](/azure/key-vault/general/quick-create-cli).
+For more information, see [Quickstart: Create a key vault using the Azure CLI](../key-vault/general/quick-create-cli.md).
 
 ## Add Azure Key Vault secrets
 
@@ -128,8 +139,9 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
     ```bash
     mkdir /home/$(pwd)/sapcon/<sap-sid>/
-    Cd /home/$(pwd)/sapcon/<sap-sid>/
-    Wget  https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.inicp <**nwrfc750X_X-xxxxxxx.zip**> /home/$(pwd)/sapcon/<sap-sid>/
+    cd /home/$(pwd)/sapcon/<sap-sid>/
+    wget  https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.ini 
+    cp <**nwrfc750X_X-xxxxxxx.zip**> /home/$(pwd)/sapcon/<sap-sid>/
     ```
 
 1. Edit the **systemconfig.ini** file as needed, using the embedded comments as a guide. For more information, see [Manually configure the SAP data connector](#manually-configure-the-sap-data-connector).
@@ -160,7 +172,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
     ```bash
     ##############################################################
     ##############################################################
-    # env.list template
+    # env.list template for Credentials
     SAPADMUSER=<SET_SAPCONTROL_USER>
     SAPADMPASSWORD=<SET_SAPCONTROL_PASS>
     ABAPUSER=SET_ABAP_USER>
@@ -168,13 +180,18 @@ We recommend that you perform this procedure after you have a key vault ready wi
     JAVAUSER=<SET_JAVA_OS_USER>
     JAVAPASS=<SET_JAVA_OS_USER>
     ##############################################################
+    ##############################################################
+    # env.list template for AZ Cli when MI is not enabled
+    AZURE_TENANT_ID=<your tenant id>
+    AZURE_CLIENT_ID=<your client/app id>
+    ##############################################################
     ```
 
 1. Download and run the pre-defined Docker image with the SAP data connector installed.  Run:
 
     ```bash
-    docker pull docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon /sapcon:latest
-    docker run --env-file=<env.list_location> -d -v /home/$(pwd)/sapcon/<sap-sid>/:/sapcon-app/sapcon/config/system --name sapcon-<sid> sapcon
+    docker pull docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
+    docker run --env-file=<env.list_location> -d --restart unless-stopped -v /home/$(pwd)/sapcon/<sap-sid>/:/sapcon-app/sapcon/config/system --name sapcon-<sid> sapcon
     rm -f <env.list_location>
     ```
 

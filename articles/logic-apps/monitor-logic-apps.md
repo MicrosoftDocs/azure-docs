@@ -30,7 +30,7 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
 1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
 
-   To find your logic app , in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
+   To find your logic app, in the main Azure search box, enter `logic apps`, and then select **Logic apps**.
 
    ![Find and select "Logic Apps" service](./media/monitor-logic-apps/find-your-logic-app.png)
 

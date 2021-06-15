@@ -76,17 +76,17 @@ When represented as a JSON object, a digital twin will display the following fie
 | `$dtId` | A user-provided string representing the ID of the digital twin |
 | `$etag` | Standard HTTP field assigned by the web server |
 | `$conformance` | An enum containing the conformance status of this digital twin (*conformant*, *non-conformant*, *unknown*) |
-| `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
+| `<property-name>` | The value of a property in JSON (`string`, number type, or object) |
 | `$relationships` | The URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing relationship edges. |
 | `$metadata.$model` | [Optional] The ID of the model interface that characterizes this digital twin |
-| `$metadata.{propertyName}.desiredValue` | [Only for writable properties] The desired value of the specified property |
-| `$metadata.{propertyName}.desiredVersion` | [Only for writable properties] The version of the desired value |
-| `$metadata.{propertyName}.ackVersion` | The version acknowledged by the device app implementing the digital twin |
-| `$metadata.{propertyName}.ackCode` | [Only for writable properties] The `ack` code returned by the device app implementing the digital twin |
-| `$metadata.{propertyName}.ackDescription` | [Only for writable properties] The `ack` description returned by the device app implementing the digital twin |
-| `{componentName}` | A JSON object containing the component's property values and metadata, similar to those of the root object. This object exists even if the component has no properties. |
-| `{componentName}.{propertyName}` | The value of the component's property in JSON (`string`, number type, or object) |
-| `{componentName}.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
+| `$metadata.<property-name>.desiredValue` | [Only for writable properties] The desired value of the specified property |
+| `$metadata.<property-name>.desiredVersion` | [Only for writable properties] The version of the desired value |
+| `$metadata.<property-name>.ackVersion` | The version acknowledged by the device app implementing the digital twin |
+| `$metadata.<property-name>.ackCode` | [Only for writable properties] The `ack` code returned by the device app implementing the digital twin |
+| `$metadata.<property-name>.ackDescription` | [Only for writable properties] The `ack` description returned by the device app implementing the digital twin |
+| `<component-name>` | A JSON object containing the component's property values and metadata, similar to those of the root object. This object exists even if the component has no properties. |
+| `<component-name>.<property-name>` | The value of the component's property in JSON (`string`, number type, or object) |
+| `<component-name>.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
 
 Here is an example of a digital twin formatted as a JSON object:
 
@@ -145,7 +145,7 @@ When represented as a JSON object, a relationship from a digital twin will displ
 | `$sourceId` | The ID of the source digital twin |
 | `$targetId` | The ID of the target digital twin |
 | `$relationshipName` | The name of the relationship |
-| `{propertyName}` | [Optional] The value of a property of this relationship, in JSON (`string`, number type, or object) |
+| `<property-name>` | [Optional] The value of a property of this relationship, in JSON (`string`, number type, or object) |
 
 Here is an example of a relationship formatted as a JSON object:
 

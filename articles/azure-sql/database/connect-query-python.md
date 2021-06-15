@@ -4,13 +4,13 @@ description: This topic shows you how to use Python to create a program that con
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: seo-python-october2019, sqldbrb=2, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 12/19/2020
 ---
 # Quickstart: Use Python to query a database

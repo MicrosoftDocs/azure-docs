@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro FPGA manage users | Microsoft Docs 
+title: Azure Stack Edge Pro FPGA user management 
 description: Describes how to use the Azure portal to manage users on your Azure Stack Edge Pro.
 services: databox
 author: alkohli

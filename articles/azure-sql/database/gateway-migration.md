@@ -3,12 +3,12 @@ title: Gateway traffic migration notice
 description: Article provides notice to users about the migration of Azure SQL Database gateway IP addresses
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 07/01/2019
 ---
 # Azure SQL Database traffic migration to newer Gateways
@@ -26,7 +26,7 @@ The most up-to-date information will be maintained in the [Azure SQL Database ga
 ## June 2021
 New SQL Gateways are being added to the following regions:
 - UK West: 51.140.208.96, 51.140.208.97
-- Korea Central US: 20.44.24.32, 20.194.64.33
+- Korea Central: 20.44.24.32, 20.194.64.33
 - Japan East: 13.78.104.32
 
 This SQL Gateway shall start accepting customer traffic on 1 June 2021.

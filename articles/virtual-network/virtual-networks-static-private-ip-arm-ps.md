@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a virtual machine with a static private IP address using PowerShell

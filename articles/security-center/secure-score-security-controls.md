@@ -95,7 +95,7 @@ We recommend every organization carefully review their assigned Azure Policy ini
 > [!TIP]
 > For details of reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
 
-Even though Security Center's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it'll sometimes be necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies. industry standards, regulatory standards, and benchmarks you're obligated to meet.<br><br>
+Even though Security Center's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it'll sometimes be necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks you're obligated to meet.<br><br>
 <div class="foo">
 
 <style type="text/css">
@@ -115,7 +115,7 @@ Even though Security Center's default security initiative is based on industry b
 
 
 
-## Secure score FAQ
+## FAQ - Secure score
 
 ### If I address only three out of four recommendations in a security control, will my secure score change?
 No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.

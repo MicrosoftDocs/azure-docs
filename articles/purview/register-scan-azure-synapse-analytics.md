@@ -51,11 +51,11 @@ Example SQL syntax to create user and grant permission:
 CREATE USER [PurviewManagedIdentity] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [PurviewManagedIdentity]
+EXEC sp_addrolemember 'db_datareader', [PurviewManagedIdentity]
 GO
 ```
 
-The authentication must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_owner` permission to the identity.
+The authentication must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_datareader` permission to the identity.
 
 ### Service Principal
 
@@ -91,7 +91,7 @@ In addition, you must also create an Azure AD user in Azure Synapse Analytics by
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
+ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalName]
 GO
 ```
 
@@ -114,7 +114,7 @@ When authentication method selected is **SQL Authentication**, you need to get y
 
 ## Register a SQL dedicated pool (formerly SQL DW)
 
-To register a new Azure Synapse Analytics server in your Data Catalog, do the following:
+To register a new SQL dedicated pool in Purview, do the following:
 
 1. Navigate to your Purview account.
 1. Select **Sources** on the left navigation.
@@ -132,7 +132,35 @@ On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
 :::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="register sources options" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## Creating and running a scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
+
+1. Select the SQL dedicated pool source that you registered.
+
+1. Select **New scan**
+
+1. Select the credential to connect to your data source.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/sql-dedicated-pool-set-up-scan.png" alt-text="Set up scan":::
+
+1. You can scope your scan to specific tables by choosing the appropriate items in the list.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/scope-scan.png" alt-text="Scope your scan":::
+
+1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/select-scan-rule-set.png" alt-text="Scan rule set":::
+
+1. Choose your scan trigger. You can set up a schedule or run the scan once.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/trigger-scan.png" alt-text="trigger":::
+
+1. Review your scan and select **Save and run**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 

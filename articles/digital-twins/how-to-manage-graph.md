@@ -29,9 +29,10 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 [!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
-You can also make changes to your graph using the Azure Digital Twins Explorer sample, which allows you to visualize your twins and graph, and makes use of the SDK behind the scenes. The next section describes this sample in detail.
-
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 
 ## Create relationships
 
@@ -199,7 +200,7 @@ Now that you've completed setup, you can run the sample code project.
 
 Here is the console output of the program: 
 
-:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
+:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Screenshot of the console output showing the twin details with incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
 > The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [Visualization](how-to-manage-graph.md#visualization) section of this article. 
