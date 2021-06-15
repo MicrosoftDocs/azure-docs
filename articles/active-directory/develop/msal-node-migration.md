@@ -228,7 +228,7 @@ Most of the public methods in ADAL Node have equivalents in MSAL Node:
 |-------------------------------------|-----------------------------------|-----------------------------------|
 | `acquireToken`                      | `acquireTokenSilent`              | Renamed and now expects an [account](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#accountinfo) object |
 | `acquireTokenWithAuthorizationCode` | `acquireByAuthorizationCode`      |                                   |
-| `acquireTokenWithClientCredentials` | `acquireTokenByClientCredentials` |                                   |
+| `acquireTokenWithClientCredentials` | `acquireTokenByClientCredential` |                                   |
 | `acquireTokenWithRefreshToken`      | `acquireTokenByRefreshToken`      |                                   |
 | `acquireTokenWithDeviceCode`        | `acquireTokenByDeviceCode`        | Now abstracts user code acquisition (see below) |
 | `acquireTokenWithUsernamePassword`  | `acquireTokenByUsernamePassword`  |                                   |
@@ -263,7 +263,7 @@ In MSAL Node, promises are used instead:
 ```javascript
     const cca = new msal.ConfidentialClientApplication(msalConfig);
 
-    cca.acquireTokenByClientCredentials(tokenRequest).then((response) => {
+    cca.acquireTokenByClientCredential(tokenRequest).then((response) => {
         // do something with the authentication response
     }).catch((error) => {
         console.log(error);

@@ -240,8 +240,12 @@
         href: logs/log-analytics-tutorial.md
       - name: Query scope
         href: logs/scope.md
-      - name: Example queries
-        href: logs/example-queries.md
+      - name: Saving queries
+        href: logs/save-query.md
+      - name: Using queries
+        href: logs/queries.md
+      - name: Query packs
+        href: logs/query-packs.md
     - name: Log queries
       items:
       - name: Overview
@@ -370,6 +374,9 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Deploy at scale
+        displayname: Deploy Azure Monitor agent at scale
+        href: deploy-scale.md#azure-monitor-agent-preview  
       - name: FAQ
         displayname: Azure Monitor agent FAQ
         href: faq.md#azure-monitor-agent-preview
@@ -625,27 +632,29 @@
       href: ./faq.md
     - name: Code-based monitoring
       items:
-      - name: ASP.NET Core 
+      - name: .NET
         items:
-        - name: ASP.NET Core App Monitoring
-          displayname: Core, .NET Core, services.add, dotnetcore, c#, csharp
-          href: app/asp-net-core.md
-        - name: ILogger
-          displayname: ilogger, logging, log 
-          href: app/ilogger.md
-      - name: ASP.NET
-        items: 
-        - name: ASP.NET App Monitoring
-          displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
-          href: app/asp-net.md
-        - name: Troubleshoot ASP.NET
-          href: app/asp-net-troubleshoot-no-data.md
-      - name: Non-HTTP/Background apps
-        displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
-        href: app/worker-service.md  
-      - name: .NET Console
-        displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
-        href: app/console.md
+          - name: ASP.NET Core 
+            items:
+            - name: ASP.NET Core App Monitoring
+              displayname: Core, .NET Core, services.add, dotnetcore, c#, csharp
+              href: app/asp-net-core.md
+            - name: ILogger
+              displayname: ilogger, logging, log 
+              href: app/ilogger.md
+          - name: ASP.NET
+            items: 
+            - name: ASP.NET App Monitoring
+              displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
+              href: app/asp-net.md
+            - name: Troubleshoot ASP.NET
+              href: app/asp-net-troubleshoot-no-data.md
+          - name: Non-HTTP/Background apps
+            displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
+            href: app/worker-service.md  
+          - name: .NET Console
+            displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
+            href: app/console.md
       - name: Java
         items:
           - name: Web apps
@@ -869,6 +878,8 @@
     - name: Smart Detection
       href: app/proactive-diagnostics.md
       items:
+      - name: Upgrade to alerts
+        href: alerts/alerts-smart-detections-migration.md
       - name: Failure anomalies
         href: app/proactive-failure-diagnostics.md
       - name: Performance anomalies
@@ -1075,6 +1086,8 @@
         href: containers/container-insights-azure-redhat-setup.md
       - name: Enable for Azure Red Hat OpenShift v4
         href: containers/container-insights-azure-redhat4-setup.md
+      - name: Enable with Azure Policy
+        href: containers/container-insights-enable-aks-policy.md
       - name: Region mappings
         href: containers/container-insights-region-mapping.md
     - name: Monitor performance
@@ -1137,6 +1150,8 @@
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer (preview)
       href: insights/data-explorer.md
+    - name: Log Analytics workspace
+      href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
       href: insights/network-insights-overview.md
     - name: Key Vault
@@ -1196,7 +1211,7 @@
             - name: Pricing
               href: insights/network-performance-monitor-pricing-faq.md
             - name: FAQ
-              href: insights/network-performance-monitor-faq.md
+              href: insights/network-performance-monitor-faq.yml
         - name: Office 365
           href: insights/solution-office-365.md
         - name: Service Map solution

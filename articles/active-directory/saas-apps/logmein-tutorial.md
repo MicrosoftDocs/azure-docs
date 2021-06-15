@@ -75,6 +75,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign-on URL** text box, type the URL:
     `https://authentication.logmeininc.com/login?service=https%3A%2F%2Fmyaccount.logmeininc.com`
 
+1. Your LogMeIn application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **Unique User Identifier** is mapped with **user.userprincipalname**. LogMeIn application expects **Unique User Identifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+
+	![image](common/default-attributes.png)
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

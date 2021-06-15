@@ -26,11 +26,12 @@ You can create a copy of any application, minus any device instances, device dat
 
 Select **Copy**. In the dialog box, enter the details for the new application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see [Create an application](howto-create-iot-central-application.md).
 
-![Screenshot that shows the "Copy Application" settings page.](media/howto-use-app-templates/appcopy2.png)
+![Application settings page](media/howto-use-app-templates/app-copy-3-a.png)
+
+![Screenshot that shows the "Copy Application" settings page.](media/howto-use-app-templates/app-copy-2.png)
 
 After the app copy operation succeeds, you can navigate to the new application using the link.
 
-![Application settings page](media/howto-use-app-templates/appcopy3a.png)
 
 Copying an application also copies the definition of rules and email action. Some actions, such as Flow and  Logic Apps, are tied to specific rules via the Rule ID. When a rule is copied to a different application, it gets its own Rule ID. In this case, users will have to create a new action and then associate the new rule with it. In general, it's a good idea to check the rules and actions to make sure they're up-to-date in the new app.
 
@@ -67,6 +68,8 @@ To create an application template from an existing IoT Central application:
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
 ![Create an application template](media/howto-use-app-templates/create-template.png)
+
+![Export an application template](media/howto-use-app-templates/create-template-2.png)
 
 ### Use an application template
 

@@ -155,6 +155,8 @@
         href: sizes-compute.md
       - name: Fsv2-series
         href: fsv2-series.md
+      - name: FX-series
+        href: fx-series.md
     - name: Memory optimized
       items:
       - name: Overview
@@ -206,6 +208,8 @@
         href: ncv3-series.md
       - name: NCasT4_v3-series
         href: nct4-v3-series.md
+      - name: NDasrA100_v4-series
+        href: nda100-v4-series.md
       - name: ND-series
         href: nd-series.md
       - name: NDv2-series
@@ -790,13 +794,13 @@
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        href: https://azure.microsoft.com/resources/templates/sig-create/
       - name: Create an Image Definition in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
       - name: Create a VM from Image Version
-        href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+        href: https://azure.microsoft.com/resources/templates/vm-from-sig/
     - name: Ansible
       href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
@@ -809,7 +813,7 @@
       href: managed-disk-from-image-version.md
     - name: Purchase plan information
       href: marketplace-images.md
-  - name: Image builder (Preview)
+  - name: Image builder
     items:
     - name: Overview
       displayName: Image builder, images, building
@@ -965,6 +969,8 @@
     href: disks-shared-enable.md
   - name: Encryption
     items:
+    - name: Disk encryption overview
+      href: disk-encryption-overview.md
     - name: Server-side encryption
       items:
       - name: Server-side encryption overview
@@ -1039,7 +1045,9 @@
         - name: Disk encryption troubleshooting
           href: ./linux/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./linux/disk-encryption-faq.md
+          href: ./linux/disk-encryption-faq.yml
+        - name: Upgrade from previous to current version
+          href: ./linux/disk-encryption-upgrade.md
         - name: Disk encryption - previous version
           items:
           - name: Overview
@@ -1070,7 +1078,7 @@
         - name: Disk encryption troubleshooting
           href: ./windows/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./windows/disk-encryption-faq.md
+          href: ./windows/disk-encryption-faq.yml
         - name: Disk encryption - previous version
           items:
           - name: Overview
@@ -1258,7 +1266,7 @@
         displayName: Find unattached disks
         href: disks-find-unattached-portal.md
     - name: Disks FAQs
-      href: faq-for-disks.md
+      href: faq-for-disks.yml
   - name: Code samples
     items:
     - name: CLI
@@ -1453,12 +1461,18 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
     - name: Maintenance control for OS image upgrade
       items:
-      - name: Overview (Preview)
+      - name: Overview
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell (Preview)
+      - name: PowerShell 
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-powershell.md
+      - name: CLI 
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-cli.md
+      - name: Portal 
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-portal.md
   - name: Automatic VM guest patching (Preview)
     items:
     - name: Overview
@@ -1827,6 +1841,6 @@
   - name: FAQ
     items:
     - name: Linux
-      href: ./linux/faq.md
+      href: ./linux/faq.yml
     - name: Windows
-      href: ./windows/faq.md
+      href: ./windows/faq.yml

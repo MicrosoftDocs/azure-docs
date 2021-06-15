@@ -46,7 +46,7 @@ This is done by adding an `--assign-identity` parameter to the `az dt create` co
 To create an instance with a system managed identity, add the  `--assign-identity` parameter like this:
 
 ```azurecli-interactive
-az dt create --dt-name {new_instance_name} --resource-group {resource_group} --assign-identity
+az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity
 ```
 
 ### Add a system-managed identity to an existing instance
@@ -58,13 +58,13 @@ This is also done with the `az dt create` command and `--assign-identity` parame
 The command to **enable** managed identity is the same as the command to create an instance with a system managed identity. All that changes is the value of the instance name parameter:
 
 ```azurecli-interactive
-az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity
 ```
 
 To **disable** managed identity on an instance where it's currently enabled, use the following similar command to set `--assign-identity` to `false`.
 
 ```azurecli-interactive
-az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity false
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity false
 ```
 
 ## Assign Azure roles to the identity 
@@ -95,7 +95,7 @@ You can add the `--scopes` parameter onto the `az dt create` command in order to
 Here is an example that creates an instance with a system managed identity, and assigns that identity a custom role called `MyCustomRole` in an event hub.
 
 ```azurecli-interactive
-az dt create --dt-name {instance_name} --resource-group {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
+az dt create --dt-name <instance-name> --resource-group <resource-group> --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource-group>/providers/Microsoft.EventHub/namespaces/<Event-Hubs-namespace>/eventhubs/<event-hub-name>" --role MyCustomRole
 ```
 
 For more examples of role assignments with this command, see the [az dt create reference documentation](/cli/azure/dt#az_dt_create).
@@ -114,7 +114,7 @@ This is done by adding a `--auth-type` parameter to the `az dt endpoint create` 
 To create an endpoint that uses identity-based authentication, specify the `IdentityBased` authentication type with the  `--auth-type` parameter. The example below illustrates this for an Event Hubs endpoint.
 
 ```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name {endpoint_name} --eventhub-resource-group {eventhub_resource_group} --eventhub-namespace {eventhub_namespace} --eventhub {eventhub_name} --auth-type IdentityBased --dt-name {instance_name}
+az dt endpoint create eventhub --endpoint-name <endpoint-name> --eventhub-resource-group <eventhub-resource-group> --eventhub-namespace <eventhub-namespace> --eventhub <eventhub-name> --auth-type IdentityBased --dt-name <instance-name>
 ```
 
 ## Considerations for disabling system-managed identities

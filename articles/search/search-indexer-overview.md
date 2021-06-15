@@ -34,13 +34,21 @@ You can use an indexer as the sole means for data ingestion, or as part of a com
 
 ## Supported data sources
 
-Indexers crawl data stores on Azure.
+Indexers crawl data stores on Azure and outside of Azure.
 
++ [Amazon Redshift](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-+ [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (in preview)
-+ [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
++ [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
++ [Azure MySQL](search-howto-index-mysql.md) (in preview)
 + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Azure Table Storage](search-howto-indexing-azure-tables.md)
++ [Elasticsearch](search-how-to-index-power-query-data-sources.md) (in preview)
++ [PostgreSQL](search-how-to-index-power-query-data-sources.md) (in preview)
++ [Salesforce Objects](search-how-to-index-power-query-data-sources.md) (in preview)
++ [Salesforce Reports](search-how-to-index-power-query-data-sources.md) (in preview)
++ [Smartsheet](search-how-to-index-power-query-data-sources.md) (in preview)
++ [Snowflake](search-how-to-index-power-query-data-sources.md) (in preview)
 + [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 

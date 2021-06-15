@@ -207,7 +207,6 @@ A Kubelet identity enables access to be granted to the existing identity prior t
 ### Limitations
 
 - Only works with a User-Assigned Managed cluster.
-- Azure Government isn't currently supported.
 - Azure China 21Vianet isn't currently supported.
 
 First, register the feature flag for Kubelet identity:

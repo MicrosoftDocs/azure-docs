@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 05/26/2021
 ---
 
 # What's new in Azure Sentinel
@@ -18,7 +18,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> 
+>
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 > [!TIP]
 > Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Azure Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
@@ -28,6 +30,8 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## May 2021
 
+- [Azure Sentinel PowerShell module](#azure-sentinel-powershell-module)
+- [Alert grouping enhancements](#alert-grouping-enhancements)
 - [Azure Sentinel solutions (Public preview)](#azure-sentinel-solutions-public-preview)
 - [Continuous Threat Monitoring for SAP solution (Public preview)](#continuous-threat-monitoring-for-sap-solution-public-preview)
 - [Threat intelligence integrations (Public preview)](#threat-intelligence-integrations-public-preview)
@@ -38,6 +42,27 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [Hunting dashboard (Public preview)](#hunting-dashboard-public-preview)
 - [Incident teams - collaborate in Microsoft Teams (Public preview)](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
+
+
+### Azure Sentinel PowerShell module
+
+The official Azure Sentinel PowerShell module to automate daily operational tasks has been released as GA!
+
+You can download it here: [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.SecurityInsights/).
+
+For more information, see the PowerShell documentation: [Az.SecurityInsights](/powershell/module/az.securityinsights/)
+
+### Alert grouping enhancements
+
+Now you can configure your analytics rule to group alerts into a single incident, not only when they match a specific entity type, but also when they match a specific alert name, severity, or other custom details for a configured entity. 
+
+In the **Incidents settings** tab of the analytics rule wizard, select to turn on alert grouping, and then select the **Group alerts into a single incident if the selected entity types and details match** option. 
+
+Then, select your entity type and the relevant details you want to match:
+
+:::image type="content" source="media/whats-new/alert-grouping-details.png" alt-text="Group alerts by matching entity details.":::
+
+For more information, see [Alert grouping](tutorial-detect-threats-custom.md#alert-grouping).
 
 ### Azure Sentinel solutions (Public preview)
 

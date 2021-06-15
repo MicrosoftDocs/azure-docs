@@ -32,7 +32,7 @@ To provide a similar experience as to what you get in Azure, the [Azure Static W
 - Local routes and configuration settings enforcement
 
 > [!NOTE]
-> The Azure Static Web Apps CLI is currently a preview feature.
+> Often sites built with a front-end framework require a proxy configuration setting to correctly handle requests under the `api` route. When using the Azure Static Web Apps CLI the proxy location value is `/api`, and without the CLI the value is `http://localhost:7071/api`.
 
 ## How it works
 

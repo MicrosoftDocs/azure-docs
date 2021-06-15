@@ -106,7 +106,7 @@ your external tables and views.
 
 ## Create external tables on Azure storage
 
-Once you discover the schema, you can create external tables and views on top of yu=our external data sources. The good practice is to organize
+Once you discover the schema, you can create external tables and views on top of your external data sources. The good practice is to organize
 your tables and views in databases schemas. In the following query you can create a schema where you will place all objects that are accessing
 ECDC COVID data set in Azure data Lake storage:
 

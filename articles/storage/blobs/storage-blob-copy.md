@@ -2,9 +2,9 @@
 title: Copy a blob with Azure Storage APIs
 description: Learn how to copy a blob using the Azure Storage client libraries.
 services: storage
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
@@ -38,7 +38,7 @@ A copy operation can take any of the following forms:
 
 ## Copy a blob
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 To copy a blob, call one of the following methods:
 
@@ -51,7 +51,7 @@ The following code example gets a [BlobClient](/dotnet/api/azure.storage.blobs.b
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_CopyBlob":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 To copy a blob, call one of the following methods:
 
@@ -119,7 +119,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 }
 ```
 
-# [Python v12](#tab/python)
+# [Python v12 SDK](#tab/python)
 
 To copy a blob, call the [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-) method. The `start_copy_from_url` method returns a dictionary containing information about the copy operation.
 
@@ -133,7 +133,7 @@ The following code example gets a [BlobClient](/azure/developer/python/sdk/stora
 
 Aborting a copy operation results in a destination blob of zero length. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods.
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 Check the [BlobProperties.CopyStatus](/dotnet/api/azure.storage.blobs.models.blobproperties.copystatus) property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
@@ -143,7 +143,7 @@ The [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclien
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_StopBlobCopy":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 Check the [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status) property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
@@ -163,7 +163,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 }
 ```
 
-# [Python v12](#tab/python)
+# [Python v12 SDK](#tab/python)
 
 Check the "status" entry in the [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) dictionary returned by [get_blob_properties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#get-blob-properties---kwargs-) method to get the status of the copy operation. The final blob will be committed when the copy completes.
 

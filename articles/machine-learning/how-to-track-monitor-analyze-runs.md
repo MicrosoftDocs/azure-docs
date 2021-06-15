@@ -177,7 +177,8 @@ You'll need the following items:
     
     # [Studio](#tab/azure-studio)
     
-    ---
+    ---    
+   
 ## Custom View 
     
 To view your runs in the studio: 
@@ -190,17 +191,18 @@ In the **All runs'** page, you can filter the runs list by tags, experiments, co
     
 1. Make customizations to the page by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.   
 
-1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.    
+1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Screenshot: create a custom view":::
     
+
 ## Run description 
 
 A run description can be added to a run to provide more context and information to the run. You can also search on these descriptions from the runs list and add the run description as a column in the runs list. 
 
 Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit, or delete descriptions for your run. To persist the changes to the runs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for run descriptions, which allows images to be embedded and deep linking as shown below.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description.gif" alt-text="Screenshot: create a run description"::: 
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Screenshot: create a run description"::: 
 
 ## Tag and find runs
 
@@ -342,7 +344,7 @@ To cancel a run in the studio, using the following steps:
 
 1. Select the pipeline run number you want to cancel.
 
-1. In the toolbar, select **Cancel**
+1. In the toolbar, select **Cancel**.
 
 ---
 

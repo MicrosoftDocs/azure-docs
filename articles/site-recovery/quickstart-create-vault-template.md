@@ -3,7 +3,7 @@ title: Quickstart to create an Azure Recovery Services vault using an Azure Reso
 description: In this quickstart, you learn how to create an Azure Recovery Services vault using an Azure Resource Manager template (ARM template).
 ms.date: 04/28/2021
 ms.topic: quickstart
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - subject-armqs
   - mode-arm
 ---
@@ -30,7 +30,7 @@ If you don't have an active Azure subscription, you can create a
 ## Review the template
 
 The template used in this quickstart is from
-[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/recovery-services-vault-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-vault-create/azuredeploy.json":::
 

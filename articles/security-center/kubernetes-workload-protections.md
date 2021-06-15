@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 06/14/2021
 ms.author: memildin
 ---
 
@@ -29,14 +29,14 @@ Security Center offers more container security features if you enable Azure Defe
 
 ## Availability
 
-|Aspect|Details|
-|----|:----|
-|Release state:|General Availability (GA)|
-|Pricing:|Free|
-|Required roles and permissions:|**Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations|
-|Environment requirements:|Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
-|||
+| Aspect                          | Details                                                                                                                                      |
+|---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | General Availability (GA)                                                                                                                    |
+| Pricing:                        | Free                                                                                                                                         |
+| Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations                                              |
+| Environment requirements:       | Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
+| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov) |
+|                                 |                                                                                                                                              |
 
 
 ## Set up your workload protection
@@ -65,7 +65,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
 
-### Step 2: View and configure the bundle of 13 recommendations
+### Step 2: View and configure the bundle of recommendations
 
 1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
@@ -249,5 +249,5 @@ In this article, you learned how to configure Kubernetes workload protection.
 For other related material, see the following pages: 
 
 - [Security Center recommendations for compute](recommendations-reference.md#recs-compute)
-- [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
+- [Alerts for AKS cluster level](alerts-reference.md#alerts-k8scluster)
 - [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

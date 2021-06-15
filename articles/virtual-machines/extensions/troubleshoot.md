@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: windows
-ms.date: 03/29/2016
+ms.date: 03/29/2016 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Troubleshooting Azure Windows VM extension failures
