@@ -177,6 +177,32 @@ DocumentCollection documentCollection = new DocumentCollection();
 documentCollection.setId("YourContainerName");
 documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
 ```
+
+# [Java SDK 2.x.x Async API](#tab/java-v2-sync)
+
+```java
+// Create Async client.
+// Building an async client is still a sync operation.
+AsyncDocumentClient client = new Builder()
+    .withServiceEndpoint("your.hostname")
+    .withMasterKeyOrResourceToken("yourmasterkey")
+    .withConsistencyLevel(ConsistencyLevel.Eventual)
+    .build();
+// Create database with specified name
+Database database = new Database();
+database.setId("YourDatabaseName");
+client.createDatabase(database, new RequestOptions())
+      .flatMap(databaseResponse -> {
+          // Collection properties - name and partition key
+          DocumentCollection documentCollection = new DocumentCollection();
+          documentCollection.setId("YourContainerName");
+          documentCollection.setPartitionKey(new PartitionKeyDefinition("/id"));
+          // Create collection
+          return client.createCollection(databaseResponse.getResource().getSelfLink(), documentCollection, new RequestOptions());
+}).subscribe();
+
+```
+
 ---
 
 ### Item operations
@@ -210,6 +236,19 @@ ResourceResponse<Document> documentResourceResponse = client.createDocument(docu
     new RequestOptions(), true);
 Document responseDocument = documentResourceResponse.getResource();
 ```
+
+# [Java SDK 2.x.x Async API](#tab/java-v2-async)
+
+```java
+// Collection is created. Generate many docs to insert.
+int number_of_docs = 50000;
+ArrayList<Document> docs = generateManyDocs(number_of_docs);
+// Insert many docs into collection...
+Observable.from(docs)
+    .flatMap(doc -> client.createDocument(createdCollection.getSelfLink(), doc, new RequestOptions(), false))
+    .subscribe(); // ...Subscribing triggers stream execution.
+```
+
 ---
 
 ### Indexing
@@ -277,6 +316,32 @@ documentCollection.setId("YourContainerName");
 documentCollection.setIndexingPolicy(indexingPolicy);
 documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
 ```
+
+# [Java SDK 2.x.x Async API](#tab/java-v2-async)
+
+```java
+// Custom indexing policy
+IndexingPolicy indexingPolicy = new IndexingPolicy();
+indexingPolicy.setIndexingMode(IndexingMode.Consistent); //To turn indexing off set IndexingMode.None
+// Included paths
+List<IncludedPath> includedPaths = new ArrayList<>();
+IncludedPath includedPath = new IncludedPath();
+includedPath.setPath("/*");
+includedPaths.add(includedPath);
+indexingPolicy.setIncludedPaths(includedPaths);
+// Excluded paths
+List<ExcludedPath> excludedPaths = new ArrayList<>();
+ExcludedPath excludedPath = new ExcludedPath();
+excludedPath.setPath("/name/*");
+excludedPaths.add(excludedPath);
+indexingPolicy.setExcludedPaths(excludedPaths);
+// Create container with specified name and indexing policy
+DocumentCollection documentCollection = new DocumentCollection();
+documentCollection.setId("YourContainerName");
+documentCollection.setIndexingPolicy(indexingPolicy);
+client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).subscribe();
+```
+
 ---
 
 ### Stored procedures
@@ -367,6 +432,45 @@ logger.info(String.format("Stored procedure %s returned %s (HTTP %d), at cost %.
     storedProcedureResponse.getStatusCode(),
     storedProcedureResponse.getRequestCharge()));
 ```
+
+# [Java SDK 2.x.x Async API](#tab/java-v2-async)
+
+```java
+logger.info("Creating stored procedure...\n");
+String sprocId = "createMyDocument";
+String sprocBody = "function createMyDocument() {\n" +
+    "var documentToCreate = {\"id\":\"test_doc\"}\n" +
+    "var context = getContext();\n" +
+    "var collection = context.getCollection();\n" +
+    "var accepted = collection.createDocument(collection.getSelfLink(), documentToCreate,\n" +
+    "    function (err, documentCreated) {\n" +
+    "if (err) throw new Error('Error' + err.message);\n" +
+    "context.getResponse().setBody(documentCreated.id)\n" +
+    "});\n" +
+    "if (!accepted) return;\n" +
+    "}";
+StoredProcedure storedProcedureDef = new StoredProcedure();
+storedProcedureDef.setId(sprocId);
+storedProcedureDef.setBody(sprocBody);
+StoredProcedure storedProcedure = client
+    .createStoredProcedure(documentCollection.getSelfLink(), storedProcedureDef, new RequestOptions())
+    .toBlocking()
+    .single()
+    .getResource();
+// ...
+logger.info(String.format("Executing stored procedure %s...\n\n", sprocId));
+RequestOptions options = new RequestOptions();
+options.setPartitionKey(new PartitionKey("test_doc"));
+StoredProcedureResponse storedProcedureResponse =
+    client.executeStoredProcedure(storedProcedure.getSelfLink(), options, null)
+    .toBlocking().single();
+logger.info(String.format("Stored procedure %s returned %s (HTTP %d), at cost %.3f RU.\n",
+    sprocId,
+    storedProcedureResponse.getResponseAsString(),
+    storedProcedureResponse.getStatusCode(),
+    storedProcedureResponse.getRequestCharge()));
+```
+
 ---
 
 ### Change feed
@@ -415,6 +519,13 @@ ChangeFeedProcessor.Builder()
 # [Java SDK 2.x.x Sync API](#tab/java-v2-sync)
 
 * This feature is not supported as of Java SDK v2 sync. 
+
+# [Java SDK 2.x.x Async API](#tab/java-v2-async)
+
+```java
+* This feature is not supported as of Java SDK v2 async. 
+```
+
 ---
 
 ### Container level Time-To-Live(TTL)
@@ -445,6 +556,20 @@ DocumentCollection documentCollection;
 documentCollection.setDefaultTimeToLive(90 * 60 * 60 * 24);
 documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
 ```
+
+# [Java SDK 2.x.x Async API](#tab/java-v2-async)
+
+```java
+DocumentCollection collection = new DocumentCollection();
+// Create a new container with TTL enabled with default expiration value
+collection.setDefaultTimeToLive(90 * 60 * 60 * 24);
+collection = client
+    .createCollection(database.getSelfLink(), documentCollection, new RequestOptions())
+    .toBlocking()
+    .single()
+    .getResource();
+```
+
 ---
 
 ### Item level Time-To-Live(TTL)
@@ -501,6 +626,18 @@ ResourceResponse<Document> documentResourceResponse = client.createDocument(docu
     new RequestOptions(), true);
 Document responseDocument = documentResourceResponse.getResource();
 ```
+
+# [Java SDK 2.x.x Async API](#tab/java-v2-async)
+
+```java
+Document document = new Document();
+document.setId("YourDocumentId");
+document.setTimeToLive(60 * 60 * 24 * 30 ); // Expire document in 30 days
+ResourceResponse<Document> documentResourceResponse = client.createDocument(documentCollection.getSelfLink(), document,
+    new RequestOptions(), true).toBlocking().single();
+Document responseDocument = documentResourceResponse.getResource();
+```
+
 ---
 
 ## Next steps
