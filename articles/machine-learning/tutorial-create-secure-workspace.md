@@ -487,6 +487,10 @@ Once it has been created, select the virtual machine in the Azure portal and the
 
 :::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-stop.png" alt-text="Screenshot of stop button for the VM":::
 
+You can also configure the jump box to automatically shut down at a specific time. To do so, select __Auto-shutdown__, __Enable__, set a time, and then select __Save__.
+
+:::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-auto-shutdown.png" alt-text="Screenshot of auto-shutdown option":::
+
 ## Clean up resources
 
 If you plan to continue using the secured workspace and other resources, skip this section.
