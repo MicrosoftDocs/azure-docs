@@ -210,7 +210,7 @@ def send_multi_slot_reward(reward_request, event_id):
     requests.post(reward_url, data=json.dumps(reward_request), headers=HEADERS)
 ```
 
-## Get feedback for personalizer decisions
+## Get feedback for Personalizer decisions
 
 Add the following method to the script. You will signal if Personalizer made a good decision for each slot through command-line prompt.
 
