@@ -116,4 +116,4 @@ Catch {
 ## How to execute the script
 
 1. Save the above script on your machine with a name of your choice and .ps1 extension.
-1. Execute the script by providing the following parameters: Schedule of backup and number of days/weeks/months or years that the backup needs to be retained.
+1. Execute the script by providing the following parameters: <br> Schedule of backup and number of days/weeks/months or years that the backup needs to be retained.
