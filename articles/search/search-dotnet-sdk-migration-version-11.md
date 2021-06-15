@@ -67,7 +67,7 @@ Besides the client differences (noted previously and thus omitted here), multipl
 | Version 10 | Version 11 equivalent |
 |------------|-----------------------|
 | [SearchCredentials](/dotnet/api/microsoft.azure.search.searchcredentials) | [AzureKeyCredential](/dotnet/api/azure.azurekeycredential) |
-| `EncryptionKey` (existed in the [preview SDK](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) as a generally available feature) | [SearchResourceEncryptionKey](/dotnet/api/azure.search.documents.indexes.models.searchresourceencryptionkey) |
+| EncryptionKey (Undocumented in API reference. Support for this API transitioned to generally available in v10, but was only available in the [preview SDK](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview)) | [SearchResourceEncryptionKey](/dotnet/api/azure.search.documents.indexes.models.searchresourceencryptionkey) |
 
 ### Indexes, analyzers, synonym maps
 
@@ -104,13 +104,16 @@ Field definitions are streamlined: [SearchableField](/dotnet/api/azure.search.do
 | [IndexAction](/dotnet/api/microsoft.azure.search.models.indexaction) | [IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction) |
 | [IndexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) | [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) |
 
-### Query definitions and results
+### Query requests and responses
 
 | Version 10 | Version 11 equivalent |
 |------------|-----------------------|
+| [DocumentsOperationsExtensions.SearchAsync](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.searchasync) | [SearchClient.SearchAsync](/dotnet/api/azure.search.documents.searchclient.searchasyn) |
 | [DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) | [SearchResult](/dotnet/api/azure.search.documents.models.searchresult-1) or [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1), depending on whether the result is a single document or multiple. |
 | [DocumentSuggestResult](/dotnet/api/microsoft.azure.search.models.documentsuggestresult-1) | [SuggestResults](/dotnet/api/azure.search.documents.models.suggestresults-1) |
 | [SearchParameters](/dotnet/api/microsoft.azure.search.models.searchparameters) |  [SearchOptions](/dotnet/api/azure.search.documents.searchoptions)  |
+| [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparametersparameters) |  [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) |
+| [SearchParameters.Filter](dotnet/api/microsoft.azure.search.models.searchparameters.filter) |  [SearchFilter](/dotnet/api/azure.search.documents.searchfilter) (a new class for constructing OData filter expressions) |
 
 ### JSON serialization
 
