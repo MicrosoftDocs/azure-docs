@@ -693,15 +693,16 @@ When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-da
 
 1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15) in an [Azure Key Vault](/azure/key-vault/general/overview). Learn more on [how to configure Always Encrypted by using Azure Key Vault](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell)
 
-2. Make sure to have access to the key vault where the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15) is stored.
+2. Make sure to grant access to the key vault where the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15) is stored. Refer to this [article](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15#key-vaults) for required permissions.
 
 3. Create linked service to connect to your SQL database and enable 'Always Encrypted' function by using either managed identity or service principal. 
 
 
 >[!NOTE]
 >SQL Server [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) supports below scenarios: 
->1. Both source and sink data stores are using managed identity as key provider authentication type.
->2. Both source and sink data stores are using the same service principal as key provider authentication type.
+>1. Either source or sink data stores is using managed identity or service principal as key provider authentication type.
+>2. Both source and sink data stores are using managed identity as key provider authentication type.
+>3. Both source and sink data stores are using the same service principal as key provider authentication type.
 
 ## Troubleshoot connection issues
 
