@@ -37,39 +37,66 @@ All responses in the SDK including CosmosException have a Diagnostics property. 
 The Diagnostics is returned as a string and should not be parsed. The string changes with each version as it is improved to better troubleshoot different scenarios.
 
 ```c#
-ItemResponse<Book> response = await this.Container.CreateItemAsync<Book>(item: testItem);
-if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpan)
+try
+{
+    ItemResponse<Book> response = await this.Container.CreateItemAsync<Book>(item: testItem);
+    if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpan)
+    {
+        // Log the diagnostics and add any additional info necessary to correlate to other logs 
+        Console.Write(response.Diagnostics.ToString());
+    }
+}catch(CosmosException cosmosException){
+    // Log the full exception including the stack trace 
+    Console.Write(cosmosException.ToString());
+    // The Diagnostics can be logged separately if required.
+    Console.Write(cosmosException.Diagnostics.ToString());
+}
+
+ResponseMessage response = await this.Container.CreateItemStreamAsync(partitionKey, stream);
+if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpan || IsFailureStatusCode(response.StatusCode))
 {
     // Log the diagnostics and add any additional info necessary to correlate to other logs 
     Console.Write(response.Diagnostics.ToString());
 }
 ```
 
+
 ## Understanding the diagnostics in 3.19 and greater
 The json structure should not be parsed as it will change with each version of the SDK. The json represents a tree structure of the request going through the SDK. This is covering a few key things to look.
 
-## CPU History
-High CPU is a very common cause to slow requests. Most logging systems record an average over a minute or sometime longer duration. It's possible for the SDK to have a spike in workload that causes the CPU to go to 100% for only a few seconds then drop back down. The SDK does a best effort to log the CPU history at a 10-second interval to ensure high CPU is not an issue. If the CPU is high based the values in the diagnostics then it is likely the cause of the extra latency. Try scaling the application hosting process to reduce workload for a single instance.
+### CPU History
+High CPU utilization is the most common case. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
 
-```json
-{
-    "CPU Load History": {
-        "CPU History": "(2021-06-15T13:53:08.8699893Z 75.000)"
-    }
-},
+If the error contains `TransportException` information, it might contain also `CPU History`:
+
+```
+CPU history: 
+(2020-08-28T00:40:09.1769900Z 0.114), 
+(2020-08-28T00:40:19.1763818Z 1.732), 
+(2020-08-28T00:40:29.1759235Z 0.000), 
+(2020-08-28T00:40:39.1763208Z 0.063), 
+(2020-08-28T00:40:49.1767057Z 0.648), 
+(2020-08-28T00:40:59.1689401Z 0.137), 
+CPU count: 8)
 ```
 
+* If the CPU measurements are over 70%, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it, or scale the machine to a larger resource size.
+* If the CPU measurements are not happening every 10 seconds (e.g., gaps or measurement times indicate larger times in between measurements), the cause is thread starvation. In this case the solution is to investigate the source/s of the thread starvation (potentially locked threads), or scale the machine/s to a larger resource size.
+
+#### Solution:
+The client application that uses the SDK should be scaled up or out.
+
+
 ### HttpResponseStats
-HttpResponseStats are request going to gateway. Even in Direct mode the SDK gets all the meta data information from the gateway.
+HttpResponseStats are request going to [gateway](sql-sdk-connection-modes.md). Even in Direct mode the SDK gets all the meta data information from the gateway.
 
-If the request is slow first verify all the suggestions above.
+If the request is slow, first verify all the suggestions above don't yield results.
 
-If it is still slow different patterns point to different issues:
-* Always consistently slow this points to a networking issue or infrastructure issue.
-* Slow only for a short period of time. This points to an issue with Cosmos DB service.
-* Single request this likely a transient networking issues.
-* First request shows multiple HttpResponseStats. This is expected to initialize caches.
-* Direct mode shows multiple HttpResponseStats on a few requests. The cache is stale and the SDK is refreshing the caches.
+* Always consistently slow; this points to a networking issue or infrastructure issue.
+* Slow only for a short period of time:  this might point to an issue with Cosmos DB service.
+* Single request: this likely a transient networking issues.
+* First request shows multiple HttpResponseStats: this is expected when the client first initializes.
+* Direct mode shows multiple HttpResponseStats on a few requests: some events might require the SDK to refresh the routing information and meta data.
 
 ```json
 "HttpResponseStats": [
