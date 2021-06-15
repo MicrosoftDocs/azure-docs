@@ -52,6 +52,8 @@
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
       href: firewalls.md
+    - name: Create and use managed identities
+      href: managed-identity.md
     - name: Use the Translator container
       items:
       - name: Install and run containers
