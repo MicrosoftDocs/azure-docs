@@ -80,7 +80,7 @@ The following table displays the current Security Center feature availability in
 | - [Azure Defender for Storage](/azure/security-center/defender-for-storage-introduction) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
 | - [Threat protection for Cosmos DB](/azure/security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                       | Public Preview | Public Preview                 |
 | - [Kubernetes workload protection](/azure/security-center/kubernetes-workload-protections)                                                                                  | GA             | GA                             |
-| **Azure Defender for Servers features** <sup>[7](#footnote7)</sup>                                                                                                          |                |                                |
+| **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                          |                |                                |
 | - [Just-in-time VM access](/azure/security-center/security-center-just-in-time)                                                                                             | GA             | GA                             |
 | - [File integrity monitoring](/azure/security-center/security-center-file-integrity-monitoring)                                                                             | GA             | GA                             |
 | - [Adaptive application controls](/azure/security-center/security-center-adaptive-application)                                                                              | GA             | GA                             |
@@ -107,7 +107,7 @@ The following table displays the current Security Center feature availability in
 
 <sup><a name="footnote7" /></a>7</sup> These features all require [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction)
 
-<sup><a name="footnote8" /></a>8</sup> There may be differences in the standard offered per cloud type
+<sup><a name="footnote8" /></a>8</sup> There may be differences in the standards offered per cloud type
  
 
 ## Azure Sentinel
