@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/06/2021
+ms.date: 06/15/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
 
