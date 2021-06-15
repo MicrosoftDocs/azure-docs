@@ -106,10 +106,10 @@ There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](htt
 ## Quotas and Limits
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
 
+For more details on quota limits, see [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
+
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
-For more details on quota limits:
-* [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## Related Azure components
 DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](../iot-hub/index.yml).

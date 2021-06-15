@@ -16,15 +16,16 @@ The following table lists the limits that apply to Azure IoT Hub Device Provisio
 | Resource | Limit | Adjustable? |
 | --- | --- | --- |
 | Maximum device provisioning services per Azure subscription | 10 | Yes |
-| Maximum number of enrollments | 1,000,000 | Yes |
 | Maximum number of registrations | 1,000,000 | Yes |
-| Maximum number of enrollment groups | 100 | No |
+| Maximum number of individual enrollments | 1,000,000 | Yes |
+| Maximum number of enrollment groups *(X.509 certificate)* | 100 | Yes |
+| Maximum number of enrollment groups *(symmetric key)* | 100 | No |
 | Maximum number of CAs | 25 | No |
 | Maximum number of linked IoT hubs | 50 | No |
 | Maximum size of message | 96 KB| No |
 
-> [!NOTE]
-> To increase the number of enrollments and registrations on your provisioning service, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+> [!TIP]
+> If the hard limit on symmetric key enrollment groups is a blocking issue, it is recommended to use individual enrollments as a workaround.
 
 The Device Provisioning Service has the following rate limits.
 
@@ -33,3 +34,5 @@ The Device Provisioning Service has the following rate limits.
 | Operations | 200/min/service | Yes |
 | Device registrations | 200/min/service | Yes |
 | Device polling operation | 5/10 sec/device | No |
+
+Each API call on DPS is billable as one *Operation*. This includes all the service APIs and the device registration API. The device registration polling operation is not billed.
