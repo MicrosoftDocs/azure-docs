@@ -58,13 +58,11 @@ Upon successful sign-in, Azure AD returns a token to Azure AD B2C. Azure AD B2C 
 
 To enable sign-in to your app with Azure AD B2C, register your app in the Azure AD B2C directory. Registering your app establishes a trust relationship between the app and Azure AD B2C. 
 
-If you haven't already done so, [register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
+If you haven't already done so, [register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). Later, you register this app with the Azure App gallery.
 
 ## Step 2. Set up sign-in for multi-tenant Azure AD
 
 To allow employees and consumers from any Azure AD tenant to sign in using Azure AD B2C, follow the guidance for [setting up sign-in for multi-tenant Azure AD](identity-provider-azure-ad-multi-tenant.md?pivots=b2c-custom-policy).
-
-During setup, you [create a multi-tenant app](identity-provider-azure-ad-multi-tenant.md#register-an-application). Later, you register this app with the Azure App gallery.
 
 ## Step 3. Prepare your app
 
@@ -82,10 +80,10 @@ Finally, add the multi-tenant app to the Azure AD app gallery. Follow the instru
     |Question  |Answer you should provide  |
     |---------|---------|
     |What type of request do you want to submit?| Select **List my application in the gallery**.|
-    |What feature would you like to enable when listing your application in the gallery? | Select **Federated SSO (SAML, WS-Fed &OpenID Connect)**. | 
+    |What feature would you like to enable when listing your application in the gallery? | Select **Federated SSO (SAML, WS-Fed & OpenID Connect)**. | 
     | Select your application federation protocol| Select, **OpenID Connect & OAuth 2.0**. |
     | Application (Client) ID | Provide the ID of the [multi-tenant Azure AD app](#step-2-set-up-sign-in-for-multi-tenant-azure-ad) you created. |
-    | Application Sign-on URL|Provide the app sign-in URL as you configured in [Step 3. Prepare your app](#step-3-prepare-your-app).|
+    | Application Sign-on URL|Provide the app sign-in URL as you configured in [Step 1. Register your application in Azure AD B2C](#step-1-register-your-application-in-azure-ad-b2c).|
     | Multitenant| Select **Yes**. |
 
 ## Next steps
