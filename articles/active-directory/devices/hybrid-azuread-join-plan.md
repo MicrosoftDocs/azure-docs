@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 06/10/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,6 +33,14 @@ This article assumes that you are familiar with the [Introduction to device iden
 
 > [!NOTE]
 > The minimum required domain controller version for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
+
+Hybrid Azure AD joined devices require network line of sight to your domain controllers periodically. Without this connection, devices become unusable.
+
+Scenarios that break without line of sight to your domain controllers:
+
+- Device password change
+- User password change (Cached credentials)
+- TPM reset
 
 ## Plan your implementation
 
