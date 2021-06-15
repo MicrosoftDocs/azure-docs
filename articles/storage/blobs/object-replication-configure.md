@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 06/14/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -230,7 +230,9 @@ az storage account or-policy show \
 
 If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
 
-Keep in mind that you must be assigned the Azure Resource Manager **Contributor** role scoped to the level of the destination storage account or higher in order to create the policy. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
+Configuring object replication across Azure AD tenants is permitted only when the **AllowCrossTenantReplication** property is set to *null* or *true*. For optimal security, you can choose to disallow cross-tenant object replication. For more information, see [Prevent replication across tenants](#prevent-replication-across-tenants).
+
+Keep in mind that you must be assigned the Azure Resource Manager **Contributor** role scoped to the level of the destination storage account or higher in order to create the object replication policy. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
 
 The following table summarizes which values to use for the policy ID and rule IDs in the JSON file in each scenario.
 
@@ -436,6 +438,52 @@ az storage account or-policy delete \
 ```
 
 ---
+
+## Prevent replication across tenants
+
+
+### Remediate cross-tenant replication
+
+To remediate cross-tenant object replication, set the **AllowCrossTenantReplication** property for the source??? dest??? storage account to *false*.
+
+The **AllowCrossTenantReplication** property is not set by default and does not return a value until you explicitly set it. Azure Storage permits replication across Azure AD tenants when the property value is *null* or when it is *true*.
+
+# [Azure portal](#tab/portal)
+
+NYI
+
+# [PowerShell](#tab/powershell)
+
+To disallow cross-tenant object replication for a storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 3.7.0 or later. Next, configure the **AllowCrossTenantReplication** property for a new or existing storage account.
+
+The following example shows how to disallow cross-tenant object replication for an existing storage account with PowerShell. Remember to replace the placeholder values in brackets with your own values:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowCrossTenantReplication $false
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To disallow cross-tenant object replication for a storage account with Azure CLI, install Azure CLI version 2.25.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowCrossTenantReplication** property for a new or existing storage account.
+
+he following example shows how to disallow cross-tenant object replication for an existing storage account with Azure CLI. Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli-interactive
+az storage account update \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --allow-cross-tenant-replication false
+```
+
+---
+
+### Use Azure Policy to audit for compliance
+
+If you have a large number of storage accounts, you may want to perform an audit to make sure that those accounts are configured to prevent cross-tenant object replication. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
+
+
 
 ## Next steps
 
