@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Storage service add-ons for Azure NetApp Files

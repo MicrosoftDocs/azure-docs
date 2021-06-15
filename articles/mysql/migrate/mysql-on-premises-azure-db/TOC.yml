@@ -36,5 +36,19 @@
         href: 13-security.md
       - name: Summary
         href: 14-summary.md
-      - name: Appendix
-        href: 15-appendix.md
+   - name: Appendix
+     href: 15-appendix.md
+   - name: Resources
+     items:
+      - name: Migrate your MySQL database to Azure Database for MySQL using dump and restore
+        href: ../../concepts-migrate-dump-restore.md
+      - name: Migrate data to Azure Database for MySQL with dbForge Studio for MySQL
+        href: ../../concepts-migrate-dbforge-studio-for-mysql.md
+      - name: Migrate your MySQL database by using import and export
+        href: ../../concepts-migrate-import-export.md
+      - name: Migrate Amazon RDS for MySQL to Azure Database for MySQL using MySQL Workbench
+        href: ../../how-to-migrate-rds-mysql-workbench.md
+      - name: Minimal-downtime migration to Azure Database for MySQL
+        href: ../../howto-migrate-online.md
+      - name: Commonly encountered errors during or post migration to Azure Database for MySQL
+        href: ../../howto-troubleshoot-common-errors.md
