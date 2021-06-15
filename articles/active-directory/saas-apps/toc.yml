@@ -373,6 +373,8 @@
         href: cisco-webex-tutorial.md
       - name: Citrix ADC SAML Connector for Azure AD
         href: citrix-netscaler-tutorial.md
+      - name: Citrix Cloud SAML SSO
+        href: citrix-cloud-saml-sso-tutorial.md  
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
       - name: Civic Platform
@@ -1308,6 +1310,8 @@
         href: netsuite-tutorial.md
       - name: Netvision Compas
         href: netvision-compas-tutorial.md
+      - name: Neustar UltraDNS
+        href: neustar-ultradns-tutorial.md
       - name: New Relic by Account
         href: new-relic-tutorial.md
       - name: New Relic (By Organization)

@@ -27,6 +27,8 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 - A separate, functioning ExpressRoute circuit used to connect on-premises environments to Azure, which is _circuit 1_ for peering.
 - Ensure that all gateways, including the ExpressRoute provider's service, supports 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
+>[!NOTE]
+> If advertising a default route to Azure (0.0.0.0/0), ensure a more specific route containing your on-premises networks is advertised in addition to the default route to enable management access to AVS. A single 0.0.0.0/0 route will be discarded by Azure VMware Solution's management network to ensure successful operation of the service.
 
 ## Create an ExpressRoute auth key in the on-premises ExpressRoute circuit
 

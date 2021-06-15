@@ -578,6 +578,8 @@
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
 - name: Migration
   items:
+  - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
+    href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
   - name: Migrate data with mysqldump or phpmyadmin
     href: concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
