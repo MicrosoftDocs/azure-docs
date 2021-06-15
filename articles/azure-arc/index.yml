@@ -62,12 +62,12 @@ conceptualContent:
         - url: ./servers/policy-reference.md
           itemType: learn
           text: Admission control policies using Azure Policy
-        - url: ./servers/manage-vm-extensions.md
-          itemType: how-to-guide
-          text: Manage and use Azure VM extensions
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
           text: Enable Arc enabled SQL Server (preview)
+        - url: ./servers/index.yml
+          itemType: get-started
+          text: See more...
     # Card
     - title: Azure Arc enabled Kubernetes
       links:
@@ -77,15 +77,15 @@ conceptualContent:
         - url: ./kubernetes/use-azure-policy.md
           itemType: how-to-guide
           text: Enforce GitOps using Azure Policy
-        - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
+        - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md
           itemType: tutorial
           text: Monitor using Azure Monitor for containers
-        - url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
-          itemType: learn
-          text: Admission control policies using Azure Policy
-        - url: ./kubernetes/deploy-azure-iot-edge-workloads.md
-          itemType: deploy
-          text: Deploy Azure IoT edge workloads
+        - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
+          itemType: how-to-guide
+          text: Azure Arc enabled Open Service Mesh (Preview)
+        - url: ./kubernetes/index.yml
+          itemType: get-started
+          text: See more...
     # Card
     - title: Azure Arc enabled data services (preview)
       links:
@@ -104,21 +104,21 @@ conceptualContent:
     # Card
     - title: Application services
       links:
-        - url: ../app-service/overview-arc-integration.md?toc=/azure/azure-arc/toc.json
+        - url: ../app-service/overview-arc-integration.md
           itemType: overview
           text: App Service, Functions, and Logic Apps on Azure Arc (preview)
     # Card
     - title: Management services supporting Azure Arc
       links:
-        - url: ../azure-monitor/overview.md?toc=/azure/azure-arc/toc.json
+        - url: ../azure-monitor/overview.md?
           itemType: overview
           text: Azure Monitor overview
-        - url: ../governance/policy/overview.md?toc=/azure/azure-arc/toc.json
+        - url: ../governance/policy/overview.md
           itemType: overview
           text: Azure Policy overview
-        - url: ../security-center/azure-defender.md?toc=/azure/azure-arc/toc.json
+        - url: ../security-center/azure-defender.md
           itemType: overview
           text: Azure Defender overview
-        - url: ../automation/automation-intro.md?toc=/azure/azure-arc/toc.json
+        - url: ../automation/automation-intro.md
           itemType: overview
           text: Azure Automation overview
