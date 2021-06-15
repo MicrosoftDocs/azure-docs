@@ -5,19 +5,21 @@ author: craigktreasure
 manager: virivera
 
 ms.author: crtreasu
-ms.date: 02/22/2021
+ms.date: 06/10/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
 # Quickstart: Create an Object Anchors model from a 3D model
 
-Azure Object Anchors is a managed cloud service that converts 3D models into AI models that enable object-aware mixed reality experiences for the HoloLens. This quickstart covers how to create an Object Anchors model from a 3D model using the C#/.NET Core SDK.
+Azure Object Anchors is a managed cloud service that converts 3D models into AI models that enable object-aware mixed
+reality experiences for the HoloLens. This quickstart covers how to create an Object Anchors model from a 3D model using
+the [Azure Object Anchors Conversion SDK for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre).
 
 You'll learn how to:
 
 > [!div class="checklist"]
-> * Create an Object Anchors account
-> * Convert a 3D model to create an Object Anchors model
+> * Create an Object Anchors account.
+> * Convert a 3D model to create an Object Anchors model using the [Azure Object Anchors Conversion SDK for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre) ([NuGet](https://www.nuget.org/packages/Azure.MixedReality.ObjectAnchors.Conversion/)).
 
 ## Prerequisites
 
@@ -140,4 +142,4 @@ In this quickstart, you created an Object Anchors account and converted a 3D mod
 > [HoloLens DirectX](get-started-hololens-directx.md)
 
 > [!div class="nextstepaction"]
-> [Conversion SDK](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.MixedReality.ObjectAnchors.Conversion/latest/index.html)
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
