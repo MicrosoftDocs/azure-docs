@@ -78,55 +78,6 @@ If you plan on using one of the DPS methods to provision your device or devices,
 
 Create your deployment of Azure IoT Edge for Linux on Windows on your target device.
 
-# [Windows Admin Center](#tab/windowsadmincenter)
-
-On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. Any additional servers, PCs, or clusters that you manage will also show up here.
-
-You can use Windows Admin Center to make install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
-
-If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device.](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
-
-   ![Initial Windows Admin Center dashboard with target device listed](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
-
-1. Select **Add**.
-
-1. On the **Add or create resources** pane, locate the **Azure IoT Edge** tile. Select **Create new** to install a new instance of Azure IoT Edge for Linux on Windows on a device.
-
-   If you already have IoT Edge for Linux on Windows running on a device, you could select **Add** to connect to that existing IoT Edge device and manage it with Windows Admin Center.
-
-   ![Select Create New on Azure IoT Edge tile in Windows Admin Center](./media/how-to-install-iot-edge-on-windows/resource-creation-tiles.png)
-
-1. The **Create an Azure IoT Edge for Linux on Windows deployment** pane will open. On the **1. Getting Started** tab, verify that your target device meets the minimum requirements, and select **Next**.
-
-1. Review the license terms, check **I Accept**, and select **Next**.
-
-1. You can toggle **Optional diagnostic data** on or off, depending on your preference.
-
-1. Select **Next: Deploy**.
-
-   ![Select the Next: Deploy button after toggling optional diagnostic data to your preference](./media/how-to-install-iot-edge-on-windows/select-next-deploy.png)
-
-1. On the **2. Deploy** tab, under **Select a target device**, click on your listed device to validate it meets the minimum requirements. Once its status is confirmed as supported, select **Next**.
-
-   ![Select your device to verify it is supported](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
-
-1. On the **2.2 Settings** tab, review the configuration settings of your deployment. Once you are satisfied with the settings, select **Next**.
-
-   ![Review the configuration settings of your deployment](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
-
-   >[!NOTE]
-   >If you are using a Windows virtual machine, it is recommended to use a default switch rather than an external switch to ensure the Linux virtual machine created in the deployment can obtain an IP address.
-   >
-   >Using a default switch assigns the Linux virtual machine an internal IP address. This internal IP address cannot be reached from outside the Windows virtual machine, but it can be connected to locally while logged onto the Windows virtual machine.
-   >
-   >If you are using Windows Server, please note that Azure IoT Edge for Linux on Windows does not automatically support the default switch. For a local Windows Server virtual machine, ensure the Linux virtual machine can obtain an IP address through the external switch. For a Windows Server virtual machine in Azure, set up an internal switch before deploying IoT Edge for Linux on Windows.
-
-1. On the **2.3 Deployment** tab, you can watch the progress of the deployment. The full process includes downloading the Azure IoT Edge for Linux on Windows package, installing the package, configuring the host device, and setting up the Linux virtual machine. This process may take several minutes to complete. A successful deployment is pictured below.
-
-   ![A successful deployment will show each step with a green check mark and a 'Complete' label](./media/how-to-install-iot-edge-on-windows/successful-deployment.png)
-
-Once your deployment is complete, you are ready to provision your device. Select **Next: Connect** to proceed to the **3. Connect** tab, which handles Azure IoT Edge device provisioning.
-
 # [PowerShell](#tab/powershell)
 
 Install IoT Edge for Linux on Windows onto your target device if you have not already.
@@ -180,6 +131,55 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
 
 Once your deployment is complete, you are ready to provision your device.
 
+# [Windows Admin Center](#tab/windowsadmincenter)
+
+On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. Any additional servers, PCs, or clusters that you manage will also show up here.
+
+You can use Windows Admin Center to make install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
+
+If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device.](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
+
+   ![Initial Windows Admin Center dashboard with target device listed](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
+
+1. Select **Add**.
+
+1. On the **Add or create resources** pane, locate the **Azure IoT Edge** tile. Select **Create new** to install a new instance of Azure IoT Edge for Linux on Windows on a device.
+
+   If you already have IoT Edge for Linux on Windows running on a device, you could select **Add** to connect to that existing IoT Edge device and manage it with Windows Admin Center.
+
+   ![Select Create New on Azure IoT Edge tile in Windows Admin Center](./media/how-to-install-iot-edge-on-windows/resource-creation-tiles.png)
+
+1. The **Create an Azure IoT Edge for Linux on Windows deployment** pane will open. On the **1. Getting Started** tab, verify that your target device meets the minimum requirements, and select **Next**.
+
+1. Review the license terms, check **I Accept**, and select **Next**.
+
+1. You can toggle **Optional diagnostic data** on or off, depending on your preference.
+
+1. Select **Next: Deploy**.
+
+   ![Select the Next: Deploy button after toggling optional diagnostic data to your preference](./media/how-to-install-iot-edge-on-windows/select-next-deploy.png)
+
+1. On the **2. Deploy** tab, under **Select a target device**, click on your listed device to validate it meets the minimum requirements. Once its status is confirmed as supported, select **Next**.
+
+   ![Select your device to verify it is supported](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
+
+1. On the **2.2 Settings** tab, review the configuration settings of your deployment. Once you are satisfied with the settings, select **Next**.
+
+   ![Review the configuration settings of your deployment](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
+
+   >[!NOTE]
+   >If you are using a Windows virtual machine, it is recommended to use a default switch rather than an external switch to ensure the Linux virtual machine created in the deployment can obtain an IP address.
+   >
+   >Using a default switch assigns the Linux virtual machine an internal IP address. This internal IP address cannot be reached from outside the Windows virtual machine, but it can be connected to locally while logged onto the Windows virtual machine.
+   >
+   >If you are using Windows Server, please note that Azure IoT Edge for Linux on Windows does not automatically support the default switch. For a local Windows Server virtual machine, ensure the Linux virtual machine can obtain an IP address through the external switch. For a Windows Server virtual machine in Azure, set up an internal switch before deploying IoT Edge for Linux on Windows.
+
+1. On the **2.3 Deployment** tab, you can watch the progress of the deployment. The full process includes downloading the Azure IoT Edge for Linux on Windows package, installing the package, configuring the host device, and setting up the Linux virtual machine. This process may take several minutes to complete. A successful deployment is pictured below.
+
+   ![A successful deployment will show each step with a green check mark and a 'Complete' label](./media/how-to-install-iot-edge-on-windows/successful-deployment.png)
+
+Once your deployment is complete, you are ready to provision your device. Select **Next: Connect** to proceed to the **3. Connect** tab, which handles Azure IoT Edge device provisioning.
+
 ---
 
 To provision your device, you can follow the links below to jump to the section for your selected provisioning method:
@@ -196,6 +196,18 @@ Choose a method for provisioning your device and follow the instructions in the 
 
 This section covers provisioning your device manually using your Azure IoT Edge device's connection string.
 
+# [PowerShell](#tab/powershell)
+
+1. In the [Azure portal](https://ms.portal.azure.com/), navigate to the **IoT Edge** tab of your IoT Hub.
+
+1. Click on the device ID of your device. Copy the **Primary Connection String** field.
+
+1. Paste over the placeholder text in the following command and run it in an elevated PowerShell session on your target device.
+
+   ```azurepowershell-interactive
+   Provision-EflowVm -provisioningType manual -devConnString "<CONNECTION_STRING_HERE>"​
+   ```
+
 # [Windows Admin Center](#tab/windowsadmincenter)
 
 1. On the **Azure IoT Edge device provisioning** pane, select **Connection String (Manual)** from the provisioning method dropdown.
@@ -210,41 +222,11 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 
-# [PowerShell](#tab/powershell)
-
-1. In the [Azure portal](https://ms.portal.azure.com/), navigate to the **IoT Edge** tab of your IoT Hub.
-
-1. Click on the device ID of your device. Copy the **Primary Connection String** field.
-
-1. Paste over the placeholder text in the following command and run it in an elevated PowerShell session on your target device.
-
-   ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType manual -devConnString "<CONNECTION_STRING_HERE>"​
-   ```
-
 ---
 
 ### Option 2: Provisioning via DPS using symmetric keys
 
 This section covers provisioning your device automatically using DPS and symmetric keys.
-
-# [Windows Admin Center](#tab/windowsadmincenter)
-
-1. On the **Azure IoT Edge device provisioning** pane, select **Symmetric Key (DPS)** from the provisioning method dropdown.
-
-1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
-
-1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field in the Windows Admin Center.
-
-1. On the **Manage enrollments** tab in the Azure portal, select the enrollment you created. Copy the **Primary Key** value in the enrollment details. Paste it into the symmetric key field in the Windows Admin Center.
-
-1. Provide the registration ID of your device in the registration ID field in the Windows Admin Center.
-
-1. Choose **Provisioning with the selected method**.
-
-   ![Choose provisioning with the selected method after filling in the required fields for symmetric key provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-symmetric-key.png)
-
-1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 
 # [PowerShell](#tab/powershell)
 
@@ -264,29 +246,29 @@ This section covers provisioning your device automatically using DPS and symmetr
 
 1. Run the command in an elevated PowerShell session on the target device.
 
----
-
-### Option 3: Provisioning via DPS using X.509 certificates
-
-This section covers provisioning your device automatically using DPS and X.509 certificates.
-
 # [Windows Admin Center](#tab/windowsadmincenter)
 
-1. On the **Azure IoT Edge device provisioning** pane, select **X.509 Certificate (DPS)** from the provisioning method dropdown.
+1. On the **Azure IoT Edge device provisioning** pane, select **Symmetric Key (DPS)** from the provisioning method dropdown.
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
 
 1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field in the Windows Admin Center.
 
-1. Provide the registration ID of your device in the registration ID field in the Windows Admin Center.
+1. On the **Manage enrollments** tab in the Azure portal, select the enrollment you created. Copy the **Primary Key** value in the enrollment details. Paste it into the symmetric key field in the Windows Admin Center.
 
-1. Upload your certificate and private key files.
+1. Provide the registration ID of your device in the registration ID field in the Windows Admin Center.
 
 1. Choose **Provisioning with the selected method**.
 
-   ![Choose provisioning with the selected method after filling in the required fields for X.509 certificate provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-x509-certs.png)
+   ![Choose provisioning with the selected method after filling in the required fields for symmetric key provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-symmetric-key.png)
 
 1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
+
+---
+
+### Option 3: Provisioning via DPS using X.509 certificates
+
+This section covers provisioning your device automatically using DPS and X.509 certificates.
 
 # [PowerShell](#tab/powershell)
 
@@ -308,34 +290,29 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
 1. Run the command in an elevated PowerShell session on the target device.
 
+# [Windows Admin Center](#tab/windowsadmincenter)
+
+1. On the **Azure IoT Edge device provisioning** pane, select **X.509 Certificate (DPS)** from the provisioning method dropdown.
+
+1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
+
+1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field in the Windows Admin Center.
+
+1. Provide the registration ID of your device in the registration ID field in the Windows Admin Center.
+
+1. Upload your certificate and private key files.
+
+1. Choose **Provisioning with the selected method**.
+
+   ![Choose provisioning with the selected method after filling in the required fields for X.509 certificate provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-x509-certs.png)
+
+1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
+
 ---
 
 ## Verify successful configuration
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
-
-# [Windows Admin Center](#tab/windowsadmincenter)
-
-1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
-
-1. The device overview page displays some information about the device:
-
-    1. The **IoT Edge Module List** section shows running modules on the device. When the IoT Edge service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
-    1. The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
-
-1. If you need to troubleshoot the IoT Edge service, use the **Command Shell** tool on the device page to ssh (secure shell) into the virtual machine and run the Linux commands.
-
-    1. If you need to troubleshoot the service, retrieve the service logs.
-
-       ```bash
-       journalctl -u iotedge
-       ```
-
-    2. Use the `check` tool to verify configuration and connection status of the device.
-
-       ```bash
-       sudo iotedge check
-       ```
 
 # [PowerShell](#tab/powershell)
 
@@ -355,6 +332,29 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
    ```
 
 1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
+
+    1. If you need to troubleshoot the service, retrieve the service logs.
+
+       ```bash
+       journalctl -u iotedge
+       ```
+
+    2. Use the `check` tool to verify configuration and connection status of the device.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+# [Windows Admin Center](#tab/windowsadmincenter)
+
+1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
+
+1. The device overview page displays some information about the device:
+
+    1. The **IoT Edge Module List** section shows running modules on the device. When the IoT Edge service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+    1. The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
+
+1. If you need to troubleshoot the IoT Edge service, use the **Command Shell** tool on the device page to ssh (secure shell) into the virtual machine and run the Linux commands.
 
     1. If you need to troubleshoot the service, retrieve the service logs.
 
