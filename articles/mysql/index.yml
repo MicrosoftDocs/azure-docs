@@ -100,7 +100,27 @@ landingContent:
           - text: Connect to Flexible server using Python
             url: flexible-server/connect-python.md
 
-# Card 4
+# Card 5
+  - title: Migrations
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: MySQL on-premises to Azure Database for MySQL
+          url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
+        - text: Connect to Single server using MySQL Workbench
+          url: connect-workbench.md
+        - text: Connect to Single server using Java
+          url: connect-java.md
+        - text: Connect to Single server using PHP
+          url: connect-php.md
+        - text: Connect to Flexible server using MySQL Workbench
+          url: connect-workbench.md
+        - text: Connect to Flexible server using PHP
+          url: flexible-server/connect-php.md
+        - text: Connect to Flexible server using Python
+          url: flexible-server/connect-python.md
+
+# Card 5
   - title: Manage and migrate data
     linkLists:
       - linkListType: concept
@@ -124,7 +144,7 @@ landingContent:
           - text: Troubleshoot common errors
             url: howto-troubleshoot-common-errors.md
 
-# Card 5
+# Card 6
   - title: Application Development
     linkLists:
       - linkListType: concept
