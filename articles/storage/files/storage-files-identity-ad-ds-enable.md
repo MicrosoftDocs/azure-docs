@@ -18,6 +18,13 @@ This article describes the process required for enabling Active Directory Domain
 
 To register your storage account with AD DS, create an account representing it in your AD DS. You can think of this process as if it were like creating an account representing an on-premises Windows file server in your AD DS. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Option one (recommended): Use AzFilesHybrid PowerShell module
 
 The cmdlets in the AzFilesHybrid PowerShell module make the necessary modifications and enables the feature for you. Since some parts of the cmdlets interact with your on-premises AD DS, we explain what the cmdlets do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Though we recommend using AzFilesHybrid module, if you are unable to do so, we provide the steps so that you may perform them manually.
@@ -59,6 +66,11 @@ Connect-AzAccount
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
+$DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
+# If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory.
+$OuDistinguishedName = "<ou-distinguishedname-here>"
+# Specify the encryption agorithm used for Kerberos authentication. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption.
+$EncryptionType = "<AES256|RC4|AES256,RC4>"
 
 # Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId $SubscriptionId 
@@ -71,9 +83,9 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -StorageAccountName $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" <# Default is set as ComputerAccount #> `
-        -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" <# If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory. #> `
-        -EncryptionType "<AES256/RC4/AES256,RC4>" <# Specify the encryption agorithm used for Kerberos authentication. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption. #>
+        -DomainAccountType $DomainAccountType `
+        -OrganizationalUnitDistinguishedName $OuDistinguishedName `
+        -EncryptionType $EncryptionType
 
 #Run the command below if you want to enable AES 256 authentication. If you plan to use RC4, you can skip this step.
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName

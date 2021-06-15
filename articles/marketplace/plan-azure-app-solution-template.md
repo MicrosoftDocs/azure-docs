@@ -71,4 +71,4 @@ For more information, see [Private offers in the Microsoft commercial marketplac
 
 ## Next steps
 
-- [How to create an Azure application offer in the commercial marketplace](create-new-azure-apps-offer.md)
+- [Create an Azure application offer](azure-app-offer-setup.md)

@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Image Builder template (preview)
+title: Create an Azure Image Builder template
 description: Learn how to create a template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
@@ -11,7 +11,7 @@ ms.collection: linux
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---
-# Preview: Create an Azure Image Builder template 
+# Create an Azure Image Builder template 
 
 Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -50,7 +50,7 @@ This is the basic template format:
 
 ## Type and API version
 
-The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2020-02-14"` for preview.
+The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2020-02-14"` for now.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -59,7 +59,7 @@ The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/
 
 ## Location
 
-The location is the region where the custom image will be created. For the Image Builder preview, the following regions are supported:
+The location is the region where the custom image will be created. The following regions are supported:
 
 - East US
 - East US 2
@@ -83,23 +83,22 @@ The location is the region where the custom image will be created. For the Image
 The Azure VM Image Builder service doesn't store/process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create templates in a different region and geography.
 
 ### Zone Redundancy
-Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type]( Create an Azure Image Builder template (preview) - Azure Virtual Machines | Microsoft Docs) if specified.
-
+Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) if specified.
  
 ## vmProfile
 ## buildVM
 By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
 2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
-3. Require [VM isolation](https://docs.microsoft.com/azure/virtual-machines/isolation).
+3. Require [VM isolation](../isolation.md).
 4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
-5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](https://docs.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk) that don't use local temporary disks.
+5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.md) that don't use local temporary disks.
  
 This is optional.
 
 
 ## Proxy VM Size
-The proxy VM is used to send commands between the Azure Image Builder Service and the build VM, this is only deployed when specifying an existing VNET, for more details review the networking options [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking#why-deploy-a-proxy-vm).
+The proxy VM is used to send commands between the Azure Image Builder Service and the build VM, this is only deployed when specifying an existing VNET, for more details review the networking options [documentation](image-builder-networking.md#why-deploy-a-proxy-vm).
 ```json
  {
     "proxyVmSize": "Standard A1_v2"
@@ -138,7 +137,7 @@ This optional section can be used to ensure that dependencies are completed befo
     "dependsOn": [],
 ```
 
-For more information, see [Define resource dependencies](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
+For more information, see [Define resource dependencies](../../azure-resource-manager/templates/resource-dependency.md#dependson).
 
 ## Identity
 
