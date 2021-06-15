@@ -27,7 +27,7 @@ When an administrator resets a user's password via the Azure portal, the value o
 
 ![Force password reset flow](./media/force-password-reset/force-password-reset-flow.png)
 
-The password reset flow is applicable to local accounts in Azure AD B2C that use an [email address](identity-provider-local.md#email-sign-in) or [username](identity-provider-local.md#username-sign-in) with a password for sign-in.
+The password reset flow is applicable to local accounts in Azure AD B2C that use an [email address](sign-in-options.md#email-sign-in) or [username](sign-in-options.md#username-sign-in) with a password for sign-in.
 
 ::: zone pivot="b2c-user-flow"
 
