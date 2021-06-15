@@ -75,7 +75,7 @@ There are two types of managed identity assignments:
 
 >[!NOTE]
 >
->If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or because you get the permissions error "The client with object id does not have authorization to perform action", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
+> If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or you get the permissions error, "you do not have permissions to add role assignment at this scope", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
 
 5. In the **Add role assignment** pop-up window complete the fields as follows and select **Save**:
 
