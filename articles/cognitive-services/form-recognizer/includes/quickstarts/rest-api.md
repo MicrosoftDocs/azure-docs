@@ -4,7 +4,7 @@ description: Use the Form Recognizer REST API to create a forms processing app t
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021

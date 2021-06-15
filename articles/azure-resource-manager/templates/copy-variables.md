@@ -320,5 +320,5 @@ The following examples show common scenarios for creating more than one value fo
   - [Resource iteration in ARM templates](copy-resources.md)
   - [Property iteration in ARM templates](copy-properties.md)
   - [Output iteration in ARM templates](copy-outputs.md)
-- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 - To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

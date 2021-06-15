@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 06/08/2021
 ms.author: thweiss
 ---
 
@@ -110,7 +110,7 @@ When creating a custom role definition, you need to provide:
 > [!NOTE]
 > The operations described below are available in:
 > - Azure PowerShell: [Az.CosmosDB version 1.2.0](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) or higher
-> - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli): version 2.24.0 or higher
+> - [Azure CLI](/cli/azure/install-azure-cli): version 2.24.0 or higher
 
 ### Using Azure PowerShell
 
@@ -273,7 +273,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroledefinition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
+See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sqlresources2/create-update-sql-role-definition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
 
 ## <a id="role-assignments"></a> Create role assignments
 
@@ -296,7 +296,7 @@ You can associate built-in or custom role definitions with your Azure AD identit
 > [!NOTE]
 > The operations described below are available in:
 > - Azure PowerShell: [Az.CosmosDB version 1.2.0](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) or higher
-> - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli): version 2.24.0 or higher
+> - [Azure CLI](/cli/azure/install-azure-cli): version 2.24.0 or higher
 
 ### Using Azure PowerShell
 
@@ -328,7 +328,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroleassignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
+See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sqlresources2/create-update-sql-role-assignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
 
 ## Initialize the SDK with Azure AD
 
