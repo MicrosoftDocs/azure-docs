@@ -44,8 +44,6 @@ This section lists the types of resource logs you can collect for App Service.
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
---------------**OPTION 2 EXAMPLE** -------------
-
 <!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
 -->
 
@@ -79,7 +77,7 @@ Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/pla
 
 ## Azure Monitor Logs tables
 
-Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of tables used by Kusto, see the [Azure Monitor Logs table reference](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype#app-services) article. 
+Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of App Service tables used by Kusto, see the [Azure Monitor Logs table reference - App Service tables](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype#app-services). 
 
 <!-- REQUIRED. Please keep heading in this order -->
 
@@ -88,26 +86,6 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Ap
 |Resource Type | Notes |
 |-------|-----|
 | [App services](/azure/azure-monitor/reference/tables/tables-resourcetype#app-services) | |
-
-### Diagnostics tables
-<!-- REQUIRED. Please keep heading in this order -->
-<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
-
-App Service uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
-
-**Azure Diagnostics**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
-
-**[TODO Service-specific table]**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
 
 ## Activity log
 <!-- REQUIRED. Please keep heading in this order -->
