@@ -25,6 +25,12 @@ npm install @azure/communication-calling --save
 
 ```
 
+## Documentation support
+- [Submit issues/bugs on github](https://github.com/Azure/Communication/issues)
+- [API usage examples](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
+- [Application samples](https://docs.microsoft.com/en-us/azure/communication-services/samples/overview)
+- [API Reference](https://docs.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+
 ## Object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
