@@ -22,7 +22,7 @@ With Azure Active Directory (Azure AD), a Global administrator can make **perman
 
 The Azure AD Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
-Privileged Identity Management support both built-in and custom Azure AD roles. For more informtion on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md)
+Privileged Identity Management support both built-in and custom Azure AD roles. For more information on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md).
 
 ## Assign a role
 
