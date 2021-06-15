@@ -272,7 +272,7 @@ You can modify the configurations for App Service directly in your `pom.xml` if 
 Property | Required | Description | Version
 ---|---|---|---
 `<schemaVersion>` | false | Specify the version of the configuration schema. Supported values are: `v1`, `v2`. | 1.5.2
-`<subscriptionId>` | false | Specify the subscription id. | 0.1.0+
+`<subscriptionId>` | false | Specify the subscription ID. | 0.1.0+
 `<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
 `<region>` | true | Specifies the region where your Web App will be hosted; the default value is **westeurope**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
