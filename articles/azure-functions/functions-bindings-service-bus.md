@@ -110,10 +110,10 @@ The example host.json file below contains only the settings for version 5.0.0 an
         "serviceBus": {
             "retryOptions":{
                 "mode": "exponential",
-                "tryTimeout": "00:00:10",
+                "tryTimeout": "00:01:00",
                 "delay": "00:00:00.80",
                 "maxDelay": "00:01:00",
-                "maxRetries": 4
+                "maxRetries": 3
             },
             "prefetchCount": 0,
             "autoCompleteMessages": true,
@@ -146,7 +146,7 @@ In addition to the above configuration properties when using version 5.x and hig
 |Property  |Default | Description |
 |---------|---------|---------|
 |mode|Exponential|The approach to use for calculating retry delays. The default exponential mode will retry attempts with a delay based on a back-off strategy where each attempt will increase the duration that it waits before retrying. The `Fixed` mode will retry attempts at fixed intervals with each delay having a consistent duration.|
-|tryTimeout|00:00:10|The maximum duration to wait for an operation per attempt.|
+|tryTimeout|00:01:00|The maximum duration to wait for an operation per attempt.|
 |delay|00:00:00.80|The delay or back-off factor to apply between retry attempts.|
 |maxDelay|00:01:00|The maximum delay to allow between retry attempts|
 |maxRetries|3|The maximum number of retry attempts before considering the associated operation to have failed.|
