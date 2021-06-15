@@ -147,12 +147,13 @@ Extract the private and public key base-64 encoded from the PFX file export of y
 
 #### Request
 
-The "key" value in the `keyCredentials` property is shortened for readability. The value is base-64 encoded. For the private key the property usage is "Sign". For the public key the property usage is "Verify".
+The following shows the format of the HTTP PATCH request to add a custom signing key to a service principal.  The "key" value in the `keyCredentials` property is shortened for readability. The value is base-64 encoded. For the private key, the property usage is "Sign". For the public key, the property usage is "Verify".
 
 ```
 PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 
 Content-type: servicePrincipals/json
+Authorization: Bearer {token}
 
 {
     "keyCredentials":[
@@ -195,15 +196,15 @@ Content-type: servicePrincipals/json
 Use PowerShell to [instantiate an MSAL Public Client Application](msal-net-initializing-client-applications.md#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](v2-oauth2-auth-code-flow.md) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
 
 To run this script you need:
-1. The application/client ID of the app configured to customize claims.
-2. An app registration to sign in a user and get an access token for Microsoft Graph. Get the application (client) ID of this app in the Overview section – we will need it for the script. The app registration should have the following configuration:
-    - Redirect URI of "http://localhost" under 'Mobile and desktop applications platform'
-    - API permissions Microsoft Graph delegated permissions  **Application.ReadWrite.All** and **User.Read** (make sure you grant Admin consent to these permissions)
-3. The user who logs in to get the MS Graph Access Token should be one of the following Azure AD Administrative Role (which is required update the service principal):
+1. The object ID of your application's service principal, found in the **Overview** blade of your application's entry in [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) in the Azure portal.
+2. An app registration to sign in a user and get an access token to call Microsoft Graph. Get the application (client) ID of this app in the **Overview** blade of the application's entry in [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. The app registration should have the following configuration:
+    - A redirect URI of "http://localhost" listed in the **Mobile and desktop applications** platform configuration
+    - In **API permissions**, Microsoft Graph delegated permissions **Application.ReadWrite.All** and **User.Read** (make sure you grant Admin consent to these permissions)
+3. A user who logs in to get the Microsoft Graph access token. The user should be one of the following Azure AD administrative roles (required to update the service principal):
     - Cloud Application Administrator
     - Application Administrator
     - Global Administrator
-4. A signing certificate to configure for our application. You can either create a self-signed certificate or obtain one from your Trusted Certificate Authority. We will need the following certificate components for our script:
+4. A certificate to configure as a custom signing key for our application. You can either create a self-signed certificate or obtain one from your trusted certificate authority. The following certificate components are used in the script:
     - public key (typically a .cer file)
     - private key in PKCS#12 format (in .pfx file)
     - password for the private key (pfx file)
