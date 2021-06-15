@@ -32,7 +32,7 @@ Each FarmBeats event has two parts, one that is common across events and another
 
 The part common across events is elaborated in the following schema.
 
-### [Event Grid event schema](#tab/event-grid-event-schema)
+### Event Grid event schema
 An event has the following top-level data:
 
 | Property | Type | Description |
@@ -45,21 +45,6 @@ An event has the following top-level data:
 | `data` | object | App Configuration event data. |
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
-
-
-### [Cloud event schema](#tab/cloud-event-schema)
-
-An event has the following top-level data:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `type` | string | One of the registered event types for this event source. |
-| `time` | string | The time the event is generated based on the provider's UTC time. |
-| `id` | string | Unique identifier for the event. |
-| `data` | object | App Configuration event data. |
-| `specversion` | string | CloudEvents schema specification version. |
 
 
 The tables below elaborate on the properties within data object for each event.
@@ -385,7 +370,7 @@ These event samples represent an event notification.
     "eventTime": "2021-03-05T11:10:21.4572495Z"
   }
 ```
-**Event type: Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChanged**
+**Event type: Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChange**
 ```json
 [
   {
@@ -414,7 +399,7 @@ These event samples represent an event notification.
   }
 ]
 ```
-**Event type: Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChanged**
+**Event type: Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChange**
 ```json
 [
   {
@@ -438,7 +423,7 @@ These event samples represent an event notification.
 ]
 
 ```
-**Event type: Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChanged**
+**Event type: Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChange**
 ```json
 [
   {
