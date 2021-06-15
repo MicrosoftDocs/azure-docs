@@ -15,7 +15,7 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Cloud apps, actions, and authentication  context
+# Conditional Access: Cloud apps, actions, and authentication context
 
 Cloud apps, actions, and authentication context are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, actions, or authentication context.
 
