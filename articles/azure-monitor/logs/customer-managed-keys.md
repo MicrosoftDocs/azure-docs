@@ -258,7 +258,7 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 
 > [!IMPORTANT]
 > - The recommended way to revoke access to your data is by disabling your key, or deleting access policy in your Key Vault.
-> - Setting the cluster's `identity` `type` to "None" also revokes access to your data, but this approach isn't recommended since you can't revert the revocation when restating the `identity` in the cluster without opening support request.
+> - Setting the cluster's `identity` `type` to `None` also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support.
 
 The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. Any new data ingested to workspaces linked with your cluster gets dropped and won't be recoverable, data becomes inaccessible and queries on these workspaces fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible.
 
@@ -424,9 +424,9 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
   - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
 
-  - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` with `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn' applied to System-assigned managed identity.
+  - Setting the cluster's `identity` `type` to `None` acks also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support. The recommended way to revoke access to your data is [key revocation](#key-revocation).
 
-  - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is  in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
+  - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
 ## Troubleshooting
 

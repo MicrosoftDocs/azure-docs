@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 06/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -145,7 +145,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
     ```
 
 1. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
-1. Under the **TechnicalProfile** element, update the value for **DisplayName**, for example, `Contoso Employee`. This value is displayed on the sign-in button on your sign-in page.
+1. Under the **TechnicalProfile** element, update the value for **DisplayName**, for example, `Multi-Tenant AAD`. This value is displayed on the sign-in button on your sign-in page.
 1. Set **client_id** to the application ID of the Azure AD multi-tenant application that you registered earlier.
 1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that created earlier. For example, `B2C_1A_AADAppSecret`.
 
@@ -197,8 +197,6 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-When working with custom policies, you might sometimes need additional information when troubleshooting a policy during its development.
-
-To help diagnose issues, you can temporarily put the policy into "developer mode" and collect logs with Azure Application Insights. Find out how in [Azure Active Directory B2C: Collecting Logs](troubleshoot-with-application-insights.md).
+[Publisher verification](../active-directory/develop/publisher-verification-overview.md) helps your users understand the authenticity of the app you [registered](#register-an-application). A verified app means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN). Learn how to [mark your app as publisher verified](../active-directory/develop/mark-app-as-publisher-verified.md). 
 
 ::: zone-end

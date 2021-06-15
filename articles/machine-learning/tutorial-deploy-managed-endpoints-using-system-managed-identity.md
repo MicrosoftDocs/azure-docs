@@ -43,6 +43,7 @@ This tutorial demonstrates how to take the following actions with the Azure CLI 
 
 * A trained machine learning model ready for scoring and deployment.
 
+
 ## Set the defaults for Azure CLI
 
 To ensure the correct resources are used throughout this tutorial, set the default values for the Azure subscription ID, Azure Machine Learning workspace, and resource group you want to use. Doing so allows you to avoid having to repeatedly pass in the values every time you call an Azure CLI command. 
@@ -188,3 +189,4 @@ In this Azure Machine Learning tutorial, you used the machine learning CLI for t
 
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To refine JSON queries to only return specific data, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
+* For more information on the YAML schema, see [online endpoint YAML reference](reference-online-endpoint-yaml.md) document.
