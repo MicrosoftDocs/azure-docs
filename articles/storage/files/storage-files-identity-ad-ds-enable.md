@@ -15,11 +15,14 @@ Before you enable Active Directory Domain Services (AD DS) authentication, make 
 
 This article describes the process required for enabling Active Directory Domain Services (AD DS) authentication on your storage account. After enabling the feature, you must configure your storage account and your AD DS, to use AD DS credentials for authenticating to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account.
 
-To register your storage account with AD DS, create an account representing it in your AD DS. You can think of this process as if it were like creating an account representing an on-premises Windows file server in your AD DS. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
+To register your storage account with AD DS, create an account representing it in your AD DS. You can think of this process as if it were like creating an account representing an on-premises Windows file server in your AD DS. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. The options on this page will help you create such an account correctly.
+
+> [!IMPORTANT]
+> The account used in the following process, needs to be assigned share-level permission on the storage account. See (Part two: assign share-level permissions to an identity)[https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-assign-permissions#share-level-permissions]
 
 ## Option one (recommended): Use AzFilesHybrid PowerShell module
 
-The cmdlets in the AzFilesHybrid PowerShell module make the necessary modifications and enables the feature for you. Since some parts of the cmdlets interact with your on-premises AD DS, we explain what the cmdlets do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Though we recommend using AzFilesHybrid module, if you are unable to do so, we provide the steps so that you may perform them manually.
+The cmdlets in the AzFilesHybrid PowerShell module make the necessary modifications and enables the feature for you. Since some parts of the cmdlets interact with your on-premises AD DS, we explain what the cmdlets do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Though we recommend using AzFilesHybrid module, if you are unable to do so, we provide the steps so that you may perform them manually (see option two).
 
 ### Download AzFilesHybrid module
 
@@ -81,7 +84,7 @@ Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -Stor
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-## Option 2: Manually perform the enablement actions
+## Option two: Manually perform the enablement actions
 
 If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the [Confirm the feature is enabled](#confirm-the-feature-is-enabled) section. You don't need to perform the following manual steps.
 
