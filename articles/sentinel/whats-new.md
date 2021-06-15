@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 06/15/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,6 +27,22 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
+
+## June 2021
+
+### Normalization and the Azure Sentinel Information Model
+
+Azure Sentinel now provides a new information model that enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
+The following image shows how you can use normalization schemas provided by the Azure Sentinel Information Model (ASIM) to translate non-normalized data into normalized data for use with both Microsoft and custom content.
+
+:::image type="content" source="media/normalization/sentinel-information-model-components.png" alt-text="Azure Sentinel normalization flow using the Azure Sentinel Information Model (ASIM).":::
+
+For more information, see:
+
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
+- [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
+
 
 ## May 2021
 
@@ -464,49 +480,6 @@ After editing an analytics rule on the **Set rule logic** tab, find the **Result
 Select **Test with current data** to have Azure Sentinel run a simulation of the last 50 runs of your analytics rule. A graph is generated to show the average number of alerts that the rule would have generated, based on the raw event data evaluated. 
 
 For more information, see [Define the rule query logic and configure settings](tutorial-detect-threats-custom.md#define-the-rule-query-logic-and-configure-settings).
-
-## December 2020
-
-- [80 new built-in hunting queries](#80-new-built-in-hunting-queries)
-- [Log Analytics agent improvements](#log-analytics-agent-improvements)
-
-### 80 new built-in hunting queries
- 
-Azure Sentinel's built-in hunting queries empower SOC analysts to reduce gaps in current detection coverage and ignite new hunting leads.
-
-This update for Azure Sentinel includes new hunting queries that provide coverage across the MITRE ATT&CK framework matrix:
-
-- **Collection**
-- **Command and Control**
-- **Credential Access**
-- **Discovery**
-- **Execution**
-- **Exfiltration**
-- **Impact**
-- **Initial Access**
-- **Persistence**
-- **Privilege Escalation**
-
-The added hunting queries are designed to help you find suspicious activity in your environment. While they may return legitimate activity and potentially malicious activity, they can be useful in guiding your hunting. 
-
-If after running these queries, you are confident with the results, you may want to convert them to analytics rules or add hunting results to existing or new incidents.
-
-All of the added queries are available via the Azure Sentinel Hunting page. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
-
-### Log Analytics agent improvements
-
-Azure Sentinel users benefit from the following Log Analytics agent improvements:
-
-- **Support for more operating systems**, including CentOS 8, RedHat 8, and SUSE Linux 15.
-- **Support for Python 3** in addition to Python 2
-
-Azure Sentinel uses the Log Analytics agent to sent events to your workspace, including Windows Security events, Syslog events, CEF logs, and more.
-
-> [!NOTE]
-> The Log Analytics agent is sometimes referred to as the OMS Agent or the Microsoft Monitoring Agent (MMA). 
-> 
-
-For more information, see the [Log Analytics documentation](../azure-monitor/agents/log-analytics-agent.md) and the [Log Analytics agent release notes](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 
 ## Next steps
 
