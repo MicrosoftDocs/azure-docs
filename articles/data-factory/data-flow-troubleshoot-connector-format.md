@@ -80,8 +80,8 @@ The map type support:
 |-------------------------|-----------|------------|
 |Excel, CSV  |No      |Both are tabular data sources with the primitive type, so there is no need to support the map type. |
 |Orc, Avro |Yes |None.|
-|JSON|Yes |The map type can not be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
-|Cosmos DB |Yes |The map type can not be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|JSON|Yes |The map type cannot be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|Cosmos DB |Yes |The map type cannot be directly supported, please follow the recommendation part in this section to update the script (DSL) under the source projection.|
 |Parquet |Yes |Today the complex data type is not supported on the parquet dataset, so you need to use the "Import projection" under the data flow parquet source to get the map type.|
 |XML |No |None.|
 
