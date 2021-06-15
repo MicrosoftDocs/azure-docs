@@ -41,5 +41,5 @@ The Azure portal provides a method for configuring and updating the IP allowlist
 
 ## Next steps
 
-[Create an account](./account-create-how-to.md)
-[DRM and content protection overview](./drm-content-protection-concept.md)
+- [Create an account](./account-create-how-to.md)
+- [DRM and content protection overview](./drm-content-protection-concept.md)
