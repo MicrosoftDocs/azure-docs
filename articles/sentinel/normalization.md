@@ -487,5 +487,5 @@ This article describes normalization in Azure Sentinel and the Azure Sentinel In
 
 For more information, see:
 
-- [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel Network normalization schema reference (Public preview)](normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md)
