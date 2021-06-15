@@ -91,7 +91,7 @@ You can enable static website hosting by using the Azure PowerShell module.
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-6. Create inventory rules by using the [New-AzStorageBlobInventoryPolicyRule](/powershell/module/az.storage/new-azstorageblobinventorypolicyrule) command. Each rule lists report fields. To see a complete list of report fields, see [Azure Storage blob inventory (preview)](blob-inventory.md).
+6. Create inventory rules by using the [New-AzStorageBlobInventoryPolicyRule](/powershell/module/az.storage/new-azstorageblobinventorypolicyrule) command. Each rule lists report fields. For a complete list of report fields, see [Azure Storage blob inventory (preview)](blob-inventory.md).
 
    ```Powershell
     $containerName = "my-container"
@@ -130,7 +130,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
    ```
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. An inventory policy is a collection of rules in a JSON document. The following shows the contents of an example JSON file named `policy.json`. 
+3. Define the rules of your policy in a JSON document. The following shows the contents of an example JSON file named `policy.json`. 
 
    ```json
     {
@@ -186,6 +186,5 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 
 ## Next steps
 
-- [Azure Storage blob inventory (preview)](blob-inventory.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
 - [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
