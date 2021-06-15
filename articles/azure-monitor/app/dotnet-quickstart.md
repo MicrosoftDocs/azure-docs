@@ -54,15 +54,21 @@ Complete the following steps to create and configure a new ASP.NET Core web app:
     > [!TIP]
     > You may prefer to [use Visual Studio to create your app](/visualstudio/ide/quickstart-aspnet-core).
 
+1. From inside the project directory, add the `Microsoft.ApplicationInsights.AspNetCore` package to the project. If you're using Visual Studio, you can use [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio).
+
+    ```dotnetcli
+    dotnet add package Microsoft.ApplicationInsights.AspNetCore --version 2.17.0 
+    ```
+
 1. Using a text editor or IDE, modify *appsettings.json* to contain a value for `ApplicationInsights.InstrumentationKey`, as shown. Use the instrumentation key you copied earlier.
 
-    :::code language="json" source="snippets/dotnet-quickstart/appsettings.json" range="1-12" highlight="2-4":::
+    :::code language="json" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/appsettings.json" range="1-12" highlight="2-4":::
 
 ## Configure server-side telemetry
 
 In the `ConfigureServices` method of *Startup.cs*, add the Application Insights service to the pipeline. Add the highlighted line:
 
-:::code language="csharp" source="snippets/dotnet-quickstart/startup.cs" highlight="4":::
+:::code language="csharp" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/startup.cs" highlight="4":::
 
 ## Configure client-side telemetry
 
@@ -78,7 +84,7 @@ Complete the following steps to instrument the app to send client-side telemetry
 
 1. In *Pages/Shared/_Layout.cshtml*, in the `<head>` element, add the highlighted line:
 
-    :::code language="razor" source="snippets/dotnet-quickstart/_layout.cshtml" range="3-10" highlight="7":::
+    :::code language="cshtml" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/_layout.cshtml" range="3-10" highlight="7":::
 
    This change uses the injected `JavaScriptSnippet` object to ensure the script element is rendered in the head of every page in the app.
 
