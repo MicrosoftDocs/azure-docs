@@ -199,6 +199,6 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-[Publisher verification](../active-directory/develop/publisher-verification-overview) helps your users understand the authenticity of the app you [registered](#gegister-an-application). A verified app means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN). Learn how to [mark your app as publisher verified](../active-directory/develop/mark-app-as-publisher-verified). 
+[Publisher verification](../active-directory/develop/publisher-verification-overview.md) helps your users understand the authenticity of the app you [registered](#register-an-application). A verified app means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN). Learn how to [mark your app as publisher verified](../active-directory/develop/mark-app-as-publisher-verified.md). 
 
 ::: zone-end
