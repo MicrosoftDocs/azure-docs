@@ -7,10 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Get started
+    - name: Get started with CLI   
       href: quickstart-send-telemetry-cli.md
-    - name: Explore IoT device development
-      href: ../iot-develop/index.yml
+    - name: Send telemetry to IoT Hub
+      href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       items:
         - name: Node.js
