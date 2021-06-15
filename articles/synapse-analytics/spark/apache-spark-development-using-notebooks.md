@@ -340,7 +340,7 @@ Example: ``` %run /path/notebookA ```.
 Notebook reference works in both interactive mode and Synapse pipeline.
 
 > [!NOTE]
-> The referenced notebooks are required to be published. You need to first publish the notebook to reference.
+> The referenced notebooks are required to be published. You need to publish the notebooks to reference them. Synapse Studio does not recognize the unpublished notebooks from the Git repo. 
 >
 
 ---
