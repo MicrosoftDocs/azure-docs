@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn how to cancel Azure SQL Managed Instance management operations.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to

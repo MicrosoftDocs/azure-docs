@@ -5,9 +5,9 @@ description: Export a database to a BACPAC file using the Azure portal.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: data-movement
-author: stevestein
-ms.custom: sqldbrb=2, devx-track-azurepowershell
-ms.author: sstein
+author: cawrites
+ms.custom: sqldbrb=2
+ms.author: chadam
 ms.reviewer: 
 ms.date: 01/11/2021
 ms.topic: how-to

@@ -304,6 +304,8 @@
     items:
     - name: Releases
       items:
+      - name: Ubuntu 18.04 update
+        href: ./hdinsight-ubuntu-1804-qa.md
       - name: What's new in HDInsight 4.0
         href: ./hdinsight-version-release.md
       - name: Release notes

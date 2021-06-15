@@ -249,11 +249,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cosmos-db/create-mongodb-flask.md",
-      "redirect_url": "/azure/cosmos-db/mongodb-introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/authentication/howto-authentication-methods-usage-insights.md",
       "redirect_url": "/azure/active-directory/authentication/howto-authentication-methods-activity",
       "redirect_document_id": false
@@ -521,6 +516,11 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-realtimeboard-tutorial.md",
       "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/active-directory-saas-fax.plus-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/fax-plus-tutorial",
       "redirect_document_id": false
     },
     {
@@ -5669,6 +5669,86 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
+      "redirect_url": "/azure/fxt-edge-filer/add-nodes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-storage.md",
+      "redirect_url": "/azure/fxt-edge-filer/add-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-additional-doc.md",
+      "redirect_url": "/azure/fxt-edge-filer/additional-doc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-cluster-create.md",
+      "redirect_url": "/azure/fxt-edge-filer/cluster-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-configure-network.md",
+      "redirect_url": "/azure/fxt-edge-filer/configure-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-install.md",
+      "redirect_url": "/azure/fxt-edge-filer/install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-monitor.md",
+      "redirect_url": "/azure/fxt-edge-filer/monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-mount-clients.md",
+      "redirect_url": "/azure/fxt-edge-filer/mount-clients",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-network-power.md",
+      "redirect_url": "/azure/fxt-edge-filer/network-power",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-node-password.md",
+      "redirect_url": "/azure/fxt-edge-filer/node-password",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-overview.md",
+      "redirect_url": "/azure/fxt-edge-filer/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-port-list.md",
+      "redirect_url": "/azure/fxt-edge-filer/port-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-power-off.md",
+      "redirect_url": "/azure/fxt-edge-filer/power-off",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-specs.md",
+      "redirect_url": "/azure/fxt-edge-filer/specs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-support-ticket.md",
+      "redirect_url": "/azure/fxt-edge-filer/support-ticket",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-supported-ciphers.md",
+      "redirect_url": "/azure/fxt-edge-filer/supported-ciphers",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/avere-vfxt/avere-vfxt-required-ports.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
       "redirect_document_id": true
@@ -5696,6 +5776,11 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/scale-out-postgresql-hyperscale-server-group.md",
+      "redirect_url": "/azure/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group",
       "redirect_document_id": false
     },
     {
@@ -6195,11 +6280,6 @@
     },
     {
       "source_path_from_root": "/articles/azure-functions/functions-bindings-documentdb.md",
-      "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-functions-http-trigger.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
       "redirect_document_id": false
     },
@@ -7194,6 +7274,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/migration.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-api-v3",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-batch-testing.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
       "redirect_document_id": true
@@ -7207,6 +7292,11 @@
       "source_path": "articles/cognitive-services/LUIS/luis-concept-batch-test.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-devops-with-github.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-devops-automation",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
@@ -10209,6 +10299,111 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/compare-template-syntax.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/compare-template-syntax",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-decompile.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/decompile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-file.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-install.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-modules.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-operators-comparison.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/operators-comparison",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-operators-logical.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/operators-logical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-operators-numeric.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/operators-numeric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/quickstart-create-bicep-use-visual-studio-code.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-functions-any.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/template-functions-any",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-modules.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-outputs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-tags.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-tags",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-create-first-bicep.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-create-first-bicep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-export-template.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-export-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-quickstart-template.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-quickstart-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-use-parameter-file.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-use-parameter-file",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/grant-access-to-create-subscription.md",
       "redirect_url": "/azure/azure-resource-manager/management/grant-access-to-create-subscription",
       "redirect_document_id": false
@@ -10469,6 +10664,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/add-resource-extensions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/resource-extensions",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/vs-resource-groups-project-devops-pipelines.md",
       "redirect_url": "/azure/azure-resource-manager/templates/add-template-to-azure-pipelines",
       "redirect_document_id": false
@@ -10506,6 +10706,16 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/complete-mode-deletion.md",
       "redirect_url": "/azure/azure-resource-manager/templates/complete-mode-deletion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/complete-mode-deletion.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-complete-mode-deletion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/convert-to-template-spec.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-spec-convert",
       "redirect_document_id": false
     },
     {
@@ -10566,6 +10776,11 @@
     {
       "source_path_from_root": "/articles/resource-group-define-dependencies.md",
       "redirect_url": "/azure/azure-resource-manager/templates/define-resource-dependency",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/define-resource-dependency.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/resource-dependency",
       "redirect_document_id": false
     },
     {
@@ -10949,8 +11164,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-best-practices.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/best-practices",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/template-deploy-what-if.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-deploy-what-if",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-deploy-what-if.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-what-if",
       "redirect_document_id": false
     },
     {
@@ -11014,6 +11239,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/outputs",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-templates-parameters.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-parameters",
       "redirect_document_id": false
@@ -11024,6 +11254,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/parameters",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/template-samples.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-samples",
       "redirect_document_id": false
@@ -11031,6 +11266,11 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates-cloud-consistency.md",
       "redirect_url": "/azure/azure-resource-manager/templates/templates-cloud-consistency",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/templates-cloud-consistency.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-cloud-consistency",
       "redirect_document_id": false
     },
     {
@@ -11066,6 +11306,11 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-templates-resources.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-syntax#resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-syntax.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/syntax",
       "redirect_document_id": false
     },
     {
@@ -11184,6 +11429,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-user-defined-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-templates-variables.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-variables",
       "redirect_document_id": false
@@ -11191,6 +11441,11 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/template-variables.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/variables",
       "redirect_document_id": false
     },
     {
@@ -13609,6 +13864,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/disaster-recovery-for-virtual-machines.md",
+      "redirect_url": "/azure/azure-vmware/deploy-disaster-recovery-using-vmware-hcx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/lifecycle-management-of-azure-vmware-solution-vms.md",
+      "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/set-up-backup-server-for-azure-vmware-solution.md",
       "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
       "redirect_document_id": false
@@ -14254,6 +14519,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cdn/cdn-troubleshoot-allowed-ca.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cdn/cdn-rules-engine-reference.md",
       "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine-reference",
       "redirect_document_id": true
@@ -14774,311 +15044,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/20-days-of-tips.md",
-      "redirect_url": "/azure/cosmos-db/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-cpp-get-started.md",
-      "redirect_url": "/azure/cosmos-db/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/account-overview.md",
-      "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/databases-containers-items.md",
-      "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/globally-distributed-transactional-analytical-storage.md",
-      "redirect_url": "/azure/cosmos-db/analytical-store-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/spark-api-introduction.md",
-      "redirect_url": "/azure/cosmos-db/analytics-usecases",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/autopilot-faq.md",
-      "redirect_url": "/azure/cosmos-db/autoscale-faq",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/change-feed-hl7-fhir-logic-apps.md",
-      "redirect_url": "/azure/cosmos-db/change-feed",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-change-feed.md",
-      "redirect_url": "/azure/cosmos-db/change-feed",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-change-feed-hl7-fhir-logic-apps.md",
-      "redirect_url": "/azure/cosmos-db/change-feed-hl7-fhir-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-change-notification.md",
-      "redirect_url": "/azure/cosmos-db/change-feed-hl7-fhir-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/how-to-configure-change-feed-start-time.md",
-      "redirect_url": "/azure/cosmos-db/change-feed-processor#starting-time",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-automation-region-management.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-automation-resource-manager-cli.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-automation-resource-manager-cli-nodejs.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-community.md",
-      "redirect_url": "/azure/cosmos-db/community",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/multi-master-benefits.md",
-      "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/multi-master-conflict-resolution.md",
-      "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-connect-mongodb-account.md",
-      "redirect_url": "/azure/cosmos-db/connect-mongodb-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/consistency-levels-across-apis.md",
-      "redirect_url": "/azure/cosmos-db/consistency-levels",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/consistency-levels-choosing.md",
-      "redirect_url": "/azure/cosmos-db/consistency-levels",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/consistency-levels-tradeoffs.md",
-      "redirect_url": "/azure/cosmos-db/consistency-levels",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/multi-master-oss-nosql.md",
-      "redirect_url": "/azure/cosmos-db/consistency-levels",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-consistency-levels.md",
-      "redirect_url": "/azure/cosmos-db/consistency-levels",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/cosmos-db-security-attributes.md",
-      "redirect_url": "/azure/cosmos-db/cosmos-db-security-controls",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-develop-cassandra-java.md",
-      "redirect_url": "/azure/cosmos-db/create-cassandra-api-account-java",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-get-started-quickstart.md",
-      "redirect_url": "/azure/cosmos-db/create-documentdb-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-view-json-document-explorer.md",
-      "redirect_url": "/azure/cosmos-db/create-documentdb-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-query-collections-query-explorer.md",
-      "redirect_url": "/azure/cosmos-db/create-documentdb-dotnet#add-sample-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-view-scripts.md",
-      "redirect_url": "/azure/cosmos-db/create-documentdb-dotnet#add-sample-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-create-collection.md",
-      "redirect_url": "/azure/cosmos-db/create-documentdb-dotnet#create-collection",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-create-database.md",
-      "redirect_url": "/azure/cosmos-db/create-documentdb-dotnet#create-collection",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-develop-graph-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/create-graph-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-develop-mongodb.md",
-      "redirect_url": "/azure/cosmos-db/create-mongodb-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-mongodb-application.md",
-      "redirect_url": "/azure/cosmos-db/create-mongodb-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/table-storage-overview.md",
-      "redirect_url": "/azure/storage/tables/table-storage-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-create-mongodb-account.md",
-      "redirect_url": "/azure/cosmos-db/create-mongodb-dotnet#create-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-mongodb-golang.md",
-      "redirect_url": "/azure/cosmos-db/create-mongodb-go",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-documentdb-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-sql-api-dotnet-preview.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/graph-sdk-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-documentdb-java.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-java",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-java-get-started.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-java",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-async-java-get-started.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-java",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-java-get-started.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-java",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list.md",
-      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list-by-location.md",
-      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/restorable-sql-resources-list.md",
-      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/restorable-sql-databases-list.md",
-      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/restorable-sql-containers-list.md",
-      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-resources-list.md",
-      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-collections-list.md",
-      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-databases-list.md",
-      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-documentdb-nodejs.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-documentdb-python.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-python",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-python-application.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-python",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-documentdb-xamarin-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/create-sql-api-xamarin-dotnet",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-create-documentdb-website.md",
-      "redirect_url": "/azure/cosmos-db/create-website",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-nosql-database-encryption-at-rest.md",
-      "redirect_url": "/azure/cosmos-db/database-encryption-at-rest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-resources.md",
-      "redirect_url": "/azure/cosmos-db/databases-containers-items",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-nosql-database-security.md",
-      "redirect_url": "/azure/cosmos-db/database-security",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cassandra-managed-instance/compare-cosmosdb-managed-instance.md",
       "redirect_url": "/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance",
       "redirect_document_id": false
@@ -15121,1151 +15086,6 @@
     {
       "source_path_from_root": "/articles/cassandra-managed-instance/visualize-prometheus-grafana.md",
       "redirect_url": "/azure/managed-instance-apache-cassandra/visualize-prometheus-grafana",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/distribute-data-globally-benefits.md",
-      "redirect_url": "/azure/cosmos-db/distribute-data-globally",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-global-distribution-graph.md",
-      "redirect_url": "/azure/cosmos-db/distribute-data-globally",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-distribute-data-globally.md",
-      "redirect_url": "/azure/cosmos-db/distribute-data-globally",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-cpp-get-started.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-cpp-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-dotnet-application.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-dotnet-application",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-documentdb-dotnet-core.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-dotnetcore-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-dotnetcore-get-started.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-dotnetcore-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-dotnet-samples.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-dotnet-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-get-started.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-introduction.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-java-application.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-java-application",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-java-get-started.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-java-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-nodejs-application.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-nodejs-application",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-nodejs-get-started.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-nodejs-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-nodejs-samples.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-nodejs-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-python-application.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-python-application",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-python-samples.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-python-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-resources.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-resources",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-sdk-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-sdk-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-sdk-dotnet-core.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-sdk-dotnet-core",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-sdk-java.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-sdk-java",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-sdk-node.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-sdk-node",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-sdk-python.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-sdk-python",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-sql-query.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-sql-query",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-sql-query-cheat-sheet.md",
-      "redirect_url": "/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/multi-master-workaround.md",
-      "redirect_url": "/azure/cosmos-db/enable-multi-master",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/multi-region-writers.md",
-      "redirect_url": "/azure/cosmos-db/enable-multi-master",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-faq.md",
-      "redirect_url": "/azure/cosmos-db/faq",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/welcome-documentdb-customers.md",
-      "redirect_url": "/azure/cosmos-db/faq#moving-to-cosmos-db",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-firewall-support.md",
-      "redirect_url": "/azure/cosmos-db/firewall-support",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-geospatial.md",
-      "redirect_url": "/azure/cosmos-db/geospatial",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/gremlin-compatibility.md",
-      "redirect_url": "/azure/cosmos-db/gremlin-support",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/regional-failover.md",
-      "redirect_url": "/azure/cosmos-db/high-availability",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/regional-presence.md",
-      "redirect_url": "/azure/cosmos-db/high-availability",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/how-to-configure-cosmos-db-trigger-connection-policy.md",
-      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#configuring-the-connection-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/how-to-configure-cosmos-db-trigger-logs.md",
-      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#enabling-trigger-specific-logs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/firewall-support.md",
-      "redirect_url": "/azure/cosmos-db/how-to-configure-firewall",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/vnet-service-endpoint.md",
-      "redirect_url": "/azure/cosmos-db/how-to-configure-vnet-service-endpoint",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/distribute-data-globally-turnkey.md",
-      "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/enable-multi-master.md",
-      "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/manage-account.md",
-      "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/how-to-custom-synchronization.md",
-      "redirect_url": "/azure/cosmos-db/how-to-multi-master",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-import-data.md",
-      "redirect_url": "/azure/cosmos-db/import-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-indexing.md",
-      "redirect_url": "/azure/cosmos-db/indexing-policies",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-indexing-policies.md",
-      "redirect_url": "/azure/cosmos-db/indexing-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/index-types.md",
-      "redirect_url": "/azure/cosmos-db/index-overview#index-kinds",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/indexing-policies.md",
-      "redirect_url": "/azure/cosmos-db/index-policy",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/indexing-policy.md",
-      "redirect_url": "/azure/cosmos-db/index-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/index-paths.md",
-      "redirect_url": "/azure/cosmos-db/index-policy#including-and-excluding-property-paths",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/bootstrap-kubernetes-cluster.md",
-      "redirect_url": "/azure/cosmos-db/introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/community.md",
-      "redirect_url": "/azure/cosmos-db/introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/connected-service.md",
-      "redirect_url": "/azure/cosmos-db/introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/etcd-api-introduction.md",
-      "redirect_url": "/azure/cosmos-db/introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/experiment.experimental.md",
-      "redirect_url": "/azure/cosmos-db/introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/experiment.md",
-      "redirect_url": "/azure/cosmos-db/introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-introduction.md",
-      "redirect_url": "/azure/cosmos-db/introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-key-value-store-cost.md",
-      "redirect_url": "/azure/cosmos-db/key-value-store-cost",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-nosql-local-emulator.md",
-      "redirect_url": "/azure/cosmos-db/local-emulator",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md",
-      "redirect_url": "/azure/cosmos-db/local-emulator-export-ssl-certificates",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-manage.md",
-      "redirect_url": "/azure/cosmos-db/manage-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-manage-account.md",
-      "redirect_url": "/azure/cosmos-db/manage-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-manage-account-with-powershell.md",
-      "redirect_url": "/azure/cosmos-db/manage-account-with-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/manage-account-with-powershell.md",
-      "redirect_url": "/azure/cosmos-db/manage-with-powershell",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/manage-sql-with-resource-manager.md",
-      "redirect_url": "/azure/cosmos-db/manage-with-templates",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-mobile-apps-with-xamarin.md",
-      "redirect_url": "/azure/cosmos-db/mobile-apps-with-xamarin",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-modeling-data.md",
-      "redirect_url": "/azure/cosmos-db/modeling-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/mongodb-index.md",
-      "redirect_url": "/azure/cosmos-db/mongodb-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-protocol-mongodb.md",
-      "redirect_url": "/azure/cosmos-db/mongodb-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-mongodb-migrate.md",
-      "redirect_url": "/azure/cosmos-db/mongodb-migrate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-mongodb-mongochef.md",
-      "redirect_url": "/azure/cosmos-db/mongodb-mongochef",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-mongodb-robomongo.md",
-      "redirect_url": "/azure/cosmos-db/mongodb-robomongo",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-mongodb-samples.md",
-      "redirect_url": "/azure/cosmos-db/mongodb-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-monitor-accounts.md",
-      "redirect_url": "/azure/cosmos-db/monitor-accounts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/cosmos-db-azure-monitor-metrics.md",
-      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/logging.md",
-      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/monitor-accounts.md",
-      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/mongodb-multi-master-support.md",
-      "redirect_url": "/azure/cosmos-db/multi-master-oss-nosql",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-multi-region-writers.md",
-      "redirect_url": "/azure/cosmos-db/multi-region-writers",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-nosql-odbc-driver.md",
-      "redirect_url": "/azure/cosmos-db/odbc-driver",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/how-to-backup-and-restore.md",
-      "redirect_url": "/azure/cosmos-db/online-backup-and-restore",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-online-backup-and-restore.md",
-      "redirect_url": "/azure/cosmos-db/online-backup-and-restore",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/optimize-cost-queries.md",
-      "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-partition-data.md",
-      "redirect_url": "/azure/cosmos-db/partition-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-sharding.md",
-      "redirect_url": "/azure/cosmos-db/partition-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/partition-data.md",
-      "redirect_url": "/azure/cosmos-db/partitioning-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-partition-data.md",
-      "redirect_url": "/azure/cosmos-db/partitioning-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-performance-levels.md",
-      "redirect_url": "/azure/cosmos-db/performance-levels",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-supercharge-your-account.md",
-      "redirect_url": "/azure/cosmos-db/performance-levels",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-performance-testing.md",
-      "redirect_url": "/azure/cosmos-db/performance-testing",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-performance-tips.md",
-      "redirect_url": "/azure/cosmos-db/performance-tips",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/policy-samples.md",
-      "redirect_url": "/azure/cosmos-db/policy-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-powerbi-visualize.md",
-      "redirect_url": "/azure/cosmos-db/powerbi-visualize",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/powershell-samples-sql.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/create-and-configure-cassandra-database.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/create-graph-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/create-mongodb-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/create-table-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-account-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-account-tags-update.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-container-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-database-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-programming.md",
-      "redirect_url": "/azure/cosmos-db/programming",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/provision-throughput-autopilot.md",
-      "redirect_url": "/azure/cosmos-db/provision-throughput-autoscale",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sql-query-cheat-sheet.md",
-      "redirect_url": "/azure/cosmos-db/query-cheat-sheet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
-      "redirect_url": "/azure/cosmos-db/query-cheat-sheet",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-regional-failovers.md",
-      "redirect_url": "/azure/cosmos-db/regional-failover",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/request-units-per-minute.md",
-      "redirect_url": "/azure/cosmos-db/request-units",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scaling-throughput.md",
-      "redirect_url": "/azure/cosmos-db/request-units",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-increase-limits.md",
-      "redirect_url": "/azure/cosmos-db/request-units",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-request-units.md",
-      "redirect_url": "/azure/cosmos-db/request-units",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/create-cassandra-database-account-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/cassandra/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-firewall-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/common/ipfirewall",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/create-firewall-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/common/ipfirewall",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/secure-generate-key-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/common/keys",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/secure-get-account-key-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/common/keys",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/secure-mongo-connection-string.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/common/keys",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/ha-failover-policy.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/common/regions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/scale-multiregion-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/common/regions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/create-gremlin-database-account-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/gremlin/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/create-mongodb-database-account-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/mongodb/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/create-database-account-collections-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/sql/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/scale-collection-throughput-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/sql/throughput",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/create-table-database-account-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/cli/table/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/create-graph-database-account-cli.md",
-      "redirect_url": "/azure/cosmos-db/scripts/create-gremlin-database-account-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/failover-priority-update",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/ps-account-failover-priority-update.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/failover-priority-update",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/create-firewall-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/firewall-create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-account-firewall-create.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/firewall-create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-account-key-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-account-create.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-container-create.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-container-create-conflict-policy.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-custom.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-container-create-shared.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-container-create-unique-key-ttl.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-database-create.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-database-create-shared.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-none.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create-index-none",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-account-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-container-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-container-list.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-database-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/ps-database-list.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/scripts/scale-multiregion-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/throughput-update",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/access-control.md",
-      "redirect_url": "/azure/cosmos-db/secure-access-to-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-secure-access-to-data.md",
-      "redirect_url": "/azure/cosmos-db/secure-access-to-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/cosmos-db-security-controls.md",
-      "redirect_url": "/azure/cosmos-db/security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-set-throughput.md",
-      "redirect_url": "/azure/cosmos-db/set-throughput",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-social-media-apps.md",
-      "redirect_url": "/azure/cosmos-db/social-media-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/spark-connector-graph.md",
-      "redirect_url": "/azure/cosmos-db/spark-connector",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-spark-connector.md",
-      "redirect_url": "/azure/cosmos-db/spark-connector",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-cpp-get-started.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-cpp-get-started",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-dotnet-application.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-dotnet-application-preview.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-dotnetcore-get-started.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-dotnetcore-get-started",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-dotnet-samples.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-dotnet-samples",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-get-started.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-dotnetcore-get-started.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-dotnet-core-get-started-preview.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-dotnet-get-started-preview.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-develop-sql-api-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-index.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-index",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-introduction.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-introduction",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-index.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-java-application.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-java-application",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-async-java-samples.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-java-sdk-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-java-samples.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-java-sdk-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-nodejs-application.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-nodejs-application",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-nodejs-get-started.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-nodejs-get-started",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-nodejs-samples.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-nodejs-samples",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-partition-data.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-partition-data",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-python-application.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-python-application",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-python-samples.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-python-samples",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-sql-query-metrics.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-query-metrics",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-resources.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-resources",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sdk-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sdk-dotnet-changefeed.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet-changefeed",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sdk-dotnet-core.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet-core",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sdk-java.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sdk-java",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sdk-node.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sdk-node",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sdk-python.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sdk-python",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sql-query.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sql-query",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sql-query-metrics.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sql-query-metrics",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-query-aggregates.md",
-      "redirect_url": "/azure/cosmos-db/sql-query-aggregate-functions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/geospatial.md",
-      "redirect_url": "/azure/cosmos-db/sql-query-geospatial-intro",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-sql-query-reference.md",
-      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/how-to-sql-query.md",
-      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-query-getting-started.md",
-      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-query-reference.md",
-      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-api-sql-query.md",
-      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-query-reference.md",
-      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql-query-execution.md",
-      "redirect_url": "/azure/cosmos-db/sql-query-pagination",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
-      "redirect_url": "/azure/cosmos-db/storage-explorer",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md",
-      "redirect_url": "/azure/cosmos-db/storage-explorer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/programming.md",
-      "redirect_url": "/azure/cosmos-db/storedprocedures-triggers-udfs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/lambda-architecture.md",
-      "redirect_url": "/azure/cosmos-db/synapse-link",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/analytics-solution-architectures.md",
-      "redirect_url": "/azure/cosmos-db/synapse-link-use-cases",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/analytics-usecases.md",
-      "redirect_url": "/azure/cosmos-db/synapse-link-use-cases",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/table-powershell.md",
-      "redirect_url": "/azure/cosmos-db/table-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-table-design-guide.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-design-guide",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-tables.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-c-plus",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-dotnet-how-to-use-tables.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-dotnet",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-java-how-to-use-table-storage.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-java",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-table-storage.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-nodejs",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-nodejs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-php-how-to-use-table-storage.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-php",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/create-table-python.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-python-how-to-use-table-storage.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-ruby-how-to-use-table-storage.md",
-      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-ruby",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/manage-cassandra-with-resource-manager.md",
-      "redirect_url": "/azure/cosmos-db/templates-samples-cassandra",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/manage-gremlin-with-resource-manager.md",
-      "redirect_url": "/azure/cosmos-db/templates-samples-gremlin",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/manage-mongodb-with-resource-manager.md",
-      "redirect_url": "/azure/cosmos-db/templates-samples-mongodb",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/resource-manager-samples.md",
-      "redirect_url": "/azure/cosmos-db/templates-samples-sql",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/mongodb-ttl.md",
-      "redirect_url": "/azure/cosmos-db/time-to-live",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-time-to-live.md",
-      "redirect_url": "/azure/cosmos-db/time-to-live",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-develop-documentdb-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/tutorial-develop-sql-api-dotnet",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/tutorial-develop-table-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-developing-with-multiple-regions.md",
-      "redirect_url": "/azure/cosmos-db/tutorial-global-distribution-documentdb",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-portal-global-replication.md",
-      "redirect_url": "/azure/cosmos-db/tutorial-global-distribution-documentdb#portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-global-distribution-documentdb.md",
-      "redirect_url": "/azure/cosmos-db/tutorial-global-distribution-sql-api",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/tutorial-query-documentdb.md",
-      "redirect_url": "/azure/cosmos-db/tutorial-query-sql-api",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-use-cases.md",
-      "redirect_url": "/azure/cosmos-db/use-cases",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/use-notebook-features-and-commands.md",
-      "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-working-with-dates.md",
-      "redirect_url": "/azure/cosmos-db/working-with-dates",
       "redirect_document_id": false
     },
     {
@@ -19840,6 +18660,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-create-app-registration.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-app-registration-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/concepts-integration.md",
       "redirect_url": "/azure/digital-twins/concepts-data-ingress-egress",
       "redirect_document_id": true
@@ -19933,11 +18758,6 @@
       "source_path_from_root": "/articles/digital-twins/about-digital-twins.md",
       "redirect_url": "/azure/digital-twins/overview",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/mongodb-migrate.md",
-      "redirect_url": "/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/sql-database-migrate-your-sql-server-database.md",
@@ -20279,6 +19099,11 @@
       "redirect_url": "/azure/event-hubs/security-baseline",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/event-hubs/event-hubs-metrics-azure-monitor.md",
+      "redirect_url": "/azure/event-hubs/monitor-event-hubs",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/expressroute/expressroute-global-reach-app-scenario.md",
       "redirect_url": "/azure/expressroute/expressroute-global-reach",
@@ -21618,11 +20443,6 @@
       "source_path_from_root": "/articles/hdinsight/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
       "redirect_url": "/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/run-hadoop-with-hdinsight.md",
-      "redirect_url": "/azure/hdinsight/hadoop/hdinsight-use-hive",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/documentdb/documentdb-run-hadoop-with-hdinsight.md",
@@ -24997,6 +23817,36 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md",
       "redirect_url": "/azure/iot-hub/tutorial-routing#routing-to-a-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-csharp.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-nodejs.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-c.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
       "redirect_document_id": false
     },
     {
@@ -28425,6 +27275,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/concept-managed-endpoints.md",
+      "redirect_url": "/azure/machine-learning/concept-endpoints",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
       "redirect_url": "/azure/machine-learning/samples-notebooks",
       "redirect_document_id": false
@@ -28909,6 +27764,7 @@
       "redirect_url": "/azure/marketplace/azure-ad-saas",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md",
       "redirect_url": "/azure/marketplace/azure-resource-manager-test-drive",
@@ -28937,6 +27793,11 @@
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/vm-certification-issues-solutions.md",
       "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/azure-consumption-commitment-benefit.md",
+      "redirect_url": "/azure/marketplace/azure-consumption-commitment-enrollment",
       "redirect_document_id": false
     },
     {
@@ -29195,103 +28056,158 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/azure-app-apis.md",
+      "redirect_url": "/azure/marketplace/azure-app-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-test-publish.md",
+      "redirect_url": "/azure/marketplace/azure-app-test-publish",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-technical.md",
+      "redirect_url": "/azure/marketplace/azure-app-technical-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-properties.md",
+      "redirect_url": "/azure/marketplace/azure-app-properties",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-solution.md",
+      "redirect_url": "/azure/marketplace/azure-app-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-preview.md",
+      "redirect_url": "/azure/marketplace/azure-app-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-plans.md",
+      "redirect_url": "/azure/marketplace/azure-app-plans",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-marketing.md",
+      "redirect_url": "/azure/marketplace/azure-app-marketing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-managed.md",
+      "redirect_url": "/azure/marketplace/azure-app-managed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer-listing.md",
+      "redirect_url": "/azure/marketplace/azure-app-offer-listing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/create-new-azure-apps-offer.md",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/managed-application-author-marketplace.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/managed-application-consume-marketplace.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/managed-applications/publish-marketplace-app.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-testdrive-tab.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-azure-apps-offer.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-pre-requisites.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-push-to-production.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-push-to-staging.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-solution-template-creation.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-solution-template-creation-prerequisites.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-solution-template-test-in-staging.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md",
-      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -29546,12 +28462,17 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md",
-      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
+      "redirect_url": "/partner-center/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
-      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
+      "redirect_url": "/partner-center/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/account-migration-from-cpp-to-pc.md",
+      "redirect_url": "/partner-center/overview",
       "redirect_document_id": false
     },
     {
@@ -29570,33 +28491,73 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/ratings-reviews.md",
+      "redirect_url": "/azure/marketplace/ratings-reviews",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/downloads-dashboard.md",
+      "redirect_url": "/azure/marketplace/downloads-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/azure-app-metered-billing.md",
+      "redirect_url": "/azure/marketplace/azure-app-metered-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/marketplace-metering-service-authentication.md",
+      "redirect_url": "/azure/marketplace/marketplace-metering-service-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/marketplace-metering-service-apis-faq.md",
+      "redirect_url": "/azure/marketplace/marketplace-metering-service-apis-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/marketplace-metering-service-apis.md",
+      "redirect_url": "/azure/marketplace/marketplace-metering-service-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/azure-apps-review-feedback.md",
+      "redirect_url": "/azure/marketplace/azure-app-review-feedback",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/analytics.md",
+      "redirect_url": "/azure/marketplace/analytics",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/portal-tour/cpp-insights-page.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/si-changes.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/si-getting-started.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/si-Insights-definitions-v4.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/web-analytics.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/analytics",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-apps-review-feedback",
+      "redirect_url": "/azure/marketplace/azure-apps-review-feedback",
       "redirect_document_id": false
     },
     {
@@ -29881,32 +28842,32 @@
     },
     {
       "source_path_from_root": "/articles/managed-applications/publish-marketplace-app.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-powershell-setup.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/azure-app-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -30036,67 +28997,67 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-channel-info-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-contacts-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-plans-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-saas-subscription-apis.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-storefront-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-technical-info-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-testdrive-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
@@ -30162,6 +29123,11 @@
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/si-faqs.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/faq-terminology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/marketplace-rewards.md",
+      "redirect_url": "/azure/marketplace/marketplace-rewards",
       "redirect_document_id": false
     },
     {
@@ -30256,47 +29222,52 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/manage-offers/cpp-delete-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/manage-dynamics-365-for-operations.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/update-existing-offer.md",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
@@ -32140,6 +31111,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/postgresql/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mariaDB/howto-database-threat-protection-portal.md",
+      "redirect_url": "/azure/security-center/enable-azure-defender",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/postgresql/concepts-compute-unit-and-storage.md",
       "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
       "redirect_document_id": false
@@ -33912,6 +32898,11 @@
     {
       "source_path_from_root": "/articles/sentinel/tutorial-detect-threats.md",
       "redirect_url": "/azure/sentinel/tutorial-detect-threats-built-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md",
+      "redirect_url": "/azure/sentinel/microsoft-365-defender-sentinel-integration#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules",
       "redirect_document_id": false
     },
     {
@@ -36615,6 +35606,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-cli.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-portal.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac-powershell.md",
+      "redirect_url": "/azure/storage/blobs/assign-azure-role-data-access",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/storage-azure-cli.md",
       "redirect_url": "/azure/storage/common/storage-azure-cli",
       "redirect_document_id": true
@@ -37368,11 +36374,6 @@
       "source_path_from_root": "/articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
       "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-powershell.md",
-      "redirect_url": "/azure/storage/tables/table-storage-how-to-use-powershell",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/visual-studio/vs-storage-aspnet5-getting-started-tables.md",
@@ -41385,6 +40386,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cloud-services-extended-support/cses-support-help.md",
+      "redirect_url": "/azure/cloud-services-extended-support/support-help",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks.md",
       "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-use-disks-cli",
       "redirect_document_id": false
@@ -41940,8 +40946,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-troubleshoot-allowed-ca.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/waf-front-door-custom-rules.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-allowed-certificate-authority.md",
+      "redirect_url": "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT",
       "redirect_document_id": false
     },
     {
@@ -43740,6 +42756,81 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/mysql/migrate/index.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/representative-use-case.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/02-representative-use-case",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/assessment.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/03-assessment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/planning.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/04-planning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/migration-methods.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/05-migration-methods",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/test-plans.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/06-test-plans",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/performance-baselines.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/07-performance-baselines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/data-migration.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/08-data-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/data-migration-with-mysql-workbench.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/09-data-migration-with-mysql-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/post-migration-management.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/10-post-migration-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/optimization.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/11-optimization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/business-continuity-and-disaster-recovery.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/12-business-continuity-and-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/security.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/13-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/summary.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/14-summary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mysql/migrate/appendix.md",
+      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/15-appendix",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/howto-build-services-resilent-to-metadata-refresh.md",
       "redirect_url": "/azure/active-directory/develop/howto-build-services-resilient-to-metadata-refresh",
       "redirect_document_id": false
@@ -43873,6 +42964,11 @@
       "source_path_from_root": "/articles/connectors/connectors-create-api-yammer",
       "redirect_url": "/connectors/yammer/",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
+      "redirect_url": "/connectors/todo/",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
@@ -44162,11 +43258,6 @@
     {
       "source_path_from_root": "/articles/azure-cache-for-redis/cache-java-spring-boot-initializer-with-redis-cache.md",
       "redirect_url": "/java/azure/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/documentdb-java-spring-boot-starter-with-cosmos-db.md",
-      "redirect_url": "/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db",
       "redirect_document_id": false
     },
     {
@@ -47695,6 +46786,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/faq-text-to-speech.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-test-model.md",
       "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-studio-overview",
       "redirect_document_id": true
@@ -47757,11 +46853,6 @@
     {
       "source_path_from_root": "/articles/security/fundamentals/health-care-solution.md",
       "redirect_url": "https://aka.ms/azureindustrysecurity",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-nosql-vs-sql.md",
-      "redirect_url": "https://aka.ms/cosmosdb",
       "redirect_document_id": false
     },
     {
@@ -47942,26 +47033,6 @@
     {
       "source_path_from_root": "/articles/machine-learning/studio/datamarket-deprecation.md",
       "redirect_url": "https://azure.microsoft.com/services/cognitive-services/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-limits.md",
-      "redirect_url": "https://azure.microsoft.com/services/cosmos-db/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-orderby.md",
-      "redirect_url": "https://azure.microsoft.com/services/cosmos-db/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/documentdb-whitepaper-chappell.md",
-      "redirect_url": "https://azure.microsoft.com/services/cosmos-db/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/documentdb/fundamentals-data-management-nosql-chappell.md",
-      "redirect_url": "https://azure.microsoft.com/services/cosmos-db/",
       "redirect_document_id": false
     },
     {
@@ -61510,6 +60581,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-test.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-get-started-javascript-add-utterance.md",
       "redirect_url": "/azure/cognitive-services/LUIS/",
       "redirect_document_id": false
@@ -66590,6 +65666,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
+      "redirect_url": "/azure/virtual-desktop/teams-on-avd",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure/media-services/video-indexer/",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
       "redirect_document_id": false
@@ -66603,7 +65684,41 @@
       "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-libraries.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/database/job-automation-managed-instances.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/job-automation-managed-instance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-download-audit-report.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-download-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-download-sign-in-report.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-download-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-files-compare-protocols.md",
+      "redirect_url": "/azure/storage/files/files-nfs-protocol",
+      "redireect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
+      "redirect_url": "/azure/iot-develop/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-files-how-to-create-large-file-share.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-troubleshoot-cannot-delete-files-azure-file-share.md",
+      "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#unable-to-modify-moverename-or-delete-a-file-or-directory",
+      "redirect_document_id": false
     }
-
   ]
 }

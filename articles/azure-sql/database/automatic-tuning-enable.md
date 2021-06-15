@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 03/03/2021
 ---
 # Enable automatic tuning in the Azure portal to monitor queries and improve workload performance
@@ -24,7 +24,7 @@ Automatic tuning can be enabled at the server or the database level through:
 - [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) commands
 
 > [!NOTE]
-> For Azure SQL Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can only be configured through [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) only. The Azure portal based configuration and automatic index tuning options described in this article do not apply to Azure SQL Managed Instance.
+> For Azure SQL Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can only be configured through [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management). The Azure portal based configuration and automatic index tuning options described in this article do not apply to Azure SQL Managed Instance.
 
 > [!NOTE]
 > Configuring automatic tuning options through the ARM (Azure Resource Manager) template is not supported at this time.

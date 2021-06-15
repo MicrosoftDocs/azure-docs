@@ -148,7 +148,7 @@ The following table describes the fields on the **Advanced** tab.
 | Data Lake Storage Gen2 | Enable hierarchical namespace | Optional | To use this storage account for Azure Data Lake Storage Gen2 workloads, configure a hierarchical namespace. For more information, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
 | Blob storage | Enable network file share (NFS) v3 (preview) | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](../blobs/network-file-system-protocol-support.md). |
 | Blob storage | Access tier | Required | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Access tiers for Azure Blob Storage - hot, cool, and archive](../blobs/storage-blob-storage-tiers.md). |
-| Azure Files | Enable large file shares | Optional | Available only for premium storage accounts for file shares. For more information, see [Enable standard file shares to span up to 100 TiB](../files/storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib). |
+| Azure Files | Enable large file shares | Optional | Available only for standard file shares with the LRS or ZRS redundancies. |
 | Tables and queues | Enable support for customer-managed keys | Optional | To enable support for customer-managed keys for tables and queues, you must select this setting at the time that you create the storage account. For more information, see [Create an account that supports customer-managed keys for tables and queues](account-encryption-key-create.md). |
 
 ### Networking tab
@@ -270,7 +270,7 @@ The following table shows which values to use for the `sku` and `kind` parameter
 
 # [Template](#tab/template)
 
-You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
+You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
