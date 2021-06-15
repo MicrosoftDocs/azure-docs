@@ -42,9 +42,9 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Enabling NER scenario to AutoML DNN NLP package
     + Data Cleaning: Samples with target values in [None, "", "nan", np.nan] will be dropped prior to featurization and/or model training.
   + **azureml-core**
-    + Documentation improvement of platform property of Environment class.
-    + The default AML Compute node scale down time has changed from 120 seconds to 1800 seconds.
-    + The default troubleshooting link displayed on the portal for troubleshooting failed runs has been updated to: https://aka.ms/azureml-run-troubleshooting
+    + Improved documentation for platform property on Environment class.
+    + Changed default AML Compute node scale down time from 120 seconds to 1800 seconds.
+    + Udpated default troubleshooting link displayed on the portal for troubleshooting failed runs to: https://aka.ms/azureml-run-troubleshooting
   + **azureml-interpret**
     + Prevent flush task queue error on remote AzureML runs that use ExplanationClient by increasing timeout
   + **azureml-pipeline-core**
