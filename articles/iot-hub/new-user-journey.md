@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/21/2021
-#Customer intent: As a developer new to IoT Hub, learn the basic concepts and how to set up and use an IoT Hub. 
+#Customer intent: As a developer new to IoT Hub, learn the basic concepts and how to set up and use an IoT Hub.
 ---
 
 # New IoT User Journey
@@ -25,11 +25,10 @@ Specifically, IoT devices:
 
 ## Connect and securely connect
 
-Per-device authentication enables each device to connect securely to IoT Hub and for each device to be managed securely.
-https://docs.microsoft.com/azure/iot-hub/about-iot-hub You have complete control over device access and can control connections at the per-device level.
+Per-device authentication enables each device to connect securely to IoT Hub and for each device to be managed securely. You have complete control over device access and can control connections at the per-device level.
 
 ### Devices have a secure identity
-(../azure/iot-edge/how-to-register-device?view=iotedge-2020-11&tabs=azure-portal)
+(../azure/iot-edge/how-to-register-device&tabs=azure-portal)
 
 Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud commuications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub. You can use a process called manual provisioning, in which you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
 
@@ -39,11 +38,11 @@ Every device that connects to an IoT Hub has a device ID that's used to track cl
 
 If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service:
 
-*  [Create and provision IoT Edge devices using X.509 certificates](/azure/iot-edge/how-to-auto-provision-x509-certs)
+*  [Create and provision IoT Edge devices using X.509 certificates](../iot-edge/how-to-auto-provision-x509-certs.md)
 
-*  [Create and provision IoT Edge devices with a TPM](https://docs.microsoft.com/azure/iot-edge/how-to-auto-provision-simulated-device-linux)
+*  [Create and provision IoT Edge devices with a TPM](..iot-edge/how-to-auto-provision-simulated-device-linux.md)
 
-*  [Create and provision IoT Edge devices using symmetric keys](https://docs.microsoft.com///azure/iot-edge/how-to-auto-provision-symmetric-keys?view=iotedge-2020-11)
+*  [Create and provision IoT Edge devices using symmetric keys](..iot-edge/how-to-auto-provision-symmetric-keys.md)
 
 The security token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the TLS connection establishment. The security-token-based method can be used without the X.509 authentication, which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
 
@@ -51,7 +50,7 @@ The security token method provides authentication for each call made by the devi
 
  IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the network. Additionally, security tokens are limited in time validity and scope. Azure IoT SDKs automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These scenarios include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern.
 
-Internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports TLS 1.2, TLS 1.1, and TLS 1.0, in that order. Support for TLS 1.0 is provided for backward compatibility only. Check [TLS support in IoT Hub](iot-hub-tls-support) to see how to configure your hub to use TLS 1.2, as it provides the most security.
+Internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports TLS 1.2, TLS 1.1, and TLS 1.0, in that order. Support for TLS 1.0 is provided for backward compatibility only. Check [TLS support in IoT Hub](iot-hub-tls-support.md) to see how to configure your hub to use TLS 1.2, as it provides the most security.
 
 ## Communication Patterns with a Device
 
@@ -78,7 +77,7 @@ What is telemetry? Telemetry is data that a device sends to an IoT Hub. IoT Devi
 How does IoT support telemetry?
 
 ### Properties are state values or data that applications can access. For example, the curent firmware version of the device, or writable properties that can be updated, such a temperature, are properties.
-https://docs.microsoft.com/javascript/api/azure-iot-common/message?view=azure-node-latest
+(/javascript/api/azure-iot-common/message)
 
 Properties can be read or set from the IoT Hub, and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. This can be a writable property that can be updated on the device.  
 
@@ -92,4 +91,4 @@ A built-in endpoint collects data from your device by default. The data is colle
 
 You can also use Message Routing to send data to other endpoints for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services, also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
 
-Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless archictures. Learn more about [https://azure.microsoft.com/services/event-grid/](Event Grid). 
+Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless archictures. Learn more about (Event Grid)[https://azure.microsoft.com/services/event-grid/]. 
