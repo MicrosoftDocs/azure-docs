@@ -30,12 +30,12 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## June 2021
 
-### Normalization and the Azure Sentinel Information Model
+### Upgrades for normalization and the Azure Sentinel Information Model
 
-Azure Sentinel now provides a new information model that enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
-The following image shows how you can use normalization schemas provided by the Azure Sentinel Information Model (ASIM) to translate non-normalized data into normalized data for use with both Microsoft and custom content.
+The Azure Sentinel Information Mode enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
 
-:::image type="content" source="media/normalization/sentinel-information-model-components.png" alt-text="Azure Sentinel normalization flow using the Azure Sentinel Information Model (ASIM).":::
+
+In this month's update, we've enhanced our normalization documentation, providing new levels of detail and a full DNS normalization schema.
 
 For more information, see:
 
