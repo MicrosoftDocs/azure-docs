@@ -14185,7 +14185,7 @@
     },
 	 {
       "source_path_from_root": "/articles/networking/edge-zones-overview.md",
-      "redirect_url": "/azure/private-multi-access-edge-compute-mec",
+      "redirect_url": "/azure/private-multi-access-edge-compute-mec/overview",
       "redirect_document_id": false
     },
     {
