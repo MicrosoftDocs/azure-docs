@@ -2,15 +2,15 @@
 title: Journey for learning IoT Hub for New Users | Microsoft Docs
 description: This journey shows new users how to learn and use IoT Hub
 author: robinsh
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/21/2021
-ms.author: robinsh
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts and how to set up and use an IoT Hub. 
 ---
 
-# New User IoT Journey
+# New IoT User Journey
 
 IoT devices have different characteristics when compared to other clients such as browsers and mobile apps. The [device SDKs](iot-hub-devguide-sdks.md) help you address the challenges of connecting devices securely and reliably to your back-end service. 
 
@@ -43,7 +43,7 @@ If you have many devices to set up and don't want to manually provision each one
 
 *  [Create and provision IoT Edge devices with a TPM](https://docs.microsoft.com/azure/iot-edge/how-to-auto-provision-simulated-device-linux)
 
-*  [Create and provision IoT Edge devices using symmetric keys](https://docs.microsoft.com//azure/iot-edge/how-to-auto-provision-symmetric-keys?view=iotedge-2020-11)
+*  [Create and provision IoT Edge devices using symmetric keys](https://docs.microsoft.com///azure/iot-edge/how-to-auto-provision-symmetric-keys?view=iotedge-2020-11)
 
 The security token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the TLS connection establishment. The security-token-based method can be used without the X.509 authentication, which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
 
