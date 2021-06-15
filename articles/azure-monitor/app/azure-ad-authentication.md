@@ -71,7 +71,7 @@ services.Configure<TelemetryConfiguration>(config =>
 });
 services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 {
-	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
 });
 ```
 
