@@ -18,7 +18,8 @@ Get started with Azure Communication Services by provisioning your first Communi
 
 
 > [!WARNING]
-> Note that while Communication Services is available in multiple geographies, in order to get a phone number the resource must have a data location set to 'US'. Also note that communication resources cannot be transferred to a different subscription during public preview.
+> Note that while Communication Services is available in multiple geographies, in order to get a phone number the resource must have a data location set to 'US'. Also note that resource moves are not currently supported, but will be available soon.
+> Also note it is not possible to create a resource group at the same time as a resource for Azure Communication Services. When creating a resource, a resource group that has been created already must be used.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
@@ -113,9 +114,12 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. 
 
-If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time.
+If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time. 
+
+> [!Note]
+> Resource deletion is **permanent** and no data, including event gird filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
 
 ## Next steps
 

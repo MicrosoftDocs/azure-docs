@@ -26,6 +26,16 @@
       href: compare-cosmosdb-managed-instance.md                
 - name: How-to guides
   items:
+    - name: Migration
+      items:
+        - name: Live migration
+          items:
+            - name: Using dual-write proxy
+              href: dual-write-proxy-migration.md          
+        - name: Offline migration
+          items:
+            - name: Using Apache Spark
+              href: spark-migration.md    
     - name: Manage with Azure CLI
       displayName: az managed-cassandra, cluster, datacenter
       href: manage-resources-cli.md           
