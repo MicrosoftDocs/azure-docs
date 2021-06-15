@@ -75,7 +75,7 @@
   - name: Integration and responsible use
     href: /legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/anomaly-detector/context/context
   - name: Data, privacy and security
-    href: /legal/cognitive-services/qnamaker/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
+    href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Reference
   items:
     - name: Anomaly Detector REST API
