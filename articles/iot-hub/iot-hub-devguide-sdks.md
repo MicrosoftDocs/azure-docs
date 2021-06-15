@@ -62,9 +62,9 @@ The Microsoft Azure IoT device SDKs contain code that facilitates building appli
 
 Learn more about the IoT Hub Device SDKS in the [IoT Device Development Documentation](../iot-develop/about-iot-sdks.md).
 
-## OS platform and hardware compatibility
+## SDK and hardware compatibility
 
-Supported platforms for the SDKs can be found in [Azure IoT SDKs Platform Support](iot-hub-device-sdk-platform-support.md).
+For more information about choosing a device SDK, see [Overview of Azure device SDKs](../iot-develop/about-iot-sdks.md).
 
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/) or individual repository.
 
@@ -76,7 +76,7 @@ Relevant docs related to development using the Azure IoT SDKs:
 
 * Learn about [how to manage connectivity and reliable messaging](iot-hub-reliability-features-in-sdks.md) using the IoT Hub SDKs.
 * Learn about how to [develop for mobile platforms](iot-hub-how-to-develop-for-mobile-devices.md) such as iOS and Android.
-* [Azure IoT SDK platform support](iot-hub-device-sdk-platform-support.md)
+* [IoT Device Development Documentation](../iot-develop/about-iot-sdks.md)
 
 Other reference topics in this IoT Hub developer guide include:
 

@@ -173,8 +173,6 @@
           items:
             - name: SDK overview
               href: iot-hub-devguide-sdks.md
-            - name: SDK platform support
-              href: iot-hub-device-sdk-platform-support.md
             - name: Develop without the SDK
               href: iot-hub-devguide-no-sdk.md   
             - name: Manage connectivity and reliable messaging

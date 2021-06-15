@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Device SDKs Platform Support | Microsoft Docs
 description: Open-source device SDKs are available on GitHub in C, .NET (C#), Java, Node.js, and Python, to connect devices to Azure IoT Hub and Device Provisioning Service (DPS).
-author: robinsh
+author: JimacoMS4
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

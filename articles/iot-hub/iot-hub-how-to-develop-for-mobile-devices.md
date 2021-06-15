@@ -38,7 +38,7 @@ Azure IoT Hub SDKs releases a set of Objective-C CocoaPod libraries for iOS deve
     * Add the header file to your dependency.  A header file is included in the [sample repository](https://github.com/Azure-Samples/azure-iot-samples-ios) as an example. For more information, please visit Apple's documentation page for [Objective-C](https://developer.apple.com/documentation/objectivec).
 
 ## Develop for Android platform
-Azure IoT Hub Java SDK supports Android platform.  For the specific API version tested, please visit our [platform support page](iot-hub-device-sdk-platform-support.md) for the latest update.
+Azure IoT Hub Java SDK supports Android platform.
 
 These documentations walk through how to develop a device application or service application on an Android device using Gradle and Android Studio:
 
