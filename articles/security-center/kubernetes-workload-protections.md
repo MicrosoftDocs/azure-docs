@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 06/15/2021
 ms.author: memildin
 ---
 
@@ -29,14 +29,14 @@ Security Center offers more container security features if you enable Azure Defe
 
 ## Availability
 
-|Aspect|Details|
-|----|:----|
-|Release state:|General Availability (GA)|
-|Pricing:|Free|
-|Required roles and permissions:|**Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations|
-|Environment requirements:|Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
-|||
+| Aspect                          | Details                                                                                                                                      |
+|---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | General Availability (GA)                                                                                                                    |
+| Pricing:                        | Free                                                                                                                                         |
+| Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations                                              |
+| Environment requirements:       | Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
+| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov) |
+|                                 |                                                                                                                                              |
 
 
 ## Set up your workload protection
@@ -65,7 +65,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
 
-### Step 2: View and configure the bundle of 13 recommendations
+### Step 2: View and configure the bundle of recommendations
 
 1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
@@ -76,29 +76,36 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
     | Recommendation name                                                         | Security control                         | Configuration required |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | No                     |
-    | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
-    | Immutable (read-only) root filesystem should be enforced for containers     | Manage access and permissions            | No                     |
-    | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
-    | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
-    | Containers sharing sensitive host namespaces should be avoided              | Manage access and permissions            | No                     |
-    | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
-    | Usage of pod HostPath volume mounts should be restricted to a known list    | Manage access and permissions            | **Yes**                |
     | Containers should listen on allowed ports only                              | Restrict unauthorized network access     | **Yes**                |
     | Services should listen on allowed ports only                                | Restrict unauthorized network access     | **Yes**                |
     | Usage of host networking and ports should be restricted                     | Restrict unauthorized network access     | **Yes**                |
     | Overriding or disabling of containers AppArmor profile should be restricted | Remediate security configurations        | **Yes**                |
     | Container images should be deployed only from trusted registries            | Remediate vulnerabilities                | **Yes**                |
-    |||
+    | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
+    | Usage of pod HostPath volume mounts should be restricted to a known list    | Manage access and permissions            | **Yes**                |
+    | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
+    | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
+    | Kubernetes clusters should disable automounting API credentials             | Manage access and permissions            | No                     |
+    | Immutable (read-only) root filesystem should be enforced for containers     | Manage access and permissions            | No                     |
+    | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
+    | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
+    | Containers sharing sensitive host namespaces should be avoided              | Manage access and permissions            | No                     |
+    | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | No                     |
+    | Kubernetes clusters should be accessible only over HTTPS                    | Encrypt data in transit                  | No                     |
+    | Kubernetes clusters should not use the default namespace                    | Implement security best practices        | No                     |
+    ||||
 
 
-1. For the recommendations with parameters must be customized, set the parameters:
+1. For the recommendations with parameters that need to be customized, set the parameters:
 
     1. From Security Center's menu, select **Security policy**.
     1. Select the relevant subscription.
     1. From the **Security Center default policy** section, select **View effective policy**.
-    1. Select "ASC Default".
+    1. Select the default policy for the scope you're updating.
     1. Open the **Parameters** tab and modify the values as required.
+
+        :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modifying the parameters for one of the recommendations in the Kubernetes workload protection bundle":::
+
     1. Select **Review + save**.
     1. Select **Save**.
 

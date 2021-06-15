@@ -91,8 +91,10 @@ The DNS resource records for PurviewA, when resolved in the VNet hosting the pri
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
-| `PurviewA.purview.azure.com.scan.Purview.azure.com` | A | \<private endpoint IP address\> |
-| `PurviewA.purview.azure.com.catalog.Purview.azure.com` | A | \<private endpoint IP address\> |
+| `PurviewA.scan.Purview.azure.com` | A | \<private endpoint IP address\> |
+| `PurviewA.catalog.Purview.azure.com` | A | \<private endpoint IP address\> |
+
+<br> 
 
 _Example for Azure Purview DNS name resolution from outside the VNet or when Azure Private Endpoint is not configured:_
 
