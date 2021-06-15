@@ -43401,6 +43401,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-roles-features.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/marketplace-roadmap.md",
       "redirect_url": "/partner-center/announcements",
       "redirect_document_id": false
@@ -55497,8 +55502,43 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-give-access-to-pim.md",
-      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-custom-roles-activate.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-custom-roles-assign.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-custom-roles-configure.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-custom-roles-update-remove.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-resource-roles-external-users.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/how-to-give-access-to-pim.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md",
