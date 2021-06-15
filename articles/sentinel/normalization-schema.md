@@ -19,7 +19,7 @@ ms.author: yelevin
 
 ---
 
-# Azure Sentinel DNS normalization schema reference (Public preview)
+# Azure Sentinel Network normalization schema reference (Public preview)
 
 ## Terminology
 
