@@ -5,7 +5,7 @@ description: What is Metrics Advisor?
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/07/2021
 ms.author: aahi
 ---
 
@@ -71,17 +71,6 @@ See the [entity categories](../named-entity-types.md?tabs=health) returned by Te
 ### Supported languages
 
 Text Analytics for health only supports English language documents. 
-
-## Request access to the public preview
-
-Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to the Text Analytics for health public preview. You will not be billed for Text Analytics for health usage. 
-
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
-
-> [!IMPORTANT]
-> * On the form, you must use an email address associated with an Azure subscription ID.
-> * The Azure resource you use must have been created with the approved Azure subscription ID. 
-> * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
 
 ## Using the Docker container 
 

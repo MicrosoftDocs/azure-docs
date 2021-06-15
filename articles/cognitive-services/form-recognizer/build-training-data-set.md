@@ -5,7 +5,7 @@ description: Learn how to ensure your training data set is optimized for trainin
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019

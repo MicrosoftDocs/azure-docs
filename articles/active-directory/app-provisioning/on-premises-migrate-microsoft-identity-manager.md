@@ -3,7 +3,7 @@ title: 'Export a Microsoft Identity Manager connector for use with Azure AD ECMA
 description: Describes how to create and export a connector from MIM Sync to be used with Azure AD ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
