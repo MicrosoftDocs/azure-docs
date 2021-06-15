@@ -62,7 +62,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Network Function Manager?
+          - text: What is Azure Network Function Manager?
             url: ../network-function-manager/overview.md
       - linkListType: how-to-guide
         links:
