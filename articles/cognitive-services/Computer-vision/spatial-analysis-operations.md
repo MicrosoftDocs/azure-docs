@@ -187,7 +187,7 @@ See [Spatial analysis operation output](#spatial-analysis-operation-output) for 
 | `personBoundingBoxGroundPoints` | list | A list of coordinates on the floor plane relative to the camera. Each coordinate corresponds to the bottom right of the bounding box in `uniformlySpacedPersonBoundingBoxes` with the same index. <br/> See the `centerGroundPoint` field under the [JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights](#JSON-format-for-cognitiveservices.vision.spatialanalysis-persondistance-AI-Insights) section for more details on how coordinates on the floor plane are calculated. |
 
 Example of the zone placement info output visualized on a video frame:
-![Zone placement info visualization](./media/ZonePlacementInfoVisualization.png)
+![Zone placement info visualization](./media/spatial-analysis/ZonePlacementInfoVisualization.png)
 
 The zone placement info provides suggestions for your configurations, but the guidelines in [Camera configration](#camera-configuration) must still be followed for best results.
 
