@@ -20,10 +20,11 @@
   - name: FAQ
     href: faq.md
 - name: Resources
+  expanded: true
   items:
   - name: Network Function Manager product page
     href: https://go.microsoft.com/fwlink/?linkid=2166098
-  - name: Azure private MEC
+  - name: Azure private MEC documentation
     href: https://go.microsoft.com/fwlink/?linkid=2165316
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
