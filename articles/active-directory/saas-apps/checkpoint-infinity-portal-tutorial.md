@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2021
+ms.date: 06/14/2021
 ms.author: jeedes
 
 ---
@@ -36,6 +36,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Check Point Infinity Portal supports **SP** initiated SSO.
 
 * Check Point Infinity Portal supports **Just In Time** user provisioning.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add Check Point Infinity Portal from the gallery
 
@@ -131,37 +134,43 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Check Point Infinity Portal SSO
 
-1. On the Infinity Portal, click **Global Events > Account Settings**.
+ 1. Log in to your Check Point Infinity Portal company site as an administrator.
 
-1. Perform the following steps in the **Account Settings** page.
+ 1. Navigate to **Global Settings** > **Account Settings** and click **Define** under SSO Authentication.
 
-    ![screenshot to upload metadata.](./media/checkpoint-infinity-portal-tutorial/upload-metadata.png)
+    ![Account](./media/checkpoint-infinity-portal-tutorial/define.png "Account") 
 
-    a. Move the **Use SSO Authorization** slider from **OFF** to **ON**.
+ 1. In the **SSO Authentication** page, perform the following steps:
 
-    b. Click **Upload Metadata file** to upload the **Federation Metadata XML** file which you have downloaded from the Azure portal.
+    a. In the **SELECT IDENTITY PROVIDER** section, select **SAML 2.0** and click **NEXT**.
+     
+      ![Authentication](./media/checkpoint-infinity-portal-tutorial/identity-provider.png "Authentication")
 
-    c. Go to **Domain Name** field and enter the name of your company.
+    b. In the **VERIFY DOMAIN** section, perform the following steps:
 
-    d. In the **SSO Login URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+      ![Verify Domain](./media/checkpoint-infinity-portal-tutorial/domain.png "Verify Domain")
+ 
+     1. Copy the DNS record values and add them to the DNS values in your company DNS server. 
+     1. Enter your company’s domain name in the **Domain** field and click **Validate**. 
+     1. Wait for Check Point to approve the DNS record  update, it might take up to 30 minutes. 
+     1. Click **NEXT** once the domain name is validated. 
 
-    e. Click **Save**.
+    c. In the **ALLOW CONNECTIVITY** section, perform the following steps:
+    
+      ![Allow Connectivity](./media/checkpoint-infinity-portal-tutorial/connectivity.png "Allow Connectivity") 
 
-#### Validate your Domain name
+      1. Copy **Entity ID** value, paste this value into the **Azure AD Identifier** text box in the Basic SAML Configuration section in the Azure portal.
+      1. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
+      1. Copy **Sign-on URL** value, paste this value into the **Sign on URL** text box in the Basic SAML Configuration section in the Azure portal.
+      1. Click **NEXT**.
 
-1. You must add your company domain to the list of validated domains.
+    d. In the **CONFIGURE** section, click **Select File** and upload the **Federation Metadata XML** file which you have downloaded from the Azure portal and click **NEXT**. 
 
-1. If your company domain is not in the list, the **Domain is not validated** message appears.
+    ![Configure](./media/checkpoint-infinity-portal-tutorial/service.png "Configure") 
 
-1. Check Point requests **Your Company Domain Name** identity and generates a DNS TXT record.
-
-    ![screenshot to domain validating.](./media/checkpoint-infinity-portal-tutorial/domain-value.png)
-
-    a. Copy the DNS record values and add them to the DNS values in your company domain name registrar.
-
-    b. In the **SSO Authorization** section, click **Validate**.
-
-    c. Wait for Check Point to approve your DNS record. The registrar update of the DNS records can last for up to 30 minutes.
+    e. In the **CONFIRM IDENTITY PROVIDER** section, review the configurations and click **SUBMIT**.
+     
+     ![Submit Configuration](./media/checkpoint-infinity-portal-tutorial/confirm.png "Submit Configuration") 
 
 ### Create Check Point Infinity Portal test user
 
@@ -177,9 +186,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * You can use Microsoft My Apps. When you click the Check Point Infinity Portal tile in the My Apps, this will redirect to Check Point Infinity Portal Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-
 ## Next steps
 
 Once you configure Check Point Infinity Portal you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-
