@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 06/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -195,10 +195,10 @@ To test the multi-tenant sign-in capability, perform the last two steps using th
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
+ This article describes how to complete the [publisher verification](publisher-verification-overview.md) process.
+
 ## Next steps
 
-When working with custom policies, you might sometimes need additional information when troubleshooting a policy during its development.
-
-To help diagnose issues, you can temporarily put the policy into "developer mode" and collect logs with Azure Application Insights. Find out how in [Azure Active Directory B2C: Collecting Logs](troubleshoot-with-application-insights.md).
+[Publisher verification](../active-directory/develop/publisher-verification-overview) helps your users understand the authenticity of the app you [registered](#gegister-an-application). A verified app means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN). Learn how to [mark your app as publisher verified](../active-directory/develop/mark-app-as-publisher-verified). 
 
 ::: zone-end
