@@ -222,7 +222,7 @@ sections:
           
          ### Can I create metric alerts on SQL Managed Instance?
           
-          Yes. For instructions, see [Create alerts for SQL Managed Instance](alerts-create.md).
+          Yes. For instructions, see [Create alerts for SQL Managed Instance](alerts-create.yml).
           
           ### Can I create metric alerts on a database in managed instance?
           
