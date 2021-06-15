@@ -136,11 +136,7 @@
       - name: APIs and CLI
         href: how-to-manage-routes-apis-cli.md
     - name: Enable a managed identity for routing events
-      items:
-      - name: Portal
-        href: how-to-enable-managed-identities-portal.md
-      - name: CLI
-        href: how-to-enable-managed-identities-cli.md
+      href: how-to-enable-managed-identities.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights

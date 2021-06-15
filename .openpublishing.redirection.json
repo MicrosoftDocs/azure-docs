@@ -18710,8 +18710,13 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/digital-twins/how-to-enable-managed-identities.md",
-      "redirect_url": "/azure/digital-twins/how-to-enable-managed-identities-portal",
+      "source_path_from_root": "/articles/digital-twins/how-to-enable-managed-identities-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-enable-managed-identities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-enable-managed-identities-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-enable-managed-identities",
       "redirect_document_id": true
     },
     {
