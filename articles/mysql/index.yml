@@ -107,18 +107,18 @@ landingContent:
         links:
         - text: MySQL on-premises to Azure Database for MySQL
           url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
-        - text: Connect to Single server using MySQL Workbench
-          url: connect-workbench.md
-        - text: Connect to Single server using Java
-          url: connect-java.md
-        - text: Connect to Single server using PHP
-          url: connect-php.md
-        - text: Connect to Flexible server using MySQL Workbench
-          url: connect-workbench.md
-        - text: Connect to Flexible server using PHP
-          url: flexible-server/connect-php.md
-        - text: Connect to Flexible server using Python
-          url: flexible-server/connect-python.md
+        - text: dbForge Studio for MySQL
+          url: concepts-migrate-dbforge-studio-for-mysql.md
+        - text: Dump and restore
+          url: concepts-migrate-dump-restore.md
+        - text: Import and export
+          url: concepts-migrate-import-export.md
+        - text: Migrate Amazon RDS for MySQL with MySQL Workbench
+          url: how-to-migrate-rds-mysql-workbench.md
+        - text: Minimal-downtime migration
+          url: howto-migrate-online.md
+        - text: Common errors during or post migration
+          url: howto-troubleshoot-common-errors.md
 
 # Card 5
   - title: Manage and migrate data
