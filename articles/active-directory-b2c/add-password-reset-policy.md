@@ -299,8 +299,10 @@ To let users of your application reset their password, you create a password res
 1. On the **Create a user flow** page, select the **Password reset** user flow. 
 1. Under **Select a version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *passwordreset1*.
-1. For **Identity providers**, enable **Reset password using email address**.
-1. Under **Application claims**, select **Show more** and choose the claims you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.
+1. For **Identity providers**, enable **Reset password using username** or **Reset password using email address**.
+1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multi-factor authentication (MFA). [Learn more](multi-factor-authentication.md).
+1. Under **Conditional access**, if you've configured Conditional Access policies for your Azure AD B2C tenant and you want to enable them for this user flow, select the **Enforce conditional access policies** check box. You don't need to specify a policy name. [Learn more](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. 1. Under **Application claims**, select **Show more** and choose the claims you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.
 1. Select **OK**.
 1. Select **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
 

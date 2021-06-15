@@ -16,15 +16,17 @@ ms.subservice: B2C
 ---
 # Sign-in options in Azure AD B2C
 
-Azure AD B2C offers several sign-up and sign-in options for users of your applications. You can configure your Azure AD B2C local accounts to allow sign-up and sign-in with a username, email address, phone number, or a combination of these methods. You can also federate with social identity providers (like Facebook, LinkedIn, and Twitter) and standard identity protocols (like OAuth 2.0, OpenID Connect, and more). This article gives an overview of these sign-in options.
+Azure AD B2C offers several sign-up and sign-in methods for users of your applications. When users sign up for your application, you determine whether they'll use a username, email address, or phone number to create local accounts in your Azure AD B2C tenant. You can also federate with social identity providers (like Facebook, LinkedIn, and Twitter) and standard identity protocols (like OAuth 2.0, OpenID Connect, and more).
+
+This article gives an overview of Azure AD B2C sign-in options.
 
 ## Email sign-in
 
 Email sign-up is enabled by default in your local account identity provider settings. With the email option, users can sign in and sign up with their email address and password.
 
 - **Sign-in**: Users are prompted to provide their email and password.
-- **Sign-up**: users will be prompted for an email address, which will be verified at sign-up (optional) and become their login ID. The user then enters any other information requested on the sign-up page, for example, Display Name, Given Name, and Surname. Then select Continue to create the account.
-- **Password reset**: Users must enter and verify their email, after which, the user can reset the password
+- **Sign-up**: users are prompted for an email address, which is verified at sign-up (optional) and becomes their login ID. The user then enters any other information requested on the sign-up page, for example, display name, given name, and surname. Then they select **Continue** to create an account.
+- **Password reset**: Users enter and verify their email, after which the user can reset the password
 
 ![Email sign-up or sign-in experience](./media/sign-in-options/local-account-email-experience.png)
 
