@@ -77,7 +77,6 @@ What is telemetry? Telemetry is data that a device sends to an IoT Hub. IoT Devi
 How does IoT support telemetry?
 
 ### Properties are state values or data that applications can access. For example, the curent firmware version of the device, or writable properties that can be updated, such a temperature, are properties.
-(/javascript/api/azure-iot-common/message)
 
 Properties can be read or set from the IoT Hub, and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. This can be a writable property that can be updated on the device.  
 
@@ -91,4 +90,4 @@ A built-in endpoint collects data from your device by default. The data is colle
 
 You can also use Message Routing to send data to other endpoints for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services, also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
 
-Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless archictures. Learn more about (Event Grid)[https://azure.microsoft.com/services/event-grid/]. 
+Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless archictures. Learn more about [Event Grid](https://azure.microsoft.com/services/event-grid/). 
