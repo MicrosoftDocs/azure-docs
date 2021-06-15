@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 06/15/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
@@ -53,7 +53,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | South   Central US |                      |                     |                |
 | US Gov Virginia    |                      |                     |                |
 | West   US 2        |                      |                     |                |
-| West   US 3*       |                      |                     |                |
+| West   US 3        |                      |                     |                |
 
 \* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
