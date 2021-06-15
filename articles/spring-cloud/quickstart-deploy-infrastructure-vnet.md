@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Provision Azure Spring Cloud using an Azure Resource Manager template (ARM template)
-description: This quickstart shows you how to deploy a Spring Cloud cluster into an existing virtual network.
+description: This quickstart shows you how to use an ARM template to deploy a Spring Cloud cluster into an existing virtual network.
 services: azure-resource-manager
 author: ryhud
 ms.service: spring-cloud
@@ -98,8 +98,8 @@ Write-Host "Press [ENTER] to continue..."
 In this quickstart, you deployed an Azure Spring Cloud instance into an existing virtual network using an ARM template, and then validated the deployment. To learn more about Azure Spring Cloud and Azure Resource Manager, continue on to the resources below.
 
 - Deploy one of the following sample applications from the locations below:
-   * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (Microservices with MySQL backend).
-   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
+   - [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (Microservices with MySQL backend).
+   - [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
 - Use [custom domains](tutorial-custom-domain.md) with Azure Spring Cloud.
 - Expose Azure Spring Cloud applications to the internet using [Azure Application Gateway](expose-apps-gateway-azure-firewall.md).
 - View the secure end-to-end [Azure Spring Cloud reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
