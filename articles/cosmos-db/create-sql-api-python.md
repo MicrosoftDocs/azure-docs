@@ -44,7 +44,7 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount](/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 ## Add a container
 

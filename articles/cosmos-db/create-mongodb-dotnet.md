@@ -34,7 +34,7 @@ This quickstart demonstrates how to create a Cosmos account with [Azure Cosmos D
 
 If you don't already have Visual Studio, download [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload installed with setup.
 
-[!INCLUDE [quickstarts-free-trial-note](includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 <a id="create-account"></a>
 ## Create a database account
