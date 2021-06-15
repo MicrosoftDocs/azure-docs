@@ -335,9 +335,6 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-eu-cloud-coc
           itemType: concept
           text: EU Cloud CoC
-        - url: /compliance/regulatory/offering-en-301-549-eu
-          itemType: concept
-          text: EU EN 301 549
         - url: /azure/compliance/offerings/offering-eu-enisa-iaf
           itemType: concept
           text: ENISA IAF
