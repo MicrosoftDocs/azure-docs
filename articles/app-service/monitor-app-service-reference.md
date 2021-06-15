@@ -36,18 +36,24 @@ For more information on what metric dimensions are, see [Multi-dimensional metri
 App Service does not have any metrics that contain dimensions.
 
 ## Resource logs
-<!-- REQUIRED. Please  keep headings in this order -->
 
 This section lists the types of resource logs you can collect for App Service. 
 
-<!-- List all the resource log types you can have and what they are for -->  
+| Log type | Windows | Windows Container | Linux | Linux Container | Description |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
+| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
+| AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
+| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
+| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Blessed Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Application logs |
+| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
+| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
+| AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender; **only available for Premium tier** | 
+
+<sup>1</sup> For Java SE apps, add "$WEBSITE_AZMON_PREVIEW_ENABLED" to the app settings and set it to 1 or to true.
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
-
-<!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
--->
-
-<!-- Example format. Add extra information -->
 
 ### Web Sites
 
@@ -78,8 +84,6 @@ Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/pla
 ## Azure Monitor Logs tables
 
 Azure App Service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of App Service tables used by Kusto, see the [Azure Monitor Logs table reference - App Service tables](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype#app-services). 
-
-<!-- REQUIRED. Please keep heading in this order -->
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to App Service and available for query by Log Analytics. 
 
