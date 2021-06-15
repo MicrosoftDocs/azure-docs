@@ -156,8 +156,6 @@ That's it! You've created a program to translate documents in a blob container u
 [documenttranslation_docs]: overview.md
 [documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/samples/README.md
 
----
-
 ### [Python](#tab/python)
 
 [Source code][python-dt-src] | [Package (PyPI)][python-dt-pypi] | [API reference documentation][python-dt-ref-docs] | [Product documentation][python-dt-product-docs] | [Samples][python-dt-samples]
