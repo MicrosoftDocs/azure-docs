@@ -5,13 +5,13 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/07/2021
+ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# Update the IoT Edge security daemon and runtime
+# Update IoT Edge
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
@@ -130,6 +130,8 @@ If you want to update to the most recent version of IoT Edge, use the following 
 
 >[!IMPORTANT]
 >If you are updating a device from the public preview version of IoT Edge for Linux on Windows to the generally available version, you need to uninstall and reinstall Azure IoT Edge.
+>
+>To find out if you're currently using the public preview version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.0.x, you are running the public preview version. Uninstall the app and then [Install and provision IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md) again. If your listed version is 1.1.x, you are running the generally available version and can receive updates through Microsoft Update.
 
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and it is managed with Microsoft Update to keep the components up to date automatically.
 

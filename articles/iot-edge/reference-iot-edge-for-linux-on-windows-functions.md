@@ -19,7 +19,7 @@ Understand the PowerShell functions that deploy, provision, and get the status y
 
 The commands described in this article are from the `AzureEFLOW.psm1` file, which can be found on your system in your `WindowsPowerShell` directory under `C:\Program Files\WindowsPowerShellModules\AzureEFLOW`.
 
-### Deploy-Eflow
+## Deploy-Eflow
 
 The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation. For a full list, use the command `Get-Help Deploy-Eflow -full`.  
 
@@ -37,12 +37,11 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | gpuPassthroughType | DirectDeviceAssignment, ParaVirtualization,  "" (No passthrough) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the device's GPU cores | Number of GPU devices for the VM **Note**: Only valid when using DirectDeviceAssignment |
 
-
-### Verify-EflowVm
+## Verify-EflowVm
 
 The **Verify-EflowVm** command is an exposed function to check that the IoT Edge for Linux on Windows virtual machine was created. It takes only common parameters, and it will return **true** if the virtual machine was created and **false** if not. For additional information, use the command `Get-Help Verify-EflowVm -full`.
 
-### Provision-EflowVm
+## Provision-EflowVm
 
 The **Provision-EflowVm** command adds the provisioning information for your IoT Edge device to the virtual machine's IoT Edge `config.yaml` file. Provisioning can also be done during the deployment phase by setting parameters in the **Deploy-Eflow** command. For additional information, use the command `Get-Help Provision-EflowVm -full`.
 
@@ -58,33 +57,27 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | identityCertPath | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity certificate on your virtual machine for provisioning an IoT Edge device (**DPS**, **X509**). |
 | identityPrivKeyPath | Directory path | Absolute source path of the identity certificate in Windows for provisioning an IoT Edge device (**dps**, **X509**). |
 
-
-### Get-EflowVmName
+## Get-EflowVmName
 
 The **Get-EflowVmName** command is used to query the virtual machine's current hostname. This command exists to account for the fact that the Windows hostname can change over time. It takes only common parameters, and it will return the virtual machine's current hostname. For additional information, use the command `Get-Help Get-EflowVmName -full`.
 
-### Get-EflowLogs
+## Get-EflowLogs
 
 The **Get-EflowLogs** command is used to collect and bundle logs from the IoT Edge for Linux on Windows deployment and installation. It outputs the bundled logs in the form of a `.zip` folder. For additional information, use the command `Get-Help Get-EflowLogs -full`.
 
-
-### Get-EflowVmAddr
+## Get-EflowVmAddr
 
 The **Get-EflowVmAddr** command is used to find and display the virtual machine's IP and MAC addresses. It takes only common parameters. For additional information, use the command `Get-Help Get-EflowVmAddr -full`.
 
-### Get-EflowVmInfo
+## Get-EflowVmInfo
 
 The **Get-EflowVmInfo** command is used to collect and display system information from the virtual machine, such as memory, cpu, and storage usage. Furthermore contains information about the VM name, IoT Edge and Moby version. For additional information, use the command `Get-Help Get-EflowVmInfo -full`.
 
-
-
-### Get-EflowVmEdgeInformation
+## Get-EflowVmEdgeInformation
 
 The **Get-EflowVmEdgeInformation** command is used to collect and display IoT Edge information from the virtual machine, such as the version of IoT Edge the virtual machine is running. For additional information, use the command `Get-Help Get-EflowVmEdgeInformation -full`.
 
-
-
-### Get-EflowVmFeature
+## Get-EflowVmFeature
 
 The **Get-EflowVmFeature** command is used to query and display the status of the enablement of EFLOW features. For additional information, use the command `Get-Help Get-EflowVmFeature -full`.
 
@@ -92,8 +85,7 @@ The **Get-EflowVmFeature** command is used to query and display the status of th
 | --------- | --------------- | -------- |
 | feature | "DpsTpm" - "gpu" | Feature name to toggle. |
 
-
-### Set-EflowVmFeature
+## Set-EflowVmFeature
 
 The **Set-EflowVmFeature** command is used to enable/disable the status of EFLOW features. For additional information, use the command `Get-Help Set-EflowVmFeature -full`.
 
@@ -102,13 +94,11 @@ The **Set-EflowVmFeature** command is used to enable/disable the status of EFLOW
 | feature | "DpsTpm" - "gpu" | Feature name to toggle. |
 | enable | "DpsTpm" - "gpu" | If present, enables the feature|
 
-
-### Get-EflowOptionalTelemetry
+## Get-EflowOptionalTelemetry
 
 The **Get-EflowOptionalTelemetry** command is used to query and display the status of the optional telemetry inside the EFLOW VM. For additional information, use the command `Get-Help Get-EflowOptionalTelemetry -full`.
 
-
-### Set-EflowOptionalTelemetry
+## Set-EflowOptionalTelemetry
 
 The **Set-EflowOptionalTelemetry** command is used to enable/disable the optional telemetry inside the EFLOW VM. For additional information, use the command `Get-Help Set-EflowOptionalTelemetry -full`.
 
@@ -116,22 +106,19 @@ The **Set-EflowOptionalTelemetry** command is used to enable/disable the optiona
 | --------- | --------------- | -------- |
 | optionalTelemetry | true - false | Whether optional telemetry is selected. |
 
-
-### Connect-EflowVm
+## Connect-EflowVm
 
 The **Connect-EflowVm** command is used to connect into the virtual machine using SSH. The only account allowed to SSH to the virtual machine is the user that created it. For additional information, use the command `Get-Help Connect-EflowVm -full`.
 
-
-### Start-EflowVm
+## Start-EflowVm
 
 The **Start-EflowVm** command is used to start the EFLOW VM. If the VM is already started, no action is taken. For additional information, use the command `Get-Help Start-EflowVm -full`.
 
-### Stop-EflowVm
+## Stop-EflowVm
 
 The **Stop-EflowVm** command is used to stop the EFLOW VM. If the VM is already stopped, no action is taken. For additional information, use the command `Get-Help Stop-EflowVm -full`.
 
-
-### Next steps
+## Next steps
 
 Learn how to use these commands in the following article:
 

@@ -38,14 +38,14 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
   * If you're creating a new deployment using Windows 10, make sure you enable Hyper-V. For more information, see how to [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
-  * If you're creating a new deployment using Windows Server, make sure you install Hyper-V role and have a network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](nested-virtualization.md).
+  * If you're creating a new deployment using Windows Server, make sure you install Hyper-V role and have a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](nested-virtualization.md).
   * If you're creating a new deployment using a VM, make sure you configure nested virtualization correctly. For more information, see the [nested virtualization](nested-virtualization.md) guide.
 
 * Access to Windows Admin Center with the Azure IoT Edge extension for Windows Admin Center installed:
 
    1. Download the [Windows Admin Center installer](https://aka.ms/wacdownload).
 
-   1. Run the downloaded installer and follow the install wizard prompts to install Windows Admin Center. 
+   1. Run the downloaded installer and follow the install wizard prompts to install Windows Admin Center.
 
    1. Once installed, use a supported browser to open Windows Admin Center. Supported browsers include Microsoft Edge (Windows 10, version 1709 or later), Google Chrome, and Microsoft Edge Insider.
 
@@ -133,6 +133,9 @@ Once your deployment is complete, you are ready to provision your device.
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
+>[!NOTE]
+>The Azure IoT Edge extension for Windows Admin Center is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Installation and management processes may be different than for generally available features.
+
 On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. Any additional servers, PCs, or clusters that you manage will also show up here.
 
 You can use Windows Admin Center to make install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
@@ -168,11 +171,7 @@ If you want to deploy to a remote target device instead of your local device and
    ![Review the configuration settings of your deployment](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
 
    >[!NOTE]
-   >If you are using a Windows virtual machine, it is recommended to use a default switch rather than an external switch to ensure the Linux virtual machine created in the deployment can obtain an IP address.
-   >
-   >Using a default switch assigns the Linux virtual machine an internal IP address. This internal IP address cannot be reached from outside the Windows virtual machine, but it can be connected to locally while logged onto the Windows virtual machine.
-   >
-   >If you are using Windows Server, please note that Azure IoT Edge for Linux on Windows does not automatically support the default switch. For a local Windows Server virtual machine, ensure the Linux virtual machine can obtain an IP address through the external switch. For a Windows Server virtual machine in Azure, set up an internal switch before deploying IoT Edge for Linux on Windows.
+   >IoT Edge for Linux on Windows uses a default switch, which assigns the Linux virtual machine an internal IP address. This internal IP address cannot be reached from outside the Windows machine. You can connect to the virtual machine locally while logged onto the Windows machine.
 
 1. On the **2.3 Deployment** tab, you can watch the progress of the deployment. The full process includes downloading the Azure IoT Edge for Linux on Windows package, installing the package, configuring the host device, and setting up the Linux virtual machine. This process may take several minutes to complete. A successful deployment is pictured below.
 
