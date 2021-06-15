@@ -149,10 +149,10 @@ From your server code, the provider-specific tokens are injected into the reques
 
 | Provider | Header names |
 |-|-|
-| Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
-| Facebook Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
-| Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
-| Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
+| Azure Active Directory | `x-ms-token-aad-id-token` <br/> `x-ms-token-aad-access-token` <br/> `x-ms-token-aad-expires-on`  <br/> `x-ms-token-aad-refresh-token` |
+| Facebook Token | `x-ms-token-facebook-access-token` <br/> `x-ms-token-facebook-expires-on` |
+| Google | `x-ms-token-google-id-token` <br/> `x-ms-token-google-access-token` <br/> `x-ms-token-google-expires-on` <br/> `x-ms-token-google-refresh-token` |
+| Twitter | `x-ms-token-twitter-access-token` <br/> `x-ms-token-twitter-access-token-secret` |
 |||
 
 From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me` ([token store](overview-authentication-authorization.md#token-store) must be enabled). The returned JSON has the provider-specific tokens.
