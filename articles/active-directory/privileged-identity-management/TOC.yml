@@ -107,8 +107,6 @@
       href: ../roles/custom-overview.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
     - name: Azure roles
       href: pim-resource-roles-custom-role-policy.md
-  - name: Invite external users
-    href: pim-resource-roles-external-users.md
   - name: Discovery & Insights for Azure AD roles
     href: pim-security-wizard.md
   - name: Elevate access to manage Azure subscriptions
