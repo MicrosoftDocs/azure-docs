@@ -97,7 +97,6 @@ The accounts you use to create the Azure managed applications resource must be a
 |Name |Action |
 |---|---|
 |[Managed Application Contributor Role](../role-based-access-control/built-in-roles.md#managed-application-contributor-role)|Required to create Managed app resources.|
-|Microsoft.HybridNetwork/networkFunctions/write |Required to create network function resource in the managed resource group.| 
 
 ## <a name="managed-identity"></a>Managed Identity 
 

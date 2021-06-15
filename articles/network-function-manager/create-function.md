@@ -46,7 +46,7 @@ In this tutorial, you create a network function as a managed application for Azu
 1. Verify that the details of managed app and network function are accurate. **Vendor Provisioning State = Provisioned** for the network function means that the VMs are running on your Azure Stack Edge.
 
    :::image type="content" source="./media/create-function/details.png" alt-text="Screenshot of essential details." lightbox="./media/create-function/details.png":::
-1. Next, navigate to the vendor portal to finish configuring the network function.
+1. Next, navigate to the partner portal to finish configuring the network function. Check with your partner for management portal and additional configuration steps.
   
 ## Next steps
 
