@@ -784,7 +784,6 @@
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.security-benchmark.json",
-    ".openpublishing.redirection.media-services.json",
-    "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json"
+    ".openpublishing.redirection.media-services.json"
   ]
 }
