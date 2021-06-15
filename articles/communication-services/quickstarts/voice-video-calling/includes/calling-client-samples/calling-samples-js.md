@@ -25,6 +25,12 @@ npm install @azure/communication-calling --save
 
 ```
 
+## Documentation support
+- [Submit issues/bugs on github](https://github.com/Azure/Communication/issues)
+- [API usage examples](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
+- [Application samples](https://docs.microsoft.com/en-us/azure/communication-services/samples/overview)
+- [API Reference](https://docs.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+
 ## Object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
@@ -35,6 +41,8 @@ The following classes and interfaces handle some of the major features of the Az
 | `CallAgent`                        | Used to start and manage calls.                                                                                            |
 | `DeviceManager`                    | Used to manage media devices.                                                                                           |
 | `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`. |
+
+Note: The Calling SDK's objects are not POJO.
 
 ## Initialize a CallClient instance, create a CallAgent instance, and access deviceManager
 
@@ -901,3 +909,17 @@ function subscribeToRemoteParticipant(p) {
     p.on('videoStreamsUpdated', e => { e.added.forEach(v => { subscribeToRemoteVideoStream(v) }) })
 }
 ```
+
+## Releasing resources
+1. How to properly release resources when a call is finished:
+    - When call is finished our SDK will terminate signaling&media sessions leaving you with an instance of the call that holds the last state of it, so you can check callEndReason etc.., if your app won't hold the reference to the Call instance - JavaScript GC will clean up everything so in terms of memory consumption your app should go back to initial state from before the call.
+
+2. Which resource types are long-lived (app lifetime) vs. short-lived (call lifetime):
+    - The following are considered to be "long-lived" resources - you can create them and keep referenced for a long time, they are very light in terms of resource(memory) consumption so won't impact perf:
+        - CallClient
+        - CallAgent
+        - DeviceManager
+    - The following are considered to be "short-lived" resources and are the ones that are playing some role in the call itself, emit events to the application, or are interacting with local media devices. These will consume more cpu&memory, but once call ends - SDK will cleanup all the state and release resource:
+        - Call - since it's the one holding the actual state of the call ( both signaling and media ).
+        - RemoteParticipants - Represent the remote participants in the call.
+        - VideoStreamRenderer with it's VideoStreamRendererViews - handling video rendering.
