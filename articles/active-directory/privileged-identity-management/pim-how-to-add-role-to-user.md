@@ -13,6 +13,7 @@ ms.subservice: pim
 ms.date: 06/03/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
+ms.custom: subject-rbac-steps
 ---
 
 # Assign Azure AD roles in Privileged Identity Management
@@ -20,6 +21,8 @@ ms.collection: M365-identity-device-management
 With Azure Active Directory (Azure AD), a Global administrator can make **permanent** Azure AD admin role assignments. These role assignments can be created using the [Azure portal](../roles/permissions-reference.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
 The Azure AD Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
+
+Privileged Identity Management support both built-in and custom Azure AD roles. For more informtion on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md)
 
 ## Assign a role
 

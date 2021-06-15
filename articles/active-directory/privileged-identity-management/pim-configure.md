@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 06/03/2021
+ms.date: 06/15/2021
 ms.author: curtand
-ms.custom: pim ; azuread-video-2020
+ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal
 ms.collection: M365-identity-device-management
 ---
 
@@ -31,6 +31,12 @@ Organizations want to minimize the number of people who have access to secure in
 - an authorized user inadvertently impacting a sensitive resource
 
 However, users still need to carry out privileged operations in Azure AD, Azure, Microsoft 365, or SaaS apps. Organizations can give users just-in-time privileged access to Azure and Azure AD resources and can oversee what those users are doing with their privileged access.
+
+## License requirements
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+For information about licenses for users, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 ## What does it do?
 
@@ -57,11 +63,20 @@ For Azure AD roles in Privileged Identity Management, only a user who is in the 
 
 For Azure resource roles in Privileged Identity Management, only a subscription administrator, a resource Owner, or a resource User Access administrator can manage assignments for other administrators. Users who are Privileged Role Administrators, Security Administrators, or Security Readers do not by default have access to view assignments to Azure resource roles in Privileged Identity Management.
 
+## Extend and renew assignments
+
+After you set up your time-bound owner or member assignments, the first question you might ask is what happens if an assignment expires? In this new version, we provide two options for this scenario:
+
+- Extend – When a role assignment nears expiration, the user can use Privileged Identity Management to request an extension for the role assignment
+- Renew – When a role assignment has already expired, the user can use Privileged Identity Management to request a renewal for the role assignment
+
+Both user-initiated actions require an approval from a Global Administrator or Privileged Role Administrator. Admins don't need to be in the business of managing assignment expirations. You can just wait for the extension or renewal requests to arrive for simple approval or denial.
+
 ## Scenarios
 
 Privileged Identity Management supports the following scenarios:
 
-### Privileged Role administrator permissions
+### Privileged Role Administrator permissions
 
 - Enable approval for specific roles
 - Specify approver users or groups to approve requests
@@ -94,20 +109,23 @@ Some organizations use tools like Azure AD business-to-business (B2B) collaborat
 
 With the privileged access groups preview, you can give workload-specific administrators quick access to multiple roles with a single just-in-time request. For example, your Tier 3 Office Admins might need just-in-time access to the Exchange Admin, Office Apps Admin, Teams Admin, and Search Admin roles to thoroughly investigate incidents daily. Before today it would require four consecutive requests, which are a process that takes some time. Instead, you can create a role assignable group called “Tier 3 Office Admins”, assign it to each of the four roles previously mentioned (or any Azure AD built-in roles) and enable it for Privileged Access in the group’s Activity section. Once enabled for privileged access, you can configure the just-in-time settings for members of the group and assign your admins and owners as eligible. When the admins elevate into the group, they’ll become members of all four Azure AD roles.
 
-## Extend and renew assignments
+## Invite guest users and assign Azure resource roles in Privileged Identity Management
 
-After you set up your time-bound owner or member assignments, the first question you might ask is what happens if an assignment expires? In this new version, we provide two options for this scenario:
+Azure Active Directory (Azure AD) guest users are part of the business-to-business (B2B) collaboration capabilities within Azure AD so that you can manage external guest users and vendors as guests in Azure AD. For example, you can use these Privileged Identity Management features for Azure identity tasks with guests such as assigning access to specific Azure resources, specifying assignment duration and end date, or requiring two-step verification on active assignment or activation. For more information on how to invite a guest to your organization and manage their access , see [Add B2B collaboration users in the Azure AD portal](../external-identities/add-users-administrator.md).
 
-- Extend – When a role assignment nears expiration, the user can use Privileged Identity Management to request an extension for the role assignment
-- Renew – When a role assignment has already expired, the user can use Privileged Identity Management to request a renewal for the role assignment
+### When would you invite guests?
 
-Both user-initiated actions require an approval from a Global Administrator or Privileged Role Administrator. Admins don't need to be in the business of managing assignment expirations. You can just wait for the extension or renewal requests to arrive for simple approval or denial.
+Here are a couple examples of when you might invite guests to your organization:
 
-## License requirements
+- Allow an external self-employed vendor that only has an email account to access your Azure resources for a project.
+- Allow an external partner in a large organization that uses on-premises Active Directory Federation Services to access your expense application.
+- Allow support engineers not in your organization (such as Microsoft support) to temporarily access your Azure resource to troubleshoot issues.
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+### How does collaboration using B2B guests work?
 
-For information about licenses for users, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
+When you use B2B collaboration, you can invite an external user to your organization as a guest. The guest can be managed as a user in your organization, but a guest has to be authenticated in their home organization and not in your Azure AD organization. This means that if the guest no longer has access to their home organization, they also lose access to your organization. For example, if the guest leaves their organization, they automatically lose access to any resources you shared with them in Azure AD without you having to do anything. For more information about B2B collaboration, see [What is guest user access in Azure Active Directory B2B?](../external-identities/what-is-b2b.md).
+
+![Diagram showing how a guest user is authenticated in their home directory](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
 ## Next steps
 
