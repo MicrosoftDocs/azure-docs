@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 06/11/2021
-ms.custom: designer
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
 # What is Azure Machine Learning designer? 
