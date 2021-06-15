@@ -64,5 +64,7 @@ landingContent:
         links:
           - text: What is Network Function Manager?
             url: ../network-function-manager/overview.md
+      - linkListType: how-to-guide
+        links:
           - text: Deploy a network function
             url: ../network-function-manager/deploy-functions.md
