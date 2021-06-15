@@ -32,10 +32,9 @@ In this tutorial, you accomplish the following tasks:
 
 ## Prerequisites
 
-* Familiarity with Azure Virtual Networks
+* Familiarity with Azure Virtual Networks and IP networking
 * While most of the steps in this article use the Azure portal or the Azure Machine Learning studio, some steps use the Azure CLI extension for Machine Learning.
 
-    [!INCLUDE cli-version-info]
 ## Create a virtual network
 
 To create a virtual network, use the following steps:
