@@ -19,8 +19,7 @@
     href: partners.md
   - name: FAQ
     href: faq.md
-- name: Resource
-  expanded: true
+- name: Resources
   items:
   - name: Network Function Manager product page
     href: https://go.microsoft.com/fwlink/?linkid=2166098

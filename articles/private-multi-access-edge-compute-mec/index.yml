@@ -58,7 +58,7 @@ landingContent:
             url: deploy-affirmed-private-network-service-solution.md
 
   # Card
-  - title: About Network Function Manager
+  - title: About Azure Network Function Manager
     linkLists:
       - linkListType: overview
         links:
