@@ -117,11 +117,11 @@ To publish a device template:
 
 1. On the dialog that appears, select **Publish**.
 
-After you publish a device template, it's visible on the **Devices** page. In a published device template, you can't edit a device model without creating a new version. However, you can modify cloud properties, customizations, and views in a published device template without versioning. After making any changes, select **Publish**  to push those changes for real and simulated devices to use.
+After you publish a device template, it's visible on the **Devices** page. Publishing a template makes it available for your operator to create devices, device groups, rules, exports, and jobs. Once a template is published, any modifications to capabilities, interfaces, or modules directly impact your device instances and the behavior of other areas of the application.
 
 ## Add a simulated device
 
-To add a simulated device to your application, you use the **ESP32** device template you created.
+To add a simulated device to your application, use the **ESP32** device template you created.
 
 1. To add a new device choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **Sensor Controller** device template for the ESP32 device. Select **Sensor Controller**.
 
@@ -129,7 +129,7 @@ To add a simulated device to your application, you use the **ESP32** device temp
 
     :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Screenshot that shows the simulated Sensor Controller device":::
 
-Now you can interact with the views that created earlier using simulated data:
+Now you can interact with the views that you created earlier using simulated data:
 
 1. Select your simulated device on the **Devices** page
 

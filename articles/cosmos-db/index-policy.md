@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 05/25/2021
 ms.author: tisande
 ---
 
@@ -92,7 +92,7 @@ When including and excluding paths, you may encounter the following attributes:
 
 - `dataType` can be either `String` or `Number`. This indicates the types of JSON properties which will be indexed.
 
-When not specified, these properties will have the following default values:
+It is no longer necessary to set these properties. When not specified, these properties will have the following default values:
 
 | **Property Name**     | **Default Value** |
 | ----------------------- | -------------------------------- |
@@ -332,7 +332,7 @@ A container's indexing policy can be updated at any time [by using the Azure por
 > Index transformation is an operation that consumes [Request Units](request-units.md). Request Units consumed by an index transformation aren't currently billed if you are using [serverless](serverless.md) containers. These Request Units will get billed once serverless becomes generally available.
 
 > [!NOTE]
-> It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
+> You can track the progress of index transformation in the Azure portal or [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
 There is no impact to write availability during any index transformations. The index transformation uses your provisioned RUs but at a lower priority than your CRUD operations or queries.
 

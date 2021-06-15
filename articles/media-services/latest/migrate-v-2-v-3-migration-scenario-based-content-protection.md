@@ -46,7 +46,7 @@ For example, if you previously had a v2 Asset with the ID of `nb:cid:UUID:8cb391
 
 Any Assets that were created and published using the v2 API will have both a `ContentKeyPolicy` and a `ContentKey` in the v3 API instead of a default content key policy on the `StreamingPolicy`.
 
-For more information, see the [Content key policy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) documentation and the [Streaming Policy](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept) documentation.
+For more information, see the [Content key policy](./drm-content-key-policy-concept.md) documentation and the [Streaming Policy](./stream-streaming-policy-concept.md) documentation.
 
 ## Use Azure Media Services Explorer (AMSE) v2 and AMSE v3 tools side by side
 
@@ -58,15 +58,15 @@ You can find a code sample to compare the differences in Asset identifiers using
 
 ## List the Streaming Locators
 
-You can query the `StreamingLocators` associated with the Assets created in the v2 API using the new v3 method [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) on the Asset entity.  Also reference the .NET client SDK version of [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
+You can query the `StreamingLocators` associated with the Assets created in the v2 API using the new v3 method [ListStreamingLocators](/rest/api/media/assets/liststreaminglocators) on the Asset entity.  Also reference the .NET client SDK version of [ListStreamingLocatorsAsync](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?preserve-view=true&view=azure-dotnet)
 
 The results of the `ListStreamingLocators` method will provide you the `Name` and `StreamingLocatorId` of the locator along with the `StreamingPolicyName`.
 
 ## Find the content keys
 
-To find the `ContentKeys` used with your `StreamingLocators`, you can call the [StreamingLocator.ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) method.  
+To find the `ContentKeys` used with your `StreamingLocators`, you can call the [StreamingLocator.ListContentKeysAsync](/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?preserve-view=true&view=azure-dotnet) method.  
 
-For more information on content protection in the v3 API, see the article [Protect your content with Media Services dynamic encryption.](https://docs.microsoft.com/azure/media-services/latest/drm-content-protection-concept)
+For more information on content protection in the v3 API, see the article [Protect your content with Media Services dynamic encryption.](./drm-content-protection-concept.md)
 
 ## Change the v2 ContentKeyPolicy keeping the same ContentKey
 

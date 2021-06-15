@@ -1,7 +1,7 @@
 ---
 title: "What is Azure Dev Spaces?"
 services: azure-dev-spaces
-ms.date: 05/07/2019
+ms.date: 05/26/2021
 ms.topic: "overview"
 description: "Learn how Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams in Azure Kubernetes Service clusters"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, kubectl, k8s"
@@ -11,11 +11,10 @@ manager: gwallace
 
 # What is Azure Dev Spaces?
 
-[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+> [!IMPORTANT]
+> Azure Dev Spaces is retired as of May 15, 2021. Customers should use [Bridge to Kubernetes](/visualstudio/containers/overview-bridge-to-kubernetes?view=vs-2019).
 
 Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams in Azure Kubernetes Service (AKS) clusters. Azure Dev Spaces also allows you to debug and test all the components of your application in AKS with minimal development machine setup, without replicating or mocking up dependencies.
-
-![The diagram shows two versions of an application developed independently. Then they are combined into one in an Azure Dev Spaces development environment.](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## How Azure Dev Spaces simplifies Kubernetes development
 
@@ -32,18 +31,7 @@ Since teams can work with the entire application and collaborate directly in AKS
 
 Azure Dev Spaces provides tooling to generate Docker and Kubernetes assets for your projects. This tooling allows you to easily add new and existing applications to both a dev space and other AKS clusters.
 
-For more information on how Azure Dev Spaces works, see [How Azure Dev Spaces works and is configured][how-dev-spaces-works].
-
-## Supported regions and configurations
-
-Azure Dev Spaces is supported only by AKS clusters in [some regions][supported-regions]. Azure Dev Spaces supports using the [Azure CLI](/cli/azure/install-azure-cli) or [Visual Studio Code](https://code.visualstudio.com/download) with the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installed on Linux, macOS, or Windows 8 or greater to build and run your applications on AKS. It also supports using [Visual Studio 2019](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installed on Windows with the Azure Development workload.
-
 ## Next steps
 
-Learn more about how Azure Dev Spaces works.
-
 > [!div class="nextstepaction"]
-> [How Azure Dev Spaces works](how-dev-spaces-works.md)
-
-[how-dev-spaces-works]: how-dev-spaces-works.md
-[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+> [Bridge to Kubernetes](/visualstudio/containers/overview-bridge-to-kubernetes?view=vs-2019)

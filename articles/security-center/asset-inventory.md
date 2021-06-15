@@ -124,8 +124,6 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
     ![Inventory query in ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
-1. To run a previously defined logic app with 
-
 1. If you've defined some filters and left the page open, Security Center won't update the results automatically. Any changes to resources won't impact the displayed results unless you manually reload the page or select **Refresh**.
 
 

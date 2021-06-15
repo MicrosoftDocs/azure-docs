@@ -33,9 +33,6 @@ The following tables show which migration scenarios are supported when using Azu
 > [!NOTE]
 > If a scenario listed as supported below does not appear within the user interface, please contact the [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com) alias for additional information.
 
-> [!IMPORTANT]
-> To view all scenarios currently supported by Azure Database Migration Service in Private Preview, see the [DMS Preview site](https://aka.ms/dms-preview).
-
 ### Offline (one-time) migration support
 
 The following table shows Azure Database Migration Service support for offline migrations.
@@ -51,9 +48,15 @@ The following table shows Azure Database Migration Service support for offline m
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL** | MySQL | ✔ |   |
-|   | RDS MySQL | X |   |
+| **Azure DB for MySQL - Single Server** | MySQL | ✔ | Public Preview  |
+|   | RDS MySQL | ✔ | Public Preview  |
+|   | Azure DB for MySQL* | ✔ | Public Preview  |
+| **Azure DB for MySQL - Flexible Server** | MySQL | ✔ | Public Preview  |
+|   | RDS MySQL | ✔ | Public Preview  |
+|   | Azure DB for MySQL* | ✔ | Public Preview  |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | X |
+|  | RDS PostgreSQL | X |   |
+| **Azure DB for PostgreSQL - Flexible server** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 | **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
@@ -76,15 +79,16 @@ The following table shows Azure Database Migration Service support for online mi
 | **Azure DB for MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
-|   | Azure DB for PostgreSQL - Single server | ✔ | GA |
+|   | Azure DB for PostgreSQL - Single server* | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | Public preview (to be deprecated after May 1, 2021) |
+| **Azure DB for PostgreSQL - Flexible server** | PostgreSQL | ✔ | GA |
+|   | Azure DB for PostgreSQL - Single server* | ✔ | GA |
+|   | RDS PostgreSQL | ✔ | GA |
 | **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 
-> [!IMPORTANT]
-> "Oracle to Azure Database for PostgreSQL" migration scenario (currently in preview) will no longer be available after May 1, 2021. We will continue to provide support via alternative tooling (such as Ora2pg) and provide the best migration experience for Oracle to PostgreSQL migrations. For migration best practices, see [Oracle to Azure Database for PostgreSQL migration guide](https://aka.ms/OracletoPGguide).
-
+> [!NOTE]
+> If your source database is already in Azure PaaS (EG: Azure DB for MySQL or Azure DB for PostgreSQL), choose the corresponding engine when creating your migration activity. For example, if you are migrating from Azure DB for MySQL - Single Server to Azure DB for MySQL - Flexible Server, choose MySQL as the source engine during scenario creation. If you are migrating from Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Flexible Server, choose PostgreSQL as the source engine during scenario creation. 
 
 ## Next steps
 

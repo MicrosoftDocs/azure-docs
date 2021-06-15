@@ -143,7 +143,7 @@ The “SAP start service” provides a host of services including monitoring the
 1. Select OS (Linux) from the drop-down 
 
    >[!IMPORTANT]
-   > To configure OS (Linux) provider, ensure that latest version of Node_Exporter is installed in each host (BareMetal or VM) that you wish to monitor. Use this [link](https://prometheus.io/download/#node_exporter) to find latest version. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
+   > To configure OS (Linux) provider, ensure that latest version of Node_Exporter is installed in each host (BareMetal or VM) that you wish to monitor. Please install the [latest version of Node Exporter](https://prometheus.io/download/#node_exporter). For more information, [learn more](https://github.com/prometheus/node_exporter)
 
 2. Input a name, which will be the identifier for the BareMetal Instance.
 3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.

@@ -299,7 +299,7 @@ The question here is: "What is the remaining useful life (RUL) of the equipment?
 
 Figure 4. Labeling for regression
 
-For regression, labeling is done with reference to a failure point. Its calculation is not possible without knowing how long the asset has survived before a failure. So in contrast to binary classification, assets without any failures in the data cannot be used for modeling. This issue is best addressed by another statistical technique called [Survival Analysis](https://en.wikipedia.org/wiki/Survival_analysis). But potential complications may arise when applying this technique to PdM use cases that involve time-varying data with frequent intervals. For more information on Survival Analysis, see [this one-pager](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
+For regression, labeling is done with reference to a failure point. Its calculation is not possible without knowing how long the asset has survived before a failure. So in contrast to binary classification, assets without any failures in the data cannot be used for modeling. This issue is best addressed by another statistical technique called [Survival Analysis](https://en.wikipedia.org/wiki/Survival_analysis). But potential complications may arise when applying this technique to PdM use cases that involve time-varying data with frequent intervals. For more information on Survival Analysis, see [this one-pager](https://cscu.cornell.edu/wp-content/uploads/78_surv.pdf).
 
 ### Multi-class classification for predictive maintenance
 Multi-class classification techniques can be used in PdM solutions for two scenarios:
@@ -451,9 +451,9 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 
 | Training resource  | Availability |
 |:-------------------|--------------|
-| [Microsoft Docs:  Data Scientist Role](https://docs.microsoft.com/learn/roles/data-scientist) | Public |
-| [Microsoft Docs:  AI Engineer Role](https://docs.microsoft.com/learn/roles/ai-engineer) | Public |
-| [Microsoft Docs:  Data Engineer Role](https://docs.microsoft.com/learn/roles/data-engineer) | Public |
+| [Microsoft Docs:  Data Scientist Role](/learn/roles/data-scientist) | Public |
+| [Microsoft Docs:  AI Engineer Role](/learn/roles/ai-engineer) | Public |
+| [Microsoft Docs:  Data Engineer Role](/learn/roles/data-engineer) | Public |
 | [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Public |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
 | [Microsoft: Playlists on YouTube for Artificial Intelligence and Analytics](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Public |

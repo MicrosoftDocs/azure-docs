@@ -1,7 +1,7 @@
 ---
 title: Customize Azure AD tenant app claims (PowerShell)
 titleSuffix: Microsoft identity platform
-description: This page describes Azure Active Directory claims mapping.
+description: Learn how to customize claims emitted in tokens for an application in a specific Azure Active Directory tenant.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -10,32 +10,34 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 06/10/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
 
-# How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)
+# Customize claims emitted in tokens for a specific app in a tenant
+
+Claims customization is used by tenant admins to customize the claims emitted in tokens for a specific application in their tenant. You can use claims-mapping policies to:
+
+- select which claims are included in tokens.
+- create claim types that do not already exist.
+- choose or change the source of data emitted in specific claims.
+
+Claims customization supports configuring claim-mapping policies for the WS-Fed, SAML, OAuth, and OpenID Connect protocols.
 
 > [!NOTE]
-> This feature replaces and supersedes the [claims customization](active-directory-saml-claims-customization.md) offered through the portal today. On the same application, if you customize claims using the portal in addition to the Graph/PowerShell method detailed in this document, tokens issued for that application will ignore the configuration in the portal. Configurations made through the methods detailed in this document will not be reflected in the portal.
+> This feature replaces and supersedes the [claims customization](active-directory-saml-claims-customization.md) offered through the Azure portal. On the same application, if you customize claims using the portal in addition to the Microsoft Graph/PowerShell method detailed in this document, tokens issued for that application will ignore the configuration in the portal. Configurations made through the methods detailed in this document will not be reflected in the portal.
 
-> [!NOTE]
-> This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure AD premium subscription. This feature supports configuring claim mapping policies for WS-Fed, SAML, OAuth, and OpenID Connect protocols.
+In this article, we walk through a few common scenarios that can help you grasp how to use the [claims-mapping policy type](reference-claims-mapping-policy-type.md).
 
-This feature is used by tenant admins to customize the claims emitted in tokens for a specific application in their tenant. You can use claims-mapping policies to:
-
-- Select which claims are included in tokens.
-- Create claim types that do not already exist.
-- Choose or change the source of data emitted in specific claims.
-
-In this article, we walk through a few common scenarios that can help you grasp how to use the [claims mapping policy type](reference-claims-mapping-policy-type.md).
-
-When creating a claims mapping policy, you can also emit a claim from a directory schema extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory schema extension attributes](active-directory-schema-extensions.md).
+When creating a claims-mapping policy, you can also emit a claim from a directory schema extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory schema extension attributes](active-directory-schema-extensions.md).
 
 ## Prerequisites
 
-In the following examples, you create, update, link, and delete policies for service principals. Claims mapping policies can only be assigned to service principal objects. If you are new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
+In the following examples, you create, update, link, and delete policies for service principals. claims-mapping policies can only be assigned to service principal objects. If you are new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
+
+> [!NOTE]
+> The [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview) is required to configure claims-mapping policies. The PowerShell module is in preview, be prepared to revert or remove any changes. 
 
 To get started, do the following steps:
 
@@ -55,7 +57,7 @@ To get started, do the following steps:
 
 In this example, you create a policy that removes the [basic claim set](reference-claims-mapping-policy-type.md#claim-sets) from tokens issued to linked service principals.
 
-1. Create a claims mapping policy. This policy, linked to specific service principals, removes the basic claim set from tokens.
+1. Create a claims-mapping policy. This policy, linked to specific service principals, removes the basic claim set from tokens.
    1. To create the policy, run this command:
 
       ``` powershell
@@ -78,7 +80,7 @@ In this example, you create a policy that removes the [basic claim set](referenc
 
 In this example, you create a policy that adds the EmployeeID and TenantCountry to tokens issued to linked service principals. The EmployeeID is emitted as the name claim type in both SAML tokens and JWTs. The TenantCountry is emitted as the country/region claim type in both SAML tokens and JWTs. In this example, we continue to include the basic claims set in the tokens.
 
-1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
+1. Create a claims-mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
    1. To create the policy, run the following command:
 
       ``` powershell
@@ -102,7 +104,7 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
 
 In this example, you create a policy that emits a custom claim "JoinedData" to JWTs issued to linked service principals. This claim contains a value created by joining the data stored in the extensionattribute1 attribute on the user object with ".sandbox". In this example, we exclude the basic claims set in the tokens.
 
-1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
+1. Create a claims-mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
    1. To create the policy, run the following command:
 
       ``` powershell
@@ -124,7 +126,7 @@ In this example, you create a policy that emits a custom claim "JoinedData" to J
 
 ## Security considerations
 
-Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents via claims mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims mapping policy to protect themselves from claims mapping policies created by malicious actors. This can be done in the following ways:
+Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents through claims-mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims-mapping policy to protect themselves from claims-mapping policies created by malicious actors. This can be done in the following ways:
 
 - Configure a custom signing key
 - Update the application manifest to accept mapped claims.
@@ -151,6 +153,6 @@ If you're not using a verified domain, Azure AD will return an `AADSTS501461` er
 
 ## Next steps
 
-- Read the [claims mapping policy type](reference-claims-mapping-policy-type.md) reference article to learn more.
+- Read the [claims-mapping policy type](reference-claims-mapping-policy-type.md) reference article to learn more.
 - To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
 - To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).

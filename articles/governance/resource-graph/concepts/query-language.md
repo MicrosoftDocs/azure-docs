@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 03/10/2021
+ms.date: 06/11/2021
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -37,10 +37,10 @@ properties from related resource types. Here is the list of tables available in 
 |MaintenanceResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Includes resources _related_ to Azure Virtual Machines patch assessment. |
 |PatchInstallationResources|No |Includes resources _related_ to Azure Virtual Machines patch installation. |
-|PolicyResources |No |Includes resources _related_ to `Microsoft.PolicyInsights`. (**Preview**)|
+|PolicyResources |No |Includes resources _related_ to `Microsoft.PolicyInsights`. (**Preview**) |
 |RecoveryServicesResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
-|SecurityResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Security`. |
-|ServiceHealthResources |No |Includes resources _related_ to `Microsoft.ResourceHealth`. |
+|SecurityResources |Yes (preview) |Includes resources _related_ to `Microsoft.Security`. |
+|ServiceHealthResources |No (preview) |Includes resources _related_ to `Microsoft.ResourceHealth`. |
 |WorkloadMonitorResources |No |Includes resources _related_ to `Microsoft.WorkloadMonitor`. |
 
 For a complete list, including resource types, see [Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
@@ -192,10 +192,10 @@ As a **preview**, REST API version `2020-04-01-preview` adds a property to scope
 [management group](../../management-groups/overview.md). This preview API also makes the
 subscription property optional. If a management group or a subscription list isn't defined, the
 query scope is all resources, which includes
-[Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) delegated
+[Azure Lighthouse](../../../lighthouse/overview.md) delegated
 resources, that the authenticated user can access. The new `managementGroupId` property takes the
 management group ID, which is different from the name of the management group. When
-`managementGroupId` is specified, resources from the first 5000 subscriptions in or under the
+`managementGroupId` is specified, resources from the first 5,000 subscriptions in or under the
 specified management group hierarchy are included. `managementGroupId` can't be used at the same
 time as `subscriptions`.
 
@@ -223,7 +223,7 @@ Some property names, such as those that include a `.` or `$`, must be wrapped or
 query or the property name is interpreted incorrectly and doesn't provide the expected results.
 
 - `.` - Wrap the property name as such: `['propertyname.withaperiod']`
-  
+
   Example query that wraps the property _odata.type_:
 
   ```kusto
@@ -235,7 +235,7 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
 
   - **bash** - `\`
 
-    Example query that escapes the property _\$type_ in bash:
+    Example query that escapes the property _\$type_ in Bash:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type

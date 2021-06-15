@@ -4,7 +4,7 @@ description: Learn how to get a .NET Core app working in Azure App Service, with
 
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 04/29/2021
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
@@ -146,7 +146,7 @@ Create a database with an [S0 performance level](../azure-sql/database/service-t
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
 ```
 
-### Create connection string
+### Retrieve connection string
 
 Get the connection string using the [`az sql db show-connection-string`](/cli/azure/sql/db#az_sql_db_show_connection_string) command.
 

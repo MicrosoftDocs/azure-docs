@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Install Defender for IoT micro agent (Preview)'
 description: In this quickstart, learn how to install, and authenticate the Defender Micro Agent.
-ms.date: 3/9/2021
+ms.date: 06/07/2021
 ms.topic: quickstart
 ---
 
@@ -19,7 +19,7 @@ Install, and configure the Microsoft package repository by following [these inst
 
 For Debian 9, the instructions do not include the repository that needs to be added, use the following commands to add the repository: 
 
-```azurecli
+```bash
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - 
 
 sudo apt-get install software-properties-common
@@ -31,7 +31,7 @@ sudo apt-get update
 
 To install the Defender micro agent package on Debian, and Ubuntu based Linux distributions, use the following command:
 
-```azurecli
+```bash
 sudo apt-get install defender-iot-micro-agent 
 ```
 
@@ -59,13 +59,15 @@ To get the module identity connection string from the IoT Hub:
 
 1. Select a device from the Device ID list to view the **Device details** page.
 
-1. Select the **Module identities** tab, and then select the **DefenderIotMicroAgent** module from the list of module identities associated with the device.
+1. Select the **Module identities** tab.
+
+1. Select the **DefenderIotMicroAgent** module from the list of module identities associated with the device.
 
    :::image type="content" source="media/quickstart-standalone-agent-binary-installation/module-identities.png" alt-text="Select the module identities tab.":::
 
-1. In the **Module Identity Details** page, copy the primary key by selecting the **copy** button.
+1. In the **Module Identity Details** page, copy the Connection string (primary key) by selecting the **copy** button.
 
-   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Select the copy button to copy the primary key.":::
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Select the copy button to copy the Connection string (primary key).":::
 
 #### Configure authentication using a module identity connection string
 
@@ -73,15 +75,15 @@ To configure the agent to authenticate using a module identity connection string
 
 1. Place a file named `connection_string.txt` containing the connection string encoded in utf-8 in the defender agent directory `/var/defender_iot_micro_agent` path by entering the following command:
 
-    ```azurecli
-    sudo bash -c 'echo "<connection string" > /var/defender_iot_micro_agent/connection_string.txt' 
+    ```bash
+    sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
     ```
 
     The `connection_string.txt` should be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
 
 1. Restart the service using this command:  
 
-    ```azurecli
+    ```bash
     sudo systemctl restart defender-iot-micro-agent.service 
     ```
 
@@ -89,7 +91,7 @@ To configure the agent to authenticate using a module identity connection string
 
 To authenticate using a certificate:
 
-1. Procure a certificate by following [these instructions](../iot-hub/iot-hub-security-x509-get-started.md).
+1. Procure a certificate by following [these instructions](../iot-hub/tutorial-x509-scripts.md).
 
 1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`. 
 
@@ -101,7 +103,7 @@ To authenticate using a certificate:
 
 1. Restart the service using the following command:  
 
-    ```azurecli
+    ```bash
     sudo systemctl restart defender-iot-micro-agent.service
     ```
 
@@ -111,9 +113,10 @@ To validate your installation:
 
 1. Making sure the micro agent is running properly with the following command:  
 
-    ```azurecli
+    ```bash
     systemctl status defender-iot-micro-agent.service
     ```
+
 1. Ensure that the service is stable by making sure it is `active` and that the uptime of the process is appropriate
 
     :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Check to make sure your service is stable and active.":::
@@ -124,9 +127,10 @@ You can test the system from end to end by creating a trigger file on the device
 
 Create a file on the file system with the following command:
 
-```azurecli
+```bash
 sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt 
 ```
+
 A baseline validation failure recommendation will occur in the hub, with a `CceId` of CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0: 
 
 :::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="The baseline validation failure recommendation that occurs in the hub." lightbox="media/quickstart-standalone-agent-binary-installation/validation-failure-expanded.png":::
@@ -137,7 +141,7 @@ Allow up to one hour for the recommendation to appear in the hub.
 
 To install a specific version of the Defender IoT micro agent, run the following command: 
 
-```azurecli
+```bash
 sudo apt-get install defender-iot-micro-agent=<version>
 ```
 

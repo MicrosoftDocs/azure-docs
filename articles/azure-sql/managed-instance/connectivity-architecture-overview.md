@@ -4,14 +4,14 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Azure SQL Managed Instance communication and connectivity architecture as well as how the components direct traffic to a managed instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 04/24/2021
+ms.date: 04/29/2021
 ---
 
 # Connectivity architecture for Azure SQL Managed Instance
@@ -82,7 +82,7 @@ When connections start inside SQL Managed Instance (as with backups and audit lo
 
 To address customer security and manageability requirements, SQL Managed Instance is transitioning from manual to service-aided subnet configuration.
 
-With service-aided subnet configuration, the user is in full control of data (TDS) traffic, while SQL Managed Instance takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill an SLA.
+With service-aided subnet configuration, the customer is in full control of data (TDS) traffic, while SQL Managed Instance control plane takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill an SLA.
 
 Service-aided subnet configuration builds on top of the virtual network [subnet delegation](../../virtual-network/subnet-delegation-overview.md) feature to provide automatic network configuration management and enable service endpoints. 
 
@@ -95,7 +95,7 @@ Service endpoints could be used to configure virtual network firewall rules on s
 
 Deploy SQL Managed Instance in a dedicated subnet inside the virtual network. The subnet must have these characteristics:
 
-- **Dedicated subnet:** The SQL Managed Instance subnet can't contain any other cloud service that's associated with it, and it can't be a gateway subnet. The subnet can't contain any resource but SQL Managed Instance, and you can't later add other types of resources in the subnet.
+- **Dedicated subnet:** The managed instance's subnet can't contain any other cloud service that's associated with it, but other managed instances are allowed and it can't be a gateway subnet. The subnet can't contain any resource but the managed instance(s), and you can't later add other types of resources in the subnet.
 - **Subnet delegation:** The SQL Managed Instance subnet needs to be delegated to the `Microsoft.Sql/managedInstances` resource provider.
 - **Network security group (NSG):** An NSG needs to be associated with the SQL Managed Instance subnet. You can use an NSG to control access to the SQL Managed Instance data endpoint by filtering traffic on port 1433 and ports 11000-11999 when SQL Managed Instance is configured for redirect connections. The service will automatically provision and keep current [rules](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) required to allow uninterrupted flow of management traffic.
 - **User defined route (UDR) table:** A UDR table needs to be associated with the SQL Managed Instance subnet. You can add entries to the route table to route traffic that has on-premises private IP ranges as a destination through the virtual network gateway or virtual network appliance (NVA). Service will automatically provision and keep current [entries](#mandatory-user-defined-routes-with-service-aided-subnet-configuration) required to allow uninterrupted flow of management traffic.
@@ -163,6 +163,7 @@ The following virtual network features are currently *not supported* with SQL Ma
 - **NAT gateway**: Using [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) to control outbound connectivity with a specific public IP address would render SQL Managed Instance unavailable. The SQL Managed Instance service is currently limited to use of basic load balancer that doesn't provide coexistence of inbound and outbound flows with Virtual Network NAT.
 - **IPv6 for Azure Virtual Network**: Deploying SQL Managed Instance to [dual stack IPv4/IPv6 virtual networks](../../virtual-network/ipv6-overview.md) is expected to fail. Associating network security group (NSG) or route table (UDR) containing IPv6 address prefixes to SQL Managed Instance subnet, or adding IPv6 address prefixes to NSG or UDR that is already associated with Managed instance subnet, would render SQL Managed Instance unavailable. SQL Managed Instance deployments to a subnet with NSG and UDR that already have IPv6 prefixes are expected to fail.
 - **Azure DNS private zones with a name reserved for Microsoft services**: Following is the list of reserved names: windows.net, database.windows.net, core.windows.net, blob.core.windows.net, table.core.windows.net, management.core.windows.net, monitoring.core.windows.net, queue.core.windows.net, graph.windows.net, login.microsoftonline.com, login.windows.net, servicebus.windows.net, vault.azure.net. Deploying SQL Managed Instance to a virtual network with associated [Azure DNS private zone](../../dns/private-dns-privatednszone.md) with a name reserved for Microsoft services would fail. Associating Azure DNS private zone with reserved name with a virtual network containing Managed Instance, would render SQL Managed Instance unavailable. Please follow [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md) for the proper Private Link configuration.
+- **Service endpoint policies for Azure Storage**: Deploying SQL Managed Instance to a subnet that have associated [service endpoint policies](../../virtual-network/virtual-network-service-endpoint-policies-overview.md) will fail. Service endpoint policies could not be associated to a subnet that hosts Managed Instance.
 
 ## Next steps
 
@@ -172,5 +173,5 @@ The following virtual network features are currently *not supported* with SQL Ma
 - Learn how to create a managed instance:
   - From the [Azure portal](instance-create-quickstart.md).
   - By using [PowerShell](scripts/create-configure-managed-instance-powershell.md).
-  - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/).
+  - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet/).
+  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet-w-jumpbox/).

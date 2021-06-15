@@ -64,7 +64,7 @@ After delegation, the marketing department might have roles similar to the follo
 
 | User | Job role | Azure AD role | Entitlement management role |
 | --- | --- | --- | --- |
-| Hana | IT administrator | Global administrator or User administrator |  |
+| Hana | IT administrator | Global administrator, Identity Governance administrator or User administrator |  |
 | Mamta | Marketing manager | User | Catalog creator and Catalog owner |
 | Bob | Marketing lead | User | Catalog owner |
 | Jessica | Marketing project manager | User | Access package manager |

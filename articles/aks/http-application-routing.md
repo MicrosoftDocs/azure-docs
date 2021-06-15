@@ -4,7 +4,7 @@ description: Use the HTTP application routing add-on to access applications depl
 services: container-service
 author: lachie83
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 04/23/2021
 ms.author: laevenso
 ---
 
@@ -125,7 +125,7 @@ spec:
   selector:
     app: aks-helloworld
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aks-helloworld
@@ -136,10 +136,13 @@ spec:
   - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE>
     http:
       paths:
-      - backend:
-          serviceName: aks-helloworld
-          servicePort: 80
-        path: /
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: aks-helloworld
+            port: 
+              number: 80
 ```
 
 Use the [kubectl apply][kubectl-apply] command to create the resources.

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 06/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -25,11 +25,13 @@ Azure AD B2C relies the Azure AD platform. The following Azure AD features can b
 
 |Feature  |Azure AD  | Azure AD B2C |
 |---------|---------|---------|
-| [Groups](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | Groups can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. [Consumer accounts](user-overview.md#consumer-user) don't support groups. |
+| [Groups](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | Groups can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. [Consumer accounts](user-overview.md#consumer-user) can not be member of any group. |
 | [Inviting External Identities guests](../active-directory//external-identities/add-users-administrator.md)| You can invite guest users and configure External Identities features such as federation and sign-in with Facebook and Google accounts. | You can invite only a Microsoft account or an Azure AD user as a guest to your Azure AD tenant for accessing applications or managing tenants. For [consumer accounts](user-overview.md#consumer-user), you use Azure AD B2C user flows and custom policies to manage users and sign-up or sign-in with external identity providers, such as Google or Facebook. |
 | [Roles and administrators](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)| Fully supported for administrative and user accounts. | Roles are not supported with [consumer accounts](user-overview.md#consumer-user). Consumer accounts don't have access to any Azure resources.|
-| [Custom domain names](../active-directory/roles/permissions-reference.md#) |  You can use Azure AD custom domains for administrative accounts only. | [Consumer accounts](user-overview.md#consumer-user) can sign in with a username, phone number, or any email address. You can use [custom domains](custom-domain.md) in your redirect URLs.|
-| [Conditional Access](../active-directory/roles/permissions-reference.md#) | Fully supported for administrative and user accounts. | A subset of Azure AD Conditional Access features is supported with [consumer accounts](user-overview.md#consumer-user) Lean how to configure Azure AD B2C [custom domain](conditional-access-user-flow.md).|
+| [Custom domain names](../active-directory/fundamentals/add-custom-domain.md) |  You can use Azure AD custom domains for administrative accounts only. | [Consumer accounts](user-overview.md#consumer-user) can sign in with a username, phone number, or any email address. You can use [custom domains](custom-domain.md) in your redirect URLs.|
+| [Conditional Access](../active-directory/conditional-access/overview.md) | Fully supported for administrative and user accounts. | A subset of Azure AD Conditional Access features is supported with [consumer accounts](user-overview.md#consumer-user) Lean how to configure Azure AD B2C [conditional access](conditional-access-user-flow.md).|
+| [Premium P1](https://azure.microsoft.com/pricing/details/active-directory) | Fully supported for Azure AD premium P1 features. For example, [Password Protection](../active-directory/authentication/concept-password-ban-bad.md), [Hybrid Identities](../active-directory/hybrid/whatis-hybrid-identity.md),  [Conditional Access](../active-directory/roles/permissions-reference.md#), [Dynamic groups](../active-directory/enterprise-users/groups-create-rule.md), and more. | A subset of Azure AD Conditional Access features is supported with [consumer accounts](user-overview.md#consumer-user). Learn how to configure Azure AD B2C [Conditional Access](conditional-access-user-flow.md).|
+| [Premium P2](https://azure.microsoft.com/pricing/details/active-directory.md) | Fully supported for Azure AD premium P2 features. For example, [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md), and [Identity Governance](../active-directory/governance/identity-governance-overview.md).  | A subset of Azure AD Identity Protection features is supported with [consumer accounts](user-overview.md#consumer-user). Learn how to [Investigate risk with Identity Protection](identity-protection-investigate-risk.md) and configure Azure AD B2C [Conditional Access](conditional-access-user-flow.md). |
 
 ## Other Azure resources in your tenant
 
@@ -53,14 +55,14 @@ When planning your access control strategy, it's best to assign users the least 
 
 |Resource  |Description  |Role  |
 |---------|---------|---------|
-|[Application registrations](tutorial-register-applications.md) | Create and manage all aspects of your web, mobile, and native application registrations within Azure AD B2C.|[Application Administrator](../active-directory/roles/permissions-reference.md#global-administrator)|
+|[Application registrations](tutorial-register-applications.md) | Create and manage all aspects of your web, mobile, and native application registrations within Azure AD B2C.|[Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator)|
 |[Identity providers](add-identity-provider.md)| Configure the [local identity provider](identity-provider-local.md) and external social or enterprise identity providers. | [External Identity Provider Administrator](../active-directory/roles/permissions-reference.md#external-identity-provider-administrator)|
-|[API connectors](add-api-connector.md)| Integrate your user flows with web APIs to customize the user experience and integrate with external systems.|[External ID User Flow Attribute Administrator](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
+|[API connectors](add-api-connector.md)| Integrate your user flows with web APIs to customize the user experience and integrate with external systems.|[External ID User Flow Administrator](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
 |[Company branding](customize-ui.md#configure-company-branding)| Customize your user flow pages.| [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator)|
 |[User attributes](user-flow-custom-attributes.md)| Add or delete custom attributes available to all user flows.| [External ID User Flow Attribute Administrator](../active-directory/roles/permissions-reference.md#external-id-user-flow-attribute-administrator)|
 |Manage users| Manage [consumer accounts](manage-users-portal.md) and administrative accounts as described in this article.| [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator)|
 |Roles and administrators| Manage role assignments in Azure AD B2C directory. Create and manage groups that can be assigned to Azure AD B2C roles. |[Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator), [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator)|
-|[User flows](user-flow-overview.md)|For quick configuration and enablement of common identity tasks, like sign-up, sign-in, and profile editing.| [External ID User Flow Attribute Administrator](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
+|[User flows](user-flow-overview.md)|For quick configuration and enablement of common identity tasks, like sign-up, sign-in, and profile editing.| [External ID User Flow Administrator](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
 |[Custom policies](user-flow-overview.md)| Create, read, update, and delete all custom policies in Azure AD B2C.| [B2C IEF Policy Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)|
 |[Policy keys](policy-keys-overview.md)|Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords used in custom policies.|[B2C IEF Keyset Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-keyset-administrator)|
 
@@ -175,7 +177,27 @@ It's recommended that you protect all administrator accounts with multi-factor a
 
 You can enable [Azure AD security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) to force all administrative accounts to use MFA.
 
+## Get your tenant name
 
+To get your Azure AD B2C tenant name, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. In the **Overview**, copy the **Domain name**.
+
+![Screenshot demonstrates how to get the Azure AD B2C tenant name.](./media/tenant-management/get-azure-ad-b2c-tenant-name.png)  
+
+## Get your tenant ID
+
+To get your Azure AD B2C tenant ID, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the **Overview**, copy the **Tenant ID**.
+
+![Screenshot demonstrates how to get the Azure AD B2C tenant ID.](./media/tenant-management/get-azure-ad-b2c-tenant-id.png)  
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Sign-in activity logs in the Azure Active Directory portal | Microsoft Docs
-description: Introduction to sign-in activity logs in the Azure Active Directory portal 
+title: Sign-in logs in Azure Active Directory | Microsoft Docs
+description: Overview of the sign-in logs in Azure Active Directory.  
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,56 +14,70 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/23/2021
+ms.date: 05/06/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
-# Sign-in activity logs in the Azure Active Directory portal
+# Sign-in logs in Azure Active Directory
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
 To support you with this goal, the Azure Active Directory portal gives you access to three activity logs:
 
-- **Sign-ins** – Information about sign-ins and how your resources are used by your users.
+- **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
 - **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
 - **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
 This article gives you an overview of the sign-ins report.
 
-## Prerequisites
 
-### Who can access the data?
+## What can you do with it?
 
-* Users in the Security Administrator, Security Reader, Global Reader, and Report Reader roles
-* Global Administrators
-* Any user (non-admins) can access their own sign-ins 
+You can use the sign-ins log to find answers to questions like:
 
-### What Azure AD license do you need to access sign-in activity?
+- What is the sign-in pattern of a user?
+
+- How many users have signed in over a week?
+
+- What’s the status of these sign-ins?
+
+
+## Who can access it?
+
+You can always access your own sign-ins history using this link: [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
+
+To access the sign-ins log, you need to be:
+
+- A global administrator
+
+- A user in one of the following roles:
+    - Security administrator
+
+    - Security reader
+
+    - Global reader
+
+    - Report reader
+
+
+
+## What Azure AD license do you need?
 
 The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
 
-## Sign-ins report
 
-The user sign-ins report provides answers to the following questions:
+## Where can you find it in the Azure portal?
 
-* What is the sign-in pattern of a user?
-* How many users have signed in over a week?
-* What’s the status of these sign-ins?
+The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
-On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
+![Open sign-in logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-![Select Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+Additionally, you can get directly get to the sign-in logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
-Under **Monitoring**, select **Sign-ins** to open the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Screenshot shows Sign-ins selected from the Monitoring menu.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
-
-It may take up to two hours for some sign-in records to show up in the portal.
-
-> [!IMPORTANT]
-> The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
+## What is the default view?
 
 A sign-ins log has a default list view that shows:
 
@@ -105,7 +119,8 @@ While the log item provides you with a failure reason, there are cases where you
 
 ## Filter sign-in activities
 
-First, narrowing down the reported data to a level that works for you. Second, filter sign-ins data using date field as default filter. Azure AD provides you with a broad range of additional filters you can set:
+
+You can filter the data in a log to narrow it down to a level that works for you:
 
 ![Screenshot shows the Add filters option.](./media/concept-sign-ins/04.png "Sign-in activity")
 
@@ -196,7 +211,7 @@ The **Location** - The location the connection was initiated from:
 
 ## Download sign-in activities
 
-Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal.  
+Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](./howto-download-logs.md) if you want to work with it outside the Azure portal.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
@@ -251,6 +266,35 @@ On the **Users** page, you get a complete overview of all user sign-ins by click
 
 ![Screenshot shows the Activity section where you can select Sign-ins.](./media/concept-sign-ins/08.png "Sign-in activity")
 
+## Authentication details
+
+The **Authentication Details** tab located within the sign-ins report provides the following information, for each authentication attempt:
+
+- A list of authentication policies applied (such as Conditional Access, per-user MFA, Security Defaults)
+- The sequence of authentication methods used to sign-in
+- Whether or not the authentication attempt was successful
+- Detail about why the authentication attempt succeeded or failed
+
+This information allows admins to troubleshoot each step in a user’s sign-in, and track:
+
+- Volume of sign-ins protected by multi-factor authentication 
+- Usage and success rates for each authentication method 
+- Usage of passwordless authentication methods (such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business) 
+- How frequently authentication requirements are satisfied by token claims (where users are not interactively prompted to enter a password, enter an SMS OTP, and so on)
+
+While viewing the Sign-ins report, select the **Authentication Details** tab: 
+
+![Screenshot of the Authentication Details tab](media/concept-sign-ins/auth-details-tab.png)
+
+>[!NOTE]
+>**OATH verification code** is logged as the authentication method for both OATH hardware and software tokens (such as the Microsoft Authenticator app).
+
+>[!IMPORTANT]
+>The **Authentication details** tab can initially show incomplete or inaccurate data, until log information is fully aggregated. Known examples include: 
+>- A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
+>- The **Primary authentication** row is not initially logged. 
+
+
 ## Usage of managed applications
 
 With an application-centric view of your sign-in data, you can answer questions such as:
@@ -283,7 +327,6 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 
 ## Next steps
 
-* [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
 * [Azure AD data retention policies](reference-reports-data-retention.md)
 * [Azure AD report latencies](reference-reports-latencies.md)
-* [First party Microsoft applications in sign-ins report](https://docs.microsoft.com/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)
+* [First party Microsoft applications in sign-ins report](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)
