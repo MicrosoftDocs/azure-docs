@@ -26,7 +26,7 @@ Key points:
 3. Use Direct + TCP connectivity mode
 4. Avoid High CPU. Make sure to look at Max CPU and not average, which is the default for most logging systems. Anything above roughly 40% can cause the latency to start to increase.
 
-## 429 or Throttles
+## Request rate to large causing 429 (Throttles)
 
 This is the most common reason for slow requests. Cosmos DB will throttle requests if it exceeds the allocated RUs for the database or container. The SDK has built in logic to retry on these requests. The [request rate too large](troubleshoot-request-rate-too-large#how-to-investigate) troubleshooting explains how to check if the requests are being throttled and how to scale the Cosmos DB service to avoid the issue in the future.
 
