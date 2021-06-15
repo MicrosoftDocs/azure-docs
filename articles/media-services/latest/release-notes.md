@@ -29,6 +29,10 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## June 2021
 
+### New US West 3 region is GA
+
+The US West 3 region is now GA and available for customers to use when creating new Media Services accounts.
+
 ### Key delivery supports IP allowlist restrictions
 
 Media Services accounts can now be configured with IP allowlist restrictions on key delivery. The new allowlist setting is available on the Media Services account resource through the SDK as well as in the portal and CLI.
@@ -44,6 +48,7 @@ See the article [Restrict access to DRM license and AES key delivery using IP al
 ### Availability Zones default support in Media Services
 
 Media Services now supports [Availability Zones](concept-availability-zones.md), providing fault-isolated locations within the same Azure region.  Media Services accounts are zone redundant by default now and there is no additional configuration or settings required. This only applies to regions that have [Availability Zones support](../../availability-zones/az-region.md#azure-regions-with-availability-zones)
+
 
 ## March 2021
 
