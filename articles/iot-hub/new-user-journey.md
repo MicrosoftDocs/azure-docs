@@ -1,17 +1,17 @@
+
 ---
-title: Journey for learning IoT Hub for New Users IoT Hub Journey | Microsoft Docs
-description: : Journey for new users to learn IoT Hub
+title: Journey for learning IoT Hub for New Users | Microsoft Docs
+description: This journey shows new users how to learn and use IoT Hub
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 06/12/2021
+ms.date: 06/21/2021
 ms.author: robinsh
-ms.custom: ""
+#Customer intent: As a developer new to IoT Hub, learn the basic concepts and how to set up and use an IoT Hub. 
 ---
 
-# IoT Concepts
+# New User IoT Journey
 
 IoT devices have different characteristics when compared to other clients such as browsers and mobile apps. The [device SDKs](iot-hub-devguide-sdks.md) help you address the challenges of connecting devices securely and reliably to your back-end service. 
 
