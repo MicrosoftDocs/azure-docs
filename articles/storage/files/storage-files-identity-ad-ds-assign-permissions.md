@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 06/15/2021
 ms.author: rogarana 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
@@ -101,7 +101,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 You can add a default share-level permission on your storage account, instead of configuring share-level permissions for Azure AD users or groups. A default share-level permission assigned to your storage account applies to all file shares contained in the storage account. 
 
-When you set a default share-level permission, all authenticated users and groups will have the same permission. Authenticated users or groups are identified as the identity can be authenticated against the on-premises AD DS the storage account is associated with. The default share level permission is set to None at initialization implying that no  access is allowed to files & directories in Azure file share.
+When you set a default share-level permission, all authenticated users and groups will have the same permission. Authenticated users or groups are identified as the identity can be authenticated against the on-premises AD DS the storage account is associated with. The default share level permission is set to **None** at initialization, implying that no access is allowed to files & directories in Azure file share.
 
 # [Portal](#tab/azure-portal)
 
