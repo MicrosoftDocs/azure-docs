@@ -86,7 +86,7 @@ To create a virtual network, use the following steps:
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet":::
 
-1. Select __Security__. For __BastionHost__, select __Enable__. [Azure Bastion] provides a secure way to access the VM jump box you will create inside the VNet in a later step. Use the following values for the remaining fields:
+1. Select __Security__. For __BastionHost__, select __Enable__. [Azure Bastion](../bastion/bastion-overview.md) provides a secure way to access the VM jump box you will create inside the VNet in a later step. Use the following values for the remaining fields:
 
     * __Bastion name__: A unique name for this Bastion instance
     * __AzureBastionSubnetAddress space__: 172.17.2.0/27
