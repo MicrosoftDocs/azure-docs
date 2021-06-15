@@ -108,22 +108,20 @@ The example host.json file below contains only the settings for version 5.0.0 an
     "version": "2.0",
     "extensions": {
         "serviceBus": {
-            "serviceBusOptions": {
-                "retryOptions":{
-                    "mode": "exponential",
-                    "tryTimeout": "00:00:10",
-                    "delay": "00:00:00.80",
-                    "maxDelay": "00:01:00",
-                    "maxRetries": 4
-                },
-                "prefetchCount": 100,
-                "autoCompleteMessages": true,
-                "maxAutoLockRenewalDuration": "00:05:00",
-                "maxConcurrentCalls": 32,
-                "maxConcurrentSessions": 10,
-                "maxMessages": 2000,
-                "sessionIdleTimeout": "00:01:00"
-            }
+            "retryOptions":{
+                "mode": "exponential",
+                "tryTimeout": "00:00:10",
+                "delay": "00:00:00.80",
+                "maxDelay": "00:01:00",
+                "maxRetries": 4
+            },
+            "prefetchCount": 100,
+            "autoCompleteMessages": true,
+            "maxAutoLockRenewalDuration": "00:05:00",
+            "maxConcurrentCalls": 32,
+            "maxConcurrentSessions": 10,
+            "maxMessages": 2000,
+            "sessionIdleTimeout": "00:01:00"
         }
     }
 }
