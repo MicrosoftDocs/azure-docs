@@ -53,7 +53,7 @@ The security token method provides authentication for each call made by the devi
 
 The internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports TLS 1.2, TLS 1.1, and TLS 1.0, in that order. Support for TLS 1.0 is provided for backward compatibility only. Check [TLS support in IoT Hub](iot-hub-tls-support.md) to see how to configure your hub to use TLS 1.2, which provides the most security.
 
-## Communication Patterns with a Device
+## Communication patterns with a device
 
 Typically, IoT devices send telemetry from the sensors to back-end services in the cloud. However, other types of communication are possible, such as a back-end service sending commands to your devices. Some examples of different types of communication include the following: 
 
@@ -75,7 +75,9 @@ You can also filter the data that is sent to different services.
 
 What is telemetry? Telemetry is data that a device sends to an IoT Hub. IoT Devices send events (notifications, acknowledgements, telemetry) to an application to gain insights. Applications may require specific subsets of events for processing or storage at different endpoints.
 
-### Properties are state values or data that applications can access. For example, the current firmware version of the device, or writable properties that can be updated, such a temperature, are properties.
+### Properties are state values or data that applications can access. 
+
+For example, the current firmware version of the device, or writable properties that can be updated, such a temperature, are properties.
 
 Properties can be read or set from the IoT Hub, and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. This can be a writable property that can be updated on the device or read from a temperature sensor attached to the device. 
 
@@ -83,7 +85,7 @@ Properties can be read or set from the IoT Hub, and can be used to send notifica
 
 *Tejas we should put something else in here.*
 
-## View and Act on Data collected from your devices
+## View and act on data collected from your devices
 
 A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of 7 days, and can be used to take actions on a device. 
 
