@@ -5,7 +5,7 @@ description: In this tutorial, learn how to create a network function as a manag
 author: cherylmc
 ms.service: vnf-manager
 ms.topic: tutorial
-ms.date: 05/12/2021
+ms.date: 06/16/2021
 ms.author: cherylmc
 
 ---

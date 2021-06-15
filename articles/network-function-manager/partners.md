@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 06/14/2021
+ms.date: 06/16/2021
 ms.author: cherylmc
 
 ---
