@@ -43,6 +43,18 @@
   items:
     - name: Metrics Advisor key terms
       href:  glossary.md
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Use cases for Metrics Advisor
+      href: /legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/cognitive-services/metrics-advisor/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/cognitive-services/metrics-advisor/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/metrics-advisor/context/context
+  - name: Data, privacy and security
+    href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/metrics-advisor/context/context
 - name: Reference
   items:
   - name: Metrics Advisor REST API
