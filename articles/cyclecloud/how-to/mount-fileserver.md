@@ -22,7 +22,7 @@ The `/shared/` directory for each cluster is an NFS share by default. The `NFS T
 
 If `Builtin` is selected, the NFS share is created on a Azure Managed Disk([Standard SSD](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd)) mounted onto the headnode of the cluster, and the `Size` option specifies the size of the  provisioned disk.
 
-Alternatively, if the `External NFS` option is specified, additional fields appear for specifying the IP address (or hostname) of the NFS server, as well as other NFS mount options. This `External NFS` option can be used to mount endpoints such as [Azure HPC Cache](https://docs.microsoft.com/azure/hpc-cache/hpc-cache-overview), [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction), or [NFS on Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support).
+Alternatively, if the `External NFS` option is specified, additional fields appear for specifying the IP address (or hostname) of the NFS server, as well as other NFS mount options. This `External NFS` option can be used to mount endpoints such as [NFS on Azure Files Storage](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal), [Azure HPC Cache](https://docs.microsoft.com/azure/hpc-cache/hpc-cache-overview), [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction), or [NFS on Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support).
 
 :::image type="content" source="../images/external-nfs-options.png" alt-text="Mount an external NFS to /shared":::
 

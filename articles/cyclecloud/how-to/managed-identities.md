@@ -108,6 +108,13 @@ To enable CycleCloud to assign Managed Identities to VMs it creates within clust
           "Microsoft.Authorization/roleDefinitions/*",
 ```
 
+To enable CycleCloud to create and manage Resource Groups per cluster (recommended, if allowed by policy), add the following ``"actions"``:
+```json
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/write",
+          "Microsoft.Resources/subscriptions/resourceGroups/delete",
+```
+
 #### Creating the Role
 
 A role can be created from the role definitions via the [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli)

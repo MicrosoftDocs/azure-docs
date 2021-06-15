@@ -23,7 +23,7 @@ The CLI installer is distributed as part of the CycleCloud installation package.
 Alternatively, it can be downloaded directly from the command line using this command. One may need to add the `--no-check-certificate` flag to the following wget command if the CycleCloud instance does not have a certificate matching its hostname.
 
 ```bash
-wget https://<your CycleCloud domain name>/download/tools/cyclecloud-cli.zip
+wget https://<your CycleCloud domain name>/static/tools/cyclecloud-cli.zip
 ```
 
 ## CycleCloud CLI Installation for Linux
