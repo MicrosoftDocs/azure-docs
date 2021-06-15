@@ -809,6 +809,8 @@ key_phrase_extraction_example(client)
 
 # [Version 3.1 preview](#tab/version-3-1)
 
+You can use the Analyze operation to perform asynchronous batch requests for: NER, key phrase extraction, sentiment analysis, and PII detection. The below sample shows a basic example on one operation. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py).
+
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
 Create a new function called `analyze_batch_example()` that takes the client as an argument, then calls the `begin_analyze_actions()` function. The result will be a long running operation which will be polled for results.
@@ -867,8 +869,6 @@ Entity: Paul Allen
 ...Offset: 40
 ------------------------------------------
 ```
-
-You can also use the batch analyze operation to perform NER, key phrase extraction, sentiment analysis, and detect PII. See the [batch analyze sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 
