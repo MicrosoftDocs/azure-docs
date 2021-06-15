@@ -57,7 +57,7 @@ The KQL functions implementing the DNS information model have the following name
 
 The parsers can be deployed from the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM).
 
-## Normalized conent
+## Normalized content
 
 The following built-in analytic rules now work with normalized DNS parsers:
 - Added: 
@@ -161,7 +161,7 @@ The DNS schema as documented above includes fields that describe entities. If yo
 
 | **Entity** | **Fields** | **Type** | **Mandatory fields** | **Notes** |
 | --- | --- | --- | --- | --- |
-| **Actor** | Actor\* | User |  | Most DNS event sources do not provide user information, which is typically not part of the DNS protocol. <br><br>In some cases, the reporting device provides the user information, usually by resolving the source IP address into a user information. In such cases, represent the user as described in the schema entities documentation. Use **Actor** as a descriptor, as the information is based on the source IP address. <br><br>**Note**: When using **Actor** as an entity descriptor, there is no need to append the **User** field.. |
+| **Actor** | Actor\* | User |  | Most DNS event sources do not provide user information, which is typically not part of the DNS protocol. <br><br>In some cases, the reporting device provides the user information, usually by resolving the source IP address into a user information. In such cases, represent the user as described in the schema entities documentation. Use **Actor** as a descriptor, as the information is based on the source IP address. <br><br>**Note**: When using **Actor** as an entity descriptor, there is no need to append the **User** field. |
 | **Source Device** | Src\* | Device | `SrcIpAddr` | DNS event sources usually report the IP address of the source of the request, and therefore **SrcIpAddr** is mandatory. <br><br>If the reporting device provides more information on the source of the request, or if you enrich the data, use the device entity guidelines to normalize using **Src** as the field's prefix. |
 | **Destination Device** | Dst\* | Device |  | DNS event sources usually do not report information about the destination of the request. If the reporting device provides information on the destination of the request, or if you enrich the data, use the device entity guidelines to normalize, using **Dst** as the prefix. |
 | **Reporting Device** | Dvc\* | Device | `Dvc` | Most events include information about the reporting device. Use the prefix Dvc for those fields|
