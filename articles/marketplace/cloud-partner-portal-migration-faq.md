@@ -150,7 +150,7 @@ You'll notice some branding changes. For example, *SKUs* are branded as *Plans* 
 
 Also, the information you previously provided in the **Marketplace** or **Storefront Details**  (Consulting Service, Power BI app) pages in the Cloud Partner Portal is now collected on the **Offer listing** page in Partner Center:
 
-[![Screenshot shows the Partner Center Offer listing page.](./media/cpp-pc-faq/offer-listing.png](./media/cpp-pc-faq/offer-listing.png#lightbox)
+[ ![Screenshot shows the Partner Center Offer listing page.](./media/cpp-pc-faq/offer-listing.png) ](./media/cpp-pc-faq/offer-listing.png#lightbox)
 
 The information you previously provided for SKUs in a single page in the Cloud Partner Portal may now be collected throughout several pages in Partner Center:
 
