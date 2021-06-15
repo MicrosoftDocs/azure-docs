@@ -58,12 +58,12 @@ There are several sample task files referenced in the following sections of this
 az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-The formatting of the sample commands assumes you've configured a default registry in the Azure CLI, so they omit the `--registry` parameter. To configure a default registry, use the [az configure][az-configure] command with the `--defaults` parameter, which accepts an `acr=REGISTRY_NAME` value.
+The formatting of the sample commands assumes you've configured a default registry in the Azure CLI, so they omit the `--registry` parameter. To configure a default registry, use the [az config][az-config] command with the `set` command, which accepts an `defaults.acr=REGISTRY_NAME` key value pair.
 
 For example, to configure the Azure CLI with a default registry named "myregistry":
 
 ```azurecli
-az configure --defaults acr=myregistry
+az config set defaults.acr=myregistry
 ```
 
 ## Task properties
@@ -626,4 +626,4 @@ For single-step builds, see the [ACR Tasks overview](container-registry-tasks-ov
 <!-- LINKS - Internal -->
 [az-acr-run]: /cli/azure/acr#az_acr_run
 [az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
-[az-configure]: /cli/azure/reference-index#az_configure
+[az-config]: /cli/azure/reference-index#az_config
