@@ -382,11 +382,11 @@
     - name: CEF log field mapping
       href: cef-name-mapping.md
     - name: Normalization
-    items:
-    - name: Network normalization schema
-      href: normalization-schema.md
-    - name: DNS normalization schema
-      href: dns-normalization-schema.md
+      items:
+      - name: Network normalization schema
+        href: normalization-schema.md
+      - name: DNS normalization schema
+        href: dns-normalization-schema.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks
