@@ -21,7 +21,7 @@ In Azure Automation, access is granted by assigning the appropriate Azure role t
 |:--- |:--- |
 | Owner |The Owner role allows access to all resources and actions within an Automation account including providing access to other users, groups, and applications to manage the Automation account. |
 | Contributor |The Contributor role allows you to manage everything except modifying other user’s access permissions to an Automation account. |
-| Reader |The Reader role allows you to view all the resources in an Automation account but cannot make any changes. |
+| Reader |The Reader role allows you to view all the resources in an Automation account but can't make any changes. |
 | Automation Operator |The Automation Operator role allows you to view runbook name and properties and to create and manage jobs for all runbooks in an Automation account. This role is helpful if you want to protect your Automation account resources like credentials assets and runbooks from being viewed or modified but still allow members of your organization to execute these runbooks. |
 |Automation Job Operator|The Automation Job Operator role allows you to create and manage jobs for all runbooks in an Automation account.|
 |Automation Runbook Operator|The Automation Runbook Operator role allows you to view a runbook’s name and properties.|
@@ -57,7 +57,7 @@ A Contributor can manage everything except access. The following table shows the
 
 ### Reader
 
-A Reader can view all the resources in an Automation account but cannot make any changes.
+A Reader can view all the resources in an Automation account but can't make any changes.
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -97,7 +97,7 @@ The following table shows the permissions granted for the role:
 
 ### Automation Job Operator
 
-An Automation Job Operator role is granted at the Automation account scope. This allows the operator permissions to create and manage jobs for all runbooks in the account. If the Job Operator role is granted read permissions on the resource group containing the Automation account, members of the role have the ability to start runbooks. However, they do not have the ability to create, edit, or delete them.
+An Automation Job Operator role is granted at the Automation account scope. This allows the operator permissions to create and manage jobs for all runbooks in the account. If the Job Operator role is granted read permissions on the resource group containing the Automation account, members of the role have the ability to start runbooks. However, they don't have the ability to create, edit, or delete them.
 
 The following table shows the permissions granted for the role:
 
@@ -255,7 +255,9 @@ The following sections describe the minimum required permissions needed for enab
 
 ## Custom Azure Automation Contributor role
 
-Create a custom role for Azure Automation Contributor and use this role for actions related to the Automation account. Please use the steps below to create thus custom role:
+Microsoft intends to remove the Automation account rights from the Log Analytics Contributor role. Currently, the built-in [Log Analytics Contributor](#log-analytics-contributor) role described above can escalate privileges to the subscription [Contributor](/role-based-access-control/built-in-roles.md#contributor) role. Since Automation account Run As accounts are initially configured with Contributor rights on the subscription, it can be used by an attacker to create new runbooks and execute code as a Contributor on the subscription.
+
+Don't use the Log Analytics Contributor role to execute Automation jobs. Instead, create a custom role for Azure Automation Contributor and use this role for actions related to the Automation account. Please use the steps below to create this custom role:
 
 ### Through Azure portal
 
@@ -373,6 +375,7 @@ Create a custom role for Azure Automation Contributor and use this role for acti
         Write-Warning "Exception: $_"
     }  
     ```
+
 ## Update management permissions
 
 Update management reaches across multiple services to provide its service. The following table shows the permissions needed to manage update management deployments:
@@ -428,7 +431,7 @@ The following section shows you how to configure Azure RBAC on your Automation a
 
 #### Remove a user
 
-You can remove the access permission for a user who is not managing the Automation account, or who no longer works for the organization. Following are the steps to remove a user:
+You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. Following are the steps to remove a user:
 
 1. From the Access control (IAM) page, select the user to remove and click **Remove**.
 2. Click the **Remove** button in the assignment details pane.
@@ -515,7 +518,7 @@ In the preceding example, replace `sign-in ID of a user you wish to remove`, `Su
 
 ### User experience for Automation Operator role - Automation account
 
-When a user assigned to the Automation Operator role on the Automation account scope views the Automation account to which he/she is assigned, the user can only view the list of runbooks, runbook jobs, and schedules created in the Automation account. This user cannot view the definitions of these items. The user can start, stop, suspend, resume, or schedule the runbook job. However, the user does not have access to other Automation resources, such as configurations, hybrid worker groups, or DSC nodes.
+When a user assigned to the Automation Operator role on the Automation account scope views the Automation account to which he/she is assigned, the user can only view the list of runbooks, runbook jobs, and schedules created in the Automation account. This user can't view the definitions of these items. The user can start, stop, suspend, resume, or schedule the runbook job. However, the user doesn't have access to other Automation resources, such as configurations, hybrid worker groups, or DSC nodes.
 
 ![No access to resources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
