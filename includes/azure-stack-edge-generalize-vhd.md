@@ -6,17 +6,15 @@ ms.topic: include
 ms.date: 06/14/2021
 ---
 
-Use the *sysprep* utility to generalize the VHD. 
-
 1. If you're generalizing a Windows Server 2019 Standard VM, before you generalize the VHD, make IDE the first BIOS setting for the virtual machine. This change is needed to enable the VM to be booted during the `sysprep` process.
 
-   1. In Hyper-V Manager, select the VM, and then select **Settings**.
+    1. In Hyper-V Manager, select the VM, and then select **Settings**.
  
-   ![In Hyper-V Manager, open Settings for your virtual machine](./media/azure-stack-edge-generalize-vhd/vhd-from-iso-13.png)
+       ![Screenshot showing how to open Settings for a selected VM in Hyper-V Manager](./media/azure-stack-edge-generalize-vhd/vhd-from-iso-01.png)
 
-   1. Under **BIOS**, ensure that **IDE** is at the top of the **Startup order** list.
+     1. Under **BIOS**, ensure that **IDE** is at the top of the **Startup order** list.
 
-   ![In BIOS settings, the first item under Startup order should be CD](./media/azure-stack-edge-generalize-vhd/vhd-from-iso-14.png)<!--Update screenshot to show IDE as top setting.-->
+        ![Screenshot showing IDE at top of startup order in BIOS settings for a VM in Hyper-V Manager](./media/azure-stack-edge-generalize-vhd/vhd-from-iso-02.png)
 
 1. Inside the VM, open a command prompt.
 
