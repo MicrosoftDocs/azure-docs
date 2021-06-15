@@ -21,7 +21,7 @@ This article covers how to configure and deploy a disk pool. In order for a disk
 
 ## Register for the preview
 
-To be able to create and use disk pools, register your subscription to the **Microsoft.StoragePool** provider.
+Register your subscription to the **Microsoft.StoragePool** provider, to be able to create and use disk pools.
 
 1. Sign in to the Azure portal
 1. On the Azure portal menu, search for and select **Subscriptions**.
