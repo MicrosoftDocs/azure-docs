@@ -60,7 +60,7 @@ The Azure Sentinel Information Model uses the following terms:
 |---------|---------|
 |**Reporting device**     |   The system that sends the records to Azure Sentinel. This system may not be the subject system for the record that's being sent.      |
 |**Record**     |A unit of data sent from the reporting device. A record is often referred to as `log`, `event`, or `alert`, but can also be other types of data.         |
-|**Content**, **Content Item**, or	**Content**     |The different, customizable, or user-created artifacts than can be used with Azure Sentinel. Those artifacts include, for example, Analytics rules, Hunting queries and workbooks. A content item is one such artifact.|
+|**Content**, or **Content Item**     |The different, customizable, or user-created artifacts than can be used with Azure Sentinel. Those artifacts include, for example, Analytics rules, Hunting queries and workbooks. A content item is one such artifact.|
 |     |         |
 
 ## Normalized schemas
@@ -74,7 +74,7 @@ Schema references outline the fields that comprise each schema. The following co
 
 |Concept  |Description  |
 |---------|---------|
-|**Field names**     |   At the core of each schema is its field names. Field names belong to the following groups: <br><br>- Fields common to all schemas <br>- Fields specific to a schema <br>-	Fields that represent entities, such as users, which take part in the schema. Fields that represent entities [are similar across schemas](#entities). <br><br>When sources have fields that are not presented in the documented schema, they are normalized to maintain consistency. If the extra fields represent an entity, they'll be normalized based on the entity field guidelines. Otherwise, the schemas strive to keep consistency across all schemas.<br><br> For example, while DNS server activity logs do not provide user information, DNS query logs from an endpoint may include user information, which can be normalized according to the user entity guidelines.      |
+|**Field names**     |   At the core of each schema is its field names. Field names belong to the following groups: <br><br>- Fields common to all schemas <br>- Fields specific to a schema <br>-	Fields that represent entities, such as users, which take part in the schema. Fields that represent entities [are similar across schemas](#entities). <br><br>When sources have fields that are not presented in the documented schema, they are normalized to maintain consistency. If the extra fields represent an entity, they'll be normalized based on the entity field guidelines. Otherwise, the schemas strive to keep consistency across all schemas.<br><br> For example, while DNS server activity logs do not provide user information, DNS activity logs from an endpoint may include user information, which can be normalized according to the user entity guidelines.      |
 |**Field types**     |  Each schema field has a type. The Log Analytics workspace has a limited set of data types. Therefore, Azure Sentinel uses a logical type for many schema fields, which Log Analytics does not enforce but is required for schema compatibility. Logical field types ensure that both values and field names are consistent across sources.  <br><br>For more information, see [Logical Types](#logical-types).     |
 |**Field class**     |Fields may have several classes, which define when the fields should be implemented by a parser: <br><br>-	**Mandatory** fields must appear in every parser. If your source does not provide information for this value, or the data cannot be otherwise added, it will not support most content items that reference the normalized schema.<br>-	**Recommended** fields should be normalized if available. However, they may not be available in every source, and any content item that references that normalized schema should take availability into account. <br>-	**Optional** fields, if available, can be normalized or left in their original form. Typically, a minimal parser would not normalize them for performance reasons.    |
 |**Entities**     | Events evolve around entities, such as users, hosts, processes, or files, and each entity may require several fields to describe it. For example, a host may have a name and an IP address. <br><br>A single record may include multiple entities of the same type, such as both a source and destination host. <br><br>The Azure Sentinel Information Model defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the network session schema does not include process information, some event sources do provide process information that can be added. For more information, see [Entities](#entities). |
@@ -111,7 +111,7 @@ To enable entity functionality, entity representation has the following guidelin
 
 |Guideline  |Description  |
 |---------|---------|
-|**Descriptors and aliasing**     | Since a single event often includes more than one entity of the same type, such as `source` and `destination hosts`, *descriptors* are used as a prefix to identify all of the fields that are associated with a specific entity. <br><br>To maintain normalization, the Azure Sentinel Information Model uses a small set of standard descriptors, picking the most appropriate ones for the specific role of the entities.  <br><br>If a single entity of a type is relevant for an event, there is no need to use a descriptor. Also, a set of fields without a descriptor aliases the most used entity for each type.  |
+|**Descriptors and aliasing**     | Since a single event often includes more than one entity of the same type, such as source and destination hosts, *descriptors* are used as a prefix to identify all of the fields that are associated with a specific entity. <br><br>To maintain normalization, the Azure Sentinel Information Model uses a small set of standard descriptors, picking the most appropriate ones for the specific role of the entities.  <br><br>If a single entity of a type is relevant for an event, there is no need to use a descriptor. Also, a set of fields without a descriptor aliases the most used entity for each type.  |
 |**Identifiers and types**     | A normalized schema allows for several identifiers for each entity, which we expect to coexist in events. If the source event has other entity identifiers that cannot be mapped to the normalized schema, keep them in the source form or use the `AdditionalFields` dynamic field. <br><br>To maintain the type information for the identifiers, store the type, when applicable, in a field with the same name and a suffix of `Type`. For example, `UserIdType`.         |
 |**Attributes**     |   Entities often have other attributes that do not serve as an identifier, and can also be qualified with a descriptor. For example, if the source user has domain information, the normalized field is `SrcUserDomain`.      |
 |     |         |
@@ -132,8 +132,8 @@ The descriptors used for a user are **Actor**, **Target User**, and **Updated Us
 |**Network connection**     |    A process running as **Actor** on the source host, communicating with a process running as **Target User** on the destination host     |         |
 |**DNS request**     | An **Actor** initiated a DNS query        |         |
 |**Sign-in**     |    An **Actor** signed in to a system as a **Target User**.     |A (Target) User signed in         |
-|**Process creation**     |   An **Actor** has initiated process creation (the user associated with the initiating process). The process created runs under the credentials of a **Target User** (the user related to the target process).      |  The process created runs under the credentials of a (Target) **User**.       |
-|**Email**     |     An **Actor** sends an email to **Target User**    |         |
+|**Process creation**     |   An **Actor** (the user associated with the initiating process) has initiated process creation. The process created runs under the credentials of a **Target User** (the user related to the target process).      |  The process created runs under the credentials of a (Target) **User**.       |
+|**Email**     |     An **Actor** sends an email to a **Target User**    |         |
 |     |         |         |
 
 The following table describes the supported identifiers for a user:
@@ -151,7 +151,7 @@ The descriptors used for a user are `Acting Process`, `Target Process`, and `Par
 - **Network connection**. An **Acting Process** initiated a network connection to communicate with **Target Process** on a remote system.
 - **DNS request**.	An **Acting Process** initiated a DNS query
 - **Sign-in**.	An **Acting Process** initiated a signing into a remote system that ran a **Target Process** on its behalf.
-- **Process creation**.	An Acting Process has initiated a Target Process creation. The Parent Process is the parent of the acting process.
+- **Process creation**.	An **Acting Process** has initiated a **Target Process** creation. The **Parent Process** is the parent of the acting process.
 
 The following table describes the supported identifiers for processes:
 
@@ -276,9 +276,11 @@ A parser is a KQL query saved as a workspace function. Once saved, it can be use
 
 #### Filtering
 
-Most tables include information that is relevant to more than one normalized schema, but some tables, such as Syslog, have data from multiple sources. Other tables, such as custom tables, may include information from a single source that provides more than one event type and can fit various schemas.
+In many cases, a table includes multiple types of events. For example:
+* The Syslog table has data from multiple sources.
+* Custom tables may include information from a single source that provides more than one event type and can fit various schemas.
 
-Therefore, a parser should first filter only the records that are relevant for the target schema.
+Therefore, a parser should first filter only the records that are relevant to the target schema.
 
 Filtering in KQL is done using the `where` operator. For example, **Sysmon event 1** reports process creation and should be normalized to the **ProcessEvent** schema. The **Sysmon event 1** event is part of the `Event` table, and the following filter should be used:
 
@@ -341,11 +343,10 @@ In addition to parsing string, the parsing phase may require more processing of 
     let RCodeTable = datatable(ResponseCode:int,ResponseCodeName:string) [ 0, 'NOERROR', 1, 'FORMERR'....];
     ...
      | lookup RCodeTable on ResponseCode
-     | extend EventResultDetails = case (isnotempty(ResponseCodeName), 
-         ResponseCodeName, 
-    ResponseCode between (3841 .. 4095),
-        'Reserved for Private Use', 
-    'Unassigned')
+     | extend EventResultDetails = case (
+         isnotempty(ResponseCodeName), ResponseCodeName, 
+         ResponseCode between (3841 .. 4095), 'Reserved for Private Use', 
+         'Unassigned')
     ```
 
 > [!NOTE]
