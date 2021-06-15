@@ -17,7 +17,7 @@ ms.custom: include file
 |[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|GA (Node 6)|GA (Node 10 & 8)| GA (Node 12 & 10)<br />Preview (Node 14) |
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA (.NET Framework 4.7)|GA (.NET Core 2.2)| GA (.NET Core 3.1) |
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/A|GA (Java 8)| GA (Java 11 & 8)|
-|[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |N/A|GA (PowerShell Core 6)| GA (PowerShell 7 & Core 6)|
+|[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |N/A|GA (PowerShell Core 6)| GA (PowerShell 7.0 & Core 6)|
 |[Python](../articles/azure-functions/functions-reference-python.md#python-version)|N/A|GA (Python 3.7 & 3.6)| GA (Python 3.8, 3.7, & 3.6) <br/> Preview (Python 3.9)|
 |[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript) |N/A|GA<sup>*</sup>| GA<sup>*</sup> |
 
