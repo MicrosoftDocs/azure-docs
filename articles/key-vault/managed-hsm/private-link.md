@@ -27,6 +27,7 @@ To integrate a managed HSM with Azure Private Link, you will need the following:
 - An Azure virtual network.
 - A subnet in the virtual network.
 - Owner or contributor permissions for both the managed HSM and the virtual network.
+- The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your HSM can be in a different region.
 
