@@ -167,7 +167,7 @@ The following APIs let you programmatically manage regional virtual network inte
 To learn more about networking and Azure Functions:
 
 * [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
-* [Read the Functions networking FAQ](./functions-networking-faq.md)
+* [Read the Functions networking FAQ](./functions-networking-faq.yml)
 * [Learn more about virtual network integration with App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
 * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
 * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
