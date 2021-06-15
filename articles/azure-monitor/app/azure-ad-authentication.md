@@ -198,7 +198,7 @@ let appInsights = require("applicationinsights");
 import { DefaultAzureCredential } from "@azure/identity"; 
  
 const credential = new DefaultAzureCredential();
-appInsights.setup().start();
+appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000").start();
 let client = appInsights.defaultClient;
 client.aadTokenCredential = credential;
 client.trackEvent({name: "Custom Event"});
