@@ -37,7 +37,7 @@ There are two primary ways to install a library on a cluster:
 > [!IMPORTANT]
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
-> - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels is not supported within DEP-enabled workspaces.
+> - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels is not supported within data exfiltration protection enabled workspaces.
 
 ### Install Python packages
 Python packages can be installed from repositories like PyPI and Conda-Forge by providing an environment specification file. 

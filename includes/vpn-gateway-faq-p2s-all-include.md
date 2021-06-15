@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/04/2021
+ ms.date: 06/15/2021
  ms.author: cherylmc
  ms.custom: include file, devx-track-azurepowershell
 ---
@@ -17,7 +17,6 @@ It depends on the gateway SKU. For more information on the number of connections
 
 The following client operating systems are supported:
 
-* Windows 7 (32-bit and 64-bit)
 * Windows Server 2008 R2 (64-bit only)
 * Windows 8.1 (32-bit and 64-bit)
 * Windows Server 2012 (64-bit only)

@@ -73,7 +73,7 @@
       href: sentinel-solutions.md
     - name: Solutions catalog
       href: sentinel-solutions-catalog.md
-  - name: Normalize your data across tables
+  - name: Normalization and the Azure Sentinel Information Model (ASIM)
     href: normalization.md
   - name: Use Azure Data Explorer for long-term log retention
     href: store-logs-in-azure-data-explorer.md
@@ -282,10 +282,14 @@
       href: monitor-data-connector-health.md
   - name: Analytics rules
     items:
-    - name: Map data fields to entities
-      href: map-data-fields-to-entities.md
-    - name: Surface custom details in alerts
-      href: surface-custom-details-in-alerts.md
+    - name: Alert enrichment
+      items:
+      - name: Map data fields to entities
+        href: map-data-fields-to-entities.md
+      - name: Surface custom details in alerts
+        href: surface-custom-details-in-alerts.md
+      - name: Customize alert details
+        href: customize-alert-details.md
     - name: Export and import analytics rules
       href: import-export-analytics-rules.md
     - name: Create incidents from alerts
@@ -365,8 +369,12 @@
     href: /connectors/azuresentinel/
   - name: Entities reference
     href: entities-reference.md
-  - name: Network normalization schema
-    href: normalization-schema.md
+  - name: Normalization
+    items:
+    - name: Network normalization schema
+      href: normalization-schema.md
+    - name: DNS normalization schema
+      href: dns-normalization-schema.md
   - name: Data source schema reference
     href: data-source-schema-reference.md
   - name: Kusto Query Language
