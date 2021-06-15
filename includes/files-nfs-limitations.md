@@ -15,7 +15,7 @@ While in preview, NFS has the following limitations:
 - Only available for the premium tier.
 - NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, you should disable ID mapping.
 
-### Azure Storage features not yet supported
+### Azure Files features not yet supported
 
 Also, the following Azure Files features are not available with NFS shares:
 
@@ -23,5 +23,5 @@ Also, the following Azure Files features are not available with NFS shares:
 - Azure Backup support
 - Snapshots
 - Soft delete
-- Full encryption-in-transit support (for details see [NFS security](../articles/storage/files/storage-files-compare-protocols.md#security))
+- Full encryption-in-transit support (for details see [NFS security](../articles/storage/files/files-nfs-protocol.md#security))
 - Azure File Sync (only available for Windows clients, which NFS 4.1 does not support)

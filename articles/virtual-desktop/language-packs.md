@@ -51,7 +51,7 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
           - [Windows 10, version 2004, 20H2, or 21H1 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
           - [Windows 10, version 2004, 20H2, or 21H1 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
           - [Windows 10, version 2004, 20H2, or 21H1 **4B** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **4C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2104C.iso)
+          - [Windows 10, version 2004, 20H2, or 21H1 **5C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2105C.iso)
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 

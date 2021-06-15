@@ -35,4 +35,4 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 * [Multi-step web tests](availability-multistep.md)
 * [URL tests](monitor-web-app-availability.md)
 * [Create and run custom availability tests using Azure Functions.](availability-azure-functions.md)
-* [Web Tests Azure Resource Manager template](https://docs.microsoft.com/azure/templates/microsoft.insights/webtests?tabs=json)
+* [Web Tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)
