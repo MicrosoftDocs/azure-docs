@@ -110,29 +110,29 @@ To apply the configuration use the follow these steps:
 
 1. Edit the [variables.tf](https://github.com/Azure/azure-spring-cloud-reference-architecture/blob/main/terraform/brownfield-deployment/variable.tf) file with the following information:
 
-   * **Subscription ID** of the Azure account you will be deploying to
+   * **Subscription ID** of the Azure account you will be deploying to.
 
    * A valid **Azure Region** where resources will be deployed
        * Refer `https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all` to find list of available regions for Azure Spring Cloud
        * **Note:** region format must be lower case with no spaces(for example, East US is represented as eastus)
 
-   * Name of the **Resource Group** where resources will be deployed
+   * Name of the **Resource Group** where resources will be deployed.
 
-   * Desired name for the Spring Cloud Deployment
+   * Desired name for the Spring Cloud Deployment.
 
-   * Name of the **Virtual Network Resource Group** where resources will be deployed
+   * Name of the **Virtual Network Resource Group** where resources will be deployed.
 
-   * Name of the Spoke **Virtual Network** name(e.g. vnet-spoke)
+   * Name of the Spoke **Virtual Network** name (for example, *vnet-spoke*).
 
-   * Name of the **SubNet** to be used by Spring Cloud App Service (e.g snet-app)
+   * Name of the **SubNet** to be used by Spring Cloud App Service (for example, *snet-app*).
 
-   * Name of the **SubNet** to be used by Spring Cloud runtime Service (e.g snet-runtime)
+   * Name of the **SubNet** to be used by Spring Cloud runtime Service (for example, *snet-runtime*).
 
-   * Name of the **Azure Log Analytics workspace** to be used for storing diagnostic logs(for example, la-cb5sqq6574o2a)
+   * Name of the **Azure Log Analytics workspace** to be used for storing diagnostic logs (for example, *la-cb5sqq6574o2a*).
 
-   * **CIDR Ranges** from your Virtual Network to be used by Azure Spring Cloud(for example, XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16)
+   * **CIDR Ranges** from your Virtual Network to be used by Azure Spring Cloud (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*)
 
-   * key=value pairs to be applied as [Tags](/azure/azure-resource-manager/management/tag-resources) on all resources which support tags
+   * key=value pairs to be applied as [Tags](/azure/azure-resource-manager/management/tag-resources) on all resources that support tags.
        * **Example:** environment=Dev BusinessUnit=finance
 
           ```hcl

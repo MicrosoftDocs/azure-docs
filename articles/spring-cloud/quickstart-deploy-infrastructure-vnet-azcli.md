@@ -28,7 +28,7 @@ Azure Spring Cloud makes it easy to deploy Spring Boot microservice applications
    * A unique User Defined Route (UDR) applied to each of the service runtime and Spring Boot micro-service application subnets. For more information about UDRs, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Spring Cloud cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * [Azure CLI](/cli/azure/install-azure-cli)
 
-* Login into Azure using Azure command-line interface (Azure CLI) and run the following command to register the Azure Spring Cloud Resource Provider.
+* Sign in to Azure using Azure command-line interface (Azure CLI) and run the following command to register the Azure Spring Cloud Resource Provider.
 
    ```azurecli-interactive
    az provider register --namespace 'Microsoft.AppPlatform'
@@ -40,7 +40,7 @@ Azure Spring Cloud makes it easy to deploy Spring Boot microservice applications
    az extension add --name spring-cloud
    ```
 
-* Run the following command and record the subscription ID of the Azure account you will be deploying to. This subscription ID will be used when you run deploySpringCloud.sh and prompted to enter the subscrition.
+* Run the following command and record the subscription ID of the Azure account you will be deploying to. This subscription ID will be used when you run deploySpringCloud.sh and prompted to enter the subscription.
 
    ```azurecli-interactive
    az account list
@@ -63,7 +63,7 @@ To deploy the template, follow these steps:
 
 2. Enter Values for the following fields:
 
-   - **Subscrition ID** of the Azure account you will be deploying to
+   - **Subscription ID** of the Azure account you will be deploying to
 
    - A valid **Azure Region** where resources will be deployed
        - Refer `https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all` to find list of available regions for Azure Spring Cloud
@@ -73,17 +73,17 @@ To deploy the template, follow these steps:
 
    - Name of the **Virtual Network Resource Group** where resources will be deployed
 
-   - Name of the Spoke **Virtual Network** name(e.g. vnet-spoke)
+   - Name of the Spoke **Virtual Network** name (for example, *vnet-spoke*)
 
-   - Name of the **SubNet** to be used by Spring Cloud App Service (e.g snet-app) 
+   - Name of the **SubNet** to be used by Spring Cloud App Service (for example, *snet-app*)
 
-   - Name of the **SubNet** to be used by Spring Cloud runtime Service (e.g snet-runtime) 
+   - Name of the **SubNet** to be used by Spring Cloud runtime Service (for example, *snet-runtime*)
 
-   - Name of the **Azure Log Analytics workspace** to be used for storing diagnostic logs(for example, la-cb5sqq6574o2a)
+   - Name of the **Azure Log Analytics workspace** to be used for storing diagnostic logs(for example, *la-cb5sqq6574o2a*)
 
-   - **CIDR Ranges** from your Virtual Network to be used by Azure Spring Cloud(for example, XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16)
+   - **CIDR Ranges** from your Virtual Network to be used by Azure Spring Cloud (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*)
 
-   - key=value pairs to be applied as [Tags](/azure/azure-resource-manager/management/tag-resources) on all resources which support tags
+   - key=value pairs to be applied as [Tags](/azure/azure-resource-manager/management/tag-resources) on all resources that support tags
        - Space separated list to support applying multiple tags
        - **Example:** environment=Dev BusinessUnit=finance
 
