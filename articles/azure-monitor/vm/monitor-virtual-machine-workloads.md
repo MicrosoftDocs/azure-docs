@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure virtual machines with Azure Monitor - Workloads
+title: Monitor virtual machines with Azure Monitor - Workloads
 description: Describes how to monitor the guest workloads of virtual machines in Azure Monitor.
 ms.service:  azure-monitor
 ms.topic: conceptual
@@ -16,10 +16,10 @@ This article describes how to monitor workloads that are running on the guest op
 > This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor scenario](monitor-virtual-machine.md).
 
 
-## Existing insights
-Use the following insights to monitor particular workloads running on your virtual machines.
+## Known applications
+Azure Monitor includes complete monitoring for the following applications.
 
-| Workload | Insight |
+| Application | Insight |
 |:---|:---|
 | SQL Server | [SQL insights](../insights/sql-insights-overview.md) |
 

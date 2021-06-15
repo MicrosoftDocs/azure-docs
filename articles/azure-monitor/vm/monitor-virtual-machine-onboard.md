@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure virtual machines with Azure Monitor - Configure monitoring
+title: Monitor virtual machines with Azure Monitor - Configure monitoring
 description: Describes how to configure virtual machines for monitoring in Azure Monitor. Monitor virtual machines and their workloads with Azure Monitor scenario.
 ms.service:  azure-monitor
 ms.topic: conceptual

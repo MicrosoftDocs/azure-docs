@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure virtual machines with Azure Monitor - Alerts
+title: Monitor virtual machines with Azure Monitor - Alerts
 description: Describes how to create alerts from virtual machines and their guest workloads using Azure Monitor.
 ms.service:  azure-monitor
 ms.topic: conceptual
