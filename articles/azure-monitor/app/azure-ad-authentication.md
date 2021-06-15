@@ -161,7 +161,7 @@ from opencensus.trace.tracer import Tracer
 
 credential = ManagedIdentityCredential(client_id="<client-id>")
 tracer = Tracer(
-    exporter=AzureExporter(credential=credential, connection_string="<your-connection-string>"),
+    exporter=AzureExporter(credential=credential, connection_string="InstrumentationKey=<your-instrumentation-key>;IngestionEndpoint=<your-ingestion-endpoint>"),
     sampler=ProbabilitySampler(1.0)
 )
 ...
