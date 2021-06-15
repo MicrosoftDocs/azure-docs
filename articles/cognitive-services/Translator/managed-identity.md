@@ -14,7 +14,7 @@ ms.author: lajanuar
 # Create and use managed identities in the Azure portal (preview)
 
 > [!IMPORTANT]
-> * Assigning a role to a managed identity using the steps below is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features may not be supported or might have constrained capabilities.  
+> * Assigning a role to a managed identity using the steps below is currently in preview. The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features may not be supported or might have constrained capabilities.  
 > * Managed identity for Translator is not available in the global region.
 
  Azure managed identities are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure-managed resources. You can use managed identities to grant access to any resource that supports Azure AD authentication. To grant access, you assign a role to a managed identity using Azure role-based access control (Azure RBAC). There is no added cost to using managed identities in Azure.
@@ -25,9 +25,9 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [** multi-service Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal assigned to a non-global region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows).
+* A [**single-service Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**multi-service Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You will create containers to store and organize your blob data within your storage account. If the account has a firewall, you must have the [exception for trusted Microsoft services](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) checkbox enabled.
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You'll create containers to store and organize your blob data within your storage account. If the account has a firewall, you must have the [exception for trusted Microsoft services](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) checkbox enabled.
 
     :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
 
@@ -37,9 +37,9 @@ To get started, you'll need:
 
 There are two types of managed identity assignments:
 
-* A [**System-assigned**](#enable-a-system-assigned-managed-identity-in-the-azure-portal) managed identity is **enabled** directly on a service instance—Translator. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+* A [**System-assigned**](#enable-a-system-assigned-managed-identity-in-the-azure-portal) managed identity is **enabled** directly on a service instance. Here, you'll enable the identity for Translator. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
-* A [**User-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances—your storage account. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
+* A [**User-assigned**](#create-a-user-assigned-managed-identity-in-the-azure-portal) managed identity is **created** as a standalone Azure resource and assigned to one or more Azure service instances. Here you'll assign the identity to your storage account. A user-assigned identity is managed separately from the resources that use it and has an independent lifecycle.
 
 ## Enable a system-assigned managed identity in the Azure portal
 
