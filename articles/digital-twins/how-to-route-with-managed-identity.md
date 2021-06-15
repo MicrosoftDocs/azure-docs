@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Enable a managed identity for routing events (preview)
+title: Route events with a managed identity (preview)
 titleSuffix: Azure Digital Twins
 description: See how to enable a system-assigned identity for Azure Digital Twins and use it to forward events, using the Azure portal or CLI.
 author: baanders
