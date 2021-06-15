@@ -1,6 +1,6 @@
 ---
 title: 'Deploy Affirmed Private Network Service on Azure'
-description: Learn how to deploy the Affirmed Private Network Service solution 
+description: Learn how to deploy the Affirmed Private Network Service solution on Azure
 services: vnf-manager
 author: KumudD
 ms.service: vnf-manager
@@ -14,7 +14,7 @@ This article provides a high-level overview of the process of deploying Affirmed
 
 The following diagram shows the system architecture of the Affirmed Private Network Service, including the resources required to deploy.
 
-![Affirmed Private Network Service Deployment](media/deploy-affirmed-private-network-service/deploy-affirmed-private-network-service.png)
+![Affirmed Private Network Service deployment](media/deploy-affirmed-private-network-service/deploy-affirmed-private-network-service.png)
 
 ## Collect required information
 
