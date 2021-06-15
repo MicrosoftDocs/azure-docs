@@ -115,12 +115,12 @@ The example host.json file below contains only the settings for version 5.0.0 an
                 "maxDelay": "00:01:00",
                 "maxRetries": 4
             },
-            "prefetchCount": 100,
+            "prefetchCount": 0,
             "autoCompleteMessages": true,
             "maxAutoLockRenewalDuration": "00:05:00",
-            "maxConcurrentCalls": 32,
-            "maxConcurrentSessions": 10,
-            "maxMessages": 2000,
+            "maxConcurrentCalls": 16,
+            "maxConcurrentSessions": 8,
+            "maxMessages": 1000,
             "sessionIdleTimeout": "00:01:00"
         }
     }
