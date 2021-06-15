@@ -12,9 +12,12 @@ ms.date: 06/14/2021
 ms.author: lajanuar
 ---
 
-# Document Translation client libraries and SDKs
+# Document Translation client libraries and SDKs (preview)
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service. You can translate entire documents or process batch document translation in a variety of file formats while preserving original document structure and format. In this article you'll learn how to use the Document Translation service C#/.NET or Python SDKs. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide. 
+> [!IMPORTANT]
+> The preview version client libraries and SDKs are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service. You can translate entire documents or process batch document translation in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET or Python SDKs. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide. 
 
 ### [C#/.NET](#tab/csharp)
 
@@ -38,7 +41,7 @@ To get started, you'll need:
   * Your **source** container or blob must have designated  **read** and **list** access.
   * Your **target** container or blob must have designated  **write** and **list** access.
 
-For more details, *see* [Create SAS tokens](create-sas-tokens.md).
+For more information, see* [Create SAS tokens](create-sas-tokens.md).
 
 ## Set up your project
 
@@ -96,7 +99,7 @@ DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoin
 
 * To Start a translation operation for one or more documents in a single blob container, you will call the `StartTranslationAsync` method.
 
-* To call `StartTranslationAsync` you need to initialize a `DocumentTranslationInput`  object which contains the following:
+* To call `StartTranslationAsync` you need to initialize a `DocumentTranslationInput`  object that contains the following parameters:
 
 * **sourceUri**. The SAS URI for the source container containing documents to be translated.
 * **targetUri** The SAS URI for the target container to which the translated documents will be written.
@@ -139,7 +142,7 @@ public void StartTranslation() {
 }
 ```
 
-That's it! You've learned to create a simple program to translate documents in a blob container using the .NET client library.
+That's it! You've learned to create a program to translate documents in a blob container using the .NET client library.
 
 ## Next steps
 
@@ -170,17 +173,17 @@ To get started, you'll need:
 
 * A [**single-service access Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource (**not** a Cognitive Services resource).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account. You'll need to [**create containers**](../../../storage/blobs/storage-quickstart-blobsportal.md#create-a-container) in your Azure blob storage account for your source and target files:
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account. You'll need to [**create containers**](/azure/storage/blobs/storage-quickstart-blobs-portal) in your Azure blob storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files will be stored (required).
 
-* You'll also need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUri and `targetUri` , must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](create-sas-tokens.md).
+* You'll also need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUri` and `targetUri` must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](create-sas-tokens.md).
 
   * Your **source** container or blob must have designated  **read** and **list** access.
   * Your **target** container or blob must have designated  **write** and **list** access.
 
-For more details, *see* [Create SAS tokens](create-sas-tokens.md).
+For more information, see* [Create SAS tokens](create-sas-tokens.md).
 
 ## Set up your project
 
@@ -208,8 +211,8 @@ details *see* [Get your custom domain name and subscription key(get-started-with
 ```python
  subscriptionKey = os.environ["<your-subscription-key>"]
  endpoint = os.environ[ "<your-custom-endpoint>"]
-sourceUrl = os.environ["your-container-sourceUri"]
-targetUrl = os.environ["<your-container-sourceUri"]
+ sourceUrl = os.environ["your-container-sourceUri"]
+ targetUrl = os.environ["<your-container-sourceUri"]
 ```
 
 ## Translate one or more documents
@@ -240,7 +243,7 @@ client = DocumentTranslationClient(endpoint, AzureKeyCredential(subscriptionKey)
             print("Error Code: {}, Message: {}\n".format(document.error.code, document.error.message))
 ```
 
-That's it! You've learned to create a simple program to translate documents in a blob container using the Python client library.
+That's it! You've learned to create a program to translate documents in a blob container using the Python client library.
 
 > [!div class="nextstepaction"]
 > [Explore more common-scenario samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples)
@@ -253,5 +256,3 @@ That's it! You've learned to create a simple program to translate documents in a
 [python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples
 
 ---
-
-
