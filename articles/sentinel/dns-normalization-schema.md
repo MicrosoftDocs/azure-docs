@@ -23,6 +23,8 @@ ms.author: bagol
 
 The DNS information model is used to describe events reported by a DNS server or a DNS security system, and is used by Azure Sentinel to enable source-agnostic analytics.
 
+For more information, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+
 ## Guidelines for collecting DNS events
 
 DNS is a unique protocol in that it may cross a large number of computers. Also, since DNS uses UDP, requests and responses are de-coupled and are not directly related to each other.
@@ -53,7 +55,7 @@ The KQL functions implementing the DNS information model have the following name
 | **imDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *imDNSWindowsMMA*. |- Add a source-specific parser for a source when there is no built-in normalizing parser. Update the aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
 | | | |
 
-The parsers can be deployed from https://aka.ms/AzSentinelDns
+The parsers can be deployed from the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM).
 
 ## Normalized conent
 
