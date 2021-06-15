@@ -13,9 +13,9 @@ ms.date: 03/08/2021
 
 # Migrate to Azure Machine Learning 
 
-Learn how to migrate workloads from Studio (classic) to [Azure Machine Learning](../overview-what-is-azure-ml.md). Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
+Learn how to migrate simple from Studio (classic) to [Azure Machine Learning](../overview-what-is-azure-ml.md). Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
-If you're an organization, see the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional resources to guide you through adoption including survey tools, worksheets, and planning templates.
+This article is a guide for basic migration. If you're an organization, see the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for resources to guide you through adoption including survey tools, worksheets, and planning templates.
 
 ![Azure ML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
 
@@ -52,7 +52,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 1. Align an actionable Azure Machine Learning adoption plan to business outcomes.
 1. Prepare people, processes, and environments for change.
 
-See the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional planning resources including the [planning doc template](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.docx). 
+See the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for planning resources including the [planning doc template](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.docx). 
 
 ## Step 3: Rebuild your first model
 
@@ -167,4 +167,4 @@ In this article, you learned the high-level requirements for migrating to Azure 
 1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
 1. [Migrate Execute R Script](migrate-execute-r-script.md).
 
-See the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional migration resources,
+See the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional migration resources.
