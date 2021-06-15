@@ -56,5 +56,5 @@ You need to synchronize identity data between your on-premises LDAP v3 directori
 
    > [!NOTE]
    > Deploying the LDAP Connector requires an advanced configuration and this connector is provided under limited support. Configuring this connector requires familiarity with Microsoft Identity Manager and the specific LDAP directory. 
+   >
    > Customers who require to deploy this configuration in a production environment are recommended to work with a partner such as Microsoft Consulting Services for help, guidance and support for this configuration.
-
