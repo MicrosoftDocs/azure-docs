@@ -229,10 +229,7 @@ Each entry within the `eligibleAuthorizations` parameter contains three elements
 > [!IMPORTANT]
 > Be sure to include the same `principalId` in the `authorizations` section of your template with a different role from the eligible authorization, such as Reader (or another Azure built-in role that includes Reader access). If you don't, the user won't be able to elevate their role in the Azure portal.
 
-`roleDefinitionId` contains the role definition ID for an [Azure built-in role](../../role-based-access-control/built-in-roles.md) that the user will be eligible to use on a just-in-time basis.
-
-> [!IMPORTANT]
-> If you include multiple eligible authorizations that use the same `roleDefinitionId`, each of these must have identical settings for `justInTimeAccessPolicy`.
+`roleDefinitionId` contains the role definition ID for an [Azure built-in role](../../role-based-access-control/built-in-roles.md) that the user will be eligible to use on a just-in-time basis. If you include multiple eligible authorizations that use the same `roleDefinitionId`, each of these must have identical settings for `justInTimeAccessPolicy`.
 
 `justInTimeAccessPolicy` specifies two elements:
 
