@@ -12,8 +12,9 @@ ms.author: kryalama
 
 > [!NOTE]
 > The Authentication feature is in preview.
+> Authentication feature is available starting from version 3.2.0.BETA-1
 
-The Application Insights Java agent takes a dependency on [Azure Identity](/java/api/overview/azure/identity-readme?view=azure-java-stable) library which focuses on OAuth authentication with Azure Active Directory(AAD). This library offers different kinds of credential classes which are capable of acquiring an AAD token to authenticate service requests. It is the responsibility of the user of the Java agent to provide the necessary details for the agent to build the [TokenCredentials](https://go.microsoft.com/fwlink/?linkid=2163810) required for authentication with AAD.
+Application insights Java agent support Azure active directory based authentication. It is the responsibility of the user of the Java agent to provide the necessary details for the agent to build the [TokenCredentials](https://go.microsoft.com/fwlink/?linkid=2163810) required for authentication with AAD.
 
 ## Prerequisites
 
@@ -62,6 +63,8 @@ Here is an example on how to configure Java agent to use user assigned managed i
 }
 ```
 
+:::image type="content" source="media/java-ipa/authentication/UAMI.png" alt-text="Screenshot of user assigned managed identity." lightbox="media/java-ipa/authentication/UAMI.png":::
+
 ### Client Secret
 
 Here is an example on how to configure Java agent to use service principal for authentication with AAD. We recommend users to use this type of authentication only during development. The ultimate goal of adding authentication feature is to eliminate secrets.
@@ -77,3 +80,7 @@ Here is an example on how to configure Java agent to use service principal for a
     }
 }
 ```
+
+:::image type="content" source="media/java-ipa/authentication/clientsecret_tenantID.png" alt-text="Screenshot of Client secret with tenantID and ClientID." lightbox="media/java-ipa/authentication/clientsecret_tenantID.png":::
+
+:::image type="content" source="media/java-ipa/authentication/clientsecret_cs.png" alt-text="Screenshot of Client secret with client secret." lightbox="media/java-ipa/authentication/clientsecret_cs.png":::

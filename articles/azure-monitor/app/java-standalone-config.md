@@ -420,6 +420,8 @@ The setting applies to all of these metrics:
 [//]: # "```"
 
 ## Authentication (preview)
+> [!NOTE]
+> Authentication feature is available starting from version 3.2.0.BETA-1
 
 It allows you to configure agent to generate [token credentials](https://go.microsoft.com/fwlink/?linkid=2163810) that are required for Azure Active Directory Authentication.
 For more information, check out the [Authentication](./java-standalone-authentication.md) documentation.
