@@ -19,7 +19,7 @@ ms.author: depadia
 
 # SAP BusinessObjects BI platform deployment guide for Linux on Azure
 
-This article describes the strategy to deploy SAP BusinessObjects BI (BOBI) platform on Azure for Linux. In this example, you configure two virtual machines with premium solid-state drive (SSD) managed disks as the install directory. You use Azure Database for MySQL for your CMS database, and you share Azure NetApp Files for your file repository server across both servers. On both virtual machines, you install the default Tomcat Java web application and BI platform application together. To load-balance user requests, you use Application Gateway with native TLS/SSL offloading capabilities.
+This article describes the strategy to deploy SAP BusinessObjects BI (BOBI) platform on Azure for Linux. In this example, you configure two virtual machines with premium solid-state drive (SSD) managed disks as the install directory. You use Azure Database for MySQL for your CMS database, and you share Azure NetApp Files for your file repository server across both servers. On both virtual machines, you install the default Tomcat Java web application and BI platform application together. To load-balance user requests, you use Azure Application Gateway with native TLS/SSL offloading capabilities.
 
 This type of architecture is effective for small deployments or non-production environments. For large deployments or production environments, you can have separate hosts for your web application. You can also have multiple BOBI application hosts, allowing the server to process more information.
 
@@ -27,7 +27,7 @@ This type of architecture is effective for small deployments or non-production e
 
 Here's the product version and file system layout for this example:
 
-- SAP BusinessObjects Platform 4.3
+- SAP BusinessObjects platform 4.3
 - SUSE Linux Enterprise Server 12 SP5
 - Azure Database for MySQL (Version: 8.0.15)
 - MySQL C API Connector - libmysqlclient (Version: 6.1.11)
@@ -82,7 +82,7 @@ The following instructions assume that you've already deployed your [Azure virtu
 
 5. Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 
-   You can deploy the volumes as NFSv3 and NFSv4.1, because both protocols are supported for the SAP BOBI platform. Deploy the volumes in their respective Azure NetApp Files subnets. The IP addresses of the Azure NetApp volumes are assigned automatically.
+   You can deploy the volumes as NFSv3 and NFSv4.1, because both protocols are supported for the SAP BOBI platform. Deploy the volumes in their respective Azure NetApp Files subnets. The IP addresses of the Azure NetApp Files volumes are assigned automatically.
 
 Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, *azusbobi-frsinput* and *azusbobi-frsoutput* are the volume names, and *nfs://10.31.2.4/azusbobi-frsinput* and *nfs://10.31.2.4/azusbobi-frsoutput* are the file paths for the Azure NetApp Files volumes.
 
@@ -95,7 +95,7 @@ As you're creating your Azure NetApp Files for SAP BOBI platform file repository
 
 - The minimum capacity pool is 4 tebibytes (TiB).
 - The minimum volume size is 100 gibibytes (GiB).
-- Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted must be in the same Azure virtual network, or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported. Azure NetApp access over global peering isn't currently supported.
+- Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted must be in the same Azure virtual network, or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported. Azure NetApp Files access over global peering isn't currently supported.
 - The selected virtual network must have a subnet that is delegated to Azure NetApp Files.
 - With the Azure NetApp Files [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (for example, read-write or read only).
 - The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
@@ -199,7 +199,7 @@ The steps in this section use the following prefix:
    ```
 
    > [!Important]
-   > Make sure to set the NFS domain in /etc/idmapd.conf on the VM to match the default domain configuration on Azure NetApp Files (`defaultv4iddomain.com`). If there's a mismatch, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.
+   > Make sure to set the NFS domain in /etc/idmapd.conf on the VM to match the default domain configuration on Azure NetApp Files (`defaultv4iddomain.com`). If there's a mismatch, then the permissions for files on Azure NetApp Files volumes that are mounted on the VMs will be displayed as `nobody`.
 
    Verify `nfs4_disable_idmapping`. It should be set to `Y`. To create the directory structure where `nfs4_disable_idmapping` is located, run the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.
 
@@ -307,7 +307,7 @@ For more information, see [Private Link for Azure Database for MySQL](../../../m
 
 ### Create the CMS and audit databases
 
-1. Download and install MySQL workbench from [MySQL website](https://dev.mysql.com/downloads/workbench/). Make sure you install MySQL workbench on the server that can access Azure Database for MySQL.
+1. Download and install MySQL Workbench from [MySQL website](https://dev.mysql.com/downloads/workbench/). Make sure you install MySQL Workbench on the server that can access Azure Database for MySQL.
 
 2. Connect to the server by using MySQL Workbench. Follow the instructions in [Get connection information](../../../mysql/connect-workbench.md#get-connection-information). If the connection test is successful, you get following message:
 
@@ -475,15 +475,15 @@ Follow the [SAP BOBI platform](https://help.sap.com/viewer/product/SAP_BUSINESSO
 
   You can also select **No auditing database**, if you don’t want to configure auditing during installation.
 
-- On **Select Java Web Application Server screen**, select appropriate options based on your SAP BOBI architecture. In this example, we have selected option 1, which installs a tomcat server on the same SAP BOBI Platform.
+- On **Select Java Web Application Server screen**, select appropriate options based on your SAP BOBI architecture. In this example, we have selected option 1, which installs a tomcat server on the same SAP BOBI platform.
 
 - Enter CMS database information in **Configure CMS Repository Database - MySQL**. The following example shows input for CMS database information for a Linux installation. Azure Database for MySQL is used on default port 3306.
   
-  ![Screenshot that shows SAP BOBI Deployment on Linux - CMS Database.](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cms.png)
+  ![Screenshot that shows SAP BOBI Deployment on Linux - CMS database.](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cms.png)
 
 - (Optional) Enter audit database information in **Configure Audit Repository Database - MySQL**. The following example shows input for audit database information for a Linux installation.
 
-  ![Screenshot that shows SAP BOBI Deployment on Linux - Audit Database.](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-audit.png)
+  ![Screenshot that shows SAP BOBI Deployment on Linux - audit database.](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-audit.png)
 
 - Follow the instructions and enter required inputs to complete the installation.
 
@@ -590,7 +590,7 @@ In Azure, the simplest way to back up application servers and all the attached d
 
 As part of backup process, a snapshot is taken, and the data is transferred to the vault with no impact on production workloads. For more information, see [Snapshot consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency). You can also choose to back up a subset of the data disks in your VM, by using the selective disks backup and restore functionality. For more information, see [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md) and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.yml).
 
-#### Backup and restore for file repository server
+### Backup and restore for file repository server
 
 Based on your SAP BOBI deployment on Linux, you can use Azure NetApp Files as the filestore of your SAP BOBI platform. Choose from the following options for backup and restore based on the storage you use for filestore.
 
@@ -598,7 +598,7 @@ Based on your SAP BOBI deployment on Linux, you can use Azure NetApp Files as th
 
 - If you have created a separate NFS server, make sure you implement the backup and restore strategy for the same server.
 
-#### Backup and restore for CMS and audit databases
+### Backup and restore for CMS and audit databases
 
 On Linux VMs, the CMS and audit databases can run on any of the supported databases. For more information, see the [support matrix](businessobjects-deployment-guide.md#support-matrix). It's important that you adopt the backup and restore strategy based on the database used for the CMS and audit data store.
 
@@ -677,7 +677,7 @@ In several Azure regions, you can use availability zones. This means you can tak
 This section explains the strategy to provide disaster recovery protection for a SAP BOBI platform running on Linux. It complements the [Disaster Recovery for SAP](../../../site-recovery/site-recovery-sap.md) document, which represents the primary resources for the overall SAP disaster recovery approach. For SAP BOBI, refer to SAP Note [2056228](https://launchpad.support.sap.com/#/notes/2056228), which describes the following methods to implement a disaster recovery environment safely.
 
 - Fully or selectively using lifecycle management or federation to promote and distribute the content from the primary system.
-- Periodically copying over the CMS and FRS contents.
+- Periodically copying over the CMS and file repository server contents.
 
 This guide focuses on the second option. It won't cover all possible configuration options for disaster recovery, but does cover a solution that features native Azure services in combination with a SAP BOBI platform configuration.
 
