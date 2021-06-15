@@ -41,7 +41,7 @@ The sign-in flow involves following steps:
 
 ![The sign-in OpenID connect flow](./media/publish-app-to-azure-ad-app-gallery/app-gallery-sign-in-flow.png)
 
-Depending on the user's SSO session and Azure AD identity settings, the user might be prompted to do the following:
+Depending on the user's SSO session and Azure AD identity settings, the user might be prompted to:
 
 - Provide their email address or phone number.
 - Enter their password or sign in with the [Microsoft authenticator app](https://www.microsoft.com/account/authenticator).
@@ -83,9 +83,9 @@ Finally, add the multi-tenant app to the Azure AD app gallery. Follow the instru
     |---------|---------|
     |What type of request do you want to submit?| Select **List my application in the gallery**.|
     |What feature would you like to enable when listing your application in the gallery? | Select **Federated SSO (SAML, WS-Fed &OpenID Connect)**. | 
-    | Please select your application federation protocol| Select, **OpenID Connect & OAuth 2.0**. |
+    | Select your application federation protocol| Select, **OpenID Connect & OAuth 2.0**. |
     | Application (Client) ID | Provide the ID of the [multi-tenant Azure AD app](#step-2-set-up-sign-in-for-multi-tenant-azure-ad) you created. |
-    | Application Sign-on URL|Provide the app sign-in URL as you configured in [Step 3. Prepare your application](#step-3-prepare-your-application).|
+    | Application Sign-on URL|Provide the app sign-in URL as you configured in [Step 3. Prepare your app](#step-3-prepare-your-app).|
     | Multitenant| Select **Yes**. |
 
 ## Next steps
