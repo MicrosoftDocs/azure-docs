@@ -21,10 +21,19 @@ Add the following code to your `MainActivity.java`.
 
 ```java
 import androidx.core.content.ContextCompat;
+import com.azure.android.communication.common.CommunicationTokenCredential;
+import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
+import com.azure.android.communication.ui.meetings.MeetingUIClient;
+import com.azure.android.communication.ui.meetings.MeetingUIClientCall;
 import com.azure.android.communication.ui.meetings.MeetingUIClientCallState;
 import com.azure.android.communication.ui.meetings.MeetingUIClientCallEventListener;
 import com.azure.android.communication.ui.meetings.MeetingUIClientCallIdentityProvider;
 import com.azure.android.communication.ui.meetings.MeetingUIClientCallIdentityProviderCallback;
+import com.azure.android.communication.ui.meetings.MeetingUIClientCallUserEventListener;
+import com.azure.android.communication.ui.meetings.MeetingUIClientGroupCallLocator;
+import com.azure.android.communication.ui.meetings.MeetingUIClientIconType;
+import com.azure.android.communication.ui.meetings.MeetingUIClientJoinOptions;
+import com.azure.android.communication.ui.meetings.MeetingUIClientTeamsMeetingLinkLocator;
 ```
 
 Add the `MeetingUIClientCallEventListener` to your class.
@@ -38,7 +47,7 @@ Call `setMeetingUIClientCallEventListener` with parameter `this` after joining t
 ```java
 private void joinMeeting() {
     getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingClient();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
 
     MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
     
@@ -109,7 +118,7 @@ Call  `setMeetingUIClientCallIdentityProvider` with parameter `this`.
 ```java
 private void joinMeeting() {
     getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingClient();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
 
     MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
 
@@ -174,7 +183,7 @@ Call `setMeetingUIClientCallUserEventListener` with parameter `this`.
 ```java
 private void joinMeeting() {
     getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingClient();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
 
     MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
 
@@ -231,7 +240,7 @@ The icons shown in the call or meeting could be customized through method `publi
 After creating the meetingUIClient, set the icon configuration `meetingUIClient.setIconConfig(getIconConfig())`   for the call icons supported in `MeetingUIClientIconType`.
 
 ```java
-private MeetingUIClient createMeetingClient() {
+private MeetingUIClient createMeetingUIClient() {
     MeetingUIClient meetingUIClient = new MeetingUIClient(credential);
     meetingUIClient.setIconConfig(getIconConfig());
 }
@@ -267,19 +276,20 @@ public class MainActivity extends AppCompatActivity implements MeetingUIClientIn
 Call `setMeetingUIClientInCallScreenProvider` with parameter `this`.
 
 ```java
-private void joinMeeting() {
+private void joinGroupCall() {
     getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingClient();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
 
-    MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+    UUID groupUUID = UUID.fromString("<GROUP_ID>");
+    MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
 
     MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
-
+    meetingUIClient.setMeetingUIClientInCallScreenProvider(this);
+    
     try {
-        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
-        meetingUIClientCall.setMeetingUIClientInCallScreenProvider(this);
+        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientGroupCallLocator, meetingJoinOptions);
     } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Failed to join group call: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
@@ -315,19 +325,20 @@ public class MainActivity extends AppCompatActivity implements MeetingUIClientSt
 Call `setMeetingUIClientStagingScreenProvider` with parameter `this` before joining the call or meeting.
 
 ```java
-private void joinMeeting() {
+private void joinGroupCall() {
     getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingClient();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
 
-    MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+    UUID groupUUID = UUID.fromString("<GROUP_ID>");
+    MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
 
     MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
-
     meetingUIClient.setMeetingUIClientStagingScreenProvider(this);
+
     try {
-        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
+        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientGroupCallLocator, meetingJoinOptions);
     } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Failed to join group call: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
@@ -359,19 +370,20 @@ public class MainActivity extends AppCompatActivity implements MeetingUIClientCo
 Call `setMeetingUIClientConnectingScreenProvider` with parameter `this` before joining the call or meeting.
 
 ```java
-private void joinMeeting() {
+private void joinGroupCall() {
     getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingClient();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
 
-    MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+    UUID groupUUID = UUID.fromString("<GROUP_ID>");
+    MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
 
     MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
 
     meetingUIClient.setMeetingUIClientConnectingScreenProvider(this);
     try {
-        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
+        MeetingUIClientCall meetingUIClientCall = meetingUIClient.join(meetingUIClientGroupCallLocator, meetingJoinOptions);
     } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Failed to join group call: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
@@ -399,17 +411,18 @@ public class MainActivity extends AppCompatActivity {
 Assign meetingUIClientCall variable from join method return value
 
 ```java
-private void joinMeeting() {
+private void joinGroupCall() {
     getAllPermissions();
-    MeetingUIClient meetingUIClient = createMeetingClient();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
 
-    MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+    UUID groupUUID = UUID.fromString("<GROUP_ID>");
+    MeetingUIClientGroupCallLocator meetingUIClientGroupCallLocator = new MeetingUIClientGroupCallLocator(groupUUID);
 
     MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
 
-    meetingUIClient.setMeetingUIClientConnectingScreenProvider(this);
     try {
-        meetingUIClientCall = meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
+        meetingUIClientCall = meetingUIClient.join(meetingUIClientGroupCallLocator, meetingJoinOptions);
+        meetingUIClientCall.setMeetingUIClientCallEventListener(this);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
@@ -485,6 +498,7 @@ Add the following imports to your class
 import com.azure.android.communication.calling.Call;
 import com.azure.android.communication.calling.CallAgent;
 import com.azure.android.communication.calling.CallClient;
+import com.azure.android.communication.calling.CallState;
 import com.azure.android.communication.calling.GroupCallLocator;
 import com.azure.android.communication.calling.JoinCallOptions;
 import com.azure.android.communication.common.CommunicationTokenCredential;
@@ -520,15 +534,15 @@ private void stopAcs() {
 }
 ```
 
-Teams Embed SDK initialization is also done during creating `MeetingUIClient`. Add the creation to a `createMeetingClient` or to any other method.
+Teams Embed SDK initialization is also done during creating `MeetingUIClient`. Add the creation to a `createMeetingUIClient` or to any other method.
 ```java
-private MeetingUIClient createMeetingClient() { 
+private MeetingUIClient createMeetingUIClient() { 
     try {
         CommunicationTokenRefreshOptions refreshOptions = new CommunicationTokenRefreshOptions(tokenRefresher, true, "<USER_ACCESS_TOKEN>");
         CommunicationTokenCredential credential = new CommunicationTokenCredential(refreshOptions);
         return new MeetingUIClient(credential);
     } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to create meeting client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Failed to create meeting ui client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```

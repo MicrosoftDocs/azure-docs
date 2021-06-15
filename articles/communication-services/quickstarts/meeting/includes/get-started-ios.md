@@ -202,7 +202,7 @@ The following classes and interfaces handle some of the major features of the Az
 | MeetingUIClientUserRole | MeetingUIClientUserRole is used for setting the user roles in group call. |
 | MeetingUIClientAudioRoute | MeetingUIClientAudioRoute is used for local audio routes like `Earpiece` or `SpeakerOn`. |
 | MeetingUIClientLayoutMode | MeetingUIClientLayoutMode is used for allowing to select different in call UI modes. |
-| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize is used notify what kind of size avatar is requested by a delegate. |
+| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize is an enum to denote different avatar sizes that can be requested by MeetingUIClientCallIdentityProvider. |
 | MeetingUIClientCallDelegate | The MeetingUIClientDelegate is used to receive events, such as changes in call state. |
 | MeetingUIClientCallIdentityProviderDelegate | The MeetingUIClientIdentityProviderDelegate is used to map user details to the users in a meeting. |
 | MeetingUIClientCallUserEventDelegate | The MeetingUIClientUserEventDelegate provides information about user actions in the UI. |
