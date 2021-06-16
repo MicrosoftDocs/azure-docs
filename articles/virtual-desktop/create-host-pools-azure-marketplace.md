@@ -15,7 +15,7 @@ manager: femila
 
 Host pools are a collection of one or more identical virtual machines (VMs) within Azure Virtual Desktop environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
-This article will walk you through the setup process for creating a host pool for a Azure Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to a domain, and register the VMs with Azure Virtual Desktop.
+This article will walk you through the setup process for creating a host pool for a Azure Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to either an Active Directory or Azure Active Directory domain, and register the VMs with Azure Virtual Desktop.
 
 ## Prerequisites
 
@@ -161,7 +161,7 @@ To set up your virtual machine within the host pool setup process:
   
     - For Azure Active Directory, you can choose to **Enroll the VM with Intune** so that the VM is available for management automatically after it is deployed.
 
-12. Under Virtual Machine Administrator account, enter the credentials for the local admin account that will be added during the VM creation. This account can be used for management purposes.
+12. Under Virtual Machine Administrator account, enter the credentials for the local admin account that will be added during the VM creation. This account can be used for management purposes. The account is created for both Active Directory and Azure Active Directory joined VMs.
 
 13. Select **Next: Workspace >**.
 
