@@ -89,7 +89,7 @@ The receive function on the Service Bus Explorer permits receiving a single mess
 > To browse messages without removing them from the queue, consider using the ***Peek*** functionality.
 >
 
-To receive a message from a Queue (or its deadletter subqueue) 
+To receive a message from a Queue (or its DeadLetter subqueue) 
 
 1. Click on the ***Receive*** tab on the Service Bus Explorer.
 2. Check the metrics to see if there are **Active Messages** or **Dead-lettered Messages** to receive.
@@ -98,7 +98,7 @@ To receive a message from a Queue (or its deadletter subqueue)
 
 3. Pick between the ***Queue*** or the ***Deadletter*** subqueue.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 
 4. Click the ***Receive*** button, followed by ***Yes*** to confirm the 'Receive and Delete' operation.
 
@@ -110,7 +110,7 @@ When the receive operation is successful, the message details will display on th
 
 ### Peeking a message from a Queue
 
-With the peek functionality, you can use the Service Bus Explorer to view the top 32 messages on a queue or the deadletter queue.
+With the peek functionality, you can use the Service Bus Explorer to view the top 32 messages on a queue or the DeadLetter queue.
 
 1. To peek the message on a queue, click on the ***Peek*** tab on the Service Bus Explorer.
 
@@ -122,7 +122,7 @@ With the peek functionality, you can use the Service Bus Explorer to view the to
 
 3. Then pick between the ***Queue*** or the ***Deadletter*** subqueue.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 
 4. Click the ***Peek*** button. 
 
@@ -137,7 +137,7 @@ Once the peek operation completes, up to 32 messages will show up on the grid as
 
 ### Receiving a message from a Subscription
 
-Just like with a queue, the ***Receive*** operation can be performed against a subscription (or its deadletter entity). However, since a Subscription lives within the context of the Topic, the receive operation is performed by navigating to the Service Bus Explorer for a given Topic.
+Just like with a queue, the ***Receive*** operation can be performed against a subscription (or its DeadLetter entity). However, since a Subscription lives within the context of the Topic, the receive operation is performed by navigating to the Service Bus Explorer for a given Topic.
 
 > [!IMPORTANT]
 > Please note that the Receive operation performed by the Service Bus explorer is a ***destructive receive***, i.e. the message is removed from the queue when it is displayed on the Service Bus Explorer tool.
@@ -151,7 +151,7 @@ Just like with a queue, the ***Receive*** operation can be performed against a s
 
 2. Pick between the ***Subscription*** or the ***DeadLetter*** sub-entity.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadLetter":::
 
 3. Click the ***Receive*** button, followed by ***Yes*** to confirm the 'Receive and Delete' operation.
 
@@ -161,7 +161,7 @@ When the receive operation is successful, the received message will display on t
 
 ### Peeking a message from a Subscription
 
-To simply browse the messages on a Subscription or its deadletter sub-entity, the ***Peek*** functionality can be utilized on the Subscription as well.
+To simply browse the messages on a Subscription or its DeadLetter sub-entity, the ***Peek*** functionality can be utilized on the Subscription as well.
 
 1. Click on the ***Peek*** tab and select the specific ***Subscription*** from the dropdown selector.
 
@@ -169,7 +169,7 @@ To simply browse the messages on a Subscription or its deadletter sub-entity, th
 
 2. Pick between the ***Subscription*** or the ***DeadLetter*** subentity.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadLetter":::
 
 3. Click the ***Peek*** button.
 
