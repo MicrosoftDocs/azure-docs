@@ -196,6 +196,18 @@ It is an user error because JSON payload that hits management.azure.com is corru
 
 Perform network tracing of your API call from ADF portal using Edge/Chrome browser **Developer tools**. You will see offending JSON payload, which could be due to a special characters(for example $), spaces and other types of user input. Once you fix the string expression, you will proceed with rest of  ADF usage calls in the browser.
 
+### Unable to publish event trigger with Access Denied failure
+
+**Cause**
+
+When the Azure account lacks the required access via a role membership, it unable to access to the storage account used for the trigger.   
+
+**Resolution**
+
+The Azure account needs to be assigned to a role with sufficient permissions in the storage account's access control (IAM) for the event trigger publish to succeed.  The role can be the Owner role, Contributor role, or any custom role with the **Microsoft.EventGrid/EventSubscriptions/Write** permission to the storage account.   
+
+[Role-based access control for an event trigger](https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-event-trigger#role-based-access-control)
+[Storage Event Trigger - Permission and RBAC setting](https://techcommunity.microsoft.com/t5/azure-data-factory/storage-event-trigger-permission-and-rbac-setting/ba-p/2101782)
 
 ## Next steps
 
