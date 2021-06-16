@@ -9,7 +9,7 @@ ms.date: 06/04/2021
 ms.author: rogarana
 ms.custom: "include file"
 ---
-While in preview, NFS has the following limitations:
+NFS currently has the following limitations:
 
 - AzCopy is not currently supported.
 - Only available for the premium tier.
