@@ -46,7 +46,7 @@ This section shows what it looks like to create digital twins and relationships 
 
 ### Create digital twins
 
-Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to instantiate a twin of type Room.
+Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to instantiate a twin of type Room with a `twinId` that's defined during the instantiation.
 
 You can initialize the properties of a twin when it is created, or set them later. To create a twin with initialized properties, create a JSON document that provides the necessary initialization values.
 
