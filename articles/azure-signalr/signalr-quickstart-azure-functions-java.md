@@ -16,7 +16,8 @@ ms.custom:
 
 Azure SignalR Service lets you easily add real-time functionality to your application and Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Azure Functions to build a serverless application with Java to broadcast messages to clients.
 
-You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/java)
+> [!NOTE]
+> You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/java)
 
 ## Prerequisites
 
@@ -58,6 +59,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     ```
 
     Maven asks you for values needed to finish generating the project. You can provide the following values.
+
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | **groupId** | `com.signalr` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
@@ -129,11 +131,11 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
             @TimerTrigger(name = "timeTrigger", schedule = "*/5 * * * * *") String timerInfo) throws IOException, InterruptedException {
             
             HttpClient client = HttpClient.newHttpClient();
-            HttpRequest req = HttpRequest.newBuilder().uri(URI.create("https://api.github.com/repos/azure/azure-webpubsub")).header("User-Agent", "serverless").build();
+            HttpRequest req = HttpRequest.newBuilder().uri(URI.create("https://api.github.com/repos/azure/azure-signalr")).header("User-Agent", "serverless").build();
             HttpResponse<String> res = client.send(req, BodyHandlers.ofString());
             Gson gson = new Gson();
             GitResult result = gson.fromJson(res.body(), GitResult.class);
-            return new SignalRMessage("newMessage", "Current start count of https://github.com/Azure/azure-webpubsub is:".concat(result.stargazers_count));
+            return new SignalRMessage("newMessage", "Current start count of https://github.com/Azure/azure-signalr is:".concat(result.stargazers_count));
         }
     
         class GitResult {
@@ -162,7 +164,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     </dependency>
     ```
 
-4. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `content/index.html` in `resources` directory. And copy the following content.
+4. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `content/index.html` in `resources` directory. Your directory tree should look like this.
     
     ```
     FunctionsProject
@@ -179,6 +181,8 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
      | - host.json
      | - local.settings.json
     ```
+
+    Open the `index.html` and copy the following content.
 
     ```html
     <html>
@@ -235,7 +239,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator)
+    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
     
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
 

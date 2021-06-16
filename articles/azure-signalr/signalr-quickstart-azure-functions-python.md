@@ -15,7 +15,8 @@ ms.custom:
 
 Azure SignalR Service lets you easily add real-time functionality to your application. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Azure Functions to build a serverless application with Python to broadcast messages to clients.
 
-You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/python)
+> [!NOTE]
+> You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/python)
 
 ## Prerequisites
 
@@ -161,12 +162,12 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         
         def main(myTimer: func.TimerRequest, signalRMessages: func.Out[str]) -> None:
             headers = {'User-Agent': 'serverless'}
-            res = requests.get('https://api.github.com/repos/azure/azure-webpubsub', headers=headers)
+            res = requests.get('https://api.github.com/repos/azure/azure-signalr', headers=headers)
             jres = res.json()
         
             signalRMessages.set(json.dumps({
                 'target': 'newMessage',
-                'arguments': [ 'Current star count of https://github.com/Azure/azure-webpubsub is: ' + str(jres['stargazers_count']) ]
+                'arguments': [ 'Current star count of https://github.com/Azure/azure-signalr is: ' + str(jres['stargazers_count']) ]
             }))
         ```
 
@@ -224,7 +225,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator)
+    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

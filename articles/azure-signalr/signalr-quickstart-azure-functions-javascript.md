@@ -15,7 +15,8 @@ ms.custom:
 
 Azure SignalR Service lets you easily add real-time functionality to your application and Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Azure Functions to build a serverless application with JavaScript to broadcast messages to clients.
 
-You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/javascript)
+> [!NOTE]
+> You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/javascript)
 
 ## Prerequisites
 
@@ -42,9 +43,6 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjs).
 
-[!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
-
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjs).
 
 ## Setup and run the Azure Function locally
 
@@ -158,7 +156,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         var https = require('https');
         
         module.exports = function (context) {
-            var req = https.request("https://api.github.com/repos/azure/azure-webpubsub", {
+            var req = https.request("https://api.github.com/repos/azure/azure-signalr", {
                 method: 'GET',
                 headers: {'User-Agent': 'serverless'}
             }, res => {
@@ -171,7 +169,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
                     var jbody = JSON.parse(body);
                     context.bindings.signalRMessages = [{
                         "target": "newMessage",
-                        "arguments": [ `Current star count of https://github.com/Azure/azure-webpubsub is: ${jbody['stargazers_count']}` ]
+                        "arguments": [ `Current star count of https://github.com/Azure/azure-signalr is: ${jbody['stargazers_count']}` ]
                     }]
                     context.done();
                 });
@@ -241,7 +239,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator)
+    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp)
 

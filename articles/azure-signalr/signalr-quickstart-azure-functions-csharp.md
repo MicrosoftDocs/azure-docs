@@ -14,13 +14,14 @@ ms.author: zhshang
 
 Azure SignalR Service lets you easily add real-time functionality to your application. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Azure Functions to build a serverless application with C# to broadcast messages to clients.
 
-You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/csharp)
+> [!NOTE]
+> You can get all codes mentioned in the article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/csharp)
 
 ## Prerequisites
 
 If you don't already have Visual Studio Code installed, you can download and use it for free(https://code.visualstudio.com/Download).
 
-You may also run this tutorial on the command line (macOS, Windows, or Linux) using the [Azure Functions Core Tools)](../azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#v2). Also the [.NET Core SDK](https://dotnet.microsoft.com/download), and your favorite code editor.
+You may also run this tutorial on the command line (macOS, Windows, or Linux) using the [Azure Functions Core Tools)](../azure-functions/functions-run-local.md?tabs=windows%2Ccsharp%2Cbash#v2). Also the [.NET Core SDK](https://dotnet.microsoft.com/download), and your favorite code editor.
 
 If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/dotnet) before you begin.
 
@@ -69,7 +70,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
             private static HttpClient httpClient = new HttpClient();
     
             [FunctionName("index")]
-            public static IActionResult GetHomePage([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, ExecutionContext context)
+            public static IActionResult Index([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, ExecutionContext context)
             {
                 var path = Path.Combine(context.FunctionAppDirectory, "content", "index.html");
                 return new ContentResult
@@ -87,11 +88,11 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
                 return connectionInfo;
             }
     
-            [FunctionName("getStars")]
+            [FunctionName("broadcast")]
             public static async Task Broadcast([TimerTrigger("*/5 * * * * *")] TimerInfo myTimer,
             [SignalR(HubName = "serverlessSample")] IAsyncCollector<SignalRMessage> signalRMessages)
             {
-                var request = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/repos/azure/azure-webpubsub");
+                var request = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/repos/azure/azure-signalr");
                 request.Headers.UserAgent.ParseAdd("Serverless");
                 var response = await httpClient.SendAsync(request);
                 var result = JsonConvert.DeserializeObject<GitResult>(await response.Content.ReadAsStringAsync());
@@ -99,7 +100,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
                     new SignalRMessage
                     {
                         Target = "newMessage",
-                        Arguments = new[] { $"Current start count of https://github.com/Azure/azure-webpubsub is: {result.StartCount}" }
+                        Arguments = new[] { $"Current start count of https://github.com/Azure/azure-signalr is: {result.StartCount}" }
                     });
             }
     
@@ -112,7 +113,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         }
     }
     ```
-    These codes have three functions. The `GetHomePage` is used to get a website as client. The `Negotiate` is used for client to get access token. The `Broadcast` is periodically
+    These codes have three functions. The `Index` is used to get a website as client. The `Negotiate` is used for client to get access token. The `Broadcast` is periodically
     get start count from GitHub and broadcast messages to all clients.
 
 3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `GetHomePage` function, create a new file `index.html` in `content` directory. And copy the following content.
@@ -168,7 +169,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator)
+    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp)
 
