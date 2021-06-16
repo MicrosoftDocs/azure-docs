@@ -18,19 +18,19 @@ Get started with Azure Communication Services by using the Communication Service
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Calling with Windows](./includes/get-started-windows.md)]
+[!INCLUDE [Calling with Windows](./includes/get-started/get-started-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/get-started-javascript.md)]
+[!INCLUDE [Calling with JavaScript](./includes/get-started/get-started-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/get-started-android.md)]
+[!INCLUDE [Calling with Android](./includes/get-started/get-started-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/get-started-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/get-started/get-started-ios.md)]
 ::: zone-end
 
 ## Clean up resources

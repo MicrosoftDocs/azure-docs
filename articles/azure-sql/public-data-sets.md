@@ -7,9 +7,9 @@ ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: mathoma
 ms.date: 10/01/2018
 ---
 # Public data sets for testing and prototyping

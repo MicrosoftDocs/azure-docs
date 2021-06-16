@@ -40,7 +40,7 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
     :::image type="content" source="media/quick-configure-rules/condition.png" alt-text="Screenshot showing the rule condition":::
 
-1. To add an email action to run when the rule triggers, select **+ Email**.
+1. To add an email action to run when the rule triggers, in the **Action** section, select **+ Email**.
 
 1. Use the information in the following table to define your action and then select **Done**:
 

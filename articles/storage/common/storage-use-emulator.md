@@ -7,7 +7,8 @@ ms.author: twooley
 ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use the Azure Storage Emulator for development and testing

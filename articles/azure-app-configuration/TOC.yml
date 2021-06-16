@@ -58,12 +58,18 @@
       items:
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
-    - name: Use Key Vault references
+    - name: Key Vault references
       items:
-        - name: ASP.NET Core
-          href: use-key-vault-references-dotnet-core.md
-        - name: Spring Boot
-          href: use-key-vault-references-spring-boot.md
+        - name: Use Key Vault references
+          items:
+            - name: ASP.NET Core
+              href: use-key-vault-references-dotnet-core.md
+            - name: Spring Boot
+              href: use-key-vault-references-spring-boot.md
+        - name: Reload secrets and certificates automatically
+          items:
+            - name: .NET
+              href: reload-key-vault-secrets-dotnet.md
     - name: Build, deploy, and CI/CD
       items:
         - name: Push using Azure Pipelines
@@ -90,6 +96,12 @@
           href: howto-feature-filters-aspnet-core.md
         - name: Enable a feature for specified users/groups
           href: howto-targetingfilter-aspnet-core.md
+    - name: Enable Azure monitoring
+      items:
+        - name: Monitor App Configuration
+          href: monitor-app-configuration.md
+        - name: Monitor data reference
+          href: monitor-app-configuration-reference.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -118,6 +130,8 @@
           href: overview-managed-identity.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-config-security-baseline?toc=/azure/azure-app-configuration/TOC.json
+        - name: Disable access key authentication (preview)
+          href: howto-disable-access-key-authentication.md
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
     - name: High availability

@@ -31,5 +31,5 @@ ms.date: 02/16/2021
 |Operating Temperature           |0 degrees to 35 degrees C     |
 |Non-Operating Temperature       |-40 degrees to 85 degrees C     |
 |Relative Humidity               |10% to 95%    |
-|Certification                   |FCC <br> IC <br> RoHS <br> REACH <br> UL <br> CE <br> ACMA <br> FCC <br> IC <br> NCC <br> VCCI + MIC <br> NRTL <br> CB   |
+|Certification                   |CE <br> ACMA <br> FCC <br> IC <br> NCC <br> VCCI + MIC <br> NRTL <br> CB   |
 |Power Supply                    |19 VDC at 3.42A (65 W) |

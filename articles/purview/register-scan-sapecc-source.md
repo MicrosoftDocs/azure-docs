@@ -1,5 +1,5 @@
 ---
-title: Register SAP ECC source and setup scans (preview) in Azure Purview
+title: Register SAP ECC source and setup scans in Azure Purview
 description: This article outlines how to register SAP ECC source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ---
-# Register and scan SAP ECC source (preview)
+# Register and scan SAP ECC source
 
 This article outlines how to register an SAP ECC source in Purview and
 set up a scan.

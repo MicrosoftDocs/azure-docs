@@ -4,14 +4,6 @@
   items:
     - name: What is Event Hubs?
       href: event-hubs-about.md
-    - name: Event Hubs for Apache Kafka
-      href: event-hubs-for-kafka-ecosystem-overview.md
-    - name: Event Hubs Capture
-      href: event-hubs-capture-overview.md
-    - name: Event Hubs Dedicated
-      href: event-hubs-dedicated-overview.md
-    - name: Azure Schema Registry in Event Hubs (Preview)
-      href: schema-registry-overview.md      
 - name: Quickstarts
   expanded: true
   items:
@@ -81,6 +73,16 @@
   items:
     - name: Event Hubs terminology
       href: event-hubs-features.md
+    - name: Event Hubs Premium
+      href: event-hubs-premium-overview.md      
+    - name: Event Hubs for Apache Kafka
+      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: Event Hubs Capture
+      href: event-hubs-capture-overview.md
+    - name: Event Hubs Dedicated
+      href: event-hubs-dedicated-overview.md
+    - name: Azure Schema Registry in Event Hubs (Preview)
+      href: schema-registry-overview.md      
     - name: Event processor host (legacy SDK)
       href: event-hubs-event-processor-host.md
     - name: Event processor (latest SDK)
@@ -149,6 +151,8 @@
       items:
         - name: Get Event Hubs connection string
           href: event-hubs-get-connection-string.md
+        - name: Configure processing units for a premium namespace
+          href: configure-processing-units-premium-namespace.md
         - name: Add custom data to events
           href: add-custom-data-event.md
         - name: Create a schema registry
@@ -209,8 +213,8 @@
           href: apache-kafka-frequently-asked-questions.yml
     - name: Manage and monitor
       items:
-        - name: Monitor Event Hubs with Azure Monitoring
-          href: event-hubs-metrics-azure-monitor.md
+        - name: Monitor Azure Event Hubs
+          href: monitor-event-hubs.md
         - name: Set up diagnostic logs
           href: event-hubs-diagnostic-logs.md
         - name: Stream Azure Diagnostics data using Event Hubs
@@ -251,6 +255,8 @@
         href: move-cluster-across-regions.md
 - name: Reference
   items:
+    - name: Monitor data Reference
+      href: monitor-event-hubs-reference.md
     - name: SDKs
       href: sdks.md
     - name: .NET

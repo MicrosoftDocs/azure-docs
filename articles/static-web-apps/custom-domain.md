@@ -224,10 +224,10 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
 
 An ALIAS record maps one domain to another. It is used specifically for root domains (i.e. `mydomain.com`). In this section, you will create an ALIAS record that maps your root domain to the auto-generated URL of your static web app.
 
-> [!IMPORTANT]
-> Your domain provider must support [ALIAS records](../dns/dns-alias.md) or CNAME flattening.
-
 # [Azure DNS](#tab/azure-dns)
+
+> [!IMPORTANT]
+> Your Azure DNS Zone should be in the same subscription as your static web app.
 
 1. Open your domain's Azure DNS Zone in the Azure portal.
 
@@ -254,6 +254,9 @@ Now that the root domain is configured, it may take several hours for the DNS pr
 
 # [Other DNS](#tab/other-dns)
 
+> [!IMPORTANT]
+> Your domain provider must support [ALIAS](../dns/dns-alias.md) or ANAME records, or CNAME flattening.
+
 1. Open your static web app in the [Azure portal](https://portal.azure.com).
 
 1. Select **Custom domain** in the menu.
@@ -273,13 +276,13 @@ Now that the root domain is configured, it may take several hours for the DNS pr
 
    | Setting             | Value                                                          |
    | ------------------- | -------------------------------------------------------------- |
-   | Type                | ALIAS (use CNAME if ALIAS is not available)                    |
+   | Type                | ALIAS or ANAME (use CNAME if ALIAS is not available)                    |
    | Host                | @                                                              |
    | Value               | Paste the domain name from your clipboard                      |
    | TTL (if applicable) | Leave as default value                                         |
 
 > [!IMPORTANT]
-> If your domain provider doesn't offer an ALIAS record type, use a CNAME type instead. Many providers offer the same functionality as the ALIAS record type via the CNAME record type and a feature called "CNAME Flattening".
+> If your domain provider doesn't offer an ALIAS or ANAME record type, use a CNAME type instead. Many providers offer the same functionality as the ALIAS record type via the CNAME record type and a feature called "CNAME Flattening".
 
 Now that the root domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide.
 
