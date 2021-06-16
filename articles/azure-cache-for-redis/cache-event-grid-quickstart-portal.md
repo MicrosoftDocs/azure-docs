@@ -32,13 +32,13 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
 :::image type="content" source="media/cache-event-grid-portal/deploy-to-azure.png" alt-text="Deploy to Azure button.":::
 
-2. On the **Custom deployment** page, do the following steps: 
+1. On the **Custom deployment** page, do the following steps: 
     1. For **Resource group**, select the resource group that you created when creating the cache instance. It will be easier for you to clean up after you are done with the tutorial by deleting the resource group.  
     2. For **Site Name**, enter a name for the web app.
     3. For **Hosting plan name**, enter a name for the App Service plan to use for hosting the web app.
     4. Select the check box for **I agree to the terms and conditions stated above**. 
     5. Select **Purchase**. 
-    
+
     | Setting      | Suggested value  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Subscription** | Drop down and select your subscription. | The subscription under which to create this web app. | 
@@ -50,11 +50,11 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
     :::image type="content" source="media/cache-event-grid-portal/deployment-notification.png" alt-text="Azure portal deployment notification.":::
 
-4. On the **Resource group** page, in the list of resources, select the web app that you created. You'll also see the App Service plan and the cache instance in this list. 
+1. On the **Resource group** page, in the list of resources, select the web app that you created. You'll also see the App Service plan and the cache instance in this list. 
 
-5. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.
+1. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.
 
-6. Confirm that you see the site but no events have been posted to it yet.
+1. Confirm that you see the site but no events have been posted to it yet.
 
     :::image type="content" source="media/cache-event-grid-portal/blank-event-grid-viewer.png" alt-text="Empty Event Grid Viewer site.":::
 
@@ -94,15 +94,15 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 1. Select the desired pricing tier from the **Scale** page and select **Select**. 
 
     You can scale to a different pricing tier with the following restrictions:
-    
+
     * You can't scale from a higher pricing tier to a lower pricing tier.
       * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
       * You can't scale from a **Standard** cache down to a **Basic** cache.
     * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
     * You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
     * You can't scale from a larger size down to the **C0 (250 MB)** size.
- 
-    While the cache is scaling to the new pricing tier, a **Scaling** status is displayed on the left in **Azure Cache for Redis**. When scaling is complete, the status changes from **Scaling** to **Running**.
+
+    While the cache is scaling to the new pricing tier, a **Scaling** status is displayed using **Azure Cache for Redis** on the left. When scaling is complete, the status changes from **Scaling** to **Running**.
 
 1. You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. The message is in the JSON format and it contains an array with one or more events. In the following example, the JSON message contains an array with one event. View your web app and notice that a **ScalingCompleted** event was received. 
 
@@ -118,5 +118,5 @@ Select the resource group, and select **Delete resource group**.
 
 Now that you know how to create custom topics and event subscriptions, learn more about what Event Grid can help you do:
 
-- [Reacting to Azure Cache for Redis events](cache-event-grid.md)
-- [About Event Grid](../event-grid/overview.md)
+* [Reacting to Azure Cache for Redis events](cache-event-grid.md)
+* [About Event Grid](../event-grid/overview.md)
