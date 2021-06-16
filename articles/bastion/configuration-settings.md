@@ -39,7 +39,7 @@ If you create a bastion host using the Basic SKU, you can upgrade it to the Stan
 
 [//]: # (Add link to How-to when available)
 
-## <a name="instance"></a>Instance count
+## <a name="instance"></a>Instance count - host scaling
 
 [!INCLUDE [instance count](../../includes/bastion-instance-count.md)]
 
