@@ -4,7 +4,7 @@ description: Learn about the Azure Database for MySQL Flexible server, a relatio
 author: savjani
 ms.service: mysql
 ms.author: pariks
-ms.custom: mvc
+ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 8/21/2020
 ---
@@ -142,8 +142,8 @@ One of the advantage of running your workload in Azure is it's global reach. The
 | Australia East | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :x:|
 | Brazil South | :heavy_check_mark: | :x: |
+| Switzerland North | :heavy_check_mark: | :x: |
 
-We are working on adding new regions soon.
 
 ## Contacts
 For any questions or suggestions you might have on Azure Database for MySQL flexible server, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.

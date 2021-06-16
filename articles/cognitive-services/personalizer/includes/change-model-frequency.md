@@ -11,7 +11,7 @@ ms.date: 08/25/2020
 ---
 ### Change the model update frequency
 
-In the Azure portal, in the Personalizer resource on the **Configuration** page, change the **Model update frequency** to 10 seconds. This short duration will train the service rapidly, allowing you to see how the top action changes for each iteration.
+In the Azure portal, in the Personalizer resource on the **Configuration** page, change the **Model update frequency** to 30 seconds. This short duration will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
 ![Change model update frequency](../media/settings/configure-model-update-frequency-settings.png)
 

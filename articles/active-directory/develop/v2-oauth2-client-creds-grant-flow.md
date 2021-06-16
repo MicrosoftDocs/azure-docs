@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/1/2021
+ms.date: 6/8/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -153,7 +153,7 @@ Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-&client_secret=qWgdYAmab0YSkuL1qKv5bPX
+&client_secret=5ampl3Cr3dentia1s
 &grant_type=client_credentials
 ```
 
