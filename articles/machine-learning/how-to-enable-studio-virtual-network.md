@@ -66,16 +66,19 @@ See the other articles in this series:
 
 Use the following steps to enable access to data stored in Azure Blob and File storage:
 
+> [!TIP]
+> The first step is not required for the default storage account for the workspace. All other steps are required for *any* storage account behind the VNet and used by the workspace, including the default storage account.
+
+1. **If the storage account is the *default* storage for your workspace, skip this step**. If it is not the default, **Grant the workspace managed identity the 'Blob Data Reader' role** for the Azure storage account so that it can read data from blob storage.
+
+    For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
+
 1. **Grant the workspace managed identity the 'Reader' role for storage private endpoints**. If your storage service uses a __private endpoint__, grant the workspace-managed identity **Reader** access to the private endpoint. The workspace-managed identity in Azure AD has the same name as your Azure Machine Learning workspace.
 
     > [!TIP]
     > Your storage account may have multiple private endpoints. For example, one storage account may have separate private endpoint for blob and file storage. Add the managed identity to both endpoints.
 
     For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role.
-
-1. **Grant the workspace managed identity the 'Blob Data Reader' role** for your Azure storage account so that it can read data from blob storage.
-
-    For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
 
 <a id='enable-managed-identity'></a>
 1. **Enable managed identity authentication for default storage accounts**. Each Azure Machine Learning workspace has two default storage accounts, a default blob storage account and a default file store account, which are defined when you create your workspace. You can also set new defaults in the **Datastore** management page.
