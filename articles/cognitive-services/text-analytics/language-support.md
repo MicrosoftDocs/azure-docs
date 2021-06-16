@@ -8,10 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 06/14/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
+
+> [!NOTE]
+> Languages are added as new model versions are released for specific Text Analytics features. See [Model versioning](concepts/model-versioning.md) for the latest model version for the features you're using, and for more information.   
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
 
