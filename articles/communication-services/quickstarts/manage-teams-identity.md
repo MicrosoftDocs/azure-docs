@@ -38,7 +38,7 @@ The following sections will guide you through the steps for admins, developers, 
 
 The Administrator role has extended permissions in AAD. Members of this role can provision resources and can read information from the Azure portal. In the following diagram, you can see all actions that have to be executed by Admins.
 
-![Admin actions to enable custom Teams endpoint experience](./media/teams-identity-admin-overview.png)
+![Admin actions to enable custom Teams endpoint experience](./media/teams-identities/teams-identity-admin-overview.png)
 
 1. Contoso's Admin creates or selects existing *Application* in Azure Active Directory. Property *Supported account types* defines whether users from different tenant can authenticate to the *Application*. Property *Redirect URI* redirects successful authentication request to Contoso's *Server*.
 1. Contoso's Admin extends *Application*'s manifest with Azure Communication Services' VoIP permission. 
@@ -54,7 +54,7 @@ Users must be authenticated against AAD applications with Azure Communication Se
 The following application settings influence the experience:
 - Property *Supported account types* defines whether the *Application* is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
 - *Redirect URI* defines URI where authentication request is redirected after authentication. For this scenario, you can use "Public client/native(mobile & desktop)" and fill in "http://localhost" as URI.
-- 
+
 [Here you can find detailed documentation.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application). 
 
 When the *Application* is registered, you'll see an identifier in the overview. This identifier will be used in followings steps: **Application (client) ID**.
@@ -152,7 +152,7 @@ You can see that Azure Communication Services' VoIP permission has now Status *G
 
 Contoso's developer needs to set up *Client application* for authentication of users. Developer then needs to create endpoint on backend *Server* to process AAD user token after redirection. When AAD user token is received, it is exchanged for Teams Access token and returned back to *Client application*. The actions that are needed from developers are shown in following diagram:
 
-![Developer actions to enable custom Teams endpoint experience](./media/teams-identity-developer-overview.png)
+![Developer actions to enable custom Teams endpoint experience](./media/teams-identities/teams-identity-developer-overview.png)
 
 1. Contoso's developer configures MSAL library to authenticate user for *Application* created in previous steps by Admin for Azure Communication Services' VoIP permission
 1. Contoso's developer initializes ACS identity SDK and exchanges incoming AAD user token for Teams' access token via SDK. Teams' access token is then returned to *Client application*.
@@ -286,7 +286,7 @@ Teams access token expires on: 6/11/2021 9:13:18 AM +00:00
 
 User represents the Fabrikam's users of Contoso's *Application*. User experience is shown in following diagram.
 
-![User actions to enable custom Teams endpoint experience](./media/teams-identity-user-overview.png)
+![User actions to enable custom Teams endpoint experience](./media/teams-identities/teams-identity-user-overview.png)
 
 1. Fabrikam's user uses Contoso's *Client application* and is prompted to authenticate.
 1. Contoso's *Client application* uses MSAL library to authenticate user against Fabrikam's Azure Active Directory tenant for Contoso's *Application* with Azure Communication Services' VoIP permission. 

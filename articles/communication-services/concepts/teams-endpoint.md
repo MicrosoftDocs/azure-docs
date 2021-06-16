@@ -18,19 +18,20 @@ ms.service: azure-communication-services
 
 Azure Communication Services can be used to build custom Teams endpoints. With Azure Communication Services SDKs you can customize voice, video, chat, and screen sharing experience for Teams users. Custom Teams endpoints can communicate with the Microsoft Teams client or other custom Teams endpoints. 
 
-You can use the Azure Communication Services Identity SDK to exchange AAD user tokens for Teams access tokens. Voice, video, and screen sharing capabilities are provided via Azure Communication Services Calling SDKs. The following diagram shows an overview of the process you'll follow as you integrate your calling experiences with custom Teams endpoints.
+You can use the Azure Communication Services Identity SDK to exchange AAD user tokens for Teams' access tokens. In the following diagrams is demonstrated multitenant use case, where Fabrikam is customer of the company Contoso.
 
-> [!NOTE]
-> The following diagram demonstrates a multitenant use case, where Fabrikam is a customer of the company Contoso.
+## Calling 
 
-![Process to enable calling feature for custom Teams endpoint experience](./media/teams-identity-calling-overview.png)
+Voice, video, and screen sharing capabilities are provided via Azure Communication Services Calling SDKs. The following diagram shows an overview of the process you'll follow as you integrate your calling experiences with custom Teams endpoints.
+
+![Process to enable calling feature for custom Teams endpoint experience](./media/teams-identities/teams-identity-calling-overview.png)
+
+## Chat
 
 You can also use custom Teams endpoints to optionally integrate chat capabilities using Graph APIs. Learn more about Graph API in [the documentation](https://docs.microsoft.com/graph/api/channel-post-messages). 
 
-> [!NOTE]
-> The following diagram demonstrates a multitenant use case, where Fabrikam is a customer of the company Contoso.
 
-![Process to enable chat feature for custom Teams endpoint experience](./media/teams-identity-chat-overview.png)
+![Process to enable chat feature for custom Teams endpoint experience](./media/teams-identities/teams-identity-chat-overview.png)
 
 ## Next steps
 
