@@ -12,7 +12,7 @@ metadata:
   ms.collection: M365-security-compliance
   author: elazark
   ms.author: v-ekrieg
-  ms.date: 06/14/2021
+  ms.date: 06/16/2021
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -24,34 +24,34 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Defender for IoT for organizations?
-            url: /../organizations/overview.md
+            url: ../organizations/overview.md
       - linkListType: whats-new
         links:
           - text: What's new for organizations?
-            url: /../organizations/release-notes.md
+            url: ../organizations/release-notes.md
       - linkListType: concept
         links:
           - text: Key concepts
-            url: /../organizations/concept-key-concepts.md
+            url: ../organizations/concept-key-concepts.md
 
   - title: Device builders
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Defender for IoT for device builders?
-            url: /../device-builders/overview.md
+            url: ../device-builders/overview.md
       - linkListType: whats-new
         links:
           - text: What's new for device builders?
-            url: /../device-builders/release-notes.md
+            url: ../device-builders/release-notes.md
       - linkListType: concept
         links:
           - text: Agent portfolio overview and OS support (Preview)
-            url: /../device-builders/concept-agent-portfolio-overview-os-support.md
+            url: ../device-builders/concept-agent-portfolio-overview-os-support.md
           - text: Standalone micro agent overview (Preview)
-            url: /../device-builders/concept-standalone-micro-agent-overview.md
+            url: ../device-builders/concept-standalone-micro-agent-overview.md
           - text: Security posture - CIS benchmark
-            url: /../device-builders/concept-security-posture.md
+            url: ../device-builders/concept-security-posture.md
    
   - title: Resources
     linkLists:
