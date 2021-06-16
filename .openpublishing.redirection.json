@@ -2124,6 +2124,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/network-functions-manager/index.yml",
+      "redirect_url": "/azure/network-function-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-network/container-networking.md",
       "redirect_url": "/azure/aks/networking-overview",
       "redirect_document_id": false
@@ -8549,6 +8554,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure/marketplace/third-party-license.md",
+      "redirect_url": "/azure/marketplace/isv-app-license",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation.md",
       "redirect_url": "/azure/marketplace/marketplace-iot-edge",
       "redirect_document_id": false
@@ -10355,52 +10365,52 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-functions.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-functions",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-modules.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-modules",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-outputs.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-outputs",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-parameters.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-parameters",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-tags.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-tags",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-variables.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-variables",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-create-first-bicep.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-create-first-bicep",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-export-template.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-export-template",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-quickstart-template.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-quickstart-template",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-use-parameter-file.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-use-parameter-file",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
@@ -14181,6 +14191,11 @@
     {
       "source_path_from_root": "/articles/backup/backup-security-controls.md",
       "redirect_url": "/azure/backup/security-baseline",
+      "redirect_document_id": false
+    },
+	 {
+      "source_path_from_root": "/articles/networking/edge-zones-overview.md",
+      "redirect_url": "/azure/private-multi-access-edge-compute-mec/overview",
       "redirect_document_id": false
     },
     {
@@ -18710,9 +18725,14 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/digital-twins/how-to-enable-managed-identities.md",
-      "redirect_url": "/azure/digital-twins/how-to-enable-managed-identities-portal",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/digital-twins/how-to-enable-managed-identities-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-route-with-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-enable-managed-identities-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-route-with-managed-identity",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/digital-twins/overview-differences.md",
@@ -43391,6 +43411,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-roles-features.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/marketplace-roadmap.md",
       "redirect_url": "/partner-center/announcements",
       "redirect_document_id": false
@@ -55487,8 +55512,43 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-give-access-to-pim.md",
-      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-custom-roles-activate.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-custom-roles-assign.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-custom-roles-configure.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-custom-roles-update-remove.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-resource-roles-external-users.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/how-to-give-access-to-pim.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md",
