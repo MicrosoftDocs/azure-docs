@@ -74,7 +74,7 @@ The application should be designed to retry on any exception unless it is a know
 | 413 | No | [Request Entity Too Large](concepts-limits.md#per-item-limits) |
 | 429 | Yes | It is safe to retry on a 429. This can be avoided by following the link for [too many requests](troubleshoot-request-rate-too-large.md).|
 | 449 | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Cosmos DB. |
-| 500 | Yes | The operation failed due to an unexpected service error. Contact support. See Filing an [Azure support issue](https://aka.ms/azure-support). |
+| 500 | Yes | The operation failed due to an unexpected service error. Contact support by filing an [Azure support issue](https://aka.ms/azure-support). |
 | 503 | Yes | [Service unavailable](troubleshoot-service-unavailable.md) | 
 
 ### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
