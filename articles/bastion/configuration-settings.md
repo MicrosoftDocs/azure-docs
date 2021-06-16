@@ -15,9 +15,9 @@ ms.author: cherylmc
 
 The sections in this article discuss the resources and settings for Azure Bastion.
 
-## <a name="sku"></a>Tier - SKU
+## <a name="sku"></a>SKUs
 
-A Tier is also known as a **SKU**. Azure Bastion supports two SKU types, Basic and Standard. The Basic SKU provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to virtual machines without exposing public IP addresses on the target VMs. The Standard SKU enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale. You configure the SKU during the workflow to create the bastion host. However, you can upgrade the Basic SKU to Standard later.
+A SKU is also known as a Tier. Azure Bastion supports two SKU types, Basic and Standard. The Basic SKU provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to virtual machines without exposing public IP addresses on the target VMs. The Standard SKU enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale. You configure the SKU during the workflow to create the bastion host. However, you can upgrade the Basic SKU to Standard later.
 
 The following table shows features and corresponding SKUs.
 

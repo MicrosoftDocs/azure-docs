@@ -30,11 +30,9 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 
 ## <a name="sku"></a>SKUs
 
-Azure Bastion has two available SKUs, Basic and Standard. The following table shows features and corresponding SKUs.
+Azure Bastion has two available SKUs, Basic and Standard. For more information about SKUs, including how to upgrade a SKU, see [Azure Bastion configuration settings](configuration-settings.md). The following table shows features and corresponding SKUs.
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
-
-For more information about SKUs, including how to upgrade a SKU, see [Azure Bastion configuration settings](configuration-settings.md).
 
 ## <a name="architecture"></a>Architecture
 
