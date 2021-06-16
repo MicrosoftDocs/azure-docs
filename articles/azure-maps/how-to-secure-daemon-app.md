@@ -241,8 +241,7 @@ We'll use the [Postman](https://www.postman.com/) application to create the toke
 }
 ```
 
-For more information about authentication flow, see [OAuth 2.0 client credentials flow on the Microsoft identity platform](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret.md)
-
+For more information about authentication flow, see [OAuth 2.0 client credentials flow on the Microsoft identity platform](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret)
 
 ## Next steps
 
