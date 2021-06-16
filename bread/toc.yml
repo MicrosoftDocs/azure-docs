@@ -782,6 +782,9 @@
       - name: Web Application Firewall
         tocHref: /azure/web-application-firewall/
         topicHref: /azure/web-application-firewall/
+  - name: Network Function Manager
+    tocHref: /azure/network-function-manager/
+    topicHref: /azure/network-function-manager/
   - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
@@ -803,6 +806,9 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
+  - name: Private multi-access edge compute
+    tocHref: /azure/private-multi-access-edge-compute-mec/
+    topicHref: /azure/private-multi-access-edge-compute-mec/
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/

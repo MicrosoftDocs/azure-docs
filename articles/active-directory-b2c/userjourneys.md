@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -34,6 +34,7 @@ The **UserJourney** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier of a user journey that can be used to reference it from other elements in the policy. The **DefaultUserJourney** element of the [relying party policy](relyingparty.md) points to this attribute. |
+| DefaultCpimIssuerTechnicalProfileReferenceId| No | The default token issuer technical profile reference ID. For example, [JWT token issuer](userjourneys.md), [SAML token issuer](saml-issuer-technical-profile.md), or [OAuth2 custom error](oauth2-error-technical-profile.md). If your user journey or sub journey already has another `SendClaims` orchestration step, set the `DefaultCpimIssuerTechnicalProfileReferenceId` attribute to the user journey's token issuer technical profile. |
 
 The **UserJourney** element contains the following elements:
 
