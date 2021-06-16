@@ -73,6 +73,8 @@
 
 - name: Resources
   items:
+  - name: Third party solutions
+    href: third-party-solutions.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-key-vault
   - name: Pricing
@@ -80,7 +82,7 @@
   - name: Region availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
   - name: Service Level Agreement (SLA)
-    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+    href: https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/
   - name: Service limits
     href: ../general/service-limits.md
   - name: Service status
