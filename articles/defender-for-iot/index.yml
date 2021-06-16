@@ -19,29 +19,41 @@ metadata:
 
 landingContent:
 
-  - title: Defender for IoT for device builders
+  - title:  Organizations
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Defender for IoT?
-            url: /device-builders/overview.md
+          - text: What is Azure Defender for IoT for organizations?
+            url: /../organizations/overview.md
       - linkListType: whats-new
         links:
-          - text: What's new?
-            url: /device-builders/release-notes.md     
-           
-  - title:  Defender for IoT for organizations
+          - text: What's new for organizations?
+            url: /../organizations/release-notes.md
+      - linkListType: concept
+        links:
+          - text: Key concepts
+            url: /../organizations/concept-key-concepts.md
+
+  - title: Device builders
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Defender for IoT?
-            url: /organizations/overview.md
+          - text: What is Azure Defender for IoT for device builders?
+            url: /../device-builders/overview.md
       - linkListType: whats-new
         links:
-          - text: What's new?
-            url: /organizations/release-notes.md 
+          - text: What's new for device builders?
+            url: /../device-builders/release-notes.md
+      - linkListType: concept
+        links:
+          - text: Agent portfolio overview and OS support (Preview)
+            url: /../device-builders/concept-agent-portfolio-overview-os-support.md
+          - text: Standalone micro agent overview (Preview)
+            url: /../device-builders/concept-standalone-micro-agent-overview.md
+          - text: Security posture - CIS benchmark
+            url: /../device-builders/concept-security-posture.md
    
-  - title: Azure Defender for IoT solution resources
+  - title: Resources
     linkLists:
       - linkListType: video
         links:

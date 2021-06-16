@@ -1,7 +1,7 @@
 - name: Azure Defender for IoT documentation
   href: index.yml
   items:
-  - name: Azure Defender for IoT organizations documentation
+  - name: Azure Defender for IoT for organizations
     items:
     - name: Overview
       displayName: IoT, OT, getting started
@@ -16,14 +16,12 @@
     - name: Quickstarts
       expanded: false
       items:
-      - name: Agentless Solution for organizations
-        items:
-        - name: System prerequisites
-          displayName: firewall, proxy, open ports
-          href: /../organizations/quickstart-system-prerequisites.md
-        - name: Get started with Azure Defender for IoT
-          displayName: getting started, registration, onboarding, activation, threat intelligence 
-          href: /../organizations/getting-started.md
+      - name: System prerequisites
+        displayName: firewall, proxy, open ports
+        href: /../organizations/quickstart-system-prerequisites.md
+      - name: Get started with Azure Defender for IoT
+        displayName: getting started, registration, onboarding, activation, threat intelligence 
+        href: /../organizations/getting-started.md
     - name: Concepts
       items:  
         - name: Key concepts
@@ -212,173 +210,173 @@
         href: https://azure.microsoft.com/pricing/details/azure-defender/
       - name: Videos
         href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
-  - name: Azure Defender for IoT device builders documentation
+  - name: Azure Defender for IoT for device builders
     items:
     - name: Overview
       displayName: IoT, OT, getting started
-      href: /device-builders/overview.md
+      href: /../../device-builders/overview.md
       items:
       - name: What's new?
         displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
-        href: /device-builders/release-notes.md
+        href: /../device-builders/release-notes.md
       - name: What is Agent-based solution architecture
-        href: /device-builders/architecture-agent-based.md
+        href: /../device-builders/architecture-agent-based.md
     - name: Quickstarts
       expanded: false
       items:
       - name: Onboard to Defender for IoT agent-based solution
         displayName: IoT Hub, existing, enable
-        href: /device-builders/quickstart-onboard-iot-hub.md
+        href: /../device-builders/quickstart-onboard-iot-hub.md
       - name: Install Defender for IoT micro agent (Preview)
         displayName: package, authentication, methods, certificate, authenticate, version
-        href: /device-builders/quickstart-standalone-agent-binary-installation.md
+        href: /../device-builders/quickstart-standalone-agent-binary-installation.md
       - name: Create a Defender IoT micro agent module twin (Preview)
-        href: /device-builders/quickstart-create-micro-agent-module-twin.md
+        href: /../device-builders/quickstart-create-micro-agent-module-twin.md
       - name: Build the Defender for IoT micro agent from source code (Preview)
         displayName: baseline, configuration, customize, distribution
-        href: /device-builders/quickstart-building-the-defender-micro-agent-from-source.md
+        href: /../device-builders/quickstart-building-the-defender-micro-agent-from-source.md
       - name: Configure Defender-IoT-micro-agent for Azure RTOS
-        href: /device-builders/quickstart-azure-rtos-security-module.md
+        href: /../device-builders/quickstart-azure-rtos-security-module.md
       - name: Add Azure resources to your IoT solution
         displayName: resources, monitored, resource
-        href: /device-builders/quickstart-configure-your-solution.md
+        href: /../device-builders/quickstart-configure-your-solution.md
       - name: Investigate security recommendations
-        href: /device-builders/quickstart-investigate-security-recommendations.md
+        href: /../device-builders/quickstart-investigate-security-recommendations.md
       - name: Classic
         items:
         - name: Security agent overview
           displayName: platforms, C, C#, agent
-          href: /device-builders/security-agent-architecture.md
+          href: /../device-builders/security-agent-architecture.md
         - name: Create an azureiotsecurity module twin
           displayName: module twin, security module
-          href: /device-builders/quickstart-create-security-twin.md
+          href: /../device-builders/quickstart-create-security-twin.md
     - name: Concepts
       items:
       - name: Agent portfolio overview and OS support (Preview)                     
         displayName: standalone agent, micro agent, RTOS
-        href: /device-builders/concept-agent-portfolio-overview-os-support.md
+        href: /../device-builders/concept-agent-portfolio-overview-os-support.md
       - name: Standalone micro agent overview (Preview)
         displayName: endpoint, posture, distribution, flexible, model 
-        href: /device-builders/concept-standalone-micro-agent-overview.md
+        href: /../device-builders/concept-standalone-micro-agent-overview.md
       - name: Security agent authentication (Preview)
         displayName: connection string, certificate, authentication
-        href: /device-builders/concept-security-agent-authentication.md
+        href: /../device-builders/concept-security-agent-authentication.md
       - name: Security posture - CIS benchmark
-        href: /device-builders/concept-security-posture.md
+        href: /../device-builders/concept-security-posture.md
       - name: Event aggregation (Preview)
         displayName: process events, network connection
-        href: /device-builders/concept-event-aggregation.md
+        href: /../device-builders/concept-event-aggregation.md
       - name: Built-in alerts for IoT Hub
         displayName: binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker, 
-        href: /device-builders/concept-security-alerts.md
+        href: /../device-builders/concept-security-alerts.md
       - name: Custom security alerts for IoT Hub
-        href: /device-builders/concept-customizable-security-alerts.md
+        href: /../device-builders/concept-customizable-security-alerts.md
       - name: Security recommendations for IoT Hub
-        href: /device-builders/concept-recommendations.md
+        href: /../device-builders/concept-recommendations.md
       - name: Classic
         items:
         - name: Defender-IoT-micro-agent
           displayName: device twins, Defender-IoT-micro-agent twin
-          href: /device-builders/concept-security-module.md
+          href: /../device-builders/concept-security-module.md
         - name: Edge Defender-IoT-micro-agent
-          href: /device-builders/security-edge-architecture.md
+          href: /../device-builders/security-edge-architecture.md
         - name: Security agents
-          href: /device-builders/overview-security-agents.md
+          href: /../device-builders/overview-security-agents.md
         - name: Security agent authentication
           displayName: method, C, C#, module, device, installation, authentication
-          href: /device-builders/concept-security-agent-authentication-methods.md
+          href: /../device-builders/concept-security-agent-authentication-methods.md
         - name: Baseline
           displayName: custom, setting, properties
-          href: /device-builders/concept-baseline.md
+          href: /../device-builders/concept-baseline.md
         - name: Azure security baseline for Azure Defender for IoT
           displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
           href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
         - name: Defender-IoT-micro-agent classic event aggregation                                          
           displayName: twin, default, configuration, alerts
-          href: /device-builders/event-aggregation.md
+          href: /../device-builders/event-aggregation.md
         - name: Agent based security alerts
-          href: /device-builders/agent-based-security-alerts.md
+          href: /../device-builders/agent-based-security-alerts.md
         - name: Agent based security custom alerts
-          href: /device-builders/agent-based-security-custom-alerts.md
+          href: /../device-builders/agent-based-security-custom-alerts.md
         - name: Agent based recommendations
-          href: /device-builders/agent-based-recommendations.md
+          href: /../device-builders/agent-based-recommendations.md
     - name: How-to guides
       items:
       - name: Connect to Azure Sentinel
         displayName: log analytics, service notes
-        href: /device-builders/how-to-configure-with-sentinel.md
+        href: /../device-builders/how-to-configure-with-sentinel.md
       - name: Configure Azure Defender for IoT agent-based solution
         displayName: data, collection, geolocation, log analytics, raw events
-        href: /device-builders/how-to-configure-agent-based-solution.md
+        href: /../device-builders/how-to-configure-agent-based-solution.md
       - name: Investigate CIS benchmark recommendation
-        href: /device-builders/how-to-investigate-cis-benchmark.md
+        href: /../device-builders/how-to-investigate-cis-benchmark.md
       - name: Create custom alerts
         displayName: security group
-        href: /device-builders/quickstart-create-custom-alerts.md
+        href: /../device-builders/quickstart-create-custom-alerts.md
       - name: Defender-IoT-micro-agent for Azure RTOS
-        href: /device-builders/iot-security-azure-rtos.md
+        href: /../device-builders/iot-security-azure-rtos.md
         items: 
         - name: Work with Defender-IoT-micro-agent for Azure RTOS
-          href: /device-builders/how-to-azure-rtos-security-module.md
+          href: /../device-builders/how-to-azure-rtos-security-module.md
         - name: Understand the Defender-IoT-micro-agent for Azure RTOS
-          href: /device-builders/concept-rtos-security-module.md
+          href: /../device-builders/concept-rtos-security-module.md
         - name: Defender-IoT-micro-agent for Azure RTOS alerts and recommendations 
-          href: /device-builders/concept-rtos-security-alerts-recommendations.md
+          href: /../device-builders/concept-rtos-security-alerts-recommendations.md
       - name: Classic
         items:
           - name: Which agent should I deploy?
             items:
             - name: Select an agent to deploy
-              href: /device-builders/how-to-deploy-agent.md
+              href: /../device-builders/how-to-deploy-agent.md
             - name: Deploy a C#-based security agent on a Windows device
-              href: /device-builders/how-to-deploy-windows-cs.md
+              href: /../device-builders/how-to-deploy-windows-cs.md
             - name: Deploy a C#-based security agent on a Linux device
-              href: /device-builders/how-to-deploy-linux-cs.md
+              href: /../device-builders/how-to-deploy-linux-cs.md
             - name: Deploy a C-based security agent on a Linux device
-              href: /device-builders/how-to-deploy-linux-c.md
+              href: /../device-builders/how-to-deploy-linux-c.md
           - name: Troubleshoot a security agent
             items:
             - name: Troubleshoot Azure Defender for IoT Linux security agent
-              href: /device-builders/troubleshoot-agent.md
+              href: /../device-builders/troubleshoot-agent.md
             - name: Local configuration C
-              href: /device-builders/azure-iot-security-local-configuration-c.md
+              href: /../device-builders/azure-iot-security-local-configuration-c.md
             - name: Local configuration C#
-              href: /device-builders/azure-iot-security-local-configuration-csharp.md 
+              href: /../device-builders/azure-iot-security-local-configuration-csharp.md 
           - name: Deploy Edge Defender-IoT-micro-agent
-            href: /device-builders/how-to-deploy-edge.md
+            href: /../device-builders/how-to-deploy-edge.md
           - name: Configure security agents
             displayName: property
-            href: /device-builders/how-to-agent-configuration.md
+            href: /../device-builders/how-to-agent-configuration.md
           - name: Send your own security messages
-            href: /device-builders/how-to-send-security-messages.md
+            href: /../device-builders/how-to-send-security-messages.md
           - name: Access raw security data
             displayName: log analytics, alerts, 
-            href: /device-builders/how-to-security-data-access.md
+            href: /../device-builders/how-to-security-data-access.md
           - name: Investigate a device
             displayName: access, data, kql, ports, logins, process
-            href: /device-builders/how-to-investigate-device.md
+            href: /../device-builders/how-to-investigate-device.md
       - name: Troubleshoot
         items:
         - name: Defender IoT micro agent troubleshooting (Preview)
           displayName: service status, review logs
-          href: /device-builders/troubleshoot-defender-micro-agent.md
+          href: /../device-builders/troubleshoot-defender-micro-agent.md
     - name: Reference
       items:
       - name: Defender-IoT-micro-agent for Azure RTOS API
         displayNAme: prototype, disable
-        href: /device-builders/azure-rtos-security-module-api.md
+        href: /../device-builders/azure-rtos-security-module-api.md
       - name: Frequently asked questions- agent
         displayName: FAQ, embedded, dependencies, data, quota, internet, 
-        href: /device-builders/resources-agent-frequently-asked-questions.md
+        href: /../device-builders/resources-agent-frequently-asked-questions.md
       - name: Azure Roadmap
         href: https://azure.microsoft.com/roadmap/?category=security-identity
       - name: Defender for IoT glossary
-        href: /device-builders/references-defender-for-iot-glossary.md
+        href: /../device-builders/references-defender-for-iot-glossary.md
       - name: Feature support and retirement
         items:
         - name: Feature support and retirement
           displayName: C, C#, deprecation, support
-          href: /device-builders/edge-security-module-deprecation.md
+          href: /../device-builders/edge-security-module-deprecation.md
     - name: Resource
       items:
       - name: Build your security skills with Microsoft Learn
