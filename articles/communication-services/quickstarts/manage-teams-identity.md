@@ -93,7 +93,7 @@ AAD Admin fills in following [form](https://forms.office.com/r/B8p5KqCH19) to en
 
 ### 6. Create or select Communication Services resource
 
-Communication Service resource will be used to authenticate all requests for exchanging AAD user tokens for Teams access tokens. Exchange can be triggered via ACS Identity SDK, which is authenticated with access key or Azure RBAC. You can get the access key in the Azure portal or configure Azure RBAC via *Access control (IAM)* pane.
+Your Azure Communication Services resource will be used to authenticate all requests for exchanging AAD user tokens for Teams access tokens. This exchange can be triggered via the Azure Communication Services Identity SDK, which is authenticated with access key or Azure RBAC. You can get the access key in the Azure portal or configure Azure RBAC via *Access control (IAM)* pane.
 
 If you want to [create new Communication Services resource, follow this guide](./create-communication-resource.md).
 
