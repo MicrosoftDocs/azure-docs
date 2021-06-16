@@ -29,12 +29,11 @@ Before you begin, make sure that:
 - You have owner or contributor access at resource group level for the Azure Stack Edge Pro/Data Box Gateway, IoT Hub, and Azure Storage resources.
 
     - To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. 
-    - You also need to make sure that the `Microsoft.EdgeOrder` provider is registered. 
-<!-- - You also need to make sure that the `Microsoft.DataBoxEdge` and `MicrosoftKeyVault` resource providers are registered. To create any IoT Hub resource, `Microsoft.Devices` provider should be registered. STILL REQUIRED?--> 
-        - To register a resource provider, in the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. 
-        - Search for the specific resource provider, for example, `Microsoft.DataBoxEdge`, and register the resource provider. 
+    - You also need to make sure that the `Microsoft.EdgeOrder` provider is registered.<!--STILL REQUIRED? You also need to make sure that the Microsoft.DataBoxEdge and MicrosoftKeyVault resource providers are registered. To create any IoT Hub resource, Microsoft.Devices`provider should be registered.-->
+        - To register a resource provider, in the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**.
+        - Search for the specific resource provider, for example, Microsoft.DataBoxEdge, and register the resource provider.
     - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.<!--N/A?-->
-- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).<!--Is this the equivalent of making sure not policies are preventing access during ordering?-->
+- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).<!--Is this the equivalent of making sure no policies are preventing access during ordering?-->
 
 
 ## Create a new Azure Hardware Center order
@@ -49,13 +48,11 @@ Before you begin, make sure that:
 
     ![Screenshot of the option to create a resource in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-02.png)
 
-1. Select the Azure Hardware 
-
 1. Select a subscription, and then select **Next**.
 
     ![Screenshot of the Select a subscription option for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-03.png)
 
-1. To start your order, select **Order** by the product family for the device(s) you want to order. For example, select **Azure Stack Edge**. If you don't see the product family you want to order from, you may need to use a different subscription.
+1. To start your order, select **Order** by the product family for the device(s) you want to order - for example, for **Azure Stack Edge**. If you don't see the product family, you may need to use a different subscription.
 
     ![Screen for selecting a product family to order from in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-04.png) 
 
@@ -91,7 +88,7 @@ Before you begin, make sure that:
 
 1. If you want to order more than one device, change the **Quantity**. You'll notice that a **+n more** label is added after the order item name. Select **+n more** to set an order item name for each device.
 
-    ![Screenshot showing the Shipping + quantity display after the quantity is set to more than one device](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-12.png)
+    ![Screenshot showing the "Shipping + quantity" display when the quantity is more than one](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-12.png)
 
 1. On the **Rename order item** screen, you can change the device order names for the devices. You'll be able to manage the order for each device separately. By default, a name prefix, consisting of the order name followed by the address alias, is used. A number is appended for each device. To use a different name prefix, edit the **Name prefix** and select **Apply**. You can also edit each order item name individually. When you finish updating names, select **Done**.
 
