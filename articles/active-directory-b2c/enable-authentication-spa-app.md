@@ -86,7 +86,7 @@ app.listen(port, () => {
 });
 ```
 
-## Create the SPA UI
+## Create the SPA user interface
 
 In this step,  add the SAP app `index.html` file. This file implements the user interface built with Bootstrap framework, imports script files for configuration, authentication, and web API calls.
 
@@ -141,11 +141,11 @@ To render the SPA index file, in the *myApp* folder, create a file named *index.
 </html>
  ```
 
-## Initiate the authentication library
+## Configure the authentication library
 
 In this section, configure how the MSAL.js library integrates with Azure AD B2C. The MSAL.js library uses a common configuration object to connect to your Azure AD B2C tenants authentication endpoints.
 
-To initiate the authentication library, follow these steps:
+To configure the authentication library, follow these steps:
 
 1. In the *myApp* folder, create a new folder called *App*. 
 1. Inside the *App* folder, create a new file named *authConfig.js*.
@@ -217,7 +217,7 @@ In this step, implement the methods to initialize the sign-in flow, api access t
 
 For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-microsoft-authentication-library-msal-to-sign-in-the-user) articles.
 
-To use the MSAL to sign in the user, follow these steps:
+To sign in the user, follow these steps:
 
 1. Inside the *App* folder, create a new file named *authRedirect.js*.
 1. In your *authRedirect.js*, copy and paste the following code:
@@ -393,13 +393,13 @@ To configure the web API location and scopes, follow these steps:
 1. Replace `contoso` with your tenant name. The required scope name can be found as described in the [Configure scopes](./configure-authentication-sample-spa-app.md#22-configure-scopes) article.
 1. Replace the value for `webApi` with your web API endpoint location.
 
-## Call your web API by using the token you acquired
+## Call your web API
 
 In this step,  define the HTTP request to your API endpoint. The HTTP request is configured to pass the Access Token acquired with MSAL.js into the `Authorization` HTTP header in the request.
 
 The code below defines the HTTP `GET` request to the API endpoint, passing the access token within the `Authorization` HTTP header. The API location is defined by the `webApi` key in *apiConfig.js*. 
 
-To call your web API, follow these steps:
+To call your web API by using the token you acquired, follow these steps:
 
 1. Inside the *App* folder, create a new file named *api.js*.
 1. Add the following code to the *api.js* file:
