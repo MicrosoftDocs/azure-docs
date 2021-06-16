@@ -19,8 +19,6 @@ Version 1.7
 
 ## New features
 
-Version 1.7 is apparently now live. Here are the relnotes!
-
 - Improved reliability during onboarding:
   - Improved retry logic when HIMDS is unavailable
   - Onboarding will now continue instead of aborting if OS information cannot be obtained
