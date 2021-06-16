@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > To enable/disable custom Teams endpoint experience, complete [this form](https://forms.office.com/r/B8p5KqCH19).
 
-Communication Services can be used to build custom Teams endpoint. With ACS SDKs you can customize voice, video, chat, and screen sharing experience for Teams users. Custom Teams endpoint can communicate with Microsoft Teams client or another custom Teams endpoints. 
+Azure Communication Services can be used to build custom Teams endpoints. With Azure Communication Services SDKs you can customize voice, video, chat, and screen sharing experience for Teams users. Custom Teams endpoints can communicate with the Microsoft Teams client or other custom Teams endpoints. 
 
 Developers can use ACS Identity SDK to exchange AAD user tokens for Teams' access tokens. Voice, video, and screen sharing capabilities are provided via ACS Calling SDKs. Following diagram shows overview of the process to integrate calling experience.
 
