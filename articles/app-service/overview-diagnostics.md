@@ -24,7 +24,7 @@ To access App Service diagnostics, navigate to your App Service web app or App S
 
 For Azure Functions, navigate to your function app, and in the top navigation, click on **Platform features**, and select **Diagnose and solve problems** from the **Resource management** section.
 
-In the App Service diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. Also, this page is where you can find **Diagnostic Tools** for Windows apps. See [Diagnostic tools (only for Windows app)](#diagnostic-tools-only-for-windows-app).
+In the App Service diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. Also, this page is where you can find **Diagnostic Tools**. See [Diagnostic tools](#diagnostic-tools).
 
 ![Homepage](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
