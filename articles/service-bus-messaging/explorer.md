@@ -2,7 +2,7 @@
 title: Use Azure Service Bus Explorer to perform data operations on Service Bus (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: conceptual
-ms.date: 01/20/2020
+ms.date: 06/16/2021
 ---
 
 # Use Service Bus Explorer to perform data operations on Service Bus (Preview)
@@ -50,6 +50,9 @@ After picking the **'Queues'** or **'Topics'**, pick the specific Queue or Topic
 Select the **'Service Bus Explorer (preview)'** from the left navigation menu
 
 :::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="SB Explorer Left nav menu":::
+
+> [!NOTE]
+> Service Bus Explorer supports messages of size up to 1 MB. 
 
 ### Sending a message to a Queue or Topic
 
@@ -176,8 +179,8 @@ Once the peek operation completes, up to 32 messages will show up on the grid as
 
 > [!NOTE]
 >
-> Since peek is not a destructive operation the message **will not** be removed from the queue.
->
+> - Since peek is not a destructive operation the message **will not** be removed from the queue.
+
 
 ## Next Steps
 
