@@ -30,7 +30,7 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
 
 - Include your non-Azure servers for advanced threat detection and proactively monitor for potential security threats using [Azure Security Center](../../security-center/security-center-introduction.md) or [Azure Defender](../../security-center/azure-defender.md).
 
-- Protect non-Azure servers with [Microsoft Defender for Endpoint](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint), included through [Azure Defender](../../security-center/azure-defender.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats.
+- Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint), included through [Azure Defender](../../security-center/azure-defender.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats.
 
 Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID. This can be used to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
 
