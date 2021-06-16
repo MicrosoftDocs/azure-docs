@@ -314,3 +314,6 @@ sections:
       - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
         answer: | 
           NO        
+
+      - question: When does metering begin and end for trial Azure VMware Solution nodes?
+        answer: Trial nodes begin their 30 day evaluation upon successful deployment of the node ("Success" response returned from node creation operation). After 30 days, nodes will automatically be metered per their respective rates. If the trial nodes are deleted prior to the 30 day end date, the Azure VMware Solution trial will end at time of deletion.
