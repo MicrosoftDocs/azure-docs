@@ -173,9 +173,7 @@ sections:
           
           1st topology instance= `http://lvaExtension:44000/score?id=1`<br/>
           2nd topology instance= `http://lvaExtension:44000/score?id=2`
-          
-          … 
-          
+                    
           On the server side, the score route knows who is calling. If ID=1, then it can keep the state separately for that caller or graph topology instance. You can then keep the received video frames in a buffer. For example, use an array, or a dictionary with a DateTime key, and the value is the frame. You can then define the server to process (infer) after *x* number of frames are received. 
           
           *Use the gRPC protocol*: 
