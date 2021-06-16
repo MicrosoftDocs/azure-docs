@@ -20,7 +20,7 @@ This article answers common questions about the Azure Migrate: Server Migration 
 ## General questions
 
 
-## What are the migration options in Azure Migrate: Server Migration?
+### What are the migration options in Azure Migrate: Server Migration?
 
 The Azure Migrate: Server Migration tool provides two options to perform migrations of your source Servers/VMs to Azure – agentless migration and agent-based migration.
 
@@ -58,7 +58,7 @@ While you can create assessments for multiple regions in an Azure Migrate projec
 
 Yes, you can migrate to multiple subscriptions (same Azure tenant) in the same target region for an Azure Migrate project. You can select the target subscription while enabling replication for a machine or a set of machines. The target region is locked post first replication for agentless VMware migrations and during the replication appliance and Hyper-V provider installation for agent-based migrations and agentless Hyper-V migrations respectively.
 
-## How is the data transmitted from on-prem environment to Azure? Is it encrypted before transmission?
+### How is the data transmitted from on-prem environment to Azure? Is it encrypted before transmission?
 
 The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it is persisted it to the cloud (encryption-at-rest).  
 
@@ -239,12 +239,12 @@ The formula to schedule the next replication cycle is (previous cycle time / 2) 
 
 For example, if a VM takes four hours for a delta cycle, the next cycle is scheduled in two hours, and not in the next hour. The process is different immediately after initial replication, when the first delta cycle is scheduled immediately.
 
-## I deployed two (or more) appliances to discover VMs in my vCenter Server. However, when I try to migrate the VMs, I only see VMs corresponding to one of the appliances.
+### I deployed two (or more) appliances to discover VMs in my vCenter Server. However, when I try to migrate the VMs, I only see VMs corresponding to one of the appliances.
 
 If there are multiple appliances set up, it is required there is no overlap among the VMs on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario.
 
 
-## How does agentless replication affect VMware servers?
+### How does agentless replication affect VMware servers?
 
 Agentless replication results in some performance impact on VMware vCenter Server and VMware ESXi hosts. Because agentless replication uses snapshots, it consumes IOPS on storage, so some IOPS storage bandwidth is required. We don't recommend using agentless replication if you have constraints on storage or IOPs in your environment.
 
