@@ -56,7 +56,7 @@ sections:
           >If you have Alert Rules that reference these counters in the `Perf` table, you need to update them to reference new data stored in the `InsightsMetrics` table. Refer to our documentation for example log queries that you can use that refer to this table.
           >
           
-          If you decide to keep the performance counters enabled, you will be billed for the data ingested and stored in the `Perf` table based on [Log Analytics pricing[(https://azure.microsoft.com/pricing/details/monitor/).
+          If you decide to keep the performance counters enabled, you will be billed for the data ingested and stored in the `Perf` table based on [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/).
           
       - question: |
           How will this change affect my alert rules?
