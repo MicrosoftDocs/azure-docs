@@ -57,7 +57,7 @@ The following application settings influence the experience:
 - 
 [Here you can find detailed documentation.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application). 
 
-When the *Application* is registered, you can see in the overview following identifier that will be used in followings steps: **Application (client) ID**.
+When the *Application* is registered, you'll see an identifier in the overview. This identifier will be used in followings steps: **Application (client) ID**.
 
 ### 2. Allow public client flows
 
