@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > To enable/disable custom Teams endpoint experience, complete [this form](https://forms.office.com/r/B8p5KqCH19).
 
-In this quickstart, we are going to build .NET console application to authenticate AAD user token using MSAL library and exchange it for Teams' access token via ACS identity SDK. Team's access token can be used in ACS calling SDK to build custom Teams endpoint. Chat functionality is available via Graph API.
+In this quickstart, we'll build a .NET console application to authenticate an AAD user token using the MSAL library. We'll then exchange that token for a Teams access token with the Azure Communication Services Identity SDK. The Teams access token can then be used by the Azure Communication Services Calling SDK to build a custom Teams endpoint.
 
 > [!NOTE]
 > In production environment we are encouraging to implement exchange mechanism in backend services, as requests for exchange are signed with secret.
