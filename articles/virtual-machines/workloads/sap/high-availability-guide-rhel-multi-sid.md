@@ -23,7 +23,7 @@ ms.author: radeltch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
@@ -263,7 +263,7 @@ This documentation assumes that:
     sudo pcs resource create vip_NW2_ASCS IPaddr2 \
     ip=10.3.1.52 cidr_netmask=24 \
      --group g-NW2_ASCS
-	
+  
     sudo pcs resource create nc_NW2_ASCS azure-lb port=62010 \
      --group g-NW2_ASCS
 
@@ -504,7 +504,7 @@ This documentation assumes that:
 
     Online: [ rhelmsscl1 rhelmsscl2 ]
 
-	Full list of resources:
+  Full list of resources:
 
     rsc_st_azure   (stonith:fence_azure_arm):      Started rhelmsscl1
     Resource Group: g-NW1_ASCS

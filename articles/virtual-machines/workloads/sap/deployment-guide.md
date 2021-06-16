@@ -183,7 +183,7 @@ ms.author: sedusch
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-Azvmaemextension]:https://docs.microsoft.com/powershell/module/az.compute/set-azvmaemextension
+[msdn-set-Azvmaemextension]:/powershell/module/az.compute/set-azvmaemextension
 
 [planning-guide]:planning-guide.md (Azure Virtual Machines planning and implementation for SAP)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
