@@ -85,6 +85,14 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 
 <sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Should not be used with Azure AD B2C
 
+## Required Attributes
+
+[Display name attribute](https://docs.microsoft.com/azure/active-directory-b2c/user-profile-attributes#display-name-attribute) is required.
+
+[Identities attribute](https://docs.microsoft.com/azure/active-directory-b2c/user-profile-attributes#display-name-attribute)- An identity attribute with at least one entity (a local account or a federated account)
+
+[Password profile attribute](https://docs.microsoft.com/azure/active-directory-b2c/user-profile-attributes#password-policy-attribute)- If you create a local account, you must provide the password profile.
+
 ## Display name attribute
 
 The `displayName` is the name to display in Azure portal user management for the user, and in the access token Azure AD B2C returns to the application. This property is required.
