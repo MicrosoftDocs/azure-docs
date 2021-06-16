@@ -163,7 +163,7 @@ Using the [Azure portal](https://portal.azure.com), create an Ubuntu Server virt
 
 #### Install IoT Edge container
 
-Follow the instructions to [Install IoT Edge on Linux](../virtual-machines/linux/use-remote-desktop.md).
+Follow the instructions to [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
 
 Once the installation completes, run the following command to verify the status of your installation:
 
