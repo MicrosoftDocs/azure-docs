@@ -376,6 +376,9 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Deploy at scale
+        displayname: Deploy Azure Monitor agent at scale
+        href: deploy-scale.md#azure-monitor-agent-preview  
       - name: FAQ
         displayname: Azure Monitor agent FAQ
         href: faq.md#azure-monitor-agent-preview

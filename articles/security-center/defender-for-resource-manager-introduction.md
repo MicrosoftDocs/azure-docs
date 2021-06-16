@@ -35,7 +35,7 @@ Azure Defender for Resource Manager protects against issues including:
 - **Use of exploitation toolkits** like Microburst or PowerZure
 - **Lateral movement** from the Azure management layer to the Azure resources data plane
 
-:::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Azure Resource Manager overview diagram":::
+:::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Azure Resource Manager overview diagram.":::
 
 A full list of the alerts provided by Azure Defender for Resource Manager is on the [alerts reference page](alerts-reference.md#alerts-resourcemanager).
 
@@ -50,7 +50,7 @@ To investigate security alerts from Azure Defender for Resource Manager:
 
 1. Open Azure Activity log.
 
-    :::image type="content" source="media/defender-for-resource-manager-introduction/opening-azure-activity-log.png" alt-text="How to open Azure Activity log":::
+    :::image type="content" source="media/defender-for-resource-manager-introduction/opening-azure-activity-log.png" alt-text="How to open Azure Activity log.":::
 
 1. Filter the events to:
     - The subscription mentioned in the alert
