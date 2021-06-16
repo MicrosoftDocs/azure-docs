@@ -70,8 +70,66 @@ Ensure you have the [latest version of Azure PowerShell](/powershell/azure/insta
 
 ### [Azure CLI](#tab/azure-cli)
 
+1. Install `vmware `extension.
+
+   - Check if the extension is installed: 
+
+      ```azurecli-interactive
+      az extension show --name vmware
+      ```
+
+   - If the extension is not found, install it:
+
+      ```azurecli-interactive
+      az extension add --name vmware
+      ```
+
+   - If the extension is already installed, check if the version is "3.0.0" (yet to be released). If an older version is installed, update the extension:
+
+      ```azurecli-interactive
+      az extension update --name vmware
+      ```
+
+2. Display help on the datastores cmdlets:
+
+   ```azurecli-interactive
+   az vmware datastore -h
+   ```
+
+3. Create an iSCSI datastore in the Azure VMware Solution private cloud cluster using Microsoft.StoragePool provided iSCSI target.
+
+   ```azurecli-interactive
+   az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
+   ```
+
+4. Show the details of an iSCSI datastore in a private cloud cluster.
+   
+   ```azurecli-interactive
+   az vmware datastore show --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster -Cluster-1 --private-cloud MyPrivateCloud
+   ```
+5. List all the datastores in a private cloud cluster.
+
+   ```azurecli-interactive
+   az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
+   ```
+
+
 ---
 
+## Delete an iSCSI datastore from private cloud
+
+### [PowerShell](#tab/powershell)
+
+
+
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
+```
+
+---
 
 ## Disconnect a disk pool from your private cloud
 There is no maintenance window required for this operation. You can view logs for auditing purposes. 
@@ -83,7 +141,7 @@ There is no maintenance window required for this operation. You can view logs fo
 
 ---
 
-## Remove client clusters from the disk pool
+## Remove clusters from the disk pool
 
 --we need an intro paragraph explaining what they are doing and why--
 
