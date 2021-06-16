@@ -37,7 +37,7 @@ Per-device authentication enables each device to connect securely to IoT Hub and
 
 ### Devices have a secure identity
 
-Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud commuications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub. You can use a process called manual provisioning, in which you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
+Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communsications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub. You can use a process called manual provisioning, in which you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
 
 * symmetric key: When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating. This method is faster to get started, but not as secure.
 
@@ -71,7 +71,7 @@ Typically, IoT devices send telemetry from the sensors to back-end services in t
 
 ### Telemetry - Receive information back from the device such as data collected by a sensor
 
-What is telemetry? Telemetry is data that a device sends to an IoT Hub. IoT Devices send events (notifications, acknowledgements, telemetry) to an application to gain insights. Applications may require specific subsets of events for processing or storage at different endpoints.
+What is telemetry? Telemetry is data that a device sends to an IoT Hub. IoT Devices send events (notifications, acknowledgments, telemetry) to an application to gain insights. Applications may require specific subsets of events for processing or storage at different endpoints.
 
 ### Properties are state values or data that applications can access. 
 
@@ -94,7 +94,7 @@ IoT Hub implements commands by allowing you to invoke direct methods on devices 
 A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of 7 days, and can be used to take actions on a device. 
 
 For more information about IoT Hub endpoints, see [IoT Hub Dev Guide Endpoints](
-iot-hub-devguide-endpoints#list-of-built-in-iot-hub-endpoints)
+iot-hub-dev-guide-endpoints#list-of-built-in-iot-hub-endpoints)
 
 ### Use Message Routing to send data to other endpoints for processing
 
@@ -104,4 +104,4 @@ You can also filter the data that is sent to different services.
 
 You can also use Message Routing to send data to other endpoints for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services, also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. For a tutorial showing multiple uses of message routing, see the [Routing Tutorial](tutorial-routing.md).
 
-Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless archictures. Learn more about [Event Grid](https://azure.microsoft.com/services/event-grid/). 
+Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless architectures. Learn more about [Event Grid](https://azure.microsoft.com/services/event-grid/). 
