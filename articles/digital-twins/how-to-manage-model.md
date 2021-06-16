@@ -94,10 +94,10 @@ Once a model is uploaded to your Azure Digital Twins instance, the entire model 
 Instead, if you want to make changes to a model—such as updating `displayName` or `description`, or adding and removing properties—the way to do this is to upload a **newer version** of the model to replace the original model. 
 
 There are two main strategies to choose from in order to do this:
-* [Upload new model version](#upload-new-model-version): Keeps both new and original versions of the model in your instance until you delete one. Use this strategy when you want the option to keep some twins on the old model, or to keep a record of what versions a model has gone through.
-* [Delete old model and re-upload](#delete-old-model-and-re-upload): Completely replaces the old model with a new, similar model. Use this strategy when you want to remove all record of the older model.
+* [Option 1: Upload new model version](#option-1-upload-new-model-version): Keeps both new and original versions of the model in your instance until you delete one. Use this strategy when you want to make sure twins stay valid at all times through the model transition, or to keep a record of what versions a model has gone through.
+* [Option 2: Delete old model and re-upload](#option-2-delete-old-model-and-re-upload): Completely replaces the old model with a new, similar model. Use this strategy when you want to remove all record of the older model. Depending on what changes you're making to your model, twins may be invalid for a short time while you're transitioning them from the old model to the new one.
 
-### Upload new model version
+### Option 1: Upload new model version
 
 You can create a new version of the model and upload it to your instance. This strategy will work for all model update operations (adding a property, removing a property, or updating a property).
 
@@ -137,7 +137,7 @@ To make sure new twins can't be created using the old model version, you can [de
     - Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**
 * Update other models that reference this model to use the new version number
 
-### Delete old model and re-upload
+### Option 2: Delete old model and re-upload
 
 You can delete a model completely and re-upload the model to the instance. This strategy will work for all model update operations (adding a property, removing a property, or updating a property).
 
@@ -145,11 +145,11 @@ Azure Digital Twins doesn't remember the old model was ever uploaded, so will tr
 
 There are several different ways to use this strategy, depending on what update operation you're performing. Here are a few ways the model deletion and re-upload strategy can be used:
 
-### Step 1: Delete old model
+### 1. Delete old model
 
-### Step 2: Create and upload new model
+### 2. Create and upload new model
 
-### Step 3: Update twins and relationships
+### 3. Update twins and relationships
 
 You can either...
 * Patch the twins as needed so they fit the new model.
