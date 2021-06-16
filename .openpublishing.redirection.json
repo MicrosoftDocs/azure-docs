@@ -2124,6 +2124,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/network-functions-manager/index.yml",
+      "redirect_url": "/azure/network-function-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-network/container-networking.md",
       "redirect_url": "/azure/aks/networking-overview",
       "redirect_document_id": false

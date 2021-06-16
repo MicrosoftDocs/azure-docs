@@ -266,7 +266,7 @@
         displayName: vCPU, quota, limit
         href: ./windows/quotas.md
     - name: Azure VMs with no temp disk
-      href: azure-vms-no-temp-disk.md
+      href: azure-vms-no-temp-disk.yml
     - name: Azure VM sizes naming conventions
       href: vm-naming-conventions.md
     - name: Previous generations
