@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a Data Explorer pool using the Azure portal'
 description: Create a Data Explorer pool using the Azure portal by following the steps in this guide.
 ms.topic: quickstart
-ms.date: 05/23/2021
+ms.date: 06/16/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir
