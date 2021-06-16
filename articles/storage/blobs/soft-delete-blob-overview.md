@@ -17,9 +17,9 @@ ms.subservice: blobs
 Blob soft delete protects an individual blob, snapshot, or version from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore a soft-deleted object to its state at the time it was deleted. After the retention period has expired, the object is permanently deleted.
 
 > [!IMPORTANT]
-> Blob soft delete can also protect blobs and directories in accounts that have the hierarchical namespace feature enabled on them. Blob soft delete for accounts that have the hierarchical namespace feature enabled is currently in public preview, and is available only in the East US 2 and West Europe region. 
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, and is available only in the East US 2 and West Europe region.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 >
 > To enroll in the preview, see [this form](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.office.com%2FPages%2FResponsePage.aspx%3Fid%3Dv4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOUxPTkFSSjJDRlBZNlpZSjhGUktFVzFDRi4u&data=04%7C01%7CSachin.Sheth%40microsoft.com%7C6e6a6d56c2014cdf749308d90e915f1e%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637556839790913940%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=qnYxVDdI7whCqBW4johgutS3patACP6ubleUrMGFtf8%3D&reserved=0).
 
@@ -102,7 +102,7 @@ For more information on how to restore soft-deleted objects, see [Manage and res
 ## Blob soft delete and versioning
 
 >[!IMPORTANT]
-> This section doesn't apply to accounts that have a hierarchical namespace.
+> Versioning is not supported for accounts that have a hierarchical namespace.
 
 If blob versioning and blob soft delete are both enabled for a storage account, then overwriting a blob automatically creates a new version. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. No soft-deleted snapshots are created. When you delete a blob, the current version of the blob becomes a previous version, and there is no longer a current version. No new version is created and no soft-deleted snapshots are created.
 
@@ -119,8 +119,7 @@ Microsoft recommends enabling both versioning and blob soft delete for your stor
 
 The following table describes the expected behavior for delete and write operations when blob soft delete is enabled, either with or without blob versioning. 
 
->[!IMPORTANT]
-> This table doesn't apply to accounts that have a hierarchical namespace.
+### Storage account (no hierarchical namespace)
 
 | REST API operations | Soft delete enabled | Soft delete and versioning enabled |
 |--|--|--|
@@ -136,7 +135,7 @@ The following table describes the expected behavior for delete and write operati
 | [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | No change. Overwritten blob metadata is not recoverable. | A new version that captures the blob's state prior to the operation is automatically generated. |
 | [Set Blob Tier](/rest/api/storageservices/set-blob-tier) | The base blob is moved to the new tier. Any active or soft-deleted snapshots remain in the original tier. No soft-deleted snapshot is created. | The base blob is moved to the new tier. Any active or soft-deleted versions remain in the original tier. No new version is created. |
 
-The following table describes the expected behavior for delete and write operations when blob soft delete is enabled on accounts that have a hierarchical namespace.
+### Storage account (hierarchical namespace)
 
 |**REST API operation**|**Soft Delete enabled**|
 |---|---|
