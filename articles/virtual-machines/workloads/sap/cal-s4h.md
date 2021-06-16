@@ -44,13 +44,7 @@ You will need to authenticate with your S-User or P-User. You can create a P-Use
 
 ---
 
-
-
-
-
-
-
-# Setup and get started with SAP Cloud Appliance Library
+## Set up and get started with SAP Cloud Appliance Library
 
 > [!NOTE]
 For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
