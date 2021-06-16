@@ -504,7 +504,7 @@ This documentation assumes that:
 
     Online: [ rhelmsscl1 rhelmsscl2 ]
 
-  Full list of resources:
+    Full list of resources:
 
     rsc_st_azure   (stonith:fence_azure_arm):      Started rhelmsscl1
     Resource Group: g-NW1_ASCS
