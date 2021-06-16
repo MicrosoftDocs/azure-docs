@@ -147,7 +147,7 @@ For more information on the SQL Database compute sizes, see [What are SQL Databa
 > [!NOTE]
 > Creating a geo-replica on a logical server in a different Azure tenant is not supported when [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) only authentication for Azure SQL is active (enabled) on either primary or secondary logical server.
 > [!NOTE]
-> Cross-subscription geo-replication operations including setup and failover are only supported thought SQL commands.
+> Cross-subscription geo-replication operations including setup and failover are only supported through SQL commands.
 
 To setup active geo-replication between two databases belonging to different subscriptions (whether under the same tenant or not), you must follow the special procedure described in this section.  The procedure is based on SQL commands and requires:
 
