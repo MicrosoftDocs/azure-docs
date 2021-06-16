@@ -140,7 +140,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 ### Example: verify a code
 
-The following example shows an Azure AD SSPR technical profile used to verify the code.
+The following example shows an Azure AD SSPR technical profile used to verify the code. 
 
 ```XML
 <TechnicalProfile Id="AadSspr-VerifyCode">
