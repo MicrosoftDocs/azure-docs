@@ -57,7 +57,7 @@ Cosmos DB SDK on any IO failure will attempt to retry the failed operation if re
 
 ### Retry design
 
-The application should be designed to retry on any exception unless it is a known issue where retrying will not help. For example the application should retry on 408 request timeout. The timeout is possibly transient so a retry can result in a success. The application should not retry on 400 as this means there is an issue with the request that must first be resolved. Retrying on the 400 will not fix the issue and will just result in the same failure if retried again. The table below shows known failures.
+The application should be designed to retry on any exception unless it is a known issue where retrying will not help. For example, the application should retry on 408 request timeouts, this timeout is possibly transient so a retry may result in success. The application should not retry on 400s, this typically means that there is an issue with the request that must first be resolved. Retrying on the 400 will not fix the issue and will result in the same failure if retried again. The table below shows known failures and which ones to retry on.
 
 ## Common error status codes <a id="error-codes"></a>
 
