@@ -8,12 +8,12 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 05/07/2021
+ms.date: 06/16/2021
 ms.topic: how-to
 ms.custom: deploy
 ---
 
-# Deploy a model using a custom container
+# Deploy a TensorFlow model served with TFServing using a custom container in a managed online endpoint
 
 Learn how to deploy a custom container as a managed online endpoint in Azure Machine Learning.
 
@@ -24,211 +24,135 @@ Using a custom container lets you deploy web servers that may not listen on same
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
-* A Linux machine with [Docker](https://docs.docker.com/engine/install/ubuntu/) and Python installed. If you don't have a Linux machine locally, you can use a [compute instance](how-to-create-manage-compute-instance.md).
+* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
 
-## How to file bugs
+* You must have an Azure resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
-To file bugs specific to custom containers, use [this template](https://msdata.visualstudio.com/Vienna/_workitems/create/Bug?templateId=405d465d-f360-4289-a148-0b58977d8648&ownerId=80b4b67c-37f8-4778-8433-367a704cbb9a)
+* You must have an Azure Machine Learning workspace. You'll have such a workspace if you configured your ML extension per the above article.
 
-To file bugs that are related to MIRv2 more broadly, use [this template](https://msdata.visualstudio.com/Vienna/_workitems/create/Bug?templateId=ee7fe228-9841-4de5-b658-4f9b1136729d&ownerId=80b4b67c-37f8-4778-8433-367a704cbb9a)
+* If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
 
-## Install and configure extension
+   ```azurecli
+   az account set --subscription <subscription id>
+   az configure --defaults workspace=<azureml workspace name> group=<resource group>
 
-Once you have created your compute instance, go to **Compute** -> **name of compute instance** -> **JupyterLab** -> **Terminal** to run the command below.
-
-```azurecli-interactive
-# Install Azure CLI
-# Do not run installation if using a fresh compute instance! This will mess things up
-# curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-
-az --version # Needs to be >= 2.15.0
-
-# Remove any previously installed versions of the az ml extension
-az extension remove -n ml; az extension remove -n azure-cli-ml
-az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/ml-0.0.75-py3-none-any.whl \
-     --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2 -y
-az login
-az account set -s "<subscription_name>"
-az configure --defaults group="<resource_group>" workspace="<workspace_name>"
-```
+* To deploy locally, you must have [Docker engine](https://docs.docker.com/engine/install/) running locally. This step is **highly recommended**. It will help you debug issues.
 
 ## Download source code
 
+To follow along with this tutorial, download the source code below.
+
 ```azurecli-interactive
-git clone https://github.com/Azure/azureml-examples.git --branch cli-preview
+git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli
 ```
 
-## Deploy TensorFlow Serving model
+## Initialize environment variables
 
-To deploy a TensorFlow serving model, first open the `how-to-deploy-tfserving.sh` script and change the value of the `ENDPOINT_NAME` environment variable to something unique.
+Define environment variables you will use later on:
 
-The, run the script below.
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="initialize_variables":::
 
-```azurecli-interactive
+## Download a simple TensorFlow model
 
-./how-to-deploy-tfserving.sh
+Download and unzip a simple model that divides an input by two and adds 2 to the result:
 
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
 
-If you'd rather run the steps one by one, see below.
+## Run a TF Serving image locally to test that it works
 
-### Download a simple TensorFlow model that divides an input by two and adds 2 to the result
+Use docker to run your image locally for testing:
 
-
-```azurecli-interactive
-
-wget https://aka.ms/half_plus_two-model -O $BASE_PATH/half_plus_two.tar.gz
-tar -xvf $BASE_PATH/half_plus_two.tar.gz -C $BASE_PATH
-
-```
-
-### Run a tensorflow serving image locally to test that it works
-
-```azurecli-interactive
-
-docker run --rm -d -v $PWD/$BASE_PATH:$MODEL_BASE_PATH -p 8501:8501 \
- -e MODEL_BASE_PATH=$MODEL_BASE_PATH -e MODEL_NAME=$MODEL_NAME \
- --name="tfserving-test" docker.io/tensorflow/serving:latest
-
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
 
 ### Check that you can send liveness and scoring requests to the image
 
-```azurecli-interactive
+First, check that the container is "alive," meaning that the process inside the container is still running. You should get a 200 (OK) response.
 
-# Check liveness locally
-curl -v http://localhost:8501/v1/models/$MODEL_NAME
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_liveness_locally":::
 
-# Check scoring locally
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data @$BASE_PATH/sample_request.json \
-  http://localhost:8501/v1/models/$MODEL_NAME:predict
+Then, check that you can get predictions about unlabeled data:
 
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_scoring_locally":::
 
 ### Stop the image
 
-```azurecli-interactive
-docker stop tfserving-test
+Now that you've tested locally, stop the image:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="stop_image":::
+
+## Create a YAML file for your endpoint
+
+You will configure your cloud deployment using YAML. Take a look at the sample YAML for this endpoint:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
+
+There are a few important concepts to notice in this YAML:
+
+### Readiness route vs. liveness route
+
+An HTTP server can optionally define paths for both _liveness_ and _readiness_. A liveness route is used to check whether the server is running. A readiness route is used to check whether the server is ready to do some work. In the case of machine learning inference, a server could respond 200 OK to a liveness request prior to loading a model, but respond 200 OK to a readiness request only after the model has been loaded into memory.
+
+Please review the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more information about liveness and readiness probes.
+
+Notice that this deployment uses the same path for both liveness and readiness, since TFServing only defines a liveness route.
+
+### Locating the registered model
+
+When you deploy a model as a real-time endpoint, _mount_ your model to your endpoint, which enables you to deploy new versions of the model without having to create a new Docker image. By default, a model registered with the name *foo* and version *1* would be located at the following path inside of your deployed container: `/var/azureml-app/azureml-models/foo/1`
+
+So, for example, if you have the following directory structure on your local machine:
+
+```
+azureml-examples
+  cli
+    endpoints
+      online
+        custom-container
+          half_plus_two
+          tfserving-endpoint.yml    
+```     
+
+and `tfserving-endpoint.yml` contains the following:
+
+```
+model:
+    name: tfserving-mounted
+    version: 1
+    local_path: ./half_plus_two
 ```
 
-### Create a YAML file for your endpoint
+then your model will be located at the following location in your endpoint:
 
-```yaml
-$schema: https://azuremlsdk2.blob.core.windows.net/latest/managedOnlineEndpoint.schema.json
-name: tfserving-endpoint
-type: online
-auth_mode: aml_token
-traffic:
-  tfserving: 100
-
-deployments:
-  - name: tfserving
-    model:
-      name: tfserving-mounted
-      version: 1
-      local_path: ./half_plus_two
-    environment_variables:
-      MODEL_BASE_PATH: /var/azureml-app/azureml-models/tfserving-mounted/1
-      MODEL_NAME: half_plus_two
-    environment:
-      docker:
-        image: docker.io/tensorflow/serving:latest
-      inference_config:
-        liveness_route:
-          port: 8501
-          path: /v1/models/half_plus_two
-        readiness_route:
-          port: 8501
-          path: /v1/models/half_plus_two
-        scoring_route:
-          port: 8501
-          path: /v1/models/half_plus_two:predict
-    instance_type: Standard_F2s_v2
-    scale_settings:
-      scale_type: manual
-      instance_count: 1
-      min_instances: 1
-      max_instances: 2
+```
+var 
+  azureml-app
+    azureml-models
+      tfserving-endpoint
+        1
+          half_plus_two
 ```
 
-### Deploy the endpoint
+### Create the endpoint
 
-```azurecli-interactive
-az ml endpoint create -f $BASE_PATH/$ENDPOINT_NAME.yml -n $ENDPOINT_NAME
-```
+Now that you've understood how the YAML was constructed, create your endpoint. This command can take a few minutes to complete.
 
-### Create a sample JSON payload
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="create_endpoint":::
 
-```json
-{"instances": [1.0, 2.0, 5.0]}
-```
+### Invoke the endpoint
 
-### Run scoring
+Once your deployment completes, see if you can make a scoring request to the deployed endpoint.
 
-```azurecli-interactive
-az ml endpoint invoke -n $ENDPOINT_NAME --request-file $BASE_PATH/sample_request.json
-```
-
-### Check endpoint logs
-
-```azurecli-interactive
-az ml endpoint get-logs -n $ENDPOINT_NAME --deployment $DEPLOYMENT_NAME
-az ml endpoint get-logs -n $ENDPOINT_NAME --deployment $DEPLOYMENT_NAME --container storage-initializer
-```
-
-View metrics for your endpoint in the [Azure portal](https://portal.azure.com)
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="invoke_endpoint":::
 
 ### Delete endpoint and model
 
-```azurecli-interactive
-az ml endpoint delete -n $ENDPOINT_NAME -y
-az ml model delete -n tfserving-mounted --version 1
-```
+Now that you've successfully scored with your endpoint, you can delete it:
 
-## Deploy Triton ensemble model
-
-To deploy a TensorFlow serving model, first open the `how-to-deploy-triton.sh` script and change the value of the `ENDPOINT_NAME` environment variable to something unique.
-
-Then install some required python packages:
-
-```azurecli-interactive
-pip install nvidia-pyindex
-pip install tritonclient[http] gevent
-pip install numpy
-```
-
-Then run the script below.
-
-```azurecli-interactive
-./how-to-deploy-triton.sh
-```
-
-This script will:
-1. Download a Triton ensemble model that classifies images
-2. Build an image from the NVIDIA Triton base image, adding some pip packages along the way
-3. Push this image into your workspace's Azure Container Registry
-4. Run the image locally to test that it works
-5. Deploy the image as a managed online endpoint
-6. Run predictions against that deployed endpoint
-
-Once the script finishes running, open up the Azure portal and click on the endpoint in order to see the metrics that were collected.
-
-### Bonus points
-
-For bonus points, try testing the classifier with a different JPEG. Look up an image on Bing Image search. Then run:
-
-```azurecli-interactive
-KEY=$(az ml endpoint list-keys -n triton-endpoint --query accessToken -o tsv)
-BASE_URL=$(az ml endpoint show -n triton-endpoint --query scoring_uri -o tsv | cut -d'/' -f3)
-endpoints/online/custom-container/test_triton.py --base_url=$BASE_URL --token=$KEY --num_requests=1 --image_url=<paste_image_link>
-```
-and see if the classifier works.
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="delete_endpoint_and_model":::
 
 ## Next steps
 
-* Learn more about [Where to deploy and how](how-to-deploy-and-where.md).
-* Learn how to [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning).
+- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
+- [Torchserve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)

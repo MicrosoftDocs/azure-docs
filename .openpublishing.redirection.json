@@ -2209,6 +2209,11 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/how-to-deploy-custom-docker-image.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-custom-container",
+        "redirect_document_id": false
+      },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-auto-train-remote.md",
       "redirect_url": "/azure/machine-learning/concept-automated-ml#local-remote",
       "redirect_document_id": false
