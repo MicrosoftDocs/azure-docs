@@ -5,6 +5,16 @@
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/freebsd-pf-nat",
       "redirect_document_id": false
     },
+    {  
+      "source_path": "articles/dev-spaces/index.yml",
+      "redirect_url": "/previous-versions/azure/dev-spaces/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/about.md",
+      "redirect_url": "/previous-versions/azure/dev-spaces/about",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/static-web-apps/routes.md",
       "redirect_url": "/azure/static-web-apps/configuration",
