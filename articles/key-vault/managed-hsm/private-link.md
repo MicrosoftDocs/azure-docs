@@ -61,10 +61,10 @@ az network private-dns link vnet create --resource-group {RG} --virtual-network 
 
 ### Allow trusted services to access Managed HSM
 
-When the firewall is turn on, all access to the HSM from any network hosts that are not using a private endpoin connection will be denied, including public Internet and Azure services. Use `--baypss AzureServices` option if you want to allow Microsoft services to access your keys in your Managed HSM. The individual entities (such as an Azure Storage account or a Azure SQL Server) still need to have specific role assignments in place to be able to access a key. 
+When the firewall is turned on, all access to the HSM from any location that are not using a private endpoints connection will be denied, including public Internet and Azure services. Use `--baypss AzureServices` option if you want to allow Microsoft services to access your keys in your Managed HSM. The individual entities (such as an Azure Storage account or a Azure SQL Server) still need to have specific role assignments in place to be able to access a key. 
 
 > [!NOTE]
-> Only specific trusted services usage scenarios are supported, [learn more](../general/overview-vnet-service-endpoints.md#trusted-services).
+> Only specific trusted services usage scenarios are supported. Refer to the [list of trusted services usage scenarios](../general/overview-vnet-service-endpoints.md#trusted-services) for more details.
 
 ```azurecli
 az keyvault update-hsm --hsm-name {HSM NAME} -g {RG} --default-action deny --bypass AzureServices
