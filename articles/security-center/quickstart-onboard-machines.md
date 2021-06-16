@@ -49,14 +49,14 @@ Learn more about [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 1. From Security Center's menu, open the **Getting started** page.
 1. Select the **Get started** tab.
 
-    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page" lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
+    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page." lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
 
 1. Below **Add non-Azure servers**, select **Configure** .
 
     > [!TIP]
     > You can also open add machines from the **inventory** page's **Add non-Azure servers** button.
     > 
-    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Adding non-Azure machines from the asset inventory page":::
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Adding non-Azure machines from the asset inventory page.":::
 
     A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
@@ -124,11 +124,11 @@ For further information on installing and configuring the agent, see [Connect Wi
 
 Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These icons distinguish the types:
 
-  ![ASC icon for non-Azure machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure machine
+  ![ASC icon for non-Azure machine.](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure machine
 
-  ![ASC icon for Azure machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
+  ![ASC icon for Azure machine.](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
-  ![ASC icon for Azure Arc server](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc enabled server
+  ![ASC icon for Azure Arc server.](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc enabled server
 
 ## Next steps
 
