@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/09/2018
 ms.subservice: hybrid
 author: billmath
@@ -29,7 +29,7 @@ You can perform the whole operation of updating TLS/SSL certificate for the AD F
 
 
 >[!NOTE]
->To learn more about certificates that are used by AD FS, see [Understanding certificates used by AD FS](https://technet.microsoft.com/library/cc730660.aspx).
+>To learn more about certificates that are used by AD FS, see [Understanding certificates used by AD FS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730660(v=ws.11)).
 
 ## Prerequisites
 
@@ -104,4 +104,3 @@ After you complete the configuration, Azure AD Connect displays the message that
 
 - [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
 - [Active Directory Federation Services management and customization with Azure AD Connect](how-to-connect-fed-management.md)
-

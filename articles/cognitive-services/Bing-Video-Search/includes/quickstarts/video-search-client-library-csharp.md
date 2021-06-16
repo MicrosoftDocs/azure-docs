@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 Use this quickstart to begin searching for news with the Bing Video Search client library for C#. While Bing Video Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) with additional annotations, and features.

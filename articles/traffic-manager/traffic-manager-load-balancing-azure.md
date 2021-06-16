@@ -3,15 +3,15 @@ title: Using load-balancing services in Azure | Microsoft Docs
 description: 'This tutorial shows you how to create a scenario by using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: rohink
+ms.author: duau
 ---
 
 # Using load-balancing services in Azure
@@ -87,11 +87,11 @@ The following diagram shows the architecture of this scenario:
 4. Define the virtual network, subnet, front-end IP, and listener configurations for the application gateway. In this scenario, the front-end IP address is **Public**, which allows it to be added as an endpoint to the Traffic Manager profile later on.
 5. Configure the listener with one of the following options:
     * If you use HTTP, there is nothing to configure. Click **OK**.
-    * If you use HTTPS, further configuration is required. Refer to [Create an application gateway](../application-gateway/application-gateway-create-gateway-portal.md), starting at step 9. When you have completed the configuration, click **OK**.
+    * If you use HTTPS, further configuration is required. Refer to [Create an application gateway](../application-gateway/quick-create-portal.md), starting at step 9. When you have completed the configuration, click **OK**.
 
 #### Configure URL routing for application gateways
 
-When you choose a back-end pool, an application gateway that's configured with a path-based rule takes a path pattern of the request URL in addition to round-robin distribution. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more information about configuring URL path-based routing for an application gateway, refer to [Create a path-based rule for an application gateway](../application-gateway/application-gateway-create-url-route-portal.md).
+When you choose a back-end pool, an application gateway that's configured with a path-based rule takes a path pattern of the request URL in addition to round-robin distribution. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more information about configuring URL path-based routing for an application gateway, refer to [Create a path-based rule for an application gateway](../application-gateway/create-url-route-portal.md).
 
 ![Application Gateway web-tier diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -149,9 +149,9 @@ In this scenario, Traffic Manager is connected to application gateways (as confi
 
 In this scenario, Load Balancer distributes connections from the web tier to the databases within a high-availability cluster.
 
-If your high-availability database cluster is using SQL Server AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) for step-by-step instructions.
+If your high-availability database cluster is using SQL Server AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) for step-by-step instructions.
 
-For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/quickstart-load-balancer-standard-internal-portal.md).
 
 1. In the Azure portal, in the left pane, click **Create a resource** > **Networking** > **Load balancer**.
 2. Choose a name for your load balancer.
@@ -205,5 +205,5 @@ Now we configure the IP address and load-balancer front-end port in the applicat
 ## Next steps
 
 * [Overview of Traffic Manager](traffic-manager-overview.md)
-* [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
+* [Application Gateway overview](../application-gateway/overview.md)
 * [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md)

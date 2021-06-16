@@ -1,5 +1,5 @@
 ---
-title: SMS sign-in user experience for phone number (preview) - Azure AD
+title: SMS sign-in user experience for phone number - Azure AD
 description: Learn more about SMS sign-in user experience for new or existing phone numbers
 services: active-directory
 author: curtand
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 04/14/2020
+ms.topic: end-user-help
+ms.date: 06/10/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
 ---
 
-# Use your phone number as a user name (preview)
+# Use your phone number as a user name
 
 Registering a device gives your phone access to your organization's services and doesn't allow your organization access to your phone. If you're an administrator, you can find more information in [Configure and enable users for SMS-based authentication](../authentication/howto-authentication-sms-signin.md).
 
@@ -31,7 +31,7 @@ If you get a new phone or new number and you register it with an organization fo
 1. You will see a prompt that says "SMS verified. Your phone was registered successfully."
 
 > [!Important]
-> Due to a known issue in the preview, for a short time adding phone number will not register the number for SMS sign-in. You'll have to sign in with the added number and then follow the prompts to register the number for SMS sign-in.
+> Due to a known issue, for a short time adding phone number will not register the number for SMS sign-in. You'll have to sign in with the added number and then follow the prompts to register the number for SMS sign-in.
 
 ### When the phone number is in use
 
@@ -47,11 +47,11 @@ If you are already using a phone number with an organization, and using your pho
 
 1. When SMS sign-in is available, a banner is displayed asking if you'd like to enable the phone number for SMS sign-in:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-banner.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    :::image type="content" source="media/sms-sign-in-explainer/sms-sign-in-banner.png" alt-text="Screenshot that shows the banner to enable SMS sign-in for a phone number with the 'Enable' action selected." lightbox="media/sms-sign-in-explainer/sms-sign-in-banner.png":::
 
 1. Also, an **Enable** button appears if you select the caret on the phone method tile:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-phone-method.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
+    [![Banner to enable SMS sign-in for a phone number.](media/sms-sign-in-explainer/sms-sign-in-phone-method.png)](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
 
 1. To enable the method, select **Enable**. You are prompted to confirm the action:
 
@@ -63,7 +63,7 @@ If you are already using a phone number with an organization, and using your pho
 
 1. To delete the phone number, select the delete button on the SMS sign-in phone method tile.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-delete-method.png "Banner to delete SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
+    [![Banner to delete SMS sign-in for a phone number.](media/sms-sign-in-explainer/sms-sign-in-delete-method.png)](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
 
 2. When prompted to confirm the action, select **OK**.
 

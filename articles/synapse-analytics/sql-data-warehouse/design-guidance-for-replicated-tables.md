@@ -1,39 +1,39 @@
 ---
 title: Design guidance for replicated tables
-description: Recommendations for designing replicated tables in Synapse SQL   
+description: Recommendations for designing replicated tables in Synapse SQL pool  
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Design guidance for using replicated tables in SQL Analytics
+# Design guidance for using replicated tables in Synapse SQL pool
 
-This article gives recommendations for designing replicated tables in your SQL Analytics schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
+This article gives recommendations for designing replicated tables in your Synapse SQL pool schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## Prerequisites
 
-This article assumes you are familiar with data distribution and data movement concepts in SQL Analytics.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article.
+This article assumes you are familiar with data distribution and data movement concepts in SQL pool.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article.
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
 - How large is the table?
 - How often is the table refreshed?
-- Do I have fact and dimension tables in a SQL Analytics database?
+- Do I have fact and dimension tables in a SQL pool?
 
 ## What is a replicated table?
 
 A replicated table has a full copy of the table accessible on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Since the table has multiple copies, replicated tables work best when the table size is less than 2 GB compressed.  2 GB is not a hard limit.  If the data is static and does not change, you can replicate larger tables.
 
-The following diagram shows a replicated table that is accessible on each Compute node. In SQL Analytics, the replicated table is fully copied to a distribution database on each Compute node.
+The following diagram shows a replicated table that is accessible on each Compute node. In SQL pool, the replicated table is fully copied to a distribution database on each compute node.
 
 ![Replicated table](./media/design-guidance-for-replicated-tables/replicated-table.png "Replicated table")  
 
@@ -41,14 +41,14 @@ Replicated tables work well for dimension tables in a star schema. Dimension tab
 
 Consider using a replicated table when:
 
-- The table size on disk is less than 2 GB, regardless of the number of rows. To find the size of a table, you can use the [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) command: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
-- The table is used in joins that would otherwise require data movement. When joining tables that are not distributed on the same column, such as a hash-distributed table to a round-robin table, data movement is required to complete the query.  If one of the tables is small, consider a replicated table. We recommend using replicated tables instead of round-robin tables in most cases. To view data movement operations in query plans, use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  The BroadcastMoveOperation is the typical data movement operation that can be eliminated by using a replicated table.  
+- The table size on disk is less than 2 GB, regardless of the number of rows. To find the size of a table, you can use the [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) command: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
+- The table is used in joins that would otherwise require data movement. When joining tables that are not distributed on the same column, such as a hash-distributed table to a round-robin table, data movement is required to complete the query.  If one of the tables is small, consider a replicated table. We recommend using replicated tables instead of round-robin tables in most cases. To view data movement operations in query plans, use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  The BroadcastMoveOperation is the typical data movement operation that can be eliminated by using a replicated table.  
 
 Replicated tables may not yield the best query performance when:
 
 - The table has frequent insert, update, and delete operations. The data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
-- The SQL Analytics database is scaled frequently. Scaling a SQL Analytics database changes the number of Compute nodes, which incurs rebuilding the replicated table.
-- The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Analytics only moves data for the requested columns.
+- The SQL pool is scaled frequently. Scaling a SQL pool changes the number of Compute nodes, which incurs rebuilding the replicated table.
+- The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL pool only moves data for the requested columns.
 
 ## Use replicated tables with simple query predicates
 
@@ -73,13 +73,13 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 
 If you already have round-robin tables, we recommend converting them to replicated tables if they meet the criteria outlined in this article. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins.
 
-This example uses [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
+This example uses [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
 WITH
   (
-    CLUSTERED COLUMNSTORE INDEX,  
+    HEAP,  
     DISTRIBUTION = REPLICATE  
   )  
 AS SELECT * FROM [dbo].[DimSalesTerritory]
@@ -94,7 +94,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### Query performance example for round-robin versus replicated
 
-A replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) system catalog view.  
+A replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) system catalog view.  
 
 For example, in following query against the AdventureWorks schema, the `FactInternetSales` table is hash-distributed. The `DimDate` and `DimSalesTerritory` tables are smaller dimension tables. This query returns the total sales in North America for fiscal year 2004:
 
@@ -119,9 +119,9 @@ We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran th
 
 ## Performance considerations for modifying replicated tables
 
-SQL Analytics implements a replicated table by maintaining a master version of the table. It copies the master version to the first distribution database on each Compute node. When there is a change, SQL Analytics first updates the master version, then it rebuilds the tables on each Compute node. A rebuild of a replicated table includes copying the table to each Compute node and then building the indexes.  For example, a replicated table on a DW2000c has 5 copies of the data.  A master copy and a full copy on each Compute node.  All data is stored in distribution databases. SQL Analytics uses this model to support faster data modification statements and flexible scaling operations.
+SQL pool implements a replicated table by maintaining a master version of the table. It copies the master version to the first distribution database on each Compute node. When there is a change, the master version is updated first, then the tables on each Compute node are rebuilt. A rebuild of a replicated table includes copying the table to each Compute node and then building the indexes.  For example, a replicated table on a DW2000c has 5 copies of the data.  A master copy and a full copy on each Compute node.  All data is stored in distribution databases. SQL pool uses this model to support faster data modification statements and flexible scaling operations.
 
-Rebuilds are required after:
+Asynchronous rebuilds are triggered by the first query against the replicated table after:
 
 - Data is loaded or modified
 - The Synapse SQL instance is scaled to a different level
@@ -136,7 +136,7 @@ The rebuild does not happen immediately after data is modified. Instead, the reb
 
 ### Use indexes conservatively
 
-Standard indexing practices apply to replicated tables. SQL Analytics rebuilds each replicated table index as part of the rebuild. Only use indexes when the performance gain outweighs the cost of rebuilding the indexes.
+Standard indexing practices apply to replicated tables. SQL pool rebuilds each replicated table index as part of the rebuild. Only use indexes when the performance gain outweighs the cost of rebuilding the indexes.
 
 ### Batch data load
 
@@ -144,9 +144,9 @@ When loading data into replicated tables, try to minimize rebuilds by batching l
 
 For example, this load pattern loads data from four sources and invokes four rebuilds.
 
-        Load from source 1.
+- Load from source 1.
 - Select statement triggers rebuild 1.
-        Load from source 2.
+- Load from source 2.
 - Select statement triggers rebuild 2.
 - Load from source 3.
 - Select statement triggers rebuild 3.
@@ -165,7 +165,7 @@ For example, this load pattern loads data from four sources, but only invokes on
 
 To ensure consistent query execution times, consider forcing the build of the replicated tables after a batch load. Otherwise, the first query will still use data movement to complete the query.
 
-This query uses the [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV to list the replicated tables that have been modified, but not rebuilt.
+This query uses the [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) DMV to list the replicated tables that have been modified, but not rebuilt.
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
@@ -188,7 +188,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 To create a replicated table, use one of these statements:
 
-- [CREATE TABLE (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (SQL pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE AS SELECT (SQL pool)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).

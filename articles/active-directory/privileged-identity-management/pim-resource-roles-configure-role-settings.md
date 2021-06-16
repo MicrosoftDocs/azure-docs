@@ -7,7 +7,7 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -25,7 +25,7 @@ When you configure Azure resource role settings, you define the default settings
 
 Follow these steps to open the settings for an Azure resource role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -35,7 +35,7 @@ Follow these steps to open the settings for an Azure resource role.
 
     ![Azure resources page listing resources that can be managed](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. Select **Role settings**.
+1. Select **Settings**.
 
     ![Role settings page listing Azure resource roles](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -43,7 +43,7 @@ Follow these steps to open the settings for an Azure resource role.
 
     ![Role setting details page listing several assignment and activation settings](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Select **Edit** to open the **Role settings** pane. The first tab allows you to update the configuration for role activation in Privileged Identity Management.
+1. Select **Edit** to open the **Edit role setting** pane. The first tab allows you to update the configuration for role activation in Privileged Identity Management.
 
     ![Edit role settings page with Activation tab open](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
@@ -73,14 +73,14 @@ You can choose from two assignment duration options for each assignment type (el
 
 You can choose one of these **eligible** assignment duration options:
 
-| | |
+| | Description |
 | --- | --- |
 | **Allow permanent eligible assignment** | Resource administrators can assign permanent eligible assignment. |
 | **Expire eligible assignment after** | Resource administrators can require that all eligible assignments have a specified start and end date. |
 
 And, you can choose one of these **active** assignment duration options:
 
-| | |
+| | Description |
 | --- | --- |
 | **Allow permanent active assignment** | Resource administrators can assign permanent active assignment. |
 | **Expire active assignment after** | Resource administrators can require that all active assignments have a specified start and end date. |
@@ -90,7 +90,7 @@ And, you can choose one of these **active** assignment duration options:
 
 ## Require multi-factor authentication
 
-Privileged Identity Management provides optional enforcement of Azure Multi-Factor Authentication for two distinct scenarios.
+Privileged Identity Management provides optional enforcement of Azure AD Multi-Factor Authentication for two distinct scenarios.
 
 ### Require Multi-Factor Authentication on active assignment
 
@@ -100,7 +100,7 @@ To ensure that the resource administrator fulfilling the assignment is who they 
 
 ### Require Multi-Factor Authentication on activation
 
-You can require users who are eligible for a role to prove who they are using Azure Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
+You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
 To require multi-factor authentication before activation, check the **Require Multi-Factor Authentication on activation** box.
 

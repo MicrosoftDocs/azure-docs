@@ -1,16 +1,17 @@
 ---
 title: Build an Azure Cosmos DB Node.js application by using Gremlin API
 description: Presents a Node.js code sample you can use to connect to and query Azure Cosmos DB
-author: luisbosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: lbosq
-
+ms.author: chrande
+ms.custom: devx-track-js
 ---
 # Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -30,11 +31,11 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -149,13 +150,13 @@ This console app uses the open-source [Gremlin Node.js](https://www.npmjs.com/pa
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
-    ![View and copy an access key in the Azure portal, Overview page](./media/create-graph-nodejs/gremlin-uri.png)
+    :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="View and copy an access key in the Azure portal, Overview page":::
 
 3. In *config.js*, fill in the config.primaryKey value with the **Primary Key** value from the **Keys** page of your Cosmos DB account in the Azure portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![Azure portal "Keys" blade](./media/create-graph-nodejs/keys.png)
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Azure portal keys blade":::
 
 4. Enter the database name, and graph (container) name for the value of config.database and config.collection. 
 
@@ -193,11 +194,11 @@ Try completing `g.V()` with `.has('firstName', 'Thomas')` to test the filter. No
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up your resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

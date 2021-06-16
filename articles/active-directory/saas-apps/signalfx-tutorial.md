@@ -2,54 +2,44 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SignalFx | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SignalFx.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6d5ab4b0-29bc-4b20-8536-d64db7530f32
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/24/2020
+ms.date: 05/25/2021
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SignalFx
 
 In this tutorial, you will learn how to integrate SignalFx with Azure Active Directory (Azure AD). When you integrate SignalFx with Azure AD, you can:
 
-* Control from Azure AD who has access to SignalFx;
-* Enable your users to be automatically signed-in to SignalFx with their Azure AD accounts; and
+* Control from Azure AD who has access to SignalFx.
+* Enable your users to be automatically signed-in to SignalFx with their Azure AD accounts.
 * Manage your accounts in one location (the Azure portal).
-
-To learn more about SaaS application integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
-Before you begin, you will need:
+To get started, you need the following items:
 
-* An Azure AD subscription
-    * If you do not have a subscription, you can obtain a [free account here](https://azure.microsoft.com/free/).
-* SignalFx single sign-on (SSO) enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* SignalFx single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you will configure and test Azure AD SSO in a test environment.
 
-* SignalFx supports **IDP** initiated SSO
-* SignalFx supports **Just In Time** user provisioning
-* Once you configure SignalFx you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* SignalFx supports **IDP** initiated SSO.
+* SignalFx supports **Just In Time** user provisioning.
 
 ## Step 1: Add the SignalFx application in Azure
 
 Use these instructions to add the SignalFx application to your list of managed SaaS apps.
 
-1. Log into the [Azure portal](https://portal.azure.com).
+1. Log into the Azure portal.
 1. On the left-side navigation window, select **Azure Active Directory**.
 1. Select **Enterprise applications**, and then select **All applications**.
 1. Select **New application**.
@@ -77,13 +67,13 @@ Use these instructions to begin the configuration process for the SignalFx SSO.
 
 Use these instructions to enable Azure AD SSO in the Azure portal.
 
-1. Return to the [Azure portal](https://portal.azure.com/), and on the **SignalFx** application integration page, locate the **Manage** section, and then select **Single sign-on**.
+1. Return to the Azure portal, and on the **SignalFx** application integration page, locate the **Manage** section, and then select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the pen (edit) icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, complete the following fields: 
+1. On the **Set up single sign-on with SAML** page, perform the following steps: 
 
     a. In **Identifier**, enter the following URL `https://api.<realm>.signalfx.com/v1/saml/metadata` and replace `<realm>` with your SignalFx realm. 
 
@@ -111,33 +101,27 @@ Use these instructions to enable Azure AD SSO in the Azure portal.
 
 ## Step 4: Create an Azure AD test user
 
-Use these instructions to create a test user in the Azure portal called **B.Simon**.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. In the Azure portal, in the left-side navigation window, select **Azure Active Directory**, then select **Users**, and then select **All users**.
-1. At the top of the page, select **New user**.
-1. In the **User** properties:
-   1. In **User name**, enter `username@companydomain.extension`, such as `b.simon@contoso.com`.
-   1. In **Name**, enter `B.Simon`.
-   1. Mark **Show password**, and then copy the displayed value in **Password**. You will need this information in later step in order to test this integration. 
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
 ## Step 5: Assign the Azure AD test user
 
-Use these instructions to enable the test user to use Azure single sign-on for SignalFx.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SignalFx.
 
-1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **SignalFx**.
-1. In the app's overview page, find the **Manage** section, and then select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
-1. Select **Add user**, and then in the **Add Assignment** dialog box, select **Users and groups**.
-
-    ![The Add User link](common/add-assign-user.png)
-
-1. In the **Users and groups** dialog box, from the **Users** list, select **B.Simon**, and then at the bottom of the page, click **Select**.
-1. If you are expecting any role value in the SAML assertion, then in the **Select Role** dialog box, select the appropriate role for the user from the list, and then click **Select** at the bottom of the page.
-1. In the **Add Assignment** dialog box, click the **Assign**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Step 6: Complete the SignalFx SSO configuration 
 
@@ -155,12 +139,12 @@ Review the following information regarding how to test SSO, as well as expectati
 
 * To test the login, you should use a private / incognito window, or you can log out of the Azure portal. If not, cookies for the user who configured the application will interfere and prevent a successful login with the test user.
 
-* When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not be completed; the test user will be directed to the Azure portal. To troubleshoot, the test user should change their password, and navigate to the SignalFx login page or to the Access Panel and try again.
-    * When you click the SignalFx tile in the Access Panel, you should be automatically logged into the SignalFx. 
-        * For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not be completed; the test user will be directed to the Azure portal. To troubleshoot, the test user should change their password, and navigate to the SignalFx login page or to the MyApps and try again.
+    * When you click the SignalFx tile in the MyApps, you should be automatically logged into the SignalFx. 
+        * For more information about the MyApps, see [Introduction to the MyApps](../user-help/my-apps-portal-end-user-access.md).
 
-* SignalFx application can be accessed from the Access Panel or via a custom login page assigned to the organization. The test user should test the integration starting from either of these location.
-    * The test user can use the credentials created earlier in this process for **b.simon@contoso.com**.
+* SignalFx application can be accessed from the MyApps or via a custom login page assigned to the organization. The test user should test the integration starting from either of these location.
+    * The test user can use the credentials created earlier in this process for **b.simon\@contoso.com**.
 
 ### First-time logins
 
@@ -168,14 +152,6 @@ Review the following information regarding how to test SSO, as well as expectati
 
 * SignalFx supports **Just In Time** user creation, which means that if a user does not exist in SignalFx, then the user's account will be created upon first login attempt.
 
-## Additional resources
+## Next steps
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
-
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Try SignalFx with Azure AD](https://aad.portal.azure.com/)
+Once you configure SignalFx you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

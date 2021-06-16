@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
 description: This article provides troubleshooting information for deploying the configuration server for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2019
-ms.author: ramamill
+ms.author: sharrai
+ms.date: 05/27/2021
 
 ---
 # Troubleshoot configuration server issues
@@ -49,6 +49,8 @@ The source machine registers with the configuration server when you install the 
     c. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
     d. [Uninstall](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
 
+8. Ensure that multi-factor authentication is not enabled for user account. Azure Site Recovery does not support multi-factor authentication for user account as of now. Register the configuration server without multi-factor authentication enabled user account.  
+
 ## Installation failure: Failed to load accounts
 
 This error occurs when the service can't read data from the transport connection when it's installing the mobility agent and registering with the configuration server. To resolve the issue, ensure that TLS 1.0 is enabled on your source machine.
@@ -57,7 +59,7 @@ This error occurs when the service can't read data from the transport connection
 
 To resolve vCenter discovery failures, add the vCenter server to the byPass list proxy settings. 
 
-- Download PsExec tool from [here](https://aka.ms/PsExec) to access System user content.
+- Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user content.
 - Open Internet Explorer in system user content by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Add proxy settings in IE and restart tmanssvc service.
@@ -158,16 +160,18 @@ The configuration server upgrade fails when certain services do not stop.
 
 To identify the issue, navigate to C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile on the configuration server. If you find following errors, use the steps below to resolve the issue: 
 
-	2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
-	2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
-	2018-06-28 14:28:12.944   Stopping svagents service.
-	2018-06-28 14:31:32.949   Unable to stop svagents service.
-	2018-06-28 14:31:32.949   Stopping svagents service.
-	2018-06-28 14:34:52.960   Unable to stop svagents service.
-	2018-06-28 14:34:52.960   Stopping svagents service.
-	2018-06-28 14:38:12.971   Unable to stop svagents service.
-	2018-06-28 14:38:12.971   Rolling back the install changes.
-	2018-06-28 14:38:12.971   Upgrade has failed.
+```output
+2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+2018-06-28 14:28:12.944   Stopping svagents service.
+2018-06-28 14:31:32.949   Unable to stop svagents service.
+2018-06-28 14:31:32.949   Stopping svagents service.
+2018-06-28 14:34:52.960   Unable to stop svagents service.
+2018-06-28 14:34:52.960   Stopping svagents service.
+2018-06-28 14:38:12.971   Unable to stop svagents service.
+2018-06-28 14:38:12.971   Rolling back the install changes.
+2018-06-28 14:38:12.971   Upgrade has failed.
+```
 
 To resolve the issue:
 
@@ -188,8 +192,8 @@ You have insufficient permissions to create an application in Azure Active Direc
 
 To resolve the issue, sign in to the Azure portal and do one of the following:
 
-- Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
+- Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## Process server/Master Target are unable to communicate with the configuration server 
 
@@ -207,8 +211,10 @@ TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Replace IP with
 
 If you find traces similar to the following in the MT agent logs, the MT Agent is reporting errors on port 443:
 
-    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
-    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```output
+#~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+#~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```
  
 This error can be encountered when other applications are also using port 443 or due to a firewall setting blocking the port.
 
@@ -250,4 +256,3 @@ This issue can occur when the system time is incorrect.
 To resolve the issue:
 
 Set the correct time on the computer and retry the sign in. 
- 

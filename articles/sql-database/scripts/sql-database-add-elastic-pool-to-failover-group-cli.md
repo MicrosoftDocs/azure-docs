@@ -1,4 +1,4 @@
-﻿---
+---
 title: CLI example- Failover group - Azure SQL Database elastic pool 
 description: Azure CLI example script to create an Azure SQL Database elastic pool, add it to a failover group, and test failover. 
 services: sql-database
@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 07/16/2019
 ---
 # Use CLI to add an Azure SQL Database elastic pool to a failover group
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Elastic pool commands. |
 | [az sql failover-group ](/cli/azure/sql/failover-group) | Failover group commands. |
@@ -55,4 +55,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
 
-Additional SQL Database Azure CLI script samples can be found in the [Azure SQL Database Azure CLI scripts](../sql-database-cli-samples.md).
+Additional SQL Database Azure CLI script samples can be found in the [Azure SQL Database Azure CLI scripts](../../azure-sql/database/az-cli-script-samples-content-guide.md).

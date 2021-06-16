@@ -3,13 +3,18 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/15/2021
 ms.author: sajaya
 ---
 
 # Frequently asked questions about Azure Container Registry
 
 This article addresses frequently asked questions and known issues about Azure Container Registry.
+
+For registry troubleshooting guidance, see:
+* [Troubleshoot registry login](container-registry-troubleshoot-login.md)
+* [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
+* [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
 
 ## Resource management
 
@@ -23,11 +28,11 @@ This article addresses frequently asked questions and known issues about Azure C
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
-Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) that you can use to create a registry.
+Yes. Here is [a template](https://azure.microsoft.com/resources/templates/container-registry/) that you can use to create a registry.
 
 ### Is there security vulnerability scanning for images in ACR?
 
-Yes. See the documentation from [Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Yes. See the documentation from [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### How do I configure Kubernetes with Azure Container Registry?
 
@@ -46,7 +51,7 @@ To get credentials using the Azure CLI:
 az acr credential show -n myRegistry
 ```
 
-Using Azure Powershell:
+Using Azure PowerShell:
 
 ```powershell
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
@@ -101,6 +106,7 @@ It takes some time to propagate firewall rule changes. After you change firewall
 - [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [How do I enable automatic image quarantine for a registry?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [How do I enable anonymous pull access?](#how-do-i-enable-anonymous-pull-access)
+- [How do I push non-distributable layers to a registry?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### How do I access Docker Registry HTTP API V2?
 
@@ -115,7 +121,7 @@ If you are on bash:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
-For Powershell:
+For PowerShell:
 
 ```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
@@ -216,7 +222,7 @@ ACR supports [custom roles](container-registry-roles.md) that provide different 
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
 
-  Or, assign the role to a service principle identified by its application ID:
+  Or, assign the role to a service principal identified by its application ID:
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
@@ -250,8 +256,51 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 
 ### How do I enable anonymous pull access?
 
-Setting up an Azure container registry for anonymous (public) pull access is currently a preview feature. To enable public access, please open a support ticket at https://aka.ms/acr/support/create-ticket. For details, see the [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Setting up an Azure container registry for anonymous (unauthenticated) pull access is currently a preview feature, available in the Standard and Premium [service tiers](container-registry-skus.md). 
 
+To enable anonymous pull access, update a registry using the Azure CLI (version 2.21.0 or later) and pass the `--anonymous-pull-enabled` parameter to the [az acr update](/cli/azure/acr#az_acr_update) command:
+
+```azurecli
+az acr update --name myregistry --anonymous-pull-enabled
+``` 
+
+You may disable anonymous pull access at any time by setting `--anonymous-pull-enabled` to `false`.
+
+> [!NOTE]
+> * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
+> * Only data-plane operations are available to unauthenticated clients.
+> * The registry may throttle a high rate of unauthenticated requests.
+> * Currently, anonymous pull access isn't supported in [geo-replicated](container-registry-geo-replication.md) registry regions.
+
+> [!WARNING]
+> Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using [repository-scoped tokens](container-registry-repository-scoped-permissions.md), be aware that all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
+
+### How do I push non-distributable layers to a registry?
+
+A non-distributable layer in a manifest contains a URL parameter that content may be fetched from. Some possible use cases for enabling non-distributable layer pushes are for network restricted registries, air-gapped registries with restricted access, or for registries with no internet connectivity.
+
+For example, if you have NSG rules set up so that a VM can pull images only from your Azure container registry, Docker will pull failures for foreign/non-distributable layers. For example, a Windows Server Core image would contain foreign layer references to Azure container registry in its manifest and would fail to pull in this scenario.
+
+To enable pushing of non-distributable layers:
+
+1. Edit the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts and at `C:\ProgramData\docker\config\daemon.json` on Windows Server. Assuming the file was previously empty, add the following contents:
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > The value is an array of registry addresses, separated by commas.
+
+2. Save and exit the file.
+
+3. Restart Docker.
+
+When you push images to the registries in the list, their non-distributable layers are pushed to the registry.
+
+> [!WARNING]
+> Non-distributable artifacts typically have restrictions on how and where they can be distributed and shared. Use this feature only to push artifacts to private registries. Ensure that you are in compliance with any terms that cover redistributing non-distributable artifacts.
 
 ## Diagnostics and health checks
 
@@ -265,6 +314,7 @@ Setting up an Azure container registry for anonymous (public) pull access is cur
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Why does the Azure portal fail to fetch repositories or tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Why does my pull or push request fail with disallowed operation?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [Repository format is invalid or unsupported](#repository-format-is-invalid-or-unsupported)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### Check health with `az acr check-health`
@@ -430,10 +480,17 @@ Please contact your network administrator or check your network configuration an
 
 ### Why does my pull or push request fail with disallowed operation?
 
-Here are some scenarios where operations maybe disallowed:
-* Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
-* The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
+Here are some scenarios where operations may be disallowed:
+* Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az_acr_update) or the Azure portal.
+* The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](./container-registry-image-lock.md) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+* Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).
+
+### Repository format is invalid or unsupported
+
+If you see an error such as "unsupported repository format", "invalid format", or "the requested data does not exist" when specifying a repository name in repository operations, check the spelling and case of the name. Valid repository names can only include lowercase alphanumeric characters, periods, dashes, underscores, and forward slashes. 
+
+For complete repository naming rules, see the [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### How do I collect http traces on Windows?
 

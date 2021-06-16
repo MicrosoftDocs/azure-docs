@@ -2,16 +2,14 @@
 title: Use custom scale-in policies with Azure virtual machine scale sets
 description: Learn how to use custom scale-in policies with Azure virtual machine scale sets that use autoscale configuration to manage instance count
 services: virtual-machine-scale-sets
-author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
+ms.subservice: scale-in-policy
 ms.date: 02/26/2020
-ms.author: avverma
+ms.reviewer: avverma
+ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 

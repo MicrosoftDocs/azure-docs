@@ -3,7 +3,7 @@ title: Develop for Azure Files with C++ | Microsoft Docs
 description: Learn how to develop C++ applications and services that use Azure Files to store file data.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
@@ -13,6 +13,13 @@ ms.subservice: files
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## About this tutorial
 
@@ -26,7 +33,7 @@ In this tutorial, you'll learn how to perform basic operations on Azure Files. T
 * Create a shared access signature (SAS key) for a file that uses a shared access policy defined on the share.
 
 > [!Note]  
-> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [File REST API](/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
 
 ## Create a C++ application
 

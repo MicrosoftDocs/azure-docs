@@ -1,27 +1,23 @@
 ---
-title: Projections in a knowledge store (preview)
+title: Projection concepts
 titleSuffix: Azure Cognitive Search
-description: Save and shape your enriched data from the AI enrichment indexing pipeline into a knowledge store for use in scenarios other than full text search. Knowledge store is currently in public preview.
+description: Save and shape your enriched data from the AI enrichment indexing pipeline into a knowledge store for use in scenarios other than full text search.
 
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 06/30/2020
 ---
 
-# Projections in a knowledge store in Azure Cognitive Search
-
-> [!IMPORTANT] 
-> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
+# Knowledge store "projections" in Azure Cognitive Search
 
 Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments create new information where none previously existed: extracting information from images, detecting sentiment, key phrases, and entities from text, to name a few. Enrichments also add structure to undifferentiated text. All of these processes result in documents that make full text search more effective. In many instances, enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
 Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
-Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
+Projections can be tabular, with data stored in rows and columns in Azure Table Storage, or JSON objects stored in Azure Blob Storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
 
 The knowledge store supports three types of projections:
 
@@ -196,7 +192,7 @@ Your projections have a lifecycle that is tied to the source data in your data s
 
 After the indexer is run, you can read the projected data in the containers or tables you specified through projections.
 
-For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
+For analytics, exploration in Power BI is as simple as setting Azure Table Storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
 
 Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
 

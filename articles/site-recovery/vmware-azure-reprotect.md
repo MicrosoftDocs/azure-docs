@@ -1,12 +1,12 @@
 ---
 title: Reprotect VMware VMs to an on-premises site with Azure Site Recovery
 description: Learn how to reprotect VMware VMs after failover to Azure with Azure Site Recovery.
-author: mayurigupta13
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: mayg
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Reprotect from Azure to on-premises
@@ -28,7 +28,7 @@ After [failover](site-recovery-failover.md) of on-premises VMware VMs or physica
     - If you're using either the ESXi 5.5 free edition or the vSphere 6 Hypervisor free edition. Upgrade to a different version.
     - If you have a Windows Server 2008 R2 SP1 physical server.
     - VMware VMs can't fail back to Hyper-V.
-    - VMs that have [been migrated](migrate-overview.md#what-do-we-mean-by-migration).
+    - VMs that have been migrated.
     - A VM that's been moved to another resource group.
     - A replica Azure VM that's been deleted.
     - A replica Azure VM that isn't protected (replicating to the on-premises site).
@@ -41,6 +41,9 @@ Enable replication. You can reprotect specific VMs, or a recovery plan:
 
 - If you reprotect a recovery plan, you must provide the values for every protected machine.
 - If VMs belong to a replication group for multi-VM consistency, they can only be reprotected using a recovery plan. VMs in a replication group must use the same master target server
+
+>[!NOTE]
+>The amount of data sent from Azure to erstwhile source during reprotect, can be anything between 0 bytes and sum of disk size for all protected machines, and can't be calculated.
 
 ### Before you start
 

@@ -3,21 +3,21 @@ title: Analytics on knowledgebase - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker stores all chat logs and other telemetry, if you have enabled App Insights during the creation of your QnA Maker service. Run the sample queries to get your chat logs from App Insights.
 services: cognitive-services
-author: diberry
 manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: diberry
+ms.date: 11/09/2020
 ---
 
 # Get analytics on your knowledge base
 
-QnA Maker stores all chat logs and other telemetry, if you have enabled App Insights during the [creation of your QnA Maker service](./set-up-qnamaker-service-azure.md). Run the sample queries to get your chat logs from App Insights.
+# [QnA Maker GA (stable release)](#tab/v1)
 
-1. Go to your App Insights resource.
+QnA Maker stores all chat logs and other telemetry, if you have enabled Application Insights during the [creation of your QnA Maker service](./set-up-qnamaker-service-azure.md). Run the sample queries to get your chat logs from Application Insights.
+
+1. Go to your Application Insights resource.
 
     ![Select your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
@@ -43,7 +43,21 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
     [![Run query to determine questions, answers, and score from users](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
+# [Custom question answering (preview release)](#tab/v2)
+
+Custom question answering (Preview) uses Azure diagnostic logging to store the telemetry data and chat logs. Follow the below steps to run sample queries to get analytics on the usage of your QnA Maker knowledge base.
+
+1. [Enable diagnostics logging](../../diagnostic-logging.md) for your Text Analytics service with Custom question answering (preview) feature.
+
+2. In the previous step, select **Trace** in addition to **Audit, RequestResponse and AllMetrics** for logging
+
+    ![Enable trace logging in QnA Maker managed (Preview)](../media/qnamaker-how-to-analytics-kb/qnamaker-v2-enable-trace-logging.png)
+
+---
+
 ## Run queries for other analytics on your QnA Maker knowledge base
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 ### Total 90-day traffic
 
@@ -112,6 +126,76 @@ traces | extend id = operation_ParentId
 | project timestamp, KbId, question, answer, score
 | order  by timestamp  desc
 ```
+
+# [Custom question answering (preview release)](#tab/v2)
+
+### All QnA chat log
+
+```kusto
+// All QnA Traffic
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
+| where OperationName=="QnAMaker GenerateAnswer"
+| extend answer_ = tostring(parse_json(properties_s).answer)
+| extend question_ = tostring(parse_json(properties_s).question)
+| extend score_ = tostring(parse_json(properties_s).score)
+| extend kbId_ = tostring(parse_json(properties_s).kbId)
+| project question_, answer_, score_, kbId_
+```
+
+### Traffic count per knowledge base and user in a time period
+
+```kusto
+// Traffic count per KB and user in a time period
+let startDate = todatetime('2019-01-01');
+let endDate = todatetime('2020-12-31');
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
+| where OperationName=="QnAMaker GenerateAnswer"
+| where TimeGenerated <= endDate and TimeGenerated >=startDate
+| extend kbId_ = tostring(parse_json(properties_s).kbId)
+| extend userId_ = tostring(parse_json(properties_s).userId)
+| summarize ChatCount=count() by bin(TimeGenerated, 1d), kbId_, userId_
+```
+
+### Latency of GenerateAnswer API
+
+```kusto
+// Latency of GenerateAnswer
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
+| where OperationName=="Generate Answer"
+| project TimeGenerated, DurationMs
+| render timechart
+```
+
+### Average latency of all operations
+
+```kusto
+// Average Latency of all operations
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
+| project DurationMs, OperationName
+| summarize count(), avg(DurationMs) by OperationName
+| render barchart
+```
+
+### Unanswered questions
+
+```kusto
+// All unanswered questions
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
+| where OperationName=="QnAMaker GenerateAnswer"
+| extend answer_ = tostring(parse_json(properties_s).answer)
+| extend question_ = tostring(parse_json(properties_s).question)
+| extend score_ = tostring(parse_json(properties_s).score)
+| extend kbId_ = tostring(parse_json(properties_s).kbId)
+| where score_ == 0
+| project question_, answer_, score_, kbId_
+```
+
+---
 
 ## Next steps
 

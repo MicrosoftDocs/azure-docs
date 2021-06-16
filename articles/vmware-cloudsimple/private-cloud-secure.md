@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solutions by CloudSimple - Secure Private Cloud 
 description: Describes how to secure Azure VMware Solutions by CloudSimple Private Cloud 
-author: sharaths-cs 
-ms.author: b-shsury 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/19/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -14,17 +14,17 @@ manager: dikamath
 
 Define role-based access control (RBAC) for CloudSimple Service, CloudSimple portal, and Private Cloud from Azure.  Users, groups, and roles for accessing vCenter of Private Cloud are specified using VMware SSO.  
 
-## RBAC for CloudSimple service
+## Azure RBAC for CloudSimple service
 
 Creation of CloudSimple service requires **Owner** or **Contributor** role on the Azure subscription.  By default, all owners and contributors can create a CloudSimple service and access CloudSimple portal for creating and managing Private Clouds.  Only one CloudSimple service can be created per region.  To restrict access to specific administrators, follow the procedure below.
 
 1. Create a CloudSimple Service in a new **resource group** on Azure portal
-2. Specify RBAC for the resource group.
+2. Specify Azure RBAC for the resource group.
 3. Purchase nodes and use the same resource group as CloudSimple service
 
 Only the users who have **Owner** or **Contributor** privileges on the resource group will see the CloudSimple service and launch CloudSimple portal.
 
-For more information about RBAC, see [What is role-based access control (RBAC) for Azure resources](../role-based-access-control/overview.md).
+For more information, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ## RBAC for Private Cloud vCenter
 

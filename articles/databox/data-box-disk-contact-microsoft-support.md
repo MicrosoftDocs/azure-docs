@@ -5,8 +5,8 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
-ms.date: 05/24/2019
+ms.topic: how-to
+ms.date: 05/04/2021
 ms.author: alkohli
 ---
 # Open a support ticket for Azure Data Box
@@ -70,12 +70,16 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 2. A tabular listing of **Recent support requests** is displayed in **Help + support**.
 
-    ![Manage support requests](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
+    ![Manage support requests 2](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 
 3. Select and click a support request. You can view the status and the details for this request. Click **+ New message** if you want to follow up on this request.
 
 ## Next steps
 
 Learn how to [Troubleshoot issues related to Data Box Disk](data-box-disk-troubleshoot.md).
-Learn how to [Troubleshoot issues related to Data Box](data-box-troubleshoot.md).
+
+Learn how to [Troubleshoot issues related to a Data Box](data-box-troubleshoot.md).
+
+Learn how to [Review copy errors in an upload from a Data Box or Data Box Disk device](data-box-troubleshoot-data-upload.md).
+
 Learn how to [Troubleshoot issues related to Data Box Blob storage](data-box-troubleshoot-rest.md).

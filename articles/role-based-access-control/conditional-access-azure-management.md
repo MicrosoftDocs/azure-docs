@@ -39,8 +39,12 @@ The policy you create applies to all Azure management endpoints, including the f
 - Visual Studio subscriptions administrator portal
 - Azure DevOps
 - Azure Data Factory portal
+- Azure Event Hubs
+- Azure Service Bus
+- [Azure SQL Database](../azure-sql/database/conditional-access-configure.md)
+- SQL Managed Instance
+- Azure Synapse
 
 Note that the policy applies to Azure PowerShell, which calls the Azure Resource Manager API. It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), which calls Microsoft Graph.
 
-
-For more information on how to set up and use Conditional Access, see [Conditional Access in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+For more information on how to set up a sample policy to enable Conditional Access for Microsoft Azure management, see the article [Conditional Access: Require MFA for Azure management](../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).

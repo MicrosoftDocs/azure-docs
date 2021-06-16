@@ -9,27 +9,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 11/23/2020
 ms.author: pafarley
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Run TensorFlow model in Python
 
-After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
+After you have [exported your TensorFlow model](./export-your-model.md) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
 > [!NOTE]
-> This tutorial applies only to models exported from image classification projects.
+> This tutorial applies only to models exported from "General (compact)" image classification projects. If you exported other models, please visit our [sample code repository](https://github.com/Azure-Samples/customvision-export-samples).
 
 ## Prerequisites
 
 To use the tutorial, you need to do the following:
 
-- Install either Python 2.7+ or Python 3.5+.
+- Install either Python 2.7+ or Python 3.6+.
 - Install pip.
 
 Next, you'll need to install the following packages:
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -38,7 +39,7 @@ pip install opencv-python
 
 ## Load your model and tags
 
-The downloaded zip file contains a model.pb and a labels.txt. These files represent the trained model and the classification labels. The first step is to load the model into your project.
+The downloaded .zip file contains a _model.pb_ and a _labels.txt_ file. These files represent the trained model and the classification labels. The first step is to load the model into your project. Add the following code to a new Python script.
 
 ```Python
 import tensorflow as tf
@@ -121,6 +122,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### Add helper functions
+
 The steps above use the following helper functions:
 
 ```Python
@@ -166,7 +169,7 @@ def update_orientation(image):
     return image
 ```
 
-## Predict an image
+## Classify an image
 
 Once the image is prepared as a tensor, we can send it through the model for a prediction:
 
@@ -179,14 +182,14 @@ input_node = 'Placeholder:0'
 with tf.compat.v1.Session() as sess:
     try:
         prob_tensor = sess.graph.get_tensor_by_name(output_layer)
-        predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
+        predictions = sess.run(prob_tensor, {input_node: [augmented_image] })
     except KeyError:
         print ("Couldn't find classification output layer: " + output_layer + ".")
         print ("Verify this a model exported from an Object Detection project.")
         exit(-1)
 ```
 
-## View the results
+## Display the results
 
 The results of running the image tensor through the model will then need to be mapped back to the labels.
 

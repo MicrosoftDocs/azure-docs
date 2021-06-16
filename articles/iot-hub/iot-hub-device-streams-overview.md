@@ -7,6 +7,7 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
+ms.custom: ['Role: Cloud Development','Role: IoT Device','Role: Technical Support']
 ---
 
 # IoT Hub Device Streams (preview)
@@ -71,7 +72,7 @@ In the handshake process above:
 
 An established stream terminates when either of the TCP connections to the gateway are disconnected (by the service or device). This can take place voluntarily by closing the WebSocket on either the device or service programs, or involuntarily in case of a network connectivity timeout or process failure. Upon termination of either device or service's connection to the streaming endpoint, the other TCP connection will also be (forcefully) terminated and the service and device are responsible to re-create the stream, if needed.
 
-## Connectivity Requirements
+## Connectivity requirements
 
 Both the device and the service sides of a device stream must be capable of establishing TLS-enabled connections to IoT Hub and its streaming endpoint. This requires outbound connectivity over port 443 to these endpoints. The hostname associated with these endpoints can be found on the *Overview* tab of IoT Hub, as shown in the figure below:
 
@@ -94,7 +95,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) page.
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
 >
 
 ## Allow outbound connectivity to the device streaming endpoints
@@ -111,98 +112,40 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) page.
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
 >
 
-## Troubleshoot via Device Streams Activity Logs
+## Troubleshoot via Device Streams resource logs
 
-You can set up Azure Monitor logs to collect the activity log of device streams in your IoT Hub. This can be very helpful in troubleshooting scenarios.
+You can set up Azure Monitor to collect the [resource logs for device streams](monitor-iot-hub-reference.md#device-streams-preview) emitted by your IoT Hub. This can be very helpful in troubleshooting scenarios.
 
-Follow the steps below to configure Azure Monitor logs for your IoT Hub's device stream activities:
+Follow the steps below to create a diagnostics setting to send device streams logs for your IoT Hub to Azure Monitor Logs:
 
-1. Navigate to the *Diagnostic settings* tab in your IoT Hub, and click on *Turn on diagnostics* link.
+1. In Azure portal, navigate to your IoT hub. On the left pane, under **Monitoring**, select **Diagnostic settings**. Then select **Add diagnostic setting**.
 
-   !["Enabling diagnostics logs"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. Provide a name for your diagnostics setting and select **DeviceStreams** from the list of logs. Then select **Send to Log Analytics**. You'll be guided to choose an existing Log Analytics workspace or create a new one.
 
-2. Provide a name for your diagnostics settings, and choose *Send to Log Analytics* option. You will be guided to choose an existing Log Analytics workspace resource or create a new one. Additionally, check the *DeviceStreams* from the list.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Enable device streams logs":::
 
-    !["Enable device streams logs"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. You can now access your device streams logs under the *Logs* tab in your IoT Hub's portal. Device stream activity logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`.
+3. After you create a diagnostic setting to send your device streams logs to a Log Analytics workspace, you can access the logs by selecting **Logs** under **Monitoring** on the left pane of your IoT hub in Azure portal. Device streams logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`. Be aware that it may take several minutes following an operation for logs to appear in the table.
 
    As shown below, the identity of the target device and the result of the operation is also available in the logs.
 
    !["Access device stream logs"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
 
-## Regional Availability
+To learn more about using Azure Monitor with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md). For information about all of the resource logs, metrics, and tables available for IoT Hub, see [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md).
+
+## Regional availability
 
 During public preview, IoT Hub device streams are available in the Central US, Central US EUAP, North Europe, and Southeast Asia regions. Please make sure you create your hub in one of these regions.
 
-## SDK Availability
+## SDK availability
 
 Two sides of each stream (on the device and service side) use the IoT Hub SDK to establish the tunnel. During public preview, customers can choose from the following SDK languages:
 
 * The C and C# SDK's support device streams on the device side.
 
 * The NodeJS and C# SDK support device streams on the service side.
-
-## IoT Hub device stream samples
-
-There are two [quickstart samples](/azure/iot-hub) available on the IoT Hub page. These demonstrate the use of device streams by applications.
-
-* The *echo* sample demonstrates programmatic use of device streams (by calling the SDK API's directly).
-
-* The *local proxy* sample demonstrates the tunneling of off-the-shelf client/server application traffic (such as SSH, RDP, or web) through device streams.
-
-These samples are covered in greater detail below.
-
-### Echo Sample
-
-The echo sample demonstrates programmatic use of device streams to send and receive bytes between service and device applications. Note that you can use service and device programs in different languages. For example, you can use the C device program with the C# service program.
-
-Here are the echo samples:
-
-* [C# service and service program](quickstart-device-streams-echo-csharp.md)
-
-* [Node.js service program](quickstart-device-streams-echo-nodejs.md)
-
-* [C device program](quickstart-device-streams-echo-c.md)
-
-### Local proxy sample (for SSH or RDP)
-
-The local proxy sample demonstrates a way to enable tunneling of an existing application's traffic that involves communication between a client and a server program. This set up works for client/server protocols like SSH and RDP, where the service-side acts as a client (running SSH or RDP client programs), and the device-side acts as the server (running SSH daemon or RDP server programs).
-
-This section describes the use of device streams to enable the user to SSH to a device over device streams (the case for RDP or other client/server application are similar by using the protocol's corresponding port).
-
-The setup leverages two *local proxy* programs shown in the figure below, namely *device-local proxy* and *service-local proxy*. The local proxy programs are responsible for performing the [device stream initiation handshake](#device-stream-creation-flow) with IoT Hub, and  interacting with SSH client and SSH daemon using regular client/server sockets.
-
-!["Device stream proxy setup for SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
-
-1. The user runs service-local proxy to initiate a device stream to the device.
-
-2. The device-local proxy accepts the stream initiation request and the tunnel is established to IoT Hub's streaming endpoint (as discussed above).
-
-3. The device-local proxy connects to the SSH daemon endpoint listening on port 22 on the device.
-
-4. The service-local proxy listens on a designated port awaiting new SSH connections from the user (port 2222 used in the sample, but this can be configured to any other available port). The user points the SSH client to the service-local proxy port on localhost.
-
-### Notes
-
-* The above steps complete an end-to-end tunnel between the SSH client (on the right) to the SSH daemon (on the left). Part of this end-to-end connectivity involves sending traffic over a device stream to IoT Hub.
-
-* The arrows in the figure indicate the direction in which connections are established between endpoints. Specifically, note that there is no inbound connections going to the device (this is often blocked by a firewall).
-
-* The choice of using port 2222 on the service-local proxy is an arbitrary choice. The proxy can be configured to use any other available port.
-
-* The choice of port 22 is protocol-dependent and specific to SSH in this case. For the case of RDP, the port 3389 must be used. This can be configured in the provided sample programs.
-
-Use the links below for instructions on how to run the local proxy programs in your language of choice. Similar to the [echo sample](#echo-sample), you can run device- and service-local proxy programs in different languages as they are fully interoperable.
-
-* [C# service and service program](quickstart-device-streams-proxy-csharp.md)
-
-* [Node.js service program](quickstart-device-streams-proxy-nodejs.md)
-
-* [C device program](quickstart-device-streams-proxy-c.md)
 
 ## Next steps
 

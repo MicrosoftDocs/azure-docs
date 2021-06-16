@@ -1,12 +1,14 @@
 ---
 title: Use extension sequencing with Azure virtual machine scale sets
 description: Learn how to sequence extension provisioning when deploying multiple extensions on virtual machine scale sets.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 01/30/2019
-ms.author: mimckitt
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Sequence extension provisioning in virtual machine scale sets
@@ -216,7 +218,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 ```
 
 ### Azure CLI 2.0
-Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition. Extension sequencing requires the use of Azure CLI 2.0.55 or above.
+Use [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) to add the Application Health extension to the scale set model definition. Extension sequencing requires the use of Azure CLI 2.0.55 or above.
 
 The following example adds the [Application Health extension](virtual-machine-scale-sets-health-extension.md) to the scale set model of a Windows-based scale set. The Application Health extension will be provisioned after provisioning the [Custom Script Extension](../virtual-machines/extensions/custom-script-windows.md), already defined in the scale set.
 

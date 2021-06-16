@@ -1,12 +1,12 @@
 ---
 title: Read input in any format using .NET custom deserializers in Azure Stream Analytics
 description: This article explains the serialization format and the interfaces that define custom .NET deserializers for Azure Stream Analytics cloud and edge jobs.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 1/28/2020
+ms.date: 5/12/2021
+ms.custom: devx-track-csharp
 ---
 
 # Read input in any format using .NET custom deserializers
@@ -107,7 +107,7 @@ message MessageBodyProto {
 }
 ```
 
-Running `protoc.exe` from the **Google.Protobuf.Tools** NuGet generates a .cs file with the definition. The generated file is not shown here.
+Running `protoc.exe` from the **Google.Protobuf.Tools** NuGet generates a .cs file with the definition. The generated file is not shown here. You must ensure that the version of Protobuf Nuget you use in your Stream Analytics project matches the Protobuf version that was used to generate the input. 
 
 The following code snippet is the deserializer implementation assuming the generated file is included in the project. This implementation is just a thin wrapper over the generated file.
 
@@ -195,7 +195,7 @@ namespace ExampleCustomCode.Serialization
 
 ## Serialization format for REST APIs
 
-Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) documentation.
+Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](/rest/api/streamanalytics/2016-03-01/inputs) documentation.
 
 The following Javascript code is an example of the .NET deserializer serialization format when using the REST API:
 
@@ -218,7 +218,7 @@ The following Javascript code is an example of the .NET deserializer serializati
 
 ## Region support
 
-This feature is available in the following regions:
+This feature is available in the following regions when using Standard SKU:
 
 * West Central US
 * North Europe
@@ -227,13 +227,13 @@ This feature is available in the following regions:
 * East US 2
 * West Europe
 
-You can [request support](https://aka.ms/ccodereqregion) for additional regions.
+You can [request support](https://aka.ms/ccodereqregion) for additional regions. However, there is no such region restriction when using [Stream Analytics clusters](./cluster-overview.md).
 
 ## Frequently asked questions
 
 ### When will this feature be available in all Azure regions?
 
-This feature is available in [6 regions](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
+This feature is available in [6 regions](#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
 
 ### Can I access MetadataPropertyValue from my inputs similar to GetMetadataPropertyValue function?
 
@@ -243,9 +243,9 @@ This functionality is not supported. If you need this capability, you can vote f
 
 Once you have implemented your deserializer, you can help others by sharing it with the community. Submit your code to the [Azure Stream Analytics GitHub repo](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### What are the other limitation of using custom deserializers in Stream Analytics?
+### What are the other limitations of using custom deserializers in Stream Analytics?
 
-If your input is of Protobuf format with schema containing MapField type, you will not be able to implement a custom deserializer. We are working on supporting this type going forward.
+If your input is of Protobuf format with a schema containing `MapField` type, you will not be able to implement a custom deserializer. Also, custom deserializers do not support sample data or preview data. 
 
 ## Next Steps
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with dmarcian | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and dmarcian.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a04b9383-3a60-4d54-9412-123daaddff3b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate dmarcian with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate dmarcian with Azure Active Direc
 * Enable your users to be automatically signed-in to dmarcian with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -82,29 +75,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-	| -- |
-	| `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-	| `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-	| `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+    ```http
+    https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-	| `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
-	| `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 	
-    | |
-	|--|
-	| `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
-	| `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
-	| `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>
+    https://dmarciam-ap.com/login/<ACCOUNT_ID>
+    ```
 	 
 	> [!NOTE] 
 	> These values are not real. You will update these values with the actual Identifier, Reply URL and Sign-On URL which is explained later in the tutorial.
@@ -212,13 +205,12 @@ To enable Azure AD users to sign in to dmarcian, they must be provisioned into d
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the dmarcian tile in the Access Panel, you should be automatically signed in to the dmarcian for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the dmarcian tile in the Access Panel, you should be automatically signed in to the dmarcian for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

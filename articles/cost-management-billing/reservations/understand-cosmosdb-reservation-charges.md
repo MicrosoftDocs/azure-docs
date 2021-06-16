@@ -6,7 +6,7 @@ ms.author: banders
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/10/2021
 ---
 # Understand how the reservation discount is applied to Azure Cosmos DB
 
@@ -93,9 +93,15 @@ For example, assume that you need Azure Cosmos DB deployments in the AU Central 
 |Azure Cosmos DB - 100 RU/s/Hour - AU Central 2  |  AU Central 2   |  50,000  |  50,000   |
 |Azure Cosmos DB - 100 RU/s/Hour - FR South  |  FR South   |  50,000 |  15,384  |
 
-A usage of 50,000 units in the AU Central 2 region corresponds to 75,000 RU/s of billable usage (or normalized usage). This value is computed as: throughput consumption * reservation_discount_ratio_for_that_region. The computation equals 75,000 RU/s of billable or normalized usage. This value is computed as: 50,000 * 1.5 = 75,000 RU/s.
+*  A usage of 50,000 units in the AU Central 2 region corresponds to 75,000 RU/s of billable reservation usage (or normalized usage). This value is computed as: throughput consumption * reservation_discount_ratio_for_that_region. The computation equals 75,000 RU/s of billable or normalized usage. This value is computed as: 50,000 * 1.5 = 75,000 RU/s.
 
-The 100,000 RU/s of reservation purchase would offset the 75,000 RU/s in AU Central 2. It leaves 25,000 RU/s to the FR South region. From the remaining 25,000 RU/s, a reservation discount of 15,384 RU/s is applied to the FR South region. The discount value is computed as: 25,000 / 1.625 = 15,384 RU/s. The remaining 34,616 RU/s in the FR South region are charged at the normal pay-as-you-go rates.
+* A usage of 50,000 units in the FR South region corresponds to  50,000 * 1.625 = 81,250 RU/s reservation is needed.
+
+* Total reservation purchase is 100,000. Because AU central2 region uses 75,000 RU/s which leaves 25,000 RU/s for the other region.
+
+* For FR south region 25,000 RU/s reservation purchase is used and it leaves 56,250 reservation RU/s (81,250 – 25,000 = 56,250 Ru/s).
+
+* 56,250 RU/s are required when using reservation. To pay for these RU/s with regular pricing, you need to convert it into regular RU/s by dividing with the reservation ratio 56,250 / 1.625 = 34,616 RU/s. Regular RU/s are charged at the normal pay-as-you-go rates.
 
 The Azure billing system will assign the reservation billing benefit to the first instance that is processed and that matches the reservation configuration. For example, it's AU Central 2 in this case.
 
@@ -111,8 +117,8 @@ To learn more about Azure reservations, see the following articles:
 
 * [What are reservations for Azure](save-compute-costs-reservations.md)  
 * [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)  
+* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)  
 * [Manage reservations for Azure](manage-reserved-vm-instance.md)  
 * [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)  
 * [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
-* [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations)

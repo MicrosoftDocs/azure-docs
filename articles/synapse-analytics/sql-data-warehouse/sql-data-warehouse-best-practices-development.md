@@ -6,7 +6,7 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -50,7 +50,7 @@ For example, if you have an orders table, which is distributed by order_id, and 
 
 When loading a distributed table, be sure that your incoming data is not sorted on the distribution key as this will slow down your loads.  The articles that follow give further details on improving performance by selecting a distribution column and how to define a distributed table in the WITH clause of your CREATE TABLES statement.
 
-See also [Table overview](sql-data-warehouse-tables-overview.md), [Table distribution](sql-data-warehouse-tables-distribute.md), [Selecting table distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](sql-data-warehouse-tables-overview.md), and [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)
+See also [Table overview](sql-data-warehouse-tables-overview.md), [Table distribution](sql-data-warehouse-tables-distribute.md), [Selecting table distribution](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](sql-data-warehouse-tables-overview.md), and [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)
 
 ## Do not over-partition
 
@@ -75,7 +75,7 @@ Another way to eliminate rollbacks is to use Metadata Only operations like parti
 
 For unpartitioned tables, consider using a CTAS to write the data you want to keep in a table rather than using DELETE.  If a CTAS takes the same amount of time, it is a much safer operation to run as it has minimal transaction logging and can be canceled quickly if needed.
 
-See also [Understanding transactions](sql-data-warehouse-develop-transactions.md), [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md), [Table partitioning](sql-data-warehouse-tables-partition.md), [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), and [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md).
+See also [Understanding transactions](sql-data-warehouse-develop-transactions.md), [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md), [Table partitioning](sql-data-warehouse-tables-partition.md), [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## Use the smallest possible column size
 
@@ -109,14 +109,14 @@ If your table does not have 6 billion rows in this example, either reduce the nu
 > [!TIP]
 > When querying a columnstore table, queries will run faster if you select only the columns you need.  
 
-See also [Table indexes](sql-data-warehouse-tables-index.md), [Columnstore indexes guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), and [Rebuilding columnstore indexes](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+See also [Table indexes](sql-data-warehouse-tables-index.md), [Columnstore indexes guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [Rebuilding columnstore indexes](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
 ## Next steps
 
 If you don't find what you are looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure Synapse documents.  
 
-The [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to post questions to other users and to the Azure Synapse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
+The [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to post questions to other users and to the Azure Synapse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
 
-If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Data Warehouse Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
+If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 
 Use the [Azure Synapse Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.

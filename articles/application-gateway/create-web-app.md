@@ -5,9 +5,10 @@ description: This article provides guidance on how to configure web apps as back
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/15/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure App Service with Application Gateway using PowerShell

@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Table API for Java
-description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
+description: Learn all about the Azure Cosmos DB Table API for Java including release dates, retirement dates, and changes made between each version.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
@@ -8,9 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-
+ms.custom: devx-track-java
 ---
+
 # Azure Cosmos DB Table API for Java: Release notes and resources
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -19,7 +22,7 @@ ms.author: akshanka
 > * [Python](table-sdk-python.md)
  
 
-|   |   |
+|   | Links  |
 |---|---|
 |**SDK download**|[Download Options](https://github.com/azure/azure-storage-java#download)|
 |**API documentation**|[Java API reference documentation](https://azure.github.io/azure-storage-java/)|
@@ -31,7 +34,7 @@ ms.author: akshanka
 
 ## Release notes
 
-### <a name="1.0.0"/>1.0.0
+### <a name="1.0.0"></a>1.0.0
 * General availability release
 
 ## Release and retirement dates
@@ -44,7 +47,7 @@ New features and functionality and optimizations are only added to the current S
 | [1.0.0](#1.0.0) |November 15, 2017 |--- |
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 

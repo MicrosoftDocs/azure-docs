@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Install the Speech SDK for your development environment and create an empty sample project<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Install the Speech SDK for your development environment and create an empty sample project</a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -36,14 +36,14 @@ Before you can initialize an `IntentRecognizer` object, you need to create a con
 Insert this code in the try / catch block in `main()`. Make sure you update these values:
 
 * Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key.
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use **Region identifier** from [region](https://aka.ms/speech/sdkregion)
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use **Region identifier** from [region](../../../../regions.md)
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
 The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
@@ -63,6 +63,15 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 > If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
+
+This example uses the `addIntent()` function to individually add intents. If you want to add all intents from a model, use `addAllIntents(model)` and pass the model.
+
+> [!NOTE]
+> Speech SDK only supports LUIS v2.0 endpoints.
+> You must manually modify the v3.0 endpoint URL found in the example query field to use a v2.0 URL pattern.
+> LUIS v2.0 endpoints always follow one of these two patterns:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## Recognize an intent
 

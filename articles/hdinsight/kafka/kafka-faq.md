@@ -1,9 +1,6 @@
 ---
 title: FAQ about Apache Kafka in Azure HDInsight
 description: Get answers to common questions about Apache Kafka on Azure HDInsight, a managed Hadoop cloud service.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
@@ -62,7 +59,7 @@ To increase the amount of space available for Kafka messages, you can increase t
 
 ## Can a Kafka cluster work with Databricks? 
 
-Yes, Kafka clusters can work with Databricks so long as they are in the same VNet. To use a Kafka cluster with Databricks, create a VNet with an HDInsight Kafka cluster in it, then specify that VNet when you create your Databricks workspace and use VNet injection. For more information, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). You will need to provide the bootstrap broker names of the Kafka cluster when creating the Databricks workspace. For information on retrieving the Kafka broker names, see [Get the Apache Zookeeper and Broker host information](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
+Yes, Kafka clusters can work with Databricks so long as they are in the same VNet. To use a Kafka cluster with Databricks, create a VNet with an HDInsight Kafka cluster in it, then specify that VNet when you create your Databricks workspace and use VNet injection. For more information, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). You will need to provide the bootstrap broker names of the Kafka cluster when creating the Databricks workspace. For information on retrieving the Kafka broker names, see [Get the Apache Zookeeper and Broker host information](./apache-kafka-get-started.md#getkafkainfo).
 
 ## How can I have maximum data durability?
 

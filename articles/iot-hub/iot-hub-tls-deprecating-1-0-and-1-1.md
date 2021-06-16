@@ -17,15 +17,26 @@ To provide best-in-class encryption, IoT Hub is moving to Transport Layer Securi
 
 IoT Hub will continue to support TLS 1.0/1.1 until further notice. However, we recommend that all customers migrate to TLS 1.2 as soon as possible.
 
-## Supported ciphers
+## Deprecating TLS 1.1 ciphers
 
-The timeline for availability of various ciphers used in TLS handshake is as follows:
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SH`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (currently supported)
-* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (will be supported in second half of 2020)
-* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (will be supported in second half of 2020)
-* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (will be supported in second half of 2020)
+## Deprecating TLS 1.0 ciphers
 
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
+
+## TLS 1.2 cipher suites
+
+See [IoT Hub TLS 1.2 cipher suites](iot-hub-tls-support.md#cipher-suites).
+ 
 ## Customer feedback
 
 While the TLS 1.2 enforcement is an industry-wide best-in-class encryption choice and will be enabled as planned, we still would like to hear from customers regarding their specific deployments and difficulties adopting TLS 1.2. For this purpose, you can send your comments to [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).

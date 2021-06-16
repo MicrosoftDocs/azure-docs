@@ -1,8 +1,8 @@
 ---
-title: Configure service firewall rules
+title: Configure public registry access
 description: Configure IP rules to enable access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 03/08/2021
 ---
 
 # Configure public IP network rules
@@ -12,6 +12,10 @@ An Azure container registry by default accepts connections over the internet fro
 IP network rules are configured on the public registry endpoint. IP network rules do not apply to private endpoints configured with [Private Link](container-registry-private-link.md)
 
 Configuring IP access rules is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
+
+Each registry supports a maximum of 100 network access rules.
+
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## Access from selected public network - CLI
 
@@ -54,38 +58,67 @@ az acr network-rule add \
 
 ## Disable public network access
 
-To limit traffic to virtual networks using [Private Link](container-registry-private-link.md), disable the public endpoint on the registry. Disabling the public endpoint overrides all firewall configurations.
+Optionally, disable the public endpoint on the registry. Disabling the public endpoint overrides all firewall configurations. For example, you might want to disable public access to a registry secured in a virtual network using [Private Link](container-registry-private-link.md).
 
-### Disable public access - Portal
+> [!NOTE]
+> If the registry is set up in a virtual network with a [service endpoint](container-registry-vnet.md), disabling access to the registry's public endpoint also disables access to the registry within the virtual network.
+
+### Disable public access - CLI
+
+To disable public access using the Azure CLI, run [az acr update][az-acr-update] and set `--public-network-enabled` to `false`. The `public-network-enabled` argument requires Azure CLI 2.6.0 or later. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled false
+```
+
+### Disable public access - portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. On the **Public access** tab, in **Allow public access**, select **Disabled**. Then select **Save**.
+1. On the **Public access** tab, in **Allow public network access**, select **Disabled**. Then select **Save**.
 
 ![Disable public access][acr-access-disabled]
 
-## Restore default registry access
 
-To restore the registry to allow access by default, update the default action. 
+## Restore public network access
 
-### Restore default registry access - portal
+To re-enable the public endpoint, update the networking settings to allow public access. Enabling the public endpoint overrides all firewall configurations. 
+
+### Restore public access - CLI
+
+Run [az acr update][az-acr-update] and set `--public-network-enabled` to `true`. 
+
+> [!NOTE]
+> The `public-network-enabled` argument requires Azure CLI 2.6.0 or later. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled true
+```
+
+### Restore public access - portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. Under **Firewall**, select each address range, and then select the Delete icon.
-1. On the **Public access** tab, in **Allow public access**, select **All networks**. Then select **Save**.
+1. On the **Public access** tab, in **Allow public network access**, select **All networks**. Then select **Save**.
 
 ![Public access from all networks][acr-access-all-networks]
+
+## Troubleshoot
+
+If a public network rule is set, or public access to the registry is denied, attempts to login to the registry from a disallowed public network will fail. Client access from behind an HTTPS proxy will also fail if an access rule for the proxy is not set. You will see an error message similar to `Error response from daemon: login attempt failed with status: 403 Forbidden` or `Looks like you don't have access to registry`.
+
+These errors can also occur if you use an HTTPS proxy that is allowed by a network access rule, but the proxy isn't properly configured in the client environment. Check that both your Docker client and the Docker daemon are configured for proxy behavior. For details, see [HTTP/HTTPS proxy](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) in the Docker documentation.
+
 
 ## Next steps
 
 * To restrict access to a registry using a private endpoint in a virtual network, see [Configure Azure Private Link for an Azure container registry](container-registry-private-link.md).
 * If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add
-[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az-acr-network-rule-remove
-[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az-acr-network-rule-list
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-update]: /cli/azure/acr#az-acr-update
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add
+[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az_acr_network_rule_remove
+[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az_acr_network_rule_list
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-update]: /cli/azure/acr#az_acr_update
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com

@@ -1,12 +1,13 @@
 ---
 title: Migrate VMware virtual machines to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using Azure Migrate Server Migration
 description: Learn how to migrate VMware VMs to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using Azure Migrate Server Migration 
-author: bsiva
-ms.service: azure-migrate
-ms.manager: carmonm
-ms.topic: article
-ms.date: 03/12/2020
-ms.author: raynew
+author: anvar-ms 
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
+ms.date: 03/12/2020 
+ms.custom: devx-track-azurepowershell
+
 ---
 
 
@@ -19,12 +20,12 @@ The Azure Migrate Server Migration portal experience lets you [migrate VMware VM
 
 The examples in this article use [Azure PowerShell](/powershell/azure/new-azureps-module-az) to perform the tasks needed to create and deploy the Resource Manager template.
 
-[Learn more](../virtual-machines/windows/disk-encryption.md) about server-side encryption (SSE) with customer managed keys(CMK) for managed disks.
+[Learn more](../virtual-machines/disk-encryption.md) about server-side encryption (SSE) with customer managed keys(CMK) for managed disks.
 
 ## Prerequisites
 
 - [Review the tutorial](tutorial-migrate-vmware.md) on migration of VMware VMs to Azure with agentless replication to understand tool requirements.
-- [Follow these instructions](how-to-add-tool-first-time.md) to create an Azure Migrate project and add the **Azure Migrate: Server Migration** tool to the project.
+- [Follow these instructions](./create-manage-projects.md) to create an Azure Migrate project and add the **Azure Migrate: Server Migration** tool to the project.
 - [Follow these instructions](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for VMware in your on-premises environment and complete discovery.
 
 ## Prepare for replication
@@ -55,7 +56,11 @@ The Server Migration portal experience simplifies preparation of the replication
 
 A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. To replicate VMs with CMK, you'll create a disk encryption set and pass it as an input to the replication operation.
 
-Follow the example [here](../virtual-machines/windows/disk-encryption.md#powershell) to create a disk encryption set using Azure PowerShell. Ensure that the disk encryption set is created in the target subscription that VMs are being migrated to, and in the target Azure region for the migration.
+Follow the example [here](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) to create a disk encryption set using Azure PowerShell. Ensure that the disk encryption set is created in the target subscription that VMs are being migrated to, and in the target Azure region for the migration.
+
+The disk encryption set can be configured to encrypt managed disks with a customer-managed key, or for double encryption with both a customer-managed key and a platform key. To use the double encryption at rest option configure the disk encryption set as described [here](../virtual-machines/windows/disks-enable-double-encryption-at-rest-powershell.md).
+
+In the example shown below the disk encryption set is configured to use a customer-managed key.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 

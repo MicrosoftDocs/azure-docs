@@ -1,16 +1,18 @@
 ---
 title: Build an Azure Cosmos DB .NET Framework, Core application using the Gremlin API
 description: Presents a .NET Framework/Core code sample you can use to connect to and query Azure Cosmos DB
-author: luisbosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
-ms.author: lbosq
+ms.author: chrande
+ms.custom: devx-track-dotnet
 
 ---
 # Quickstart: Build a .NET Framework or Core application using the Azure Cosmos DB Gremlin API account
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -33,11 +35,11 @@ If you don't already have Visual Studio 2019 installed, you can download and use
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -66,11 +68,14 @@ Now let's clone a Gremlin API app from GitHub, set the connection string, and ru
 5. Restore the NuGet packages in the project. This should include the Gremlin.Net driver, as well as the Newtonsoft.Json package.
 
 
-6. You can also install the Gremlin.Net driver manually using the Nuget package manager, or the [nuget command-line utility](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. You can also install the Gremlin.Net@v3.4.6 driver manually using the Nuget package manager, or the [nuget command-line utility](/nuget/install-nuget-client-tools): 
 
     ```bash
-    nuget install Gremlin.Net
+    nuget install Gremlin.NET -Version 3.4.6
     ```
+    
+> [!NOTE]
+> The Gremlin API currently only [supports Gremlin.Net up to v3.4.6](gremlin-support.md#compatible-client-libraries). If you install the latest version, you'll receive errors when using the service.
 
 ## Review the code
 
@@ -104,7 +109,7 @@ Now go back to the Azure portal to get your connection string information and co
 
    **Gremlin Endpoint** - This value is used when you connect to the graph account by using Gremlin.Net library.
 
-    ![Copy the endpoint](./media/create-graph-dotnet/endpoint.png)
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copy the endpoint":::
 
    To run this sample, copy the **Gremlin Endpoint** value, delete the port number at the end, that is the URI becomes `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. The endpoint value should look like `testgraphacct.gremlin.cosmosdb.azure.com`
 
@@ -113,7 +118,7 @@ Now go back to the Azure portal to get your connection string information and co
 1. After you have copied the URI and PRIMARY KEY of your account, save them to a new environment variable on the local machine running the application. To set the environment variable, open a command prompt window, and run the following command. Make sure to replace <Your_Azure_Cosmos_account_URI> and <Your_Azure_Cosmos_account_PRIMARY_KEY> values.
 
    ```console
-   setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
+   setx Host "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 
@@ -142,15 +147,15 @@ You can now go back to Data Explorer in the Azure portal and browse and query yo
 
     You can zoom in and out of the graph, you can expand the graph display space, add additional vertices, and move vertices on the display surface.
 
-    ![View the graph in Data Explorer in the Azure portal](./media/create-graph-dotnet/graph-explorer.png)
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="View the graph in Data Explorer in the Azure portal":::
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
@@ -158,4 +163,3 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)
-

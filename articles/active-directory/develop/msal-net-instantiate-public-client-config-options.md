@@ -8,18 +8,18 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn how to use application config options so I can instantiate a public client app.
 ---
 
 # Instantiate a public client application with configuration options using MSAL.NET
 
-This article describes how to instantiate a [public client application](msal-client-applications.md) using Microsoft Authentication Library for .NET (MSAL.NET).  The application is instantiated with configuration options defined in a settings file.
+This article describes how to instantiate a [public client application](msal-client-applications.md) using the Microsoft Authentication Library for .NET (MSAL.NET).  The application is instantiated with configuration options defined in a settings file.
 
 Before initializing an application, you first need to [register](quickstart-register-app.md) it so that your app can be integrated with the Microsoft identity platform. After registration, you may need the following information (which can be found in the Azure portal):
 

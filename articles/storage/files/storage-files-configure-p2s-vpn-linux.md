@@ -3,21 +3,28 @@ title: Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files | M
 description: How to configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ---
 
 # Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
-You can use a Point-to-Site (P2S) VPN connection to mount your Azure file shares over SMB from outside of Azure, without opening up port 445. A Point-to-Site VPN connection is a VPN connection between Azure and an individual client. To use a P2S VPN connection with Azure Files, a P2S VPN connection will need to be configured for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a Site-to-Site (S2S) VPN connection instead of a Point-to-Site connection for each client. To learn more, see [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
+You can use a Point-to-Site (P2S) VPN connection to mount your Azure file shares from outside of Azure, without sending data over the open internet. A Point-to-Site VPN connection is a VPN connection between Azure and an individual client. To use a P2S VPN connection with Azure Files, a P2S VPN connection will need to be configured for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a Site-to-Site (S2S) VPN connection instead of a Point-to-Site connection for each client. To learn more, see [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
 
 We strongly recommend that you read [Azure Files networking overview](storage-files-networking-overview.md) before continuing with this how to article for a complete discussion of the networking options available for Azure Files.
 
-The article details the steps to configure a Point-to-Site VPN on Linux to mount Azure file shares directly on-premises. If you're looking to route Azure File Sync traffic over a VPN, please see [configuring Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md).
+The article details the steps to configure a Point-to-Site VPN on Linux to mount Azure file shares directly on-premises.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Prerequisites
-- The most recent version of the Azure CLI. For more information on how to install the Azure CLI, see [Install the Azure PowerShell CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module on Linux, you may, however the instructions below are presented for Azure CLI.
+- The most recent version of the Azure CLI. For more information on how to install the Azure CLI, see [Install the Azure PowerShell CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module on Linux, you may, however the instructions below are presented for Azure CLI.
 
 - An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
 
@@ -112,7 +119,9 @@ The Azure virtual network gateway is the service that your on-premises Linux mac
 Remember to replace `<desired-vpn-name-here>` with the name you would like for these resources.
 
 > [!Note]  
-> Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this bash script script will block for the deployment to be completed. This is expected.
+> Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this bash script script will block for the deployment to be completed.
+>
+> P2S IKEv2/OpenVPN connections are not supported with the **Basic** SKU. This script uses the **VpnGw1** SKU for the virtual network gateway, accordingly.
 
 ```bash
 vpnName="<desired-vpn-name-here>"
@@ -186,22 +195,7 @@ sudo ipsec up $virtualNetworkName
 ```
 
 ## Mount Azure file share
-Now that you have set up your Point-to-Site VPN, you can mount your Azure file share. The following example will mount the share non-persistently. To mount persistently, see [Use an Azure file share with Linux](storage-how-to-use-files-linux.md). 
-
-```bash
-fileShareName="myshare"
-
-mntPath="/mnt/$storageAccountName/$fileShareName"
-sudo mkdir -p $mntPath
-
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
-
-smbPath="//$storageAccountPrivateIP/$fileShareName"
-sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
-```
+Now that you have set up your Point-to-Site VPN, you can mount your Azure file share. The following example will mount the share non-persistently. To mount persistently, see [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
 
 ## See also
 - [Azure Files networking overview](storage-files-networking-overview.md)

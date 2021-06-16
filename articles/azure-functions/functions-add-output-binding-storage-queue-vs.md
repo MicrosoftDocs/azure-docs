@@ -1,7 +1,7 @@
 ---
 title: Connect functions to Azure Storage using Visual Studio 
 description: Learn how to add an output binding to connect your C# class library functions to an Azure Storage queue using Visual Studio.
-ms.date: 07/22/2019
+ms.date: 05/30/2021
 ms.topic: quickstart
 ms.custom: mvc
 #Customer intent: As an Azure Functions developer, I want to connect my C# class library function to Azure Storage so that I can easily write data to a storage queue.
@@ -19,17 +19,17 @@ Most bindings require a stored connection string that Functions uses to access t
 
 Before you start this article, you must: 
 
- - Complete [part 1 of the Visual Studio quickstart](./functions-create-first-function-vs-code.md). 
+ - Complete [part 1 of the Visual Studio quickstart](./functions-create-your-first-function-visual-studio.md). 
 
 - Sign in to your Azure subscription from Visual Studio.
 
 ## Download the function app settings
 
-In the [previous quickstart article](functions-create-first-function-vs-code.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file. 
+In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file. 
 
 1. In **Solution Explorer**, right-click the project and select **Publish**. 
 
-1. Under **Actions**, select **Edit Azure App Service Settings**. 
+1. In the **Publish** tab under **Hosting**, expand the three dots (**...**) and select **Manage Azure App Service settings**. 
 
     ![Edit the application settings](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 
@@ -102,7 +102,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. To
 Next, you should enable Application Insights monitoring for your function app:
 
 > [!div class="nextstepaction"]
-> [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Enable Application Insights integration](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [previous quickstart article]: functions-create-your-first-function-visual-studio.md

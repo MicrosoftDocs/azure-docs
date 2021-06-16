@@ -2,12 +2,14 @@
 title: Deploy an application to an Azure virtual machine scale set
 description: Learn how to deploy applications to Linux and Windows virtual machine instances in a scale set
 author: ju-shim
-tags: azure-resource-manager
-ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: extensions
+ms.date: 05/29/2018
+ms.reviewer: avverma
+ms.custom: avverma, devx-track-azurepowershell, devx-track-azurecli
+
 ---
 
 # Deploy your application on virtual machine scale sets
@@ -107,4 +109,4 @@ If you use a custom VM image with the application pre-installed, you could integ
 
 
 ## Next steps
-As you build and deploy applications to your scale sets, you can review the [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md). For more information on how to manage your scale set, see [Use PowerShell to manage your scale set](virtual-machine-scale-sets-windows-manage.md).
+As you build and deploy applications to your scale sets, you can review the [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md). For more information on how to manage your scale set, see [Use PowerShell to manage your scale set](./virtual-machine-scale-sets-manage-powershell.md).

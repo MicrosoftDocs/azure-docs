@@ -1,18 +1,20 @@
 ---
 title: Creating and configuring a key vault for Azure Disk Encryption
-description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption
-ms.service: virtual-machines-linux
-ms.topic: article
+description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption on a Linux VM.
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
+ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ---
 
 # Creating and configuring a key vault for Azure Disk Encryption
 
-Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md) and [Secure your key vault](../../key-vault/general/secure-your-key-vault.md). 
+Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md). 
 
 > [!WARNING]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md) for details.
@@ -26,7 +28,7 @@ Creating and configuring a key vault for use with Azure Disk Encryption involves
 These steps are illustrated in the following quickstarts:
 
 - [Create and encrypt a Linux VM with Azure CLI](disk-encryption-cli-quickstart.md)
-- [Create and encrypt a Linux VM with Azure PowerShell](disk-encryption-cli-quickstart.md)
+- [Create and encrypt a Linux VM with Azure PowerShell](disk-encryption-powershell-quickstart.md)
 
 You may also, if you wish, generate or import a key encryption key (KEK).
 
@@ -35,13 +37,13 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 ## Install tools and connect to Azure
 
-The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/overview), or the [Azure portal](https://portal.azure.com). 
+The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com). 
 
 While the portal is accessible through your browser, Azure CLI and Azure PowerShell require local installation; see [Azure Disk Encryption for Linux: Install tools](disk-encryption-linux.md#install-tools-and-connect-to-azure) for details.
 
 ### Connect to your Azure account
 
-Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Signing in with Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), or supplying your credentials to the Azure portal when prompted.
+Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli), [Signing in with Azure Powershell](/powershell/azure/authenticate-azureps), or supplying your credentials to the Azure portal when prompted.
 
 ```azurecli-interactive
 az login
@@ -52,7 +54,7 @@ Connect-AzAccount
 ```
 
 [!INCLUDE [disk-encryption-key-vault](../../../includes/disk-encryption-key-vault.md)]
- ```
+ 
  
 ## Next steps
 

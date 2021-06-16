@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
-ms.custom: mqtt
+ms.custom: mqtt, devx-track-python
 ---
 
 # Upload files from your device to the cloud with IoT Hub (Python)
@@ -27,13 +27,21 @@ At the end of this tutorial, you run the Python console app:
 
 * **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
+There is a more advanced version of the file upload app which can be found at [https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/upload_to_blob.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/upload_to_blob.py) in GitHub. To run this version, you must understand X.509 certificates, keys, and passphrases. Because this is not strictly necessary to upload a file, the code presented below does not use X.509.
+
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## Prerequisites
 
 [!INCLUDE [iot-hub-include-python-v2-async-installation-notes](../../includes/iot-hub-include-python-v2-async-installation-notes.md)]
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -102,7 +110,7 @@ In this section, you create the device app to upload a file to IoT hub.
             return (False, ex)
     ```
 
-    This function parses the *blob_info* structure passed into it to create a URL that it uses to initialize an [azure.storage.blob.BlobClient](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Then it uploads your file to Azure blob storage using this client.
+    This function parses the *blob_info* structure passed into it to create a URL that it uses to initialize an [azure.storage.blob.BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). Then it uploads your file to Azure blob storage using this client.
 
 1. Add the following code to connect the client and upload the file:
 
@@ -202,6 +210,6 @@ In this tutorial, you learned how to use the file upload capabilities of IoT Hub
 
 Learn more about Azure Blob Storage with the following links:
 
-* [Azure Blob Storage documentation](https://docs.microsoft.com/azure/storage/blobs/)
+* [Azure Blob Storage documentation](../storage/blobs/index.yml)
 
-* [Azure Blob Storage for Python API documentation](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Azure Blob Storage for Python API documentation](/python/api/overview/azure/storage-blob-readme)

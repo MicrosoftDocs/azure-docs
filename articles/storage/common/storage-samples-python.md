@@ -1,13 +1,14 @@
 ---
 title: Azure Storage samples using Python | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Python storage client libraries.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
-ms.date: 02/13/2020
+ms.author: twooley
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
+ms.custom: devx-track-python
 ---
 
 # Azure Storage samples using v12 Python client libraries
@@ -589,4 +590,5 @@ For information on samples for other languages:
 * .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
 * JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
+* C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
 * All other languages: [Azure Storage samples](storage-samples.md)

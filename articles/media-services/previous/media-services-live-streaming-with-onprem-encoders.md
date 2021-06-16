@@ -1,23 +1,23 @@
 ---
 title: Stream live with on-premises encoders that create multi-bitrate streams - Azure | Microsoft Docs
-description: This topic describes how to set up a channel that receives a multi-bitrate live stream from an on-premises encoder. 
+description: This topic describes how to set up a channel that receives a multi-bitrate live stream from an on-premises encoder.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Working with Channels that receive multi-bitrate live stream from on-premises encoders
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
@@ -221,7 +221,8 @@ Here are other considerations related to working with channels and related compo
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## Feedback
+## Suggestions and Feedback
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related topics

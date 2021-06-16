@@ -2,12 +2,13 @@
 title: Tutorial - Install applications in a scale set with Azure PowerShell
 description: Learn how to use Azure PowerShell to install applications into virtual machine scale sets with the Custom Script Extension
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 11/08/2018
 ms.author: jushiman
-ms.custom: mvc
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: extensions
+ms.date: 11/08/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Tutorial: Install applications in virtual machine scale sets with Azure PowerShell
@@ -29,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## What is the Azure Custom Script Extension?
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time.
 
-The Custom Script extension integrates with Azure Resource Manager templates. It can also be used with the Azure CLI, Azure PowerShell, Azure portal, or the REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
+The Custom Script extension integrates with Azure Resource Manager templates. It can also be used with the Azure CLI, Azure PowerShell, Azure portal, or the REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/extensions/custom-script-windows.md).
 
 To see the Custom Script Extension in action, create a scale set that installs the IIS web server and outputs the hostname of the scale set VM instance. The Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 

@@ -1,9 +1,9 @@
 ---
 title: Avere vFXT cluster tuning - Azure
-description: Overview of custom settings to optimize performance in Avere vFXT for Azure
+description: Learn about some of the custom tuning for vFXT clusters in Avere vFXT for Azure that you can do, working with a support representative.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
 ---

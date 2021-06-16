@@ -4,9 +4,10 @@ description: Learn how to disable network policies for private endpoints.
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Disable network policies for private endpoints

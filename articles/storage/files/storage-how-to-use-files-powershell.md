@@ -6,18 +6,26 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Quickstart: Create and manage an Azure file share with Azure PowerShell 
-This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with PowerShell. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard SMB protocol and enable file sharing across multiple machines, applications, and instances. 
+This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with PowerShell. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard Server Message Block (SMB) protocol, the Network File System (NFS) protocol (preview), and enables file sharing across multiple machines, applications, and instances. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you would like to install and use the PowerShell locally, this guide requires the Azure PowerShell module Az version 0.7 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to login to your Azure account.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Create a resource group
 A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. 
@@ -62,13 +70,14 @@ $shareName = "myshare"
 New-AzRmStorageShare `
     -StorageAccount $storageAcct `
     -Name $shareName `
+    -EnabledProtocol SMB `
     -QuotaGiB 1024 | Out-Null
 ```
 
-Share names need to be all lower-case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Share names need to be all lower-case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## Use your Azure file share
-Azure Files provides two methods of working with files and folders within your Azure file share: the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and the [File REST protocol](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Azure Files provides two methods of working with files and folders within your Azure file share: the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and the [File REST protocol](/rest/api/storageservices/file-service-rest-api). 
 
 To mount a file share with SMB, see the following document based on your OS:
 - [Windows](storage-how-to-use-files-windows.md)
@@ -84,7 +93,7 @@ In most cases, you will use your Azure file share over the SMB protocol, as this
 - You are taking advantage of serverless resources, such as [Azure Functions](../../azure-functions/functions-overview.md). 
 - You are creating a value-add service that will interact with many Azure file shares, such as performing backup or antivirus scans.
 
-The following examples show how to use the Azure PowerShell module to manipulate your Azure file share with the File REST protocol. The `-Context` parameter is used to retrieve the storage account key to perform the indicated actions against the file share. To retrieve the storage account key, you must have the RBAC role of `Owner` on the storage account.
+The following examples show how to use the Azure PowerShell module to manipulate your Azure file share with the File REST protocol. The `-Context` parameter is used to retrieve the storage account key to perform the indicated actions against the file share. To retrieve the storage account key, you must have the Azure role of `Owner` on the storage account.
 
 #### Create directory
 To create a new directory named *myDirectory* at the root of your Azure file share, use the [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory) cmdlet.
@@ -157,6 +166,7 @@ $otherShareName = "myshare2"
 New-AzRmStorageShare `
     -StorageAccount $storageAcct `
     -Name $otherShareName `
+    -EnabledProtocol SMB `
     -QuotaGiB 1024 | Out-Null
   
 New-AzStorageDirectory `
@@ -187,7 +197,7 @@ While the `Start-AzStorageFileCopy` cmdlet is convenient for ad hoc file moves b
 ## Create and manage share snapshots
 One additional useful task you can do with an Azure file share is to create share snapshots. A snapshot preserves a point in time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
 
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems such as NTFS and ReFS.
+- [Volume Shadow Copy Service (VSS)](/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems such as NTFS and ReFS.
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems.
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
 
@@ -195,7 +205,7 @@ You can create a share snapshot for a share by using the `Snapshot` method on Po
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name $shareName
-$snapshot = $share.Snapshot()
+$snapshot = $share.CloudFileShare.Snapshot()
 ```
 
 ### Browse share snapshots

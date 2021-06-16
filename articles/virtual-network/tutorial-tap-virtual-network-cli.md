@@ -11,14 +11,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
-ms.author: kaanan
+ms.author: kaanan 
+ms.custom: devx-track-azurecli
 ---
 
 # Work with a virtual network TAP using the Azure CLI
+
+> [!IMPORTANT]
+> Virtual network TAP Preview is currently on hold in all Azure regions. You can email us at <azurevnettap@microsoft.com> with your subscription ID and we will notify you with future updates about the preview. In the interim, you can use agent based or NVA solutions that provide TAP/Network Visibility functionality through our [Packet Broker partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) available in [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
 
 Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions). 
 

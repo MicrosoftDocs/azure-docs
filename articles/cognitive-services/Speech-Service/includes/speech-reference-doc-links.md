@@ -19,12 +19,12 @@ The Speech service provides two SDKs. The first SDK is the primary [Speech SDK](
 
 Use the following list to find the appropriate Speech SDK reference docs:
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C# SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++ SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Objective-C SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C# SDK </a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++ SDK </a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK </a>
+- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK</a>
+- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK</a>
+- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Objective-C SDK </a>
 
 > [!TIP]
 > The Speech service SDK is actively maintained and updated. To track changes, updates and feature additions refer to the [Speech SDK release notes](../releasenotes.md).
@@ -38,5 +38,6 @@ The [Speech Devices SDK](../speech-devices-sdk.md) is a superset of the Speech S
 For references of various Speech service REST APIs, refer to the listing below:
 
 - [REST API: Speech-to-text](../rest-speech-to-text.md)
+- [REST API: Pronunciation assessment](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [REST API: Text-to-speech](../rest-text-to-speech.md)
-- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: Batch transcription and customization <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">REST API: Batch transcription and customization </a>

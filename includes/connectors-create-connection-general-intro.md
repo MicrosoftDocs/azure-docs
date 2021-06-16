@@ -3,7 +3,15 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 09/18/2019
+ms.date: 03/08/2021
 ---
 
-When you use a trigger or action that accesses a service for the first time, the Logic Apps Designer prompts you to create a *connection* to that service. You can then provide the necessary connection information directly from your logic app inside the designer.
+When you add a trigger or action that connects to a service or system for the first time, the Logic App Designer prompts you to create a *connection* by providing the necessary information, which varies based on the connection, for example:
+
+* The name that you want to use for the new connection
+
+* The name for the system or server
+
+* Your user or account credentials
+
+* The authentication type to use

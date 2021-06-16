@@ -1,20 +1,8 @@
 ---
 title: AMQP 1.0 request/response operations in Azure Service Bus
 description: This article defines the list of AMQP request/response-based operations in Microsoft Azure Service Bus.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-
-ms.assetid: 
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: aschhab
-
+ms.date: 04/26/2020
 ---
 
 # AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations
@@ -24,11 +12,7 @@ This article defines the list of Microsoft Azure Service Bus request/response-ba
 For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bus implements and builds on the OASIS AMQP technical specification, see the [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide][AMQP 1.0 protocol guide].  
   
 ## Concepts  
-  
-### Entity description  
-
-An entity description refers to either a Service Bus [QueueDescription class](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription class](/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription class](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
-  
+    
 ### Brokered message  
 
 Represents a message in Service Bus, which is mapped to an AMQP message. The mapping is defined in the [Service Bus AMQP protocol guide](service-bus-amqp-protocol-guide.md).  
@@ -122,7 +106,7 @@ Service Bus entities must be addressed as follows:
   
 ### Message Renew Lock  
 
-Extends the lock of a message by the time specified in the entity description.  
+Extends the lock of a message by the lock duration set on the queue or subscription.  
   
 #### Request  
 
@@ -140,7 +124,7 @@ The request message must include the following application properties:
 |`lock-tokens`|array of uuid|Yes|Message lock tokens to renew.|  
 
 > [!NOTE]
-> Lock tokens are the `DeliveryTag` property on received messages. See the following example in the [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) which retrieves these. The token may also appear in the 'DeliveryAnnotations' as 'x-opt-lock-token' however, this is not guaranteed and the `DeliveryTag` should be preferred. 
+> Lock token here refers to the `delivery-tag` property on the received AMQP message. If you received a deferred message and want to renew its lock, then use the property `lock-token` on the message instead of the `delivery-tag`. 
 > 
   
 #### Response  
@@ -275,7 +259,7 @@ The response message must include the following application properties:
   
 ### Session Renew Lock  
 
-Extends the lock of a message by the time specified in the entity description.  
+Extends the lock of a message by the lock duration set on the queue or subscription.  
   
 #### Request  
 
@@ -703,4 +687,4 @@ To learn more about AMQP and Service Bus, visit the following links:
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
-[AMQP in Service Bus for Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn282144(v=azure.100)

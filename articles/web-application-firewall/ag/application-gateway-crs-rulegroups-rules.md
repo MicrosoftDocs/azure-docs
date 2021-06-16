@@ -35,6 +35,9 @@ The WAF protects against the following web vulnerabilities:
 
 CRS 3.1 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
+> [!NOTE]
+> CRS 3.1 is only available on the WAF_v2 SKU.
+
 |Rule group|Description|
 |---|---|
 |**[General](#general-31)**|General group|
@@ -251,7 +254,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Node-Validator Blacklist Keywords|
+|941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
 |941210|XSS using obfuscated Javascript|
@@ -479,7 +482,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941130|XSS Filter - Category 3 = Attribute Vector|
 |941140|XSS Filter - Category 4 = Javascript URI Vector|
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
-|941180|Node-Validator Blacklist Keywords|
+|941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
 |941210|XSS using obfuscated Javascript|

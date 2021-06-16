@@ -1,6 +1,6 @@
 ---
 title: Integrate Splunk using Azure Monitor | Microsoft Docs
-description: Learn how to integrate Azure Active Directory logs with SumoLogic using Azure Monitor
+description: Learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -10,13 +10,13 @@ editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2020
+ms.date: 03/10/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -29,9 +29,9 @@ In this article, you learn how to integrate Azure Active Directory (Azure AD) lo
 
 To use this feature, you need:
 
-- An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+- An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 
--  The [Microsoft Azure Add on for Splunk](https://splunkbase.splunk.com/app/3757/). 
+-  The [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/#/details). 
 
 ## Integrate Azure Active Directory logs 
 
@@ -53,6 +53,6 @@ To use this feature, you need:
 
 ## Next steps
 
-* [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Frequently asked questions and known issues](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

@@ -1,6 +1,6 @@
 ---
-title: Convert configurations to composite resources for state configuration - Azure Automation
-description: Learn how to convert configurations to composite resources for state configuration in Azure Automation.
+title: Convert configurations to composite resources for Azure Automation State Configuration
+description: This article tells how to convert configurations to composite resources for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -22,7 +22,7 @@ Examples would be:
 
 - create a web server
 - create a DNS server
-- create a SharePoint server
+- create a server that runs SharePoint
 - configure a SQL cluster
 - manage firewall settings
 - manage password settings
@@ -44,7 +44,7 @@ has been created to resolve this challenge.
 
 CompositeResource automates the process of creating a new module from your configuration.
 You start by
-[dot sourcing](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/)
+[dot sourcing](https://devblogs.microsoft.com/scripting/how-to-reuse-windows-powershell-functions-in-scripts/)
 the configuration script on your workstation (or build server)
 so it is loaded in memory.
 Next, rather than running the configuration to generate a MOF file,
@@ -58,19 +58,19 @@ you can increment the version and add release notes each time you make changes
 and publish it to your own
 [PowerShellGet repository](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
-Once you have create a composite resource module containing your configuration
+Once you have created a composite resource module containing your configuration
 (or multiple configurations),
 you can use them in the
-[Composable Authoring Experience](/azure/automation/compose-configurationwithcompositeresources)
+[Composable Authoring Experience](./compose-configurationwithcompositeresources.md)
 in Azure,
 or add them to 
 [DSC Configuration scripts](/powershell/scripting/dsc/configurations/configurations)
 to generate MOF files
 and
-[upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+[upload the MOF files to Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
-or [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)
+[on-premises](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines)
+or [in Azure](./automation-dsc-onboarding.md#enable-azure-vms)
 to pull configurations.
 The latest update to the project has also published
 [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples)
@@ -85,6 +85,6 @@ to view the
 
 ## Next steps
 
-- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
-- [DSC Resources](/powershell/scripting/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/scripting/dsc/overview/overview).
+- Find out about PowerShell DSC resources in [DSC Resources](/powershell/scripting/dsc/resources/resources).
+- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig).

@@ -3,22 +3,23 @@ title: Virtual Networks
 titleSuffix: Azure Cognitive Services
 description: Configure layered network security for your Cognitive Services resources.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 02/09/2021
+ms.author: aahi
 ---
 
 # Configure Azure Cognitive Services virtual networks
 
-Azure Cognitive Services provides a layered security model. This model enables you to secure your Cognitive Services accounts to a specific subset of networks​. When network rules are configured, only applications requesting data over the specified set of networks can access the account. You can limit access to your resources with request filtering. Allowing only requests originating from specified IP addresses, IP ranges or from a list of subnets in [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md). If you're interested in this offering, you'll need to [request preview access](https://aka.ms/cog-svc-vnet-signup).
+Azure Cognitive Services provides a layered security model. This model enables you to secure your Cognitive Services accounts to a specific subset of networks​. When network rules are configured, only applications requesting data over the specified set of networks can access the account. You can limit access to your resources with request filtering. Allowing only requests originating from specified IP addresses, IP ranges or from a list of subnets in [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md).
 
 An application that accesses a Cognitive Services resource when network rules are in effect requires authorization. Authorization is supported with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) credentials or with a valid API key.
 
 > [!IMPORTANT]
 > Turning on firewall rules for your Cognitive Services account blocks incoming requests for data by default. In order to allow requests through, one of the following conditions needs to be met:
+
 > * The request should originate from a service operating within an Azure Virtual Network (VNet) on the allowed subnet list of the target Cognitive Services account. The endpoint in requests originated from VNet needs to be set as the [custom subdomain](cognitive-services-custom-subdomains.md) of your Cognitive Services account.
 > * Or the request should originate from an allowed list of IP addresses.
 >
@@ -34,39 +35,32 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 
 ## Supported regions and service offerings
 
-Virtual network support for Cognitive Services listed below is limited to the *Central US EUAP*, *South Central US*, *East US*, *West US 2*, *North Europe*, *South Africa North*, *West Europe*, *Central India*, *Australia East*, *West US*, and *US Gov Virginia* Azure regions. If the service offering is not listed here, it doesn't support virtual networks.
+Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Currently multi-service resource does not support VNET. Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
 
 > [!div class="checklist"]
-> * [Anomaly Detector](./anomaly-detector/index.yml)
-> * [Computer Vision](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
-> * [Face](./face/index.yml)
-> * [Form Recognizer](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
-> * [Personalizer](./personalizer/index.yml)
-> * [Text Analytics](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
+> * Anomaly Detector
+> * Computer Vision
+> * Content Moderator
+> * Custom Vision
+> * Face
+> * Form Recognizer
+> * Immersive Reader
+> * Language Understanding (LUIS)
+> * Personalizer
+> * Speech Services
+> * Text Analytics
+> * QnA Maker
+> * Translator Text
 
-Virtual network support for Cognitive Services listed below is limited to the *Central US EUAP*, *South Central US*, *East US*, *West US 2*, *Global*, and *US Gov Virginia* Azure regions.
-> [!div class="checklist"]
-> * [Translator Text](./translator/index.yml)
 
-## Service Tags
-In addition to supporting virtual network service endpoints for the services above, Cognitive Services also supports a service tag for outbound network rules configuration. The following services are included in the CognitiveServicesManagement service tag.
-> [!div class="checklist"]
-> * [Anomaly Detector](./anomaly-detector/index.yml)
-> * [Computer Vision](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
-> * [Face](./face/index.yml)
-> * [Form Recognizer](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
-> * [Personalizer](./personalizer/index.yml)
-> * [Text Analytics](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-> * [Translator Text](./translator/index.yml)
-> * [Speech Service](./speech-service/index.yml)
+> [!NOTE]
+> If you're using LUIS or Speech Services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use LUIS portal and/or Speech Studio from a virtual network, you will need to use the following tags:  
+> * **AzureActiveDirectory**
+> * **AzureFrontDoor.Frontend**
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+
+
 
 ## Change the default network access rule
 
@@ -325,6 +319,7 @@ You can manage virtual network rules for Cognitive Services resources through th
         -g "myresourcegroup" -n "myaccount" \
         --subnet $subnetid
     ```
+
 ***
 
 > [!IMPORTANT]
@@ -341,16 +336,13 @@ Provide allowed internet address ranges using [CIDR notation](https://tools.ietf
 
 IP network rules are only allowed for **public internet** IP addresses. IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with `10.*`, `172.16.*` - `172.31.*`, and `192.168.*`.
 
-   > [!NOTE]
-   > IP network rules have no effect on requests originating from the same Azure region as the Cognitive Services resource. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
-
 Only IPV4 addresses are supported at this time. Each Cognitive Services resource supports up to 100 IP network rules, which may be combined with [Virtual network rules](#grant-access-from-a-virtual-network).
 
 ### Configuring access from on-premises networks
 
 To grant access from your on-premises networks to your Cognitive Services resource with an IP network rule, you must identify the internet facing IP addresses used by your network. Contact your network administrator for help.
 
-If you are using [ExpressRoute](../expressroute/expressroute-introduction.md) on-premises for public peering or Microsoft peering, you will need to identify the NAT IP addresses. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses. Each is applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
+If you're using [ExpressRoute](../expressroute/expressroute-introduction.md) on-premises for public peering or Microsoft peering, you'll need to identify the NAT IP addresses. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses. Each is applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
 
 ### Managing IP network rules
 
@@ -480,7 +472,69 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 > [!IMPORTANT]
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
 
+## Use private endpoints
+
+You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Cognitive Services resources to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your Cognitive Services resource. Network traffic between the clients on the VNet and the resource traverses the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+
+Private endpoints for Cognitive Services resources let you:
+
+* Secure your Cognitive Services resource by configuring the firewall to block all connections on the public endpoint for the Cognitive Services service.
+* Increase security for the VNet, by enabling you to block exfiltration of data from the VNet.
+* Securely connect to Cognitive Services resources from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
+
+### Conceptual overview
+
+A private endpoint is a special network interface for an Azure resource in your [VNet](../virtual-network/virtual-networks-overview.md). Creating a private endpoint for your Cognitive Services resource provides secure connectivity between clients in your VNet and your resource. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Cognitive Services service uses a secure private link.
+
+Applications in the VNet can connect to the service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). Private endpoints can be used with all protocols supported by the Cognitive Services resource, including REST.
+
+Private endpoints can be created in subnets that use [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can connect to one Cognitive Services resource using private endpoint, while using service endpoints to access others.
+
+When you create a private endpoint for a Cognitive Services resource in your VNet, a consent request is sent for approval to the Cognitive Services resource owner. If the user requesting the creation of the private endpoint is also an owner of the resource, this consent request is automatically approved.
+
+Cognitive Services resource owners can manage consent requests and the private endpoints, through the '*Private endpoints*' tab for the Cognitive Services resource  in the [Azure portal](https://portal.azure.com).
+
+### Private endpoints
+
+When creating the private endpoint, you must specify the Cognitive Services resource it connects to. For more information on creating a private endpoint, see:
+
+* [Create a private endpoint using the Private Link Center in the Azure portal](../private-link/create-private-endpoint-portal.md)
+* [Create a private endpoint using Azure CLI](../private-link/create-private-endpoint-cli.md)
+* [Create a private endpoint using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+
+### Connecting to private endpoints
+
+Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. 
+
+We create a [private DNS zone](../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
+
+### Private endpoints with the Speech Services
+
+See [Using Speech Services with private endpoints provided by Azure Private Link](Speech-Service/speech-services-private-link.md).
+
+### DNS changes for private endpoints
+
+When you create a private endpoint, the DNS CNAME resource record for the Cognitive Services resource is updated to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the '*privatelink*' subdomain, with the DNS A resource records for the private endpoints.
+
+When you resolve the endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the Cognitive Services resource. When resolved from the VNet hosting the private endpoint, the endpoint URL resolves to the private endpoint's IP address.
+
+This approach enables access to the Cognitive Services resource using the same connection string for clients in the VNet hosting the private endpoints and clients outside the VNet.
+
+If you are using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the Cognitive Services resource endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet.
+
+> [!TIP]
+> When using a custom or on-premises DNS server, you should configure your DNS server to resolve the Cognitive Services resource name in the 'privatelink' subdomain to the private endpoint IP address. You can do this by delegating the 'privatelink' subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
+
+For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
+
+* [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
+
+### Pricing
+
+For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
+
 ## Next steps
 
-* Explore the various [Azure Cognitive Services](welcome.md)
+* Explore the various [Azure Cognitive Services](./what-are-cognitive-services.md)
 * Learn more about [Azure Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)

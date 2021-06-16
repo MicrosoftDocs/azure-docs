@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: laurenhughes
   ms.author: lahugh
-  ms.date: 03/25/2020
+  ms.date: 07/21/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -54,18 +54,14 @@ landingContent:
             url: kubernetes-walkthrough-rm-template.md
 
   # Card
-  - title: Develop and debug applications with AKS and Dev Spaces
+  - title: Develop and debug applications with Bridge to Kubernetes
     linkLists:
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
-          - text: Java
-            url: ../dev-spaces/quickstart-java.md
-          - text: .NET and VS Code
-            url: ../dev-spaces/quickstart-netcore.md
-          - text: .NET and Visual Studio
-            url: ../dev-spaces/quickstart-netcore-visualstudio.md
-          - text: Node.js
-            url: ../dev-spaces/quickstart-nodejs.md
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes
 
   # Card
   - title: Deploy, manage, and update applications
@@ -86,6 +82,19 @@ landingContent:
             url: tutorial-kubernetes-app-update.md
           - text: 7. Upgrade Kubernetes in AKS
             url: tutorial-kubernetes-upgrade-cluster.md
+  # Card
+  - title: Architecture guidance
+    linkLists:
+      - linkListType: architecture
+        links:
+            - text: Baseline architecture for an AKS cluster
+              url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?WT.mc_id=AKSDOCSPAGE
+            - text: AKS solutions
+              url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
+            - text: Day-2 operations guide
+              url: /azure/architecture/operator-guides/aks/aks-triage-practices?WT.mc_id=AKSDOCSPAGE
+            - text: Best practices for cluster operators and developers
+              url: best-practices.md
 
     # Card
   - title: Build your skills with Microsoft Learn
@@ -93,8 +102,8 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Kubernetes Service
-            url: https://docs.microsoft.com/learn/modules/intro-to-azure-kubernetes-service/
+            url: /learn/modules/intro-to-azure-kubernetes-service/
           - text: Introduction to containers on Azure
-            url: https://docs.microsoft.com/learn/modules/intro-to-containers/
+            url: /learn/modules/intro-to-containers/
           - text: Build and store container images with Azure Container Registry
-            url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/
+            url: /learn/modules/build-and-store-container-images/

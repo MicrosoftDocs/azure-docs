@@ -1,11 +1,10 @@
 ---
 title: Anomaly detection in Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics and Azure Machine Learning together to detect anomalies.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+author: jseb225
+ms.author: jeanb
+ms.topic: how-to
 ms.date: 06/21/2019
 ---
 
@@ -25,7 +24,7 @@ The following video demonstrates how to detect an anomaly in real time using mac
 
 ## Model behavior
 
-Generally, the model's accuracy improves with more data in the sliding window. The data in the specified sliding window is treated as part of its normal range of values for that time frame. The model only considers event history over the sliding window to check if the current event is anomalous. As the sliding window moves, old values are evicted from the model’s training.
+Generally, the model's accuracy improves with more data in the sliding window. The data in the specified sliding window is treated as part of its normal range of values for that time frame. The model only considers event history over the sliding window to check if the current event is anomalous. As the sliding window moves, old values are evicted from the model's training.
 
 The functions operate by establishing a certain normal based on what they have seen so far. Outliers are identified by comparing against the established normal, within the confidence level. The window size should be based on the minimum events required to train the model for normal behavior so that when an anomaly occurs, it would be able to recognize it.
 
@@ -37,7 +36,7 @@ An anomaly generator available [here](https://aka.ms/asaanomalygenerator) can be
 
 ## Spike and dip
 
-Temporary anomalies in a time series event stream are known as spikes and dips. Spikes and dips can be monitored using the Machine Learning based operator, [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+Temporary anomalies in a time series event stream are known as spikes and dips. Spikes and dips can be monitored using the Machine Learning based operator, [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
 ).
 
 ![Example of spike and dip anomaly](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
@@ -69,7 +68,7 @@ FROM AnomalyDetectionStep
 
 ## Change point
 
-Persistent anomalies in a time series event stream are changes in the distribution of values in the event stream, like level changes and trends. In Stream Analytics, such anomalies are detected using the Machine Learning based [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) operator.
+Persistent anomalies in a time series event stream are changes in the distribution of values in the event stream, like level changes and trends. In Stream Analytics, such anomalies are detected using the Machine Learning based [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) operator.
 
 Persistent changes last much longer than spikes and dips and could indicate catastrophic event(s). Persistent changes are not usually visible to the naked eye, but can be detected with the **AnomalyDetection_ChangePoint** operator.
 
@@ -119,12 +118,12 @@ The history size, window duration, and total event load are related in the follo
 
 windowDuration (in ms) = 1000 * historySize / (Total Input Events Per Sec / Input Partition Count)
 
-When partitioning the function by deviceId, add “PARTITION BY deviceId” to the anomaly detection function call.
+When partitioning the function by deviceId, add "PARTITION BY deviceId" to the anomaly detection function call.
 
 ### Observations
 The following table includes the throughput observations for a single node (6 SU) for the non-partitioned case:
 
-| History size (events)	| Window duration (ms) | Total input events per sec |
+| History size (events)    | Window duration (ms) | Total input events per sec |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2,200 |
 | 600 | 728 | 1,650 |
@@ -154,6 +153,5 @@ Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

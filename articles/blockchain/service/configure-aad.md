@@ -1,8 +1,8 @@
 ---
 title: Configure Azure Active Directory access - Azure Blockchain Service
 description: How to configure Azure Blockchain Service with Azure Active Directory access
-ms.date: 11/22/2019
-ms.topic: article
+ms.date: 05/11/2021
+ms.topic: how-to
 ms.reviewer: janders
 #Customer intent: As a node operator, I want to configure Azure Blockchain Service with Azure Active Directory access.
 ---
@@ -10,6 +10,8 @@ ms.reviewer: janders
 # How to configure Azure Active Directory access for Azure Blockchain Service
 
 In this article, you learn how to grant access and connect to Azure Blockchain Service nodes using Azure Active Directory (Azure AD) user, group, or application IDs.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 Azure AD provides cloud-based identity management and allows you to use a single identity across an entire enterprise and access applications in Azure. Azure Blockchain Service is integrated with Azure AD and offers benefits such as ID federation, single sign-on and multi-factor authentication.
 
@@ -62,7 +64,7 @@ The follow the quickstart section in the **readme** to build the connector from 
 1. Run the following command to authenticate using an Azure AD user account. Replace \<myAADDirectory\> with an Azure AD domain. For example, `yourdomain.onmicrosoft.com`.
 
     ```
-    connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
+    connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory>
     ```
 
 1. Azure AD prompts for credentials.

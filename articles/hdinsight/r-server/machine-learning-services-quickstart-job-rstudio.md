@@ -1,12 +1,9 @@
 ---
 title: 'Quickstart: RStudio Server & ML Services for R - Azure HDInsight'
 description: In the quickstart, you execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
-ms.author: hrasheed
 ms.custom: mvc
 #Customer intent: I want to learn how to execute an R script using ML Services in Azure HDInsight for RStudio Server.
 ---
@@ -33,7 +30,7 @@ The first time you sign in you need to authenticate twice. For the first authent
 
 Once you are connected, your screen should resemble the following screenshot:
 
-![R studio web console overviews](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
+:::image type="content" source="./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png" alt-text="R studio web console overviews" border="true":::
 
 ## Use a compute context
 

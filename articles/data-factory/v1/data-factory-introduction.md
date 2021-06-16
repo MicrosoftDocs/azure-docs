@@ -1,15 +1,10 @@
 ---
 title: Introduction to Data Factory, a data integration service 
 description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
-ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
 ---
@@ -30,7 +25,7 @@ For example, a gaming company collects logs that are produced by games in the cl
 
 To analyze these logs, the company needs to use the reference data such as customer information, game information, and marketing campaign information that is in an on-premises data store. Therefore, the company wants to ingest log data from the cloud data store and reference data from the on-premises data store. 
 
-Next they want to process the data by using Hadoop in the cloud (Azure HDInsight). They want to publish the result data into a cloud data warehouse such as Azure SQL Data Warehouse or an on-premises data store such as SQL Server. The company wants this workflow to run once a week. 
+Next they want to process the data by using Hadoop in the cloud (Azure HDInsight). They want to publish the result data into a cloud data warehouse such as Azure Synapse Analytics or an on-premises data store such as SQL Server. The company wants this workflow to run once a week. 
 
 The company needs a platform where they can create a workflow that can ingest data from both on-premises and cloud data stores. The company also needs to be able to transform or process data by using existing compute services such as Hadoop, and publish the results to an on-premises or cloud data store for BI applications to consume. 
 
@@ -42,7 +37,7 @@ Azure Data Factory is the platform for these kinds of scenarios. It is a *cloud-
 
 - Process or transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
--  Publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.  
+-  Publish output data to data stores such as Azure Synapse Analytics for business intelligence (BI) applications to consume.  
 
 It's more of an Extract-and-Load (EL) and Transform-and-Load (TL) platform rather than a traditional Extract-Transform-and-Load (ETL) platform. The transformations process data by using compute services rather than by adding derived columns, counting the number of rows, sorting data, and so on. 
 
@@ -83,12 +78,12 @@ A pipeline can have one or more activities. Activities define the actions to per
 ### Data movement activities
 Copy Activity in Data Factory copies data from a source data store to a sink data store. Data from any source can be written to any sink. Select a data store to learn how to copy data to and from that store. Data Factory supports the following data stores:
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 For more information, see [Move data by using Copy Activity](data-factory-data-movement-activities.md).
 
 ### Data transformation activities
-[!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](includes/data-factory-transformation-activities.md)]
 
 For more information, see [Move data by using Copy Activity](data-factory-data-transformation-activities.md).
 
@@ -107,7 +102,7 @@ For example, an Azure Storage-linked service specifies a connection string with 
 
 Linked services are used for two reasons in Data Factory:
 
-* To represent a *data store* that includes, but isn't limited to, an on-premises SQL Server database, Oracle database, file share, or Azure blob storage account. See the [Data movement activities](#data-movement-activities) section for a list of supported data stores.
+* To represent a *data store* that includes, but isn't limited to, a SQL Server database, Oracle database, file share, or Azure blob storage account. See the [Data movement activities](#data-movement-activities) section for a list of supported data stores.
 
 * To represent a *compute resource* that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. See the [Data transformation activities](#data-transformation-activities) section for a list of supported compute environments.
 
@@ -137,6 +132,6 @@ To learn how to build data factories with data pipelines, follow the step-by-ste
 
 | Tutorial | Description |
 | --- | --- |
-| [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Create a data factory with a pipeline that moves data from blob storage to a SQL database. |
+| [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Create a data factory with a pipeline that moves data from blob storage to SQL Database. |
 | [Transform data by using Hadoop cluster](data-factory-build-your-first-pipeline.md) |Build your first Azure data factory with a data pipeline that processes data by running a Hive script on an Azure HDInsight (Hadoop) cluster. |
-| [Move data between an on-premises data store and a cloud data store by using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Build a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |
+| [Move data between an on-premises data store and a cloud data store by using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Build a data factory with a pipeline that moves data from a SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |

@@ -18,7 +18,7 @@ This article discusses how to diagnose actual or perceived data losses that migh
 
 ## Partial loss of keys
 
-Azure Cache for Redis doesn't randomly delete keys after they've been stored in memory. However, it does remove keys in response to expiration or eviction policies and to explicit key-deletion commands. Keys that have been written to the master node in a Premium or Standard Azure Cache for Redis instance also might not be available on a replica right away. Data is replicated from the master to the replica in an asynchronous and non-blocking manner.
+Azure Cache for Redis doesn't randomly delete keys after they've been stored in memory. However, it does remove keys in response to expiration or eviction policies and to explicit key-deletion commands. Keys that have been written to the primary node in a Premium or Standard Azure Cache for Redis instance also might not be available on a replica right away. Data is replicated from the primary to the replica in an asynchronous and non-blocking manner.
 
 If you find that keys have disappeared from your cache, check the following possible causes:
 
@@ -75,7 +75,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### Async replication
 
-Any Azure Cache for Redis instance in the Standard or Premium tier is configured with a master node and at least one replica. Data is copied from the master to a replica asynchronously by using a background process. The [redis.io](https://redis.io/topics/replication) website describes how Redis data replication works in general. For scenarios where clients write to Redis frequently, partial data loss can occur because this replication is guaranteed to be instantaneous. For example, if the master goes down *after* a client writes a key to it, but *before* the background process has a chance to send that key to the replica, the key is lost when the replica takes over as the new master.
+Any Azure Cache for Redis instance in the Standard or Premium tier is configured with a primary node and at least one replica. Data is copied from the primary to a replica asynchronously by using a background process. The [redis.io](https://redis.io/topics/replication) website describes how Redis data replication works in general. For scenarios where clients write to Redis frequently, partial data loss can occur because this replication is not guaranteed to be instantaneous. For example, if the primary goes down *after* a client writes a key to it, but *before* the background process has a chance to send that key to the replica, the key is lost when the replica takes over as the new primary.
 
 ## Major or complete loss of keys
 
@@ -107,13 +107,13 @@ Azure Cache for Redis uses the **db0** database by default. If you switch to ano
 
 Redis is an in-memory data store. Data is kept on the physical or virtual machines that host the Redis cache. An Azure Cache for Redis instance in the Basic tier runs on only a single virtual machine (VM). If that VM is down, all data that you've stored in the cache is lost. 
 
-Caches in the Standard and Premium tiers offer much higher resiliency against data loss by using two VMs in a replicated configuration. When the master node in such a cache fails, the replica node takes over to serve data automatically. These VMs are located on separate domains for faults and updates, to minimize the chance of both becoming unavailable simultaneously. If a major datacenter outage happens, however, the VMs might still go down together. Your data will be lost in these rare cases.
+Caches in the Standard and Premium tiers offer much higher resiliency against data loss by using two VMs in a replicated configuration. When the primary node in such a cache fails, the replica node takes over to serve data automatically. These VMs are located on separate domains for faults and updates, to minimize the chance of both becoming unavailable simultaneously. If a major datacenter outage happens, however, the VMs might still go down together. Your data will be lost in these rare cases.
 
-Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) to improve protection of your data against these infrastructure failures.
+Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](./cache-how-to-geo-replication.md) to improve protection of your data against these infrastructure failures.
 
 ## Additional information
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
-- [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 - [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
-- [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
+- [How can I run Redis commands?](cache-development-faq.md#how-can-i-run-redis-commands)

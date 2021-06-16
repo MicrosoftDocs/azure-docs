@@ -1,22 +1,22 @@
 ---
-title: Starting an Azure Automation runbook with a webhook
-description: A webhook that allows a client to start a runbook in Azure Automation from an HTTP call.  This article describes how to create a webhook and how to call one to start a runbook.
+title: Start an Azure Automation runbook from a webhook
+description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2020
-ms.topic: conceptual
+ms.date: 03/18/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
-# Starting an Azure Automation runbook with a webhook
+# Start a runbook from a webhook
 
-A webhook allows an external service to start a particular runbook in Azure Automation through a single HTTP request. External services include Azure DevOps Services, GitHub, Azure Monitor logs, and custom applications. Such a service can use a webhook to start a runbook without implementing a full solution using the Azure Automation API. You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
+A webhook allows an external service to start a particular runbook in Azure Automation through a single HTTP request. External services include Azure DevOps Services, GitHub, Azure Monitor logs, and custom applications. Such a service can use a webhook to start a runbook without implementing the full Azure Automation API. You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](./start-runbooks.md).
 
 > [!NOTE]
 > Using a webhook to start a Python runbook is not supported.
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+To understand client requirements for TLS 1.2 with webhooks, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## Webhook properties
 
@@ -78,9 +78,13 @@ Now we pass the following JSON object in the UI for the `WebhookData` parameter.
 
 The security of a webhook relies on the privacy of its URL, which contains a security token that allows the webhook to be invoked. Azure Automation does not perform any authentication on a request as long as it is made to the correct URL. For this reason, your clients should not use webhooks for runbooks that perform highly sensitive operations without using an alternate means of validating the request.
 
-You can include logic within a runbook to determine if it is called by a webhook. Have the runbook check the `WebhookName` property of the `WebhookData` parameter. The runbook can perform further validation by looking for particular information in the `RequestHeader` and `RequestBody` properties.
+Consider the following strategies:
 
-Another strategy is to have the runbook perform some validation of an external condition when it receives a webhook request. For example, consider a runbook that is called by GitHub any time there's a new commit to a GitHub repository. The runbook might connect to GitHub to validate that a new commit has occurred before continuing.
+* You can include logic within a runbook to determine if it is called by a webhook. Have the runbook check the `WebhookName` property of the `WebhookData` parameter. The runbook can perform further validation by looking for particular information in the `RequestHeader` and `RequestBody` properties.
+
+* Have the runbook perform some validation of an external condition when it receives a webhook request. For example, consider a runbook that is called by GitHub any time there's a new commit to a GitHub repository. The runbook might connect to GitHub to validate that a new commit has occurred before continuing.
+
+* Azure Automation supports Azure virtual network service tags, specifically [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). You can use service tags to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md) and trigger webhooks from within your virtual network. Service tags can be used in place of specific IP addresses when you create security rules. By specifying the service tag name **GuestAndHybridManagement**  in the appropriate source or destination field of a rule, you can allow or deny the traffic for the Automation service. This service tag does not support allowing more granular control by restricting IP ranges to a specific region.
 
 ## Create a webhook
 
@@ -92,13 +96,14 @@ Use the following procedure to create a new webhook linked to a runbook in the A
 4. Fill in the **Name** and **Expiration Date** fields for the webhook and specify if it should be enabled. See [Webhook properties](#webhook-properties) for more information about these properties.
 5. Click the copy icon and press Ctrl+C to copy the URL of the webhook. Then record it in a safe place. 
 
-    > [!NOTE]
-    > Once you create the webhook, you cannot retrieve the URL again.
+    > [!IMPORTANT]
+    > Once you create the webhook, you cannot retrieve the URL again. Make sure you copy and record it as above.
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
 1. Click **Parameters** to provide values for the runbook parameters. If the runbook has mandatory parameters, you can't create the webhook unless you provide values.
-1. Click **Create** to create the webhook.
+
+2. Click **Create** to create the webhook.
 
 ## Use a webhook
 
@@ -123,7 +128,112 @@ Assuming the request is successful, the webhook response contains the job ID in 
 {"JobIds":["<JobId>"]}
 ```
 
-The client can't determine when the runbook job completes or its completion status from the webhook. It can find out this information using the job ID with another mechanism, such as [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) or the [Azure Automation API](/rest/api/automation/job).
+The client can't determine when the runbook job completes or its completion status from the webhook. It can find out this information using the job ID with another mechanism, such as [Windows PowerShell](/powershell/module/servicemanagement/azure.service/get-azureautomationjob) or the [Azure Automation API](/rest/api/automation/job).
+
+### Use a webhook from an ARM template
+
+Automation webhooks can also be invoked by [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md). The ARM template issues a `POST` request and receives a return code just like any other client. See [Use a webhook](#use-a-webhook).
+
+   > [!NOTE]
+   > For security reasons, the URI is only returned the first time a template is deployed.
+
+This sample template creates a test environment and returns the URI for the webhook it creates.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automationAccountName": {
+            "type": "String",
+            "metadata": {
+                "description": "Automation account name"
+            }
+        },
+        "webhookName": {
+            "type": "String",
+            "metadata": {
+                "description": "Webhook Name"
+            }
+        },
+        "runbookName": {
+            "type": "String",
+            "metadata": {
+                "description": "Runbook Name for which webhook will be created"
+            }
+        },
+        "WebhookExpiryTime": {
+            "type": "String",
+            "metadata": {
+                "description": "Webhook Expiry time"
+            }
+        },
+        "_artifactsLocation": {
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/",
+            "type": "String",
+            "metadata": {
+                "description": "URI to artifacts location"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Automation/automationAccounts",
+            "apiVersion": "2020-01-13-preview",
+            "name": "[parameters('automationAccountName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "sku": {
+                    "name": "Free"
+                }
+            },
+            "resources": [
+                {
+                    "type": "runbooks",
+                    "apiVersion": "2018-06-30",
+                    "name": "[parameters('runbookName')]",
+                    "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[parameters('automationAccountName')]"
+                    ],
+                    "properties": {
+                        "runbookType": "Python2",
+                        "logProgress": "false",
+                        "logVerbose": "false",
+                        "description": "Sample Runbook",
+                        "publishContentLink": {
+                            "uri": "[uri(parameters('_artifactsLocation'), 'scripts/AzureAutomationTutorialPython2.py')]",
+                            "version": "1.0.0.0"
+                        }
+                    }
+                },
+                {
+                    "type": "webhooks",
+                    "apiVersion": "2018-06-30",
+                    "name": "[parameters('webhookName')]",
+                    "dependsOn": [
+                        "[parameters('automationAccountName')]",
+                        "[parameters('runbookName')]"
+                    ],
+                    "properties": {
+                        "isEnabled": true,
+                        "expiryTime": "[parameters('WebhookExpiryTime')]",
+                        "runbook": {
+                            "name": "[parameters('runbookName')]"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "outputs": {
+        "webhookUri": {
+            "type": "String",
+            "value": "[reference(parameters('webhookName')).uri]"
+        }
+    }
+}
+```
 
 ## Renew a webhook
 
@@ -141,7 +251,7 @@ You can extend a webhook that has not reached its expiration time. To extend a w
 The following sample runbook accepts the webhook data and starts the virtual machines specified in the request body. To test this runbook, in your Automation account under **Runbooks**, click **Create a runbook**. If you don't know how to create a runbook, see [Creating a runbook](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
+> For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
 
 ```powershell
 param
@@ -234,4 +344,4 @@ The following image shows the request being sent from Windows PowerShell and the
 
 ## Next steps
 
-* To learn how to use Azure Automation to take action on Azure alerts, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
+* To trigger a runbook from an alert, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).

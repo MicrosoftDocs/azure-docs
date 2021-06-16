@@ -3,7 +3,6 @@ title: Azure Quickstart - Set and retrieve a certificate from Key Vault using Az
 description: Quickstart showing how to set and retrieve a certificate from Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -41,7 +40,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 Take note of the two properties listed below:
 
 * **Vault Name**: In the example, this is **Example-Vault**. You will use this name for other steps.
-* **Vault URI**: In the example, this is https://example-vault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+* **Vault URI**: In the example, this is `https://example-vault.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 
@@ -57,13 +56,15 @@ To add a certificate to the vault, you just need to take a couple of additional 
     - **Method of Certificate Creation**: Generate.
     - **Certificate Name**: ExampleCertificate.
     - **Subject**: CN=ExampleDomain
-    - Leave the other values to their defaults. Click **Create**.
+    - Leave the other values to their defaults. (By default, if you don't specify anything special in Advanced policy, it'll be usable as a client auth certificate.)
+ 4. Click **Create**.
 
 Once that you receive the message that the certificate has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
 
 ![Certificate properties](../media/certificates/quick-create-portal/current-version-hidden.png)
 
-By clicking "Download in CER format" or "Download in PFX/PEM format" button, you can dowload the certificate. 
+## Export certificate from Key Vault
+By clicking "Download in CER format" or "Download in PFX/PEM format" button, you can download the certificate. 
 
 ![Certificate download](../media/certificates/quick-create-portal/current-version-shown.png)
 
@@ -83,4 +84,4 @@ In this quickstart, you created a Key Vault and stored a certificate in it. To l
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-features.md)

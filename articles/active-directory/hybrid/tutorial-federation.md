@@ -25,9 +25,9 @@ The following tutorial will walk you through creating a hybrid identity environm
 
 ## Prerequisites
 The following are prerequisites required for completing this tutorial
-- A computer with [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
+- A computer with [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
 - An [Azure subscription](https://azure.microsoft.com/free)
-- - An [external network adapter](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
+- - An [external network adapter](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
 - A copy of Windows Server 2016
 - A [custom domain](../../active-directory/fundamentals/add-custom-domain.md) that can be verified
 
@@ -83,7 +83,7 @@ In order to finish building the virtual machine, you need to finish the operatin
 4. On the Windows Server start up screen select your language and click **Next**.
 5. Click **Install Now**.
 6. Enter your license key and click **Next**.
-7. Check **I accept the license terms and click **Next**.
+7. Check **I accept the license terms** and click **Next**.
 8. Select **Custom:  Install Windows Only (Advanced)**
 9. Click **Next**
 10. Once the installation has completed, restart the virtual machine, sign-in and run Windows updates to ensure the VM is the most up-to-date.  Install the latest updates.
@@ -136,7 +136,7 @@ Now that we have the VM created and it has been renamed and has a static IP addr
 $DatabasePath = "c:\windows\NTDS"
 $DomainMode = "WinThreshold"
 $DomainName = "contoso.com"
-$DomaninNetBIOSName = "CONTOSO"
+$DomainNetBIOSName = "CONTOSO"
 $ForestMode = "WinThreshold"
 $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
@@ -201,7 +201,7 @@ Now we need to create an Azure AD tenant so that we can synchronize our users to
 2. Select the **plus icon (+)** and search for **Azure Active Directory**.
 3. Select **Azure Active Directory** in the search results.
 4. Select **Create**.</br>
-![Create](media/tutorial-password-hash-sync/create1.png)</br>
+![Screenshot that shows how to create an Azure AD tenant.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Provide a **name for the organization** along with the **initial domain name**. Then select **Create**. This will create your directory.
 6. Once this has completed, click the **here** link, to manage the directory.
 
@@ -209,10 +209,10 @@ Now we need to create an Azure AD tenant so that we can synchronize our users to
 Now that we have an Azure AD tenant, we will create a global administrator account.  This account is used to create the Azure AD Connector account during Azure AD Connect installation.  The Azure AD Connector account is used to write information to Azure AD.   To create the global administrator account do the following.
 
 1.  Under **Manage**, select **Users**.</br>
-![Create](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Screenshot that shows the User option selected in the Manage section where you create a global administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Select **All users** and then select **+ New user**.
 3.  Provide a name and username for this user. This will be your Global Admin for the tenant. You will also want to change the **Directory role** to **Global administrator.** You can also show the temporary password. When you are done, select **Create**.</br>
-![Create](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Screenshot that shows the Create button you select when you create a global administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Once this has completed, open a new web browser and sign-in to myapps.microsoft.com using the new global administrator account and the temporary password.
 5. Change the password for the global administrator to something that you will remember.
 
@@ -222,12 +222,12 @@ Now that we have a tenant and a global administrator, we need to add our custom 
 1. Back in the [Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) be sure to close the **All Users** blade.
 2. On the left, select **Custom domain names**.
 3. Select **Add custom domain**.</br>
-![Federation](media/tutorial-federation/custom1.png)</br>
+![Screenshot that shows the Add custom domain button highlighted.](media/tutorial-federation/custom1.png)</br>
 4. On **Custom domain names**, enter the name of your custom domain in the box, and click **Add Domain**.
 5. On the custom domain name screen you will be supplied with either TXT or MX information.  This information must be added to the DNS information of the domain registrar under your domain.  So you need to go to your domain registrar, enter either the TXT or MX information in the DNS settings for your domain.  This will allow Azure to verify your domain.  This may take up to 24 hours for Azure to verify it.  For more information, see the [add a custom domain](../../active-directory/fundamentals/add-custom-domain.md) documentation.</br>
-![Federation](media/tutorial-federation/custom2.png)</br>
+![Screenshot that shows where you add the TXT or MX information.](media/tutorial-federation/custom2.png)</br>
 6. To ensure that it is verified, click the Verify button.</br>
-![Federation](media/tutorial-federation/custom3.png)</br>
+![Screenshot that shows a successful verification message after you select Verify.](media/tutorial-federation/custom3.png)</br>
 
 ## Download and install Azure AD Connect
 Now it is time to download and install Azure AD Connect.  Once it has been installed we will run through the express installation.  Do the following:
@@ -238,7 +238,7 @@ Now it is time to download and install Azure AD Connect.  Once it has been insta
 4. On the Express settings screen, click **Customize**.  
 5. On the Install required components screen. Click **Install**.  
 6. On the User Sign-in screen, select **Federation with AD FS** and click **Next**.
-![Federation](media/tutorial-federation/fed1.png)
+![Screenshot that shows where to select Federation with AD FS.](media/tutorial-federation/fed1.png)
 
 1. On the Connect to Azure AD screen, enter the username and password of the global admin we created above and click **Next**.
 2. On the Connect your directories screen, click **Add Directory**.  Then select **Create new AD account** and enter the contoso\Administrator username and password and click **OK**.
@@ -253,7 +253,7 @@ Now it is time to download and install Azure AD Connect.  Once it has been insta
 11. Select **Use a certificate installed on the federation servers** and click **Browse**.
 12. Enter DC1 in the search box and select it when it is found.  Click **Ok**.
 13. From the **Certificate File** drop-down, select **adfs.contoso.com** the certificate we created above.  Click **Next**.
-![Federation](media/tutorial-federation/fed2.png)
+![Screenshot that shows where to select the certificate file that you created.](media/tutorial-federation/fed2.png)
 
 1. On the AD FS server screen, click **Browse** and enter DC1 in the search box and select it when it is found.  Click **Ok**.  Click **Next**.
 ![Federation](media/tutorial-federation/fed3.png)
@@ -289,4 +289,3 @@ You have now successfully setup a hybrid identity environment that you can use t
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Customized settings](how-to-connect-install-custom.md)
 - [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
-

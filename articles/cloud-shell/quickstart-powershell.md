@@ -8,7 +8,8 @@ ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 10/18/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart for PowerShell in Azure Cloud Shell
@@ -22,11 +23,11 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 
 1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal
 
-   ![](media/quickstart-powershell/shell-icon.png)
+   ![Screenshot showing how to start Azure Cloud Shell from the Azure portal.](media/quickstart-powershell/shell-icon.png)
 
 2. Select the PowerShell environment from the drop-down and you will be in Azure drive `(Azure:)`
 
-   ![](media/quickstart-powershell/environment-ps.png)
+   ![Screenshot showing how to select the PowerShell environment for the Azure Cloud Shell.](media/quickstart-powershell/environment-ps.png)
 
 ## Run PowerShell commands
 
@@ -46,107 +47,6 @@ ResourceGroupName       Name       Location                VmSize   OsType     P
 MyResourceGroup2        Demo        westus         Standard_DS1_v2  Windows    Succeeded           running
 MyResourceGroup         MyVM1       eastus            Standard_DS1  Windows    Succeeded           running
 MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    Succeeded           deallocated
-```
-
-## Navigate Azure resources
-
- 1. List all your subscriptions from `Azure` drive
-
-    ```azurepowershell-interactive
-    PS Azure:\> dir
-    ```
-
- 2. `cd` to your preferred subscription
-
-    ```azurepowershell-interactive
-    PS Azure:\> cd MySubscriptionName
-    PS Azure:\MySubscriptionName>
-    ```
-
- 3. View all your Azure resources under the current subscription
-
-    Type `dir` to list multiple views of your Azure resources.
-
-    ```azurepowershell-interactive
-    PS Azure:\MySubscriptionName> dir
-
-        Directory: azure:\MySubscriptionName
-
-    Mode Name
-    ---- ----
-    +    AllResources
-    +    ResourceGroups
-    +    StorageAccounts
-    +    VirtualMachines
-    +    WebApps
-    ```
-
-### AllResources view
-
-Type `dir` under `AllResources` directory to view your Azure resources.
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName> dir AllResources
-```
-
-### Explore resource groups
-
- You can go to the `ResourceGroups` directory and inside a specific resource group you can find virtual machines.
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
-
-PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
-
-
-    Directory: Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
-
-
-VMName    Location   ProvisioningState VMSize          OS            SKU             OSVersion AdminUserName  NetworkInterfaceName
-------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
-TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
-TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
-```
-
-> [!NOTE]
-> You may notice that the second time when you type `dir`, the Cloud Shell is able to display the items much faster.
-> This is because the child items are cached in memory for a better user experience.
-However, you can always use `dir -Force` to get fresh data.
-
-### Navigate storage resources
-
-By entering into the `StorageAccounts` directory, you can easily navigate all your storage resources
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
-
-    Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
-
-Name          ConnectionString
-----          ----------------
-MyFileShare1  \\MyStorageAccountName.file.core.windows.net\MyFileShare1;AccountName=MyStorageAccountName AccountKey=<key>
-MyFileShare2  \\MyStorageAccountName.file.core.windows.net\MyFileShare2;AccountName=MyStorageAccountName AccountKey=<key>
-MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountName=MyStorageAccountName AccountKey=<key>
-```
-
-With the connection string, you can use the following command to mount the Azure Files share.
-
-```azurepowershell-interactive
-net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
-```
-
-For details, see [Mount an Azure Files share and access the share in Windows][azmount].
-
-You can also navigate the directories under the Azure Files share as follows:
-
-```azurepowershell-interactive
-PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
-PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
-
-Mode  Name
-----  ----
-+     TestFolder
-.     hello.ps1
 ```
 
 ### Interact with virtual machines
@@ -257,7 +157,7 @@ publish the public key to `authorized_keys` on the remote machine, such as `/hom
 
 ### Using SSH
 
-Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using Azure PowerShell cmdlets.
+Follow instructions [here](../virtual-machines/linux/quick-create-powershell.md) to create a new VM configuration using Azure PowerShell cmdlets.
 Before calling into `New-AzVM` to kick off the deployment, add SSH public key to the VM configuration.
 The newly created VM will contain the public key in the `~\.ssh\authorized_keys` location, thereby enabling credential-free SSH session to the VM.
 
@@ -341,6 +241,6 @@ Type `exit` to terminate the session.
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/
 [customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
-[profile]: https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_profiles
-[azmount]: https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows
+[profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
+[azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

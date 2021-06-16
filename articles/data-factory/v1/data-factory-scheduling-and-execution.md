@@ -1,14 +1,10 @@
 ---
 title: Scheduling and Execution with Data Factory 
 description: Learn scheduling and execution aspects of Azure Data Factory application model.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
@@ -228,7 +224,7 @@ The **policy** section in dataset definition defines the criteria or the conditi
 | Policy Name | Description | Applied To | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
-| minimumRows | Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+| minimumRows | Validates that the data in **Azure SQL Database** or **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
 
 #### Examples
 **minimumSizeMB:**

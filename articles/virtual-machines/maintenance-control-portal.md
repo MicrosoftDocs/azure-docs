@@ -3,7 +3,8 @@ title: Maintenance control for Azure virtual machines using the Azure portal
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and the Azure portal.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.subservice: maintenance-control
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
@@ -19,28 +20,34 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
 1. Sign in to the Azure portal.
 
 1. Search for **Maintenance Configurations**.
-
-   ![Screenshot showing how to open Maintenance Configurations](media/virtual-machines-maintenance-control-portal/maintenance-configurations-search.png)
+    
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-search-bar.png" alt-text="Screenshot showing how to open Maintenance Configurations":::
 
 1. Click **Add**.
 
-   ![Screenshot showing how to add a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add.png)
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-2.png" alt-text="Screenshot showing how to add a maintenance configuration":::
 
-1. Choose a subscription and resource group, provide a name for the configuration, and choose a region. Click **Next**.
+1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select *Host* for the scope. Click **Next**.
+    
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
-   ![Screenshot showing Maintenance Configuration basics](media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics.png)
+1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence. Once you create a scheduled window you no longer have to apply the updates manually. Click **Next**. 
+
+    > [!IMPORTANT]
+    > Maintenance window **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to repeat at least once in 35-days. 
+
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-schedule-tab.png" alt-text="Screenshot showing Maintenance Configuration schedule":::
+
+1. In the Assignment tab, assign resources now or skip this step and assign resources later after maintenance configuration deployment. Click **Next**.
 
 1. Add tags and values. Click **Next**.
-
-   ![Screenshot showing how to add tags to a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
+    
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags-tab.png" alt-text="Screenshot showing how to add tags to a maintenance configuration":::
 
 1. Review the summary. Click **Create**.
 
-   ![Screenshot showing how to create a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
-
 1. After the deployment is complete, click **Go to resource**.
 
-   ![Screenshot showing Maintenance Configuration deployment complete](media/virtual-machines-maintenance-control-portal/maintenance-configurations-deployment-complete.png)
 
 ## Assign the configuration
 
@@ -72,7 +79,7 @@ There are also two ways to check if updates are pending for a maintenance config
 
 You can also check a specific host using **Virtual Machines** or properties of the dedicated host. 
 
-![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![Screenshot that shows the highlighted maintenance state.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## Apply updates
 
@@ -90,7 +97,7 @@ You can check on the progress of the updates for a configuration in **Maintenanc
 
 To delete a configuration, open the configuration details and click **Delete**.
 
-![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
+![Screenshot that shows how to delete a configuration.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
 ## Next steps

@@ -1,29 +1,26 @@
 ---
-title: Windows Virtual Desktop diagnose issues - Azure
-description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
-services: virtual-desktop
+title: Azure Virtual Desktop (classic) diagnose issues - Azure
+description: How to use the Azure Virtual Desktop (classic) diagnostics feature to diagnose issues.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/13/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Identify and diagnose issues
+# Identify and diagnose issues in Azure Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../diagnostics-role-service.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../diagnostics-role-service.md).
 
-Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
+Azure Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. The Azure Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Azure Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
 
 * Feed subscription activities: the end-user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications.
 * Connection activities: the end-user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
 * Management activities: the administrator triggers these activities whenever they perform management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
-  
-Connections that don't reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
 
-To get started, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
+Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
+
+To get started, [download and import the Azure Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -31,10 +28,10 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## Diagnose issues with PowerShell
 
-Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains many optional parameters to help narrow down and isolate issues. The following sections list the cmdlets you can run to diagnose issues. Most filters can be applied together. Values listed in brackets, such as `<tenantName>`, should be replaced with the values that apply to your situation.
+Azure Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains many optional parameters to help narrow down and isolate issues. The following sections list the cmdlets you can run to diagnose issues. Most filters can be applied together. Values listed in brackets, such as `<tenantName>`, should be replaced with the values that apply to your situation.
 
 >[!IMPORTANT]
->The diagnostics feature is for single-user troubleshooting. All queries using PowerShell must include either the *-UserName* or *-ActivityID* parameters. For monitoring capabilities, use Log Analytics. See [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics-2019.md) for more information about how to send diagnostics data to your workspace. 
+>The diagnostics feature is for single-user troubleshooting. All queries using PowerShell must include either the *-UserName* or *-ActivityID* parameters. For monitoring capabilities, use Log Analytics. See [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics-2019.md) for more information about how to send diagnostics data to your workspace.
 
 ### Filter diagnostic activities by user
 
@@ -120,10 +117,10 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 
 ## Common error scenarios
 
-Error scenarios are categorized in internal to the service and external to Windows Virtual Desktop.
+Error scenarios are categorized in internal to the service and external to Azure Virtual Desktop.
 
-* Internal Issue: specifies scenarios that can't be mitigated by the tenant administrator and need to be resolved as a support issue. When providing feedback through the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the activity ID and approximate time frame of when the issue occurred.
-* External Issue: relate to scenarios which can be mitigated by the system administrator. These are external to Windows Virtual Desktop.
+* Internal Issue: specifies scenarios that can't be mitigated by the tenant administrator and need to be resolved as a support issue. When providing feedback through the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the activity ID and approximate time frame of when the issue occurred.
+* External Issue: relate to scenarios which can be mitigated by the system administrator. These are external to Azure Virtual Desktop.
 
 The following table lists common errors your admins might run into.
 
@@ -134,6 +131,7 @@ The following table lists common errors your admins might run into.
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
+|1322|ConnectionFailedNoMappingOfSIDinAD|The user isn't a member of Azure Active Directory. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
 |3|UnauthorizedAccess|The user who tried to run the administrative PowerShell cmdlet either doesn't have permissions to do so or mistyped their username.|
 |1000|TenantNotFound|The tenant name you entered doesn't match any existing tenants. Review the tenant name for typos and try again.|
 |1006|TenantCannotBeRemovedHasSessionHostPools|You can't delete a tenant as long it contains objects. Delete the session host pools first, then try again.|
@@ -149,12 +147,13 @@ The following table lists common errors your admins might run into.
 |8000|InvalidAuthorizationRoleScope|The role name you entered doesn't match any existing role names. Review the role name for typos and try again. |
 |8001|UserNotFound |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
 |8005|UserNotFoundInAAD |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
-|8008|TenantConsentRequired|Follow the instructions [here](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) to provide consent for your tenant.|
+|8008|TenantConsentRequired|Follow the instructions [here](tenant-setup-azure-active-directory.md#grant-permissions-to-azure-virtual-desktop) to provide consent for your tenant.|
 
 ### External connection error codes
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|The user isn't a member of Active Directory. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|The session host is not correctly joined to the Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|The connections failed because the session host is unavailable. Check the session host's health.|
 |-2146233088|ConnectionFailedClientDisconnect|If you see this error frequently, make sure the user's computer is connected to the network.|
@@ -165,9 +164,10 @@ The following table lists common errors your admins might run into.
 |8|ConnectionBroken|The connection between Client and Gateway or Server dropped. No action needed unless it happens unexpectedly.|
 |14|UnexpectedNetworkDisconnect|The connection to the network dropped. Ask the user to connect again.|
 |24|ReverseConnectFailed|The host virtual machine has no direct line of sight to RD Gateway. Ensure the Gateway IP address can be resolved.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|The user isn't a member of Active Directory. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
 
 ## Next steps
 
-To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop environment](environment-setup-2019.md).
+To learn more about roles within Azure Virtual Desktop, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 
-To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
+To see a list of available PowerShell cmdlets for Azure Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).

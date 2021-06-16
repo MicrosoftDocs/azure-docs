@@ -1,33 +1,27 @@
 ---
-title: Windows Virtual Desktop diagnose issues - Azure
-description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
-services: virtual-desktop
+title: Azure Virtual Desktop diagnose issues - Azure
+description: How to use the Azure Virtual Desktop diagnostics feature to diagnose issues.
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: troubleshooting
+ms.date: 09/21/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Identify and diagnose issues
+# Identify and diagnose Azure Virtual Desktop issues
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
 
-Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. To learn more about the diagnostic capabilities of Windows Virtual Desktop, see [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md).
-  
-Connections that don't reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
+Azure Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. To learn more about the diagnostic capabilities of Azure Virtual Desktop, see [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md).
+
+Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
 
 ## Common error scenarios
 
-Error scenarios are categorized in internal to the service and external to Windows Virtual Desktop.
+The WVDErrors table tracks errors across all activity types. The column called "ServiceError" provides an additional flag marked either "True" or "False." This flag will tell you whether the error is related to the service.
 
-* Internal Issue: specifies scenarios that can't be mitigated by the customer and need to be resolved as a support issue. When providing feedback through the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the correlation ID and approximate time frame of when the issue occurred.
-* External Issue: relate to scenarios that can be mitigated by the customer. These are external to Windows Virtual Desktop.
+* If the value is "True," the service team may have already investigated this issue. If this impacts user experience and appears a high number of times, we recommend you submit a support ticket for Azure Virtual Desktop.
+* If the value is "False," this is may be a misconfiguration that you can fix yourself. The error message can give you a clue about where to start.
 
 The following table lists common errors your admins might run into.
 
@@ -46,7 +40,7 @@ The following table lists common errors your admins might run into.
 |Failed to unassign user from application group|Could not unpublish an app group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the app group is published to. |
 |There was an error retrieving the available locations |Check location of VM used in the create host pool wizard. If image is not available in that location, add image in that location or choose a different VM location. |
 
-### External connection error codes
+### Connection error codes
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
@@ -61,8 +55,16 @@ The following table lists common errors your admins might run into.
 |14|UnexpectedNetworkDisconnect|The connection to the network dropped. Ask the user to connect again.|
 |24|ReverseConnectFailed|The host virtual machine has no direct line of sight to RD Gateway. Ensure the Gateway IP address can be resolved.|
 
+## Error: Can't add user assignments to an app group
+
+After assigning a user to an app group, the Azure portal displays a warning that says "Session Ending" or "Experiencing Authentication Issues - Extension Microsoft_Azure_WVD." The assignment page then doesn't load, and after that, pages stop loading throughout the Azure portal (for example, Azure Monitor, Log Analytics, Service Health, and so on).
+
+**Cause:** There's a problem with the conditional access policy. The Azure portal is trying to obtain a token for Microsoft Graph, which is dependent on SharePoint Online. The customer has a conditional access policy called "Microsoft Office 365 Data Storage Terms of Use" that requires users to accept the terms of use to access data storage. However, they haven't signed in yet, so the Azure portal can't get the token.
+
+**Fix:** Before signing in to the Azure portal, the admin first needs to sign in to SharePoint and accept the Terms of Use. After that, they should be able to sign in to the Azure portal like normal.
+
 ## Next steps
 
-To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop environment](environment-setup.md).
+To learn more about roles within Azure Virtual Desktop, see [Azure Virtual Desktop environment](environment-setup.md).
 
-To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
+To see a list of available PowerShell cmdlets for Azure Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).

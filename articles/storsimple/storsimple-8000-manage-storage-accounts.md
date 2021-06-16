@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
@@ -30,7 +30,7 @@ The **Configuration** section in the StorSimple Device Manager service blade pre
 
 This tutorial explains how to add, edit, or delete storage account credentials, or rotate the security keys for a storage account.
 
- ![List of storage account credentials](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![List of storage account credentials 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 Storage accounts contain the credentials that the StorSimple device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
 
@@ -52,7 +52,7 @@ The most common tasks related to storage accounts that can be performed are:
 There are three types of storage accounts that can be used with your StorSimple device.
 
 * **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Step 1: Create a new service](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) in [Deploy your on-premises StorSimple device](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](../storage/common/storage-create-storage-account.md). 
+* **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](../storage/common/storage-account-create.md). 
 * **Storage accounts outside of the service subscription** – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.
 
 ## Add a storage account
@@ -99,7 +99,7 @@ You can edit a storage account that is used by a volume container. If you edit a
 
 1. Go to your StorSimple Device Manager service. In the **Configuration** section, click **Storage account credentials**.
 
-    ![Storage account credentials](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![Storage account credentials 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. In the **Storage account credentials** blade, from the list of storage account credentials, select and click the one you wish to edit. 
 
@@ -156,11 +156,11 @@ To inform the StorSimple Device Manager service of the change, you will need to 
 
 3. Click **...More** and then select **Sync access key to rotate**.   
 
-    ![synchronize keys](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
+    ![synchronize keys 2](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
 4. In the StorSimple Device Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service. If the primary access key was changed (regenerated), select **primary** key. If the secondary key was changed, select **secondary** key. Click **Sync key**.
       
-      ![synchronize keys](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
+      ![synchronize keys 3](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
 You will be notified after the key is successfully synchronized.
 
@@ -176,4 +176,3 @@ You will be notified after the key is successfully synchronized.
 ## Next steps
 * Learn more about [StorSimple security](storsimple-8000-security.md).
 * Learn more about [using the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
-

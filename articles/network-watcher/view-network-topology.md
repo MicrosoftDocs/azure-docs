@@ -6,7 +6,7 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 05/09/2018
@@ -56,7 +56,7 @@ The account that you use must have the necessary [permissions](required-rbac-per
     az group create --name NetworkWatcherRG --location eastus
     ```
 
-2. Create a network watcher with [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure). The following example creates a network watcher in the *eastus* region:
+2. Create a network watcher with [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure). The following example creates a network watcher in the *eastus* region:
 
     ```azurecli-interactive
     az network watcher configure \
@@ -65,7 +65,7 @@ The account that you use must have the necessary [permissions](required-rbac-per
       --enabled true
     ```
 
-3. View the topology with [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology). The following example views the topology for a resource group named *MyResourceGroup*:
+3. View the topology with [az network watcher show-topology](/cli/azure/network/watcher#az_network_watcher_show_topology). The following example views the topology for a resource group named *MyResourceGroup*:
 
     ```azurecli-interactive
     az network watcher show-topology --resource-group MyResourceGroup

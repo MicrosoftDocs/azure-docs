@@ -1,7 +1,6 @@
 ---
 title: DNS Analytics solution in Azure Monitor | Microsoft Docs
 description: Set up and use the DNS Analytics solution in Azure Monitor to gather insights into DNS infrastructure on security, performance, and operations.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -31,35 +30,35 @@ The following table describes the connected sources that are supported by this s
 
 | **Connected source** | **Support** | **Description** |
 | --- | --- | --- |
-| [Windows agents](../platform/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
-| [Linux agents](../learn/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
-| [System Center Operations Manager management group](../platform/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
-| [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Azure storage isn't used by the solution. |
+| [Windows agents](../agents/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
+| [Linux agents](../vm/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
+| [System Center Operations Manager management group](../agents/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
+| [Azure storage account](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
 
 ### Data collection details
 
-The solution collects DNS inventory and DNS event-related data from the DNS servers where a Log Analytics agent is installed. This data is then uploaded to Azure Monitor and displayed in the solution dashboard. Inventory-related data, such as the number of DNS servers, zones, and resource records, is collected by running the DNS PowerShell cmdlets. The data is updated once every two days. The event-related data is collected near real time from the [analytic and audit logs](https://technet.microsoft.com/library/dn800669.aspx#enhanc) provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.
+The solution collects DNS inventory and DNS event-related data from the DNS servers where a Log Analytics agent is installed. This data is then uploaded to Azure Monitor and displayed in the solution dashboard. Inventory-related data, such as the number of DNS servers, zones, and resource records, is collected by running the DNS PowerShell cmdlets. The data is updated once every two days. The event-related data is collected near real time from the [analytic and audit logs](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.
 
 ## Configuration
 
 Use the following information to configure the solution:
 
-- You must have a [Windows](../platform/agent-windows.md) or [Operations Manager](../platform/om-agents.md) agent on each DNS server that you want to monitor.
+- You must have a [Windows](../agents/agent-windows.md) or [Operations Manager](../agents/om-agents.md) agent on each DNS server that you want to monitor.
 - You can add the DNS Analytics solution to your Log Analytics workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). You can also use the process described in [Add Azure Monitor solutions from the Solutions Gallery](solutions.md).
 
 The solution starts collecting data without the need of further configuration. However, you can use the following configuration to customize data collection.
 
 ### Configure the solution
 
-On the solution dashboard, click **Configuration** to open the DNS Analytics Configuration page. There are two types of configuration changes that you can make:
+From the Log Analytics workspace in the Azure portal, select **Workspace summary** and then click on the **DNS Analytics** tile. On the solution dashboard, click **Configuration** to open the DNS Analytics Configuration page. There are two types of configuration changes that you can make:
 
-- **Whitelisted Domain Names**. The solution does not process all the lookup queries. It maintains a whitelist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this whitelist are not processed by the solution. Not processing whitelisted domain names helps to optimize the data sent to Azure Monitor. The default whitelist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
+- **Allowlisted Domain Names**. The solution does not process all the lookup queries. It maintains an allowlist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this allowlist are not processed by the solution. Not processing allowlisted domain names helps to optimize the data sent to Azure Monitor. The default allowlist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
 
   You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
 
 - **Talkative Client Threshold**. DNS clients that exceed the threshold for the number of lookup requests are highlighted in the **DNS Clients** blade. The default threshold is 1,000. You can edit the threshold.
 
-    ![Whitelisted domain names](./media/dns-analytics/dns-config.png)
+    ![Allowlisted domain names](./media/dns-analytics/dns-config.png)
 
 ## Management packs
 
@@ -72,7 +71,7 @@ If your Operations Manager management group is connected to your Log Analytics w
 - Microsoft DNS Data Collector Intelligence Pack (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics Configuration (Microsoft.IntelligencePack.Dns.Configuration)
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../platform/om-agents.md).
+For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../agents/om-agents.md).
 
 ## Use the DNS Analytics solution
 
@@ -106,7 +105,7 @@ The information helps you to identify the:
 - IP addresses that the domain name resolves to.
 - Malicious IP address.
 - Severity of the issue.
-- Reason for blacklisting the malicious IP.
+- Reason for blocklisting the malicious IP.
 - Detection time.
 
 **Domains Queried**. Provides the most frequent domain names being queried by the DNS clients in your environment. You can view the list of all the domain names queried. You can also drill down into the lookup request details of a specific domain name in Log Search.
@@ -175,10 +174,10 @@ Common troubleshooting steps:
 
 1. Missing DNS Lookups Data - To troubleshoot this issue, try resetting the config or just loading the configuration page once in portal. For resetting, just change a setting to another value, then change it back to to the original value, and save the config.
 
-## Feedback
+## Suggestions
 
 To provide feedback, visit the [Log Analytics UserVoice page](https://aka.ms/dnsanalyticsuservoice) to post ideas for DNS Analytics features to work on. 
 
 ## Next steps
 
-[Query logs](../log-query/log-query-overview.md) to view detailed DNS log records.
+[Query logs](../logs/log-query-overview.md) to view detailed DNS log records.

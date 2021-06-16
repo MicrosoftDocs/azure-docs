@@ -1,14 +1,9 @@
 ---
 title: Post event to custom Azure Event Grid topic
 description: This article describes how to post an event to a custom topic. It shows the format of the post and event data.
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: spelluru
+ms.date: 07/07/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Post to custom topic for Azure Event Grid
@@ -72,10 +67,7 @@ For custom topics, the top-level data contains the same fields as standard resou
 ]
 ```
 
-For a description of these properties, see [Azure Event Grid event schema](event-schema.md). When posting events to an event grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB (General Availability) or 1 MB (preview).
-
-> [!NOTE]
-> An event of size up to 64 KB is covered by General Availability (GA) Service Level Agreement (SLA). The support for an event of size up to 1 MB is currently in preview. Events over 64 KB are charged in 64-KB increments. 
+For a description of these properties, see [Azure Event Grid event schema](event-schema.md). When posting events to an event grid topic, the array can have a total size of up to 1 MB. The maximum allowed size for an event is also 1 MB. Events over 64 KB are charged in 64-KB increments. 
 
 For example, a valid event data schema is:
 

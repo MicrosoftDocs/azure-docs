@@ -1,5 +1,6 @@
 ---
-title: Call web APIs from a desktop app - Microsoft identity platform | Azure
+title: Call web APIs from a desktop app | Azure
+titleSuffix: Microsoft identity platform 
 description: Learn how to build a desktop app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Desktop app that calls web APIs: Call a web API
@@ -24,19 +25,6 @@ Now that you have a token, you can call a protected web API.
 # [.NET](#tab/dotnet)
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
-
-<!--
-More includes will come later for Python and Java
--->
-# [Python](#tab/python)
-
-```Python
-endpoint = "url to the API"
-http_headers = {'Authorization': 'Bearer ' + result['access_token'],
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'}
-data = requests.get(endpoint, headers=http_headers, stream=False).json()
-```
 
 # [Java](#tab/java)
 
@@ -122,9 +110,46 @@ catch(MsalUiRequiredException ex)
                   .ExecuteAsync();
 }
 ```
+
+# [Node.js](#tab/nodejs)
+
+Using an HTTP client like [Axios](https://www.npmjs.com/package/axios), call the API endpoint URI with an access token as *authorization bearer*.
+
+```javascript
+const axios = require('axios');
+
+async function callEndpointWithToken(endpoint, accessToken) {
+    const options = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    };
+
+    console.log('Request made at: ' + new Date().toString());
+
+    const response = await axios.default.get(endpoint, options);
+
+    return response.data;
+}
+
+```
+
+<!--
+More includes will come later for Python and Java
+-->
+# [Python](#tab/python)
+
+```Python
+endpoint = "url to the API"
+http_headers = {'Authorization': 'Bearer ' + result['access_token'],
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'}
+data = requests.get(endpoint, headers=http_headers, stream=False).json()
+```
+
 ---
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-desktop-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-desktop-production.md).

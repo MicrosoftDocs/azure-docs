@@ -2,7 +2,7 @@
 title: Mount secret volume to container group
 description: Learn how to mount a secret volume to store sensitive information for access by your container instances
 ms.topic: article
-ms.date: 04/03/2020
+ms.date: 07/02/2020
 ---
 
 # Mount a secret volume in Azure Container Instances
@@ -57,7 +57,7 @@ When you deploy with a YAML template, the secret values must be **Base64-encoded
 The following YAML template defines a container group with one container that mounts a *secret* volume at `/mnt/secrets`. The secret volume has two files containing secrets, "mysecret1" and "mysecret2."
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: secret-volume-demo
 properties:
@@ -134,6 +134,6 @@ Another method for providing sensitive information to containers (including Wind
 [tmpfs]: https://wikipedia.org/wiki/Tmpfs
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

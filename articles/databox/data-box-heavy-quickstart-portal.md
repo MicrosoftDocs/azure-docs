@@ -1,13 +1,13 @@
 ---
 title: Quickstart for Microsoft Azure Data Box Heavy| Microsoft Docs
-description: Learn how to quickly deploy your Azure Data Box Heavy in Azure portal
+description: In this quickstart, learn how to deploy Azure Data Box Heavy using the Azure portal, including how to cable, configure, and copy data to upload to Azure.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -58,6 +58,8 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Order
 
+### [Portal](#tab/azure-portal)
+
 This step takes roughly 5 minutes.
 
 1. Create a new Azure Data Box resource in Azure portal.
@@ -67,11 +69,82 @@ This step takes roughly 5 minutes.
 
 Once the order is created, the device is prepared for shipment.
 
+### [Azure CLI](#tab/azure-cli)
+
+Use these Azure CLI commands to create a Data Box Heavy job.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+
+   ```azurecli
+   az group create --name databox-rg --location westus 
+   ```
+
+1. Use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a storage account or use an existing storage account:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Run the [az databox job create](/cli/azure/databox/job#az_databox_job_create) command to create a Data Box job with the **--sku** value of `DataBoxHeavy`:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxheavy-job \
+       --location westus --sku DataBoxHeavy --contact-name "Jim Gan" --phone 4085555555 \
+       --city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa \
+       --staging-storage-account databoxtestsa --resource-group-for-managed-disk rg-for-md
+   ```
+
+   > [!NOTE]
+   > Make sure your subscription supports Data Box Heavy.
+
+1. Run the [az databox job update](/cli/azure/databox/job#az_databox_job_update) to update a job, as in this example, where you change the contact name and email:
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   Run the [az databox job show](/cli/azure/databox/job#az_databox_job_show) command to get information about the job:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   Use the [az databox job list]( /cli/azure/databox/job#az_databox_job_list) command to see all the Data Box jobs for a resource group:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   Run the [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) command to cancel a job:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   Run the [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) command to delete a job:
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Use the [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) command to list credentials for a Data Box job:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+Once the order is created, the device is prepared for shipment.
+
+---
+
 ::: zone-end
 
 ::: zone target = "chromeless"
 
-# Cable and connect to your device
+## Cable and connect to your device
 
 After you have reviewed the prerequisites, you'll cable and connect to your device.
 
@@ -122,7 +195,7 @@ The time to complete this operation depends upon your data size and the speed of
  
 1. Copy data to both the device nodes using both the 40-Gbps data interfaces in parallel.
 
-    - If using a Windows host, use an SMB compatible file copy tool such as [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+    - If using a Windows host, use an SMB compatible file copy tool such as [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
     - For NFS host, use `cp` command or `rsync` to copy the data.
 2. Connect to the shares on the device using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box Heavy.
 3. Make sure that the share and folder names, and the data follow guidelines described in the [Azure Storage and Data Box Heavy service limits](data-box-heavy-limits.md).

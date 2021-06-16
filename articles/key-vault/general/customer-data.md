@@ -1,9 +1,8 @@
 ---
 title: Azure Key Vault customer data features - Azure Key Vault | Microsoft Docs
-description: Learn about customer data in Key Vault
+description: Learn about customer data, which Azure Key Vault receives during creation or update of vaults, keys, secrets, certificates, and managed storage accounts.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -14,7 +13,7 @@ ms.author: mbaldwin
 ---
 # Azure Key Vault customer data features​
 
-Azure Key Vault receives customer data during creation or update of vaults, keys, secrets, certificates, and managed storage accounts. This Customer data is directly visible in the Azure portal and through the REST API. Customer data can be edited or deleted by updating or deleting the object that contains the data.
+Azure Key Vault receives customer data during creation or update of vaults, managed HSM pools, keys, secrets, certificates, and managed storage accounts. This Customer data is directly visible in the Azure portal and through the REST API. Customer data can be edited or deleted by updating or deleting the object that contains the data.
 
 System access logs are generated when a user or application accesses Key Vault. Detailed access logs are available to customers using Azure Insights.
 
@@ -48,14 +47,14 @@ Azure Key Vault diagnostic logs that contain personal data can be retrieved by m
 
 ## Next steps
 
-- [Azure Key Vault Logging](logging.md))
+- [Azure Key Vault Logging](logging.md)
 
-- [Azure Key Vault soft-delete overview](soft-delete-cli.md)
+- [Azure Key Vault soft-delete overview](./key-vault-recovery.md)
 
-- [Azure Key Vault key operations](https://docs.microsoft.com/rest/api/keyvault/key-operations)
+- [Azure Key Vault key operations](/rest/api/keyvault/key-operations)
 
-- [Azure Key Vault secret operations](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
+- [Azure Key Vault secret operations](/rest/api/keyvault/secret-operations)
 
-- [Azure Key Vault certificates and policies](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
+- [Azure Key Vault certificates and policies](/rest/api/keyvault/certificates-and-policies)
 
-- [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Azure Key Vault storage account operations](/rest/api/keyvault/storage-account-key-operations)

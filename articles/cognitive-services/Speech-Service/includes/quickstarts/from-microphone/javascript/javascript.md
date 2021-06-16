@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/03/2020
-ms.author: dapine
+ms.date: 12/29/2020
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -11,7 +11,7 @@ ms.author: dapine
 Before you get started:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource </a>
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 > * Make sure that you have access to a microphone for audio capture
 
@@ -37,7 +37,7 @@ Create a new file in the folder, named `index.html` and open this file with a te
 In case you want to host the web page on a web server, you can optionally provide a token source for your demo application.
 That way, your subscription key will never leave your server while allowing users to use speech capabilities without entering any authorization code themselves.
 
-Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language. Enter the following code:
+Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language with curl enabled. Enter the following code:
 
 ```php
 <?php

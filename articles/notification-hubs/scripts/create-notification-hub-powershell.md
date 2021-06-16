@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2020
-ms.author: dimazaid
+ms.author: dimazaid 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -55,4 +56,4 @@ This script uses the following commands:
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).

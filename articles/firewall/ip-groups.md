@@ -5,14 +5,11 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 01/22/2021
 ms.author: victorh
 ---
 
-# IP Groups (preview) in Azure Firewall
-
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+# IP Groups in Azure Firewall
 
 IP Groups allow you to group and manage IP addresses for Azure Firewall rules in the following ways:
 
@@ -25,6 +22,9 @@ An IP Group can have a single IP address, multiple IP addresses, or one or more 
 
 IP Groups can be reused in Azure Firewall DNAT, network, and application rules for multiple firewalls across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
 
+> [!NOTE]
+> IP Groups are not currently available in Azure national cloud environments.
+
 ## Sample format
 
 The following IPv4 address format examples are valid to use in IP Groups:
@@ -35,7 +35,7 @@ The following IPv4 address format examples are valid to use in IP Groups:
 
 ## Create an IP Group
 
-An IP Group can be created using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group (preview)](create-ip-group.md).
+An IP Group can be created using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group](create-ip-group.md).
 
 ## Browse IP Groups
 1. In the Azure portal search bar, type **IP Groups** and select it. You can see the list of the IP Groups, or you can select **Add** to create a new IP Group.
@@ -60,9 +60,6 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
 
-> [!NOTE]
-> IP Groups are not supported in Firewall Policy. It is currently only supported with traditional firewall rules.
-
 ![IP Groups in Firewall](media/ip-groups/fw-ipgroup.png)
 
 ## Region availability
@@ -71,55 +68,19 @@ IP Groups are available in all public cloud regions.
 
 ## IP address limits
 
-For 50 IP Groups or less, you can have a maximum of 5000 individual IP addresses each per firewall instance. For 51 to 100 IP Groups, you can have 500 individual IP address each per firewall instance.
-
-### Examples
-
-#### Example 1: supported
-
-|IP Groups  |# IP addresses  |Notation  |Rule  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |3|196.0.0.0 - 196.0.0.2|Rule1|
-|IPGroup3     |1|1.2.3.4|Rule1|
-|     |**Total 4100**|         |         |
-|     |         |         |         |
-
-#### Example 2: supported
-
-|IP Groups  |# IP addresses  |Notation  |Rule  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule1|
-|     |**Total 8192**|         |         |
-
-#### Example 3: not supported
-
-|IP Groups  |# IP addresses  |Notation  |Rule  |
-|---------|---------|---------|---------|
-|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Rule1|
-|     |**Total 8192**|||
-
-#### Example 4: supported
-
-|IP Groups  |# IP addresses  |Notation  |Rule  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule2|
-|     |**Total 8192**|         |         |
-
+You can have a maximum of 100 IP Groups per firewall with a maximum 5000 individual IP addresses or IP prefixes per each IP Group.
 
 ## Related Azure PowerShell cmdlets
 
 The following Azure PowerShell cmdlets can be used to create and manage IP Groups:
 
-- [New-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
-- [Remove-AzIPGroup](https://docs.microsoft.com/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
-- [Get-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
-- [Set-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
-- [New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule?view=azps-3.4.0)
-- [New-AzFirewallApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallapplicationrule?view=azps-3.4.0)
-- [New-AzFirewallNatRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnatrule?view=azps-3.4.0)
+- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup)
+- [Remove-AzIPGroup](/powershell/module/az.network/remove-azipgroup)
+- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup)
+- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup)
+- [New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
+- [New-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule)
+- [New-AzFirewallNatRule](/powershell/module/az.network/new-azfirewallnatrule)
 
 ## Next steps
 

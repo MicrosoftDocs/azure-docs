@@ -1,16 +1,13 @@
 ---
 title: Build your first data factory (REST) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.date: 11/01/2017
+ms.date: 11/01/2017 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Build your first Azure data factory using Data Factory REST API
@@ -48,7 +45,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
   2. Get **client ID** and **secret key**.
   3. Get **tenant ID**.
   4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.
-* Install [Azure PowerShell](/powershell/azure/overview).
+* Install [Azure PowerShell](/powershell/azure/).
 * Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
   1. Run **Connect-AzAccount** and enter the user name and password that you use to sign in to the Azure portal.
   2. Run **Get-AzSubscription** to view all the subscriptions for this account.
@@ -127,7 +124,7 @@ Note the following points:
 * You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
 * The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
 
-    As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
+    As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 

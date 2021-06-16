@@ -2,35 +2,81 @@
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 ms.topic: conceptual
-ms.date: 03/25/2020
-
+ms.date: 02/19/2021
+ms.custom: references_regions
 ---
 
 # Export telemetry from Application Insights
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
 
+> [!IMPORTANT]
+> Continuous export has been deprecated. [Migrate to a workspace-based Application Insights resource](convert-classic-resource.md) to use [diagnostic settings](#diagnostic-settings-based-export) for exporting telemetry.
+
+> [!NOTE]
+> Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
+>
+
 Before you set up continuous export, there are some alternatives you might want to consider:
 
 * The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
-* [Analytics](../../azure-monitor/app/analytics.md) provides a powerful query language for telemetry. It can also export results.
-* If you're looking to [explore your data in Power BI](../../azure-monitor/app/export-power-bi.md ), you can do that without using Continuous Export.
+* [Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
+* If you're looking to [explore your data in Power BI](./export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
-* You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
+* You can also access setup [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
-After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](../../azure-monitor/app/data-retention-privacy.md).
+After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](./data-retention-privacy.md).
+
+## Supported Regions
+
+Continuous Export is supported in the following regions:
+
+* Southeast Asia
+* Canada Central
+* Central India
+* North Europe
+* UK South
+* Australia East
+* Japan East
+* Korea Central
+* France Central
+* East Asia
+* West US
+* Central US
+* East US 2
+* South Central US
+* West US 2
+* South Africa North
+* North Central US
+* Brazil South
+* Switzerland North
+* Australia Southeast
+* UK West
+* Germany West Central
+* Switzerland West
+* Australia Central 2
+* UAE Central
+* Brazil Southeast
+* Australia Central
+* UAE North
+* Norway East
+* Japan West
+
+> [!NOTE]
+> Continuous Export will continue to work for Applications in **East US** and **West Europe** if the export was configured before February 23, 2021. New Continuous Export rules cannot be configured on any application in **East US** or **West Europe**, regardless of when the application was created.
 
 ## Continuous Export advanced storage configuration
 
 Continuous Export **does not support** the following Azure storage features/configurations:
 
-* Use of [VNET/Azure Storage firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in conjunction with Azure Blob storage.
+* Use of [VNET/Azure Storage firewalls](../../storage/common/storage-network-security.md) in conjunction with Azure Blob storage.
 
-* [Immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) for Azure Blob storage.
-
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="setup"></a> Create a Continuous Export
+
+> [!NOTE]
+> An application cannot export more than 3TB of data per day. If more than 3TB per day is exported, the export will be disabled. To export without a limit use [diagnostic settings based export](#diagnostic-settings-based-export).
 
 1. In the Application Insights resource for your app under configure on the left, open Continuous Export and choose **Add**:
 
@@ -45,7 +91,8 @@ Continuous Export **does not support** the following Azure storage features/conf
 
 4. Create or select a container in the storage.
 
-Once you've created your export, it starts going. You only get data that arrives after you create the export.
+> [!NOTE]
+> Once you've created your export, newly ingested data will begin to flow to Azure Blob storage. Continuous export will only transmit new telemetry that is created/ingested after continuous export was enabled. Any data that existed prior to enabling continuous export will not be exported, and there is no supported way to retroactively export previously created data using continuous export.
 
 There can be a delay of about an hour before data appears in the storage.
 
@@ -53,13 +100,13 @@ Once the first export is complete you will find a structure similar to the follo
 
 |Name | Description |
 |:----|:------|
-| [Availability](export-data-model.md#availability) | Reports [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Event](export-data-model.md#events) | Custom events generated by [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
-| [Exceptions](export-data-model.md#exceptions) |Reports [exceptions](../../azure-monitor/app/asp-net-exceptions.md) in the server and in the browser.
-| [Messages](export-data-model.md#trace-messages) | Sent by [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace), and by the [logging adapters](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Availability](export-data-model.md#availability) | Reports [availability web tests](./monitor-web-app-availability.md).  |
+| [Event](export-data-model.md#events) | Custom events generated by [TrackEvent()](./api-custom-events-metrics.md#trackevent). 
+| [Exceptions](export-data-model.md#exceptions) |Reports [exceptions](./asp-net-exceptions.md) in the server and in the browser.
+| [Messages](export-data-model.md#trace-messages) | Sent by [TrackTrace](./api-custom-events-metrics.md#tracktrace), and by the [logging adapters](./asp-net-trace-logs.md).
 | [Metrics](export-data-model.md#metrics) | Generated by metric API calls.
 | [PerformanceCounters](export-data-model.md) | Performance Counters collected by Application Insights.
-| [Requests](export-data-model.md#requests)| Sent by [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). The standard modules use this to reports server response time, measured at the server.| 
+| [Requests](export-data-model.md#requests)| Sent by [TrackRequest](./api-custom-events-metrics.md#trackrequest). The standard modules use this to reports server response time, measured at the server.| 
 
 ### To edit continuous export
 
@@ -77,14 +124,14 @@ To stop the export permanently, delete it. Doing so doesn't delete your data fro
 ## <a name="analyze"></a> What events do you get?
 The exported data is the raw telemetry we receive from your application, except that we add location data, which we calculate from the client IP address.
 
-Data that has been discarded by [sampling](../../azure-monitor/app/sampling.md) is not included in the exported data.
+Data that has been discarded by [sampling](./sampling.md) is not included in the exported data.
 
 Other calculated metrics are not included. For example, we don't export average CPU utilization, but we do export the raw telemetry from which the average is computed.
 
-The data also includes the results of any [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) that you have set up.
+The data also includes the results of any [availability web tests](./monitor-web-app-availability.md) that you have set up.
 
 > [!NOTE]
-> **Sampling.** If your application sends a lot of data, the sampling feature may operate and send only a fraction of the generated telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
+> **Sampling.** If your application sends a lot of data, the sampling feature may operate and send only a fraction of the generated telemetry. [Learn more about sampling.](./sampling.md)
 >
 >
 
@@ -101,7 +148,9 @@ The date and time are UTC and are when the telemetry was deposited in the store 
 
 Here's the form of the path:
 
-    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```console
+$"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```
 
 Where
 
@@ -111,37 +160,41 @@ Where
 ## <a name="format"></a> Data format
 * Each blob is a text file that contains multiple '\n'-separated rows. It contains the telemetry processed over a time period of roughly half a minute.
 * Each row represents a telemetry data point such as a request or page view.
-* Each row is an unformatted JSON document. If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:
+* Each row is an unformatted JSON document. If you want to view the rows, open the blob in Visual Studio and choose **Edit** > **Advanced** > **Format File**:
 
-![View the telemetry with a suitable tool](./media/export-telemetry/06-json.png)
+   ![View the telemetry with a suitable tool](./media/export-telemetry/06-json.png)
 
 Time durations are in ticks, where 10 000 ticks = 1 ms. For example, these values show a time of 1 ms to send a request from the browser, 3 ms to receive it, and 1.8 s to process the page in the browser:
 
-    "sendRequest": {"value": 10000.0},
-    "receiveRequest": {"value": 30000.0},
-    "clientProcess": {"value": 17970000.0}
+```json
+"sendRequest": {"value": 10000.0},
+"receiveRequest": {"value": 30000.0},
+"clientProcess": {"value": 17970000.0}
+```
 
 [Detailed data model reference for the property types and values.](export-data-model.md)
 
 ## Processing the data
 On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on. For example:
 
-    private IEnumerable<T> DeserializeMany<T>(string folderName)
-    {
-      var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
-      foreach (var file in files)
+```csharp
+private IEnumerable<T> DeserializeMany<T>(string folderName)
+{
+   var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
+   foreach (var file in files)
+   {
+      using (var fileReader = File.OpenText(file))
       {
-         using (var fileReader = File.OpenText(file))
+         string fileContent = fileReader.ReadToEnd();
+         IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
+         foreach (var entity in entities)
          {
-            string fileContent = fileReader.ReadToEnd();
-            IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
-            foreach (var entity in entities)
-            {
-                yield return JsonConvert.DeserializeObject<T>(entity);
-            }
+            yield return JsonConvert.DeserializeObject<T>(entity);
          }
       }
-    }
+   }
+}
+```
 
 For a larger code sample, see [using a worker role][exportasa].
 
@@ -195,7 +248,21 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 * [Export to SQL using Stream Analytics][exportasa]
 * [Detailed data model reference for the property types and values.](export-data-model.md)
 
+## Diagnostic settings based export
+
+Diagnostic settings based export uses a different schema than continuous export. It also supports features that continuous export does not like:
+
+* Azure storage accounts with vnet, firewalls, and private links.
+* Export to event hub.
+
+To migrate to diagnostic settings based export:
+
+1. Disable current continuous export.
+2. [Migrate application to workspace-based](convert-classic-resource.md).
+3. [Enable diagnostic settings export](create-workspace-resource.md#export-telemetry). Select **Diagnostic settings > add diagnostic setting** from within your Application Insights resource.
+
 <!--Link references-->
 
-[exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[roles]: ./resources-roles-access-control.md
+

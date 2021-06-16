@@ -8,6 +8,9 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ---
 # Azure Data Catalog common scenarios
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 This article presents common scenarios where Azure Data Catalog can help your organization get more value from its existing data sources.
 
 ## Scenario 1: Registration of central data sources

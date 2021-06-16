@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -18,7 +18,7 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |Data source  |In-memory  |DirectQuery  |Notes |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Yes      |    Yes      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL Data Warehouse)      |   Yes      |   Yes       |<sup>[2](#azprovider)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Yes      |   Yes       |<sup>[2](#azprovider)</sup>|
 |Azure Blob Storage      |   Yes       |    No      | <sup>[1](#tab1400a)</sup> |
 |Azure Table Storage     |   Yes       |    No      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Yes        |  No        |<sup>[1](#tab1400a)</sup> |
@@ -28,12 +28,13 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |Azure HDInsight Spark     |   Yes       |   No       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
 ||||
 
-**Notes:**   
+**Notes:**
+
 <a name="tab1400a">1</a> - Tabular 1400 and higher models only.  
-<a name="azprovider">2</a> - When specified as a *provider* data source in tabular 1200 and higher models, both in-memory and DirectQuery models require Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, or .NET Framework Data Provider for SQL Server.    
-<a name="azsqlmanaged">3</a> - Azure SQL Database Managed Instance is supported. Because managed instance runs within Azure VNet with a private IP address, public endpoint must be enabled on the instance. If not enabled, an [On-premises data gateway](analysis-services-gateway.md) is required.    
-<a name="databricks">4</a> - Azure Databricks using the Spark connector is currently not supported.   
-<a name="gen2">5</a> - ADLS Gen2 connector is currently not supported, however, Azure Blob Storage connector can be used with an ADLS Gen2 data source.   
+<a name="azprovider">2</a> - When specified as a *provider* data source in tabular 1200 and higher models, both in-memory and DirectQuery models require Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended) or .NET Framework Data Provider for SQL Server.  
+<a name="azsqlmanaged">3</a> - Azure SQL Managed Instance is supported. Because SQL Managed Instance runs within Azure VNet with a private IP address, public endpoint must be enabled on the instance. If not enabled, an [On-premises data gateway](analysis-services-gateway.md) is required.  
+<a name="databricks">4</a> - Azure Databricks using the Spark connector is currently not supported.  
+<a name="gen2">5</a> - ADLS Gen2 connector is currently not supported, however, Azure Blob Storage connector can be used with an ADLS Gen2 data source.
 
 ## Other data sources
 
@@ -62,7 +63,7 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |SAP HANA     |  Yes | No |  |
 |SAP Business Warehouse    |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |SharePoint List      |   Yes | No | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
-|SQL Server |Yes   | Yes  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> | 
+|SQL Server |Yes   | Yes  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
 |SQL Server Data Warehouse |Yes   | Yes  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
 |Sybase Database     |  Yes | No |  |
 |Teradata | Yes  | Yes  | <sup>[10](#teradata)</sup> |
@@ -70,19 +71,19 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |XML table    |  Yes | No | <sup>[6](#tab1400b)</sup> |
 | | | |
 
-**Notes:**   
+**Notes:**  
 <a name="tab1400b">6</a> - Tabular 1400 and higher models only.  
 <a name="sqlim">7</a> - When specified as a *provider* data source in tabular 1200 and higher models, specify Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, or .NET Framework Data Provider for SQL Server.  
-<a name="instgw">8</a> - If specifying MSOLEDBSQL as the data provider, it may be necessary to download and install the [Microsoft OLE DB Driver for SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) on the same computer as the On-premises data gateway.  
-<a name="oracle">9</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Oracle Data Provider for .NET.  
-<a name="teradata">10</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Teradata Data Provider for .NET.   
+<a name="instgw">8</a> - If specifying MSOLEDBSQL as the data provider, it may be necessary to download and install the [Microsoft OLE DB Driver for SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) on the same computer as the On-premises data gateway.  
+<a name="oracle">9</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Oracle Data Provider for .NET. If specified as a structured data source, be sure to [enable Oracle managed provider](#enable-oracle-managed-provider).   
+<a name="teradata">10</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Teradata Data Provider for .NET.  
 <a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.
 
-Connecting to on-premises data sources from an Azure Analysis Services server require an [On-premises gateway](analysis-services-gateway.md). When using a gateway, 64-bit providers are required. 
+Connecting to on-premises data sources from an Azure Analysis Services server require an [On-premises gateway](analysis-services-gateway.md). When using a gateway, 64-bit providers are required.
 
 ## Understanding providers
 
-When creating tabular 1400 and higher model projects in Visual Studio, by default you do not specify a data provider when connecting to a data source by using **Get Data**. Tabular 1400 and higher models use [Power Query](/power-query/power-query-what-is-power-query) connectors to manage connections, data queries, and mashups between the data source and Analysis Services. These are sometimes referred to as *structured* data source connections in that connection property settings are set for you. You can, however, enable legacy data sources. When enabled, you can use **Table Import Wizard** to connect to certain data sources traditionally supported in tabular 1200 and lower models as *legacy*, or *provider* data sources. When specified as a provider data source, you can specify a particular data provider and other advanced connection properties. For example, you can connect to an on-premises SQL Server Data Warehouse or even an Azure SQL Database as a legacy data source. You can then select the OLE DB Driver for SQL Server MSOLEDBSQL data provider. In this case, selecting an OLE DB data provider may provide improved performance over the Power Query connector. 
+When creating tabular 1400 and higher model projects in Visual Studio, by default you do not specify a data provider when connecting to a data source by using **Get Data**. Tabular 1400 and higher models use [Power Query](/power-query/power-query-what-is-power-query) connectors to manage connections, data queries, and mashups between the data source and Analysis Services. These are sometimes referred to as *structured* data source connections in that connection property settings are set for you. You can, however, enable legacy data sources for a model project in Visual Studio. When enabled, you can use **Table Import Wizard** to connect to certain data sources traditionally supported in tabular 1200 and lower models as *legacy*, or *provider* data sources. When specified as a provider data source, you can specify a particular data provider and other advanced connection properties. For example, you can connect to a SQL Server Data Warehouse instance or even an Azure SQL Database as a legacy data source. You can then select the OLE DB Driver for SQL Server MSOLEDBSQL data provider. In this case, selecting an OLE DB data provider may provide improved performance over the Power Query connector. 
 
 When using the Table Import Wizard in Visual Studio, connections to any data source require a data provider. A default data provider is selected for you. You can change the data provider if needed. The type of provider you choose can depend on performance, whether or not the model is using in-memory storage or DirectQuery, and which Analysis Services platform you deploy your model to.
 
@@ -100,9 +101,8 @@ Just like with tabular 1200 model projects, use **Table Import Wizard** to conne
 
 ![Legacy data sources Advanced properties](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
-
 ## Impersonation
-In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio or SSMS.
+In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio or SQL Server Management Studio (SSMS).
 
 For on-premises data sources:
 
@@ -113,13 +113,53 @@ For cloud data sources:
 
 * If using SQL authentication, impersonation should be Service Account.
 
+
 ## OAuth credentials
 
-For tabular models at the 1400 and higher compatibility level using in-memory mode, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using SSMS.
+For tabular models at the 1400 and higher compatibility level using *in-memory* mode, Azure SQL Database, Azure Synapse, Dynamics 365, and SharePoint List support OAuth credentials. To generate valid tokens, set credentials by using Power Query. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. 
+> [!NOTE]
+> Managed token refresh is not supported for data sources accessed through a gateway. For example, one or more mashup query data sources is accessed through a gateway, and/or the [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) property is set to **true**. 
 
 Direct Query mode is not supported with OAuth credentials.
 
-## Next steps
-[On-premises gateway](analysis-services-gateway.md)   
-[Manage your server](analysis-services-manage.md)   
+## Enable Oracle managed provider
 
+In some cases, DAX queries to an Oracle data source may return unexpected results. This can be due to the provider being used for the data source connection.
+
+As described in the [Understanding providers](#understanding-providers) section, tabular models connect to data sources as either a *structured* data source or a *provider* data source. For models with an Oracle data source specified as a provider data source, ensure the specified provider is Oracle Data Provider for .NET (Oracle.DataAccess.Client). 
+
+If the Oracle data source is specified as a structured data source, enable the **MDataEngine\UseManagedOracleProvider** server property. Setting this property ensures your model connects to the Oracle data source using the recommended Oracle Data Provider for .NET managed provider.
+ 
+To enable Oracle managed provider:
+
+1. In SQL Server Management Studio, connect to your server.
+2. Create an XMLA query with the following script. Replace **ServerName** with the full server name, and then execute the query.
+
+    ```xml
+    <Alter AllowCreate="true" ObjectExpansion="ObjectProperties" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object />
+        <ObjectDefinition>
+            <Server xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" 
+    xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" 
+    xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" 
+    xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+                <ID>ServerName</ID>
+                <Name>ServerName</Name>
+                <ServerProperties>
+                    <ServerProperty>
+                        <Name>MDataEngine\UseManagedOracleProvider</Name>
+                        <Value>1</Value>
+                    </ServerProperty>
+                </ServerProperties>
+            </Server>
+        </ObjectDefinition>
+    </Alter>
+    ```
+
+3. Restart the server.
+
+
+## Next steps
+
+* [On-premises gateway](analysis-services-gateway.md)
+* [Manage your server](analysis-services-manage.md)

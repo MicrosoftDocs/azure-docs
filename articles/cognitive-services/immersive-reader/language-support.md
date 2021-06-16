@@ -1,15 +1,15 @@
 ---
 title: Language support - Immersive Reader
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn more about the human languages that are available with Immersive Reader.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
-ms.author: metan
+ms.author: metang
 ---
 
 # Language support for Immersive Reader
@@ -25,19 +25,21 @@ This article lists supported human languages for Immersive Reader features.
 | Arabic (Saudi Arabia) | ar-SA |
 | Bulgarian | bg |
 | Bulgarian (Bulgaria) | bg-BG |
-| Catalan | ca-ES |
+| Catalan | ca |
+| Catalan (Catalan) | ca-ES |
 | Chinese | zh |
 | Chinese (China) | zh-CN |
-| Chinese (Hong Kong) | zh-HK |
-| Chinese (Macao) | zh-MO |
+| Chinese (Hong Kong SAR) | zh-HK |
+| Chinese (Macao SAR) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chinese (Taiwan) | zh-TW |
 | Chinese Simplified | zh-Hans |
 | Chinese Simplified (China) | zh-Hans-CN |
 | Chinese Simplified (Singapore) | zh-Hans-SG |
-| Chinese Traditional | zh-Hant-CN |
-| Chinese Traditional (Hong Kong) | zh-Hant-HK |
-| Chinese Traditional (Macao) | zh-Hant-MO |
+| Chinese Traditional | zh-Hant |
+| Chinese Traditional (China) | zh-Hant-CN |
+| Chinese Traditional (Hong Kong SAR) | zh-Hant-HK |
+| Chinese Traditional (Macao SAR) | zh-Hant-MO |
 | Chinese Traditional (Taiwan) | zh-Hant-TW |
 | Croatian | hr |
 | Croatian (Croatia) | hr-HR |
@@ -46,6 +48,7 @@ This article lists supported human languages for Immersive Reader features.
 | Danish | da |
 | Danish (Denmark) | da-DK |
 | Dutch | nl |
+| Dutch (Belgium) | nl-BE |
 | Dutch (Netherlands) | nl-NL |
 | English | en |
 | English (Australia) | en-AU |
@@ -54,11 +57,14 @@ This article lists supported human languages for Immersive Reader features.
 | English (India) | en-IN |
 | English (Ireland) | en-IE |
 | English (New Zealand) | en-NZ |
+| English (Philippines) | en-PH |
 | English (United Kingdom) | en-GB |
 | English (United States) | en-US |
+| Estonian | et-EE |
 | Finnish | fi |
 | Finnish (Finland) | fi-FI |
 | French | fr |
+| French (Belgium) | fr-BE |
 | French (Canada) | fr-CA |
 | French (France) | fr-FR |
 | French (Switzerland) | fr-CH |
@@ -76,14 +82,18 @@ This article lists supported human languages for Immersive Reader features.
 | Hungarian (Hungary) | hu-HU |
 | Indonesian | id |
 | Indonesian (Indonesia) | id-ID |
+| Irish | ga-IE |
 | Italian | it |
 | Italian (Italy) | it-IT |
 | Japanese | ja |
 | Japanese (Japan) | ja-JP |
 | Korean | ko |
 | Korean (Korea) | ko-KR |
+| Latvian | Lv-LV |
+| Lithuanian | lt-LT |
 | Malay | ms |
 | Malay (Malaysia) | ms-MY |
+| Maltese | Mt-MT |
 | Norwegian Bokmal| nb |
 | Norwegian Bokmal (Norway) | nb-NO |
 | Polish | pl |
@@ -98,7 +108,7 @@ This article lists supported human languages for Immersive Reader features.
 | Slovak | sk |
 | Slovak (Slovakia) | sk-SK |
 | Slovenian | sl |
-| Slovenian (Slovenia) | sl-SL |
+| Slovenian (Slovenia) | sl-SI |
 | Spanish | es |
 | Spanish (Latin America) | es-419 |
 | Spanish (Mexico) | es-MX |
@@ -113,33 +123,44 @@ This article lists supported human languages for Immersive Reader features.
 | Thai (Thailand) | th-TH |
 | Turkish | tr |
 | Turkish (Turkey) | tr-TR |
+| Ukrainian | ur-PK |
 | Vietnamese | vi |
 | Vietnamese (Vietnam) | vi-VN |
+| Welsh | Cy-GB |
 
 ## Translation
 
 | Language | Tag |
 |----------|-----|
 | Afrikaans | af |
+| Albanian | sq |
+| Amharic | am |
+| Arabic | ar |
 | Arabic (Egyptian) | ar-EG |
 | Arabic (Saudi Arabia) | ar-SA |
+| Armenian | hy |
+| Azerbaijani | az |
+| Afrikaans | af |
 | Bangla | bn |
 | Bosnian | bs |
 | Bulgarian | bg |
 | Bulgarian (Bulgaria) | bg-BG |
-| Catalan | ca-ES |
+| Burmese | my |
+| Catalan | ca |
+| Catalan (Catalan) | ca-ES |
 | Chinese | zh |
 | Chinese (China) | zh-CN |
-| Chinese (Hong Kong) | zh-HK |
-| Chinese (Macao) | zh-MO |
+| Chinese (Hong Kong SAR) | zh-HK |
+| Chinese (Macao SAR) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chinese (Taiwan) | zh-TW |
 | Chinese Simplified | zh-Hans |
 | Chinese Simplified (China) | zh-Hans-CN |
 | Chinese Simplified (Singapore) | zh-Hans-SG |
-| Chinese Traditional | zh-Hant-CN |
-| Chinese Traditional (Hong Kong) | zh-Hant-HK |
-| Chinese Traditional (Macao) | zh-Hant-MO |
+| Chinese Traditional | zh-Hant |
+| Chinese Traditional (China) | zh-Hant-CN |
+| Chinese Traditional (Hong Kong SAR) | zh-Hant-HK |
+| Chinese Traditional (Macao SAR) | zh-Hant-MO |
 | Chinese Traditional (Taiwan) | zh-Hant-TW |
 | Croatian | hr |
 | Croatian (Croatia) | hr-HR |
@@ -147,6 +168,7 @@ This article lists supported human languages for Immersive Reader features.
 | Czech (Czech Republic) | cs-CZ |
 | Danish | da |
 | Danish (Denmark) | da-DK |
+| Dari (Afghanistan) | prs |
 | Dutch | nl |
 | Dutch (Netherlands) | nl-NL |
 | English | en |
@@ -171,6 +193,7 @@ This article lists supported human languages for Immersive Reader features.
 | German (Austria) | de-AT |
 | German (Germany) | de-DE |
 | German (Switzerland)| de-CH |
+| Gujarati | gu |
 | Greek | el |
 | Greek (Greece) | el-GR |
 | Haitian (Creole) | ht |
@@ -190,9 +213,14 @@ This article lists supported human languages for Immersive Reader features.
 | Japanese | ja |
 | Japanese (Japan) | ja-JP |
 | Kannada | kn |
+| Kazakh | kk |
+| Khmer | km |
 | Kiswahili | sw |
 | Korean | ko |
 | Korean (Korea) | ko-KR |
+| Kurdish (Central) | ku |
+| Kurdish (Northern) | kmr |
+| Lao | lo |
 | Latvian | lv |
 | Lithuanian | lt |
 | Malagasy | mg |
@@ -201,8 +229,12 @@ This article lists supported human languages for Immersive Reader features.
 | Malayalam | ml |
 | Maltese | mt |
 | Maori | mi |
+| Marathi | mr |
+| Nepali | ne |
 | Norwegian Bokmal| nb |
 | Norwegian Bokmal (Norway) | nb-NO |
+| Odia | or |
+| Pashto (Afghanistan) | ps |
 | Persian | fa |
 | Polish | pl |
 | Polish (Poland) | pl-PL |
@@ -222,7 +254,7 @@ This article lists supported human languages for Immersive Reader features.
 | Slovak | sk |
 | Slovak (Slovakia) | sk-SK |
 | Slovenian | sl |
-| Slovenian (Slovenia) | sl-SL |
+| Slovenian (Slovenia) | sl-SI |
 | Spanish | es |
 | Spanish (Latin America) | es-419 |
 | Spanish (Mexico) | es-MX |
@@ -236,6 +268,7 @@ This article lists supported human languages for Immersive Reader features.
 | Telugu (India) | te-IN |
 | Thai | th |
 | Thai (Thailand) | th-TH |
+| Tigrinya | ti |
 | Tongan | to |
 | Turkish | tr |
 | Turkish (Turkey) | tr-TR |
@@ -252,18 +285,20 @@ This article lists supported human languages for Immersive Reader features.
 
 | Language | Tag |
 |----------|-----|
+| Arabic | ar |
 | Arabic (Egyptian) | ar-EG |
 | Arabic (Saudi Arabia) | ar-SA |
 | Basque | eu |
 | Bulgarian | bg |
 | Bulgarian (Bulgaria) | bg-BG |
-| Catalan | ca-ES |
+| Catalan | ca |
+| Catalan (Catalan) | ca-ES |
 | Chinese Simplified | zh-Hans |
 | Chinese Simplified (China) | zh-Hans-CN |
 | Chinese Simplified (Singapore) | zh-Hans-SG |
 | Chinese Traditional | zh-Hant-CN |
-| Chinese Traditional (Hong Kong) | zh-Hant-HK |
-| Chinese Traditional (Macao) | zh-Hant-MO |
+| Chinese Traditional (Hong Kong SAR) | zh-Hant-HK |
+| Chinese Traditional (Macao SAR) | zh-Hant-MO |
 | Chinese Traditional (Taiwan) | zh-Hant-TW |
 | Croatian | hr |
 | Croatian (Croatia) | hr-HR |
@@ -333,7 +368,7 @@ This article lists supported human languages for Immersive Reader features.
 | Slovak | sk |
 | Slovak (Slovakia) | sk-SK |
 | Slovenian | sl |
-| Slovenian (Slovenia) | sl-SL |
+| Slovenian (Slovenia) | sl-SI |
 | Spanish | es |
 | Spanish (Latin America) | es-419 |
 | Spanish (Mexico) | es-MX |
@@ -360,7 +395,8 @@ This article lists supported human languages for Immersive Reader features.
 | Basque | eu |
 | Bulgarian | bg |
 | Bulgarian (Bulgaria) | bg-BG |
-| Catalan | ca-ES |
+| Catalan | ca |
+| Catalan (Catalan) | ca-ES |
 | Croatian | hr |
 | Croatian (Croatia) | hr-HR |
 | Czech | cs |
@@ -418,7 +454,7 @@ This article lists supported human languages for Immersive Reader features.
 | Slovak | sk |
 | Slovak (Slovakia) | sk-SK |
 | Slovenian | sl |
-| Slovenian (Slovenia) | sl-SL |
+| Slovenian (Slovenia) | sl-SI |
 | Spanish | es |
 | Spanish (Latin America) | es-419 |
 | Spanish (Mexico) | es-MX |
@@ -528,31 +564,3 @@ This article lists supported human languages for Immersive Reader features.
 | Spanish (Spain) | es-ES |
 | Swedish | sv |
 | Swedish (Sweden) | sv-SE |
-
-## Dictionary
-
-| Language | Tag |
-|----------|-----|
-| English | en |
-| English (Australia) | en-AU |
-| English (Canada) | en-CA |
-| English (Hong Kong SAR) | en-HK |
-| English (India) | en-IN |
-| English (Ireland) | en-IE |
-| English (New Zealand) | en-NZ |
-| English (United Kingdom) | en-GB |
-| English (United States) | en-US |
-| French | fr |
-| French (Canada) | fr-CA |
-| French (France) | fr-FR |
-| French (Switzerland) | fr-CH |
-| German | de |
-| German (Austria) | de-AT |
-| German (Germany) | de-DE |
-| German (Switzerland)| de-CH |
-| Italian | it |
-| Italian (Italy) | it-IT |
-| Spanish | es |
-| Spanish (Latin America) | es-419 |
-| Spanish (Mexico) | es-MX |
-| Spanish (Spain) | es-ES |

@@ -2,26 +2,23 @@
 title: 'Tutorial: Load data using Azure portal & SSMS'
 description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to an Azure Synapse Analytics SQL pool.
 services: synapse-analytics
-author: kevinvngo 
+author: julieMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 07/17/2019
-ms.author: kevin
+ms.subservice: sql-dw 
+ms.date: 01/12/2021
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ---
 
 # Tutorial: Load data to  Azure Synapse Analytics SQL pool
 
-This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to your data warehouse in Azure Synapse Analytics SQL pool. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to:
+This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to your data warehouse in Azure Synapse Analytics SQL pool. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) to:
 
 > [!div class="checklist"]
 >
-> * Create a data warehouse using SQL pool in the Azure portal
-> * Set up a server-level firewall rule in the Azure portal
-> * Connect to the SQL pool with SSMS
 > * Create a user designated for loading data
 > * Create external tables that use Azure blob as the data source
 > * Use the CTAS T-SQL statement to load data into your data warehouse
@@ -33,112 +30,12 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Before you begin
 
-Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
-
-## Create a blank data warehouse in SQL pool
-
-A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The SQL pool is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in an [Azure SQL logical server](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-Follow these steps to create a blank SQL pool.
-
-1. Select **Create a resource** in the the Azure portal.
-
-1. Select **Databases** from the **New** page, and select **Azure Synapse Analytics** under **Featured** on the **New** page.
-
-    ![create SQL pool](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
-
-1. Fill out the **Project Details** section with the following information:
-
-   | Setting | Example | Description |
-   | ------- | --------------- | ----------- |
-   | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-
-1. Under **SQL pool details**, provide a name for your SQL pool. Next, either select an existing server from the drop down, or select **Create new** under the **Server** settings to create a new server. Fill out the form with the following information:
-
-    | Setting | Suggested value | Description |
-    | ------- | --------------- | ----------- |
-    |**SQL pool name**|SampleDW| For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
-    | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
-
-    ![create database server](./media/load-data-wideworldimportersdw/create-database-server.png)
-
-1. **Select performance level**. The slider by default is set to **DW1000c**. Move the slider up and down to choose the desired performance scale.
-
-    ![create database server](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
-
-1. On the **Additional Settings** page, set the **Use existing data** to None, and leave the **Collation** at the default of *SQL_Latin1_General_CP1_CI_AS*.
-
-1. Select **Review + create** to review your settings, and then select **Create** to create your data warehouse. You can monitor your progress by opening the **deployment in progress** page from the **Notifications** menu.
-
-     ![notification](./media/load-data-wideworldimportersdw/notification.png)
-
-## Create a server-level firewall rule
-
-The Azure Synapse Analytics service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses.  Follow these steps to create a [server-level firewall rule](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) for your client's IP address.
+This tutorial assumes you have already created a SQL dedicated pool from the following [tutorial](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin). 
 
 > [!NOTE]
-> The Azure Synapse Analytics SQL pool communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
->
-
-1. After the deployment completes, search for your pool name in the search box in the navigation menu, and select the SQL pool resource. Select the server name.
-
-    ![go to your resource](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
-
-1. Select the server name.
-    ![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-1. Select **Show firewall settings**. The **Firewall settings** page for the SQL pool server opens.
-
-    ![server settings](./media/load-data-wideworldimportersdw/server-settings.png)
-
-1. On the **Firewalls and virtual networks** page, select **Add client IP** to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
-
-    ![server firewall rule](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
-
-1. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
-
-You can now connect to the SQL server using your client IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the serveradmin account you created previously.  
-
-> [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page and then click **Save** to disable the firewall for all Azure services.
-
-## Get the fully qualified server name
-
-The fully qualified server name is what is used to connect to the server. Go to your SQL pool resource  in the Azure portal and view the fully qualified name under **Server name**.
-
-![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-## Connect to the server as server admin
-
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to establish a connection to your Azure SQL server.
-
-1. Open SQL Server Management Studio.
-
-2. In the **Connect to Server** dialog box, enter the following information:
-
-    | Setting      | Suggested value | Description |
-    | ------------ | --------------- | ----------- |
-    | Server type | Database engine | This value is required |
-    | Server name | The fully qualified server name | For example, **sqlpoolservername.database.windows.net** is a fully qualified server name. |
-    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
-    | Login | The server admin account | This is the account that you specified when you created the server. |
-    | Password | The password for your server admin account | This is the password that you specified when you created the server. |
-
-    ![connect to server](./media/load-data-wideworldimportersdw/connect-to-server.png)
-
-3. Click **Connect**. The Object Explorer window opens in SSMS.
-
-4. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **SampleDW** to view the objects in your new database.
-
-    ![database objects](./media/load-data-wideworldimportersdw/connected.png)
+> It is recommended to use at least a DW1000c for this tutorial. 
 
 ## Create a user for loading data
 
@@ -209,7 +106,7 @@ Run the following SQL scripts to specify information about the data you wish to 
     CREATE MASTER KEY;
     ```
 
-4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) statement to define the location of the Azure blob. This is the location of the external worldwide importers data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
+4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement to define the location of the Azure blob. This is the location of the external worldwide importers data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -220,7 +117,7 @@ Run the following SQL scripts to specify information about the data you wish to 
     );
     ```
 
-5. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL statement to specify the formatting characteristics and options for the external data file. This statement specifies the external data is stored as text and the values are separated by the pipe ('|') character.  
+5. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL statement to specify the formatting characteristics and options for the external data file. This statement specifies the external data is stored as text and the values are separated by the pipe ('|') character.  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat
@@ -235,7 +132,7 @@ Run the following SQL scripts to specify information about the data you wish to 
     );
     ```
 
-6. Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) statements to create a schema for your external file format. The ext schema provides a way to organize the external tables you are about to create. The wwi schema organizes the standard tables that will contain the data.
+6. Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statements to create a schema for your external file format. The ext schema provides a way to organize the external tables you are about to create. The wwi schema organizes the standard tables that will contain the data.
 
     ```sql
     CREATE SCHEMA ext;
@@ -529,7 +426,7 @@ This section uses the external tables you defined to load the sample data from A
 > [!NOTE]
 > This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 
-The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table,  the data is imported into a relational table in the data warehouse.
+The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table,  the data is imported into a relational table in the data warehouse.
 
 This script does not load data into the wwi.dimension_Date and wwi.fact_Sale tables. These tables are generated in a later step in order to make the tables have a sizeable number of rows.
 
@@ -1082,7 +979,7 @@ Follow these steps to clean up resources as you desire.
 
 3. If you want to remove future charges, you can delete the data warehouse. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
 
-4. To remove the SQL server you created, click **sample-svr.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
+4. To remove the server you created, click **sample-svr.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
 
 5. To remove the resource group, click **SampleRG**, and then click **Delete resource group**.
 

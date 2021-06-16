@@ -1,28 +1,23 @@
 ---
-title: Windows Virtual Desktop environment host pool creation - Azure
-description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop environment.
-services: virtual-desktop
+title: Azure Virtual Desktop environment host pool creation - Azure
+description: How to troubleshoot and resolve tenant and host pool issues during setup of a Azure Virtual Desktop environment.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Host pool creation
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 
-This article covers issues during the initial setup of the Windows Virtual Desktop tenant and the related session host pool infrastructure.
+This article covers issues during the initial setup of the Azure Virtual Desktop tenant and the related session host pool infrastructure.
 
 ## Provide feedback
 
-Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Azure Virtual Desktop service with the product team and active community members.
 
 ## Acquiring the Windows 10 Enterprise multi-session image
 
@@ -32,32 +27,52 @@ To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplac
 
 ### Error: "Create a free account" appears when accessing the service
 
-![An image showing the Azure portal displaying the "Create a free account" message](media/create-new-account.png)
+> [!div class="mx-imgBorder"]
+> ![An image showing the Azure portal displaying the "Create a free account" message](media/create-new-account.png)
 
-**Cause**: There aren't active subscriptions in the account you signed in to Azure with, or the account doesn't have permissions to view the subscriptions. 
+**Cause**: There aren't active subscriptions in the account you signed in to Azure with, or the account doesn't have permissions to view the subscriptions.
 
 **Fix**: Sign in to the subscription where you'll deploy the session host virtual machines (VMs) with an account that has at least contributor-level access.
 
 ### Error: "Exceeding quota limit"
 
-If your operation goes over the quota limit, you can do one of the following things: 
+If your operation goes over the quota limit, you can do one of the following things:
 
 - Create a new host pool with the same parameters but fewer VMs and VM cores.
 
 - Open the link you see in the statusMessage field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
 
+### Error: Can't see user assignments in app groups.
+
+**Cause**: This error usually happens after you've moved the subscription from 1 Azure Active Directory (AD) tenant to another. If your old assignments are still tied to the old Azure AD tenant, the Azure portal will lose track of them.
+
+**Fix**: You'll need to reassign users to app groups.
+
+### I only see US when setting the location for my service objects
+
+**Cause**: Azure doesn't currently support that region for the Azure Virtual Desktop service. To learn about which geographies we support, check out [Data locations](data-locations.md). If Azure Virtual Desktop supports the location but it still doesn't appear when you're trying to select a location, that means your resource provider hasn't updated yet.
+
+**Fix**: To get the latest list of regions, re-register the resource provider:
+
+1. Go to **Subscriptions** and select the relevant subscription.
+2. Select **Resource Provider**.
+3. Select **Microsoft.DesktopVirtualization**, then select **Re-register** from the action menu.
+
+When you re-register the resource provider, you won't see any specific UI feedback or update statuses. The re-registration process also won't interfere with your existing environments.
+
 ## Azure Resource Manager template errors
 
 Follow these instructions to troubleshoot unsuccessful deployments of Azure Resource Manager templates and PowerShell DSC.
 
-1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
-2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md).
-3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) to address the issue.
+1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
+2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../azure-resource-manager/management/view-activity-logs.md).
+3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
 ### Error: Your deployment failed….\<hostname>/joindomain
 
-![Your Deployment Failed screenshot.](media/failure-joindomain.png)
+> [!div class="mx-imgBorder"]
+> ![Your Deployment Failed screenshot.](media/failure-joindomain.png)
 
 Example of raw error:
 
@@ -98,24 +113,26 @@ To fix this, do the following things:
 
 ### Error: VMExtensionProvisioningError
 
-![Screenshot of Your Deployment Failed with terminal provisioning state failed.](media/failure-vmextensionprovisioning.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Your Deployment Failed with terminal provisioning state failed.](media/failure-vmextensionprovisioning.png)
 
-**Cause 1:** Transient error with the Windows Virtual Desktop environment.
+**Cause 1:** Transient error with the Azure Virtual Desktop environment.
 
 **Cause 2:** Transient error with connection.
 
-**Fix:** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Finish the VM registration manually in [Create a host pool with PowerShell](create-host-pools-powershell.md).
+**Fix:** Confirm Azure Virtual Desktop environment is healthy by signing in using PowerShell. Finish the VM registration manually in [Create a host pool with PowerShell](create-host-pools-powershell.md).
 
 ### Error: The Admin Username specified isn't allowed
 
-![Screenshot of your deployment failed in which an admin specified isn't allowed.](media/failure-username.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of your deployment failed in which an admin specified isn't allowed.](media/failure-username.png)
 
 Example of raw error:
 
 ```Error
- { …{ "provisioningOperation": 
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ { …{ "provisioningOperation":
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
  "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
@@ -125,16 +142,17 @@ Example of raw error:
 
 ### Error: VM has reported a failure when processing extension
 
-![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](media/failure-processing.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](media/failure-processing.png)
 
 Example of raw error:
 
 ```Error
 { … "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
@@ -144,7 +162,8 @@ Example of raw error:
 
 ### Error: DeploymentFailed – PowerShell DSC Configuration 'FirstSessionHost' completed with Error(s)
 
-![Screenshot of deployment fail with PowerShell DSC Configuration 'FirstSessionHost' completed with Error(s).](media/failure-dsc.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of deployment fail with PowerShell DSC Configuration 'FirstSessionHost' completed with Error(s).](media/failure-dsc.png)
 
 Example of raw error:
 
@@ -154,7 +173,7 @@ Example of raw error:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n
@@ -247,14 +266,21 @@ the VM.\\\"
 
 **Fix:** Remove blocking static route, firewall rule, or NSG. Optionally, open the Azure Resource Manager template json file in a text editor, take the link to zip file, and download the resource to an allowed location.
 
+### Error: Can't delete a session host from the host pool after deleting the VM
+
+**Cause:** You need to delete the session host before you delete the VM.
+
+**Fix:** Put the session host in drain mode, sign out all users from the session host, then delete the host.
+
 ## Next steps
 
-- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
+- For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](troubleshoot-agent.md).
+- To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
+- To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

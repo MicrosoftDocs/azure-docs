@@ -1,19 +1,20 @@
-﻿---
-title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections'
+---
+title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections: PowerShell'
 titleSuffix: Azure VPN Gateway
-description: Configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
+description: Learn how to configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using PowerShell.
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 02/14/2018
-ms.author: yushwang
+ms.topic: how-to
+ms.date: 09/02/2020
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections
 
-This article walks you through the steps to configure IPsec/IKE policy for Site-to-Site VPN or VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
+This article walks you through the steps to configure IPsec/IKE policy for Site-to-Site VPN or VNet-to-VNet connections using PowerShell.
 
 
 
@@ -114,7 +115,7 @@ See [Create a S2S VPN connection](vpn-gateway-create-site-to-site-rm-powershell.
 ### <a name="before"></a>Before you begin
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* Install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
+* Install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
 
 ### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway
 
@@ -149,7 +150,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### 2. Connect to your subscription and create a new resource group
 
-Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
@@ -406,4 +407,4 @@ You can use the same script to check if the policy has been removed from the con
 
 See [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details regarding policy-based traffic selectors.
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.

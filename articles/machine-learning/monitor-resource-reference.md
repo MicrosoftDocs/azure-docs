@@ -1,25 +1,143 @@
 ---
-title: Monitoring data reference | Microsoft Docs
-titleSuffix: Azure Machine Learning
-description: Learn about the data and resources collected for Azure Machine Learning, and available in Azure Monitor. Azure Monitor collects and surfaces data about your Azure Machine Learning workspace, and allows you to view metrics, set alerts, and analyze logged data.
+title: Monitor Azure Machine Learning data reference | Microsoft Docs
+description: Reference documentation for monitoring Azure Machine Learning. Learn about the data & resources collected and available in Azure Monitor. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 04/27/2020
+ms.custom: subject-monitoring
+ms.date: 04/07/2021
 ---
 
-# Azure machine learning monitoring data reference
+# Monitoring Azure machine learning data reference
 
 Learn about the data and resources collected by Azure Monitor from your Azure Machine Learning workspace. See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for details on collecting and analyzing monitoring data.
 
+## Metrics
+
+This section lists all the automatically collected platform metrics collected for Azure Machine Learning. The resource provider for these metrics is [Microsoft.MachineLearningServices/workspaces](../azure-monitor/essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
+
+**Model**
+
+| Metric | Unit | Description |
+|--|--|--|
+| Model Register Succeeded | Count | Number of model registrations that succeeded in this workspace |
+| Model Register Failed | Count | Number of model registrations that failed in this workspace |
+| Model Deploy Started | Count | Number of model deployments started in this workspace |
+| Model Deploy Succeeded | Count | Number of model deployments that succeeded in this workspace |
+| Model Deploy Failed | Count | Number of model deployments that failed in this workspace |
+
+**Quota**
+
+Quota information is for Azure Machine Learning compute only.
+
+| Metric | Unit | Description |
+|--|--|--|
+| Total Nodes | Count | Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Preempted Nodes, Leaving Nodes |
+| Active Nodes | Count | Number of Active nodes. The nodes that are actively running a job. |
+| Idle Nodes | Count | Number of idle nodes. Idle nodes are the nodes that are not running any jobs but can accept new job if available. |
+| Unusable Nodes | Count | Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes. |
+| Preempted Nodes | Count | Number of preempted nodes. These nodes are the low-priority nodes that are taken away from the available node pool. |
+| Leaving Nodes | Count | Number of leaving nodes. Leaving nodes are the nodes that just finished processing a job and will go to Idle state. |
+| Total Cores | Count | Number of total cores |
+| Active Cores | Count | Number of active cores |
+| Idle Cores | Count | Number of idle cores |
+| Unusable Cores | Count | Number of unusable cores |
+| Preempted Cores | Count | Number of preempted cores |
+| Leaving Cores | Count | Number of leaving cores |
+| Quota Utilization Percentage | Count | Percent of quota utilized |
+
+**Resource**
+
+| Metric| Unit | Description |
+|--|--|--|
+| CpuUtilization | Count | Percentage of utilization on a CPU node. Utilization is reported at one-minute intervals. |
+| GpuUtilization | Count | Percentage of utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuMemoryUtilization | Count | Percentage of memory utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuEnergyJoules | Count | Interval energy in Joules on a GPU node. Energy is reported at one-minute intervals. |
+
+**Run**
+
+Information on training runs for the workspace.
+
+| Metric | Unit | Description |
+|--|--|--|
+| Cancelled Runs | Count | Number of runs canceled for this workspace. Count is updated when a run is successfully canceled. |
+| Cancel Requested Runs | Count | Number of runs where cancel was requested for this workspace. Count is updated when cancellation request has been received for a run. |
+| Completed Runs | Count | Number of runs completed successfully for this workspace. Count is updated when a run has completed and output has been collected. |
+| Failed Runs | Count | Number of runs failed for this workspace. Count is updated when a run fails. |
+| Finalizing Runs | Count | Number of runs entered finalizing state for this workspace. Count is updated when a run has completed but output collection still in progress. | 
+| Not Responding Runs | Count | Number of runs not responding for this workspace. Count is updated when a run enters Not Responding state. |
+| Not Started Runs | Count | Number of runs in Not Started state for this workspace. Count is updated when a request is received to create a run but run information has not yet been populated. |
+| Preparing Runs | Count | Number of runs that are preparing for this workspace. Count is updated when a run enters Preparing state while the run environment is being prepared. |
+| Provisioning Runs | Count | Number of runs that are provisioning for this workspace. Count is updated when a run is waiting on compute target creation or provisioning. |
+| Queued Runs | Count | Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occur when waiting for required compute nodes to be ready. |
+| Started Runs | Count | Number of runs running for this workspace. Count is updated when run starts running on required resources. |
+| Starting Runs | Count | Number of runs started for this workspace. Count is updated after request to create run and run info, such as the Run ID, has been populated |
+| Errors | Count | Number of run errors in this workspace. Count is updated whenever run encounters an error. |
+| Warnings | Count | Number of run warnings in this workspace. Count is updated whenever a run encounters a warning. |
+
+## Metric dimensions
+
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+
+Azure Machine Learning has the following dimensions associated with its metrics.
+
+| Dimension | Description |
+| ---- | ---- |
+| Cluster Name | The name of the compute cluster resource. Available for all quota metrics. |
+| Vm Family Name | The name of the VM family used by the cluster. Available for quota utilization percentage. |
+| Vm Priority | The priority of the VM. Available for quota utilization percentage.
+| CreatedTime | Only available for CpuUtilization and GpuUtilization. |
+| DeviceId | ID of the device (GPU). Only available for GpuUtilization. |
+| NodeId | ID of the node created where job is running. Only available for CpuUtilization and GpuUtilization. |
+| RunId | ID of the run/job. Only available for CpuUtilization and GpuUtilization. |
+| ComputeType | The compute type that the run used. Only available for Completed runs, Failed runs, and Started runs. |
+| PipelineStepType | The type of [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep) used in the run. Only available for Completed runs, Failed runs, and Started runs. |
+| PublishedPipelineId | The ID of the published pipeline used in the run. Only available for Completed runs, Failed runs, and Started runs. |
+| RunType | The type of run. Only available for Completed runs, Failed runs, and Started runs. |
+
+The valid values for the RunType dimension are:
+
+| Value | Description |
+| ----- | ----- |
+| Experiment | Non-pipeline runs. |
+| PipelineRun | A pipeline run, which is the parent of a StepRun. |
+| StepRun | A run for a pipeline step. |
+| ReusedStepRun | A run for a pipeline step that reuses a previous run. |
+
+## Activity log
+
+The following table lists the operations related to Azure Machine Learning that may be created in the Activity log.
+
+| Operation | Description |
+|:---|:---|
+| Creates or updates a Machine Learning workspace | A workspace was created or updated |
+| CheckComputeNameAvailability | Check if a compute name is already in use |
+| Creates or updates the compute resources | A compute resource was created or updated |
+| Deletes the compute resources | A compute resource was deleted |
+| List secrets | On operation listed secrets for a Machine Learning workspace |
+
 ## Resource logs
 
-The following table lists the properties for Azure Machine Learning resource logs when they're collected in Azure Monitor Logs or Azure Storage.
+This section lists the types of resource logs you can collect for Azure Machine Learning workspace.
+
+Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azure-monitor/essentials/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
+
+| Category | Display Name |
+| ----- | ----- |
+| AmlComputeClusterEvent | AmlComputeClusterEvent |
+| AmlComputeClusterNodeEvent | AmlComputeClusterNodeEvent |
+| AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
+| AmlComputeJobEvent | AmlComputeJobEvent |
+| AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+
+## Schemas
+
+The following schemas are in use by Azure Machine Learning
 
 ### AmlComputeJobEvents table
 
@@ -38,8 +156,8 @@ The following table lists the properties for Azure Machine Learning resource log
 | ResourceGroupName | Name of the resource group |
 | JobName | Name of the Job |
 | ClusterId | ID of the cluster |
-| EventType | Type of the Job event, e.g., JobSubmitted, JobRunning, JobFailed, JobSucceeded, etc. |
-| ExecutionState | State of the job (the Run), e.g., Queued, Running, Succeeded, Failed |
+| EventType | Type of the Job event. For example, JobSubmitted, JobRunning, JobFailed, JobSucceeded. |
+| ExecutionState | State of the job (the Run). For example, Queued, Running, Succeeded, Failed |
 | ErrorDetails | Details of job error |
 | CreationApiVersion | Api version used to create the job |
 | ClusterResourceGroupName | Resource group name of the cluster |
@@ -105,7 +223,7 @@ The following table lists the properties for Azure Machine Learning resource log
 | VmSize | Vm size of the node |
 | VmFamilyName | Vm family to which the node belongs |
 | VmPriority | Priority of the node created Dedicated/LowPriority |
-| Publisher | Publisher of the vm image, e.g., microsoft-dsvm |
+| Publisher | Publisher of the vm image. For example, microsoft-dsvm |
 | Offer | Offer associated with the VM creation |
 | Sku | Sku of the Node/VM created |
 | Version | Version of the image used while Node/VM is created |
@@ -118,93 +236,8 @@ The following table lists the properties for Azure Machine Learning resource log
 | StartTaskEndTime | Time when task assigned to a node ended |
 | TotalE2ETimeInSeconds | Total time node was active |
 
-### Metrics
 
-The following tables list the platform metrics collected for Azure Machine Learning All metrics are stored in the namespace **Azure Machine Learning Workspace**.
-
-**Model**
-
-| Metric | Unit | Description |
-| ----- | ----- | ----- |
-| Model deploy failed | Count | The number of model deployments that failed. |
-| Model deploy started | Count | The number of model deployments started. |
-| Model deploy succeeded | Count | The number of model deployments that succeeded. |
-| Model register failed | Count | The number of model registrations that failed. |
-| Model register succeeded | Count | The number of model registrations that succeeded. |
-
-**Quota**
-
-Quota information is for Azure Machine Learning compute only.
-
-| Metric | Unit | Description |
-| ----- | ----- | ----- |
-| Active cores | Count | The number of active compute cores. |
-| Active nodes | Count | The number of active nodes. |
-| Idle cores | Count | The number of idle compute cores. |
-| Idle nodes | Count | The number of idle compute nodes. |
-| Leaving cores | Count | The number of leaving cores. |
-| Leaving nodes | Count | The number of leaving nodes. |
-| Preempted cores | Count | The number of preempted cores. |
-| Preempted nodes | Count | The number of preempted nodes. |
-| Quota utilization percentage | Percent | The percentage of quota used. |
-| Total cores | Count | The total cores. |
-| Total nodes | Count | The total nodes. |
-| Unusable cores | Count | The number of unusable cores. |
-| Unusable nodes | Count | The number of unusable nodes. |
-
-The following are dimensions that can be used to filter quota metrics:
-
-| Dimension | Metric(s) available with | Description |
-| ---- | ---- | ---- |
-| Cluster Name | All quota metrics | The name of the compute instance. |
-| Vm Family Name | Quota utilization percentage | The name of the VM family used by the cluster. |
-| Vm Priority | Quota utilization percentage | The priority of the VM.
-
-**Resource**
-
-| Metric | Unit | Description |
-| ----- | ----- | ----- |
-| CpuUtilization | Percent | How much percent of CPU was utilized for a given node during a run/job. This metric is published only when a job is running on a node. One job may use one or more nodes. This metric is published per node. |
-| GpuUtilization | Percent | How much percentage of GPU was utilized for a given node during a run/job. One node can have one or more GPUs. This metric is published per GPU per node. |
-
-The following are dimensions that can be used to filter resource metrics:
-
-| Dimension | Description |
-| ----- | ----- |
-| CreatedTime | |
-| DeviceId | ID of the device (GPU). Only available for GpuUtilization. |
-| NodeId | ID of the node created where job is running. |
-| RunId | ID of the run/job. |
-
-**Run**
-
-Information on training runs.
-
-| Metric | Unit | Description |
-| ----- | ----- | ----- |
-| Completed runs | Count | The number of completed runs. |
-| Failed runs | Count | The number of failed runs. |
-| Started runs | Count | The number of started runs. |
-
-The following are dimensions that can be used to filter run metrics:
-
-| Dimension | Description |
-| ---- | ---- |
-| ComputeType | The compute type that the run used. |
-| PipelineStepType | The type of [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) used in the run. |
-| PublishedPipelineId | The ID of the published pipeline used in the run. |
-| RunType | The type of run. |
-
-The valid values for the RunType dimension are:
-
-| Value | Description |
-| ----- | ----- |
-| Experiment | Non-pipeline runs. |
-| PipelineRun | A pipeline run, which is the parent of a StepRun. |
-| StepRun | A run for a pipeline step. |
-| ReusedStepRun | A run for a pipeline step that reuses a previous run. |
-
-## See Also
+## See also
 
 - See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
