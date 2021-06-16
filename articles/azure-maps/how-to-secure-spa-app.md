@@ -29,13 +29,13 @@ To create a secured web service application that's responsible for authenticatio
 
 1. Create a function in the Azure portal. For more information, see [Create Azure Function](../azure-functions/functions-get-started.md).
 
-2. Configure CORS policy on the Azure function to be accessible by the single page web application. This will secure browser clients to the allowed origins of your web application. For more details, see [Add CORS functionality](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
+2. Configure CORS policy on the Azure function to be accessible by the single page web application.  The CORS policy secures browser clients to the allowed origins of your web application. For more information, see [Add CORS functionality](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 3. [Add a system-assigned identity](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) on the Azure function to enable creation of a service principal to authenticate to Azure AD.  
 
 4. Grant role-based access for the system-assigned identity to the Azure Maps account. See [Grant role-based access](#grant-role-based-access) for details.
 
-5. Write code for the Azure function to obtain Azure Maps access tokens using system-assigned identity with one of the supported mechanisms or the REST protocol. For more details, see [Obtain tokens for Azure resources](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
+5. Write code for the Azure function to obtain Azure Maps access tokens using system-assigned identity with one of the supported mechanisms or the REST protocol. For more information, see [Obtain tokens for Azure resources](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
     A sample REST protocol example:
 
@@ -108,7 +108,7 @@ For detailed steps on how to assign an available Azure Maps role to the created 
 To efficiently manage the Azure Maps app and resource access of a large amount of users, see [Azure AD Groups](../../active-directory/fundamentals/active-directory-manage-groups.md).
 
 >[!IMPORTANT]
->For users to be allowed to authenticate to an application, the users must first be created in Azure AD. For more details, see [Add or Delete users using Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+>For users to be allowed to authenticate to an application, the users must first be created in Azure AD. For more information, see [Add or Delete users using Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 To learn  about how to effectively manage a directory for users, see [Azure AD](../../active-directory/fundamentals/index.yml).
 
