@@ -160,6 +160,13 @@ namespace webapi.Controllers
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
+## Testing out of repo referencing
+
+Replace the contents of *GraphServiceClientFactory.cs* class with the following code:
+
+ :::code language="csharp" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/5-WebApp-AuthZ/5-1-Roles/Services/GraphServiceClientFactory.cs":::
+
+
 ## Next steps
 
 The GitHub repository that contains this ASP.NET Core web API code sample includes instructions and more code samples that show you how to:
