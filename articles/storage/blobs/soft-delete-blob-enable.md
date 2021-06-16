@@ -97,7 +97,16 @@ Blob soft delete can also protect blobs and directories in accounts that have th
 
 ### [Portal](#tab/azure-portal)
 
-Not yet implemented.
+To enable blob soft delete for your storage account by using the Azure portal, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
+1. Locate the **Data Protection** option under **Data Management**.
+1. In the **Recovery** section, select **Enable soft delete for blobs**.
+1. Specify a retention period between 1 and 365 days. Microsoft recommends a minimum retention period of seven days.
+1. Save your changes.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot showing how to enable soft delete in the Azure portal in accounts that have a hierarchical namespace](./media/soft-delete-blob-enable/blob-soft-delete-configuration-portal-hierarchical-namespace.png)
 
 ### [PowerShell](#tab/azure-powershell)
 
