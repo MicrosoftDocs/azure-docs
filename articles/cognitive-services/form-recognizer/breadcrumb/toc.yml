@@ -4,7 +4,7 @@
   items:
   - name: Applied AI Services
     tocHref: /azure/applied-ai-services/
-    topicHref: /azure/cognitive-services/index
+    topicHref: /azure/applied-ai-services/index
     items:
     - name: Form Recognizer
       tocHref: /azure/cognitive-services/
