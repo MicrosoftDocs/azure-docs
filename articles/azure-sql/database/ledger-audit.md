@@ -119,4 +119,4 @@ When you perform forensics activities with ledger-enabled tables, data is captur
 
 - [Auditing for Azure SQL Database and Azure Synapse Analytics](auditing-overview.md)
 - [Azure SQL Database ledger overview](ledger-overview.md)
-- [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md)
+- [Quickstart: Create a database in Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md)
