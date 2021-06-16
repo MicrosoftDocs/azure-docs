@@ -114,7 +114,7 @@ This is different from Azure Cosmos DB Java SDK 3.x.x which exposes a fluent int
 
 ### Create resources
 
-The following code snippet shows the differences in how resources are created between the 4.0, 3.x.x Async APIs and 2.x.x Sync APIs:
+The following code snippet shows the differences in how resources are created between the 4.0, 3.x.x Async, 2.x.x Sync, and 2.x.x Async APIs:
 
 # [Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -207,7 +207,7 @@ client.createDatabase(database, new RequestOptions())
 
 ### Item operations
 
-The following code snippet shows the differences in how item operations are performed between the 4.0, 3.x.x Async APIs and 2.x.x Sync APIs:
+The following code snippet shows the differences in how item operations are performed between the 4.0, 3.x.x Async, 2.x.x Sync, and 2.x.x Async APIs:
 
 # [Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -253,7 +253,7 @@ Observable.from(docs)
 
 ### Indexing
 
-The following code snippet shows the differences in how indexing is created between the 4.0, 3.x.x Async APIs and 2.x.x Sync APIs:
+The following code snippet shows the differences in how indexing is created between the 4.0, 3.x.x Async, 2.x.x Sync, and 2.x.x Async APIs:
 
 # [Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -346,7 +346,7 @@ client.createCollection(database.getSelfLink(), documentCollection, new RequestO
 
 ### Stored procedures
 
-The following code snippet shows the differences in how stored procedures are created between the 4.0, 3.x.x Async APIs and 2.x.x Sync APIs:
+The following code snippet shows the differences in how stored procedures are created between the 4.0, 3.x.x Async, 2.x.x Sync, and 2.x.x Async APIs:
 
 # [Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -522,15 +522,13 @@ ChangeFeedProcessor.Builder()
 
 # [Java SDK 2.x.x Async API](#tab/java-v2-async)
 
-```java
 * This feature is not supported as of Java SDK v2 async. 
-```
 
 ---
 
 ### Container level Time-To-Live(TTL)
 
-The following code snippet shows the differences in how to create time to live for data in the container using the 4.0, 3.x.x Async APIs and 2.x.x Sync APIs:
+The following code snippet shows the differences in how to create time to live for data in the container between the 4.0, 3.x.x Async, 2.x.x Sync, and 2.x.x Async APIs:
 
 # [Java SDK 4.0 Async API](#tab/java-v4-async)
 
@@ -574,7 +572,7 @@ collection = client
 
 ### Item level Time-To-Live(TTL)
 
-The following code snippet shows the differences in how to create time to live for an item using the 4.0, 3.x.x Async APIs and 2.x.x Sync APIs:
+The following code snippet shows the differences in how to create time to live for an item between the 4.0, 3.x.x Async, 2.x.x Sync, and 2.x.x Async APIs:
 
 # [Java SDK 4.0 Async API](#tab/java-v4-async)
 
