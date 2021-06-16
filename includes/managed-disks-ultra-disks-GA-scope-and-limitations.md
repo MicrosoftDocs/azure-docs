@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/21/2021
+ms.date: 05/12/2021
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -56,8 +56,8 @@ The following table outlines the regions ultra disks are available in, as well a
     - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
-    - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-    - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+    - [M](../articles/virtual-machines/m-series.md)
+    - [Mv2](../articles/virtual-machines/mv2-series.md)
     - [HBv2](../articles/virtual-machines/hbv2-series.md)
     - [HB](../articles/virtual-machines/hb-series.md)
     - [HC](../articles/virtual-machines/hc-series.md)
@@ -73,7 +73,7 @@ The following table outlines the regions ultra disks are available in, as well a
 - Are only available as data disks. 
 - Support 4k physical sector size by default. 512E sector size is available as a generally available offering (no signup required). Most applications are compatible with 4k sector sizes but, some require 512 byte sector sizes. One example would be Oracle Database, which requires release 12.2 or later in order to support the 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 - Can only be created as empty disks.
-- Doesn't currently support disk snapshots, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption.
+- Doesn't currently support disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption.
 - Doesn't currently support integration with Azure Backup or Azure Site Recovery.
 - Only supports un-cached reads and un-cached writes.
 - The current maximum limit for IOPS on GA VMs is 80,000.

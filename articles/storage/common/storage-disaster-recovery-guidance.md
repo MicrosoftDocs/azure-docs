@@ -7,9 +7,8 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 06/09/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
 ---
 
@@ -19,7 +18,7 @@ Microsoft strives to ensure that Azure services are always available. However, u
 
 Azure Storage supports account failover for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoint.
 
-Account failover is available for general-purpose v1, general-purpose v2, and Blob storage account types with Azure Resource Manager deployments. Account failover is supported for all public regions but is not available in sovereign or national clouds at this time. Account failover is not supported for storage accounts with a hierarchical namespace enabled.
+Account failover is available for general-purpose v1, general-purpose v2, and Blob storage account types with Azure Resource Manager deployments. Account failover is not supported for storage accounts with a hierarchical namespace enabled.
 
 This article describes the concepts and process involved with an account failover and discusses how to prepare your storage account for recovery with the least amount of customer impact. To learn how to initiate an account failover in the Azure portal or PowerShell, see [Initiate an account failover](storage-initiate-account-failover.md).
 
@@ -85,7 +84,7 @@ Write access is restored for geo-redundant accounts once the DNS entry has been 
 > [!IMPORTANT]
 > After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint. To resume replication to the new secondary, configure the account for geo-redundancy again.
 >
-> Keep in mind that converting an LRS account to use geo-redundancy incurs a cost. This cost applies to updating the storage account in the new primary region after a failover.  
+> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [Important implications of account failover](storage-initiate-account-failover.md#important-implications-of-account-failover).
 
 ### Anticipate data loss
 
@@ -154,7 +153,7 @@ Keep in mind that any data stored in a temporary disk is lost when the VM is shu
 The following features and services are not supported for account failover:
 
 - Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.
-- ADLS Gen2 storage accounts (accounts that have hierarchical namespace enabled) are not supported at this time.
+- Storage accounts that have hierarchical namespace enabled (such as for Data Lake Storage Gen2) are not supported at this time.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 - A storage account containing any [WORM immutability policy](../blobs/storage-blob-immutable-storage.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
 

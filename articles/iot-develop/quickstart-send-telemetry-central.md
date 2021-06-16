@@ -30,6 +30,12 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 
 :::zone-end
 
+:::zone pivot="programming-language-java"
+
+[!INCLUDE [iot-develop-send-telemetry-central-java](../../includes/iot-develop-send-telemetry-central-java.md)]
+
+:::zone-end
+
 :::zone pivot="programming-language-nodejs"
 
 [!INCLUDE [iot-develop-send-telemetry-central-nodejs](../../includes/iot-develop-send-telemetry-central-nodejs.md)]
@@ -45,9 +51,13 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 ## View telemetry
 After the simulated device connects to IoT Central, it begins sending telemetry. You can view the telemetry and other details about connected devices in IoT Central. 
 
-In IoT Central, select **Devices**, click your device name, then select the **Raw data** tab. This view displays the raw telemetry from the simulated device.
+In IoT Central, select **Devices**, click your device name, then select the **Overview** tab. This view displays a graph of the temperatures from the two thermostat devices.
 
-:::image type="content" source="media/quickstart-send-telemetry-central/iot-central-telemetry-output.png" alt-text="IoT Central device telemetry raw output":::
+:::image type="content" source="media/quickstart-send-telemetry-central/iot-central-telemetry-output-overview.png" alt-text="IoT Central device telemetry overview":::
+
+Select the **Raw data** tab. This view displays the telemetry each time a thermostat reading is sent.
+
+:::image type="content" source="media/quickstart-send-telemetry-central/iot-central-telemetry-output-raw.png" alt-text="IoT Central device telemetry raw output":::
 
 Your device is now securely connected and sending telemetry to Azure IoT.
     
@@ -65,6 +75,6 @@ In this quickstart, you learned a basic Azure IoT application workflow for secur
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Send telemetry to Azure IoT hub](quickstart-send-telemetry-cli-python.md)
+> [Send telemetry to Azure IoT hub](./quickstart-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Create an IoT Central application](../iot-central/core/quick-deploy-iot-central.md)

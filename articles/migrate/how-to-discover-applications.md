@@ -19,7 +19,7 @@ Performing software inventory helps identify and tailor a migration path to Azur
 - Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
 - Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory.
 - Review [appliance requirements](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) before setting up the appliance.
-- Review [application discovery requirements](migrate-support-matrix-vmware.md#application-discovery-requirements) before initiating software inventory on servers.
+- Review [application discovery requirements](migrate-support-matrix-vmware.md#software-inventory-requirements) before initiating software inventory on servers.
 
 ## Deploy and configure the Azure Migrate appliance
 

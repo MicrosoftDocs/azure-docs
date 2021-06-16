@@ -37,7 +37,7 @@ Here's what you need to know about email as an alternate login ID:
 
 * The feature is available in Azure AD Free edition and higher.
 * The feature enables sign-in with verified domain *ProxyAddresses* for cloud-authenticated Azure AD users.
-* When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) will have the value of the non-UPN email.
+* When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](../develop/id-tokens.md) will have the value of the non-UPN email.
 * There are two options for configuring the feature:
     * [Home Realm Discovery (HRD) policy](#enable-user-sign-in-with-an-email-address) - Use this option to enable the feature for the entire tenant. Global administrator privileges required.
     * [Staged rollout policy](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address) - Use this option to test the feature with specific Azure AD groups. Global administrator privileges required.
@@ -90,8 +90,8 @@ A different approach is to synchronize the Azure AD and on-premises UPNs to the 
 
 | Option | Description |
 |---|---|
-| [Alternate Login ID for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Enable sign-in with an alternate attribute (such as Mail) for AD FS users. |
-| [Alternate Login ID in Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-userprincipalname#alternate-login-id) | Synchronize an alternate attribute (such as Mail) as the Azure AD UPN. |
+| [Alternate Login ID for AD FS](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Enable sign-in with an alternate attribute (such as Mail) for AD FS users. |
+| [Alternate Login ID in Azure AD Connect](../hybrid/plan-connect-userprincipalname.md#alternate-login-id) | Synchronize an alternate attribute (such as Mail) as the Azure AD UPN. |
 | Email as an Alternate Login ID | Enable sign-in with verified domain *ProxyAddresses* for Azure AD users. |
 
 ## Synchronize sign-in email addresses to Azure AD
@@ -112,7 +112,7 @@ One of the user attributes that's automatically synchronized by Azure AD Connect
 ## Enable user sign-in with an email address
 
 > [!NOTE]
-> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0).
+> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0&preserve-view=true).
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
@@ -224,7 +224,7 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
 ## Enable staged rollout to test user sign-in with an email address  
 
 > [!NOTE]
->This configuration option uses staged rollout policy. For more information, see [featureRolloutPolicy resource type](https://docs.microsoft.com/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0).
+>This configuration option uses staged rollout policy. For more information, see [featureRolloutPolicy resource type](/graph/api/resources/featurerolloutpolicy?preserve-view=true&view=graph-rest-1.0).
 
 Staged rollout policy allows tenant administrators to enable features for specific Azure AD groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address. When administrators are ready to deploy this feature to their entire tenant, they should use [HRD policy](#enable-user-sign-in-with-an-email-address).  
 

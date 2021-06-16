@@ -86,7 +86,7 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 
 | Resource | Limit |
 | --- | --- |
-| Maximum RU/s per (logical) partition | 5,000 |
+| Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | 50 GB |
@@ -195,7 +195,7 @@ Azure Cosmos DB maintains system metadata for each account. This metadata allows
 
 ## Limits for autoscale provisioned throughput
 
-See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](autoscale-faq.md#lowering-the-max-rus) for more detailed explanation of the throughput and storage limits with autoscale.
+See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](autoscale-faq.yml#lowering-the-max-ru-s) for more detailed explanation of the throughput and storage limits with autoscale.
 
 | Resource | Default limit |
 | --- | --- |
@@ -261,15 +261,12 @@ The following table lists the limits for [Azure Cosmos DB free tier accounts.](o
 | --- | --- |
 | Number of free tier accounts per Azure subscription | 1 |
 | Duration of free-tier discount | Lifetime of the account. Must opt-in during account creation. |
-| Maximum RU/s for free | 400 RU/s |
-| Maximum storage for free | 5 GB |
+| Maximum RU/s for free | 1000 RU/s |
+| Maximum storage for free | 25 GB |
 | Maximum number of shared throughput databases | 5 |
 | Maximum number of containers in a shared throughput database | 25 <br>In free tier accounts, the minimum RU/s for a shared throughput database with up to 25 containers is 400 RU/s. |
 
-In addition to the above, the [Per-account limits](#per-account-limits) also apply to free tier accounts.
-
-> [!NOTE]
-> Azure Cosmos DB free tier is different from the Azure free account. The Azure free account offers Azure credits and resources for free for a limited time. When using Azure Cosmos DB as a part of this free account, you get 25-GB storage and 400 RU/s of provisioned throughput for 12 months.
+In addition to the above, the [Per-account limits](#per-account-limits) also apply to free tier accounts. To learn more, see how to [free tier account](free-tier.md) article.
 
 ## Next steps
 

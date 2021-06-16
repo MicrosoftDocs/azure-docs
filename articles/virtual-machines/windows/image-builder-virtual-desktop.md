@@ -4,11 +4,12 @@ description: Create an Azure VM image of Windows Virtual Desktop using Azure Ima
 author: danielsollondon
 ms.author: danis
 ms.reviewer: cynthn
-ms.date: 01/27/2021
+ms.date: 05/12/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.collection: windows
-ms.subservice: image-builder
+ms.subservice: image-builder 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell
@@ -49,7 +50,7 @@ This article is intended to be a copy and paste exercise.
           "name": "installFsLogix",
           "runElevated": true,
           "runAsSystem": true,
-          "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
+          "scriptUri": "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
     ```
 - Comment your code - The AIB build log (customization.log) is extremely verbose, if you comment your scripts using 'write-host' these will be sent to the logs, and make troubleshooting easier.
 
@@ -71,20 +72,13 @@ This article is intended to be a copy and paste exercise.
 You must have the latest Azure PowerShell CmdLets installed, see [here](/powershell/azure/overview) for install details.
 
 ```PowerShell
-# Register for Azure Image Builder Feature
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# wait until RegistrationState is set to 'Registered'
-
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
-# If they do not saw registered, run the commented out code below.
+# If they do not show as registered, run the commented out code below.
 
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
@@ -145,7 +139,7 @@ $idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageRe
 Assign permissions to the identity to distribute images. This command will download and update the template with the parameters specified earlier.
 
 ```azurepowershell-interactive
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download config
@@ -221,7 +215,7 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsDesktop -Offer
 Now, you need to download the template and configure it for your use.
 
 ```azurepowershell-interactive
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
+$templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
 $templateFilePath = "armTemplateWVD.json"
 
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
@@ -238,7 +232,7 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 
 ```
 
-Feel free to view the [template](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json), all the code is viewable.
+Feel free to view the [template](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json), all the code is viewable.
 
 
 ## Submit the template
@@ -306,4 +300,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## Next steps
 
-You can try more examples [on GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+You can try more examples [on GitHub](https://github.com/azure/azvmimagebuilder/tree/master/quickquickstarts).

@@ -10,7 +10,7 @@ ms.author: cshoe
 # Customer intent: As a developer, I want to publish a website from a GitHub or Azure DevOps repository so that the app is publicly available on the web.
 ---
 
-# What is Azure Static Web Apps Preview?
+# What is Azure Static Web Apps?
 
 Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a code repository.
 
@@ -27,7 +27,7 @@ With Static Web Apps, static assets are separated from a traditional web server 
 ## Key features
 
 - **Web hosting** for static content like HTML, CSS, JavaScript, and images.
-- **Integrated API** support provided by Azure Functions.
+- **Integrated API** support provided by Azure Functions with the option to link an existing Azure Functions app using a standard account.
 - **First-class GitHub and Azure DevOps integration** where repository changes trigger builds and deployments.
 - **Globally distributed** static content, putting content closer to your users.
 - **Free SSL certificates**, which are automatically renewed.

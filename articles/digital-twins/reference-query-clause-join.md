@@ -81,7 +81,7 @@ Consider the following query illustrating a building traversal.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="NoOuterJoinExample":::
 
-If `Building1` contains no floors, then this query will return an empty result set (instead of returning one row with a value for Building and `undefined` for Floor).
+If Building1 contains no floors, then this query will return an empty result set (instead of returning one row with a value for Building and `undefined` for Floor).
 
 ### Twins required
 

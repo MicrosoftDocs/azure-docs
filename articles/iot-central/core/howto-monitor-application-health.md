@@ -26,7 +26,7 @@ Applications that use the free trial plan don't have an associated Azure subscri
 
 ## View metrics in the Azure portal
 
-The following steps assume you have an [IoT Central application](./quick-deploy-iot-central.md) with some [connected devices](./tutorial-connect-device.md) or a running [data export](howto-export-data.md).
+The following steps assume you have an [IoT Central application](./howto-create-iot-central-application.md) with some [connected devices](./tutorial-connect-device.md) or a running [data export](howto-export-data.md).
 
 To view IoT Central metrics in the portal:
 

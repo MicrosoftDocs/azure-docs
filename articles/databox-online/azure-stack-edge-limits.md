@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro limits | Microsoft Docs
-description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge Pro, including service limits, device limits, and storage limits.
+title: Azure Stack Edge Pro FPGA limits | Microsoft Docs
+description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge Pro FPGA, including service limits, device limits, and storage limits.
 services: databox
 author: alkohli
 
@@ -11,9 +11,9 @@ ms.date: 10/12/2020
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Pro limits
+# Azure Stack Edge Pro FPGA limits
 
-Consider these limits as you deploy and operate your Microsoft Azure Stack Edge Pro solution. 
+Consider these limits as you deploy and operate your Microsoft Azure Stack Edge Pro FPGA solution. 
 
 ## Azure Stack Edge service limits
 
@@ -21,7 +21,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Stack Edge 
 
 ## Azure Stack Edge device limits
 
-The following table describes the limits for the Azure Stack Edge Pro device. 
+The following table describes the limits for the Azure Stack Edge Pro FPGA device. 
 
 The following table describes the limits for the Azure Stack Edge device.
 
@@ -53,4 +53,4 @@ The following table describes the limits for the Azure Stack Edge device.
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)
+- [Prepare to deploy Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-prep.md)

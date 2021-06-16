@@ -42,7 +42,7 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
     #download from blob
     t1=time.time()
     blob_service_client_instance = BlobServiceClient(account_url=STORAGEACCOUNTURL, credential=STORAGEACCOUNTKEY)
-    blob_client_instance = blob_service_client.get_blob_client(CONTAINERNAME, BLOBNAME, snapshot=None)
+    blob_client_instance = blob_service_client_instance.get_blob_client(CONTAINERNAME, BLOBNAME, snapshot=None)
     with open(LOCALFILENAME, "wb") as my_blob:
         blob_data = blob_client_instance.download_blob()
         blob_data.readinto(my_blob)
@@ -57,7 +57,7 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
     dataframe_blobdata = pd.read_csv(LOCALFILENAME)
     ```
 
-If you need more general information on reading from an Azure Storage Blob, look at our documentation [Azure Storage Blobs client library for Python](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python).  
+If you need more general information on reading from an Azure Storage Blob, look at our documentation [Azure Storage Blobs client library for Python](/python/api/overview/azure/storage-blob-readme).  
 
 Now you are ready to explore the data and generate features on this dataset.  
 

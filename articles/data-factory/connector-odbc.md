@@ -4,7 +4,7 @@ description: Learn how to copy data from and to ODBC data stores by using a copy
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 05/10/2021
 ms.author: jianleishen
 ---
 # Copy data from and to ODBC data stores using Azure Data Factory
@@ -46,7 +46,7 @@ The following properties are supported for ODBC linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Odbc** | Yes |
-| connectionString | The connection string excluding the credential portion. You can specify the connection string with pattern like `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, or use the system DSN (Data Source Name) you set up on the Integration Runtime machine with `"DSN=<name of the DSN on IR machine>;"` (you need still specify the credential portion in linked service accordingly).<br>You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.| Yes |
+| connectionString | The connection string excluding the credential portion. You can specify the connection string with pattern like `Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;`, or use the system DSN (Data Source Name) you set up on the Integration Runtime machine with `DSN=<name of the DSN on IR machine>;` (you need still specify the credential portion in linked service accordingly).<br>You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.| Yes |
 | authenticationType | Type of authentication used to connect to the ODBC data store.<br/>Allowed values are: **Basic** and **Anonymous**. | Yes |
 | userName | Specify user name if you are using Basic authentication. | No |
 | password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |

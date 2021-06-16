@@ -83,7 +83,7 @@ You can create private endpoints only on a general-purpose v2 storage account. I
 1. Under **Confirm upgrade**, enter the name of your account.
 1. Select **Upgrade** at the bottom of the page.
 
-   ![Screenshot that shows how to upgrade a storage account.](./media/replicate-using-expressroute/upgrade-storage-account.png)
+   ![Screenshot that shows how to upgrade a storage account.](./media/replicate-using-expressroute/upgrade-storage-account.png) 
 
 ### Create a private endpoint for the storage account
 
@@ -144,7 +144,27 @@ To manually create a private DNS zone:
     1. On the **Add record set** page, add an entry for the FQDN and private IP as an A type record.
 
 > [!Important]
-> You might require additional DNS settings to resolve the private IP address of the storage account's private endpoint from the source environment. To understand the DNS configuration needed, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+> You might require additional DNS settings to resolve the private IP address of the storage account's private endpoint from the source environment. To understand the DNS configuration needed, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).  
+
+### Verify network connectivity to the storage account
+
+To validate the private link connection, perform a DNS resolution of the cache storage account resource endpoint from the on-premises VM hosting the Azure Migrate appliance and ensure that it resolves to a private IP address.
+
+An illustrative example for DNS resolution of the cache storage account. 
+
+- Enter nslookup _storageaccountname_.blob.core.windows.net. Replace <storage-account-name> with the name of the cache storage account created by Azure Migrate.  
+
+    You'll receive a message like this:  
+
+   ![DNS resolution example](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png)
+
+- A private IP address of 10.1.0.5 is returned for the storage account. This address should belongs to the private endpoint of the storage account. 
+
+If the DNS resolution is incorrect, follow these steps:  
+
+- **Tip:** You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the storage account FQDN link, _storageaccountname_.blob.core.windows.net, and the associated private IP address. This option is recommended only for testing. 
+- If you use a custom DNS, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration). 
+- If you use Azure-provided DNS servers, use this guide as a reference for further troubleshooting [for further troubleshooting.](./troubleshoot-network-connectivity.md#validate-the-private-dns-zone)   
 
 ## Replicate data by using an ExpressRoute circuit with Microsoft peering
 
@@ -177,7 +197,7 @@ To configure the proxy bypass list on the configuration server and process serve
 1. Download the [PsExec tool](/sysinternals/downloads/psexec) to access system user context.
 1. Open Internet Explorer in system user context by running the following command line: `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
 1. Add proxy settings in Internet Explorer.
-1. In the bypass list, add the Azure Storage URL: *.blob.core.windows.net.
+1. In the bypass list, add the URLs: *.blob.core.windows.net,  *.hypervrecoverymanager.windowsazure.com, and *.backup.windowsazure.com. 
 
 The preceding bypass rules ensure that the replication traffic can flow through ExpressRoute while the management communication can go through the proxy for the internet.
 

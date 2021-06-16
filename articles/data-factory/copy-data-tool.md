@@ -5,7 +5,7 @@ author: dearandyxu
 
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 06/01/2021
 ms.author: yexu
 ---
 # Copy Data tool in Azure Data Factory
@@ -49,7 +49,7 @@ You can preview part of the data from the selected source data store, which allo
 
 ![File settings](./media/copy-data-tool/file-format-settings.png)
 
-After the detection:
+After the detection, select **Preview data**:
 
 ![Detected file settings and preview](./media/copy-data-tool/after-detection.png)
 
@@ -83,7 +83,7 @@ Suppose that you have input folders in the following format:
 
 Click the **Browse** button for **File or folder**, browse to one of these folders (for example, 2016->03->01->02), and click **Choose**. You should see 2016/03/01/02 in the text box. 
 
-Then, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, and **02** with **{hour}**, and press the **Tab** key. You should see drop-down lists to select the format for these four variables:
+Then, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, and **02** with **{hour}**, and press the **Tab** key. When you select **Incremental load: time-partitioned folder/file names** in the **File loading behavior** section and you select **Schedule** or **Tumbling window** on the **Properties** page, you should see drop-down lists to select the format for these four variables:
 
 ![Filter file or folder](./media/copy-data-tool/filter-file-or-folder.png)
 

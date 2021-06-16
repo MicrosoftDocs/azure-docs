@@ -66,8 +66,6 @@ To create a new in-store analytics checkout application:
 
 1. If you have an Azure subscription, enter your *Directory, Azure subscription, and Region*. If you don't have a subscription, you can enable **7-day free trial** and complete the required contact information.  
 
-    For more information about directories and subscriptions, see the [create an application quickstart](../core/quick-deploy-iot-central.md).
-
 1. Select **Create**.
 
     ![Azure IoT Central Create Application page](./media/tutorial-in-store-analytics-create-app/preview-application-template.png)

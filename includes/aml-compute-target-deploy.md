@@ -8,7 +8,7 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 12/11/2020
+ms.date: 05/20/2021
 ---
 
 
@@ -18,7 +18,7 @@ The compute target you use to host your model will affect the cost and availabil
 | ----- | ----- | ----- | ----- | ----- |
 | [Local&nbsp;web&nbsp;service](../articles/machine-learning/how-to-deploy-local-container-notebook-vm.md) | Testing/debugging | &nbsp; | &nbsp; | Use for limited testing and troubleshooting. Hardware acceleration depends on use of libraries in the local system.
 | [Azure Kubernetes Service (AKS)](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md) | Real-time inference |  [Yes](../articles/machine-learning/how-to-deploy-with-triton.md) (web service deployment) | [Yes](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |Use for high-scale production deployments. Provides fast response time and autoscaling of the deployed service. Cluster autoscaling isn't supported through the Azure Machine Learning SDK. To change the nodes in the AKS cluster, use the UI for your AKS cluster in the Azure portal. <br/><br/> Supported in the designer. |
-| [Azure Container Instances](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Testing or development | &nbsp;  | &nbsp; | Use for low-scale CPU-based workloads that require less than 48 GB of RAM. <br/><br/> Supported in the designer. |
+| [Azure Container Instances](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Real-time inference | &nbsp;  | &nbsp; | Use for low-scale CPU-based workloads that require less than 48 GB of RAM. Doesn't require you to manage a cluster. <br/><br/> Supported in the designer. |
 | [Azure Machine Learning compute clusters](../articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md) | Batch&nbsp;inference | [Yes](../articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md) (machine learning pipeline) | &nbsp;  | Run batch scoring on serverless compute. Supports normal and low-priority VMs. No support for real-time inference.|
 
 > [!NOTE]

@@ -3,11 +3,12 @@ title: Create a VM from an uploaded generalized VHD
 description: Upload a generalized VHD to Azure and use it to create new VMs, in the Resource Manager deployment model.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Upload a generalized VHD and use it to create new VMs in Azure
