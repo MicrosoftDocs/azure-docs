@@ -149,7 +149,7 @@
     - name: VMware software 
       href: /azure/azure-vmware/faq.yml#vmware-software
     - name: Third-party backup solutions 
-      href: /azure/azure-vmware/faq.yml#third-party-backup-and-recovery
+      href: /azure/azure-vmware/faq#third-party-backup-and-recovery
     - name: Compute
       href: /azure/azure-vmware/faq.yml#compute
     - name: Networking and interconnectivity
