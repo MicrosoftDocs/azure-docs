@@ -1,7 +1,7 @@
 ---
 title: Deploy a custom container as a managed online endpoint
 titleSuffix: Azure Machine Learning
-description: Learn how to use a custom container to leverage open source servers in Azure Machine Learning
+description: Learn how to use a custom container to use open-source servers in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,18 +13,18 @@ ms.topic: how-to
 ms.custom: deploy
 ---
 
-# Deploy a TensorFlow model served with TFServing using a custom container in a managed online endpoint
+# Deploy a TensorFlow model served with TF Serving using a custom container in a managed online endpoint
 
 Learn how to deploy a custom container as a managed online endpoint in Azure Machine Learning.
 
-Using a custom container lets you deploy web servers that may not listen on same ports and paths as the default Flask server used by Azure Machchine Learning, while still taking advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.
+Custom container deployments can use web servers other than the default Python Flask server used by Azure Machine Learning. Users of these deployments can still take advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.
 
 > [!WARNING]
 > Microsoft may not be able to help troubleshoot problems caused by a custom image. If you encounter problems, you may be asked to use the default image or one of the images Microsoft provides to see if the problem is specific to your image.
 
 ## Prerequisites
 
-* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
+* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
 
 * You must have an Azure resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
@@ -49,13 +49,13 @@ cd azureml-examples/cli
 
 ## Initialize environment variables
 
-Define environment variables you will use later on:
+Define environment variables:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="initialize_variables":::
 
-## Download a simple TensorFlow model
+## Download a TensorFlow model
 
-Download and unzip a simple model that divides an input by two and adds 2 to the result:
+Download and unzip a model that divides an input by two and adds 2 to the result:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
 
@@ -83,7 +83,7 @@ Now that you've tested locally, stop the image:
 
 ## Create a YAML file for your endpoint
 
-You will configure your cloud deployment using YAML. Take a look at the sample YAML for this endpoint:
+You can configure your cloud deployment using YAML. Take a look at the sample YAML for this endpoint:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
 
@@ -91,15 +91,15 @@ There are a few important concepts to notice in this YAML:
 
 ### Readiness route vs. liveness route
 
-An HTTP server can optionally define paths for both _liveness_ and _readiness_. A liveness route is used to check whether the server is running. A readiness route is used to check whether the server is ready to do some work. In the case of machine learning inference, a server could respond 200 OK to a liveness request prior to loading a model, but respond 200 OK to a readiness request only after the model has been loaded into memory.
+An HTTP server can optionally define paths for both _liveness_ and _readiness_. A liveness route is used to check whether the server is running. A readiness route is used to check whether the server is ready to do some work. In machine learning inference, a server could respond 200 OK to a liveness request before loading a model. The server could respond 200 OK to a readiness request only after the model has been loaded into memory.
 
-Please review the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more information about liveness and readiness probes.
+Review the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more information about liveness and readiness probes.
 
-Notice that this deployment uses the same path for both liveness and readiness, since TFServing only defines a liveness route.
+Notice that this deployment uses the same path for both liveness and readiness, since TF Serving only defines a liveness route.
 
-### Locating the registered model
+### Locating the mounted model
 
-When you deploy a model as a real-time endpoint, _mount_ your model to your endpoint, which enables you to deploy new versions of the model without having to create a new Docker image. By default, a model registered with the name *foo* and version *1* would be located at the following path inside of your deployed container: `/var/azureml-app/azureml-models/foo/1`
+When you deploy a model as a real-time endpoint, Azure Machine Learning _mounts_ your model to your endpoint. Model mounting enables you to deploy new versions of the model without having to create a new Docker image. By default, a model registered with the name *foo* and version *1* would be located at the following path inside of your deployed container: `/var/azureml-app/azureml-models/foo/1`
 
 So, for example, if you have the following directory structure on your local machine:
 
@@ -113,7 +113,7 @@ azureml-examples
           tfserving-endpoint.yml    
 ```     
 
-and `tfserving-endpoint.yml` contains the following:
+and `tfserving-endpoint.yml` contains:
 
 ```
 model:
@@ -155,4 +155,4 @@ Now that you've successfully scored with your endpoint, you can delete it:
 
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
 - [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
-- [Torchserve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)
+- [Torch serve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)
