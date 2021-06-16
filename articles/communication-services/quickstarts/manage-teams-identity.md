@@ -36,7 +36,7 @@ The following sections will guide you through the steps for admins, developers, 
 
 ## Admin actions
 
-Admin is a role, that has extended permissions in the AAD and can also provision and read information from Azure portal. On following diagram, you can see all actions that have to be executed by Admins.
+The Administrator role has extended permissions in AAD. Members of this role can provision resources and can read information from the Azure portal. In the following diagram, you can see all actions that have to be executed by Admins.
 
 ![Admin actions to enable custom Teams endpoint experience](./media/teams-identity-admin-overview.png)
 
