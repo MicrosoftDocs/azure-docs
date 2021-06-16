@@ -194,6 +194,10 @@ Once the sync group is created and provisioned, you can then disable these setti
 > [!NOTE]
 > If you change the sync group's schema settings, you will need to allow the Data Sync service to access the server again so that the hub database can be re-provisioned.
 
+### Region data residency 
+
+If you synchronize data within the same region, SQL Data Sync doesn't store/process customer data outside that region in which the service instance is deployed. If you synchronize data across different regions, SQL Data Sync will replicate customer data to the paired regions.
+
 ## FAQ about SQL Data Sync
 
 ### How much does the SQL Data Sync service cost
