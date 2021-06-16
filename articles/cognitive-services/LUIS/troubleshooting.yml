@@ -5,7 +5,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: language-understanding
   ms.topic: troubleshooting
-  ms.date: 04/16/2021
+  ms.date: 05/17/2021
     
 title: "Language Understanding Frequently Asked Questions (FAQ)"
 summary: |
@@ -47,7 +47,7 @@ sections:
       - question: |
           How do I edit my LUIS app programmatically?
         answer: |
-          To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md#azure-resources-for-luis) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-how-to-azure-subscription.md).
+          To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-how-to-azure-subscription.md).
           
       - question: |
           Where is the Pattern feature that provided regular expression matching?
