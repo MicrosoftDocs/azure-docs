@@ -54,8 +54,6 @@ App Service can be used for authentication with or without restricting access to
 
 [Authorization behavior](#authorization-behavior)
 
-[User and Application claims](#user-and-application-claims)
-
 [Token store](#token-store)
 
 [Logging and tracing](#logging-and-tracing)
@@ -146,7 +144,7 @@ If you [enable application logging](troubleshoot-diagnostic-logs.md), you will s
 - [Customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md)
 <!-- - [Authenticate native client apps](configure-authentication-client-apps.md) -->
 - [Work with OAuth tokens and sessions](configure-authentication-oauth-tokens.md)
-- [Access user claims](configure-authentication-user-identities.md)
+- [Access user and application claims](configure-authentication-user-identities.md)
 - [File-based configuration](configure-authentication-file-based.md)
 
 Samples:

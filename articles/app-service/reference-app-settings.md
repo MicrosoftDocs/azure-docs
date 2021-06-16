@@ -75,7 +75,7 @@ The following table shows environment variables prefixes that App Service uses f
 
 ## Deployment
 
-The following variables are related to app deployment. Variables related to build configurations are covered in [Kudu build configuration](#kudu-build-configuration) and [Oryx build configuration](#oryx-build-configuration).
+The following environment variables are related to app deployment. For variables related to App Service build automation, see [Build automation](#build-automation).
 
 | Setting name| Description |
 |-|-|
@@ -143,8 +143,6 @@ This section shows the configurable runtime settings for each supported language
 
 # [Java](#tab/java)
 
-The following variables are related to the Java runtime.
-
 | Setting name | Description | Example |
 |-|-|-|
 | `JAVA_HOME` | Path of the Java installation directory ||
@@ -184,11 +182,35 @@ The following variables are related to the Java runtime.
 | `AZURE_SITE_HOME` | The value added to the Java args as `-Dsite.home`. The default is the value of `HOME`. | |
 | `HTTP_PLATFORM_PORT` | Added to Java args as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. ||
 | `AZURE_LOGGING_DIR` | Native Windows apps only. Added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. ||
-<!-- 
 
+<!-- 
 WEBSITE_JAVA_COPY_ALL
 AZURE_SITE_APP_BASE
  -->
+
+# [Node.js](#tab/node)
+
+| Setting name | Description |
+|-|-|
+| `PORT` | Read-only. For Linux apps, port that the Node.js app listens to in the container. |
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
+| `PM2HOME` | |
+| `WEBSITE_NODE_DEFAULT_VERSION` | For native Windows apps, default node version the app is using. Any of the [supported Node.js versions](configure-language-nodejs.md#show-nodejs-version) can be used here. |
+
+<!-- APPSVC_REMOTE_DEBUGGING
+APPSVC_REMOTE_DEBUGGING_BREAK
+APPSVC_TUNNEL_PORT -->
+
+# [Python](#tab/python)
+
+| Setting name | Description |
+|-|-|
+| `APPSVC_VIRTUAL_ENV` | Read-only. |
+| `PORT` | Read-only. For Linux apps, port that the Python app listens to in the container. |
+
+<!-- APPSVC_REMOTE_DEBUGGING
+APPSVC_TUNNEL_PORT | -debugAdapter ptvsd -debugPort $APPSVC_TUNNEL_PORT"
+APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
 
 # [PHP](#tab/php)
 
@@ -212,28 +234,6 @@ APACHE_LOG_DIR | RUN sed -i 's!ErrorLog ${APACHE_LOG_DIR}/error.log!ErrorLog /de
 APACHE_RUN_USER | RUN sed -i 's!User ${APACHE_RUN_USER}!User www-data!g' /etc/apache2/apache2.conf 
 APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc/apache2/apache2.conf  
 -->
-
-# [Node.js](#tab/node)
-
-<!-- APPSVC_REMOTE_DEBUGGING
-APPSVC_REMOTE_DEBUGGING_BREAK
-APPSVC_TUNNEL_PORT -->
-| Setting name | Description |
-|-|-|
-| `PORT` | Read-only. For Linux apps, port that the Node.js app listens to in the container. |
-| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
-| `PM2HOME` | |
-| `WEBSITE_NODE_DEFAULT_VERSION` | For native Windows apps, default node version the app is using. Any of the [supported Node.js versions](configure-language-nodejs.md#show-nodejs-version) can be used here. |
-
-# [Python](#tab/python)
-
-<!-- APPSVC_REMOTE_DEBUGGING
-APPSVC_TUNNEL_PORT | -debugAdapter ptvsd -debugPort $APPSVC_TUNNEL_PORT"
-APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
-| Setting name | Description |
-|-|-|
-| `APPSVC_VIRTUAL_ENV` | Read-only. |
-| `PORT` | Read-only. For Linux apps, port that the Python app listens to in the container. |
 
 # [Ruby](#tab/ruby)
 
@@ -276,7 +276,7 @@ For more information, see [Use a TLS/SSL certificate in your code in Azure App S
 
 ## Deployment slots 
 
-For more information on deployment slots, see [Set up staging environments in Azure App Service](deploy-staging-slots).
+For more information on deployment slots, see [Set up staging environments in Azure App Service](deploy-staging-slots.md).
 
 | Setting name| Description | Example |
 |-|-|-|
