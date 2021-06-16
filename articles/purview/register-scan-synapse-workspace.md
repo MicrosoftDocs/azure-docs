@@ -98,7 +98,7 @@ To register a new Azure Synapse Source in your data catalog, do the following:
    > You must be an *owner* or *user access administrator* to add a role in the **Resource group** or **Subscription** fields. 
 
 1. Select the **Add** button. 
-1. Set the **Storage blob data reader** role and then, in the **Select** box, enter your Azure Purview account name, which represents its MSI. 
+1. Set the **Storage blob data reader** role and enter your Azure Purview account name (which represents its MSI) in the **Select** box. 
 1. Select **Save** to finish assigning the role.
 
 ### **Step 3**: Apply permissions to scan the contents of the workspace
