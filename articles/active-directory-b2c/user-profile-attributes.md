@@ -91,9 +91,9 @@ To create a user account in the Azure AD B2C directory, provide the following re
 
 - [Display name](#display-name-attribute)
 
-- [Identities](#display-name-attribute) - With at least one entity (a local or a federated account)
+- [Identities](#display-name-attribute) - With at least one entity (a local or a federated account).
 
-- [Password profile attribute](#password-policy-attribute)- If you create a local account, provide the password profile.
+- [Password profile](#password-policy-attribute)- If you create a local account, provide the password profile.
 
 ## Display name attribute
 
