@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Getting started guide to implement Data Dynamics StorageX. Guide shows how to migrate your data to Azure Files, Azure NetApp Files, Azure Blob Storage, or any available ISV NAS solution 
 author: dukicn
 ms.author: nikoduki
-ms.date: 06/25/2021
+ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
@@ -102,7 +102,7 @@ The StorageX service account requires the following privileges:
 
 NFS access requires an export rule for the IP of the StorageX server, and grant access for RW and root. For example, "root=10.2.3.12, rw=10.2.3.12", where 10.2.3.12 is the StorageX server IP address.
 
-## Implementation guide
+## Deployment guide
 
 This section provides guidance on how to deploy a StorageX server, and other StorageX components in your Azure environment.
 
@@ -111,12 +111,32 @@ Before implementation starts, several prerequisites are important:
 - Target storage service must be identified and created,
 - Make sure you have the proper ports open to access the storage services. You can use Microsoft’s [portqryui](https://www.microsoft.com/download/details.aspx?id=24009) tool to verify necessary ports are open.
 
-Once all prerequisites are met, you can start with the implementation:
+You can learn more here:
 
-1.	Deploy the Data Dynamics Data Movement and Mobility offering in Azure. Recommended approach is using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=Overview)
-2.	Add the new server on which you want to install StorageX into your Active Directory domain.
-3.	On the new server, verify that all required network ports are open.
-4.	Run the StorageX installation script. Installation script is available on the desktop when you log in to your deployed server in Azure. 
+- How to create [Azure File Share](../../../files/storage-how-to-create-file-share.md)
+- How to create an [SMB volume](../../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) or [NFS export](../../../../azure-netapp-files/azure-netapp-files-create-volumes.md) in Azure NetApp Files
+
+Any SMB migrations require Active Directory to be properly setup before adding any resources. We will be using an existing Azure NetApp Files implementation with new volume for migration target. Before we can create a new Azure NetApp Files volume, we need to:
+
+- [Create Azure NetApp Files account](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal#create-a-netapp-account)
+- [Create Capacity Pool](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal#set-up-a-capacity-pool)
+- [Join Azure NetApp Files account to Active Directory Domain](/azure/azure-netapp-files/create-active-directory-connections)
+
+1. Navigate to existing Azure NetApp Files account, and select **Volumes**. Select **Add volume**. Give it a name, select capacity pool and networking setup.
+
+:::image type="content" source="./media/storagex-quick-start-guide/anf-create-volume-1.png" alt-text="Screenshot for adding new Azure NetApp Files volume":::
+
+1. Select **SMB** protocol, select existing Active Directory connection, and provide a **Share name**.
+
+:::image type="content" source="./media/storagex-quick-start-guide/anf-create-volume-2.png" alt-text="Screenshot for SMB properties in Azure NetApp Files volume":::
+
+1. Add **Tags** if you use them, and **Create** a share.
+
+Once the volume has been created, we can proceed with StorageX deployment.
+
+1.	Deploy the Data Dynamics Data Movement and Mobility offering in Azure. Recommended approach is using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=Overview). Add the deployed server into your Active Directory domain.
+1.	On the deployed server, verify that all required network ports are open.
+1.	Run the StorageX installation script. Installation script is available on the desktop when you log in to your deployed server in Azure. 
     All installation files and output logs are located in the folder **C:\ProgramData\data Dynamics\StorageX**. Within that folder, the **InstallationFiles** subfolder contains the zipped source installation files, while the **SilentInstaller-DD** folder contains the configuration XML files and installation logs.
 
     By default, the installation script deploys the following services:
@@ -150,13 +170,44 @@ Once the installation finishes, and all services are started, we can start migra
 
 1.	Open the StorageX Console.
 1.	Click the **Storage Resources** tab.
-1.	In the **My Resources** view, add your NAS devices, which are called **storage resources** in StorageX. You can either add resources one at a time by clicking **Add file storage resource** or import a pre-formatted list of resources from a file by clicking **Add file storage resources from a file**.
+1.	In the **My Resources** view, add your NAS devices or storage services, called **storage resources** in StorageX. You can add different types:
+    - **Add file storage resource** for on-premises NAS devices, Windows file server, Azure NetApp Files, or generic file servers,
+    - **Add object storage resource** for S3 or Azure Blob Storage (including Azure Files service),
+    - **Add DFS namespace** for DFS file servers.
 
-    These storage resources are the sources and targets for migrations in your environment. When you add a new resource, StorageX automatically verifies connectivity to that resource.
+    Select **Add file storage resource** to start the wizard of adding Azure NetApp Files migration target.
+
+    :::image type="content" source="./media/storagex-quick-start-guide/storagex-add-resource-1.png" alt-text="Screenshot for adding new resource to StorageX deployment":::
+
+1. Select **Generic CIFS** for CIFS and SMB migrations.
+
+    :::image type="content" source="./media/storagex-quick-start-guide/storagex-add-resource-2.png" alt-text="Screenshot for adding Generic CIFS resource to StorageX deployment":::
+
+1. Browse to find Azure NetApp Files computer account. Azure NetApp Files computer account was created when it was addedd to Active Directory Domain.
+   
+    :::image type="content" source="./media/storagex-quick-start-guide/storagex-add-resource-3.png" alt-text="Screenshot for adding Azure NetApp Files computer account":::
+
+    **Finish** the wizard, and verify the account has been added, and contains the share we created.
+
+    :::image type="content" source="./media/storagex-quick-start-guide/storagex-add-resource-4.png" alt-text="Screenshot for browsing the addedd resources":::
+
+Above steps must be performed for every source, and target. Example shows adding Azure NetApp Files share, and it can be slightly different for other services.
+
 1.	Click the **Data Movement** tab.
+
 1.	In the tree pane, right-click the folder where you want to create the new policy and select **Phased Migration Policy**.
-1.	Follow the steps in the wizard to create a Phased Migration policy.
+
+1.	Follow the steps in the wizard to create a Phased Migration policy. Select appropriate **Source** and **Destination** targets.
+
+    :::image type="content" source="./media/storagex-quick-start-guide/storagex-migration-1.png" alt-text="Screenshot for selecting proper source and destination targets":::
+
+1. Provide a name and description for the policy and **Finish** the wizard.
+
 1.	Right-click the new policy and select **Run** to run a test migration. We recommend checking the security configuration on multiple files on the source resource to verify necessary permissions have been provided.
+
+    :::image type="content" source="./media/storagex-quick-start-guide/storagex-migration-2.png" alt-text="Screenshot for running a defined policy":::
+
+1. Check the status of the policy to make sure initial migration has run successfully. 
 
 ## Support
 
