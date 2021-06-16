@@ -26,6 +26,9 @@ This article shows you how to use auto-provisioning on a device running IoT Edge
 * Create an individual enrollment for the device.
 * Install IoT Edge for Linux on Windows and connect the device to IoT Hub.
 
+>[!TIP]
+This article uses programs that simulate a TPM on the device to test this scenario, but much of it applies when using physical TPM hardware as well.
+
 ## Prerequisites
 
 * A Windows device. For supported Windows versions, see [Operating systems](support.md#operating-systems).
@@ -34,26 +37,32 @@ This article shows you how to use auto-provisioning on a device running IoT Edge
 > [!NOTE]
 > TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
 
-## Retrieve the TPM information from your device
-
---> TODO
-
-If you're using a physical TPM device, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
-
 ## Set up the IoT Hub Device Provisioning Service
 
 Create a new instance of the IoT Hub Device Provisioning Service in Azure, and link it to your IoT hub. You can follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
 
 After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
 
-## Create an individual enrollment for your device
+## Simulate a TPM for your device
 
-When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-at-scale.md).
+To provision your device, you need to gather information from your TPM chip and provide it to your instance of the Device Provisioning Service (DPS) so that the service can recognize your device when it tries to connect.
 
-When you create the individual enrollment, select **True** to declare that the simulated TPM device on your Windows development machine is an **IoT Edge device**.
+First, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. Then, you need to provide a **Registration ID** for your device. You can derive a unique registration ID for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
 
-> [!TIP]
-> In the Azure CLI, you can create an [enrollment](/cli/azure/iot/dps/enrollment) or an [enrollment group](/cli/azure/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
+DPS provides samples that simulate a TPM and return the endorsement key and registration ID for you.
+
+1. Choose one of the samples from the following list, based on your preferred language.
+1. Keep the window hosting the simulated TPM running until you're completely finished testing this scenario.
+1. When you create the DPS enrollment for your device, make sure you select **True** to declare that this enrollment is for an **IoT Edge device**.
+1. Stop following the DPS sample steps once you save your individual enrollment, then return to this article to set up IoT Edge for Linux on Windows.
+
+Simulated TPM samples:
+
+* [C](../iot-dps/quick-create-simulated-device.md)
+* [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
+* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
+* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
+* [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 ## Install IoT Edge for Linux on Windows
 
@@ -107,8 +116,9 @@ The installation steps in this section are abridged to highlight the steps speci
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "<scope id>"
    ```
 
-## Verify successful installation
+## Verify successful configuration
 
+If your device was provisioned successfully through DPS, you can verify its status through either your instance of DPS or your IoT hub. Once you provision your device, the individual enrollment that you created for it should have a status of **Assigned** with information about the date and time when it was used. Also, your device should now be listed as an IoT Edge device registered to your IoT hub.
 
 ## Next steps
 
