@@ -18,7 +18,12 @@ If you are looking for conceptual information on managed disks that have shared 
 
 ## Prerequisites
 
-The scripts and commands in this article require either version 6.0.0 or newer of the Azure PowerShell module, or the latest version of the Azure CLI.
+The scripts and commands in this article require either:
+
+- Version 6.0.0 or newer of the Azure PowerShell module.
+
+Or
+- The latest version of the Azure CLI.
 
 ## Limitations
 
