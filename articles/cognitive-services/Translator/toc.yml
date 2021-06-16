@@ -52,8 +52,6 @@
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
       href: firewalls.md
-    - name: Create and use managed identities
-      href: managed-identity.md
     - name: Use the Translator container
       items:
       - name: Install and run containers
@@ -98,6 +96,8 @@
       items:
       - name: Create SAS tokens for Document Translation
         href: document-translation/create-sas-tokens.md
+      - name: Create and use managed identities
+        href: managed-identity.md
     - name: Reference
       items:
       - name: Get supported document formats
