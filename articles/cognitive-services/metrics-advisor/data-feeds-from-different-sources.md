@@ -176,13 +176,13 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>;AAD Federated Security=True;Application Client ID=<Application Client ID>;Application Key=<Application Key>;Authority ID=<Tenant ID>
         ```
 
-    * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
+    * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access. There are 3 steps to use service principal in Metrics Advisor.
     
-        First, you need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database, see detail in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+        **1. Create Azure AD application registration.** See first part in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app).
 
-        Then, you can go through [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions) to know about Service Principal and set service principals. 
+        **2. Manage Azure Data Explorer database permissions.** See [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions) to know about Service Principal and manage permissions. 
 
-        Also, you need to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        **3. Create a credential entity in Metrics Advisor.** See how to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
         Here's an example of connection string:
         
@@ -190,7 +190,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
+    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
         Here's an example of connection string: 
         ```
         Data Source=<URI Server>;Initial Catalog=<Database>
@@ -233,9 +233,9 @@ The following sections specify the parameters required for all authentication ty
 
         The account name is the same as **Basic** authentication type.
     
-        To use service principal, first you need to create and register an Azure AD application and then authorize it to access database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+        **Step1:** Create and register an Azure AD application and then authorize it to access database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
-        Then, you need to assign roles:
+        **Step2:** Assign roles.
         1. In the Azure portal, go to the **Storage accounts** service.
         
         2. Select the ADLS Gen2 account to use with this application registration.
@@ -247,10 +247,10 @@ The following sections specify the parameters required for all authentication ty
         5. Set the **Select** field to the Azure AD application name and set role to **Storage Blob Data Contributor**. Click **Save**.
         ![lake-service-principals](media/datafeeds/adls-gen2-app-reg-assign-roles.png)
 
-        Also, you need to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        **Step 3:** [Create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
     
-    * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
+    * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
     The account name is the same as *Basic* authentication type.
    
 
@@ -316,9 +316,9 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     
 * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-     First, you need to create and register an Azure AD application and then authorize it to access an database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+     **Step 1:** Create and register an Azure AD application and then authorize it to access an database, see first part in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app).
 
-    Then, you need to assign roles:
+    **Step 2:** Assign roles.
     1. In the Azure portal, go to the **Storage accounts** service.
     2. Click **Access Control (IAM)**.
     3. Click **+ Add** and select **Add role assignment** from the dropdown menu.
@@ -327,9 +327,9 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         ![lake-service-principals](media/datafeeds/adls-gen2-app-reg-assign-roles.png)
 
     
-    Also, you need to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+    **Step 3:** [Create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
-* **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
+* **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
 
 * **Query**: Specify the query of Log Analytics. For more information, see [Log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/log-query-overview)
 
@@ -397,11 +397,11 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 
     * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-        First, you need to create and register an Azure AD application and then authorize it to access an database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+        **Step 1:** Create and register an Azure AD application and then authorize it to access an database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
-        Then, you should follow the same steps with [managed identity in SQL Server](#jump), which is mentioned above. 
+        **Step 2:** Follow the same steps with [managed identity in SQL Server](#jump), which is mentioned above. 
 
-        Also, you need to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        **Step 3:**[ Create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
 
         Here's an example of connection string: 
         
@@ -409,7 +409,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         Data Source=<Server>;Initial Catalog=<Database>
         ```
   
-    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
         
         Here's an example of connection string: 
         
