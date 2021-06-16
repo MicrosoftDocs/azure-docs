@@ -175,7 +175,7 @@ To avoid having to set an imagePullSecret for every Pod, consider adding the ima
 | ENVIRONMENT_NAME | Dev |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `azure-vote-manifests` |
-| MANIFESTS_REPO | The Git connection string for your GitOps repo |
+| MANIFESTS_REPO | `azure-cicd-demo-gitops` |
 | ORGANIZATION_NAME | Name of Azure DevOps organization |
 | PROJECT_NAME | Name of GitOps project in Azure DevOps |
 | REPO_URL | Full URL for GitOps repo |
