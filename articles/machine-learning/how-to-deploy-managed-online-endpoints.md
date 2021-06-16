@@ -303,6 +303,6 @@ If you aren't going use the deployment, you should delete it with the below comm
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## Next steps
-
+- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoints-studio.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
 - [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)

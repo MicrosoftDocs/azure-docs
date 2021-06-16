@@ -143,4 +143,5 @@ If you are not going use the deployment, you should delete it with:
 
 
 ## Next steps
+- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoints-studio.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
