@@ -21,7 +21,7 @@ Azure Communication Services can be used to build custom Teams endpoints. With A
 You can use the Azure Communication Services Identity SDK to exchange AAD user tokens for Teams access tokens. Voice, video, and screen sharing capabilities are provided via Azure Communication Services Calling SDKs. The following diagram shows an overview of the process you'll follow as you integrate your calling experiences with custom Teams endpoints.
 
 > [!NOTE]
-> Following diagram shows multitenant use case, where company Fabrikam is customer of company Contoso.
+> The following diagram demonstrates a multitenant use case, where Fabrikam is a customer of the company Contoso.
 
 ![Process to enable calling feature for custom Teams endpoint experience](./media/teams-identity-calling-overview.png)
 
