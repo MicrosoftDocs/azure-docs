@@ -54,8 +54,6 @@ App Service can be used for authentication with or without restricting access to
 
 [Authorization behavior](#authorization-behavior)
 
-[User and Application claims](#user-and-application-claims)
-
 [Token store](#token-store)
 
 [Logging and tracing](#logging-and-tracing)
@@ -123,17 +121,6 @@ With this option, you don't need to write any authentication code in your app. F
 > [!NOTE]
 > By default, any user in your Azure AD tenant can request a token for your application from Azure AD. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
 
-
-#### User and Application claims
-
-For all language frameworks, App Service makes the claims in the incoming token (whether that be from an authenticated end user or a client application) available to your code by injecting them into the request headers. For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](configure-language-java.md#authenticate-users-easy-auth).
-
-For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not populated for .NET code, but you can still find the user claims in the request headers, or get the `ClaimsPrincipal` object from the request context or even through a binding parameter. See [working with client identities](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) for more information.
-
-For more information, see [Access user claims](configure-authentication-user-identities.md).
-
-For .NET Core, [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) supports populating the current user with the Authentication/Authorization feature. To learn more, you can read about it on the [Microsoft.Identity.Web wiki](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb), or see it demonstrated in [this tutorial for a web app accessing Microsoft Graph](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages).
-
 #### Token store
 
 App Service provides a built-in token store, which is a repository of tokens that are associated with the users of your web apps, APIs, or native mobile apps. When you enable authentication with any provider, this token store is immediately available to your app. If your application code needs to access data from these providers on the user's behalf, such as:
@@ -157,7 +144,7 @@ If you [enable application logging](troubleshoot-diagnostic-logs.md), you will s
 - [Customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md)
 <!-- - [Authenticate native client apps](configure-authentication-client-apps.md) -->
 - [Work with OAuth tokens and sessions](configure-authentication-oauth-tokens.md)
-- [Access user claims](configure-authentication-user-identities.md)
+- [Access user and application claims](configure-authentication-user-identities.md)
 - [File-based configuration](configure-authentication-file-based.md)
 
 Samples:

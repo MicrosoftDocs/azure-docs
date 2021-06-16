@@ -6,11 +6,11 @@ ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
 ---
 
-# Manage the API versions of App Service authentication
+# Manage the API and runtime versions of App Service authentication
 
-This article shows you how to customize , and to manage identity from your application. 
+This article shows you how to customize the API and runtime versions of the built-in [authentication and authorization in App Service](overview-authentication-authorization.md).
 
-There are two versions of the management API for the built-in [authentication and authorization in App Service](overview-authentication-authorization.md). The V2 version is required for the "Authentication" experience in the Azure portal. An app already using the V1 API can upgrade to the V2 version once a few changes have been made. Specifically, secret configuration must be moved to slot-sticky application settings. This can be done automatically from the "Authentication" section of the portal for your app.
+There are two versions of the management API for App Service authentication. The V2 version is required for the "Authentication" experience in the Azure portal. An app already using the V1 API can upgrade to the V2 version once a few changes have been made. Specifically, secret configuration must be moved to slot-sticky application settings. This can be done automatically from the "Authentication" section of the portal for your app.
 
 ## Update the configuration version
 

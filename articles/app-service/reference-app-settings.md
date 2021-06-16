@@ -9,7 +9,9 @@ ms.date: 06/14/2021
 
 In [Azure App Service](overview.md), certain settings are available to the deployment or runtime environment as environment variables. Some of these settings can be customized when you set them manually as [app settings](configure-common.md#configure-app-settings). This reference shows the variables you can use or customize.
 
-## Runtime environment
+## App environment
+
+The following environment variables are related to the app environment in general.
 
 | Setting name| Description | Example |
 |-|-|-|
@@ -26,7 +28,6 @@ In [Azure App Service](overview.md), certain settings are available to the deplo
 | `SITE_BITNESS` | Read-only. Shows whether the app is 32-bit (`x86`) or 64-bit (`AMD64`). ||
 | `WEBSITE_HOSTNAME` | Read-only. Primary hostname for the app. Custom hostnames are not accounted for here. ||
 | `WEBSITE_VOLUME_TYPE` | Read-only. Shows the storage volume type currently in use. ||
-| `WEBSITE_NODE_DEFAULT_VERSION` | Default node version the app is using. Any of the [supported Node.js versions](configure-language-nodejs.md#show-nodejs-version) can be used here. ||
 | `WEBSITE_NPM_DEFAULT_VERSION` | Default npm version the app is using. ||
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for websocket's concurrent requests. For **Standard** tier and above, the value is `-1`, but there's still a per VM limit based on your VM size (see [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)). ||
 | `WEBSITE_PRIVATE_EXTENSIONS` | Set to `0` to disable the use of private site extensions. ||
@@ -38,7 +39,8 @@ In [Azure App Service](overview.md), certain settings are available to the deplo
 | `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`. This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. ||
 | `WEBSITE_CRASHMONITORING_SETTINGS` | A JSON with the following format:`{"StartTimeUtc": "2020-02-10T08:21","MaxHours": "<elapsed-hours-from-StartTimeUtc>","MaxDumpCount": "<max-number-of-crash-dumps>"}`. Required to configure [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) if `WEBSITE_CRASHMONITORING_ENABLED` is specified. To only log the call stack without saving the crash dump in the storage account, add `,"UseStorageAccount":"false"` in the JSON. ||
 | `REMOTEDEBUGGINGVERSION` | Remote debugging version. ||
-| `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | By default, App Service creates a shared storage for you at app creation. To use a custom storage location instead, set to the connection string of your storage account. For functions, see [App settings reference for Functions](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring). | `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
+| `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | By default, App Service creates a shared storage for you at app creation. To use a custom storage account instead, set to the connection string of your storage account. For functions, see [App settings reference for Functions](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring). | `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
+| `WEBSITE_CONTENTSHARE` | When you use specify a custom storage account with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, App Service creates a file share in that storage account for your app. To use a custom name, set this variable to the name you want. If a file share with the specified name doesn't exist, App Service creates it for you. | `myapp123` |
 | `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. ||
 | `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. ||
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | Read-only. Shows whether Always On is enabled (`1`) or not (`0`). ||
@@ -74,7 +76,7 @@ The following table shows environment variables prefixes that App Service uses f
 
 ## Deployment
 
-The following variables are related to app deployment. Variables related to build configurations are covered in [Kudu build configuration](#kudu-build-configuration) and [Oryx build configuration](#oryx-build-configuration).
+The following environment variables are related to app deployment. For variables related to App Service build automation, see [Build automation](#build-automation).
 
 | Setting name| Description |
 |-|-|
@@ -92,7 +94,9 @@ The following variables are related to app deployment. Variables related to buil
 WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID
 -->
 
-## Kudu build configuration
+## Build automation
+
+# [Kudu (Windows)](#tab/kudu)
 
 Kudu build configuration applies to native Windows apps and is used to control the behavior of Git-based (or ZIP-based) deployments.
 
@@ -114,13 +118,31 @@ SCM_GIT_USERNAME
 SCM_GIT_EMAIL
  -->
 
-## Oryx build configuration
+# [Oryx (Linux)](#tab/oryx)
 
 Oryx build configuration applies to Linux apps and is used to control the behavior of Git-based (or ZIP-based) deployments. See [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
-## Java settings
+-----
 
-The following variables are related to the Java runtime.
+## Language-specific settings
+
+This section shows the configurable runtime settings for each supported language framework. Additional settings are available during [build automation](#build-automation) at deployment time.
+
+# [.NET](#tab/dotnet)
+
+<!-- 
+| DOTNET_HOSTING_OPTIMIZATION_CACHE | 
+ -->
+| Setting name | Description |
+|-|-|
+| `PORT` | Read-only. For Linux apps, port that the .NET runtime listens to in the container. |
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
+| `HOME` | Read-only. Directory that points to shared storage (`/home`). |
+| `DUMP_DIR` | Read-only. Directory for the crash dumps (`/home/logs/dumps`). |
+| `APP_SVC_RUN_FROM_COPY` | Linux apps only. By default, the app is run from `/home/site/wwwroot`, a shared directory for all scaled-out instances. Set this variable to `true` to copy the app to a local directory in your container and run it from there. When using this option, be sure not to hard-code any reference to `/home/site/wwwroot`. Instead, use a path relative to `/home/site/wwwroot`. |
+<!-- | `USE_DOTNET_MONITOR` | if =true then /opt/dotnetcore-tools/dotnet-monitor collect --urls "http://0.0.0.0:50051" --metrics true --metricUrls "http://0.0.0.0:50050" > /dev/null 2>&1 & -->
+
+# [Java](#tab/java)
 
 | Setting name | Description | Example |
 |-|-|-|
@@ -142,45 +164,93 @@ The following variables are related to the Java runtime.
 | `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`. To disable it, set to `1`.  | |
 | `WEBSITE_SKIP_FILTERS` | To disable all servlet filters added by App Service, set to `1`. ||
 | `IGNORE_CATALINA_BASE` | By default, App Service checks if the Tomcat variable `CATALINA_BASE` is defined. If not, it looks for the existence of `%HOME%\tomcat\conf\server.xml`. If the file exists, it sets `CATALINA_BASE` to `%HOME%\tomcat`. To disable this behavior and remove `CATALINA_BASE`, set this variable to `1` or `true`. ||
-| `AZURE_JETTY9_CMDLINE` | Native Windows apps only. Read-only. Command-line arguments for starting Jetty 9. | |
-| `AZURE_JETTY9_HOME` | Native Windows apps only. Read-only. Path to the Jetty 9 installation.| |
-| `AZURE_JETTY93_CMDLINE` | Native Windows apps only. Read-only. Command-line arguments for starting Jetty 9.3. | |
-| `AZURE_JETTY93_HOME` | Native Windows apps only. Read-only. Path to the Jetty 9.3 installation. | |
-| `AZURE_TOMCAT7_CMDLINE` | Native Windows apps only. Read-only. Command-line arguments for starting Tomcat 7. | |
-| `AZURE_TOMCAT7_HOME` | Native Windows apps only. Read-only. Path to the Tomcat 7 installation. | |
-| `AZURE_TOMCAT8_CMDLINE` | Native Windows apps only. Read-only. Command-line arguments for starting Tomcat 8. | |
-| `AZURE_TOMCAT8_HOME` | Native Windows apps only. Read-only. Path to the Tomcat 8 installation. | |
-| `AZURE_TOMCAT85_CMDLINE` | Native Windows apps only. Read-only. Command-line arguments for starting Tomcat 8.5. | |
-| `AZURE_TOMCAT85_HOME` | Native Windows apps only. Read-only. Path to the Tomcat 8.5 installation. | |
-| `AZURE_TOMCAT90_CMDLINE` | Native Windows apps only. Read-only. Command-line arguments for starting Tomcat 9. | |
-| `AZURE_TOMCAT90_HOME` | Native Windows apps only. Read-only. Path to the Tomcat 9 installation. | |
+| `PORT` | Read-only. For Linux apps, port that the Java runtime listens to in the container. | |
+| `WILDFLY_VERSION` | Read-only. For JBoss (Linux) apps, WildFly version. | |
+| `TOMCAT_VERSION` | Read-only. For Linux Tomcat apps, Tomcat version. ||
+| `JBOSS_HOME` | Read-only. For JBoss (Linux) apps, path of the WildFly installation. | |
+| `AZURE_JETTY9_CMDLINE` | Read-only. For native Windows apps, command-line arguments for starting Jetty 9. | |
+| `AZURE_JETTY9_HOME` | Read-only. For native Windows apps, path to the Jetty 9 installation.| |
+| `AZURE_JETTY93_CMDLINE` | Read-only. For native Windows apps, command-line arguments for starting Jetty 9.3. | |
+| `AZURE_JETTY93_HOME` | Read-only. For native Windows apps, path to the Jetty 9.3 installation. | |
+| `AZURE_TOMCAT7_CMDLINE` | Read-only. For native Windows apps, command-line arguments for starting Tomcat 7. | |
+| `AZURE_TOMCAT7_HOME` | Read-only. For native Windows apps, path to the Tomcat 7 installation. | |
+| `AZURE_TOMCAT8_CMDLINE` | Read-only. For native Windows apps, command-line arguments for starting Tomcat 8. | |
+| `AZURE_TOMCAT8_HOME` | Read-only. For native Windows apps, path to the Tomcat 8 installation. | |
+| `AZURE_TOMCAT85_CMDLINE` | Read-only. For native Windows apps, command-line arguments for starting Tomcat 8.5. | |
+| `AZURE_TOMCAT85_HOME` | Read-only. For native Windows apps, path to the Tomcat 8.5 installation. | |
+| `AZURE_TOMCAT90_CMDLINE` | Read-only. For native Windows apps, command-line arguments for starting Tomcat 9. | |
+| `AZURE_TOMCAT90_HOME` | Read-only. For native Windows apps, path to the Tomcat 9 installation. | |
 | `AZURE_SITE_HOME` | The value added to the Java args as `-Dsite.home`. The default is the value of `HOME`. | |
 | `HTTP_PLATFORM_PORT` | Added to Java args as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. ||
 | `AZURE_LOGGING_DIR` | Native Windows apps only. Added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. ||
-<!-- 
 
+<!-- 
 WEBSITE_JAVA_COPY_ALL
 AZURE_SITE_APP_BASE
  -->
 
-## PHP
+# [Node.js](#tab/node)
 
-| Setting name | Description | Example |
+| Setting name | Description |
+|-|-|
+| `PORT` | Read-only. For Linux apps, port that the Node.js app listens to in the container. |
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
+| `PM2HOME` | |
+| `WEBSITE_NODE_DEFAULT_VERSION` | For native Windows apps, default node version the app is using. Any of the [supported Node.js versions](configure-language-nodejs.md#show-nodejs-version) can be used here. |
+
+<!-- APPSVC_REMOTE_DEBUGGING
+APPSVC_REMOTE_DEBUGGING_BREAK
+APPSVC_TUNNEL_PORT -->
+
+# [Python](#tab/python)
+
+| Setting name | Description |
+|-|-|
+| `APPSVC_VIRTUAL_ENV` | Read-only. |
+| `PORT` | Read-only. For Linux apps, port that the Python app listens to in the container. |
+
+<!-- APPSVC_REMOTE_DEBUGGING
+APPSVC_TUNNEL_PORT | -debugAdapter ptvsd -debugPort $APPSVC_TUNNEL_PORT"
+APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
+
+# [PHP](#tab/php)
+
+| Setting name | Description | Example|
 |-|-|-|
 | `PHP_Extensions` | Comma-separated list of PHP extensions. | `extension1.dll,extension2.dll,Name1=value1` |
-| `PHP_ZendExtensions` | | `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll` |
+| `PHP_ZENDEXTENSIONS` | For Windows native apps, set to the path of the XDebug extension, such as `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`. For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
+| `PHP_VERSION` | Read-only. The selected PHP version. ||
+| `PORT` | Read-only. Port that Apache server listens to in the container. ||
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. ||
+| `WEBSITE_PROFILER_ENABLE_TRIGGER` | Set to `TRUE` to add `xdebug.profiler_enable_trigger=1` and `xdebug.profiler_enable=0` to the default `php.ini`. ||
+| `WEBSITE_ENABLE_PHP_ACCESS_LOGS` | Set to `TRUE` to log requests to the server (`CustomLog \dev\stderr combined` is added to `/etc/apache2/apache2.conf`). ||
+| `APACHE_SERVER_LIMIT` | Apache specific variable. The default is `1000`. ||
+| `APACHE_MAX_REQ_WORKERS` | Apache specific variable. The default is `256`. ||
 
 <!-- 
 ZEND_BIN_PATH
 MEMCACHESHIM_REDIS_ENABLE
 MEMCACHESHIM_PORT 
+APACHE_LOG_DIR | RUN sed -i 's!ErrorLog ${APACHE_LOG_DIR}/error.log!ErrorLog /dev/stderr!g' /etc/apache2/apache2.conf 
+APACHE_RUN_USER | RUN sed -i 's!User ${APACHE_RUN_USER}!User www-data!g' /etc/apache2/apache2.conf 
+APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc/apache2/apache2.conf  
 -->
 
-## .NET
+# [Ruby](#tab/ruby)
 
-<!-- 
-| DOTNET_HOSTING_OPTIMIZATION_CACHE | 
- -->
+| Setting name | Description | Example |
+|-|-|-|
+| `PORT` | Read-only. Port that the Rails app listens to in the container. ||
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. ||
+| `RAILS_IGNORE_SPLASH` | By default, a default splash page is displayed when no Gemfile is found. Set this variable to any value to disable the splash page. ||
+| `BUNDLE_WITHOUT` | To add `--without` options to `bundle install`, set the variable to the groups you want to exclude, separated by space. By default, all Gems are installed. | `test development` |
+| `BUNDLE_INSTALL_LOCATION` | Directory to install gems. The default is `/tmp/bundle`. ||
+| `RUBY_SITE_CONFIG_DIR` | Site config directory. The default is `/home/site/config`. The container checks for zipped gems in this directory. ||
+| `SECRET_KEY_BASE` | By default, A random secret key base is generated. To use a custom secret key base, set this variable to the desired key base. ||
+| `RAILS_ENV` | Rails environment. The default is `production`. ||
+| `GEM_PRISTINE` | Set this variable to any value to run `gem pristine --all`. ||
+
+-----
 
 ## Domain and DNS
 
@@ -207,6 +277,8 @@ For more information, see [Use a TLS/SSL certificate in your code in Azure App S
 
 ## Deployment slots 
 
+For more information on deployment slots, see [Set up staging environments in Azure App Service](deploy-staging-slots.md).
+
 | Setting name| Description | Example |
 |-|-|-|
 |`WEBSITE_SLOT_NAME`| Read-only. Name of the current deployment slot. The name of the production slot is `Production`. ||
@@ -223,6 +295,8 @@ For more information, see [Use a TLS/SSL certificate in your code in Azure App S
 -->
 
 ## Custom containers
+
+For more information on custom containers, see [Run a custom container in Azure](quickstart-custom-container.md).
 
 | Setting name| Description | Example |
 |-|-|-|
@@ -345,6 +419,8 @@ NEGOTIATE_CLIENT_CERT
 
 ## Networking
 
+The following environment variables are related to [hybrid connections](app-service-hybrid-connections.md) and [VNET integration](web-sites-integrate-with-vnet.md).
+
 | Setting name | Description |
 |-|-|
 | `WEBSITE_RELAYS` | Read-only. Data needed to configure the Hybrid Connection, including endpoints and service bus data. |
@@ -369,6 +445,8 @@ WEBSITE_SOCKET_STATISTICS_ENABLED
 
 ## Key vault references
 
+The following environment variables are related to [key vault references](app-service-key-vault-references.md).
+
 | Setting name | Description |
 |-|-|
 | `WEBSITE_KEYVAULT_REFERENCES` | Read-only. Contains information (including statuses) for all Key Vault references that are currently configured in the app. |
@@ -378,6 +456,8 @@ WEBSITE_SOCKET_STATISTICS_ENABLED
 
 ## CORS
 
+The following environment variables are related to Cross-Origin Resource Sharing (CORS) configuration.
+
 | Setting name | Description |
 |-|-|
 | `WEBSITE_CORS_ALLOWED_ORIGINS` | Read-only. Shows the allowed origins for CORS. |
@@ -385,7 +465,7 @@ WEBSITE_SOCKET_STATISTICS_ENABLED
 
 ## Authentication & Authorization
 
-https://github.com/cgillum/easyauth/wiki/Advanced-Application-Settings
+The following environment variables are related to [App Service authentication](overview-authentication-authorization.md).
 
 | Setting name| Description|
 |-|-|
@@ -456,6 +536,8 @@ WEBSITE_AUTH_FILE_PATH
 
 ## Managed identity
 
+The following environment variables are related to [managed identities](overview-managed-identity.md).
+
 |Setting name | Description |
 |-|-|
 |`IDENTITY_ENDPOINT` | Read-only. The URL to retrieve the token for the app's [managed identity](overview-managed-identity.md). |
@@ -466,6 +548,8 @@ WEBSITE_AUTH_FILE_PATH
 
 ## Health check
 
+The following environment variables are related to [health checks](monitor-instances-health-check.md).
+
 | Setting name | Description |
 |-|-|
 | `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | The maximum number of failed pings before removing the instance. Set to a value between `2` and `100`. When you are scaling up or out, App Service pings the Health check path to ensure new instances are ready. For more information, see [Health check](monitor-instances-health-check.md).|
@@ -473,7 +557,7 @@ WEBSITE_AUTH_FILE_PATH
 
 ## Push notifications
 
-The following table shows app settings related to the [push notifications](/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md#configure-hub) feature.
+The following environment variables are related to the [push notifications](/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md#configure-hub) feature.
 
 | Setting name | Description |
 |-|-|
@@ -501,6 +585,8 @@ WEBSITE_VNET_BLOCK_FOR_SETUP_SCM_SITE
  -->
 
 ## Webjobs
+
+The following environment variables are related to [WebJobs](webjobs-create.md).
 
 | Setting name| Description |
 |-|-|
