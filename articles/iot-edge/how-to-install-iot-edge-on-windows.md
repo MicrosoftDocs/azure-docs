@@ -41,7 +41,7 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
   * If you're creating a new deployment using Windows Server, make sure you install Hyper-V role and have a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](nested-virtualization.md).
   * If you're creating a new deployment using a VM, make sure you configure nested virtualization correctly. For more information, see the [nested virtualization](nested-virtualization.md) guide.
 
-* Access to Windows Admin Center with the Azure IoT Edge extension for Windows Admin Center installed:
+* If you want to install and manage IoT Edge device using Windows Admin Center, make sure you have access to Windows Admin Center and have the Azure IoT Edge extension installed:
 
    1. Download the [Windows Admin Center installer](https://aka.ms/wacdownload).
 
@@ -77,64 +77,6 @@ If you plan on using one of the DPS methods to provision your device or devices,
 ## Create a new deployment
 
 Create your deployment of Azure IoT Edge for Linux on Windows on your target device.
-
-# [Windows Admin Center](#tab/windowsadmincenter)
-
-On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. Any additional servers, PCs, or clusters that you manage will also show up here.
-
-You can use Windows Admin Center to make install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
-
-If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device.](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
-
-   ![Initial Windows Admin Center dashboard with target device listed](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
-
-1. Select **Add**.
-
-1. On the **Add or create resources** pane, locate the **Azure IoT Edge** tile. Select **Create new** to install a new instance of Azure IoT Edge for Linux on Windows on a device.
-
-   If you already have IoT Edge for Linux on Windows running on a device, you could select **Add** to connect to that existing IoT Edge device and manage it with Windows Admin Center.
-
-   ![Select Create New on Azure IoT Edge tile in Windows Admin Center](./media/how-to-install-iot-edge-on-windows/resource-creation-tiles.png)
-
-1. The **Create an Azure IoT Edge for Linux on Windows deployment** pane will open. On the **1. Getting Started** tab, verify that your target device meets the minimum requirements, and select **Next**.
-
-1. Review the license terms, check **I Accept**, and select **Next**.
-
-1. You can toggle **Optional diagnostic data** on or off, depending on your preference.
-
-1. Select **Next: Deploy**.
-
-   ![Select the Next: Deploy button after toggling optional diagnostic data to your preference](./media/how-to-install-iot-edge-on-windows/select-next-deploy.png)
-
-1. On the **2. Deploy** tab, under **Select a target device**, click on your listed device to validate it meets the minimum requirements. Once its status is confirmed as supported, select **Next**.
-
-   ![Select your device to verify it is supported](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
-
-1. On the **2.2 Settings** tab, review the configuration settings of your deployment.
-
-   > [!NOTE]
-   > IoT Edge for Linux on Windows uses a default switch, which assigns the Linux virtual machine an internal IP address. This internal IP address cannot be reached from outside the Windows machine. You can connect to the virtual machine locally while logged onto the Windows machine.
-
-   You can assign a GPU to your deployment. There are two options available: Direct Device Assignment (DDA) and Paravirtualization, depending on the GPU adaptor you assign to your deployment. Examples of each method are shown below.
-
-   For the Direct Device Assignment method, you will select the GPU processors to allocate to your Linux virtual machine.
-
-   ![Configuration settings with a Direct Device Assignment GPU enabled]()
-
-   For the Paravirtualization method, no additional settings are needed.
-
-   ![Configuration settings with a Paravirtualization GPU enabled]()
-
-   > ![WARNING]
-   > Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's Vendor, when applicable. You can [read more about the mitigation driver](https://docs.microsoft.com/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
-
-   Once you are satisfied with the settings, select **Next**.
-
-1. On the **2.3 Deployment** tab, you can watch the progress of the deployment. The full process includes downloading the Azure IoT Edge for Linux on Windows package, installing the package, configuring the host device, and setting up the Linux virtual machine. This process may take several minutes to complete. A successful deployment is pictured below.
-
-   ![A successful deployment will show each step with a green check mark and a 'Complete' label](./media/how-to-install-iot-edge-on-windows/successful-deployment.png)
-
-Once your deployment is complete, you are ready to provision your device. Select **Next: Connect** to proceed to the **3. Connect** tab, which handles Azure IoT Edge device provisioning.
 
 # [PowerShell](#tab/powershell)
 
@@ -194,9 +136,9 @@ Once your deployment is complete, you are ready to provision your device.
 >[!NOTE]
 >The Azure IoT Edge extension for Windows Admin Center is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Installation and management processes may be different than for generally available features.
 
-On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. Any additional servers, PCs, or clusters that you manage will also show up here.
+On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you are running Windows Admin Center. Any additional servers, PCs, or clusters that you manage will also show up here.
 
-You can use Windows Admin Center to make install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
+You can use Windows Admin Center to install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
 
 If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device.](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
 
@@ -210,7 +152,7 @@ If you want to deploy to a remote target device instead of your local device and
 
    ![Select Create New on Azure IoT Edge tile in Windows Admin Center](./media/how-to-install-iot-edge-on-windows/resource-creation-tiles.png)
 
-1. The **Create an Azure IoT Edge for Linux on Windows deployment** pane will open. On the **1. Getting Started** tab, verify that your target device meets the minimum requirements, and select **Next**.
+1. The **Create an Azure IoT Edge for Linux on Windows deployment** pane will open. On the **1. Getting Started** tab, review the minimum requirements and select **Next**.
 
 1. Review the license terms, check **I Accept**, and select **Next**.
 
@@ -224,12 +166,27 @@ If you want to deploy to a remote target device instead of your local device and
 
    ![Select your device to verify it is supported](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. On the **2.2 Settings** tab, review the configuration settings of your deployment. Once you are satisfied with the settings, select **Next**.
-
-   ![Review the configuration settings of your deployment](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
+1. On the **2.2 Settings** tab, review the configuration settings of your deployment.
 
    >[!NOTE]
    >IoT Edge for Linux on Windows uses a default switch, which assigns the Linux virtual machine an internal IP address. This internal IP address cannot be reached from outside the Windows machine. You can connect to the virtual machine locally while logged onto the Windows machine.
+   >
+   >If you are using Windows Server, set up a default switch before deploying IoT Edge for Linux on Windows.
+
+   you can assign a GPU to your deployment. There are two options available: direct device assignment (DDA) and paravirtualization, depending on the GPU adaptor you assign to your deployment. Examples of each method are shown below.
+
+   For the direct device assignment method, select the number of GPU processors to allocate to your Linux virtual machine.
+
+   ![Configuration settings with a direct device assignment GPU enabled.](./media/gpu-passthrough-direct-device-assignment.png)
+
+   For the paravirtualization method, no additional settings are needed.
+
+   ![Configuration settings with a paravirtualization GPU enabled.](./media/gpu-passthrough-paravirtualization.png)
+
+   >[!WARNING]
+   >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
+
+   Once you are satisfied with the settings, select **Next**.
 
 1. On the **2.3 Deployment** tab, you can watch the progress of the deployment. The full process includes downloading the Azure IoT Edge for Linux on Windows package, installing the package, configuring the host device, and setting up the Linux virtual machine. This process may take several minutes to complete. A successful deployment is pictured below.
 

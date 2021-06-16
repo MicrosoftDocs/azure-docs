@@ -5,7 +5,7 @@ author: kgremban
 manager: lizross
 ms.author: kgremban
 ms.reviewer: fcabrera
-ms.date: 06/11/2021
+ms.date: 06/16/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -22,7 +22,6 @@ DPS supports Trusted Platform Module (TPM) attestation for IoT Edge devices only
 This article shows you how to use auto-provisioning on a device running IoT Edge for Linux on Windows with the following steps:
 
 * Retrieve the TPM information from your device.
-* Create an instance of IoT Hub Device Provisioning Service (DPS).
 * Create an individual enrollment for the device.
 * Install IoT Edge for Linux on Windows and connect the device to IoT Hub.
 
@@ -33,15 +32,12 @@ This article uses programs that simulate a TPM on the device to test this scenar
 
 * A Windows device. For supported Windows versions, see [Operating systems](support.md#operating-systems).
 * An active IoT Hub.
+* An instance of the IoT Hub Device Provisioning Service in Azure, linked to your IoT hub.
+  * If you don't have a Device Provisioning Service instance, follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
+  * After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
 
 > [!NOTE]
 > TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
-
-## Set up the IoT Hub Device Provisioning Service
-
-Create a new instance of the IoT Hub Device Provisioning Service in Azure, and link it to your IoT hub. You can follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
-
-After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
 
 ## Simulate a TPM for your device
 
@@ -67,6 +63,8 @@ Simulated TPM samples:
 ## Install IoT Edge for Linux on Windows
 
 The installation steps in this section are abridged to highlight the steps specific to the TPM provisioning scenario. For more detailed instructions, including prerequisites and remote installation steps, see [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md).
+
+# [PowerShell](#tab/powershell)
 
 1. Open an elevated PowerShell session on the Windows device.
 
@@ -115,6 +113,33 @@ The installation steps in this section are abridged to highlight the steps speci
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "<scope id>"
    ```
+
+# [Windows Admin Center](#tab/windowsadmincenter)
+
+>[!NOTE]
+>The Azure IoT Edge extension for Windows Admin Center is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Installation and management processes may be different than for generally available features.
+
+1. Have Windows Admin Center configured with the **Azure IoT Edge** extension.
+
+1. On the Windows Admin Center connections page, select **Add**.
+
+1. On the **Add or create resources** pane, located the **Azure IoT Edge** tile. Select **Create new** to install a new instance of Azure IoT Edge for Linux on Windows on a device.
+
+1. Follow the steps in the deployment wizard to install and configure IoT Edge for Linux on Windows.
+
+   1. On the **Getting Started** steps, review the prerequisites, accept the license terms, and choose whether or not to send diagnostic data.
+
+   1. On the **Deploy** steps, choose your device and its configuration settings. THen observe the progress as IoT Edge is deployed to your device.
+
+   1. On the **Connect** step, provision your device.
+
+      1. Select the **DpsTpm** provisioning method.
+      1. Provide the **Scope ID** that you retrieve from your instance of the Device Provisioning Service.
+      1. Select **Provisioning with the selected method**.
+
+1. Once IoT Edge has successfully been installed and provisioned on your device, select **Finish** to exit the deployment wizard.
+
+---
 
 ## Verify successful configuration
 
