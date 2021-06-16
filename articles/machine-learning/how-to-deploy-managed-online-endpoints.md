@@ -74,7 +74,7 @@ The following snippet shows the `endpoints/online/managed/simple-flow/1-create-e
 > [!Note]
 > A fully specified sample YAML for managed online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
 
-The reference for the endpoint YAML format is below. To understand how to specify these attributes, refer to the YAML example from this article or to the fully specified YAML sample mentioned in the preceding note. For more on limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md).
+The reference for the endpoint YAML format is below. To understand how to specify these attributes, refer to the YAML example from this article or to the fully specified YAML sample mentioned in the preceding note. For more on limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
 
 | Key | Description |
 | --- | --- |

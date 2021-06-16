@@ -140,3 +140,7 @@ Update the deployment with:
 If you are not going use the deployment, you should delete it with:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+
+
+## Next steps
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

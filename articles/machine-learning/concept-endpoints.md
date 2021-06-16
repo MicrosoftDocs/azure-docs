@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.date: 05/25/2021
+ms.date: 06/17/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -187,3 +187,4 @@ Specify the storage output location to any datastore and path. By default, batch
 - [How to use managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [How to view online endpoint costs](how-to-view-online-endpoints-costs.md)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

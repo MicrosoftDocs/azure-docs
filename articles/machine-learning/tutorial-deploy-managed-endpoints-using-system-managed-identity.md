@@ -190,3 +190,4 @@ In this Azure Machine Learning tutorial, you used the machine learning CLI for t
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To refine JSON queries to only return specific data, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
 * For more information on the YAML schema, see [online endpoint YAML reference](reference-online-endpoint-yaml.md) document.
+* For information on limitations for managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
