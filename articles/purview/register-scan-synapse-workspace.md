@@ -175,7 +175,7 @@ There are two ways to set up authentication for an Azure Synapse source:
 
 To create and run a new scan, do the following:
 
-1. Navigate to the **Sources** section.
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
 
 1. Select the data source that you registered.
 
