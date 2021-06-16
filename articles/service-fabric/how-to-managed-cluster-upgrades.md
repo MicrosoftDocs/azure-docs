@@ -16,7 +16,7 @@ Azure Service Fabric managed clusters are set by default to receive automatic Se
 
 With wave deployment, you can create a pipeline for upgrading your test, stage, and production clusters in sequence, separated by built-in 'bake time' to validate upcoming Service Fabric versions before your production clusters are updated.
 
->NOTE
+>[!NOTE]
 >By default clusters will be set to Wave 0.
 
 To select a wave deployment for automatic upgrade, first determine which wave to assign your cluster:
@@ -58,7 +58,7 @@ To change your cluster upgrade mode using a Resource Manager template, specify e
 
 Upon successful deployment of the template, changes to the cluster upgrade mode will be applied. If your cluster is in manual mode, the cluster upgrade will kick off automatically.
 
-The cluster health policies(a combination of node health and the health of all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
+The cluster health policies (a combination of node health and the health of all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
 
 If a rollback occurs, you'll need to fix the issues that resulted in the rollback and initiate the upgrade again by following the same steps as before.
 
