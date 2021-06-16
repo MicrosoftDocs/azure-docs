@@ -13,6 +13,10 @@ ms.date: 12/02/2020
 ms.custom: seodec18
 ---
 
+> :warning: Warning: Access Policies grant AAD Users and/or Groups Data Plane access to your Time Series Insights Environment.
+> An Azure Active Directory is tied to a Tenant. So if you decide to move your Subscription between Tenants, make sure to follow the procedure
+> from [the section below](#Preparation-and-post-moving-procedures-when-moving-Subscription-across-Tenants).
+
 # Grant data access to an environment
 
 This article discusses the two types of Azure Time Series Insights access policies.
@@ -120,3 +124,21 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 * Read [Authentication and Authorization](time-series-insights-authentication-and-authorization.md) for Azure Active Directory app registration steps.
 
 * View [your environment in the Azure Time Series Insights Explorer](./concepts-ux-panels.md).
+
+# Preparation and post moving procedures when moving subscription across Tenants
+
+Time Series Insights Data Access Policies are backed by Azure Active Directory, which are tied to an Azure Tenant.
+
+If you move the Subscription to which the Time Series Insights Environment belongs to between Tenants, you must be aware that the Data Access Policies will need to be re-applied, since the existing policies point to users that do not exist in the AAD from the new Tenant.
+
+To make this process smooth, follow the steps below.
+
+## Pre-migration steps
+
+- Make sure you extract the current Data Access Policies assignments from the Environment while still in the source Tenant.
+- Make sure the users you still want to have access to the Environment after the Subscription is migrated exist on the target Active Directory.
+- Make sure you will have - or you're engaged with someone who will have - at least Contributor access to the Subscription after it's moved.
+
+## Post-migration steps
+
+Having Contributor access to the Subscription in the target Tenant, you can re-grant Access Policies to the Environment.
