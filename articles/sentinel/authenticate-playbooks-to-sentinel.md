@@ -18,11 +18,19 @@ ms.author: yelevin
 ---
 # Connect and authenticate playbooks to Azure Sentinel
 
+One thing to always keep in mind when working with playbooks, but that may be a source of confusion, is that playbooks are resources provided by the Azure Logic Apps service. As such, they are not natively part of the core Azure Sentinel service (which is why their use is billed separately). The way Logic Apps works, it has to connect separately and authenticate independently to every resource of every type that it interacts with, including to Azure Sentinel itself. Logic Apps uses [specialized connectors](/connectors/connector-reference/) for this purpose, with each resource type having its own connector. This document explains the types of connection and authentication in the [Logic Apps Azure Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Azure Sentinel in order to have access to the information in your workspace's tables. It further shows you how to get to specific types of Azure Sentinel information that you are likely to need.
+
+This document is a companion to our other playbook documentation - [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md). The two documents will refer to each other back and forth.
+
+For an introduction to playbooks, see [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md).
+
+For the complete specification of the Azure Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
+
 ## Authentication
 
-Triggers and actions in the Azure Sentinel connector can operate on behalf of any identity that has the necessary permissions (read and/or write) on the relevant workspace. The connector supports multiple identity types:
+The Azure Sentinel connector in Logic Apps, and its component triggers and actions, can operate on behalf of any identity that has the necessary permissions (read and/or write) on the relevant workspace. The connector supports multiple identity types:
 
-- [Managed identity (preview)](#authenticate-with-managed-identity)
+- [Managed identity (Preview)](#authenticate-with-managed-identity)
 - [Azure AD user](#authenticate-as-an-azure-ad-user)
 - [Service principal (Azure AD application)](#authenticate-as-a-service-principal-azure-ad-application)
 
@@ -30,7 +38,7 @@ Triggers and actions in the Azure Sentinel connector can operate on behalf of an
 
 ### Permissions required
 
-| Roles / Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
+| Roles \ Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
 | ------------- | :-----------: | :------------: | :-----------: |
 | **[Azure Sentinel Reader](/azure/role-based-access-control/built-in-roles#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
 | **Azure Sentinel [Responder](/azure/role-based-access-control/built-in-roles#azure-sentinel-responder)/[Contributor](/azure/role-based-access-control/built-in-roles#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
@@ -130,7 +138,6 @@ In order to change the authorization of an existing connection, enter the connec
 
 Though the Azure Sentinel connector can be used in a variety of ways, the connector's components can be divided into 2 flows, each triggered by a different Azure Sentinel occurrence:
 
-
 | Trigger | Full trigger name in<br>Logic Apps Designer | When to use it | Known limitations 
 | --------- | ------------ | -------------- | -------------- | 
 | **Incident trigger** | "When Azure Sentinel incident creation rule was triggered (Preview)" | Recommended for most incident automation scenarios.<br><br>The playbook receives incident objects, including entities and alerts. Using this trigger allows the playbook to be attached to an **Automation rule**, so it can be triggered when an incident is created in Azure Sentinel, and all the [benefits of automation rules](/azure/sentinel/automate-incident-handling-with-automation-rules) can be applied to the incident. | Playbooks with this trigger can't be run manually from Azure Sentinel.<br><br>Playbooks with this trigger do not support alert grouping, meaning they will receive only the first alert sent with each incident.
@@ -170,7 +177,6 @@ The **Incident** object received from **When Azure Sentinel incident creation ru
 | **Add comments to incident** | To enrich the incident with information collected from external sources; to audit the actions taken by the playbook on the entities; to supply additional information valuable for incident investigation. |
 | **Entities - Get \<*entity type*\>** | In playbooks that work on a specific entity type (**IP**, **Account**, **Host**, **URL** or **FileHash**) which is known at playbook creation time, and you need to be able to parse it and work on its unique fields. |
 |
-
 
 ## Work with incidents - Usage Examples
 

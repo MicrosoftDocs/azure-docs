@@ -26,8 +26,6 @@ Triggers and actions in the Azure Sentinel connector can operate on behalf of an
 - [Azure AD user](#authenticate-as-an-azure-ad-user)
 - [Service principal (Azure AD application)](#authenticate-as-a-service-principal-azure-ad-application)
 
-    ![Authentication Options](media/sentinel-connectors/auth-methods.png)
-
 ### Permissions required
 
 | Roles / Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
@@ -38,93 +36,7 @@ Triggers and actions in the Azure Sentinel connector can operate on behalf of an
 
 [Learn more about permissions in Azure Sentinel](/azure/sentinel/roles).
 
-### Authenticate with managed identity
-
-This authentication method allows you to give permissions directly to the playbook (a Logic App workflow resource), so that Azure Sentinel connector actions taken by the playbook will operate on the playbook's behalf, as if it were an independent object with its own permissions on Azure Sentinel. This lowers the number of identities you have to manage and ***gives you the power to give access (??? -YL)*** directly to the resource that operates. 
-
-To authenticate with managed identity:
-
-1. [Enable managed identity](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal) on the Logic Apps workflow resource. To summarize:
-
-    - On the logic app menu, under **Settings**, select **Identity**. Select **System assigned > On > Save**. When Azure prompts you to confirm, select **Yes**.
-
-    - Your logic app can now use the system-assigned identity, which is registered with Azure AD and is represented by an object ID.
-
-1. [Give that identity access](/azure/logic-apps/create-managed-service-identity#assign-access-in-the-azure-portal) to the Azure Sentinel workspace, by assigning it the [Azure Sentinel Contributor](/azure/role-based-access-control/built-in-roles#azure-sentinel-contributor) role.
-
-    Learn more about the available [roles in Azure Sentinel](/azure/sentinel/roles).
-
-1. Enable the managed identity authentication method in the Azure Sentinel Logic Apps connector:
-
-    1. In the Logic Apps designer, add an Azure Sentinel Logic Apps connector step. If the connector is already enabled for an existing connection, click the **Change connection** link.
-
-        ![Change connection](media/sentinel-connectors/change-connection.png)
-
-    1. In the resulting list of connections, select **Add new** at the bottom. 
-
-    1. Create a new connection by selecting **Connect with managed identity (preview)**.
-
-        ![Managed identity option](media/sentinel-connectors/auth-methods-msi-choice.png)
-
-    1. Fill in a name for this connection, select **System-assigned managed identity** and select **Create**.
-
-        ![Connect with managed identity](media/sentinel-connectors/auth-methods-msi.png)
-
-### Authenticate as an Azure AD user
-
-To make a connection, select **Sign in**. You will be prompted to provide your account information. Once you have done so, follow the remaining instructions on the screen to create a connection.
-
-### Authenticate as a service principal (Azure AD application)
-
-Service principals can be created by registering an Azure AD application. It is **preferable** to use a registered application as the connector's identity, instead of using a user account, as you will be better able to control permissions, manage credentials, and enable certain limitations on the use of the connector. ***(Is managed identity preferable to service principal, and why? -YL)***
-
-To use your own application with the Azure Sentinel connector, perform the following steps:
-
-1. Register the application with Azure AD and create a service principal. [Learn how](/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
-
-1. Get credentials (for future authentication).
-
-    In the registered application blade, get the application credentials for signing in:
-
-    - **Client ID**: under **Overview**
-    - **Client secret**: under **Certificates & secrets**.
-
-1. Grant permissions to the Azure Sentinel workspace.
-
-    In this step, the app will get permission to work with Azure Sentinel workspace.
-
-    1. In the Azure Sentinel workspace, go to **Settings** -> **Workspace Settings** -> **Access control (IAM)**
-
-    1. Select **Add role assignment**.
-
-    1. Select the role you wish to assign to the application. For example, to allow the application to perform actions that will make changes in the Sentinel workspace, like updating an incident, select the **Azure Sentinel Contributor** role. For actions which only read data, the **Azure Sentinel Reader** role is sufficient. [Learn more about the available roles in Azure Sentinel](/azure/sentinel/roles).
-
-    1. Find the required application and save. By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
-
-1. Authenticate
-
-    In this step we use the app credentials to authenticate to the Sentinel connector in Logic Apps.
-
-    - Select **Connect with Service Principal**.
-
-        ![Service principal option](media/sentinel-connectors/auth-methods-spn-choice.png)
-
-    - Fill in the required parameters (can be found in the registered application blade)
-        - **Tenant**: under **Overview**
-        - **Client ID**: under **Overview**
-        - **Client Secret**: under **Certificates & secrets**
-        
-        ![Connect with service principal](media/sentinel-connectors/auth-methods-spn.png)
-
-### Manage your API connections
-
-Every time an authentication is created for the first time, a new Azure resource of type API Connection is created. The same API connection can be used in all the Azure Sentinel actions and triggers in the same Resource Group.
-
-All the API connections can be found in the **API connections** blade (search for *API connections* in the Azure portal).
-
-You can also find them by going to the **Resources** blade and filtering the display by type *API Connection*. This way allows you to select multiple connections for bulk operations.
-
-In order to change the authorization of an existing connection, enter the connection resource, and select **Edit API connection**.
+[Learn how to use the different authentication options](authenticate-playbooks-to-sentinel.md#authentication).
 
 ## Azure Sentinel triggers summary
 
@@ -172,71 +84,6 @@ The **Incident** object received from **When Azure Sentinel incident creation ru
 |
 
 
-## Work with incidents - Usage Examples
-
-> [!TIP] 
-> The actions **Update Incident** and **Add a Comment to Incident** require the **Incident ARM ID**. <br>
-Use the **Alert - Get Incident** action beforehand to get the **Incident ARM ID**.
-
-### Update an incident
--  Playbook is triggered **when an incident is created**
-
-    ![Incident trigger simple Update flow example](media/sentinel-connectors/incident-simple-flow.png)
-
--  Playbook is triggered **when an alert is generated**
-
-    ![Alert trigger simple Update Incident flow example](media/sentinel-connectors/alert-update-flow.png)
-      
-### Use Incident Information
-
-Basic playbook to send incident details over mail:
--  Playbook is triggered **when an incident is created**
-
-    ![Incident trigger simple Get flow example](media/sentinel-connectors/incident-simple-mail-flow.png)
-
--  Playbook is triggered **when an alert is generated**
-
-    ![Alert trigger simple Get Incident flow example](media/sentinel-connectors/alert-simple-mail-flow.png)
-
-### Add a comment to the incident
-
--  Playbook is triggered **when an incident is created**
-
-    ![Incident trigger simple add comment example](media/sentinel-connectors/incident-comment.png)
-
--  Playbook is triggered **when an alert is generated**
-
-    !["Alert trigger simple add comment example"](media/sentinel-connectors/alert-comment.png)
-
-## Work with specific Entity type
-
-The **Entities** dynamic field is an array of JSON objects, each of which represents an entity. Each entity type has its own schema, depending on its unique properties.
-
-The **"Entities - Get \<entity name>"** action allows you to do the following:
-
-- Filter the array of entities by the requested type.
-- Parse the specific fields of this type, so they can be used as dynamic fields in further actions.
-
-The input is the **Entities** dynamic field.
-
-The response is an array of entities, where the special properties are parsed and can be directly used in a *For each* loop.
-
-Currently supported entity types are:
-
-- [IP](/connectors/azuresentinel/#entities---get-ips)
-- [Host](/connectors/azuresentinel/#entities---get-hosts)
-- [Account](/connectors/azuresentinel/#entities---get-accounts)
-- [URL](/connectors/azuresentinel/#entities---get-urls)
-- [FileHash](/connectors/azuresentinel/#entities---get-filehashes)
-
-    :::image type="content" source="media/sentinel-connectors/entities-actions.png" alt-text="Entities Actions List":::
-
-For other entity types, similar functionality can be achieved using Logic Apps' built-in actions:
-
-- Filter the array of entities by the requested type using [**Filter Array**](/azure/logic-apps/logic-apps-perform-data-operations#filter-array-action).
-
-- Parse the specific fields of this type, so they can be used as dynamic fields in further actions using [**Parse JSON**](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action).
-    
 ## Known issues and limitations
 
 ### Cannot trigger Logic App called by Azure Sentinel trigger using "Run Trigger" button
