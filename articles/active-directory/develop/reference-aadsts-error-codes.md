@@ -140,7 +140,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50107 | InvalidRealmUri - The requested federation realm object does not exist. Contact the tenant admin. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat - Issue with JWT header. Contact the tenant admin. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter - Claims Transformation contains invalid input parameter. Contact the tenant admin to update the policy. |
-| AADSTS501241 | Lorem ipsum |
+| AADSTS501241 | Mandatory Input '{paramName}' missing from transformation id '{transformId}'. This error is returned while Azure AD is trying to build a SAML response to the application. NameID claim or NameIdentifier is mandatory in SAML response and if Azure AD failed to get source attribute for NameID claim, it will return this error. As a resolution, ensure you add claim rules in Azure Portal > Azure Active Directory > Enterprise Applications > Select your application > Single Sign-On > User Attributes & Claims > Unique User Identifier (Name ID).  |
 | AADSTS50125 | PasswordResetRegistrationRequiredInterrupt - Sign-in was interrupted because of a password reset or password registration entry. |
 | AADSTS50126 | InvalidUserNameOrPassword - Error validating credentials due to invalid username or password. |
 | AADSTS50127 | BrokerAppNotInstalled - User needs to install a broker app to gain access to this content. |
@@ -153,7 +153,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50135 | PasswordChangeCompromisedPassword - Password change is required due to account risk. |
 | AADSTS50136 | RedirectMsaSessionToApp - Single MSA session detected. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken - The session is invalid due to a missing external refresh token. |
-| AADSTS50140 | KmsiInterrupt - This error occurred due to "Keep me signed in" interrupt when the user was signing-in. This is an expected part of the login flow, where a user is asked if they want to remain signed into their current browser to make further logins easier. Learn more about the KMSI experience [here.]  Add this link - (https://techcommunity.microsoft.com/t5/azure-active-directory-identity/the-new-azure-ad-sign-in-and-keep-me-signed-in-experiences/m-p/128267)  [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details.|
+| AADSTS50140 | KmsiInterrupt - This error occurred due to "Keep me signed in" interrupt when the user was signing-in. This is an expected part of the login flow, where a user is asked if they want to remain signed into their current browser to make further logins easier. Learn more about the KMSI experience [here.](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/the-new-azure-ad-sign-in-and-keep-me-signed-in-experiences/m-p/128267)  [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details.|
 | AADSTS50143 | Session mismatch - Session is invalid because user tenant does not match the domain hint due to different resource. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword - User's Active Directory password has expired. Generate a new password for the user or have the user use the self-service reset tool to reset their password. |
 | AADSTS50146 | MissingCustomSigningKey - This app is required to be configured with an app-specific signing key. It is either not configured with one, or the key has expired or is not yet valid. |
@@ -198,7 +198,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS70003 | UnsupportedGrantType - The app returned an unsupported grant type. |
 | AADSTS70004 | InvalidRedirectUri - The app returned an invalid redirect URI. The redirect address specified by the client does not match any configured addresses or any addresses on the OIDC approve list. |
 | AADSTS70005 | UnsupportedResponseType - The app returned an unsupported response type due to the following reasons:<ul><li>response type 'token' is not enabled for the app</li><li>response type 'id_token' requires the 'OpenID' scope -contains an unsupported OAuth parameter value in the encoded wctx</li></ul> |
-| AADSTS700054 | Lorem ipsum |
+| AADSTS700054 | Response_type 'id_token' is not enabled for the application.  The application requested an ID token from the authorization endpoint, but did not have ID token implicit grant enabled.  Go to Azure Portal > Azure Active Directory > App registrations > Select your application > Authentication > Under 'Implicit grant and hybrid flows', make sure 'ID tokens' is selected.|
 | AADSTS70007 | UnsupportedResponseMode - The app returned an unsupported value of `response_mode` when requesting a token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - The refresh token has expired due to inactivity. The token was issued on XXX and was inactive for a certain amount of time. |
 | AADSTS70011 | InvalidScope - The scope requested by the app is invalid. |
