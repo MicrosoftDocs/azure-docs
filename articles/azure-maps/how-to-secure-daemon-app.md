@@ -32,7 +32,7 @@ Examples of a daemon application are:
 
 ## Scenario: Shared key authentication with Azure Key Vault
 
-Applications that use Shared Key authentication, should store the keys in a secure store. This scenario shows you how to safely store your application key as a secret in Azure Key Vault.  Instead of storing the shared key in plain text in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, it's recommend that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
+Applications that use Shared Key authentication, should store the keys in a secure store. This scenario shows you how to safely store your application key as a secret in Azure Key Vault.  Instead of storing the shared key in plain text in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, it's recommended that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
 
 >[!IMPORTANT]
 >This scenario indirectly accesses Azure Active Directory through Azure Key Vault. However, we recommend that you use Azure AD authentication directly. Using Azure AD directly avoids the additional complexity and operational requirements of using shared key authentication and setting up Key Vault.
@@ -67,7 +67,7 @@ To enable application access to a managed identity, see [Overview of managed ide
 
 Some managed identity benefits are:
 
-- Azure system managed X509 certificate public key cryptography authentication.
+- Azure system-managed X509 certificate public key cryptography authentication.
 - Azure AD security with X509 certificates instead of client secrets.
 - Azure manages and renews all certificates associated with the Managed Identity resource.
 - Simplified credential operational management by removing any need for a secured secret store service like Azure Key Vault.
@@ -153,7 +153,7 @@ To upload a public key certificate:
 
     :::image type="content" border="true" source="./media/how-to-manage-authentication/upload-certificate-file.png" alt-text="Upload certificate file.":::
 
-##### Create a a client secret
+##### Create a client secret
 
 To create a client secret:
 
