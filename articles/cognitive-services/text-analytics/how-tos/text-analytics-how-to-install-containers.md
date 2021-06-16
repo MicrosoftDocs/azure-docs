@@ -171,8 +171,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](../text-analytics-resource-container-config.md) for configuration settings
-<<<<<<< HEAD
 * Refer to [Frequently asked questions (FAQ)](../text-analytics-resource-faq.yml) to resolve issues related to functionality.
-=======
-* Refer to [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md) to resolve issues related to functionality.
->>>>>>> f337628b8207eb2493bb6b8330de18013f26b713
