@@ -71,7 +71,7 @@ Complete the following steps to create and configure a new ASP.NET Core web app:
 
 In the `ConfigureServices` method of *Startup.cs*, add the Application Insights service to the pipeline. Add the highlighted line:
 
-:::code language="csharp" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/startup.cs" highlight="4":::
+:::code language="csharp" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/startup.cs" range="24-28" highlight="4":::
 
 ## Configure client-side telemetry
 
