@@ -43,7 +43,8 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 ## Generate and import keys from on-premise HSM
 
-> [!NOTE] Keys created or imported into Managed HSM are not exportable.
+> [!NOTE]
+> Keys created or imported into Managed HSM are not exportable.
 
 - To ensure long term portability and key durability, generate keys in your on-premise HSM and [import them to Managed HSM](hsm-protected-keys-byok.md). You will have a copy of your key securely stored in your on-premise HSM for future use.
 
