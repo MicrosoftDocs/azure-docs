@@ -63,16 +63,19 @@ After you cancel, billing is stopped immediately. However, it can take up to 10 
 
 After you cancel, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
 
-After your subscription is canceled, and the subscription does not have any active resources, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for keeping the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for keeping the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## Delete free account or pay-as-you-go subscription
 
-If you have a free account or pay-as-you-go subscription, you don't have to wait 30 days for the subscription to automatically delete. The **Delete subscription** option becomes available three days after you cancel a subscription.
+If you have a free account or pay-as-you-go subscription, you don't have to wait 30 - 90 days for the subscription to automatically delete. The **Delete** option becomes available three days after you cancel a subscription. You can delete after 3 days if you do not have resources under your canceled subscription.
 
+Follow these steps to delete:
 1. Wait three days after the date you canceled the subscription.
-1. Select your subscription on the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
-1. Select the subscription that you want to delete.
-1. Select **Overview**, and then select **Delete subscription**.
+2. Ensure you do not have any resources under the subscription before you try to delete it.
+3. Navigate to the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
+4. Select the subscription that you want to delete.
+5. Select **Overview**, and then select **Delete**.
+6. Type the subscription name in the confirmation prompt and select **Delete subscription**.
 
 ## Delete other subscriptions
 
