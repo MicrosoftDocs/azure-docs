@@ -14,7 +14,7 @@ custom.ms: subject-rbac-steps
 
 # Secure a daemon application
 
-This article describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
+This article describes how to host daemon applications in a trusted and secure environment in Microsoft Azure Maps.
 
 Examples of a daemon application are:
 
@@ -32,7 +32,7 @@ Examples of a daemon application are:
 
 ## Scenario: Shared key authentication with Azure Key Vault
 
-Applications that use Shared Key authentication, should store the keys in a secure store. This scenario shows you how to safely store your application key as a secret in Azure Key Vault.  Instead of storing the shared key in plain text in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, it's recommended that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
+Applications that use Shared Key authentication, should store the keys in a secure store. This scenario shows you how to safely store your application key as a secret in Azure Key Vault.  Instead of storing the shared key in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, it's recommended that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
 
 >[!IMPORTANT]
 >This scenario indirectly accesses Azure Active Directory through Azure Key Vault. However, we recommend that you use Azure AD authentication directly. Using Azure AD directly avoids the additional complexity and operational requirements of using shared key authentication and setting up Key Vault.
@@ -54,7 +54,7 @@ The following steps outline this process:
 
 ## Scenario: Azure AD role-based access control
 
-Once an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved before making HTTP requests. The objective of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
+Once an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved before making HTTP requests. The goal of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
 
 > [!TIP]
 >To enable benefits of managed identity components, it's recommended that you host on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services.
@@ -70,7 +70,7 @@ Some managed identity benefits are:
 - Azure system-managed X509 certificate public key cryptography authentication.
 - Azure AD security with X509 certificates instead of client secrets.
 - Azure manages and renews all certificates associated with the Managed Identity resource.
-- Simplified credential operational management by removing any need for a secured secret store service like Azure Key Vault.
+- Simplifies credential operational management by removing any need for a secured secret store service, such as Azure Key Vault.
 
 ### Host a daemon on non-Azure resources
 
@@ -102,7 +102,7 @@ To create a new application registration:
 
 To assign delegated API permissions to Azure Maps:
 
-1. If you have not done so already, sign in to the [Azure portal](https://portal.azure.com).
+1. If you haven't done so already, sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Azure Active Directory**.
 
@@ -134,7 +134,10 @@ To assign delegated API permissions to Azure Maps:
 
 #### Create a client secret or configure certificate
 
-If your application uses server or application-based authentication, you can either upload a public key certificate, or create a client secret.
+To implement server or application-based authentication into your application, you can choose one of two options:
+
+- Upload a public key certificate
+- Create a client secret
 
 ##### Upload a public key certificate
 
@@ -190,9 +193,9 @@ Once a managed identity is configured for the hosting resource, you can use Azur
 
 ### Request token with application registration
 
-After you register your app and associate it with Azure Maps, you'll need then request an access token with the parameters that identify your application's identity and credentials.
+After you register your app and associate it with Azure Maps, you'll need to request an access token.
 
-To get the required parameters:
+To acquire the access token:
 
 1. If you haven't done so already, sign in to the [Azure portal](https://portal.azure.com).
 
