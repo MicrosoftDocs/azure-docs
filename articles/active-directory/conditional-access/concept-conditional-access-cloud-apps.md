@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/15/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,7 +15,7 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Cloud apps, actions, and authentication  context
+# Conditional Access: Cloud apps, actions, and authentication context
 
 Cloud apps, actions, and authentication context are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, actions, or authentication context.
 
@@ -116,7 +116,7 @@ The Microsoft Azure Management application includes multiple services.
 
 ### Other applications
 
-In addition to the Microsoft apps, administrators can add any Azure AD registered application to Conditional Access policies. These applications may include: 
+Administrators can add any Azure AD registered application to Conditional Access policies. These applications may include: 
 
 - Applications published through [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md)
 - [Applications added from the gallery](../manage-apps/add-application-portal.md)
@@ -135,8 +135,8 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 
 - **Register or join devices (preview)**: This user action enables administrators to enforce Conditional Access policy when users [register](../devices/concept-azure-ad-register.md) or [join](../devices/concept-azure-ad-join.md) devices to Azure AD. It provides granularity in configuring multi-factor authentication for registering or joining devices instead of a tenant-wide policy that currently exists. There are three key considerations with this user action: 
    - `Require multi-factor authentication` is the only access control available with this user action and all others are disabled. This restriction prevents conflicts with access controls that are either dependent on Azure AD device registration or not applicable to Azure AD device registration. 
-   - `Client apps` and `Device state` conditions are not available with this user action since they are dependent on Azure AD device registration to enforce Conditional Access policies.
-   - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action is not properly enforced. More information regarding this device setting can found in [Configure device settings](../devices/device-management-azure-portal.md#configure-device-settings). 
+   - `Client apps` and `Device state` conditions aren't available with this user action since they're dependent on Azure AD device registration to enforce Conditional Access policies.
+   - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action isn't properly enforced. More information about this device setting can found in [Configure device settings](../devices/device-management-azure-portal.md#configure-device-settings). 
 
 ## Authentication context (Preview)
 
@@ -161,15 +161,19 @@ Create new authentication context definitions by selecting **New authentication 
 - **Publish to apps** checkbox when checked, advertises the authentication context to apps and makes them available to be assigned. If not checked the authentication context will be unavailable to downstream resources. 
 - **ID** is read-only and used in tokens and apps for request-specific authentication context definitions. It is listed here for troubleshooting and development use cases. 
 
-Administrators can then select published authentication contexts in their Conditional Access policies under **Assignments** > **Cloud apps or actions** > **Authentication context**.
+#### Add to Conditional Access policy
+
+Administrators can select published authentication contexts in their Conditional Access policies under **Assignments** > **Cloud apps or actions** and selecting **Authentication context** from the **Select what this policy applies to** menu.
+
+:::image type="content" source="media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-in-policy.png" alt-text="Adding a Conditional Access authentication context to a policy":::
 
 ### Tag resources with authentication contexts 
 
 For more information about authentication context use in applications, see the following articles.
 
-- [SharePoint Online](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Microsoft Information Protection sensitivity labels to protect SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
-- Custom applications
+- [Custom applications](../develop/developer-guide-conditional-access-authentication-context.md)
 
 ## Next steps
 
