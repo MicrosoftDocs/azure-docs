@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/08/2021
+ms.date: 05/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -44,7 +44,7 @@ You can include the correlation ID in your Azure AD B2C tokens. To include the c
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
-1. Add the city claim to the **ClaimsSchema** element.  
+1. Add the correlation ID claim to the **ClaimsSchema** element.  
 
     ```xml
     <!-- 
@@ -59,7 +59,7 @@ You can include the correlation ID in your Azure AD B2C tokens. To include the c
     </BuildingBlocks>-->
     ```
 
-1. Open the relying party file of your policy. For example, <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. The output claim will be added to the token after a successful user journey and sent to the application. Modify the technical profile element in the relying party section to add the city as an output claim.
+1. Open the relying party file of your policy. For example, <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. The output claim will be added to the token after a successful user journey and sent to the application. Modify the technical profile element in the relying party section to add the `correlationId` as an output claim.
  
     ```xml
     <RelyingParty>

@@ -22,8 +22,8 @@ landingContent:
             url: ./overview.md
       - linkListType: concept
         links:
-          - text: Azure delegated resource management
-            url: ./concepts/azure-delegated-resource-management.md
+          - text: Architecture
+            url: ./concepts/architecture.md
           - text: Cross-tenant management experiences
             url: ./concepts/cross-tenant-management-experience.md
 

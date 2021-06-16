@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Configure Azure Bastion and connect to a VM via private IP address and a browser'
 titleSuffix: Azure Bastion
-description: In this quickstart article, learn how to create an Azure Bastion host from a virtual machine and connect to the VM securely through your browser via private IP address.
+description: Learn how to create an Azure Bastion host from a virtual machine and connect to the VM securely through your browser via private IP address.
 services: bastion
 author: cherylmc
 

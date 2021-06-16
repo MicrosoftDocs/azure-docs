@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
-ms.reviewer: bagovind
+ms.reviewer: bagovind 
+ms.custom: devx-track-azurepowershell
 ---
 
 # List Azure deny assignments using Azure PowerShell

@@ -1,6 +1,6 @@
 ---
 title: 'Connect to a Windows VM using Azure Bastion'
-description: In this article, learn how to connect to an Azure Virtual Machine running Windows by using Azure Bastion.
+description: Learn how to use Azure Bastion to connect to an Azure VM running Windows.
 services: bastion
 author: cherylmc
 

@@ -3,7 +3,7 @@ title: Plan the Azure VMware Solution deployment
 description: This article outlines an Azure VMware Solution deployment workflow.  The final result is an environment ready for virtual machine (VM) creation and migration.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/27/2021
+ms.date: 05/13/2021
 ---
 
 # Plan the Azure VMware Solution deployment
@@ -19,15 +19,15 @@ The steps outlined give you a production-ready environment for creating virtual 
 ## Request a host quota 
 
 It's important to request a host quota early as you prepare to create your Azure VMware Solution resource. You can request a host quota now, so when the planning process is finished, you're ready to deploy the Azure VMware Solution private cloud. After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you complete the same process. For more information, see the following links, depending on the type of subscription you have:
-- [EA customers](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-ea-customers)
-- [CSP customers](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-csp-customers)
+- [EA customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
+- [CSP customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
 
 ## Identify the subscription
 
 Identify the subscription you plan to use to deploy Azure VMware Solution.  You can either create a new subscription or reuse an existing one.
 
 >[!NOTE]
->The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+>The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
 
 ## Identify the resource group
 

@@ -302,7 +302,7 @@ Add the vCenter Server to Azure Backup Server.
 
 6. Select **Add** to add the VMware server to the servers list. Then select **Next**.
 
-    ![Add VMWare server and credential](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
+    ![Add VMware server and credential](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
 7. In the **Summary** page, select **Add** to add the VMware server to Azure Backup Server. The new server is added immediately, no agent is needed on the VMware server.
 
@@ -397,24 +397,24 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 >[!NOTE]
 > This feature is applicable for MABS V3 UR1.
 
-With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, all your VMWare VMs backups within a single protection group are parallel, leading to faster VM backups. All VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8.
+With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, all your VMware VMs backups within a single protection group are parallel, leading to faster VM backups. All VMware delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8.
 
 You can modify the number of jobs by using the registry key as shown below (not present by default, you need to add it):
 
-**Key Path**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**Key Path**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMware`<BR>
 **Key Type**: DWORD (32-bit) value.
 
 > [!NOTE]
-> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMWare performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
+> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
 
-## VMWare vSphere 6.7
+## VMware vSphere 6.7
 
 To back up vSphere 6.7, do the following:
 
 - Enable TLS 1.2 on the MABS Server
 
 >[!NOTE]
->VMWare 6.7 onwards had TLS enabled as communication protocol.
+>VMware 6.7 onwards had TLS enabled as communication protocol.
 
 - Set the registry keys as follows:
 
@@ -447,7 +447,7 @@ With MABS V3 UR1, you can exclude the specific disk from VMware VM backup. The c
 
 To configure the disk exclusion, follow the steps below:
 
-### Identify the VMWare VM and disk details to be excluded
+### Identify the VMware VM and disk details to be excluded
 
   1. On the VMware console, go to VM settings for which you want to exclude the disk.
   2. Select the disk that you want to exclude and note the path for that disk.

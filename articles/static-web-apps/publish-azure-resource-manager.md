@@ -5,7 +5,7 @@ services: static-web-apps
 author: petender
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 04/18/2021
+ms.date: 05/10/2021
 ms.author: petender
 
 ---
@@ -23,15 +23,14 @@ In this tutorial, you learn to:
 ## Prerequisites
 
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
-- **GitHub Account:** If you don't have one, you can [create a GitHub Account for free](https://github.com) 
+- **GitHub Account:** If you don't have one, you can [create a GitHub Account for free](https://github.com)
 - **Editor for ARM Templates:** Reviewing and editing templates requires a JSON editor. Visual Studio Code with the [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) is well suited for editing ARM Templates. For instructions on how to install and configure Visual Studio Code, see [Quickstart: Create ARM templates with Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md).
 
 - **Azure CLI or Azure PowerShell**: Deploying ARM templates requires a command line tool. For the installation instructions, see:
-  - [Install Azure CLI on Windows OS](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)
-  - [Install Azure CLI on Linux OS](https://docs.microsoft.com/cli/azure/install-azure-cli-linux)
-  - [Install Azure CLI on macOS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
-  - [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
-
+  - [Install Azure CLI on Windows OS](/cli/azure/install-azure-cli-windows)
+  - [Install Azure CLI on Linux OS](/cli/azure/install-azure-cli-linux)
+  - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
+  - [Install Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## Create a GitHub personal access token
 
@@ -54,43 +53,23 @@ One of the required parameters in the ARM template is `repositoryToken`, which a
 1. Copy the token value and paste it into a text editor for later use.
 
 > [!IMPORTANT]
-> Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template. 
+> Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template.
+
 ## Create a GitHub repo
 
-The following steps demonstrate how to create a new repository for a static web app.
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
 
-> [!NOTE]
-> If you want to use an existing code repository you can skip this section.
+1. Navigate to the following location to create a new repository:
+    1. [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate)
 
-1. Log on to [GitHub](https://github.com) using your GitHub account credentials.
+1. Name your repository **myfirstswadeployment**
 
-1. Create a new repository named **myfirstswadeployment**.
+    > [!NOTE]
+    > Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
 
-1. Define your GitHub repo as **Public**.
+1. Select **Create repository from template**.
 
-1. Select the checkbox next to **Add a Readme file**.
-
-1. Select **Create repository**.
-
-1. Once the repository is created, select **Add file**.
-
-1. Select **Create New file** and provide **index.html** as file name.
-
-1. Paste the following snippet of code in the **Edit new file** pane
-
-    ```html
-    <!doctype html>
-    <html>
-      <head>
-        <title>Hello World!</title>
-      </head>
-      <body>
-        <h1>Hello World!</h1>
-      </body>
-    </html>
-    ```
-    
-1. Scroll down and select **Commit new file** to save the file.
+    :::image type="content" source="./media/getting-started/create-template.png" alt-text="Create repository from template":::
 
 ## Create the ARM Template
 
@@ -236,32 +215,32 @@ You need either Azure CLI or Azure PowerShell to deploy the template.
 
 To deploy a template sign in to either the Azure CLI or Azure PowerShell.
 
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Connect-AzAccount
-```
-
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az login
 ```
 
----
-
-If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>` with your subscription information:
-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+Connect-AzAccount
 ```
+
+---
+
+If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>` with your subscription information:
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az account set --subscription <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzContext <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
 ```
 
 ---
@@ -273,16 +252,6 @@ When you deploy a template, you specify a resource group that contains related r
 > [!NOTE]
 > The CLI examples in this article are written for the Bash shell.
 
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-$resourceGroupName = "myfirstswadeployRG"
-
-New-AzResourceGroup `
-  -Name $resourceGroupName `
-  -Location "Central US"
-```
-
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -293,11 +262,35 @@ az group create \
   --location "Central US"
 ```
 
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$resourceGroupName = "myfirstswadeployRG"
+
+New-AzResourceGroup `
+  -Name $resourceGroupName `
+  -Location "Central US"
+```
+
 ---
 
 ## Deploy template
 
 Use one of these deployment options to deploy the template.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+
+az deployment group create \
+  --name DeployLocalTemplate \
+  --resource-group $resourceGroupName \
+  --template-file <PATH-TO-AZUREDEPLOY.JSON> \
+  --parameters <PATH-TO-AZUREDEPLOY.PARAMETERS.JSON> \
+  --verbose
+```
+
+To learn more about deploying templates using the Azure CLI, see [Deploy resources with ARM templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -315,22 +308,10 @@ New-AzResourceGroupDeployment `
 
 To learn more about deploying templates using Azure PowerShell, see [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-
-az deployment group create \
-  --name DeployLocalTemplate \
-  --resource-group $resourceGroupName \
-  --template-file <PATH-TO-AZUREDEPLOY.JSON> \
-  --parameters <PATH-TO-AZUREDEPLOY.PARAMETERS.JSON> \
-  --verbose
-```
-
-To learn more about deploying templates using the Azure CLI, see [Deploy resources with ARM templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
-
 ---
+
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
+
 ## Clean up resources
 
 Clean up the resources you deployed by deleting the resource group.
