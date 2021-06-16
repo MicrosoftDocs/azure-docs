@@ -63,7 +63,7 @@ The application should be designed to retry on any exception unless it is a know
 
 | Status Code | Retriable | Description | 
 |----------|-------------|-------------|
-| 400 | No | Bad request (Depends on the error message)| 
+| 400 | No | Bad request (i.e. invalid json, incorrect headers, incorrect partition key in header)| 
 | 401 | No | [Not authorized](troubleshoot-unauthorized.md) | 
 | 403 | No | [Forbidden](troubleshoot-forbidden.md) |
 | 404 | No | [Resource is not found](troubleshoot-not-found.md) |
