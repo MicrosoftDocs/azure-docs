@@ -41,10 +41,6 @@ For more information, see [Azure Spatial Anchors overview](overview.md).
 
 ## Privacy FAQ
 
-**Q: When my application places a Spatial Anchor somewhere do all apps have access to it?**
-
-**A:** Anchors are isolated by Azure account. Only apps to which you grant access to your account will be able to access anchors within the account.
-
 **Q: How does Azure Spatial Anchors store data?**
 
 **A:** All data is stored encrypted with a Microsoft managed data encryption key and all data is stored regionally for each of the resources.
@@ -68,16 +64,17 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [Logging and diagnostics in Azure Spatial Anchors](./concepts/logging-diagnostics.md).
 
-## Legal FAQs 
-(_Editor Note: Should this be part of privacy FAQ?_)
+## Privacy FAQ (for developers)
+
+**Q: When my application places a Spatial Anchor somewhere do all apps have access to it?**
+
+**A:** Anchors are isolated by Azure account. Only apps to which you grant access to your account will be able to access anchors within the account.
 
 **Q: What terms and conditions apply when using ASA in my app or SDK?**
 
 **A:** The following [terms](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/2.9.0/License) apply as well as any terms embedded in that license.
 
-(_Editor Note: This needs a better host. Check with AOA, Remote rendering, Mesh, etc how they're hosting their ToU_)
-
-### I want to release an app or SDK that includes ASA::
+### I want to release an app or SDK that includes ASA
 **Q: Do I need to agree to any additional terms?**
 
 **A:** No. By using ASA you agree to the above linked ToU and the embedded terms. No additional terms are required.
@@ -92,8 +89,7 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **Q: I want to notify my users that my app/sdk is using ASA, what is the recommended interface to notify my users?**
 
-**A:** “This app is using Microsoft’s Azure Spatial Anchors.  For more information on Azure Spatial Anchors go to: [Azure Spatial Anchors | Microsoft Azure](https://azure.microsoft.com/en-us/services/spatial-anchors/)”
-<!-- //https://developers.google.com/ar/distribute/privacy-requirements-->
+**A:** “This app is using Microsoft’s Azure Spatial Anchors.  For more information on Azure Spatial Anchors go to [Azure Spatial Anchors | Microsoft Azure](https://azure.microsoft.com/en-us/services/spatial-anchors/)”
 
 ## Availability and Pricing FAQs
 
