@@ -113,7 +113,7 @@
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Make requests with Postman
+    - name: Make API requests with Postman
       href: how-to-use-postman.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
@@ -135,12 +135,8 @@
         href: how-to-manage-routes-portal.md
       - name: APIs and CLI
         href: how-to-manage-routes-apis-cli.md
-    - name: Enable a managed identity for routing events
-      items:
-      - name: Portal
-        href: how-to-enable-managed-identities-portal.md
-      - name: CLI
-        href: how-to-enable-managed-identities-cli.md
+    - name: Route events with a managed identity
+      href: how-to-route-with-managed-identity.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
