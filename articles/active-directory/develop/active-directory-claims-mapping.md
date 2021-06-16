@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 06/16/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -28,21 +28,21 @@ Claims customization supports configuring claim-mapping policies for the WS-Fed,
 > [!NOTE]
 > This feature replaces and supersedes the [claims customization](active-directory-saml-claims-customization.md) offered through the Azure portal. On the same application, if you customize claims using the portal in addition to the Microsoft Graph/PowerShell method detailed in this document, tokens issued for that application will ignore the configuration in the portal. Configurations made through the methods detailed in this document will not be reflected in the portal.
 
-In this article, we walk through a few common scenarios that can help you grasp how to use the [claims-mapping policy type](reference-claims-mapping-policy-type.md).
+In this article, we walk through a few common scenarios that can help you understand how to use the [claims-mapping policy type](reference-claims-mapping-policy-type.md).
+
+## Get started
+
+In the following examples, you create, update, link, and delete policies for service principals. Claims-mapping policies can only be assigned to service principal objects. If you are new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
 
 When creating a claims-mapping policy, you can also emit a claim from a directory schema extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory schema extension attributes](active-directory-schema-extensions.md).
 
-## Prerequisites
-
-In the following examples, you create, update, link, and delete policies for service principals. claims-mapping policies can only be assigned to service principal objects. If you are new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
-
 > [!NOTE]
-> The [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview) is required to configure claims-mapping policies. The PowerShell module is in preview, be prepared to revert or remove any changes. 
+> The [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview) is required to configure claims-mapping policies. The PowerShell module is in preview, while the claims mapping and token creation runtime in Azure is generally available. Updates to the preview PowerShell module could require you to update or change your configuration scripts. 
 
 To get started, do the following steps:
 
 1. Download the latest [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Run the Connect command to sign in to your Azure AD admin account. Run this command each time you start a new session.
+1. Run the [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0-preview) command to sign in to your Azure AD admin account. Run this command each time you start a new session.
 
    ``` powershell
    Connect-AzureAD -Confirm
@@ -52,6 +52,13 @@ To get started, do the following steps:
    ``` powershell
    Get-AzureADPolicy
    ```
+
+Next, create a claims mapping policy and assign it to a service principal.  See these examples for common scenarios:
+- [Omit the basic claims from tokens](#omit-the-basic-claims-from-tokens)
+- [Include the EmployeeID and TenantCountry as claims in tokens](#include-the-employeeid-and-tenantcountry-as-claims-in-tokens)
+- [Use a claims transformation in tokens](#use-a-claims-transformation-in-tokens)
+
+After creating a claims mapping policy, configure your application to acknowledge that tokens will contain customized claims.  For more information, read [security considerations](#security-considerations).
 
 ## Omit the basic claims from tokens
 
