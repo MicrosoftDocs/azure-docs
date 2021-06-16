@@ -1,4 +1,4 @@
-- name: Azure Defender for IoT Device Builders documentation
+- name: Azure Defender for IoT device builders documentation
   items:
   - name: Overview
     displayName: IoT, OT, getting started
@@ -12,7 +12,7 @@
   - name: Quickstarts
     expanded: false
     items:
-    - name: Agent-based solution for Device Builders
+    - name: Agent-based solution for device builders
       items: 
       - name: Onboard to Defender for IoT agent-based solution
         displayName: IoT Hub, existing, enable
@@ -42,7 +42,7 @@
           href: quickstart-create-security-twin.md
   - name: Concepts
     items:
-    - name: Agent-based solution for Device Builders
+    - name: Agent-based solution for device builders
       items:
       - name: Agent portfolio overview and OS support (Preview)                     
         displayName: standalone agent, micro agent, RTOS
@@ -94,7 +94,7 @@
           href: agent-based-recommendations.md
   - name: How-to guides
     items:
-    - name: Agent-based solution for Device Builders
+    - name: Agent-based solution for device builders
       items:
       - name: Connect to Azure Sentinel
         displayName: log analytics, service notes
@@ -156,7 +156,7 @@
         href: troubleshoot-defender-micro-agent.md
   - name: Reference
     items:
-    - name: Agent-based Solution for Device Builders
+    - name: Agent-based Solution for device builders
       items: 
       - name: Defender-IoT-micro-agent for Azure RTOS API
         displayNAme: prototype, disable

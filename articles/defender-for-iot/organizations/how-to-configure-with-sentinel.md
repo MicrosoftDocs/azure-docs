@@ -1,11 +1,11 @@
 ---
-title: Configure Azure Sentinel with Defender for IoT for Organizations
+title: Configure Azure Sentinel with Defender for IoT for organizations
 description: Explains how to configure Azure Sentinel to receive data from your Defender for IoT solution.
 ms.topic: how-to
 ms.date: 06/14/2021
 ---
 
-# Connect your data from Defender for IoT for Organizations to Azure Sentinel 
+# Connect your data from Defender for IoT for organizations to Azure Sentinel 
 
 Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel. 
 

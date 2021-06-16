@@ -81,7 +81,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-| **Integrations** | Expand Defender for IoT capabilities by sharing device information with partner systems. Organizations can bridge previously siloed security, NAC, incident management, and device management solutions to accelerate system-wide responses and more rapidly mitigate risks. | **[Forwarding rule](#f)** |
+| **Integrations** | Expand Defender for IoT capabilities by sharing device information with partner systems. organizations can bridge previously siloed security, NAC, incident management, and device management solutions to accelerate system-wide responses and more rapidly mitigate risks. | **[Forwarding rule](#f)** |
 | **Internal subnet** | Subnet configurations defined by Defender for IoT. In some cases, such as environments that use public ranges as internal ranges, you can instruct Defender for IoT to resolve all subnets as internal subnets. Subnets are displayed in the map and in various Defender for IoT reports. | **[Subnets](#s)** |
 
 ## L

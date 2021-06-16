@@ -53,7 +53,7 @@ Next generation firewalls reduce cost and complexity with full visibility into a
 
 ### Prevent unauthorized changes to programmable logic controllers
 
-Organizations use programmable logic controllers (PLCs) to manage physical processes such as robotic arms in factories, spinning turbines in wind farms, and centrifuges in nuclear power plants.
+organizations use programmable logic controllers (PLCs) to manage physical processes such as robotic arms in factories, spinning turbines in wind farms, and centrifuges in nuclear power plants.
 
 An update to the ladder logic or firmware of a PLC can represent a legitimate activity or an attempt to compromise the device by inserting malicious code.  Defender for IoT can detect unauthorized changes to PLCs, and then deliver information about that change to both FortiSIEM and FortiGate. Armed with that information, FortSIEM administrators can decide how to best mitigate the solution. One mitigation option would be to create a rule in FortiGate that stops further communication to the affected device.
 

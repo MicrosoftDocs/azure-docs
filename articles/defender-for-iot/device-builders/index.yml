@@ -19,7 +19,7 @@ metadata:
 
 landingContent:
 
-  - title: Defender for IoT for Device Builders
+  - title: Defender for IoT for device builders
     linkLists:
       - linkListType: overview
         links:
@@ -30,7 +30,7 @@ landingContent:
           - text: What's new?
             url: ../device-builders/release-notes.md     
            
-  - title:  Defender for IoT for Organizations
+  - title:  Defender for IoT for organizations
     linkLists:
       - linkListType: overview
         links:

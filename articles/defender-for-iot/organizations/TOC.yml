@@ -1,4 +1,4 @@
-- name: Azure Defender for IoT Organizations documentation
+- name: Azure Defender for IoT organizations documentation
   items:
   - name: Overview
     displayName: IoT, OT, getting started
@@ -13,7 +13,7 @@
   - name: Quickstarts
     expanded: false
     items:
-    - name: Agentless Solution for Organizations
+    - name: Agentless Solution for organizations
       items:
       - name: System prerequisites
         displayName: firewall, proxy, open ports
@@ -23,13 +23,13 @@
         href: getting-started.md
   - name: Concepts
     items:  
-    - name: Agentless Solution for Organizations
+    - name: Agentless Solution for organizations
       items:
       - name: Key concepts
         href: concept-key-concepts.md    
   - name: How-to guides
     items:
-    - name: Agentless Solution for Organizations
+    - name: Agentless Solution for organizations
       items:
       - name: Prepare your network
         items:
@@ -157,7 +157,7 @@
       - name: Track sensor activity
         displayName: timeline, time line, time-line, event
         href: how-to-track-sensor-activity.md
-      - name: Configure Azure Sentinel with Defender for IoT for Organizations
+      - name: Configure Azure Sentinel with Defender for IoT for organizations
         displayName: Sentinel
         href: how-to-configure-with-sentinel.md
       - name: Troubleshoot the sensor and on-premises management console
@@ -182,7 +182,7 @@
           href: integration-splunk.md
   - name: Reference
     items:
-    - name: Agentless Solution for Organizations
+    - name: Agentless Solution for organizations
       items:
       - name: Work with Defender for IoT APIs
         href: references-work-with-defender-for-iot-apis.md
