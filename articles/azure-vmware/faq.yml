@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: troubleshooting
   ms.custom: contperf-fy21q4
-  ms.date:  05/25/2021
+  ms.date:  06/16/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -315,5 +315,5 @@ sections:
         answer: | 
           NO        
 
-      - question: When does metering begin and end for trial Azure VMware Solution nodes?
-        answer: Trial nodes begin their 30 day evaluation upon successful deployment of the node ("Success" response returned from node creation operation). After 30 days, nodes will automatically be metered per their respective rates. If the trial nodes are deleted prior to the 30 day end date, the Azure VMware Solution trial will end at time of deletion.
+      - question: When does metering begin and end for trial Azure VMware Solution clusters?
+        answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
