@@ -1,6 +1,6 @@
 ---
-title: Use role-assignable groups to manage access in Azure Active Directory (preview)
-description: Role-assignable groups can help you manage access in Azure Active Directory by enabling you to assign Azure AD roles to groups.
+title: Use role-assignable groups to simplify role assignment management in Azure AD (preview)
+description: Role-assignable groups can simplify the role assignment management in Azure Active Directory by enabling you to assign Azure AD roles to groups.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -16,13 +16,13 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Use role-assignable groups to manage access in Azure Active Directory (preview)
+# Use role-assignable groups to simplify role assignment management in Azure AD (preview)
 
 > [!IMPORTANT]
 > Role-assignable groups is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Role-assignable groups (currently in public preview) is a feature in Azure Active Directory (Azure AD) that enables you to assign Azure AD built-in roles to a group. With role-assignable groups, you can manage access in Azure AD with minimal effort from your Global Administrators and Privileged Role Administrators.
+Groups in Azure Active Directory (Azure AD) that have been set as role assignable (currently in public preview) enables you to assign Azure AD built-in roles to a group. With role-assignable groups, you can simplify the role assignment management in Azure AD with minimal effort from your Global Administrators and Privileged Role Administrators.
 
 ## Why use role-assignable groups?
 
