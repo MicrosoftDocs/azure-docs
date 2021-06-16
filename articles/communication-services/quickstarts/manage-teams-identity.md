@@ -32,7 +32,7 @@ In this quickstart, we'll build a .NET console application to authenticate an AA
 
 Teams identities are bound to tenants in Azure Active Directory. Your application can be used by users from the same or any tenant. In this quickstart, we'll work through a multitenant use case with multiple actors: users, developers, and admins from fictional companies Contoso and Fabrikam. In this use case, Contoso is a company building a SaaS solution for Fabrikam. 
 
-Following sections will guide you through the steps for admins, developers, and users. The diagrams are showing multitenant use case, but if you are looking for single tenant use case, then execute all steps from Contoso and Fabrikam in single tenant.
+The following sections will guide you through the steps for admins, developers, and users. The diagrams demonstrate the multitenant use case. If you're working with a single tenant, execute all steps from Contoso and Fabrikam in single tenant.
 
 ## Admin actions
 
