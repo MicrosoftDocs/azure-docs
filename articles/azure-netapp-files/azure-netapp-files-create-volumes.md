@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -97,11 +97,12 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 3. Click **Protocol**, and then complete the following actions:  
     * Select **NFS** as the protocol type for the volume.   
-    * Specify the **file path** that will be used to create the export path for the new volume. The export path is used to mount and access the volume.
 
-        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length. 
-
-        The file path must be unique within each subscription and each region. 
+    * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
+        - It must be unique within each subnet in the region. 
+        - It must start with an alphabetical character.
+        - It can contain only letters, numbers, or dashes (`-`). 
+        - The length must not exceed 80 characters.
 
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.  
 
