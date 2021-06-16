@@ -23,11 +23,11 @@
     - name: "Python get started (Day 1)"
       expanded: true
       items:
-        - name: '1. "Hello world"'
+        - name: '1. Run a Python script'
           href: tutorial-1st-experiment-hello-world.md
         - name: 2. Train your model
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 3. Bring your own data
+        - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       items:
@@ -386,37 +386,58 @@
       items: 
         - name: Train with the 2.0 CLI
           href: how-to-train-cli.md
-        - name: Configure & submit training run 
-          displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-          href: how-to-set-up-training-targets.md
-        - name: Tune hyperparameters
-          displayName: parameter, hyperparameter, hyperdrive
-          href: how-to-tune-hyperparameters.md
-        - name: Scikit-learn
-          href: how-to-train-scikit-learn.md
-        - name: TensorFlow
-          href: how-to-train-tensorflow.md
-        - name: Keras
-          href: how-to-train-keras.md
-        - name: PyTorch
-          href: how-to-train-pytorch.md
-        - name: Train with custom Docker image
-          href: how-to-train-with-custom-image.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md
-        - name: Migrate from Estimators to ScriptRunConfig
-          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
-        - name: Track & monitor training
-          items: 
-            - name: Track, monitor, and analyze runs
-              displayName: cancel, fail, status, child run
-              href: how-to-track-monitor-analyze-runs.md
-            - name: Log & view metrics and log files
-              displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-log-view-metrics.md
-            - name: Visualize runs with TensorBoard
-              displayName: log, monitor, metrics
-              href: how-to-monitor-tensorboard.md
+        - name: Train with the Python SDK
+          items:
+          - name: Configure & submit training run 
+            displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+            href: how-to-set-up-training-targets.md
+          - name: Tune hyperparameters
+            displayName: parameter, hyperparameter, hyperdrive
+            href: how-to-tune-hyperparameters.md
+          - name: Scikit-learn
+            href: how-to-train-scikit-learn.md
+          - name: TensorFlow
+            href: how-to-train-tensorflow.md
+          - name: Keras
+            href: how-to-train-keras.md
+          - name: PyTorch
+            href: how-to-train-pytorch.md
+          - name: Train with custom Docker image
+            href: how-to-train-with-custom-image.md
+          - name: Migrate from Estimators to ScriptRunConfig
+            href: how-to-migrate-from-estimators-to-scriptrunconfig.md
+          - name: Reinforcement learning
+            href: how-to-use-reinforcement-learning.md
+          - name: Work with MLflow
+            items: 
+              - name: Track experiments with MLflow
+                displayName: log, monitor, metrics, model registry, register
+                href: how-to-use-mlflow.md
+              - name: Track Azure Databricks runs with MLflow
+                displayName: log, monitor, deploy, metrics, databricks
+                href: how-to-use-mlflow-azure-databricks.md
+              - name: Train experiments with MLflow Projects 
+                displayName: log, monitor, metrics, model registry, register
+                href: how-to-train-mlflow-projects.md              
+              - name: Deploy MLflow models
+                displayName: log, monitor, deploy, metrics, databricks, aci, aks
+                href: how-to-deploy-mlflow-models.md              
+          - name: Track & monitor training
+            items: 
+              - name: Track, monitor, and analyze runs
+                displayName: cancel, fail, status, child run
+                href: how-to-track-monitor-analyze-runs.md
+              - name: Log & view metrics and log files
+                displayName: troubleshoot, log, files, tracing, metrics
+                href: how-to-log-view-metrics.md
+              - name: Visualize runs with TensorBoard
+                displayName: log, monitor, metrics
+                href: how-to-monitor-tensorboard.md
+          - name: Use Key Vault when training
+            displayName: secrets keyvault
+            href: how-to-use-secrets-in-runs.md
         - name: Interpret & explain models
           displayName: interpretability
           items: 
@@ -428,25 +449,6 @@
               href: how-to-machine-learning-interpretability-automl.md
         - name: Assess and mitigate model fairness
           href: how-to-machine-learning-fairness-aml.md              
-        - name: Use Key Vault when training
-          displayName: secrets keyvault
-          href: how-to-use-secrets-in-runs.md
-        - name: Reinforcement learning
-          href: how-to-use-reinforcement-learning.md
-    - name: Work with MLflow
-      items: 
-        - name: Track experiments with MLflow
-          displayName: log, monitor, metrics, model registry, register
-          href: how-to-use-mlflow.md
-        - name: Track Azure Databricks runs with MLflow
-          displayName: log, monitor, deploy, metrics, databricks
-          href: how-to-use-mlflow-azure-databricks.md
-        - name: Train experiments with MLflow Projects 
-          displayName: log, monitor, metrics, model registry, register
-          href: how-to-train-mlflow-projects.md              
-        - name: Deploy MLflow models
-          displayName: log, monitor, deploy, metrics, databricks, aci, aks
-          href: how-to-deploy-mlflow-models.md              
     - name: Automated machine learning
       displayName: automl, auto ml
       items: 
@@ -633,6 +635,9 @@
     - name: Manage resource quotas
       displayName: limits
       href: how-to-manage-quotas.md
+    - name: Manage and optimize cost
+      displayName: cost-management,cost-optimization
+      href: how-to-manage-optimize-cost.md      
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: how-to-manage-resources-vscode.md
@@ -647,17 +652,21 @@
       href: how-to-use-event-grid.md
 - name: Reference
   items: 
+    - name: REST API
+      href: /rest/api/azureml/
+    - name: CLI (v2)
+      displayName: extension, command line, command-line, az, ci/cd, automate, automated
+      href: /cli/azure/ml/
+    - name: CLI (v2) YAML schemas
+      items:
+        - name: Online endpoints
+          href: reference-online-endpoint-yaml.md
     - name: Python SDK
       displayName: api, core, package, python, class
       href: /python/api/overview/azure/ml/intro
-    - name: R SDK
-      displayName: api, core, package, R, class
-      href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
-    - name: CLI
+    - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
-    - name: REST API
-      href: /rest/api/azureml/
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
@@ -667,7 +676,7 @@
       href: reference-online-endpoint-yaml.md
     - name: Machine learning pipeline YAML reference
       href: reference-pipeline-yaml.md
-    - name: Sovereign cloud parity
+    - name: Feature availability across regions
       href: reference-machine-learning-cloud-parity.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions

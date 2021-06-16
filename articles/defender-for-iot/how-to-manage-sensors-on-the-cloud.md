@@ -1,7 +1,7 @@
 ---
 title: Manage sensors in the Defender for IoT portal
 description: Learn how to onboard, view, and manage sensors in the Defender for IoT portal.
-ms.date: 04/29/2021
+ms.date: 06/03/2021
 ms.topic: how-to
 ---
 
@@ -35,19 +35,23 @@ You onboard a sensor by registering it with Azure Defender for IoT and downloadi
 
    - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel. In addition, threat intelligence packages can be pushed from the Azure Defender for IoT portal to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
    
-   Choose an IoT hub to serve as a gateway between this sensor and the Azure Defender for IoT portal. Define a site name and zone. You can also add descriptive tags. The site name, zone, and tags are descriptive entries on the [Sites and Sensors page](#view-onboarded-sensors).
+   For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
-   For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
+1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Azure Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](#view-onboarded-sensors).
+
+1. Select **Register**. 
 
 ### Download the sensor activation file
 
-The sensor activation file contains instructions about the management mode of the sensor. You download a unique activation file for each sensor that you deploy. A user who signs in to the sensor console for the first time uploads the activation file to the sensor.
+After registering a sensor you will be able to download an activation file. The sensor activation file contains instructions about the management mode of the sensor. You download a unique activation file for each sensor that you deploy. A user who signs in to the sensor console for the first time uploads the activation file to the sensor.
 
 **To download an activation file:**
 
-1. On the **Onboard Sensor** page, select **download activation file**.
+1. On the **Onboard Sensor** page, select **Register**
+
+1. Select **download activation file**.
 
 1. Make the file accessible to the user who's signing in to the sensor console for the first time.
 

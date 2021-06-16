@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/28/2021
+ ms.date: 06/15/2021
  ms.author: cherylmc
  ms.custom: include file, devx-track-azurepowershell
 ---
@@ -17,7 +17,6 @@ It depends on the gateway SKU. For more information on the number of connections
 
 The following client operating systems are supported:
 
-* Windows 7 (32-bit and 64-bit)
 * Windows Server 2008 R2 (64-bit only)
 * Windows 8.1 (32-bit and 64-bit)
 * Windows Server 2012 (64-bit only)
@@ -59,7 +58,7 @@ Depending on the VPN Client software used, you may be able to connect to multipl
 
 ### Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 
-Yes, Point-to-Site connections to a Virtual Network Gateway deployed in a VNet that is peered with other VNets may have access to other peered VNets.  Provided the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features, the Point-to-Site client will be able to connect to those peered VNets.  For more information, please reference [this](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) article.
+Yes, Point-to-Site client connections to a virtual network gateway that is deployed in a VNet which is peered with other VNets may have access to other peered VNets. Point-to-Site clients will be able to connect to peered VNets as long as the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features. For more information, see [About Point-to-Site routing](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md).
 
 ### How much throughput can I expect through Site-to-Site or Point-to-Site connections?
 
@@ -67,7 +66,7 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 ### Can I use any software VPN client for Point-to-Site that supports SSTP and/or IKEv2?
 
-No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. However, you can use the OpenVPN client on all platforms to connect over OpenVPN protocol. Refer to the list of supported client operating systems.
+No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. However, you can use the OpenVPN client on all platforms to connect over OpenVPN protocol. Refer to the list of [supported client operating systems](#supportedclientos).
 
 ### Can I change the authentication type for a Point-to-Site connection?
 

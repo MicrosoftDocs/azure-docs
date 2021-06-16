@@ -96,5 +96,4 @@ See the following articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [Add B2B collaboration guest users without an invitation](add-user-without-invite.md)
-- [Adding a B2B collaboration user to a role](add-guest-to-role.md)
-
+- [Adding a B2B collaboration user to a role](./add-users-administrator.md)

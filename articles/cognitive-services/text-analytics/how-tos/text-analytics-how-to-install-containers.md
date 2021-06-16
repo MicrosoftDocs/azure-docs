@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020, devx-track-azurecli
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/02/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
@@ -19,7 +19,6 @@ keywords: on-premises, Docker, container, sentiment analysis, natural language p
 > [!NOTE]
 > * The container for Sentiment Analysis and language detection are now Generally Available. The key phrase extraction container is available as an ungated public preview.
 > * Entity linking and NER are not currently available as a container.
-> * Accessing the Text Analytics for health container requires a [request form](https://aka.ms/csgate). Currently, you will not be billed for its usage.
 > * The container image locations may have recently changed. Read this article to see the updated location for this container.
 
 Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. 
