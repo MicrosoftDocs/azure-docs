@@ -401,7 +401,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 
         **Step 2:** Follow the same steps with [managed identity in SQL Server](#jump), which is mentioned above. 
 
-        **Step 3:**[ Create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        **Step 3:** [Create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
 
         Here's an example of connection string: 
         
