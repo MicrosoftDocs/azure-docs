@@ -32,8 +32,6 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 
 ### Azure Machine Learning SDK for Python v1.31.0
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + Fix high cardinality guardrails to be more aligned with docs
   + **azure-cli-ml**
     + The default AML Compute node scale down time has changed from 120 seconds to 1800 seconds.
   + **azureml-automl-core**
