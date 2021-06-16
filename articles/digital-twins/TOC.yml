@@ -113,7 +113,7 @@
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Make requests with Postman
+    - name: Make API requests with Postman
       href: how-to-use-postman.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md

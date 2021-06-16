@@ -2124,6 +2124,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/network-functions-manager/index.yml",
+      "redirect_url": "/azure/network-function-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-network/container-networking.md",
       "redirect_url": "/azure/aks/networking-overview",
       "redirect_document_id": false
@@ -10360,52 +10365,52 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-functions.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-functions",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-modules.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-modules",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-outputs.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-outputs",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-parameters.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-parameters",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-tags.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-tags",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-variables.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-variables",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-create-first-bicep.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-create-first-bicep",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-export-template.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-export-template",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-quickstart-template.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-quickstart-template",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-use-parameter-file.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-use-parameter-file",
+      "redirect_url": "/azure/azure-resource-manager/bicep/learn-bicep",
       "redirect_document_id": false
     },
     {
