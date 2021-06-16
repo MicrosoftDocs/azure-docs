@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
 	a. In the **Identifier** text box, type a URL using the following pattern:
-    `http://<HOSTNAME>/primary`
+    `https://<HOSTNAME>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<HOSTNAME>:<PORT>/api/authenticate`
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<HOSTNAME>:<PORT>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Fabric Client support team](mailto:support@k2view.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact K2View COE team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -91,6 +91,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Fabric** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+1. On the **Token encryption** section, click on _Import Certificate_ and upload the Fabric certificate file. Contact K2View COE team to get it.
 
 ### Create an Azure AD test user
 
@@ -118,11 +120,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Fabric SSO
 
-To configure single sign-on on **Fabric** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Fabric support team](mailto:support@k2view.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Fabric** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to K2View COE support team. They set this setting to have the SAML SSO connection set properly on both sides.
+For more information please refer to _Fabric SAML Configuration_ and to _Azure AD SAML Setup Guide_ at [K2view Knowledge Base](https://support.k2view.com/knowledge-base.html).
 
-### Create Fabric test user
+### Create Fabric roles
 
-In this section, you create a user called Britta Simon in Fabric. Work with [Fabric support team](mailto:support@k2view.com) to add the users in the Fabric platform. Users must be created and activated before you use single sign-on.
+Work with K2View COE support team to set Fabric roles which are matached to the Azure AD groups which are relevant to the users who are going to use Fabric. You shall provide Fabric team the group IDs, as they are sent in the SAML response.
 
 ## Test SSO 
 
