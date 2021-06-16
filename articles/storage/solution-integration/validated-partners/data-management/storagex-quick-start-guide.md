@@ -116,7 +116,7 @@ You can learn more here:
 - How to create [Azure File Share](../../../files/storage-how-to-create-file-share.md)
 - How to create an [SMB volume](../../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) or [NFS export](../../../../azure-netapp-files/azure-netapp-files-create-volumes.md) in Azure NetApp Files
 
-Any SMB migrations require Active Directory to be properly setup before adding any resources. We will be using an existing Azure NetApp Files implementation with new volume for migration target. Before we can create a new Azure NetApp Files volume, we need to:
+Any SMB migrations require Active Directory to be properly set up before adding any resources. We will be using an existing Azure NetApp Files implementation with new volume for migration target. Before we can create a new Azure NetApp Files volume, we need to:
 
 - [Create Azure NetApp Files account](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal#create-a-netapp-account)
 - [Create Capacity Pool](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal#set-up-a-capacity-pool)
@@ -183,15 +183,15 @@ Once the installation finishes, and all services are started, we can start migra
 
     :::image type="content" source="./media/storagex-quick-start-guide/storagex-add-resource-2.png" alt-text="Screenshot for adding Generic CIFS resource to StorageX deployment":::
 
-1. Browse to find Azure NetApp Files computer account. Azure NetApp Files computer account was created when it was addedd to Active Directory Domain.
+1. Browse to find Azure NetApp Files computer account. Azure NetApp Files computer account was created when it was added to Active Directory Domain.
    
     :::image type="content" source="./media/storagex-quick-start-guide/storagex-add-resource-3.png" alt-text="Screenshot for adding Azure NetApp Files computer account":::
 
     **Finish** the wizard, and verify the account has been added, and contains the share we created.
 
-    :::image type="content" source="./media/storagex-quick-start-guide/storagex-add-resource-4.png" alt-text="Screenshot for browsing the addedd resources":::
+    :::image type="content" source="./media/storagex-quick-start-guide/storagex-add-resource-4.png" alt-text="Screenshot for browsing the added resources":::
 
-Above steps must be performed for every source, and target. Example shows adding Azure NetApp Files share, and it can be slightly different for other services.
+Every source, and target must be added as a separate resource. Example shows adding Azure NetApp Files share, and it can be slightly different for other services.
 
 1.	Click the **Data Movement** tab.
 
@@ -211,7 +211,7 @@ Above steps must be performed for every source, and target. Example shows adding
 
 ## Support
 
-In case of issues Microsoft and Data Dynamics can provide help using regular support channels. Contact Microsoft for infrastructure issues or with any Azure service. Contact Data Dynamics for issues tied to Data Dynamics StorageX installation.
+If issues occur, Microsoft and Data Dynamics can provide help using regular support channels. Contact Microsoft for infrastructure issues or with any Azure service. Contact Data Dynamics for issues tied to Data Dynamics StorageX installation.
 
 ### How to open a case with Azure
 
