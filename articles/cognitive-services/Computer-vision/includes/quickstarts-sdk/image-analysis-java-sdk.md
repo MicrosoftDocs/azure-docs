@@ -57,13 +57,13 @@ plugins {
     application
 }
 application { 
-    mainClassName = "ImageAnalysisQuickstart"
+    mainClass.set("ImageAnalysisQuickstart")
 }
 repositories {
     mavenCentral()
 }
 dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
+    implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.6-beta")
 }
 ```
 
