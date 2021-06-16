@@ -122,5 +122,11 @@ Cloud Services (extended support) has adopted the same process as other compute 
 ###	Can I use one Key Vault for all my deployments in all regions?
 No. Key Vault is a regional resource and customers need one Key Vault in each region. However, one Key Vault can be used for all deployments within a given region.
 
+### When specifying secrets/certificates to be installed to a Cloud Service, must the KeyVault resource be in the same Azure subscription as the Cloud Service resource?
+Yes. We do not allow cross subscription key vault references in Cloud Services to guard against escalation of privilege attacks through CS-ES. The subscription is not a boundary that CS-ES will cross for references to secrets.  The reason we do not allow cross subscription references is as an important final step to prevent malicious users from using CS-ES as a privilege escalation mechanism to access other users secrets. Subscription isn’t a security boundary, but defense in depth is a requirement. However, you can use the Key Vault extension to get cross subscription and cross region support for your certificates. Please refer to the documentation [here](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine)
+
+### When specifying secrets/certificates to be installed to a Cloud Service, must the KeyVault resource be in the same region as the Cloud Service resource?
+Yes. The reason that we enforce region boundaries is to prevent users from creating architectures that have cross region dependencies. Regional isolation is a key design principle of cloud based applications. However, you can use the Key Vault extension to get cross subscription and cross region support for your certificates. Please refer to the documentation [here](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine)
+
 ## Next steps
 To start using Cloud Services (extended support), see [Deploy a Cloud Service (extended support) using PowerShell](deploy-powershell.md)
