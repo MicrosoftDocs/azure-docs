@@ -38,7 +38,7 @@ To register a new Azure Synapse Source in your data catalog, do the following:
 1. Go to your Azure Purview account.
 1. On the left pane, select **Sources**.
 1. Select **Register**.
-1. Under **Register sources**, select **Azure Synapse Analytics**.
+1. Under **Register sources**, select **Azure Synapse Analytics (multiple)**.
 1. Select **Continue**.
 
    :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source.png" alt-text="Screenshot of a selection of sources in Azure Purview, including Azure Synapse Analytics.":::
