@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/10/2021
 ms.author: aahi
 ---
 
@@ -354,6 +354,7 @@ If successful, the GET request to the `/analyze` endpoint will return an object 
 ## See also
 
 * [Text Analytics overview](../overview.md)
+* [Model versions](../concepts/model-versioning.md)
 * [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
 * [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)

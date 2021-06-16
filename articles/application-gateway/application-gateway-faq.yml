@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: application-gateway
   ms.topic: article
-  ms.date: 04/12/2021
+  ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
     
@@ -167,10 +167,12 @@ sections:
       - question: Can I deploy anything else in the application gateway subnet?
         answer: No. But you can deploy other application gateways in the subnet.
         
-      - question: Can I change the Virtual Network or Subnet for an existing Application Gateway?
+      - question: Can I change the virtual network or subnet for an existing Application Gateway?
         answer: |
-          You can move an Application Gateway across subnets within the same Virtual Network only. It is also important to note that the Application Gateway should be in a Stopped state to perform this action. This operation can only be carried out through PowerShell and CLI by running the following commands:
+          You can move an Application Gateway across subnets within the same virtual network only. It is also important to note that the Application Gateway should be in a *Stopped* state to perform this action. This operation can only be done using Azure PowerShell and Azure CLI by running the following commands:
           
+          **Azure PowerShell**
+
           ```azurepowershell-interactive
           $VNet = Get-AzVirtualNetwork -Name "<VNetName>" -ResourceGroupName "<ResourceGroup>"
           $Subnet = Get-AzVirtualNetworkSubnetConfig -Name "<NewSubnetName>" -VirtualNetwork $VNet
@@ -179,8 +181,10 @@ sections:
           $AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name "<IPConfigurationName>" -Subnet $Subnet
           Set-AzApplicationGateway -ApplicationGateway $AppGw
           ```
-          [Details of the PowerShell commands](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).
+          For more information, see [Set-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).
          
+          **Azure CLI**
+          
           ```azurecli-interactive
           az network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>
           az network application-gateway update -g <ResourceGroup> -n <ApplicationGatewayName> --set gatewayIpConfigurations[0].subnet.id=<subnetID>

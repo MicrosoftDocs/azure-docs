@@ -56,17 +56,18 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 6. Check the diagnostics in **Diagnostic** tab.
 
-7. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
+7. Check the **Logs**. You can view full log of **Livy**, **Prelaunch**, and **Driver** logs via selecting different options in the drop-down list. And you can directly retrieve the required log information by searching keywords. Click **Download log** to download the log information to the local, and select the **Filter errors and warnings** check box to filter the errors and warnings you need.
 
 8. You can see an overview of your job in the generated job graph. By default, the graph shows all jobs. You can filter this view by **Job ID**.
 
 9. By default, the **Progress** display is selected. You can check the data flow by selecting **Progress**/**Read**/**Written**/**Duration** in the **View** dropdown list.
 
-10. To playback the job, click on **Playback** button. You can click on **Stop** button at any time to stop.
+10. To play back the job, click on **Playback** button. You can click on **Stop** button at any time to stop.
 
 11. Use scroll bar to zoom in and zoom out the job graph, you can also select **Zoom to Fit** to make it fit the screen.
 
-    ![view completed job](./media/how-to-monitor-spark-applications/view-completed-job.png)
+    [![view completed job](./media/how-to-monitor-spark-applications/view-completed-job.png)](./media/how-to-monitor-spark-applications/view-completed-job.png#lightbox)
+
 
 12. The job graph node displays the following information of each stage:
 
@@ -115,17 +116,11 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 2. **Cancel** the Apache Spark application.
 
-3. **Refresh** Log query.
+3. **Refresh** the Job.
 
 4. Click on **Spark UI** button to go to Spark Job page.
 
-5. View the graph. You can see an overview of your job in the generated job graph. Refer to Step 6，7，8，9，10 of [View completed Apache Spark application](#view-completed-apache-spark-application).
-
-6. Check the **Summary** info.
-
-7. Check the diagnostics in **Diagnostic** tab.
-
-8. Check the **Logs** in this tab. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
+5. For **Job graph**, **Summary**, **Diagnostics**, **Logs**. You can see an overview of your job in the generated job graph. Refer to step 5 - 15 of [View completed Apache Spark application](#view-completed-apache-spark-application). 
 
     [![view running job](./media/how-to-monitor-spark-applications/view-running-job.png)](./media/how-to-monitor-spark-applications/view-running-job.png#lightbox)
 
@@ -137,22 +132,15 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 1. Check the **Completed tasks**, **Status**, and **Total duration**.
 
-2. **Refresh** the Log query.
+2. **Refresh** the Job.
 
 3. Click on **Compare applications** to use the comparison feature, for more information on this feature, see the [**Compare Apache Spark applications**](#compare-apache-spark-applications).
 
 4. Open Apache history server link by clicking **Spark history server**.
 
-5. Check the **Summary** info.
+5. View the graph. You can see an overview of your job in the generated job graph. Refer to step 5 - 15 of [View completed Apache Spark application](#view-completed-apache-spark-application).
 
-
-6. View the graph. You can see an overview of your job in the generated job graph. Refer to Step 6 - 15 of [View completed Apache Spark application](#view-completed-apache-spark-application).
-
-7. Check the diagnostics in **Diagnostic** tab.
-
-8. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download** logs, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
-
-   ![view cancelled job](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
+  [![view cancelled job](./media/how-to-monitor-spark-applications/view-cancelled-job.png)](./media/how-to-monitor-spark-applications/view-cancelled-job.png#lightbox)
 
 ## Debug failed Apache Spark application
 
@@ -162,22 +150,20 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 1. Check the **Completed tasks**, **Status**, and **Total duration**.
 
-2. Refresh Log query.
+2. **Refresh** the Job.
 
-3. Open Apache Spark history server link by clicking **Spark history server**.
+3. Click on **Compare applications** to use the comparison feature, for more information on this feature, see the [**Compare Apache Spark applications**](#compare-apache-spark-applications).
 
-4. View the graph. You can see an overview of your job in the generated job graph. Refer to Step 6，7，8，9，10 of [View completed Apache Spark application](#view-completed-apache-spark-application)
+4. Open Apache history server link by clicking **Spark history server**.
 
-5. Check the **Summary** info.
+5. View the graph. You can see an overview of your job in the generated job graph. Refer to step 5 - 15 of [View completed Apache Spark application](#view-completed-apache-spark-application).
 
-6. Check the error info.
-
-   ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
+   [![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)](./media/how-to-monitor-spark-applications/failed-job-info.png#lightbox)
 
 
 ## View input data/output data for Apache Spark Application
 
-Select an Apache Spark application, and click on **Input data/Output data tab** to view dates of the input and output for Apache Spark application. This function can better help you debug the Spark job. And the data source supports three storage methods: gen1, gen2 and blob.
+Select an Apache Spark application, and click on **Input data/Output data tab** to view dates of the input and output for Apache Spark application. This function can better help you debug the Spark job. And the data source supports three storage methods: gen1, gen2, and blob.
     
 **Input data tab**
      
@@ -202,8 +188,6 @@ Select an Apache Spark application, and click on **Input data/Output data tab** 
    * Properties: show the basic properties of the file (File name/File path/Read format/Size/Modified).
 
      ![properties image](./media/how-to-monitor-spark-applications/properties.png)
-
-
 
 **Output data tab**
 

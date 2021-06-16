@@ -16,7 +16,7 @@ When you publish your virtual machine (VM) image to Azure Marketplace, the Azure
 This article explains common error messages during VM image publishing, along with related solutions.
 
 > [!NOTE]
-> If you have questions about this article or suggestions for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
+> If you have questions about this article or suggestions for improvement, contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## VM extension failure
 
@@ -316,11 +316,11 @@ Refer to the following table for any issues that arise when you download the VM 
 |Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 |
 
-## First partition starts at 1 MB (2048 Sectors)
+## VM images must have 1MB free space
 
 If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
 
-### Create a 1 MB (2048 sectors, each sector of 512 bytes) partition on an empty VHD
+### How to keep 1 MB free space at the start on an empty VHD (2048 sectors, each sector of 512 bytes)
 
 These steps apply to Linux only.
 
@@ -385,7 +385,7 @@ These steps apply to Linux only.
 
 1. Detach the VHD from VM and delete the VM.
 
-### Create a 1 MB (2048 sectors, each sector of 512 bytes) partition by moving existing data on VHD
+### How to keep 1 MB free space by moving existing data on VHD (2048 sectors, each sector of 512 bytes)
 
 These steps apply to Linux only.
 
@@ -622,4 +622,4 @@ For more information, please visit [VM Extension](../virtual-machines/extensions
 
 - [Configure VM offer properties](azure-vm-create-properties.md)
 - [Active marketplace rewards](marketplace-rewards.md)
-- If you have questions or feedback for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport)
+- If you have questions or feedback for improvement, contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533)

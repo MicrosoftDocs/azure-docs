@@ -411,7 +411,7 @@ Data | Description |
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
 
 The resource disk object contains the size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
-If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.md), this value is 0. 
+If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.yml), this value is 0. 
 
 | Data | Description | Version introduced |
 |------|-------------|--------------------|

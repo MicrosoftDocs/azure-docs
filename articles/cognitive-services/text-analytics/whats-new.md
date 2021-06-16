@@ -24,8 +24,8 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 * v3.1 of the REST API is now generally available. Currently the SDK is still in preview.
 * New model-version `2021-06-01` for key phrase extraction, which adds support for simplified Chinese.
 * The `2021-06-01` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
-  * Improved AI quality and expanded language support in the Skill entity category. 
-  * Added Spanish, French, German, Italian and Portuguese language support of the Skill entity category
+  * Improved AI quality and expanded language support for the *Skill* entity category. 
+  * Added Spanish, French, German, Italian and Portuguese language support for the *Skill* entity category
 * Asynchronous operation and Text Analytics for health are available in all regions 
 
 ### Text Analytics for health updates

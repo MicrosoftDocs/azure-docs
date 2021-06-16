@@ -4,7 +4,7 @@ description: A brief overview of which locations Azure Virtual Desktop's data an
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/01/2021
+ms.date: 06/08/2021
 ms.author: helohr
 manager: femila
 ---
@@ -43,6 +43,7 @@ We currently support storing the aforementioned data in the following locations:
 
 - United States (US) (generally available)
 - Europe (EU) (generally available)
+- United Kingdom (UK) (public preview)
 
 More geographies will be added as the service grows. The stored information is encrypted at rest, and geo-redundant mirrors are maintained within the geography. Customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service.
 

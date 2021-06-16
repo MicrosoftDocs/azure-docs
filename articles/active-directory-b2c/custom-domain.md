@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 06/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -34,7 +34,7 @@ The following diagram illustrates Azure Front Door integration:
 1. From an application, a user clicks the sign-in button, which takes them to the Azure AD B2C sign-in page. This page specifies a custom domain name.
 1. The web browser resolves the custom domain name to the Azure Front Door IP address. During DNS resolution, a canonical name (CNAME) record with a custom domain name points to your Front Door default front-end host (for example, `contoso.azurefd.net`). 
 1. The traffic addressed to the custom domain (for example, `login.contoso.com`) is routed to the specified Front Door default front-end host (`contoso.azurefd.net`).
-1. Azure Front Door invokes Azure AD B2C content using the Azure AD B2C `<tenant-name>.b2clogin.com` default domain. The request to the Azure AD B2C endpoint includes a custom HTTP header that contains the original custom domain name.
+1. Azure Front Door invokes Azure AD B2C content using the Azure AD B2C `<tenant-name>.b2clogin.com` default domain. The request to the Azure AD B2C endpoint includes the [X-Forwarded-Host](../frontdoor/front-door-http-headers-protocol.md) HTTP header. This HTTP header contains the original custom domain name.
 1. Azure AD B2C responds to the request by displaying the relevant content and the original custom domain.
 
 ![Custom domain networking diagram](./media/custom-domain/custom-domain-network-flow.png)

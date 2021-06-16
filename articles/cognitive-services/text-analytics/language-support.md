@@ -8,10 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/14/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
+
+> [!NOTE]
+> Languages are added as new model versions are released for specific Text Analytics features. See [Model versioning](concepts/model-versioning.md) for the latest model version for the features you're using, and for more information.
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
 
@@ -73,7 +76,7 @@ ms.author: aahi
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
-| Language              | Language code |  v3 support | Available starting with v3 model version: |       Notes        |
+| Language              | Language code |  v3 support | Starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
 | Afrikaans             |     `af`      |     ✓      |                2020-07-01                 |                    |
 | Bulgarian             |     `bg`      |     ✓      |                2020-07-01                 |                    |
@@ -108,7 +111,7 @@ ms.author: aahi
 
 #### [Entity linking](#tab/entity-linking)
 
-| Language | Language code |  v3 support | Available starting with v3 model version: | Notes |
+| Language | Language code |  v3 support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | English  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Spanish  |     `es`      |    ✓      |                2019-10-01                 |       |
@@ -134,7 +137,7 @@ The Text Analytics API can detect a wide range of languages, variants, dialects,
 
 If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that cannot be detected is `unknown`.
 
-| Language | Language Code | v3 support | Available starting with v3 model version: |
+| Language | Language Code | v3 support | Starting with v3 model version: |
 |:-|:-:|:-:|:-:|
 |Afrikaans|`af`|✓|    |
 |Albanian|`sq`|✓|    |
@@ -258,3 +261,4 @@ If you have content expressed in a less frequently used language, you can try La
 ## See also
 
 * [What is the Text Analytics API?](overview.md)   
+* [Model versions](concepts/model-versioning.md)

@@ -119,7 +119,7 @@ The OS disk for each compute node stored in Azure Storage is encrypted with Micr
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. The disk is encrypted by default for workspaces with the `hbi_workspace` parameter set to `TRUE`. This environment is short-lived only for the duration of your run, and encryption support is limited to system-managed keys only.
 
-The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. The local temporary disk on compute instance is encrypted with Microsoft managed keys for workspaces with the `hbi_workspace` parameter set to `TRUE`.
+The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. The local temporary disk on compute instance is encrypted with Microsoft managed keys for workspaces with the `hbi_workspace` parameter set to `TRUE`. Customer managed key encryption is not supported for OS and temp disk.
 
 ### Azure Databricks
 
