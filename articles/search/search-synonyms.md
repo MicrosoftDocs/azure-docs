@@ -35,8 +35,8 @@ POST /synonymmaps?api-version=2020-06-30
 
 To create a synonym map, do so programmatically (the portal doesn't support synonym map definitions):
 
-+ [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map)
-+ [SynonymMap class (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap). For C# developers, we recommend starting with [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md).
++ [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map). This reference is the most descriptive.
++ [SynonymMap class (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) and [Add Synonyms using C#](search-synonyms-tutorial-sdk.md)
 + [SynonymMap class (Python)](/python/api/azure-search-documents/azure.search.documents.indexes.models.synonymmap)
 + [SynonymMap interface (JavaScript)](/javascript/api/@azure/search-documents/synonymmap)
 + [SynonymMap class (Java)](/java/api/com.azure.search.documents.indexes.models.synonymmap)
