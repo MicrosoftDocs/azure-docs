@@ -128,11 +128,11 @@ To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018
 
 ## Legacy pricing tiers
 
-Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)**, and **Per Node (OMS)**. Workspaces in the Free Trial pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to 7 days. The Free Trial pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)**, and **Per Node (OMS)**. Workspaces in the Free Trial pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
 
 Usage on the Standalone pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". 
 
-The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. Note that on your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Usage is reported on three meters:
+The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. On your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Usage is reported on three meters:
 
 - **Node**: this is usage for the number of monitored nodes (VMs) in units of node months.
 - **Data Overage per Node**: this is the number of GB of data ingested in excess of the aggregated data allocation.
@@ -194,7 +194,7 @@ It's also possible to specify different retention settings for individual data t
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Note that the data type (table) is case sensitive. To get the current per-data-type retention settings of a particular data type (in this example SecurityEvent), use:
+Note that the data type (table) is case-sensitive. To get the current per-data-type retention settings of a particular data type (in this example SecurityEvent), use:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
@@ -613,11 +613,11 @@ To see the number of distinct Automation nodes, use the query:
 
 The decision of whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Commitment Tier**  is often difficult for customers to assess.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier. 
 
-To facilitate this assessment, the following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns. This query looks at the monitored nodes and data ingested into a workspace in the last 7 days, and for each day, it evaluates which pricing tier would have been optimal. To use the query, you need to specify:
+To facilitate this assessment, the following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns. This query looks at the monitored nodes and data ingested into a workspace in the last seven days, and for each day, it evaluates which pricing tier would have been optimal. To use the query, you need to specify:
 
 - Whether the workspace is using Azure Defender (Security Center) by setting **workspaceHasSecurityCenter** to **true** or **false**. 
 - Update the prices if you have specific discounts.
-- Specify the number of days to look back and analyze by setting **daysToEvaluate**. This is useful if the query is taking too long trying to look at 7 days of data. 
+- Specify the number of days to look back and analyze by setting **daysToEvaluate**. This is useful if the query is taking too long trying to look at seven days of data. 
 
 Here is the pricing tier recommendation query:
 
@@ -729,7 +729,7 @@ When you receive an alert, use the steps in the above sections about how to trou
 
 ## Data transfer charges using Log Analytics
 
-Sending data to Log Analytics might incur data bandwidth charges. However, that's limited to Virtual Machines where a Log Analytics agent is installed and doesn't apply when using Diagnostics settings or with other connectors that are built-in to Azure Sentinel. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions is charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small compared to the costs for Log Analytics data ingestion. Consequently, controlling costs for Log Analytics needs to focus on your [ingested data volume](#understanding-ingested-data-volume). 
+Sending data to Log Analytics might incur data bandwidth charges. However, that's limited to Virtual Machines where a Log Analytics agent is installed and doesn't apply when using Diagnostics settings or with other connectors that are built in to Azure Sentinel. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions is charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small compared to the costs for Log Analytics data ingestion. So, controlling costs for Log Analytics needs to focus on your [ingested data volume](#understanding-ingested-data-volume). 
 
 ## Troubleshooting why Log Analytics is no longer collecting data
 
