@@ -92,7 +92,7 @@ By default Image Builder will use a "Standard_D1_v2" build VM, this is built fro
 2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 3. Require [VM isolation](../isolation.md).
 4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
-5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.md) that don't use local temporary disks.
+5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
  
 This is optional.
 
@@ -137,7 +137,7 @@ This optional section can be used to ensure that dependencies are completed befo
     "dependsOn": [],
 ```
 
-For more information, see [Define resource dependencies](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
+For more information, see [Define resource dependencies](../../azure-resource-manager/templates/resource-dependency.md#dependson).
 
 ## Identity
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 06/09/2021
 ms.author: jeedes
 
 ---
@@ -143,7 +143,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     f. Copy **SERVICE PROVIDER ACS URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
 
-    g. Click **Create IDMS**.
+    g. Under Assertion Mapping, enter the following values:
+
+    | Field | Value |
+    |-----------|-------|
+    | First Name | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+    | Last Name | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+    | Email | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+    |  Username | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+    |
+
+1. Click **Create IDMS**.
 
 
 ### Create cloudtamer.io test user

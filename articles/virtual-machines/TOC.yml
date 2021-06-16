@@ -155,6 +155,8 @@
         href: sizes-compute.md
       - name: Fsv2-series
         href: fsv2-series.md
+      - name: FX-series
+        href: fx-series.md
     - name: Memory optimized
       items:
       - name: Overview
@@ -264,7 +266,7 @@
         displayName: vCPU, quota, limit
         href: ./windows/quotas.md
     - name: Azure VMs with no temp disk
-      href: azure-vms-no-temp-disk.md
+      href: azure-vms-no-temp-disk.yml
     - name: Azure VM sizes naming conventions
       href: vm-naming-conventions.md
     - name: Previous generations
@@ -638,9 +640,6 @@
       - name: FreeBSD
         displayName: Linux distribution specific requirements, FreeBSD
         href: ./linux/freebsd-intro-on-azure.md
-      - name: FreeBSD Packet Filter
-        displayName: Linux distribution specific requirements, FreeBSD
-        href: ./linux/freebsd-pf-nat.md
       - name: Oracle Linux
         displayName: Linux distribution specific requirements, Oracle
         href: ./linux/oracle-create-upload-vhd.md
@@ -792,13 +791,13 @@
     - name: Resource Manager Templates
       items:
       - name: Create a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        href: https://azure.microsoft.com/resources/templates/sig-create/
       - name: Create an Image Definition in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
-        href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+        href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
       - name: Create a VM from Image Version
-        href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+        href: https://azure.microsoft.com/resources/templates/vm-from-sig/
     - name: Ansible
       href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
@@ -967,6 +966,8 @@
     href: disks-shared-enable.md
   - name: Encryption
     items:
+    - name: Disk encryption overview
+      href: disk-encryption-overview.md
     - name: Server-side encryption
       items:
       - name: Server-side encryption overview
@@ -1041,7 +1042,7 @@
         - name: Disk encryption troubleshooting
           href: ./linux/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./linux/disk-encryption-faq.md
+          href: ./linux/disk-encryption-faq.yml
         - name: Upgrade from previous to current version
           href: ./linux/disk-encryption-upgrade.md
         - name: Disk encryption - previous version
@@ -1074,7 +1075,7 @@
         - name: Disk encryption troubleshooting
           href: ./windows/disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
-          href: ./windows/disk-encryption-faq.md
+          href: ./windows/disk-encryption-faq.yml
         - name: Disk encryption - previous version
           items:
           - name: Overview
@@ -1262,7 +1263,7 @@
         displayName: Find unattached disks
         href: disks-find-unattached-portal.md
     - name: Disks FAQs
-      href: faq-for-disks.md
+      href: faq-for-disks.yml
   - name: Code samples
     items:
     - name: CLI
@@ -1444,11 +1445,17 @@
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
   - name: Linux Active Directory sign-in
-    href: ./linux/login-using-aad.md
+    displayName: aad
+    items:
+    - name: SSH with Azure Active Directory
+      href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
+      items:
+      - name: Previous version being deprecated August 15, 2021
+        href: ./linux/login-using-aad.md
 - name: Updates and maintenance
   items:
   - name: Overview
-    displayName: Updates and maintenance
+    displayName: maintenance, updates, live-migration
     href: updates-maintenance-overview.md
   - name: Automatic OS image upgrade
     items:
@@ -1457,12 +1464,18 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
     - name: Maintenance control for OS image upgrade
       items:
-      - name: Overview (Preview)
+      - name: Overview
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell (Preview)
+      - name: PowerShell 
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-powershell.md
+      - name: CLI 
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-cli.md
+      - name: Portal 
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-portal.md
   - name: Automatic VM guest patching (Preview)
     items:
     - name: Overview
@@ -1831,6 +1844,7 @@
   - name: FAQ
     items:
     - name: Linux
-      href: ./linux/faq.md
+      href: ./linux/faq.yml
     - name: Windows
-      href: ./windows/faq.md
+      href: ./windows/faq.yml
+
