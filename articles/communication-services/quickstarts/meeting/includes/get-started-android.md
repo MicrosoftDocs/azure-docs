@@ -71,7 +71,7 @@ Update the values on the `build.gradle` file
 
 ### Install the Teams Embed package
 
-Download the [`MicrosoftTeamsSDK` package.](https://github.com/Azure/communication)
+Download the `MicrosoftTeamsSDK` package.
 
 Then unzip the `MicrosoftTeamsSDK` folder into your projects app folder. Ex. `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 
