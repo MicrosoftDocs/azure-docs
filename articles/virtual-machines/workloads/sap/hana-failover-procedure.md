@@ -31,7 +31,7 @@ There are two cases to consider when you fail over to a DR site:
 - You want to restore to a storage snapshot that's not the latest replicated snapshot. In this case, you need to work with Microsoft. 
 
 >[!NOTE]
->The following steps must be done on the HANA Large Instance that is the DR unit. 
+>The following steps must be done on the HANA Large Instance in the DR site. 
  
 To restore to the latest replicated storage snapshots, follow the steps in "Perform full DR failover - azure_hana_dr_failover" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf). 
 
@@ -45,7 +45,7 @@ You can test the DR failover without impacting the actual replication relationsh
 
 If you want to test multiple SAP HANA instances, run the script several times. When requested, enter the SAP HANA SID of the instance you want to test for failover. 
 
-### Set DR volumes to an earlier snapshot
+## Set DR volumes to an earlier snapshot
 
 Let's say you need to fail over to the DR site to rescue data deleted hours before and need the DR volumes to be set to an earlier snapshot. Then the following procedure applies: 
 
@@ -71,7 +71,7 @@ After the restore, the disaster recovery volumes are available to be mounted to 
 1. Let's say you chose to copy transaction log backup logs to reduce the recovery point objective (RPO) time. Then merge the transaction log backups into the newly mounted DR /hana/logbackups directory. Don't overwrite existing backups. Copy newer backups that weren't replicated with the latest replication of a storage snapshot.
 1. You can also restore single files out of the snapshots that weren't replicated to the /hana/shared/PRD volume in the DR Azure region.
 
-### Recover the SAP HANA production instance
+## Recover the SAP HANA production instance
 
 The following steps show how to recover the SAP HANA production instance from the restored storage snapshot and the available transaction log backups.
 
