@@ -48832,37 +48832,37 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-android.md",
-      "redirect_url": "/articles/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-c.md",
-      "redirect_url": "/articles/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-dotnet.md",
-      "redirect_url": "/articles/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-ios.md",
-      "redirect_url": "/articles/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-java.md",
-      "redirect_url": "/articles/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-node.md",
-      "redirect_url": "/articles/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-python.md",
-      "redirect_url": "/articles/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     },
     {
