@@ -28,7 +28,7 @@ You can use the Azure Communication Services Identity SDK to exchange AAD user t
 You can also use custom Teams endpoints to optionally integrate chat capabilities using Graph APIs. Learn more about Graph API in [the documentation](https://docs.microsoft.com/graph/api/channel-post-messages). 
 
 > [!NOTE]
-> Following diagram shows multitenant use case, where company Fabrikam is customer of company Contoso.
+> The following diagram demonstrates a multitenant use case, where Fabrikam is a customer of the company Contoso.
 
 ![Process to enable chat feature for custom Teams endpoint experience](./media/teams-identity-chat-overview.png)
 
