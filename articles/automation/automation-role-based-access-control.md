@@ -263,7 +263,7 @@ As a result of this security risk, we recommend you don't use the Log Analytics 
 
 Perform the following steps to create the Azure Automation custom role in the Azure portal. If you would like to learn more, see [Azure custom roles](/role-based-access-control/custom-roles.md).
 
-1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the assignableScopes property with the subscription GUID.
+1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the **assignableScopes** property with the subscription GUID.
 
    ```json
    {
@@ -306,7 +306,7 @@ Perform the following steps to create the Azure Automation custom role in the Az
 
 Perform the following steps to create the Azure Automation custom role with PowerShell. If you would like to learn more, see [Azure custom roles](/role-based-access-control/custom-roles.md).
 
-1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the assignableScopes property with the subscription GUID.
+1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the **AssignableScopes** property with the subscription GUID.
 
     ```json
     { 
