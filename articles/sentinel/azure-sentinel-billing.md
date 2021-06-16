@@ -116,6 +116,7 @@ Manage data ingestion and retention:
 - [Optimize Log Analytics costs with dedicated clusters](#optimize-log-analytics-costs-with-dedicated-clusters).
 - [Separate non-security data in a different workspace](#separate-non-security-data-in-a-different-workspace).
 - [Reduce long-term data retention costs with Azure Data Explorer (ADX)](#reduce-long-term-data-retention-costs-with-adx).
+- Use Data Collection Rules for your Windows Security Events.
 
 Understand, monitor, and alert for data ingestion and cost changes:
 
@@ -197,6 +198,12 @@ Azure Sentinel security data might lose some of its value after a few months. Se
 With ADX, you can store data at a lower price, but still explore the data using the same Kusto Query Language (KQL) queries as in Azure Sentinel. You can also use the ADX proxy feature to do cross-platform queries. These queries aggregate and correlate data spread across ADX, Application Insights, Azure Sentinel, and Log Analytics.
 
 For more information, see [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
+
+#### Use Data Collection Rules for your Windows Security Events
+
+The [Windows Security Events connector](https://docs.microsoft.com/en-us/azure/sentinel/connect-windows-security-events?tabs=LAA) lets you stream security events from any Windows server (physical or virtual, on-premises or in any cloud) connected to your Azure Sentinel workspace. The new version of this connector is currently in preview and is based on the new Azure Monitor Agent (AMA). The Azure Monitor agent uses Data collection rules (DCR) to define the data to collect from each agent. Data collection rules let you manage collection settings at scale while still allowing unique, scoped configurations for subsets of machines. See [Configure data collection for the Azure Monitor agent](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) for more details.
+
+Besides the pre-selected sets of events (All events, Minimal, or Common) that you could choose to ingest with the old connector, data collection rules let you build custom filters to choose the exact events you want to ingest. The Azure Monitor Agent uses these rules to filter the data _at the source_ and ingest only the events you want, while leaving everything else behind. This can help you optimize your costs and save more.
 
 ### Understand, monitor, and alert for changes in data ingestion and costs
 
