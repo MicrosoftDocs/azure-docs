@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Configure object replication for block blobs
 
-Object replication asynchronously copies block blobs between a source storage account and a destination account. For more information about object replication, see [Object replication](object-replication-overview.md).
+Object replication asynchronously copies block blobs between a source storage account and a destination account. For more information about object replication, see [Object replication for block blobs](object-replication-overview.md).
 
 When you configure object replication, you create a replication policy that specifies the source storage account and the destination account. A replication policy includes one or more rules that specify a source container and a destination container and indicate which block blobs in the source container will be replicated.
 
@@ -29,7 +29,7 @@ Before you configure object replication, create the source and destination stora
 
 Object replication requires that blob versioning is enabled for both the source and destination account, and that blob change feed is enabled for the source account. To learn more about blob versioning, see [Blob versioning](versioning-overview.md). To learn more about change feed, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md). Keep in mind that enabling these features can result in additional costs.
 
-A storage account can serve as the source account for up to two destination accounts. The source and destination accounts may be in the same region or in different regions. They may also reside in different subscriptions and in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each pair of accounts.
+A storage account can serve as the source account for up to two destination accounts. The source and destination accounts may be in the same region or in different regions. They may also reside in different subscriptions and in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each account pair.
 
 When you configure object replication, you create a replication policy on the destination account via the Azure Storage resource provider. After the replication policy is created, Azure Storage assigns it a policy ID. You must then associate that replication policy with the source account by using the policy ID. The policy ID on the source and destination accounts must be the same in order for replication to take place.
 
@@ -43,7 +43,7 @@ Before you configure object replication in the Azure portal, create the source a
 
 # [Azure portal](#tab/portal)
 
-The Azure portal automatically creates the policy on the source account after you configure it for the destination account.
+The Azure portal automatically creates the policy on the source account after you configure it for the destination account. ???why do we say this here???
 
 To create a replication policy in the Azure portal, follow these steps:
 
@@ -234,6 +234,8 @@ Configuring object replication across Azure AD tenants is permitted only when th
 
 Keep in mind that you must be assigned the Azure Resource Manager **Contributor** role scoped to the level of the destination storage account or higher in order to create the object replication policy. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
 
+Specify the Azure Resource Manager resource IDs for the source and destination storage accounts in the JSON file. To learn how to locate the resource ID for a storage account, see ???.
+
 The following table summarizes which values to use for the policy ID and rule IDs in the JSON file in each scenario.
 
 | When you are creating the JSON file for this account... | Set the policy ID to this value | Set rule IDs to this value |
@@ -247,8 +249,8 @@ The following example defines a replication policy on the destination account wi
 {
   "properties": {
     "policyId": "default",
-    "sourceAccount": "<source-account>",
-    "destinationAccount": "<dest-account>",
+    "sourceAccount": "<source-account-resource-id>",
+    "destinationAccount": "<dest-account-resource-id>",
     "rules": [
       {
         "ruleId": "",
@@ -265,6 +267,9 @@ The following example defines a replication policy on the destination account wi
   }
 }
 ```
+
+> [!NOTE]
+> The JSON file that defines an object replication policy previously required only the account name, instead of the full resource ID for the storage account. While using the account name is still supported in certain scenarios (???clarify which ones), Microsoft recommends always providing the full resource ID as a best practice.
 
 # [Azure portal](#tab/portal)
 
