@@ -8045,7 +8045,7 @@ Lets you manage logic apps, but not change access to them. [Learn more](../logic
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage logic app, but not access to them.",
+  "description": "Lets you manage logic app, but not change access to them.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/87a39d53-fc1b-424a-814c-f7e04687dc9e",
   "name": "87a39d53-fc1b-424a-814c-f7e04687dc9e",
   "permissions": [

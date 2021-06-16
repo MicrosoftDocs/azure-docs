@@ -227,6 +227,6 @@ If your application sends voluminous amounts of data and you're using the Applic
 [diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
+[qna]: ../faq.yml
 [start]: ./app-insights-overview.md
 

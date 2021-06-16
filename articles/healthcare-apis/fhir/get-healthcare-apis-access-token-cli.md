@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: matjazl
+ms.author: zxue
 ---
 
 # Get access token for Azure API for FHIR using Azure CLI
