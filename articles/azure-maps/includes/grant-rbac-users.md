@@ -16,16 +16,16 @@ custom.ms: subject-rbac-steps
 
 You can grant *Azure role-based access control (Azure RBAC)* by assigning an Azure AD group or security principal to one or more Azure Maps role definitions.
 
-To view the available Azure role definitions for Azure Maps, see [View built-in Azure Maps role definitions](how-to-manage-authentication.md#view-built-in-azure-maps-role-definitions).
+To view the available Azure role definitions for Azure Maps, see [View built-in Azure Maps role definitions](../how-to-manage-authentication.md#view-built-in-azure-maps-role-definitions).
 
-For detailed steps on how to assign an available Azure Maps role to the created managed identity or the service principal, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+For detailed steps on how to assign an available Azure Maps role to the created managed identity or the service principal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 
 To efficiently manage the Azure Maps app and resource access of a large amount of users, see [Azure AD Groups](../../active-directory/fundamentals/active-directory-manage-groups.md).
 
 >[!IMPORTANT]
 >For users to be allowed to authenticate to an application, the users must first be created in Azure AD. For more information, see [Add or Delete users using Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-To learn  about how to effectively manage a directory for users, see [Azure AD](../../active-directory/fundamentals/index.yml).
+To learn about how to effectively manage a large directory for users, see [Azure AD](../../active-directory/fundamentals/index.yml).
 
 > [!WARNING]
-> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](../role-based-access-control/custom-roles.md) to the custom role definition. This will enable the least privilege necessary for the application to access Azure Maps.
+> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](../../role-based-access-control/custom-roles.md) to the custom role definition. This will enable the least privilege necessary for the application to access Azure Maps.

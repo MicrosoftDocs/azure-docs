@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: This article describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/11/2021
+ms.date: 06/16/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -179,13 +179,7 @@ To create a client secret:
      >[!IMPORTANT]
      >To securely store the certificate or secret, see the [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md). You'll use this secret to get tokens from Azure AD.
 
-### Grant role-based access to Azure Maps
-
-You can grant *Azure role-based access control (Azure RBAC)* by assigning either the created managed identity or the service principal to one or more Azure Maps role definitions.
-
-To view the available Azure role definitions for Azure Maps, see [View built-in Azure Maps role definitions](how-to-manage-authentication.md#view-built-in-azure-maps-role-definitions).
-
-For detailed steps on how to assign an available Azure Maps role to the created managed identity or the service principal, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ### Request token with Managed Identity
 
