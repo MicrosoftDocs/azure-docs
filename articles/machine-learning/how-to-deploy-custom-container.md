@@ -13,11 +13,13 @@ ms.topic: how-to
 ms.custom: deploy
 ---
 
-# Deploy a TensorFlow model served with TF Serving using a custom container in a managed online endpoint
+# Deploy a TensorFlow model served with TF Serving using a custom container in a managed online endpoint (preview)
 
 Learn how to deploy a custom container as a managed online endpoint in Azure Machine Learning.
 
 Custom container deployments can use web servers other than the default Python Flask server used by Azure Machine Learning. Users of these deployments can still take advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 > [!WARNING]
 > Microsoft may not be able to help troubleshoot problems caused by a custom image. If you encounter problems, you may be asked to use the default image or one of the images Microsoft provides to see if the problem is specific to your image.
