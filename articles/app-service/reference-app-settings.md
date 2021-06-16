@@ -142,6 +142,7 @@ The following variables are related to the Java runtime.
 | `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`. To disable it, set to `1`.  | |
 | `WEBSITE_SKIP_FILTERS` | To disable all servlet filters added by App Service, set to `1`. ||
 | `IGNORE_CATALINA_BASE` | By default, App Service checks if the Tomcat variable `CATALINA_BASE` is defined. If not, it looks for the existence of `%HOME%\tomcat\conf\server.xml`. If the file exists, it sets `CATALINA_BASE` to `%HOME%\tomcat`. To disable this behavior and remove `CATALINA_BASE`, set this variable to `1` or `true`. ||
+| `PORT` | Read-only. For Linux apps, port that the Java runtime listens to. | |
 | `AZURE_JETTY9_CMDLINE` | Native Windows apps only. Read-only. Command-line arguments for starting Jetty 9. | |
 | `AZURE_JETTY9_HOME` | Native Windows apps only. Read-only. Path to the Jetty 9 installation.| |
 | `AZURE_JETTY93_CMDLINE` | Native Windows apps only. Read-only. Command-line arguments for starting Jetty 9.3. | |
@@ -165,15 +166,26 @@ AZURE_SITE_APP_BASE
 
 ## PHP
 
-| Setting name | Description | Example |
-|-|-|-|
+| Setting name | Description |
+|-|-|
 | `PHP_Extensions` | Comma-separated list of PHP extensions. | `extension1.dll,extension2.dll,Name1=value1` |
-| `PHP_ZendExtensions` | | `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll` |
+| `PHP_ZENDEXTENSIONS` | | For Windows native apps, set to the path of the XDebug extension, such as `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`. For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. |
+| `PHP_VERSION` | Read-only. The selected PHP version. |
+| `PORT` | Read-only. Port that Apache server listens to. |
+| `SSH_PORT` | Read-only. SSH port. |
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
+| `WEBSITE_PROFILER_ENABLE_TRIGGER` | Set to `TRUE` to add `xdebug.profiler_enable_trigger=1` and `xdebug.profiler_enable=0` to the default `php.ini`. |
+| `WEBSITE_ENABLE_PHP_ACCESS_LOGS` | Set to `TRUE` to log requests to the server (`CustomLog \dev\stderr combined` is added to `/etc/apache2/apache2.conf`). |
+| `APACHE_SERVER_LIMIT` | Apache specific variable. The default is `1000`. |
+| `APACHE_MAX_REQ_WORKERS` | Apache specific variable. The default is `256`. |
 
 <!-- 
 ZEND_BIN_PATH
 MEMCACHESHIM_REDIS_ENABLE
 MEMCACHESHIM_PORT 
+APACHE_LOG_DIR | RUN sed -i 's!ErrorLog ${APACHE_LOG_DIR}/error.log!ErrorLog /dev/stderr!g' /etc/apache2/apache2.conf 
+APACHE_RUN_USER | RUN sed -i 's!User ${APACHE_RUN_USER}!User www-data!g' /etc/apache2/apache2.conf 
+APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc/apache2/apache2.conf  
 -->
 
 ## .NET
@@ -181,6 +193,52 @@ MEMCACHESHIM_PORT
 <!-- 
 | DOTNET_HOSTING_OPTIMIZATION_CACHE | 
  -->
+
+| `PORT` | Read-only. Port that the .NET runtime listens to. |
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
+| `HOME` | Read-only. Directory that points to shared storage (`/home`). |
+| `DUMP_DIR` | Read-only. Directory for the crash dumps (`/home/logs/dumps`). |
+| `APP_SVC_RUN_FROM_COPY` | Linux apps only. By default, the app is run from `/home/site/wwwroot`, a shared directory for all scaled-out instances. Set this variable to `true` to copy the app to a local directory in your container and run it from there. When using this option, be sure not to hard-code any reference to `/home/site/wwwroot`. Instead, use a path relative to `/home/site/wwwroot`. |
+<!-- | `USE_DOTNET_MONITOR` | if =true then /opt/dotnetcore-tools/dotnet-monitor collect --urls "http://0.0.0.0:50051" --metrics true --metricUrls "http://0.0.0.0:50050" > /dev/null 2>&1 & -->
+
+
+## Node.js
+
+<!-- APPSVC_REMOTE_DEBUGGING
+APPSVC_REMOTE_DEBUGGING_BREAK
+APPSVC_TUNNEL_PORT -->
+APPSVC_RUN_ZIP
+PM2HOME
+SSH_PORT
+PORT
+WEBSITE_ROLE_INSTANCE_ID
+
+startup file
+
+## Python
+
+<!-- APPSVC_REMOTE_DEBUGGING
+APPSVC_TUNNEL_PORT | -debugAdapter ptvsd -debugPort $APPSVC_TUNNEL_PORT"
+APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
+APPSVC_VIRTUAL_ENV
+HOME_SITE | "/home/site/wwwroot"
+APP_PATH | "/home/site/wwwroot"
+PORT | 8000
+SSH_PORT | 2222
+
+startup file or command
+
+## Ruby
+
+| `PORT` | Read-only. Port that the .NET runtime listens to. |
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
+| `RAILS_IGNORE_SPLASH` | By default, a default splash page is displayed when no Gemfile is found. Set this variable to any value to disable the splash page. |
+| `BUNDLE_WITHOUT` | To add `--without` options to `bundle install`, set the variable to the groups you want to exclude, separated by space. By default, all Gems are installed. | `test development` |
+| `BUNDLE_INSTALL_LOCATION` | Directory to install gems. The default is `/tmp/bundle`. |
+| `RUBY_SITE_CONFIG_DIR` | Site config directory. The default is `/home/site/config`. The container checks for zipped gems in this directory. |
+| `SECRET_KEY_BASE` | By default, A random secret key base is generated. To use a custom secret key base, set this variable to the desired key base. |
+| `RAILS_ENV` | Rails environment. The default is `production`. |
+| `GEM_PRISTINE` | Set this variable to any value to run `gem pristine --all`. |
 
 ## Domain and DNS
 
@@ -385,7 +443,7 @@ WEBSITE_SOCKET_STATISTICS_ENABLED
 
 ## Authentication & Authorization
 
-https://github.com/cgillum/easyauth/wiki/Advanced-Application-Settings
+The following environment variables are related to [App Service authentication](overview-authentication-authorization.md).
 
 | Setting name| Description|
 |-|-|
