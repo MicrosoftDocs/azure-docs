@@ -1,9 +1,9 @@
 ---
 title: Use blob index tags to manage and find data on Azure Blob Storage
 description: See examples of how to use blob index tags to categorize, manage, and query for blob objects.
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: blobs
@@ -28,7 +28,7 @@ To learn more about this feature along with known issues and limitations, see [M
 - An Azure subscription registered and approved for access to the blob index preview
 - Access to the [Azure portal](https://portal.azure.com/)
 
-# [.NET](#tab/net)
+# [.NET v12 SDK](#tab/net)
 
 As blob index is in preview, the .NET storage package is released in the preview NuGet feed. This library is subject to change during the preview period.
 
@@ -72,7 +72,7 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Screenshot of the Azure portal showing how to upload a blob with index tags.":::
 
-# [.NET](#tab/net)
+# [.NET v12 SDK](#tab/net)
 
 The following example shows how to create an append blob with tags set during creation.
 
@@ -132,7 +132,7 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot of the Azure portal showing how to get, set, update, and delete index tags on blobs.":::
 
-# [.NET](#tab/net)
+# [.NET v12 SDK](#tab/net)
 
 ```csharp
 static async Task BlobIndexTagsExample()
@@ -209,7 +209,7 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 
 :::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot of the Azure portal showing how to Filter and find tagged blobs using index tags":::
 
-# [.NET](#tab/net)
+# [.NET v12 SDK](#tab/net)
 
 ```csharp
 static async Task FindBlobsByTagsExample()
@@ -309,7 +309,7 @@ static async Task FindBlobsByTagsExample()
 
 6. Select **Add** to apply the new rule to the lifecycle management policy
 
-# [.NET](#tab/net)
+# [.NET v12 SDK](#tab/net)
 
 [Lifecycle management](storage-lifecycle-management-concepts.md) policies are applied for each storage account at the control plane level. For .NET, install the [Microsoft Azure Management Storage Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 or higher.
 

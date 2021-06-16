@@ -6,12 +6,12 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 05/10/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Enable infrastructure encryption for double encryption of data
@@ -23,64 +23,6 @@ Infrastructure encryption can be enabled for the entire storage account, or for 
 Service-level encryption supports the use of either Microsoft-managed keys or customer-managed keys with Azure Key Vault or Key Vault Managed Hardware Security Model (HSM) (preview). Infrastructure-level encryption relies on Microsoft-managed keys and always uses a separate key. For more information about key management with Azure Storage encryption, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
 
 To doubly encrypt your data, you must first create a storage account or an encryption scope that is configured for infrastructure encryption. This article describes how to enable infrastructure encryption.
-
-## Register to use infrastructure encryption
-
-To enable infrastructure encryption, you must first register to use this feature with Azure by using PowerShell or Azure CLI.
-
-# [Azure portal](#tab/portal)
-
-N/A
-
-# [PowerShell](#tab/powershell)
-
-To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowRequireInfraStructureEncryption
-```
-
-To check the status of your registration with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowRequireInfraStructureEncryption
-```
-
-After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with PowerShell, call the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To register with Azure CLI, call the [az feature register](/cli/azure/feature#az_feature_register) command.
-
-```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name AllowRequireInfraStructureEncryption
-```
-
-To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az_feature_show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name AllowRequireInfraStructureEncryption
-```
-
-After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, call the [az provider register](/cli/azure/provider#az_provider_register) command.
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
-```
-
-# [Template](#tab/template)
-
-N/A
-
----
 
 ## Create an account with infrastructure encryption enabled
 
@@ -194,6 +136,9 @@ The following JSON example creates a general-purpose v2 storage account that is 
 ```
 
 ---
+
+Azure Policy provides a built-in policy to require that infrastructure encryption be enabled for a storage account. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+
 
 ## Create an encryption scope with infrastructure encryption enabled
 

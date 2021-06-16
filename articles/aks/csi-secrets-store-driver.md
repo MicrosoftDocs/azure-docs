@@ -6,7 +6,7 @@ ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to 
 ms.date: 03/30/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Use the Secrets Store CSI Driver for Kubernetes in an Azure Kubernetes Service (AKS) cluster (preview)

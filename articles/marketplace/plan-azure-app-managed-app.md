@@ -76,7 +76,7 @@ Private plans are not supported with Azure subscriptions established through a r
 
 You must provide the per-month price for each plan. This price is in addition to any Azure infrastructure or pay-as-you-go software costs incurred by the resources deployed by this solution.
 
-In addition to the per-month price, you can also set prices for consumption of non-standard units using [metered billing](partner-center-portal/azure-app-metered-billing.md). You may set the per-month price to zero and charge exclusively using metered billing if you like.
+In addition to the per-month price, you can also set prices for consumption of non-standard units using [metered billing](marketplace-metering-service-apis.md). You may set the per-month price to zero and charge exclusively using metered billing if you like.
 
 Prices are set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. But you can choose to set customer prices for each market.
 
@@ -132,4 +132,4 @@ For each policy type you add, you must associate Standard or Free Policy SKU. Th
 
 ## Next steps
 
-- [How to create an Azure application offer in the commercial marketplace](create-new-azure-apps-offer.md)
+- [Create an Azure application offer](azure-app-offer-setup.md)

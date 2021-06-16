@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using PowerShell.
@@ -8,7 +8,8 @@ author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.author: yushwang
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections

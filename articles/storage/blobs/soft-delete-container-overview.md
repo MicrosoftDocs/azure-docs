@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Soft delete for containers
