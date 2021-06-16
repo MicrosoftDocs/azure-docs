@@ -365,15 +365,15 @@ find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(n
 ```
 
 The number of units on your bill is in units of node months, which is represented by `billableNodeMonthsPerDay` in the query. 
-If the workspace has the Update Management solution installed, add the Update and UpdateSummary data types to the list in the where clause in the above query. Finally, there is some additional complexity in the actual billing algorithm when solution targeting is used that is not represented in the above query. 
+If the workspace has the Update Management solution installed, add the **Update** and **UpdateSummary** data types to the list in the where clause in the above query. Finally, there's some additional complexity in the actual billing algorithm when solution targeting is used that's not represented in the above query. 
 
 
 > [!TIP]
-> Use these `find` queries sparingly as scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type (see below).
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, then query on the **Usage** data type (see below).
 
 ## Understanding ingested data volume
 
-On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This allows you to determine trends such as whether the overall data usage (or usage by a particular solution) is growing, remaining steady or decreasing. 
+On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. You can determine trends like whether the overall data usage (or usage by a particular solution) is growing, remaining steady, or decreasing. 
 
 ### Data volume for specific events
 
@@ -402,7 +402,7 @@ Usage
 | render columnchart
 ```
 
-The clause with `TimeGenerated` is only to ensure that the query experience in the Azure portal will look back beyond the default 24 hours. When using the Usage data type, `StartTime` and `EndTime` represent the time buckets for which results are presented. 
+The clause with `TimeGenerated` is only to ensure that the query experience in the Azure portal looks back beyond the default 24 hours. When using the **Usage** data type, `StartTime` and `EndTime` represent the time buckets for which results are presented. 
 
 ### Data volume by type
 
@@ -430,7 +430,7 @@ Usage
 
 ### Data volume by computer
 
-The `Usage` data type does not include information at the computer level. To see the **size** of ingested billable data per computer, use the `_BilledSize` [property](./log-standard-columns.md#_billedsize), which provides the size in bytes:
+The **Usage** data type doesn't include information at the computer level. To see the **size** of ingested billable data per computer, use the **_BilledSize** [property](./log-standard-columns.md#_billedsize), which provides the size in bytes:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer, Type
@@ -440,7 +440,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer, 
 | sort by BillableDataBytes desc nulls last
 ```
 
-The `_IsBillable` [property](./log-standard-columns.md#_isbillable) specifies whether the ingested data will incur charges. The Usage type is omitted since this is only for analytics of data trends. 
+The **_IsBillable** [property](./log-standard-columns.md#_isbillable) specifies whether the ingested data will incur charges. The **Usage** type is omitted because this is only for analytics of data trends. 
 
 To see the **count** of billable events ingested per computer, use 
 
@@ -453,11 +453,11 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Use these `find` queries sparingly as scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type.
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, query on the **Usage** data type.
 
 ### Data volume by Azure resource, resource group, or subscription
 
-For data from nodes hosted in Azure you can get the **size** of ingested data __per computer__, use the _ResourceId [property](./log-standard-columns.md#_resourceid), which provides the full path to the resource:
+For data from nodes hosted in Azure, you can get the **size** of ingested data __per computer__, use the [_ResourceId property](./log-standard-columns.md#_resourceid), which provides the full path to the resource:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -465,7 +465,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-For data from nodes hosted in Azure you can get the **size** of ingested data __per Azure subscription__, get use the `_SubscriptionId` property as:
+For data from nodes hosted in Azure, you can get the **size** of ingested data __per Azure subscription__ by using the **_SubscriptionId** property as:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, _SubscriptionId
@@ -473,7 +473,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, _Subscript
 | summarize BillableDataBytes = sum(_BilledSize) by _SubscriptionId | sort by BillableDataBytes nulls last
 ```
 
-To get data volume by resource group, you can parse `_ResourceId`:
+To get data volume by resource group, you can parse **_ResourceId**:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -483,7 +483,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(BillableDataBytes) by resourceGroup | sort by BillableDataBytes nulls last
 ```
 
-You can also parse the `_ResourceId` more fully if needed as well using
+If needed, you can also parse the **_ResourceId** more fully:
 
 ```Kusto
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
@@ -491,17 +491,17 @@ You can also parse the `_ResourceId` more fully if needed as well using
 ```
 
 > [!TIP]
-> Use these `find` queries sparingly as scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you do not need results per subscription, resouce group or resource name, then query on the Usage data type.
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results per subscription, resouce group, or resource name, query on the **Usage** data type.
 
 > [!WARNING]
-> Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
-> These are **Computer** as well as fields related to ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** and **AverageProcessingTimeMs**.
+> Some of the fields of the **Usage** data type, while still in the schema, have been deprecated and their values are no longer populated. 
+> These are **Computer**, as well as fields related to ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** and **AverageProcessingTimeMs**).
 
-## Late arriving data 	
+## Late-arriving data 	
 
-Situations can arise where data is ingested with old timestamps. For instance, if an agent cannot communicate to Log Analytics due to a connectivity issue or when a host has an incorrect time date/time. This can manifest itself by an apparent discrepancy between the ingested data reported by the `Usage` data type, and a query summing `_BilledSize` over the raw data for a particular day specified by `TimeGenerated`, the timestamp when the event was generated.
+Situations can arise where data is ingested with old timestamps. For example, if an agent can't communicate to Log Analytics because of a connectivity issue or when a host has an incorrect time date/time. This can manifest itself by an apparent discrepancy between the ingested data reported by the **Usage** data type and a query summing **_BilledSize** over the raw data for a particular day specified by **TimeGenerated**, the timestamp when the event was generated.
 
-To diagnose late arriving data issues, use the `_TimeReceived` column ([learn more](./log-standard-columns.md#_timereceived)) in addition to the `TimeGenerated` column. `_TimeReceived` is the time when the record was received by the Azure Monitor ingestion point in the Azure cloud. For instance, when using the `Usage` records, you have observed high ingested data volumes of `W3CIISLog` data on May 2, 2021, here is a query that will identify the timestamps on this ingested data: 
+To diagnose late-arriving data issues, use the `_TimeReceived` column ([learn more](./log-standard-columns.md#_timereceived)) in addition to the `TimeGenerated` column. `_TimeReceived` is the time when the record was received by the Azure Monitor ingestion point in the Azure cloud. For instance, when using the `Usage` records, you have observed high ingested data volumes of `W3CIISLog` data on May 2, 2021, here is a query that will identify the timestamps on this ingested data: 
 
 ```Kusto
 W3CIISLog
