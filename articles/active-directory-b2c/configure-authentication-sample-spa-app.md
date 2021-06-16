@@ -296,4 +296,5 @@ You can add and modify redirect URIs in your registered applications at any time
 ## Next steps
 
 * Learn more [about the code sample](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
-* Learn how to [Authentication options in your own SPA application using Azure AD B2C](enable-authentication-spa-app-options.md)
+* [Enable authentication in your own SPA application](enable-authentication-spa-app.md)
+* Configure [authentication options in your SPA application](enable-authentication-spa-app-options.md)
