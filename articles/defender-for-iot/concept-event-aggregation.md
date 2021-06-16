@@ -77,7 +77,7 @@ The data collected for each event:
 
 - **Application protocol** – The domain name server (DNS).
 
-- **Extra details** – The extension for more details of the connection. For example, `host name`. 
+- **Extra details** – Additional details of the connection. For example, `host name`. 
 
 ## Baseline (trigger based) 
 
