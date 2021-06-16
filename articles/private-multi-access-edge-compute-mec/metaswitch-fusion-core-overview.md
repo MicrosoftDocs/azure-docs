@@ -47,7 +47,7 @@ Fusion Core is delivered on a Virtual Machine (VM) known as the Fusion Core Base
 
 ### Deployment in private networks
 
-Fusion Core uses the capabilities of the Azure private mutli-access edge compute to provide a 5G solution for enterprises that combines the performance and low latency from Edge compute resources required to support Industry 4.0 use cases, with consistent, centralized management through Azure. For detailed information on Private multi-access edge compute, see [What is Azure private mutli-access edge compute?](overview.md).
+Fusion Core uses the capabilities of the Azure private multi-access edge compute to provide a 5G solution for enterprises that combines the performance and low latency from Edge compute resources required to support Industry 4.0 use cases, with consistent, centralized management through Azure. For detailed information on Private multi-access edge compute, see [What is Azure private multi-access edge compute?](overview.md).
 
 Deploying Fusion Core at the enterprise edge ensures that it is as close as possible to the devices it serves, allowing it to deliver low latency levels and reduced backhaul through local data processing when combined with application logic in the same location. This provides a number of valuable benefits to enterprises, including the following.
 
