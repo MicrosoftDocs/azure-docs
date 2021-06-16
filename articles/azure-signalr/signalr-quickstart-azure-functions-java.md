@@ -1,9 +1,9 @@
 ---
 title: Use Java to create a chat room with Azure Functions and SignalR Service
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using Java.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Java.
 author: sffamily
 ms.author: zhshang
-ms.date: 03/04/2019
+ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: java
@@ -12,7 +12,7 @@ ms.custom:
   - mode-api
 ---
 
-# Quickstart: Use Java to create a chat room with Azure Functions and SignalR Service
+# Quickstart: Use Java to create an App showing GitHub star count with Azure Functions and SignalR Service
 
 Azure SignalR Service lets you easily add real-time functionality to your application and Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Azure Functions to build a serverless application with Java to broadcast messages to clients.
 
@@ -206,7 +206,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     </html>
     ```
 
-5. It's almost done now. The last step is to set a connection string to the SignalR Service.
+5. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
     1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
@@ -231,11 +231,11 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     mvn azure-functions:run
     ```
 
-    After Azure Function is running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every a few seconds.
+    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)
+    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator)
     
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
 
@@ -251,5 +251,9 @@ Next, learn more about how to bi-directional communicating between clients and A
 
 > [!div class="nextstepaction"]
 > [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md)
+
+> [!div class="nextstepaction"]
 > [Bi-directional communicating in Serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
+
+> [!div class="nextstepaction"]
 > [Create your first function with Java and Maven](../azure-functions/create-first-function-cli-csharp.md?pivots=programming-language-java%2cprogramming-language-java)

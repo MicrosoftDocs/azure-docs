@@ -1,9 +1,9 @@
 ---
 title: Use JavaScript to create a chat room with Azure Functions and SignalR Service
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using JavaScript.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using JavaScript.
 author: sffamily
 ms.author: zhshang
-ms.date: 12/14/2019
+ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: javascript
@@ -11,7 +11,7 @@ ms.custom:
   - devx-track-js
   - mode-api
 ---
-# Quickstart: Use JavaScript to create a chat room with Azure Functions and SignalR Service
+# Quickstart: Use JavaScript to create an App showing GitHub star count with Azure Functions and SignalR Service
 
 Azure SignalR Service lets you easily add real-time functionality to your application and Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Azure Functions to build a serverless application with JavaScript to broadcast messages to clients.
 
@@ -48,7 +48,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Setup and run the Azure Function locally
 
-1. Make sure you have Azure Function Core Tools installed. And the create an empty directory and navigate to the directory with you command line.
+1. Make sure you have Azure Function Core Tools installed. And create an empty directory and navigate to the directory with command line.
 
     ```bash
     # Initialize a function project
@@ -215,7 +215,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     </html>
     ```
 
-4. It's almost done now. The last step is to set a connection string to the SignalR Service.
+4. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
     1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
@@ -237,11 +237,11 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     func start
     ```
 
-    After Azure Function is running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every a few seconds.
+    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)
+    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator)
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp)
 
@@ -256,5 +256,9 @@ Next, learn more about how to bi-directional communicating between clients and A
 
 > [!div class="nextstepaction"]
 > [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md)
+
+> [!div class="nextstepaction"]
 > [Bi-directional communicating in Serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
+
+> [!div class="nextstepaction"]
 > [Deploy Azure Functions with VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)

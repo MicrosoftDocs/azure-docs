@@ -1,6 +1,6 @@
 ---
 title: Azure SignalR Service serverless quickstart - C#
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using C#.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using C#.
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
@@ -18,9 +18,9 @@ You can get all codes mentioned in the article from [GitHub](https://github.com/
 
 ## Prerequisites
 
-If you don't already have Visual Studio Code installed, you can download and use the for free(https://code.visualstudio.com/Download).
+If you don't already have Visual Studio Code installed, you can download and use it for free(https://code.visualstudio.com/Download).
 
-You may also run this tutorial on the command line (macOS, Windows, or Linux) using the [Azure Functions Core Tools)](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#v2). Also the [.NET Core SDK](https://dotnet.microsoft.com/download), and your favorite code editor.
+You may also run this tutorial on the command line (macOS, Windows, or Linux) using the [Azure Functions Core Tools)](../azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#v2). Also the [.NET Core SDK](https://dotnet.microsoft.com/download), and your favorite code editor.
 
 If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/dotnet) before you begin.
 
@@ -38,9 +38,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Setup and run the Azure Function locally
 
-# [C#](#tab/csharp)
-
-1. Make sure you have Azure Function Core Tools installed. And the create an empty directory and navigate to the directory with you command line.
+1. Make sure you have Azure Function Core Tools installed. And create an empty directory and navigate to the directory with command line.
 
     ```bash
     # Initialize a function project
@@ -144,7 +142,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     </html>
     ```
 
-4. It's almost done now. The last step is to set a connection string to the SignalR Service.
+4. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
     1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
@@ -166,11 +164,11 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     func start
     ```
 
-    After Azure Function is running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every a few seconds.
+    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
-    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)
+    > If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator)
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp)
 
@@ -185,6 +183,10 @@ Next, learn more about how to bi-directional communicating between clients and A
 
 > [!div class="nextstepaction"]
 > [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md)
+
+> [!div class="nextstepaction"]
 > [Bi-directional communicating in Serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
+
+> [!div class="nextstepaction"]
 > [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
 
