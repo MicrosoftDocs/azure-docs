@@ -202,26 +202,28 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * Support HTTPS on your SCIM endpoint.
 * Custom complex and multivalued attributes are supported but AAD does not have many complex data structures to pull data from in these cases. Simple paired name/value type complex attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes are not well supported at this time.
 
-##### Queries:
+##### Retrieving Resources:
 * Response to a query/filter request should always be a `ListResponse`.
 * Microsoft AAD only uses the following operators: `eq`, `and`
 * The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
 
-##### Users:
+##### /Users:
 * The entitlements attribute is not supported.
 * Any attributes that are considered for user uniqueness must be usable as part of a filtered query. (e.g. if user uniqueness is evaluated for both userName and emails[type eq "work"], a GET to /Users with a filter must allow for both _userName eq "user@contoso.com"_ and _emails[type eq "work"] eq "user@contoso.com"_ queries.
 
-##### Groups:
+##### /Groups:
 * Groups are optional, but only supported if the SCIM implementation supports **PATCH** requests.
 * Groups must have uniqueness on the 'displayName' value for the purpose of matching between Azure Active Directory and the SCIM application. This is not a requirement of the SCIM protocol, but is a requirement for integrating a SCIM service with Azure Active Directory.
 
-##### Schema Discovery:
-* [Schema discovery](#schema-discovery)
-  * Schema discovery is not currently supported on the custom non-gallery SCIM application, but it is being used on certain gallery applications. Going forward, schema discovery will be used as the sole method to add additional attributes to the schema of an existing gallery SCIM application. 
-  * If a value is not present, do not send null values.
-  * Property values should be camel cased (e.g. readWrite).
-  * Must return a list response.
-  * The /schemas request will be made by the Azure AD SCIM client every time someone saves the provisioning configuration in the Azure Portal or every time  a user lands on the edit provisioning page in the Azure Portal. Any additional attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to additional target attributes being added. It will not result in attributes being removed. 
+##### /Schemas (Schema discovery):
+
+* [Sample request/response](#schema-discovery)
+* Schema discovery is not currently supported on the custom non-gallery SCIM application, but it is being used on certain gallery applications. Going forward, schema discovery will be used as the sole method to add additional attributes to the schema of an existing gallery SCIM application. 
+* If a value is not present, do not send null values.
+* Property values should be camel cased (e.g. readWrite).
+* Must return a list response.
+* The /schemas request will be made by the Azure AD SCIM client every time someone saves the provisioning configuration in the Azure Portal or every time  a user lands on the edit provisioning page in the Azure Portal. Any additional attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to additional target attributes being added. It will not result in attributes being removed. 
+
   
 ### User provisioning and deprovisioning
 
