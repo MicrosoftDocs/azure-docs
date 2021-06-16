@@ -94,7 +94,7 @@ IoT Hub implements commands by allowing you to invoke direct methods on devices 
 A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of 7 days, and can be used to take actions on a device. 
 
 For more information about IoT Hub endpoints, see [IoT Hub Dev Guide Endpoints](
-iot-hub-dev-guide-endpoints#list-of-built-in-iot-hub-endpoints)
+iot-hub-devguide-endpoints.md#list-of-built-in-iot-hub-endpoints)
 
 ### Use Message Routing to send data to other endpoints for processing
 
