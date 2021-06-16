@@ -51,7 +51,7 @@ The Administrator role has extended permissions in AAD. Members of this role can
 
 Users must be authenticated against AAD applications with Azure Communication Service's `VoIP` permission. If you don't have an existing application that you would like to use for this quickstart, you can create new application registration. 
 
-Following *Application* settings influence the experience:
+The following application settings influence the experience:
 - Property *Supported account types* defines whether the *Application* is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
 - *Redirect URI* defines URI where authentication request is redirected after authentication. For this scenario, you can use "Public client/native(mobile & desktop)" and fill in "http://localhost" as URI.
 - 
