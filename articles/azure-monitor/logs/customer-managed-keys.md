@@ -113,7 +113,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ## Create cluster
 
-Clusters support System-assigned managed identity currently and cluster's identity `type` should be set to `SystemAssigned` and it's being generated automatically with the cluster creation. This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
+Clusters support System-assigned managed identity and identity `type` property should be set to `SystemAssigned`. The identity is being generated automatically with the cluster creation and can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
   
   Identity settings in cluster for System-assigned managed identity
   ```json
