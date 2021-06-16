@@ -66,8 +66,10 @@ The table summarizes agentless migration requirements for VMware VMs.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Supported for Windows Server 2008 R2 onwards. <br/> Supported for RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04. 
 
 > [!Note]
-> For Linux VMs, ensure that the following packages are installed for successful installation of Microsoft Azure Linux agent (waagent):
+> In addition to the Internet connectivity, for Linux VMs, ensure that the following packages are installed for successful installation of Microsoft Azure Linux agent (waagent):
 >- Python 2.6+
+>- Python-setuptool
+>- systemmd
 >- OpenSSL 1.0+
 >- OpenSSH 5.3+
 >- Filesystem utilities: sfdisk, fdisk, mkfs, parted
