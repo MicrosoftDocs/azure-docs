@@ -44,8 +44,8 @@
     href: detect-difficult-object.md
   - name: FAQ
     href: faq.md
-  - name: Model conversion error codes
-    href: model-conversion-error-codes.md
+  - name: Model conversion error codes and exceptions
+    href: model-conversion-error-codes-and-exceptions.md
   - name: Release notes
     href: https://github.com/Azure/azure-object-anchors/releases
   - name: Stack Overflow

@@ -57,7 +57,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **Q: How do I recover from a model conversion failure?**
 
-**A:** For details on the different error codes that can result from a failed model conversion job and how to handle each, refer to the [conversion error codes page](.\model-conversion-error-codes.md).
+**A:** For details on the different error codes that can result from a failed model conversion job and how to handle each, refer to the [conversion error codes page](.\model-conversion-error-codes-and-exceptions.md).
 
 **Q: What devices does Object Anchors support?**
 
