@@ -21,6 +21,8 @@
     href: work-remotely-support.md
   - name: Bastion FAQ
     href: bastion-faq.md
+  - name: Configuration settings
+    href: configuration-settings.md
   - name: Bastion and VNet peering
     href: vnet-peering.md
   - name: Security
