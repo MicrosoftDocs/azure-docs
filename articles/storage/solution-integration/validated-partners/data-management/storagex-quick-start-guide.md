@@ -122,17 +122,19 @@ Any SMB migrations require Active Directory to be properly set up before adding 
 - [Create Capacity Pool](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal#set-up-a-capacity-pool)
 - [Join Azure NetApp Files account to Active Directory Domain](/azure/azure-netapp-files/create-active-directory-connections)
 
+Once the configuration for Azure NetApp Files is done, we can create a share we will use for migration. 
+
 1. Navigate to existing Azure NetApp Files account, and select **Volumes**. Select **Add volume**. Give it a name, select capacity pool and networking setup.
 
-:::image type="content" source="./media/storagex-quick-start-guide/anf-create-volume-1.png" alt-text="Screenshot for adding new Azure NetApp Files volume":::
+    :::image type="content" source="./media/storagex-quick-start-guide/anf-create-volume-1.png" alt-text="Screenshot for adding new Azure NetApp Files volume":::
 
 1. Select **SMB** protocol, select existing Active Directory connection, and provide a **Share name**.
 
-:::image type="content" source="./media/storagex-quick-start-guide/anf-create-volume-2.png" alt-text="Screenshot for SMB properties in Azure NetApp Files volume":::
+    :::image type="content" source="./media/storagex-quick-start-guide/anf-create-volume-2.png" alt-text="Screenshot for SMB properties in Azure NetApp Files volume":::
 
 1. Add **Tags** if you use them, and **Create** a share.
 
-Once the volume has been created, we can proceed with StorageX deployment.
+    Once the volume has been created, we can proceed with StorageX deployment.
 
 1.	Deploy the Data Dynamics Data Movement and Mobility offering in Azure. Recommended approach is using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=Overview). Add the deployed server into your Active Directory domain.
 1.	On the deployed server, verify that all required network ports are open.
@@ -191,7 +193,7 @@ Once the installation finishes, and all services are started, we can start migra
 
     :::image type="content" source="./media/storagex-quick-start-guide/storagex-add-resource-4.png" alt-text="Screenshot for browsing the added resources":::
 
-Every source, and target must be added as a separate resource. Example shows adding Azure NetApp Files share, and it can be slightly different for other services.
+    Every source, and target must be added as a separate resource. Example shows adding Azure NetApp Files share, and it can be slightly different for other services.
 
 1.	Click the **Data Movement** tab.
 
