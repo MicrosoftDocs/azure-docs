@@ -114,8 +114,11 @@ You can set up authentication for an Azure Synapse source in either of two ways:
 #### Use a managed identity for dedicated SQL databases
 
 1. Go to your Azure Synapse workspace.
+
 1. Go to the **Data** section, and then look for one of your dedicated SQL databases.
+
 1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
+
 1. Add the Azure Purview account MSI (represented by the account name) as **db_datareader** on the dedicated SQL database. You do so by running the following command in your SQL script:
 
     ```sql
