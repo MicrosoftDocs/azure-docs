@@ -2,7 +2,7 @@
 title: What's new with Azure Arc enabled servers agent
 description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 06/16/2021
 ---
 
 # What's new with Azure Arc enabled servers agent
@@ -12,6 +12,19 @@ The Azure Arc enabled servers Connected Machine agent receives improvements on a
 - The latest releases
 - Known issues
 - Bug fixes
+
+## June 2021
+
+Version 1.7
+
+## New features
+
+Version 1.7 is apparently now live. Here are the relnotes!
+
+- Improved reliability during onboarding
+  - Improved retry logic when HIMDS is unavailable
+  - Onboarding will now continue instead of aborting if OS information cannot be obtained
+- Improved reliability when installing the OMS agent extension on Red Hat and CentOS systems
 
 ## May 2021
 
