@@ -61,6 +61,6 @@ Start planning your migration to Azure Resource Manager, today.
 
    If the migration tool is not suitable for your migration, you can explore [other compute offerings](/azure/architecture/guide/technology-choices/compute-decision-tree) for the migration. Because there are many Azure compute offerings, and they're different from one another, we can't provide a platform-supported migration path to them.  
 
-1. For technical questions, issues, and help with adding subscriptions to the allow list, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
+1. For technical questions, issues, and help with adding subscriptions to the allowlist, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
 1. Complete the migration as soon as possible to prevent business impact and to take advantage of the improved performance, security, and new features of Azure Resource Manager. 
