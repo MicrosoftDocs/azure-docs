@@ -85,7 +85,7 @@ Go to the details of *Application* and select "Manifest" pane. In the manifest f
 }
 ```
 
-Then select on the *Save* button to persist changes. You can now see Azure Communication Services - VoIP permission in the *API Permissions* pane.
+Then select on the *Save* button to persist changes. You can now see the Azure Communication Services - VoIP permission in the *API Permissions* pane.
 
 ### 5. Enable custom Teams endpoint experience for *Application*
 
