@@ -43,7 +43,7 @@ The Administrator role has extended permissions in AAD. Members of this role can
 1. Contoso's Admin creates or selects existing *Application* in Azure Active Directory. Property *Supported account types* defines whether users from different tenant can authenticate to the *Application*. Property *Redirect URI* redirects successful authentication request to Contoso's *Server*.
 1. Contoso's Admin extends *Application*'s manifest with Azure Communication Services' VoIP permission. 
 1. Contoso's Admin enables experience via [this form](https://forms.office.com/r/B8p5KqCH19)
-1. Contoso's Admin creates or selects existing Communication Services, that will be used for authentication of the exchanging requests. AAD user tokens will be exchanged for Teams' access tokens. You can read more about creation of [new Communication Services resource here](./create-communication-resource.md).
+1. Contoso's Admin creates or selects existing Communication Services, that will be used for authentication of the exchanging requests. AAD user tokens will be exchanged for Teams access tokens. You can read more about creation of [new Azure Communication Services resources here](./create-communication-resource.md).
 1. Fabrikam's Admin provisions new service principal for Azure Communication Services in the Fabrikam's tenant
 1. Fabrikam's Admin grants Azure Communication Services VoIP permission to the Contoso's *Application*. This step is required only if Contoso's *Application* isn't verified.
 
