@@ -758,6 +758,12 @@
     "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
     "branch": "main",
     "branch_mapping": {}
+    },
+    {
+      "path_to_root": "dotnet-samples",
+      "url": "https://github.com/dotnet/samples",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
