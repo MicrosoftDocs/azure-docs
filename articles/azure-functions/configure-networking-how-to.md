@@ -8,7 +8,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # How to configure Azure Functions with a virtual network
 
-This article shows you how to perform tasks related to configuring your function app to connect to and run on a virtual network. For an in-depth tutorial on how to secure your storage account, please refer to the [Connect to a Virtual Network tutorial](functions-create-vnet). To learn more about Azure Functions and networking, see [Azure Functions networking options](functions-networking-options.md).
+This article shows you how to perform tasks related to configuring your function app to connect to and run on a virtual network. For an in-depth tutorial on how to secure your storage account, please refer to the [Connect to a Virtual Network tutorial](functions-create-vnet.md). To learn more about Azure Functions and networking, see [Azure Functions networking options](functions-networking-options.md).
 
 ## Restrict your storage account to a virtual network 
 
