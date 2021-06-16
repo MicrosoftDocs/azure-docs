@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/14/2021
+ms.date: 06/17/2021
 ---
 
 # What is Azure Logic Apps?
@@ -24,7 +24,7 @@ The following list describes just a few example tasks, business processes, and w
 
 Based on the logic app resource type that you choose and create, your logic apps run in either a multi-tenant, single-tenant, or dedicated integration service environment. For example, when you containerize single-tenant based logic apps, you can deploy your apps as containers and run them anywhere that Azure Functions can run. For more information, review [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
-To securely access and run operations in real time on various data sources, you can choose [*managed connectors*](#managed-connectors) from a [400+ and growing Azure connectors ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors) to use in your workflows, for example:
+To securely access and run operations in real time on various data sources, you can choose [*managed connectors*](#managed-connector) from a [400+ and growing Azure connectors ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors) to use in your workflows, for example:
 
 * Azure services such as Blob Storage and Service Bus
 * Office 365 services such as Outlook, Excel, and SharePoint
@@ -91,7 +91,16 @@ For example, you can define trading partners, agreements, schemas, maps, and oth
 
 In a logic app, each workflow always starts with a single [trigger](#trigger). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. Following the trigger, one or more [actions](#action) run operations that, for example, process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
 
-// PLACEHOLDER FOR NEW EXAMPLE WORKFLOW
+The following screenshot shows part of an example enterprise workflow. This workflow uses conditions and switches to determine the next action. Let's say you have an order system, and your workflow processes incoming orders. You want to review orders above a certain cost manually. Your workflow already has previous steps that determine how much an incoming order costs. So, you create an initial condition based on that cost value. For example:
+
+- If the order is above a certain amount, the condition is false. So, the order is processed. 
+- If the condition is true, an email is sent for manual review. A switch determines the next step. 
+  - If the reviewer approves, the order is processed. 
+  - If the reviewer escalates, an escalation email is sent to get additional information about the order. 
+      - If the escalation requirements are met, the response condition is true. So, the order is processed. 
+      - If the response condition is false, an email is sent regarding the problem.
+
+:::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot of Logic Apps designer, showing a sample enterprise workflow using switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
 You can visually create workflows using the Logic Apps designer in the Azure portal, Visual Studio Code, or Visual Studio. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Logic Apps supports Azure Resource Manager templates.
 
