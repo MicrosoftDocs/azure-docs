@@ -84,8 +84,8 @@
     href: rotate-cloudadmin-credentials.md
   - name: Disaster recovery 
     items:
-    - name: Deploy disaster recovery for VMs
-      href: disaster-recovery-for-virtual-machines.md
+    - name: Deploy disaster recovery using VMware HCX
+      href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Disaster recovery to Azure Site Recovery
       items:
       - name: Prepare Azure
@@ -149,7 +149,7 @@
     - name: VMware software 
       href: /azure/azure-vmware/faq.yml#vmware-software
     - name: Third-party backup solutions 
-      href: /azure/azure-vmware/faq.yml#third-party-backup-and-recovery
+      href: /azure/azure-vmware/faq#third-party-backup-and-recovery
     - name: Compute
       href: /azure/azure-vmware/faq.yml#compute
     - name: Networking and interconnectivity

@@ -94,7 +94,7 @@ The offers you created in Cloud Partner Portal are available in Partner Center u
 
 ### Access the right program in Partner Center
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with the same credentials used to sign into the Cloud Partner Portal. The navigation pane on the left displays options associated with the programs you are enrolled in.
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials used to sign into the Cloud Partner Portal. The navigation pane on the left displays options associated with the programs you are enrolled in.
 
     Example: assume you have access to three programs: the MPN program, the Referrals program, and the Commercial Marketplace program. When you sign into Partner Center, you will see these three programs on the navigation pane.
 
@@ -112,13 +112,13 @@ If you are part of multiple accounts, in Partner center you will see an account 
 
 ## How do I create new offers?
 
-Access the Commercial marketplace program in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to create new offers. On the Overview page, select **+ New offer**.
+Access the Commercial marketplace program in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) to create new offers. On the Overview page, select **+ New offer**.
 
 [![Screenshot shows the Partner Center Overview menu.](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
 
 ## I can't sign in and need to open a support ticket
 
-If you can't sign in to your account, you can open a [support ticket](https://partner.microsoft.com/support/v2/?stage=1) here.
+If you can't sign in to your account, you can open a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533) here.
 
 ## Where are instructions for using Partner Center?
 
@@ -150,7 +150,7 @@ You'll notice some branding changes. For example, *SKUs* are branded as *Plans* 
 
 Also, the information you previously provided in the **Marketplace** or **Storefront Details**  (Consulting Service, Power BI app) pages in the Cloud Partner Portal is now collected on the **Offer listing** page in Partner Center:
 
-[![Screenshot shows the Partner Center Offer listing page.](media/cpp-pc-faq/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
+[ ![Screenshot shows the Partner Center Offer listing page.](./media/cpp-pc-faq/offer-listing.png) ](./media/cpp-pc-faq/offer-listing.png#lightbox)
 
 The information you previously provided for SKUs in a single page in the Cloud Partner Portal may now be collected throughout several pages in Partner Center:
 

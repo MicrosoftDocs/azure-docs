@@ -58,13 +58,15 @@ For a complete walk-through of creating and monitoring a pipeline using .NET SDK
     ```csharp
     // Check the copy activity run details
     Console.WriteLine("Checking copy activity run details...");
-   
-    List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
-    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
+
+    RunFilterParameters filterParams = new RunFilterParameters(
+        DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
+    ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
+        resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
     if (pipelineRun.Status == "Succeeded")
-        Console.WriteLine(activityRuns.First().Output);
+        Console.WriteLine(queryResponse.Value.First().Output);
     else
-        Console.WriteLine(activityRuns.First().Error);
+        Console.WriteLine(queryResponse.Value.First().Error);
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -114,8 +116,8 @@ For a complete walk-through of creating and monitoring a pipeline using REST API
 2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
-    $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelineruns/${runId}/activityruns?api-version=${apiVersion}&startTime="+(Get-Date).ToString('yyyy-MM-dd')+"&endTime="+(Get-Date).AddDays(1).ToString('yyyy-MM-dd')+"&pipelineName=Adfv2QuickStartPipeline"
-    $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
+    $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelineruns/${runId}/queryActivityruns?api-version=${apiVersion}&startTime="+(Get-Date).ToString('yyyy-MM-dd')+"&endTime="+(Get-Date).AddDays(1).ToString('yyyy-MM-dd')+"&pipelineName=Adfv2QuickStartPipeline"
+    $response = Invoke-RestMethod -Method POST -Uri $request -Header $authHeader
     $response | ConvertTo-Json
     ```
 
