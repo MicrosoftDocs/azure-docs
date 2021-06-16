@@ -25,7 +25,7 @@ The following scenarios can benefit greatly from bursting:
 
 Currently, there are two managed disk types that can burst, [premium SSDs](disks-types.md#premium-ssd), and [standard SSDs](disks-types.md#standard-ssd). Other disk types cannot currently burst. There are two models of bursting for disks:
 
-- An on-demand bursting model (preview), where the disk bursts whenever its needs exceed its current capacity. This model incurs additional charges anytime the disk bursts. Noncredit bursting is only available on disks greater than 512 GiB in size.
+- An on-demand bursting model (preview), where the disk bursts whenever its needs exceed its current capacity. This model incurs additional charges anytime the disk bursts. Noncredit bursting is only available on premium SSDs larger than 512 GiB.
 - A credit-based model, where the disk will burst only if it has burst credits accumulated in its credit bucket. This model does not incur additional charges when the disk bursts. Credit-based bursting is only available on premium and standard SSDs 512 GiB and smaller.
 
 Azure [premium SSDs](disks-types.md#premium-ssd) can use either bursting model, but [standard SSDs](disks-types.md#standard-ssd) currently only offer credit-based bursting.
