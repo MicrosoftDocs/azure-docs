@@ -19,7 +19,7 @@ ms.service: azure-communication-services
 In this quickstart, we'll build a .NET console application to authenticate an AAD user token using the MSAL library. We'll then exchange that token for a Teams access token with the Azure Communication Services Identity SDK. The Teams access token can then be used by the Azure Communication Services Calling SDK to build a custom Teams endpoint.
 
 > [!NOTE]
-> In production environment we are encouraging to implement exchange mechanism in backend services, as requests for exchange are signed with secret.
+> In production environments, we recommend implementing this exchange mechanism in backend services, as requests for exchange are signed with a secret.
 
 
 ## Prerequisites
