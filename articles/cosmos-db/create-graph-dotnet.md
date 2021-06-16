@@ -35,11 +35,11 @@ If you don't already have Visual Studio 2019 installed, you can download and use
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -151,11 +151,11 @@ You can now go back to Data Explorer in the Azure portal and browse and query yo
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
