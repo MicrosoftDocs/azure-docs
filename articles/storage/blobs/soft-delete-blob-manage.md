@@ -141,26 +141,24 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
 You can use the Azure portal to view and restore soft-deleted directories, blobs and snapshots.
 
-// Make sure to show directory examples in this section as well.
-
 #### View deleted blobs
 
 When blobs are soft-deleted, they are invisible in the Azure portal by default. To view soft-deleted blobs, navigate to the **Overview** page for the container and toggle the **Show deleted blobs** setting. Soft-deleted blobs are displayed with a status of **Deleted**. The following image shows a soft-deleted directory.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot showing how to list soft-deleted blobs in Azure portal](media/soft-delete-blob-manage/soft-deleted-blobs-list-portal-hns.png)
+> ![Screenshot showing how to list soft-deleted blobs in Azure portal (hierarchical namespace enabled accounts)](media/soft-delete-blob-manage/soft-deleted-blobs-list-portal-hns.png)
 
 Next, select the deleted directory or blob from the list of directories or blobs to display its properties. Under the **Overview** tab, notice that the status is set to **Deleted**. The portal also displays the number of days until the blob is permanently deleted.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot showing properties of soft-deleted blob in Azure portal](media/soft-delete-blob-manage/soft-deleted-blob-properties-portal-hns.png)
+> ![Screenshot showing properties of soft-deleted blob in Azure portal (hierarchical namespace enabled accounts)](media/soft-delete-blob-manage/soft-deleted-blob-properties-portal-hns.png)
 
 #### Restore soft-deleted objects
 
 To restore a soft-deleted blob in the Azure portal when blob versioning is not enabled, first display the blob's properties, then select the **Undelete** button on the **Overview** tab. Restoring a blob also restores any snapshots that were deleted during the soft-delete retention period.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot showing how to restore a soft-deleted blob in Azure portal](media/soft-delete-blob-manage/undelete-soft-deleted-blob-portal-hns.png)
+> ![Screenshot showing how to restore a soft-deleted blob in Azure portal (hierarchical namespace enabled accounts)](media/soft-delete-blob-manage/undelete-soft-deleted-blob-portal-hns.png)
 
 ### Restore soft deleted blobs and directories by using PowerShell
 
