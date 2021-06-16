@@ -104,7 +104,7 @@ Your Azure Maps subscription keys are similar to a root password for your Azure 
 
 ### Manually rotate subscription keys
 
-Microsoft recommends that you rotate your subscription keys periodically to help keep your Azure Maps account secure. If possible, use Azure Key Vault to manage your access keys. If you are not using Key Vault, you will need to rotate your keys manually.
+Microsoft recommends that you rotate your subscription keys periodically to help keep your Azure Maps account secure. If possible, use Azure Key Vault to manage your access keys. If you aren't using Key Vault, you'll need to rotate your keys manually.
 
 Two subscription keys are assigned so that you can rotate your keys. Having two keys ensures that your application maintains access to Azure Maps throughout the process.
 
