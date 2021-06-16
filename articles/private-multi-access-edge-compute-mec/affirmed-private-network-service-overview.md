@@ -49,7 +49,7 @@ APNS provides the following key benefits to operators and their customers:
 
 - **Automation and Ease of Management** - The APNS solution can be completely managed remotely through Service Manager on the Azure cloud. Through the Service Manager, end-users have access to their personalized dashboard and can manage, view, and turn on/off devices on the private mobile network. Operators can monitor the status of the networks for network issues and key parameters to ensure optimal performance.
 
-    - Provides secure, reliable, high bandwidth, low latency private mobile networking service that runs on private edge zone.
+    - Provides secure, reliable, high bandwidth, low latency private mobile networking service that runs on [private multi-access edge compute](overview.md).
 
     - Supports complete remote management, without needing truck rolls.
 
