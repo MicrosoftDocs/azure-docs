@@ -188,9 +188,9 @@ sections:
         answer: |
           Yes, Azure Synapse Link supports configuring customr-managed keys usings your Azure Cosmos DB account's managed identity. You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. To learn more, see  [configuring customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk#using-managed-identity) artice.
       
-       - question: | 
-           Does Azure Synapse link provide network isolation with Azure Synapse managed virutal networks? 
-         answer: |
+      - question: |
+           Does Azure Synapse link provide network isolation with Azure Synapse managed virutal networks?
+        answer: |
            Yes, You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
        
   - name: Synapse run-times
