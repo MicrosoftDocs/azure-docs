@@ -1,5 +1,5 @@
 ---
-title: Make requests with Postman
+title: Make API requests with Postman
 titleSuffix: Azure Digital Twins
 description: Learn how to configure and use Postman to call the Azure Digital Twins APIs.
 ms.author: baanders
