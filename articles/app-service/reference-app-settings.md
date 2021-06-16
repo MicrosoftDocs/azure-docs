@@ -214,17 +214,17 @@ APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
 
 # [PHP](#tab/php)
 
-| Setting name | Description |
-|-|-|
+| Setting name | Description | Example|
+|-|-|-|
 | `PHP_Extensions` | Comma-separated list of PHP extensions. | `extension1.dll,extension2.dll,Name1=value1` |
-| `PHP_ZENDEXTENSIONS` | | For Windows native apps, set to the path of the XDebug extension, such as `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`. For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. |
-| `PHP_VERSION` | Read-only. The selected PHP version. |
-| `PORT` | Read-only. Port that Apache server listens to in the container. |
-| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
-| `WEBSITE_PROFILER_ENABLE_TRIGGER` | Set to `TRUE` to add `xdebug.profiler_enable_trigger=1` and `xdebug.profiler_enable=0` to the default `php.ini`. |
-| `WEBSITE_ENABLE_PHP_ACCESS_LOGS` | Set to `TRUE` to log requests to the server (`CustomLog \dev\stderr combined` is added to `/etc/apache2/apache2.conf`). |
-| `APACHE_SERVER_LIMIT` | Apache specific variable. The default is `1000`. |
-| `APACHE_MAX_REQ_WORKERS` | Apache specific variable. The default is `256`. |
+| `PHP_ZENDEXTENSIONS` | | For Windows native apps, set to the path of the XDebug extension, such as `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`. For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
+| `PHP_VERSION` | Read-only. The selected PHP version. ||
+| `PORT` | Read-only. Port that Apache server listens to in the container. ||
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. ||
+| `WEBSITE_PROFILER_ENABLE_TRIGGER` | Set to `TRUE` to add `xdebug.profiler_enable_trigger=1` and `xdebug.profiler_enable=0` to the default `php.ini`. ||
+| `WEBSITE_ENABLE_PHP_ACCESS_LOGS` | Set to `TRUE` to log requests to the server (`CustomLog \dev\stderr combined` is added to `/etc/apache2/apache2.conf`). ||
+| `APACHE_SERVER_LIMIT` | Apache specific variable. The default is `1000`. ||
+| `APACHE_MAX_REQ_WORKERS` | Apache specific variable. The default is `256`. ||
 
 <!-- 
 ZEND_BIN_PATH
@@ -237,17 +237,17 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 # [Ruby](#tab/ruby)
 
-| Setting name | Description |
-|-|-|
-| `PORT` | Read-only. Port that the Rails app listens to in the container. |
-| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
-| `RAILS_IGNORE_SPLASH` | By default, a default splash page is displayed when no Gemfile is found. Set this variable to any value to disable the splash page. |
+| Setting name | Description | Example |
+|-|-|-|
+| `PORT` | Read-only. Port that the Rails app listens to in the container. ||
+| `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. ||
+| `RAILS_IGNORE_SPLASH` | By default, a default splash page is displayed when no Gemfile is found. Set this variable to any value to disable the splash page. ||
 | `BUNDLE_WITHOUT` | To add `--without` options to `bundle install`, set the variable to the groups you want to exclude, separated by space. By default, all Gems are installed. | `test development` |
-| `BUNDLE_INSTALL_LOCATION` | Directory to install gems. The default is `/tmp/bundle`. |
-| `RUBY_SITE_CONFIG_DIR` | Site config directory. The default is `/home/site/config`. The container checks for zipped gems in this directory. |
-| `SECRET_KEY_BASE` | By default, A random secret key base is generated. To use a custom secret key base, set this variable to the desired key base. |
-| `RAILS_ENV` | Rails environment. The default is `production`. |
-| `GEM_PRISTINE` | Set this variable to any value to run `gem pristine --all`. |
+| `BUNDLE_INSTALL_LOCATION` | Directory to install gems. The default is `/tmp/bundle`. ||
+| `RUBY_SITE_CONFIG_DIR` | Site config directory. The default is `/home/site/config`. The container checks for zipped gems in this directory. ||
+| `SECRET_KEY_BASE` | By default, A random secret key base is generated. To use a custom secret key base, set this variable to the desired key base. ||
+| `RAILS_ENV` | Rails environment. The default is `production`. ||
+| `GEM_PRISTINE` | Set this variable to any value to run `gem pristine --all`. ||
 
 -----
 
