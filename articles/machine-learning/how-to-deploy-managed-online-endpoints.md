@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Deploy and score a machine learning model with a managed online endpoint (preview)
 
-Managed online endpoints (preview) provide you the ability to deploy your model without the need to create and manage the underlying infrastructure. In this article, you'll start by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. You'll also learn how to view the logs and monitor the Service Level Agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that can be used for online/real-time scoring.
+Managed online endpoints (preview) provide you the ability to deploy your model without the need to create and manage the underlying infrastructure. In this article, you'll start by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. You'll also learn how to view the logs and monitor the Service Level Agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that can be used for online/real-time scoring. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
