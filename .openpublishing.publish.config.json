@@ -762,7 +762,7 @@
     {
       "path_to_root": "dotnet-samples",
       "url": "https://github.com/dotnet/samples",
-      "branch": "casoper/app-insights-quickstart",
+      "branch": "main",
       "branch_mapping": {}
     }
   ],
