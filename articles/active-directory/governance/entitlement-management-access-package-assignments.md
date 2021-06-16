@@ -64,7 +64,7 @@ You can perform this query in PowerShell with the `Get-MgEntitlementManagementAc
 Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
 Select-MgProfile -Name "beta"
 $accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign"
-$assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -ExpandProperty target
+$assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -ExpandProperty target -All -ErrorAction Stop
 $assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
 ```
 
@@ -140,8 +140,9 @@ You can remove a user's assignment in PowerShell with the `New-MgEntitlementMana
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
 Select-MgProfile -Name "beta"
-$assignments = Get-MgEntitlementManagementAccessPackageAssignment -Filter "accessPackageId eq '9f573551-f8e2-48f4-bf48-06efbb37c7b8'"
-$req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageAssignmentId $assignments[0].Id -RequestType "AdminRemove"
+$assignments = Get-MgEntitlementManagementAccessPackageAssignment -Filter "accessPackageId eq '9f573551-f8e2-48f4-bf48-06efbb37c7b8' and assignmentState eq 'Delivered'" -All -ErrorAction Stop
+$toRemove = $assignments | Where-Object {$_.targetId -eq '76fd6e6a-c390-42f0-879e-93ca093321e7'}
+$req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageAssignmentId $toRemove.Id -RequestType "AdminRemove"
 ```
 
 ## Next steps
