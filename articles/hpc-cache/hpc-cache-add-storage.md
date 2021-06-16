@@ -33,6 +33,7 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 
 ## Size your cache correctly to support your storage targets
 
+<!-- asc12 to do: add L series standard (they all get 20 even though you can't change the size) -->
 The number of supported storage targets depends on the cache size, which is set when you create the cache. The size is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
 
 * Up to 10 storage targets - If you choose the smallest or medium cache storage size for your selected throughput value, your cache can have up to 10 storage targets.
@@ -194,6 +195,10 @@ When you create a storage target that uses NFS to reach its storage system, you 
 Read [Understand usage models](cache-usage-models.md) for more details about all of these settings.
 
 The built-in usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
+
+<!-- asc12 add restriction on L series: -->
+> [!NOTE]
+> L Series storage caches support read caching only so you can't choose those write models (write this better)
 
 These three options cover most situations:
 

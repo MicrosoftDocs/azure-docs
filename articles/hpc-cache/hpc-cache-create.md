@@ -23,7 +23,7 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 
 ## Define basic details
 
-![screenshot of project details page in Azure portal](media/hpc-cache-create-basics.png)
+![Screenshot of project details page in Azure portal.](media/hpc-cache-create-basics.png)
 
 In **Project Details**, select the subscription and resource group that will host the cache.
 
@@ -34,21 +34,38 @@ In **Service Details**, set the cache name and these other attributes:
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.
 
 ## Set cache capacity
-<!-- referenced from GUI - update aka.ms link if you change this header text -->
+<!-- referenced from GUI - update aka.ms/hpc-cache-iops link if you change this header text -->
 
-On the **Cache** page, you must set the capacity of your cache. The values set here determine how much data your cache can hold and how quickly it can service client requests.
+On the **Cache** page, you must set the capacity of your cache. The values set here determine how quickly your cache can service client requests and how much data it can hold.
 
 Capacity also affects the cache's cost, and how many storage targets it can support.
 
-Choose the capacity by setting these two values:
+Cache capacity is a combination of two values:
 
 * The maximum data transfer rate for the cache (throughput), in GB/second
 * The amount of storage allocated for cached data, in TB
 
-Choose one of the available throughput values and cache storage sizes.
+You also can choose from two different types of cache infrastructure options.
+
+* The throughput values listed under **Read-write caching** can be customized with several different cache sizes. You can configure these for read-only or read and write caching. They can support up to 10 storage targets, or up to 20 storage targets if configured with the largest possible cache storage size. (Read more about storage target limits in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).)
+
+* The throughput values listed under **Read-only caching** have set cache sizes. Caches created with these processor types are preconfigured with NVME disks.
+
+  These high-throughput caches have other differences from the standard cache configuration:
+
+  * Write caching is disabled for these configurations. They're optimized to speed up read access to data.
+  * These caches can't be stopped when not needed. Plan your workflow to minimize down time.
+  * They are compatible only with NFS-connected storage targets - either an on-premises storage system or NFS-enabled blob storage (not standard blob).
+  * They can support up to 20 storage targets.
+
+To learn more about read and write caching, read [Understand cache usage models](cache-usage-models.md#basic-file-caching-concepts).
+
+![Screenshot of maximum throughput menu in the portal. There are several size options under the heading "Read-write caching" and several under the heading "Read-only".](media/draft-rw-ro-cache-sizing.png)
+
+Choose one of the available throughput values. Also choose the cache storage size if your throughput size allows that option.
 
 > [!TIP]
-> If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value for your throughput size. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+> If you want to use more than 10 storage targets with your cache, you must choose one of the high-throughput read-only configurations, or choose the highest available cache storage size value available for your throughput size. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
 
 Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from back-end storage.
 

@@ -8,6 +8,8 @@ ms.date: 04/08/2021
 ms.author: v-erkel
 ---
 
+<!-- to do for ASC12 - update for no changing usage models that change NLM state - https://msazure.visualstudio.com/One/_workitems/edit/9883692 -->
+
 # Understand cache usage models
 
 Cache usage models let you customize how your Azure HPC Cache stores files to speed up your workflow.
@@ -16,7 +18,7 @@ Cache usage models let you customize how your Azure HPC Cache stores files to sp
 
 File caching is how Azure HPC Cache expedites client requests. It uses these basic practices:
 
-* **Read caching** - Azure HPC Cache keeps a copy of files that clients request from the storage system. The next time a client requests the same file, HPC Cache can provide the version in its cache instead of having to fetch it from the back-end storage system again.
+* **Read caching** - Azure HPC Cache keeps a copy of files that clients request from the storage system. The next time a client requests the same file, HPC Cache can provide the version in its cache instead of having to fetch the file from the back-end storage system again.
 
 * **Write caching** - Optionally, Azure HPC Cache can store a copy of any changed files sent from the client machines. If multiple clients make changes to the same file over a short period, the cache can collect all the changes in the cache instead of having to write each change individually to the back-end storage system.
 
