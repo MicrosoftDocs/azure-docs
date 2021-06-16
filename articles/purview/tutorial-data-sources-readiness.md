@@ -1,112 +1,102 @@
 ---
-title: 'Tutorial: Check data sources readiness at scale (preview)'
-description: In this tutorial, you will run a subset of tools to verify readiness of your Azure data sources before registering and scanning them in Azure Purview. 
+title: 'Check data source readiness at scale (preview)'
+description: In this tutorial, you'll verify the readiness of your Azure data sources before you register and scan them in Azure Purview. 
 author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 05/28/2021
-# Customer intent: As a data steward or catalog administrator, I need to onboard Azure data sources at scale before registering and scanning.
+# Customer intent: As a data steward or catalog administrator, I need to onboard Azure data sources at scale before I register and scan them.
 ---
-# Tutorial: Check Data Sources Readiness at Scale (Preview)
+# Tutorial: Check data source readiness at scale (preview)
 
 > [!IMPORTANT]
-> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Purview is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta or preview or are otherwise not yet released to general availability.
 
-To scan data sources, Azure Purview requires access to data sources. This is done by using **Credentials**. A credential is an authentication information that Azure Purview can use to authenticate to your registered data sources. There are few options to setup the credentials for Azure Purview such as using Managed Identity assigned to the Purview Account, using a Key Vault or a Service Principals.
+To scan data sources, Azure Purview requires access to them. It uses credentials to obtain this access. A *credential* is the authentication information that Azure Purview can use to authenticate to your registered data sources. There are a few ways to set up the credentials for Azure Purview, including: 
+- A managed identity assigned to the Azure Purview account.
+- A key vault. 
+- Service principals.
 
-In this *two-part tutorial series*, we aim to help you to verify and configure required Azure role assignments and network access for various Azure Data Sources across your Azure subscriptions at scale, so you can then register and scan your Azure data sources in Azure Purview. 
+In this two-part tutorial series, we'll help you verify and configure required Azure role assignments and network access for various Azure data sources across your Azure subscriptions at scale. You can then register and scan your Azure data sources in Azure Purview. 
 
-Run [Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script after you deploy your Azure Purview account and before registering and scanning your Azure data sources. 
+Run the [Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script after you deploy your Azure Purview account and before you register and scan your Azure data sources. 
 
-In part 1 of this tutorial series, you will:
+In part 1 of this tutorial series, you'll:
 
 > [!div class="checklist"]
 >
-> * Locate your data sources and prepare a list of data sources subscriptions.
-> * Run readiness checklist script to find any missing RBAC and network configurations across your data sources in Azure.
-> * Review missing Azure Purview MSI required role assignments and network configurations from the output report. 
+> * Locate your data sources and prepare a list of data source subscriptions.
+> * Run the readiness checklist script to find any missing RBAC or network configurations across your data sources in Azure.
+> * In the output report, review missing network configurations and role assignments required by Azure Purview MSI. 
 > * Share the report with data Azure subscription owners so they can take suggested actions.
 
 ## Prerequisites
 
-* Azure Subscriptions where your data sources are located. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* Azure subscriptions where your data sources are located. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * An [Azure Purview account](create-catalog-portal.md).
-* An Azure Key Vault resource in each subscription if any data sources such as Azure SQL Database, Azure Synapse or Azure SQL Manged Instances.
+* An Azure Key Vault resource in each subscription that has data sources like Azure SQL Database, Azure Synapse Analytics, or Azure SQL Managed Instance.
 * The [Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script.
 
 > [!NOTE]
-> The Azure Purview data sources readiness checklist is only available for **Windows**.
-> This readiness checklist script currently is supported for **Azure Purview Managed Identity (MSI)**.
+> The Azure Purview data sources readiness checklist is available only for Windows.
+> This readiness checklist script is currently supported for Azure Purview Managed Identity (MSI).
 
-## Prepare data sources' Azure subscriptions list 
+## Prepare Azure subscriptions list for data sources
 
-Before running the script, create a csv file (e.g. "C:\temp\Subscriptions.csv) with 4 columns:
+Before running the script, create a .csv file (for example, C:\temp\Subscriptions.csv) with four columns:
+
+|Column name|Description|Example|
+|----|----|----|
+|`SubscriptionId`|Azure subscription IDs for your data sources.|12345678-aaaa-bbbb-cccc-1234567890ab|
+|`KeyVaultName`|Name of existing key vault that’s deployed in the data source subscription.|ContosoDevKeyVault|
+|`SecretNameSQLUserName`|Name of an existing Azure Key Vault secret that contains an Azure Active Directory (Azure AD) user name that can sign in to Azure Synapse, Azure SQL Database, or Azure SQL Managed Instance by using Azure AD authentication.|ContosoDevSQLAdmin|
+|`SecretNameSQLPassword`|Name of an existing Azure Key Vault secret that contains an Azure AD user password that can sign in to Azure Synapse, Azure SQL Database, or Azure SQL Managed Instance by using Azure AD authentication.|ContosoDevSQLPassword|
    
-1. Column name: `SubscriptionId`
-    This column must contain all your Azure subscription IDs where your data sources reside.
+
+**Sample .csv file:**
     
-    for example each column should have one subscription ID: 12345678-aaaa-bbbb-cccc-1234567890ab
+:::image type="content" source="./media/tutorial-data-sources-readiness/subscriptions-input.png" alt-text="Screenshot that shows a sample subscription list." lightbox="./media/tutorial-data-sources-readiness/subscriptions-input.png":::
 
-2. Column name: `KeyVaultName`
-    Provide existing key vault name resource that is deployed in the same corresponding data source subscription.
-    
-    example: ContosoDevKeyVault
+> [!NOTE] 
+> You can update the file name and path in the code, if you need to.
 
-3. Column name: `SecretNameSQLUserName`
-   Provide the name of an existing Azure key vault secret that contains an Azure AD user name that can logon to Azure Synapse, Azure SQL Servers or Azure SQL Managed Instance through Azure AD authentication.
-   
-   example: ContosoDevSQLAdmin
 
-4. Column name: `SecretNameSQLPassword`
-   Provide the name of an existing Azure key vault secret that contains an Azure AD user password that can logon to Azure Synapse, Azure SQL Servers or Azure SQL Managed Instance through Azure AD authentication.
-   
-   example: ContosoDevSQLPassword
 
-    **Sample csv file:**
-    
-    :::image type="content" source="./media/tutorial-data-sources-readiness/subscriptions-input.png" alt-text="Subscriptions List" lightbox="./media/tutorial-data-sources-readiness/subscriptions-input.png":::
+## Run the script and install the required PowerShell modules 
 
-    > [!NOTE] 
-    > You can update the file name and path in the code, if needed.
+Follow these steps to run the script from your Windows computer:
 
-<br>
+1. [Download the Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script to the location of your choice.
 
-## Prepare to run the script and install required PowerShell modules 
+2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell** and then select **Run as administrator**.
 
-Follow these steps to run the script from your Windows machine:
-
-1. [Download Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script to the location of your choice.
-
-2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
-
-3. In the PowerShell window, enter the following command, replacing `<path-to-script>` with the folder path of the extracted the script file.
+3. In the PowerShell window, enter the following command. (Replace `<path-to-script>` with the folder path of the extracted the script file.)
 
    ```powershell
    dir -Path <path-to-script> | Unblock-File
    ```
 
-4. Enter the following command to install the Azure cmdlets.
+4. Enter the following command to install the Azure cmdlets:
 
    ```powershell
    Install-Module -Name Az -AllowClobber -Scope CurrentUser
    ```
-6. If you see the warning prompt, *NuGet provider is required to continue*, enter **Y**, and then press Enter.
+6. If you see the prompt *NuGet provider is required to continue*, enter **Y**, and then select **Enter**.
 
-7. If you see the warning prompt, *Untrusted repository*, enter **A**, and then press Enter.
+7. If you see the prompt, *Untrusted repository*, enter **A**, and then select **Enter**.
 
-5. Repeat the previous steps to install `Az.Synpase` and `AzureAD` modules.
+5. Repeat the previous steps to install the `Az.Synapse` and `AzureAD` modules.
 
 It might take up to a minute for PowerShell to install the required modules.
 
-<br>
 
 ## Collect additional data needed to run the script
 
-Before you run the PowerShell script to verify data sources subscriptions readiness, get the values of the following arguments to use in the scripts:
+Before you run the PowerShell script to verify the readiness of data source subscriptions, obtain the values of the following arguments to use in the scripts:
 
-- `AzureDataType`: choose any of the following options as your data source type to run the readiness for the data type across your subscriptions: 
+- `AzureDataType`: Choose any of the following options as your data-source type to check the readiness for the data type across your subscriptions: 
     
     - `BlobStorage`
 
@@ -122,9 +112,9 @@ Before you run the PowerShell script to verify data sources subscriptions readin
     
     - `All`
 
-- `PurviewAccount`: Your existing Azure Purview Account resource name.
+- `PurviewAccount`: Your existing Azure Purview account resource name.
 
-- `PurviewSub`: Subscription ID where Azure Purview Account is deployed.
+- `PurviewSub`: Subscription ID where the Azure Purview account is deployed.
 
 ## Verify your permissions
 
@@ -132,50 +122,48 @@ Make sure your user has the following roles and permissions:
 
 Role | Scope |
 |-------|--------|
-| Global Reader | Azure AD Tenant |
-| Reader | Azure Subscriptions where your Azure Data Sources reside |
-| Reader | Subscription where Azure Purview Account is created |
-| SQL Admin (Azure AD Authentication) | Azure Synapse Dedicated Pools, Azure SQL Servers, Azure SQL Managed Instances |
-| Access to your Azure Key Vault | Access to get/list Key Vault's secret or Azure Key Vault Secret User |  
+| Global Reader | Azure AD tenant |
+| Reader | Azure subscriptions where your Azure data sources reside |
+| Reader | Subscription where your Azure Purview account is created |
+| SQL Admin (Azure AD Authentication) | Azure Synapse dedicated pools, Azure SQL Database instances, Azure SQL managed instances |
+| Access to your Azure key vault | Access to get/list key vault's secret or Azure Key Vault secret user |  
 
-<br>
 
 ## Run the client-side readiness script
 
-Run the script using the following steps:
+Run the script by completing these steps:
 
-1. Use the following command to navigate to the script's directory. Replace `path-to-script` with the folder path of the extracted file.
+1. Use the following command to go to the script's folder. Replace `<path-to-script>` with the folder path of the extracted file.
 
    ```powershell
    cd <path-to-script>
    ```
 
-2. The following command sets the execution policy for the local computer. Enter **A** for *Yes to All* when you are prompted to change the execution policy.
+2. Run the following command to set the execution policy for the local computer. Enter **A** for *Yes to All* when you're prompted to change the execution policy.
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
    ```
 
-3. Execute the script using the following parameters. Replace the `DataType`, `PurviewName` and `SubscriptionID` placeholders.
+3. Run the script by using the following parameters. Replace the `DataType`, `PurviewName` and `SubscriptionID` placeholders.
 
    ```powershell
    .\purview-data-sources-readiness-checklist.ps1 -AzureDataType <DataType> -PurviewAccount <PurviewName> -PurviewSub <SubscriptionID>
    ```
 
-   When you run the command, a pop-up window may appear twice for you to sign in to Azure and Azure AD using your Azure Active Directory credentials.
+   When you run the command, a pop-up window might appear twice prompting you to sign in to Azure and Azure AD by using your Azure Active Directory credentials.
 
 
-It can take several minutes until the report is fully generated depending on number Azure subscriptions and resources in the environment. 
+It can take several minutes to create the report, depending on the number of Azure subscriptions and resources in the environment. 
 
-After the process has finished, review the output report which demonstrates the detected missing configurations in your Azure subscriptions or resources. The results may appear as _Passed_, _Not Passed_ or _Awareness_. You can share the results with the corresponding subscriptions admins in your organization so they can configure the required settings.
+After the process completes, review the output report, which demonstrates the detected missing configurations in your Azure subscriptions or resources. The results can appear as _Passed_, _Not Passed_, or _Awareness_. You can share the results with the corresponding subscription admins in your organization so they can configure the required settings.
 
-<br>
 
-## Additional Information
+## More information
 
-### What data sources are supported in the script?
+### What data sources are supported by the script?
 
-Currently, the following data sources are supported in the script:
+Currently, the following data sources are supported by the script:
 
 - Azure Blob Storage (BlobStorage)
 - Azure Data Lake Storage Gen 2 (ADLSGen2)
