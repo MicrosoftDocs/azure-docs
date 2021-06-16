@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 06/16/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I want to be able to quickly place an order for multiple Azure Stack Edge devices using an existing shipping address.
 ---
@@ -113,7 +113,7 @@ Before you begin, make sure that:
 
     Click the Down arrow to display **Deployment details**.
 
-    ![Screenshot showing the status of successfully completed order in the Azure Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)
+    ![Screenshot showing deployment details for a successfully completed order in the Azure Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)
 
 1.  Next step: View orders for the resource group.
 
