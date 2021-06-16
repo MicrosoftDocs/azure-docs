@@ -24,7 +24,7 @@ This release of Azure Database for MySQL - Single Server includes the following 
 
 - **Enabled the parameter `redirect_enabled` by default**
 
-  With this release, the parameter `redirect_enabled` will be enabled by default. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes. Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. For more information, see the article [Connect to Azure Database for MySQL with redirection](https://docs.microsoft.com/azure/mysql/howto-redirection).
+  With this release, the parameter `redirect_enabled` will be enabled by default. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes. Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. For more information, see the article [Connect to Azure Database for MySQL with redirection](howto-redirection.md).
 
 - **Addressed MySQL Community Bugs #29596969 and #94668**
 
@@ -44,7 +44,7 @@ This release of Azure Database for MySQL - Single Server includes the following 
 
 - **General Availability of planned maintenance notification**
 
-  This release provides General Availability of planned maintenance notifications in Azure Database for MySQL - Single Server. For more information, see the article [Planned maintenance notification](https://docs.microsoft.com/azure/mysql/concepts-planned-maintenance-notification).
+  This release provides General Availability of planned maintenance notifications in Azure Database for MySQL - Single Server. For more information, see the article [Planned maintenance notification](concepts-planned-maintenance-notification.md).
 
 ## February 2021
 
