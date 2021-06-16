@@ -46,6 +46,9 @@ For more information on login options via the CLI, see [sign in with Azure CLI](
 
 ## Create an HSM key
 
+> [!NOTE]
+> Key generated or imported into Managed HSM cannot be exported. Refer to recommended best practices for key portability and durability.
+
 Use `az keyvault key create` command to create a key.
 
 ### Create an RSA key
