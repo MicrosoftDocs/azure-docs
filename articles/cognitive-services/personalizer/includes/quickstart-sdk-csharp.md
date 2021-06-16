@@ -23,6 +23,8 @@ ms.date: 08/25/2020
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
+[!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
+
 ### Create a new C# application
 
 Create a new .NET Core application in your preferred editor or IDE.
