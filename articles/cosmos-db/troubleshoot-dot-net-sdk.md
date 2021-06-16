@@ -73,7 +73,7 @@ The application should be designed to retry on any exception unless it is a know
 | 412 | No | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's an optimistic concurrency error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
 | 413 | No | [Request Entity Too Large](concepts-limits.md#per-item-limits) |
 | 429 | Yes | It is safe to retry on a 429. This can be avoided by following the link for [too many requests](troubleshoot-request-rate-too-large.md).|
-| 449 | Yes | Transient error that only occurs on write operations, and is safe to retry. This is safe to retry on. This can point to a design issue where to many concurrent operations are trying to update the same object in Cosmos DB. |
+| 449 | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Cosmos DB. |
 | 500 | Yes | The operation failed due to an unexpected service error. Contact support. See Filing an [Azure support issue](https://aka.ms/azure-support). |
 | 503 | Yes | [Service unavailable](troubleshoot-service-unavailable.md) | 
 
