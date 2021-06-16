@@ -18,7 +18,7 @@ ms.service: azure-communication-services
 
 Azure Communication Services can be used to build custom Teams endpoints. With Azure Communication Services SDKs you can customize voice, video, chat, and screen sharing experience for Teams users. Custom Teams endpoints can communicate with the Microsoft Teams client or other custom Teams endpoints. 
 
-You can use the Azure Communication Services Identity SDK to exchange AAD user tokens for Teams' access tokens. In the following diagrams is demonstrated multitenant use case, where Fabrikam is customer of the company Contoso.
+You can use the Azure Communication Services Identity SDK to exchange AAD user tokens for Teams' access tokens. In the following diagrams, is demonstrated multitenant use case, where Fabrikam is customer of the company Contoso.
 
 ## Calling 
 
