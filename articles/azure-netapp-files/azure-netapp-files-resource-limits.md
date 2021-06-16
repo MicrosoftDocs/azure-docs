@@ -93,7 +93,7 @@ You can increase the maxfiles limit to 500 million if your volume quota is at le
 
 Azure NetApp Files has a regional limit based on capacity. The standard capacity limit for each subscription is 25 TiB per region, across all service levels.   
 
-You can request a capacity increase by submitting a specific **Service and subscription limits (quota)** support ticket as follows:
+You can request a capacity increase by submitting a specific **Service and subscription limits (quotas)** support ticket as follows:
 
 1. Go to **Support + Troubleshooting** in the portal to start the Support request process:  
 
@@ -121,7 +121,7 @@ A regional capacity quota increase does not incur a billing increase. Billing wi
 
 ## Request limit increase <a name="limit_increase"></a> 
 
-You can create an Azure support request to increase the adjustable limits from the table above. 
+You can create an Azure support request to increase the adjustable limits from the [Resource Limits](#resource-limits) table. 
 
 From Azure portal navigation plane: 
 
