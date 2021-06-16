@@ -50,7 +50,7 @@ Microsoft security researchers are constantly on the lookout for threats. Becaus
 
 To detect real threats and reduce false positives, Security Center collects, analyzes, and integrates log data from your Azure resources and the network. It also works with connected partner solutions, like firewall and endpoint protection solutions. Security Center analyzes this information, often correlating information from multiple sources, to identify threats.
 
-![Security Center Data collection and presentation](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
+![Security Center Data collection and presentation.](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
 
 Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks. These security analytics include:
 
@@ -105,7 +105,7 @@ During an investigation of an incident, analysts often need extra context to rea
 > [!TIP]
 > For a list of security incident alerts that can be produced by the fusion analytics, see the [Reference table of alerts](alerts-reference.md#alerts-fusion).
 
-:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Screenshot of security incident detected report":::
+:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Screenshot of security incident detected report.":::
 
 To manage your security incidents, see [How to manage security incidents in Azure Security Center](security-center-incident.md).
 
