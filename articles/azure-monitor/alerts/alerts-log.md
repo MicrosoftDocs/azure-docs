@@ -29,7 +29,7 @@ Here the steps to get started writing queries for alerts:
 
 1. Go to the resource you would like to alert on. Consider setting up alert rules on multiple resources by selecting a subscription or resource group scope whenever possible. Alerting on multiple resources reduces costs and the need to manage multiple alert rules.
 1. Under **Monitor**, select **Logs**.
-1. Query the log data that can indicate the issue. You can use the [alert query examples topic](../logs/example-queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
+1. Query the log data that can indicate the issue. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Press on '+ New Alert Rule' button to start the alert creation flow.
 
     ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)

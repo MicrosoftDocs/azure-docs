@@ -7,15 +7,18 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 05/13/2021
 ms.author: cherylmc
 
 ---
 # Azure Active Directory authentication: Configure a VPN client for P2S OpenVPN protocol connections - macOS - Preview
 
-This article helps you configure a VPN client for a computer running macOS to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about Point-to-Site connections, see [About Point-to-Site connections](point-to-site-about.md).
+This article helps you configure a VPN client for a computer running macOS 10.15 and later to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about Point-to-Site connections, see [About Point-to-Site connections](point-to-site-about.md).
 
-[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+> [!NOTE]
+> * This Preview is currently available in most (but not all) countries, due to local regulatory requirements.
+> * Azure AD authentication is supported only for OpenVPN® protocol connections and requires the Azure VPN client.
+>
 
 For every computer that you want to connect to a VNet using a Point-to-Site VPN connection, you need to do the following:
  

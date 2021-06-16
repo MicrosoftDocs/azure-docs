@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 11/09/2020
@@ -243,7 +243,7 @@ return detection_config
 
 ## Create a hook
 
-In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link for receiving the alert.  
+In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link which will appear in the alert.
 
 ```python
 def sample_create_hook():
@@ -262,7 +262,7 @@ hook = client.create_hook(
         name="email hook",
         description="my email hook",
         emails_to_alert=["alertme@alertme.com"],
-        external_link="https://example.com/handleAlerts", # you must enter a valid webhook url to post the alert payload
+        external_link="https://example.com/handleAlerts"   #A customized field configured by users, which will be displayed in the anomaly alert. It's usually been used to link to a troubleshooting guide to help further diagnose the issue.
     )
 )
 ```

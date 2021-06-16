@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 ---
 

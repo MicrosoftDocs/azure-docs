@@ -32,15 +32,15 @@ If you don’t already have Visual Studio 2019 installed, you can download and u
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Add a table
 
-[!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
+[!INCLUDE [cosmos-db-create-table](includes/cosmos-db-create-table.md)]
 
 ## Add sample data
 
-[!INCLUDE [cosmos-db-create-table-add-sample-data](../../includes/cosmos-db-create-table-add-sample-data.md)]
+[!INCLUDE [cosmos-db-create-table-add-sample-data](includes/cosmos-db-create-table-add-sample-data.md)]
 
 ## Clone the sample application
 
@@ -166,11 +166,11 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

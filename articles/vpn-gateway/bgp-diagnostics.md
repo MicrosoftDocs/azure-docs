@@ -8,7 +8,8 @@ author: anzaman
 ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 03/10/2021
-ms.author: alzam
+ms.author: alzam 
+ms.custom: devx-track-azurepowershell
 
 ---
 

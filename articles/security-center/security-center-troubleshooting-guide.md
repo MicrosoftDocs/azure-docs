@@ -54,11 +54,11 @@ Security Center uses the Log Analytics agent – this is the same agent used by 
 
 If you open the services management console (services.msc), you will also see the Log Analytics agent service running as shown below:
 
-![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![Services.](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 To see which version of the agent you have, open **Task Manager**, in the **Processes** tab locate the **Log Analytics agent Service**, right-click on it and click **Properties**. In the **Details** tab, look the file version as shown below:
 
-![File](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+![File.](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
 ## Log Analytics agent installation scenarios
 
@@ -128,7 +128,7 @@ If you experience issues loading the Security Center dashboard, ensure that the 
 
 Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Microsoft Q&A page](/answers/topics/azure-security-center.html). However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below:
 
-![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
+![Microsoft Support.](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 ## See also
 
@@ -143,5 +143,5 @@ In this document, you learned how to configure security policies in Azure Securi
 * [Handling Security Incidents in Azure Security Center](security-center-incident.md)
 * [Azure Security Center detection capabilities](./security-center-alerts-overview.md)
 * [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md) — Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service
+* [Azure Security Center FAQ](faq-general.yml — Find frequently asked questions about using the service
 * [Azure Security Blog](/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance

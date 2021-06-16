@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 06/10/2021
 ms.author: aahi
-ms.custom: references_regions
 ---
 
 # How to call the Text Analytics REST API
@@ -26,9 +25,9 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 1.	First, go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and create a new Text Analytics resource, if you don't have one already. Choose a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-2.	Select the region you want to use for your endpoint.  Please note the `/analyze` and `/health` endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
+2.	Select the region you want to use for your endpoint.
 
-3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
+3.	Create the Text Analytics resource and go to the “Keys and Endpoint” section under Resource Management in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
 4. To check the number of text records that have been sent using your Text Analytics resource:
 
@@ -36,7 +35,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
     2. Click **Metrics**, located under **Monitoring** in the left navigation menu. 
     3. Select *Processed text records* in the dropdown box for **Metric**.
     
-A text record is 1000 characters.
+A text record is a unit of input text up to 1000 characters.  For example, 1500 characters submitted as input text will count as 2 text records.
 
 ## Change your pricing tier 
 
@@ -54,21 +53,19 @@ You can call Text Analytics synchronously (for low latency scenarios). You have 
 
 ## Using the API asynchronously
 
-Starting in v3.1-preview.3, the Text Analytics API provides two asynchronous endpoints: 
+The Text Analytics v3.1-preview.5 API provides two asynchronous endpoints: 
 
 * The `/analyze` endpoint for Text Analytics allows you to analyze the same set of text documents with multiple text analytics features in one API call. Previously, to use multiple features you would need to make separate API calls for each operation. Consider this capability when you need to analyze large sets of documents with more than one Text Analytics feature.
 
 * The `/health` endpoint for Text Analytics for health, which can extract and label relevant medical information from clinical documents.  
-
-Please note the /analyze and /health endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
 
 See the table below to see which features can be used asynchronously. Note that only a few features can be called from the `/analyze` endpoint. 
 
 | Feature | Synchronous | Asynchronous |
 |--|--|--|
 | Language detection | ✔ |  |
-| Sentiment analysis | ✔ |  |
-| Opinion mining | ✔ |  |
+| Sentiment analysis | ✔ | ✔* |
+| Opinion mining | ✔ | ✔* |
 | Key phrase extraction | ✔ | ✔* |
 | Named Entity Recognition (including PII and PHI) | ✔ | ✔* |
 | Entity linking | ✔ | ✔* |
@@ -127,6 +124,8 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 * Key Phrase Extraction 
 * Named Entity Recognition (including PII and PHI)
 * Entity Linking
+* Sentiment Analysis
+* Opinion Mining
 
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
@@ -135,7 +134,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 |`documents` | Includes the `id` and `text` fields below | Required | Contains information for each document being sent, and the raw text of the document. |
 |`id` | String | Required | The IDs you provide are used to structure the output. |
 |`text` | Unstructured raw text, up to 125,000 characters. | Required | Must be in the English language, which is the only language currently supported. |
-|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`,`entityLinkingTasks`,`keyPhraseExtractionTasks` or `entityRecognitionPiiTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi` and the `pii-categories` for detection of selected entity types. If the `domain` parameter is unspecified, the system defaults to `pii`. |
+|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`,`entityLinkingTasks`,`keyPhraseExtractionTasks`,`entityRecognitionPiiTasks` or `sentimentAnalysisTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi` and the `pii-categories` for detection of selected entity types. If the `domain` parameter is unspecified, the system defaults to `pii`. Similarly  `sentimentAnalysisTasks` has the `opinionMining` boolean parameter to include Opinion Mining results in the output for Sentiment Analysis. |
 |`parameters` | Includes the `model-version` and `stringIndexType` fields below | Required | This field is included within the above feature tasks that you choose. They contain information about the model version that you want to use and the index type. |
 |`model-version` | String | Required | Specify which version of the model being called that you want to use.  |
 |`stringIndexType` | String | Required | Specify the text decoder that matches your programming environment.  Types supported are `textElement_v8` (default), `unicodeCodePoint`, `utf16CodeUnit`. Please see the [Text offsets article](../concepts/text-offsets.md#offsets-in-api-version-31-preview) for more information.  |
@@ -152,7 +151,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             },
             {
                 "id": "doc2",
-                "text": "Pike place market is my favorite Seattle attraction."
+                "text": "Pike place market is my favorite Seattle attraction. The shops have very good food."
             }
         ]
     },
@@ -161,7 +160,19 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "stringIndexType": "TextElement_v8",
+                    "loggingOptOut": "false"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElement_v8",
+                    "loggingOptOut": "true",
+                    "domain": "phi",
+                    "piiCategories":["default"]
                 }
             }
         ],
@@ -169,23 +180,29 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "stringIndexType": "TextElement_v8",
+                    "loggingOptOut": "false"
                 }
             }
         ],
-        "keyPhraseExtractionTasks": [{
-            "parameters": {
-                "model-version": "latest"
+        "keyPhraseExtractionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "loggingOptOut": "false"
+                }
             }
-        }],
-        "entityRecognitionPiiTasks": [{
-            "parameters": {
-                "model-version": "latest",
-                "stringIndexType": "TextElements_v8",
-                "domain": "phi",
-                "pii-categories":"default"
+        ],
+        "sentimentAnalysisTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElement_v8",
+                    "loggingOptOut": "false",
+                    "opinionMining": "true"
+                }
             }
-        }]
+        ]
     }
 }
 
@@ -235,13 +252,14 @@ In Postman (or another web API test tool), add the endpoint for the feature you 
 
 | Feature | Request type | Resource endpoints |
 |--|--|--|
-| Language detection | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
-| Sentiment analysis | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
-| Key phrase extraction | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
-| Named entity recognition - general | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
-| Named entity recognition - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
-| Named entity recognition - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
+| Language Detection | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
+| Sentiment Analysis | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
+| Opinion Mining | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/sentiment?opinionMining=true` |
+| Key Phrase Extraction | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
+| Named Entity Recognition - General | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
+| Named Entity Recognition - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii` |
+| Named Entity Recognition - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi` |
+| Entity Linking | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/linking` |
 
 #### [Asynchronous](#tab/asynchronous)
 
@@ -249,16 +267,16 @@ In Postman (or another web API test tool), add the endpoint for the feature you 
 
 | Feature | Request type | Resource endpoints |
 |--|--|--|
-| Submit analysis job | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
-| Get analysis status and results | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
+| Submit analysis job | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze` |
+| Get analysis status and results | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>` |
 
 ### Endpoints for sending asynchronous requests to the `/health` endpoint
 
 | Feature | Request type | Resource endpoints |
 |--|--|--|
-| Submit Text Analytics for health job  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
-| Get job status and results | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
-| Cancel job | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| Submit Text Analytics for health job  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs` |
+| Get job status and results | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
+| Cancel job | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -294,9 +312,9 @@ Submit the API request. If you made the call to a synchronous endpoint, the resp
 If you made the call to the asynchronous `/analyze` or `/health` endpoints, check that you received a 202 response code. you will need to get the response to view the results:
 
 1. In the API response, find the `Operation-Location` from the header, which identifies the job you sent to the API. 
-2. Create a GET request for the endpoint you used. refer to the [table above](#set-up-a-request) for the endpoint format, and review the [API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). For example:
+2. Create a GET request for the endpoint you used. refer to the [table above](#set-up-a-request) for the endpoint format, and review the [API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/AnalyzeStatus). For example:
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>`
 
 3. Add the `Operation-Location` to the request.
 
@@ -324,6 +342,7 @@ The synchronous endpoint responses will vary depending on the endpoint you use. 
 If successful, the GET request to the `/analyze` endpoint will return an object containing the assigned tasks. For example `keyPhraseExtractionTasks`. These tasks contain the response object from the appropriate Text Analytics feature. See the following articles for more information.
 
 + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
++ [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Entity recognition](text-analytics-how-to-entity-linking.md#view-results)
 + [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
 
@@ -332,7 +351,12 @@ If successful, the GET request to the `/analyze` endpoint will return an object 
 ## See also
 
 * [Text Analytics overview](../overview.md)
+<<<<<<< HEAD
 * [Frequently asked questions (FAQ)](../text-analytics-resource-faq.yml)</br>
+=======
+* [Model versions](../concepts/model-versioning.md)
+* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
+>>>>>>> f337628b8207eb2493bb6b8330de18013f26b713
 * [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)

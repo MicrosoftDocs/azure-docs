@@ -5,13 +5,13 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 05/17/2021
 ms.author: cshoe
 ---
 
 # Securing authentication secrets in Azure Key Vault
 
-When configuring custom authentication providers, you may want to store connection secrets in Key Vault. This article demonstrates how to use a managed identity to grant Azure Static Web Apps access to Key Vault for secrets custom authentication.
+When configuring custom authentication providers, you may want to store connection secrets in Azure Key Vault. This article demonstrates how to use a managed identity to grant Azure Static Web Apps access to Key Vault for custom authentication secrets.
 
 Security secrets require the following items to be in place.
 

@@ -91,6 +91,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
+    --kubernetes-version 1.20.2 \
     --network-plugin azure
 ```
 
@@ -116,7 +117,67 @@ az aks nodepool add \
     --node-count 1
 ```
 
-The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
+The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
+
+### Add a Windows Server node pool with `containerd` (preview)
+
+Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` as the container runtime for Windows Server 2019 node pools.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+You will need the *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Register the `UseCustomizedWindowsContainerRuntime` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
+
+```azurecli
+az feature register --namespace "Microsoft.ContainerService" --name "UseCustomizedWindowsContainerRuntime"
+```
+
+You can check on the registration status using the [az feature list][az-feature-list] command:
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedWindowsContainerRuntime')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the Microsoft.ContainerService resource provider using the [az provider register][az-provider-register] command:
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Use `az aks nodepool add` command to add an additional node pool that can run Windows Server containers with the `containerd` runtime.
+
+> [!NOTE]
+> If you do not specify the *WindowsContainerRuntime=containerd* custom header, the node pool will use Docker as the container runtime.
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --name npwcd \
+    --node-vm-size Standard_D4s_v3 \
+    --kubernetes-version 1.20.2 \
+    --aks-custom-headers WindowsContainerRuntime=containerd \
+    --node-count 1
+```
+
+The above command creates a new Windows Server node pool using `containerd` as the runtime named *npwcd* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
+
+> [!IMPORTANT]
+> When using `containerd` with Windows Server 2019 node pools:
+> - Both the control plane and Windows Server 2019 node pools must use Kubernetes version 1.20 or greater.
+> - Existing Windows Server 2019 node pools using Docker as the container runtime can't be upgraded to use `containerd`. You must create a new node pool.
+> - When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3* which was minimum recommended size for Windows Server 2019 node pools prior to Kubernetes 1.20. The minimum recommended size for Windows Server 2019 node pools using `containerd` is *Standard_D4s_v3*. When setting the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes].
+> - It is highly recommended that you use [taints or labels][aks-taints] with your Windows Server 2019 node pools running `containerd` and tolerations or node selectors with your deployments to guarantee your workloads are scheduled correctly.
 
 ## Connect to the cluster
 
@@ -135,16 +196,21 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
 ```console
-kubectl get nodes
+kubectl get nodes -o wide
 ```
 
 The following example output shows the all the nodes in the cluster. Make sure that the status of all nodes is *Ready*:
 
 ```output
-NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.9
-aksnpwin987654                      Ready    agent   108s   v1.16.9
+NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
+aks-nodepool1-12345678-vmss000000   Ready    agent   34m    v1.20.2   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aks-nodepool1-12345678-vmss000001   Ready    agent   34m    v1.20.2   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aksnpwcd123456                      Ready    agent   9m6s   v1.20.2   10.240.0.97   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    containerd://1.4.4+unknown
+aksnpwin987654                      Ready    agent   25m    v1.20.2   10.240.0.66   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    docker://19.3.14
 ```
+
+> [!NOTE]
+> The container runtime for each node pool is shown under *CONTAINER-RUNTIME*. Notice *aksnpwin987654* begins with `docker://` which means it is using Docker for the container runtime. Notice *aksnpwcd123456* begins with `containerd://` which means it is using `containerd` for the container runtime.
 
 ## Run the application
 
@@ -275,6 +341,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+[aks-taints]:  use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
 [az-aks-browse]: /cli/azure/aks#az_aks_browse
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

@@ -95,8 +95,8 @@ Verify that your organizational security policy allows access to the following:
 | SMTP | TCP | OUT | 25 | Email | The connection between CyberX platform and the Management platform and the mail server | Sensor and On-premises management console | Email server |
 | Syslog | UDP | OUT | 514 | LEEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
 | DNS |  | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
-| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAP server |
-| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAPS server |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection of CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAP server |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection of CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAPS server |
 | SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | On-premises management console and Sensor | SNMP server |
 | WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
 | Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |

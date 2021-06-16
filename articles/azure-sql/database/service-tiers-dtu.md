@@ -3,14 +3,14 @@ title: Service tiers - DTU-based purchase model
 description: Learn about service tiers in the DTU-based purchase model for Azure SQL Database to provide compute and storage sizes.  
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: references_regions
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 5/4/2021
-ms.reviewer:
 ---
 # Service tiers in the DTU-based purchase model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

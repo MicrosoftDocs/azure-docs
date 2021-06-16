@@ -5,12 +5,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/25/2021
+ms.date: 05/13/2021
 ms.author: mjbrown
 ---
 
 # Manage an Azure Cosmos account
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article describes how to manage various tasks on an Azure Cosmos account using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates.
 
@@ -18,7 +18,7 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 
 ### <a id="create-database-account-via-portal"></a>Azure portal
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 ### <a id="create-database-account-via-cli"></a>Azure CLI
 

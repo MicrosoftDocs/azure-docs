@@ -5,7 +5,7 @@ description: Learn about what is new with Metrics Advisor
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/14/2020
