@@ -42,6 +42,9 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 - Turn on purge protection to prevent immediate permanent deletion of HSM or keys. When purge protection is on HSM or keys will remain in deleted state until the retention days have passed.
 
 ## Generate and import keys from on-premise HSM
+
+> [!NOTE] Keys created or imported into Managed HSM are not exportable.
+
 - To ensure long term portability and key durability, generate keys in your on-premise HSM and [import them to Managed HSM](hsm-protected-keys-byok.md). You will have a copy of your key securely stored in your on-premise HSM for future use.
 
 ## Next steps

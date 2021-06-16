@@ -42,6 +42,7 @@ az account set --subscription {SUBSCRIPTION ID}                            # Sel
 az group create -n {RESOURCE GROUP} -l {REGION}                            # Create a new Resource Group
 az provider register -n Microsoft.KeyVault                                 # Register KeyVault as a provider
 az keyvault update-hsm --hsm-name {HSM NAME} -g {RG} --default-action deny # Turn on firewall
+
 az network vnet create -g {RG} -n {vNet NAME} -location {REGION}           # Create a Virtual Network
 
     # Create a Subnet
@@ -56,6 +57,17 @@ az network private-dns zone create --resource-group {RG} --name privatelink.mana
     # Link the Private DNS Zone to the Virtual Network
 az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.managedhsm.azure.net --name {dnsZoneLinkName} --registration-enabled true
 
+```
+
+### Allow trusted services to access Managed HSM
+
+When the firewall is turn on, all access to the HSM from any network hosts that are not using a private endpoin connection will be denied, including public Internet and Azure services. Use `--baypss AzureServices` option if you want to allow Microsoft services to access your keys in your Managed HSM. The individual entities (such as an Azure Storage account or a Azure SQL Server) still need to have specific role assignments in place to be able to access a key. 
+
+> [!NOTE]
+> Only specific trusted services usage scenarios are supported, [learn more](../general/overview-vnet-service-endpoints.md#trusted-services).
+
+```azurecli
+az keyvault update-hsm --hsm-name {HSM NAME} -g {RG} --default-action deny --bypass AzureServices
 ```
 
 ### Create a Private Endpoint (Automatically Approve) 
