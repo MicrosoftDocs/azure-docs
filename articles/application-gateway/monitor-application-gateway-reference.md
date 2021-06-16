@@ -128,6 +128,8 @@ For reference, see a list of [all resource logs category types supported in Azur
 > [!NOTE]
 > The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.
 
+For more information, see [Back-end health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md#access-log)
+
 <!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
 -->
 
@@ -185,13 +187,6 @@ host_s | Host header of the client request|
 requestQuery_s | Query string as part of the client request|
 sslEnabled_s | Does the client request have SSL enabled|
 
-
-## Schemas
-<!-- REQUIRED. Please keep heading in this order -->
-
-The following schemas are in use by Azure Application Gateway
-
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
 
 ## See Also
 
