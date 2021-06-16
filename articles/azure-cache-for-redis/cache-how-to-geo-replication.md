@@ -53,11 +53,11 @@ After geo-replication is configured, the following restrictions apply to your li
 
 ## Add a geo-replication link
 
-1. To link two caches together for geo-replication, fist click **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, click **Add cache replication link** from the **Geo-replication** blade.
+1. To link two caches together for geo-replication, fist select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from the **Geo-replication** on the left.
 
     ![Add link](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Click the name of your intended secondary cache from the **Compatible caches** list. If your secondary cache isn't displayed in the list, verify that the [Geo-replication prerequisites](#geo-replication-prerequisites) for the secondary cache are met. To filter the caches by region, click the region in the map to display only those caches in the **Compatible caches** list.
+2. Select the name of your intended secondary cache from the **Compatible caches** list. If your secondary cache isn't displayed in the list, verify that the [Geo-replication prerequisites](#geo-replication-prerequisites) for the secondary cache are met. To filter the caches by region, select the region in the map to display only those caches in the **Compatible caches** list.
 
     ![Geo-replication compatible caches](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
@@ -65,15 +65,15 @@ After geo-replication is configured, the following restrictions apply to your li
 
     ![Geo-replication context menu](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. Click **Link** to link the two caches together and begin the replication process.
+3. Select **Link** to link the two caches together and begin the replication process.
 
     ![Link caches](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. You can view the progress of the replication process on the **Geo-replication** blade.
+4. You can view the progress of the replication process on the **Geo-replication** on the left.
 
     ![Linking status](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
-    You can also view the linking status on the **Overview** blade for both the primary and secondary caches.
+    You can also view the linking status using **Overview** on the left for both the primary and secondary caches.
 
     ![Screenshot that highlights how to view the linking status for the primary and secondary caches.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
@@ -85,7 +85,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
 ## Remove a geo-replication link
 
-1. To remove the link between two caches and stop geo-replication, click **Unlink caches** from the **Geo-replication** blade.
+1. To remove the link between two caches and stop geo-replication, select **Unlink caches** from the **Geo-replication** on the left.
     
     ![Unlink caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
