@@ -49,7 +49,7 @@ The Administrator role has extended permissions in AAD. Members of this role can
 
 ### 1. Create AAD application registration or select AAD application 
 
-User must be authenticated against AAD application with Azure Communication Service's VoIP permission. If you don't have already existing *Application*, that you would like to use for this quickstart, you can create new application registration. 
+Users must be authenticated against AAD applications with Azure Communication Service's `VoIP` permission. If you don't have an existing application that you would like to use for this quickstart, you can create new application registration. 
 
 Following *Application* settings influence the experience:
 - Property *Supported account types* defines whether the *Application* is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
