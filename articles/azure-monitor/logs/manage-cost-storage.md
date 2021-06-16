@@ -501,7 +501,7 @@ If needed, you can also parse the **_ResourceId** more fully:
 
 Situations can arise where data is ingested with old timestamps. For example, if an agent can't communicate to Log Analytics because of a connectivity issue or when a host has an incorrect time date/time. This can manifest itself by an apparent discrepancy between the ingested data reported by the **Usage** data type and a query summing **_BilledSize** over the raw data for a particular day specified by **TimeGenerated**, the timestamp when the event was generated.
 
-To diagnose late-arriving data issues, use the `_TimeReceived` column ([learn more](./log-standard-columns.md#_timereceived)) in addition to the `TimeGenerated` column. `_TimeReceived` is the time when the record was received by the Azure Monitor ingestion point in the Azure cloud. For instance, when using the `Usage` records, you have observed high ingested data volumes of `W3CIISLog` data on May 2, 2021, here is a query that will identify the timestamps on this ingested data: 
+To diagnose late-arriving data issues, use the **_TimeReceived** column ([learn more](./log-standard-columns.md#_timereceived)) in addition to the **TimeGenerated** column. **_TimeReceived** is the time when the record was received by the Azure Monitor ingestion point in the Azure cloud. For example, when using the **Usage** records, you have observed high ingested data volumes of **W3CIISLog** data on May 2, 2021, here is a query that identifies the timestamps on this ingested data: 
 
 ```Kusto
 W3CIISLog
@@ -512,14 +512,14 @@ W3CIISLog
 | sort by TimeGenerated asc 
 ```
 
-The `where TimeGenerated > datetime(1970-01-01)` is just present to provide the clue to the Log Analytics user interface to look over all data.  
+The `where TimeGenerated > datetime(1970-01-01)` statement is present only to provide the clue to the Log Analytics user interface to look over all data.  
 
 ## Querying for common data types
 
 To dig deeper into the source of data for a particular data type, here are some useful example queries:
 
 + **Workspace-based Application Insights** resources
-  - learn more at [Manage usage and costs for Application Insights](../app/pricing.md#data-volume-for-workspace-based-application-insights-resources)
+  - Learn more at [Manage usage and costs for Application Insights](../app/pricing.md#data-volume-for-workspace-based-application-insights-resources)
 + **Security** solution
   - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + **Log Management** solution
@@ -538,26 +538,26 @@ To dig deeper into the source of data for a particular data type, here are some 
 
 ## Tips for reducing data volume
 
-Some suggestions for reducing the volume of logs collected include:
+This table lists some suggestions for reducing the volume of logs collected.
 
 | Source of high data volume | How to reduce data volume |
 | -------------------------- | ------------------------- |
 | Data Collection Rules      | The [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) uses Data Collection Rules to manage the collection of data. You can [limit the collection of data](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) using custom XPath queries. | 
 | Container Insights         | [Configure Container Insights](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) to collect only the data you required. |
-| Security events            | Select [common or minimal security events](../../security-center/security-center-enable-data-collection.md#data-collection-tier) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [audit registry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [audit file system](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [audit kernel object](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [audit handle manipulation](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - audit removable storage |
-| Performance counters       | Change [performance counter configuration](../agents/data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
-| Event logs                 | Change [event log configuration](../agents/data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
-| Syslog                     | Change [syslog configuration](../agents/data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
-| AzureDiagnostics           | Change [resource log collection](../essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
+| Security events            | Select [common or minimal security events](../../security-center/security-center-enable-data-collection.md#data-collection-tier). <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for: <br> - [audit filtering platform](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)). <br> - [audit registry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10)). <br> - [audit file system](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10)). <br> - [audit kernel object](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10)). <br> - [audit handle manipulation](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10)). <br> - audit removable storage. |
+| Performance counters       | Change the [performance counter configuration](../agents/data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection. <br> - Reduce the number of performance counters. |
+| Event logs                 | Change the [event log configuration](../agents/data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected. <br> - Collect only required event levels. For example, do not collect *Information* level events. |
+| Syslog                     | Change the [syslog configuration](../agents/data-sources-syslog.md) to: <br> - Reduce the number of facilities collected. <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events. |
+| AzureDiagnostics           | Change the [resource log collection](../essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources that send logs to Log Analytics. <br> - Collect only required logs. |
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
-| Application Insights | Review options for [managing Application Insights data volume](../app/pricing.md#managing-your-data-volume) |
+| Application Insights | Review options for [managing Application Insights data volume](../app/pricing.md#managing-your-data-volume). |
 | [SQL Analytics](../insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings. |
-| Azure Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) which you recently enabled as sources of additional data volume. |
+| Azure Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) that you recently enabled as sources of additional data volume. |
 
 ### Getting nodes as billed in the Per Node pricing tier
 
-To get a list of computers that will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes which are sending **billed data types** (some data types are free). 
-To do this, use the `_IsBillable` [property](./log-standard-columns.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the count of computers with billed 
+To get a list of computers that will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes that are sending **billed data types** (some data types are free). 
+To do this, use the [_IsBillable property](./log-standard-columns.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the count of computers with billed 
 data per hour (which is the granularity at which nodes are counted and billed):
 
 ```kusto
@@ -613,11 +613,11 @@ To see the number of distinct Automation nodes, use the query:
 
 The decision of whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Commitment Tier**  is often difficult for customers to assess.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier. 
 
-To facilitate this assessment, the following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns.  This query looks at the monitored nodes and data ingested into a workspace in the last 7 days, and for each day evaluates which pricing tier would have been optimal. To use the query, you need to specify
+To facilitate this assessment, the following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns. This query looks at the monitored nodes and data ingested into a workspace in the last 7 days, and for each day, it evaluates which pricing tier would have been optimal. To use the query, you need to specify:
 
-1. whether the workspace is using Azure Defender (Security Center) by setting `workspaceHasSecurityCenter` to `true` or `false`, 
-2. update the prices if you have specific discounts, and
-3. specify the number of days to look back and analyze by setting `daysToEvaluate`. This is useful if the query is taking too long trying to look at 7 days of data. 
+- Whether the workspace is using Azure Defender (Security Center) by setting **workspaceHasSecurityCenter** to **true** or **false**. 
+- Update the prices if you have specific discounts.
+- Specify the number of days to look back and analyze by setting **daysToEvaluate**. This is useful if the query is taking too long trying to look at 7 days of data. 
 
 Here is the pricing tier recommendation query:
 
@@ -702,54 +702,53 @@ union *
 | sort by day asc
 ```
 
-This query is not an exact replication of how usage is calculated, but will work for providing pricing tier recommendations in most cases.  
+This query isn't an exact replication of how usage is calculated, but it provides pricing tier recommendations in most cases.  
 
 > [!NOTE]
-> To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
+> To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite, or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
 
 ## Create an alert when data collection is high
 
-This section describes how to create an alert the data volume in the last 24 hours exceeded a specified amount, using Azure Monitor [Log Alerts](../alerts/alerts-unified-log.md). 
+This section describes how to create an alert when the data volume in the last 24 hours exceeded a specified amount, using Azure Monitor [Log Alerts](../alerts/alerts-unified-log.md). 
 
-To alert if the billable data volume ingested in the last 24 hours was greater than 50 GB, follow these steps: 
+To alert if the billable data volume ingested in the last 24 hours was greater than 50 GB: 
 
 - **Define alert condition** specify your Log Analytics workspace as the resource target.
 - **Alert criteria** specify the following:
    - **Signal Name** select **Custom log search**
-   - **Search query** to `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. If you want a different 
+   - **Search query** to `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`.  
    - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
    - **Time period** of *1440* minutes and **Alert frequency** to every *1440* minutes to run once a day.
 - **Define alert details** specify the following:
    - **Name** to *Billable data volume greater than 50 GB in 24 hours*
    - **Severity** to *Warning*
 
-Specify an existing or create a new [Action Group](../alerts/action-groups.md) so that when the log alert matches criteria, you are notified.
+To be notified when the log alert matches criteria, specify an existing or create a new [action group](../alerts/action-groups.md).
 
 When you receive an alert, use the steps in the above sections about how to troubleshoot why usage is higher than expected.
 
 ## Data transfer charges using Log Analytics
 
-Sending data to Log Analytics might incur data bandwidth charges, however that is limited to Virtual Machines where a Log Analytics agent is installed and doesn't apply when using Diagnostics settings or with other connectors that are built into Azure Sentinel. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small (few %) compared to the costs for Log Analytics data ingestion. Consequently controlling costs for Log Analytics needs to focus on your [ingested data volume](#understanding-ingested-data-volume). 
-
+Sending data to Log Analytics might incur data bandwidth charges. However, that's limited to Virtual Machines where a Log Analytics agent is installed and doesn't apply when using Diagnostics settings or with other connectors that are built-in to Azure Sentinel. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions is charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small compared to the costs for Log Analytics data ingestion. Consequently, controlling costs for Log Analytics needs to focus on your [ingested data volume](#understanding-ingested-data-volume). 
 
 ## Troubleshooting why Log Analytics is no longer collecting data
 
-If you are on the legacy Free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.  Log Analytics creates an event of type Operation when data collection starts and stops. Run the following query in search to check if you are reaching the daily limit and missing data: 
+If you're on the legacy Free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing. Log Analytics creates an **Operation** type event when data collection starts and stops. Run the following query in search to check whether you're reaching the daily limit and missing data: 
 
 ```kusto
 Operation | where OperationCategory == 'Data Collection Status'
 ```
 
-When data collection stops, the OperationStatus is **Warning**. When data collection starts, the OperationStatus is **Succeeded**. The following table describes reasons that data collection stops and a suggested action to resume data collection:  
+When data collection stops, the **OperationStatus** is **Warning**. When data collection starts, the **OperationStatus** is **Succeeded**. The following table lists reasons that data collection stops and a suggested action to resume data collection.
 
 |Reason collection stops| Solution| 
 |-----------------------|---------|
 |Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in manage the maximum daily data volume. The daily cap reset time is shows on the **Daily Cap** page. |
-| Your workspace has hit the [Data Ingestion Volume Rate](../service-limits.md#log-analytics-workspaces) | The default ingestion volume rate limit for data sent from Azure resources using diagnostic settings is approximately 6 GB/min per workspace. This is an approximate value since the actual size can vary between data types depending on the log length and its compression ratio. This limit does not apply to data that is sent from agents or Data Collector API. If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the Operation table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by sending an email to LAIngestionRate@microsoft.com or opening a support request. The event to look for that indicates a data ingestion rate limit can be found by the query `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`. |
+| Your workspace has hit the [Data Ingestion Volume Rate](../service-limits.md#log-analytics-workspaces) | The default ingestion volume rate limit for data sent from Azure resources using diagnostic settings is approximately 6 GB/min per workspace. This is an approximate value because the actual size can vary between data types, depending on the log length and its compression ratio. This limit doesn't apply to data that's sent from agents or the Data Collector API. If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the Operation table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by sending an email to LAIngestionRate@microsoft.com or by opening a support request. The event to look for that indicates a data ingestion rate limit can be found by the query `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`. |
 |Daily limit of legacy Free pricing tier  reached |Wait until the following day for collection to automatically restart, or change to a paid pricing tier.|
-|Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
+|Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (such as on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 
-To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops. Use the steps described in [create an action group](../alerts/action-groups.md) to configure an e-mail, webhook, or runbook action for the alert rule. 
+To be notified when data collection stops, use the steps described in the [Alert when daily cap is reached](#alert-when-daily-cap-is-reached) sesction. To configure an e-mail, webhook, or runbook action for the alert rule, use the steps described in [create an action group](../alerts/action-groups.md). 
 
 ## Limits summary
 
@@ -761,7 +760,7 @@ There are additional Log Analytics limits, some of which depend on the Log Analy
 - See [Log searches in Azure Monitor Logs](../logs/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
 - Use the steps described in [create a new log alert](../alerts/alerts-metric.md) to be notified when a search criteria is met.
 - Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
-- To configure an effective   event collection policy, review [Azure Defender (Security Center) filtering policy](../../security-center/security-center-enable-data-collection.md).
+- To configure an effective event collection policy, review [Azure Defender (Security Center) filtering policy](../../security-center/security-center-enable-data-collection.md).
 - Change [performance counter configuration](../agents/data-sources-performance-counters.md).
 - To modify your event collection settings, review [event log configuration](../agents/data-sources-windows-events.md).
 - To modify your syslog collection settings, review [syslog configuration](../agents/data-sources-syslog.md).
