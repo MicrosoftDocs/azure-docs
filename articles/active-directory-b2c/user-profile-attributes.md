@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -85,13 +85,15 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 
 <sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Should not be used with Azure AD B2C
 
-## Required Attributes
+## Required attributes
 
-[Display name attribute](https://docs.microsoft.com/azure/active-directory-b2c/user-profile-attributes#display-name-attribute) is required.
+To create a user account in the Azure AD B2C directory, provide the following required attributes: 
 
-[Identities attribute](https://docs.microsoft.com/azure/active-directory-b2c/user-profile-attributes#display-name-attribute)- An identity attribute with at least one entity (a local account or a federated account)
+- [Display name](#display-name-attribute)
 
-[Password profile attribute](https://docs.microsoft.com/azure/active-directory-b2c/user-profile-attributes#password-policy-attribute)- If you create a local account, you must provide the password profile.
+- [Identities](#display-name-attribute) - With at least one entity (a local or a federated account)
+
+- [Password profile attribute](#password-policy-attribute)- If you create a local account, provide the password profile.
 
 ## Display name attribute
 
