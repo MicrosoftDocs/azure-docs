@@ -86,7 +86,7 @@ Complete the following steps to instrument the app to send client-side telemetry
 
 1. In *Pages/Shared/_Layout.cshtml*, in the `<head>` element, add the highlighted line:
 
-    :::code language="cshtml" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/_layout.cshtml" range="3-10" highlight="7":::
+    :::code language="cshtml" source="~/dotnet-samples/azure/app-insights-aspnet-core-quickstart/pages/shared/_layout.cshtml" range="3-10" highlight="7":::
 
    This change uses the injected `JavaScriptSnippet` object to ensure the `<script>` element is rendered in the `<head>` element of every page in the app.
 
