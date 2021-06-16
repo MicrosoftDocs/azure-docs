@@ -56,7 +56,7 @@ This article provides an overview of the limitations of ledger tables used with 
 - A transaction can update up to 200 ledger tables.
 - For updatable ledger tables, we inherit all of the limitations of temporal tables.
 - Change tracking isn't allowed on ledger tables.
-- Ledger tables can't have a rowstore non-clustered index when they have a clustered Columnstore index.
+- Ledger tables can't have a rowstore non-clustered index when they have a clustered columnstore index.
 
 ## Next steps
 
