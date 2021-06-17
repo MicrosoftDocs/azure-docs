@@ -16,7 +16,7 @@ When you publish your virtual machine (VM) image to Azure Marketplace, the Azure
 This article explains common error messages during VM image publishing, along with related solutions.
 
 > [!NOTE]
-> If you have questions about this article or suggestions for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
+> If you have questions about this article or suggestions for improvement, contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## VM extension failure
 
@@ -622,4 +622,4 @@ For more information, please visit [VM Extension](../virtual-machines/extensions
 
 - [Configure VM offer properties](azure-vm-create-properties.md)
 - [Active marketplace rewards](marketplace-rewards.md)
-- If you have questions or feedback for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport)
+- If you have questions or feedback for improvement, contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533)
