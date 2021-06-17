@@ -181,4 +181,4 @@ The following table includes known issues for Logic Apps connectors.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom APIs you can call from Logic Apps](/azure/logic-apps/logic-apps-create-api-app)
+> [Create custom APIs you can call from Logic Apps](../logic-apps/logic-apps-create-api-app.md)
