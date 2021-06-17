@@ -113,7 +113,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > the query, the response won't include the **$skipToken**.
 
 For an example, see
-[Next page query](/rest/api/azureresourcegraph/resourcegraph(2020-04-01-preview)/resources/resources#next-page-query)
+[Next page query](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query)
 in the REST API docs.
 
 ## Formatting results
