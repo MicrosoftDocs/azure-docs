@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 06/16/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -18,6 +18,10 @@ This article covers how to configure and deploy a disk pool. In order for a disk
 - Assign RBAC permissions to each disk pool resource.
 - Create the disk pool using the subnet.
 - Add disks to your disk pool.
+
+
+> [!IMPORTANT]
+> If you want to use ultra disks in your disk pool, fill out this form. If you only want to use premium SSDs, then you can follow the instructions in this article.
 
 ## Register for the preview
 
@@ -55,7 +59,6 @@ In order for your disk pool to work correctly, the StoragePool resource provider
 For a disk to be able to use a disk pool, it must meet the following requirements:
 
 - Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
-    - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
 
 1. Sign in to the Azure portal.
@@ -110,36 +113,52 @@ The following script
 
 
 ```azurepowershell
-#upgrade PSH module
-$subnetConfig = Get-AzVirtualNetworkSubnetConfig -Name $diskpoolSubnetName -VirtualNetwork $virtualNetwork
+# Install the required module for Disk Pool
+Install-Module -Name Az.DiskPool -RequiredVersion 0.1.1 -Repository PSGallery
 
-$subnetConfig = ((Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName).Subnets |? { $_.Name -eq $diskpoolSubnetName })
+# Sign in to the Azure account and setup the variables
+$subscriptionID = "eff9fadd-6918-4253-b667-c39271e7435c"
+Set-AzContext -Subscription $subscriptionID
+$resourceGroupName= "yuemlu-avs-rg"
+$location = "CanadaCentral"
+$diskName = "yuemlu_AVS_disk3"
+$availabilityZone = "2"
 
-New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetConfig.Id -AvailabilityZone $AvZoneNo #We only support zonal deployment of Disk Pool
+$subnetId='/subscriptions/eff9fadd-6918-4253-b667-c39271e7435c/resourceGroups/yuemlu-avs-rg/providers/Microsoft.Network/virtualNetworks/yuemlu-canadacentral/subnets/diskpool_subnet'
+
+$diskPoolName = "yuemlu-diskpool-1"
+$iscsiTargetName = "yuemlu-iscsi-target"# this will be used to generate the iSCSI target IQN name, Constraint?
+$lunName = "yuemlu_AVS_disk1"
+
+# You can skip this step if you have already created the disk and assigned proper RBAC permission to the resource group the disk is deployed to
+$diskconfig = New-AzDiskConfig -Location $location -DiskSizeGB 1024 -AccountType Premium_LRS -CreateOption Empty -zone $availabilityZone -MaxSharesCount 2
+
+$disk = New-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -Disk $diskconfig
+$diskId = $disk.Id
+
+$scopeDef = "/subscriptions/" + $subscriptionId + "/resourceGroups/" + $resourceGroupName
+
+$rpId = (Get-AzADServicePrincipal -SearchString "StoragePool Resource Provider").id
+
+New-AzRoleAssignment -ObjectId $rpId -RoleDefinitionName "Contributor"  -Scope $scopeDef
+
+# Create a Disk Pool
+
+New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetId -AvailabilityZone $availabilityZone -SkuName Standard
+
 $diskpool = Get-AzDiskPool -ResourceGroupName $resourceGroupName -Name $DiskPoolName
 
-#5. Add AVS Cloud as iSCSI initiators to the Disk Pool 
-#5.1 Initialize an iSCSI Target endpoint and expose the attached Disk
-$targetIqn = "<target-iqn>" # Specify the IQN of the iSCSI target representing your Disk Pool. For example: iqn.2005-03.org.iscsi:server
-$iscsiInitiatorIqn = "<avs-iqn>"# Specify the IQN of your AVS Cloud. For example: iqn.2005-03.org.iscsi:client
-$username = "<user-name>" # Minimum length: 7, Maximum length: 511
-$pwd = "<pwd>" # Minimum length: 12; Maximum length: 255; known invalid characters: () @ # $ % ^ & and *
-$lunName = "<lun-name>" # Lun name will be surfaced as the indicator for the disk from iSCSI target
-$iscsiTargetName = "<iscsi-target-name>"
-#Expose the Disk that is added as the storage target under this Disk Pool as a Lun on the iSCSI target. Each added Storage Target can only be mapped against one iSCSI LUN
+# Add disks to the Disk Pool
+Update-AzDiskPool -ResourceGroupName $resourceGroupName -Name $diskPoolName -DiskId $diskId
+$lun = New-AzDiskPoolIscsiLunObject -ManagedDiskAzureResourceId $diskId -Name $lunNames
 
-$lun= New-AzDiskPoolIscsiLunObject -ManagedDiskAzureResourceId $diskId -Name $lunName
-# A target portal group is a set of one or more storage system network interfaces that can be used for an iSCSI session between an initiator and a target. A target portal group composes these properties below.
+# Create an iSCSI Target and expose the disks as iSCSI LUNs
 
-#ACLs: defines the iSCSI initiators that can be connected to this iSCSI target including the credentials to be used for authentication if enabled, and the iSCSI LUN allowed. You can add multiple ACLs per each iSCSI initiator.
-#AttributeAuthentication: defines whether authentication is enabled on the ACL (Challenge Handshake Authentication Protocol). If you enable authentication, you must use and specify credentials for the connection
-#AttributeProdModeWriteProtect: defines whether write protect is enabled on the Luns
-$acls = New-AzDiskPoolAclObject -CredentialsUsername $username -CredentialsPassword $pwd -InitiatorIqn $iscsiInitiatorIqn -MappedLun @($lunName)
-$tpgs = New-AzDiskPoolTargetPortalGroupObject -Lun $lun -AttributeAuthentication $true -AttributeProdModeWriteProtect $false -Acls $acls
-New-AzIscsiTarget -ResourceGroupName $resourceGroupName -TargetIqn $targetIqn -DiskPoolName $diskPoolName -Name $iscsiTargetName -Tpg $tpgs
+New-AzDiskPoolIscsiTarget -DiskPoolName $diskPoolName -Name $iscsiTargetName -ResourceGroupName $resourceGroupName -Lun $lun -AclMode Dynamic
 
-#5.2 Retrieve the iSCSI target properties of the Disk Pool
-Get-AzIscsiTarget -ResourceGroupName $resourceGroupName -Name $iscsiTargetName -
+Write-Output "Print details of the iSCSI target exposed on Disk Pool"
+
+Get-AzDiskPoolIscsiTarget -name $iscsiTargetName -DiskPoolName $diskPoolName -ResourceGroupName $resourceGroupName | fl
 ```
 
 
@@ -148,6 +167,11 @@ Get-AzIscsiTarget -ResourceGroupName $resourceGroupName -Name $iscsiTargetName -
 CLI content
 
 ```azurecli
+# Add disk pool CLI extension
+az extension add -n diskpool
+
+#az extension add -s https://zuhdefault.blob.core.windows.net/cliext/diskpool-0.1.1-py3-none-any.whl
+
 #Select subscription
 az account set --subscription "Azure Dedicated Tahoma Share"
 
