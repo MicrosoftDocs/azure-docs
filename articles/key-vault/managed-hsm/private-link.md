@@ -43,7 +43,7 @@ az group create -n {RESOURCE GROUP} -l {REGION}                            # Cre
 az provider register -n Microsoft.KeyVault                                 # Register KeyVault as a provider
 az keyvault update-hsm --hsm-name {HSM NAME} -g {RG} --default-action deny # Turn on firewall
 
-az network vnet create -g {RG} -n {vNet NAME} -location {REGION}           # Create a Virtual Network
+az network vnet create -g {RG} -n {vNet NAME} --location {REGION}           # Create a Virtual Network
 
     # Create a Subnet
 az network vnet subnet create -g {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
