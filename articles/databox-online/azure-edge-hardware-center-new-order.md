@@ -22,7 +22,7 @@ Each order can include multiple devices from a single hardware group and configu
 
 ### Prerequisites
 
-Before you begin, make sure that:
+Before you begin, make sure that:<!--Anam to provide updated Prerequisites in Support doc by 06/21.-->
 
 - Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported. To identify the type of Azure subscription you have, see [What is an Azure offer?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
 - You have owner or contributor access at resource group level for the Azure Stack Edge Pro/Data Box Gateway, IoT Hub, and Azure Storage resources.
@@ -37,13 +37,15 @@ Before you begin, make sure that:
 
 ## Create new order in Azure Hardware Center
 
+<!--Make screen updates Mon, 06/21, when new test portal version has all the latest features.-->
+
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-1. Search for and select **Azure Hardware Center**.
+1. Search for and select **Azure Hardware Center**.<!--To become Azure Edge Hardware Center.-->
 
-    ![Screenshot showing how to start a new order with the Azure Hardware Center service](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-01-service-first.png)    
+    ![Screenshot showing how to start a new order with the Azure Hardware Center service](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-01-service-first.png)
 
-1. In the Azure Edge Hardware Center (preview) portal, select **+ Order**.
+1. In the Azure Edge Hardware Center (preview) portal, select **+ Order**.<!--Click View to open the Azure Edge Hardware Center homepage. Will use that info later.-->
 
     ![Screenshot of the option to create a resource in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-02-service-first.png)
 
@@ -60,13 +62,13 @@ Before you begin, make sure that:
 
     ![Screen for selecting a shipping destination for your Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png)
 
-1.  On the **Order hardware** page, use the **Select** button to select the type of hardware device to order.  
+1.  On the **Order hardware** page, use the **Select** button to select the hardware product to order.  
 
-    ![Screen for selecting the device type, within the product family you selected earlier](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-06.png) 
+    ![Screen for selecting the specific hardware product within the product family selected earlier](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-06.png)
 
 1.  On the next pane, select a device configuration, and then choose **Select**.
 
-    ![Screen for selecting a device model of the selected device type](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-07.png)
+    ![Screen for selecting a device model of the selected device type](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-07.png)<!--Remove pricing info from final graphic-->
 
     The **Create order** wizard opens.
 
@@ -74,31 +76,41 @@ Before you begin, make sure that:
 
     ![Screenshot of the Basics tab for entering an order name, resource group, and region for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-08.png)
   
-1. On the **Shipping + quantity** tab, you'll start by specifying a ship to address for the order. Select **Add a new address**.
+1. On the **Shipping + quantity** tab, you'll start by specifying a ship to address for the order. 
 
-    ![Screenshot of the Shipping + quantity tab, Add a new address option for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-09.png)
+    - If this is your first order through the Azure Edge Hardware Center, select **Add a new address**.  
 
-1.  On the **New address** screen, there's a required **Address alias** field in addition to the usual address fields. Use a name that makes it easy to identify the address for later use. Select **Add** when you finish filling in the address fields.
+       ![Screenshot of the Shipping + quantity tab, Add a new address option for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-09.png)
 
-    ![Screen for adding a new ship to address for Azure Edge Hardware Center orders](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-10.png)
+       A required **Address alias** field on the **New address** screen identifies the address for later use. Select **Add** when you finish filling in the address fields. 
 
-    The **Shipping + quantity** tab now shows the ship to address for one device, which is identified by an **Order item name**. The **Quantity** is 1.
+       ![Screen for adding a new ship to address for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-10-new-address.png)
 
-    The order item name is made of a name prefix (the order name followed by the address alias), with an item number - in this case, 01 - added to the end.
+       If you're ordering more than one device, add a ship address for each location you want to ship to.
 
-    ![Screenshot showing the Shipping + quantity display after the quantity is set to more than one device](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11.png)
+    - To use a ship to address from a previous order, choose **Select address(es)**. On the **Select address(es)**, select one or more addresses, and choose **Select** screen**.
+    
+       If you're ordering multiple devices, select each address you'll ship to.
 
-1. To order more than one device, change the **Quantity**. When the quantity is greater than 1, the order item name is followed by **+n more**.
+       ![Screen for selecting an existing address for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-10-select-an-address.png)
 
-    ![Screenshot showing the "Shipping + quantity" display when the quantity is more than one](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-12.png)
+    The **Shipping + quantity** tab now has a separate item for each ship to address.
 
-1. Select **+n more** to see a list of the order items. The **Rename order item** screen opens.
+1. For each address, enter the **Quantity** of devices to ship.
 
-1. If you want to use different names for the items in your order, you can make two types of change:
+    When you enter a quantity of more than one, a **+1 more** label is added to the end of the order item name. Select ****+ 1 more** to view the individual order items for that address.
 
-    - To use a different name prefix for all of the order items, edit the **Name prefix** and then select **Apply**.
+    ![Screenshot showing the Shipping + quantity tab for an Azure Edge Hardware Center order with multiple devices shipping to two addresses](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11-quantities-for-multiple-addresses.png)
 
-    - You can also edit each order item name individually. 
+    Each order item name includes a name prefix (the order name followed by the address alias), with an item number for each device that is shipped to that address.
+
+1. If you want to change the names of order items, select and click the order item name to open the **Rename order item** pane. If you're shipping more than one item to an address, select **+n more**.
+
+    You can make two types of name change:
+
+    - Use a different name prefix for all of the order items, edit the **Name prefix** and then select **Apply**.
+
+    - Edit each order item name individually. 
 
     When you finish updating order item names, select **Done**.
 
