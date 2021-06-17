@@ -29,21 +29,20 @@ As a developer or IT administrator, you can use API connectors to integrate your
 
 - **Validate user input data**. Validate against malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. If invalid, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Integrate with a custom approval workflow**. Connect to a custom approval system for managing and limiting account creation.
-- **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Verify user identity**. Use an identity verification service to add an extra level of security to account creation decisions.
+- **Augment tokens with attributes from external sources**. Enrich tokens with attributes about the user from sources external to Azure AD B2C such as legacy identity services, cloud systems, custom user stores, custom permission systems, and more.
+- **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Run custom business logic**. You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
 
 An API connector provides Azure AD B2C with the information needed to call API endpoint by defining the HTTP endpoint URL and authentication for the API call. Once you configure an API connector, you can enable it for a specific step in a user flow. When a user reaches that step in the sign up flow, the API connector is invoked and materializes as an HTTP POST request to your API, sending user information ("claims") as key-value pairs in a JSON body. The API response can affect the execution of the user flow. For example, the API response can block a user from signing up, ask the user to reenter information, or overwrite and append user attributes.
 
 ## Where you can enable an API connector in a user flow
 
-There are two places in a user flow where you can enable an API connector:
+There are three places in a user flow where you can enable an API connector:
 
-- After signing in with an identity provider
-- Before creating the user
-
-> [!IMPORTANT]
-> In both of these cases, the API connectors are invoked during user **sign-up**, not sign-in.
+- **After signing in with an identity provider** - applies to sign-ups only
+- **Before creating the user** - applies to sign-ups only
+- **Before sending the token (preview)** - applies to sign-ups and sign-ins
 
 ### After signing in with an identity provider
 
@@ -60,6 +59,16 @@ An API connector at this step in the sign-up process is invoked after the attrib
 - Block a user sign-up based on data entered by the user.
 - Verify user identity.
 - Query external systems for existing data about the user to return it in the application token or store it in Azure AD.
+
+### Before sending the token (preview)
+
+> [!IMPORTANT]
+> This functionality is in preview and is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+An API connector at this step in the sign-up or sign-in process is invoked before a token is issued. The following are examples of scenarios you might enable at this step:
+- Enriching the token with attributes about the user from sources different than the directory including legacy identity systems, HR systems, external user stores, and more.
+- Enriching the token with group or role attributes that you store and manage in your own permission system. 
+- Applying claims transformations or manipulations to values of claims in the directory
 
 ::: zone-end
 

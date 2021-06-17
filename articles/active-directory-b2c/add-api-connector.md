@@ -18,12 +18,12 @@ zone_pivot_groups: b2c-policy-type
 
 As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with [REST API services](api-connectors-overview.md). 
 
-::: zone pivot="b2c-user-flow"
+<!-- ::: zone pivot="b2c-user-flow"
 
 In this scenario, the REST API validates whether email address' domain is fabrikam.com, or fabricam.com. The user-provided display name is greater than five characters. Then returns the job title with a static value. 
 
 > [!IMPORTANT]
-> API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). -->
 
 ::: zone-end
 
@@ -150,6 +150,7 @@ Follow these steps to add an API connector to a sign-up user flow.
 
    - **After signing in with an identity provider**
    - **Before creating the user**
+   - **Before sending the token (preview)**
 
    ![Add APIs to the user flow](./media/add-api-connector/api-connectors-user-flow-select.png)
 
@@ -239,7 +240,7 @@ Content-type: application/json
 }
 ```
 
-The claims that send to the API depend on the information is collected from the user or is provided by the identity provider.
+The claims that are sent to the API depend on the information is collected from the user or is provided by the identity provider.
 
 ### Expected response types from the web API at this step
 
@@ -269,6 +270,56 @@ See an example of a [blocking response](#example-of-a-blocking-response).
 
 See an example of a [validation-error response](#example-of-a-validation-error-response).
 
+## Before sending the token (preview)
+
+> [!IMPORTANT]
+> API connectors used in this step are in preview For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+An API connector at this step is invoked when a token is about to be issued during sign-ins and sign-ups. An API connector for this step can be used to enrich the token with claim values from external sources.
+
+### Example request sent to the API at this step
+
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "clientId": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
+ "step": "PreTokenApplicationClaims",
+ "ui_locales":"en-US"
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
+}
+```
+
+The claims that are sent to the API depend on the information defined for the user.
+
+### Expected response types from the web API at this step
+
+When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+
+- Continuation response
+
+#### Continuation response
+
+A continuation response indicates that the user flow should continue to the next step: issue the token.
+
+In a continuation response, the API can return additional claims. A claim returned by the API that you wish to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and be selected **Application claims** configuration of the user flow. The claim value in the token will be that returned by the API, not the value in the directory. 
+
+> [!NOTE]
+> Some claim values cannot be overwritten by the API response. Claims that can be returned by the API correspond to the set found under **User attributes** with the exception of `email`.
+
+See an example of a [continuation response](#example-of-a-continuation-response).
+
 ## Example responses
 
 ### Example of a continuation response
@@ -289,7 +340,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`. Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.  |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.  |
 
 ### Example of a blocking response
 
