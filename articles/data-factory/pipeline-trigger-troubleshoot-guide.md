@@ -3,7 +3,7 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
-ms.date: 04/01/2021
+ms.date: 06/17/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
@@ -207,6 +207,15 @@ You are running ADF in debug mode.
 
 Please run pipeline in trigger mode.
 
+### Can not publish because account is locked
+
+**Cause**
+
+You made changes in collaboration branch to remove storage event trigger. You are trying to publish and encounter "Trigger deactivation error" message. This is due to the storage account, used for the event trigger,  is being locked. 
+
+**Resolution**
+
+Remove the lock to allow publish to succeed.
 
 ## Next steps
 
