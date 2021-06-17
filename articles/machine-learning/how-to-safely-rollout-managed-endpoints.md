@@ -143,6 +143,7 @@ If you are not going use the deployment, you should delete it with:
 
 
 ## Next steps
+- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
 - [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoints-studio.md)
 - [Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
 - [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md)
