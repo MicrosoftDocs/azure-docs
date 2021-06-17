@@ -30,12 +30,11 @@ Disk pool in Azure VMware Solution currently supports the following regions:
 
 - East US
 
-- US West 2
+- US West 2  
 
 - Canada Central
 
 You can only connect the disk pool to an Azure VMware Solution private cloud in the same region. If your private cloud is deployed in non-supported regions, you can redeploy in a supported region. Azure VMware Solution private cloud and disk pool colocation provide the best performance with minimal network latency.
-
 
 
 ## Prerequisites
@@ -55,7 +54,7 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
    > The disk pool must be deployed in the same subscription as the VMware cluster, and it must be attached to the same VNET as the VMware cluster.
 
 ## Connect a disk pool to your private cloud
-You'll connect to a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud
+You'll connect to a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud.
 
 ### [PowerShell](#tab/powershell)
 
