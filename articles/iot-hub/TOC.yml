@@ -7,9 +7,9 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Get started with CLI   
+    - name: Codeless quickstart using CLI
       href: quickstart-send-telemetry-cli.md
-    - name: Send telemetry to IoT Hub
+    - name: Send telemetry using SDK
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       items:
