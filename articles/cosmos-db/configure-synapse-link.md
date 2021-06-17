@@ -201,7 +201,7 @@ If you created an analytical store enabled container through the Azure portal, i
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 1. Select an existing container that has analytical store enabled. Expand it and modify the following values:
    1. Open the **Scale & Settings** window.
-   1. Under **Setting** find,** Analytical Storage Time to Live**.
+   1. Under **Setting** find, **Analytical Storage Time to Live**.
    1. Select **On (no default)** or select **On** and set a TTL value.
    1. Click **Save** to save the changes.
 
