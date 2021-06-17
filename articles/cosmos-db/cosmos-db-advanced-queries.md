@@ -15,14 +15,15 @@ ms.author: esarroyo
 [!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
 > [!div class="op_single_selector"]
-> * [SQL (Core) API](troubleshoot-java-sdk-v4-sql.md)
-> * [MongoDB API](troubleshoot-java-async-sdk.md)
-> * [Cassandra API](troubleshoot-dot-net-sdk.md)
-> * [Gremlin API](troubleshoot-dot-net-sdk.md)
+> * [SQL (Core) API](cosmos-db-advanced-queries.md)
+> * [MongoDB API](queries-mongo.md)
+> * [Cassandra API](queries-cassandra.md)
+> * [Gremlin API](queries-gremlin.md)
+>
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account using diagnostics logs sent to **AzureDiagnostics (legacy)** and **Resource-specific (preview)** tables.
 
-For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query.
+For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query. If you'd like to view the full-text query of your request, [follow this article](cosmosdb-monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
 
 For resource-specific tables, data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
 
@@ -57,7 +58,7 @@ For resource-specific tables, data is written into individual tables for each ca
     ```    
 ---
 
-- 2. Requests throttled (statusCode = 429) in a given time window 
+1. Requests throttled (statusCode = 429) in a given time window 
 
 # [Resource-specific](#tab/resource-specific)
 
@@ -84,7 +85,7 @@ For resource-specific tables, data is written into individual tables for each ca
     ```    
 ---
 
-- 3. Queries with the largest response lengths (payload size of the server response)
+1. Queries with the largest response lengths (payload size of the server response)
 
 # [Resource-specific](#tab/resource-specific)
 
@@ -110,7 +111,7 @@ For resource-specific tables, data is written into individual tables for each ca
     ```    
 ---
 
-- 4. RU Consumption by physical partition (across all replicas in the replica set)
+1. RU Consumption by physical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
 
@@ -135,7 +136,7 @@ For resource-specific tables, data is written into individual tables for each ca
     ```    
 ---
 
-- 5. RU Consumption by logical partition (across all replicas in the replica set)
+1. RU Consumption by logical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
 

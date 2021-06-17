@@ -15,22 +15,21 @@ ms.author: esarroyo
 [!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
 > [!div class="op_single_selector"]
-> * [SQL (Core) API](troubleshoot-java-sdk-v4-sql.md)
+> * [SQL (Core) API](cosmos-db-advanced-queries.md)
 > * [MongoDB API](queries-mongo.md)
-> * [Cassandra API](troubleshoot-dot-net-sdk.md)
-> * [Gremlin API](troubleshoot-dot-net-sdk.md)
+> * [Cassandra API](queries-cassandra.md)
+> * [Gremlin API](queries-gremlin.md)
 >
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account using diagnostics logs sent to **AzureDiagnostics (legacy)** and **Resource-specific (preview)** tables.
 
-For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query. If you'd like to view the full-text query of your request, [follow this article](cosmos-db-full-text-query.md) to learn how to enable this feature.
+For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query. If you'd like to view the full-text query of your request, [follow this article](cosmosdb-monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
 
 For resource-specific tables, data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
 
 1. Top N(10) RU consuming requests/queries in a given time frame
 
 # [Resource-specific](#tab/resource-specific)
-
     ```Kusto
     let topRequestsByRUcharge = CDBDataPlaneRequests 
     | where TimeGenerated > ago(24h)
@@ -43,7 +42,6 @@ For resource-specific tables, data is written into individual tables for each ca
     | take 10
     ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
-
     ```Kusto
     let topRequestsByRUcharge = AzureDiagnostics
     | where Category == "DataPlaneRequests" and TimeGenerated > ago(1h)
@@ -58,10 +56,9 @@ For resource-specific tables, data is written into individual tables for each ca
     ```    
 ---
 
-- 2. Requests throttled (statusCode = 429 or 16500) in a given time window 
+1. Requests throttled (statusCode = 429 or 16500) in a given time window 
 
 # [Resource-specific](#tab/resource-specific)
-
     ```Kusto
     let throttledRequests = CDBDataPlaneRequests
     | where StatusCode == "429" or StatusCode == "16500"
@@ -72,7 +69,6 @@ For resource-specific tables, data is written into individual tables for each ca
     | project DatabaseName , CollectionName , PIICommandText , OperationName, TimeGenerated
     ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
-
     ```Kusto
     let throttledRequests = AzureDiagnostics
     | where Category == "DataPlaneRequests"
@@ -89,7 +85,6 @@ For resource-specific tables, data is written into individual tables for each ca
 3. Timed out requests (statusCode = 50) in a given time window 
 
 # [Resource-specific](#tab/resource-specific)
-
     ```Kusto
     let throttledRequests = CDBDataPlaneRequests
     | where StatusCode == "50"
@@ -100,7 +95,6 @@ For resource-specific tables, data is written into individual tables for each ca
     | project DatabaseName , CollectionName , PIICommandText , OperationName, TimeGenerated
     ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
-
     ```Kusto
     let throttledRequests = AzureDiagnostics
     | where Category == "DataPlaneRequests"
@@ -114,10 +108,9 @@ For resource-specific tables, data is written into individual tables for each ca
     ```    
 ---
 
-- 4. Queries with large response lengths (payload size of the server response)
+1. Queries with large response lengths (payload size of the server response)
 
 # [Resource-specific](#tab/resource-specific)
-
     ```Kusto
     let operationsbyUserAgent = CDBDataPlaneRequests
     | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
@@ -127,7 +120,6 @@ For resource-specific tables, data is written into individual tables for each ca
     | order by max_ResponseLength desc
     ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
-
     ```Kusto
     let operationsbyUserAgent = AzureDiagnostics
     | where Category=="DataPlaneRequests"
@@ -140,10 +132,9 @@ For resource-specific tables, data is written into individual tables for each ca
     ```    
 ---
 
-- 5. RU Consumption by physical partition (across all replicas in the replica set)
+1. RU Consumption by physical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
-
     ```Kusto
     CDBPartitionKeyRUConsumption
     | where TimeGenerated >= now(-1d)
@@ -153,7 +144,6 @@ For resource-specific tables, data is written into individual tables for each ca
     | render columnchart
     ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
-
     ```Kusto
     AzureDiagnostics
     | where TimeGenerated >= now(-1d)
@@ -165,10 +155,9 @@ For resource-specific tables, data is written into individual tables for each ca
     ```    
 ---
 
-- 6. RU Consumption by logical partition (across all replicas in the replica set)
+1. RU Consumption by logical partition (across all replicas in the replica set)
 
 # [Resource-specific](#tab/resource-specific)
-
     ```Kusto
     CDBPartitionKeyRUConsumption
     | where TimeGenerated >= now(-1d)
@@ -178,7 +167,6 @@ For resource-specific tables, data is written into individual tables for each ca
     | render columnchart  
     ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
-
     ```Kusto
     AzureDiagnostics
     | where TimeGenerated >= now(-1d)
