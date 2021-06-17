@@ -46,4 +46,4 @@ To provide feedback, share an idea or suggestion for the Azure Spatial Anchors s
 
 ## Next steps
 
-For frequently asked questions about Azure Spatial Anchors, see the [FAQ](spatial-anchor-faq.md) page.
+For frequently asked questions about Azure Spatial Anchors, see the [FAQ](spatial-anchor-faq.yml) page.
