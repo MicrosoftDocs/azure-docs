@@ -111,7 +111,7 @@ Two subscription keys are assigned so that you can rotate your keys. Having two 
 To rotate your Azure Maps subscription keys in the Azure portal:
 
 1. Update your application code to reference the secondary key for the Azure Maps account and deploy.
-2. Navigate to your Azure Maps account in the [Azure portal](https://portal.azure.com/).
+2. In the [Azure portal](https://portal.azure.com/), navigate to your Azure Maps account.
 3. Under **Settings**, select **Authentication**.
 4. To regenerate the primary key for your Azure Maps account, select the **Regenerate** button next to the primary key.
 5. Update your application code to reference the new primary key and deploy.
