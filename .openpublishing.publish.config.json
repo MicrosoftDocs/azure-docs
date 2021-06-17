@@ -790,6 +790,7 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.media-services.json",
-    "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json"
+    "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
+    "articles/hdinsight/.openpublishing.redirection.hdinsight.json"
   ]
 }
