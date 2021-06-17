@@ -18,9 +18,9 @@ ms.author: tagore
 
 
 
-This article provides overview on platform-supported migration tool, how to migrate resources from the Azure Service Manager (ASM) aka Classic to Resource Manager (ARM) deployment models and details how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/management/overview.md). 
+This article provides overview on platform-supported migration tool, how to migrate resources from the Azure Service Manager (ASM) also known as Classic to Resource Manager (ARM) deployment models and details how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/management/overview.md). 
 
-ASM supports two different compute products, Azure Virtual Machines (classic) aka IaaS VMs & [Azure Cloud Services (classic)](../cloud-services/index.yml) aka PaaS VMs or Web/Worker Roles. This document only talks about migrating Azure Virtual Machines (classic).
+ASM supports two different compute products, Azure Virtual Machines (classic) also known as IaaS VMs & [Azure Cloud Services (classic)](../cloud-services/index.yml) also known as PaaS VMs or Web/Worker Roles. This document only talks about migrating Azure Virtual Machines (classic).
 
 ## Goal for migration
 Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently. Finally, there’s a focus on enabling security by default with the enforcement of virtual machines in a virtual network.
@@ -88,7 +88,7 @@ If your storage account does not have any associated disks or Virtual Machines d
 The following screenshots show how to upgrade a Classic storage account to an Azure Resource Manager storage account using Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your storage account.
-3. In the **Settings** section, click **Migrate to ARM**.
+3. In the **Settings** section, click **Migrate to Azure Resource Manager**.
 4. Click on **Validate** to determine migration feasibility.
 5. If validation passes, click on **Prepare** to create a migrated storage account.
 6. Type **yes** to confirm migration and click **Commit** to finish the migration.
