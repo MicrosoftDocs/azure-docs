@@ -5,6 +5,7 @@ author: v-hhunter
 ms.author: v-hhunter
 ms.date: 06/17/2021
 ms.topic: article
+ms.prod: api-management
 ---
 
 # Monetization with Azure API Management
@@ -26,7 +27,7 @@ When your organization publishes their first API, they will face a complex set o
 
 *Monetization* is the process of converting something into money - in this case, the API value. API interactions typically involve three distinct parties in the value chain:
 
-![](./illustration1.png)
+![monetization strategy](./media/monetization-overview/illustration1.png)
 
 Categories of API monetization strategy include:
 
@@ -44,7 +45,7 @@ Since a wide range of factors influence the design, API monetization comes with 
 
 The following steps explain how to implement a monetization strategy for your API.
 
-![](./illustration2.png)
+![implementing monetization strategy steps](./media/monetization-overview/illustration2.png)
 
 ### Step 1 - Understand your customer
 
@@ -155,13 +156,13 @@ Choose an appropriate solution to collect payment for usage of your APIs.  Provi
 
     Only concerned with the facilitating the payment transaction. You will need to apply your monetization strategy (like, translate API usage metrics into a payment) prior to calling this service.
 
-Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management.  For more information about the specific features in API Management, see [how API Management supports monetization](how-APIM-supports-monetisation.md).
+Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management.  For more information about the specific features in API Management, see how API Management supports monetization().
 
 Use the same approach as the sample project to implement a solution that builds flexibility into how you codify your monetization strategy in the underlying systems. This will enable you to respond dynamically and to minimize the risk and cost of making changes.
 
-For a description of how the sample project works from an API consumer perspective see [How the sample project works in practice](./how-the-sample-project-works-in-practice.md).
+For a description of how the sample project works from an API consumer perspective see How the sample project works in practice().
 
-Follow the [README](../README.md) and [Deployment and initialization](Initialisation.md) documents to implement the sample project in your own Azure subscription.
+Follow the README() and Deployment and initialization() documents to implement the sample project in your own Azure subscription.
 
 Regularly monitor how your API is being consumed to enable you to make evidence-based decisions. For example, if evidence shows you are churning customers, repeat steps 1 to 5 above to uncover the source and address it accordingly.
 
