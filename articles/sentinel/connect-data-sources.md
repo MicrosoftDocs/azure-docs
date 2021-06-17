@@ -24,7 +24,7 @@ ms.author: yelevin
 
 After you enable Azure Sentinel, the first thing you need to do is connect your data sources. Azure Sentinel comes with many connectors for Microsoft products, available out of the box and providing real-time integration. For example, service-to-service connectors include Microsoft 365 Defender connectors and Microsoft 365 sources, such as Office 365, Azure Active Directory (Azure AD), Microsoft Defender for Identity, and Microsoft Cloud App Security.
 
-You can also enable built-in connectors to the broader security ecosystem for non-Microsoft products. For example, you can use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-formet-cef), or [REST APIs](#rest-api-integration) to connect your data sources with Azure Sentinel.
+You can also enable built-in connectors to the broader security ecosystem for non-Microsoft products. For example, you can use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration) to connect your data sources with Azure Sentinel.
 
 For more information, see [Azure Sentinel partner data connectors](partner-data-connectors.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
@@ -152,7 +152,7 @@ Both Microsoft and other organizations author Azure Sentinel data connectors. Ea
 |-------------|------------|
 |**Microsoft-supported**|Applies to:<ul><li>Data connectors for data sources where Microsoft is the data provider and author.</li><li>Some Microsoft-authored data connectors for non-Microsoft data sources.</li></ul>Microsoft supports and maintains data connectors in this category in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community support data connectors that are authored by any party other than Microsoft.|
 |**Partner-supported**|Applies to data connectors authored by parties other than Microsoft.<br><br>The partner company provides support or maintenance for these data connectors. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that data connector.<br><br>For any issues with a partner-supported data connector, contact the specified data connector support contact.|
-|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance on the specified data connectdor page in Azure Sentinel.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
+|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance on the specified data connector page in Azure Sentinel.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
 
 ### Find the support contact for a data connector
 
