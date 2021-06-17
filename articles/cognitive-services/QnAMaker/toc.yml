@@ -4,6 +4,8 @@
   items:
   - name: What is QnA Maker?
     href: Overview/overview.md
+  - name: Language support
+    href: Overview/language-support.md
   - name: Pricing and limits
     href: https://aka.ms/qnamaker-pricing
   - name: What's new
@@ -129,30 +131,7 @@
     href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
 - name: Reference
   items:
-  - name: Language support
-    href: Overview/language-support.md
-  - name: Limits
-    href: limits.md
-  - name: Confidence score
-    href: Concepts/confidence-score.md
-  - name: Troubleshooting
-    href: troubleshooting.md
-  - name: Add secured SharePoint files
-    href: How-To/add-sharepoint-datasources.md
-    displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
-  - name: Service configuration
-    href: reference-app-service.md
-  - name: Content format guidelines
-    href: reference-document-format-guidelines.md
-  - name: Display format
-    href: reference-markdown-format.md
-  - name: Private Links
-    href: reference-private-endpoint.md
-  - name: Batch testing format
-    href: reference-tsv-format-batch-testing.md
-  - name: Encryption
-    href: encrypt-data-at-rest.md
-  - name: REST API Reference
+  - name: REST API
     items:
     - name: QnA Maker 4.0
       href: /rest/api/cognitiveservices/qnamaker4.0/alterations
@@ -200,6 +179,27 @@
       items:
       - name: Gem
         href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
+  - name: Limits
+    href: limits.md
+  - name: Confidence score
+    href: Concepts/confidence-score.md
+  - name: Troubleshooting
+    href: troubleshooting.md
+  - name: Add secured SharePoint files
+    href: How-To/add-sharepoint-datasources.md
+    displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
+  - name: Service configuration
+    href: reference-app-service.md
+  - name: Content format guidelines
+    href: reference-document-format-guidelines.md
+  - name: Display format
+    href: reference-markdown-format.md
+  - name: Private Links
+    href: reference-private-endpoint.md
+  - name: Batch testing format
+    href: reference-tsv-format-batch-testing.md
+  - name: Encryption
+    href: encrypt-data-at-rest.md
 - name: Resources
   items:
   - name: Enterprise readiness
@@ -216,5 +216,7 @@
     href: /search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
+  - name: Privacy and cookies
+    href: https://privacy.microsoft.com/privacystatement
 - name: QnA Maker portal
   href: https://www.qnamaker.ai
