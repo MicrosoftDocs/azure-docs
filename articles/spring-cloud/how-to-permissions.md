@@ -32,8 +32,6 @@ We will implement the following custom roles:
 
 The developer role includes permissions to restart apps and see their log streams, but cannot make changes to apps, configuration.
 
-#### [Portal](#tab/Azure-portal)
-
 ### Navigate subscription and resource group Access control (IAM)
 
 Follow these steps to start defining a role.
@@ -42,6 +40,7 @@ Follow these steps to start defining a role.
 2. Open **Access control (IAM)**.
 3. Click **+ Add**.
 4. Click **Add custom role**.
+#### [Portal](#tab/Azure-portal)
 5. Click **Next**.
 
    ![Create custom role](media/spring-cloud-permissions/create-custom-role.png)
@@ -94,9 +93,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 9. Click **Add**.
 
-10. Review the permissions.
 
-11. Click **Review and create**.
 
 #### [JSON](#tab/JSON)
 
@@ -139,6 +136,9 @@ The following JSON file defines the Developer role.
 }
 ```
 ---
+10. Review the permissions.
+
+11. Click **Review and create**.
 
 ## Define DevOps engineer role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
