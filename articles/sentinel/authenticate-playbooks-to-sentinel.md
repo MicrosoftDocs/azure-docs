@@ -34,7 +34,7 @@ The Azure Sentinel connector in Logic Apps, and its component triggers and actio
 - [Azure AD user](#authenticate-as-an-azure-ad-user)
 - [Service principal (Azure AD application)](#authenticate-as-a-service-principal-azure-ad-application)
 
-    ![Authentication Options](media/sentinel-connectors/auth-methods.png)
+    ![Authentication Options](media/authenticate-playbooks-to-sentinel/auth-methods.png)
 
 ### Permissions required
 
@@ -66,17 +66,17 @@ To authenticate with managed identity:
 
     1. In the Logic Apps designer, add an Azure Sentinel Logic Apps connector step. If the connector is already enabled for an existing connection, click the **Change connection** link.
 
-        ![Change connection](media/sentinel-connectors/change-connection.png)
+        ![Change connection](media/authenticate-playbooks-to-sentinel/change-connection.png)
 
     1. In the resulting list of connections, select **Add new** at the bottom. 
 
     1. Create a new connection by selecting **Connect with managed identity (preview)**.
 
-        ![Managed identity option](media/sentinel-connectors/auth-methods-msi-choice.png)
+        ![Managed identity option](media/authenticate-playbooks-to-sentinel/auth-methods-msi-choice.png)
 
     1. Fill in a name for this connection, select **System-assigned managed identity** and select **Create**.
 
-        ![Connect with managed identity](media/sentinel-connectors/auth-methods-msi.png)
+        ![Connect with managed identity](media/authenticate-playbooks-to-sentinel/auth-methods-msi.png)
 
 ### Authenticate as an Azure AD user
 
@@ -115,14 +115,14 @@ To use your own application with the Azure Sentinel connector, perform the follo
 
     - Select **Connect with Service Principal**.
 
-        ![Service principal option](media/sentinel-connectors/auth-methods-spn-choice.png)
+        ![Service principal option](media/authenticate-playbooks-to-sentinel/auth-methods-spn-choice.png)
 
     - Fill in the required parameters (can be found in the registered application blade)
         - **Tenant**: under **Overview**
         - **Client ID**: under **Overview**
         - **Client Secret**: under **Certificates & secrets**
         
-        ![Connect with service principal](media/sentinel-connectors/auth-methods-spn.png)
+        ![Connect with service principal](media/authenticate-playbooks-to-sentinel/auth-methods-spn.png)
 
 ### Manage your API connections
 
