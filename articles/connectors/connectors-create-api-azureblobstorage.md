@@ -11,7 +11,15 @@ tags: connectors
 
 # Create and manage blobs in Azure Blob Storage by using Azure Logic Apps
 
-You can access and manage files stored as blobs in your Azure storage account within Azure Logic Apps using the [Azure Blob Storage connector](/connectors/azureblobconnector/). This connector provides triggers and actions for blob operations within your logic app workflows. You can use these operations to automate tasks and workflows for managing the files in your storage account. [Available connector actions](/connectors/azureblobconnector/#actions) include checking, deleting, reading, and uploading blobs. The [available trigger](/azureblobconnector/#triggers) fires when a blob is added or modified.
+You can access and manage files stored as blobs in your Azure storage account within Azure Logic Apps using the [Azure Blob Storage connector](/connectors/azureblobconnector/). This connector provides triggers and actions for blob operations within your logic app workflows. You can use these operations to automate tasks and workflows for managing the files in your storage account. [Available connector actions](/connectors/azureblobconnector/#actions) include checking, deleting, reading, and uploading blobs. The [available trigger](/azureblobconnector/#triggers) fires when a blob is added or modified. 
+
+You can connect to Blob Storage from both Standard and Consumption logic app resource types. You can use the connector with logic apps in a single-tenant, multi-tenant, or integration service environment (ISE). For logic apps in a single-tenant environment, Blob Storage provides built-in operations and also managed connector operations.
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
+
+For more technical details about this connector, such as triggers, actions, and limits, see the [connector's reference page](/connectors/azureblobconnector/).
 
 You can also [use a managed identity with an HTTP trigger or action to do blob operations](#access-blob-storage-with-managed-identities) instead the Blob Storage connector.
 
@@ -19,12 +27,6 @@ You can also [use a managed identity with an HTTP trigger or action to do blob o
 > Logic apps can't directly access storage accounts that are behind firewalls if they're both in the same region. As a workaround, 
 > you can have your logic apps and storage account in different regions. For more information about enabling access from Azure Logic 
 > Apps to storage accounts behind firewalls, see the [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls) section later in this topic.
-
-For more technical details about this connector, such as triggers, actions, and limits, see the [connector's reference page](/connectors/azureblobconnector/).
-
-> [!NOTE]
-> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Prerequisites
 
@@ -216,6 +218,7 @@ To use managed identities in your logic app to access Blob Storage:
 > - You can *only* use the HTTP trigger or action in your workflow.
 > - You must set up a managed identity to authenticate your storage account connection.
 > - You can't use built-in Blob Storage operations if you authenticate with a managed identity.
+> - For logic apps in a single-tenant environment, only the system-assigned managed identity is available and supported, not the user-assigned managed identity.
 
 ### Configure storage account access
 
