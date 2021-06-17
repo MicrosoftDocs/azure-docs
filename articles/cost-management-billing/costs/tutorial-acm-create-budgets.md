@@ -160,7 +160,10 @@ Budget integration with action groups only works for action groups that have the
 
 ## Create and edit budgets with PowerShell
 
-If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically because PowerShell and CLI aren't yet supported.
+If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. 
+
+>[!Note]
+>Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically because PowerShell and CLI aren't yet supported.
 
 To download the latest version of Azure PowerShell, run the following command:
 
