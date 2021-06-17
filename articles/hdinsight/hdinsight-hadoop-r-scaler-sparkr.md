@@ -529,8 +529,6 @@ In this article, we've shown how it's possible to combine use of SparkR for data
 
 - For more information on use of ML Server on Apache Spark, see the [Getting started guide](/machine-learning-server/r/how-to-revoscaler-spark).
 
-- For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md).
-
 For more information on use of SparkR, see:
 
 - [Apache SparkR document](https://spark.apache.org/docs/2.1.0/sparkr.html).
