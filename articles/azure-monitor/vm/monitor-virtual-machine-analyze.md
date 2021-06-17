@@ -119,17 +119,14 @@ There are three namespaces used by virtual machines:
 ## Analyze log data with Log Analytics
 Log Analytics allows you to perform custom analysis of your log data. Use Log Analytics when you want to dig deeper into the data used to create the views in VM insights. You may want to analyze different logic and aggregations of that data, correlate security data collected by Azure Security Center and Azure Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).
 
-:::image type="content" source="media/monitor-virtual-machines/vm-queries.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/vm-queries.png":::
-
 
 You don't necessarily need to understand how to write a log query to use Log Analytics. There are multiple prebuilt queries that you can select and either run without modification or use as a start to a custom query. Click **Queries** at the top of the Log Analytics screen and view queries with a **Resource type** of **Virtual machines** or **Virtual machine Scale Sets**. See [Using queries in Azure Monitor Log Analytics](../logs/queries.md) for information on using these queries and [Log Analytics tutorial](../logs/log-analytics-tutorial.md) for a complete tutorial on using Log Analytics to run queries and work with their results.
 
-
+:::image type="content" source="media/monitor-virtual-machines/vm-queries.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/vm-queries.png":::
 
 When you launch the Launch Log Analytics from VM insights using the properties pane in either the **Performance** or **Map** view, it lists the tables that have data for the selected computer. Click on a table to open Log Analytics with a simple query that returns all records in that table for the selected computer. Work with these results or modify the query for more complex analysis. The [scope](../log/../logs/scope.md) set to the workspace meaning that you have access data for all computers using that workspace. 
 
-:::image type="content" source="media/monitor-virtual-machines/vm-queries.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/vm-queries.png":::
-
+:::image type="content" source="media/monitor-virtual-machines/table-query.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/table-query.png":::
 
 ## Visualize data with workbooks
 [Workbooks](../visualize/workbooks-overview.MD) provide interactive reports in the Azure portal, combining different kinds of data into a single view. Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
@@ -167,7 +164,7 @@ VM insights includes the following workbooks. You can use these workbooks or use
 
 See [Create interactive reports VM insights with workbooks](vminsights-workbooks.md) for detailed instructions on creating your own custom workbooks.
 
-
+:::image type="content" source="media/monitor-virtual-machines/workbook-example.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/workbook-example.png":::
 
 ## Next steps
 
