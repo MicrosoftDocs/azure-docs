@@ -89,7 +89,7 @@ Models are not necessarily returned in exactly the document form they were uploa
 
 ## Update models
 
-Once a model is uploaded to your Azure Digital Twins instance, the model interface is immutable. This means there is no traditional "editing" of models. Azure Digital Twins also does not allow re-upload of the same model.
+Once a model is uploaded to your Azure Digital Twins instance, the model interface is immutable. This means there's no traditional "editing" of models. Azure Digital Twins also does not allow re-upload of the same model.
 
 Instead, if you want to make changes to a model—such as updating `displayName` or `description`, or adding and removing properties—you'll need to upload a newer version of the model to replace the original model. 
 
@@ -97,15 +97,15 @@ There are two strategies to choose from when replacing a model:
 * [Option 1: Upload new model version](#option-1-upload-new-model-version): Upload a second version of the model that is newer, and switch your twins over to it. Both the new and old versions of the model will exist in your instance until you delete one. 
     - **Use this strategy when** you want to make sure twins stay valid at all times through the model transition, or you want to keep a record of what versions a model has gone through. This is also a good choice if you have many models that depend on the model you want to update.
 * [Option 2: Delete old model and re-upload](#option-2-delete-old-model-and-re-upload): Delete the original model and upload the new model with the same name in its place. Completely replaces the old model with the new one. 
-    - **Use this strategy when** you want to remove all record of the older model. Depending on what changes you're making to your model, twins may be invalid for a short time while you're transitioning them from the old model to the new one.
+    - **Use this strategy when** you want to remove all record of the older model. Twins will be invalid for a short time while you're transitioning them from the old model to the new one.
 
 ### Option 1: Upload new model version
 
-You can create a new version of the model and upload it to your instance. This strategy will work for all model update operations (adding a property, removing a property, or updating a property).
+This option involves creating a new version of the model and uploading it to your instance.
 
 This **does not** overwrite earlier versions of the model, so multiple versions of the model will coexist in your instance until you [remove them](#remove-models). Since the new model version and the old model version coexist, twins can use either the new version of the model or the older version. This also means that uploading a new version of a model does not automatically affect existing twins. The existing twins will remain as instances of the old model version, and you can update these twins to the new model version by patching them.
 
-Here are the steps to use this strategy:
+To use this strategy, follow the steps below.
 
 #### 1. Create and upload new model version 
 
@@ -131,7 +131,10 @@ This version of the model will then be available in your instance to use for dig
 
 #### 2. Update graph elements as needed
 
-Next, update the **twins and relationships** in your instance to use the new model version instead of the old. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twin) and [update relationships](how-to-manage-graph.md#update-relationships). When updating twins, you must use the same patch to  update both the model ID (to the new model version) and any fields that must be altered on the twin to make it conform to the new model.
+Next, update the **twins and relationships** in your instance to use the new model version instead of the old. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twin) and [update relationships](how-to-manage-graph.md#update-relationships). 
+
+>[!IMPORTANT]
+>When updating twins, you must use the **same patch** to update both the model ID (to the new model version) and any fields that must be altered on the twin to make it conform to the new model.
 
 You may also need to update other **models** in your instance that reference this model to make them refer to the new model version. This will be another model update operation, so return to the beginning of this section and repeat the process for any additional models that need updating.
 
@@ -143,18 +146,18 @@ You can also [delete](#deletion) the old model completely if you don't want it i
 
 ### Option 2: Delete old model and re-upload
 
-Instead of incrementing the version of a model, you can delete a model completely and re-upload an edited model to the instance. This strategy will work for all model update operations (adding a property, removing a property, or updating a property).
+Instead of incrementing the version of a model, you can delete a model completely and re-upload an edited model to the instance.
 
-Azure Digital Twins doesn't remember the old model was ever uploaded, so this will be treated like uploading a completely new model. Twins in the graph that use the model will automatically switch over to the new definition once it's available. However, depending on how the new definition differs from the old one, these twins may have properties and relationships that match the deleted definition and are not valid with the new one, so you may need to patch them to make sure they remain valid.
+Azure Digital Twins doesn't remember the old model was ever uploaded, so this will be like uploading a completely new model. Twins in the graph that use the model will automatically switch over to the new definition once it's available. Depending on how the new definition differs from the old one, these twins may have properties and relationships that match the deleted definition and are not valid with the new one, so you may need to patch them to make sure they remain valid.
 
-Here are the steps to use this strategy:
+To use this strategy, follow the steps below.
 
 ### 1. Delete old model
 
 Since Azure Digital Twins does not allow two models with the same ID, start by deleting the original model from your instance. 
 
 >[!NOTE]
-> If you have other models that depend on this model (through inheritance or components), you'll need to remove those references before you can delete the model. You can update those models first to temporarily remove the references, or delete the dependent models and reupload them in a later step.
+> If you have other models that depend on this model (through inheritance or components), you'll need to remove those references before you can delete the model. You can update those dependent models first to temporarily remove the references, or delete the dependent models and reupload them in a later step.
 
 Use the following instructions to [delete your original model](#deletion). This will leave your twins that were using that model temporarily "orphaned," as they're now using a model that no longer exists. This state will be repaired in the next step when you reupload the updated model.
 
@@ -166,18 +169,18 @@ Then, [upload the model](#upload-models) to the instance, as though it were a ne
 
 ### 3. Update graph elements as needed
 
-Now that your new model has been uploaded in place of the old one, the twins in your graph will automatically begin to use the new model definition once the caching in your instance expires and resets. This process may take 10-15 minutes or longer, depending on the size of your graph. After that, new and changed properties on your model should be accessible, and removed properties won't be accessible anymore.
+Now that your new model has been uploaded in place of the old one, the twins in your graph will automatically begin to use the new model definition once the caching in your instance expires and resets. **This process may take 10-15 minutes or longer**, depending on the size of your graph. After that, new and changed properties on your model should be accessible, and removed properties won't be accessible anymore.
 
 >[!NOTE]
 > If you removed other dependent models earlier in order to delete the original model, reupload them now after the cache has reset. If you updated the dependent models to temporarily remove references to the original model, you can update them again to put the reference back.
 
 Next, update the **twins and relationships** in your instance so their properties match the properties defined by the new model. There are two ways to do this:
 * Patch the twins and relationships as needed so they fit the new model. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twin) and [update relationships](how-to-manage-graph.md#update-relationships).
-    - **Adding property**: Updating twins and relationships to have the new value isn't required, since twins missing the new value will still be valid twins. You can patch them as desired to add a value for the new property.
-    - **Removing a property**: You must patch twins to remove the property that is now invalid with the new model.
-    - **Updating a property**: You must patch twins to update the property type to be valid with the new model.
+    - **If you've added properties**: Updating twins and relationships to have the new values isn't required, since twins missing the new values will still be valid twins. You can patch them as desired to add values for the new properties.
+    - **If you've removed properties**: You must patch twins to remove the properties that are now invalid with the new model.
+    - **If you've updated properties**: You must patch twins to update the values of changed properties to be valid with the new model.
 * Delete twins and relationships that use the model, and recreate them. You can use the following instructions to [delete twins](how-to-manage-twin.md#delete-a-digital-twin) and [recreate twins](how-to-manage-twin.md#create-a-digital-twin), and [delete relationships](how-to-manage-graph.md#delete-relationships) and [recreate relationships](how-to-manage-graph.md#create-relationships).
-    - You might want to do this if you're making a lot of changes to the model, and it will be difficult to update the existing twins to match it. However, re-creation can be complicated if you have a lot of twins that are interconnected by many relationships.
+    - You might want to do this if you're making a lot of changes to the model, and it will be difficult to update the existing twins to match it. However, recreation can be complicated if you have a lot of twins that are interconnected by many relationships.
 
 ## Remove models
 
