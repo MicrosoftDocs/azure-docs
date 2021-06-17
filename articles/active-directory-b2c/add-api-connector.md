@@ -313,7 +313,7 @@ When the web API receives an HTTP request from Azure AD during a user flow, it c
 
 A continuation response indicates that the user flow should continue to the next step: issue the token.
 
-In a continuation response, the API can return additional claims. A claim returned by the API that you wish to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and be selected **Application claims** configuration of the user flow. 
+In a continuation response, the API can return additional claims. A claim returned by the API that you wish to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and be selected in the **Application claims** configuration of the user flow. 
 
 The claim value in the token will be that returned by the API, not the value in the directory. Some claim values cannot be overwritten by the API response. Claims that can be returned by the API correspond to the set found under **User attributes** with the exception of `email`.
 
