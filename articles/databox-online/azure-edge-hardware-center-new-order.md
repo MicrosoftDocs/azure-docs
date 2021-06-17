@@ -7,19 +7,18 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 06/17/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I want to be able to quickly place an order for multiple Azure Stack Edge devices using an existing shipping address.
 ---
 
 # Order Azure Stack Edge devices from Azure Edge Hardware Center
 
-This article explains how to place an order for one or more Azure Stack Edge devices from the Azure Edge Hardware Center.
-       
-## About the Azure Edge Hardware Center
+This article describes how to order Azure Stack Edge, Azure Stack Hub, or Azure Stack Edge Zone Enterprise devices centrally, from the Azure Edge Hardware Center. You can order multiple devices in one order, ship them to multiple addresses, and reuse addresses.
 
-BRIEF OVERVIEW - just what they need to know to take advantage of the new order capabilities. 
+Each order can include multiple devices from a single hardware group and configuration. You can ship the devices to different locations within the same country/region. For more information about the Azure Stack Edge Hardware Center, see Azure Stack Edge Hardware Center overview *(link to come)*.
 
+*I will add an "About" section if we need to provide any more detail about the new service. Alpa will write an "Overview" article.*
 
 ### Prerequisites
 
@@ -29,11 +28,11 @@ Before you begin, make sure that:
 - You have owner or contributor access at resource group level for the Azure Stack Edge Pro/Data Box Gateway, IoT Hub, and Azure Storage resources.
 
     - To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. 
-    - You also need to make sure that the `Microsoft.EdgeOrder` provider is registered.<!--STILL REQUIRED? You also need to make sure that the Microsoft.DataBoxEdge and MicrosoftKeyVault resource providers are registered. To create any IoT Hub resource, Microsoft.Devices`provider should be registered.-->
+    - You also need to make sure that the `Microsoft.EdgeOrder` provider is registered. *QUESTION: Azure Stack Edge also requires the Microsoft.DataBoxEdge and Microsoft.KeyVault resource providers. For IoT Hub resources, the Microsoft.Devices provider also is required. Should these be included?*<!--STILL REQUIRED? You also need to make sure that the Microsoft.DataBoxEdge and MicrosoftKeyVault resource providers are registered. To create any IoT Hub resource, Microsoft.Devices`provider should be registered.-->
         - To register a resource provider, in the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**.
         - Search for the specific resource provider, for example, Microsoft.DataBoxEdge, and register the resource provider.
-    - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.<!--N/A?-->
-- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).<!--Is this the equivalent of making sure no policies are preventing access during ordering?-->
+    - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider. *QUESTION: Requirements from Azure Stack Edge. Still applicable?*
+- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-). *QUESTION: Is this the solution to the requirement to "Make sure not polices are preventing access during ordersing?*
 
 
 ## Create new order in Azure Hardware Center
@@ -57,9 +56,9 @@ Before you begin, make sure that:
 
     ![Screen for selecting a product family to order from in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-04.png) 
 
-1. Select the country or region that will be the shipping destination for your order. <!--Recommended destination for testing: SEA (Azure region).-->
+1. Select the country or region that will be the shipping destination for your order. *QUESTION: At release, will customers be able to order from the US West country/region? Our example addresses are on the West Coast.*<!--Recommended destination for testing: SEA (Azure region).-->
 
-    ![Screen for selecting a shipping destination for your Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png) 
+    ![Screen for selecting a shipping destination for your Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png)
 
 1.  On the **Order hardware** page, use the **Select** button to select the type of hardware device to order.  
 
@@ -77,7 +76,7 @@ Before you begin, make sure that:
   
 1. On the **Shipping + quantity** tab, you'll start by specifying a ship to address for the order. Select **Add a new address**.
 
-    ![Screenshot of the Shipping + quantity tab, Add a new address option for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-09.png)<!--Check screen for "Azure Edge Hardware Center."-->
+    ![Screenshot of the Shipping + quantity tab, Add a new address option for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-09.png)
 
 1.  On the **New address** screen, there's a required **Address alias** field in addition to the usual address fields. Use a name that makes it easy to identify the address for later use. Select **Add** when you finish filling in the address fields.
 
@@ -102,7 +101,6 @@ Before you begin, make sure that:
     - You can also edit each order item name individually. 
 
     When you finish updating order item names, select **Done**.
-
 
     ![Screenshot showing how to rename order items for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-13.png)
 
@@ -131,14 +129,14 @@ Before you begin, make sure that:
 
     ![Screenshot showing deployment details for a successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)-->
 
-1.  To review all of the orders in the resource group, click **Next step: View orders for the resource group.**
+1.  To review all of the orders in the resource group, click **Next step: View orders for the resource group.** *QUESTION: What do we expect customers to do from the resource group?*
 
-    ![Screenshot showing a summary of orders for the resource group in the Azure Edge ardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
+    ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
 
-## Manage orders in Azure Hardware Center
+## Manage orders in Azure Edge Hardware Center
 
-TO BE DEVELOPED.
+TO BE DEVELOPED. Things they can do with a just-completed order while it's in the Azure Edge Hardware Center. The resource is still managed in Azure Stack Edge.
 
 <!--STOPPED HERE: 06/16 PM
 
