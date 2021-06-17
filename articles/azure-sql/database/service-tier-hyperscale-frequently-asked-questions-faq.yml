@@ -292,7 +292,7 @@ sections:
       - question: |
           What SLAs are provided for a Hyperscale database
         answer: |
-          See [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/). Additional secondary compute replicas increase availability, up to 99.99% for a database with two or more secondary compute replicas.
+          See [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_4/). Additional secondary compute replicas increase availability, up to 99.99% for a database with two or more secondary compute replicas.
           
       - question: |
           Are the database backups managed for me by Azure SQL Database
