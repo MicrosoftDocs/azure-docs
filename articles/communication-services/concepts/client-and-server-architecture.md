@@ -15,9 +15,9 @@ ms.service: azure-communication-services
 
 This page illustrates typical architectural components and dataflows in various Azure Communication Service scenarios. Relevant components include:
 
-1. **Client Application.** This is the website or native application that end-users leverage to communicate. Azure Communication Services provides [SDK client libraries](sdk-options.md) for multiple browsers and application platforms. In addition to our core SDKs, [a UI toolkit](https://aka.ms/acsstorybook) is available to accelerate browser app development.
-1. **Identity Management Service.**  This is a service capability you build to map users and other concepts in your business logic to Azure Communication Services and also to create tokens for those users when required.
-1. **Call Management Service.**  This is a service capability you build to manage and monitor voice and video calls.  This service can create calls, invite users, call phone numbers, play audio, listen to DMTF tones and leverage many other call features through the Calling Automation SDK and REST APIs.
+1. **Client Application.** This website or native application is leveraged by end-users to communicate. Azure Communication Services provides [SDK client libraries](sdk-options.md) for multiple browsers and application platforms. In addition to our core SDKs, [a UI toolkit](https://aka.ms/acsstorybook) is available to accelerate browser app development.
+1. **Identity Management Service.**  This service capability you build to map users and other concepts in your business logic to Azure Communication Services and also to create tokens for those users when required.
+1. **Call Management Service.**  This service capability you build to manage and monitor voice and video calls.  This service can create calls, invite users, call phone numbers, play audio, listen to DMTF tones and leverage many other call features through the Calling Automation SDK and REST APIs.
 
 
 ## User access management
@@ -28,7 +28,7 @@ Azure Communication Services clients must present `user access tokens` to access
 
 ### Dataflows
 1. The user starts the client application. The design of this application and user authentication scheme is in your control.
-2. The client application contacts your identity management service. The identity management service maintains a mapping between your users and other addressable objects (e.g. bots) to Azure Communication Service identities.
+2. The client application contacts your identity management service. The identity management service maintains a mapping between your users and other addressable objects (for example services or bots) to Azure Communication Service identities.
 3. The identity management service creates a user access token for the applicable identity. If no Azure Communication Services identity has been allocated the past, a new identity is created.  
 
 ### Resources
@@ -67,9 +67,9 @@ You may want users to join a call without an explicit invitation. For example yo
 
 ### Dataflows
 1. Initiating user initializes their Call client and makes a group call.
-2. The initiating user shares the group call id with a Call management service.
-3. The Call Management Service shares the call id with other users. For example, if the application orients around scheduled events, the group call id might be an attribute of the scheduled event's data model.
-4. Other users join the call using the group call id.
+2. The initiating user shares the group call ID with a Call management service.
+3. The Call Management Service shares the call ID with other users. For example, if the application orients around scheduled events, the group call ID might be an attribute of the scheduled event's data model.
+4. Other users join the call using the group call ID.
 5. The users communicate with each other using voice and video in a call.
 
 
@@ -80,9 +80,9 @@ Azure Communication Service applications can join Teams calls. This is ideal for
 
 
 ### Dataflows
-1. The Call Management Service creates a group call with [Graph APIs](https://docs.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Another pattern involves end-users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, or another scheduling experience in the M365 ecosystem.
-2. The Call Management Service shares the Team call details with Azure Communication Service clients.
-3. Typically, a Teams user must join the call and allow external users to join through the lobby. However  this is sensitive to the Teams tenant configuration and specific meeting settings.
+1. The Call Management Service creates a group call with [Graph APIs](https://docs.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, or another scheduling experience in the M365 ecosystem.
+2. The Call Management Service shares the Teams call details with Azure Communication Service clients.
+3. Typically, a Teams user must join the call and allow external users to join through the lobby. However this experience is sensitive to the Teams tenant configuration and specific meeting settings.
 4. Azure Communication Service users initialize their Call client and join the Teams meeting, using the details received in Step 2.
 5. The users communicate with each other using voice and video in a call.
 
