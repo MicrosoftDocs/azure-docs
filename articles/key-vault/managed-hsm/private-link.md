@@ -75,6 +75,9 @@ az keyvault update-hsm --hsm-name {HSM NAME} -g {RG} --default-action deny --byp
 az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/managedHSMs/{HSM NAME}" --group-id managedhsm --connection-name {Private Link Connection Name} --location {AZURE REGION}
 ```
 
+> [!NOTE]
+> If you delete (but not purge) this HSM the private endpiont will stop working. If your recover (undelete) this HSM you will need to re-create this private endpoint.
+
 ### Create a Private Endpoint (Manually Request Approval) 
 ```azurecli
 az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/managedHSMs/{HSM NAME}" --group-id managedhsm --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
