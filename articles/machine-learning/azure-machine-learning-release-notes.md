@@ -18,6 +18,59 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2021-05-25
+
+### Announcing the 2.0 CLI (preview) for Azure Machine Learning
+
+The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
+
+## 2021-06-07
+
+### Azure Machine Learning SDK for Python v1.30.0
++ **Bug fixes and improvements**
+  + **azureml-core**
+    + Pin dependency `ruamel-yaml` to < 0.17.5 as a breaking change was released in 0.17.5.
+    + `aml_k8s_config` property is being replaced with `namespace`, `default_instance_type`, and `instance_types` parameters for `KubernetesCompute` attach.
+    + Workspace sync keys was changed to a long running operation.
+  + **azureml-automl-runtime**
+    + Fixed problems where runs with big data may fail with `Elements of y_test cannot be NaN`.
+  + **azureml-mlflow**
+    + MLFlow deployment plugin bugfix for models with no signature.
+  + **azureml-pipeline-steps**
+    + ParallelRunConfig: update doc for process_count_per_node.
+  + **azureml-train-automl-runtime**
+    + Support for custom defined quantiles during MM inference
+    + Support for forecast_quantiles during batch inference.
+  + **azureml-contrib-automl-pipeline-steps**
+    + Support for custom defined quantiles during MM inference
+    + Support for forecast_quantiles during batch inference.
+
+
+### Azure Machine Learning SDK for Python v1.29.0
++ **Bug fixes and improvements**
+  + **Breaking changes**
+    + Dropped support for Python 3.5.
+  + **azureml-automl-runtime**
+    + Fixed a bug where the STLFeaturizer failed if the time-series length was shorter than the seasonality. This error manifested as an IndexError. The case is handled now without error, though the seasonal component of the STL will just consist of zeros in this case.
+  + **azureml-contrib-automl-dnn-vision**
+    + Added a method for batch inferencing with file paths.
+  + **azureml-contrib-gbdt**
+    + The azureml-contrib-gbdt package has been deprecated and might not receive future updates and will be removed from the distribution altogether.
+  + **azureml-core**
+    + Corrected explanation of parameter create_if_not_exists in Datastore.register_azure_blob_container.
+    + Added sample code to DatasetConsumptionConfig class.
+    + Added support for step as an alternative axis for scalar metric values in run.log()
+  + **azureml-dataprep**
+    + Limit partition size accepted in `_with_partition_size()` to 2GB
+  + **azureml-interpret**
+    + update azureml-interpret to the latest interpret-core package version
+    + Dropped support for SHAP DenseData, which has been deprecated in SHAP 0.36.0.
+    + Enable `ExplanationClient` to upload to a user specified datastore.
+  + **azureml-mlflow**
+    + Move azureml-mlflow to mlflow-skinny to reduce the dependency footprint while maintaining full plugin support
+  + **azureml-pipeline-core**
+    + PipelineParameter code sample is updated in the reference doc to use correct parameter.
+
 
 ## 2021-05-10
 
@@ -25,6 +78,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
     + Improved AutoML Scoring script to make it consistent with designer
+    + Patch bug where forecasting with the Prophet model would throw a "missing column" error if trained on an earlier version of the SDK.
+    + Added the ARIMAX model to the public-facing, forecasting-supported model lists of the AutoML SDK. Here, ARIMAX is a regression with ARIMA errors and a special case of the transfer function models developed by Box and Jenkins. For a discussion of how the two approaches are different, see [The ARIMAX model muddle](https://robjhyndman.com/hyndsight/arimax/). Unlike the rest of the multivariate models that use auto-generated, time-dependent features (hour of the day, day of the year, and so on) in AutoML, this model uses only features that are provided by the user, and it makes interpreting coefficients easy.
   + **azureml-contrib-dataset**
     + Updated documentation description with indication that libfuse should be installed while using mount.
   + **azureml-core**

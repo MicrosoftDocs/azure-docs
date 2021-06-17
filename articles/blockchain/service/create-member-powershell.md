@@ -4,7 +4,7 @@ description: Create an Azure Blockchain Service member for a blockchain consorti
 ms.reviewer: ravastra
 ms.date: 9/22/2020
 ms.topic: quickstart
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - references_regions
   - devx-track-azurepowershell
   - mode-api

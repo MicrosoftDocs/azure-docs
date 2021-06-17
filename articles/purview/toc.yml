@@ -20,8 +20,14 @@ items:
     href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
+  - name: Onboarding Azure data sources at scale
+    items:
+    - name: Azure data sources readiness check at scale
+      href: tutorial-data-sources-readiness.md
+    - name: Azure Purview MSI configuration at scale
+      href: tutorial-msi-configuration.md
   - name: Starter kit
-    items: 
+    items:
     - name: Scan data
       href: tutorial-scan-data.md
     - name: Navigate home page and search
@@ -83,15 +89,15 @@ items:
       items:
       - name: Manage data sources
         href: manage-data-sources.md
-      - name: Purview connectors overview
+      - name: Azure Purview Connectors
         href: purview-connector-overview.md
       - name: Azure Multiple Source
         href: register-scan-azure-multiple-sources.md
-      - name: Azure Synapse Analytics (Workspace)
+      - name: Azure Synapse Analytics workspaces
         href: register-scan-synapse-workspace.md
       - name: Azure Blob Storage
         href: register-scan-azure-blob-storage-source.md
-        displayName: Register and scan azure blob storage
+        displayName: Register and scan Azure Blob Storage
       - name: Azure Cosmos DB
         href: register-scan-azure-cosmos-database.md
         displayName: Register and scan Azure Cosmos DB
@@ -112,6 +118,8 @@ items:
         displayName: Register and scan Azure SQL DB Managed Instance
       - name: Azure Dedicated SQL pool (formerly SQL DW)
         href: register-scan-azure-synapse-analytics.md
+      - name: Hive Metastore Database
+        href: register-scan-hive-metastore-source.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
       - name: Oracle
@@ -186,6 +194,8 @@ items:
     items:
     - name: Manage Private endpoints
       href: catalog-private-link.md
+    - name: Azure Purview Private endpoints FAQs
+      href: catalog-private-link-faqs.md
   - name: Disaster recovery
     items:
     - name: Disaster recovery
@@ -194,6 +204,8 @@ items:
   items:
     - name: Supported classifications
       href: supported-classifications.md
+    - name: Azure Purview product glossary
+      href: reference-purview-glossary.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
 - name: Resources

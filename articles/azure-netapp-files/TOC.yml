@@ -35,8 +35,14 @@
       href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
-    - name: FAQs about SMB performance
-      href: azure-netapp-files-smb-performance.md
+    - name: Performance reference for Azure NetApp Files
+      items:
+      - name: Linux NFS mount options best practices
+        href: performance-linux-mount-options.md
+      - name: Linux concurrency best practices
+        href: performance-linux-concurrency-session-slots.md
+      - name: SMB performance best practices
+        href: azure-netapp-files-smb-performance.md 
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Understand volume quota
@@ -71,6 +77,8 @@
     href: azure-netapp-files-faqs.md
   - name: What is Azure Application Consistent Snapshot Tool
     href: azacsnap-introduction.md
+  - name: Storage service add-ons
+    href: storage-service-add-ons.md
   - name: What changing to volume hard quota means
     href: volume-hard-quota-guidelines.md
 - name: How-to guides

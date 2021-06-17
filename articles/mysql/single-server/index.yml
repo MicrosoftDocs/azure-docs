@@ -102,6 +102,9 @@ landingContent:
             url: ../concepts-migrate-dump-restore.md
           - text: Migrate using import and export
             url: ../concepts-migrate-import-export.md
+          - text: Migrate RDS MySQL using MySQL Workbench
+            url: ../how-to-migrate-rds-mysql-workbench.md
+# Card 5
 # Card 5
   - title: Business Continuity
     linkLists:

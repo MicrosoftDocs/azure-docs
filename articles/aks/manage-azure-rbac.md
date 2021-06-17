@@ -107,7 +107,7 @@ where `<AAD-ENTITY-ID>` could be a username (for example, user@contoso.com) or e
 You can also create role assignments scoped to a specific **namespace** within the cluster:
 
 ```azurecli-interactive
-az role assignment create --role "Azure Kubernetes Service RBAC Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
 ```
 
 Today, role assignments scoped to namespaces need to be configured via Azure CLI.
@@ -124,7 +124,7 @@ Copy the below json into a file called `deploy-view.json`.
 
 ```json
 {
-    "Name": "AKS Deployment Viewer",
+    "Name": "AKS Deployment Reader",
     "Description": "Lets you view all deployments in cluster/namespace.",
     "Actions": [],
     "NotActions": [],
@@ -153,7 +153,7 @@ az role definition create --role-definition @deploy-view.json
 Now that you have your role definition, you can assign it to a user or other identity by running:
 
 ```azurecli-interactive
-az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
+az role assignment create --role "AKS Deployment Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
 ## Use Azure RBAC for Kubernetes Authorization with `kubectl`
@@ -231,7 +231,7 @@ az role assignment delete --ids <LIST OF ASSIGNMENT IDS>
 ### Clean up role definition
 
 ```azurecli-interactive
-az role definition delete -n "AKS Deployment Viewer"
+az role definition delete -n "AKS Deployment Reader"
 ```
 
 ### Delete cluster and resource group

@@ -38,9 +38,6 @@ The appliance can be deployed using a couple of methods:
 
 The following table summarizes the Azure Migrate appliance requirements for VMware.
 
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
-
 **Requirement** | **VMware**
 --- | ---
 **Permissions** | To access the appliance configuration manager locally or remotely,you need to have a local or domain user account with administrative privileges on the appliance server.
@@ -52,7 +49,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **OVA verification** | [Verify](tutorial-discover-vmware.md#verify-security) the OVA template downloaded from project by checking the hash values.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) on how to deploy an appliance using the PowerShell installer script.<br/><br/> 
 **Hardware and network requirements** |  The appliance should run on server with Windows Server 2016, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you deploy the appliance using OVA template, you need enough resources on the vCenter Server to create a server that meets the hardware requirements.<br/><br/> If you run the appliance on an existing server, make sure that it's running Windows Server 2016, and meets hardware requirements.<br/>_(Currently the deployment of appliance is only supported on Windows Server 2016.)_
-**VMware requirements** | If you deploy the appliance as a server on vCenter Server, it  must be deployed on a vCenter Server running 5.5, 6.0, 6.5, or 6.7 and an ESXi host running version 5.5 or later.<br/><br/> 
+**VMware requirements** | If you deploy the appliance as a server on vCenter Server, it  must be deployed on a vCenter Server running 5.5, 6.0, 6.5, 6.7 or 7.0 and an ESXi host running version 5.5 or later.<br/><br/> 
 **VDDK (agentless migration)** | To leverage the appliance for agentless migration of servers, the VMware vSphere VDDK must be installed on the appliance server.
 
 ## Appliance - Hyper-V
@@ -96,9 +93,8 @@ The Azure Migrate appliance needs connectivity to the internet.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Sign in to your Azure subscription.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
-management.azure.com | Create Azure AD apps for the appliance to communicate with the Azure Migrate.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com  <br/> *.microsoftazuread-sso.com | Used for access control and identity management by Azure Active Directory
+management.azure.com | Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.<br/> Note: Ensure servers to replicate have access to this.
 aka.ms/* | Allow access to aka links; used to download and install the latest updates for appliance services.
@@ -114,8 +110,8 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 --- | --- |
 *.portal.azure.us  | Navigate to the Azure portal.
 graph.windows.net | Sign in to your Azure subscription.
-login.microsoftonline.us  | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
-management.usgovcloudapi.net | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
+login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory
+management.usgovcloudapi.net |  Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to aka links; used to download and install the latest updates for appliance services.
@@ -133,35 +129,14 @@ The appliance needs access to the following URLs (directly or via proxy) over an
 **URL** | **Details**  
 --- | --- | 
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Sign in to your Azure subscription.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
-management.azure.com | Create Azure AD apps for the appliance to communicate with the Azure Migrate.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> *.microsoftazuread-sso.com  | Used for access control and identity management by Azure Active Directory
+management.azure.com |  Used for resource deployments and management operations
 *.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
 aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
 *.servicebus.windows.net | **Used for VMware agentless migration**<br/><br/> Communication between the appliance and the Azure Migrate service.
-*.vault.azure.net | **Used for VMware agentless migration**<br/><br/>  Ensure servers to replicate have access to this.
 *.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
-*.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
-
-### Government cloud URLs for private link connectivity   
-
-The appliance needs access to the following URLs (directly or via proxy) over and above private link access. 
-
-**URL** | **Details**  
---- | --- |
-*.portal.azure.us  | Navigate to the Azure portal.
-graph.windows.net | Sign in to your Azure subscription.
-login.microsoftonline.us  | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
-management.usgovcloudapi.net | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
-*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
-aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services.
-download.microsoft.com/download | Allow downloads from Microsoft download center.
-*.servicebus.usgovcloudapi.net  | **Used for VMware agentless migration**<br/><br/> Communication between the appliance and the Azure Migrate service. 
-*.vault.usgovcloudapi.net | **Used for VMware agentless migration**<br/><br/> Manage secrets in the Azure Key Vault.
-*.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
-*.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
-*.applicationinsights.us (optional) | Upload appliance logs used for internal monitoring.  
+*.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration. <br/>This is optional and is not required if the storage accounts (both cache storage account and gateway storage account) have a private endpoint attached.
 
 ## Collected data - VMware
 
@@ -300,9 +275,6 @@ Architecture | uname
 ### SQL Server instances and databases data
 
 Appliance collects data on SQL Server instances and databases.
-
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
 
 #### SQL database metadata
 
@@ -501,13 +473,13 @@ Here's the full list of Linux server metadata that the appliance collects and se
 **Data** | **Commands**
 --- | ---
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
-Processor core count |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
+Processor core count |  cat/proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Memory allocated | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
 BIOS serial number | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}'
 BIOS GUID | cat /sys/class/dmi/id/product_uuid
 Boot type | [ -d /sys/firmware/efi ] && echo EFI \|\| echo BIOS
 OS name/version | We access these files for the OS version and name:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
-OS architecture | Uname -m
+OS architecture | uname -m
 Disk count | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| cut -f1 -d ':'
 Boot disk | df /boot \| sed -n 2p \| awk '{print $1}'
 Disk size | fdisk -l \| egrep 'Disk.*bytes' \| egrep $disk: \| awk '{print $5}'

@@ -32,57 +32,70 @@ In IoT Hub, managed identities can be used for egress connectivity from IoT Hub 
 
     :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="Screenshot showing where to turn on system-assigned managed identity for an IoT hub":::        
 
-### Enable managed identity at hub creation time using ARM template
+### Enable system-assigned managed identity at hub creation time using ARM template
 
-To enable the system-assigned managed identity in your IoT hub at resource provisioning time, use the Azure Resource Manager (ARM) template below. This ARM template has two required resources, and they both need to be deployed before creating other resources like `Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups`. 
+To enable the system-assigned managed identity in your IoT hub at resource provisioning time, use the Azure Resource Manager (ARM) template below. 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": [
+  "parameters": 
     {
-      "type": "Microsoft.Devices/IotHubs",
-      "apiVersion": "2020-03-01",
-      "name": "<provide-a-valid-resource-name>",
-      "location": "<any-of-supported-regions>",
-      "identity": {
-        "type": "SystemAssigned"
+      "iotHubName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of iothub resource"
+        }
       },
-      "sku": {
-        "name": "<your-hubs-SKU-name>",
-        "tier": "<your-hubs-SKU-tier>",
-        "capacity": 1
+      "skuName": {
+        "type": "string",
+        "defaultValue": "S1",
+        "metadata": {
+          "description": "SKU name of iothub resource, by default is Standard S1"
+        }
+      },
+      "skuTier": {
+        "type": "string",
+        "defaultValue": "Standard",
+        "metadata": {
+          "description": "SKU tier of iothub resource, by default is Standard"
+        }
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "Location of iothub resource. Please provide any of supported-regions of iothub"
+        }
       }
     },
+  "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2020-10-01",
       "name": "createIotHub",
-      "dependsOn": [
-        "[resourceId('Microsoft.Devices/IotHubs', '<provide-a-valid-resource-name>')]"
-      ],
       "properties": {
         "mode": "Incremental",
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "0.9.0.0",
+          "contentVersion": "1.0.0.0",
           "resources": [
             {
               "type": "Microsoft.Devices/IotHubs",
-              "apiVersion": "2020-03-01",
-              "name": "<provide-a-valid-resource-name>",
-              "location": "<any-of-supported-regions>",
+              "apiVersion": "2021-03-31",
+              "name": "[parameters('iotHubName')]",
+              "location": "[parameters('location')]",
               "identity": {
                 "type": "SystemAssigned"
               },
               "sku": {
-                "name": "<your-hubs-SKU-name>",
-                "tier": "<your-hubs-SKU-tier>",
-                "capacity": 1
+              "name": "[parameters('skuName')]",
+              "tier": "[parameters('skuTier')]",
+              "capacity": 1
               }
             }
-          ]
+          ] 
         }
       }
     }
@@ -93,10 +106,10 @@ To enable the system-assigned managed identity in your IoT hub at resource provi
 After substituting the values for your resource `name`, `location`, `SKU.name` and `SKU.tier`, you can use Azure CLI to deploy the resource in an existing resource group using:
 
 ```azurecli-interactive
-az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json> --parameters iotHubName=<valid-iothub-name> skuName=<sku-name> skuTier=<sku-tier> location=<any-of-supported-regions>
 ```
 
-After the resource is created, you can retrieve the managed service identity assigned to your hub using Azure CLI:
+After the resource is created, you can retrieve the system-assigned assigned to your hub using Azure CLI:
 
 ```azurecli-interactive
 az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
@@ -110,6 +123,99 @@ In this section, you learn how to add and remove a user-assigned managed identit
 
     :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="Screenshot showing how to add user-assigned managed identity for an IoT hub":::        
 
+
+### Enable user-assigned managed identity at hub creation time using ARM template
+Following is the example template that can be used to create hub with user-assigned managed identity. This template creates one user assigned identity with name *[iothub-name-provided]-identity* and assigned to the IoT hub created. You can change the template to add multiple user assigned identities as needed.
+ 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "iotHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of iothub resource"
+      }
+    },
+  "skuName": {
+    "type": "string",
+    "defaultValue": "S1",
+    "metadata": {
+      "description": "SKU name of iothub resource, by default is Standard S1"
+    }
+  },
+  "skuTier": {
+    "type": "string",
+    "defaultValue": "Standard",
+    "metadata": {
+      "description": "SKU tier of iothub resource, by default is Standard"
+    }
+  },
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]",
+    "metadata": {
+      "description": "Location of iothub resource. Please provide any of supported-regions of iothub"
+    }
+  }
+},
+  "variables": {
+    "identityName": "[concat(parameters('iotHubName'), '-identity')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "createIotHub",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+              "name": "[variables('identityName')]",
+              "apiVersion": "2018-11-30",
+              "location": "[resourceGroup().location]"
+            },
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2021-03-31",
+              "name": "[parameters('iotHubName')]",
+              "location": "[parameters('location')]",
+              "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                  "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('identityName'))]": {}
+                }
+              },
+              "sku": {
+                "name": "[parameters('skuName')]",
+                "tier": "[parameters('skuTier')]",
+                "capacity": 1
+              },
+              "dependsOn": [
+                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('identityName'))]"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+```azurecli-interactive
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json> --parameters iotHubName=<valid-iothub-name> skuName=<sku-name> skuTier=<sku-tier> location=<any-of-supported-regions>
+```
+
+After the resource is created, you can retrieve the user-assigned managed identity in your hub using Azure CLI:
+
+```azurecli-interactive
+az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
+```
 ## Egress connectivity from IoT Hub to other Azure resources
 In IoT Hub, managed identities can be used for egress connectivity from IoT Hub to other Azure services for [message routing](iot-hub-devguide-messages-d2c.md), [file upload](iot-hub-devguide-file-upload.md), and [bulk device import/export](iot-hub-bulk-identity-mgmt.md). You can choose which managed identity to use for each IoT Hub egress connectivity to customer-owned endpoints including storage accounts, event hubs, and service bus endpoints. 
 
@@ -165,6 +271,9 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
 6. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings, SAS TTL, Default TTL, and Maximum delivery count** as desired. Choose the preferred authentication type, and click **Save**.
 
     :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="IoT Hub file upload with msi":::
+
+    > [!NOTE]
+    > In the file upload scenario, both hub and your device need to connect with your storage account. The steps above are for connecting your IoT hub to your storage account with desired authentication type. You still need to connect your device to storage using the SAS URI. Today the SAS URI is generated using connection string. We'll add support to generate SAS URI with managed identity soon. Please follow the steps in [file upload](iot-hub-devguide-file-upload.md).
 
 ### Bulk device import/export
 

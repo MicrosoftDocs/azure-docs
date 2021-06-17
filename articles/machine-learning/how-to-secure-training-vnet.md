@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/16/2020
+ms.date: 05/14/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
 ---
@@ -40,7 +40,7 @@ In this article you learn how to secure the following training compute resources
 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
-    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource.
+    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This is not needed for ARM template deployments
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
@@ -57,9 +57,10 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 > * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
 > * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network and subnet as the Azure Machine Learning compute instance or cluster. Please configure your storage firewall settings to allow communication to virtual network and subnet compute resides in. Please note selecting checkbox for "Allow trusted Microsoft services to access this account" is not sufficient to allow communication from compute.
 > * For compute instance Jupyter functionality to work, ensure that web socket communication is not disabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
-> * When compute instance is deployed in a private link workspace it can be only be accessed from within virtual network. If you are using custom DNS or hosts file please add an entry for `<instance-name>.<region>.instances.azureml.ms` with private IP address of workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md) article.
+> * When compute instance is deployed in a private link workspace it can be only be accessed from within virtual network. If you are using custom DNS or hosts file please add an entry for `<instance-name>.<region>.instances.azureml.ms` with private IP address of workspace private endpoint. For more information, see the [custom DNS](./how-to-custom-dns.md) article.
 > * The subnet used to deploy compute cluster/instance should not be delegated to any other service like ACI
 > * Virtual network service endpoint policies do not work for compute cluster/instance system storage accounts
+> * If storage and compute instance are in different regions you might see intermittent timeouts
 
     
 > [!TIP]
@@ -114,7 +115,7 @@ If you don't want to use the default outbound rules and you do want to limit the
    - Azure Storage, by using __Service Tag__ of __Storage.RegionName__. Where `{RegionName}` is the name of an Azure region.
    - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.RegionName__. Where `{RegionName}` is the name of an Azure region.
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
-   - Azure Resource Manager, by using __Service Tag__ of __AzureResourceManager__
+   - Azure Resource Manager, by using __Service Tag__ of __Azure Resource Manager__
    - Azure Active Directory, by using __Service Tag__ of __AzureActiveDirectory__
 
 The NSG rule configuration in the Azure portal is shown in the following image:
@@ -155,11 +156,11 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 
 If you're using [forced tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) with Azure Machine Learning compute, you must allow communication with the public internet from the subnet that contains the compute resource. This communication is used for task scheduling and accessing Azure Storage.
 
-There are two ways that you can accomplish this:
+There are two ways that you can allow this communication:
 
 * Use a [Virtual Network NAT](../virtual-network/nat-overview.md). A NAT gateway provides outbound internet connectivity for one or more subnets in your virtual network. For information, see [Designing virtual networks with NAT gateway resources](../virtual-network/nat-gateway-resource.md).
 
-* Add [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md) to the subnet that contains the compute resource. Establish a UDR for each IP address that's used by the Azure Batch service in the region where your resources exist. These UDRs enable the Batch service to communicate with compute nodes for task scheduling. Also add the IP address for the Azure Machine Learning service, as this is required for access to Compute Instances. When adding the IP for the Azure Machine Learning service, you must add the IP for both the __primary and secondary__ Azure regions. The primary region being the one where your workspace is located.
+* Add [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md) to the subnet that contains the compute resource. Establish a UDR for each IP address that's used by the Azure Batch service in the region where your resources exist. These UDRs enable the Batch service to communicate with compute nodes for task scheduling. Also add the IP address for the Azure Machine Learning service, as the IP is required for access to Compute Instances. When adding the IP for the Azure Machine Learning service, you must add the IP for both the __primary and secondary__ Azure regions. The primary region being the one where your workspace is located.
 
     To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
 
@@ -199,22 +200,24 @@ There are two ways that you can accomplish this:
 To create a Machine Learning Compute cluster, use the following steps:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
+1. Select __Compute__ on the left, __Compute clusters__ from the center, and then select __+ New__.
 
-1. Select __Compute__ on the left.
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster.png" alt-text="Screenshot of creating a cluster":::
 
-1. Select __Training clusters__ from the center, and then select __+__.
+1. In the __Create compute cluster__ dialog, select the VM size and configuration you need and then select __Next__.
 
-1. In the __New Training Cluster__ dialog, expand the __Advanced settings__ section.
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-vm.png" alt-text="Screenshot of setting VM config":::
 
-1. To configure this compute resource to use a virtual network, perform the following actions in the __Configure virtual network__ section:
+1. From the __Configure Settings__ section, set the __Compute name__, __Virtual network__, and __Subnet__.
 
-    1. In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
-    1. In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
-    1. In the __Subnet__ drop-down list, select the subnet to use.
+    > [!TIP]
+    > If your workspace uses a private endpoint to connect to the virtual network, the __Virtual network__ selection field is greyed out.
 
-   ![The virtual network settings for Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Screenshot of virtual network settings":::
 
-You can also create a Machine Learning Compute cluster by using the Azure Machine Learning SDK. The following code creates a new Machine Learning Compute cluster in the `default` subnet of a virtual network named `mynetwork`:
+1. Select __Create__ to create the compute cluster.
+
+You can also create a Machine Learning compute cluster by using the Azure Machine Learning SDK. The following code creates a new Machine Learning Compute cluster in the `default` subnet of a virtual network named `mynetwork`:
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -254,9 +257,9 @@ When the creation process finishes, you train your model by using the cluster in
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### Access data in a Compute Instance notebook
+### Access data in a compute instance notebook
 
-If you're using notebooks on an Azure Compute instance, you must ensure that your notebook is running on a compute resource behind the same virtual network and subnet as your data. 
+If you're using notebooks on an Azure Machine Learning compute instance, you must ensure that your notebook is running on a compute resource behind the same virtual network and subnet as your data. 
 
 You must configure your Compute Instance to be in the same virtual network during creation under **Advanced settings** > **Configure virtual network**. You cannot add an existing Compute Instance to a virtual network.
 
@@ -278,7 +281,7 @@ For specific information on using Azure Databricks with a virtual network, see [
 > [!IMPORTANT]
 > Azure Machine Learning supports only virtual machines that are running Ubuntu.
 
-In this section you learn how to use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace.
+In this section, you learn how to use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace.
 
 ### Create the VM or HDInsight cluster
 

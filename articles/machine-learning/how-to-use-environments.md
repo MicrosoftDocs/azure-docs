@@ -358,7 +358,7 @@ exp = Experiment(name="myexp", workspace = ws)
 myenv = Environment(name="myenv")
 
 # Configure the ScriptRunConfig and specify the environment
-src = ScriptRunConfig(source_directory=".", script="train.py", target="local", environment=myenv)
+src = ScriptRunConfig(source_directory=".", script="train.py", compute_target="local", environment=myenv)
 
 # Submit run 
 run = exp.submit(src)
@@ -404,7 +404,9 @@ service = Model.deploy(
 
 ## Notebooks
 
-This [article](./how-to-access-terminal.md#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
+Code examples in this article are also included in the [using envronments notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/using-environments/using-environments.ipynb).
+
+ To install a Conda environment as a kernel in a notebook, see [add a new Jupyter kernel](./how-to-access-terminal.md#add-new-kernels).
 
 [Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
 

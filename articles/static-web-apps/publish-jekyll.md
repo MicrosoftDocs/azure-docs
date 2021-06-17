@@ -141,7 +141,7 @@ To configure environment variables, such as `JEKYLL_ENV`, add an `env` section t
 ```yaml
 - name: Build And Deploy
    id: builddeploy
-   uses: Azure/static-web-apps-deploy@v0.0.1-preview
+   uses: Azure/static-web-apps-deploy@v1
    with:
       azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
       repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -150,7 +150,7 @@ To configure environment variables, such as `JEKYLL_ENV`, add an `env` section t
       # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
       app_location: "/" # App source code path
       api_location: "" # Api source code path - optional
-      output_location: "_site_" # Built app content directory - optional
+      output_location: "_site" # Built app content directory - optional
       ###### End of Repository/Build Configurations ######
    env:
       JEKYLL_ENV: production
