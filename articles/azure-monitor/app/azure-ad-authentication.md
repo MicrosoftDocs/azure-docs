@@ -25,7 +25,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - You already have an existing Managed Identity <user or system assigned>
     - To learn, visit the [Managed Identity documentation](../../active-directory/managed-identities-azure-resources/overview.md). 
 - Familiarity with [assigning Azure roles](../../role-based-access-control/role-assignments-portal.md). 
-
+You have a "Owner" role to the resource group to grant access using [https://docs.microsoft.com/azure/role-based-access-control/built-in-roles](url)
 ## Configuring and enabling Azure AD based authentication 
 
 1. Follow the steps below depending on the type of authentication you're using: 
