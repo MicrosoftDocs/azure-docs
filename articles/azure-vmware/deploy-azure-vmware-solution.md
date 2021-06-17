@@ -1,6 +1,6 @@
 ---
 title: Deploy and configure Azure VMware Solution
-description: Learn how to use the information gathered in the planning stage to deploy and configure the Azure VMware Solution private cloud.
+description: Use the information gathered in the planning stage to deploy and configure Azure VMware Solution.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4, devx-track-azurecli
 ms.date: 05/19/2021
