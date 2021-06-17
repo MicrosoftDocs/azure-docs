@@ -9,6 +9,8 @@ ms.date: 01/02/2020
 
 # Azure storage solutions for ML Services on Azure HDInsight
 
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+
 ML Services on HDInsight can use different storage solutions to persist data, code, or objects that contain results from analysis. These solutions include the following options:
 
 - [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/)
@@ -90,7 +92,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 ```
 
-All of the directory and file references now point to the storage account `wasbs://container2@storage2.blob.core.windows.net`. This is the **Name Node** that you’ve specified.
+All of the directory and file references now point to the storage account `wasbs://container2@storage2.blob.core.windows.net`. This is the **Name Node** that you've specified.
 
 Configure the `/user/RevoShare/<SSH username>` directory on **storage2** as follows:
 

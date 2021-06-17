@@ -10,6 +10,8 @@ ms.date: 04/20/2020
 
 # What is ML Services in Azure HDInsight
 
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+
 Microsoft Machine Learning Server is available as a deployment option when you create HDInsight clusters in Azure. The cluster type that provides this option is called **ML Services**. This capability provides on-demand access to adaptable, distributed methods of analytics on HDInsight.
 
 ML Services on HDInsight provides the latest capabilities for R-based analytics on datasets of virtually any size. The datasets can be loaded to either Azure Blob or Data Lake storage. Your R-based applications can use the 8000+ open-source R packages. The routines in ScaleR, Microsoft's big data analytics package are also available.
