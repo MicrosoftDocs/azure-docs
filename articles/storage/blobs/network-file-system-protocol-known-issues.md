@@ -14,11 +14,13 @@ ms.reviewer: yzheng
 
 This article describes limitations and known issues of Network File System (NFS) 3.0 protocol support in Azure Blob Storage.
 
+## Enabling and disabling NFS 3.0 support
+
 - NFS 3.0 support can't be enabled on existing storage accounts.
 
 - NFS 3.0 support can't be disabled in a storage account after you've enabled it.
 
-### NFS 3.0 features not yet supported
+## NFS 3.0 features
 
 The following NFS 3.0 features aren't yet supported.
 
@@ -36,13 +38,11 @@ The following NFS 3.0 features aren't yet supported.
 
 - Exporting a container as read-only
 
-### NFS 3.0 clients not yet supported
+## NFS 3.0 clients
 
-The following NFS 3.0 clients aren't yet supported.
+Windows client for NFS is not yet supported
 
-- Windows client for NFS
-
-## Known issues with Blob storage APIs
+## Blob storage APIs
 
 NFS 3.0, Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data. 
 

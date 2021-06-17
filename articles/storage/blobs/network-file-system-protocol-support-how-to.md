@@ -30,7 +30,7 @@ To secure the data in your account, see these recommendations: [Network security
 
 ## Step 3: Create and configure a storage account
 
-To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature.
+To mount a container by using NFS 3.0, You must create a storage account. You can't enable existing accounts.
 
 NFS 3.0 protocol is supported for standard general-purpose v2 storage accounts and for premium block blob storage accounts. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
@@ -88,7 +88,7 @@ Create a directory on your Linux system, and then mount a container in the stora
 |Issue / error | Resolution|
 |---|---|
 |`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
-|`No such file or directory`| Ensure sure that the container that you're mounting was created after you verified that the feature was registered. See [Step 2: Verify that the feature is registered](#step-2-verify-that-the-feature-is-registered).Also, make sure to type the mount command and it's parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear.|
+|`No such file or directory`| Make sure to type the mount command and it's parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear.|
 
 ## See also
 

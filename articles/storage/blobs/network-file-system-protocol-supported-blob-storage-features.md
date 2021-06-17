@@ -11,7 +11,7 @@ ms.author: normesta
 
 # Blob storage features available in Azure Storage accounts that have the NFS 3.0 protocol enabled
 
-Many Blob Storage features such as [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) will work with accounts that have the Network File System (NFS) 3.0 protocol feature enabled on them. However, many features are not yet supported.
+Many Blob Storage features such as [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) will work with accounts that have the Network File System (NFS) 3.0 protocol feature enabled on them. However, some features are not yet supported.
 
 This table lists the Blob storage features that you can use in accounts that have the NFS 3.0 feature enabled. The items that appear in these tables will change over time as support continues to expand. To learn more about specific issues associated with the preview status of a feature, see the [Known issues](network-file-system-protocol-known-issues.md) article.
 
