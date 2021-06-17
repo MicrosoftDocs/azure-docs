@@ -13,7 +13,7 @@ HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. 
 > [!IMPORTANT]  
 > The support for ASM based PowerShell, CLI, and .NET SDK will discontinue on **January 1, 2017**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](includes/updated-for-az.md)]
 
 ## Migrating Azure Classic CLI to Azure Resource Manager
 
