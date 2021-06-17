@@ -19,7 +19,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - [JavaScript SDKs](javascript.md). 
 - [OpenCensus Python SDK](opencensus-python.md) won't support Python versions - 3.4 and 3.5.
 - [Certificate/secret based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use Managed Identities instead. 
-- Auto Attach scenario for .NET/.NET core.
+- On by default Codeless monitoring(for languages) for App Service, VM/VMSS, Azure Functions etc.
 
 ## Prerequisites to enable Azure AD authentication ingestion
 - You already have an existing Managed Identity <user or system assigned>
