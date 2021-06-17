@@ -39,6 +39,8 @@
       href: work-remotely-support.md
     - name: NVA configurations and remote work
       href: nva-work-remotely-support.md
+  - name: VPN Gateway FAQ
+    href: vpn-gateway-vpn-faq.md
   - name: About VPN Gateway design
     href: design.md
   - name: About VPN Gateway settings
@@ -320,8 +322,6 @@
     href: /cli/azure/network/vnet-gateway
 - name: Resources
   items:
-  - name: VPN Gateway FAQ
-    href: vpn-gateway-vpn-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog

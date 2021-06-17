@@ -4,7 +4,7 @@ titleSuffix: Azure Applied AI Services
 description: Understand the latest changes to the Form Recognizer API.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/25/2021
@@ -13,13 +13,13 @@ ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
-# What's new in Form Recognizer
+# What's new in Azure Form Recognizer
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
 
 ## May 2021
 
-### Form Recognizer 2.1 (GA)
+### Form Recognizer 2.1 API is now Generally Available (GA)
 
 * Form Recognizer 2.1 is generally available. This General Availability (GA) release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following:
 
@@ -30,7 +30,8 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * [Identity documents](concept-identification-cards.md)
 * [Custom forms](concept-custom.md)
 
-* We now support multiple service API versions—Form Recognizer v2.1 and v2.0.
+#### Get started 
+Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](quickstarts/get-started-with-form-recognizer.md) 
 
 ### Layout adds table headers
 

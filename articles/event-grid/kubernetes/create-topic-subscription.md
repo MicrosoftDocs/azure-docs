@@ -119,36 +119,39 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
 
     1. Create a manifest file with the following configuration. You may want to adjust the ``dnsPolicy`` according to your needs. Consult [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) for more information.
     
-    ```yml
+        ```yml
         apiVersion: v1
+        dnsPolicy: ClusterFirstWithHostNet
+        hostNetwork: true
         kind: Pod
-        metadata:
+        metadata: 
           name: test-pod
-        spec:
-          volumes:
-          - name: shared-data
-            emptyDir: {}
-          containers:
-          - name: nginx
-            image: nginx
-            volumeMounts:
-            - name: shared-data
+        spec: 
+          containers: 
+            - 
+              name: nginx
+          emptyDir: {}
+          image: nginx
+          volumeMounts: 
+            - 
               mountPath: /usr/share/nginx/html
-      hostNetwork: true
-      dnsPolicy: ClusterFirstWithHostNet    
-    ```
+              name: shared-data
+          volumes: 
+            - 
+              name: shared-data  
+        ```
     1. Create the pod.
-    ```bash
-        kubectl apply -f <name_of_your_yaml_manifest_file>
-    ```
+        ```bash
+            kubectl apply -f <name_of_your_yaml_manifest_file>
+        ```
     1. Verify that the pod is running.
-    ```bash
-        kubectl get pod test-pod
-    ```
+        ```bash
+            kubectl get pod test-pod
+        ```
     1. Start a shell session from the container
-    ```bash
-        kubectl exec --stdin --tty test-pod -- /bin/bash
-    ```
+        ```bash
+            kubectl exec --stdin --tty test-pod -- /bin/bash
+        ```
 
     At this point, you have a shell session from a running container in the cluster from which you can execute the **Curl** command described in an earlier step above.
 

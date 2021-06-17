@@ -84,6 +84,8 @@
   - name: User experience
     expanded: true
     items:
+    - name: Sign-in options
+      href: sign-in-options.md
     - name: User flows and custom policies
       href: user-flow-overview.md
     - name: Custom policy overview
@@ -109,12 +111,28 @@
       items:
       - name: Configure a sample web app
         href: configure-authentication-sample-web-app.md
-      - name: Enable authentication in your app
+      - name: Enable authentication in your web app
         href: enable-authentication-web-application.md
       - name: Authentication options
         href: enable-authentication-web-application-options.md
+    - name: ASP.NET Core web app that calls API
+      items:
+      - name: Configure a sample web app that calls API
+        href: configure-authentication-sample-web-app-with-api.md
+      - name: Enable authentication in your web app
+        href: enable-authentication-web-app-with-api.md
+      - name: Authentication options
+        href: enable-authentication-web-app-with-api-options.md
+    - name: Single-page application (SPA)
+      items:
+      - name: Configure a sample SPA app
+        href: configure-authentication-sample-spa-app.md
+      - name: Enable authentication in your SPA app
+        href: enable-authentication-spa-app.md
+      - name: Authentication options
+        href: enable-authentication-spa-app-options.md
     - name: Register a single-page application (SPA)
-      href: tutorial-register-spa.md
+      href: tutorial-register-spa.md    
     - name: SAML application
       items:
       - name: Configure a SAML application
@@ -134,6 +152,8 @@
       href: signin-appauth-ios.md
     - name: Android using App Auth
       href: signin-appauth-android.md
+    - name: Publish your app to Azure AD app gallery
+      href: publish-app-to-azure-ad-app-gallery.md
     - name: Secure API Management API
       href: secure-api-management.md
       displayName: apim, api management, migrate, b2clogin.com
@@ -559,7 +579,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
-    href: faq.md
+    href: ./faq.yml
   - name: Getting help
     href: ../active-directory/develop/developer-support-help-options.md
   - name: Pricing

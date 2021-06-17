@@ -68,7 +68,7 @@ API_VERSION="2021-03-01-preview"
 Running machine learning jobs requires compute resources. You can list your workspace's compute resources:
 
 ```bash
-curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION \
+curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION" \
 --header "Authorization: Bearer $TOKEN"
 ```
 
@@ -87,7 +87,7 @@ The LightGBM example needs to run in a LightGBM environment. Create the environm
 
 You can configure the docker image with `Docker` and add conda dependencies with `condaFile`: 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_environment":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
 
 ### Datastore
 
@@ -109,7 +109,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 Now that you have the datastore, you can create a dataset. For this example, use the common dataset `iris.csv` and point to it in the `path`. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_data":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
 
 ### Code
 
@@ -123,7 +123,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 Once you upload your code, you can specify your code with a PUT request and refer to the datastore with `datastoreId`. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_code":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
 
 ## Submit a training job
 
@@ -140,11 +140,11 @@ Now that your assets are in place, you can run the LightGBM job, which outputs a
 
 Use the following commands to submit the training job:
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_job":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
 
 ## Submit a hyperparameter sweep job
 
-Azure Machine Learning also lets you efficiently tune training hyperparameterss. You can create a hyperparameter tuning sweet, with the REST APIs. For more information on Azure Machine Learning's hyperparameter tuning options, see [Hyperparameter tuning a model](how-to-tune-hyperparameters.md). Specify the hyperparameter tuning parameters to configure the sweep:
+Azure Machine Learning also lets you efficiently tune training hyperparameters. You can create a hyperparameter tuning suite, with the REST APIs. For more information on Azure Machine Learning's hyperparameter tuning options, see [Hyperparameter tuning a model](how-to-tune-hyperparameters.md). Specify the hyperparameter tuning parameters to configure the sweep:
 
 - **jobType**: The job type. For a sweep job, it will be `Sweep`. 
 - **algorithm**: The sampling algorithm - "random" is often a good place to start. See the sweep job [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the enumeration of options. 
@@ -157,7 +157,7 @@ Azure Machine Learning also lets you efficiently tune training hyperparameterss.
 
 To create a sweep job with the same LightGBM example, use the following commands: 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_a_sweep_job":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
 
 ## Next steps
 

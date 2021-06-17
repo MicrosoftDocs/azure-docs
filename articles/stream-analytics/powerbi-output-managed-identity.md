@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
-ms.date: 3/10/2020
+ms.date: 05/30/2021
 ---
 
 # Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI
@@ -204,6 +204,14 @@ Request Body
     "principalType": "App"
 }
 ```
+
+### Use a Service Principal to grant permission for an ASA job's Managed Identity
+
+For automated deployments, using an interactive login to give an ASA job access to a Power BI workspace is not possible. This can be done be using service principal to grant permission for an ASA job's managed identity. This is possible using PowerShell:
+
+Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>"
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+
 
 ## Remove Managed Identity
 

@@ -1,7 +1,7 @@
 ---
 title: 'Configure VPN NAT rules for your gateway'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure NAT rules for your VWAN VPN gateway
+description: Learn how to configure NAT rules for your VWAN VPN gateway.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -135,7 +135,7 @@ In this example, we will NAT VPN site 1 to 127.30.0.0.0/24. However, because the
 
 ### Packet flow
 
-In the preceding examples an on-premises device wants to reach a resource in a Spoke Virtual Network. The packet flow is as follows, with the NAT translations in bold.
+In the preceding examples, an on-premises device wants to reach a resource in a Spoke Virtual Network. The packet flow is as follows, with the NAT translations in bold.
 
 1. Traffic from on-premises is initiated.
    * Source IP Address: **10.30.0.4**

@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
-ms.custom: avverma, devx-track-azurecli
+ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Automatic instance repairs for Azure virtual machine scale sets
@@ -33,7 +33,7 @@ For instances marked as "Unhealthy", automatic repairs are triggered by the scal
 
 **Maximum number of instances in the scale set**
 
-This feature is currently available only for scale sets that have a maximum of 500 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 200 if automatic instance repairs is enabled for the scale set.
+This feature is currently available only for scale sets that have a maximum of 500 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 500 if automatic instance repairs is enabled for the scale set.
 
 **API version**
 

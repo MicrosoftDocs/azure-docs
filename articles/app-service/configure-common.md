@@ -195,7 +195,7 @@ Here, you can configure some common settings for the app. Some settings require 
     ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
 
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
-    - **Bitness**: 32-bit or 64-bit.
+    - **Bitness**: 32-bit or 64-bit. (Defaults to 32-bit for App Service created in the portal.)
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
     - **Always On**: Keeps the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
       > [!NOTE]

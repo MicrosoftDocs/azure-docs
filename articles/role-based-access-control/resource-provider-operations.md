@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 05/20/2021
+ms.date: 05/26/2021
 ms.custom: generated
 ---
 
@@ -57,7 +57,6 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.ContainerInstance](#microsoftcontainerinstance) |
 | [Microsoft.ContainerRegistry](#microsoftcontainerregistry) |
 | [Microsoft.ContainerService](#microsoftcontainerservice) |
-| [Microsoft.DevSpaces](#microsoftdevspaces) |
 | **Databases** |
 | [Microsoft.Cache](#microsoftcache) |
 | [Microsoft.DataFactory](#microsoftdatafactory) |
@@ -1126,6 +1125,7 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 > | Microsoft.Network/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
 > | Microsoft.Network/loadBalancers/delete | Deletes a load balancer |
+> | Microsoft.Network/loadBalancers/backendAddressPools/queryInboundNatRulePortMapping/action | Query inbound Nat rule port mapping. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
 > | Microsoft.Network/loadBalancers/backendAddressPools/write | Creates a load balancer backend address pool or updates an existing load balancer backend address pool |
 > | Microsoft.Network/loadBalancers/backendAddressPools/delete | Deletes a load balancer backend address pool |
@@ -1209,6 +1209,9 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/networkSecurityGroups/securityRules/read | Gets a security rule definition |
 > | Microsoft.Network/networkSecurityGroups/securityRules/write | Creates a security rule or updates an existing security rule |
 > | Microsoft.Network/networkSecurityGroups/securityRules/delete | Deletes a security rule |
+> | Microsoft.Network/networkVirtualAppliances/delete | Delete a Network Virtual Appliance |
+> | Microsoft.Network/networkVirtualAppliances/read | Get a Network Virtual Appliance |
+> | Microsoft.Network/networkVirtualAppliances/write | Create or update a Network Virtual Appliance |
 > | Microsoft.Network/networkWatchers/read | Get the network watcher definition |
 > | Microsoft.Network/networkWatchers/write | Creates a network watcher or updates an existing network watcher |
 > | Microsoft.Network/networkWatchers/delete | Deletes a network watcher |
@@ -1381,6 +1384,9 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/virtualHubs/routeTables/read | Get a VirtualHubRouteTableV2 |
 > | Microsoft.Network/virtualHubs/routeTables/write | Create or Update a VirtualHubRouteTableV2 |
 > | Microsoft.Network/virtualHubs/routeTables/delete | Delete a VirtualHubRouteTableV2 |
+> | Microsoft.Network/virtualHubs/routingIntent/read | Gets a Routing Intent child resource of Virtual Hub |
+> | Microsoft.Network/virtualHubs/routingIntent/write | Creates or Updates a Routing Intent child resource of Virtual Hub |
+> | Microsoft.Network/virtualHubs/routingIntent/delete | Deletes a Routing Intent child resource of Virtual Hub |
 > | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Lists Supported Vpn Devices |
 > | Microsoft.Network/virtualNetworkGateways/read | Gets a VirtualNetworkGateway |
 > | Microsoft.Network/virtualNetworkGateways/write | Creates or updates a VirtualNetworkGateway |
@@ -1449,6 +1455,8 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/virtualwans/vpnconfiguration/action | Gets a Vpn Configuration |
 > | Microsoft.Network/virtualwans/vpnServerConfigurations/action | Get VirtualWanVpnServerConfigurations |
 > | Microsoft.Network/virtualwans/generateVpnProfile/action | Generate VirtualWanVpnServerConfiguration VpnProfile |
+> | Microsoft.Network/virtualWans/updateVpnReferences/action | Update VPN reference in VirtualWan |
+> | Microsoft.Network/virtualWans/updateVhubReferences/action | Update VirtualHub reference in VirtualWan |
 > | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/read | Gets a virtual Wan P2SVpnServerConfiguration |
 > | Microsoft.network/virtualWans/p2sVpnServerConfigurations/write | Creates a virtual Wan P2SVpnServerConfiguration or updates an existing virtual Wan P2SVpnServerConfiguration |
 > | Microsoft.network/virtualWans/p2sVpnServerConfigurations/delete | Deletes a virtual Wan P2SVpnServerConfiguration |
@@ -1661,6 +1669,7 @@ Azure service: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/netAppAccounts/read | Reads an account resource. |
 > | Microsoft.NetApp/netAppAccounts/write | Writes an account resource. |
 > | Microsoft.NetApp/netAppAccounts/delete | Deletes an account resource. |
+> | Microsoft.NetApp/netAppAccounts/RenewCredentials/action | Renews MSI credentials of account, if account has MSI credentials that are due for renewal. |
 > | Microsoft.NetApp/netAppAccounts/accountBackups/read | Reads an account backup resource. |
 > | Microsoft.NetApp/netAppAccounts/accountBackups/write | Writes an account backup resource. |
 > | Microsoft.NetApp/netAppAccounts/accountBackups/delete | Deletes an account backup resource. |
@@ -1811,10 +1820,15 @@ Azure service: [Storage](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/tableServices/read |  |
 > | Microsoft.Storage/storageAccounts/tableServices/read | Get Table service properties |
 > | Microsoft.Storage/storageAccounts/tableServices/write |  |
+> | Microsoft.Storage/storageAccounts/tableServices/read | Get table service properties or statistics |
+> | Microsoft.Storage/storageAccounts/tableServices/write | Set table service properties |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/delete |  |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/read |  |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/read |  |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/write |  |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/read | Query tables |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/write | Create tables |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/delete | Delete tables |
 > | Microsoft.Storage/usages/read | Returns the limit and the current usage count for resources in the specified subscription |
 > | **DataAction** | **Description** |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
@@ -1841,6 +1855,11 @@ Azure service: [Storage](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returns the result of deleting a message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returns the result of adding a message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Returns the result of processing a message |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/entities/read | Query table entities |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/entities/write | Insert, merge, or replace table entities |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/entities/delete | Delete table entities |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/entities/add/action | Insert table entities |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/entities/update/action | Merge or update table entities |
 
 ### microsoft.storagesync
 
@@ -3422,23 +3441,6 @@ Azure service: [Azure Kubernetes Service (AKS)](../aks/index.yml)
 > | Microsoft.ContainerService/managedClusters/ui/read | Reads ui |
 > | Microsoft.ContainerService/managedClusters/users/impersonate/action | Impersonate users |
 > | Microsoft.ContainerService/managedClusters/version/read | Reads version |
-
-### Microsoft.DevSpaces
-
-Azure service: [Azure Dev Spaces](../dev-spaces/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.DevSpaces/register/action | Register Microsoft Dev Spaces resource provider with a subscription |
-> | Microsoft.DevSpaces/controllers/read | Read Azure Dev Spaces Controller properties |
-> | Microsoft.DevSpaces/controllers/write | Create or Update Azure Dev Spaces Controller properties |
-> | Microsoft.DevSpaces/controllers/delete | Delete Azure Dev Spaces Controller and dataplane services |
-> | Microsoft.DevSpaces/controllers/listConnectionDetails/action | List connection details for the Azure Dev Spaces Controller's infrastructure |
-> | Microsoft.DevSpaces/locations/checkContainerHostMapping/action | Check existing controller mapping for a container host |
-> | Microsoft.DevSpaces/locations/checkContainerHostMapping/read | Check existing controller mapping for a container host |
-> | Microsoft.DevSpaces/locations/operationresults/read | Read result of an asynchronous operation |
-> | Microsoft.DevSpaces/operations/read | List all the supported operations for Microsoft Dev Spaces resource provider |
 
 ## Databases
 
@@ -5409,12 +5411,15 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/register/action | Subscription Registration Action |
 > | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
 > | Microsoft.CognitiveServices/checkDomainAvailability/action | Reads available SKUs for a subscription. |
+> | Microsoft.CognitiveServices/checkDomainAvailability/action | Reads available SKUs for a subscription. |
+> | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
+> | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
 > | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
 > | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
 > | Microsoft.CognitiveServices/accounts/read | Reads API accounts. |
 > | Microsoft.CognitiveServices/accounts/write | Writes API Accounts. |
 > | Microsoft.CognitiveServices/accounts/delete | Deletes API accounts |
-> | Microsoft.CognitiveServices/accounts/listKeys/action | List Keys |
+> | Microsoft.CognitiveServices/accounts/listKeys/action | List keys |
 > | Microsoft.CognitiveServices/accounts/regenerateKey/action | Regenerate Key |
 > | Microsoft.CognitiveServices/accounts/privateEndpointConnectionProxies/read | Reads private endpoint connections. |
 > | Microsoft.CognitiveServices/accounts/privateEndpointConnectionProxies/write | Writes a private endpoint connections. |
@@ -5427,6 +5432,10 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/skus/read | Reads available SKUs for an existing resource. |
 > | Microsoft.CognitiveServices/accounts/usages/read | Get the quota usage for an existing resource. |
 > | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for a subscription. |
+> | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for a subscription. |
+> | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notification from Microsoft.Network of deleting VirtualNetworks or Subnets. |
+> | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for a subscription. |
+> | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notification from Microsoft.Network of deleting VirtualNetworks or Subnets. |
 > | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for a subscription. |
 > | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notification from Microsoft.Network of deleting VirtualNetworks or Subnets. |
 > | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for a subscription. |
@@ -6268,6 +6277,7 @@ Azure service: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/delete | Deletes the Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/listKeys/action | List secrets for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/resynckeys/action | Resync secrets for a Machine Learning Services Workspace |
+> | Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action | List Storage Account keys for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/batchEndpoints/read | Gets batch inference endpoints in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/batchEndpoints/write | Creates or updates batch inference endpoint in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/batchEndpoints/delete | Deletes batch inference endpoint in Machine Learning Services Workspace(s) |
@@ -6335,15 +6345,6 @@ Azure service: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/experiments/runs/write | Creates or updates runs in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/experiments/runs/delete | Deletes runs in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/features/read | Gets all enabled features for a Machine Learning Services Workspace |
-> | Microsoft.MachineLearningServices/workspaces/inferenceEndpoints/read | Gets Inference inference endpoints in Machine Learning Services Workspace(s) |
-> | Microsoft.MachineLearningServices/workspaces/inferenceEndpoints/write | Creates or updates an Inference inference endpoint in Machine Learning Services Workspace(s) |
-> | Microsoft.MachineLearningServices/workspaces/inferenceEndpoints/delete | Deletes an Inference inference endpoint in Machine Learning Services Workspace(s) |
-> | Microsoft.MachineLearningServices/workspaces/inferenceEndpoints/checkNameAvailability/read | Checks name for an Inference inference endpoint in Machine Learning Services Workspace(s) |
-> | Microsoft.MachineLearningServices/workspaces/inferenceEndpoints/deployments/read | Gets deployments in an Inference inference endpoint in Machine Learning Services Workspace(s) |
-> | Microsoft.MachineLearningServices/workspaces/inferenceEndpoints/deployments/write | Creates or updates deployment in an Inference inference endpoint in Machine Learning Services Workspace(s) |
-> | Microsoft.MachineLearningServices/workspaces/inferenceEndpoints/deployments/delete | Deletes a deployment in an Inference inference endpoint in Machine Learning Services Workspace(s) |
-> | Microsoft.MachineLearningServices/workspaces/inferenceEndpoints/deployments/checkNameAvailability/read | Checks name for deployment in Inference inference endpoint in Machine Learning Services Workspace(s) |
-> | Microsoft.MachineLearningServices/workspaces/inferenceEndpoints/deployments/skus/read | Gets scale sku settings for a deployment in an Inference inference endpoint in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/labeling/export/action | Export labels of labeling projects in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/labeling/labels/read | Gets labels of labeling projects in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/labeling/labels/write | Creates labels of labeling projects in Machine Learning Services Workspace(s) |
@@ -6355,6 +6356,8 @@ Azure service: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/linkedServices/read | Gets all linked services for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/linkedServices/write | Create or Update Machine Learning Services Workspace Linked Service(s) |
 > | Microsoft.MachineLearningServices/workspaces/linkedServices/delete | Delete Machine Learning Services Workspace Linked Service(s) |
+> | Microsoft.MachineLearningServices/workspaces/listNotebookAccessToken/read | List Azure Notebook Access Token for a Machine Learning Services Workspace |
+> | Microsoft.MachineLearningServices/workspaces/listNotebookKeys/read | List Azure Notebook keys for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read | Gets artifacts in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write | Creates or updates artifacts in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/delete | Deletes artifacts in Machine Learning Services Workspace(s) |
@@ -7769,6 +7772,7 @@ Azure service: [Key Vault](../key-vault/index.yml)
 > | Microsoft.KeyVault/vaults/keys/unwrap/action | Unwraps a symmetric key with a Key Vault key. |
 > | Microsoft.KeyVault/vaults/keys/sign/action | Signs a message digest (hash) with a key. |
 > | Microsoft.KeyVault/vaults/keys/verify/action | Verifies the signature of a message digest (hash) with a key. Note that if the key is asymmetric, this operation can be performed by principals with read access. |
+> | Microsoft.KeyVault/vaults/keys/release/action | Release a key using public part of KEK from attestation token. |
 > | Microsoft.KeyVault/vaults/secrets/delete | Deletes a secret. All versions are deleted. |
 > | Microsoft.KeyVault/vaults/secrets/backup/action | Creates the backup file of a secret. The file can used to restore the secret in a Key Vault of same subscription. Restrictions may apply. |
 > | Microsoft.KeyVault/vaults/secrets/purge/action | Purges a secret, making it unrecoverable. |
@@ -7972,8 +7976,14 @@ Azure service: [Azure Sentinel](../sentinel/index.yml)
 > | Microsoft.SecurityInsights/incidents/relations/read | Gets a relation between the incident and related resources |
 > | Microsoft.SecurityInsights/incidents/relations/write | Updates a relation between the incident and related resources |
 > | Microsoft.SecurityInsights/incidents/relations/delete | Deletes a relation between the incident and related resources |
+> | Microsoft.SecurityInsights/Metadata/read | Read Metadata for Sentinel content. |
+> | Microsoft.SecurityInsights/Metadata/write | Write Metadata for Sentinel content. |
+> | Microsoft.SecurityInsights/Metadata/delete | Delete Metadata for Sentinel content. |
 > | Microsoft.SecurityInsights/officeConsents/read | Gets consents from Microsoft Office |
 > | Microsoft.SecurityInsights/officeConsents/delete | Deletes consents from Microsoft Office |
+> | Microsoft.SecurityInsights/onboardingStates/read | Gets an onboarding state |
+> | Microsoft.SecurityInsights/onboardingStates/write | Updates an onboarding state |
+> | Microsoft.SecurityInsights/onboardingStates/delete | Deletes an onboarding state |
 > | Microsoft.SecurityInsights/operations/read | Gets operations |
 > | Microsoft.SecurityInsights/settings/read | Gets settings |
 > | Microsoft.SecurityInsights/settings/write | Updates settings |
@@ -9324,6 +9334,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/ABSBotRequests/read | Read data from the ABSBotRequests table |
 > | Microsoft.OperationalInsights/workspaces/query/ABSChannelToBotRequests/read | Read data from the ABSChannelToBotRequests table |
 > | Microsoft.OperationalInsights/workspaces/query/ABSDependenciesRequests/read | Read data from the ABSDependenciesRequests table |
+> | Microsoft.OperationalInsights/workspaces/query/ACICollaborationAudit/read | Read data from the ACICollaborationAudit table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSAuthIncomingOperations/read | Read data from the ACSAuthIncomingOperations table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSBillingUsage/read | Read data from the ACSBillingUsage table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSChatIncomingOperations/read | Read data from the ACSChatIncomingOperations table |
