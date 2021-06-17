@@ -53,7 +53,7 @@ landingContent:
           - text: Create custom alerts
             url: quickstart-create-custom-alerts.md
           - text: Configure and customize Defender-IoT-micro-agent for Azure RTOS (preview)
-            url: how-to-azure-rtos-security-modules.md
+            url: how-to-azure-rtos-security-module.md
   - title: New in docs
     linkLists:
       - linkListType: whats-new
