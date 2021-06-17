@@ -31,7 +31,7 @@ You can use this smartphone app to:
 
 You can install the app from one of the app stores:
 
-:::image type="content" source="media/iot-phone-app-how-to/play-store-badge.png" alt-text="Get it on Google Play" link="https://play.google.com/store/apps/details?id=com.iot_pnp" border="false"::: :::image type="content" source="media/iot-phone-app-how-to/app-store-badge.png" alt-text="Download on the App Store" link="https://apps.apple.com/app/iot-plug-and-play/id1563783687" border="false":::
+:::image type="content" source="media/iot-phone-app-how-to/play-store-badge.png" alt-text="Get the app for your Android phone on Google Play." link="https://play.google.com/store/apps/details?id=com.iot_pnp" border="false"::: :::image type="content" source="media/iot-phone-app-how-to/app-store-badge.png" alt-text="Download the app for your phone from the the App Store." link="https://apps.apple.com/app/iot-plug-and-play/id1563783687" border="false":::
 
 ## App features
 
