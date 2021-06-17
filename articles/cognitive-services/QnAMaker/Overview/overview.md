@@ -19,7 +19,6 @@ QnA Maker doesn't store customer data. All customer data (question answers and c
 
 This documentation contains the following article types:
 
-This documentation contains the following types of articles:
 * The [quickstarts](../quickstarts/create-publish-knowledge-base.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](../how-to/set-up-qnamaker-service-azure.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](../concepts/plan.md) provide in-depth explanations of the service's functionality and features.
