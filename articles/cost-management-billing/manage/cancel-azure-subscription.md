@@ -67,15 +67,16 @@ After your subscription is canceled, Microsoft waits 30 - 90 days before permane
 
 ## Delete free account or pay-as-you-go subscription
 
-If you have a free account or pay-as-you-go subscription, you don't have to wait 30 - 90 days for the subscription to automatically delete. The **Delete** option becomes available three days after you cancel a subscription. You can delete after 3 days if you do not have resources under your canceled subscription.
+If you have a free account or a pay-as-you-go subscription, you don't have to wait 30 to 90 days for the subscription to automatically delete. The **Delete** option becomes available 3 days after you cancel a subscription. After 3 days, if you don't have any resources under the canceled subscription, you can delete the subscription.
 
-Follow these steps to delete:
-1. Wait three days after the date you canceled the subscription.
-2. Ensure you do not have any resources under the subscription before you try to delete it.
-3. Navigate to the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
-4. Select the subscription that you want to delete.
+Follow these steps to delete a subscription:
+
+1. Wait 3 days after the date you canceled the subscription.
+2. Ensure that you don't have any resources under the subscription before you try to delete it.
+3. In the Azure portal, go to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+4. Select the subscription you want to delete.
 5. Select **Overview**, and then select **Delete**.
-6. Type the subscription name in the confirmation prompt and select **Delete subscription**.
+6. Type the subscription name in the confirmation prompt, and then select **Delete subscription**.
 
 ## Delete other subscriptions
 
