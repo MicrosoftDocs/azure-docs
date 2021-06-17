@@ -26,8 +26,8 @@ The following requirements apply to NFSv4.1 client encryption:
 
 * Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (AADDS) connection to facilitate Kerberos ticketing 
 * DNS A/PTR record creation for both the client and Azure NetApp Files NFS server IP addresses
-* A Linux client -- This article provides guidance for RHEL and Ubuntu clients.  Other clients will work with similar configuration steps. 
-* NTP server access -- You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
+* A Linux client: This article provides guidance for RHEL and Ubuntu clients.  Other clients will work with similar configuration steps. 
+* NTP server access: You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
 * Ensure that User Principal Names for user accounts do *not* end with a `$` symbol (e.g. user$@contoso.com).   
     At this time, Azure NetApp Files Kerberos does not support [Group managed service accounts](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts) (gMSA).
 
