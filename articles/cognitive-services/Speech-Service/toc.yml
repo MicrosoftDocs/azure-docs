@@ -499,8 +499,8 @@
           maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
         - name: Containers FAQ
-          href: speech-container-faq.md
-        - name: All Cognitive Services containers documentation
+          href: speech-container-faq.yml
+        - name: Cognitive Services containers documentation
           href: ../containers/index.yml
           maintainContext: true
     - name: Migration

@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 06/17/2021
 ms.author: cshoe
 ---
 
@@ -252,7 +252,7 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
 }
 ```
 
-When one or more IP address blocks are specified, clients originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
+When one or more IP address blocks are specified, requests originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
 
 ## Example configuration file
 
