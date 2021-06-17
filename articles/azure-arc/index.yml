@@ -122,3 +122,12 @@ conceptualContent:
         - url: ../automation/automation-intro.md
           itemType: overview
           text: Azure Automation overview
+    # Card
+    - title: SQL Server
+      links:
+        - url: /sql/sql-server/azure-arc/assess
+          itemType: how-to-guide
+          text: Assess Arc enabled instance
+        - url: /sql/sql-server/azure-arc/configure-advanced-data-security
+          itemType: how-to-guide
+          text: Configure advanced data security
