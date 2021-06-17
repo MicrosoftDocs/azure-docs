@@ -36,17 +36,18 @@ Before you begin, make sure that:
 - You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).<!--Is this the equivalent of making sure no policies are preventing access during ordering?-->
 
 
-## Create a new Azure Edge Hardware Center order
+## Create new order in Azure Hardware Center
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-1. Select **+ Create a resource**. Search for and select **Azure Edge Hardware Center**.
+1. Search for and select **Azure Hardware Center**.
 
-    ![Screenshot to choose Azure Edge Hardware Center as the resource to create](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-01.png)
+    ![Screenshot showing how to start a new order with the Azure Hardware Center service](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-01-service-first.png)    
 
-1. In the Azure Edge Hardware Center (preview) portal, select **Create**.<!--Name edited.-->
+1. In the Azure Edge Hardware Center (preview) portal, select **+ Order**.
 
-    ![Screenshot of the option to create a resource in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-02.png)
+    ![Screenshot of the option to create a resource in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-02-service-first.png)
+
 
 1. Select a subscription, and then select **Next**.
 
@@ -60,15 +61,15 @@ Before you begin, make sure that:
 
     ![Screen for selecting a shipping destination for your Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png) 
 
-1.  On the **Order hardware** page, use the **Select** button to select a device type.  
+1.  On the **Order hardware** page, use the **Select** button to select the type of hardware device to order.  
 
     ![Screen for selecting the device type, within the product family you selected earlier](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-06.png) 
 
-1.  A pane opens, showing the available models of the device type you selected. Select the model you want to order, and then choose **Select**.
+1.  On the next pane, select a device configuration, and then choose **Select**.
 
     ![Screen for selecting a device model of the selected device type](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-07.png)
 
-    When you select a device model, the **Create order** wizard opens.
+    The **Create order** wizard opens.
 
 1.  On the **Basics** tab, provide an **Order name** and **Resource group**. Then select **Next: Shipping + quantity**.
 
@@ -78,23 +79,23 @@ Before you begin, make sure that:
 
     ![Screenshot of the Shipping + quantity tab, Add a new address option for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-09.png)<!--Check screen for "Azure Edge Hardware Center."-->
 
-1.  On the **Create order** screen, there's a required **Address alias** field in addition to the usual address fields. The address alias identifies this address for use with other orders. Select **Add** when you finish filling in the address fields.
+1.  On the **New address** screen, there's a required **Address alias** field in addition to the usual address fields. Use a name that makes it easy to identify the address for later use. Select **Add** when you finish filling in the address fields.
 
     ![Screen for adding a new ship to address for Azure Edge Hardware Center orders](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-10.png)
 
     The **Shipping + quantity** tab now shows the ship to address for one device, which is identified by an **Order item name**. The **Quantity** is 1.
 
-    The order item name is made of a name prefix (the order name followed by the address alias), with an item number - in this case, 1 - added to the end.
+    The order item name is made of a name prefix (the order name followed by the address alias), with an item number - in this case, 01 - added to the end.
 
-    ![Screenshot showing the Shipping + quantity display after the quantity is set to more than one device](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11.png)    
+    ![Screenshot showing the Shipping + quantity display after the quantity is set to more than one device](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-11.png)
 
-1. To order more than one device, change the **Quantity**. When the quantity is greater than 1, a **+n more** label follows the order item name.
+1. To order more than one device, change the **Quantity**. When the quantity is greater than 1, the order item name is followed by **+n more**.
 
     ![Screenshot showing the "Shipping + quantity" display when the quantity is more than one](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-12.png)
 
 1. Select **+n more** to see a list of the order items. The **Rename order item** screen opens.
 
-1. If you want to use different oreder item names, you can make two types of change:
+1. If you want to use different names for the items in your order, you can make two types of change:
 
     - To use a different name prefix for all of the order items, edit the **Name prefix** and then select **Apply**.
 
@@ -102,18 +103,12 @@ Before you begin, make sure that:
 
     When you finish updating order item names, select **Done**.
 
+
     ![Screenshot showing how to rename order items for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-13.png)
-
-
-    The **Shipping + quantity** tab now lists each item. NEED A SCREENSHOT. CAN THEY UPDATE THE SHIP TO ADDRESSES AT THIS POINT?
-
-1. If you don't want to ship all of the devices to the same address, you can change the ship to addresses for individual order items. All shipments for an order must be in the same country or region. ADD STEPS.
-
-    ADD SCREENSHOT(S).
 
     Select **Next: Notification>** to continue.
 
-1. If you want to receive notifications of the order status as it progresses, enter as many as 20 email addresses on the **Notifications** tab. You;ll need to enter one email at a time. To add an email, enter the address, and select **Add**.
+1. If you want to receive status notifications as as your order progresses, enter as many as 20 the email addresses of recipients on the **Notifications** tab. To add an email address, enter the address, and select **Add**. You can add up to 20 email addresses.
 
     ![Screenshot of the Notifications tab for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-14.png)
 
@@ -121,27 +116,31 @@ Before you begin, make sure that:
 
 1. Review your order:
 
-    - The order is automatically validated when you open this screen. If you see a **Validation failed** banner, fix the issues.
+    - The order is automatically validated when you open this screen. If you see a **Validation failed** banner, you'll have to fix the issues before you create the order.
     - Review the **Privacy terms**, and select the check box to agree to them.
  
     Then select **Create**.
 
     ![Screenshot of the Review + create tab for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-15.png)
 
-    The portal shows the status of the order.
+    While the order is being deployed, the order opens in the Azure portal, showing the status of each order item. After deployment completes, you may need to click the Down arrow by **Deployment details** to see the status of individual items.
 
     ![Screenshot showing the status of successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-16.png)
 
-    Click the Down arrow to display **Deployment details**.
+    <!--Click the Down arrow to display **Deployment details**.
 
-    ![Screenshot showing deployment details for a successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)
+    ![Screenshot showing deployment details for a successfully completed order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)-->
 
-1.  Next step: View orders for the resource group.<!--If this is where they can make a change to the order, make it step 1 of a separate section on managing an order.-->
+1.  To review all of the orders in the resource group, click **Next step: View orders for the resource group.**
 
-    ![Screenshot showing a summary of orders for the resource group in the Azure Edge ardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)    
+    ![Screenshot showing a summary of orders for the resource group in the Azure Edge ardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
 
-STOPPED HERE: 06/15 PM
+## Manage orders in Azure Hardware Center
+
+TO BE DEVELOPED.
+
+<!--STOPPED HERE: 06/16 PM
 
 
 
@@ -155,17 +154,15 @@ To switch to the Azure Edge Hardware Center while creating a Classic order, do t
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-   1. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**.
+1. Select **+ Create a resource**. Search for and select **Azure Stack Edge (preview). Select **Create**.
 
-   1. Select **Try Azure Edge Hardware Center**.
+      ![Screenshot of option for creating a resource from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/azure-hardware-center-create-resource-01.png)
 
-      ![Screenshot of option for creating a resource from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/azure-hardware-center-create-resource-01.png)<!--Check Center label in graphic. From here on, is the process identical? Test this.-->
-
-   1. Select a product family from the selected subscriptions. For example, select **Azure Stack Edge**.<!--1) What determines "selected subscriptions"? 2) Find out all available product families.-->
+   1. Select a product family from the selected subscriptions. For example, select **Azure Stack Edge**.
 
      ![Screenshot of option for selecting a product family for an order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new order/azure-hardware-center-create-resource-02.png)
 
-STOPPED HERE - 06/14/2021
+STOPPED HERE IN REVIEW OF Classic PROCEDURE. - 06/14/2021
 
 3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
 
@@ -223,16 +220,13 @@ STOPPED HERE - 06/14/2021
 
 After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
-> [!NOTE]
-> If you want to create multiple orders at one time or clone an existing order, you can use the [scripts in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, see the README file.<!--When new preview features are released, update this note in deploy-prep. Azure Edge Hardware Center method will be easier. Scripts were a stop-gap measure.-->
+[!NOTE]
+> If you want to create multiple orders at one time or clone an existing order, you can use the [scripts in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, see the README file.<!--When new preview features are released, update this note in deploy-prep. Azure Edge Hardware Center method will be easier. Scripts were a stop-gap measure.
 
 If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).<!--LATER: Closer to general release, will need to create separate troubleshooting for order through Azure Edge Hardware Center.-->
-
-## Initiate an order in Azure Edge Hardware Center
-
-PLACEHOLDER: Will step through how to start by choosing "Azure Edge Hardware Center" as the new resource type.
 
 
 ## Next steps
 
-To learn how to deploy virtual machines on your Azure Stack Edge Pro device, see [Deploy virtual machines via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
+- TK: Manage addresses for your Azure Hardware Center orders
+- To learn how to deploy virtual machines on your Azure Stack Edge Pro device, see [Deploy virtual machines via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
