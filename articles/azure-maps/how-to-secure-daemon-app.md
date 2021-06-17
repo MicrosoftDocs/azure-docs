@@ -181,9 +181,9 @@ To create a client secret:
 
 [!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
-### Request token with Managed Identity
+### Request a token with managed identity
 
-Once a managed identity is configured for the hosting resource, you can use Azure SDK or REST API to acquire a token for Azure Maps. To learn how to acquire an access token, see [Acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+After a managed identity is configured for the hosting resource, you can use Azure SDK or REST API to acquire a token for Azure Maps. To learn how to acquire an access token, see [Acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ### Request token with application registration
 
@@ -195,7 +195,7 @@ To acquire the access token:
 
 2. Select **Azure Active Directory**.
 
-3. In the **Manage** menu, select **App registrations**.
+3. Under **Manage** in the left pane, select **App registrations**.
 
 4. Select your application.
 
