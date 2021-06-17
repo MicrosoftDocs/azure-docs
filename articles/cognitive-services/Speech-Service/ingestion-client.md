@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/16/2021
-ms.author: panosperiorellis
+ms.author: panosper
 ms.custom: seodec18
 ---
 
