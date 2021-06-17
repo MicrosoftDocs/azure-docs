@@ -75,7 +75,7 @@ When done, save and exit the *hosts* file using the `:wq` command of the editor.
 The VM needs some additional packages to join the VM to the managed domain. To install and configure these packages, update and install the domain-join tools using `yum`:
 
 ```console
-sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+sudo yum install adcli realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
 
 ## Join VM to the managed domain
@@ -105,7 +105,6 @@ Now that the required packages are installed on the VM, join the VM to the manag
 1. Finally, join the VM to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
-    sudo yum install adcli
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --membership-software=adcli
     ```
 
