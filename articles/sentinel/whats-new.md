@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 06/15/2021
 ---
 
 # What's new in Azure Sentinel
@@ -18,7 +18,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> 
+>
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 > [!TIP]
 > Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Azure Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
@@ -26,8 +28,26 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
+## June 2021
+
+### Upgrades for normalization and the Azure Sentinel Information Model
+
+The Azure Sentinel Information Mode enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
+
+
+In this month's update, we've enhanced our normalization documentation, providing new levels of detail and a full DNS normalization schema.
+
+For more information, see:
+
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
+- [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
+
+
 ## May 2021
 
+- [Azure Sentinel PowerShell module](#azure-sentinel-powershell-module)
+- [Alert grouping enhancements](#alert-grouping-enhancements)
 - [Azure Sentinel solutions (Public preview)](#azure-sentinel-solutions-public-preview)
 - [Continuous Threat Monitoring for SAP solution (Public preview)](#continuous-threat-monitoring-for-sap-solution-public-preview)
 - [Threat intelligence integrations (Public preview)](#threat-intelligence-integrations-public-preview)
@@ -38,6 +58,27 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [Hunting dashboard (Public preview)](#hunting-dashboard-public-preview)
 - [Incident teams - collaborate in Microsoft Teams (Public preview)](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
+
+
+### Azure Sentinel PowerShell module
+
+The official Azure Sentinel PowerShell module to automate daily operational tasks has been released as GA!
+
+You can download it here: [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.SecurityInsights/).
+
+For more information, see the PowerShell documentation: [Az.SecurityInsights](/powershell/module/az.securityinsights/)
+
+### Alert grouping enhancements
+
+Now you can configure your analytics rule to group alerts into a single incident, not only when they match a specific entity type, but also when they match a specific alert name, severity, or other custom details for a configured entity. 
+
+In the **Incidents settings** tab of the analytics rule wizard, select to turn on alert grouping, and then select the **Group alerts into a single incident if the selected entity types and details match** option. 
+
+Then, select your entity type and the relevant details you want to match:
+
+:::image type="content" source="media/whats-new/alert-grouping-details.png" alt-text="Group alerts by matching entity details.":::
+
+For more information, see [Alert grouping](tutorial-detect-threats-custom.md#alert-grouping).
 
 ### Azure Sentinel solutions (Public preview)
 
@@ -439,49 +480,6 @@ After editing an analytics rule on the **Set rule logic** tab, find the **Result
 Select **Test with current data** to have Azure Sentinel run a simulation of the last 50 runs of your analytics rule. A graph is generated to show the average number of alerts that the rule would have generated, based on the raw event data evaluated. 
 
 For more information, see [Define the rule query logic and configure settings](tutorial-detect-threats-custom.md#define-the-rule-query-logic-and-configure-settings).
-
-## December 2020
-
-- [80 new built-in hunting queries](#80-new-built-in-hunting-queries)
-- [Log Analytics agent improvements](#log-analytics-agent-improvements)
-
-### 80 new built-in hunting queries
- 
-Azure Sentinel's built-in hunting queries empower SOC analysts to reduce gaps in current detection coverage and ignite new hunting leads.
-
-This update for Azure Sentinel includes new hunting queries that provide coverage across the MITRE ATT&CK framework matrix:
-
-- **Collection**
-- **Command and Control**
-- **Credential Access**
-- **Discovery**
-- **Execution**
-- **Exfiltration**
-- **Impact**
-- **Initial Access**
-- **Persistence**
-- **Privilege Escalation**
-
-The added hunting queries are designed to help you find suspicious activity in your environment. While they may return legitimate activity and potentially malicious activity, they can be useful in guiding your hunting. 
-
-If after running these queries, you are confident with the results, you may want to convert them to analytics rules or add hunting results to existing or new incidents.
-
-All of the added queries are available via the Azure Sentinel Hunting page. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
-
-### Log Analytics agent improvements
-
-Azure Sentinel users benefit from the following Log Analytics agent improvements:
-
-- **Support for more operating systems**, including CentOS 8, RedHat 8, and SUSE Linux 15.
-- **Support for Python 3** in addition to Python 2
-
-Azure Sentinel uses the Log Analytics agent to sent events to your workspace, including Windows Security events, Syslog events, CEF logs, and more.
-
-> [!NOTE]
-> The Log Analytics agent is sometimes referred to as the OMS Agent or the Microsoft Monitoring Agent (MMA). 
-> 
-
-For more information, see the [Log Analytics documentation](../azure-monitor/agents/log-analytics-agent.md) and the [Log Analytics agent release notes](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 
 ## Next steps
 

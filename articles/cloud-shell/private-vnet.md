@@ -14,7 +14,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
-ms.author: damaerte
+ms.author: damaerte 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy Cloud Shell into an Azure virtual network

@@ -1,6 +1,6 @@
 ---
 title: Azure Bastion FAQ | Microsoft Docs
-description: Address common questions for Azure Bastion, such as availability, how many concurrent sessions are supported, issues around configuration, and pricing.
+description: Learn about frequently asked questions for Azure Bastion.
 services: bastion
 author: cherylmc
 

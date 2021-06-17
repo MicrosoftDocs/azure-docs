@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 05/31/2021
 ---
 # How to connect Azure Data Factory and Azure Purview
 
@@ -152,9 +152,13 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 | Data store | Supported |
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
+| Azure Cosmos DB (SQL API) \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes |
 | Azure Data Lake Storage Gen2 | Yes |
+| Azure Database for MySQL \* | Yes | 
+| Azure Database for PostgreSQL \* | Yes |
 | Azure SQL Database \* | Yes |
+| Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes |
 
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*

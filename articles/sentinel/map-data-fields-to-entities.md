@@ -37,17 +37,23 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 
-1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create &#10132; Scheduled query rule** at the top of the screen.
+1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 
-1. Click the **Set rule logic** tab.
+1. Click the **Set rule logic** tab. 
 
-    :::image type="content" source="media/map-data-fields-to-entities/map-entities.png" alt-text="Map fields to entities":::
+1. In the **Alert enrichment (Preview)** section, expand **Entity mapping**.
 
-1. In the **Alert enhancement** section, under **Entity mapping**, select an entity type from the **Entity type** drop-down list.
+    :::image type="content" source="media/map-data-fields-to-entities/alert-enrichment.png" alt-text="Expand entity mapping":::
+
+1. In the now-expanded **Entity mapping** section, select an entity type from the **Entity type** drop-down list.
+
+    :::image type="content" source="media/map-data-fields-to-entities/choose-entity-type.png" alt-text="Choose an entity type":::
 
 1. Select an **identifier** for the entity. Identifiers are attributes of an entity that can sufficiently identify it. Choose one from the **Identifier** drop-down list, and then choose a data field from the **Value** drop-down list that will correspond to the identifier. With some exceptions, the **Value** list is populated by the data fields in the table defined as the subject of the rule query.
 
     You can define **up to three identifiers** for a given entity. Some identifiers are required, others are optional. You must choose at least one required identifier. If you don't, a warning message will instruct you which identifiers are required. For best results - for maximum unique identification - you should use **strong identifiers** whenever possible, and using multiple strong identifiers will enable greater correlation between data sources. See the full list of available [entities and identifiers](entities-reference.md).
+
+    :::image type="content" source="media/map-data-fields-to-entities/map-entities.png" alt-text="Map fields to entities":::
 
 1. Click **Add new entity** to map more entities. You can map **up to five entities** in a single analytics rule. You can also map more than one of the same type. For example, you can map two **IP** entities, one from a *source IP address* field and one from a *destination IP address* field. This way you can track them both.
 

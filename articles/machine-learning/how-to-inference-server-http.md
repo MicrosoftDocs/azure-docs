@@ -50,7 +50,7 @@ python -m pip install azureml-inference-server-http
     source myenv/bin/activate
     ```
 
-1. Install the `azureml-inference-server-http` package from the pypi feed:
+1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/) feed:
 
     ```bash
     python -m pip install azureml-inference-server-http

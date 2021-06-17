@@ -8,7 +8,8 @@ ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.author: alkohli
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
 ---
 

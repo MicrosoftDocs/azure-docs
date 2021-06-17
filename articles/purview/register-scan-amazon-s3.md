@@ -25,9 +25,8 @@ The following scope is specific for the registering and scanning Amazon S3 bucke
 
 |Scope  |Description  |
 |---------|---------|
-|**Data limits**     |    The Purview scanner service currently supports scanning Amazon S3 buckets for up to 100 GB of data per tenant.     |
 |**File types**     | The Purview scanner service currently supports the following file types: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed in the AWS **US East (Ohio)**, **US East (N. Virginia)**, **Europe (Ireland)**, and **Europe (Frankfurt)**, and **Asia Pacific (Sydney)** regions. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
+|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed in specific regions only. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
 |     |         |
 
 For more information, see the documented Purview limits at:
@@ -359,7 +358,7 @@ Continue with [Create a scan for one or more Amazon S3 buckets](#create-a-scan-f
 
 Once you've added your buckets as Purview data sources, you can configure a scan to run at scheduled intervals or immediately.
 
-1. Navigate to the Azure Purview **Sources** area, and then do one of the following:
+1. Select the **Data Map** tab on the left pane in the Purview Studio, and then do one of the following:
 
     - In the **Map view**, select **New scan** ![New scan icon.](./media/register-scan-amazon-s3/new-scan-button.png) in your data source box.
     - In the **List view**, hover over the row for your data source, and select **New scan** ![New scan icon.](./media/register-scan-amazon-s3/new-scan-button.png).
