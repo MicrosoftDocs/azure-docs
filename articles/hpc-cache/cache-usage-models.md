@@ -4,11 +4,9 @@ description: Describes the different cache usage models and how to choose among 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 06/17/2021
 ms.author: v-erkel
 ---
-
-<!-- to do for ASC12 - update for no changing usage models that change NLM state - https://msazure.visualstudio.com/One/_workitems/edit/9883692 -->
 
 # Understand cache usage models
 
@@ -52,7 +50,7 @@ These are the usage model options:
 
 * **Greater than 15% writes** - This option speeds up both read and write performance. When using this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly. The cached files will have recent changes that have not yet been copied to the back end.
 
-  In this usage model, files in the cache are only checked against the files on back-end storage every eight hours. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for 20 minutes<!-- an hour --> with no additional changes.
+  In this usage model, files in the cache are only checked against the files on back-end storage every eight hours. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for an hour with no additional changes.
 
 * **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache, or if you want to optimize data consistency. Files that clients request are cached (reads), but any changes to those files from the client (writes) are not cached. They are passed through directly to the back-end storage system.
 
@@ -75,28 +73,20 @@ This table summarizes the usage model differences:
 
 If you have questions about the best usage model for your Azure HPC Cache workflow, talk to your Azure representative or open a support request for help.
 
-## Know when to remount clients for NLM
+## Change usage models
 
-In some situations, you might need to remount clients if you change a storage target's usage model. This is needed because of the way different usage models handle Network Lock Manager (NLM) requests.
+You can change usage models by editing the storage target, but some changes are not allowed because they create a small risk of file version conflict.
 
-The HPC Cache sits between clients and the back-end storage system. Usually the cache passes NLM requests through to the back-end storage system, but in some situations, the cache itself acknowledges the NLM request and returns a value to the client. In Azure HPC Cache, this only happens when you use the usage model **Read heavy, infrequent writes** (or with a standard blob storage target, which doesn't have configurable usage models).
+You can't change **to** or **from** the model named **Read heavy, infrequent writes**. To change a storage target to this usage model, or to change it from this model to a different usage model, you have to delete the original storage target and create a new one.
 
-There is a small risk of file conflict if you change between the **Read heavy, infrequent writes** usage model and a different usage model. There's no way to transfer the current NLM state from the cache to the storage system or vice versa. So the client's lock status is inaccurate.
+This restriction is needed because of the way different usage models handle Network Lock Manager (NLM) requests. Azure HPC Cache sits between clients and the back-end storage system. Usually, the cache passes NLM requests through to the back-end storage system, but in some situations, the cache itself acknowledges the NLM request and returns a value to the client. In Azure HPC Cache, this only happens when you use the usage model **Read heavy, infrequent writes** (or with a standard blob storage target, which doesn't have configurable usage models).
 
-Remount the clients to make sure that they have an accurate NLM state with the new lock manager.
-
-If your clients send a NLM request when the usage model or back-end storage does not support it, they will receive an error.
-
-### Disable NLM at client mount time
-
-It is not always easy to know whether or not your client systems will send NLM requests.
-
-You can disable NLM when clients mount the cluster by using the option ``-o nolock`` in the ``mount`` command.
-
-The exact behavior of the ``nolock`` option depends on the client operating system, so check the mount documentation (man 5 nfs) for your client OS. In most cases, it moves the lock locally to the client. Use caution if your application lock files across multiple clients.
+If you change between the **Read heavy, infrequent writes** usage model and a different usage model, there's no way to transfer the current NLM state from the cache to the storage system or vice versa. So the client's lock status is inaccurate.
 
 > [!NOTE]
-> ADLS-NFS does not support NLM. You should disable NLM with the mount option above when using an ADLS-NFS storage target.
+> ADLS-NFS does not support NLM. You should disable NLM when clients mount the cluster to access an ADLS-NFS storage target.
+>
+> Use the option ``-o nolock`` in the ``mount`` command. Check your client operating system's mount documentation (man 5 nfs) to learn the exact behavior of the ``nolock`` option for your clients.
 
 ## Next steps
 
