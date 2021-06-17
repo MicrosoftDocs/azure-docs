@@ -1,8 +1,8 @@
 ---
 title: Read replicas - Azure Database for MySQL - Flexible Server
 description: 'Learn about read replicas in Azure Database for MySQL Flexible Server: creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
-author: savjani,sudheeshGH
-ms.author: pariks,sunaray
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
@@ -126,7 +126,7 @@ The following server parameters are available for configuring GTID:
 > * Recommended to SET enforce_gtid_consistency to ON before you can set gtid_mode=ON
 
 
-To enable GTID and configure the consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
+To enable GTID and configure the consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](how-to-configure-server-parameters-portal.md), [Azure CLI](how-to-configure-server-parameters-cli.md).
 
 If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. In order to make sure that the replication is consistent, `gtid_mode` cannot be changed once the master or replica server(s) is created with GTID enabled. 
 ## Considerations and limitations
