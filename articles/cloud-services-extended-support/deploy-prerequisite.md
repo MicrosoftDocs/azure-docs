@@ -107,7 +107,7 @@ Deployments that utilized the old diagnostics plugins need the settings removed 
 ```
 ## Subscription Access Level
 
-The subsciption containing networking resources needs to have network contributor access or above for Cloud Services (extended support). 
+The subsciption containing networking resources needs to have [network contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#network-contributor) access or above for Cloud Services (extended support). For more details on please refer to [RBAC built in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 ## Key Vault creation 
 
