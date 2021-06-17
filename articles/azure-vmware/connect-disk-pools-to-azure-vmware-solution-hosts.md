@@ -73,7 +73,7 @@ Ensure you have the [latest version of Azure PowerShell](/powershell/azure/insta
       az extension show --name vmware
       ```
 
-   - If the extension is not found:
+   - If the extension is not installed:
 
       ```azurecli
       az extension add --name vmware
