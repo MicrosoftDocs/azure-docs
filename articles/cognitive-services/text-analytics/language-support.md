@@ -126,10 +126,11 @@ ms.author: aahi
 #### [Text Analytics for health](#tab/health)
 
 > [!NOTE]
+> * The container uses different model versions than the API endpoints and SDK.
 > * Languages are added as new model versions are released for specific Text Analytics features. The current [model versions](concepts/model-versioning.md) for Text Analytics for health are:
 >    * API and SDK: `2021-05-15`
 >    * Container: `2021-03-01`
-> * The container uses different model versions than the API endpoints and SDK.
+
 
 | Language | Language code |  v3 support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
