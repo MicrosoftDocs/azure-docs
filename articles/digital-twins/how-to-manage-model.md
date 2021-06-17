@@ -141,9 +141,9 @@ To make sure new twins can't be created using the old model version, you can [de
 
 You can delete a model completely and re-upload the model to the instance. This strategy will work for all model update operations (adding a property, removing a property, or updating a property).
 
-Azure Digital Twins doesn't remember the old model was ever uploaded, so will treat this like uploading a completely new model. Twins in the graph that use the model will automatically switch over to the new definition. However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and are not valid with the new one, so you'll need to patch them to make sure they remain valid.
+Azure Digital Twins doesn't remember the old model was ever uploaded, so will treat this like uploading a completely new model. Twins in the graph that use the model will automatically switch over to the new definition. However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and are not valid with the new one, so you may need to patch them to make sure they remain valid.
 
-There are several different ways to use this strategy, depending on what update operation you're performing. Here are a few ways the model deletion and re-upload strategy can be used:
+Here are the steps to use this strategy:
 
 ### 1. Delete old model
 
@@ -153,9 +153,9 @@ There are several different ways to use this strategy, depending on what update 
 
 You can either...
 * Patch the twins as needed so they fit the new model.
-    - Adding property: This isn't required, as twins missing the new value will still be valid twins. You can patch them as desired to add a value for the new property.
-    - Removing a property: You must patch twins to remove the property that is now invalid with the new model.
-    - Updating a property: You must patch twins to update the property type to be valid with the new model.
+    - **Adding property**: This isn't required, as twins missing the new value will still be valid twins. You can patch them as desired to add a value for the new property.
+    - **Removing a property**: You must patch twins to remove the property that is now invalid with the new model.
+    - **Updating a property**: You must patch twins to update the property type to be valid with the new model.
 * Delete twins and relationships that use the model, and re-create them. You might want to do this if you're making a lot of changes to the model, and it will be difficult to update the existing twins to match it. However, re-creation can be complicated if you have a lot of twins that are interconnected by many relationships.
 
 ## Remove models
