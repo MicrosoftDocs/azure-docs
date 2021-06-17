@@ -111,7 +111,7 @@ Ensure you have the [latest version of Azure PowerShell](/powershell/azure/insta
 
 ---
 
-## Delete an iSCSI datastore from private cloud
+## Delete an iSCSI datastore from your private cloud
 
 ### [PowerShell](#tab/powershell)
 
@@ -139,6 +139,7 @@ There is no maintenance window required for this operation. You can view logs fo
 ## Remove clusters from the disk pool
 
 --we need an intro paragraph explaining what they are doing and why--
+
 
 ### [PowerShell](#tab/powershell)
 
