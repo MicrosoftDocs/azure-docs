@@ -8,7 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/11/2019
+ms.date: 10/15/2020
+ms.custom: devx-track-java
 ms.author: erhopf
 ---
 
@@ -26,8 +27,6 @@ The Speech SDK is compatible with Android devices having 32/64-bit ARM and Intel
 ## Install the Speech SDK using Android Studio
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
-
-You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

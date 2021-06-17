@@ -2,7 +2,7 @@
 title: Add your organization's privacy info - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add your organization's privacy info to the Azure Active Directory Properties area.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -51,5 +51,5 @@ You add your organization's privacy information in the **Properties** area of Az
 4. Select **Save**.
 
 ## Next steps
-- [Azure Active Directory B2B collaboration invitation redemption](../b2b/redemption-experience.md)
+- [Azure Active Directory B2B collaboration invitation redemption](../external-identities/redemption-experience.md)
 - [Add or change profile information for a user in Azure Active Directory](active-directory-users-profile-azure-portal.md)

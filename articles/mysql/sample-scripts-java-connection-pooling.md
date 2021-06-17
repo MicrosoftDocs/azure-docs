@@ -1,8 +1,9 @@
 ---
 title: Java samples to illustrate connection pooling
 description: This article lists java samples to illustrate connection pooling.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
+ms.custom: devx-track-java
 ms.service: mysql
 ms.topic: sample
 ms.date: 02/28/2018

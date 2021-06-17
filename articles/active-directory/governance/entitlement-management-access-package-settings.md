@@ -3,7 +3,7 @@ title: Share link to request an access package in Azure AD entitlement managemen
 description: Learn how to share link to request an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
@@ -29,7 +29,7 @@ As long as the catalog for the access package is [enabled for external users](en
 
 ## Share link to request an access package
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

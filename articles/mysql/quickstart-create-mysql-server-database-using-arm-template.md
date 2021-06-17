@@ -1,19 +1,23 @@
 ---
-title: Create an Azure DB for MySQL using an ARM template
-description: In this article, learn how to create an Azure Database for MySQL server with virtual network integration, by using an Azure Resource Manager template.
-author: mgblythe
+title: 'Quickstart: Create an Azure DB for MySQL - ARM template'
+description: In this Quickstart, learn how to create an Azure Database for MySQL server with virtual network integration, by using an Azure Resource Manager template.
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.author: mblythe
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/19/2020
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for MySQL server
 
-Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. In this quickstart, you use an ARM template to create an Azure Database for MySQL server with virtual network integration. You can create the server in the Azure portal, Azure CLI, or Azure PowerShell.
+Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Database for MySQL server with virtual network integration. You can create the server in the Azure portal, Azure CLI, or Azure PowerShell.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformysql%2Fmanaged-mysql-with-vnet%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -33,15 +37,13 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ---
 
-## Create an Azure Database for MySQL server
+## Review the template
 
 You create an Azure Database for MySQL server with a defined set of compute and storage resources. To learn more, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/managed-mysql-with-vnet/).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-managed-mysql-with-vnet/).
-
-:::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json":::
 
 The template defines five Azure resources:
 
@@ -59,7 +61,7 @@ More Azure Database for MySQL template samples can be found in the [quickstart t
 
 Select the following link to deploy the Azure Database for MySQL server template in the Azure portal:
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformysql%2Fmanaged-mysql-with-vnet%2Fazuredeploy.json)
 
 On the **Deploy Azure Database for MySQL with VNet** page:
 
@@ -69,7 +71,7 @@ On the **Deploy Azure Database for MySQL with VNet** page:
 
 3. Enter a **Server Name**, **Administrator Login**, and **Administrator Login Password**.
 
-    ![Deploy Azure Database for MySQL with VNet window, Azure quickstart template, Azure portal](./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png)
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Deploy Azure Database for MySQL with VNet window, Azure quickstart template, Azure portal":::
 
 4. Change the other default settings if you want:
 
@@ -107,7 +109,7 @@ $adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureS
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json `
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json `
     -serverName $serverName `
     -administratorLogin $adminUser `
     -administratorLoginPassword $adminPassword
@@ -134,7 +136,7 @@ echo "Enter the administrator password:" &&
 read adminPassword &&
 params='serverName='$serverName' administratorLogin='$adminUser' administratorLoginPassword='$adminPassword &&
 az group create --name $resourceGroupName --location $location &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json &&
 echo "Press [ENTER] to continue ..."
 ```
 
@@ -174,6 +176,32 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 ---
 
+## Exporting ARM template from the portal
+You can [export an ARM template](../azure-resource-manager/templates/export-template-portal.md) from the Azure portal. There are two ways to export a template:
+
+- [Export from resource group or resource](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). This option generates a new template from existing resources. The exported template is a "snapshot" of the current state of the resource group. You can export an entire resource group or specific resources within that resource group.
+- [Export before deployment or from history](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). This option retrieves an exact copy of a template used for deployment.
+
+When exporting the template, in the ```"properties":{ }``` section of the MySQL server resource you will notice that ```administratorLogin``` and ```administratorLoginPassword``` will not be included for security reasons. You **MUST** add these parameters to your template before deploying the template or the template will fail.
+
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforMySQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+```
+
 ## Clean up resources
 
 When it's no longer needed, delete the resource group, which deletes the resources in the resource group.
@@ -209,7 +237,7 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-For a step-by-step tutorial that guides you through the process of creating a template, see:
+For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first Azure Resource Manager template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [ Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

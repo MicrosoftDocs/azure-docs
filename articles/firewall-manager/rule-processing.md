@@ -1,5 +1,5 @@
 ---
-title: Azure Firewall rule processing logic
+title: Azure Firewall Manager rule processing logic
 description: Learn about Azure Firewall rule processing logic
 services: firewall-manager
 author: vhorne
@@ -16,6 +16,15 @@ Azure Firewall has NAT rules, network rules, and applications rules. The rules a
 ## Network rules and applications rules
 
 Network rules are applied first, then application rules. The rules are terminating. So if a match is found in network rules, then application rules aren't processed.  If no network rule matches, and if the packet protocol is HTTP/HTTPS, the packet is then evaluated by the application rules. If still no match is found, then the packet is evaluated against the infrastructure rule collection. If there's still no match, then the packet is denied by default.
+
+![General rule processing logic](media/rule-processing/rule-logic-processing.png)
+
+### Example of processing logic
+Example scenario: three rule collection groups exist in a an Azure Firewall Policy.  Each rule collection group has a series of application and network rules.
+
+![Rule execution order](media/rule-processing/rule-execution-order.png)
+
+In the illustrated diagram, the network rules are executed first, followed by the application rules due to Azure Firewall's rule processing logic stating that network rules always having execution priority before application rules.
 
 ## NAT rules
 

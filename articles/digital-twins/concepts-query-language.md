@@ -2,12 +2,13 @@
 # Mandatory fields.
 title: Query language
 titleSuffix: Azure Digital Twins
-description: Understand the basics of the Azure Digital Twins Query Store language.
+description: Understand the basics of the Azure Digital Twins query language.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/26/2020
+ms.date: 4/22/2021
 ms.topic: conceptual
 ms.service: digital-twins
+ms.custom: contperf-fy21q2
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,24 +18,33 @@ ms.service: digital-twins
 
 # About the query language for Azure Digital Twins
 
-Recall that the center of Azure Digital Twins is the [**twin graph**](concepts-twins-graph.md), constructed from **digital twins** and **relationships**. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language called **Azure Digital Twins Query Store language**.
+Recall that the center of Azure Digital Twins is the [twin graph](concepts-twins-graph.md), constructed from digital twins and relationships. 
 
-To submit a query to the service from a client app, you will use the Azure Digital Twins **Query API**. This lets developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
+This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language, referred to as the **Azure Digital Twins query language**. This is similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
 
-## Query language features
+This article describes the basics of the query language and its capabilities. For more detailed examples of query syntax and how to run query requests, see [How-to: Query the twin graph](how-to-query-graph.md).
 
-Azure Digital Twins provides extensive query capabilities against the twin graph. Queries are described using SQL-like syntax, as a superset of the capabilities of the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md).
+## About the queries
 
-Here are the operations available in Azure Digital Twins Query Store language:
-* Get twins by digital twins' properties.
-* Get twins by digital twins' interfaces.
-* Get twins by relationship properties.
-* Get twins over multiple relationship types (`JOIN` queries). There are limitations on the number of `JOIN`s allowed (one level for public preview).
-* Use custom function `IS_OF_MODEL(twinCollection, twinTypeName)`, which allows filtering based on the twin's [model](concepts-models.md). It supports inheritance.
-* Use any combination (`AND`, `OR`, `NOT` operator) of the above.
-* Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`.
-* Use query comparison operators: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
-* Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twins one page at a time, by repeating calls to the `nextAsTwin` method.
+You can use the Azure Digital Twins query language to retrieve digital twins according to their...
+* properties (including [tag properties](how-to-use-tags.md))
+* models
+* relationships
+  - properties of the relationships
+
+To submit a query to the service from a client app, you will use the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs for Azure Digital Twins](concepts-apis-sdks.md#overview-data-plane-apis).
+
+[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
+
+## Considerations for querying
+
+When writing queries for Azure Digital Twins, keep the following considerations in mind:
+* **Remember case sensitivity**: All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
+* **Escape single quotes**: If your query text includes a single quote character in the data, the quote will need to be escaped with the `\` character. Here is an example that deals with a property value of *D'Souza*:
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
+
+* **Consider possible latency**: After making a change to the data in your graph, there may be a latency of up to 10 seconds before the changes will be reflected in queries. The [GetDigitalTwin API](how-to-manage-twin.md#get-data-for-a-digital-twin) does not experience this delay, so if you need an instant response, use the API call instead of querying to see your change reflected immediately.
 
 ## Next steps
 

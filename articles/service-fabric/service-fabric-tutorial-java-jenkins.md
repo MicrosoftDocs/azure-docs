@@ -1,12 +1,10 @@
 ---
 title: Configure Jenkins for a Java app on Service Fabric in Azure 
 description: In this tutorial, learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
-author: suhuruli
 
 ms.topic: tutorial
 ms.date: 08/27/2018
-ms.author: suhuruli
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 # Tutorial: Configure a Jenkins environment to enable CI/CD for a Java application on Service Fabric
 
@@ -37,7 +35,7 @@ In this tutorial series you learn how to:
 
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following instructions show how to set it up outside a cluster using a provided Docker image. However, a preconfigured Jenkins build environment can also be used. The following container image comes installed with the Service Fabric plugin and is ready for use with Service Fabric immediately.
 
-1. Pull the Service Fabric Jenkins container image: ``docker pull rapatchi/jenkins:v10``. This image comes with Service Fabric Jenkins plugin pre-installed.
+1. Pull the Service Fabric Jenkins container image: `docker pull docker pull rapatchi/jenkins:v10`. This image comes with Service Fabric Jenkins plugin pre-installed.
 
 1. Run the container image with the location where your Azure certificates are stored on your mounted local machine.
 
@@ -104,7 +102,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
     You can also provide additional details used to deploy the application. See the following screenshot for an example for the application details:
 
-    ![Service Fabric Jenkins Build action](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
+    ![Post-build Actions dialog with additional Service Fabric project deployment options](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
     > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.

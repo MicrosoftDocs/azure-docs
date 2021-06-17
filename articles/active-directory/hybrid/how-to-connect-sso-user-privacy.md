@@ -58,7 +58,7 @@ To learn more about related Azure AD Connect GDPR requirements, see [this articl
 
 ### Note about Domain controller logs
 
-If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](https://technet.microsoft.com/library/dd277403.aspx).
+If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## Next steps
 

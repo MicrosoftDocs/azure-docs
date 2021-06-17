@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/14/2019
+ms.date: 10/15/2020
 ms.author: erhopf
 ---
 
@@ -48,8 +48,6 @@ macOS 10.13 and above
    ```
 
    The directory listing should contain the third-party notice and license files, as well as a `MicrosoftCognitiveServicesSpeech.framework` directory.
-
-You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Delegate access governance to access package managers in Azure AD entitle
 description: Learn how to delegate access governance from IT administrators to access package managers and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -39,7 +39,7 @@ This video provides an overview of how to delegate access governance from catalo
 
 Follow these steps to assign a user to the access package manager role:
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

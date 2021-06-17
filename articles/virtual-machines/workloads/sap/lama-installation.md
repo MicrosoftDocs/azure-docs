@@ -8,14 +8,13 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
+ms.custom: subject-rbac-steps
 
 ---
 # SAP LaMa connector for Azure
@@ -88,34 +87,19 @@ The Azure connector can use a Service Principal to authorize against Microsoft A
 1. Write down the Value. It is used as the password for the Service Principal
 1. Write down the Application ID. It is used as the username of the Service Principal
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to access them.
+The Service Principal does not have permissions to access your Azure resources by default.
+Assign the Contributor role to the Service Principal at resource group scope for all resource groups that contain SAP systems that should be managed by SAP LaMa.
 
-1. Go to https://portal.azure.com
-1. Open the Resource groups blade
-1. Select the resource group you want to use
-1. Click Access control (IAM)
-1. Click on Add role assignment
-1. Select the role Contributor
-1. Enter the name of the application you created above
-1. Click Save
-1. Repeat step 3 to 8 for all resource groups you want to use in SAP LaMa
+For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Use a Managed Identity to get access to the Azure API
 
 To be able to use a Managed Identity, your SAP LaMa instance has to run on an Azure VM that has a system or user assigned identity. For more information about Managed Identities, read [What is managed identities for Azure resources?](../../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
-The Managed Identity does not have permissions to access your Azure resources by default. You need to give it permissions to access them.
+The Managed Identity does not have permissions to access your Azure resources by default.
+Assign the Contributor role to the Virtual Machine identity at resource group scope for all resource groups that contain SAP systems that should be managed by SAP LaMa.
 
-1. Go to https://portal.azure.com
-1. Open the Resource groups blade
-1. Select the resource group you want to use
-1. Click Access control (IAM)
-1. Click on Add -> Add Role assignment
-1. Select the role Contributor
-1. Select 'Virtual Machine' for 'Assign access to'
-1. Select the virtual machine where your SAP LaMa instance is running on
-1. Click Save
-1. Repeat the steps for all resource groups you want to use in SAP LaMa
+For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
 
 In your SAP LaMa Azure connector configuration, select 'Use Managed Identity' to enable the usage of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity Id into the User Name field.
 
@@ -143,9 +127,9 @@ at the bottom of the website.
 
 ## Provision a new adaptive SAP system
 
-You can manually deploy a new virtual machine or use one of the Azure templates in the [quickstart repository](https://github.com/Azure/azure-quickstart-templates). It contains templates for [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver application servers](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps), and the [database](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). You can also use these templates to provision new hosts as part of a system copy/clone etc.
+You can manually deploy a new virtual machine or use one of the Azure templates in the [quickstart repository](https://github.com/Azure/azure-quickstart-templates). It contains templates for [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-ascs), [SAP NetWeaver application servers](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-apps), and the [database](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-database). You can also use these templates to provision new hosts as part of a system copy/clone etc.
 
-We recommend using a separate subnet for all virtual machines that you want to manage with SAP LaMa and don’t use dynamic IP addresses to prevent IP address "stealing" when deploying new virtual machines and SAP instances are unprepared.
+We recommend using a separate subnet for all virtual machines that you want to manage with SAP LaMa and don't use dynamic IP addresses to prevent IP address "stealing" when deploying new virtual machines and SAP instances are unprepared.
 
 > [!NOTE]
 > If possible, remove all virtual machine extensions as they might cause long runtimes for detaching disks from a virtual machine.
@@ -178,7 +162,7 @@ Create a new virtual machine with one of the supported operation systems for Ora
 
 The Oracle database needs disks for /oracle, /home/oraod1, and /home/oracle
 
-![Oracle database on Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagram that shows an Oracle database on Linux and the disks it needs.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### Manual deployment for Microsoft SQL Server
 
@@ -257,14 +241,14 @@ In the examples below, we assume that you install SAP HANA with system ID HN1 an
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual hostname of the ASCS. The recommended way is to use sapacext. If you mount the IP address using sapacext, make sure to remount the IP address after a reboot.
 
-![Linux][Logo_Linux] Linux
+![Linux logo.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows logo.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -273,7 +257,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 Run SWPM and use *ah1-ascs* for the *ASCS Instance Host Name*.
 
-![Linux][Logo_Linux] Linux  
+![Linux logo.][Logo_Linux] Linux  
 Add the following profile parameter to the SAP Host Agent profile, which is located at /usr/sap/hostctrl/exe/host_profile. For more information, see SAP Note [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -293,7 +277,7 @@ Australia East, Central US, East US, East US 2, North Europe, South Central US, 
 
 #### Network Requirements
 
-ANF requires a delegated subnet which must be part of the same VNET as the SAP servers. Here’s an example for such a configuration.
+ANF requires a delegated subnet which must be part of the same VNET as the SAP servers. Here's an example for such a configuration.
 This screen shows the creation of the VNET and the first subnet:
 
 ![SAP LaMa create virtual network for Azure ANF ](media/lama/sap-lama-createvn-50.png)
@@ -385,14 +369,14 @@ Run the database instance installation of SWPM on the application server virtual
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual hostname of the application server. The recommended way is to use sapacext. If you mount the IP address using sapacext, make sure to remount the IP address after a reboot.
 
-![Linux][Logo_Linux] Linux
+![Linux logo.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows logo.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

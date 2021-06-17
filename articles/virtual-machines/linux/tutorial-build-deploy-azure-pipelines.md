@@ -2,17 +2,16 @@
 title: Tutorial - CI/CD to Azure VMs using Azure Pipelines
 description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline.
 author: ushan
-
 tags: azure-devops-pipelines
-
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
-ms.custom: devops
+ms.custom: devops, devx-track-js
 
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use devops services like Azure Pipelines to build and deploy my applications automatically.
 ---
@@ -24,7 +23,7 @@ This document contains the steps associated with setting up a CI/CD pipeline for
 
 Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to Virtual machines, both on-prem or on any cloud.
 
-In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app to an Azure Pipelines [Environment](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
+In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app to an Azure Pipelines [Environment](/azure/devops/pipelines/process/environments) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
 
 You learn how to:
 
@@ -41,11 +40,11 @@ You learn how to:
   You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > For more information, see [Connect to Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
 
-*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
+*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](./tutorial-manage-vm.md).
 
-*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
+*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](../../virtual-network/tutorial-filter-network-traffic.md).
 
 ## Get your sample app code
 
@@ -84,21 +83,22 @@ Follow the additional steps described below based on the runtime stack used for 
 
 #### [Java](#tab/java)
 
-- For deploying Java Spring Boot and Spring Cloud based apps, create a Linux VM in Azure using [this](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) template, which provides a fully supported OpenJDK-based runtime.
-- For deploying Java servlets on Tomcat server, create a Linux VM with Java 8 using [this](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) Azure template and [configure Tomcat 9.x as a service](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- For deploying Java EE based app, use an Azure template to create a [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) or a [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) or a [Linux VM +Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- For deploying Java Spring Boot and Spring Cloud based apps, create a Linux VM in Azure using [this](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) template, which provides a fully supported OpenJDK-based runtime.
+- For deploying Java servlets on Tomcat server, create a Linux VM with Java 8 using [this](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) Azure template and [configure Tomcat 9.x as a service](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- For deploying Java EE based app, use an Azure template to create a [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) or a [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) or a [Linux VM +Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) + WildFly/JBoss 14 
+
 
 #### [JavaScript](#tab/java-script)
 
-To install a javascript app or a Node.js app, you'll need a Linux VM with Nginx web server to deploy the app.
+To install a JavaScript app or a Node.js app, you'll need a Linux VM with Nginx web server to deploy the app.
 If you don't already have a Linux VM with Nginx, create one now in Azure using the steps in
-[this example](/azure/virtual-machines/linux/quick-create-cli).
+[this example](./quick-create-cli.md).
 
 * * * 
 
 ## Create an Azure Pipelines environment with Azure virtual machines
 
-Virtual machines can be added as resources within [environments](https://docs.microsoft.com/azure/devops/pipelines/process/environments) and can be targeted for multi-machine deployments. 
+Virtual machines can be added as resources within [environments](/azure/devops/pipelines/process/environments) and can be targeted for multi-machine deployments. 
 Deployment history views within environment provide traceability from VM to the pipeline and then to the commit.
 
 You can create an environment in the “**Environments**” hub within the “**Pipelines**” section.
@@ -119,7 +119,7 @@ You can create an environment in the “**Environments**” hub within the “**
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. You can add tags to the VM as part of the interactive PS registration script (or) you can also add/remove the same from the resource view by clicking on the triple dots at the end of each VM resource in the resources view.
+9. You can add tags to the VM as part of the interactive PowerShell registration script (or) you can also add/remove the same from the resource view by clicking on the triple dots at the end of each VM resource in the resources view.
 
    The tags you assign allow you to limit deployment to specific virtual machines when the environment is used in a Deployment job. Tags are each limited to 256 characters, but there is no limit to the number of tags you can use.
 
@@ -149,6 +149,7 @@ a deployment script that can be run locally on the Ubuntu server. Set up a CI bu
 Select the **starter** template and copy the below YAML snippet that builds your Java project and runs tests with Apache Maven:
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -166,7 +167,7 @@ Select the **starter** template and copy the below YAML snippet that builds your
     artifact: drop
 ```
 
-For more guidance, follow the steps mentioned in [Build your Java app with Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
+For more guidance, follow the steps mentioned in [Build your Java app with Maven](/azure/devops/pipelines/ecosystems/java).
 
 #### [JavaScript](#tab/java-script)
 
@@ -199,11 +200,11 @@ Select the **starter** template and copy the below YAML snippet that builds a ge
       artifact: drop
 ```
 
-For more guidance, follow the steps in [Build your Node.js app with gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript).
+For more guidance, follow the steps in [Build your Node.js app with gulp](/azure/devops/pipelines/ecosystems/javascript).
 
 - Take a look at the pipeline to see what it does. Make sure that all the default inputs are appropriate for your code.
 
-- Select **Save and run**, then select **Commit directly to the master branch**, and then choose **Save and run** again.
+- Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 
 - A new run is started. Wait for the run to finish.
 
@@ -211,7 +212,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](https:
 
 ## Define CD steps to deploy to the Linux VM
 
-1. Edit the above pipeline and include a [deployment job](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
+1. Change the YAML file for the above pipeline to include a [deployment job](/azure/devops/pipelines/process/deployment-jobs) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
 
    ```YAML
    jobs:  
@@ -220,13 +221,12 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](https:
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. You can select specific sets of virtual machines from the environment to receive the deployment by specifying the **tags** that you have defined for each virtual machine in the environment.
-[Here](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
+[Here](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
 
-3. You can specify eithor `runOnce` or `rolling` as deployment strategy. 
+3. You can specify either `runOnce` or `rolling` as deployment strategy. 
 
    `runOnce` is the simplest deployment strategy wherein all the life cycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.
 
@@ -298,8 +298,8 @@ Deployments view of the environment provides complete traceability of commits an
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
 ## Next steps
-- You can proceed to [customize the pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) you just created.
-- To learn what else you can do in YAML pipelines, see [YAML schema reference](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- You can proceed to [customize the pipeline](/azure/devops/pipelines/customize-pipeline) you just created.
+- To learn what else you can do in YAML pipelines, see [YAML schema reference](/azure/devops/pipelines/yaml-schema).
 - To learn about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack, advance to the next tutorial.
 
 > [!div class="nextstepaction"]

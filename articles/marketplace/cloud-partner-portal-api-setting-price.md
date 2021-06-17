@@ -1,26 +1,22 @@
 ---
 title: Pricing for virtual machine offers - Azure Marketplace
 description: Explains the three methods to specify the pricing of virtual machine offers.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.author: dsindona
+ms.topic: reference
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 09/02/2020
 ---
 
-
-Pricing for virtual machine offers
-==================================
+# Pricing for virtual machine offers
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center. CPP APIs should only be used for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
 
 There are three ways to specify pricing for virtual machine offers: customized core pricing, per-core pricing, and spreadsheet pricing.
 
-
-Customized core pricing
------------------------
+## Customized core pricing
 
 Pricing is specific for each region and core combination. Every region in the sell list must be specified in the
 **virtualMachinePricing**/**regionPrices** section of the definition.  Use the correct currency codes for each [region](#regions) in
@@ -66,9 +62,7 @@ your request.  The following example demonstrates these requirements:
      }
 ```
 
-
-Per-core pricing
-----------------
+## Per-core pricing
 
 In this case, the publishers specify one price in USD for their SKU and
 all other prices are automatically generated. The price per core is
@@ -86,9 +80,7 @@ specified in the **single** parameter in the request.
      }
 ```
 
-
-Spreadsheet pricing
--------------------
+## Spreadsheet pricing
 
 The publisher may also upload their pricing spreadsheet to a temporary
 storage location, then include the URI in the request like other file
@@ -108,14 +100,11 @@ spreadsheet URI and the evaluated prices for the region.
      }
 ```
 
-New core sizes added on 7/2/2019
----------------------------
+## New core sizes added on 7/2/2019
 
-VM publishers were notified on July 2, 2019 of the addition of new prices for new Azure virtual machine sizes (based on the number of cores).  The new prices are for the core sizes 10, 44, 48, 60, 120, 208, and 416.  For existing VM offers new prices for these cores sizes were automatically calculated based on current prices.  Publishers have until August 1, 2019 to review the additional prices and make any desired changes.  After this date, if not already re-published by the publisher, the automatically calculated prices for these new core sizes will take effect.
+VM publishers were notified on July 2, 2019 of the addition of new prices for new Azure virtual machine sizes (based on the number of cores).  The new prices are for the core sizes 10, 44, 48, 60, 120, 208, and 416.  For existing VM offers new prices for these cores sizes were automatically calculated based on current prices. Publishers have until August 1, 2019 to review the additional prices and make any desired changes.  After this date, if not already re-published by the publisher, the automatically calculated prices for these new core sizes will take effect.
 
-
-Regions
--------
+## Regions
 
 The following table shows the different regions that you can specify for
 customized core pricing, and their corresponding currency codes.
@@ -137,7 +126,7 @@ customized core pricing, and their corresponding currency codes.
 | CR         | Costa Rica           | CRC               |
 | HR         | Croatia              | HRK               |
 | CY         | Cyprus               | EUR               |
-| CZ         | Czech Republic       | CZK               |
+| CZ         | Czechia       | CZK               |
 | DK         | Denmark              | DKK               |
 | DO         | Dominican Republic   | USD               |
 | EC         | Ecuador              | USD               |
@@ -167,7 +156,6 @@ customized core pricing, and their corresponding currency codes.
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lithuania            | EUR               |
 | LU         | Luxembourg           | EUR               |
-| MK         | North Macedonia      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexico               | MXN               |
@@ -176,6 +164,7 @@ customized core pricing, and their corresponding currency codes.
 | NL         | Netherlands          | EUR               |
 | NZ         | New Zealand          | NZD               |
 | NG         | Nigeria              | NGN               |
+| MK         | North Macedonia      | MKD               |
 | NO         | Norway               | NOK               |
 | OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |

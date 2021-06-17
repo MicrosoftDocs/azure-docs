@@ -2,23 +2,23 @@
 title: "Environment variables"
 description: set environment variables
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 Using your key and endpoint from the resource you created, create two environment variables for authentication:
 
 * `FORM_RECOGNIZER_KEY` - The resource key for authenticating your requests.
 * `FORM_RECOGNIZER_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+  * `https://<your-custom-subdomain>.cognitiveservices.azure.com`
 
 >[!NOTE]
-> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> The endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../cognitive-services-custom-subdomains.md). 
 
 Use the following instructions to set environment variables on your operating system.
 

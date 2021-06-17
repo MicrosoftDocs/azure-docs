@@ -13,24 +13,40 @@ ms.author: rogarana
 
 Before you begin this article, make sure you complete the previous article, [configure directory and file level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-The process described in this article verifies that your file share and access permissions are set up correctly and that you can access an Azure File share from a domain-joined VM. Share-level RBAC role assignment can take some time to take effect. 
+The process described in this article verifies that your file share and access permissions are set up correctly and that you can access an Azure File share from a domain-joined VM. Share-level Azure role assignment can take some time to take effect. 
 
 Sign in to the client by using the credentials that you granted permissions to, as shown in the following image.
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Mounting prerequisites
 
 Before you can mount the file share, make sure you've gone through the following pre-requisites:
 
-- If you are mounting the file share from a client that has previously mounted the file share using your storage account key, make sure that you have disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication.
+- If you are mounting the file share from a client that has previously mounted the file share using your storage account key, make sure that you have disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication. For instructions to clear the mounted share with storage account key, refer to [FAQ page](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - Your client must have line of sight to your AD DS. If your machine or VM is out of the network managed by your AD DS, you will need to enable VPN to reach AD DS for authentication.
 
-Replace the placeholder values with your own values, then use the following command to mount the Azure file share:
+Replace the placeholder values with your own values, then use the following command to mount the Azure file share. You always need to mount using the path shown below. Using CNAME for file mount is not supported for identity based authentication (AD DS or Azure AD DS).
 
-```cli
+```PSH
 # Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+  net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
+} 
+else 
+{
+  Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
+
 ```
 
 If you run into issues mounting with AD DS credentials, refer to [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) for guidance.

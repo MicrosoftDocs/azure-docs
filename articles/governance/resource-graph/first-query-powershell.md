@@ -1,8 +1,10 @@
 ---
-title: "Quickstart: Your first PowerShell query"
+title: 'Quickstart: Your first PowerShell query'
 description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
-ms.date: 05/20/2020
+ms.date: 05/11/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-api
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 
@@ -30,9 +32,11 @@ with the [PowerShell Docker image](https://hub.docker.com/_/microsoft-powershell
 
 The Azure Resource Graph module requires the following software:
 
-- Azure PowerShell 1.0.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
+- Azure PowerShell 1.0.0 or higher. If it isn't yet installed, follow
+  [these instructions](/powershell/azure/install-az-ps).
 
-- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/scripting/gallery/installing-psget).
+- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
+  [these instructions](/powershell/scripting/gallery/installing-psget).
 
 ### Install the module
 
@@ -45,7 +49,7 @@ The Resource Graph module for PowerShell is **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Validate that the module has been imported and is the latest version (0.7.5):
+1. Validate that the module has been imported and is at least version `0.10.0`:
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -64,18 +68,18 @@ Resource Graph query. The query returns the first five Azure resources with the 
    # Login first with Connect-AzAccount if not using Cloud Shell
 
    # Run Azure Resource Graph query
-   Search-AzGraph -Query 'Resources | project name, type | limit 5'
+   (Search-AzGraph -Query 'Resources | project name, type | limit 5').Data
    ```
 
    > [!NOTE]
-   > As this query example does not provide a sort modifier such as `order by`, running this query
+   > As this query example doesn't provide a sort modifier such as `order by`, running this query
    > multiple times is likely to yield a different set of resources per request.
 
 1. Update the query to `order by` the **Name** property:
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with 'order by'
-   Search-AzGraph -Query 'Resources | project name, type | limit 5 | order by name asc'
+   (Search-AzGraph -Query 'Resources | project name, type | limit 5 | order by name asc').Data
    ```
 
    > [!NOTE]
@@ -89,7 +93,7 @@ Resource Graph query. The query returns the first five Azure resources with the 
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
+   (Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5').Data
    ```
 
 When the final query is run several times, assuming that nothing in your environment is changing,
@@ -104,7 +108,7 @@ top five results.
 > subscriptions you have access to, one can set the PSDefaultParameterValues for `Search-AzGraph`
 > cmdlet by running
 > `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
-   
+
 ## Clean up resources
 
 If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do
@@ -119,7 +123,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]
-> This does not delete the module file downloaded earlier. It only removes it from the running
+> This doesn't delete the module file downloaded earlier. It only removes it from the running
 > PowerShell session.
 
 ## Next steps

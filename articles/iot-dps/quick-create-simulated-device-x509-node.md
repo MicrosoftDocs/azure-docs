@@ -1,5 +1,5 @@
 ﻿---
-title: Provision simulated X.509 device to Azure IoT Hub using Node.js
+title: Quickstart - Provision simulated X.509 device to Azure IoT Hub using Node.js
 description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service (DPS).This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: nodejs
-ms.custom: mvc
+ms.custom: mvc, devx-track-js
 ---
 
 # Quickstart: Create and provision an X.509 simulated device using Node.js device SDK for IoT Hub Device Provisioning Service
@@ -19,7 +19,7 @@ In this quickstart, you create a simulated X.509 device on a Windows computer. Y
 
 ## Prerequisites
 
-- Review of [Auto-provisioning concepts](concepts-auto-provisioning.md).
+- Familiar with [provisioning](about-iot-dps.md#provisioning-process) concepts.
 - Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Node.js v4.0+](https://nodejs.org).
@@ -71,7 +71,7 @@ This article demonstrates individual enrollments.
     npm install
     ```
 
-3. Create a _leaf_ X.509 certificate by running the script using your own _certificate-name_. The leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
+3. Create a _leaf_ X.509 certificate by running the script using your own _certificate-name_. The leaf certificate's common name becomes the [Registration ID](./concepts-service.md#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
 
     ```cmd/sh
     node create_test_cert.js device {certificate-name}
@@ -96,7 +96,7 @@ This article demonstrates individual enrollments.
 
 ## Simulate the device
 
-The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For further reading, see [Device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For further reading, see [Device concepts](./concepts-service.md).
 
 1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note the **_GLobal Device Endpoint_** and **_ID Scope_** values.
 

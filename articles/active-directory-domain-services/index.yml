@@ -11,8 +11,8 @@ metadata:
   ms.subservice: domain-services
   ms.topic: landing-page
   ms.collection: collection
-  author: iainfoulds
-  ms.author: iainfou
+  author: justinha
+  ms.author: justinha
   manager: daveba
   ms.date: 08/01/2019
 
@@ -30,7 +30,7 @@ landingContent:
           - text: How does synchronization work?
             url: synchronization.md
           - text: FAQs
-            url: faqs.md
+            url: faqs.yml
   - title: Get started
     linkLists:
       - linkListType: deploy
@@ -71,7 +71,7 @@ landingContent:
             url: check-health.md
           - text: Configure email notifications
             url: notifications.md
-          - text: Enable security audits (preview)
+          - text: Enable security audits
             url: security-audit-events.md
   - title: Domain-join VMs
     linkLists:
@@ -85,6 +85,8 @@ landingContent:
             url: join-ubuntu-linux-vm.md
           - text: Red Hat Enterprise Linux
             url: join-rhel-linux-vm.md
+          - text: SUSE Linux Enterprise
+            url: join-suse-linux-vm.md
   - title: Troubleshoot
     linkLists:
       - linkListType: how-to-guide

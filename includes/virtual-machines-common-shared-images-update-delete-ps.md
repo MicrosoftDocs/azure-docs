@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 04/25/2019
  ms.author: cynthn
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 ## Update resources
@@ -31,7 +31,7 @@ Image version:
 
 If you plan on adding replica regions, do not delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
 
-To update the description of a gallery, use [Update-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
+To update the description of a gallery, use [Update-AzGallery](/powershell/module/az.compute/update-azgallery).
 
 ```azurepowershell-interactive
 Update-AzGallery `
@@ -39,7 +39,7 @@ Update-AzGallery `
    -ResourceGroupName $resourceGroup.Name
 ```
 
-This example shows how to use [Update-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimagedefinition) to update the end-of-life date for our image definition.
+This example shows how to use [Update-AzGalleryImageDefinition](/powershell/module/az.compute/update-azgalleryimagedefinition) to update the end-of-life date for our image definition.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageDefinition `
@@ -49,7 +49,7 @@ Update-AzGalleryImageDefinition `
    -EndOfLifeDate 01/01/2030
 ```
 
-This example shows how to use [Update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) to exclude this image version from being used as the *latest* image.
+This example shows how to use [Update-AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion) to exclude this image version from being used as the *latest* image.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -60,6 +60,16 @@ Update-AzGalleryImageVersion `
    -PublishingProfileExcludeFromLatest
 ```
 
+This example shows how to use [Update-AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion) to include this image version in being considered for *latest* image.
+
+```azurepowershell-interactive
+Update-AzGalleryImageVersion `
+   -GalleryImageDefinitionName $galleryImage.Name `
+   -GalleryName $gallery.Name `
+   -Name $galleryVersion.Name `
+   -ResourceGroupName $resourceGroup.Name `
+   -PublishingProfileExcludeFromLatest:$false
+```
 
 ## Clean up resources
 
@@ -88,4 +98,3 @@ Remove-AzGallery `
 
 Remove-AzResourceGroup -Name $resourceGroup
 ```
-

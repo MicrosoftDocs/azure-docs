@@ -1,18 +1,15 @@
 ---
 title: Create Apache Hadoop clusters using Azure REST API - Azure 
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
 ---
 
 # Create Apache Hadoop clusters using the Azure REST API
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 Learn how to create an HDInsight cluster using an Azure Resource Manager template and the Azure REST API.
 
@@ -25,7 +22,7 @@ The Azure REST API allows you to perform management operations on services hoste
 
 Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you to define the resources that you need for HDInsight in one template.
 
-The following JSON document is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
+The following JSON document is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json), which creates a Linux-based cluster using a password to secure the SSH user account.
 
    ```json
    {
@@ -209,12 +206,12 @@ This example is used in the steps in this document. Replace the example *values*
 
 ## Sign in to your Azure subscription
 
-Follow the steps documented in [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
+Follow the steps documented in [Get started with Azure CLI](/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 
 > [!NOTE]  
-> These steps are an abridged version of the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) document. These steps create a service principal that is used to authenticate to the Azure REST API.
+> These steps are an abridged version of the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](/cli/azure/create-an-azure-service-principal-azure-cli) document. These steps create a service principal that is used to authenticate to the Azure REST API.
 
 1. From a command line, use the following command to list your Azure subscriptions.
 

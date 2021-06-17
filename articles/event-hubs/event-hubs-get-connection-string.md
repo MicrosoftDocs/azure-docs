@@ -2,7 +2,8 @@
 title: Get connection string - Azure Event Hubs | Microsoft Docs
 description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 06/23/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Get an Event Hubs connection string
@@ -69,5 +70,5 @@ For more information about Azure CLI commands for Event Hubs, see [Azure CLI for
 
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](./event-hubs-about.md)
 * [Create an Event Hub](event-hubs-create.md)

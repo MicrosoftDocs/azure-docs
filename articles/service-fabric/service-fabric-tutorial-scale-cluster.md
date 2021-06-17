@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to scale an Service Fabric cluster 
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Tutorial: Scale a Service Fabric cluster in Azure
 
@@ -33,7 +33,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure
 
 ## Important considerations and guidelines
@@ -59,7 +59,7 @@ For more information, read [cluster capacity guidance](service-fabric-cluster-ca
 
 ## Export the template for the resource group
 
-After creating a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) and setting up your resource group successfully, export the Resource Manager template for the resource group. Exporting the template allows you to automate future deployments of the cluster and its resources because the template contains all the complete infrastructure.  For more info on exporting templates, read [Manage Azure Resource Manager resource groups by using the Azure portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+After creating a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) and setting up your resource group successfully, export the Resource Manager template for the resource group. Exporting the template allows you to automate future deployments of the cluster and its resources because the template contains all the complete infrastructure.  For more info on exporting templates, read [Manage Azure Resource Manager resource groups by using the Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to the resource group containing the cluster (**sfclustertutorialgroup**, if you are following this tutorial). 
 
@@ -89,7 +89,7 @@ New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -Templat
 ```
 Or the following Azure CLI command:
 ```azurecli
-az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
+az deployment group create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
 ## Add a node type to the cluster
@@ -795,7 +795,7 @@ New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -Templat
 ```
 Or the following Azure CLI command:
 ```azurecli
-az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
+az deployment group create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
 ## Remove a node type from the cluster
@@ -806,7 +806,7 @@ After creating a Service Fabric cluster, you can scale a cluster horizontally by
 > not recommended to be used on a frequent basis. It is a dangerous command as it deletes the virtual machine scale set 
 > resource behind the node type. 
 
-To remove the node type, run the [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  The node type must be Silver or Gold [durability level][durability]  The cmdlet deletes the scale set associated with the node type and takes some time to complete.  Then run the [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet on each of the nodes to remove, which deletes the node state and removes the nodes from the cluster. If there are services on the nodes, then the services are first moved out to another node. If the cluster manager cannot find a node for the replica/service, then the operation is delayed/blocked.
+To remove the node type, run the [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  The node type must be Silver or Gold [durability level][durability]  The cmdlet deletes the scale set associated with the node type and takes some time to complete.  Then run the [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) cmdlet on each of the nodes to remove, which deletes the node state and removes the nodes from the cluster. If there are services on the nodes, then the services are first moved out to another node. If the cluster manager cannot find a node for the replica/service, then the operation is delayed/blocked.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -830,7 +830,7 @@ Foreach($node in $nodes)
 ```
 
 ## Increase node resources 
-After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs by replacing the original node type with a new node type (with updated VM SKU or OS image). For further details, see [Scale up an Azure Service Fabric node type](service-fabric-scale-up-node-type.md).
+After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs by replacing the original node type with a new node type (with updated VM SKU or OS image). For further details, see [Scale up an Azure Service Fabric node type](service-fabric-scale-up-primary-node-type.md).
 
 > [!IMPORTANT]
 > Never attempt an in-place change of VM SKU or OS image, which is a dangerous operation and unsupported.
@@ -853,7 +853,7 @@ New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -Templat
 ```
 Or the following Azure CLI command:
 ```azurecli
-az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
+az deployment group create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
 ## Next steps

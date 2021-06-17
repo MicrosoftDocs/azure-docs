@@ -3,14 +3,14 @@ title: Prebuilt models - LUIS
 titleSuffix: Azure Cognitive Services
 description: Prebuilt models provide domains, intents, utterances, and entities. You can start your app with a prebuilt domain or add a relevant domain to your app later. 
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
+
 ---
 
 # Prebuilt models
@@ -58,4 +58,4 @@ When a prebuilt entity is included in your application, its predictions are incl
 
 ## Next steps
 
-Learn how to [add prebuilt entities](luis-prebuilt-entities.md) to your app.
+Learn how to [add prebuilt entities](./howto-add-prebuilt-models.md) to your app.

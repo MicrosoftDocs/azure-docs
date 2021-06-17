@@ -4,15 +4,19 @@ description: Learn how Azure Cosmos DB Table API and Azure Storage Tables work t
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 01/08/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ---
 
 # Developing with Azure Cosmos DB Table API and Azure Table storage
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Azure Cosmos DB Table API and Azure Table storage share the same table data model and expose the same create, delete, update, and query operations through their SDKs.
+
+> [!NOTE]
+> The [serverless capacity mode](serverless.md) is now available on Azure Cosmos DB's Table API.
 
 [!INCLUDE [storage-table-cosmos-comparison](../../includes/storage-table-cosmos-comparison.md)]
 
@@ -29,7 +33,7 @@ At this time, the [Azure Cosmos DB Table API](table-introduction.md) has four SD
 * [Node.js SDK](table-sdk-nodejs.md): This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
 
 
-Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](table-api-faq.md) article.
+Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](table-api-faq.yml) article.
 
 ## Developing with Azure Table storage
 

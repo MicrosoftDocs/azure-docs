@@ -3,12 +3,14 @@ title: StartsWith in Azure Cosmos DB query language
 description: Learn about SQL system function STARTSWITH in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 04/01/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
 # STARTSWITH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Returns a Boolean indicating whether the first string expression starts with the second.  
   
@@ -55,7 +57,7 @@ SELECT STARTSWITH("abc", "b", false) AS s1, STARTSWITH("abc", "A", false) AS s2,
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+Learn about [how this string system function uses the index](sql-query-string-functions.md).
 
 ## Next steps
 

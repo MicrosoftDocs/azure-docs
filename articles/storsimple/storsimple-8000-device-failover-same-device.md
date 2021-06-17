@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Fail over StorSimple physical device to same device
-description: Learn how to fail over your StorSimple device to the same device.
+description: Learn the steps required to fail over a StorSimple 8000 series physical device to itself if there is a disaster.
 services: storsimple
 documentationcenter: ''
 author: alkohli

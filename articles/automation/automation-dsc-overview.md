@@ -7,7 +7,7 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/22/2020
+ms.date: 01/26/2021
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -32,7 +32,7 @@ If you aren't ready to manage machine configuration from the cloud, you can use 
 
 Azure Automation State Configuration provides several advantages over the use of DSC outside of Azure. This service enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily enable machines, assign them declarative configurations, and view reports showing each machine's compliance with the desired state you specify.
 
-The Azure Automation State Configuration service is to DSC what Azure Automation runbooks are to PowerShell scripting. In other words, in the same way that Azure Automation helps you manage PowerShell scripts, it also helps you manage DSC configurations. 
+The Azure Automation State Configuration service is to DSC what Azure Automation runbooks are to PowerShell scripting. In other words, in the same way that Azure Automation helps you manage PowerShell scripts, it also helps you manage DSC configurations.
 
 ### Built-in pull server
 
@@ -71,14 +71,14 @@ For nodes running Windows, the following versions are supported:
 >[!NOTE]
 >The [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) standalone product SKU does not contain an implementation of DSC. Thus it can't be managed by PowerShell DSC or Azure Automation State Configuration.
 
-For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed under [Supported Linux Distributions](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
+For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
 ### DSC requirements
 
 For all Windows nodes running in Azure,
-[WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure)
+[WMF 5.1](/powershell/scripting/wmf/setup/install-configure)
 is installed when machines are enabled. For nodes running Windows Server 2012 and Windows 7,
-[WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) is enabled.
+[WinRM](/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) is enabled.
 
 For all Linux nodes running in Azure,
 [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
@@ -86,23 +86,12 @@ is installed when machines are enabled.
 
 ### <a name="network-planning"></a>Configuration of private networks
 
-If your nodes are located in a private network, the following port and URLs are required. These resources provide network connectivity for the managed node and allow DSC to communicate with Azure Automation.
-
-* Port: Only TCP 443 required for outbound internet access
-* Global URL: ***.azure-automation.net**
-* Global URL of US Gov Virginia: ***.azure-automation.us**
-* Agent service: **https://\<workspaceId\>.agentsvc.azure-automation.net**
-
-If you are using DSC resources that communicate between nodes,
-such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource),
-you also need to allow traffic between nodes. See the documentation for each DSC resource to understand these network requirements.
-
-To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Check [Azure Automation Network Configuration](automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) for detailed information on the ports, URLs, and other networking details required for nodes on a private network.
 
 #### Proxy support
 
 Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` properties in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
-used to register nodes. 
+used to register nodes.
 
 >[!NOTE]
 >Azure Automation State Configuration does not provide DSC proxy support for previous versions of Windows.
@@ -120,5 +109,4 @@ It's recommended to use the addresses listed in the [DNS records per region](how
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
-- For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

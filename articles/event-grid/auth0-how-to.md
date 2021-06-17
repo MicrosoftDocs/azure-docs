@@ -1,13 +1,8 @@
 ---
 title: How to send events from Auth0 to Azure using Azure Event Grid
 description: How to end events from Auth0 to Azure services with Azure Event Grid.
-services: event-grid
-author: femila
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
+ms.date: 07/07/2020
 ---
 
 # Integrate Azure Event Grid with Auth0
@@ -67,7 +62,7 @@ Subscribing to your Auth0 Partner Topic allows you to tell Event Grid where you 
 1. On the Partner Topic blade for your Auth0 integration, select + Event Subscription at the top.
 1. On the Create Event Subscription page:
     1. Enter a name for the event subscription.
-    1. Select the Azure service or WebHook you created for the Endpoint type.
+    1. Select the Azure service or Webhook you created for the Endpoint type.
     1. Follow the instructions for the particular service.
     1. Click Create.
 
@@ -90,5 +85,5 @@ Auth0 events are delivered to Azure via a streaming mechanism. Each event is sen
 ## Next steps
 
 - [Auth0 Partner Topic](auth0-overview.md)
-- [Partner topics overview](partner-topics-overview.md)
+- [Partner topics overview](partner-events-overview.md)
 - [Become an Event Grid partner](partner-onboarding-overview.md)

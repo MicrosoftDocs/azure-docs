@@ -1,6 +1,6 @@
 ---
-title: Sync data from Azure SQL Edge (Preview) by using Azure Data Factory
-description: Learn about syncing data between Azure SQL Edge (Preview) and Azure Blob storage
+title: Sync data from Azure SQL Edge by using Azure Data Factory
+description: Learn about syncing data between Azure SQL Edge and Azure Blob storage
 keywords: SQL Edge,sync data from SQL Edge, SQL Edge data factory
 services: sql-edge
 ms.service: sql-edge
@@ -54,8 +54,11 @@ Run these commands on the SQL Edge instance:
     CREATE PROCEDURE usp_write_watermark @timestamp datetime, @TableName varchar(50)  
     AS  
     BEGIN
+    
     UPDATE [dbo].[watermarktable]
-    SET [WatermarkValue] = @timestamp WHERE [TableName] = @TableName
+    SET [WatermarkValue] = @timestamp
+    WHERE [TableName] = @TableName
+
     END
     Go
 ```

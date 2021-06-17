@@ -1,18 +1,16 @@
 ---
-title: Add an Azure IoT Edge device to Azure IoT Central | Microsoft Docs
-description: As an operator, add an Azure IoT Edge device to your Azure IoT Central application
+title: Tutorial - Add an Azure IoT Edge device to Azure IoT Central | Microsoft Docs
+description: Tutorial - Add an Azure IoT Edge device to your Azure IoT Central application
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: [mvc, device-developer, iot-edge]
 ---
 
 # Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application
-
-*This article applies to operators, solution builders, and device developers.*
 
 This tutorial shows you how to configure and add an Azure IoT Edge device to your Azure IoT Central application. The tutorial uses an IoT Edge-enabled Linux virtual machine (VM) to simulate an IoT Edge device. The IoT Edge device uses a module that generates simulated environmental telemetry. You view the telemetry on a dashboard in your IoT Central application.
 
@@ -25,11 +23,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Custom application** template.
+To complete the steps in this tutorial, you need:
 
-To complete the steps in this tutorial, you need an active Azure subscription.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 Download the IoT Edge manifest file from GitHub. Right-click on the following link and then select **Save link as**: [EnvironmentalSensorManifest.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
 
@@ -52,6 +48,9 @@ To create a device template from an IoT Edge manifest:
 1. Select the **Manage** interface in the **SimulatedTemperatureSensor** module to view the two properties defined in the manifest:
 
 :::image type="content" source="media/tutorial-add-edge-as-leaf-device/imported-manifest.png" alt-text="Device template created from IoT Edge manifest":::
+
+> [!TIP]
+> This deployment manifest pulls module images from an Azure Container Registry repository that doesn't require any credentials to connect. If you want to use module images from a private repository, set the container registry credentials in the manifest.
 
 ### Add telemetry to manifest
 
@@ -280,12 +279,7 @@ If you plan to continue working with the IoT Edge VM, you can keep and reuse the
 
 ## Next steps
 
-As a device developer, now that you've learned how to work with and manage IoT Edge devices in IoT Central, a suggested next step is to read:
+Now that you've learned how to work with and manage IoT Edge devices in IoT Central, a suggested next step is to read:
 
 > [!div class="nextstepaction"]
 > [Develop IoT Edge modules](../../iot-edge/tutorial-develop-for-linux.md)
-
-As a solution developer or operator, now that you've learned how to work with and manage IoT Edge devices in IoT Central, a suggested next step is to:
-
-> [!div class="nextstepaction"]
-> [Use device groups to analyze device telemetry](./tutorial-use-device-groups.md)

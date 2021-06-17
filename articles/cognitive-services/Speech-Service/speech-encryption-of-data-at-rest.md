@@ -1,14 +1,14 @@
 ---
 title: Speech service encryption of data at rest
 titleSuffix: Azure Cognitive Services
-description: Speech service encryption of data at rest.
+description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Cognitive Services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Speech service.
 author: erindormier
 manager: venkyv
 
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
 #Customer intent: As a user of the Translator service, I want to learn how encryption at rest works.
 ---
@@ -30,11 +30,13 @@ When you use Custom Speech and Custom Voice, Speech service may store following 
 
 By default, your data are stored in Microsoft's storage and your subscription uses Microsoft-managed encryption keys. You also have an option to prepare your own storage account. Access to the store is managed by the Managed Identity, and Speech service cannot directly access to your own data, such as speech trace data, customization training data and custom models.
 
-For more information about Managed Identity, see [What are managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+For more information about Managed Identity, see [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
+
+In the meantime, when you use Custom Command, you can manage your subscription with your own encryption keys. Customer-managed keys (CMK), also known as bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. For more information about Custom Command and CMK, see [Custom Commands encryption of data at rest](custom-commands-encryption-of-data-at-rest.md).
 
 ## Bring your own storage (BYOS) for customization and logging
 
-To request access to bring your own storage, fill out and submit the [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk). Once approved, you'll need to create your own storage account to store the data required for customization and logging. When adding a storage account, the Speech service resource will enable a system assigned managed identity. After the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory (AAD). After being registered, the managed identity will be given access to the storage account. You can learn more about Managed Identities here. For more information about Managed Identity, see [What are managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+To request access to bring your own storage, fill out and submit the [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk). Once approved, you'll need to create your own storage account to store the data required for customization and logging. When adding a storage account, the Speech service resource will enable a system assigned managed identity. After the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory (AAD). After being registered, the managed identity will be given access to the storage account. You can learn more about Managed Identities here. For more information about Managed Identity, see [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the storage account will be removed. This will cause the parts of the Speech service that require access to the storage account to stop working.  
@@ -47,4 +49,4 @@ The Speech service doesn't currently support Customer Lockbox. However, customer
 ## Next steps
 
 * [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk)
-* [What are managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+* [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).

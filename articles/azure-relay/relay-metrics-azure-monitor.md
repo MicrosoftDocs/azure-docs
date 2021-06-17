@@ -9,24 +9,24 @@ ms.date: 06/23/2020
 # Azure Relay metrics in Azure Monitor 
 Azure Relay metrics give you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Relay resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Azure Relay. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
-Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
+Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../azure-monitor/overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
 
 > [!IMPORTANT]
 > This article applies only to the Hybrid Connections feature of Azure Relay, not to the WCF Relay. 
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/platform/data-platform.md).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/data-platform.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in Azure Monitor.
 
 ## Access metrics in the portal
 
 You can monitor metrics over time in the [Azure portal](https://portal.azure.com). The following example shows how to view successful requests and incoming requests at the account level:
 
-![][1]
+![A page titled "Monitor - Metrics (preview)" shows a line graph of memory usage for the last 30 days.][1]
 
-You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics **. 
+You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics**. 
 
 For metrics supporting dimensions, you must filter with the desired dimension value.
 
@@ -74,10 +74,6 @@ Azure Relay supports the following dimensions for metrics in Azure Monitor. Addi
 
 ## Next steps
 
-See the [Azure Monitoring overview](../monitoring-and-diagnostics/monitoring-overview.md).
+See the [Azure Monitoring overview](../azure-monitor/overview.md).
 
 [1]: ./media/relay-metrics-azure-monitor/relay-monitor1.png
-
-
-
-

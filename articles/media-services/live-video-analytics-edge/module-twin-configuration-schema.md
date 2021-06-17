@@ -1,13 +1,15 @@
 ---
-title: Module twin JSON schema - Azure
-description: This topic describes module twin JSON schema of Live Video Analytics on IoT Edge.
+title: Module twin JSON schema in Live Video Analytics - Azure
+description: This topic describes module twin JSON schema of Azure Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Module twin JSON schema
+# Module twin JSON schema in Live Video Analytics
 
-Device twins are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. For detailed explanation, see [Understand and use module twins in IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
+Device twins are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. For detailed explanation, see [Understand and use module twins in IoT Hub](../../iot-hub/iot-hub-devguide-module-twins.md)
 
 This topic describes module twin JSON schema of Live Video Analytics on IoT Edge.
 
@@ -38,7 +40,7 @@ Live Video Analytics on IoT Edge exposes the following module twin properties.
 
 <sup>*</sup>You MUST provide either service principal certificate or password. 
 
-Dynamic properties can be updated without the restarting the module. You can obtain the values for several of these properties by following the instruction in the [Getting access to Media Services API](../latest/access-api-cli-how-to.md) article. 
+Dynamic properties can be updated without the restarting the module. You can obtain the values for several of these properties by following the instruction in the [Getting access to Media Services API](../latest/access-api-howto.md) article. 
 
 See the article on [Monitoring and logging](monitoring-logging.md) for more information about the role of the optional diagnostics settings.
 

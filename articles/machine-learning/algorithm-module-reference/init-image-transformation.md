@@ -1,7 +1,7 @@
 ---
 title: "Init Image Transformationply Image Transformation"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Init Image Transformation module to initialize image transformation.
+description: Learn how to use the Init Image Transformation module in Azure Machine Learning designer to initialize image transformation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 05/26/2020
 ---
 # Init Image Transformation
 
-This article describes how to use the **Init Image Transformation** module in Azure Machine Learning designer (preview), to initialize image transformation to specify how you want image to be transformed.
+This article describes how to use the **Init Image Transformation** module in Azure Machine Learning designer, to initialize image transformation to specify how you want image to be transformed.
 
 ## How to configure Init Image Transformation
 
@@ -58,7 +58,7 @@ After transformation is completed, you can find transformed images in the output
 
 ## Technical notes  
 
-Refer to [https://pytorch.org/docs/stable/torchvision/transforms.html](https://pytorch.org/docs/stable/torchvision/transforms.html) for more info about image transformation.
+Refer to [https://pytorch.org/vision/stable/transforms.html](https://pytorch.org/vision/stable/transforms.html) for more info about image transformation.
 
 ###  Module parameters  
 

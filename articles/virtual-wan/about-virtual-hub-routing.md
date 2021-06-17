@@ -1,14 +1,15 @@
 ---
 title: 'About virtual hub routing'
 titleSuffix: Azure Virtual WAN
-description: This article describes virtual hub routing
+description: Learn about Virtual WAN virtual hub routing.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
+ms.custom: fasttrack-edit
 
 ---
 # About virtual hub routing
@@ -23,9 +24,9 @@ The following sections describe the key concepts in virtual hub routing.
 
 ### <a name="hub-route"></a>Hub route table
 
-A virtual hub route table can contain one or more routes. A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed. A **Connection** typically will have a routing configuration that associated or propagates to a route table
+A virtual hub route table can contain one or more routes. A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed. A **Connection** typically will have a routing configuration that associated or propagates to a route table.
 
-### <a name="connection"></a>Connection
+### <a name="connection"></a>Connections
 
 Connections are Resource Manager resources that have a routing configuration. The four types of connections are:
 
@@ -52,22 +53,41 @@ A **None route table** is also available for each virtual hub. Propagating to th
 
 :::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagation":::
 
+### <a name="labels"></a>Labels
+
+Labels provide a mechanism to logically group route tables. This is especially helpful during propagation of routes from connections to multiple route tables. For example, the **Default Route Table** has a built-in label called 'Default'. When users propagate connection routes to 'Default' label, it automatically applies to all the Default Route Tables across every hub in the Virtual WAN.
+
 ### <a name="static"></a>Configuring static routes in a virtual network connection
 
 Configuring static routes provides a mechanism to steer traffic through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.
 
-## <a name="route"></a>Route tables in Basic and Standard virtual WANs prior to the feature set of Association and Propagation
+## <a name="route"></a>Route tables for pre-existing routes
 
-Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in Hub Routing and would like to use the new capabilities, consider the following:
+Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in hub routing and would like to use the new capabilities, consider the following:
 
 * **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use  new route table capabilities, delete any pre-existing routes from Routing section for the hub in Azure portal and then attempt creating new route tables in the Route Tables section for the hub.
+
+   If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use the new route table capabilities, delete any pre-existing routes from Routing section for the hub in Azure Portal, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+
+   If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+
+## <a name="reset"></a>Hub reset
+
+Virtual hub **Reset** is available only in the Azure portal. Resetting provides you a way to bring any failed resources such as route tables, hub router, or the virtual hub resource itself back to its rightful provisioning state. Consider resetting the hub prior to contacting Microsoft for support. This operation does not reset any of the gateways in a virtual hub.
+
+## <a name="considerations"></a>Additional considerations
+
+Consider the following when configuring Virtual WAN routing:
+
+* All branch connections (Point-to-site, Site-to-site, and ExpressRoute) need to be associated to the Default route table. That way, all branches will learn the same prefixes.
+* All branch connections need to propagate their routes to the same set of route tables. For example, if you decide that branches should propagate to the Default route table, this configuration should be consistent across all branches. As a result, all connections associated to the Default route table will be able to reach all of the branches.
+* Branch-to-branch via Azure Firewall is currently not supported.
+* When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible.
+* A single next hop IP can be configured per VNet connection.
 
 ## Next steps
 
-To configure routing, see [How to configure virtual hub routing](how-to-virtual-hub-routing.md).
-
-For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).
+* To configure routing, see [How to configure virtual hub routing](how-to-virtual-hub-routing.md).
+* For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).

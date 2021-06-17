@@ -5,7 +5,7 @@ description: Learn how to clone your App Service app to a new app using PowerShe
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Azure App Service App Cloning Using PowerShell
@@ -103,6 +103,8 @@ After having the traffic manger ID, the following command demonstrates creating 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
+> [!NOTE]
+> If you are receiving an error that states, "SSL validation on the traffic manager hostname is failing" then we suggest you use -IgnoreCustomHostNames attribute in the powershell cmdlet while performing the clone operation or else use the portal.
 
 ## Current Restrictions
 Here are the known restrictions of app cloning:
@@ -117,6 +119,7 @@ Here are the known restrictions of app cloning:
 * Database content is not cloned
 * Outbound IP Addresses changes if cloning to a different scale unit
 * Not available for Linux Apps
+* Managed Identities are not cloned
 
 ### References
 * [App Service Cloning](app-service-web-app-cloning.md)

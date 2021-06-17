@@ -1,7 +1,7 @@
 ---
 title:  "Convert to CSV: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Convert to CSV module in Azure Machine Learning to convert a dataset into a CSV format that can be downloaded, exported, or shared with R or Python script modules.
+description: Learn how to use the Convert to CSV module in Azure Machine Learning designer to convert a dataset into a CSV file that can be reused later.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 10/22/2019
 
 # Convert to CSV module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to convert a dataset into a CSV format that can be downloaded, exported, or shared with R or Python script modules.
 

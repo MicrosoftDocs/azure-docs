@@ -2,14 +2,14 @@
 title: Tutorial - Create custom VM images with the Azure CLI 
 description: In this tutorial, you learn how to use the Azure CLI to create a custom virtual machine image in Azure
 author: cynthn
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.custom: mvc
-ms.reviewer: akjosh
+ms.custom: mvc, devx-track-azurecli
+ms.reviewer: mimckitt
 
 #Customer intent: As an IT administrator, I want to learn about how to create custom VM images to minimize the number of post-deployment configuration tasks.
 ---
@@ -26,13 +26,13 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Share an image gallery
 
 
-This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
+This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.4.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Overview
 
-A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+A [Shared Image Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
 The Shared Image Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
@@ -58,7 +58,7 @@ An image gallery is the primary resource used for enabling image sharing.
 
 Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes.   Gallery names must be unique within your subscription. 
 
-Create an image gallery using [az sig create](/cli/azure/sig#az-sig-create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
+Create an image gallery using [az sig create](/cli/azure/sig#az_sig_create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -67,13 +67,13 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## Get information about the VM
 
-You can see a list of VMs that are available using [az vm list](/cli/azure/vm#az-vm-list). 
+You can see a list of VMs that are available using [az vm list](/cli/azure/vm#az_vm_list). 
 
 ```azurecli-interactive
 az vm list --output table
 ```
 
-Once you know the VM name and what resource group it is in, get the ID of the VM using [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view). 
+Once you know the VM name and what resource group it is in, get the ID of the VM using [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). 
 
 ```azurecli-interactive
 az vm get-instance-view -g MyResourceGroup -n MyVm --query id
@@ -87,11 +87,11 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
 
-For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](../shared-image-galleries.md#image-definitions).
 
-Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
+Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create). 
 
-In this example, the image definition is named *myImageDefinition*, and is for a [specialized](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS image. 
+In this example, the image definition is named *myImageDefinition*, and is for a [specialized](../shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -109,7 +109,7 @@ Copy the ID of the image definition from the output to use later.
 
 ## Create the image version
 
-Create an image version from the VM using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Create an image version from the VM using [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create).  
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -131,13 +131,13 @@ az sig image-version create \
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store your image in Premiun storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type  standard_zrs` when you create the image version.
+> You can also store your image in Premiun storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](../../storage/common/storage-redundancy.md) by adding `--storage-account-type  standard_zrs` when you create the image version.
 >
 
  
 ## Create the VM
 
-Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create the VM using [az vm create](/cli/azure/vm#az_vm_create) using the --specialized parameter to indicate the the image is a specialized image. 
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
 
@@ -153,9 +153,9 @@ az vm create --resource-group myResourceGroup \
 
 ## Share the gallery
 
-You can share images across subscriptions using Role-Based Access Control (RBAC). You can share images at the gallery, image definition or image version leve. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
+You can share images across subscriptions using Azure role-based access control (Azure RBAC). You can share images at the gallery, image definition or image version leve. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
 
-We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az-sig-show).
+We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az_sig_show).
 
 ```azurecli-interactive
 az sig show \
@@ -164,7 +164,7 @@ az sig show \
    --query id
 ```
 
-Use the object ID as a scope, along with an email address and [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to give a user access to the shared image gallery. Replace `<email-address>` and `<gallery iD>` with your own information.
+Use the object ID as a scope, along with an email address and [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to give a user access to the shared image gallery. Replace `<email-address>` and `<gallery iD>` with your own information.
 
 ```azurecli-interactive
 az role assignment create \
@@ -173,11 +173,11 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+For more information about how to share resources using Azure RBAC, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Azure Image Builder
 
-Azure also offers a service, built on Packer, [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview). Simply describe your customizations in a template, and it will handle the image creation. 
+Azure also offers a service, built on Packer, [Azure VM Image Builder](../image-builder-overview.md). Simply describe your customizations in a template, and it will handle the image creation. 
 
 ## Next steps
 
@@ -194,4 +194,3 @@ Advance to the next tutorial to learn about highly available virtual machines.
 
 > [!div class="nextstepaction"]
 > [Create highly available VMs](tutorial-availability-sets.md)
-

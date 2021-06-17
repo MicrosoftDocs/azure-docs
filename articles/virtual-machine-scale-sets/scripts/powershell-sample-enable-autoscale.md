@@ -7,7 +7,7 @@ ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/25/2020
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurepowershell
 ---
 
 # Automatically scale a virtual machine scale set with PowerShell
@@ -42,5 +42,5 @@ This script uses the following commands to create the deployment. Each item in t
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 

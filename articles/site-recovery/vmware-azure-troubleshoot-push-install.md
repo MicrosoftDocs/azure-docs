@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Mobility Service push installation with Azure Site Recovery
 description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery with Azure Site Recovery.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: ramamill
-ms.date: 04/03/2020
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Troubleshoot Mobility service push installation
@@ -101,7 +101,22 @@ Configuration server/scale-out process server tries to connect to the source VM 
 
 To resolve the error:
 
+* Verify that the user account has administrative access on the source computer, with either a local account or domain account. If you aren't using a domain account, you need to disable Remote User Access control on the local computer.
+  * To manually add a registry key that disables Remote User Access control:
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    * Add a new `DWORD`: `LocalAccountTokenFilterPolicy`
+    * Set the value to `1`
+  * To add the registry key, from a command prompt, run the following command:
+
+    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+
 * Ensure you can ping your source machine from the configuration server. If you've chosen the scale-out process server during enable replication, ensure you can ping your source machine from the process server.
+
+* Ensure that the File and Printer sharing service is enabled on your virtual machine. Check the steps [here](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106).
+
+* Ensure that WMI service is enabled on your virtual machine. Check the steps [here](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103).
+
+* Ensure that the network shared folders on your virtual machine, are accessible from the process server. Check the steps [here](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523).
 
 * From the source server machine command line, use `Telnet` to ping the configuration server or scale-out process server on HTTPS port 135 as shown in the following command. This command checks if there are any network connectivity issues or firewall port blocking issues.
 
@@ -124,6 +139,28 @@ To resolve the error:
 ## Connectivity failure (ErrorID: 95523)
 
 This error occurs when the network that the source machine resides isn't found, might have been deleted, or is no longer available. The only way to resolve the error is to ensure that the network exists.
+
+## Check access for network shared folders on source machine (ErrorID: 95105,95523)
+
+Verify if the network shared folders on your virtual machine, are accessible from Process Server (PS) remotely using specified credentials. To confirm access: 
+
+1. Log in to your Process Server machine.
+2. Open File Explorer. In the address bar, type `\\<SOURCE-MACHINE-IP>\C$` and click Enter.
+
+    ![Open folder in PS](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. File explorer will prompt for credentials. Enter the username and password and click OK. <br><br/>
+
+    ![Provide Credentials](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > If source machine is domain joined, provide the domain name along with user name as `<domainName>\<username>`. If source machine is in work group, provide only the user name.
+
+4. If connection is successful, the folders of source machine will be visible remotely from Process Server.
+
+    ![Visible folders from Source Machine](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+If connection is unsuccessful, please check whether all pre-requisites are met.
 
 ## File and Printer sharing services check (ErrorID: 95105 & 95106)
 
@@ -165,7 +202,7 @@ You can also enable WMI traffic through the firewall from the command prompt wit
 
 Other WMI troubleshooting articles could be found at the following articles.
 
-* [Basic WMI testing](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
+* [Basic WMI testing](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf)
 * [WMI troubleshooting](/windows/win32/wmisdk/wmi-troubleshooting)
 * [Troubleshooting problems with WMI scripts and WMI services](/previous-versions/tn-archive/ff406382(v=msdn.10))
 
@@ -252,6 +289,10 @@ Beginning with the [9.20 version](https://support.microsoft.com/help/4478871/upd
 ## Insufficient space (ErrorID: 95524)
 
 When the Mobility agent is copied to the source machine, at least 100 MB free space is required. Ensure that your source machine has the required amount of free space and retry the operation.
+
+## Low system resources
+
+The possible Error IDs seen for this issue are 95572 and 95573. This issue occurs when the system has low available memory, and is not able to allocate memory for mobility service installation. Ensure that enough memory has been freed up for the installation to proceed and complete successfully.
 
 ## VSS Installation failures
 

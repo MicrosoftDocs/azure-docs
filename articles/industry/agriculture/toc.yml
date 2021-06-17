@@ -17,6 +17,8 @@
      href: integration-patterns-in-azure-farmbeats.md
    - name: Sensor partner integration
      href: sensor-partner-integration-in-azure-farmbeats.md
+   - name: Weather partner integration
+     href: weather-partner-integration-in-azure-farmbeats.md     
    - name: Imagery partner integration
      href: imagery-partner-integration-in-azure-farmbeats.md
 - name: How to Guides

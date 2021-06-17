@@ -10,7 +10,7 @@ ms.date: 05/29/2020
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
 
-When you need to send correlated messages in a specific order, you can follow the [*sequential convoy* pattern](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) when using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
+When you need to send correlated messages in a specific order, you can follow the [*sequential convoy* pattern](/azure/architecture/patterns/sequential-convoy) when using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
 
 For example, suppose that you have 10 messages for a session named "Session 1", and you have 5 messages for a session named "Session 2" that are all sent to the same [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). You can create a logic app that processes messages from the queue so that all messages from "Session 1" are handled by a single trigger run and all messages from "Session 2" are handled by the next trigger run.
 
@@ -24,7 +24,7 @@ This article shows how to create a logic app that implements this pattern by usi
 
 To review this template's JSON file, see [GitHub: service-bus-sessions.json](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
-For more information, see [Sequential convoy pattern - Azure Architecture Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
+For more information, see [Sequential convoy pattern - Azure Architecture Cloud Design Patterns](/azure/architecture/patterns/sequential-convoy).
 
 ## Prerequisites
 
@@ -205,7 +205,7 @@ To provide the values for the trigger and actions in the **Correlated in-order d
   | **Frequency** | Yes | **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** | The unit of time for the recurrence to use when checking for a message. <p>**Tip**: To add a **Time zone** or **Start time**, select these properties from the **Add new parameter** list. |
   |||||
 
-  For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). The trigger outputs a [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+  For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). The trigger outputs a [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
 
 After initializing the session, the workflow uses the **Initialize variable** action to create a Boolean variable that initially set to `false` and indicates when the following conditions are true: 
 
@@ -427,4 +427,4 @@ To test your logic app, send messages to your Service Bus queue.
 
 ## Next steps
 
-* Learn more about the [Service Bus connector's triggers and actions](https://docs.microsoft.com/connectors/servicebus/)
+* Learn more about the [Service Bus connector's triggers and actions](/connectors/servicebus/)

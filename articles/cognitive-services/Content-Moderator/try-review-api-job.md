@@ -14,9 +14,11 @@ ms.author: pafarley
 #The Jobs how-to for REST/console
 ---
 
-# Define and use moderation jobs (REST)
+# Define and use moderation jobs (API console)
 
-A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows and reviews. This guide shows you how to use the job REST APIs to initiate and check content moderation jobs. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
+A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows, and reviews. This guide shows you how to use the job REST APIs to initiate and check content moderation jobs. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
 
 ## Prerequisites
 
@@ -25,7 +27,7 @@ A moderation job serves as a kind of wrapper for the functionality of content mo
 
 ## Create a job
 
-To create a moderation job, go to the [Job - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API reference page and select the button for your subscription region (you can find this in the Endpoint URL on the **Credentials** page of the [Review tool](https://contentmoderator.cognitive.microsoft.com/)). This starts the API console, where you can easily construct and run REST API calls.
+To create a moderation job, go to the [Job - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API reference page and select the button for your subscription region. You can find your region in the Endpoint URL on the **Credentials** page of the [Review tool](https://contentmoderator.cognitive.microsoft.com/). This starts the API console, where you can easily construct and run REST API calls.
 
 ![Job - Create page region selection](images/test-drive-job-1.png)
 
@@ -38,11 +40,11 @@ Enter the following values to construct the REST call:
 - **ContentId**: A custom identifier string. This string is passed to the API and returned through the callback. It is useful for associating internal identifiers or metadata with the results of a moderation job.
 - **Workflowname**: The name of the workflow you previously created (or "default" for the default workflow).
 - **CallbackEndpoint**: (Optional) The URL to receive callback information when the review is completed.
-- **Ocp-Apim-Subscription-Key**: Your Content Moderator key. You can find this  on the **Settings** tab of the [Review tool](https://contentmoderator.cognitive.microsoft.com).
+- **Ocp-Apim-Subscription-Key**: Your Content Moderator key. You can find this key on the **Settings** tab of the [Review tool](https://contentmoderator.cognitive.microsoft.com).
 
 ### Fill in the request body
 
-The body of your REST call contains one field, **ContentValue**. Paste in the raw text content if you are moderating text, or enter an image or video URL if you're moderating image/video. You can use the following sample image URL: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+The body of your REST call contains one field, **ContentValue**. Paste in the raw text content if you are moderating text, or enter an image or video URL if you're moderating an image or video. You can use the following sample image URL: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
 ![Job - Create console query parameters, headers, and Request body box](images/job-api-console-inputs.PNG)
 
@@ -112,7 +114,7 @@ Enter the REST call parameters as in the above section. For this step, **JobId**
 
 ### Examine the new review(s)
 
-If your content job resulted in the creation of a review, you can view it in the [Review tool](https://contentmoderator.cognitive.microsoft.com). Select **Review** > **Image**/**Text**/**Video** (depending on what content you used). The content should appear, ready for human review. After a human moderator reviews the auto-assigned tags and prediction data and submits a final moderation decision, the jobs API submits all of this information to the designated callback endpoint endpoint.
+If your content job resulted in the creation of a review, you can view it in the [Review tool](https://contentmoderator.cognitive.microsoft.com). Select **Review** > **Image**/**Text**/**Video** (depending on what content you used). The content should appear, ready for human review. After a human moderator reviews the auto-assigned tags and prediction data and submits a final moderation decision, the jobs API submits all of this information to the designated callback endpoint.
 
 ## Next steps
 

@@ -1,14 +1,13 @@
 ---
 title: Review Azure subscription billing data with REST API
-description: Learn how to use Azure REST APIs to review subscription billing details.
+description: Learn how to use Azure REST APIs to review subscription billing details. You can use filters to help customize results.
 author: lleonard-msft
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-
-# As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
-
+# Customer intent: As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 ---
 
 # Review subscription billing using REST APIs
@@ -29,7 +28,7 @@ Authorization: Bearer
 
 The `{subscriptionID}` parameter is required and identifies the target subscription.
 
-The `{billingPeriod}` parameter is required and specifies a current [billing period](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+The `{billingPeriod}` parameter is required and specifies a current [billing period](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
 The `${startDate}` and `${endDate}` parameters are required for this example, but optional for the endpoint. They specify the date range as strings in the form of YYYY-MM-DD (examples: `'20180501'` and `'20180615'`).
 
@@ -38,7 +37,7 @@ The following headers are required:
 |Request header|Description|
 |--------------------|-----------------|
 |*Content-Type:*|Required. Set to `application/json`.|
-|*Authorization:*|Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+|*Authorization:*|Required. Set to a valid `Bearer` [access token](/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 ## Response
 
@@ -82,7 +81,7 @@ Each item in **value** represents a details regarding the use of a service:
 |**meterDetails** | Detailed information about the use. |
 |**nextLink**| When set, specifies a URL for the next "page" of details. Blank when the page is the last one. |
 
-This example is abbreviated; see [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy) for a complete description of each response field.
+This example is abbreviated; see [List usage details](/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy) for a complete description of each response field.
 
 Other status codes indicate error conditions. In these cases, the response object explains why the request failed.
 
@@ -98,6 +97,6 @@ Other status codes indicate error conditions. In these cases, the response objec
 ```
 
 ## Next steps
-- Review [Enterprise reporting overview](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Investigate [Enterprise Billing REST API](https://docs.microsoft.com/rest/api/billing/)
-- [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)
+- Review [Enterprise reporting overview](./enterprise-api.md)
+- Investigate [Enterprise Billing REST API](/rest/api/billing/)
+- [Get started with Azure REST API](/rest/api/azure/)

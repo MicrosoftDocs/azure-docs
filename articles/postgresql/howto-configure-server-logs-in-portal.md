@@ -1,10 +1,10 @@
 ---
 title: Manage logs - Azure portal - Azure Database for PostgreSQL - Single Server
 description: This article describes how to configure and access the server logs (.log files) in Azure Database for PostgreSQL - Single Server from the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
 ---
 
@@ -24,7 +24,7 @@ Configure access to the query logs and error logs.
 
 3. Under the **Monitoring** section in the sidebar, select **Server logs**. 
 
-   ![Screenshot of Server logs options](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::
 
 4. To see the server parameters, select **Click here to enable logs and configure log parameters**.
 
@@ -32,7 +32,7 @@ Configure access to the query logs and error logs.
 
    After you have changed the parameters, select **Save**. Or, you can discard your changes. 
 
-   ![Screenshot of Server Parameters options](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of Server Parameters options":::
 
 From the **Server Parameters** page, you can return to the list of logs by closing the page.
 
@@ -45,18 +45,18 @@ After logging begins, you can view a list of available logs, and download indivi
 
 3. Under the **Monitoring** section in the sidebar, select **Server logs**. The page shows a list of your log files.
 
-   ![Screenshot of Server logs page, with list of logs highlighted](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Screenshot of Server logs page, with list of logs highlighted":::
 
    > [!TIP]
    > The naming convention of the log is **postgresql-yyyy-mm-dd_hh0000.log**. The date and time used in the file name is the time when the log was issued. The log files rotate every hour or 100 MB, whichever comes first.
 
 4. If needed, use the search box to quickly narrow down to a specific log, based on date and time. The search is on the name of the log.
 
-   ![Screenshot of Server logs page, with search box and results highlighted](./media/howto-configure-server-logs-in-portal/5-search.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Screenshot of Server logs page, with search box and results highlighted":::
 
 5. To download individual log files, select the down-arrow icon next to each log file in the table row.
 
-   ![Screenshot of Server logs page, with down-arrow icon highlighted](./media/howto-configure-server-logs-in-portal/6-download.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Screenshot of Server logs page, with down-arrow icon highlighted":::
 
 ## Next steps
 - See [Access server logs in CLI](howto-configure-server-logs-using-cli.md) to learn how to download logs programmatically.

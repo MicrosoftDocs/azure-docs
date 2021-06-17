@@ -4,15 +4,26 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
+
+One of the core features of the Speech service is the ability to recognize human speech and translate it to other languages. In this quickstart you learn how to use the Speech SDK in your apps and products to perform high-quality speech translation. This quickstart covers topics including:
+
+* Translating speech-to-text
+* Translating speech to multiple target languages
+* Performing direct speech-to-speech translation
+
+## Skip to samples on GitHub
+
+If you want to skip straight to sample code, see the [C# quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/translate-speech-to-text) on GitHub.
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, follow the instructions under the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> section of the Speech SDK article.
+Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, follow the instructions under the <a href="/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK </a> section of the _About the Speech SDK_ article.
 
 ## Import dependencies
 
@@ -60,7 +71,7 @@ There are a few ways that you can initialize a [`SpeechTranslationConfig`][confi
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's take a look at how a [`SpeechTranslationConfig`][config] is created using a key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
+Let's take a look at how a [`SpeechTranslationConfig`][config] is created using a key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ```csharp
 public class Program
@@ -100,7 +111,7 @@ The [`SpeechRecognitionLanguage`][recognitionlang] property expects a language-l
 
 ## Add translation language
 
-Another common task of speech translation is to specify target translation languages, at least one is required but multiples are supported. In the following code snippet, both French and German as translation language targets.
+Another common task of speech translation is to specify target translation languages, at least one is required but using multiple is supported. The following code snippet sets both French and German as translation language targets.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -212,7 +223,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-For more information about speech-to-text, see [the basics of speech recognition](../../../speech-to-text-basics.md).
+For more information about speech-to-text, see [the basics of speech recognition](../../../get-started-speech-to-text.md).
 
 ## Synthesize translations
 
@@ -317,13 +328,126 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-For more information about speech synthesis, see [the basics of speech synthesis](../../../text-to-speech-basics.md).
+For more information about speech synthesis, see [the basics of speech synthesis](../../../get-started-text-to-speech.md).
 
-[config]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
-[audioconfig]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet
-[recognizer]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer?view=azure-dotnet
-[recognitionlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet
-[addlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.addtargetlanguage?view=azure-dotnet
-[translations]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognitionresult.translations?view=azure-dotnet
-[voicename]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.voicename?view=azure-dotnet
-[speechsynthesisvoicename]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechsynthesisvoicename?view=azure-dotnet
+## Multi-lingual translation with language identification
+
+In many scenarios, you may not know which input languages to specify. Using language identification allows you to specify up to ten possible input languages, and automatically translate into your target languages. 
+
+The following example uses continuous translation from an audio file, and automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they are defined in the `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
+
+> [!IMPORTANT]
+> This feature is currently in **preview**.
+
+```csharp
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+
+public static async Task MultiLingualTranslation()
+{
+    var region = "<paste-your-region>";
+    // currently the v2 endpoint is required for this design pattern
+    var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
+    var endpointUrl = new Uri(endpointString);
+    
+    var config = SpeechConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
+
+    // Source lang is required, but is currently NoOp 
+    string fromLanguage = "en-US";
+    config.SpeechRecognitionLanguage = fromLanguage;
+
+    config.AddTargetLanguage("de");
+    config.AddTargetLanguage("fr");
+
+    config.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
+    var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "zh-CN" });
+
+    var stopTranslation = new TaskCompletionSource<int>();
+    using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.wav"))
+    {
+        using (var recognizer = new TranslationRecognizer(config, autoDetectSourceLanguageConfig, audioInput))
+        {
+            recognizer.Recognizing += (s, e) =>
+            {
+                var lidResult = e.Result.Properties.GetProperty(PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult);
+
+                Console.WriteLine($"RECOGNIZING in '{lidResult}': Text={e.Result.Text}");
+                foreach (var element in e.Result.Translations)
+                {
+                    Console.WriteLine($"    TRANSLATING into '{element.Key}': {element.Value}");
+                }
+            };
+
+            recognizer.Recognized += (s, e) => {
+                if (e.Result.Reason == ResultReason.TranslatedSpeech)
+                {
+                    var lidResult = e.Result.Properties.GetProperty(PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult);
+
+                    Console.WriteLine($"RECOGNIZED in '{lidResult}': Text={e.Result.Text}");
+                    foreach (var element in e.Result.Translations)
+                    {
+                        Console.WriteLine($"    TRANSLATED into '{element.Key}': {element.Value}");
+                    }
+                }
+                else if (e.Result.Reason == ResultReason.RecognizedSpeech)
+                {
+                    Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}");
+                    Console.WriteLine($"    Speech not translated.");
+                }
+                else if (e.Result.Reason == ResultReason.NoMatch)
+                {
+                    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                }
+            };
+
+            recognizer.Canceled += (s, e) =>
+            {
+                Console.WriteLine($"CANCELED: Reason={e.Reason}");
+
+                if (e.Reason == CancellationReason.Error)
+                {
+                    Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
+                    Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
+                    Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                }
+
+                stopTranslation.TrySetResult(0);
+            };
+
+            recognizer.SpeechStartDetected += (s, e) => {
+                Console.WriteLine("\nSpeech start detected event.");
+            };
+
+            recognizer.SpeechEndDetected += (s, e) => {
+                Console.WriteLine("\nSpeech end detected event.");
+            };
+
+            recognizer.SessionStarted += (s, e) => {
+                Console.WriteLine("\nSession started event.");
+            };
+
+            recognizer.SessionStopped += (s, e) => {
+                Console.WriteLine("\nSession stopped event.");
+                Console.WriteLine($"\nStop translation.");
+                stopTranslation.TrySetResult(0);
+            };
+
+            // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
+            Console.WriteLine("Start translation...");
+            await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+
+            Task.WaitAny(new[] { stopTranslation.Task });
+            await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+        }
+    }
+}
+```
+
+[config]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig
+[audioconfig]: /dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig
+[recognizer]: /dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer
+[recognitionlang]: /dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage
+[addlang]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.addtargetlanguage
+[translations]: /dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognitionresult.translations
+[voicename]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.voicename
+[speechsynthesisvoicename]: /dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechsynthesisvoicename

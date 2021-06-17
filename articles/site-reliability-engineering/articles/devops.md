@@ -3,10 +3,10 @@ title: "FAQ: SRE and DevOps | Microsoft Docs"
 titleSuffix: Azure
 description: "FAQ: Understanding the relationship between SRE and DevOps"
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: dnb
 
 ---
@@ -45,7 +45,7 @@ If we use this definition of SRE from the [site reliability engineering hub](../
 
 then it would be easy to say the word for SRE is "reliability". Having it be right in the middle of the name also offers some excellent evidence for this claim.
 
-If we use this definition of DevOps from the [Azure DevOps Resource center](https://docs.microsoft.com/azure/devops/learn/):
+If we use this definition of DevOps from the [Azure DevOps Resource center](/azure/devops/learn/):
 
 > DevOps is the union of people, process, and products to enable continuous delivery of value to our end users.
 
@@ -75,4 +75,4 @@ We hope that the previous answers offer some idea how the two operations practic
 
 ## Next Steps
 
-Interested in learning more about site reliability engineering or DevOps? Check out our [site reliability engineering hub](../index.yml) and [Azure DevOps Resource center](https://docs.microsoft.com/azure/devops/learn/).
+Interested in learning more about site reliability engineering or DevOps? Check out our [site reliability engineering hub](../index.yml) and [Azure DevOps Resource center](/azure/devops/learn/).

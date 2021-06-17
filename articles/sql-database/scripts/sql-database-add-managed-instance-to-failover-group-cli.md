@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 07/16/2019
 ---
 # Use CLI to add an Azure SQL Managed Instance to a failover group
@@ -40,7 +40,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az network vnet](/cli/azure/network/vnet) | Virtual network commands.  |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Virtual network subnet commands. |

@@ -3,21 +3,18 @@ title: Create a Windows VM with Azure Image Builder using PowerShell
 description: Create a Windows VM with the Azure Image Builder PowerShell module.
 author: cynthn
 ms.author: cynthn
-ms.date: 06/17/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
+ms.custom: devx-track-azurepowershell
 ---
-# Preview: Create a Windows VM with Azure Image Builder using PowerShell
+# Create a Windows VM with Azure Image Builder using PowerShell
 
 This article demonstrates how you can create a customized Windows image using the Azure VM Image
 Builder PowerShell module.
 
-> [!CAUTION]
-> Azure Image Builder is currently in public preview. This preview version is provided without a
-> service level agreement. It's not recommended for production workloads. Certain features might
-> not be supported or might have constrained capabilities. For more information, see
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -26,25 +23,15 @@ before you begin.
 
 If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
 module and connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
-
-> [!IMPORTANT]
-> While the **Az.ImageBuilder** and **Az.ManagedServiceIdentity** PowerShell modules are in preview,
-> you must install them separately using the `Install-Module` cmdlet with the `AllowPrerelease`
-> parameter. Once these PowerShell modules become generally available, they become part of future Az
-> PowerShell module releases and available natively from within Azure Cloud Shell.
-
-```azurepowershell-interactive
-'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
-```
+[Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription using the
-[Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet.
+[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -52,33 +39,17 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ### Register features
 
-If this is your first time using Azure image builder during the preview, register the new
-**VirtualMachineTemplatePreview** feature.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -FeatureName VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-> [!NOTE]
-> The **RegistrationState** may be in the `Registering` state for several minutes before changing to
-> `Registered`. Wait until the status is **Registered** before continuing.
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -FeatureName VirtualMachineTemplatePreview
-```
-
 Register the following resource providers for use with your Azure subscription if they
 aren't already registered.
 
 - Microsoft.Compute
 - Microsoft.KeyVault
 - Microsoft.Storage
+- Microsoft.Network
 - Microsoft.VirtualMachineImages
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages |
+Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages, Microsoft.Network |
   Where-Object RegistrationState -ne Registered |
     Register-AzResourceProvider
 ```
@@ -112,8 +83,8 @@ Write-Output $subscriptionID
 
 ## Create a resource group
 
-Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
-using the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md)
+using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as
 a group.
 
@@ -156,7 +127,7 @@ $identityNamePrincipalId = (Get-AzUserAssignedIdentity -ResourceGroupName $image
 Download .json config file and modify it based on the settings defined in this article.
 
 ```azurepowershell-interactive
-$myRoleImageCreationUrl = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
+$myRoleImageCreationUrl = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
 $myRoleImageCreationPath = "$env:TEMP\myRoleImageCreation.json"
 
 Invoke-WebRequest -Uri $myRoleImageCreationUrl -OutFile $myRoleImageCreationPath -UseBasicParsing
@@ -188,7 +159,7 @@ New-AzRoleAssignment @RoleAssignParams
 > [!NOTE]
 > If you receive the error: "_New-AzRoleDefinition: Role definition limit exceeded. No more role
 > definitions can be created._", see
-> [Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting).
+> [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
 ## Create a Shared Image Gallery
 
@@ -221,7 +192,7 @@ New-AzGalleryImageDefinition @GalleryParams
 ## Create an image
 
 Create an Azure image builder source object. See
-[Find Windows VM images in the Azure Marketplace with Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)
+[Find Windows VM images in the Azure Marketplace with Azure PowerShell](./cli-ps-findimage.md)
 for valid parameter values.
 
 ```azurepowershell-interactive
@@ -252,13 +223,25 @@ $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
 Create an Azure image builder customization object.
 
 ```azurepowershell-interactive
-$ImgCustomParams = @{
+$ImgCustomParams01 = @{
   PowerShellCustomizer = $true
   CustomizerName = 'settingUpMgmtAgtPath'
   RunElevated = $false
-  Inline = @("mkdir c:\\buildActions", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
+  Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
 }
-$Customizer = New-AzImageBuilderCustomizerObject @ImgCustomParams
+$Customizer01 = New-AzImageBuilderCustomizerObject @ImgCustomParams01
+```
+
+Create a second Azure image builder customization object.
+
+```azurepowershell-interactive
+$ImgCustomParams02 = @{
+  FileCustomizer = $true
+  CustomizerName = 'downloadBuildArtifacts'
+  Destination = 'c:\\buildArtifacts\\index.html'
+  SourceUri = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
+}
+$Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
 ```
 
 Create an Azure image builder template.
@@ -269,7 +252,7 @@ $ImgTemplateParams = @{
   ResourceGroupName = $imageResourceGroup
   Source = $srcPlatform
   Distribute = $disSharedImg
-  Customize = $Customizer
+  Customize = $Customizer01, $Customizer02
   Location = $location
   UserAssignedIdentityId = $identityNameResourceId
 }
@@ -296,7 +279,7 @@ resource group is used for the image build. It's in the format:
 
 If the service reports a failure during the image configuration template submission:
 
-- See [Troubleshooting Azure VM Image Build (AIB) Failures](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- See [Troubleshooting Azure VM Image Build (AIB) Failures](../linux/image-builder-troubleshoot.md).
 - Delete the template using the following example before you retry.
 
 ```azurepowershell-interactive
@@ -313,7 +296,7 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Wait for the image build process to complete. This step could take up to an hour.
 
-If you encounter errors, review [Troubleshooting Azure VM Image Build (AIB) Failures](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+If you encounter errors, review [Troubleshooting Azure VM Image Build (AIB) Failures](../linux/image-builder-troubleshoot.md).
 
 ## Create a VM
 
@@ -331,7 +314,7 @@ $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName
 New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
 ```
 
-## Verify the customization
+## Verify the customizations
 
 Create a Remote Desktop connection to the VM using the username and password you set when you
 created the VM. Inside the VM, open PowerShell and run `Get-Content` as shown in the following example:
@@ -346,6 +329,25 @@ process.
 ```Output
 Azure-Image-Builder-Was-Here
 ```
+
+From the same PowerShell session, verify that the second customization completed successfully by checking
+for the presence of the file `c:\buildArtifacts\index.html` as shown in the following example:
+
+```azurepowershell-interactive
+Get-ChildItem c:\buildArtifacts\
+```
+
+The result should be a directory listing showing the file downloaded during the image customization
+process.
+
+```Output
+    Directory: C:\buildArtifacts
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          29/01/2021    10:04            276 index.html
+```
+
 
 ## Clean up resources
 
@@ -372,4 +374,4 @@ Remove-AzResourceGroup -Name $imageResourceGroup
 ## Next steps
 
 To learn more about the components of the .json file used in this article, see
-[Image builder template reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+[Image builder template reference](../linux/image-builder-json.md).

@@ -1,18 +1,18 @@
 ---
 title: 'ExpressRoute: How to configure custom alerts for advertised routes'
-description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks in order to prevent hitting the 200 routes limit.
+description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks in order to prevent hitting the 1000 routes limit.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Configure custom alerts to monitor advertised routes
 
-This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the [200 routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
 
 **Azure Automation** allows you to automate execution of custom PowerShell script stored in a *runbook*. When using the configuration in this article, the runbook contains a PowerShell script that queries one or more ExpressRoute gateways. It collects a dataset containing the resource group, ExpressRoute gateway name, and number of network prefixes advertised on-premises.
 
@@ -38,23 +38,23 @@ Verify that you have met the following criteria before beginning your configurat
 
 * You are familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-* You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0).
+* You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](/powershell/azure/).
 
 ### <a name="limitations"></a>Notes and limitations
 
 * The custom alert discussed in this article is an add-on to achieve better operation and control. It is not a replacement for the native alerts in ExpressRoute.
 * Data collection for ExpressRoute gateways runs in the background. Runtime can be longer than expected. To avoid job queuing, the workflow recurrence must be set up properly.
-* Deployments by scripts or ARM templates could happen faster than the custom alarm trigger. This could result in increasing in number of network prefixes in ExpressRoute gateway above the limit of 200 routes.
+* Deployments by scripts or ARM templates could happen faster than the custom alarm trigger. This could result in increasing in number of network prefixes in ExpressRoute gateway above the limit of 1000 routes.
 
 ## <a name="accounts"></a>Create and configure accounts
 
-When you create an Automation account in the Azure portal, a [Run As](../automation/manage-runas-account.md#types-of-run-as-accounts) account is automatically created. This account takes following actions:
+When you create an Automation account in the Azure portal, a [Run As](../automation/automation-security-overview.md#run-as-accounts) account is automatically created. This account takes following actions:
 
 * Creates an Azure Active Directory (Azure AD) application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
 
 * Creates a service principal account for the application in Azure AD.
 
-* Assigns itself the Contributor Role (RBAC) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
+* Assigns itself the Contributor role (Azure RBAC) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
 
 In order to create an Automation account, you need privileges and permissions. For information, see [Permissions required to create an Automation account](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account).
 
@@ -66,7 +66,7 @@ Create an Automation account with run-as permissions. For instructions, see [Cre
 
 ### <a name="about"></a>2. Assign the Run As account a role
 
-By default, the **Contributor** role is assigned to the service principal that is used by your **Run As** account. You can keep the default role assigned to the service principal, or you can restrict permissions by assigning a [built-in role](../role-based-access-control/built-in-roles.md) (for example, Reader) or a [custom role](../active-directory/users-groups-roles/roles-create-custom.md).
+By default, the **Contributor** role is assigned to the service principal that is used by your **Run As** account. You can keep the default role assigned to the service principal, or you can restrict permissions by assigning a [built-in role](../role-based-access-control/built-in-roles.md) (for example, Reader) or a [custom role](../active-directory/roles/custom-create.md).
 
  Use the following steps to determine the role assign to the service principal that is used by your Run As account:
 
@@ -253,7 +253,7 @@ When you run the PowerShell script, a list of values is collected:
 
 * Alert message, for a verbose description of the status (OK, ALERT, WARNING)
 
-The PowerShell script converts the collected information to a JSON output. The runbook uses the PowerShell cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  as Output stream to communicate information to the client.
+The PowerShell script converts the collected information to a JSON output. The runbook uses the PowerShell cmdlet [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output)  as Output stream to communicate information to the client.
 
 ### <a name="validate"></a>4. Validate the runbook
 
@@ -267,25 +267,25 @@ Azure Logic Apps is the orchestrator of all process of collection and actions. I
 
 ### Workflow
 
-In this workflow, you build a logic app that regularly monitors ExpressRoute gateways. If new items exist, the logic app sends an email for each item. When you're done, your logic app looks like this workflow at a high level:
+For this logic app, you build a workflow that regularly monitors ExpressRoute gateways. If new items exist, the workflow sends an email for each item. When you're done, your workflow looks like this example at a high level:
 
 :::image type="content" source="./media/custom-route-alert-portal/logic-apps-workflow.png" alt-text="Logic Apps workflow":::
 
 ### 1. Create a logic app
 
-In **Logic app designer**, create a logic app  using the **Blank Logic App** template. For steps, see [Create Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app).
+In **Logic app designer**, create a logic app using the **Blank Logic App** template. For steps, see [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 :::image type="content" source="./media/custom-route-alert-portal/blank-template.png" alt-text="Blank template":::
 
 ### 2. Add a trigger
 
-Every logic app is started by a trigger. A trigger fires when a specific event happens, or when a specific condition is met. Each time the trigger fires, the Azure Logic Apps engine creates a logic app instance that starts and runs your workflow.
+Every workflow starts with a trigger. A trigger fires when a specific event happens, or when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates and runs a new workflow instance.
 
-To regularly run a logic app that is based on a predefine time schedule, add the built-in **Recurrence: Schedule** to your workflow. In the search box, type **schedule**. Select **Triggers**. From the Triggers list, select **Recurrence Schedule**.
+To regularly run a workflow that is based on a predefined time schedule, add the built-in **Recurrence** trigger to your workflow. In the search box, type **schedule**. Select the **Schedule** icon. From the Triggers list, select **Recurrence**.
 
 :::image type="content" source="./media/custom-route-alert-portal/schedule.png" alt-text="Recurrence: Schedule":::
 
-In the Recurrence Schedule trigger, you can set the time zone and a recurrence for repeating that workflow. Together, the interval and frequency define the schedule for your logic app's trigger. To establish a reasonable minimum recurrence frequency, consider the following factors:
+In the Recurrence trigger, you can set the time zone and a recurrence for repeating that workflow. Together, the interval and frequency define the schedule for your workflow's trigger. To establish a reasonable minimum recurrence frequency, consider the following factors:
 
 * The PowerShell script in the Automation runbook takes time to complete. The runtime depends on the number of ExpressRoute gateways to monitor. A too short recurrence frequency will cause job queuing.
 
@@ -295,11 +295,11 @@ In the Recurrence Schedule trigger, you can set the time zone and a recurrence f
 
 At the end of the workflow configuration, you can check the consistency of the recurrence frequency by running the workflow a few times, and then verifying the outcome in the **Runs history**.
 
-:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Recurrence" lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Screenshot shows the Recurrence Interval and Frequency values." lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
 
 ### <a name="job"></a>3. Create a job
 
-A logic app accesses other apps, services, and the platform though connectors. The next step in this workflow is to select a connector to access the Azure Automation account that was defined earlier.
+A logic app workflow accesses other apps, services, and the platform though connectors. The next step is to select a connector to access the Azure Automation account that was defined earlier.
 
 1. In **Logic Apps Designer**, below **Recurrence**, select **New step**. Under **Choose an action** and the the search box, select **All**.
 2. In the search box, type **Azure Automation** and search. Select **Create job**. **Create job** will be used to fire the automation runbook that was created earlier.
@@ -308,7 +308,7 @@ A logic app accesses other apps, services, and the platform though connectors. T
 
 3. Sign in using a service principal. You can use an existing service principal, or you can create a new one. To create a new service principal, see [How to use the portal to create an Azure AD service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Select **Connect with Service Principal**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Sign in":::
+   :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Screenshot that shows the 'Recurrence' section with the 'Connect with Service Principal' action highlighted.":::
 
 4. Type a **Connection Name**, add your **Client ID** (Application ID), **Client Secret**, and your **Tenant ID**. Then, select **Create**.
 
@@ -316,7 +316,7 @@ A logic app accesses other apps, services, and the platform though connectors. T
 
 5. On the **Create job** page, the service principal should have the "Reader" role on the **Resource Group** hosting the automation account, and "Automation Job Operator" on the **Automation Account**. Additionally, verify that you have added the **Runbook Name** as a new parameter.
 
-   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Roles" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Screenshot shows Create job values in Recurrence, where you can verify the Runbook Name." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="output"></a>4. Get the job output
 
@@ -330,7 +330,7 @@ A logic app accesses other apps, services, and the platform though connectors. T
 
 ### <a name="parse"></a>5. Parse the JSON
 
-The information contained in the output from the 'Azure Automation Create job action' (previous steps) generates a JSON object. Logic Apps **Parse JSON** is a built-in action to create user-friendly tokens from the properties and their values in JSON content. You can then use those properties in your workflow.
+The information contained in the output from the 'Azure Automation Create job action' (previous steps) generates a JSON object. The built-in **Parse JSON** action creates user-friendly tokens from the properties and their values in JSON content. You can then use those properties in your workflow.
 
 1. Add an action. Under the **Get job output ->action**, select **New step**.
 2. In the **Choose an action** search box, type "parse json" to search for connectors that offer this action. Under the **Actions** list, select the **Parse JSON** action for the data operations that you want to use.
@@ -339,7 +339,7 @@ The information contained in the output from the 'Azure Automation Create job ac
 
 3. Click inside the **Content** box. When the Dynamic content list appears, select **Content**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Content" lightbox="./media/custom-route-alert-portal/content-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Screenshot shows the Parse JSON dialog box with Content selected." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
 4. Parsing a JSON requires a schema. The schema can be generated using the output of the Automation runbook. Open a new web browser session, run the Automation runbook and grab the output. Return to the **Logic Apps Parse JSON Data Operations** action. At the bottom of the page, select **Use sample payload to generate schema**.
 
@@ -359,7 +359,7 @@ In this step of the workflow, we create a condition to send an alarm by email. F
 
 1. Under the **Get job output action**, select **New step**. In the search box, find and select **Variables**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Variables":::
+   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Screenshot shows the Choose an action dialog box with variable in the search box and Variables selected.":::
 
 2. From the **Actions** list, select the **Initialize variable** action.
 
@@ -367,7 +367,7 @@ In this step of the workflow, we create a condition to send an alarm by email. F
 
 3. Specify the name of the variable. For **Type**, select **String**. The **Value** of the variable will be assigned later in the workflow.
 
-   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="String" lightbox="./media/custom-route-alert-portal/string-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Screenshot shows Parse JSON associated with Initialize variable, where you can enter a Name, Type, and Value." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
 ### <a name="cycles-json"></a>7. Create a "For each" action
 
@@ -375,7 +375,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
 1. Under **Initialize variable**, select **Add an action**. In the search box, type "for each" as your filter.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Control":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Screenshot shows the Choose an action dialog box with for each in the search box and Control selected.":::
 
 2. From the **Actions** list, select the action **For each - Control**.
 
@@ -383,7 +383,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
 3. Click in the **Select an output from previous steps** text box. When the **Dynamic content** list appears, select the **Body**, which is output from the parsed JSON.
 
-   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Body":::
+   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Screenshot shows Initialized variable associated with For each, which contains the Select an output from previous steps text box.":::
 
 4. For each element of JSON body, we want to set a condition. From the action group, select **Control**.
 
@@ -405,7 +405,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
-9. The logic condition is true when one of two dynamic variables, numRoute1 or numRoute2, is greater than the threshold. In this example, the threshold is fixed to 160 (80% of max value of 200 routes). You can change the threshold value to fit your requirements. For consistency, the value should be the same value used in the runbook PowerShell script.
+9. The logic condition is true when one of two dynamic variables, numRoute1 or numRoute2, is greater than the threshold. In this example, the threshold is fixed to 800 (80% of max value of 1000 routes). You can change the threshold value to fit your requirements. For consistency, the value should be the same value used in the runbook PowerShell script.
 
    :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Logic condition":::
 
@@ -415,7 +415,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
 11. In Variables, select **Add an action**. In the **Actions** list,  select **Set variable**.
 
-    :::image type="content" source="./media/custom-route-alert-portal/condition-set-variable.png" alt-text="Set variable":::
+    :::image type="content" source="./media/custom-route-alert-portal/condition-set-variable.png" alt-text="Screenshot of the 'Variables' section with the 'Actions' tab selected and 'Set variable' highlighted.":::
 
 12. In **Name**, select the variable named **EmailBody** that you previously created. For **Value**, paste the HTML script required to format the alert email. Use the **Dynamic content** to include the values of JSON body. After configuring these settings, the result is that the variable **Emailbody** contains all the information related to the alert, in HTML format.
 

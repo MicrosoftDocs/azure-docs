@@ -3,7 +3,6 @@ title: Azure Key Vault throttling guidance
 description: Key Vault throttling limits the number of concurrent calls to prevent overuse of resources.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 
 ms.service: key-vault
 ms.subservice: general
@@ -21,7 +20,7 @@ Throttling limits vary based on the scenario. For example, if you are performing
 
 ## How does Key Vault handle its limits?
 
-Service limits in Key Vault prevent misuse of resources and ensure quality of service for all of Key Vault's clients. When a service threshold is exceeded, Key Vault limits any further requests from that client for a period of time, returns HTTP status code 429 (Too many requests), and the request fails. Failed requests that return a 429 count towards the throttle limits tracked by Key Vault. 
+Service limits in Key Vault prevent misuse of resources and ensure quality of service for all of Key Vault's clients. When a service threshold is exceeded, Key Vault limits any further requests from that client for a period of time, returns HTTP status code 429 (Too many requests), and the request fails. Failed requests that return a 429 do not count towards the throttle limits tracked by Key Vault. 
 
 Key Vault was originally designed to be used to store and retrieve your secrets at deployment time.  The world has evolved, and Key Vault is being used at run-time to store and retrieve secrets, and often apps and services want to use Key Vault like a database.  Current limits do not support high throughput rates.
 
@@ -34,21 +33,7 @@ Key Vault was originally created with the limits specified in [Azure Key Vault s
 1. If you use Key Vault to store credentials for a service, check if that service supports Azure AD Authentication to authenticate directly. This reduces the load on Key Vault, improves reliability and simplifies your code since Key Vault can now use the Azure AD token.  Many services have moved to using Azure AD Auth.  See the current list at [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
 1. Consider staggering your load/deployment over a longer period of time to stay under the current RPS limits.
 1. If your app comprises multiple nodes that need to read the same secret(s), then consider using a fan out pattern, where one entity reads the secret from Key Vault, and fans out to all nodes.   Cache the retrieved secrets only in memory.
-If you find that the above still does not meet your needs, please fill out the below table and contact us to determine what additional capacity can be added (example put below for illustrative purposes only).
 
-| Vault name | Vault Region | Object type (Secret, Key, or Cert) | Operation(s)* | Key Type | Key Length or Curve | HSM key?| Steady state RPS needed | Peak RPS needed |
-|--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Key | Sign | EC | P-256 | No | 200 | 1000 |
-
-\* For a full list of possible values, see [Azure Key Vault operations](/rest/api/keyvault/key-operations).
-
-If additional capacity is approved, please note the following as result of the capacity increases:
-1. Data consistency model changes. Once a vault is allow listed with additional throughput capacity, the Key Vault service data consistency guarantee changes (necessary to meet higher volume RPS since the underlying Azure Storage service cannot keep up).  In a nutshell:
-  1. **Without allow listing**: The Key Vault service will reflect the results of a write operation (eg. SecretSet, CreateKey) immediately in subsequent calls (eg. SecretGet, KeySign).
-  1. **With allow listing**: The Key Vault service will reflect the results of a write operation (eg. SecretSet, CreateKey) within 60 seconds in subsequent calls (eg. SecretGet, KeySign).
-1. Client code must honor back-off policy for 429 retries. The client code calling the Key Vault service must not immediately retry Key Vault requests when it receives a 429 response code.  The Azure Key Vault throttling guidance published here recommends applying exponential backoff when receiving a 429 Http response code.
-
-If you have a valid business case for higher throttle limits, please contact us.
 
 ## How to throttle your app in response to service limits
 
@@ -72,7 +57,7 @@ SecretClientOptions options = new SecretClientOptions()
             Mode = RetryMode.Exponential
          }
     };
-    var client = new SecretClient(new Uri(https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
+    var client = new SecretClient(new Uri("https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
                                  
     //Retrieve Secret
     secret = client.GetSecret(secretName);
@@ -95,5 +80,4 @@ At this point, you should not be getting HTTP 429 response codes.
 
 ## See also
 
-For a deeper orientation of throttling on the Microsoft Cloud, see [Throttling Pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling).
-
+For a deeper orientation of throttling on the Microsoft Cloud, see [Throttling Pattern](/azure/architecture/patterns/throttling).

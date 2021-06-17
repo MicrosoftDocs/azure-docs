@@ -1,5 +1,5 @@
 ---
-title: Best practices for Microsoft identity platform | Azure
+title: Best practices for the Microsoft identity platform | Azure
 description: Learn about best practices, recommendations, and common oversights when integrating with the Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -22,14 +22,14 @@ This article highlights best practices, recommendations, and common oversights w
 
 If you’re just getting started, check out the [Microsoft identity platform documentation](index.yml) to learn about authentication basics, application scenarios in the Microsoft identity platform, and more.
 
-Use the following checklist to ensure that your application is effectively integrated with the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
+Use the following checklist to ensure that your application is effectively integrated with the [Microsoft identity platform](./index.yml).
 
 > [!TIP]
-> The *Integration assistant* in the Azure portal can help you apply many of these best practices and recommendations. Select any of your [app registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal, and then select the **Integration assistant (preview)** menu item to get started with the assistant.
+> The *Integration assistant* in the Azure portal can help you apply many of these best practices and recommendations. Select any of your [app registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal, and then select the **Integration assistant** menu item to get started with the assistant.
 
 ## Basics
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Read and understand the [Microsoft Platform Policies](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Ensure that your application adheres to the terms outlined as they're designed to protect users and the platform.
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Read and understand the [Microsoft Platform Policies](/legal/microsoft-identity-platform/terms-of-use). Ensure that your application adheres to the terms outlined as they're designed to protect users and the platform.
 
 ## Ownership
 
@@ -55,9 +55,9 @@ Use the following checklist to ensure that your application is effectively integ
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Move beyond username/password. Don't use [resource owner password credential flow (ROPC)](v2-oauth-ropc.md), which directly handles users’ passwords. This flow requires a high degree of trust and user exposure and should only be used when other, more secure, flows can't be used. This flow is still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application.  For more modern approaches, read [Authentication flows and application scenarios](authentication-flows-app-scenarios.md).
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Protect and manage your confidential app credentials for web apps, web APIs and daemon apps. Use [certificate credentials](active-directory-certificate-credentials.md), not password credentials (client secrets). If you must use a password credential, don't set it manually. Don't store credentials in code or config, and never allow them to be handled by humans. If possible, use [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) or [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) to store and regularly rotate your credentials.
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Protect and manage your confidential app credentials for web apps, web APIs and daemon apps. Use [certificate credentials](active-directory-certificate-credentials.md), not password credentials (client secrets). If you must use a password credential, don't set it manually. Don't store credentials in code or config, and never allow them to be handled by humans. If possible, use [managed identities for Azure resources](../managed-identities-azure-resources/overview.md) or [Azure Key Vault](../../key-vault/general/basic-concepts.md) to store and regularly rotate your credentials.
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Make sure your application requests the least privilege permissions. Only ask for permissions that your application absolutely needs, and only when you need them. Understand the different [types of permissions](v2-permissions-and-consent.md#permission-types). Only use application permissions if necessary; use delegated permissions where possible. For a full list of Microsoft Graph permissions, see this [permissions reference](https://docs.microsoft.com/graph/permissions-reference).
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Make sure your application requests the least privilege permissions. Only ask for permissions that your application absolutely needs, and only when you need them. Understand the different [types of permissions](v2-permissions-and-consent.md#permission-types). Only use application permissions if necessary; use delegated permissions where possible. For a full list of Microsoft Graph permissions, see this [permissions reference](/graph/permissions-reference).
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) If you're securing an API using the Microsoft identity platform, carefully think through the permissions it should expose. Consider what's the right granularity for your solution and which permission(s) require admin consent. Check for expected permissions in the incoming tokens before making any authorization decisions.
 
@@ -65,9 +65,9 @@ Use the following checklist to ensure that your application is effectively integ
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Use modern authentication solutions (OAuth 2.0, [OpenID Connect](v2-protocols-oidc.md)) to securely sign in users.
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Don't program directly against protocols such as OAuth 2.0 and Open ID. Instead, leverage the [Microsoft Authentication Library (MSAL)](msal-overview.md). The MSAL libraries securely wrap security protocols in an easy-to-use library, and you get built-in support for [Conditional Access](/azure/active-directory/conditional-access/overview) scenarios, device-wide [single sign-on (SSO)](/azure/active-directory/manage-apps/what-is-single-sign-on), and built-in token caching support. For more info, see the list of Microsoft supported [client libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) and [middleware libraries](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) and the list of [compatible third-party client libraries](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>If you must hand code for the authentication protocols, you should follow a methodology such as [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Pay close attention to the security considerations in the standards specifications for each protocol.
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Don't program directly against protocols such as OAuth 2.0 and Open ID. Instead, leverage the [Microsoft Authentication Library (MSAL)](msal-overview.md). The MSAL libraries securely wrap security protocols in an easy-to-use library, and you get built-in support for [Conditional Access](../conditional-access/overview.md) scenarios, device-wide [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md), and built-in token caching support. For more info, see the list of Microsoft-supported [client libraries](reference-v2-libraries.md). If you must hand-code for the authentication protocols, you should follow the [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx) or similar development methodology. Pay close attention to the security considerations in the standards specifications for each protocol.
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Migrate existing apps from [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) to [Microsoft Authentication Library](msal-overview.md). MSAL is Microsoft’s latest identity platform solution and is preferred to ADAL. It is available on .NET, JavaScript, Android, iOS, macOS and is also in public preview for Python and Java. Read more about migrating [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md), and [ADAL.NET and iOS broker](msal-net-migration-ios-broker.md) apps.
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Migrate existing apps from [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) to the [Microsoft Authentication Library](msal-overview.md). MSAL is Microsoft’s latest identity platform solution and is preferred to ADAL. It is available on .NET, JavaScript, Android, iOS, macOS and is also in public preview for Python and Java. Read more about migrating [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md), and [ADAL.NET and iOS broker](msal-net-migration-ios-broker.md) apps.
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) For mobile apps, configure each platform using the application registration experience. In order for your application to take advantage of the Microsoft Authenticator or Microsoft Company Portal for single sign-in, your app needs a “broker redirect URI” configured. This allows Microsoft to return control to your application after authentication. When configuring each platform, the app registration experience will guide you through the process. Use the quickstart to download a working example. On iOS, use brokers and system webview whenever possible.
 
@@ -101,7 +101,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 Explore in-depth information about v2.0:
 
-* [Microsoft identity platform (v2.0 overview)](v2-overview.md)
+* [Microsoft identity platform (overview)](v2-overview.md)
 * [Microsoft identity platform protocols reference](active-directory-v2-protocols.md)
 * [Access tokens reference](access-tokens.md)
 * [ID tokens reference](id-tokens.md)

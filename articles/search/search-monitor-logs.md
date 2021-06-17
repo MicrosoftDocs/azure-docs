@@ -13,25 +13,25 @@ ms.date: 06/30/2020
 
 # Collect and analyze log data for Azure Cognitive Search
 
-Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service and workload processes. Internally, some system information exists on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. However, if you want self-direction over operational data, you should configure a diagnostic setting to specify where logging information is collected.
+Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service health and processes. Internally, Microsoft preserves system information on the backend for a short period of time (about 30 days), sufficient for investigation and analysis if you file a support ticket. However, if you want ownership over operational data, you should configure a diagnostic setting to specify where logging information is collected.
 
-Diagnostic logging is enabled through integration with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+Diagnostic logging is enabled through integration with [Azure Monitor](../azure-monitor/index.yml). 
 
 When you set up diagnostic logging, you will be asked to specify a storage mechanism. The following table enumerates options for collecting and persisting data.
 
 | Resource | Used for |
 |----------|----------|
-| [Send to Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Events and metrics are sent to a Log Analytics workspace, which can be queried in the portal to return detailed information. For an introduction, see [Get started with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Archive with Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Events and metrics are archived to a Blob container and stored in JSON files. Logs can be quite granular (by the hour/minute), useful for researching a specific incident but not for open-ended investigation. Use a JSON editor to view a raw log file or Power BI to aggregate and visualize log data.|
-| [Stream to Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Events and metrics are streamed to an Azure Event Hubs service. Choose this as an alternative data collection service for very large logs. |
+| [Send to Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md) | Events and metrics are sent to a Log Analytics workspace, which can be queried in the portal to return detailed information. For an introduction, see [Get started with Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) |
+| [Archive with Blob storage](../storage/blobs/storage-blobs-overview.md) | Events and metrics are archived to a Blob container and stored in JSON files. Logs can be quite granular (by the hour/minute), useful for researching a specific incident but not for open-ended investigation. Use a JSON editor to view a raw log file or Power BI to aggregate and visualize log data.|
+| [Stream to Event Hub](../event-hubs/index.yml) | Events and metrics are streamed to an Azure Event Hubs service. Choose this as an alternative data collection service for very large logs. |
 
 ## Prerequisites
 
 Create resources in advance so that you can select one or more when configuring diagnostic logging.
 
-+ [Create a log analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
++ [Create a log analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
 
-+ [Create a storage account](../storage/common/storage-quickstart-create-account.md)
++ [Create a storage account](../storage/common/storage-account-create.md)
 
 + [Create an Event Hub](../event-hubs/event-hubs-create.md)
 
@@ -72,14 +72,14 @@ Two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnosti
 
 1. Enter the following query to return a tabular result set.
 
-   ```
+   ```kusto
    AzureMetrics
-    | project MetricName, Total, Count, Maximum, Minimum, Average
+   | project MetricName, Total, Count, Maximum, Minimum, Average
    ```
 
 1. Repeat the previous steps, starting with **AzureDiagnostics** to return all columns for informational purposes, followed by a more selective query that extracts more interesting information.
 
-   ```
+   ```kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search" 
@@ -95,7 +95,7 @@ If you enabled diagnostic logging, you can query **AzureDiagnostics** for a list
 
 Return a list of operations and a count of each one.
 
-```
+```kusto
 AzureDiagnostics
 | summarize count() by OperationName
 ```
@@ -104,7 +104,7 @@ AzureDiagnostics
 
 Correlate query request with indexing operations, and render the data points across a time chart to see operations coincide.
 
-```
+```kusto
 AzureDiagnostics
 | summarize OperationName, Count=count()
 | where OperationName in ('Query.Search', 'Indexing.Index')
@@ -118,9 +118,9 @@ Logged events captured by Azure Monitor include those related to indexing and qu
 
 | OperationName | Description |
 |---------------|-------------|
-| ServiceStats | This operation is a routine call to [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
+| ServiceStats | This operation is a routine call to [Get Service Statistics](/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
 | Query.Search |  Query requests against an index See [Monitor queries](search-monitor-queries.md) for information about logged queries.|
-| Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents). |
 | indexes.Prototype | This is an index created by the Import Data wizard. |
 | Indexers.Create | Create an indexer explicitly or implicitly through the Import Data wizard. |
 | Indexers.Get | Returns the name of an indexer whenever the indexer is run. |

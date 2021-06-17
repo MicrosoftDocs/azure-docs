@@ -1,6 +1,6 @@
 ---
 title: Mount the Avere vFXT - Azure
-description: How to mount clients with Avere vFXT for Azure
+description: Learn how to connect clients to your vFXT cluster in Avere vFXT for Azure and how to load-balance client traffic among your cluster nodes.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
@@ -97,7 +97,7 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 
 ``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Required settings | |
+| Required settings | Description |
 --- | ---
 ``hard`` | Soft mounts to the vFXT cluster are associated with application failures and possible data loss.
 ``proto=netid`` | This option supports appropriate handling of NFS network errors.

@@ -14,7 +14,7 @@ A control that can be used to provide and confirm a password.
 
 ## UI sample
 
-![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
+![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft-common-passwordbox.png)
 
 ## Schema
 

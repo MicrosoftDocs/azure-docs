@@ -2,7 +2,8 @@
 title: Use private endpoints with Azure Batch accounts
 description: Learn how to connect privately to an Azure Batch account by using private endpoints. 
 ms.topic: how-to
-ms.date: 06/12/2020
+ms.date: 09/28/2020
+ms.custom: references_regions
 ---
 
 # Use private endpoints with Azure Batch accounts
@@ -11,16 +12,12 @@ By default, [Azure Batch accounts](accounts.md) have a public endpoint and are p
 
 By using [Azure Private Link](../private-link/private-link-overview.md), you can connect to an Azure Batch account via a [private endpoint](../private-link/private-endpoint-overview.md). The private endpoint is a set of private IP addresses in a subnet within your virtual network. You can then limit access to an Azure Batch account over private IP addresses.
 
-Private Link allows users to access an Azure Batch account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or [Azure ExpressRoute](../expressroute/expressroute-introduction.md).
-
-You can connect to an Azure Batch account configured with Private Link by using the [automatic or manual approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
-
-This article describes the steps to create a private Batch account and access it using a private endpoint.
+Private Link allows users to access an Azure Batch account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or [Azure ExpressRoute](../expressroute/expressroute-introduction.md). You can connect to an Azure Batch account configured with Private Link by using the [automatic or manual approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
 > [!IMPORTANT]
-> Support for private connectivity in Azure Batch is currently in public preview for the West Central US, West US 2, East US, South Central US, US Gov Virginia, and US Gov Arizona regions.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Support for private connectivity in Azure Batch is currently available for all regions except Germany Central, Germany Northeast, China East, China East 2, China North, and China North 2.
+
+This article describes the steps to create a private Batch account and access it using a private endpoint.
 
 ## Azure portal
 
@@ -38,11 +35,16 @@ Use the following steps to create a private Batch account using the Azure portal
    - **Virtual network**: Select your virtual network.
    - **Subnet**: Select your subnet.
    - **Integrate with private DNS zone**:	Select **Yes**. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines.
-   - **Private DNS Zone**:	Select privatelink.<region>.batch.azure.com. The private DNS zone is determined automatically. You can't change it by using the Azure portal.
+   - **Private DNS Zone**:	Select privatelink.\<region\>.batch.azure.com. The private DNS zone is determined automatically. You can't change it by using the Azure portal.
 8. Select **Review + create**, then wait for Azure to validate your configuration.
 9. When you see the **Validation passed** message, select **Create**.
 
-After the private endpoint is provisioned, you can access the Batch account from VMs in the same virtual network using the private endpoint. To view the IP address from the Azure portal:
+After the private endpoint is provisioned, you can access the Batch account from VMs in the same virtual network using the private endpoint.
+
+> [!IMPORTANT]
+> Performing operations outside of the virtual network where the private endpoint is provisioned will result in an "AuthorizationFailure" message in the Azure Portal.
+
+To view the IP address from the Azure portal:
 
 1. Select **All resources**.
 2. Search for the private endpoint that you created earlier.
@@ -104,5 +106,6 @@ When creating your private Batch account, keep in mind the following:
 ## Next steps
 
 - Learn how to [create Batch pools in virtual networks](batch-virtual-network.md).
+- Learn how to [create Batch pools without public IP addresses](batch-pool-no-public-ip-address.md)
 - Learn how to [create Batch pools with specified public IP addresses](create-pool-public-ip.md).
 - Learn about [Azure Private Link](../private-link/private-link-overview.md).

@@ -35,7 +35,7 @@ The solution builds on the
 [SharePointDSC resource](https://github.com/powershell/sharepointdsc)
 and extends it to orchestrate
 [gathering information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use)
-from existing SharePoint servers.
+from existing servers running SharePoint.
 The latest version has multiple
 [extraction modes](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes)
 to determine what level of information to include.
@@ -49,10 +49,10 @@ you can use them with
 [DSC Configuration scripts](/powershell/scripting/dsc/overview/overview)
 to generate MOF files
 and
-[upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+[upload the MOF files to Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
-or [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)
+[on-premises](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines)
+or [in Azure](./automation-dsc-onboarding.md#enable-azure-vms)
 to pull configurations.
 
 To try out ReverseDSC, visit the

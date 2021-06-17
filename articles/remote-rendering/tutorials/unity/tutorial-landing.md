@@ -1,8 +1,8 @@
 ---
 title: Azure Remote Rendering tutorial landing page
 description: ARR tutorial overview and navigation
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ---
@@ -10,6 +10,9 @@ ms.topic: tutorial
 # Azure Remote Rendering tutorials
 
 Welcome to the Azure Remote Rendering tutorials. In addition to learning key concepts of Azure Remote Rendering, these interactive lessons will walk you through viewing, manipulating, and customizing remotely rendered models and highlight considerations for building a secure, commercial-ready application.
+
+> [!TIP]
+> These lessons are detailed and build up an example app over several steps. If you prefer to see a more compact example that can be deployed to a HoloLens 2 quickly, have a look at our [Unity Quickstart](../../quickstarts/render-model.md).
 
 ### Azure Remote Rendering Tutorials
 
