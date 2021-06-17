@@ -98,7 +98,9 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 6. Click the **JSON** tab.
 
-7. Click **Edit**, and paste the following JSON text to define the Developer role.
+7. Click **Edit**.
+
+8. Paste the following JSON text to define the Developer role.
 
    ![Create custom role](media/spring-cloud-permissions/create-custom-role-json.png)
 
@@ -138,7 +140,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
   }
 }
 ```
-8. Click **Save**.
+9. Click **Save**.
 ---
 
 10. Review the permissions.
