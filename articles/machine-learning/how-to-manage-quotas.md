@@ -226,4 +226,4 @@ To request an allowance for these scenarios, use the following steps:
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
 + [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)
-+ [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints)
++ [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)

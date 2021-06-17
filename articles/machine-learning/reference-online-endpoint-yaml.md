@@ -69,4 +69,4 @@ For more information on deploying a model, see [How to deploy managed online end
 ## Next steps
 
 - Learn how to [deploy a model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
-- [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints)
+- [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)

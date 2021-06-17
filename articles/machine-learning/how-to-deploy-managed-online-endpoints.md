@@ -304,7 +304,7 @@ If you aren't going use the deployment, you should delete it with the below comm
 
 ## Next steps
 - [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
-- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoints-studio.md)
+- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
 - [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
