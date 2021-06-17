@@ -4,7 +4,7 @@ description: Practices and workflows in Azure Container Registry to manage depen
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 11/20/2020
+ms.date: 06/17/2021
 ---
 
 # Manage public content with Azure Container Registry
@@ -80,6 +80,15 @@ az acr import \
 
 Depending on your organization's needs, you can import to a dedicated registry or a repository in a shared registry.
 
+## Update image references
+
+When you import and manage public images in your private container registry, update your build and deployment workflows to refer to your privately managed images. 
+
+* Update image references to use the private registry. For example, update a `FROM baseimage:v1` statement in a Dockerfile to `FROM myregistry.azurecr.io/mybaseimage:v1`
+* Configure credentials or an authentication mechanism to use the private registry. The exact mechanism depends on the tools you use to access the registry and how you manage user access.
+    * If you use a Kubernetes cluster or Azure Kubernetes Service to access the registry, see the [authentication scenarios](authenticate-kubernetes-options.md).
+    * Learn more about [options to authenticate](container-registry-authentication.md) with an Azure container registry.
+
 ## Automate application image updates
 
 Developers of application images should ensure that their code references local content under their control. For example, a `Docker FROM` statement in a Dockerfile should reference an image in a private base image registry instead of a public registry. 
@@ -92,7 +101,6 @@ For a detailed example, see [How to consume and maintain public content with Azu
 > A single preconfigured task can automatically rebuild every application image that references a dependent base image. 
  
 ## Next steps
- 
 * Learn more about [ACR Tasks](container-registry-tasks-overview.md) to build, run, push, and patch container images in Azure.
 * See [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md) for an automated gating workflow to update base images to your environment. 
 * See the [ACR Tasks tutorials](container-registry-tutorial-quick-task.md) for more examples to automate image builds and updates.
