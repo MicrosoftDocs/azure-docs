@@ -137,15 +137,6 @@ Client secrets are considered less secure than certificate credentials. Applicat
 
 For application security recommendations, see [Microsoft identity platform best practices and recommendations](identity-platform-integration-checklist.md#security).
 
-## Testing out of repo referencing
-Replace the contents of *ErrorViewModel.cs* class with the following code:
-
-:::code language="csharp" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/1-WebApp-OIDC/1-4-Sovereign/Models/ErrorViewModel.cs":::
-
-Replace the content of *HomeController.cs* class with the following code: 
-
- :::code language="csharp" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/5-WebApp-AuthZ/5-2-Groups/Controllers/HomeController.cs":::
-
 ## Next steps
 
 Client applications typically need to access resources in a web API. You can protect your client application by using the Microsoft identity platform. You can also use the platform for authorizing scoped, permissions-based access to your web API.
