@@ -8,7 +8,7 @@ ms.date: 06/09/2021
 # Azure AD authentication for Application Insights (Preview)
 Application Insights now supports Azure Active Directory (Azure AD) authentication. By using Azure AD, you can now ensure that only authenticated telemetry is ingested in your Application Insights resources. 
 
-Typically, using various authentication systems can be cumbersome and pose risk since it’s difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical business decisions. 
+Typically, using various authentication systems can be cumbersome and pose risk since it’s difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make used to make both critical operational (alerting/autoscale etc.) and business decisions.
 
 > [!IMPORTANT]
 > Azure AD authentication is currently in PREVIEW.
