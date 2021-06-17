@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Planning
+# Migrate MySQL on-premises to Azure Database for MySQL | Planning
 
 ## Prerequisites
 
@@ -90,6 +90,8 @@ WWI originally wanted to test an online migration, but the required network setu
 
 - Decide on the SSL certificate strategy.  
 
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Migration Methods](./05-migration-methods.md)

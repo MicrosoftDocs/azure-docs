@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Business Continuity and Disaster Recovery (BCDR)
+# Migrate MySQL on-premises to Azure Database for MySQL | Business Continuity and Disaster Recovery (BCDR)
 
 ## Prerequisites
 
@@ -115,6 +115,8 @@ Failover Steps:
 
 - Implement a load-balancing strategy for applications for quick failover.  
 
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Security](./13-security.md)

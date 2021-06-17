@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Migration Methods
+# Migrate MySQL on-premises to Azure Database for MySQL | Migration Methods
 
 ## Prerequisites
 
@@ -115,6 +115,8 @@ WWI has selected its conference database as its first migration workload. The wo
 
   - Always verify if the data workload supports the method.  
 
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Test Plans](./06-test-plans.md)

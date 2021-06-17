@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Assessment
+# Migrate MySQL on-premises to Azure Database for MySQL | Assessment
 
 ## Prerequisites
 
@@ -277,6 +277,8 @@ For the first phase, WWI focused solely on the ConferenceDB database. The team n
   - Understand the downtime requirements.
 
   - Be prepared to make application changes.
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Planning](./04-planning.md)

@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Test Plans
+# Migrate MySQL on-premises to Azure Database for MySQL | Test Plans
 
 ## Prerequisites
 
@@ -181,6 +181,8 @@ The source database schema information was used to verify the target migration o
 
   - Have a well-defined timeline of events for the migration.  
 
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Performance Baselines](./07-performance-baselines.md)

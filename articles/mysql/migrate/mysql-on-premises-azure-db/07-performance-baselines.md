@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Performance Baselines
+# Migrate MySQL on-premises to Azure Database for MySQL | Performance Baselines
 
 ## Prerequisites
 
@@ -91,6 +91,8 @@ Additionally, review any parameters that will affect maximums:
 WWI reviewed their Conference database workload and determined it had a very small load. Although a basic tier server would work for them, they did not want to perform work later to migrate to another tier. The server being deployed will eventually host the other MySQL data workloads and so they picked the `General Performance` tier.
 
 In reviewing the MySQL database, the MySQL 5.5 server is running with the defaults server parameters that are set during the initial install.
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Data Migration](./08-data-migration.md)

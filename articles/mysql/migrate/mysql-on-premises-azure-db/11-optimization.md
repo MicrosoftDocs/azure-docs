@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Optimization
+# Migrate MySQL on-premises to Azure Database for MySQL | Optimization
 
 ## Prerequisites
 
@@ -78,6 +78,8 @@ They elected to monitor any potential issues for now and implement Azure Automat
 
   - Consider moving regions of the users or application needs change.  
 
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Business Continuity and Disaster Recovery (BCDR)](./12-business-continuity-and-disaster-recovery.md)

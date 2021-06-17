@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Post Migration Management
+# Migrate MySQL on-premises to Azure Database for MySQL | Post Migration Management
 
 ## Prerequisites
 
@@ -109,6 +109,8 @@ The MySQL DBAs installed the Azure Database for [MySQL Azure PowerShell cmdlets]
 
   - Set up notifications for maintenance events such as upgrades and patches. Notify users as necessary.  
 
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Optimization](./11-optimization.md)

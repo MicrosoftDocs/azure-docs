@@ -8,10 +8,10 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Representative Use Case
+# Migrate MySQL on-premises to Azure Database for MySQL | Representative Use Case
 
 ## Prerequisites
 
@@ -57,6 +57,8 @@ WWI has several instances of MySQL running with varying versions ranging from 5.
 They would also like to ensure that their data workloads are safe and available across multiple geographic regions if there's a failure and look at the available configuration options.
 
 WWI wants to start with a simple application for the first migration and then move to more business-critical applications in a later phase. This provides the team with the knowledge and experience they need to prepare and plan for those future migrations.  
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Assessment](./03-assessment.md)
