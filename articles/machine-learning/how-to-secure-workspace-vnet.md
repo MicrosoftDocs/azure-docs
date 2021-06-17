@@ -81,6 +81,7 @@ az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'A
 You may also need to allow traffic to non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
 
 | Host name | Purpose |
+| ----- | ----- |
 | **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
 | **\*.anaconda.org** | Used to get repo data. |
 | **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
