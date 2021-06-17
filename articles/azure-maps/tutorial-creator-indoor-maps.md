@@ -263,7 +263,7 @@ To create a dataset:
 6. Enter the following URL to the [Dataset API](/rest/api/maps/v2/dataset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{conversionId`} with the `conversionId` obtained in [Check Drawing package conversion status](#check-the-drawing-package-conversion-status)):
 
     ```http
-    https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. Select **Send**.

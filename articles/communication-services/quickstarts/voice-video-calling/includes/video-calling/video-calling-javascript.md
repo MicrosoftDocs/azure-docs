@@ -130,7 +130,10 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client and access DeviceManager
 
-You need to replace <[USER_ACCESS_TOKEN](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart)> with a valid user access token for your resource. Refer to the user access token documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. 
+You **need to replace <USER_ACCESS_TOKEN> with a valid user access token** for your resource. Refer to the [user access token documentation](../../../access-tokens.md) if you don't already have a token available. 
+
+Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. 
+
 To access the `DeviceManager` a callAgent instance must first be created. You can then use the `getDeviceManager` method on the `CallClient` instance to get the `DeviceManager`.
 
 Add the following code to `client.js`:
