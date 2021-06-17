@@ -69,7 +69,7 @@ To start using the benefit for SUSE:
 
 You may enable the benefit on existing VMs by visiting the **Configuration** option on the left and following the steps there. You may enable the benefit on new VMs during the VM create experience.
 
-### Azure portal example to enable the benefit for an existing VM:
+### Azure portal example to enable the benefit during creation of VM:
 1. Visit [Microsoft Azure portal](https://portal.azure.com/)
 1. Go to 'Create a Virtual Machine' page on the portal.
  ![AHB while creating VM](./media/azure-hybrid-benefit/create-vm-ahb.png)
@@ -79,14 +79,12 @@ You may enable the benefit on existing VMs by visiting the **Configuration** opt
 1. Check the **Configuration** blade and you will see the option enabled. 
 ![AHB Configuration blade after creating](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-### Azure portal example to enable the benefit during creation of VM:
+### Azure portal example to enable the benefit for an existing VM:
 1. Visit [Microsoft Azure portal](https://portal.azure.com/)
 1. Open the Virtual Machine page on which you want to apply the conversion.
 1. Go the **Configuration** option on the left. You will see the Licensing section. To enable the AHB conversion, check the 'Yes' radio button and check the Confirmation checkbox.
 ![AHB Configuration blade after creating](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
->[!NOTE]
-> If you have created a **Custom Snapshot** or a **Shared Image (SIG)** of a RHEL or SLES PAYG Marketplace image, you can only use Azure CLI to enable Azure Hybrid Benefit. This is known limitation and currently there is no timeline to provide this capability on the Azure Portal as well.
 
 ## Enable and disable the benefit in the Azure CLI
 
@@ -173,7 +171,7 @@ To use Azure Hybrid Benefit for your SLES VMs, and for information about moving 
 
 ## Azure Hybrid Benefit on Reserved Instances 
 
-Azure Reservations (Azure Reserved Virtual Machine Instances) help you save money by committing to one-year or three-year plans for multiple products. You can learn more about [Reserved instances here](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations). The Azure Hybrid Benefit is available for [Reserved Virtual Machine Instance(RIs)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). 
+Azure Reservations (Azure Reserved Virtual Machine Instances) help you save money by committing to one-year or three-year plans for multiple products. You can learn more about [Reserved instances here](../../cost-management-billing/reservations/save-compute-costs-reservations.md). The Azure Hybrid Benefit is available for [Reserved Virtual Machine Instance(RIs)](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). 
 
 This means that if you have purchased compute costs at a discounted rate using RI, you can apply AHB benefit on the licensing costs for RHEL and SUSE on top of it. The steps to apply AHB benefit for an RI instance remains exactly same as it is for a regular VM.
 ![AHB for RIs](./media/azure-hybrid-benefit/reserved-instances.png)
@@ -209,7 +207,7 @@ A: Yes, you can. You can use the license type of `RHEL_BYOS` for RHEL VMs and `S
 
 *Q: Can I use Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES?*
 
-A: Yes, Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is is available to all users. You can [learn more about this benefit and how to use it here](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 
+A: Yes, Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is is available to all users. You can [learn more about this benefit and how to use it here](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md). 
 
 *Q: Can I use Azure Hybrid Benefit on reserved instances for RHEL and SLES?*
 
@@ -233,4 +231,4 @@ This section lists common problems that you might encounter and steps for mitiga
 
 ## Next steps
 * [Learn how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit by using the Azure CLI](/cli/azure/vm)
-* Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is is available to all users. You can [learn more about this benefit and how to use it here](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 
+* Azure Hybrid Benefit on virtual machine scale sets for RHEL and SLES is is available to all users. You can [learn more about this benefit and how to use it here](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md).

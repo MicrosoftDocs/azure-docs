@@ -7,7 +7,8 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 03/26/2021
 ms.author: victorh
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable Web Application Firewall using Azure PowerShell

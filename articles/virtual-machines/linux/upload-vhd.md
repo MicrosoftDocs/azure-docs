@@ -1,17 +1,11 @@
 ---
 title: Upload or copy a custom Linux VM with Azure CLI 
 description: Upload or copy a customized virtual machine by using the Resource Manager deployment model and the Azure CLI
-services: virtual-machines
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: imaging
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019

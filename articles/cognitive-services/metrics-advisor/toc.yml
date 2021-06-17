@@ -6,7 +6,7 @@
   - name: What is Metrics Advisor?
     href: overview.md
   - name: Pricing
-    href: http://go.microsoft.com/fwlink/?LinkID=761229
+    href: https://aka.ms/ma-pricing
   - name: What's new?
     href: whats-new.md
 - name: Quickstarts
@@ -16,7 +16,7 @@
   - name: REST API and client libraries
     href: quickstarts/rest-api-and-client-library.md
 - name: Samples
-  href: https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=metrics-advisor 
+  href: /samples/browse/?products=azure&terms=metrics-advisor
 - name: How-to guides
   items:
   - name: Onboard your data
@@ -43,6 +43,18 @@
   items:
     - name: Metrics Advisor key terms
       href:  glossary.md
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Use cases for Metrics Advisor
+      href: /legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/cognitive-services/metrics-advisor/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/cognitive-services/metrics-advisor/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/metrics-advisor/context/context
+  - name: Data, privacy and security
+    href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/metrics-advisor/context/context
 - name: Reference
   items:
   - name: Metrics Advisor REST API

@@ -46,6 +46,8 @@
     items:
     - name: Firmware security
       href: firmware.md
+    - name: Code integrity
+      href: code-integrity.md
     - name: Secure Boot
       href: secure-boot.md
     - name: Measured boot & host attestation
@@ -172,6 +174,8 @@
   items:
   - name: Azure security services
     href: services-technologies.md
+  - name: Feature availability for US Government clouds
+    href: feature-availability.md
   - name: Security white papers
     href: https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource
   - name: Best practices

@@ -1,8 +1,8 @@
 ---
 title: Copy and transform data in Azure Database for MySQL
 description: earn how to copy and transform data in Azure Database for MySQL by using Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -27,7 +27,7 @@ This Azure Database for MySQL connector is supported for the following activitie
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Database for MySQL connector.
 

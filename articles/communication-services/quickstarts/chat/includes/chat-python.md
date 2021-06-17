@@ -12,7 +12,8 @@ ms.custom: include file
 ms.author: mikben
 ---
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat)
 
 ## Prerequisites
 Before you get started, make sure to:
@@ -222,14 +223,14 @@ new_users = [identity_client.create_user() for i in range(2)]
 # user_display_name = "Wilma Flinstone"
 # new_user = CommunicationUserIdentifier(user_id)
 # participant = ChatParticipant(
-#     user=new_user,
+#     identifier=new_user,
 #     display_name=user_display_name,
 #     share_history_time=datetime.utcnow())
 
 participants = []
 for _user in new_users:
   chat_thread_participant = ChatParticipant(
-    user=_user,
+    identifier=_user,
     display_name='Fred Flinstone',
     share_history_time=datetime.utcnow()
   ) 

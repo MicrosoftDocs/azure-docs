@@ -9,10 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 09/06/2020
+ms.date: 05/19/2021
 ---
 
 # Use Jupyter Notebook to hunt for security threats
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 The foundation of Azure Sentinel is the data store; it combines high-performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store. The same API is also available for external tools such as [Jupyter](https://jupyter.org/) notebooks and Python. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data. It combines full programmability with a huge collection of libraries for machine learning, visualization, and data analysis. These attributes make Jupyter a compelling tool for security investigation and hunting.
 
@@ -36,7 +38,7 @@ The Azure Sentinel notebooks use many popular Python libraries such as pandas, m
 - Statistics and numerical computing
 - Machine learning and deep learning
 
-We've also released some open-source Jupyter security tools in a package named [msticpy](https://github.com/Microsoft/msticpy/). This package is used in many of the included notebooks. Msticpy tools are designed specifically to help with creating notebooks for hunting and investigation and we're actively working on new features and improvements.
+We've also released some open-source Jupyter security tools in a package named [msticpy](https://github.com/Microsoft/msticpy/). This package is used in many of the included notebooks. Msticpy tools are designed specifically to help with creating notebooks for hunting and investigation and we're actively working on new features and improvements. For more information, see the [MSTIC Jupyter and Python Security Tools documentation](https://msticpy.readthedocs.io/).
 
 The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
 
@@ -106,15 +108,20 @@ Once your deployment is complete, you can launch notebooks in your new Azure ML 
     > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
 1. Select a compute instance. If you don't have a compute instance, do the following:
-    1. Select the plus sign (+) to start the **New compute instance** wizard.
+    1. Select the plus sign (+) to start the **Create compute instance** wizard.
 
         > [!div class="mx-imgBorder"]
         > ![start compute instance wizard](./media/notebooks/sentinel-azure-notebooks-compute-wizard.png)
 
-    1. On the **New compute instance** page, provide the required information, and then select **Create**.
+    1. On the **Select virtual machine** page, provide the required information, and then select **Next**.
 
         > [!div class="mx-imgBorder"]
-        > ![create compute instance](./media/notebooks/sentinel-azure-notebooks-compute-create.png)
+        > ![Select compute instance VM](./media/notebooks/sentinel-azure-notebooks-compute-create.png)
+
+    1. On the **Configure settings** page, provide the required information, and then select **Create**.
+    
+        > [!div class="mx-imgBorder"]
+        > ![Configure compute instance settings](./media/notebooks/sentinel-azure-notebooks-compute-settings.png)
 
 1. Once your notebook server is created, within each cell select the run icon to execute code in the notebooks.
 
@@ -139,3 +146,4 @@ In this article, you learned how to get started using Jupyter Notebook in Azure 
 
 - [Proactively hunt for threats](hunting.md)
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
+- [Jupyter, msticpy and Azure Sentinel](https://msticpy.readthedocs.io/en/latest/getting_started/JupyterAndAzureSentinel.html)

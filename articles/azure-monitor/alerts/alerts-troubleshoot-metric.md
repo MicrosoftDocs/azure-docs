@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 04/12/2021
+ms.date: 06/03/2021
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
@@ -56,7 +56,10 @@ If you believe your metric alert shouldn't have fired but it did, the following 
     - The selected **Aggregation** in the metric chart is the same as **Aggregation type** in your alert rule
     - The selected **Time granularity** is the same as the **Aggregation granularity (period)** in your alert rule (and not set to 'Automatic')
 
-5. If the alert fired while there are already fired alerts that monitor the same criteria (that aren’t resolved), check if the alert rule has been configured with the *autoMitigate* property set to **false** (this property can only be configured via REST/PowerShell/CLI, so check the script used to deploy the alert rule). In such case, the alert rule does not autoresolve fired alerts, and does not require a fired alert to be resolved before firing again.
+5. If the alert fired while there are already fired alerts that monitor the same criteria (that aren’t resolved), check if the alert rule has been configured not to automatically resolve alerts. Such configuration causes the alert rule to become stateless, meaning that the alert rule does not auto-resolve fired alerts, and does not require a fired alert to be resolved before firing again on the same time-series.
+    You can check if the alert rule is configured not to auto-resolve in one of the following ways:
+    - By editing the alert rule in the Azure portal, and reviewing if the 'Automatically resolve alerts' checkbox is unchecked (available under the 'Alert rule details' section).
+    - By reviewing the script used to deploy the alert rule, or by retrieving the alert rule definition, and checking if the *autoMitigate* property is set to **false**.
 
 
 ## Can't find the metric to alert on - virtual machines guest metrics
@@ -101,7 +104,9 @@ When deleting an Azure resource, associated metric alert rules aren't deleted au
 
 ## Make metric alerts occur every time my condition is met
 
-Metric alerts are stateful by default, and therefore additional alerts are not fired if there’s already a fired alert on a given time series. If you wish to make a specific metric alert rule stateless, and get alerted on every evaluation in which the alert condition is met, create the alert rule programmatically (for example, via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)), and set the *autoMitigate* property to 'False'.
+Metric alerts are stateful by default, and therefore additional alerts are not fired if there’s already a fired alert on a given time series. If you wish to make a specific metric alert rule stateless, and get alerted on every evaluation in which the alert condition is met, follow one of these options:
+- If you're creating the alert rule programmatically (for example, via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)), set the *autoMitigate* property to 'False'.
+- If you're creating the alert rule via the Azure portal, uncheck the 'Automatically resolve alerts' option (available under the 'Alert rule details' section).
 
 > [!NOTE] 
 > Making a metric alert rule stateless prevents fired alerts from becoming resolved, so even after the condition isn’t met anymore, the fired alerts will remain in a fired state until the 30 days retention period.
@@ -233,6 +238,7 @@ Consider the following restrictions for metric alert rule names:
 - Metric alert rule names must be unique within a resource group
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
 - Metric alert rule names can’t end with a space or a period
+- The combined resource group name and alert rule name can’t exceed 252 characters
 
 > [!NOTE] 
 > If the alert rule name contains characters that aren't alphabetic or numeric (for example: spaces, punctuation marks or symbols), these characters may be URL-encoded when retrieved by certain clients.

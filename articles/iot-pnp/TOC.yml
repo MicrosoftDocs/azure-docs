@@ -21,8 +21,8 @@
     href: tutorial-multiple-components.md
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
-  - name: Interact with an MXChip device (Sample)
-    href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
+  - name: Connect an MXCHIP device
+    href: ../iot-develop/quickstart-devkit-mxchip-az3166.md
   - name: Connect a device module
     href: tutorial-migrate-device-to-module.md
   - name: Preview - Connect and analyze data with Time Series Insights Gen2
@@ -57,10 +57,10 @@
     href: howto-use-iot-explorer.md
   - name: Install and use DTDL authoring tools
     href: howto-use-dtdl-authoring-tools.md
-  - name: Use embedded C
-    href: howto-use-embedded-c.md
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
+  - name: Convert a device to IoT Plug and Play
+    href: howto-convert-to-pnp.md
   - name: How to connect an IoT Plug and Play bridge sample
     href: howto-use-iot-pnp-bridge.md
   - name: Build and deploy IoT Plug and Play bridge
@@ -77,6 +77,8 @@
     href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
+  - name: Code samples
+    href: /samples/browse/?expanded=azure&products=azure-iot-pnp
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
   - name: IoT Glossary

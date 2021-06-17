@@ -7,7 +7,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 05/07/2021
 ---
 # Configure export policy for NFS or dual-protocol volumes
 
@@ -27,7 +27,7 @@ You can create up to five export policy rules.
     * **Allowed Clients**: Specify the value in one of the following formats:  
       * IPv4 address. Example: `10.1.12.24`
       * IPv4 address with a subnet mask expressed as a number of bits. Example: `10.1.12.10/4`
-      * Comma-separated IP addresses. You can enter multiple host IPs in a single rule by separating them with commas. Example: `10.1.12.25,10.1.12.28,10.1.12.29`
+      * Comma-separated IP addresses. You can enter multiple host IPs in a single rule by separating them with commas. The length limit is 4096 characters. Example: `10.1.12.25,10.1.12.28,10.1.12.29`
 
     * **Access**: Select one of the following access types:  
       * No Access 

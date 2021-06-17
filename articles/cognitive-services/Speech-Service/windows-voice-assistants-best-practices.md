@@ -147,7 +147,7 @@ The Contoso assistant has a home on the taskbar: their swirling, circular icon.
 
 ![Screenshot of voice assistant on Windows listening in compact view](media/voice-assistants/windows_voice_assistant/compact_view_listening.png)
 
-**Quick answers** may be shown in the voice activation preview. A TryResizeView will allow assistants to request different sizes.
+**Quick answers** may appear in the voice activation preview. A TryResizeView will allow assistants to request different sizes.
 
 ![Screenshot of voice assistant on Windows replying in compact view](media/voice-assistants/windows_voice_assistant/compact_view_response.png)
 

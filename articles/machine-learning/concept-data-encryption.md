@@ -31,8 +31,6 @@ The `hbi_workspace` flag controls the amount of [data Microsoft collects for dia
 * Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters 
 * Cleans up your local scratch disk between runs
 * Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
-* Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService
-* Compute instances are supported in HBI workspace
 
 ### Azure Blob storage
 
@@ -117,9 +115,11 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 
 ### Machine Learning Compute
 
-The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no runs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk.
+The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no runs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk. 
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. The disk is encrypted by default for workspaces with the `hbi_workspace` parameter set to `TRUE`. This environment is short-lived only for the duration of your run, and encryption support is limited to system-managed keys only.
+
+The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. The local temporary disk on compute instance is encrypted with Microsoft managed keys for workspaces with the `hbi_workspace` parameter set to `TRUE`. Customer managed key encryption is not supported for OS and temp disk.
 
 ### Azure Databricks
 

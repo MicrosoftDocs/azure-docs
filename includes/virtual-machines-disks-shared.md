@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/14/2020
+ ms.date: 05/10/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -41,6 +41,7 @@ Azure shared disks are supported on Windows Server 2008 and newer. Most Windows-
 Some popular applications running on WSFC include:
 
 - [Create an FCI with Azure shared disks (SQL Server on Azure VMs)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
+    - [Migrate your failover cluster instance to SQL Server on Azure VMs with shared disks](../articles/azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
 - Scale-out File Server (SoFS) [template] (https://aka.ms/azure-shared-disk-sofs-template)
 - SAP ASCS/SCS [template] (https://aka.ms/azure-shared-disk-sapacs-template)
 - File Server for General Use (IW workload)

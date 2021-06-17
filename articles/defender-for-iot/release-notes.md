@@ -2,7 +2,7 @@
 title: What's new in Azure Defender for IoT 
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 04/25/2021
+ms.date: 05/05/2021
 ---
 
 # What's new in Azure Defender for IoT?  
@@ -96,15 +96,10 @@ This feature is available on the on-premises management console with the release
 
 ### Add second network interface to On-premises management console (Public Preview)
 
-You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have it’s connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
+You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have its connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
 
 This feature is available on the on-premises management console with the release of version 10.2.
 
-### Add second network interface to On-premises management console (Public preview)
-
-You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have it’s connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
-
-This feature is available on the on-premises management console with the release of version 10.2.
 ### Device builder - new micro agent (Public preview)
 
 A new device builder module is available. The module, referred to as a micro-agent, allows:

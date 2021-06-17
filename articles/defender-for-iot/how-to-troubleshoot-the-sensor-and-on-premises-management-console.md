@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 03/14/2021
+ms.date: 05/10/2021
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -28,11 +28,13 @@ To recover your password:
 
 1. Navigate to the Azure portal and select **Sites and Sensors**.  
 
-1. Select the **Recover on-premises management console password** tab.
+1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
 
-   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Select the recover on-premises management button to download the recovery file.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Select your sensor and select the recover on-premises management console password option.":::
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
+
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::    
 
     > [!NOTE]
     > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
@@ -44,7 +46,7 @@ To recover your password:
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX or Support user you will need to select that subscription. For more information on recovering a CyberX or Support user password, see [Resetting passwords](how-to-create-and-manage-users.md#resetting-passwords).
+    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
 
 ### Investigate a lack of traffic
 
@@ -121,7 +123,7 @@ When devices shown on the map appear not connected to each other, something migh
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="View your broadcasting devices.":::
 
-In such a case, you need to validate that you can see only the broadcast traffic. Then ask the network engineer to fix the SPAN port configuration so that you can see the unicast traffic.
+In such a case, validate that you only the broadcast traffic and then ask the network engineer to fix the SPAN port configuration so that you can see the unicast traffic as well.
 
 To validate that you're seeing only the broadcast traffic:
 
@@ -159,7 +161,7 @@ To fix the configuration:
 
 1. In the data-mining report, select :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: to enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Tweak the sensor's quality of service
+### Tweak the sensor's Quality of Service (QoS)
 
 To save your network resources, you can limit the interface bandwidth that the sensor uses for day-to-day procedures.
 
@@ -192,7 +194,7 @@ If an expected alert is not shown in the **Alerts** window, verify the following
 
 - Verify that you did not exclude this alert by using the **Alert Exclusion** rules in the on-premises management console.  
 
-### Tweak the quality of service
+### Tweak the Quality of Service (QoS)
 
 To save your network resources, you can limit the number of alerts sent to external systems (such as emails or SIEM) in one sync operation between an appliance and the on-premises management console.
 
