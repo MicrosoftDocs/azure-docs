@@ -781,7 +781,7 @@ The CuadraSTAR Connector crawls content in CuadraSTAR and creates a single index
 
 by [Accenture](https://www.accenture.com)
 
-The Database Server connector will crawl content from a Relational Database server, scanning all database on the server and extracting rows and table information.
+The Database Server connector will crawl content from a Relational Database server, scanning all databases on the server and extracting rows and table information.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Database+Server+Connector)
 
@@ -1207,7 +1207,7 @@ The IBM FileNet Content Manager Connector allows SharePoint, and other portal us
 
 by [BA Insight](https://www.bainsight.com/)
 
-With BA Insight's IBM Notes Email Connector, users have the ability to search Notes emails directly from within SharePoint or another portal. Security defined within IBM Notes is automatically reflected in the search experience, so users will see search results from their own mailbox, public mailboxes, and other mailboxes for which they have been granted access.
+With BA Insight's IBM Notes Email Connector, users have the ability to search Lotus Notes emails directly from within SharePoint or another portal. Security defined within IBM Notes is automatically reflected in the search experience, so users will see search results from their own mailbox, public mailboxes, and other mailboxes for which they have been granted access.
 
 [More details](https://www.bainsight.com/connectors/lotus-notes-connector-sharepoint-azure-elasticsearch/)
 
@@ -2027,11 +2027,11 @@ The BA Insight Connector for Pro Law connects any portal to ProLaw, enabling inf
 
 ---
 
-### RBDS_Tables
+### RDB via Tables
 
 by [Accenture](https://www.accenture.com)
 
-The RDB via Table connector crawls content from any relational database that can be accessed using JDBC and will perform incremental crawls fetching updates using tables that hold identifiers of updated content. It extracts data directly based on SQL statements.
+The RDB via Tables connector crawls content from any relational database that can be accessed using JDBC and will perform incremental crawls fetching updates using tables that hold identifiers of updated content. It extracts data directly based on SQL statements.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/RDB+via+Table+Connector)
 
@@ -2040,11 +2040,11 @@ The RDB via Table connector crawls content from any relational database that can
 
 ---
 
-### RDBS_Snapshot
+### RDB via Snapshots
 
 by [Accenture](https://www.accenture.com)
 
-The RDB connector via Snapshots will crawl content from any relational database that can be accessed using JDBC and will perform incremental crawls using snapshot files. It extracts data directly based on SQL statements.
+The RDB via Snapshots connector will crawl content from any relational database that can be accessed using JDBC and will perform incremental crawls using snapshot files. It extracts data directly based on SQL statements.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/RDB+via+Snapshots+Connector)
 
@@ -2344,7 +2344,7 @@ BA Insight's SharePoint 2010 Connector allows you to connect to SharePoint 2010,
 
 by [Accenture](https://www.accenture.com)
 
-The SharePoint 2013 connector will crawl content from any SharePoint 2013 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or Aspire Snapshots, fetches ACLs, supports NTLM and HTTPS, BCS external lists and runs without installing anything on SharePoint.
+The SharePoint 2013 connector will crawl content from any SharePoint 2013 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or a snapshot database, fetches ACLs, supports NTLM and HTTPS, BCS external lists and runs without installing anything on SharePoint.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/SharePoint+2013+Connector)
 
@@ -2381,7 +2381,7 @@ BA Insight's SharePoint 2013 Connector allows you to connect to SharePoint 2013,
 
 by [Accenture](https://www.accenture.com)
 
-The SharePoint 2016 connector will crawl content from any SharePoint 2013 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or Aspire Snapshots, fetches ACLs, supports NTLM and HTTPS, BCS external lists and runs without installing anything on SharePoint.
+The SharePoint 2016 connector will crawl content from any SharePoint 2013 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or a snapshot database, fetches ACLs, supports NTLM and HTTPS, BCS external lists and runs without installing anything on SharePoint.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/SharePoint+2016+Connector)
 
