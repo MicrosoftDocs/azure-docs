@@ -234,7 +234,7 @@ Configuring object replication across Azure AD tenants is permitted only when th
 
 Keep in mind that you must be assigned the Azure Resource Manager **Contributor** role scoped to the level of the destination storage account or higher in order to create the object replication policy. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
 
-Specify the Azure Resource Manager resource IDs for the source and destination storage accounts in the JSON file. To learn how to locate the resource ID for a storage account, see ???.
+Specify the Azure Resource Manager resource IDs for the source and destination storage accounts in the JSON file. To learn how to locate the resource ID for a storage account, see [Get the resource ID for a storage account](../common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account).
 
 The following table summarizes which values to use for the policy ID and rule IDs in the JSON file in each scenario.
 
@@ -313,7 +313,9 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-To use the JSON file to define the replication policy on the source account with PowerShell, retrieve the local file and convert from JSON to an object. Then call the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) command to configure the policy on the source account, as shown in the following example. Remember to replace values in angle brackets and the file path with your own values:
+To use the JSON file to define the replication policy on the source account with PowerShell, retrieve the local file and convert from JSON to an object. Then call the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) command to configure the policy on the source account, as shown in the following example.
+
+When running the example, be sure to set the `-ResourceGroupName` parameter to the resource group for the source account, and the `-StorageAccountName` parameter to the name of the source account. Also, remember to replace values in angle brackets and the file path with your own values:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -449,9 +451,11 @@ az storage account or-policy delete \
 
 ### Remediate cross-tenant replication
 
-To remediate cross-tenant object replication, set the **AllowCrossTenantReplication** property for the source??? dest??? storage account to *false*.
+To prevent cross-tenant object replication, set the **AllowCrossTenantReplication** property for the source storage account to *false*. After you set the property to *false*, the storage account on which it is set will not be able to participate in an object replication policy across tenants. 
 
-The **AllowCrossTenantReplication** property is not set by default and does not return a value until you explicitly set it. Azure Storage permits replication across Azure AD tenants when the property value is *null* or when it is *true*.
+This property applies only to the account that is acting 
+
+Keep in mind that the **AllowCrossTenantReplication** property is not set by default and does not return a value until you explicitly set it. Azure Storage permits replication across Azure AD tenants when the property value is *null* or when it is *true*.
 
 # [Azure portal](#tab/portal)
 
@@ -483,8 +487,6 @@ az storage account update \
 ```
 
 ---
-
-### Use Azure Policy to audit for compliance
 
 If you have a large number of storage accounts, you may want to perform an audit to make sure that those accounts are configured to prevent cross-tenant object replication. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
 
