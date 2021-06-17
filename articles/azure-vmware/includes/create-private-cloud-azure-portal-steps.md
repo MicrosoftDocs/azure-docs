@@ -33,7 +33,7 @@ You can create an Azure VMware Solution private cloud by using the Azure portal 
    | **Resource name** | Provide the name of your Azure VMware Solution private cloud. |
    | **SKU** | Select **AV36**. |
    | **Hosts** | Shows the number of hosts allocated for the private cloud cluster. The default value is 3, which can be raised or lowered after deployment.  |
-   | **Address block** | Provide an IP address block for the CIDR network for the private cloud.  The CIDR represents the private cloud management network and will be used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks as well as with on-premises networks. |
+   | **Address block** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and will be used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks as well as with on-premises networks. |
    | **Virtual Network** | Leave this blank because the Azure VMware Solution ExpressRoute circuit is established as a post-deployment step.   |
 
    :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="On the Basics tab, enter values for the fields." border="true":::
