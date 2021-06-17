@@ -266,7 +266,7 @@
         displayName: vCPU, quota, limit
         href: ./windows/quotas.md
     - name: Azure VMs with no temp disk
-      href: azure-vms-no-temp-disk.md
+      href: azure-vms-no-temp-disk.yml
     - name: Azure VM sizes naming conventions
       href: vm-naming-conventions.md
     - name: Previous generations
@@ -640,9 +640,6 @@
       - name: FreeBSD
         displayName: Linux distribution specific requirements, FreeBSD
         href: ./linux/freebsd-intro-on-azure.md
-      - name: FreeBSD Packet Filter
-        displayName: Linux distribution specific requirements, FreeBSD
-        href: ./linux/freebsd-pf-nat.md
       - name: Oracle Linux
         displayName: Linux distribution specific requirements, Oracle
         href: ./linux/oracle-create-upload-vhd.md
@@ -1463,11 +1460,17 @@
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
   - name: Linux Active Directory sign-in
-    href: ./linux/login-using-aad.md
+    displayName: aad
+    items:
+    - name: SSH with Azure Active Directory
+      href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
+      items:
+      - name: Previous version being deprecated August 15, 2021
+        href: ./linux/login-using-aad.md
 - name: Updates and maintenance
   items:
   - name: Overview
-    displayName: Updates and maintenance
+    displayName: maintenance, updates, live-migration
     href: updates-maintenance-overview.md
   - name: Automatic OS image upgrade
     items:
@@ -1565,7 +1568,7 @@
       href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
       displayName: Agents
-      href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
+      href: /azure-monitor/faq.yml#agents
     - name: Azure Diagnostics extension
       items:
       - name: Overview
@@ -1635,10 +1638,10 @@
         href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: General Availability FAQ
         displayName: Azure monitor for VMs
-        href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
         displayName: Azure monitor for VMs
-        href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/faq.yml?context=/azure/virtual-machines/context/context
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
@@ -1859,3 +1862,4 @@
       href: ./linux/faq.yml
     - name: Windows
       href: ./windows/faq.yml
+
