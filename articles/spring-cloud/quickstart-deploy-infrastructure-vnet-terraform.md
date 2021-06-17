@@ -104,7 +104,7 @@ resource "azurerm_monitor_diagnostic_setting" "sc_diag" {
 
 ## Apply the configuration
 
-To apply the configuration use the follow these steps:
+To apply the configuration, follow these steps:
 
 1. Edit the [variables.tf](https://github.com/Azure/azure-spring-cloud-reference-architecture/blob/main/terraform/brownfield-deployment/variable.tf) file with the following information:
 
@@ -161,7 +161,7 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resources in this article. To delete the Azure resources created in this exercise, run the terraform destroy command.
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resources created in this article by using the following command.
 
 ```bash
 terraform destroy -auto-approve
