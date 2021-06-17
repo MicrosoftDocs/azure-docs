@@ -28,7 +28,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
     - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md). 
     - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
     - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.md). 
-- You have an "Owner" role to the resource group to grant access using [Azure built-in roles](../../role-based-access-control/built-in-roles).
+- You have an "Owner" role to the resource group to grant access using [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Configuring and enabling Azure AD based authentication 
 
@@ -261,7 +261,7 @@ You can disable local authentication by using the Azure portal, programmatically
 
 ### Azure portal
 
-1.	From your Application Insights resource, select **Properties** under the *Configure* heading in the left-hand menu bar. Then select ** Enabled (click to change)** if the local authentication is enabled. 
+1.	From your Application Insights resource, select **Properties** under the *Configure* heading in the left-hand menu bar. Then select **Enabled (click to change)** if the local authentication is enabled. 
 
     :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot of Properties under the *Configure* selected and enabled (click to change) local authentication button.":::
 
