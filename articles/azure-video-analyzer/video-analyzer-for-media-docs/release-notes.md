@@ -48,9 +48,7 @@ Three new Git-Hub projects are available at our [GitHub repository](https://gith
  
 ### New option to toggle bounding boxes (for observed people) on the player  
 
-When indexing a video through our advanced video settings, you can view our new observed people capabilities.
-
-If there are people detected in your media file, you can enable a bounding box on the detected person through the media player.
+When indexing a video through our advanced video settings, you can view our new observed people capabilities. If there are people detected in your media file, you can enable a bounding box on the detected person through the media player.
 
 ## April 2021
 

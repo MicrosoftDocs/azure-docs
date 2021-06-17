@@ -77,7 +77,7 @@ In this step, you'll subscribe to a topic to tell Event Grid which events you wa
     | **Name** | Enter a name for the event subscription. | The value must be between 3 and 64 characters long. It can only contain letters, numbers, and dashes. | 
     | **Event Types** | Drop down and select which event type(s) you want to get pushed to your destination. For this quickstart, we'll be scaling our cache instance. | Patching, scaling, import and export are the available options. | 
     | **Endpoint Type** | Select **Web Hook**. | Event handler to receive your events. | 
-    | **Endpoint** | Click **Select an endpoint**, and enter the URL of your web app and add `api/updates` to the home page URL (for example: `https://cache.azurewebsites.net/api/updates`), and then select **Confirm Selection**. | This is the URL of your web app that you created earlier. | 
+    | **Endpoint** | Select **Select an endpoint**, and enter the URL of your web app and add `api/updates` to the home page URL (for example: `https://cache.azurewebsites.net/api/updates`), and then select **Confirm Selection**. | This is the URL of your web app that you created earlier. | 
 
 5. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription. 
 
@@ -91,7 +91,7 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 
 1. In the Azure portal, navigate to your Azure Cache for Redis instance and select **Scale** on the left menu.
 
-1. Select the desired pricing tier from the **Scale** page and click **Select**. 
+1. Select the desired pricing tier from the **Scale** page and select **Select**. 
 
     You can scale to a different pricing tier with the following restrictions:
     
@@ -102,7 +102,7 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
     * You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
     * You can't scale from a larger size down to the **C0 (250 MB)** size.
  
-    While the cache is scaling to the new pricing tier, a **Scaling** status is displayed in the **Azure Cache for Redis** blade. When scaling is complete, the status changes from **Scaling** to **Running**.
+    While the cache is scaling to the new pricing tier, a **Scaling** status is displayed on the left in **Azure Cache for Redis**. When scaling is complete, the status changes from **Scaling** to **Running**.
 
 1. You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. The message is in the JSON format and it contains an array with one or more events. In the following example, the JSON message contains an array with one event. View your web app and notice that a **ScalingCompleted** event was received. 
 
