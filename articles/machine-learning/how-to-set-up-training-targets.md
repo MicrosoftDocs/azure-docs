@@ -74,6 +74,8 @@ The example code in this article assumes that you have already created a compute
 >[!Note]
 >Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks.
 
+> [!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+
 ## Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
 
