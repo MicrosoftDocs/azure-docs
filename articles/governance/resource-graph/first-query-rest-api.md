@@ -147,7 +147,7 @@ the results returned are consistent and ordered by the **Name** property, but st
 top five results.
 
 For more examples of REST API calls for Azure Resource Graph, see the
-[Azure Resource Graph REST Examples](/rest/api/azureresourcegraph/resourcegraph(2020-04-01-preview)/resources/resources#examples).
+[Azure Resource Graph REST Examples](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#examples).
 
 ## Clean up resources
 
