@@ -69,6 +69,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
   - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
   - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the `JAVA_HOME` environment variable is set to the JRE folder (and not just the JDK folder).
 
+>[!NOTE]
+>If you are running in government cloud, please review [Connect to government cloud.](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps)
+
 ## Setting up a self-hosted integration runtime
 
 To create and set up a self-hosted integration runtime, use the following procedures.
