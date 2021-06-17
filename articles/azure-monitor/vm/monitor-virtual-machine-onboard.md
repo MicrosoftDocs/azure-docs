@@ -66,7 +66,7 @@ There is no cost for  ingestion or retention of Activity log data. See [Create d
 ### Network requirements
 The Log Analytics agent for both Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443. The Dependency agent uses the Log Analytics agent for all communication, so it doesn't require any additional ports. See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for details on configuring your firewall and proxy.
 
-![Network diagram]()
+:::image type="content" source="media/monitor-virtual-machines/network-diagram.png" alt-text="Network diagram" lightbox="media/monitor-virtual-machines/network-diagram.png":::
 
 ### Gateway
 The Log Analytics gateway allows you to channel communications from your on-premises machines through a single gateway. You can't use Azure Arc with the Log Analytics gateway though, so if your security policy requires a gateway, then you'll need to manually install the agents for your on-premises machines. See [Log Analytics gateway](../agents/gateway.md) for details on configuring and using the Log Analytics gateway.
