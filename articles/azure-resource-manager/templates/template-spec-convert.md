@@ -37,7 +37,7 @@ To simplify converting templates in the template gallery, use a PowerShell scrip
 
    To learn how to deploy the template that creates the template spec, see [Quickstart: Create and deploy template spec](quickstart-create-template-specs.md).
 
-For more information about the script and its parameters, see [Create TemplateSpecs from Template Gallery Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/201-templatespec-migrate-create).
+For more information about the script and its parameters, see [Create TemplateSpecs from Template Gallery Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/templatespec-migrate-create).
 
 ## Manually convert through portal
 
