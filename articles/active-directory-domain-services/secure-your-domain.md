@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 06/17/2021
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -60,6 +60,12 @@ In addition to **Security settings**, Microsoft Azure Policy has a **Compliance*
 - If the assignment is **Deny**, the compliance will prevent an Azure AD DS instance from being created if TLS 1.2 is not required and prevent any update to an Azure AD DS instance until TLS 1.2 is required.
 
 ![Screenshot of Compliance settings](media/secure-your-domain/policy-tls.png)
+
+## Assess impact of disabling NTLM password sync
+
+Disabling NTLM password sync will impact operations that fall back to using NTLM. The most common scenario is being unable to use Remote Desktop (RDP) to VMs joined to Azure AD DS, including the admin VM. The connection fails because the RDP client is not joined to Azure AD DS and the RDP connection is using network level authentication (NLA). Because the RDP client can't request a Kerberos ticket for the Azure AD DS joined VM, NLA reverts to NTLM. If NTLM password sync is disabled, authentication fails. As a workaround, you can use a local account to RDP to the Azure AD DS VM or NLA needs to be disabled.
+
+Another example is that connections to DNS server using IP address or domain name will fail with Access Denied.
 
 ## Use PowerShell to harden your domain
 
