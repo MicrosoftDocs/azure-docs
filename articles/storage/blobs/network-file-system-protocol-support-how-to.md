@@ -83,17 +83,18 @@ Create a directory on your Linux system, and then mount a container in the stora
 
 ---
 
-## Resolve common issues
+## Resolve common errors
 
 |Error | Cause / resolution|
 |---|---|
 |`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Make sure to type the mount command and it's parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear.|
-|`EINVAL ("Invalid argument"`) |This error can appear when a client attempts to:<li>Write to a blob that was created from a blob endpoint<li>Delete a blob that has a snapshot or is in a WORM (Write Once, Read Many) state|
-|`EROFS ("Read-only file system"`) |This error can appear when a client attempts to:<li>Write to a blob or delete a blob that has an active lease<li>Write to a blob or delete a blob that is in a WORM state |
+|`EINVAL ("Invalid argument"`) |This error can appear when a client attempts to:<li>Write to a blob that was created from a blob endpoint.<li>Delete a blob that has a snapshot or is in a WORM (Write Once, Read Many) state.|
+|`EROFS ("Read-only file system"`) |This error can appear when a client attempts to:<li>Write to a blob or delete a blob that has an active lease.<li>Write to a blob or delete a blob that is in a WORM state. |
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |
 
 ## See also
 
 - [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md)
 - [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
+- [Supported Blob Storage features](network-file-system-protocol-supported-blob-storage-features.md)

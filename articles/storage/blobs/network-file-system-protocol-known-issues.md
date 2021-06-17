@@ -69,3 +69,4 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 - [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md)
 - [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md)
+- [Supported Blob Storage features](network-file-system-protocol-supported-blob-storage-features.md)

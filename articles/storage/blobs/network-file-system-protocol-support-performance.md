@@ -1,22 +1,19 @@
 ---
-title: NFS 3.0 performance considerations in Azure Blob storage (preview) | Microsoft Docs
+title: NFS 3.0 performance considerations in Azure Blob storage| Microsoft Docs
 description: Optimize the performance of your Network File System (NFS) 3.0 storage requests by using the recommendations in this article.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 06/17/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ---
 
-# Network File System (NFS) 3.0 performance considerations in Azure Blob storage (preview)
+# Network File System (NFS) 3.0 performance considerations in Azure Blob storage
 
-Blob storage now supports the Network File System (NFS) 3.0 protocol. This article contains recommendations that help you to optimize the performance of your storage requests. To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance and block blob storage accounts with premium performance tier in all public regions.
+Blob storage now supports the Network File System (NFS) 3.0 protocol. This article contains recommendations that help you to optimize the performance of your storage requests. To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage](network-file-system-protocol-support.md).
 
 ## Add clients to increase throughput 
 
@@ -64,6 +61,6 @@ Learn more about [Latency in Blob storage](storage-blobs-latency.md).
 
 ## Next steps
 
-- To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
+- To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage](network-file-system-protocol-support.md).
 
-- To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
+- To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md).
