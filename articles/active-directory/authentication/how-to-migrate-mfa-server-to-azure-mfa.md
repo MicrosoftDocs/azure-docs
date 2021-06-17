@@ -94,7 +94,7 @@ As MFA Server is deeply integrated with both applications and user authenticatio
 
 Our recommendations: 
 
-- Use Azure AD for authentication as it enables more robust security and governance. 
+- Use Azure AD for authentication as it enables more robust security and governance
 - Move applications to Azure AD if possible
 
 To select the user authentication method best for your organization, see [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/choose-ad-authn.md). 
