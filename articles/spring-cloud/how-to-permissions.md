@@ -153,7 +153,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 #### [Portal](#tab/Azure-portal)
 
-1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
+1. Repeat the procedure to navigate subscription and access Access control (IAM).
 2. Select the permissions for the DevOps engineer role:
 
 From **Microsoft.AppPlatform/Spring**, select:
@@ -210,7 +210,16 @@ From **Microsoft.AppPlatform/skus**, select:
 5. Click **Review and create**.
 
 #### [JSON](#tab/JSON)
-The following JSON file defines the DevOps engineer role.
+
+5. Click **Next**.
+
+6. Click the **JSON** tab.
+
+7. Click **Edit**, and delete the default text.
+
+   ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+
+8. Paste the following JSON to define the DevOps engineer role.
 
 ```json
 {
@@ -293,8 +302,18 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 4. Review the permissions.
 
 5. Click **Review and create**.
+
 #### [JSON](#tab/JSON)
-The following JSON file defines the Ops - Site Reliability Engineering role.
+1. Click **Next**.
+
+6. Click the **JSON** tab.
+
+7. Click **Edit**, and delete the default text.
+
+   ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+
+8. Paste the following JSON to define the Ops - Site Reliability Engineering role.
+ 
 ```json
 {
   "properties": {
@@ -390,7 +409,17 @@ From **Microsoft.AppPlatform/skus**, select:
 
 6. Click **Review and create**.
 #### [JSON](#tab/JSON)
-The following JSON file defines the Azure Pipelines/Provisioning role.
+
+5. Click **Next**.
+
+6. Click the **JSON** tab.
+
+7. Click **Edit**, and delete the default text.
+
+   ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+
+8. Paste the following JSON to define the Azure Pipelines/Provisioning role.
+
 ```json
 {
   "properties": {
