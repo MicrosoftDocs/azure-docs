@@ -31,13 +31,13 @@ Azure Spring Cloud makes it easy to deploy Spring Boot microservice applications
 
 * Sign in to Azure using Azure CLI, and set the target subscription.
 
-   ```azurecli-interactive
+   ```azurecli
    az account set --subscription "Your Subscription Name"
    ```
 
 ## Review the configuration file
 
-The configuration file used in this quickstart is from [Azure Spring Cloud reference architecture](reference-architecture.md).
+The configuration file used in this quickstart is from the [Azure Spring Cloud reference architecture](reference-architecture.md).
 
 ```hcl
 provider "azurerm" {
@@ -102,8 +102,6 @@ resource "azurerm_monitor_diagnostic_setting" "sc_diag" {
 }
 ```
 
----
-
 ## Apply the configuration
 
 To apply the configuration use the follow these steps:
@@ -133,26 +131,27 @@ To apply the configuration use the follow these steps:
    * **CIDR Ranges** from your Virtual Network to be used by Azure Spring Cloud (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*)
 
    * key=value pairs to be applied as [Tags](/azure/azure-resource-manager/management/tag-resources) on all resources that support tags.
-       * **Example:** environment=Dev BusinessUnit=finance
+      * **Example:** environment=Dev BusinessUnit=finance
 
-          ```hcl
-            tags = {
-                type = map
-                default = {
-                    environment = "Dev"
-                    BusinesUnit = "Finance"
-                }    
-            }
+      ```hcl
+        tags = {
+            type = map
+            default = {
+                environment = "Dev"
+                BusinesUnit = "Finance"
+            }    
+        }
+      ```
 
 1. Run the following command to initialize the terraform modules:
 
-   ```azurecli-interactive
+   ```bash
    terraform init
    ```
 
 1. Run the following command to plan the terraform deployment:
 
-   ```azurecli-interactive
+   ```bash
    terraform plan -out=springcloud.plan
    ```
 
@@ -164,7 +163,7 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resources in this article. To delete the Azure resources created in this exercise, run the terraform destroy command.
 
-```azurecli-interactive
+```bash
 terraform destroy -auto-approve
 ```
 
