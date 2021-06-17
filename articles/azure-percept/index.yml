@@ -119,6 +119,8 @@ landingContent:
             url: overview-update-experience.md
       - linkListType: how-to-guide
         links:
+          - text: Select the best update package
+            url: how-to-select-update-package.md
           - text: Set up over-the-air (OTA) updates
             url: how-to-set-up-over-the-air-updates.md
           - text: Update your device over-the-air (OTA)
