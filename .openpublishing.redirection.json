@@ -65769,6 +65769,16 @@
       "source_path_from_root": "/articles/storage/files/storage-troubleshoot-cannot-delete-files-azure-file-share.md",
       "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#unable-to-modify-moverename-or-delete-a-file-or-directory",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/form-recognizer-container-howto.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/containers/form-recognizer-container-install-run",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/form-recognizer-container-configuration.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/containers/form-recognizer-container-configuration",
+      "redirect_document_id": false
     }
   ]
 }
