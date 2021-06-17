@@ -46,7 +46,7 @@ In this scenario you will create the following Azure resources:
 
 ## Deploying the template using the Azure portal
 
-This article references a template that is published in the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) gallery. You can download the template from the gallery or launch the deployment in Azure directly from the gallery. This article assumes you have downloaded the template to your local computer.
+This article references a template that is published in the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-ipv6-create/) gallery. You can download the template from the gallery or launch the deployment in Azure directly from the gallery. This article assumes you have downloaded the template to your local computer.
 
 1. Open the Azure portal and sign in with an account that has permissions to create VMs and networking resources within an Azure subscription. Also, unless you're using existing resources, the account needs permission to create a resource group and a storage account.
 2. Click "+New" from the menu then type "template" in the search box. Select "Template deployment" from the search results.
