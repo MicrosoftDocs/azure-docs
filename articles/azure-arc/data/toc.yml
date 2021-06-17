@@ -6,6 +6,8 @@
       href: overview.md
     - name: Release notes
       href: release-notes.md
+    - name: Data collection and reporting
+      href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
   items:
     - name: Create data controller
@@ -112,7 +114,7 @@
           href: supported-versions-postgres-hyperscale.md
         - name: Create Postgres Hyperscale server group (CLI)
           href: create-postgresql-hyperscale-server-group.md
-        - name: Crate Postgres Hyperscale server group (portal)
+        - name: Create Postgres Hyperscale server group (portal)
           href: create-postgresql-hyperscale-server-group-azure-portal.md
         - name: Create Postgres Hyperscale server group (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
@@ -138,8 +140,8 @@
               items:
                 - name: Show configuration
                   href: show-configuration-postgresql-hyperscale-server-group.md
-                - name: Scale out - add worker nodes
-                  href: scale-out-postgresql-hyperscale-server-group.md
+                - name: Scale out|in worker nodes
+                  href: scale-out-in-postgresql-hyperscale-server-group.md
                 - name: Scale up|down memory & vCores
                   href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
                 - name: Configure server parameters

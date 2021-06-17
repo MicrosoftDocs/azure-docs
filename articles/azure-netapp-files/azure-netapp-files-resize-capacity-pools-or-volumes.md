@@ -27,9 +27,10 @@ You can change the capacity pool size in 1-TiB increments or decrements. However
 
 1. From the NetApp Account view, go to **Capacity pools**, and click the capacity pool that you want to resize.
 2. Right-click the capacity pool name or click the "…" icon at the end of the capacity pool row to display the context menu. Click **Resize**. 
-3. In the Resize pool window, specify the pool size.  Click **OK**.
 
     ![Screenshot that shows pool context menu.](../media/azure-netapp-files/resize-pool-context-menu.png)  
+
+3. In the Resize pool window, specify the pool size.  Click **OK**.
 
     ![Screenshot that shows Resize pool window.](../media/azure-netapp-files/resize-pool-window.png) 
 
@@ -39,9 +40,10 @@ You can change the size of a volume as necessary. A volume's capacity consumptio
 
 1. From the NetApp Account view, go to **Volumes**, and click the volume that you want to resize.
 2. Right-click the volume name or click the "…" icon at the end of the volume's row to display the context menu. Click **Resize**.
-3. In the Update volume quota window, specify the quota for the volume. Click **OK**.   
 
     ![Screenshot that shows volume context menu.](../media/azure-netapp-files/resize-volume-context-menu.png) 
+    
+3. In the Update volume quota window, specify the quota for the volume. Click **OK**.   
 
     ![Screenshot that shows Update Volume Quota window.](../media/azure-netapp-files/resize-volume-quota-window.png) 
 

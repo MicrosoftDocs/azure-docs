@@ -118,7 +118,7 @@ Complete previous steps:
 
 There are two ways to see logs on Azure Spring Cloud: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability.
 
-## Log streaming
+### Log streaming
 
 #### [CLI](#tab/Azure-CLI)
 
@@ -161,7 +161,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 ---
 
-## Log Analytics
+### Log Analytics
 
 1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Click **Run** on one of the sample queries for Azure Spring Cloud.
 
@@ -237,7 +237,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 In an earlier quickstart, you also set the default resource group name. If you don't intend to continue to the next quickstart, clear out that default by running the following CLI command:
 
 ```azurecli
-az configure --defaults group=
+az config set defaults.group=
 ```
 
 ## Next steps

@@ -1,6 +1,22 @@
-This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. The Provisioning Agent is updated automatically when a new version is released. 
+This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. 
 
 Microsoft provides direct support for the latest agent version and one version before.
+
+## 1.1.359.0
+
+### New features and improvements
+- GMSA Cmdlets to set/reset permission
+
+### Fixed issues
+- GMSA folder permission bug fix (originally, the issue resulted in bootstrap issues)
+- Bug fix for handling multiple changes to a single value reference attribute (e.g. manager)
+- Bug fix for failure in Initial Enumeration, plus enhanced tracing of the failure
+- Optimize group membership updates to a Scoping Group. With this, customers now can sync a group of up to 50K members using group scoping filter. 
+- Support retrieving a single object by DN with Scoping used by Provisioning On Demand to obey Scoping logic
+
+
+
+
 
 ## 1.1.354.0
 
@@ -89,5 +105,4 @@ January 23, 2019: Released for download
 ### New features and improvements
 
 * Revamped the Provisioning Agent and connector architecture for better performance, stability, and reliability 
-* Simplified the Provisioning Agent configuration using UI-driven installation wizard 
-* Added support for automatic agent updates
+* Simplified the Provisioning Agent configuration using UI-driven installation wizard

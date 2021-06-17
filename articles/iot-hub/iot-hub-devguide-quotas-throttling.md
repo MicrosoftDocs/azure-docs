@@ -1,5 +1,5 @@
 ---
-title: Content Performance http://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling
+title: Understand Azure IoT Hub quotas and throttling
 
 description: Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior.
 author: robinsh
@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/05/2021
-ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'ms.custom:contperf-fy21q4']
+ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'contperf-fy21q4']
 ---
 
 # Reference - IoT Hub quotas and throttling
@@ -22,10 +22,6 @@ Each Azure subscription can have at most 50 IoT hubs, and at most 1 Free hub.
 Each IoT hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send. The message size used to calculate the daily quota is 0.5 KB for a free tier hub and 4KB for all other tiers. For more information, see [Azure IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 The tier also determines the throttling limits that IoT Hub enforces on all operations.
-
-## IoT Plug and Play
-
-IoT Plug and Play devices send at least one telemetry message for each interface, including the root, which may increase the number of messages counted towards your message quota.
 
 ## Operation throttles
 

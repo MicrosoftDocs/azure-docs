@@ -7,7 +7,8 @@ ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/12/2020
-ms.author: manayar
+ms.author: manayar 
+ms.custom: devx-track-azurepowershell
 
 ---
 

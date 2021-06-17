@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Deploy & configure Azure Firewall using the Azure portal'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
+title: Deploy & configure Azure Firewall using the Azure portal
+description: In this article, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 04/28/2021
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
-# Tutorial: Deploy and configure Azure Firewall using the Azure portal
+# Deploy and configure Azure Firewall using the Azure portal
 
 Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites. Or, you may want to limit the outbound IP addresses and ports that can be accessed.
 
@@ -22,16 +22,16 @@ One way you can control outbound network access from an Azure subnet is with Azu
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this tutorial, you create a simplified single VNet with two subnets for easy deployment.
+For this article, you create a simplified single VNet with two subnets for easy deployment.
 
 For production deployments, a [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 
-![Tutorial network infrastructure](media/tutorial-firewall-deploy-portal/tutorial-network.png)
+![Network infrastructure](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a test network environment
@@ -43,9 +43,9 @@ In this tutorial, you learn how to:
 > * Test the firewall
 
 > [!NOTE]
-> This tutorial uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this tutorial using Firewall Policy, see [Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal](tutorial-firewall-deploy-portal-policy.md)
+> This article uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this procedure using Firewall Policy, see [Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal](tutorial-firewall-deploy-portal-policy.md)
 
-If you prefer, you can complete this tutorial using [Azure PowerShell](deploy-ps.md).
+If you prefer, you can complete this procedure using [Azure PowerShell](deploy-ps.md).
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 ### Create a resource group
 
-The resource group contains all the resources for the tutorial.
+The resource group contains all the resources used in this procedure.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Add**.
@@ -242,7 +242,7 @@ This rule allows you to connect a remote desktop to the Srv-Work virtual machine
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
-For testing purposes in this tutorial, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
+For testing purposes, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
 
 1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Select the **Test-FW-RG** resource group.
 2. Select the network interface for the **Srv-Work** virtual machine.
@@ -273,9 +273,8 @@ So now you've verified that the firewall rules are working:
 
 ## Clean up resources
 
-You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
+You can keep your firewall resources to continue testing, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+[Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

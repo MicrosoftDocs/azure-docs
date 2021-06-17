@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Secure Azure Digital Twins
 
-For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **Azure role-based access control (Azure RBAC)**. You can read about the general principles of Azure RBAC [here](../role-based-access-control/overview.md).
+For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 Azure Digital Twins also supports encryption of data at rest.
 
@@ -48,7 +48,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 #### Authorization: Azure roles for Azure Digital Twins
 
-Azure provides **two Azure built-in roles** for authorizing access to the Azure Digital Twins [data plane APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). You can refer to the roles either by name or by ID:
+Azure provides **two Azure built-in roles** for authorizing access to the Azure Digital Twins [data plane APIs](concepts-apis-sdks.md#overview-data-plane-apis). You can refer to the roles either by name or by ID:
 
 | Built-in role | Description | ID | 
 | --- | --- | --- |
@@ -68,7 +68,7 @@ For more information about how built-in roles are defined, see [Understand role 
 When referring to roles in automated scenarios, it's recommended to refer to them by their **IDs** rather than their names. The names may change between releases, but the IDs will not, making them a more stable reference in automation.
 
 > [!TIP]
-> If you're assiging roles with a cmdlet, such as `New-AzRoleAssignment` ([reference](/powershell/module/az.resources/new-azroleassignment)), you can use the `-RoleDefinitionId` parameter instead of `-RoleDefinitionName` to pass an ID instead of a name for the role.
+> If you're assigning roles with a cmdlet, such as `New-AzRoleAssignment` ([reference](/powershell/module/az.resources/new-azroleassignment)), you can use the `-RoleDefinitionId` parameter instead of `-RoleDefinitionName` to pass an ID instead of a name for the role.
 
 ### Permission scopes
 
@@ -93,7 +93,7 @@ Azure supports two types of managed identities: system-assigned and user-assigne
 
 You can use a system-assigned managed identity for your Azure Digital Instance to authenticate to a [custom-defined endpoint](concepts-route-events.md#create-an-endpoint). Azure Digital Twins supports system-assigned identity-based authentication to endpoints for [Event Hub](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
 
-For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [How-to: Enable a managed identity for routing events (preview)](./how-to-enable-managed-identities-portal.md).
+For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [How-to: Route events with a managed identity](how-to-route-with-managed-identity.md).
 
 ## Private network access with Azure Private Link (preview)
 
@@ -103,7 +103,7 @@ Similarly, you can use private endpoints for your Azure Digital Twin instance to
 
 The private endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Azure Digital Twins instance traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure to the public internet. Here is a visual representation of this system:
 
-:::image type="content" source="media/concepts-security/private-link.png" alt-text="A diagram showing a network for a PowerGrid company that is a protected VNET with no internet/public cloud access, connecting through Private Link to an Azure Digital Twins instance called CityOfTwins.":::
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Diagram showing a network that is a protected VNET with no public cloud access, connecting through Private Link to an Azure Digital Twins instance.":::
 
 Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your VNet.
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -58,6 +58,8 @@ There are three main components required for this scenario:
 If you don't yet have a SAML application and an associated metadata endpoint, you can use this sample SAML application that we've made available for testing:
 
 [SAML Test Application][samltest]
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## Set up certificates
 

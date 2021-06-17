@@ -4,7 +4,8 @@ description: This article describes how to set up managed identity for Azure Aut
 services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Enable a managed identity for your Azure Automation account (preview)
 
@@ -26,7 +27,7 @@ This topic shows you how to create a managed identity for an Azure Automation ac
 ## Enable system-assigned identity
 
 >[!IMPORTANT]
->The new Automation account-level identity will override any previous VM-level system-assigned identities (which are described in [Use runbook authentication with managed identities](/automation-hrw-run-runbooks#runbook-auth-managed-identities)). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account managed identity. See [Disable your Azure Automation account managed identity](./disable-managed-identity-for-automation.md).
+>The new Automation account-level identity will override any previous VM-level system-assigned identities which are described in [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account managed identity. See [Disable your Azure Automation account managed identity](./disable-managed-identity-for-automation.md).
 
 Setting up system-assigned identities for Azure Automation can be done one of two ways. You can either use the Azure portal, or the Azure REST API.
 

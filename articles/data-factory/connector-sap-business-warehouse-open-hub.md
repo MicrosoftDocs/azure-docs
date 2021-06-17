@@ -1,8 +1,8 @@
 ---
 title: Copy data from SAP Business Warehouse via Open Hub
 description: Learn how to copy data from SAP Business Warehouse (BW) via Open Hub to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -91,7 +91,7 @@ To use this SAP Business Warehouse Open Hub connector, you need to:
 >
 > For a walkthrough of using SAP BW Open Hub connector, see [Load data from SAP Business Warehouse (BW) by using Azure Data Factory](load-sap-bw-data.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Business Warehouse Open Hub connector.
 

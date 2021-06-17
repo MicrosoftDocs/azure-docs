@@ -5,7 +5,7 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 06/14/2021
 ms.author: banders
 ---
 
@@ -41,7 +41,7 @@ An Enterprise enrollment or Microsoft Customer Agreement billing administrator c
 
 ## View reservation transactions in Power BI
 
-An Enterprise enrollment or Microsoft Customer Agreement billing administrator can view reservation transactions with the Cost Management Power BI app.
+An Enterprise enrollment administrator can view reservation transactions with the Cost Management Power BI app.
 
 1. Get the [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 1. Navigate to the RI Purchases report.

@@ -75,11 +75,7 @@
     - name: to Azure Cosmos DB Mongo API (offline)
       href: tutorial-mongodb-cosmos-db.md
     - name: to Azure Cosmos DB Mongo API (online)
-      href: tutorial-mongodb-cosmos-db-online.md
-  - name: Migrate Oracle
-    items: 
-    - name: to Azure DB for PostgreSQL–Single server online
-      href: tutorial-oracle-azure-postgresql-online.md  
+      href: tutorial-mongodb-cosmos-db-online.md  
 
 
 
@@ -155,8 +151,6 @@
         href: known-issues-azure-mysql-online.md
       - name: PostgreSQL to Azure DB for PostgreSQL
         href: known-issues-azure-postgresql-online.md
-      - name: Oracle to Azure DB for PostgreSQL
-        href: known-issues-oracle-azure-postgresql-online.md
       - name: MongoDB to Azure Cosmos DB API for MongoDB
         href: known-issues-mongo-cosmos-db.md
 

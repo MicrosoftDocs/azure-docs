@@ -21,7 +21,7 @@ The vocabulary of an Azure Digital Twins solution is defined using [models](conc
 
 Sometimes, when your solution is tied to a particular industry, it can be easier and more effective to start with a set of models for that industry that already exist, instead of authoring your own model set from scratch. These pre-existing model sets are called **ontologies**. 
 
-In general, an ontology is a set of models for a given domain—like a building structure, IoT system, smart city, the energy grid, web content, etc. Ontologies are often used as schemas for knowledge graphs, as they can enable:
+In general, an ontology is a set of models for a given domain—like a building structure, IoT system, smart city, the energy grid, web content, etc. Ontologies are often used as schemas for twin graphs, as they can enable:
 * Harmonization of software components, documentation, query libraries, etc.
 * Reduced investment in conceptual modeling and system development
 * Easier data interoperability on a semantic level
@@ -55,11 +55,12 @@ No matter which strategy you choose for integrating an ontology into Azure Digit
 1. Proceed with your chosen ontology integration strategy from above: [Adopt](concepts-ontologies-adopt.md), [Convert](concepts-ontologies-convert.md), or [Author](concepts-models.md) your models based on your ontology.
     1. If necessary, [extend](concepts-ontologies-extend.md) your ontology to customize it to your needs.
 1. [Validate](how-to-parse-models.md) your models to verify they are working DTDL documents.
-1. Upload your finished models to Azure Digital Twins, using the [APIs](how-to-manage-model.md#upload-models) or a sample like the [Azure Digital Twins model uploader](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader).
+1. Upload your finished models to Azure Digital Twins, using the [APIs](how-to-manage-model.md#upload-models) or a sample like the [Azure Digital Twins model uploader](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels).
 
 After this, you should be able to use your models in your Azure Digital Twins instance. 
 
-You can visualize them with samples like [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) or [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer), or move on to using them to create [digital twins](concepts-twins-graph.md).
+>[!TIP]
+> You can visualize the models in your ontology using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) or [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer).
 
 ## Next steps
 
