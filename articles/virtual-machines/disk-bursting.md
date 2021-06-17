@@ -43,5 +43,6 @@ Additionally, the [performance tier of managed disks can be changed](disks-chang
 
 ## Next steps
 
-To enable on-demand bursting, see [Enable on-demand bursting](disks-enable-bursting.md).
-To learn how to gain insight into your bursting resources, see [Disk bursting metrics](disks-metrics.md).
+- To enable on-demand bursting, see [Enable on-demand bursting](disks-enable-bursting.md).
+- To learn how to gain insight into your bursting resources, see [Disk bursting metrics](disks-metrics.md).
+- To see exactly how much each applicable disk size can burst, see [Scalability and performance targets for VM disks](disks-scalability-targets.md).
