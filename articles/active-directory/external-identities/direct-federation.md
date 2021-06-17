@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 06/17/2021
 
 ms.author: mimart
 author: msmimart
@@ -59,7 +59,7 @@ You can also give guest users a direct link to an application or resource by inc
 ## Limitations
 
 ### DNS-verified domains in Azure AD
-The domain you want to federate with must ***not*** be DNS-verified in Azure AD. You're allowed to set up federation with unmanaged (email-verified or "viral") Azure AD tenants because they aren't DNS-verified.
+You can set up SAML/WS-Fed IdP federation with domains that aren't DNS-verified in Azure AD, including unmanaged (email-verified or "viral") Azure AD tenants. However, we block SAML/WS-Fed IdP federation for Azure AD verified domains in favor of native Azure AD managed domain capabilities. You'll see an error in the Azure portal or PowerShell if you try to set up SAML/WS-Fed IdP federation with a domain that is DNS-verified in Azure AD.
 
 ### Signing certificate renewal
 If you specify the metadata URL in the IdP settings, Azure AD will automatically renew the signing certificate when it expires. However, if the certificate is rotated for any reason before the expiration time, or if you don't provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
@@ -72,7 +72,7 @@ We don’t currently support SAML/WS-Fed IdP federation with multiple domains fr
 
 ## Frequently asked questions
 ### Can I set up SAML/WS-Fed IdP federation with a domain for which an unmanaged (email-verified) tenant exists? 
-Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../enterprise-users/domains-admin-takeover.md), you can set up federation with that domain. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up federation with these domains. If you try to set up federation with a DNS-verified domain, either in the Azure portal or via PowerShell, you'll see an error.
+Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../enterprise-users/domains-admin-takeover.md), you can set up federation with that domain. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up SAML/WS-Fed IdP federation with these domains.
 ### If SAML/WS-Fed IdP federation and email one-time passcode authentication are both enabled, which method takes precedence?
 When SAML/WS-Fed IdP federation is established with a partner organization, it takes precedence over email one-time passcode authentication for new guest users from that organization. If a guest user redeemed an invitation using one-time passcode authentication before you set up SAML/WS-Fed IdP federation, they'll continue to use one-time passcode authentication.
 ### Does SAML/WS-Fed IdP federation address sign-in issues due to a partially synced tenancy?
@@ -119,7 +119,7 @@ Next, your partner organization needs to configure their IdP with the required c
 Azure AD B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed below. For more information about setting up a trust between your SAML IdP and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for Single Sign-On](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
-> The target domain for SAML/WS-Fed IdP federation must not be DNS-verified on Azure AD. See the [Limitations](#limitations) section for details.
+> The target domain for SAML/WS-Fed IdP federation must not be DNS-verified in Azure AD. See the [Limitations](#limitations) section for details.
 
 #### Required SAML 2.0 attributes and claims
 The following tables show requirements for specific attributes and claims that must be configured at the third-party IdP. To set up federation, the following attributes must be received in the SAML 2.0 response from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually.
