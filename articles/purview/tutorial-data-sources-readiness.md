@@ -120,12 +120,12 @@ Before you run the PowerShell script to verify the readiness of data source subs
 
 Make sure your user has the following roles and permissions:
 
-Role | Scope |
+Role or permission | Scope |
 |-------|--------|
-| Global Reader | Azure AD tenant |
-| Reader | Azure subscriptions where your Azure data sources reside |
-| Reader | Subscription where your Azure Purview account is created |
-| SQL Admin (Azure AD Authentication) | Azure Synapse dedicated pools, Azure SQL Database instances, Azure SQL managed instances |
+| **Global Reader** | Azure AD tenant |
+| **Reader** | Azure subscriptions where your Azure data sources reside |
+| **Reader** | Subscription where your Azure Purview account is created |
+| **SQL Admin** (Azure AD Authentication) | Azure Synapse dedicated pools, Azure SQL Database instances, Azure SQL managed instances |
 | Access to your Azure key vault | Access to get/list key vault's secret or Azure Key Vault secret user |  
 
 
@@ -166,79 +166,81 @@ After the process completes, review the output report, which demonstrates the de
 Currently, the following data sources are supported by the script:
 
 - Azure Blob Storage (BlobStorage)
-- Azure Data Lake Storage Gen 2 (ADLSGen2)
-- Azure Data Lake Storage Gen 1 (ADLSGen1)
+- Azure Data Lake Storage Gen2 (ADLSGen2)
+- Azure Data Lake Storage Gen1 (ADLSGen1)
 - Azure SQL Database (AzureSQLDB)
 - Azure SQL Managed Instance (AzureSQLMI)
 - Azure Synapse (Synapse) dedicated pool
 
-You can choose **all** or any of these data sources as input parameter when running the script.
+You can choose all or any of these data sources as the input parameter when you run the script.
 
 ### What checks are included in the results?
 
 #### Azure Blob Storage (BlobStorage)
 
-- RBAC: Verify if Azure Purview MSI has 'Storage Blob Data Reader role' in each of the subscriptions below the selected scope.
-- RBAC: Verify if Azure Purview MSI has 'Reader' role on selected scope.
-- Service Endpoint: Verify if Service Endpoint is ON, AND check if 'Allow trusted Microsoft services to access this storage account' is enabled.
-- Networking: check if Private Endpoint is created for storage and enabled for Blob.
+- RBAC. Check whether Azure Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
+- RBAC. Check whether Azure Purview MSI is assigned the **Reader** role on the selected scope.
+- Service endpoint. Check whether service endpoint is on, and check whether **Allow trusted Microsoft services to access this storage account** is enabled.
+- Networking: Check whether private endpoint is created for storage and enabled for Blob Storage.
 
-#### Azure Data Lake Storage Gen 2 (ADLSGen2)
+#### Azure Data Lake Storage Gen2 (ADLSGen2)
 
-- RBAC: Verify if Azure Purview MSI has 'Storage Blob Data Reader' role in each of the subscriptions below the selected scope.
-- RBAC: Verify if Azure Purview MSI has 'Reader' role on selected scope.
-- Service Endpoint: Verify if Service Endpoint is ON, AND check if 'Allow trusted Microsoft services to access this storage account' is enabled.
-- Networking: check if Private Endpoint is created for storage and enabled for Blob Storage.
+- RBAC. Check whether Azure Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
+- RBAC. Check whether Azure Purview MSI is assigned the **Reader** role on the selected scope.
+- Service endpoint. Check whether service endpoint is on, and check whether **Allow trusted Microsoft services to access this storage account** is enabled.
+- Networking: check whether private endpoint is created for storage and enabled for Blob Storage.
 
-#### Azure Data Lake Storage Gen 1 (ADLSGen1)
+#### Azure Data Lake Storage Gen1 (ADLSGen1)
 
-- Networking: Verify if Service Endpoint is ON, AND check if 'Allow all Azure services to access this Data Lake Storage Gen1 account' is enabled.
-- Permissions: Verify if Azure Purview MSI has access to Read/Execute.
+- Networking. Check whether service endpoint is on, and check whether **Allow all Azure services to access this Data Lake Storage Gen1 account** is enabled.
+- Permissions. Check whether Azure Purview MSI has Read/Execute permissions.
 
 #### Azure SQL Database (AzureSQLDB)
 
-- SQL Servers:
-  - Network: Verify if Public or Private Endpoint is enabled.
-  - Firewall: Verify if 'Allow Azure services and resources to access this server' is enabled.
-  - Azure AD Admin: Check if Azure SQL Server has AAD Authentication.
-  - AAD Admin: Populate Azure SQL Server AAD Admin user or group.
+- SQL Server instances:
+  - Network. Check whether public endpoint or private endpoint is enabled.
+  - Firewall. Check whether **Allow Azure services and resources to access this server** is enabled.
+  - Azure AD administration. Check whether Azure SQL Server has Azure AD authentication.
+  - Azure AD administration. Populate the Azure SQL Server Azure AD admin user or group.
 
-- SQL Databases:
-  - SQL Role: Check if Azure Purview MSI has db_datareader role.
+- SQL databases:
+  - SQL role. Check whether Azure Purview MSI is assigned the **db_datareader** role.
 
 #### Azure SQL Managed Instance (AzureSQLMI)
 
-- SQL Managed Instance Servers:
-  - Network: Verify if Public or Private Endpoint is enabled.
-  - ProxyOverride: Verify if Azure SQL Managed Instance is configured as Proxy or Redirect.
-  - Networking: Verify if NSG has an inbound rule to allow AzureCloud over required ports; Redirect: 1433 and 11000-11999 or Proxy: 3342.
-  - Azure AD Admin: Check if Azure SQL Server has AAD Authentication.
-  - AAD Admin: Populate Azure SQL Server AAD Admin user or group.
+- SQL Managed Instance servers:
+  - Network. Check whether public endpoint or private endpoint is enabled.
+  - ProxyOverride. Check whether Azure SQL Managed Instance is configured as Proxy or Redirect.
+  - Networking. Check whether NSG has one of these inbound rules to allow AzureCloud over required ports:  
+    - Redirect: 1433 and 11000-11999  
+    - Proxy: 3342
+  - Azure AD administration. Check whether Azure SQL Server has Azure AD authentication.
+  - Azure AD administration. Populate the Azure SQL Server Azure AD admin user or group.
 
-- SQL Databases:
-  - SQL Role: Check if Azure Purview MSI has db_datareader role.
+- SQL databases:
+  - SQL role. Check whether Azure Purview MSI is assigned the **db_datareader** role.
 
 #### Azure Synapse (Synapse) dedicated pool
 
-- RBAC: Verify if Azure Purview MSI has 'Storage Blob Data Reader role' in each of the subscriptions below the selected scope.
-- RBAC: Verify if Azure Purview MSI has 'Reader' role on selected scope.
-- SQL Servers (dedicated pools):
-  - Network: Verify if Public or Private Endpoint is enabled.
-  - Firewall: Verify if 'Allow Azure services and resources to access this server' is enabled.
-  - Azure AD Admin: Check if Azure SQL Server has AAD Authentication.
-  - AAD Admin: Populate Azure SQL Server AAD Admin user or group.
+- RBAC. Check whether Azure Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
+- RBAC. Check whether Azure Purview MSI is assigned the **Reader** role on the selected scope.
+- SQL Server instances (dedicated pools):
+  - Network: Check whether public endpoint or private endpoint is enabled.
+  - Firewall: Check whether **Allow Azure services and resources to access this server** is enabled.
+  - Azure AD administration: Check whether Azure SQL Server has Azure AD authentication.
+  - Azure AD administration: Populate the Azure SQL Server Azure AD admin user or group.
 
-- SQL Databases:
-  - SQL Role: Check if Azure Purview MSI has db_datareader role.
+- SQL databases:
+  - SQL role. Check whether Azure Purview MSI is assigned the **db_datareader** role.
 
 ## Next steps
 
 In this tutorial, you learned how to:
 > [!div class="checklist"]
 >
-> * Run Azure Purview readiness checklist to verify your Azure subscriptions missing configuration at scale, before they can be registered and scanned in Azure Purview.
+> * Run the Azure Purview readiness checklist to check, at scale, whether your Azure subscriptions are missing configuration, before you register and scan them in Azure Purview.
 
-Advance to the next tutorial to learn how to navigate the home page and search for an asset.
+Go to the next tutorial to learn how to identify the required access and set up required authentication and network rules for Azure Purview across Azure data sources:
 
 > [!div class="nextstepaction"]
 > [Configure access to data sources for Azure Purview MSI at scale](tutorial-msi-configuration.md)
