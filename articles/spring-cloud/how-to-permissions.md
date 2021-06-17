@@ -93,7 +93,9 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 9. Click **Add**.
 
+10. Review the permissions.
 
+11. Click **Review and create**.
 
 #### [JSON](#tab/JSON)
 5. Click **Next**.
@@ -138,10 +140,11 @@ The following JSON file defines the Developer role.
   }
 }
 ```
----
-10. Review the permissions.
+6. Review the permissions.
 
-11. Click **Review and create**.
+7. Click **Review and create**.
+---
+
 
 ## Define DevOps engineer role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
