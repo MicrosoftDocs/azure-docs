@@ -14,7 +14,7 @@ ms.date: 06/17/2021
 ---
 # T-SQL differences between SQL Server and Azure SQL Database
 
-When [migrating your database](migrate-to-database-from-sql-server.md) from SQL Server to Azure SQL Database, you may discover that your SQL Server databases require some re-engineering before they can be migrated. This article provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities, use [Data Migration Assistant (DMA)](/sql/dma/dma-overview.md).
+When [migrating your database](migrate-to-database-from-sql-server.md) from SQL Server to Azure SQL Database, you may discover that your SQL Server databases require some re-engineering before they can be migrated. This article provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities and migrate databases to Azure SQL Database, use [Data Migration Assistant (DMA)](/sql/dma/dma-overview.md).
 
 ## Overview
 
@@ -40,7 +40,7 @@ In addition to T-SQL statements related to the unsupported features described in
 
 - Collation of system objects.
 - Connection related: Endpoint statements. SQL Database doesn't support Windows authentication, but does support Azure Active Directory authentication. This includes authentication of Active Directory principals federated with Azure Active Directory. For more information, see [Connecting to SQL Database or Azure Azure Synapse Analytics By Using Azure Active Directory Authentication](authentication-aad-overview.md).
-- Cross-database and cross-instance queries using three or four part names. Three part names referencing `tempdb` are supported. [Elastic query](elastic-query-overview.md) supports read-only references to tables in other MSSQL databases.
+- Cross-database and cross-instance queries using three or four part names. Three part names referencing the `tempdb` database and the current database are supported. [Elastic query](elastic-query-overview.md) supports read-only references to tables in other MSSQL databases.
 - Cross database ownership chaining and the `TRUSTWORTHY` database property.
 - `EXECUTE AS LOGIN`. Use `EXECUTE AS USER` instead.
 - Extensible key management (EKM) for encryption keys. Transparent Data Encryption (TDE) [customer-managed keys](transparent-data-encryption-byok-overview.md) and Always Encrypted [column master keys](always-encrypted-azure-key-vault-configure.md) may be stored in Azure Key Vault.
@@ -55,7 +55,7 @@ In addition to T-SQL statements related to the unsupported features described in
 - .NET Framework: CLR integration
 - Semantic search
 - Server credentials: Use [database scoped credentials](/sql/t-sql/statements/create-database-scoped-credential-T-SQL) instead.
-- Server-level permissions: `GRANT`, `REVOKE`, and `DENY` of server level permissions aren't available, though some are replaced by database-level permissions or built-in server roles. Some server-level DMVs and catalog views have similar database-level views.
+- Server-level permissions: `GRANT`, `REVOKE`, and `DENY` of server level permissions are not supported. Some server-level permissions are replaced by database-level permissions, or granted implicitly by built-in server roles. Some server-level DMVs and catalog views have similar database-level views.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
@@ -68,7 +68,7 @@ In addition to T-SQL statements related to the unsupported features described in
 - Trace flags.
 - T-SQL debugging.
 - Server-scoped or logon triggers.
-- `USE` statement: To change the database context to a different database, you must create a new connection.
+- `USE` statement: To change database context to a different database, you must create a new connection to that database.
 
 ## Full T-SQL reference
 
@@ -78,10 +78,10 @@ For more information about T-SQL grammar, usage, and examples, see [T-SQL Refer
 
 The T-SQL reference includes articles related to all recent SQL Server versions. Below the article title there's an icon bar, listing MSSQL platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILITY GROUP](/sql/t-sql/statements/create-availability-group-T-SQL) article indicates that the statement applies to **SQL Server (starting with 2012)**. The statement doesn't apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics, or Parallel Data Warehouse.
 
-In some cases, the general subject of an article can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the article as appropriate. For example, the `CREATE TRIGGER` article is available in SQL Database. But the **ALL SERVER** option for server-level triggers, indicates that server-level triggers can't be used in SQL Database. Use database-level triggers instead.
+In some cases, the general subject of an article can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the article as appropriate. For example, the `CREATE TRIGGER` article is available in SQL Database. But the `ALL SERVER` option for server-level triggers, indicates that server-level triggers can't be used in SQL Database. Use database-level triggers instead.
 
 ## Next steps
 
 For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](features-comparison.md).
 
-To detect compatibility issues in your SQL Server databases before migrating to Azure SQL Database, use [Data Migration Assistant (DMA)](/sql/dma/dma-overview.md).
+To detect compatibility issues in your SQL Server databases before migrating to Azure SQL Database, and to migrate your databases, use [Data Migration Assistant (DMA)](/sql/dma/dma-overview.md).
