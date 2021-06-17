@@ -71,7 +71,7 @@ The profile settings that enable the SSO plug-in are automatically applied to th
 
 ### Manual configuration for other MDM services
 
-If you don't use Intune for MDM, use the following parameters to configure the Microsoft Enterprise SSO plug-in for Apple devices.
+If you don't use Intune for MDM, you can configure an Extensible Single Sign On profile payload for Apple devices. Use the following parameters to configure the Microsoft Enterprise SSO plug-in and its configuration options.
 
 iOS settings:
 

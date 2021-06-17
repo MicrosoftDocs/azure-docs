@@ -38,7 +38,7 @@ To use the control plane APIs:
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([source](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt) ([source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt))
 
-You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](concepts-cli.md).
+You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 ## Overview: data plane APIs
 
@@ -72,7 +72,7 @@ To use the data plane APIs:
    - you can view the [SDK reference documentation](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true).
    - you can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 
-You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](concepts-cli.md).
+You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 ## .NET (C#) SDK (data plane)
 
@@ -177,7 +177,7 @@ Update calls for twins and relationships use [JSON Patch](http://jsonpatch.com/)
 
 The following list provides additional detail and general guidelines for using the APIs and SDKs.
 
-* You can use an HTTP REST-testing tool like Postman to make direct calls to the Azure Digital Twins APIs. For more information about this process, see [How-to: Make requests with Postman](how-to-use-postman.md).
+* You can use an HTTP REST-testing tool like Postman to make direct calls to the Azure Digital Twins APIs. For more information about this process, see [How-to: Make API requests with Postman](how-to-use-postman.md).
 * To use the SDK, instantiate the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with a variety of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). 
 * You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true), which you will likely use to authenticate [Azure functions set up with MSI](../app-service/overview-managed-identity.md?tabs=dotnet) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
 * Requests to the Azure Digital Twins APIs require a user or service principal that is a part of the same [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) tenant where the Azure Digital Twins instance resides. To prevent malicious scanning of Azure Digital Twins endpoints, requests with access tokens from outside the originating tenant will be returned a "404 Sub-Domain not found" error message. This error will be returned *even if* the user or service principal was given an Azure Digital Twins Data Owner or Azure Digital Twins Data Reader role through [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) collaboration. For information on how to achieve access across multiple tenants, see [How-to: Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
@@ -198,14 +198,14 @@ API metrics such as requests, latency, and failure rate can be viewed in the [Az
 
 From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
 
-:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins.":::
 
 From here, you can view the metrics for your instance and create custom views.
 
 ## Next steps
 
 See how to make direct requests to the APIs using Postman:
-* [How-to: Make requests with Postman](how-to-use-postman.md)
+* [How-to: Make API requests with Postman](how-to-use-postman.md)
 
 Or, practice using the .NET SDK by creating a client app with this tutorial:
 * [Tutorial: Code a client app](tutorial-code.md)

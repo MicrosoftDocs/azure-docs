@@ -302,4 +302,4 @@ For a technical reason, this mechanism cannot be used to create workbook instanc
 
 ## Next steps
 
-Explore how workbooks are being used to power the new [Azure Monitor for Storage experience](../insights/storage-insights-overview.md).
+Explore how workbooks are being used to power the new [Storage insights experience](../insights/storage-insights-overview.md).

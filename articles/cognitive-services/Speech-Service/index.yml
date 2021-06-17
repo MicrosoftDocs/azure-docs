@@ -94,7 +94,7 @@ conceptualContent:
       links:
         - itemType: overview
           text: About Custom Keyword
-          url: custom-keyword-overview.md
+          url: keyword-recognition-overview.md
         - itemType: quickstart
           text: Get started with Custom Keyword       
           url: custom-keyword-basics.md          

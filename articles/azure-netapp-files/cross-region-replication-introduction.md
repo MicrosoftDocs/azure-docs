@@ -40,7 +40,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 * North Europe and West Europe
 * UK South and UK West
 
-### Azure regional non-pairs
+### Azure regional non-standard pairs
 
 *	West US 2 and East US
 *	South Central US and Central US

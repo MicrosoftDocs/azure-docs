@@ -1,12 +1,12 @@
 ---
 title: Create plans for a virtual machine offer on Azure Marketplace
-description: Learn how to create plans for a virtual machine offer on Azure Marketplace.
+description: Create plans for a virtual machine offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 05/06/2021
+ms.date: 05/20/2021
 ---
 
 # Create plans for a virtual machine offer
@@ -205,11 +205,14 @@ Provide a disk version and the shared access signature (SAS) URI for the virtual
 These two required fields are shown in the prior image above:
 
 - **Disk version**: The version of the image you are providing.
-- **OS VHD link**: The location in your Azure storage account for the operating system VHD. To learn how to get a SAS URI, see [Get shared access signature URI for your VM image](azure-vm-get-sas-uri.md).
+- **OS VHD link**: The image stored in Azure shared image gallery. Learn how to capture your image in a [shared image gallery](azure-vm-create-using-approved-base.md#capture-image).
 
 Data disks (select **Add data disk (maximum 16)**) are also VHD shared access signature URIs that are stored in their Azure storage accounts. Add only one image per submission in a plan.
 
 Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can't remove disks that are part of an image, but they can always add disks during or after deployment.
+
+> [!NOTE]
+> If you provide your images using SAS and have data disks, you also need to provide them as SAS URI. If you are using shared image, they are captured as part of your image in shared image gallery. Once your offer is published to Azure Marketplace, you can delete the image from your Azure storage or shared image gallery.
 
 Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
 

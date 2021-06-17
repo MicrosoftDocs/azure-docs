@@ -24,7 +24,7 @@ An organization can have multiple publishers associated with a commercial market
 
 ## Add new publishers
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. In the top-right, select **Settings** > **Account settings**.
 1. Under **Organization Profile**, select **Identifiers**.
 1. In the **Publisher** section, select **Add publisher**.

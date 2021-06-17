@@ -79,7 +79,7 @@
     - name: Containerize ASP.NET apps and migrate to AKS
       href: tutorial-app-containerization-aspnet-kubernetes.md
     - name: Containerize Java web apps and migrate to AKS
-      href: tutorial-containerize-java-kubernetes.md
+      href: tutorial-app-containerization-java-kubernetes.md
 - name: Concepts
   items:
   - name: General
@@ -126,6 +126,8 @@
       href: migrate-support-matrix-physical-migration.md
     - name: Replication appliance requirements
       href: migrate-replication-appliance.md
+    - name: VMware agentless migration architecture
+      href: concepts-vmware-agentless-migration.md
     - name: Hyper-V migration architecture
       href: hyper-v-migration-architecture.md
     - name: VMware agent-based migration architecture
@@ -134,8 +136,11 @@
   items:
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
-  - name: Use Azure Migrate with private link
+  - name: Use Azure Migrate with private endpoints
     href: how-to-use-azure-migrate-with-private-endpoints.md
+    items:
+      - name: Troubleshoot network connectivity
+        href: troubleshoot-network-connectivity.md
   - name: Prepare to work with ISV tools/Movere
     href: prepare-isv-movere.md
   - name: Discover
@@ -216,7 +221,7 @@
       href: how-to-delete-project.md
     - name: Work with previous version of Azure Migrate
       href: migrate-v1.md
-    - name: Onboard on-premises servers in VMware virtual environment to Azure Arc   
+    - name: Onboard on-premises servers in VMware virtual environment to Azure Arc
       href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse
       href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json

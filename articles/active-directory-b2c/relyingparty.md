@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/15/2021
+ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -138,7 +138,7 @@ The **UserJourneyBehaviors** element contains the following elements:
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | The scope of the single sign-on (SSO) session behavior of a user journey. |
 | SessionExpiryType |0:1 | The authentication behavior of the session. Possible values: `Rolling` or `Absolute`. The `Rolling` value (default) indicates that the user remains signed in as long as the user is continually active in the application. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified by application session lifetime. |
-| SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. |
+| SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. The default is 86,400 seconds (24 hours). The minimum is 900 seconds (15 minutes). The maximum is 86,400 seconds (24 hours). |
 | JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
 |ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).

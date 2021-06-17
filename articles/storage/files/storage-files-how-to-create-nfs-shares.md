@@ -7,11 +7,18 @@ ms.topic: how-to
 ms.date: 05/11/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # How to create an NFS share
-Azure file shares are fully managed file shares that live in the cloud. This article covers creating a file share that uses the NFS protocol. For more information on both protocols, see [Azure file share protocols](storage-files-compare-protocols.md).
+Azure file shares are fully managed file shares that live in the cloud. This article covers creating a file share that uses the NFS protocol.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Limitations
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]

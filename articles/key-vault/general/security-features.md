@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 # Azure Key Vault security
 
-Azure Key Vault protects encryption keys and secrets (such as certificates, connection strings, and passwords) in the cloud. When storing sensitive and business critical data, however, you must take steps to maximize the security of your vaults and the data stored in them.
+Azure Key Vault protects cryptographic keys, certificates (and the private keys associated with the certificates), and secrets (such as connection strings and passwords) in the cloud. When storing sensitive and business critical data, however, you must take steps to maximize the security of your vaults and the data stored in them.
 
 This article provides an overview of security features and best practices for Azure Key Vault.
 
@@ -47,7 +47,7 @@ When you create a key vault in an Azure subscription, it's automatically associa
 
 In all types of access, the application authenticates with Azure AD. The application uses any [supported authentication method](../../active-directory/develop/authentication-vs-authorization.md) based on the application type. The application acquires a token for a resource in the plane to grant access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Key Vault. To learn more, review the [whole authentication flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-For full details, see [Key Vault Authentication Fundamentals](authentication-fundamentals.md)
+For full details, see [Key Vault Authentication Fundamentals](/azure/key-vault/general/authentication.md)
 
 ## Key Vault authentication options
 
