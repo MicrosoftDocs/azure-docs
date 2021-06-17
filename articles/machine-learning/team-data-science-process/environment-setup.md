@@ -21,12 +21,7 @@ The Team Data Science Process uses various data science environments for the sto
 The following articles describe how to set up the various data science environments used by the Team Data Science Process.
 
 * [Azure storage-account](../../storage/common/storage-account-create.md)
-* R and Python on HDInsight clusters
-  * [Introduction to Spark on HDInsight](../../hdinsight/spark/apache-spark-overview.md)
-  * [HDInsight (Hadoop) cluster](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
-  * [PySpark kernels for Jupyter Notebook](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)
-  * [R Server on HDInsight](../../hdinsight/r-server/r-server-overview.md)
-  * [Get started using R Server on HDInsight](../../hdinsight/r-server/r-server-overview.md)
+* [HDInsight (Hadoop) cluster](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
 * [Azure Machine Learning Studio (classic) workspace](../classic/create-workspace.md)
 
 The **Microsoft Data Science Virtual Machine (DSVM)** is also available as an Azure virtual machine (VM) image. This VM is pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The DSVM is available on both Windows and Linux. For more information, see [Introduction to the cloud-based Data Science Virtual Machine for Linux and Windows](../data-science-virtual-machine/overview.md).

@@ -43,6 +43,12 @@
     href: concepts-overview-connection-options.md
   - name: Overview of device types
     href: concepts-iot-device-types.md
+- name: How to
+  items:
+  - name: Troubleshoot
+    items:
+      - name: Troubleshoot embedded quickstarts
+        href: troubleshoot-embedded-device-quickstarts.md
 - name: Reference
   items:
     - name: Azure CLI

@@ -22,7 +22,7 @@
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
   - name: Connect an MXCHIP device
-    href: /azure/iot-develop/quickstart-devkit-mxchip-az3166
+    href: ../iot-develop/quickstart-devkit-mxchip-az3166.md
   - name: Connect a device module
     href: tutorial-migrate-device-to-module.md
   - name: Preview - Connect and analyze data with Time Series Insights Gen2
@@ -59,6 +59,8 @@
     href: howto-use-dtdl-authoring-tools.md
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
+  - name: Convert a device to IoT Plug and Play
+    href: howto-convert-to-pnp.md
   - name: How to connect an IoT Plug and Play bridge sample
     href: howto-use-iot-pnp-bridge.md
   - name: Build and deploy IoT Plug and Play bridge

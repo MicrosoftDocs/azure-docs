@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: expressroute
- author: duongau
+ author: rambk
  ms.service: expressroute
  ms.topic: include
- ms.date: 05/11/2021
- ms.author: duau
+ ms.date: 06/16/2021
+ ms.author: rambala
  ms.custom: include file
 ---
 
@@ -19,13 +19,13 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **Europe** | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK West, UK South, West Europe |Amsterdam, Amsterdam2, Berlin, Copenhagen, Dublin, Frankfurt, Frankfurt2, Geneva, London, London2, Madrid, Marseille, Milan, Munich, Newport(Wales), Oslo, Paris, Stavanger, Stockholm, Zurich |
 | **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, Montreal, New York, Phoenix, Quebec City, Queretaro(Mexico), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Toronto, Toronto2, Vancouver, Washington DC, Washington DC2 |
 | **Asia** | East Asia, Southeast Asia | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei |
-| **India** | India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **India** | India West, India Central, India South, Jio India West, Jio India Central |Chennai, Chennai2, Jamnagar, Mumbai, Mumbai2, Mumbai3, Nagpur |
 | **Japan** | Japan West, Japan East |Osaka, Tokyo, Tokyo2 |
 | **Oceania** | Australia Southeast, Australia East |Auckland, Melbourne, Perth, Sydney, Sydney2 |
 | **South Korea** | Korea Central, Korea South |Busan, Seoul|
 | **UAE** | UAE Central, UAE North | Dubai, Dubai2 |
 | **South Africa** | South Africa West, South Africa North |Cape Town, Johannesburg |
-| **South America** | Brazil South |Bogota, Rio de Janeiro, Sao Paulo |
+| **South America** | Brazil South |Bogota, Campinas, Rio de Janeiro, Sao Paulo |
 
 
 ## Azure regions and geopolitical boundaries for national clouds
