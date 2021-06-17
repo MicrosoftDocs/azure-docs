@@ -598,12 +598,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "active-directory-aspnetcore-webapp-openidconnect-v2",
-      "url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "samples-cosmosdb-xamarin",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
       "branch": "main",
@@ -764,6 +758,12 @@
     "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
     "branch": "main",
     "branch_mapping": {}
+    },
+    {
+      "path_to_root": "active-directory-aspnetcore-webapp-openidconnect-v2",
+      "url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
