@@ -58,7 +58,7 @@ To deploy the cluster, follow these steps:
    az extension add --name spring-cloud
    ```
 
-1. Choose a deployment location from the regions where Azure Spring Cloud is available, as shown in [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=spring-cloud&regions=all).
+1. Choose a deployment location from the regions where Azure Spring Cloud is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all).
 
 1. Use the following command to generate a list of Azure locations. Take note of the short **Name** value for the region you selected in the previous step.
 
