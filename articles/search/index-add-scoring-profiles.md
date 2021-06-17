@@ -16,7 +16,7 @@ For full text search queries, the search engine computes a search score for each
 
 Scoring profiles are embedded in index definitions and include properties for boosting the score of matches, where additional criteria found in the profile provides the boosting logic. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
 
-Unfamiliar with search relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search, but the video also covers core concepts. You might also want to review [Similarity ranking and scoring](index-similarity-and-scoring.md) for more background.
+Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search, but the video also covers basic concepts. You might also want to review [Similarity ranking and scoring](index-similarity-and-scoring.md) for more background.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
 
@@ -204,12 +204,12 @@ Use functions when simple relative weights are insufficient or don't apply, as i
 | "freshness" | Boosts by values in a datetime field (Edm.DataTimeOffset). This function has a `boostingDuration` attribute so that you can specify a value representing a timespan over which boosting occurs. | 
 | "magnitude" | Boosts based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with Edm.Double and Edm.Int fields. For the magnitude function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set "boostingRangeStart" at 100 and "boostingRangeEnd" at 1 to boost the lower-priced items. | 
 | "distance"  | Boosts by proximity or geographic location. This function can only be used with Edm.GeographyPoint fields. | 
-| "tag"  | Boosts by tags that are common to both search documents and query strings. Tags are provided in a tagsParameter. This function can only be used with Edm.String and Collection(Edm.String) fields. | 
+| "tag"  | Boosts by tags that are common to both search documents and query strings. Tags are provided in a `tagsParameter`. This function can only be used with Edm.String and Collection(Edm.String) fields. | 
 
 ### Rules for using functions
 
 + Functions can only be applied to fields that are attributed as filterable.
-+ Function type ("freshness", "magnitude", "distance","tag") must be lower case.
++ Function type ("freshness", "magnitude", "distance", "tag") must be lower case.
 + Functions cannot include null or empty values.
 
 <a name="bkmk_template"></a>
