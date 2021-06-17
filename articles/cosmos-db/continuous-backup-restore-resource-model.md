@@ -124,7 +124,7 @@ This resource contains a database account instance that can be restored. The dat
 | restorableLocations: creationTime	| The time in UTC when the regional account was created.|
 | restorableLocations: deletionTime	| The time in UTC when the regional account was deleted. This value is empty if the regional account is live.|
 
-To get a list of all restorable accounts, see [Restorable Database Accounts - list](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list) or [Restorable Database Accounts- list by location](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/listbylocation) articles.
+To get a list of all restorable accounts, see [Restorable Database Accounts - list](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list) or [Restorable Database Accounts- list by location](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list-by-location) articles.
 
 ### Restorable SQL database
 
