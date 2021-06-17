@@ -10,7 +10,7 @@ ms.date: 06/28/2021
 
 # Connect disk pools to Azure VMware Solution hosts
 
-[Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMWare Solution for optimal cost and performance. For example, if you host data-intensive workloads, you can scale up by using disk pools instead of scaling clusters. You can also use disks to replicate data from on-premises or primary VMware environment to disk storage for the secondary site.
+[Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. Use disks as the persistent storage for Azure VMware Solution for optimal cost and performance. For example, if you host data-intensive workloads, you can scale up by using disk pools instead of scaling clusters. You can also use disks to replicate data from on-premises or primary VMware environment to disk storage for the secondary site.
 
 Azure Disks are attached to the managed iSCSI controller, a virtual machine deployed under the managed resource group. Disks get deployed as storage targets to a disk pool, and each storage target shows as an iSCSI LUN under the iSCSI target. You can expose a disk pool as an iSCSI target connected to Azure VMware Solution hosts as a datastore. A disk pool surfaces as a single endpoint for all underlying disks added as storage targets. Each disk pool can have only one iSCSI controller.
 
@@ -43,9 +43,9 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 
 - [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md).
 
-   - If you select Ultra Disks, use either the Ultra Performance or ErGw3AZ (10Gbps) SKU for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath).
+   - If you select Ultra Disks, use either the Ultra Performance or ErGw3AZ (10 Gbps) SKU for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath).
 
-   - If you select Premium SSD Managed Disks, use either the Standard (1Gbps) or High Performance (2Gbps) SKU for the Azure VMware Solution private cloud.
+   - If you select Premium SSD-Managed Disks, use either the Standard (1 Gbps) or High Performance (2 Gbps) SKU for the Azure VMware Solution private cloud.
 
 - Disk pool as the backing storage deployed and exposed as an iSCSI target with each disk as an individual LUN. For details, see [Deploy an Azure disk pool](../virtual-machines/disks-pools-deploy.md).
 
@@ -73,7 +73,7 @@ Ensure you have the [latest version of Azure PowerShell](/powershell/azure/insta
       az extension show --name vmware
       ```
 
-   - If the extension is not found, install it:
+   - If the extension is not found:
 
       ```azurecli
       az extension add --name vmware
