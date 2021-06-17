@@ -78,9 +78,7 @@ Keep this page open. In the next section you scan this QR code using the phone a
 
 To get you started quickly, this article uses the **IoT Plug and Play** smartphone app as an IoT device. The app sends telemetry collected from the phone's sensors, responds to commands invoked from IoT Central, and reports property values to IoT Central.
 
-Install the app on your smartphone from one of the app stores:
-
-:::image type="content" source="media/quick-deploy-iot-central/play-store-badge.png" alt-text="Get it on Google Play" link="https://play.google.com/store/apps/details?id=com.iot_pnp" border="false"::: :::image type="content" source="media/quick-deploy-iot-central/app-store-badge.png" alt-text="Download on the App Store" link="https://apps.apple.com/app/iot-plug-and-play/id1563783687" border="false":::
+[!INCLUDE [iot-phoneapp-install](../../../includes/iot-phoneapp-install.md)]
 
 To connect the **IoT Plug and Play** app to you Iot Central application:
 
