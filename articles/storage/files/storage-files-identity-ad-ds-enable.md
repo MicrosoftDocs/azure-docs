@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/13/2020
+ms.date: 06/16/2021
 ms.author: rogarana 
 ms.custom: devx-track-azurepowershell
 ---
@@ -31,7 +31,8 @@ The cmdlets in the AzFilesHybrid PowerShell module make the necessary modificati
 
 ### Download AzFilesHybrid module
 
-- [Download and unzip the AzFilesHybrid module (GA module: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Note that AES 256 kerberos encryption is supported on v0.2.2 or above. If you have enabled the feature with a AzFilesHybrid version below v0.2.2 and want to update to support AES 256 Kerberos encryption, please refer to [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
+- [Download and unzip the AzFilesHybrid module (GA module: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Note that AES 256 kerberos encryption is supported on v0.2.2 or above. If you have enabled the feature with a AzFilesHybrid version below v0.2.2 and want to update to support AES 256 Kerberos encryption, please refer to [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
+    - [.Net Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) is required for the module to import successfully.
 - Install and execute the module in a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a service logon account or a computer account in the target AD.
 -  Run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either the storage account owner or the contributor Azure role permissions.
 
@@ -94,7 +95,7 @@ Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -Stor
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-## Option 2: Manually perform the enablement actions
+## Option two: Manually perform the enablement actions
 
 If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the [Confirm the feature is enabled](#confirm-the-feature-is-enabled) section. You don't need to perform the following manual steps.
 
