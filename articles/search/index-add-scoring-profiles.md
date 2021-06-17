@@ -12,7 +12,7 @@ ms.date: 06/16/2021
 ---
 # Add scoring profiles to a search index
 
-For full text search queries, the search engine computes a search score for each matching document, which allows results to be rank ordered in the response, highest to lowest. Azure Cognitive Search uses a default scoring algorithm to compute an initial score, but you can customize the calculation through a *scoring profile*. 
+For full text search queries, the search engine computes a search score for each matching document, which allows results to be ranked from high to low. Azure Cognitive Search uses a default scoring algorithm to compute an initial score, but you can customize the calculation through a *scoring profile*.
 
 Scoring profiles are embedded in index definitions and include properties for boosting the score of matches, where additional criteria found in the profile provides the boosting logic. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
 
@@ -62,19 +62,20 @@ POST /indexes/hotels/docs&api-version=2020-06-30
 }
 ```  
 
-This query searches on the term "inn" and passes in the current location. Notice that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).  
+This query searches on the term "inn" and passes in the current location. Notice that this query includes other parameters, such as scoringParameter. Query parameters are described in [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).  
 
-Click [Example](#bkmk_ex) to review a more detailed example of a scoring profile.  
+See the [Extended example](#bkmk_ex) to review a more detailed example of a scoring profile.  
 
-## Default scoring
+<a name=what-is-default-scoring></a>
 
-The search engine computes a score for each matching document and then ranks each match from high to low. Every match in a search result set is given a search score. By default, the top 50 are returned, but you can use the `$top` parameter to return a smaller or larger number of items (up to 1000 in a single response).  
+## How scoring works
 
-The search score is computed based on statistical properties of the data and the query. Azure Cognitive Search finds documents that include the search terms in the query string (some or all, depending on `searchMode`), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency.  
+Scores are computed for full text search queries, for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
- Assuming there is no custom sorting, results are then ranked by search score before they are returned to the calling application. If $top is not specified, 50 items having the highest search score are returned.  
+Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of identically scored items is undefined and unstable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first.  
 
- Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of identically scored items is undefined and unstable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first.  
+> [!Tip]
+> You can use the [featuresMode](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request additional scoring details with the search results (including the field level scores).
 
 ## When to add scoring logic
 
@@ -82,7 +83,7 @@ You should create one or more scoring profiles when the default ranking behavior
 
 Relevancy-based ordering is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Cognitive Search, scoring profiles drive the ‘relevance’ option. The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.  
 
-<a name="bkmk_ex"></a> 
+<a name="bkmk_ex"></a>
 
 ## Extended example
 
@@ -165,32 +166,52 @@ To implement custom scoring behavior, add a scoring profile to the schema that d
 
 1. Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow Cognitive Search [naming conventions](/rest/api/searchservice/naming-rules) for fields (starts with a letter, avoids special characters and reserved words).  
 
-1. Specify boosting criteria. A single profile can contain weighted fields, one function, or both. You should work iteratively, using a data set that will help you prove or disprove the efficacy of a given profile.
+1. Specify boosting criteria. A single profile can contain weighted fields, one or more functions, or both. You should work iteratively, using a data set that will help you prove or disprove the efficacy of a given profile.
 
-   + Use weighted fields when field context is important and queries are full text search (also known as free form text search). For example, if a query includes a product name like "Excel", you might want "Excel" in the ProductName field to have more weight than "Excel" in a Description field. Weighted fields are always name-value pairs, where the value is a positive integer.
+### Using weighted fields
 
-   + Use functions when simple relative weights are insufficient or don't apply, as in the case of geo-search filters where distance must be calculated at query time. You can specify one function per scoring profile. Functions include:
+Use weighted fields when field context is important and queries are full text search (also known as free form text search). For example, if a query includes the term "airport", you might want "airport" in the Description field to have more weight than in the HotelName. 
 
-     "freshness" should be used when you want to boost by values in a datetime field (edm.DataTimeOffset). This function has a boostingDuration attribute so that you can specify a value representing a timespan over which boosting occurs.
+Weighted fields are composed of a searchable field and a positive number that is used as a multiplier. If the original field score of HotelName is 3, the boosted score for that field becomes 6, contributing to a higher overall score for the parent document itself.
 
-     "magnitude" should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with Double and Integer fields. For the magnitude function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set "boostingRangeStart" at 100 and "boostingRangeEnd" at 1 to boost the lower-priced items.
+```json
+"scoringProfiles": [  
+{  
+  "name": "boostKeywords",  
+  "text": {  
+    "weights": {  
+      "HotelName": 2,  
+      "Description": 5 
+    }  
+  }  
+}
+```
 
-     "distance" should be used when you want to boost by proximity or geographic location. This function can only be used with Edm.GeographyPoint fields.
+### Using functions
 
-     "tag" should be used when you want to boost by tags in common between documents and search queries. This function can only be used with Edm.String and Collection(Edm.String) fields.
+Use functions when simple relative weights are insufficient or don't apply, as in the case of geo-search filters where distance must be calculated at query time. You can specify multiple functions per scoring profile.
 
-## Rules for using functions
++ "freshness" should be used when you want to boost by values in a datetime field (edm.DataTimeOffset). This function has a boostingDuration attribute so that you can specify a value representing a timespan over which boosting occurs.
 
-+ Function type ("freshness", "magnitude", "distance","tag") must be lower case.
++ "magnitude" should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with Double and Integer fields. For the magnitude function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set "boostingRangeStart" at 100 and "boostingRangeEnd" at 1 to boost the lower-priced items.
+
++ "distance" should be used when you want to boost by proximity or geographic location. This function can only be used with Edm.GeographyPoint fields.
+
++ "tag" should be used when you want to boost by tags in common between documents and search queries. This function can only be used with Edm.String and Collection(Edm.String) fields.
+
+### Rules for using functions
+
 + Functions can only be applied to fields that are attributed as filterable.
++ Function type ("freshness", "magnitude", "distance","tag") must be lower case.
 + Functions cannot include null or empty values.
 
-##  <a name="bkmk_template"></a> Template
+<a name="bkmk_template"></a>
+
+## Template
 
  This section shows the syntax and template for scoring profiles. Refer to [Index attributes reference](#bkmk_indexref) in the next section for descriptions of the attributes.  
 
 ```json
-. . .   
 "scoringProfiles": [  
   {   
     "name": "name of scoring profile",   
@@ -236,20 +257,18 @@ To implement custom scoring behavior, add a scoring profile to the schema that d
     "functionAggregation": (optional, applies only when functions are specified) "sum (default) | average | minimum | maximum | firstMatching"   
   }   
 ],   
-"defaultScoringProfile": (optional) "...",   
-. . .  
+"defaultScoringProfile": (optional) "...", 
 ```  
 
-## <a name="bkmk_indexref"></a> Property reference  
+<a name="bkmk_indexref"></a> 
 
-> [!NOTE]  
-> A scoring function can only be applied to fields that are filterable.  
+## Property reference
 
 |Attribute|Description|  
 |---------------|-----------------|  
 | name | Required. This is the name of the scoring profile. It follows the same naming conventions of a field. It must start with a letter, cannot contain dots, colons or @ symbols, and cannot start with the phrase azureSearch (case-sensitive).|  
 | text | Contains the weights property.|  
-| weights | Optional. Weights are used to indicate the importance of one searchable field relative to another when a match is found in that field. The construct consists of name-value pairs that each specify a field name and relative weight. Relative weight must be a positive integer or floating-point number. The value will be used in a mathematical operation that calculates a search score.  |  
+| weights | Optional. Name-value pairs that specify a searchable field and a positive integer or floating-point number by which to boost a field's score. The positive integer or number becomes a multiplier for the original field score generated by the ranking algorithm. For example, if a field score is 2 and the weight value is 3, the boosted score for the field becomes 6. Individual field scores are then aggregated to create a document field score, which is then used to rank the document in the result set. |  
 | functions | Optional. A scoring function can only be applied to fields that are filterable.|  
 | functions > type | Required for scoring functions. Indicates the type of function to use. Valid values include magnitude, freshness, distance, and tag. You can include more than one function in each scoring profile. The function name must be lower case.|  
 | functions > boost | Required for scoring functions. A positive number used as multiplier for raw score. It cannot be equal to 1.|  
