@@ -70,6 +70,7 @@ The following code example creates a managed endpoint that,
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
+For a reference to the YAML, see [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md).
 
 ## Configure variables for your deployment
 
