@@ -1,7 +1,7 @@
 ---
-title: Boost search rank using scoring profiles
+title: Add scoring profiles to boost search scores
 titleSuffix: Azure Cognitive Search
-description: Boost search rank scores for Azure Cognitive Search results by adding scoring profiles.
+description: Boost search relevance scores for Azure Cognitive Search results by adding scoring profiles to a search index.
 
 manager: nitinme
 author: shmed
@@ -16,7 +16,7 @@ For full text search queries, the search engine computes a search score for each
 
 Scoring profiles are embedded in index definitions and include properties for boosting the score of matches, where additional criteria found in the profile provides the boosting logic. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
 
-The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search.
+Unfamiliar with search relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search, but the video also covers core concepts. You might also want to review [Similarity ranking and scoring](index-similarity-and-scoring.md) for more background.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
 
@@ -24,7 +24,7 @@ The following video segment fast-forwards to how scoring profiles work in Azure 
 
 A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. The purpose a scoring profile is to boost or amplify matching documents based on criteria you provide. 
 
-The following definition shows a simple profile named 'geo'. This one boosts items that have the search term in the hotelName field. It also uses the `distance` function to favor items that are within ten kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
+The following definition shows a simple profile named 'geo'. This one boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within ten kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
 
 ```json
 "scoringProfiles": [
@@ -51,7 +51,7 @@ The following definition shows a simple profile named 'geo'. This one boosts ite
 ]
 ```  
 
-To use this scoring profile, your query is formulated to specify the profile on the query string. In the query below, notice the query parameter `scoringProfile=geo` in the request.  
+To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request.
 
 ```http
 POST /indexes/hotels/docs&api-version=2020-06-30
@@ -68,20 +68,18 @@ See the [Extended example](#bkmk_ex) to review a more detailed example of a scor
 
 <a name=what-is-default-scoring></a>
 
-## How scoring works
+## How scores are computed
 
-Scores are computed for full text search queries, for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
-
-Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of identically scored items is undefined and unstable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first.  
+Scores are computed for full text search queries, for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
 > [!Tip]
 > You can use the [featuresMode](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request additional scoring details with the search results (including the field level scores).
 
 ## When to add scoring logic
 
-You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives. For example, you might decide that search relevance should favor newly added items. Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential. Boosting hits that bring benefits to your business can be an important factor in deciding to use scoring profiles.  
+You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives. For example, you might decide that search relevance should favor newly added items. Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential. Boosting results that are more meaningful to your users or the business is often the deciding factor in adoption of scoring profiles.
 
-Relevancy-based ordering is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Cognitive Search, scoring profiles drive the ‘relevance’ option. The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.  
+Relevancy-based ordering in a search page is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Cognitive Search, scoring profiles can be used to drive the ‘relevance’ option. The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.  
 
 <a name="bkmk_ex"></a>
 
@@ -89,7 +87,7 @@ Relevancy-based ordering is also implemented through scoring profiles. Consider 
 
 The following example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set. 
 
-The boostGenre profile uses weighted text fields, boosting matches found in albumTitle, genre, and artistName fields. The fields are boosted 1.5, 5, and 2 respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogenous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, ‘rock’ appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+The `boostGenre` profile uses weighted text fields, boosting matches found in albumTitle, genre, and artistName fields. The fields are boosted 1.5, 5, and 2 respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogenous (as is the case with 'genre' in the musicstoreindex), you might need a larger variance in the relative weights. For example, in the musicstoreindex, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
 
 ```json
 {  
@@ -166,7 +164,15 @@ To implement custom scoring behavior, add a scoring profile to the schema that d
 
 1. Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow Cognitive Search [naming conventions](/rest/api/searchservice/naming-rules) for fields (starts with a letter, avoids special characters and reserved words).  
 
-1. Specify boosting criteria. A single profile can contain weighted fields, one or more functions, or both. You should work iteratively, using a data set that will help you prove or disprove the efficacy of a given profile.
+1. Specify boosting criteria. A single profile can contain [weighted fields](#weighted-fields), [functions](#functions), or both. 
+
+You should work iteratively, using a data set that will help you prove or disprove the efficacy of a given profile.
+
+Scoring profiles can be defined in Azure portal as shown in the following screenshot, or programmatically through [REST APIs](/rest/api/searchservice/update-index) or in Azure SDKs, such as the [ScoringProfile](/dotnet/api/azure.search.documents.indexes.models.scoringprofile) class in the Azure SDK for .NET.
+
+   :::image type="content" source="media/scoring-profiles/portal-add-scoring-profile-small.png" alt-text="Add scoring profiles page" lightbox="media/scoring-profiles/portal-add-scoring-profile.png" border="true":::
+
+<a name="weighted-fields"></a>
 
 ### Using weighted fields
 
@@ -187,17 +193,19 @@ Weighted fields are composed of a searchable field and a positive number that is
 }
 ```
 
+<a name="functions"></a>
+
 ### Using functions
 
-Use functions when simple relative weights are insufficient or don't apply, as in the case of geo-search filters where distance must be calculated at query time. You can specify multiple functions per scoring profile.
+Use functions when simple relative weights are insufficient or don't apply, as in the case of distance and freshness, which are calculations over numeric data. You can specify multiple functions per scoring profile.
 
-+ "freshness" should be used when you want to boost by values in a datetime field (edm.DataTimeOffset). This function has a boostingDuration attribute so that you can specify a value representing a timespan over which boosting occurs.
++ "freshness" boosts by values in a datetime field (Edm.DataTimeOffset). This function has a `boostingDuration` attribute so that you can specify a value representing a timespan over which boosting occurs.
 
-+ "magnitude" should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with Double and Integer fields. For the magnitude function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set "boostingRangeStart" at 100 and "boostingRangeEnd" at 1 to boost the lower-priced items.
++ "magnitude" boosts based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with Edm.Double and Edm.Int fields. For the magnitude function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set "boostingRangeStart" at 100 and "boostingRangeEnd" at 1 to boost the lower-priced items.
 
-+ "distance" should be used when you want to boost by proximity or geographic location. This function can only be used with Edm.GeographyPoint fields.
++ "distance" boosts by proximity or geographic location. This function can only be used with Edm.GeographyPoint fields.
 
-+ "tag" should be used when you want to boost by tags in common between documents and search queries. This function can only be used with Edm.String and Collection(Edm.String) fields.
++ "tag" boosts by tags in common between documents and search queries. This function can only be used with Edm.String and Collection(Edm.String) fields.
 
 ### Rules for using functions
 
@@ -209,7 +217,7 @@ Use functions when simple relative weights are insufficient or don't apply, as i
 
 ## Template
 
- This section shows the syntax and template for scoring profiles. Refer to [Index attributes reference](#bkmk_indexref) in the next section for descriptions of the attributes.  
+ This section shows the syntax and template for scoring profiles. Refer to [Property reference](#bkmk_indexref) in the next section for descriptions of the scoring profile attributes.  
 
 ```json
 "scoringProfiles": [  
@@ -324,6 +332,7 @@ For more examples, see [XML Schema: Datatypes (W3.org web site)](https://www.w3.
 
 ## See also
 
++ [Similarity ranking and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
 + [REST API Reference](/rest/api/searchservice/)
 + [Create Index API](/rest/api/searchservice/create-index)
 + [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?)
