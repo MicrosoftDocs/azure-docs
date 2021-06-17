@@ -12,7 +12,7 @@ ms.author: kryalama
 
 > [!NOTE]
 > The Authentication feature is in preview.
-> Authentication feature is available starting from version 3.2.0.BETA-1
+> Authentication feature is available starting from version 3.2.0-BETA
 
 Application insights Java agent support Azure active directory based authentication. It is the responsibility of the user of the Java agent to provide the necessary details for the agent to build the [TokenCredentials](https://go.microsoft.com/fwlink/?linkid=2163810) required for authentication with AAD.
 
