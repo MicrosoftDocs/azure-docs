@@ -40,7 +40,7 @@ Some features aren't supported with geo-replication:
 
 After geo-replication is configured, the following restrictions apply to your linked cache pair:
 
-- The secondary linked cache is read-only; you can read from it, but you can't write any data to it. If you choose to read from the Geo-Secondary instance, it is important to note that whenever a full data sync is happening between the Geo-Primary and the Geo-Secondary (happens when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios as well), the Geo-Secondary instance will throw errors (stating that a full data sync is in progress) on any Redis operation against it until the full data sync between Geo-Primary and Geo-Secondary is complete. Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors. 
+- The secondary linked cache is read-only; you can read from it, but you can't write any data to it. If you choose to read from the Geo-Secondary instance, it is important to note that whenever a full data sync is happening between the Geo-Primary and the Geo-Secondary (happens when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios as well), the Geo-Secondary instance will throw errors (stating that a full data sync is in progress) on any Redis operation against it until the full data sync between Geo-Primary and Geo-Secondary is complete. Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors.
 - Any data that was in the secondary linked cache before the link was added is removed. If the geo-replication is later removed however, the replicated data remains in the secondary linked cache.
 - You can't [scale](cache-how-to-scale.md) either cache while the caches are linked.
 - You can't [change the number of shards](cache-how-to-premium-clustering.md) if the cache has clustering enabled.
@@ -57,7 +57,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
     ![Add link](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Select the name of your intended secondary cache from the **Compatible caches** list. If your secondary cache isn't displayed in the list, verify that the [Geo-replication prerequisites](#geo-replication-prerequisites) for the secondary cache are met. To filter the caches by region, select the region in the map to display only those caches in the **Compatible caches** list.
+1. Select the name of your intended secondary cache from the **Compatible caches** list. If your secondary cache isn't displayed in the list, verify that the [Geo-replication prerequisites](#geo-replication-prerequisites) for the secondary cache are met. To filter the caches by region, select the region in the map to display only those caches in the **Compatible caches** list.
 
     ![Geo-replication compatible caches](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
 
@@ -65,11 +65,11 @@ After geo-replication is configured, the following restrictions apply to your li
 
     ![Geo-replication context menu](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. Select **Link** to link the two caches together and begin the replication process.
+1. Select **Link** to link the two caches together and begin the replication process.
 
     ![Link caches](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. You can view the progress of the replication process using **Geo-replication** on the left.
+1. You can view the progress of the replication process using **Geo-replication** on the left.
 
     ![Linking status](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
@@ -86,7 +86,7 @@ After geo-replication is configured, the following restrictions apply to your li
 ## Remove a geo-replication link
 
 1. To remove the link between two caches and stop geo-replication, click **Unlink caches** from the **Geo-replication** on the left .
-    
+
     ![Unlink caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
     When the unlinking process completes, the secondary cache is available for both reads and writes.
