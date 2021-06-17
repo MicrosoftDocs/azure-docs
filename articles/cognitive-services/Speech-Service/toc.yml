@@ -99,6 +99,8 @@
           href: releasenotes.md
         - name: Speech-to-text REST API
           href: rest-speech-to-text.md
+        - name: Ingestion Client
+          href: ingestion-client.md
     - name: Resources
       items:
         - name: Language support

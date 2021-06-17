@@ -324,6 +324,9 @@ Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/serv
 regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to ensure eventual
 deletion of the results.
 
+> [!TIP]
+> You can use the [Ingestion Client](ingestion-client.md) tool and resulting solution to process high volume of audio.
+
 ## Sample code
 
 Complete samples are available in the [GitHub sample repository](https://aka.ms/csspeech/samples) inside the `samples/batch` subdirectory.
