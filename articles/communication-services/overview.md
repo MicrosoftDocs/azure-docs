@@ -24,11 +24,9 @@ Voice and video calling applications can interact with the publicly switched tel
 
 In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for various platforms and languages, including Web browsers (JavaScript), iOS (Swift), Java (Android), Windows (.NET). Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
 
-REST APIs and SDKs are also available to connect services and bots to communication applications.
-
 Scenarios for Azure Communication Services include:
 
-- **Business to Consumer (B2C).** A business' employees and services  interact with consumers using voice, video, and rich text chat in a custom browser or mobile application. An organization can send and receive SMS messages, or operate an interactive voice response system (IVR) using a phone number you acquire through Azure. [Integration with Microsoft Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md) can be used to connect consumers to Teams meetings hosted by employees; ideal for remote healthcare, banking, and product support scenarios where employees might already be familiar with Teams.
+- **Business to Consumer (B2C).** A business' employees and services  interact with consumers using voice, video, and rich text chat in a custom browser or mobile application. An organization can send and receive SMS messages, or [operate an interactive voice response system (IVR)](https://github.com/microsoft/botframework-telephony/blob/main/EnableTelephony.md) using a phone number you acquire through Azure. [Integration with Microsoft Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md) can be used to connect consumers to Teams meetings hosted by employees; ideal for remote healthcare, banking, and product support scenarios where employees might already be familiar with Teams.
 - **Consumer to Consumer (C2C).** Build engaging social spaces for consumer-to-consumer interaction with voice, video, and rich text chat. Any type of user interface can be built on Azure Communication Services SDKs, or use complete application samples and an open-source UI toolkit  to help you get started quickly.
 
 To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com/watch?v=apBX7ASurgM) or the resources linked below.
