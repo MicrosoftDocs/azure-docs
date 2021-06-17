@@ -8,7 +8,7 @@ ms.author: jasonh
 
 
 > [!WARNING]
-> Billing for HDInsight clusters is prorated per minute, whether you use them or not. Be sure to delete your cluster after you finish using it. See [how to delete an HDInsight cluster](../articles/hdinsight/hdinsight-delete-cluster.md).
+> Billing for HDInsight clusters is prorated per minute, whether you use them or not. Be sure to delete your cluster after you finish using it. See [how to delete an HDInsight cluster](../hdinsight-delete-cluster.md).
 > 
 > 
 
