@@ -33,22 +33,20 @@ To display the Azure Resource Manager resource ID for a storage account in the A
 
 # [PowerShell](#tab/powershell)
 
-To return the Azure Resource Manager resource ID for a storage account with PowerShell, make sure you have installed the [Az module](https://www.powershellgallery.com/packages/Az/). Next, call the [Get-AzResource](/powershell/module/az.resources/get-azresource) command and specify the `-ResourceType` parameter to return the storage account resource, as shown in the following example:
+To return the Azure Resource Manager resource ID for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get its resource ID:
 
 ```azurepowershell
-$resource = Get-AzResource -Name storagesamples -ResourceType Microsoft.Storage/storageaccounts
-$resource.ResourceId
+(Get-AzStorageAccount -ResourceGroupName $rgName -Name $storageAccount).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To return the Azure Resource Manager resource ID for a storage account with Azure CLI, call the [az resource show](/cli/azure/resource#az_resource_show) command and specify the `--resource-type` parameter to return the storage account resource, as shown in the following example:
+To return the Azure Resource Manager resource ID for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command and query the resource ID:
 
 ```azurecli
-az resource show \
+az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type "Microsoft.Storage/storageaccounts" \
     --query id \
     --output tsv
 ```
@@ -57,19 +55,45 @@ az resource show \
 
 For more information about types of resources managed by Azure Resource Manager, see [Resource providers and resource types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-## About account type and SKU name
+## Get the account type, location, or replication SKU for a storage account
 
-**Account type**: Valid account types include `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`, and `StorageV2`. [Azure storage account overview](storage-account-overview.md) has more information, including descriptions of the various storage accounts.
+The account type, location, and replication SKU are some of the properties available on a storage account. You can use the Azure portal, PowerShell, or Azure CLI to view these values.
 
-**SKU name**: Valid SKU names include `Premium_LRS`, `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS`, and `Standard_ZRS`. SKU names are case-sensitive and are string fields in the [SkuName Class](/dotnet/api/microsoft.azure.management.storage.models.skuname).
+# [Azure portal](#tab/portal)
 
-## Retrieve account information
+To view the account type, location, or replication SKU for a storage account in the Azure portal, follow these steps:
 
-The following code example retrieves and displays the read-only account properties.
+1. Navigate to your storage account in the Azure portal.
+1. Locate these properties on the **Overview** page, in the **Essentials** section
 
+    :::image type="content" source="media/storage-account-get-info/account-configuration-portal.png" alt-text="Screenshot showing account configuration in the portal":::
+
+# [PowerShell](#tab/powershell)
+
+To view the account type, location, or replication SKU for a storage account with PowerShell, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account, then check the properties:
+
+```azurepowershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>
+$account.Location
+$account.Sku
+$account.Kind
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To view the account type, location, or replication SKU for a storage account with PowerShell, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command and query the properties:
+
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query '[location,sku,kind]' \
+    --output tsv
+```
+
+---
 
 ## Next steps
 
-Learn about other operations you can perform on a storage account through the [Azure portal](https://portal.azure.com) and the Azure REST API.
-
-- [Get Account Information operation (REST)](/rest/api/storageservices/get-account-information)
+- [Storage account overview](storage-account-overview.md)
+- [Create a storage account](storage-account-create.md)
