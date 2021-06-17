@@ -17,7 +17,6 @@ The following table contains the address and port information needed when connec
 | ----- | ----- | ----- |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primary headnode |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secondary headnode |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | edge node (ML Services on HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | edge node (any other cluster type, if an edge node exists) |
 
 Replace `<clustername>` with the name of your cluster. Replace `<edgenodename>` with the name of the edge node.
