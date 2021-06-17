@@ -28,7 +28,7 @@ The following requirements apply to NFSv4.1 client encryption:
 * DNS A/PTR record creation for both the client and Azure NetApp Files NFS server IP addresses
 * A Linux client: This article provides guidance for RHEL and Ubuntu clients.  Other clients will work with similar configuration steps. 
 * NTP server access: You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
-* Ensure that User Principal Names for user accounts do *not* end with a `$` symbol (e.g. user$@contoso.com).   
+* Ensure that User Principal Names for user accounts do *not* end with a `$` symbol (for example, user$@REALM.COM). <!-- Not using 'contoso.com' in this example; per Mark, A customers REALM namespace may be different from their AD domain name space. -->   
     At this time, Azure NetApp Files Kerberos does not support [Group managed service accounts](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts) (gMSA).
 
 
