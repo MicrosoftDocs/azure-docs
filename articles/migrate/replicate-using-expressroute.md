@@ -170,7 +170,7 @@ If the DNS resolution is incorrect, follow these steps:
 For proxy bypass, you can add a proxy bypass rule for the cache storage account as follows 
 - _storageaccountname_.blob.core.windows.net.
 
-[!Important]
+> [!Important]
 >  Do not bypass *.blob.core.windows.net as Azure Migrate makes use of another storage account, which needs internet access. This storage account, gateway storage account, is only used to store state information about the VMs being replicated. You can locate the gateway storage account by identifying the prefix _**gwsa**_ in the storage account name in the Azure Migrate project resource group. 
 
 ## Replicate data by using an ExpressRoute circuit with Microsoft peering
@@ -207,7 +207,7 @@ If the appliance uses a proxy for internet connectivity, you may need to configu
     - .*.migration.windowsazure.com
     - .*.hypervrecoverymanager.windowsazure.com
 
-[!Note]
+> [!Note]
 > Following URLs are not accessible over ExpressRoute and require Internet connectivity: *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com (optional), aka.ms/* (optional), download.microsoft.com/download.
 
 
@@ -225,7 +225,7 @@ To configure the proxy bypass list on the configuration server and process serve
 
 The bypass rules for the Azure Storage endpoint will ensure that the replication traffic can flow through ExpressRoute while the control plane communication can go through the proxy for the internet. 
 
-[!Note]
+> [!Note]
 > Following URLs are not accessible over ExpressRoute and require Internet connectivity: *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com (optional), aka.ms/* (optional), download.microsoft.com/download, dev.mysql.com.
 
 ## Next steps
