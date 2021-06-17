@@ -22,6 +22,7 @@ OpenID Connect (OIDC) is an authentication protocol built on OAuth 2.0 that you 
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol, so that you can do single sign-on using OAuth. OpenID Connect introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user. The ID token also gets basic profile information about the user. It also introduces the [UserInfo endpoint](userinfo.md), an API that returns information about the user. 
 
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## Protocol diagram: Sign-in
 

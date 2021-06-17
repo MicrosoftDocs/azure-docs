@@ -24,6 +24,8 @@ This article describes how to program directly against the protocol in your appl
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). It's used to perform authentication and authorization in the majority of app types, including [single page apps](v2-app-types.md#single-page-apps-javascript), [web apps](v2-app-types.md#web-apps), and [natively installed apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire access_tokens that can be used to access resources secured by the Microsoft identity platform, as well as refresh tokens to get additional access_tokens, and ID tokens for the signed in user.
 
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
+
 ## Protocol diagram
 
 At a high level, the entire authentication flow for an application looks a bit like this:
@@ -358,11 +360,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=refresh_token
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps. This secret needs to be URL-Encoded
 ```
-
-> [!TIP]
-> Try executing this request in Postman! (Don't forget to replace the `refresh_token`)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
->
 
 | Parameter     | Type           | Description        |
 |---------------|----------------|--------------------|

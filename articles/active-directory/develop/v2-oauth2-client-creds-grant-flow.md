@@ -25,6 +25,8 @@ The OAuth 2.0 client credentials grant flow permits a web service (confidential 
 
 In the client credentials flow, permissions are granted directly to the application itself by an administrator. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action since there is no user involved in the authentication.  This article covers both the steps needed to [authorize an application to call an API](#application-permissions), as well as [how to get the tokens needed to call that API](#get-a-token).
 
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
+
 ## Protocol diagram
 
 The entire client credentials flow looks similar to the following diagram. We describe each of the steps later in this article.
@@ -139,10 +141,6 @@ After you've received a successful response from the app provisioning endpoint, 
 ## Get a token
 
 After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` Microsoft identity platform:
-
-> [!TIP]
-> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### First case: Access token request with a shared secret
 

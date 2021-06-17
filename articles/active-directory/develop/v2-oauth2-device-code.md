@@ -22,6 +22,8 @@ The Microsoft identity platform supports the [device authorization grant](https:
 
 This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
+
 ## Protocol diagram
 
 The entire device code flow looks similar to the next diagram. We describe each of the steps later in this article.
@@ -31,10 +33,6 @@ The entire device code flow looks similar to the next diagram. We describe each 
 ## Device authorization request
 
 The client must first check with the authentication server for a device and user code that's used to initiate authentication. The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user. From the moment this request is sent, the user has only 15 minutes to sign in (the usual value for `expires_in`), so only make this request when the user has indicated they're ready to sign in.
-
-> [!TIP]
-> Try executing this request in Postman!
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```HTTP
 // Line breaks are for legibility only.
