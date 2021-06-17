@@ -46,20 +46,21 @@ Metric rules for virtual machines can use the following data:
 
 
 
-### Log query alerts
-There are two types of [log query alert rule](../alerts/alerts-metric.md) in Azure Monitor, each of which support distinct scenarios for monitoring virtual machines.
+### Log alerts
+[Log alerts](../alerts/alerts-metric.md) can perform two different measurements of the result of a log query, each of which support distinct scenarios for monitoring virtual machines.
 
-- [Metric measurement alerts](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These are ideal for non-numeric data such and Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers.
-- [Number of results alerts](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../agents/log-analytics-agent.md) or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple machines have the same error condition.
+- [Metric measurement](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. These are ideal for non-numeric data such and Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers.
+- [Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../agents/log-analytics-agent.md) or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple machines have the same error condition.
 ### Target resource and impacted resource
 
 > [!NOTE]
 > Resource-centric log alert rules, currently in public preview, will simplify log query alerts for virtual machines and replace the functionality currently provided by metric measurement queries. You can use the machine as a target for the rule which will better identify it as the affected resource. You can also apply a single alert rule to all machines in a particular resource group or description. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
 > 
 Each alert in Azure Monitor has an **Affected resource** property which is defined by the target of the rule. For metric alert rules, the affected resource will be the computer which allows you to easily identify it in the standard alert view. Log query alerts will be associated with the workspace resource instead of the machine, even when you use a metric measurement alert that creates an alert for each computer. You need to view the details of the alert to view the computer that was affected. 
+
 The computer name is stored in the **Impacted resource** property which you can view in the details of the alert. It's also displayed as a dimension in emails that are sent from the alert.
 
-![Alert view]()
+:::image type="content" source="media/monitor-virtual-machines/alert-metric-measurement.png" alt-text="Alrt with impacted resource":::
 
 
 You may want to have a view that lists the alerts with the affected computer. You can do this with a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Following is a query that can be used to display alerts. Use the data source  **Azure Resource Graph** in the workbook.
@@ -76,7 +77,7 @@ alertsmanagementresources
 | project Alert, AlertStatus, Computer
 ```
 ## Common alert rules
-The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log query metric measurement alerts are provided for each. See [Choosing the alert type](#choosing-the-alert-type) section above for guidance on which type of alert to use. 
+The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log metric measurement alerts are provided for each. See [Choosing the alert type](#choosing-the-alert-type) section above for guidance on which type of alert to use. 
 
 If you're not familiar with the process for creating alert rules in Azure Monitor, see the following for guidance:
 
@@ -129,7 +130,8 @@ A metric called *Heartbeat* is included in each Log Analytics workspace. Each vi
 
 ```kusto
 InsightsMetrics
-| where Origin == "vm.azm.ms"<br>\| where Namespace == "Processor" and Name == "UtilizationPercentage"
+| where Origin == "vm.azm.ms"
+| where Namespace == "Processor" and Name == "UtilizationPercentage"
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer
 ```
 
@@ -285,7 +287,7 @@ InsightsMetrics
 
 
 ## Comparison of log query alert types
-To compare the behavior of the two log query alert types, here's a walkthrough of each type of rule to create an alert when the CPU of a virtual machine exceeds 80%. The data we need is in the [InsightsMetrics table](/azure/azure-monitor/reference/tables/insightsmetrics). Following is a simple query that returns the records that need to be evaluated for the alert. Each type of alert rule will use a variant of this query.
+To compare the behavior of the two log alert measures, here's a walkthrough of each to create an alert when the CPU of a virtual machine exceeds 80%. The data we need is in the [InsightsMetrics table](/azure/azure-monitor/reference/tables/insightsmetrics). Following is a simple query that returns the records that need to be evaluated for the alert. Each type of alert rule will use a variant of this query.
 
 ```kusto
 InsightsMetrics
@@ -293,14 +295,14 @@ InsightsMetrics
 | where Namespace == "Processor" and Name == "UtilizationPercentage" 
 ```
 
-### Metric measurement rule
-The **metric measurement** rule will create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for virtual machine performance data since they create individual alerts for each computer. The log query in this type of alert rule needs to return a value for each machine. The threshold in the alert rule will determine if the value should fire an alert.
+### Metric measurement
+The **metric measurement** measure will create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for virtual machine performance data since they create individual alerts for each computer. The log query for this measure needs to return a value for each machine. The threshold in the alert rule will determine if the value should fire an alert.
 
 > [!NOTE]
 > Resource-centric log alert rules, currently in public preview, will simplify log query alerts for virtual machines and replace the functionality currently provided by metric measurement queries. You can use the machine as a target for the rule which will better identify it as the affected resource. You can also apply a single alert rule to all machines in a particular resource group or description. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
 
 #### Query
-The query for metric measurement rules must include a record for each machine with a numeric property called *AggregatedValue*. This is the value that's compared to the threshold in the alert rule. The query doesn't need to compare this value to a threshold since the threshold is defined in the alert rule.
+The query for rules using metric measurement must include a record for each machine with a numeric property called *AggregatedValue*. This is the value that's compared to the threshold in the alert rule. The query doesn't need to compare this value to a threshold since the threshold is defined in the alert rule.
 
 ```kusto
 InsightsMetrics

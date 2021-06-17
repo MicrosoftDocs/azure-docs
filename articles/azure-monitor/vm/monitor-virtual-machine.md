@@ -42,9 +42,10 @@ There are fundamentally three layers to a virtual machine that require monitorin
 | Virtual machine host | This is the host virtual machine in Azure. Azure Monitor has no access to the host in other clouds but must rely on information collected from the guest operating system. The host can be useful for tracking activity such as configuration changes, but typically isn't used for significant alerting. |
 | Guest operating system | Operating system running on the virtual machine which is some version of either Windows or Linux. A significant amount of monitoring data is available from the guest operating system such as performance data and events. VM insights in Azure Monitor provides a significant amount of logic for monitoring the health and performance of the guest operating system. |
 | Workloads | Workloads running in the guest operating system that support your business applications. Azure Monitor provides predefined monitoring for some workloads, you typically need to configure data collection and alerting for other workloads using monitoring data that they generate. |
-| Application | The business application that depends on your virtual machines can be monitored using [Application Insights](../app/app-insights-overview.md). This is no different than the monitoring of an application running on any other platform. 
+| Application | The business application that depends on your virtual machines can be monitored using [Application Insights](../app/app-insights-overview.md). 
 
-Application monitoring in Azure Monitor is provided by [Application insights](../app/app-insights-overview.md). This will measure the performance and availability of the application regardless of the platform that it's running on. 
+
+:::image type="content" source="media/monitor-virtual-machines/monitoring-layers.png" alt-text="Monitoring layers" lightbox="media/monitor-virtual-machines/monitoring-layers.png":::
 
 ## VM insights
 This scenario will focus on [VM insights](../vm/vminsights-overview.md), which is the primary feature in Azure Monitor for monitoring virtual machines, providing the following features.
