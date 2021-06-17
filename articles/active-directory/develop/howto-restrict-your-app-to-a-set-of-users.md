@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-#Customer intent: As a tenant administrator, I want to restrict an application that I have registered in Azure AD to a select set of users available in my Azure AD tenant
+#Customer intent: As a tenant administrator, I want to restrict an application that I have registered in Azuren-e AD to a select set of users available in my Azure AD tenant
 ---
 # How to: Restrict your Azure AD app to a set of users in an Azure AD tenant
 
@@ -50,7 +50,7 @@ To update an application to require user assignment, you must be owner of the ap
 1. Select **Save**.
 
 > [!NOTE]
-> When an application requires assignment, user consent for that application is not allowed. This is true even if users consent for that app would have otherwise been allowed. Be sure to [grant tenant-wide admin consent](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent) to apps that require assignment. 
+> When an application requires assignment, user consent for that application is not allowed. This is true even if users consent for that app would have otherwise been allowed. Be sure to [grant tenant-wide admin consent](../manage-apps/grant-admin-consent.md) to apps that require assignment. 
 
 ## Assign the app to users and groups
 
