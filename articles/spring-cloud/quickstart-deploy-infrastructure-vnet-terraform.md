@@ -143,13 +143,13 @@ To apply the configuration, follow these steps:
         }
       ```
 
-1. Run the following command to initialize the terraform modules:
+1. Run the following command to initialize the Terraform modules:
 
    ```bash
    terraform init
    ```
 
-1. Run the following command to plan the terraform deployment:
+1. Run the following command to create the Terraform deployment plan:
 
    ```bash
    terraform plan -out=springcloud.plan
