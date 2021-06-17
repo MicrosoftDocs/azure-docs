@@ -28,7 +28,7 @@ The Azure API for FHIR validates that it can find the patient matching the provi
 
  
 > [!Note]
-> $patient-everything is available in the Open Source FHIR Server backed by Cosmos DB now and will be available in Azure API for FHIR before July 1st. The capability statement for the FHIR Server is missing support for $patient-everything, which is tracked here: Issue [1989](https://github.com/microsoft/fhir-server/issues/1989). 
+> The capability statement for the FHIR Server is missing support for $patient-everything, which is tracked here: Issue [1989](https://github.com/microsoft/fhir-server/issues/1989). 
 
 
 ## Patient-everything parameters
