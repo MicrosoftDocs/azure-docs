@@ -5,7 +5,7 @@ titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
 ms.service: azure-arc 
-ms.date: 05/18/2021
+ms.date: 06/17/2021
 ms.topic: how-to 
 ---
 

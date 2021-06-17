@@ -345,18 +345,18 @@ Azure Container Instances (ACI) are created dynamically when you deploy a model.
 Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training:
 
 * [Azure Kubernetes Service](/azure/aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
-* [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Configure Azure Arc enabled Kubernetes cluster for machine learning model training](how-to-create-attach-arc-kubernetes.md)
+* [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure.
 
-> [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 To detach a cluster from your workspace, use the following method:
-
-> [!WARNING]
-> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](/aks/kubernetes-walkthrough.md#delete-the-cluster) or to delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](/azure-arc/kubernetes/quickstart-connect-cluster#clean-up-resources).
 
 ```python
 compute_target.detach()
 ```
+
+> [!WARNING]
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](/aks/kubernetes-walkthrough.md#delete-the-cluster) or to delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](/azure-arc/kubernetes/quickstart-connect-cluster#clean-up-resources).
 
 ## Notebook examples
 
