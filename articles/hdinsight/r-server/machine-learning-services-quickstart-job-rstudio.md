@@ -4,7 +4,7 @@ description: In the quickstart, you execute an R script on an ML Services cluste
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
-ms.custom: mvc
+ROBOTS: NOINDEX
 #Customer intent: I want to learn how to execute an R script using ML Services in Azure HDInsight for RStudio Server.
 ---
 

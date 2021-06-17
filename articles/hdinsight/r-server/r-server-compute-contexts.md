@@ -3,8 +3,8 @@ title: Compute context options for ML Services on HDInsight - Azure
 description: Learn about the different compute context options available to users with ML Services on HDInsight 
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 01/02/2020
+ROBOTS: NOINDEX
 ---
 
 # Compute context options for ML Services on HDInsight

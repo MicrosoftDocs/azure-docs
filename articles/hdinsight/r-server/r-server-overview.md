@@ -3,8 +3,8 @@ title: Introduction to ML Services on Azure HDInsight
 description: Learn how to use ML Services on HDInsight to create applications for big data analysis.
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
+ROBOTS: NOINDEX
 #Customer intent: As a developer I want to have a basic understanding of Microsoft's implementation of machine learning in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
 
