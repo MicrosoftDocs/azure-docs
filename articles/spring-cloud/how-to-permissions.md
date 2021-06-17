@@ -36,7 +36,7 @@ The developer role includes permissions to restart apps and see their log stream
 
 Follow these steps to start defining a role.
 
-1. In the Azure portal, open the subscription and resource group where you want the custom role to be assignable.
+1. In the Azure portal, open the subscription where you want the custom role to be assignable.
 2. Open **Access control (IAM)**.
 3. Click **+ Add**.
 4. Click **Add custom role**.
@@ -100,9 +100,11 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 #### [JSON](#tab/JSON)
 5. Click **Next**.
 
-   ![Create custom role](media/spring-cloud-permissions/create-custom-role-json.png)
+6. Click the **JSON** tab.
 
-The following JSON file defines the Developer role.
+7. Click **Edit** and paste the JSON in the following JSON file to define the Developer role.
+
+   ![Create custom role](media/spring-cloud-permissions/create-custom-role-json.png)
 
 ```json
 {
@@ -140,9 +142,9 @@ The following JSON file defines the Developer role.
   }
 }
 ```
-6. Review the permissions.
+8. Review the permissions.
 
-7. Click **Review and create**.
+9. Click **Review and create**.
 ---
 
 
