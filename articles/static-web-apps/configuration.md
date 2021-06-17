@@ -24,6 +24,8 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 
 > [!NOTE]
 > [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) that was previously used to configure routing is deprecated. Use _staticwebapp.config.json_ as described in this article to configure routing and other settings for your static web app.
+> 
+> This document is regarding Azure Static Web Apps, which is a stand alone product and seperate from $web container, which is a feature of Azure Storage.
 
 ## File location
 
