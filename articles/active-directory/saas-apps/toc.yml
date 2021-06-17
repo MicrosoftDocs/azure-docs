@@ -373,6 +373,8 @@
         href: cisco-webex-tutorial.md
       - name: Citrix ADC SAML Connector for Azure AD
         href: citrix-netscaler-tutorial.md
+      - name: Citrix Cloud SAML SSO
+        href: citrix-cloud-saml-sso-tutorial.md  
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
       - name: Civic Platform
@@ -1518,6 +1520,8 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: ProProfs Classroom
+        href: proprofs-classroom-tutorial.md  
       - name: ProProfs Knowledge Base
         href: proprofs-knowledge-base-tutorial.md
       - name: Proto.io
@@ -1954,7 +1958,7 @@
         href: tickitlms-learn-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
-      - name: TigerText Secure Messenger
+      - name: TigerConnect Secure Messenger
         href: tigertext-tutorial.md
       - name: Timeclock 365 SAML
         href: timeclock-365-saml-tutorial.md
@@ -2048,6 +2052,8 @@
         href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
         href: vibehcm-tutorial.md
+      - name: VIDA
+        href: vida-tutorial.md
       - name: Vidyard
         href: vidyard-tutorial.md
       - name: Virtual Risk Manager
