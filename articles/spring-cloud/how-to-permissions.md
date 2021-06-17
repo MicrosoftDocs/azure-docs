@@ -211,15 +211,17 @@ From **Microsoft.AppPlatform/skus**, select:
 
 #### [JSON](#tab/JSON)
 
-5. Click **Next**.
+1. Repeat the procedure to navigate subscription and access Access control (IAM). 
 
-6. Click the **JSON** tab.
+2. Click **Next**.
 
-7. Click **Edit**, and delete the default text.
+3. Click the **JSON** tab.
+
+4. Click **Edit**, and delete the default text.
 
    ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
 
-8. Paste the following JSON to define the DevOps engineer role.
+5. Paste the following JSON to define the DevOps engineer role.
 
 ```json
 {
@@ -268,11 +270,14 @@ From **Microsoft.AppPlatform/skus**, select:
   }
 }
 ```
+6. Review the permissions.
+
+7. Click **Review and create**.
 ---
 ## Define Ops - Site Reliability Engineering role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 #### [Portal](#tab/Azure-portal)
-1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
+1. Repeat the procedure to navigate subscription and access Access control (IAM).
 
 2. Select the permissions for the Ops - Site Reliability Engineering role:
 
@@ -304,15 +309,18 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 5. Click **Review and create**.
 
 #### [JSON](#tab/JSON)
-1. Click **Next**.
 
-6. Click the **JSON** tab.
+1. Repeat the procedure to navigate subscription and access Access control (IAM).
 
-7. Click **Edit**, and delete the default text.
+2. Click **Next**.
+
+3. Click the **JSON** tab.
+
+4. Click **Edit**, and delete the default text.
 
    ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
 
-8. Paste the following JSON to define the Ops - Site Reliability Engineering role.
+5. Paste the following JSON to define the Ops - Site Reliability Engineering role.
  
 ```json
 {
@@ -344,13 +352,16 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
   }
 }
 ```
+6. Review the permissions.
+
+7. Click **Review and create**.
 ---
 ## Define Azure Pipelines/Provisioning role
 
 This Jenkins/Github Actions role can create and configure everything in Azure Spring Cloud and apps with a service instance. This role is for releasing or deploying code.
 #### [Portal](#tab/Azure-portal)
 
-1. Repeat the procedure to navigate subscription, resource group, and access Access control (IAM).
+1. Repeat the procedure to navigate subscription and access Access control (IAM).
 
 2. Open the **Permissions** options.
 
@@ -410,15 +421,17 @@ From **Microsoft.AppPlatform/skus**, select:
 6. Click **Review and create**.
 #### [JSON](#tab/JSON)
 
-5. Click **Next**.
+1. Repeat the procedure to navigate subscription and access Access control (IAM).
 
-6. Click the **JSON** tab.
+2. Click **Next**.
 
-7. Click **Edit**, and delete the default text.
+3. Click the **JSON** tab.
+
+4. Click **Edit**, and delete the default text.
 
    ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
 
-8. Paste the following JSON to define the Azure Pipelines/Provisioning role.
+5. Paste the following JSON to define the Azure Pipelines/Provisioning role.
 
 ```json
 {
@@ -466,6 +479,9 @@ From **Microsoft.AppPlatform/skus**, select:
   }
 }
 ```
+6. Click **Add**.
+
+7. Review the permissions.
 ---
 ## See also
 * [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md)
