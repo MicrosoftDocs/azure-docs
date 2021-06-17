@@ -38,7 +38,7 @@ The following table shows the features supported across each gateway type.
 |**Ultra Performance SKU/ErGw3Az**|Yes|Yes|16
 
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
-The following table shows the gateway types and the estimated performance scale numbers. These numbers are derived from the following testing conditions. Actual performance may vary, depending on how closely traffic replicates the testing conditions.
+The following table shows the gateway types and the estimated performance scale numbers. These numbers are derived from the following testing conditions and represent the max support limits. Actual performance may vary, depending on how closely traffic replicates the testing conditions.
 
 ### Testing conditions
 ##### **Standard** #####
