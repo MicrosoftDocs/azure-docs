@@ -1,6 +1,6 @@
 ---
 title: Script Sample - Create new policies or modify the current file and folder Backup policy
-description: Learn about how to use a script to to create new policies or modify the current file and folder Backup policy.
+description: Learn about how to use a script to create new policies or modify the current file and folder Backup policy.
 ms.topic: sample
 ms.date: 06/15/2021
 ---
