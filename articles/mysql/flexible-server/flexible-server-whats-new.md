@@ -20,7 +20,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 -	**Improved performance on smaller storage servers**
 
-    Beginning June 21, 2021, the minimum allowed provisioned storage size for all  newly created server increases from 5 GB to 20 GB. In addition, the available free IOPs increases from 100 to 300. These changes are summarized in the following table:
+    Beginning June 21, 2021, the minimum allowed provisioned storage size for all  newly created server increases from 5 GB to 20 GB. In addition, the available free IOPS increases from 100 to 300. These changes are summarized in the following table:
 
     | **Current** | **As of June 21, 2021** |
     |:----------|:----------|
@@ -33,15 +33,15 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Storage auto-grow**
 
-  Storage auto-grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Beginning June 21, 2021, all newly created servers will have storage auto-grow enabled by default. [Learn more](concepts-compute-storage#storage-auto-grow.md).
+  Storage auto-grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Beginning June 21, 2021, all newly created servers will have storage auto-grow enabled by default. [Learn more](concepts-compute-storage.md#storage-auto-grow.md).
 
 -	**Data-in Replication**
 
-    Flexible Server now supports [Data-in Replication](concepts-data-in-replication). Use this feature to synchronize and migrate data from a MySQL server running on-premises, in virtual machines, on Azure Database for MySQL Single Server, or on database services outside Azure to Azure Database for MySQL – Flexible Server. Learn more about [How to configure Data-in Replication](how-to-data-in-replication.md).
+    Flexible Server now supports [Data-in Replication](concepts-data-in-replication.md). Use this feature to synchronize and migrate data from a MySQL server running on-premises, in virtual machines, on Azure Database for MySQL Single Server, or on database services outside Azure to Azure Database for MySQL – Flexible Server. Learn more about [How to configure Data-in Replication](how-to-data-in-replication.md).
 
 - **GitHub actions support with Azure CLI**
 
-  Flexible Server CLI now allows you to automate your workflow to deploy updates with GitHub actions.  Use this feature to help you set up and deploy your database updates with MySQL github action workflow. These CLI commands help you with setting up the repository to enable the continuous deployment for ease of development. [Learn more](https://docs.microsoft.com/cli/azure/mysql/flexible-server/deploy?view=azure-cli-latest).
+  Flexible Server CLI now allows you to automate your workflow to deploy updates with GitHub actions.  Use this feature to help you set up and deploy your database updates with MySQL github action workflow. These CLI commands help you with setting up the repository to enable the continuous deployment for ease of development. [Learn more](../cli/azure/mysql/flexible-server/deploy?view=azure-cli-latest&preserve-view=true).
 
 - **Zone redundant HA forced failover fixes**
 
@@ -147,5 +147,5 @@ In addition, consider the following points of contact as appropriate:
 ## Next steps
 
 - Learn more about [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
-- Browse the [public documentation](./flexible-server/index.yml) for Azure Database for MySQL – Flexible Server.
-- Review details on [troubleshooting common migration errors](./howto-troubleshoot-common-errors.md).
+- Browse the [public documentation](index.yml) for Azure Database for MySQL – Flexible Server.
+- Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
