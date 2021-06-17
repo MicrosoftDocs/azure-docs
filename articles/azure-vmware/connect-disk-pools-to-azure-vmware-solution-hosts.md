@@ -167,7 +167,7 @@ There is no maintenance window required for this operation. You can view logs fo
 
 ## Next steps
 
-Now that you've created a disk pool and connected it to Azure VMware Solution hosts, you may want to learn about:
+Now that you've attached a disk pool to your Azure VMware Solution hosts, you may want to learn about:
 
 - [Managing an Azure disk pool](../virtual-machines/disks-pools-manage.md ).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, Update iSCSI LUN mapping, or add ACLs (Only applicable if ACL mode is set to Static).
 
