@@ -250,7 +250,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//' -e 's/\r$//')
     ```
 
-    ```powershell
+    ```powershell-interactive
     $subscriptionId=(Get-AzContext).name.Split(' ')[1].substring(1,36)
     ```
 
