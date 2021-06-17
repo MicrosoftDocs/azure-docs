@@ -105,6 +105,9 @@ Deployments that utilized the old diagnostics plugins need the settings removed 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
+## Subscription Access Level
+
+The subsciption containing networking resources needs to have network contributor access or above for Cloud Services (extended support). 
 
 ## Key Vault creation 
 
