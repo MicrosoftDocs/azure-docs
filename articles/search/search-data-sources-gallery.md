@@ -2381,7 +2381,7 @@ BA Insight's SharePoint 2013 Connector allows you to connect to SharePoint 2013,
 
 by [Accenture](https://www.accenture.com)
 
-The SharePoint 2016 connector will crawl content from any SharePoint 2013 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or a snapshot database, fetches ACLs, supports NTLM and HTTPS, BCS external lists and runs without installing anything on SharePoint.
+The SharePoint 2016 connector will crawl content from any SharePoint 2016 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or a snapshot database, fetches ACLs, supports NTLM and HTTPS, BCS external lists and runs without installing anything on SharePoint.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/SharePoint+2016+Connector)
 
