@@ -98,7 +98,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     :::image type="content" source="media/getting-started/extension-waiting-for-deployment.png" alt-text="Waiting for deployment":::
 
-    Once the deployment is complete, you can navigate direcly to your website.
+    Once the deployment is complete, you can navigate directly to your website.
 
 1. To view the website in the browser, right-click on the project in the Static Web Apps extension, and select **Browse Site**.
 
