@@ -31,7 +31,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 1. Follow the steps below depending on the type of authentication you're using: 
     1. If using system-assigned managed identity or User assigned managed identity, follow the steps in the [configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
     
-    If you are configuring managed identities on other Azure services (App Service, virtual machine scale set etc.) see [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) for more information.
+    If you are configuring managed identities on other Azure services (App Service, Virtual Machine Scale Sets etc.) see [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) for more information.
 
     1. If using service principal, follow these steps in [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
