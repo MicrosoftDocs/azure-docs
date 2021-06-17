@@ -79,7 +79,7 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2020-04-01-preview)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), the
 control is **$skip** and is part of **QueryRequestOptions**.
 
 ## Paging results
