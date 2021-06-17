@@ -67,10 +67,10 @@ You can retain the audit and sign-in activity data for longer than the default r
 
 **Security signals**
 
-| Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--                 | :--                 |
-| Users at risk  | 7 days        | 30 days             | 90 days             |
-| Risky sign-ins | 7 days        | 30 days             | 90 days             |
+| Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2  |
+| :--            | :--           | :--                 | :--                  |
+| Users at risk  | 7 days        | 30 days             | Duration not defined |
+| Risky sign-ins | 7 days        | 30 days             | 90 days              |
 
 ---
 
