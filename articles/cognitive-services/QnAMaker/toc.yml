@@ -4,6 +4,8 @@
   items:
   - name: What is QnA Maker?
     href: Overview/overview.md
+  - name: Pricing and limits
+    href: https://aka.ms/qnamaker-pricing
   - name: What's new
     href: whats-new.md
   - name: Custom question answering (preview)
@@ -16,41 +18,20 @@
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Client libraries or REST API
       href: Quickstarts/quickstart-sdk.md
-- name: Tutorials
+- name: Samples
+  href: https://docs.microsoft.com/samples/browse/?products=azure&term=face&terms=qna-maker
+- name: Responsible use of AI
   items:
-  - name: Create FAQ Bot with Azure Bot Service
-    href: Tutorials/create-faq-bot-with-azure-bot-service.md
-  - name: Customize your bot
+  - name: Transparency notes
     items:
-    - name: Add multiple domains to FAQ Bot
-      href: Tutorials/create-faq-bot-for-multiple-domains.md
-  - name: Integrate with Power Virtual Agent
-    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
-- name: Concepts
-  items:
-  - name: Plan your knowledge base
-    href: Concepts/plan.md
-  - name: Plan QnA Maker resources
-    href: Concepts/azure-resources.md
-  - name: Data sources and content
-    href: Concepts/data-sources-and-content.md
-  - name: Azure role-based access control (Azure RBAC)
-    href: Concepts/role-based-access-control.md
-  - name: Precise answering
-    href: reference-precise-answering.md
-  - name: Turn on active learning
-    href: How-To/use-active-learning.md
-  - name: Ranker Process
-    displayName: DefaultAnswer, Default answer
-    href: Concepts/query-knowledge-base.md
-  - name: Development lifecycle
-    href: Concepts/development-lifecycle-knowledge-base.md
-    displayName: version control, test, index, publish, monitor usage, create
-  - name: Best practices
-    href: Concepts/best-practices.md
-    displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
-  - name: Using QnA Maker and LUIS
-    href: choose-natural-language-processing-service.md
+    - name: Use cases for QnA Maker
+      href: /legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/qnamaker/characteristics-and-limitations-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+  - name: Data, privacy and security
+    href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
 - name: How-to guides
   items:
   - name: Manage QnA Maker resources
@@ -111,18 +92,41 @@
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
       href: ../authentication.md?context=/azure/cognitive-services/qnamaker/context/context
-- name: Responsible use of AI
+- name: Concepts
   items:
-  - name: Transparency notes
+  - name: Plan your knowledge base
+    href: Concepts/plan.md
+  - name: Plan QnA Maker resources
+    href: Concepts/azure-resources.md
+  - name: Data sources and content
+    href: Concepts/data-sources-and-content.md
+  - name: Azure role-based access control (Azure RBAC)
+    href: Concepts/role-based-access-control.md
+  - name: Precise answering
+    href: reference-precise-answering.md
+  - name: Turn on active learning
+    href: How-To/use-active-learning.md
+  - name: Ranker Process
+    displayName: DefaultAnswer, Default answer
+    href: Concepts/query-knowledge-base.md
+  - name: Development lifecycle
+    href: Concepts/development-lifecycle-knowledge-base.md
+    displayName: version control, test, index, publish, monitor usage, create
+  - name: Best practices
+    href: Concepts/best-practices.md
+    displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
+  - name: Using QnA Maker and LUIS
+    href: choose-natural-language-processing-service.md
+- name: Tutorials
+  items:
+  - name: Create FAQ Bot with Azure Bot Service
+    href: Tutorials/create-faq-bot-with-azure-bot-service.md
+  - name: Customize your bot
     items:
-    - name: Use cases for QnA Maker
-      href: /legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/qnamaker/characteristics-and-limitations-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
-  - name: Integration and responsible use
-    href: /legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
-  - name: Data, privacy and security
-    href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+    - name: Add multiple domains to FAQ Bot
+      href: Tutorials/create-faq-bot-for-multiple-domains.md
+  - name: Integrate with Power Virtual Agent
+    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
 - name: Reference
   items:
   - name: Language support
@@ -208,8 +212,6 @@
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing and limits
-    href: https://aka.ms/qnamaker-pricing
   - name: Search
     href: /search/index?search=QnAMaker
   - name: Blog
