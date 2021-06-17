@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 02/10/2021
+ms.date: 06/17/2021
 ---
 
 # Create and configure a self-hosted integration runtime
@@ -69,6 +69,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats. For more on Parquet, see [Parquet format in Azure Data Factory](./format-parquet.md#using-self-hosted-integration-runtime). File creation runs on the self-hosted integration machine. To work as expected, file creation requires the following prerequisites:
   - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
   - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the `JAVA_HOME` environment variable is set to the JRE folder (and not just the JDK folder).
+
+>[!NOTE]
+>If you are running in government cloud, please review [Connect to government cloud.](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps)
 
 ## Setting up a self-hosted integration runtime
 
