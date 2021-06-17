@@ -6,6 +6,6 @@ ms.date: 10/25/2018
 ms.author: jasonh
 ---
 > [!div class="op_single_selector"]
-> * [Linux](../articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> * [Linux cluster](../hadoop/apache-hadoop-run-samples-linux.md)
 > 
 >

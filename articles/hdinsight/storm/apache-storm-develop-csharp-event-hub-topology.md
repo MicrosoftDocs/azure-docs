@@ -199,7 +199,7 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 ## Delete your cluster
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next steps
 

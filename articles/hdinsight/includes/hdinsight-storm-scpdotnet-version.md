@@ -15,6 +15,6 @@ ms.author: jasonh
 > | 3.5 |1.0.2.x |1.0.0.x | 4.2.1 |
 > | 3.6 |1.1.0.# | 1.0.0.x | 4.2.8 |
 > 
-> For more information on components provided with HDInsight, see [HDInsight component versions](../articles/hdinsight/hdinsight-component-versioning.md).
+> For more information on components provided with HDInsight, see [HDInsight component versions](../hdinsight-component-versioning.md).
 
 
