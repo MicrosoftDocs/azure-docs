@@ -144,7 +144,9 @@ If you are not going use the deployment, you should delete it with:
 
 ## Next steps
 - [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoints-studio.md)
+- [Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
 - [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
 - [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md)
+- [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints)
