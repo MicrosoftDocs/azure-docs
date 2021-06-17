@@ -154,4 +154,5 @@ If you aren't going use the deployment, you should delete it with the below comm
 * Learn how to deploy your model [using studio](how-to-use-managed-online-endpoint-studio.md).
 * Learn how to [monitor online endpoints](how-to-monitor-online-endpoints.md).
 * Learn [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
-* Learn about limits on managed online endpoints in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
+* [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md).
+* Learn about limits on managed online endpoints in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
