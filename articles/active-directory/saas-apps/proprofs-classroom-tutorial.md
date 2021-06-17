@@ -71,14 +71,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificateraw.png)
+	![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up ProProfs Classroom** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
-    
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -105,7 +105,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ProProfs Classroom SSO
 
-To configure single sign-on on **ProProfs Classroom** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [ProProfs Classroom support team](mailto:support@proprofs.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **ProProfs Classroom** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [ProProfs Classroom support team](mailto:support@proprofs.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create ProProfs Classroom test user
 
