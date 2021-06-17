@@ -151,9 +151,11 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 ## Define DevOps engineer role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
-#### [Portal](#tab/Azure-portal)
 
 1. Repeat the procedure to navigate subscription and access Access control (IAM).
+
+#### [Portal](#tab/Azure-portal)
+
 2. Select the permissions for the DevOps engineer role:
 
 From **Microsoft.AppPlatform/Spring**, select:
@@ -210,8 +212,6 @@ From **Microsoft.AppPlatform/skus**, select:
 5. Click **Review and create**.
 
 #### [JSON](#tab/JSON)
-
-1. Repeat the procedure to navigate subscription and access Access control (IAM). 
 
 2. Click **Next**.
 
@@ -276,8 +276,9 @@ From **Microsoft.AppPlatform/skus**, select:
 ---
 ## Define Ops - Site Reliability Engineering role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
-#### [Portal](#tab/Azure-portal)
+
 1. Repeat the procedure to navigate subscription and access Access control (IAM).
+#### [Portal](#tab/Azure-portal)
 
 2. Select the permissions for the Ops - Site Reliability Engineering role:
 
@@ -309,8 +310,6 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 5. Click **Review and create**.
 
 #### [JSON](#tab/JSON)
-
-1. Repeat the procedure to navigate subscription and access Access control (IAM).
 
 2. Click **Next**.
 
@@ -359,9 +358,9 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 ## Define Azure Pipelines/Provisioning role
 
 This Jenkins/Github Actions role can create and configure everything in Azure Spring Cloud and apps with a service instance. This role is for releasing or deploying code.
-#### [Portal](#tab/Azure-portal)
 
 1. Repeat the procedure to navigate subscription and access Access control (IAM).
+#### [Portal](#tab/Azure-portal)
 
 2. Open the **Permissions** options.
 
@@ -420,8 +419,6 @@ From **Microsoft.AppPlatform/skus**, select:
 
 6. Click **Review and create**.
 #### [JSON](#tab/JSON)
-
-1. Repeat the procedure to navigate subscription and access Access control (IAM).
 
 2. Click **Next**.
 
