@@ -8,7 +8,7 @@ ms.date: 06/09/2021
 # Azure AD authentication for Application Insights (Preview)
 Application Insights now supports Azure Active Directory (Azure AD) authentication. By using Azure AD, you can now ensure that only authenticated telemetry is ingested in your Application Insights resources. 
 
-Typically, using various authentication systems can be cumbersome and pose risk since it’s difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical business decisions. 
+Typically, using various authentication systems can be cumbersome and pose risk since it’s difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make used to make both critical operational (alerting/autoscale etc.) and business decisions.
 
 > [!IMPORTANT]
 > Azure AD authentication is currently in PREVIEW.
@@ -19,13 +19,13 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - [JavaScript SDKs](javascript.md). 
 - [OpenCensus Python SDK](opencensus-python.md) won't support Python versions - 3.4 and 3.5.
 - [Certificate/secret based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use Managed Identities instead. 
-- Auto Attach scenario for .NET/.NET core.
+- On by default Codeless monitoring(for languages) for App Service, VM/VMSS, Azure Functions etc.
 
 ## Prerequisites to enable Azure AD authentication ingestion
 - You already have an existing Managed Identity <user or system assigned>
     - To learn, visit the [Managed Identity documentation](../../active-directory/managed-identities-azure-resources/overview.md). 
 - Familiarity with [assigning Azure roles](../../role-based-access-control/role-assignments-portal.md). 
-
+You have a "Owner" role to the resource group to grant access using [https://docs.microsoft.com/azure/role-based-access-control/built-in-roles](url)
 ## Configuring and enabling Azure AD based authentication 
 
 1. Follow the steps below depending on the type of authentication you're using: 
@@ -55,7 +55,7 @@ Here is an example of manually creating and configuring a TelemetryConfiguration
 ```csharp
 var config = new TelemetryConfiguration
 {
-	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
 }
 var credential = new DefaultAzureCredential();
 config. SetAzureTokenCredential (credential);
@@ -71,7 +71,7 @@ services.Configure<TelemetryConfiguration>(config =>
 });
 services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 {
-	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
 });
 ```
 
@@ -126,9 +126,8 @@ Below is an example on how to configure Java agent to use service principal for 
 > [!NOTE]
 > Azure AD authentication is only available for Python v2.7, v3.6 and v3.7.
 
-The `opencensus-ext-azure` package takes a dependency on [Azure Identity](https://pypi.org/project/azure-identity/). This library offers different types of [credentials](/python/api/overview/azure/identity-readme?view=azure-python#credentials), which are used by the exporter to authenticate the requests made to the Application Insights backend. It is the responsibility of the user to provide appropriate credentials that are authorized to access the Application Insights resource that they are sending telemetry to if they wish to utilize this feature.
 
-Construct the appropriate [credentials](/python/api/overview/azure/identity-readme?view=azure-python#credentials) and pass it into the constructor of the Azure Monitor exporter.
+Construct the appropriate [credentials](/python/api/overview/azure/identity-readme?view=azure-python#credentials) and pass it into the constructor of the Azure Monitor exporter. Make sure your connection string is setup with the instrumentation key and ingestion endpoint of your resource.
 Below are the following types of authentication that are supported by the Opencensus Azure Monitor exporters. Managed identities are recommended to be used in production environments.
 
 
@@ -143,7 +142,7 @@ from opencensus.trace.tracer import Tracer
 
 credential = ManagedIdentityCredential()
 tracer = Tracer(
-    exporter=AzureExporter(credential=credential, connection_string="<your-connection-string>"),
+    exporter=AzureExporter(credential=credential, connection_string="InstrumentationKey=<your-instrumentation-key>;IngestionEndpoint=<your-ingestion-endpoint>"),
     sampler=ProbabilitySampler(1.0)
 )
 ...
@@ -161,7 +160,7 @@ from opencensus.trace.tracer import Tracer
 
 credential = ManagedIdentityCredential(client_id="<client-id>")
 tracer = Tracer(
-    exporter=AzureExporter(credential=credential, connection_string="<your-connection-string>"),
+    exporter=AzureExporter(credential=credential, connection_string="InstrumentationKey=<your-instrumentation-key>;IngestionEndpoint=<your-ingestion-endpoint>"),
     sampler=ProbabilitySampler(1.0)
 )
 ...
@@ -198,7 +197,7 @@ let appInsights = require("applicationinsights");
 import { DefaultAzureCredential } from "@azure/identity"; 
  
 const credential = new DefaultAzureCredential();
-appInsights.setup().start();
+appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000").start();
 let client = appInsights.defaultClient;
 client.aadTokenCredential = credential;
 client.trackEvent({name: "Custom Event"});
@@ -383,7 +382,7 @@ Internal logs could be turned on using following setup, once this is enabled, er
 
 ```javascript
 let appInsights = require("applicationinsights");
-appInsights.setup().setInternalLogging(true, true);
+appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").setInternalLogging(true, true);
 ```
 ---
 ## Next Steps
