@@ -10,7 +10,7 @@ ROBOTS: NOINDEX
 
 # Combine ScaleR and SparkR in HDInsight
 
-[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+[!INCLUDE [retirement banner](includes/ml-services-retirement.md)]
 
 This document shows how to predict flight arrival delays using a **ScaleR** logistic regression model. The example uses flight delay and weather data, joined using **SparkR**.
 
