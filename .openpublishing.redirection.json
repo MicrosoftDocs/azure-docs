@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/freebsd-pf-nat.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/freebsd-pf-nat",
+      "redirect_document_id": false
+    },
+    {  
+      "source_path": "articles/dev-spaces/index.yml",
+      "redirect_url": "/previous-versions/azure/dev-spaces/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/about.md",
+      "redirect_url": "/previous-versions/azure/dev-spaces/about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/static-web-apps/routes.md",
       "redirect_url": "/azure/static-web-apps/configuration",
       "redirect_document_id": true
@@ -2208,6 +2223,11 @@
       "redirect_url": "/azure/machine-learning/how-to-configure-auto-train#troubleshooting",
       "redirect_document_id": false
     },
+    {
+        "source_path": "articles/machine-learning/how-to-deploy-custom-docker-image.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-custom-container",
+        "redirect_document_id": false
+      },
     {
       "source_path_from_root": "/articles/machine-learning/how-to-auto-train-remote.md",
       "redirect_url": "/azure/machine-learning/concept-automated-ml#local-remote",

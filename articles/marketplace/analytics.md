@@ -15,7 +15,7 @@ Learn how to access analytic reports in Microsoft Partner Center to monitor sale
 
 ## Partner Center analytics tools
 
-To access the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
+To access the Partner Center analytics tools, go to the **[Summary](https://go.microsoft.com/fwlink/?linkid=2165765)** dashboard.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.md).
