@@ -9,8 +9,9 @@ ms.topic: article
 
 # Monetization with Azure API Management
 
-Modern web APIs underpin the digital economy. They generate revenue by providing a company's intellectual property (IP) to third parties. Web APIs achieve this by:
+Modern web APIs underpin the digital economy. They generate revenue by:
 
+- Providing a company's intellectual property (IP) to third parties.
 - Packaging IP in the form of data, algorithms, or processes.
 - Allowing other parties to discover and consume useful IP in a consistent, frictionless manner.
 - Offering a mechanism for direct or indirect payment for this usage.
@@ -58,18 +59,18 @@ The following steps explain how to implement a monetization strategy for your AP
     | **Preview** | Allow the customer to launch their offering and understand initial demand. |
     | **Initial production usage** | Support early adoption of the API in production when usage levels are not yet fully understood and a risk adverse approach may be necessary. |
     | **Initial growth** | Enable the API Consumer to ramp up usage of the API in response to increased demand from end users. |
-    | **Scale** | Incentivise the API Consumer to commit to a higher volume of purchase once the API is consistently reaching high levels of usage each month. |
-    | **Global growth** | Reward the API users who is using the API at global scale by offering the optimal wholesale price. |
+    | **Scale** | Incentivize the API Consumer to commit to a higher volume of purchase once the API is consistently reaching high levels of usage each month. |
+    | **Global growth** | Reward the API users who are using the API at global scale by offering the optimal wholesale price. |
 
 1. Analyze the value that your API will be generating for the customer at each stage in their journey. 
-1. Consider applying a value based pricing strategy if the direct value of the API to the customer is well understood.
+1. Consider applying a value-based pricing strategy if the direct value of the API to the customer is well understood.
 1. Calculate the anticipated lifetime usage levels of the API for a customer and your anticipated number of customers over the lifetime of the API.
 
 ### Step 2 - Quantify the costs
 
-Calculate the total cost of ownership for your API. This will include:
+Calculate the total cost of ownership for your API.
 
-| Cost category | Description |
+| Cost | Description |
 | ----- | ----- |
 | **Cost of customer acquisition (COCA)** | The cost of marketing, sales, and onboarding. The most successful APIs tend to have a COCA with zero as adoption level increase. APIs should be largely self-service in onboarding. Factors include documentation and frictionless integration with payment systems. |
 | **Engineering costs** | The human resources required to build, test, operate, and maintain the API over its lifetime. Tends to be the most significant cost component. Where possible, exploit cloud PaaS and serverless technologies to minimize. |
@@ -83,7 +84,7 @@ Calculate the total cost of ownership for your API. This will include:
 
 ### Step 4 - Design the revenue model
 
-Design a revenue model based on the outcome of the steps above. This is achieved by working across two dimensions:
+Design a revenue model based on the outcome of the steps above. You can work across two dimensions:
 
 - **Quality of service**, controlled by setting caps and rate limits.
 - **Price**.
@@ -98,20 +99,20 @@ The objective is to maximize the lifetime value (LTV) that you generate from eac
     - Keep down the number of dimensions used to differentiate across the revenue model tiers.
 1. Be transparent:
     - Provide clear documentation about the different options.
-    - Give your customers tools to help choose the revenue model that best suits their needs.
+    - Give your customers tools for choosing the revenue model that best suits their needs.
 
 For example, to support the customer stages above, we would need six types of subscription:
 
 | Subscription type | Description |
 | ----- | ----- |
-| `Free` | Enables the API consumer to trial the API in an obligation and cost free way, to determine whether it fulfils a use case. This removes all barriers to entry. |
-| `Freemium` | Allows the API consumer to use the API for free, but to transition into a paid for service as demand increases. |
+| `Free` | Enables the API consumer to trial the API in an obligation and cost free way, to determine whether it fulfills a use case. Removes all barriers to entry. |
+| `Freemium` | Allows the API consumer to use the API for free, but to transition into a paid service as demand increases. |
 | `Metered` | The API consumer can make as many calls as they want per month, and will pay a fixed amount per call. |
-| `Tier` | The API consumer pays for a set amount of calls per month, and if they exceed this limit they pay an overage amount per additional call. If they regularly incur overage, they have the option to upgrade to the next tier. |
-| `Tier + Overage` | The API consumer pays for a set amount of calls per month, and if they exceed this limit they pay a set amount per additional call. |
-| `Unit` | The API consumer pays for a set amount of call per month. If they exceed this limit they have to pay for another unit of calls. |
+| `Tier` | The API consumer pays for a set number of calls per month, and if they exceed this limit they pay an overage amount per extra call. If they regularly incur overage, they have the option to upgrade to the next tier. |
+| `Tier + Overage` | The API consumer pays for a set number of calls per month, and if they exceed this limit, they pay a set amount per extra call. |
+| `Unit` | The API consumer pays for a set amount of call per month. If they exceed this limit, they have to pay for another unit of calls. |
 
-These are modeled in the sample project and are applied to the customer stages identified above as follows:
+These subscription types are modeled in the sample project and are applied to the customer stages as follows:
 
 | Customer Lifecycle Stage | Revenue model (APIM Product) | Subscription type  | Quality of Service (APIM Product Policies)                                                                  |
 |--------------------------|------------------------------|--------------------|-------------------------------------------------------------------------------------------------------------|
@@ -149,14 +150,14 @@ Choose an appropriate solution to collect payment for usage of your APIs.  Provi
 
 - **Payment platforms, like Stripe**
     
-    Calculate the payment based on the raw API usage metrics by applying the specific revenue model that the customer has chosen. The payment platform needs to be configured to reflect your monetization strategy.
+    Calculate the payment based on the raw API usage metrics by applying the specific revenue model that the customer has chosen. Configure the payment platform to reflect your monetization strategy.
 - **Payment providers, like Adyen**
 
-    Only concerned with the facilitating the payment transaction. You will need to apply your monetization strategy (i.e. translate API usage metrics into a payment) prior to calling this service.
+    Only concerned with the facilitating the payment transaction. You will need to apply your monetization strategy (like, translate API usage metrics into a payment) prior to calling this service.
 
-Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management.  See [How API Management supports monetization](how-APIM-supports-monetisation.md) for more details about the specific features in API Management that can be leveraged to support implementation.
+Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management.  For more information about the specific features in API Management, see [how API Management supports monetization](how-APIM-supports-monetisation.md).
 
-Use the same approach as the sample project to implement a solution that builds flexibility into how you codify your monetization strategy in the underlying systems. This will enable you to respond dynamically and to make minimize the risk and cost of making changes.
+Use the same approach as the sample project to implement a solution that builds flexibility into how you codify your monetization strategy in the underlying systems. This will enable you to respond dynamically and to minimize the risk and cost of making changes.
 
 For a description of how the sample project works from an API consumer perspective see [How the sample project works in practice](./how-the-sample-project-works-in-practice.md).
 
@@ -166,6 +167,6 @@ Regularly monitor how your API is being consumed to enable you to make evidence-
 
 ## Ongoing evolution
 
-Review your monetization strategy on a regular basis by revisiting and re-evaluating all of the steps above. You may need to evolve your monetization strategy over time as you learn more about your customers, what it costs to provide the API, and how you respond to shifting competition in the market.
+Review your monetization strategy regularly by revisiting and re-evaluating all of the steps above. You may need to evolve your monetization strategy over time as you learn more about your customers, what it costs to provide the API, and how you respond to shifting competition in the market.
 
 Remember that the monetization strategy is only one facet of a successful API implementation. Other facets include the developer experience, the quality of your documentation, the legal terms, and your ability to scale the API to meet the service levels to which you have committed.
