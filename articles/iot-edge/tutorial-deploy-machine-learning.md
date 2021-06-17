@@ -45,7 +45,7 @@ An Azure IoT Edge device:
 Cloud resources:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* An Azure Machine Learning workspace. Follow the instructions in [Use the Azure portal to get started with Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md) to create one and learn how to use it.
+* An Azure Machine Learning workspace. Follow the instructions in [Use the Azure portal to get started with Azure Machine Learning](../machine-learning/quickstart-create-resources.md) to create one and learn how to use it.
   * Make a note of the workspace name, resource group, and subscription ID. These values are all available on the workspace overview in the Azure portal. You'll use these values later in the tutorial to connect an Azure Notebooks file to your workspace resources.
 
 ## Create and deploy Azure Machine Learning module

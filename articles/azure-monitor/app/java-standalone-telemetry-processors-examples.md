@@ -11,7 +11,7 @@ ms.author: kryalama
 # Telemetry processor examples - Azure Monitor Application Insights for Java
 
 This article provides examples of telemetry processors in Application Insights for Java. You'll find samples for include and exclude configurations. You'll also find samples for attribute processors and span processors.
-## Include and exclude samples
+## Include and exclude Span samples
 
 In this section, you'll see how to include and exclude spans. You'll also see how to exclude multiple spans and apply selective processing.
 ### Include spans
@@ -99,7 +99,7 @@ This span doesn't match the exclude properties, and the processor actions are ap
 This section demonstrates how to exclude spans for an attribute processor. Spans that match the properties aren't processed by this processor.
 
 A match requires the following conditions to be met:
-* An attribute (for example, `env` or `dev`) must exist in the span.
+* An attribute (for example, `env` with value `dev`) must exist in the span.
 * The span must have an attribute that has key `test_request`.
 
 The following spans match the exclude properties, and the processor actions aren't applied.
@@ -199,11 +199,12 @@ These spans don't match the include properties, and processor actions aren't app
   }
 }
 ```
+
 ## Attribute processor samples
 
 ### Insert
 
-The following sample inserts the new attribute `{"attribute1": "attributeValue1"}` into spans where the key `attribute1` doesn't exist.
+The following sample inserts the new attribute `{"attribute1": "attributeValue1"}` into spans and logs where the key `attribute1` doesn't exist.
 
 ```json
 {
@@ -227,7 +228,7 @@ The following sample inserts the new attribute `{"attribute1": "attributeValue1"
 
 ### Insert from another key
 
-The following sample uses the value from attribute `anotherkey` to insert the new attribute `{"newKey": "<value from attribute anotherkey>"}` into spans where the key `newKey` doesn't exist. If the attribute `anotherkey` doesn't exist, no new attribute is inserted into spans.
+The following sample uses the value from attribute `anotherkey` to insert the new attribute `{"newKey": "<value from attribute anotherkey>"}` into spans and logs where the key `newKey` doesn't exist. If the attribute `anotherkey` doesn't exist, no new attribute is inserted into spans and logs.
 
 ```json
 {
@@ -251,7 +252,7 @@ The following sample uses the value from attribute `anotherkey` to insert the ne
 
 ### Update
 
-The following sample updates the attribute to `{"db.secret": "redacted"}`. It updates the attribute `boo` by using the value from attribute `foo`. Spans that don't have the attribute `boo` don't change.
+The following sample updates the attribute to `{"db.secret": "redacted"}`. It updates the attribute `boo` by using the value from attribute `foo`. Spans and logs that don't have the attribute `boo` don't change.
 
 ```json
 {
@@ -475,6 +476,66 @@ The following sample shows how to change the span name to `{operation_website}`.
             ]
           }
         }
+      }
+    ]
+  }
+}
+```
+
+
+## Log processor samples
+
+### Extract attributes from a log message body
+
+Let's assume the input log message body is `Starting PetClinicApplication on WorkLaptop with PID 27984 (C:\randompath\target\classes started by userx in C:\randompath)`. The following sample results in the output message body `Starting PetClinicApplication on WorkLaptop with PID {PIDVALUE} (C:\randompath\target\classes started by userx in C:\randompath)`. It adds the new attribute `PIDVALUE=27984` to the log.
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "log",
+        "body": {
+          "toAttributes": {
+            "rules": [
+              "^Starting PetClinicApplication on WorkLaptop with PID (?<PIDVALUE>\\d+) .*"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+### Masking sensitive data in log message
+
+The following sample shows how to mask sensitive data in a log message body using both log processor and attribute processor.
+Let's assume the input log message body is `User account with userId 123456xx failed to login`. The log processor updates output message body to `User account with userId {redactedUserId} failed to login` and the attribute processor deletes the new attribute `redactedUserId` which was adding in the previous step.
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "log",
+        "body": {
+          "toAttributes": {
+            "rules": [
+              "^User account with userId (?<redactedUserId>\\d+) .*"
+            ]
+          }
+        }
+      },
+      {
+        "type": "attribute",
+        "actions": [
+          {
+            "key": "redactedUserId",
+            "action": "delete"
+          }
+        ]
       }
     ]
   }

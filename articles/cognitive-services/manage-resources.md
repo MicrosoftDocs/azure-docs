@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 06/14/2021
 ms.author: nitinme
 ---
 
@@ -25,6 +25,8 @@ This article provides instructions on how to recover a Cognitive Services resour
 * Before you attempt to recover a deleted resource, make sure that the resource group for that account exists. If the resource group was deleted, you must recreate it. Recovering a resource group is not possible. For more information, see [Manage resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * If the deleted resource used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the Cognitive Services resource. For more information, see [Azure Key Vault recovery management](../key-vault/general/key-vault-recovery.md).
 * If the deleted resource used a customer-managed storage and storage account has also been deleted, you must restore the storage account before you restore the Cognitive Services resource. For instructions, see [Recover a deleted storage account](../storage/common/storage-account-recover.md).
+
+Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Cognitive Services Contributor](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor). 
 
 ## Recover a deleted resource 
 
@@ -71,6 +73,8 @@ Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.C
 
 ## Purge a deleted resource 
 
+Once you delete a resource, you won't be able to create another one with the same name for 48 hours. To create a resource with the same name, you will need to purge the deleted resource.
+
 To purge a deleted cognitive service resource, use the following commands. Where applicable, replace:
 
 * `{subscriptionID}` with your Azure subscription ID
@@ -79,7 +83,7 @@ To purge a deleted cognitive service resource, use the following commands. Where
 * `{location}` with the location of your resource
 
 > [!NOTE]
-> After a resource is purged, you will not be able to create another resource with the same name for 48 hours.
+> Once a resource is purged, it is permanently deleted and cannot be restored. You will lose all data and keys associated with the resource.
 
 ### Using the REST API
 
