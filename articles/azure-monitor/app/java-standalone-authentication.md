@@ -27,7 +27,7 @@ We assume users to be familiar with the following articles before enabling authe
 Following are the high level view of the steps involved in enabling AAD authentication on Java agent to securely send telemetry to Azure Application Insights resource:
 
 1. The first step depends on the type of authentication used by the user. 
-    -   If using System assigned managed identity or User assigned managed identity, follow these [steps](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to configure managed identities for Azure resources on a VM using azure portal. 
+    -   If using System assigned managed identity or User assigned managed identity, follow these [steps](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to configure managed identities for Azure resources on a VM using Azure portal. 
     -   If using service principal, follow these [steps](/azure/active-directory/develop/howto-create-service-principal-portal) to create an Azure AD application and service principal that can access resources. We recommend to use this type of authentication only during development.
 2. Follow these [steps](/azure/role-based-access-control/role-assignments-portal?tabs=current) to add `"Monitoring Metrics Publisher"` role from the Application Insights resource to the Azure resource from which the telemetry is sent.
 3. Add the authentication related [configuration](#supported-types-of-authentication) to the ApplicationInsights.json configuration file.
@@ -36,7 +36,7 @@ Following are the high level view of the steps involved in enabling AAD authenti
 
 The following are types of authentication that are supported by Java agent. We recommend users to use managed identities, since the ultimate goal is to eliminate secrets and also to eliminate the need for developers to manage credentials.
 
-### System Assigned Managed Identity
+### System assigned managed identity
 
 Here is an example on how to configure Java agent to use system assigned managed identity for authentication with AAD.
 
@@ -49,7 +49,7 @@ Here is an example on how to configure Java agent to use system assigned managed
 }
 ```
 
-### User Assigned Managed Identity
+### User assigned managed identity
 
 Here is an example on how to configure Java agent to use user assigned managed identity for authentication with AAD.
 
@@ -63,9 +63,9 @@ Here is an example on how to configure Java agent to use user assigned managed i
 }
 ```
 
-:::image type="content" source="media/java-ipa/authentication/UAMI.png" alt-text="Screenshot of user assigned managed identity." lightbox="media/java-ipa/authentication/UAMI.png":::
+:::image type="content" source="media/java-ipa/authentication/user-assigned-managed-identity.png" alt-text="Screenshot of user assigned managed identity." lightbox="media/java-ipa/authentication/user-assigned-managed-identity.png":::
 
-### Client Secret
+### Client secret
 
 Here is an example on how to configure Java agent to use service principal for authentication with AAD. We recommend users to use this type of authentication only during development. The ultimate goal of adding authentication feature is to eliminate secrets.
 
@@ -81,6 +81,6 @@ Here is an example on how to configure Java agent to use service principal for a
 }
 ```
 
-:::image type="content" source="media/java-ipa/authentication/clientsecret_tenantID.png" alt-text="Screenshot of Client secret with tenantID and ClientID." lightbox="media/java-ipa/authentication/clientsecret_tenantID.png":::
+:::image type="content" source="media/java-ipa/authentication/client-secret-tenant-id.png" alt-text="Screenshot of Client secret with tenantID and ClientID." lightbox="media/java-ipa/authentication/client-secret-tenant-id.png":::
 
-:::image type="content" source="media/java-ipa/authentication/clientsecret_cs.png" alt-text="Screenshot of Client secret with client secret." lightbox="media/java-ipa/authentication/clientsecret_cs.png":::
+:::image type="content" source="media/java-ipa/authentication/client-secret-cs.png" alt-text="Screenshot of Client secret with client secret." lightbox="media/java-ipa/authentication/client-secret-cs.png":::
