@@ -1,16 +1,15 @@
 ---
 title: Get storage account configuration information
 titleSuffix: Azure Storage
-description: Learn how to get Azure Storage account type and SKU name using the .NET client library.
+description: Use the Azure portal, PowerShell, or Azure CLI to retrieve storage account configuration properties, including the Azure Resource Manager resource ID, account location, account type, or replication SKU.
 services: storage
-author: normesta
+author: tamram
 
-ms.author: normesta
+ms.author: tamram
 ms.date: 06/16/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.custom: devx-track-csharp
 ---
 
 # Get storage account configuration information
