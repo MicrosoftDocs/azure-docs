@@ -82,7 +82,7 @@ To delete a resource group by name:
 
 In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure CLI to create an Azure IoT hub and a device instance. Then you used an Azure IoT device SDK to create a simulated device, connect it to the hub, and send telemetry. You also used Azure portal to monitor telemetry.
 
-As a next step, explore the following articles to learn more about building device solutions with Azure IoT. You can learn more about IoT Hub, in a quickstart that shows how to control a device.  Or you can run a similar quickstart that uses the same simulated device that was used in this quickstart, but shows how to connect it to IoT Central.  If you have an MXChip AZ3166 developer kit, you can learn how to connect an embedded device to Azure IoT.
+As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
 > [!div class="nextstepaction"]
 > [Control a device connected to an IoT hub](../iot-hub/quickstart-control-device-dotnet.md)
