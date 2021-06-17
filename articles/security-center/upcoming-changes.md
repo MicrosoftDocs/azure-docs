@@ -49,7 +49,7 @@ Also, the recommendation is an anomaly when compared with the other agents relat
 
 The recommendation will be deprecated.
 
-We'll also be making minor changes to the recommendations for installing the Log Analytics agent (**Log Analytics agent should be installed on...**) to align with other agent installation recommendations.
+As a result of this deprecation, we'll also be making minor changes to the recommendations for installing the Log Analytics agent (**Log Analytics agent should be installed on...**).
 
 It's likely that this change will impact your secure scores. For most subscriptions, we expect the change to lead to an increased score, but it's possible the updates to the installation recommendation might result in decreased scores in some cases.
 
