@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 06/17/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 06/17/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom:
@@ -88,7 +88,7 @@ The table below shows the claims that are in most ID tokens by default (except w
 |`roles`| Array of strings | The set of roles that were assigned to the user who is logging in. |
 |`rh` | Opaque String |An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`sub` | String | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. If a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be wanted depending on your architecture and privacy requirements. |
-|`tid` | String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required to receive this claim. |
+|`tid` | String, a GUID | Represents the Azure AD tenant that the user is signing into. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user is signing into. For sign in to the personal account tenant, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim. |
 |`unique_name` | String | Provides a human readable value that identifies the subject of the token. This value is unique at any given point in time, but as emails and other identifiers can be reused, this value can reappear on other accounts. As such, the value should be used only for display purposes. Only issued in v1.0 `id_tokens`. |
 |`uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`ver` | String, either 1.0 or 2.0 | Indicates the version of the id_token. |
