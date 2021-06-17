@@ -576,19 +576,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AuditEvent|Audit Logs|No|
 
 
-## Microsoft.Kusto/Clusters
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Command|Command|No|
-|FailedIngestion|Failed ingest operations|No|
-|IngestionBatching|Ingestion batching|No|
-|Query|Query|No|
-|SucceededIngestion|Successful ingest operations|No|
-|TableDetails|Table details|No|
-|TableUsageStatistics|Table usage statistics|No|
-
-
 ## Microsoft.Logic/integrationAccounts
 
 |Category|Category Display Name|Costs To Export|

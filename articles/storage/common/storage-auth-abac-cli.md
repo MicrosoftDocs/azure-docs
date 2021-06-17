@@ -80,8 +80,6 @@ Here is what the condition looks like in code:
     subscriptionId="<subscriptionId>"
     ```
 
-1. If you haven't already, register your subscription to use blob index tags. For more information, see [Register your subscription (preview)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview).
-
 ## Step 2: Create a user
 
 1. Use [az ad user create](/cli/azure/ad/user#az_ad_user_create) to create a user or find an existing user. This tutorial uses Chandra as the example.
