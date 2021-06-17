@@ -158,7 +158,7 @@ An illustrative example for DNS resolution of the cache storage account.
 
    ![DNS resolution example](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png)
 
-- A private IP address of 10.1.0.5 is returned for the storage account. This address should belongs to the private endpoint of the storage account. 
+- A private IP address of 10.1.0.5 is returned for the storage account. This address should belong to the private endpoint of the storage account. 
 
 If the DNS resolution is incorrect, follow these steps:  
 
@@ -179,7 +179,7 @@ You can use Microsoft peering or an existing public peering domain (deprecated f
 
 ![Diagram that shows replication with Microsoft peering.](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 
-Even with replication data going over the Microsoft peered circuit, you still need internet connectivity from the on-premises site for control plane traffic and other URLs that aren't reachable over ExpressRoute. The replication appliance or Hyper-V host needs access to the URLs to orchestrate the replication process. Review the URL requirements based on the migration scenario, [VMware agentless migrations](./migrate-appliance.md#public-cloud-urls) or [agent-based migrations](./migrate-replication-appliance.md). 
+Even with replication data going over the Microsoft peered circuit, you still need internet connectivity from the on-premises site for control plane traffic and other URLs that aren't reachable over ExpressRoute. The replication appliance or Hyper-V host needs access to the URLs to orchestrate the replication process. Review the URL requirements based on the migration scenario, either [VMware agentless migrations](./migrate-appliance.md#public-cloud-urls) or [agent-based migrations](./migrate-replication-appliance.md). 
 
  For replication data transfer over Microsoft peering, configure route filters to advertise routes for the Azure Storage endpoints. This would be the regional BGP communities for the target Azure region (region for migration). To route control plane traffic over Microsoft peering, configure route filters to advertise routes for other public endpoints as required.  
 
@@ -218,7 +218,7 @@ To configure the proxy bypass list on the configuration server and process serve
 1. Download the [PsExec tool](/sysinternals/downloads/psexec) to access system user context.
 2. Open Internet Explorer in system user context by running the following command line: `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
 3. Add proxy settings in Internet Explorer.
-4. For replication traffic, you can configure a proxy bypass rule for .*.blob.core.windows.net. You can configure proxy bypass rules for other control plane endpoints as required. These endpoints include: 
+4. For replication traffic, you can configure a proxy bypass rule for ".*.blob.core.windows.net". You can configure proxy bypass rules for other control plane endpoints as required. These endpoints include: 
 
     - .*.backup.windowsazure.com
     - .*.hypervrecoverymanager.windowsazure.com
