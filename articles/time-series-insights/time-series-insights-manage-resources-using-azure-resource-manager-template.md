@@ -35,7 +35,7 @@ A Resource Manager template is a JSON file that defines the infrastructure and c
 - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
-The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates an Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
+The [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates an Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -75,7 +75,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
      | environmentDisplayName | An optional friendly name to show in tooling or user interfaces instead of the environment name. |
      | environmentSkuName | The name of the sku. For more information, read the [Azure Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | The unit capacity of the Sku. For more information, read the [Azure Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).|
-     | environmentDataRetentionTime | The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, for example `P30D` for a retention policy of 30 days. |
+     | environmentDataRetentionTime | The minimum timespan the environment's events will be available for query. The value must be specified in the ISO 8601 format, for example `P30D` for a retention policy of 30 days. |
      | eventSourceDisplayName | An optional friendly name to show in tooling or user interfaces instead of the event source name. |
      | eventSourceTimestampPropertyName | The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used. |
      | eventSourceKeyName | The name of the shared access key that the Azure Time Series Insights service will use to connect to the event hub. |
