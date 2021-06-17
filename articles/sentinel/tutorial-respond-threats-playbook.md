@@ -120,7 +120,7 @@ Every playbook must start with a trigger. The trigger defines the action that wi
    Choose the trigger that matches the type of playbook you are creating.
 
     > [!NOTE]
-    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](tutorial-detect-threats-custom.md#) and can also be run manually.
+    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule) and can also be run manually.
 
     :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Choose a trigger for your playbook":::
 
