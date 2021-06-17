@@ -63,7 +63,7 @@ In some cases, enterprise applications created from the application gallery incl
 1. Select **Add** to select one or more owners to add to the app.
 
 > [!NOTE]
-If the user setting "[Restrict access to Azure AD administration portal](../fundamentals/users-default-permissions.md)" is set to Yes, non-admin users wil not be able to use the Azure portal to manage the applications they own.
+> If the user setting "[Restrict access to Azure AD administration portal](../fundamentals/users-default-permissions.md)" is set to Yes, non-admin users wil not be able to use the Azure portal to manage the applications they own.
 
 > [!IMPORTANT]
 > Users and service principals can be owners of application registrations. Only users can be owners of enterprise applications. Groups cannot be assigned as owners of either.
