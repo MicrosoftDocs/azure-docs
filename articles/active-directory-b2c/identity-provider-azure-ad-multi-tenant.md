@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 06/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -59,7 +59,7 @@ To enable sign-in for users with an Azure AD account in Azure Active Directory B
 1. Select **Certificates & secrets**, and then select **New client secret**.
 1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **Value** of the secret for use in a later step.
 
-## Configuring optional claims
+### Configuring optional claims
 
 If you want to get the `family_name`, and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
 
@@ -71,6 +71,10 @@ If you want to get the `family_name`, and `given_name` claims from Azure AD, you
 1. For the **Token type**, select **ID**.
 1. Select the optional claims to add, `family_name`, and `given_name`.
 1. Click **Add**.
+
+## [Optional] Verify your app authenticity
+
+[Publisher verification](../active-directory/develop/publisher-verification-overview.md) helps your users understand the authenticity of the app you [registered](#register-an-azure-ad-app). A verified app means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN). Learn how to [mark your app as publisher verified](../active-directory/develop/mark-app-as-publisher-verified.md). 
 
 ## Create a policy key
 
@@ -197,6 +201,6 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-[Publisher verification](../active-directory/develop/publisher-verification-overview.md) helps your users understand the authenticity of the app you [registered](#register-an-application). A verified app means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN). Learn how to [mark your app as publisher verified](../active-directory/develop/mark-app-as-publisher-verified.md). 
+Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
 
 ::: zone-end
