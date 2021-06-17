@@ -45,6 +45,48 @@ In this article you learn how to enable the following workspaces resources in a 
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
 
+## Required public internet access
+
+Azure Machine Learning requires both inbound and outbound access to the public internet. The following tables provide an overview of what access is required and what it is for. The __protocol__ for all items is __TCP__. For service tags that end in `.region`, replace `region` with the Azure region that contains your workspace. For example, `Storage.westus`:
+
+| Direction | Ports | Service tag | Purpose |
+| ----- | ----- | ----- | ----- |
+| Inbound | 29876-29877 | BatchNodeManagement | Scheduler/node communication for Azure Machine Learning compute instance and compute cluster. |
+| Inbound | 44224 | AzureMachineLearning | Communication with applications running on Azure Machine Learning compute instance. |
+| Outbound | * | AzureActiveDirectory | Azure Active Directory authentication. |
+| Outbound | * | AzureMachineLearning | Azure Machine Learning. |
+| Outbound | * | AzureResourceManager | Azure Resource Manager. |
+| Outbound | * | Storage.region | Azure Storage Account. |
+| Outbound | * | KeyVault.region | Azure Key Vault. |
+| Outbound | * | ContainerRegistry.region | Azure Container Registry. |
+| Outbound | * | AzureFrontDoor.FirstParty | Azure Front Door. | 
+| Outbound | * | MicrosoftContainerRegistry.region | Only needed if you use Docker images provided by Microsoft and enable user-managed dependencies. |
+
+The service tags listed in the table can be used with either network security groups or Azure Firewall. If you use a solution that requires IP addresses, use the following Azure CLI commands to return the IP addresses for the service tags. The IP addresses may change over time. Replace the region (`East US 2` and `eastus2`) with the region that contains your workspace:
+
+```azurecli-interactive
+az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+# Get primary region IPs
+az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+# Get secondary region IPs
+az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
+```
+
+> [!TIP]
+> If you are using the US-Virginia, US-Arizona regions, or China-East-2 regions, these commands return no IP addresses. Instead, use one of the following links to download a list of IP addresses:
+>
+> * [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+> * [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
+
+You may also need to allow traffic to non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
+
+| Host name | Purpose |
+| **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
+| **\*.anaconda.org** | Used to get repo data. |
+| **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
+| **cloud.r-project.org** | Used when installing CRAN packages for R development. |
+| **\*pytorch.org** | Used by some examples based on PyTorch. |
+| **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
 
 ## Secure the workspace with private endpoint
 
