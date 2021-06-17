@@ -14,7 +14,7 @@ Most settings are available from the **Settings** menu in the top right section 
 :::image type="content" source="./media/set-preferences/settings-top-header.png" alt-text="Screenshot showing the settings icon in the global page header.":::
 
 > [!NOTE]
-> We are in the process of moving all users to the newest settings experience described in this topic. For information about the older experience, see [Manage Azure portal settings and preferences (older version)](original-preferences.md).
+> We're in the process of moving all users to the newest settings experience described in this topic. For information about the older experience, see [Manage Azure portal settings and preferences (older version)](original-preferences.md).
 
 ## Settings overview
 
@@ -193,7 +193,7 @@ To read all notifications received during your current session, select **Notific
 
 To view notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/essentials/activity-log.md#view-the-activity-log).
 
-## Export, restore, or delete Settings
+## Export, restore, or delete settings
 
 The settings **Overview** pane lets you export, restore, or delete settings.
 

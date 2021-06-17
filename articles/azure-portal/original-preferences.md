@@ -10,7 +10,7 @@ ms.topic: how-to
 You can change the default settings of the Azure portal to meet your own preferences. 
 
 > [!IMPORTANT]
-> We are in the process of moving all Azure users to a newer experience. This topic describes the older experience. For the latest information, see [Manage Azure portal settings and preferences](set-preferences.md).
+> We're in the process of moving all Azure users to a newer experience. This topic describes the older experience. For the latest information, see [Manage Azure portal settings and preferences](set-preferences.md).
 
 Most settings are available from the **Settings** menu in the global page header.
 
