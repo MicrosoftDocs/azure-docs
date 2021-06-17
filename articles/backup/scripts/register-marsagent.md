@@ -5,7 +5,7 @@ ms.topic: sample
 ms.date: 06/15/2021
 ---
 
-# PowerShell Script to register an on-premises Windows server or client machine with a Recovery Services vault
+# PowerShell Script to register an on-premises Windows server or a client machine with Recovery Services vault
 
 This script helps you to register your on-premises Windows server or client machine with a Recovery Services vault. 
 

@@ -5,9 +5,9 @@ ms.topic: sample
 ms.date: 06/15/2021
 ---
 
-# PowerShell Script to install the latest MARS agent on on-premises Windows Server in a storage account
+# PowerShell Script to install the latest MARS agent on an on-premises Windows server
 
-This script installs the latest MARS agent on your on-premises Windows server.
+This script helps you to install the latest MARS agent on your on-premises Windows server.
 
 ## Sample script
 
