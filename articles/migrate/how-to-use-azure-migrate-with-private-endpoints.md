@@ -202,7 +202,9 @@ After you set up the replication appliance, use the following instructions to cr
     - This creates a Recovery Services vault in the background and enables a managed identity for the vault. A Recovery Services vault is an entity that contains the replication information of servers and is used to trigger replication operations.  
     - If the Azure Migrate project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This adds five fully qualified private names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault.   
     - The five domain names are formatted in this pattern: <br/> _{Vault-ID}-asr-pod01-{type}-.{target-geo-code}_.privatelink.siterecovery.windowsazure.com  
-    - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS zone links to the private endpoint virtual network and allows the on-premises replication appliance to resolve the fully qualified domain names to their private IP addresses.
+    - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS zone links to the private endpoint virtual network and allows the on-premises replication appliance to resolve the fully qualified domain names of private endpoints by updating necessary DNS Settings from one of the following methods:
+       1.   Manually update the source environment DNS records by editing DNS hosts file on the on-premises appliance with the DNS mappings and the associated private IP     addresses. This option is recommended for testing.
+       2.   Using [DNS forwarder.](../../private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
 
 4. Before you register the replication appliance, ensure that the vault's private link FQDNs are reachable from the machine hosting the replication appliance. [Learn more on how to verify network connectivity.](./troubleshoot-network-connectivity.md)
 
