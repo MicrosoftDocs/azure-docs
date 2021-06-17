@@ -25,13 +25,13 @@ In this scenario, the REST API validates whether email address' domain is fabrik
 > [!IMPORTANT]
 > API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). -->
 
-::: zone-end
+<!-- ::: zone-end -->
 
 ::: zone pivot="b2c-custom-policy"
 
 In this scenario, we'll add the ability for users to enter a loyalty number into the Azure AD B2C sign-up page. The REST API validates whether the combination of email and loyalty number is mapped to a promotional code. If the REST API finds a promotional code for this user, it will be returned to Azure AD B2C. Finally, the promotional code will be inserted into the token claims for the application to consume.
 
-You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
+You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](add-api-connector-signup-and-signin.md).
 
 ::: zone-end
 
@@ -667,7 +667,7 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ::: zone pivot="b2c-custom-policy"
 
-- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](add-api-connector-signup-and-signin.md)
 - [Secure your API Connector](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 
