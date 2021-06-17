@@ -12,7 +12,7 @@ ms.date: 05/28/2021
 # Tutorial: Check data source readiness at scale (preview)
 
 > [!IMPORTANT]
-> Azure Purview is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta or preview or are otherwise not yet released to general availability.
+> Azure Purview is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta or preview or are otherwise not yet released for general availability.
 
 To scan data sources, Azure Purview requires access to them. It uses credentials to obtain this access. A *credential* is the authentication information that Azure Purview can use to authenticate to your registered data sources. There are a few ways to set up the credentials for Azure Purview, including: 
 - A managed identity assigned to the Azure Purview account.
@@ -72,7 +72,7 @@ Follow these steps to run the script from your Windows computer:
 
 2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell** and then select **Run as administrator**.
 
-3. In the PowerShell window, enter the following command. (Replace `<path-to-script>` with the folder path of the extracted the script file.)
+3. In the PowerShell window, enter the following command. (Replace `<path-to-script>` with the folder path of the extracted script file.)
 
    ```powershell
    dir -Path <path-to-script> | Unblock-File
