@@ -261,7 +261,7 @@ As a result of this security risk, we recommend you don't use the Log Analytics 
 
 ### Create using the Azure portal
 
-Perform the following steps to create the Azure Automation custom role in the Azure portal. If you would like to learn more, see [Azure custom roles](/role-based-access-control/custom-roles.md).
+Perform the following steps to create the Azure Automation custom role in the Azure portal. If you would like to learn more, see [Azure custom roles](./../role-based-access-control/custom-roles.md).
 
 1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the **assignableScopes** property with the subscription GUID.
 
@@ -295,7 +295,7 @@ Perform the following steps to create the Azure Automation custom role in the Az
    }
    ```
 
-1. Complete the remaining steps as outlined in [Create or update Azure custom roles using the Azure portal](/role-based-access-control/custom-roles-portal.md#start-from-json). For [Step 3:Basics](/role-based-access-control/custom-roles-portal.md#step-3-basics), note the following:
+1. Complete the remaining steps as outlined in [Create or update Azure custom roles using the Azure portal](./../role-based-access-control/custom-roles-portal.md#start-from-json). For [Step 3:Basics](/role-based-access-control/custom-roles-portal.md#step-3-basics), note the following:
 
     -  In the **Custom role name** field, enter **Automation account Contributor (custom)** or a name matching your naming standards.
     - For **Baseline permissions**, select **Start from JSON**. Then select the custom JSON file you saved earlier.
@@ -304,7 +304,7 @@ Perform the following steps to create the Azure Automation custom role in the Az
 
 ### Create using PowerShell
 
-Perform the following steps to create the Azure Automation custom role with PowerShell. If you would like to learn more, see [Azure custom roles](/role-based-access-control/custom-roles.md).
+Perform the following steps to create the Azure Automation custom role with PowerShell. If you would like to learn more, see [Azure custom roles](./../role-based-access-control/custom-roles.md).
 
 1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the **AssignableScopes** property with the subscription GUID.
 
@@ -331,7 +331,7 @@ Perform the following steps to create the Azure Automation custom role with Powe
     } 
     ```
 
-1. Complete the remaining steps as outlined in [Create or update Azure custom roles using Azure PowerShell](/role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). It can take a few minutes for your custom role to appear everywhere.
+1. Complete the remaining steps as outlined in [Create or update Azure custom roles using Azure PowerShell](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). It can take a few minutes for your custom role to appear everywhere.
 
 ## Update Management permissions
 
