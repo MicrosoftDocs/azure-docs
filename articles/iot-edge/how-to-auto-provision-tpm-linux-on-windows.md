@@ -9,6 +9,7 @@ ms.date: 06/16/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Create and provision an IoT Edge for Linux on Windows device with TPM attestation
@@ -129,9 +130,27 @@ The installation steps in this section are abridged to highlight the steps speci
 
    1. On the **Getting Started** steps, review the prerequisites, accept the license terms, and choose whether or not to send diagnostic data.
 
-   1. On the **Deploy** steps, choose your device and its configuration settings. THen observe the progress as IoT Edge is deployed to your device.
+   1. On the **Deploy** steps, choose your device and its configuration settings. Then observe the progress as IoT Edge is deployed to your device.
 
-   1. On the **Connect** step, provision your device.
+   1. Select **Next** to continue to the **Connect** step, where you provide the provisioning information for your device.
+
+---
+
+## Configure the device with provisioning information
+
+# [PowerShell](#tab/powershell)
+
+1. Open an elevated PowerShell session on the Windows device.
+
+1. Provision your device using the **Scope ID** that you collected from your instance of Device Provisioning Service.
+
+   ```powershell
+   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "<scope id>"
+   ```
+
+# [Windows Admin Center](#tab/windowsadmincenter)
+
+1. On the **Connect** step, provision your device.
 
       1. Select the **DpsTpm** provisioning method.
       1. Provide the **Scope ID** that you retrieve from your instance of the Device Provisioning Service.
