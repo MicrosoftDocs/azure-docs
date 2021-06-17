@@ -223,7 +223,9 @@ struct ContentView_Previews: PreviewProvider {
 ```
 
 ### Authenticate the client
-In order to initialize a CallAgent instance we need a User Access Token which will enable us to make and receive calls. Add the following code to the `onAppear` callback in `ContentView.swift`:
+In order to initialize a CallAgent instance we need a User Access Token which will enable us to make and receive calls. Refer to the [user access token](../../../access-tokens.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
+
+Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You will need to replace `<USER ACCESS TOKEN>` with a valid user access token** for your resource:
 
 ```Swift
 var userCredential: CommunicationTokenCredential?
@@ -234,8 +236,6 @@ do {
     return
 }
 ```
-
-Replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
 
 ### Initialize the CallAgent and access Device Manager
 To create a CallAgent instance from a CallClient, use the `callClient.createCallAgent` method that asynchronously returns a CallAgent object once it's initialized. DeviceManager lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera. 
