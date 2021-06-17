@@ -155,33 +155,12 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
     > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md)
 
-    For Kubernetes compute targets, you can provide a configuration file to define your namespace, node selectors, and resources to deploy training jobs to. Below is a sample of a config file.
-
-    ```json
-    {
-        "namespace": "<KUBERNETES-NAMESPACE>",
-        "nodeSelector": {
-            "<NODE-SELECTOR-NAME": "<VM-SIZE>"
-        },
-        "resources": {
-            "requests": {
-            },
-            "limits": {
-            }
-        }
-    }
-    ```
-
-    In your attach configuration you can define the following settings:
-
-    - **namespace**: Set to your default namespace if undefined. Training runs are dispatched to pods using the specified namespace. Note that the namespace must already exist in the cluster. Namespace creation requires cluster administrative privilege.
-    - **nodeSelector**: Defaults to null. In scenarios where you have nodes of different SKUs or compute types (CPU or GPU), use this setting to target a specific subset of nodes. Cluster administrative privileges are required to create node selectors. 
-   - **resources**: Set requests and limits such as CPU and memory for your compute.
-
-    > [!IMPORTANT]
-    > To attach an AKS cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
-
 1. Select __Attach__. 
+
+> [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+
+> [!IMPORTANT]
+> To attach an AKS or Arc Enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
 
 To detach your compute use the following steps:
 

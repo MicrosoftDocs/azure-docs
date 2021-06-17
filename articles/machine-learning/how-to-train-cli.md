@@ -101,6 +101,8 @@ Note that you are not charged for compute at this point as `cpu-cluster` and `gp
 
 Use `az ml compute create -h` for more details on compute create options.
 
+> [!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+
 ## Basic Python training job
 
 With `cpu-cluster` created you can run the basic training job, which outputs a model and accompanying metadata. Let's review the job YAML file in detail:
