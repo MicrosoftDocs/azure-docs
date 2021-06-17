@@ -33,7 +33,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Storage auto-grow**
 
-  Storage auto-grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Beginning June 21, 2021, all newly created servers will have storage auto-grow enabled by default. [Learn more](concepts-compute-storage.md#storage-auto-grow.md).
+  Storage auto-grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Beginning June 21, 2021, all newly created servers will have storage auto-grow enabled by default. [Learn more](concepts-compute-storage.md#storage-auto-grow).
 
 -	**Data-in Replication**
 
@@ -41,7 +41,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **GitHub actions support with Azure CLI**
 
-  Flexible Server CLI now allows you to automate your workflow to deploy updates with GitHub actions.  Use this feature to help you set up and deploy your database updates with MySQL github action workflow. These CLI commands help you with setting up the repository to enable the continuous deployment for ease of development. [Learn more](../cli/azure/mysql/flexible-server/deploy?view=azure-cli-latest&preserve-view=true).
+  Flexible Server CLI now allows you to automate your workflow to deploy updates with GitHub actions.  Use this feature to help you set up and deploy your database updates with MySQL github action workflow. These CLI commands help you with setting up the repository to enable the continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy?view=azure-cli-latest&preserve-view=true).
 
 - **Zone redundant HA forced failover fixes**
 
