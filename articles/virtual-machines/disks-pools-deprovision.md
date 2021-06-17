@@ -2,7 +2,7 @@
 title: Deprovision an Azure disk pool
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-ms.date: 06/11/2021
+ms.date: 06/16/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
@@ -17,9 +17,17 @@ This article covers the deletion process for a disk pool, as well as how to disa
 
 When you delete a disk pool, all the resources in the managed resource group are also deleted. If there are outstanding iSCSI connections to the disk pool, you cannot delete the disk pool. You must disconnect all clients with iSCSI connections to the disk pool first. Disks that have been added to the disk pool are not deleted.
 
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the Azure portal.
+1. Search for **Disk pool** and select it, then select the disk pool you want to delete.
+1. Select **Delete** at the top of the blade.
+
 # [PowerShell](#tab/azure-powershell)
 
-PowerShell content
+```azurepowershell
+Remove-AzDiskPool -Name "myDiskpoolName" -ResourceGroupName "myRGName"
+```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -37,10 +45,17 @@ When you first enable iSCSI support on a disk pool, an iSCSI target is created a
 
 You can re-enable iSCSI support on an existing disk pool. iSCSI support cannot be disabled on the disk pool if there are outstanding iSCSI connections to the disk pool.
 
+# [Portal](#tab/azure-portal)
+
+1. Search for **Disk pool** and select your disk pool.
+1. Select **iSCSI** under **Settings**.
+1. Uncheck **Enable iSCSI** and select **Save**.    
 
 # [PowerShell](#tab/azure-powershell)
 
-PowerShell content
+```azurepowershell
+Remove-AzDiskPoolIscsiTarget -DiskPoolName "myDiskpoolName" -Name "myiSCSITargetName" -ResourceGroupName "myRGName"
+```
 
 # [Azure CLI](#tab/azure-cli)
 
