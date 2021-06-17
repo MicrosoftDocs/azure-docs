@@ -398,6 +398,8 @@
       href: flexible-server/overview.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: What's new in Flexible Server?
+      href: flexible-server-whats-new.md
   - name: Quickstarts
     expanded: true
     items:
