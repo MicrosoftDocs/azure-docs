@@ -34,7 +34,7 @@ Monitor your SAP HANA Large Instances to see whether the above resources are suf
 
 ## CPU resource consumption
 
-SAP defines a maximum threshold of CPU use for the SAP HANA workload. Staying within this threshold ensures you have enough CPU resources to work through the data stored in memory. High CPU consumption can happen when SAP HANA services execute queries because of missing indexes or similar issues. So monitoring CPU consumption of the HANA Large Instance and CPU consumption of specific HANA services is important.
+SAP defines a maximum threshold of CPU use for the SAP HANA workload. Staying within this threshold ensures you have enough CPU resources to work through the data stored in memory. High CPU consumption can happen when SAP HANA services execute queries because of missing indexes or similar issues. So monitoring CPU consumption of the HANA Large Instance and CPU consumption of specific HANA services is critical.
 
 ## Memory consumption 
 
@@ -42,7 +42,7 @@ It's important to monitor memory consumption both within HANA and outside of HAN
 
 ## Network bandwidth 
 
-The bandwidth of the Azure Virtual Network (VNet) gateway is limited. Only so much data can move into the Azure VNet. Monitor the data received by all Azure VMs within a VNet. This way you'll know when you're nearing the limits of the Azure gateway SKU you selected. It also makes sense to monitor incoming and outgoing network traffic on the HANA Large Instance, to track the volumes handled over time.
+The bandwidth of the Azure Virtual Network (VNet) gateway is limited. Only so much data can move into the Azure VNet. Monitor the data received by all Azure VMs within a VNet. This way you'll know when you're nearing the limits of the Azure gateway SKU you selected. It also makes sense to monitor incoming and outgoing network traffic on the HANA Large Instance to track the volumes handled over time.
 
 ## Disk space
 
