@@ -198,15 +198,12 @@ After the analytical store is enabled with a particular TTL value, you may want 
 If you created an analytical store enabled container through the Azure portal, it contains a default analytical TTL of -1. Use the following steps to update this value:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
-
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
-
 1. Select an existing container that has analytical store enabled. Expand it and modify the following values:
-
-  * Open the **Scale & Settings** window.
-  * Under **Setting** find,** Analytical Storage Time to Live**.
-  * Select **On (no default)** or select **On** and set a TTL value
-  * Click **Save** to save the changes.
+   1. Open the **Scale & Settings** window.
+   1. Under **Setting** find,** Analytical Storage Time to Live**.
+   1. Select **On (no default)** or select **On** and set a TTL value.
+   1. Click **Save** to save the changes.
 
 ### .NET SDK
 
