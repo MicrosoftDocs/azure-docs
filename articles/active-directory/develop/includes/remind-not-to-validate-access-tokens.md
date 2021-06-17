@@ -16,4 +16,4 @@ ms.custom: aaddev
 ---
 
 > [!NOTE]
-> Don't attempt to validate tokens for APIs you don't own, including the tokens in this example.  Microsoft Graph tokens use a special format that will not validate as a JWT.
+> Don't attempt to validate tokens for APIs you don't own, including the tokens in this example.  Microsoft Graph tokens use a special format that will not validate as a JWT, and are also encrypted for consumer (Microsoft account) users.

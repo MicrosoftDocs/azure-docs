@@ -98,6 +98,8 @@ The following example shows a successful token response:
 
 You can use the refresh token to acquire new access tokens and refresh tokens using the same flow described in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
 
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
+
 ### Error response
 
 If the user hasn't provided the correct username or password, or the client hasn't received the requested consent, authentication will fail.

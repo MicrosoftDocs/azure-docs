@@ -129,3 +129,5 @@ A successful token response will look like:
 | `refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`.  |
 
 You can use the refresh token to acquire new access tokens and refresh tokens using the same flow documented in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]

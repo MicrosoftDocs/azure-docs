@@ -252,6 +252,8 @@ Response parameters mean the same thing regardless of the flow used to acquire t
 | `id_token` | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [`id_tokens` reference](id-tokens.md). |
 | `state` | If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
+
 ### Error response
 
 Error responses might also be sent to the redirect URI so that the app can handle them appropriately. An error response looks like this:
