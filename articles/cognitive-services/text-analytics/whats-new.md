@@ -35,8 +35,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
     * 14 new relation types,
     * Assertion detection expanded for new entity types and
     * Linking support for ALLERGEN entity type
-* A new image for the Text Analytics for health container with tag `3.0.016230002-onprem-amd64` and model version `2021-05-15`
-    * This container is available for download from Microsoft Container Registry.
+* A new image for the Text Analytics for health container with tag `3.0.016230002-onprem-amd64` and model version `2021-05-15`. This container is available for download from Microsoft Container Registry.
  
 ## May 2021
 
