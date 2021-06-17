@@ -153,7 +153,7 @@ Using `AADClientCertificate`:
 
 ## Template deployment
 
-For an example of template deployment based on schema v1.1, see the Azure Quickstart Template [201-encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
+For an example of template deployment based on schema v1.1, see the Azure Quickstart Template [encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad).
 
 For an example of template deployment based on schema v0.1, see the Azure Quickstart Template [encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm).
 

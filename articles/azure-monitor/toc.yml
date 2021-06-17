@@ -5,7 +5,7 @@
   - name: What is Azure Monitor?
     href: overview.md
   - name: FAQ
-    href: faq.md
+    href: faq.yml
   - name: What's new?
     href: whats-new.md
   - name: Migrate from Operations Manager
@@ -364,7 +364,7 @@
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: faq.md#agents
+      href: /azure-monitor/faq.yml#agents
     - name: Azure Monitor Agent
       items:
       - name: Overview
@@ -381,7 +381,7 @@
         href: deploy-scale.md#azure-monitor-agent-preview  
       - name: FAQ
         displayname: Azure Monitor agent FAQ
-        href: faq.md#azure-monitor-agent-preview
+        href: /azure/azure-monitor/faq#azure-monitor-agent-preview
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -631,7 +631,7 @@
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: FAQ
-      href: ./faq.md
+      href: ./faq.yml
     - name: Code-based monitoring
       items:
       - name: .NET
@@ -773,7 +773,7 @@
     - name: OpenTelemetry
       items: 
       - name: FAQ
-        href: faq.md#opentelemetry
+        href: /azure-monitor/faq.yml#opentelemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -1013,9 +1013,9 @@
     - name: Overview
       href: vm/vminsights-overview.md
     - name: General Availability FAQ
-      href: vm/vminsights-ga-release-faq.md  
+      href: vm/vminsights-ga-release-faq.yml  
     - name: FAQ
-      href: faq.md#vm-insights
+      href: /azure-monitor/faq.yml#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1069,7 +1069,7 @@
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: faq.md#container-insights
+      href: /azure-monitor/faq.yml#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1161,7 +1161,7 @@
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: faq.md#sql-insights-preview
+        href: /azure-monitor/faq.yml#sql-insights-preview
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts
