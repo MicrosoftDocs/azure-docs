@@ -100,7 +100,7 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 >  <image-id>       <repository-path/name>    <tag-name>
 >  ```
 
-## Run the container with the docker compose command
+## Run the container with the **docker compose up** command
 
 * Replace the {ENDPOINT_URI} and {API_KEY} values with your Form Recognizer Endpoint URI and the API Key from the Azure resource page.
 
@@ -151,7 +151,7 @@ version: "3"
 services:
   azure-cognitive-service-businesscard:
     container_name: azure-cognitive-service-businesscard
-    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-businesscard:2.1
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard
     environment:
       - EULA=accept 
       - billing= # Billing endpoint
@@ -191,7 +191,7 @@ version: "3"
 services:
   azure-cognitive-service-id:
     container_name: azure-cognitive-service-id
-    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-id-document:2.1
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document
     environment:
       - EULA=accept
       - billing= # Billing endpoint
@@ -231,7 +231,7 @@ version: "3"
 services:
   azure-cognitive-service-invoice:
     container_name: azure-cognitive-service-invoice
-    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-invoice:2.1
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice
     environment:
       - EULA=accept
       - billing= # Billing endpoint
@@ -243,7 +243,7 @@ services:
       - ocrvnet
   azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
-    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-layout:2.1
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
     user: root
     environment:
       - EULA=accept
@@ -272,7 +272,7 @@ version: "3"
 services:
   azure-cognitive-service-receipt:
     container_name: azure-cognitive-service-receipt
-    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-receipt:2.1
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
     environment:
       - EULA=accept 
       - billing= # Billing endpoint
@@ -341,7 +341,7 @@ The container needs the billing argument values to run. These values allow the c
 
 ### Billing arguments
 
-The [**docker compose**](https://docs.docker.com/engine/reference/commandline/compose/) command will start the container when all three of the following options are provided with valid values:
+The [**docker compose up**](https://docs.docker.com/engine/reference/commandline/compose_up/) command will start the container when all three of the following options are provided with valid values:
 
 | Option | Description |
 |--------|-------------|
