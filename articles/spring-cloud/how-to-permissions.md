@@ -96,6 +96,9 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 
 #### [JSON](#tab/JSON)
+5. Click **Next**.
+
+   ![Create custom role](media/spring-cloud-permissions/create-custom-role-json.png)
 
 The following JSON file defines the Developer role.
 
