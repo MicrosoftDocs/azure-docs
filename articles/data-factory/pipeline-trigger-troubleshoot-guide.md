@@ -180,6 +180,7 @@ This can happen if you have not scaled up SHIR as per your workload.
 
 Long queue related error messages can appear for various reasons. 
 
+
 **Resolution**
 * If you receive an error message from any source or destination via connectors, which can generate a long queue, go to [Connector Troubleshooting Guide.](./connector-troubleshoot-guide.md)
 * If you receive an error message about Mapping Data Flow, which can generate a long queue, go to [Data Flows Troubleshooting Guide.](./data-flow-troubleshoot-guide.md)
@@ -195,6 +196,16 @@ It is an user error because JSON payload that hits management.azure.com is corru
 **Resolution**
 
 Perform network tracing of your API call from ADF portal using Edge/Chrome browser **Developer tools**. You will see offending JSON payload, which could be due to a special characters(for example $), spaces and other types of user input. Once you fix the string expression, you will proceed with rest of  ADF usage calls in the browser.
+
+### ForEach activities do not run in parallel mode
+
+**Cause**
+
+You are running ADF in debug mode.
+
+**Resolution**
+
+Please run pipeline in trigger mode.
 
 
 ## Next steps
