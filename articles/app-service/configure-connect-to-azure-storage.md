@@ -89,8 +89,10 @@ The following table shows supported features:
 
 ::: zone pivot="container-linux"
 
+- Azure Storage in App Service **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
 - Azure Storage in App Service lets you specify **up to five** mount points per app.
 - Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+
 
 ::: zone-end
 
@@ -170,16 +172,11 @@ Once the share is linked to the app, you can verify this by running the followin
 az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 
-## Frequently asked questions (FAQ)
+## Best practices
 
 ::: zone pivot="container-windows"
 ::: zone-end
 ::: zone pivot="container-linux"
-Azure App service Linux supports mounting Azure File shares (Read / Write) and Azure Blob (Read Only) 
-
-You can connect up to five Azure storage mounts per Azure App Service web app. 
-
-Azure Storage mounted to an app is not accessible through Azure App Service FTP/FTPs endpoints. Use Azure Storage Explorer. 
 
 It is recommended to have Azure Storage account and your web app in the same Azure region to avoid potential issues related to latency. 
 
@@ -195,15 +192,13 @@ If you delete a connected Azure Storage account or container, then you should re
 
 Azure App Service supports scale out for your web app. Please remember that if your web app scales to multiple instances then all these will connect to the same Azure storage mount which may lead to performance bottlenecks and throughput issues. You should choose appropriate performance tier for connected Azure storage mount to avoid such issues  
 
-Scalability and performance of Azure Blob storage mounts are dependent on Azure Blob storage scalability and performance targets as explained here. Your web app can access mounts with either standard or premium performance tier. Based on your web app capacity and throughput requirements you should choose appropriate Azure storage performance tier 
+Scalability and performance of Azure Blob/Files storage mounts are dependent on Azure Blob/Files storage scalability and performance targets as explained here. Your web app can access mounts with either standard or premium performance tier. Based on your web app capacity and throughput requirements you should choose appropriate Azure storage performance tier 
 
-Scalability and performance of Azure Files storage mounts are dependent on Azure Files storage scalability and performance targets as explained here. Your web app can access mounts with either standard or premium performance tier. Based on your web app capacity and throughput requirements you should choose appropriate Azure storage performance tier 
-
-If the Azure storage mount path exists on the App Service web app, it will be overwritten by the storage mount. For example, if you deployed a folder named “public” under wwwroot, the content you deployed under “public” folder previously will not be available to your web app if you mount Azure storage with a path of /home/site/wwwroot/public. 
+If the Azure storage mount path exists on the App Service web app, it will be overwritten by the storage mount. For example, if you deployed a folder named "public" under wwwroot, the content you deployed under "public" folder previously will not be available to your web app if you mount Azure storage with a path of /home/site/wwwroot/public. 
 
 It is not recommended to use mounts for local databases (e.g., SQLite) or for any other applications & components that rely on file handles/locks. 
 
-Azure Storage billing is separate, and it is not included along with the web app billing 
+Azure Storage billing is separate, and it is not included along with the web app billing.
 
 Azure App services allows backup of your web app as explained here. Please note that these backup methods will not backup Azure storage mounts connected to your web app. It is recommended to use backup strategies & tools applicable for Azure Storage accounts 
 
