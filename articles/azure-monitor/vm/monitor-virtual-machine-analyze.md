@@ -24,7 +24,7 @@ Once you’ve enabled VM insights on your virtual machines, data will be availab
 ## Single machine experience
 Access the single machine analysis experience from the **Monitoring** section of the menu in the Azure portal for each Azure virtual machine and Azure Arc enabled server. These options either limit the data that you're viewing to that machine or at least sets an initial filter for it. This allows you to focus on that particular machine, viewing its current performance and its trending over time, helping to identify any issues it maybe experiencing.
 
-:::image type="content" source="media/monitor-vm-azure/vm-menu.png" alt-text="Analyze a VM in the Azure portal" lightbox="media/monitor-virtual-machines/vm-menu.png":::
+:::image type="content" source="media/monitor-virtual-machines/vm-menu.png" alt-text="Analyze a VM in the Azure portal" lightbox="media/monitor-virtual-machines/vm-menu.png":::
 
 - **Overview page.**  Click the **Monitoring** tab to display [platform metrics](../essentials/data-platform-metrics.md) for the virtual machine host. This gives you a quick view of the trend over different time periods for important metrics such as CPU, network, and disk. Since these are host metrics though, counters from the guest operating system such as memory aren't included. Click on a graph to work with this data in [metrics explorer](../essentials/metrics-getting-started.md) where you can perform different aggregations and add additional counters for analysis.
 
@@ -57,7 +57,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 Access the mulitple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
 
 
-:::image type="content" source="media/monitor-vm-azure/vm-menu.png" alt-text="Analyze multiple VMs in the Azure portal" lightbox="media/monitor-virtual-machines/vm-menu.png":::
+:::image type="content" source="media/monitor-virtual-machines/vm-menu.png" alt-text="Analyze multiple VMs in the Azure portal" lightbox="media/monitor-virtual-machines/vm-menu.png":::
 
 - **Activity log.**  [Activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for all resources. Create a filter for a **Resource Type** of Virtual Machines or Virtual Machine Scale Sets to view events for all of your machines.
 
@@ -98,11 +98,11 @@ The **Get Started** tab displays all machines in your Azure subscription,identif
 
 The **Performance** view includes multiple charts with several key performance indicators (KPIs) to help you determine how well machines are performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. See [How to chart performance with VM insights](vminsights-performance.md) for details on using the performance view.
 
-:::image type="content" source="media/monitor-virtual-machines/vminsights-performance.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/vminsights-performance.png":::
+:::image type="content" source="media/monitor-virtual-machines/vminsights-performance.png" alt-text="VM insights performance" lightbox="media/monitor-virtual-machines/vminsights-performance.png":::
 
 Use the **Map** view to see running processes on machines and their dependencies on other machines and external processes. You can change the time window for the view to determine if these dependencies have changed from another time period.  See [Use the Map feature of VM insights to understand application components](vminsights-maps.md) for details on using the map view.
 
-:::image type="content" source="media/monitor-virtual-machines/vminsights-map.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/vminsights-map.png":::
+:::image type="content" source="media/monitor-virtual-machines/vminsights-map.png" alt-text="VM insights map" lightbox="media/monitor-virtual-machines/vminsights-map.png":::
 
 ## Analyze metric data with metrics explorer
 Metrics explorer allows you plot charts, visually correlate trends, and investige spikes and dips in metrics' values. See [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md) for details on using this tool. 
@@ -122,11 +122,11 @@ Log Analytics allows you to perform custom analysis of your log data. Use Log An
 
 You don't necessarily need to understand how to write a log query to use Log Analytics. There are multiple prebuilt queries that you can select and either run without modification or use as a start to a custom query. Click **Queries** at the top of the Log Analytics screen and view queries with a **Resource type** of **Virtual machines** or **Virtual machine Scale Sets**. See [Using queries in Azure Monitor Log Analytics](../logs/queries.md) for information on using these queries and [Log Analytics tutorial](../logs/log-analytics-tutorial.md) for a complete tutorial on using Log Analytics to run queries and work with their results.
 
-:::image type="content" source="media/monitor-virtual-machines/vm-queries.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/vm-queries.png":::
+:::image type="content" source="media/monitor-virtual-machines/vm-queries.png" alt-text="Virtual machine queries" lightbox="media/monitor-virtual-machines/vm-queries.png":::
 
 When you launch the Launch Log Analytics from VM insights using the properties pane in either the **Performance** or **Map** view, it lists the tables that have data for the selected computer. Click on a table to open Log Analytics with a simple query that returns all records in that table for the selected computer. Work with these results or modify the query for more complex analysis. The [scope](../log/../logs/scope.md) set to the workspace meaning that you have access data for all computers using that workspace. 
 
-:::image type="content" source="media/monitor-virtual-machines/table-query.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/table-query.png":::
+:::image type="content" source="media/monitor-virtual-machines/table-query.png" alt-text="Table query" lightbox="media/monitor-virtual-machines/table-query.png":::
 
 ## Visualize data with workbooks
 [Workbooks](../visualize/workbooks-overview.MD) provide interactive reports in the Azure portal, combining different kinds of data into a single view. Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
@@ -164,7 +164,7 @@ VM insights includes the following workbooks. You can use these workbooks or use
 
 See [Create interactive reports VM insights with workbooks](vminsights-workbooks.md) for detailed instructions on creating your own custom workbooks.
 
-:::image type="content" source="media/monitor-virtual-machines/workbook-example.png" alt-text="VM insights get started" lightbox="media/monitor-virtual-machines/workbook-example.png":::
+:::image type="content" source="media/monitor-virtual-machines/workbook-example.png" alt-text="Virtual machine workbooks" lightbox="media/monitor-virtual-machines/workbook-example.png":::
 
 ## Next steps
 
