@@ -1,6 +1,6 @@
 ---
 title: Order Azure Edge devices from Azure Edge Hardware Center| Microsoft Docs
-description: Learn how to order Azure Stack Edge devices in the Azure Edge Hardware Center.
+description: Learn how to order multiple Azure Stack Edge devices in the Azure Edge Hardware Center.
 services: databox
 author: v-dalc
 
@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/17/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I want to be able to quickly place an order for multiple Azure Stack Edge devices using an existing shipping address.
+Customer intent: As an IT admin, I want to be able to place a single order for as many Azure Stack Edge devices as my company needs, and ship the devices to different locations. And I want to be able to reuse shipping addresses from my previous orders.
 ---
 
 # Order Azure Stack Edge devices from Azure Edge Hardware Center
@@ -18,7 +18,7 @@ This article describes how to order Azure Stack Edge, Azure Stack Hub, or Azure 
 
 Each order can include multiple devices from a single hardware group and configuration. You can ship the devices to different locations within the same country/region. For more information about the Azure Stack Edge Hardware Center, see Azure Stack Edge Hardware Center overview *(link to come)*.
 
-*I will add an "About" section if we need to provide any more detail about the new service. Alpa will write an "Overview" article.*
+*I will add an "About" section if we need to provide any more detail about the new service. `Alpa` will write an "Overview" article.*
 
 ### Prerequisites
 
@@ -28,11 +28,11 @@ Before you begin, make sure that:
 - You have owner or contributor access at resource group level for the Azure Stack Edge Pro/Data Box Gateway, IoT Hub, and Azure Storage resources.
 
     - To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. 
-    - You also need to make sure that the `Microsoft.EdgeOrder` provider is registered. *QUESTION: Azure Stack Edge also requires the Microsoft.DataBoxEdge and Microsoft.KeyVault resource providers. For IoT Hub resources, the Microsoft.Devices provider also is required. Should these be included?*<!--STILL REQUIRED? You also need to make sure that the Microsoft.DataBoxEdge and MicrosoftKeyVault resource providers are registered. To create any IoT Hub resource, Microsoft.Devices`provider should be registered.-->
+    - You also need to make sure that the `Microsoft.EdgeOrder` provider is registered. *QUESTION: Azure Stack Edge also requires the `Microsoft.DataBoxEdge` and `Microsoft.KeyVault` resource providers. For IoT Hub resources, the `Microsoft.Devices` provider also is required. Should these providers be included?*<!--STILL REQUIRED? You also need to make sure that the Microsoft.DataBoxEdge and MicrosoftKeyVault resource providers are registered. To create any IoT Hub resource, Microsoft.Devices`provider should be registered.-->
         - To register a resource provider, in the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**.
         - Search for the specific resource provider, for example, Microsoft.DataBoxEdge, and register the resource provider.
     - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider. *QUESTION: Requirements from Azure Stack Edge. Still applicable?*
-- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-). *QUESTION: Is this the solution to the requirement to "Make sure not polices are preventing access during ordersing?*
+- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-). *QUESTION: Is this bullet the solution to the requirement to "Make sure no policies are preventing access during ordering?*
 
 
 ## Create new order in Azure Hardware Center
@@ -106,7 +106,7 @@ Before you begin, make sure that:
 
     Select **Next: Notification>** to continue.
 
-1. If you want to receive status notifications as as your order progresses, enter as many as 20 the email addresses of recipients on the **Notifications** tab. To add an email address, enter the address, and select **Add**. You can add up to 20 email addresses.
+1. If you want to receive status notifications as your order progresses, enter as many as 20 the email addresses of recipients on the **Notifications** tab. To add an email address, enter the address, and select **Add**. You can add up to 20 email addresses.
 
     ![Screenshot of the Notifications tab for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-14.png)
 
