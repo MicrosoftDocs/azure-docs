@@ -3,7 +3,7 @@ title: Avoid service interruptions in Azure Stream Analytics jobs
 description: This article describes guidance on making your Stream Analytics jobs upgrade resilient.
 author: jseb225
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019

@@ -37,9 +37,9 @@ Create the application using following steps:
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Connected logistics template":::
 
-2. Select **Create app** under **Connected Logistics Application**.
+1. Select **Create app** under **Connected Logistics Application**.
 
-3. **Create app** opens the **New application** form. Enter the following details:
+1. **Create app** opens the **New application** form. Enter the following details:
 
 
     * **Application name**: you can use default suggested name or enter your friendly application name.
@@ -63,12 +63,6 @@ The following sections walk you through the key features of the application.
 ### Dashboard
 
 After deploying the application template, your default dashboard is a connected logistics operator focused portal. Northwind Trader is a fictitious logistics provider managing a cargo fleet at sea and on land. In this dashboard, you see two different gateways providing telemetry from shipments, along with associated commands, jobs, and actions.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot showing how to create an app from the connected logistics application template](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot showing the billing options when you create the application](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
 
 This dashboard is pre-configured to show the critical logistics device operations activity.
 
@@ -126,10 +120,8 @@ If you're not going to continue to use this application, delete the application 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Template cleanup":::
 
 ## Next steps
-* Learn more about 
+
+Learn more about :
+
 > [!div class="nextstepaction"]
-> [Connected logistics concept](./architecture-connected-logistics.md)
-* Learn more about other 
-[IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about 
-[IoT Central overview](../core/overview-iot-central.md)
+> [Connected logistics concepts](./architecture-connected-logistics.md)

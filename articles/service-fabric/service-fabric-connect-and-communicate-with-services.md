@@ -1,11 +1,8 @@
 ---
 title: Connect and communicate with services in Azure Service Fabric 
 description: Learn how to resolve, connect, and communicate with services in Service Fabric.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 # Connect and communicate with services in Service Fabric

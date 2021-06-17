@@ -24,6 +24,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The CyberArk Enterprise Password Vault (EPV) data connector in Azure Sentinel is currently in public preview. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 The CyberArk Syslog connector allows you to easily connect all your CyberArk security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Integration between CyberArk and Azure Sentinel makes use of the CEF Data Connector to properly parse and display CyberArk Syslog messages.
 
 > [!NOTE]
@@ -35,7 +37,7 @@ CyberArk EPV logs are sent from the Vault to a Linux-based log forwarding server
 
 1. In the Azure Sentinel portal, click **Data connectors**, select **CyberArk Enterprise Password Vault (EPV) Events (Preview)** and then **Open connector page**.
 
-1. Follow the CyberArk EPV instructions to configure sending syslog data to the log forwarding server.
+1. Follow the [CyberArk EPV instructions](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) to configure sending syslog data to the log forwarding server.
 
 1. Validate your connection and verify data ingestion using [these instructions](connect-cef-verify.md). It may take up to 20 minutes until your logs start to appear in Log Analytics.
 

@@ -1,81 +1,80 @@
 ---
 title: "Cognitive Services: What's new in docs"
-description: "What's new in the Cognitive Services docs for October 1, 2020 through October 31, 2020. "
+description: "What's new in the Cognitive Services docs for May 1, 2021 - May 31, 2021."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 11/03/2020
+ms.date: 06/14/2021
 ---
 
-# Cognitive Services: What's new in docs for October 1, 2020 - October 31, 2020
+# Cognitive Services docs: What's new for May 1, 2021 - May 31, 2021
 
-Welcome to what's new in the Cognitive Services docs from October 1, 2020 through October 31, 2020. This article lists some of the major changes to docs during this period.
-
-## Cognitive Services
-
-### New articles
-
-- [Cognitive Services development options](cognitive-services-development-options.md)
-
-### Updated articles
-
-- [What are Azure Cognitive Services?](what-are-cognitive-services.md)
-- [Azure Cognitive Services support and help options](cognitive-services-support-options.md)
-- [Configure Azure Cognitive Services virtual networks](cognitive-services-virtual-networks.md)
+Welcome to what's new in the Cognitive Services docs from May 1, 2021 through May 31, 2021. This article lists some of the major changes to docs during this period.
 
 ## Containers
 
+### New articles
+
+- [Install and run Translator containers](translator/containers/translator-how-to-install-container.md)
+- [Configure Translator Docker containers](translator/containers/translator-container-configuration.md)
+- [Container: Translator translate method](translator/containers/translator-container-supported-parameters.md)
+
+
+
 ### Updated articles
 
-- [Use Docker Compose to deploy multiple containers](./containers/docker-compose-recipe.md)
+- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags.md)
 
 ## Form Recognizer
 
+### New articles
+
+- [Reference: Azure Form Recognizer client library v3.0.0 and REST API v2.0](/azure/cognitive-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
+
 ### Updated articles
 
-- [What's new in Form Recognizer?](./form-recognizer/whats-new.md)
+- [Form Recognizer prebuilt business cards model](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
+- [Quickstart: Get started with the client library SDKs or REST API](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
+- [What's new in Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer/form-recognizer.md)
 
-## Immersive Reader
+## Translator
 
 ### New articles
 
-- [Immersive Reader JavaScript SDK Release Notes](./immersive-reader/release-notes.md)
+- [Frequently asked questions—Translator API](translator/translator-faq.md)
 
 ### Updated articles
 
-- [How to store user preferences](./immersive-reader/how-to-store-user-preferences.md)
-- [Immersive Reader JavaScript SDK Reference (v1.1)](./immersive-reader/reference.md)
-
-## Metrics Advisor
+#### Document Translation is now GA
+- [Get started with Document Translation](translator/document-translation/get-started-with-document-translation.md)
+- All nine reference pages have been updated to remove the preview parameter from the REST API endpoint.
+## Personalizer
 
 ### Updated articles
 
-- [Add data feeds from different data sources to Metrics Advisor](./metrics-advisor/data-feeds-from-different-sources.md)
-- [Metrics Advisor frequently asked questions](./metrics-advisor/faq.md)
+- [What's new in Personalizer](/azure/cognitive-services/personalizer/whats-new.md)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Migrate to version 3.x of the Text Analytics API](./text-analytics/migration-guide.md)
-- [How to use Named Entity Recognition in Text Analytics](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [How to: Detect sentiment using the Text Analytics API](./text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
+- [Tutorial: Integrate Power BI with the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/tutorials/tutorial-power-bi-key-phrases.md)
+- [Extract information in Excel using Text Analytics and Power Automate](/azure/cognitive-services/text-analytics/tutorials/extract-excel-information.md)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new.md)
 
 ## Community contributors
 
-The following people contributed to the Cognitive Services docs during this period. Thank you! 
+The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
 
+- [enzocanoo](https://github.com/enzocanoo) - Enzo Cano (2)
 - [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
-- [jarrad-obrien](https://github.com/jarrad-obrien) - Jarrad O'Brien (2)
-- [nkgami](https://github.com/nkgami) - Hiroki Nakagami (2)
-- [changeworld](https://github.com/changeworld) - Takashi Takebayashi (1)
-- [dem108](https://github.com/dem108) - SeokJin Han (1)
-- [iAmBipinPaul](https://github.com/iAmBipinPaul) - Bipin Paul (1)
-- [JinyuID](https://github.com/JinyuID) - Jinyu (1)
-- [joelhulen](https://github.com/joelhulen) - Joel Hulen (1)
-- [jptarqu](https://github.com/jptarqu) (1)
-- [neibla](https://github.com/neibla) - Neil Blake (1)
+- [sassdawe](https://github.com/sassdawe) - DavidSass (1)
+- [SzymonSel](https://github.com/SzymonSel) - Szymon Seliga (1)
+- [thomash0815](https://github.com/thomash0815) (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

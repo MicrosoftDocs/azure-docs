@@ -199,7 +199,7 @@ To configure Azure AD single sign-on with Kantega SSO for Confluence, perform th
 
 1. On the **Confluence user accounts** section, perform following steps:
 
-	![Screenshot that shows the "Confluence user accounts" section with the"Create users in Confluence's Internal Directory if needed" option and "Next" button selected.](./media/kantegassoforconfluence-tutorial/addon10.png)
+	![Screenshot that shows the "Confluence user accounts" section with the "Create users in Confluence's Internal Directory if needed" option and "Next" button selected.](./media/kantegassoforconfluence-tutorial/addon10.png)
 
 	a. Select **Create users in Confluence's internal Directory if needed** and enter the appropriate name of the group for users (can be multiple no. of groups separated by comma).
 

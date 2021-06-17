@@ -3,7 +3,7 @@ title: Search for a location using Azure Maps Search services
 description: Learn about the Azure Maps Search service. See how to use this set of APIs for geocoding, reverse geocoding, fuzzy searches, and reverse cross street searches.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/05/2020
+ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -17,7 +17,7 @@ The [Azure Maps Search Service](/rest/api/maps/search) is a set of  RESTful APIs
 
 In this article, you'll learn how to:
 
-* Request latitude and longitude coordinates for an address (geocode address location) by using the [Search Address API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress).
+* Request latitude and longitude coordinates for an address (geocode address location) by using the [Search Address API](/rest/api/maps/search/getsearchaddress).
 * Search for an address or Point of Interest (POI) using the [Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy).
 * Make a [Reverse Address Search](/rest/api/maps/search/getsearchaddressreverse) to translate coordinate location to street address.
 * Translate coordinate location into a human understandable cross street by using [Search Address Reverse Cross Street API](/rest/api/maps/search/getsearchaddressreversecrossstreet).  Most often, this is needed in tracking applications that receive a GPS feed from a device or asset, and wish to know where the coordinate is located.
@@ -108,7 +108,7 @@ In this example, we'll use Fuzzy Search to search the entire world for `pizza`. 
 
 ## Search for a street address using Reverse Address Search
 
-The Azure Maps [Get Search Address Reverse API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) translates coordinates into human readable street addresses. This API is often used for applications that consume GPS feeds and want to discover addresses at specific coordinate points.
+The Azure Maps [Get Search Address Reverse API](/rest/api/maps/search/getsearchaddressreverse) translates coordinates into human readable street addresses. This API is often used for applications that consume GPS feeds and want to discover addresses at specific coordinate points.
 
 >[!IMPORTANT]
 >To geobias results to the relevant area for your users, always add as many location details as possible. To learn more, see [Best Practices for Search](how-to-use-best-practices-for-search.md#geobiased-search-results).
@@ -164,7 +164,7 @@ In this example, we'll search for a cross street based on the coordinates of an 
 
     :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Search cross street.":::
   
-3. Click **Send**, and review the response body. You'll notice that the response contains a `crossStreet` value of `Occidental Avenue South`.
+3. Click **Send**, and review the response body. You'll notice that the response contains a `crossStreet` value of `South Atlantic Street`.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Understand IoT Plug and Play digital twins
 description: Understand how IoT Plug and Play uses digital twins
 author: prashmo
 ms.author: prashmo
-ms.date: 07/17/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -11,29 +11,102 @@ services: iot-pnp
 
 # Understand IoT Plug and Play digital twins
 
-An IoT Plug and Play device implements a model described by the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular device can have. A device twin and a digital twin are initialized the first time an IoT Plug and Play device connects to an IoT hub.
+An IoT Plug and Play device implements a model described by the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular device can have.
 
 IoT Plug and Play uses DTDL version 2. For more information about this version, see the [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) specification on GitHub.
 
-DTDL isn't exclusive to IoT Plug and Play. Other IoT services, such as [Azure Digital Twins](../digital-twins/overview.md), use it to represent entire environments such as buildings and energy networks. To learn more, see [Understand twin models in Azure Digital Twins](../digital-twins/concepts-models.md).
+> [!NOTE]
+> DTDL isn't exclusive to IoT Plug and Play. Other IoT services, such as [Azure Digital Twins](../digital-twins/overview.md), use it to represent entire environments such as buildings and energy networks.
 
-This article describes how components and properties are represented in the *desired* and *reported* sections of a device twin. It also describes how these concepts map to the corresponding digital twin.
+The Azure IoT service SDKs include APIs that let a service interact a device's digital twin. For example, a service can read device properties from the digital twin or use the digital twin to call a command on a device. To learn more, see [IoT Hub digital twin examples](concepts-developer-guide-service.md#iot-hub-digital-twin-examples).
 
-The IoT plug and play device in this article that implements [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) component.
+The example IoT Plug and Play device in this article implements a [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) that has [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) components.
 
 ## Device twins and digital twins
 
-Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md). Both device and solution builders can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
+As well as a digital twin, Azure IoT Hub also maintains a *device twin* for every connected device. A device twin is similar to a digital twin in that it's a representation of a device's properties. The Azure IoT service SDKs include APIs for interacting with device twins.
 
-Digital Twin APIs operate on high-level constructs in the Digital Twins Definition Language (DTDL) such as components, properties, and commands. The Digital Twin APIs make it easier for solution builders to create IoT Plug and Play solutions.
+An IoT hub initializes a digital twin and a device twin the first time an IoT Plug and Play device connects.
 
-In a device twin, the state of a writable property is split across the desired and reported sections. All read-only properties are available within the reported section.
+Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [IoT Hub service client examples](concepts-developer-guide-service.md#iot-hub-service-client-examples). Both device and solution builders can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
+
+The digital twin APIs operate on high-level DTDL constructs such as components, properties, and commands. The digital twin APIs make it easier for solution builders to create IoT Plug and Play solutions.
+
+In a device twin, the state of a writable property is split across the *desired properties* and *reported properties* sections. All read-only properties are available within the reported properties section.
 
 In a digital twin, there's a unified view of the current and desired state of the property. The synchronization state for a given property is stored in the corresponding default component `$metadata` section.
 
-### Digital twin JSON format
+### Device twin JSON example
 
-When represented as a JSON object, a digital twin includes the following fields:
+The following snippet shows an IoT Plug and Play device twin formatted as a JSON object:
+
+```json
+{
+  "deviceId": "sample-device",
+  "modelId": "dtmi:com:example:TemperatureController;1",
+  "version": 15,
+  "properties": {
+    "desired": {
+      "thermostat1": {
+        "__t": "c",
+        "targetTemperature": 21.8
+      },
+      "$metadata": {...},
+      "$version": 4
+    },
+    "reported": {
+      "serialNumber": "alwinexlepaho8329",
+      "thermostat1": {
+        "maxTempSinceLastReboot": 25.3,
+        "__t": "c",
+        "targetTemperature": {
+          "value": 21.8,
+          "ac": 200,
+          "ad": "Successfully executed patch",
+        }
+      },
+      "$metadata": {...},
+      "$version": 11
+    }
+  }
+}
+```
+
+### Digital twin example
+
+The following snippet shows the digital twin formatted as a JSON object:
+
+```json
+{
+  "$dtId": "sample-device",
+  "serialNumber": "alwinexlepaho8329",
+  "thermostat1": {
+    "maxTempSinceLastReboot": 25.3,
+    "targetTemperature": 21.8,
+    "$metadata": {
+      "targetTemperature": {
+        "desiredValue": 21.8,
+        "desiredVersion": 4,
+        "ackVersion": 4,
+        "ackCode": 200,
+        "ackDescription": "Successfully executed patch",
+        "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+      },
+      "maxTempSinceLastReboot": {
+         "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+      }
+    }
+  },
+  "$metadata": {
+    "$model": "dtmi:com:example:TemperatureController;1",
+    "serialNumber": {
+      "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+    }
+  }
+}
+```
+
+The following table describes the fields in the digital twin JSON object:
 
 | Field name | Description |
 | --- | --- |
@@ -50,83 +123,13 @@ When represented as a JSON object, a digital twin includes the following fields:
 | `{componentName}.{propertyName}` | The value of the component's property in JSON |
 | `{componentName}.$metadata` | The metadata information for the component. |
 
-#### Device Twin sample
-
-The following snippet shows an IoT Plug and Play device twin formatted as a JSON object:
-
-```json
-{
-    "deviceId": "sample-device",
-    "modelId": "dtmi:com:example:TemperatureController;1",
-    "version": 15,
-    "properties": {
-        "desired": {
-            "thermostat1": {
-                "__t": "c",
-                "targetTemperature": 21.8
-            },
-            "$metadata": {...},
-            "$version": 4
-        },
-        "reported": {
-            "serialNumber": "alwinexlepaho8329",
-            "thermostat1": {
-                "maxTempSinceLastReboot": 25.3,
-                "__t": "c",
-                "targetTemperature": {
-                    "value": 21.8,
-                    "ac": 200,
-                    "ad": "Successfully executed patch",
-                }
-            },
-            "$metadata": {...},
-            "$version": 11
-        }
-    }
-}
-```
-
-#### Digital Twin sample
-
-The following snippet shows the digital twin formatted as a JSON object:
-
-```json
-{
-    "$dtId": "sample-device",
-    "serialNumber": "alwinexlepaho8329",
-    "thermostat1": {
-        "maxTempSinceLastReboot": 25.3,
-        "targetTemperature": 21.8,
-        "$metadata": {
-            "targetTemperature": {
-                "desiredValue": 21.8,
-                "desiredVersion": 4,
-                "ackVersion": 4,
-                "ackCode": 200,
-                "ackDescription": "Successfully executed patch",
-                "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
-            },
-            "maxTempSinceLastReboot": {
-                "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-            }
-        }
-    },
-    "$metadata": {
-        "$model": "dtmi:com:example:TemperatureController;1",
-        "serialNumber": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
-    }
-}
-```
-
 ### Properties
 
 Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages).
 
 #### Read-only Property
 
-Schema:
+DTDL schema:
 
 ```json
 {
@@ -147,9 +150,9 @@ The following snippets show the side-by-side JSON representation of the `serialN
 
 ```json
 "properties": {
-    "reported": {
-        "serialNumber": "alwinexlepaho8329"
-    }
+  "reported": {
+    "serialNumber": "alwinexlepaho8329"
+  }
 }
 ```
 
@@ -166,15 +169,17 @@ The following snippets show the side-by-side JSON representation of the `serialN
 
 #### Writable Property
 
-Let's say device also had the following writable property in the default component:
+The following examples show a writable property in the default component.
+
+DTDL:
 
 ```json
 {
-    "@type": "Property",
-    "name": "fanSpeed",
-    "displayName": "Fan Speed",
-    "writable": true,
-    "schema": "double"
+  "@type": "Property",
+  "name": "fanSpeed",
+  "displayName": "Fan Speed",
+  "writable": true,
+  "schema": "double"
 }
 ```
 
@@ -184,19 +189,19 @@ Let's say device also had the following writable property in the default compone
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "fanSpeed": 2.0,
-        },
-        "reported": {
-            "fanSpeed": {
-                "value": 3.0,
-                "ac": 200,
-                "av": 1,
-                "ad": "Successfully executed patch version 1"
-            }
-        }
+  "properties": {
+    "desired": {
+      "fanSpeed": 2.0,
     },
+    "reported": {
+      "fanSpeed": {
+        "value": 3.0,
+        "ac": 200,
+        "av": 1,
+        "ad": "Successfully executed patch version 1"
+      }
+    }
+  },
 }
 ```
 
@@ -206,17 +211,17 @@ Let's say device also had the following writable property in the default compone
 
 ```json
 {
-    "fanSpeed": 3.0,
-    "$metadata": {
-        "fanSpeed": {
-            "desiredValue": 2.0,
-            "desiredVersion": 2,
-            "ackVersion": 1,
-            "ackCode": 200,
-            "ackDescription": "Successfully executed patch version 1",
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
+  "fanSpeed": 3.0,
+  "$metadata": {
+    "fanSpeed": {
+      "desiredValue": 2.0,
+      "desiredVersion": 2,
+      "ackVersion": 1,
+      "ackCode": 200,
+      "ackDescription": "Successfully executed patch version 1",
+      "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
     }
+  }
 }
 ```
 
@@ -228,8 +233,7 @@ In this example, `3.0` is the current value of the `fanSpeed` property reported 
 ### Components
 
 Components allow building model interface as an assembly of other interfaces.
-Consider [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) interface, which is defined as a model.
-This interface can now be incorporated as a component thermostat1(and another component thermostat2) when defining [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+For example, the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) interface can be incorporated as components `thermostat1` and  `thermostat2` in the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
 In a device twin, a component is identified by the `{ "__t": "c"}` marker. In a digital twin, the presence of `$metadata` marks a component.
 
@@ -246,30 +250,30 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ```json
 "properties": {
-    "desired": {
-        "thermostat1": {
-            "__t": "c",
-            "targetTemperature": 21.8
-        },
-        "$metadata": {
-        },
-        "$version": 4
+  "desired": {
+    "thermostat1": {
+      "__t": "c",
+      "targetTemperature": 21.8
     },
-    "reported": {
-        "thermostat1": {
-            "maxTempSinceLastReboot": 25.3,
-            "__t": "c",
-            "targetTemperature": {
-                "value": 21.8,
-                "ac": 200,
-                "ad": "Successfully executed patch",
-                "av": 4
-            }
-        },
-        "$metadata": {
-        },
-        "$version": 11
-    }
+    "$metadata": {
+    },
+    "$version": 4
+  },
+  "reported": {
+    "thermostat1": {
+      "maxTempSinceLastReboot": 25.3,
+      "__t": "c",
+      "targetTemperature": {
+        "value": 21.8,
+        "ac": 200,
+        "ad": "Successfully executed patch",
+        "av": 4
+      }
+    },
+    "$metadata": {
+    },
+    "$version": 11
+  }
 }
 ```
 
@@ -279,21 +283,21 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ```json
 "thermostat1": {
-    "maxTempSinceLastReboot": 25.3,
-    "targetTemperature": 21.8,
-    "$metadata": {
-        "targetTemperature": {
-            "desiredValue": 21.8,
-            "desiredVersion": 4,
-            "ackVersion": 4,
-            "ackCode": 200,
-            "ackDescription": "Successfully executed patch",
-            "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
-        },
-        "maxTempSinceLastReboot": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
+  "maxTempSinceLastReboot": 25.3,
+  "targetTemperature": 21.8,
+  "$metadata": {
+    "targetTemperature": {
+      "desiredValue": 21.8,
+      "desiredVersion": 4,
+      "ackVersion": 4,
+      "ackCode": 200,
+      "ackDescription": "Successfully executed patch",
+      "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+    },
+    "maxTempSinceLastReboot": {
+       "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
     }
+  }
 }
 ```
 
@@ -302,7 +306,7 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ## Digital twin APIs
 
-Azure Digital Twins comes equipped with **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** for managing device digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
+The digital twin APIs include **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** operations more managing a digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
 
 ## Digital twin change events
 
@@ -377,6 +381,6 @@ content-encoding:utf-8
 Now that you've learned about digital twins, here are some additional resources:
 
 - [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin.md)
-- [Interact with a device from your solution](quickstart-service-node.md)
+- [Interact with a device from your solution](quickstart-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)

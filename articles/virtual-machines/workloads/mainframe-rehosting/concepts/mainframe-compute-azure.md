@@ -5,7 +5,9 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+
 ---
 # Move mainframe compute to Azure
 
@@ -135,4 +137,4 @@ Each tier can also provide appropriate disaster recovery services. For example, 
 ### More migration resources
 
 - [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
-- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
+- [GlusterFS iSCSI](https://glusterdocs.readthedocs.io/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

@@ -1,10 +1,7 @@
 ---
 title: 'Azure HDInsight: Java samples'
 description: Find Java examples on GitHub for common tasks using the HDInsight SDK for Java.
-author: hrasheed-msft
 ms.custom: devx-track-java
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/29/2019
@@ -38,6 +35,6 @@ This article provides:
 
 You can get these samples for Java by cloning the [hdinsight-java-sdk-samples](https://github.com/Azure-Samples/hdinsight-java-sdk-samples) GitHub repository.
 
-[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
+[!INCLUDE [hdinsight-sdk-additional-functionality](includes/hdinsight-sdk-additional-functionality.md)]
 
 Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Java reference documentation](/java/api/overview/azure/hdinsight).

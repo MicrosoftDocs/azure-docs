@@ -24,7 +24,7 @@ ms.author: jegeib
 The Microsoft Threat Modeling Tool 2018 was released as GA in September 2018 as a free **[click-to-download](https://aka.ms/threatmodelingtool)**. The change in delivery mechanism allows us to push the latest improvements and bug fixes to customers each time they open the tool, making it easier to maintain and use.
 This article takes you through the process of getting started with the Microsoft SDL threat modeling approach and shows you how to use the tool to develop great threat models as a backbone of your security process.
 
-This article builds on existing knowledge of the SDL threat modeling approach. For a quick review, refer to **[Threat Modeling Web Applications](https://msdn.microsoft.com/library/ms978516.aspx)** and an archived version of **[Uncover Security Flaws Using the STRIDE Approach](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN article published in 2006.
+This article builds on existing knowledge of the SDL threat modeling approach. For a quick review, refer to **[Threat Modeling Web Applications](/previous-versions/msp-n-p/ff648006(v=pandp.10))** and an archived version of **[Uncover Security Flaws Using the STRIDE Approach](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN article published in 2006.
 
 To quickly summarize, the approach involves creating a diagram, identifying threats, mitigating them and validating each mitigation. Here’s a diagram that highlights this process:
 

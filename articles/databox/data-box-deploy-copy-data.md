@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 05/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -72,24 +72,24 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
     ![Get share credentials for SMB shares](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. If the password has special characters, add double quotation marks before and after it. Then select **OK**.
+2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Then select **OK**.
     
     ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
-    `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
+    `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
     Depending upon your data format, the share paths are as follows:
     - Azure Block blob - `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
     - Azure Page blob - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Azure Files - `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
+4. Enter the password for the share when prompted. If the password has special characters, add double quotation marks before and after it. The following sample shows connecting to a share via the preceding command.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:10.126.76.138\testuser1
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 

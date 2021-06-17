@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with JavaScript"
 description: In this quickstart, you use JavaScript to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 09/24/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
 ---
@@ -73,14 +73,14 @@ identifies resources that aren't compliant to the conditions set in the policy d
    const argv = require("yargs").argv;
    const authenticator = require("@azure/ms-rest-nodeauth");
    const policyObjects = require("@azure/arm-policy");
-   
+
    if (argv.subID && argv.name && argv.displayName && argv.policyDefID && argv.scope && argv.description) {
-   
+
        const createAssignment = async () => {
            const credentials = await authenticator.interactiveLogin();
            const client = new policyObjects.PolicyClient(credentials, argv.subID);
            const assignments = new policyObjects.PolicyAssignments(client);
-   
+
            const result = await assignments.create(
                argv.scope,
                argv.name,
@@ -92,7 +92,7 @@ identifies resources that aren't compliant to the conditions set in the policy d
            );
            console.log(result);
        };
-   
+
        createAssignment();
    }
    ```
@@ -117,7 +117,7 @@ The preceding commands use the following information:
   _audit-vm-manageddisks_.
 - **displayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
-- **policyDefID** – The policy definition path, based on which you're using to create the
+- **policyDefID** - The policy definition path, based on which you're using to create the
   assignment. In this case, it's the ID of policy definition _Audit VMs that do not use managed
   disks_.
 - **description** - A deeper explanation of what the policy does or why it's assigned to this scope.
@@ -142,11 +142,11 @@ Now that your policy assignment is created, you can identify resources that aren
    const argv = require("yargs").argv;
    const authenticator = require("@azure/ms-rest-nodeauth");
    const policyInsights = require("@azure/arm-policyinsights");
-   
+
    if (argv.subID && argv.name) {
-   
+
        const getStates = async () => {
-   
+
            const credentials = await authenticator.interactiveLogin();
            const client = new policyInsights.PolicyInsightsClient(credentials);
            const policyStates = new policyInsights.PolicyStates(client);
@@ -162,7 +162,7 @@ Now that your policy assignment is created, you can identify resources that aren
            );
            console.log(result);
        };
-   
+
        getStates();
    }
    ```

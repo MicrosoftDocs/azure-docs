@@ -299,7 +299,7 @@ The question here is: "What is the remaining useful life (RUL) of the equipment?
 
 Figure 4. Labeling for regression
 
-For regression, labeling is done with reference to a failure point. Its calculation is not possible without knowing how long the asset has survived before a failure. So in contrast to binary classification, assets without any failures in the data cannot be used for modeling. This issue is best addressed by another statistical technique called [Survival Analysis](https://en.wikipedia.org/wiki/Survival_analysis). But potential complications may arise when applying this technique to PdM use cases that involve time-varying data with frequent intervals. For more information on Survival Analysis, see [this one-pager](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
+For regression, labeling is done with reference to a failure point. Its calculation is not possible without knowing how long the asset has survived before a failure. So in contrast to binary classification, assets without any failures in the data cannot be used for modeling. This issue is best addressed by another statistical technique called [Survival Analysis](https://en.wikipedia.org/wiki/Survival_analysis). But potential complications may arise when applying this technique to PdM use cases that involve time-varying data with frequent intervals. For more information on Survival Analysis, see [this one-pager](https://cscu.cornell.edu/wp-content/uploads/78_surv.pdf).
 
 ### Multi-class classification for predictive maintenance
 Multi-class classification techniques can be used in PdM solutions for two scenarios:
@@ -441,7 +441,7 @@ The final section of this guide provides a list of PdM solution templates, tutor
 | 3 | [Deep Learning for Predictive Maintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook with a demo solution of using LSTM (Long Short-Term Memory) networks (a class of Recurrent Neural Networks) for Predictive Maintenance, with a [blog post on this sample](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Azure Predictive Maintenance for Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | One of the first PdM solution templates based on Azure ML v1.0 for aircraft maintenance. This guide originated from this project. |
 | 5 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI in the IoT Edge using TensorFlow; toolkit packages deep learning models in Azure IoT Edge-compatible Docker containers and expose those models as REST APIs.
-| 6 | [Azure IoT Predictive Maintenance](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Preconfigured Solution. Aircraft maintenance PdM template with IoT Suite. [Another document](../../iot-accelerators/quickstart-predictive-maintenance-deploy.md) and [walkthrough](../../iot-accelerators/iot-accelerators-predictive-walkthrough.md) related to the same project. |
+| 6 | [Azure IoT Predictive Maintenance](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Preconfigured Solution. Aircraft maintenance PdM template with IoT Suite. [Another document](/previous-versions/azure/iot-accelerators/about-iot-accelerators) and [walkthrough](/previous-versions/azure/iot-accelerators/iot-accelerators-predictive-walkthrough) related to the same project. |
 | 7 | [Predictive Maintenance template using SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demo of remaining useful life scenario based on R services. |
 | 8 | [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Aircraft maintenance dataset feature engineered using R with [experiments](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) and [datasets](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) and Azure notebook and [experiments](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) in AzureML v1.0|
 
@@ -451,15 +451,16 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 
 | Training resource  | Availability |
 |:-------------------|--------------|
-| [Learning Path for PdM using Trees and Random Forest](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
-| [Learning Path for PdM using Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
-| [AI Developer on Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
-| [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Public |
-| [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
+| [Microsoft Docs:  Data Scientist Role](/learn/roles/data-scientist) | Public |
+| [Microsoft Docs:  AI Engineer Role](/learn/roles/ai-engineer) | Public |
+| [Microsoft Docs:  Data Engineer Role](/learn/roles/data-engineer) | Public |
+| [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Public |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
-| [Microsoft AI YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
+| [Microsoft: Playlists on YouTube for Artificial Intelligence and Analytics](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Public |
 | [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
-| [LearnAI@MS](https://learnanalytics.microsoft.com) | Partners |
+| [AI Platform Overview](https://azure.microsoft.com/overview/ai-platform/) | Public |
+| [AI Lab](https://www.microsoft.com/ai/ai-lab) | Public |
+| [Microsoft AI](https://www.microsoft.com/AI) | Public |
 | [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partners |
 
 In addition, free MOOCS (massive open online courses) on AI are offered online by academic  institutions like Stanford and MIT, and other educational companies.

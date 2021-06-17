@@ -2,7 +2,8 @@
 title: Troubleshoot Synapse Studio connectivity
 description: Troubleshoot Azure Synapse Studio connectivity using PowerShell
 author: saveenr 
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
+ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 10/30/2020 
 ms.author: saveenr 
@@ -11,7 +12,7 @@ ms.reviewer: jrasnick
 
 # Troubleshoot Synapse Studio connectivity with PowerShell
 
-Azure Synapse Studio (preview) depends on a set of Web API endpoints to work properly. This guide will help you identify causes of connectivity issues when you're:
+Azure Synapse Studio depends on a set of Web API endpoints to work properly. This guide will help you identify causes of connectivity issues when you're:
 - configuring your local network (such as network behind a corporate firewall) for accessing Azure Synapse Studio.
 - experiencing connectivity issues using Azure Synapse Studio.
 
@@ -53,4 +54,4 @@ If you're a network administrator and tuning your firewall configuration for Azu
 
 
 ## Next steps
-If the previous steps don't help to resolve your issue, [create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+If the previous steps don't help to resolve your issue, [create a support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

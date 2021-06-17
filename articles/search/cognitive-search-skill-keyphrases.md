@@ -32,10 +32,11 @@ The maximum size of a record should be 50,000 characters as measured by [`String
 
 Parameters are case-sensitive.
 
-| Inputs	            | Description |
+| Inputs | Description |
 |---------------------|-------------|
 | `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | (Optional) The maximum number of key phrases to produce. |
+| `modelVersion`   | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
 
 ## Skill inputs
 
@@ -104,8 +105,8 @@ For the example above, the output of your skill will be written to a new node in
 
 You may use "document/myKeyPhrases" as input into other skills, or as a source of an [output field mapping](cognitive-search-output-field-mapping.md).
 
-## Errors and warnings
-If you provide an unsupported language code, an error is generated and key phrases are not extracted.
+## Warnings
+If you provide an unsupported language code, a warning is generated and key phrases are not extracted.
 If your text is empty, a warning will be produced.
 If your text is larger than 50,000 characters, only the first 50,000 characters will be analyzed and a warning will be issued.
 

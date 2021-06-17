@@ -8,10 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: jlian
-ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support']
+ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]
 
-# As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
+#Customer intent: As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---
+
 # Monitor, diagnose, and troubleshoot disconnects with Azure IoT Hub
 
 Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Application logic, physical networks, protocols, hardware, IoT Hub, and other cloud services can all cause problems. The ability to detect and pinpoint the source of an issue is critical. However, an IoT solution at scale could have thousands of devices, so it's not practical to check individual devices manually. IoT Hub integrates with two Azure services to help you:
@@ -48,7 +49,7 @@ Explore the following topics to learn more about monitoring device connection ev
 
 * For a tutorial about ordering device connection events, see [Order device connection events from Azure IoT Hub using Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-* For a tutorial about sending Email notifications, see [Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps](/azure/event-grid/publish-iot-hub-events-to-logic-apps) in the Event Grid documentation.
+* For a tutorial about sending Email notifications, see [Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) in the Event Grid documentation.
 
 ## Azure Monitor: Route connection events to logs
 
@@ -72,7 +73,7 @@ The [*Connected devices (preview)*](monitor-iot-hub-reference.md#device-metrics)
 
 You can use metric alert rules to monitor for device disconnect anomalies at-scale. That is, when a significant number of devices unexpectedly disconnect. When such an occurrence is detected, you can look at logs to help troubleshoot the issue. To monitor per-device disconnects and disconnects for critical devices; however, you must use Event Grid. Event Grid also provides a more real-time experience than Azure metrics.
 
-To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor-iot-hub.md#alerts). For a walk-through of creating alerts in IoT Hub, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [Overview of alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md) in the Azure Monitor documentation.
+To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor-iot-hub.md#alerts). For a walk-through of creating alerts in IoT Hub, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) in the Azure Monitor documentation.
 
 ## Azure Monitor: Use logs to resolve connectivity errors
 
@@ -151,6 +152,11 @@ AzureDiagnostics
 As an IoT solutions developer or operator, you need to be aware of this behavior in order to interpret connect/disconnect events and related errors in logs. If you want to change the token lifespan or renewal behavior for devices, check to see whether the device implements a device twin setting or a device method that makes this possible.
 
 If you're monitoring device connections with Event Hub, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal; for example, by not triggering actions based on disconnects as long as the disconnect event is followed by a connect event within a certain time span.
+
+> [!NOTE]
+> IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.
+>
+> 400027 ConnectionForcefullyClosedOnNewConnection will be logged into IoT Hub Logs
 
 ## I tried the steps, but they didn't work
 

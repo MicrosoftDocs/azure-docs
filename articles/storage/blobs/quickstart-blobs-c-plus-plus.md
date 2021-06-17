@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Azure Blob Storage library v12 - C++"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 for C++ to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 10/21/2020
 ms.service: storage
 ms.subservice: blobs
@@ -26,17 +26,17 @@ Resources:
 
 - [API reference documentation](https://azure.github.io/azure-sdk-for-cpp/storage.html)
 - [Library source code](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)
-- [Samples](/azure/storage/common/storage-samples-c-plus-plus?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Samples](../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Prerequisites
 
 - [Azure subscription](https://azure.microsoft.com/free/)
-- [Azure storage account](/azure/storage/common/storage-quickstart-create-account)
+- [Azure storage account](../common/storage-account-create.md)
 - [C++ compiler](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
-- [Vcpkg - C and C++ package manager](https://github.com/microsoft/vcpkg/blob/master/docs/index.md)
+- [Vcpkg - C and C++ package manager](https://github.com/microsoft/vcpkg/blob/master/docs/README.md)
 - [LibCurl](https://curl.haxx.se/libcurl/)
 - [LibXML2](http://www.xmlsoft.org/)
 

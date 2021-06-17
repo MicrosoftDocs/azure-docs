@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 ASE/SQL workload blueprint sample controls
 description: Control mapping of the ISO 27001 App Service Environment/SQL Database workload blueprint sample to Azure Policy and Azure RBAC.
-ms.date: 11/05/2020
+ms.date: 04/30/2021
 ms.topic: sample
 ---
 # Control mapping of the ISO 27001 ASE/SQL workload blueprint sample
@@ -129,7 +129,7 @@ that should be considered for removal.
 ## A.9.4.2 Secure log-on procedures
 
 This blueprint assigns three Azure Policy definitions to audit accounts that don't have
-multi-factor authentication enabled. Azure Multi-Factor Authentication provides additional security
+multi-factor authentication enabled. Azure AD Multi-Factor Authentication provides additional security
 by requiring a second form of authentication and delivers strong authentication. By monitoring
 accounts without multi-factor authentication enabled, you can identify accounts that may be more
 likely to be compromised.
@@ -264,7 +264,7 @@ contained within the information system.
 
 The blueprint helps you ensure information transfer with Azure services is secure by assigning two
 [Azure Policy](../../../policy/overview.md) definitions to audit insecure connections to storage
-accounts and Redis Cache.
+accounts and Azure Cache for Redis.
 
 - Only secure connections to your Azure Cache for Redis should be enabled
 - Secure transfer to storage accounts should be enabled

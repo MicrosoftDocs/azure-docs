@@ -1,17 +1,11 @@
 ---
 title: Run an SSIS package with the Execute SSIS Package activity
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
-ms.reviewer: douglasl
-manager: mflasko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
 ---
@@ -194,7 +188,7 @@ If you select **Package store** as your package location, complete the following
    
    1. For **Package store name**, select an existing package store that's attached to your Azure-SSIS IR.
 
-   1. Specify your package to run by providing its path (without `.dtsx`) from the selected package store in the **Package path** box. If the selected package store is on top of file system/Azure Files, you can browse and select your package by selecting **Browse file storage**, otherwise you can enter its path in the format of `<folder name>\<package name>`. You can also import new packages into the selected package store via SQL Server Management Studio (SSMS) similar to the [legacy SSIS package store](/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). For more information, see [Manage SSIS packages with Azure-SSIS IR package stores](./azure-ssis-integration-runtime-package-store.md).
+   1. Specify your package to run by providing its path (without `.dtsx`) from the selected package store in the **Package path** box. If the selected package store is on top of file system/Azure Files, you can browse and select your package by selecting **Browse file storage**, otherwise you can enter its path in the format of `<folder name>\<package name>`. You can also import new packages into the selected package store via SQL Server Management Studio (SSMS) similar to the [legacy SSIS package store](/sql/integration-services/service/package-management-ssis-service). For more information, see [Manage SSIS packages with Azure-SSIS IR package stores](./azure-ssis-integration-runtime-package-store.md).
 
    1. If you configure your package in a separate file, you need to provide a UNC path to your configuration file (with `.dtsConfig`) in the **Configuration path** box. You can browse and select your configuration by selecting **Browse file storage** or enter its path manually. For example, if you store your configuration in Azure Files, its path is `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
 
@@ -246,7 +240,7 @@ On the **Connection Managers** tab of Execute SSIS Package activity, complete th
 
       For example, without modifying your original package on SSDT, you can convert its on-premises-to-on-premises data flows running on SQL Server into on-premises-to-cloud data flows running on SSIS IR in ADF by overriding the values of **ConnectByProxy**, **ConnectionString**, and **ConnectUsingManagedIdentity** properties in existing connection managers at run-time.
       
-      These run-time overrides can enable Self-Hosted IR (SHIR) as a proxy for SSIS IR when accessing data on premises, see [Configuring SHIR as a proxy for SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md), and Azure SQL Database/Managed Instance connections using the latest MSOLEDBSQL driver that in turn enables Azure Active Directory (AAD) authentication with ADF managed identity, see [Configuring AAD authentication with ADF managed identity for OLEDB connections](/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+      These run-time overrides can enable Self-Hosted IR (SHIR) as a proxy for SSIS IR when accessing data on premises, see [Configuring SHIR as a proxy for SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md), and Azure SQL Database/Managed Instance connections using the latest MSOLEDBSQL driver that in turn enables Azure Active Directory (AAD) authentication with ADF managed identity, see [Configuring AAD authentication with ADF managed identity for OLEDB connections](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication).
 
       ![Set properties from SSDT on the Connection Managers tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    

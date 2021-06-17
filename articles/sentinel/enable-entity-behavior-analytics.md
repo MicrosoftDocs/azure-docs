@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2020
+ms.date: 01/25/2021
 ms.author: yelevin
 
 ---
@@ -21,12 +21,9 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 >
-> - The UEBA feature is now in **General Availability** in the following Azure Sentinel geographies and regions:
->    - United States geography
->    - Europe West region
->    - Australia geography
->
-> - In all other geographies and regions, this feature remains for the time being in **public preview**, and is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The UEBA and Entity Pages features are now in **General Availability** in ***all*** Azure Sentinel geographies and regions. 
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
@@ -41,6 +38,9 @@ To enable or disable this feature (these prerequisites are not required to use t
     - **Log Analytics Contributor** at the resource group or subscription levels.
 
 - Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
+
+> [!NOTE]
+> No special license is required to add UEBA functionality to Azure Sentinel, but **additional charges** may apply.
 
 ## How to enable User and Entity Behavior Analytics
 

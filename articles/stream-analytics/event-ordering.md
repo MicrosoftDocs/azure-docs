@@ -1,9 +1,9 @@
 ---
 title: Configuring event ordering policies for Azure Stream Analytics
 description: This article describes how to go about configuring even ordering settings in Stream Analytics
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020

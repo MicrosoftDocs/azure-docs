@@ -20,7 +20,7 @@ This tutorial walks you through the basics of creating and using Azure Maps geof
 Azure Maps provides a number of services to support the tracking of equipment entering and exiting the construction area. In this tutorial, you:
 
 > [!div class="checklist"]
-> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data/uploadpreview) to upload geofences as polygon coordinates to your Azure Maps account.
+> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data-v2/upload-preview) to upload geofences as polygon coordinates to your Azure Maps account.
 > * Set up two [logic apps](../event-grid/handler-webhooks.md#logic-apps) that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
 > * Use [Azure Event Grid](../event-grid/overview.md) to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
 > * Use [Search Geofence Get API](/rest/api/maps/spatial/getgeofence) to receive notifications when a piece of equipment exits and enters the geofence areas.
@@ -37,7 +37,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCollection`. The `FeatureCollection` contains two geofences that define polygonal areas within the construction site. The first geofence has no time expiration or restrictions. The second one can only be queried against during business hours (9:00 AM-5:00 PM in the Pacific Time zone), and will no longer be valid after January 1, 2022. For more information on the GeoJSON format, see [Geofencing GeoJSON data](geofence-geojson.md).
 
 >[!TIP]
->You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data/uploadpreview).
+>You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data-v2/upload-preview).
 
 1. Open the Postman app. Near the top, select **New**. In the **Create New** window, select **Collection**. Name the collection and select **Create**.
 
@@ -46,7 +46,7 @@ For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCo
 3. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofencing data to Azure Maps. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     The `geojson` parameter in the URL path represents the data format of the data being uploaded.
@@ -139,42 +139,37 @@ For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCo
    }
    ```
 
-5. Select **Send**, and wait for the request to process. When the request completes, go to the **Headers** tab of the response. Copy the value of the **Location** key, which is the `status URL`.
+5. Select **Send**, and wait for the request to process. When the request completes, go to the **Headers** tab of the response. Copy the value of the **Operation-Location** key, which is the `status URL`.
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
+    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
     ```
 
 6. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={Subscription-key}
+   https://us.atlas.microsoft.com/mapData/<operationId>?api-version=2.0&subscription-key={Subscription-key}
    ```
 
-7. When the **GET** HTTP request completes successfully, it returns a `resourceLocation`. The `resourceLocation` contains the unique `udid` for the uploaded content. Save this `udid` to query the Get Geofence API in the last section of this tutorial. Optionally, you can use the `resourceLocation` URL to retrieve metadata from this resource in the next step.
+7. When the request completes successfully, select the **Headers** tab in the response window. Copy the value of the **Resource-Location** key, which is the `resource location URL`.  The `resource location URL` contains the unique identifier (`udid`) of the uploaded data. Save the `udid` to query the Get Geofence API in the last section of this tutorial. Optionally, you can use the `resource location URL` to retrieve metadata from this resource in the next step.
 
-      ```json
-      {
-          "status": "Succeeded",
-          "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
-      }
-      ```
+    :::image type="content" source="./media/tutorial-geofence/resource-location-url.png" alt-text="Copy the resource location URL.":::
 
-8. To retrieve content metadata, create a **GET** HTTP request on the `resourceLocation` URL that was retrieved in step 7. Make sure to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
+8. To retrieve content metadata, create a **GET** HTTP request on the `resource location URL` that was retrieved in step 7. Make sure to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
 
     ```http
-   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. When the **GET** HTTP request completes successfully, the response body will contain the `udid` specified in the `resourceLocation` of step 7. It will also contain the location to access and download the content in the future, and other metadata about the content. An example of the overall response is:
+9. When the request completes successfully, select the **Headers** tab in the response window. The metadata should like the following JSON fragment:
 
     ```json
     {
         "udid": "{udid}",
-        "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
-        "created": "7/15/2020 6:11:43 PM +00:00",
-        "updated": "7/15/2020 6:11:45 PM +00:00",
-        "sizeInBytes": 1962,
+        "location": "https://us.atlas.microsoft.com/mapData/6ebf1ae1-2a66-760b-e28c-b9381fcff335?api-version=2.0",
+        "created": "5/18/2021 8:10:32 PM +00:00",
+        "updated": "5/18/2021 8:10:37 PM +00:00",
+        "sizeInBytes": 946901,
         "uploadStatus": "Completed"
     }
     ```
@@ -466,6 +461,10 @@ In the preceding GeoJSON response, the equipment has exited the main site geofen
 
 
 You can also [Send email notifications using Event Grid and Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) and check [Supported Events Handlers in Event Grid](../event-grid/event-handlers.md) using Azure Maps.
+
+## Clean up resources
+
+There are no resources that require cleanup.
 
 ## Next steps
 

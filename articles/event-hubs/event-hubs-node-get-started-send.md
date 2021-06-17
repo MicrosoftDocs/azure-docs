@@ -1,13 +1,13 @@
 ---
 title: Send or receive events from Azure Event Hubs using JavaScript (latest)
-description: This article provides a walkthrough for creating a JavaScript application that sends/receives events to/from Azure Event Hubs using the latest azure/event-hubs version 5 package. 
+description: This article provides a walkthrough for creating a JavaScript application that sends/receives events to/from Azure Event Hubs using the latest azure/event-hubs package. 
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ---
 
-# Send events to or receive events from event hubs by using JavaScript  (azure/event-hubs version 5)
-This quickstart shows how to send events to and receive events from an event hub using the **azure/event-hubs version 5** JavaScript package. 
+# Send events to or receive events from event hubs by using JavaScript  (azure/event-hubs)
+This quickstart shows how to send events to and receive events from an event hub using the **azure/event-hubs** JavaScript package. 
 
 
 ## Prerequisites
@@ -142,6 +142,11 @@ Be sure to record the connection string and container name for later use in the 
       // Subscribe to the events, and specify handlers for processing the events and errors.
       const subscription = consumerClient.subscribe({
           processEvents: async (events, context) => {
+            if (events.length === 0) {
+              console.log(`No events received within wait time. Waiting for next interval`);
+              return;
+            }
+          
             for (const event of events) {
               console.log(`Received event: '${event.body}' from partition: '${context.partitionId}' and consumer group: '${context.consumerGroup}'`);
             }

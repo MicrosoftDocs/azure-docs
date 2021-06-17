@@ -6,9 +6,9 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
+# Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 
 # What is Azure Virtual WAN?
@@ -62,15 +62,13 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Site:** This resource is used for site-to-site connections only. The site resource is **vpnsite**. It represents your on-premises VPN device and its settings. By working with a Virtual WAN partner, you have a built-in solution to automatically export this information to Azure.
 
-## <a name="connectivity"></a>Types of connectivity
-
-Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User VPN (Point-to-Site), and ExpressRoute.
+## <a name="connectivity"></a>Connectivity
 
 ### <a name="s2s"></a>Site-to-site VPN connections
 
 You can connect to your resources in Azure over a Site-to-site IPsec/IKE (IKEv2) connection. For more information, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md). 
 
-This type of connection requires a VPN device or a Virtual WAN Partner device. Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration, and establish connectivity to the Azure Virtual WAN hub. For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. If your VPN/SD-WAN device provider is not listed in the mentioned link, then you can simplify use the step-by-step instruction [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md) to set up the connection.
+This type of connection requires a VPN device or a Virtual WAN Partner device. Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration, and establish connectivity to the Azure Virtual WAN hub. For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. If your VPN/SD-WAN device provider is not listed in the mentioned link, then you can simply use the step-by-step instruction [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md) to set up the connection.
 
 ### <a name="uservpn"></a>User VPN (point-to-site) connections
 
@@ -121,14 +119,14 @@ For location information, see the [Virtual WAN partners and locations](virtual-w
 Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in hub routing and would like to use the new capabilities, consider the following:
 
 * **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
-If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
+If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal). It is highly encouraged to do the delete step for all hubs in a Virtual WAN.
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
-If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md). It is highly encouraged to do the delete step for all hubs in a Virtual WAN.
 
 ## <a name="faq"></a>FAQ
 
-[!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+For frequently asked questions, see the [Virtual WAN FAQ](virtual-wan-faq.md).
 
 ## <a name="new"></a>What's new?
 

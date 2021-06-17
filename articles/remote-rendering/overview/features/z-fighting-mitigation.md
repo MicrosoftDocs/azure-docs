@@ -23,9 +23,9 @@ When two surfaces overlap, it is not clear which one should be rendered on top o
 The following code enables z-fighting mitigation:
 
 ```cs
-void EnableZFightingMitigation(AzureSession session, bool highlight)
+void EnableZFightingMitigation(RenderingSession session, bool highlight)
 {
-    ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
+    ZFightingMitigationSettings settings = session.Connection.ZFightingMitigationSettings;
 
     // enabling z-fighting mitigation
     settings.Enabled = true;
@@ -36,9 +36,9 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
 ```
 
 ```cpp
-void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
+void EnableZFightingMitigation(ApiHandle<RenderingSession> session, bool highlight)
 {
-    ApiHandle<ZFightingMitigationSettings> settings = session->Actions()->GetZFightingMitigationSettings();
+    ApiHandle<ZFightingMitigationSettings> settings = session->Connection()->GetZFightingMitigationSettings();
 
     // enabling z-fighting mitigation
     settings->SetEnabled(true);
@@ -73,8 +73,8 @@ The provided z-fighting mitigation is a best effort. There is no guarantee that 
 
 ## API documentation
 
-* [C# RemoteManager.ZFightingMitigationSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
-* [C++ RemoteManager::ZFightingMitigationSettings()](/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
+* [C# RenderingConnection.ZFightingMitigationSettings property](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.zfightingmitigationsettings)
+* [C++ RenderingConnection::ZFightingMitigationSettings()](/cpp/api/remote-rendering/renderingconnection#zfightingmitigationsettings)
 
 ## Next steps
 

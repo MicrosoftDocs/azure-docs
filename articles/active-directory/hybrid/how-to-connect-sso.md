@@ -29,8 +29,14 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 
 ![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
->[!IMPORTANT]
->Seamless SSO needs the user's device to be **domain-joined** only, but it is not used on [Azure AD Joined](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD joined](../devices/concept-azure-ad-join-hybrid.md) devices. SSO on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices works based on the [primary refresh token](../devices/concept-primary-refresh-token.md).
+## SSO via primary refresh token vs. Seamless SSO
+
+For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via primary refresh token (PRT). For windows 7 and 8.1 it’s recommended to use Seamless SSO.
+Seamless SSO needs the user's device to be domain-joined, but it is not used on Windows 10 [Azure AD joined devices](../devices/concept-azure-ad-join.md) or [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md). SSO on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices works based on the [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md)
+
+SSO via PRT works once devices are registered with Azure AD for hybrid Azure AD joined, Azure AD joined or personal registered devices via Add Work or School Account. 
+For more information on how SSO works with Windows 10 using PRT, see: [Primary Refresh Token (PRT) and Azure AD](../devices/concept-primary-refresh-token.md)
+
 
 ## Key benefits
 
@@ -55,26 +61,25 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 - It is a free feature, and you don't need any paid editions of Azure AD to use it.
 - It is supported on web browser-based clients and Office clients that support [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on platforms and browsers capable of Kerberos authentication:
 
-| OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Microsoft Edge\*\*\*\*|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Yes\*|Yes|Yes|Yes\*\*\*|N/A
 |Windows 8.1|Yes\*|Yes*\*\*\*|Yes|Yes\*\*\*|N/A
 |Windows 8|Yes\*|N/A|Yes|Yes\*\*\*|N/A
-|Windows 7|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows Server 2012 R2 or above|Yes\*\*|N/A|Yes|Yes\*\*\*|N/A
 |Mac OS X|N/A|N/A|Yes\*\*\*|Yes\*\*\*|Yes\*\*\*
 
+ > [!NOTE]
+ >Microsoft Edge legacy is no longer supported
 
-\*Requires Internet Explorer version 10 or later.
 
-\*\*Requires Internet Explorer version 10 or later. Disable Enhanced Protected Mode.
+\*Requires Internet Explorer version 11 or later. ([Beginning August 17, 2021, Microsoft 365 apps and services will not support IE 11](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666).)
+
+\*\*Requires Internet Explorer version 11 or later. Disable Enhanced Protected Mode.
 
 \*\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations).
 
-\*\*\*\*Requires Microsoft Edge version 77 or later.
-
->[!NOTE]
->For Windows 10, the recommendation is to use [Azure AD Join](../devices/concept-azure-ad-join.md) for the optimal single sign-on experience with Azure AD.
+\*\*\*\*Microosft Edge based on Chromium
 
 ## Next steps
 

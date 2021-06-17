@@ -2,8 +2,9 @@
 author: boris-bazilevskiy
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/29/2020
+ms.date: 03/10/2021
 ms.author: bobazile
+ms.custom: emergency_calling
 ---
 > [!IMPORTANT]
 > **Azure Communication Services does not support emergency calling**

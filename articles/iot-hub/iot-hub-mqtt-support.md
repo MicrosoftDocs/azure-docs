@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperfq1]
+ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperf-fy21q1, fasttrack-edit, iot]
 ---
 
 # Communicate with your IoT hub using the MQTT protocol
@@ -43,9 +43,9 @@ The following table contains links to code samples for each supported language a
 | Language | MQTT protocol parameter | MQTT over Web Sockets protocol parameter
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | TransportType.Mqtt falls back to MQTT over Web Sockets if MQTT fails. To specify MQTT over Web Sockets only, use TransportType.Mqtt_WebSocket_Only |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over Web Sockets if MQTT fails. To specify MQTT over Web Sockets only, use TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Supports MQTT by default | Add `websockets=True` in the call to create the client |
 
 The following fragment shows how to specify the MQTT over Web Sockets protocol when using the Azure IoT Node.js SDK:
@@ -99,6 +99,8 @@ In the [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSamp
 
 These samples use the Eclipse Mosquitto library to send messages to the MQTT Broker implemented in the IoT hub.
 
+To learn how to adapt the samples to use the [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) conventions, see [Tutorial - Use MQTT to develop an IoT Plug and Play device client](../iot-pnp/tutorial-use-mqtt.md).
+
 This repository contains:
 
 **For Windows:**
@@ -137,16 +139,18 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
+    It's strongly recommended to include api-version in the field. Otherwise it could cause unexpected behaviors. 
+    
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](iot-hub-security-x509-get-started.md) and follow code instructions in the [TLS/SSL configuration section](#tlsssl-configuration).
+  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](./tutorial-x509-scripts.md) and follow code instructions in the [TLS/SSL configuration section](#tlsssl-configuration).
 
-  For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
+  For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code.
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) to quickly generate a SAS token that you can copy and paste into your own code.
 
 ### For Azure IoT Tools
 
@@ -247,7 +251,7 @@ client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
-client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
+client.publish("devices/" + device_id + "/messages/events/", '{"id":123}', qos=1)
 client.loop_forever()
 ```
 
@@ -288,7 +292,8 @@ The following is a list of IoT Hub implementation-specific behaviors:
 
 * IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **mqtt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend app.
 
-* IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.
+* IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection and **400027 ConnectionForcefullyClosedOnNewConnection** will be logged into IoT Hub Logs
+
 
 For more information, see [Messaging developer's guide](iot-hub-devguide-messaging.md).
 
@@ -433,7 +438,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt
 
 To learn more about planning your IoT Hub deployment, see:
 
-* [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/)
+* [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/)
 * [Support additional protocols](iot-hub-protocol-gateway.md)
 * [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
 * [Scaling, HA, and DR](iot-hub-scaling.md)

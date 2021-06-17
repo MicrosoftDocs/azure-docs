@@ -4,14 +4,14 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn about point-in-time restore, which enables you to roll back a database in Azure SQL Database or an instance in Azure SQL Managed Instance up to 35 days.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: backup-restore
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein, danil
-ms.date: 09/26/2019
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma danil
+ms.date: 11/13/2020
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,14 +47,14 @@ For a single subscription, there are limitations on the number of concurrent res
 
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
-|**Single database (per subscription)**|10|60|
-|**Elastic pool (per pool)**|4|200|
+|**Single database (per subscription)**|30|100|
+|**Elastic pool (per pool)**|4|2000|
 
 
 There isn't a built-in method to restore the entire server. For an example of how to accomplish this task, see [Azure SQL Database: Full server recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> To recover by using automated backups, you must be a member of the SQL Server Contributor role or SQL Managed Instance Contributor role (depending on the recovery destination) in the subscription, or you must be the subscription owner. For more information, see [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md). You can recover by using the Azure portal, PowerShell, or the REST API. You can't use Transact-SQL.
+> To recover by using automated backups, you must be a member of the SQL Server Contributor role or SQL Managed Instance Contributor role (depending on the recovery destination) in the subscription, or you must be the subscription owner. For more information, see [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md). You can recover by using the Azure portal, PowerShell, or the REST API. You can't use Transact-SQL.
 
 ## Point-in-time restore
 
@@ -89,7 +89,7 @@ To recover a managed instance database to a point in time by using the Azure por
   ![Screenshot of database restore options for SQL managed instance.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> To programmatically restore a database from a backup, see [Programmatically performing recovery using automated backups](recovery-using-backups.md).
+> To programmatically restore a database from a backup, see [Programmatic recovery using automated backups](recovery-using-backups.md).
 
 ## Deleted database restore
 
@@ -101,6 +101,9 @@ You can restore a deleted database to the deletion time, or an earlier point in 
 ### Deleted database restore by using the Azure portal
 
 You restore deleted databases from the Azure portal from the server or managed instance resource.
+
+> [!TIP]
+> It may take several minutes for recently deleted databases to appear on the **Deleted databases** page in Azure portal, or when displaying deleted databases [programmatically](#programmatic-recovery-using-automated-backups).
 
 #### SQL Database
 
@@ -182,7 +185,7 @@ For a PowerShell script that shows how to perform geo-restore for a managed inst
 
 ### Geo-restore considerations
 
-You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](../../key-vault/general/disaster-recovery-guidance.md).
+You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](disaster-recovery-guidance.md#recover-using-geo-restore).
 
 > [!IMPORTANT]
 > Geo-restore is the most basic disaster-recovery solution available in SQL Database and SQL Managed Instance. It relies on automatically created geo-replicated backups with a recovery point objective (RPO) up to 1 hour and an estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster-recovery solution. 
@@ -238,11 +241,11 @@ To restore a database by using the REST API:
 
 #### SQL Database
 
-To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az_sql_db_restore).
 
 #### SQL Managed Instance
 
-To restore a managed instance database by using the Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore).
+To restore a managed instance database by using the Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az_sql_midb_restore).
 
 ## Summary
 

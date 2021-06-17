@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 02/17/2021
 ms.author: apimpm
 ---
 # API Management policies
@@ -31,6 +31,7 @@ This section provides a reference for the following API Management policies. For
     -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
     -   [Set usage quota by key](api-management-access-restriction-policies.md#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
     -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+    -   [Validate client certificate](api-management-access-restriction-policies.md#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 -   [Advanced policies](api-management-advanced-policies.md#AdvancedPolicies)
     -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the evaluation of Boolean expressions.
     -   [Forward request](api-management-advanced-policies.md#ForwardRequest) - Forwards the request to the backend service.
@@ -76,6 +77,12 @@ This section provides a reference for the following API Management policies. For
     - [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice.
     -  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.
     -  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding.
+- [Validation policies](validation-policies.md)
+    - [Validate content](validation-policies.md#validate-content) - Validates the size or JSON schema of a request or response body against the API schema.
+. 
+    - [Validate parameters](validation-policies.md#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
+    - [Validate headers](validation-policies.md#validate-headers) - Validates the response headers against the API schema.
+    - [Validate status code](validation-policies.md#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
 
 ## Next steps
 For more information working with policies, see:

@@ -1,9 +1,6 @@
 ---
 title: Cluster management best practices - Azure HDInsight
 description: Learn best practices for managing HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -25,7 +22,7 @@ Learn best practices for managing HDInsight clusters.
 | Azure CLI | [Create HDInsight clusters using the Azure CLI](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Create Linux-based clusters in HDInsight using Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Create Apache Hadoop clusters using the Azure REST API](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDKs (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/hdinsight?preserve-view=true&view=azure-java-stable), [Go](./hdinsight-go-sdk-overview.md) |
+| SDKs (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight), [Python](/python/api/overview/azure/hdinsight), [Java](/java/api/overview/azure/hdinsight), [Go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > If you are creating a cluster and re-using the cluster name from a previously created cluster, wait until the previous cluster deletion is completed before creating your cluster.
@@ -43,7 +40,7 @@ Learn best practices for managing HDInsight clusters.
 
 | Error | More information |
 |---|---|
-| No quota | There are quotas for the number of quotas that you can create on your subscription in each region. For more information, see [Capacity planning: quotas](./hdinsight-capacity-planning.md). |
+| No quota | There are quotas for the number of cores that you can create on your subscription in each region. For more information, see [Capacity planning: quotas](./hdinsight-capacity-planning.md). |
 | No more IP addresses available | Each VNet has a limited number of IP addresses. When you create a HDInsight cluster, each node (including zookeeper and gateway nodes) uses some of these allotted IP addresses. When all of the IP addresses are in use, you will encounter this error.  |
 | Network security group (NSG) rules don't allow communication with HDInsight resource providers | If you use NSGs or user-defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services. For more information, see [Network security group (NSG) service tags for Azure HDInsight](./hdinsight-service-tags.md) |
 | Reuse of cluster name | When you use a cluster name that you have used before, you need to wait X number of minutes before recreating the cluster. Otherwise you will see a message that the resource already exists. |

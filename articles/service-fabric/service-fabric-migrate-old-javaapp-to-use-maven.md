@@ -380,20 +380,20 @@ Changes here are similar to the changes discussed in previous section, that is, 
 ```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
-	  compile project(':MyactorInterface')
+    compile project(':MyactorInterface')
 }
 .
 .
 .
 jar
 {
-	manifest {
+    manifest {
     attributes(
-		'Main-Class': 'reliableactor.test.MyactorTestClient',
-		"Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
-	}
-	baseName "myactor-test"
-  destinationDir = file('out/lib')
+        'Main-Class': 'reliableactor.test.MyactorTestClient',
+        "Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
+    }
+    baseName "myactor-test"
+    destinationDir = file('out/lib')
 }
 .
 .

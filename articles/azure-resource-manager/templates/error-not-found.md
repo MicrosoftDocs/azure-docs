@@ -2,7 +2,8 @@
 title: Resource not found errors
 description: Describes how to resolve errors when a resource can't be found. The error can occur when deploying an Azure Resource Manager template or when taking management actions.
 ms.topic: troubleshooting
-ms.date: 06/10/2020
+ms.date: 03/23/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Resolve resource not found errors
 
@@ -37,7 +38,7 @@ When you receive this error while doing a management task, check the values you 
 * Resource group name
 * Subscription
 
-If you're using PowerShell or Azure CLI, check whether you're running the command in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az-account-set). Many commands also provide a subscription parameter that lets you specify a different subscription than the current context.
+If you're using PowerShell or Azure CLI, check whether you're running the command in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az_account_set). Many commands also provide a subscription parameter that lets you specify a different subscription than the current context.
 
 If you're having trouble verifying the properties, sign in to the [portal](https://portal.azure.com). Find the resource you're trying to use and examine the resource name, resource group, and subscription.
 
@@ -99,7 +100,7 @@ In the reference function, use `Full` to get all of the properties including the
 
 The pattern is:
 
-`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
 
 > [!IMPORTANT]
 > Don't use the pattern:
@@ -127,3 +128,9 @@ When deploying a template, look for expressions that use the [reference](templat
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
+
+## Solution 6 - after deleting resource
+
+When you delete a resource, there may be a short amount of time when the resource still appears in the portal but isn't actually available. If you select the resource, you'll get an error that says the resource isn't found. Refresh the portal to get the latest view.
+
+If the problem continues after a short wait, [contact support](https://azure.microsoft.com/support/options/).

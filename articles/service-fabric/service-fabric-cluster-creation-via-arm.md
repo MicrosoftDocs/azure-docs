@@ -3,7 +3,8 @@ title: Create an Azure Service Fabric cluster
 description: Learn how to set up a secure Service Fabric cluster in Azure using Azure Resource Manager.  You can create a cluster using a default template or using your own cluster template.
 
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 08/16/2018 
+ms.custom: devx-track-azurepowershell
 ---
 # Create a Service Fabric cluster using Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -29,7 +30,7 @@ In this article, use the Service Fabric RM powershell or Azure CLI modules to de
 
 You can find the reference documentation for the Service Fabric modules here:
 * [Az.ServiceFabric](/powershell/module/az.servicefabric)
-* [az SF CLI module](/cli/azure/sf?view=azure-cli-latest)
+* [az SF CLI module](/cli/azure/sf)
 
 ### Sign in to Azure
 
@@ -282,6 +283,6 @@ For the JSON syntax and properties to use a template, see [Microsoft.ServiceFabr
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md

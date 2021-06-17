@@ -1,25 +1,33 @@
 ---
-title: Programmatically create Azure subscriptions with preview APIs
-description: Learn how to create additional Azure subscriptions programmatically using preview versions of REST API, Azure CLI, and Azure PowerShell.
+title: Programmatically create Azure subscriptions with legacy APIs
+description: Learn how to create additional Azure subscriptions programmatically using legacy versions of REST API, Azure CLI, and Azure PowerShell.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 06/09/2021
 ms.reviewer: andalmia
 ms.author: banders 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Programmatically create Azure subscriptions with preview APIs
+# Programmatically create Azure subscriptions with legacy APIs
 
-This article helps you programmatically create Azure subscriptions using our older preview API. We released a [newer API version](programmatically-create-subscription.md). You can use the information in this article if you don't want to use the latest version. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
+This article helps you programmatically create Azure subscriptions using our legacy preview API. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
+
+We have new articles for the latest API version for use with different Azure agreement subscription types:
+
+- [Create EA subscriptions programmatically with latest API](programmatically-create-subscription-enterprise-agreement.md)
+- [Create MCA subscriptions programmatically with latest API](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Create MPA subscriptions programmatically with latest API](Programmatically-create-subscription-microsoft-customer-agreement.md)
+
+However, you can still use the information in this article if you don't want to use the latest API version.
 
 Azure customers with a billing account for the following agreement types can create subscriptions programmatically:
 
-- [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Microsoft Customer Agreement (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Microsoft Partner Agreement (MPA)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+- Enterprise Agreement
+- Microsoft Customer Agreement (MCA)
+- Microsoft Partner Agreement (MPA)
 
 When you create an Azure subscription programmatically, the subscription is governed by the agreement under which you obtained Azure services from Microsoft or an authorized reseller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
@@ -177,7 +185,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `EnrollmentAccountObjectId`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. The value is a GUID that you get from `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | No       | String | The Object ID of any user to add as an Azure RBAC Owner on the subscription when it's created.  |
 | `OwnerSignInName`    | No       | String | The email address of any user to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `OwnerObjectId`.|
-| `OwnerApplicationId` | No       | String | The application ID of any service principal to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `OwnerObjectId`. When using the parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
+| `OwnerApplicationId` | No       | String | The application ID of any service principal to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `OwnerObjectId`. When using the parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
 
@@ -185,7 +193,7 @@ To see a full list of all parameters, see [New-AzSubscription](/powershell/modul
 
 First, install the preview extension by running `az extension add --name subscription`.
 
-Run the [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create&preserve-view=true) command below, replacing `<enrollmentAccountObjectId>` with the `name` you copied in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). To specify owners, see [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
+Run the [az account create](/cli/azure/account#-ext-subscription-az-account-create) command below, replacing `<enrollmentAccountObjectId>` with the `name` you copied in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). To specify owners, see [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
@@ -198,9 +206,9 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. The value is a GUID that you get from `az billing enrollment-account list`. |
 | `owner-object-id`      | No       | String | The Object ID of any user to add as an Azure RBAC Owner on the subscription when it's created.  |
 | `owner-upn`    | No       | String | The email address of any user to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `owner-object-id`.|
-| `owner-spn` | No       | String | The application ID of any service principal to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `owner-object-id`. When using the parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
+| `owner-spn` | No       | String | The application ID of any service principal to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `owner-object-id`. When using the parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-To see a full list of all parameters, see [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create&preserve-view=true).
+To see a full list of all parameters, see [az account create](/cli/azure/account#-ext-subscription-az-account-create).
 
 ---
 
@@ -352,7 +360,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 | `skuId` | Yes      | String | The sku ID that determines the type of Azure plan. |
 | `owners`      | No       | String | The Object ID of any user or service principal to add as an Azure RBAC Owner on the subscription when it's created.  |
 | `costCenter` | No      | String | The cost center associated with the subscription. It shows up in the usage CSV file. |
-| `managementGroupId` | No      | String | The ID of the management group to which the subscription will be added. To get the list of management groups, see [Management Groups - List API](/rest/api/resources/managementgroups/list). Use the ID of a management group from the API. |
+| `managementGroupId` | No      | String | The ID of the management group to which the subscription will be added. To get the list of management groups, see [Management Groups - List API](/rest/api/managementgroups/entities/list). Use the ID of a management group from the API. |
 
 In the response, you get back a `subscriptionCreationResult` object for monitoring. When the subscription creation is finished, the `subscriptionCreationResult` object returns a `subscriptionLink` object, which has the subscription ID.
 

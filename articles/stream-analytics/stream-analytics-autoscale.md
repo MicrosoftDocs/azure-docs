@@ -3,7 +3,7 @@ title: Autoscale Stream Analytics jobs
 description: This article describes how to autoscale Stream Analytics job based on a predefined schedule or values of job metrics
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020

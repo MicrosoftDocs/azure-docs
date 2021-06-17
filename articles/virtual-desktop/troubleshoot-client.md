@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot Remote Desktop client Windows Virtual Desktop - Azure
-description: How to resolve issues when you set up client connections in a Windows Virtual Desktop tenant environment.
+title: Troubleshoot Remote Desktop client Azure Virtual Desktop - Azure
+description: How to resolve issues when you set up client connections in a Azure Virtual Desktop tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Troubleshoot the Remote Desktop client
 
@@ -54,9 +54,9 @@ If your browser starts acting up or stops working while you're using the web cli
 
 ## Client doesn't show my resources
 
-First, check the Azure Active Directory account you're using. If you've already signed in with a different Azure Active Directory account than the one you want to use for Windows Virtual Desktop, you should either sign out or use a private browser window.
+First, check the Azure Active Directory account you're using. If you've already signed in with a different Azure Active Directory account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
 
-If you're using Windows Virtual Desktop (classic), use the web client link in [this article](./virtual-desktop-fall-2019/connect-web-2019.md) to connect to your resources.
+If you're using Azure Virtual Desktop (classic), use the web client link in [this article](./virtual-desktop-fall-2019/connect-web-2019.md) to connect to your resources.
 
 If that doesn't work, make sure your app group is associated with a workspace.
 
@@ -73,19 +73,19 @@ If issues continue even after you've switched browsers, the problem may not be w
 If the Web client keeps prompting for credentials, follow these instructions:
 
 1. Confirm the web client URL is correct.
-2. Confirm that the credentials you're using are for the Windows Virtual Desktop environment tied to the URL.
+2. Confirm that the credentials you're using are for the Azure Virtual Desktop environment tied to the URL.
 3. Clear browser cookies. For more information, see [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Clear browser cache. For more information, see [Clear browser cache for your browser](https://binged.it/2RKyfdU).
 5. Open your browser in Private mode.
 
-## Windows client blocks Windows Virtual Desktop (classic) feed
+## Windows client blocks Azure Virtual Desktop (classic) feed
 
-If the Windows client feed won't show Windows Virtual Desktop (classic) apps, follow these instructions:
+If the Windows client feed won't show Azure Virtual Desktop (classic) apps, follow these instructions:
 
-1. Check if the Conditional Access policy includes the app IDs associated with Windows Virtual Desktop (classic).
-2. Check if the Conditional Access policy blocks all access except Windows Virtual Desktop (classic) app IDs. If so, you'll need to add the app ID **9cdead84-a844-4324-93f2-b2e6bb768d07** to the policy to allow the client to discover the feeds.
+1. Check if the Conditional Access policy includes the app IDs associated with Azure Virtual Desktop (classic).
+2. Check if the Conditional Access policy blocks all access except Azure Virtual Desktop (classic) app IDs. If so, you'll need to add the app ID **9cdead84-a844-4324-93f2-b2e6bb768d07** to the policy to allow the client to discover the feeds.
 
-If you can't find the app ID 9cdead84-a844-4324-93f2-b2e6bb768d07 in the list, you'll need to register the Windows Virtual Desktop resource provider. To register the resource provider:
+If you can't find the app ID 9cdead84-a844-4324-93f2-b2e6bb768d07 in the list, you'll need to register the Azure Virtual Desktop resource provider. To register the resource provider:
 
 1. Sign in to the Azure portal.
 2. Go to **Subscription**, then select your subscription.
@@ -94,8 +94,9 @@ If you can't find the app ID 9cdead84-a844-4324-93f2-b2e6bb768d07 in the list, y
 
 ## Next steps
 
-- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while creating a Windows Virtual Desktop environment and host pool in a Windows Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
-- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To troubleshoot issues while creating a Azure Virtual Desktop environment and host pool in a Azure Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](troubleshoot-agent.md).
+- To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

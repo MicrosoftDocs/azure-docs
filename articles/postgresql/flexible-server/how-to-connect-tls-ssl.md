@@ -1,8 +1,8 @@
 ---
 title: Encrypted connectivity using TLS/SSL in Azure Database for PostgreSQL - Flexible Server
 description: Instructions and information on how to connect using TLS/SSL in Azure Database for PostgreSQL - Flexible Server.
-author: ambhatna
-ms.author: ambhatna
+author: sunilagarwal 
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020

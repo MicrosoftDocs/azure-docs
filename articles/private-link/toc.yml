@@ -43,17 +43,20 @@
       href: tutorial-private-endpoint-sql-cli.md
 - name: Concepts
   items:
+  - name: Availability
+    href: availability.md
   - name: Private Endpoint
     href: private-endpoint-overview.md
   - name: Private Link Service
     href: private-link-service-overview.md    
   - name: Private Endpoint DNS integration
-    href: private-endpoint-dns.md    
+    href: private-endpoint-dns.md   
+  - name: RBAC permissions
+    href: rbac-permissions.md 
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
-
+      href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
   - name: Disable network policies for a private endpoint
@@ -70,8 +73,6 @@
       href: troubleshoot-private-endpoint-connectivity.md
     - name: Troubleshoot Private Link Service connectivity problems
       href: troubleshoot-private-link-connectivity.md 
-     
-
 - name: Reference
   items:
   - name: Azure CLI
@@ -83,7 +84,7 @@
   - name: Java
     href: /java/api/
   - name: Node.js
-    href: https://docs.microsoft.com/javascript/azure#azure-sdk
+    href: /javascript/azure#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
@@ -101,7 +102,7 @@
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Microsoft Q&A question page for Networking
-    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback
     href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing
@@ -111,4 +112,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
-    href: private-link-faq.md
+    href: private-link-faq.yml

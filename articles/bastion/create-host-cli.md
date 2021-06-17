@@ -1,6 +1,6 @@
 ---
 title: 'Create a Bastion host using Azure CLI | Azure Bastion'
-description: In this article, learn how to create and delete a Bastion host
+description: Learn how to create and delete a bastion host using Azure CLI.
 services: bastion
 author: cherylmc
 
@@ -23,6 +23,10 @@ Optionally, you can create an Azure Bastion host by using the [Azure portal](./t
 Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
 [!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
+
+ >[!NOTE]
+ >The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+ >
 
 ## <a name="createhost"></a>Create a bastion host
 

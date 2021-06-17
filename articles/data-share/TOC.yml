@@ -8,7 +8,6 @@
   - name: Supported data stores
     href: supported-data-stores.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Share data - Azure portal
     href: share-your-data-portal.md
@@ -16,13 +15,22 @@
     displayName: Resource Manager
     href: share-your-data-arm.md
 - name: Tutorials
+  expanded: true
   items:
     - name: Share data
       href: share-your-data.md
+      displayName: Azure CLI, az datashare account create, az datashare create
     - name: Accept and receive data
       href: subscribe-to-data-share.md
+      displayName: Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security overview
+      href: security.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/data-share-security-baseline?toc=/azure/data-share/TOC.json
   - name: Azure Data Share terminology
     href: terminology.md
   - name: Roles and requirements
@@ -39,7 +47,7 @@
     items:
     - name: Share from Azure Storage
       href: how-to-share-from-storage.md
-    - name: Share from Azure SQL Database or Synapse Analytics
+    - name: Share from Azure SQL Database or Azure Synapse Analytics
       href: how-to-share-from-sql.md
     - name: Share from Azure Data Explorer
       href: /azure/data-explorer/data-share
@@ -56,8 +64,6 @@
     href: how-to-revoke-share-subscription.md
   - name: Monitor
     href: how-to-monitor.md
-  - name: Security
-    href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
   - name: Troubleshoot
@@ -68,11 +74,11 @@
   - name: .NET
     href: /dotnet/api/overview/azure/datashare
   - name: Azure PowerShell
-    href: /powershell/module/az.datashare/?view=azps-2.6.0
+    href: /powershell/module/az.datashare/
   - name: REST API
     href: /rest/api/datashare
   - name: Azure CLI
-    href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
+    href: /cli/azure/azure-cli-reference-for-data-share
 - name: Resources
   items:
   - name: Microsoft Q&A question page

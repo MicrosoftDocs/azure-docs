@@ -3,7 +3,7 @@ title: Azure Application Insights IP address collection | Microsoft Docs
 description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurepowershell
 ---
 
 # Geolocation and IP address handling
@@ -25,7 +25,7 @@ This behavior is by design to help avoid unnecessary collection of personal data
 
 While the default is to not collect IP addresses. We still offer the flexibility to override this behavior. However, we recommend verifying that collection doesn't break any compliance requirements or local regulations. 
 
-To learn more about personal data handling in Application Insights, consult the [guidance for personal data](../platform/personal-data-mgmt.md).
+To learn more about personal data handling in Application Insights, consult the [guidance for personal data](../logs/personal-data-mgmt.md).
 
 ## Storing IP address data
 
@@ -53,7 +53,7 @@ To enable IP collection and storage, the `DisableIpMasking` property of the Appl
 }
 ```
 
-### Portal 
+### Portal
 
 If you only need to modify the behavior for a single Application Insights resource, use the Azure portal. 
 
@@ -74,15 +74,14 @@ If you only need to modify the behavior for a single Application Insights resour
     > [!WARNING]
     > If you experience an error that says: **_The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group._** Temporarily select a different resource group from the dropdown and then re-select your original resource group to resolve the error.
 
-5. Select **I agree** > **Purchase**. 
+5. Select **Review + create** > **Create**.
 
-    ![Checked box with words "I agree to the terms and conditions stated above" highlighted in red above a button with the word "Purchase" highlighted in red.](media/ip-collection/purchase.png)
-
-    In this case, nothing new is actually being purchased. We're only updating the configuration of the existing Application Insights resource.
+    > [!NOTE]
+    > If you see "Your deployment failed", look through your deployment details for the one with type "microsoft.insights/components" and check the status. If that one succeeds then the changes made to DisableIpMasking were deployed.
 
 6. Once the deployment is complete, new telemetry data will be recorded.
 
-    If you select and edit the template again, you'll only see the default template without the newly added property. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set, run the following PowerShell: 
+    If you select and edit the template again, you'll only see the default template without the newly added property. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set, run the following PowerShell:
     
     ```powershell
     # Replace `Fabrikam-dev` with the appropriate resource and resource group name.
@@ -236,10 +235,10 @@ requests
 
 Newly collected IP addresses will appear in the `customDimensions_client-ip` column. The default `client-ip` column will still have all four octets either zeroed out. 
 
-If testing from localhost, and the value for `customDimensions_client-ip` is `::1`, this value is expected behavior. `::1` represents the loopback address in IPv6. It's equivalent to `127.0.01` in IPv4.
+If testing from localhost, and the value for `customDimensions_client-ip` is `::1`, this value is expected behavior. `::1` represents the loopback address in IPv6. It's equivalent to `127.0.0.1` in IPv4.
 
 ## Next Steps
 
-* Learn more about [personal data collection](../platform/personal-data-mgmt.md) in Application Insights.
+* Learn more about [personal data collection](../logs/personal-data-mgmt.md) in Application Insights.
 
 * Learn more about how [IP address collection](https://apmtips.com/posts/2016-07-05-client-ip-address/) in Application Insights works. (This article an older external blog post written by one of our engineers. It predates the current default behavior where IP address is recorded as `0.0.0.0`, but it goes into greater depth on the mechanics of the built-in `ClientIpHeaderTelemetryInitializer`.)

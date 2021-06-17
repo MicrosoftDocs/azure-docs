@@ -1,8 +1,8 @@
 ---
-title: Azure App Configuration REST API - Versioning
-description: Reference pages for versioning using the Azure App Configuration REST API
-author: lisaguthrie
-ms.author: lcozzens
+title: Azure App Configuration REST API - versioning
+description: Reference pages for versioning by using the Azure App Configuration REST API
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
@@ -10,19 +10,17 @@ ms.date: 08/17/2020
 
 # Versioning
 
-api-version: 1.0
-
-Each client request must provide explicit API Version as query string parameter. For example: `https://{myconfig}.azconfig.io/kv?api-version=1.0`
+Each client request must provide an explicit API version as a query string parameter. For example: `https://{myconfig}.azconfig.io/kv?api-version=1.0`.
 
 `api-version` is expressed in SemVer (major.minor) format. Range or version negotiation isn't supported.
 
-## Error response
+This article applies to API version 1.0.
 
 The following outlines a summary of the possible error responses returned by the server when the requested API version can't be matched.
 
-### API Version Unspecified
+## API version unspecified
 
-Occurs when a client makes a request without providing an API version.
+This error occurs when a client makes a request without providing an API version.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -36,9 +34,9 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### Unsupported API Version
+## Unsupported API version
 
-Occurs when a client requested API version does not match any of the supported API versions by the server.
+This error occurs when a client requested API version doesn't match any of the supported API versions by the server.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -52,9 +50,9 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### Invalid API Version
+## Invalid API version
 
-Occurs when a client makes a request with an API version, but the value is malformed or cannot be parsed by the server.
+This error occurs when a client makes a request with an API version, but the value is malformed or can't be parsed by the server.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -68,9 +66,9 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### Ambiguous API Version
+## Ambiguous API version
 
-Occurs when a client requests API version that is ambiguous to the server. For example, multiple different values.
+This error occurs when a client requests an API version that is ambiguous to the server (for example, multiple different values).
 
 ```http
 HTTP/1.1 400 Bad Request

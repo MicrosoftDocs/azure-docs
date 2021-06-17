@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 04/20/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate Fluxx Labs with Azure Active Dir
 * Control in Azure AD who has access to Fluxx Labs.
 * Enable your users to be automatically signed-in to Fluxx Labs with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,25 +32,24 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Fluxx Labs supports **IDP** initiated SSO
-* Once you configure Fluxx Labs you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Fluxx Labs supports **IDP** initiated SSO.
 
-## Adding Fluxx Labs from the gallery
+## Add Fluxx Labs from the gallery
 
 To configure the integration of Fluxx Labs into Azure AD, you need to add Fluxx Labs from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Fluxx Labs** in the search box.
 1. Select **Fluxx Labs** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Fluxx Labs
+## Configure and test Azure AD SSO for Fluxx Labs
 
 Configure and test Azure AD SSO with Fluxx Labs using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Fluxx Labs.
 
-To configure and test Azure AD SSO with Fluxx Labs, complete the following building blocks:
+To configure and test Azure AD SSO with Fluxx Labs, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -65,22 +62,22 @@ To configure and test Azure AD SSO with Fluxx Labs, complete the following build
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Fluxx Labs** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal on the **Fluxx Labs** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a URL using one of the following patterns:
 
     | Environment | URL Pattern|
 	|-------------|------------|
 	| Production | `https://<subdomain>.fluxx.io` |
 	| Pre production | `https://<subdomain>.preprod.fluxxlabs.com`|
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
     | Environment | URL Pattern|
 	|-------------|------------|
@@ -117,15 +114,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Fluxx Labs**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Fluxx Labs SSO
@@ -134,15 +125,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Select **Admin** below the **Settings** section.
 
-	![Screenshot that shows the "Settings" section with "Admin" selected.](./media/fluxxlabs-tutorial/config1.png)
+	![Screenshot that shows the "Settings" section with "Admin" selected.](./media/fluxxlabs-tutorial/configure-1.png)
 
 3. In the Admin Panel, Select **Plug-ins** > **Integrations** and then select **SAML SSO-(Disabled)**
 
-	![Screenshot that shows the "Integrations" tab with "S A M L S S O- (Disabled) selected.](./media/fluxxlabs-tutorial/config2.png)
+	![Screenshot that shows the "Integrations" tab with "S A M L S S O- (Disabled) selected.](./media/fluxxlabs-tutorial/configure-2.png)
 
 4. In the attribute section, perform the following steps:
 
-	![Screenshot that shows the "Attributes" section with "S A M L S S O" checked, values entered in fields, and the "Save" button selected.](./media/fluxxlabs-tutorial/config3.png)
+	![Screenshot that shows the "Attributes" section with "S A M L S S O" checked, values entered in fields, and the "Save" button selected.](./media/fluxxlabs-tutorial/configure-3.png)
 
 	a. Select the **SAML SSO** checkbox.
 
@@ -175,15 +166,15 @@ To enable Azure AD users to sign in to Fluxx Labs, they must be provisioned into
 
 2. Click on the  below displayed **icon**.
 
-	![Screenshot that shows administrator options with the "Plus" icon selected under "Your Dashboard is Empty".](./media/fluxxlabs-tutorial/config6.png)
+	![Screenshot that shows administrator options with the "Plus" icon selected under "Your Dashboard is Empty".](./media/fluxxlabs-tutorial/configure-6.png)
 
 3. On the dashboard, click on the below displayed icon to open the **New PEOPLE** card.
 
-    ![Screenshot that shows the "Contact Management" menu with the "Plus" icon next to "People" selected.](./media/fluxxlabs-tutorial/config4.png)
+    ![Screenshot that shows the "Contact Management" menu with the "Plus" icon next to "People" selected.](./media/fluxxlabs-tutorial/configure-4.png)
 
 4. On the **NEW PEOPLE** section, perform the following steps:
 
-	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config5.png)
+	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/configure-5.png)
 
 	a. Fluxx Labs use email as the unique identifier for SSO logins. Populate the **SSO UID** field with the user’s email address, that matches the email address, which they are using as login with SSO.
 
@@ -191,20 +182,12 @@ To enable Azure AD users to sign in to Fluxx Labs, they must be provisioned into
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-When you click the Fluxx Labs tile in the Access Panel, you should be automatically signed in to the Fluxx Labs for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on Test this application in Azure portal and you should be automatically signed in to the Fluxx Labs for which you set up the SSO.
 
-## Additional resources
+* You can use Microsoft My Apps. When you click the Fluxx Labs tile in the My Apps, you should be automatically signed in to the Fluxx Labs for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Fluxx Labs with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Fluxx Labs with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
+Once you configure Fluxx Labs you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

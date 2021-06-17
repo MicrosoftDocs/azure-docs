@@ -1,21 +1,18 @@
 ---
-title: Unable to create Jupyter notebook in Azure HDInsight
+title: Unable to create Jupyter Notebook in Azure HDInsight
 description: Learn about the troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
 ---
 
-# Unable to create Jupyter notebook in Azure HDInsight
+# Unable to create Jupyter Notebook in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
 ## Issue
 
-When starting a Jupyter notebook, you receive an error message that contains:
+When starting a Jupyter Notebook, you receive an error message that contains:
 
 ```error
 Cannot convert notebook to v5 because that version doesn't exist

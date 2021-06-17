@@ -3,9 +3,6 @@ title: Converting certificate contents to base-64 - Azure HDInsight
 description: Converting service principal certificate contents to base-64 encoded string format in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/31/2019
 ms.custom: devx-track-csharp
 ---
@@ -24,7 +21,7 @@ When using PowerShell or Azure template deployment to create clusters with Data 
 
 ## Resolution
 
-Once you have the service principal certificate in pfx format (see [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage) for sample service principal creation steps), use the following PowerShell command or C# snippet to convert the certificate contents to base-64 format.
+Once you have the service principal certificate in pfx format (see [here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-datalake-store-azure-storage) for sample service principal creation steps), use the following PowerShell command or C# snippet to convert the certificate contents to base-64 format.
 
 ```powershell
 $servicePrincipalCertificateBase64 = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(path-to-servicePrincipalCertificatePfxFile))
@@ -50,4 +47,4 @@ namespace ConsoleApplication
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

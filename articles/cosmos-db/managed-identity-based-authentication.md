@@ -5,10 +5,10 @@ author: j-patrick
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 06/08/2021
 ms.author: justipat
 ms.reviewer: sngun
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 
 ---
 
@@ -89,10 +89,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 Now we have a function app that has a system-assigned managed identity with the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code will get the Azure Cosmos DB keys, create a CosmosClient object, get the temperature of the aquarium, and then save this to Azure Cosmos DB.
 
-This sample uses the [List Keys API](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) to access your Azure Cosmos DB account keys.
+This sample uses the [List Keys API](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys) to access your Azure Cosmos DB account keys.
 
 > [!IMPORTANT] 
-> If you want to [assign the Cosmos DB Account Reader](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys). This will populate just the read-only keys.
+> If you want to [assign the Cosmos DB Account Reader](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-read-only-keys). This will populate just the read-only keys.
 
 The List Keys API returns the `DatabaseAccountListKeysResult` object. This type isn't defined in the C# libraries. The following code shows the implementation of this class:  
 
@@ -126,7 +126,7 @@ namespace Monitor
 }
 ```
 
-You'll use the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library to get the system-assigned managed identity token. To learn other ways to get the token and find out more information about the `Microsoft.Azure.Service.AppAuthentication` library, see the [Service-to-service authentication](../key-vault/general/service-to-service-authentication.md) article.
+You'll use the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library to get the system-assigned managed identity token. To learn other ways to get the token and find out more information about the `Microsoft.Azure.Service.AppAuthentication` library, see the [Service-to-service authentication](/dotnet/api/overview/azure/service-to-service-authentication) article.
 
 
 ```csharp
@@ -156,6 +156,9 @@ namespace Monitor
         private static string containerName =
         "<container to store the temperature in>";
 
+        // HttpClient is intended to be instantiated once, rather than per-use.
+        static readonly HttpClient httpClient = new HttpClient();
+
         [FunctionName("FishTankTemperatureService")]
         public static async Task Run([TimerTrigger("0 * * * * *")]TimerInfo myTimer, ILogger log)
         {
@@ -170,8 +173,7 @@ namespace Monitor
             // Setup the List Keys API to get the Azure Cosmos DB keys.
             string endpoint = $"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys?api-version=2019-12-12";
 
-            // Setup an HTTP Client and add the access token.
-            HttpClient httpClient = new HttpClient();
+            // Add the access token to request headers.
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
             // Post to the endpoint to get the keys result.
@@ -210,7 +212,7 @@ namespace Monitor
 }
 ```
 
-You are now ready to [deploy your function app](../azure-functions/functions-create-first-function-vs-code.md).
+You are now ready to [deploy your function app](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## Next steps
 

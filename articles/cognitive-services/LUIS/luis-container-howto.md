@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
@@ -345,7 +345,7 @@ From the LUIS portal, select your app, then select **Import endpoint logs** to u
 
 ![Import container's log files for active learning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-After the log is uploaded, [review the endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) utterances in the LUIS portal.
+After the log is uploaded, [review the endpoint](./luis-concept-review-endpoint-utterances.md) utterances in the LUIS portal.
 
 <!--  ## Validate container is running -->
 
@@ -369,9 +369,6 @@ The LUIS container sends billing information to Azure, using a _Cognitive Servic
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 
-<!--blogs/samples/video courses -->
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## Summary
 
 In this article, you learned concepts and workflow for downloading, installing, and running Language Understanding (LUIS) containers. In summary:
@@ -389,7 +386,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings.
 * See [LUIS container limitations](luis-container-limitations.md) for known capability restrictions.
-* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
 
 <!-- Links - external -->

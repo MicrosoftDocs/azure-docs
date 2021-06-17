@@ -6,7 +6,7 @@ ms.date: 10/16/2020
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurepowershell
 ---
 
 # Migrate integration resources to global Azure
@@ -75,7 +75,7 @@ Endpoint=sb://myProdnamespaceName.**servicebus.windows.net**/;SharedAccessKeyNam
 
 For more information:
 
-- Refresh your knowledge by completing the [Service Bus tutorials](https://docs.microsoft.com/azure/service-bus-messaging/).
+- Refresh your knowledge by completing the [Service Bus tutorials](../service-bus-messaging/index.yml).
 - Become familiar with how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [Service Bus overview](../service-bus-messaging/service-bus-messaging-overview.md).
 
@@ -85,8 +85,8 @@ Azure Logic Apps isn't available in Azure Germany, but you can create scheduling
 
 For more information:
 
-- Learn more by completing the [Azure Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
-- Review the [Azure Logic Apps overview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+- Learn more by completing the [Azure Logic Apps tutorials](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
+- Review the [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md).
 
 ## Next steps
 

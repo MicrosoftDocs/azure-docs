@@ -1,19 +1,16 @@
 ---
-title: Build energy solutions with IoT Central | Microsoft Docs
+title: What are the Azure IoT Central energy solutions | Microsoft Docs
 description: Learn to build energy solution using Azure IoT Central application templates.
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
 ---
 
-# Build energy solutions with IoT Central 
-
-
-
+# What are the IoT Central energy solutions?
 
 Smart meters and solar panels are playing an important role in the energy industry transformation. The smart meters give more controls and real-time insights about energy consumptions and solar panels growth is driving breakthrough in renewable energy generation. The smart meter and solar panel monitoring apps are sample templates to show the various capabilities. Partners can leverage these templates to build energy solutions with IoT Central for their specific needs. No new coding and no additional cost are required to deploy and use these applications. Learn more about energy application templates and their capabilities.
 
@@ -59,9 +56,10 @@ After you deploy the app, you'll see the simulated solar panel data within 1-2 m
 > ![Solar Panel App Dashboard](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
 
 ## Next steps
+
 To get started building an energy solution:
+
 * Create application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), 
 [solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Learn about [smart meter monitoring app concepts](./concept-iot-central-smart-meter-app.md)
 * Learn about [solar panel monitoring app concepts](./concept-iot-central-solar-panel-app.md)
-* Learn about [IoT Central platform](../index.yml)

@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown 
-ms.custom: devx-track-azurecli, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # Create a container in Azure Cosmos DB SQL API
@@ -29,12 +29,12 @@ This article explains the different ways to create a container in Azure Cosmos D
 1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
    * Indicate whether you are creating a new database or using an existing one.
-   * Enter a container ID.
-   * Enter a partition key.
-   * Enter a throughput to be provisioned (for example, 1000 RUs).
+   * Enter a **Container Id**.
+   * Enter a **Partition key** value (for example, `/ItemID`).
+   * Select **Autoscale** or **Manual** throughput and enter the required **Container throughput** (for example, 1000 RU/s). Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Screenshot of Data Explorer pane, with New Container highlighted":::
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
 
 ## <a id="cli-sql"></a>Create a container using Azure CLI
 

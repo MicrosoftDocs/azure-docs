@@ -19,18 +19,18 @@ In this article, we’ll show how to set up a class that uses SOLIDWORKS 2019 an
 
 SOLIDWORKS Network Licensing requires that you have SolidNetWork License Manager installed and activated on your license server.  This license server is typically located in either your on-premise network or a private network within Azure.  For more information on how to set up SolidNetWork License Manager on your server, see [Installing and Activating a License Manager](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) in the SOLIDWORKS install guide.  When setting this up, remember the **port number** and [**serial number**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) that are used since they'll be needed in later steps.
 
-After your license server is set up, you'll need to peer the [virtual network (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) to your [lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  The network peering must be done before creating the lab so that lab virtual machines can access the license server and the other way around.
+After your license server is set up, you'll need to peer the [virtual network (VNet)](./how-to-connect-peer-virtual-network.md) to your [lab account](./tutorial-setup-lab-account.md).  The network peering must be done before creating the lab so that lab virtual machines can access the license server and the other way around.
 
 > [!NOTE]
-> You should verify that the appropriate ports are opened on your firewalls to allow communication between the lab virtual machines and the license server.  For example, see the instructions on [Modifying License Manager Computer Ports for Windows Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) that show how to add inbound and outbound rules to the license server's firewall.  You may also need to open up ports to the lab virtual machines.  Follow the steps in the article on [firewall settings for labs](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) for more information on this, including how to get the lab's public IP address.
+> You should verify that the appropriate ports are opened on your firewalls to allow communication between the lab virtual machines and the license server.  For example, see the instructions on [Modifying License Manager Computer Ports for Windows Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) that show how to add inbound and outbound rules to the license server's firewall.  You may also need to open up ports to the lab virtual machines.  Follow the steps in the article on [firewall settings for labs](./how-to-configure-firewall-settings.md) for more information on this, including how to get the lab's public IP address.
 
 ## Lab configuration
 
-To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to setup a lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). You can also use an existing lab account.
+To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to setup a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
 
 ### Lab account settings
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see the article on [how to specify Marketplace images available to lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see the article on [how to specify Marketplace images available to lab creators](./specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
 | ------------------- | ------------ |
@@ -52,7 +52,7 @@ Use the settings in the table below when setting up a classroom lab. For more in
 > The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience.  For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](./how-to-setup-lab-gpu.md).
 
 > [!WARNING]
-> Don’t forget to [peer the virtual network](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) for the lab account to the virtual network for the license server **before** creating the lab.
+> Don’t forget to [peer the virtual network](./how-to-connect-peer-virtual-network.md) for the lab account to the virtual network for the license server **before** creating the lab.
 
 ## Template virtual machine configuration
 

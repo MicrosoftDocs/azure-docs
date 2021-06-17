@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.localizationpriority: high 
 ---
@@ -75,6 +75,9 @@ Here is a list of the supported storage types for the Data Box Disk.
 | Classic | Standard |
 | General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
 | Blob storage account | |
+
+> [!IMPORTANT]
+> Network File System (NFS) 3.0 protocol support in Azure Blob storage is not supported with Data Box Disk.
 
 ## Supported storage types for upload
 

@@ -1,20 +1,11 @@
 ---
 title: Move data from SFTP server using Azure Data Factory 
 description: Learn about how to move data from an on-premises or a cloud SFTP server using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from an SFTP server using Azure Data Factory
@@ -170,7 +161,7 @@ The **typeProperties** section is different for each type of dataset. It provide
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| folderPath |Sub path to the folder. Use escape character ' \ ' for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
 | fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Examples 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter is applicable for an input FileShare dataset. This property is not supported with HDFS. |No |
 | partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. |No |
@@ -217,7 +208,7 @@ For a full list of sections & properties available for defining activities, see 
 
 Whereas, the properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, the type properties vary depending on the types of sources and sinks.
 
-[!INCLUDE [data-factory-file-system-source](../../../includes/data-factory-file-system-source.md)]
+[!INCLUDE [data-factory-file-system-source](includes/data-factory-file-system-source.md)]
 
 ## Supported file and compression formats
 See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.

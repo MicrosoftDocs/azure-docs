@@ -59,6 +59,22 @@
       href: ../azure-functions/functions-bindings-signalr-service.md
     - name: Upstream settings
       href: concept-upstream.md
+  - name: Availability
+    items:
+      - name: Gracefully shutdown your app server.
+        href: server-graceful-shutdown.md
+  - name: Security
+    items:
+      - name: Authorization
+        items:
+          - name: Authorize access with Azure Active Directory
+            href: authorize-access-azure-active-directory.md
+      - name: Authentication
+        items:
+        - name: Authenticate from an application
+          href: authenticate-application.md
+        - name: Authenticate with a managed identity
+          href: authenticate-managed-identity.md
   - name: High availability
     items:
     - name: Resiliency and disaster recovery
@@ -71,6 +87,12 @@
     href: signalr-concept-authenticate-oauth.md
   - name: Event handling
     href: signalr-concept-event-grid-integration.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/signalr-security-baseline?toc=/azure/azure-signalr/TOC.json
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: Scale
@@ -103,11 +125,17 @@
       href: signalr-howto-diagnostic-logs.md
     - name: Audit compliance using Azure Policy
       href: signalr-howto-azure-policy.md
+  - name: Troubleshooting
+    items:
+    - name: Troubleshooting guides
+      href: signalr-howto-troubleshoot-guide.md
+    - name: Troubleshooting methods
+      href: signalr-howto-troubleshoot-method.md
 
 - name: References
   items:
   - name: Azure CLI
-    href: signalr-reference-cli.md
+    href: /cli/azure/signalr
   - name: REST API
     href: https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md
   - name: ASP.NET Core SignalR

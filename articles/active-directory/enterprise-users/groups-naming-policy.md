@@ -6,10 +6,10 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 06/11/2021
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -43,7 +43,7 @@ Prefixes and suffixes can contain special characters that are supported in group
 
 #### Fixed strings
 
-You can use strings to make it easier to scan and differentiate groups in the global address list and in the left navigation links of group workloads. Some of the common prefixes are keywords like ‘Grp\_Name’ , ‘\#Name’, ‘\_Name’
+You can use strings to make it easier to scan and differentiate groups in the global address list and in the left navigation links of group workloads. Some of the common prefixes are keywords like ‘Grp\_Name’, ‘\#Name’, ‘\_Name’
 
 #### User attributes
 
@@ -65,21 +65,19 @@ Blocked word list rules:
 ### Roles and permissions
 
 To configure naming policy, one of the following roles is required:
-- Global administrator
-- Group administrator
 
+- Global Administrator
+- Group Administrator
+- Directory Writer
 
-Selected administrators can be exempted from these policies, across all group workloads and endpoints, so that they can create groups using blocked words and with their own naming conventions. The following are the list of administrator roles exempted from the group naming policy.
+Some administrator roles are exempted from these policies, across all group workloads and endpoints, so that they can create groups using blocked words and with their own naming conventions. The following administrator roles are exempted from the group naming policy:
 
-- Global administrator
-- Partner Tier 1 Support
-- Partner Tier 2 Support
-- User administrator
-- Directory writers
+- Global Administrator
+- User Administrator
 
 ## Configure naming policy in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Group administrator account.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Group Administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
     ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)
@@ -244,7 +242,6 @@ Groups mobile app | Groups created in the Groups mobile app are compliant with t
 Planner | Planner is compliant with the naming policy. Planner shows the naming policy preview when entering the plan name. When a user enters a custom blocked word, an error message is shown when creating the plan.
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement is compliant with the naming policy. Dynamics 365 shows the naming policy enforced name when the user types a group name or group email alias. When the user enters a custom blocked word, an error message is shown with the blocked word so the user can remove it.
 School Data Sync (SDS) | Groups created through SDS comply with naming policy, but the naming policy isn't applied automatically. SDS administrators have to append the prefixes and suffixes to class names for which groups need to be created and then uploaded to SDS. Group create or edit would fail otherwise.
-Outlook Customer Manager (OCM) | Outlook Customer Manager is compliant with the naming policy, which is automatically applied to the group created in Outlook Customer Manager. If a custom blocked word is detected, group creation in OCM is blocked, and the user is blocked from using the OCM app.
 Classroom app | Groups created in Classroom app comply with the naming policy, but the naming policy isn't applied automatically, and the naming policy preview isn't shown to the users while entering a classroom group name. Users must enter the enforced classroom group name with prefixes and suffixes. If not, the classroom group create or edit operation fails with errors.
 Power BI | Power BI workspaces are compliant with the naming policy.    
 Yammer | When a user signed in to Yammer with their Azure Active Directory account creates a group or edits a group name, the group name will comply with naming policy. This applies both to Microsoft 365 connected groups and all other Yammer groups.<br>If a Microsoft 365 connected group was created before the naming policy is in place, the group name will not automatically follow the naming policies. When a user edits the group name, they will be prompted to add the prefix and suffix.

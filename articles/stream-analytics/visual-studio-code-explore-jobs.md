@@ -2,8 +2,8 @@
 title: Explore Azure Stream Analytics jobs in Visual Studio Code
 description: This article shows you how to export an Azure Stream Analytics job to a local project, list jobs and view job entities.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: how-to
 ---

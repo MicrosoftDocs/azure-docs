@@ -4,9 +4,9 @@ description: Support information and links for Azure Marketplace and AppSource i
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 04/14/2020
+author: navits09
+ms.author: navits
+ms.date: 06/14/2021
 ---
 
 # Support for the Microsoft commercial marketplace
@@ -21,7 +21,8 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
-| For assistance, visit the Create an incident page located at [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |  
+| For assistance, visit the Create an incident page located at [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |
+|
 
 ## Technical  
 
@@ -34,12 +35,12 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |
-| Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support for GTM benefits and program questions. | Business hours are in the Pacific time zone. |  
-| Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |  
+| Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |
+|
+
+For questions about Marketplace Rewards, contact [Partner Center support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Next steps
 
-* Visit the [commercial marketplace publisher guide page](index.yml).
-* Learn more about [support for the commercial marketplace program in Partner Center](support.md).
-
----
+- Visit the [commercial marketplace publisher guide page](index.yml)
+- Learn more about [support for the commercial marketplace program in Partner Center](support.md)

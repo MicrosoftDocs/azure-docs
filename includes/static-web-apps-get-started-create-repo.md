@@ -12,8 +12,8 @@ This article uses a GitHub template repository to make it easy for you to get st
 
 # [No Framework](#tab/vanilla-javascript)
 
-1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    1. https://github.com/staticwebdev/vanilla-basic/generate
+1. Navigate to the following location to create a new repository:
+    1. [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate)
 1. Name your repository **my-first-static-web-app**
 
 > [!NOTE]
@@ -21,20 +21,20 @@ This article uses a GitHub template repository to make it easy for you to get st
 
 # [Angular](#tab/angular)
 
-1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    1. https://github.com/staticwebdev/angular-basic/generate
+1. Navigate to the following location to create a new repository:
+    1. [https://github.com/staticwebdev/angular-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Fangular-basic%2Fgenerate)
 1. Name your repository **my-first-static-web-app**
 
 # [React](#tab/react)
 
-1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    1. https://github.com/staticwebdev/react-basic/generate
+1. Navigate to the following location to create a new repository:
+    1. [https://github.com/staticwebdev/react-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Freact-basic%2Fgenerate)
 1. Name your repository **my-first-static-web-app**
 
 # [Vue](#tab/vue)
 
-1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    1. https://github.com/staticwebdev/vue-basic/generate
+1. Navigate to the following location to create a new repository:
+    1. [https://github.com/staticwebdev/vue-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Fvue-basic%2Fgenerate)
 1. Name your repository **my-first-static-web-app**
 
 ---

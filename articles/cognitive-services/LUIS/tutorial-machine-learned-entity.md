@@ -4,7 +4,7 @@ description: Extract structured data from an utterance using the machine-learnin
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 04/28/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 
@@ -23,8 +23,9 @@ The machine-learning entity supports the [model decomposition concept](luis-conc
 > * Train, Test, Publish app
 > * Get entity prediction from endpoint
 
+<!---
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
-
+-->
 
 ## Why use a machine-learning entity?
 
@@ -293,7 +294,7 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
 ## Related information
 
-* [Tutorial - intents](luis-quickstart-intents-only.md)
+* [Tutorial - intents](./tutorial-intents-only.md)
 * [Concept - entities](luis-concept-entity-types.md) conceptual information
 * [Concept - features](luis-concept-feature.md) conceptual information
 * [How to train](luis-how-to-train.md)
@@ -305,4 +306,4 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 In this tutorial, the app uses a machine-learning entity to find the intent of a user's utterance and extract details from that utterance. Using the machine-learning entity allows you to decompose the details of the entity.
 
 > [!div class="nextstepaction"]
-> [Add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)
+> [Add a prebuilt keyphrase entity](./luis-reference-prebuilt-keyphrase.md)

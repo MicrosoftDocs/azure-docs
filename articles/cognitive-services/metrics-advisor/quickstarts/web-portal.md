@@ -1,15 +1,17 @@
 ---
-title: "Quickstart: Metrics Advisor web portal" 
+title: 'Quickstart: Metrics Advisor web portal'
 titleSuffix: Azure Cognitive Services
 description: Learn how to start using the Metrics Advisor web portal.
 services: cognitive-services
 author: mrbullwinkle
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: metrics-advisor
-ms.topic: quickstart
-ms.date: 09/30/2020
 ms.author: mbullwin
+manager: nitinme
+ms.date: 09/30/2020
+ms.topic: quickstart
+ms.service: applied-ai-services
+ms.subservice: metrics-advisor
+ms.custom:
+  - mode-portal
 ---
 
 # Quickstart: Monitor your first metric using the web portal
@@ -25,7 +27,7 @@ When you provision a Metrics Advisor instance, you can use the APIs and web-base
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
+* Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource </a> in the Azure portal to deploy your Metrics Advisor instance.  
 
     
 > [!TIP]
@@ -151,5 +153,5 @@ After creating a hook, an alert setting determines how and which alert notificat
 - [Onboard your data feeds](../how-tos/onboard-your-data.md)
     - [Manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Use the REST API or Client libraries](rest-api.md)
+- [Use the REST API or Client libraries](./rest-api-and-client-library.md)
 - [Configure metrics and fine tune detecting configuration](../how-tos/configure-metrics.md)

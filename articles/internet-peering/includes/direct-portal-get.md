@@ -18,7 +18,7 @@ ms.author: prmitiki
 1. Select the **Peering** resource you created.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resource view](../media/setup-direct-get-open.png)
+    > ![The Overview page is selected in the left pane. It shows information about PeeringResourceGroup. In the Peering list, AshburnPeering is highlighted.](../media/setup-direct-get-open.png)
 
 1. The **Overview** page shows high-level information, as shown here.
 

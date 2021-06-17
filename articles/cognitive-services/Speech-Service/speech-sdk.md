@@ -24,14 +24,14 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 ### Speech-to-text
 
-[Speech-to-text](speech-to-text.md) (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [Speech Translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](speech-to-text-basics.md).
+[Speech-to-text](speech-to-text.md) (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [Speech Translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](./get-started-speech-to-text.md).
 
 **Speech-Recognition (SR), Phrase List, Intent, Translation, and On-premises containers** are available on the following platforms:
 
   - C++/Windows & Linux & macOS
   - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
   - Java (Jre and Android)
-  - JavaScript (Brower and NodeJS)
+  - JavaScript (Browser and NodeJS)
   - Python
   - Swift
   - Objective-C  
@@ -53,25 +53,25 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 ### Voice assistants
 
-[Voice assistants](voice-assistants.md) using the Speech SDK enable developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant. The implementation uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. Additionally, voice assistants can use custom voices created in the [Custom Voice Portal](https://aka.ms/customvoice) to add a unique voice output experience.
+[Voice assistants](voice-assistants.md) using the Speech SDK enable you to create natural, human-like conversational interfaces for your applications and experiences. The Speech SDK provides fast, reliable interaction that includes speech-to-text, text-to-speech, and conversational data on a single connection. Your implementation can use the Bot Framework's Direct Line Speech channel or the integrated Custom Commands service for task completion. Additionally, voice assistants can use custom voices created in the [Custom Voice Portal](https://aka.ms/customvoice) to add a unique voice output experience.
 
-**Voice assistants** is available on the following platforms:
+**Voice assistant** support is available on the following platforms:
 
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
+  - Go
 
-#### Keyword spotting
+#### Keyword recognition
 
-The concept of [keyword spotting](speech-devices-sdk-create-kws.md) is supported in the Speech SDK. Keyword spotting is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
+The concept of [keyword recognition](custom-keyword-basics.md) is supported in the Speech SDK. Keyword recognition is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
 
-**Keyword Spotting (KWS)** is available on the following platforms:
+**Keyword recognition** is available on the following platforms:
 
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
-  - Java/Windows & Linux & Android (Speech Devices SDK)
-  - Keyword spotting (KWS) functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
+  - Java/Windows & Linux & Android
 
 ### Meeting scenarios
 
@@ -108,7 +108,7 @@ The Speech SDK can be used for transcribing call center scenarios, where telepho
 
 ### Codec compressed audio input
 
-Several of the Speech SDK programming languages support codec compressed audio input streams. For more information, see <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Several of the Speech SDK programming languages support codec compressed audio input streams. For more information, see <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats </a>.
 
 **Codec compressed audio input** is available on the following platforms:
 
@@ -175,4 +175,4 @@ Custom text-to-speech, also known as Custom Voice is a set of online tools that 
 ## Next steps
 
 * [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-* [See how to recognize speech in C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [See how to recognize speech in C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

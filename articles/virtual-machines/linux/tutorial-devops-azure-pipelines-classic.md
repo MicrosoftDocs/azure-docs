@@ -6,7 +6,8 @@ manager: jpconnock
 tags: azure-devops-pipelines
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure

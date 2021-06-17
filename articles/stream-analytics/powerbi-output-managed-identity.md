@@ -1,11 +1,11 @@
 ---
 title: Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI output
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Power BI output.
-author: cedarbaum
-ms.author: sacedarb
 ms.service: stream-analytics
+author: enkrumah
+ms.author: ebnkruma
 ms.topic: how-to
-ms.date: 3/10/2020
+ms.date: 05/30/2021
 ---
 
 # Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI
@@ -95,7 +95,7 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
     Deploy the job above to the Resource group **ExampleGroup** using the below Azure CLI command:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. After the job is created, use Azure Resource Manager to retrieve the job's full definition.
@@ -204,6 +204,18 @@ Request Body
     "principalType": "App"
 }
 ```
+
+### Use a Service Principal to grant permission for an ASA job's Managed Identity
+
+For automated deployments, using an interactive login to give an ASA job access to a Power BI workspace is not possible. This can be done be using service principal to grant permission for an ASA job's managed identity. This is possible using PowerShell:
+
+Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>"
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+
+
+## Remove Managed Identity
+
+The Managed Identity created for a Stream Analytics job is deleted only when the job is deleted. There is no way to delete the Managed Identity without deleting the job. If you no longer want to use the Managed Identity, you can change the authentication method for the output. The Managed Identity will continue to exist until the job is deleted, and will be used if you decide to used Managed Identity authentication again.
 
 ## Limitations
 Below are the limitations of this feature:

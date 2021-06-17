@@ -6,7 +6,8 @@ author: jomore
 ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Secure your virtual hub using Azure PowerShell
@@ -26,7 +27,7 @@ In this tutorial, you learn how to:
 
 - PowerShell 7
 
-   This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7).
+   This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7&preserve-view=true).
 - Az.Network version 3.2.0
 
     If you have Az.Network version 3.4.0 or later, you'll need to downgrade to use some of the commands in this tutorial. You can check the version of your Az.Network module with the command `Get-InstalledModule -Name Az.Network`. To uninstall the Az.Network module, run `Uninstall-Module -name az.network`. To install the Az.Network 3.2.0 module, run `Install-Module az.network -RequiredVersion 3.2.0 -force`.
@@ -260,7 +261,7 @@ TimeGenerated            Protocol    SourceIP       SourcePort TargetIP      Tar
 2020-10-04T20:52:52.356Z TCP         10.1.1.4       53748      10.1.2.4      22         Allow   N/A            AZFW1
 ```
 
-If you want to see the logs for the application rules (describing allowed and denied HTTP connections) or change the way that the logs are displayed, you can try with other KQL queries. You can find some examples in [Azure Monitor logs for Azure Firewall](../firewall/log-analytics-samples.md).
+If you want to see the logs for the application rules (describing allowed and denied HTTP connections) or change the way that the logs are displayed, you can try with other KQL queries. You can find some examples in [Azure Monitor logs for Azure Firewall](../firewall/firewall-workbook.md).
 
 
 ## Clean up resources

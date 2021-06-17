@@ -28,9 +28,9 @@ Azure AD currently supports three methods for accomplishing inter-directory prov
 
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including inter-directory provisioning from Active Directory to Azure AD.
 
-- [Azure AD Connect Cloud Provisioning](../cloud-provisioning/what-is-cloud-provisioning.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Azure AD.
+- [Azure AD Connect Cloud Provisioning](../cloud-sync/what-is-cloud-sync.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Azure AD.
 
-- [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) - Microsoft's on-premises identity and access management solution that helps you manage the users, credentials, policies, and access within your organization. Additionally, MIM provides advanced inter-directory provisioning to achieve hybrid identity environments for Active Directory, Azure AD, and other directories.
+- [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) - Microsoft's on-premises identity and access management solution that helps you manage the users, credentials, policies, and access within your organization. Additionally, MIM provides advanced inter-directory provisioning to achieve hybrid identity environments for Active Directory, Azure AD, and other directories.
 
 ### Key benefits
 
@@ -40,7 +40,7 @@ This capability of inter-directory provisioning offers the following significant
 - [Pass-through authentication](../hybrid/how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
 - [Federation integration](../hybrid/how-to-connect-fed-whatis.md) - can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
 - [Synchronization](../hybrid/how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
-- [Health Monitoring](../hybrid/whatis-hybrid-identity-health.md) - can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
+- [Health Monitoring](../hybrid/whatis-azure-ad-connect.md) - can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
 
 
 ## Next steps 

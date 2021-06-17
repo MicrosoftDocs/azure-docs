@@ -4,7 +4,7 @@ description: Learn to build a micro-fulfillment center application using our Mic
 author: avneet723
 ms.author: avneets
 ms.date: 10/13/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
@@ -17,11 +17,11 @@ Micro-fulfillment center solutions allow you to digitally connect, monitor, and 
 
 ![Azure IoT Central Store Analytics](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
-- Set of IoT sensors sending telemetry data to a gateway device
-- Gateway devices sending telemetry and aggregated insights to IoT Central
-- Continuous data export to the desired Azure service for manipulation
-- Data can be structured in the desired format and sent to a storage service
-- Business applications can query data and generate insights that power retail operations
+1. Set of IoT sensors sending telemetry data to a gateway device
+2. Gateway devices sending telemetry and aggregated insights to IoT Central
+3. Continuous data export to the desired Azure service for manipulation
+4. Data can be structured in the desired format and sent to a storage service
+5. Business applications can query data and generate insights that power retail operations
  
 Let's take a look at key components that generally play a part in a micro-fulfillment center solution.
 

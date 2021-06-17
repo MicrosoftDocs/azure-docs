@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 06/11/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
@@ -16,15 +16,11 @@ ms.reviewer: tasharm, assafi, sumeh
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # [Version 3.0](#tab/version-3)
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
-
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ---
 
@@ -32,9 +28,10 @@ This article only describes version 3.x of the API.
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource </a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* To use the Analyze feature, you will need a Text Analytics resource with the standard (S) pricing tier.
 
 ## Setting up
 
@@ -42,14 +39,14 @@ This article only describes version 3.x of the API.
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.1) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0-beta.1</version>
+        <version>5.1.0-beta.7</version>
     </dependency>
 </dependencies>
 ```
@@ -70,10 +67,6 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), which contains the code examples in this quickstart. 
-
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
 
 ---
 
@@ -127,12 +120,9 @@ public static void main(String[] args) {
     recognizeEntitiesExample(client);
     recognizeLinkedEntitiesExample(client);
     extractKeyPhrasesExample(client);
+        AnalyzeOperationExample(client)
 }
 ```
-
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
 
 ---
 
@@ -212,58 +202,57 @@ Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
 
-### Opinion mining
+## Opinion mining
 
 To perform sentiment analysis with opinion mining, create a new function called `sentimentAnalysisWithOpinionMiningExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function with setting option object `AnalyzeSentimentOptions`. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, or an `errorMessage` if not. 
 
 
 ```java
-static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
-{
-    // The Document that needs be analyzed.
-    String document = "Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.";
+ static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
+ {
+     // The document that needs be analyzed.
+     String document = "Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.";
 
-    System.out.printf("Document = %s%n", document);
+     System.out.printf("Document = %s%n", document);
 
-    AnalyzeSentimentOptions options = new AnalyzeSentimentOptions().setIncludeOpinionMining(true);
-    final DocumentSentiment documentSentiment = client.analyzeSentiment(document, "en", options);
-    SentimentConfidenceScores scores = documentSentiment.getConfidenceScores();
-    System.out.printf(
-            "\tRecognized document sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
-            documentSentiment.getSentiment(), scores.getPositive(), scores.getNeutral(), scores.getNegative());
+     AnalyzeSentimentOptions options = new AnalyzeSentimentOptions().setIncludeOpinionMining(true);
+     final DocumentSentiment documentSentiment = client.analyzeSentiment(document, "en", options);
+     SentimentConfidenceScores scores = documentSentiment.getConfidenceScores();
+     System.out.printf(
+             "Recognized document sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
+             documentSentiment.getSentiment(), scores.getPositive(), scores.getNeutral(), scores.getNegative());
 
-    documentSentiment.getSentences().forEach(sentenceSentiment -> {
-        SentimentConfidenceScores sentenceScores = sentenceSentiment.getConfidenceScores();
-        System.out.printf("\t\tSentence sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
-                sentenceSentiment.getSentiment(), sentenceScores.getPositive(), sentenceScores.getNeutral(), sentenceScores.getNegative());
-        sentenceSentiment.getMinedOpinions().forEach(minedOpinions -> {
-            AspectSentiment aspectSentiment = minedOpinions.getAspect();
-            System.out.printf("\t\t\tAspect sentiment: %s, aspect text: %s%n", aspectSentiment.getSentiment(),
-                    aspectSentiment.getText());
-            for (OpinionSentiment opinionSentiment : minedOpinions.getOpinions()) {
-                System.out.printf("\t\t\t\t'%s' opinion sentiment because of \"%s\". Is the opinion negated: %s.%n",
-                        opinionSentiment.getSentiment(), opinionSentiment.getText(), opinionSentiment.isNegated());
-            }
-        });
-    });
-}
+
+     documentSentiment.getSentences().forEach(sentenceSentiment -> {
+         SentimentConfidenceScores sentenceScores = sentenceSentiment.getConfidenceScores();
+         System.out.printf("\tSentence sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
+                 sentenceSentiment.getSentiment(), sentenceScores.getPositive(), sentenceScores.getNeutral(), sentenceScores.getNegative());
+         sentenceSentiment.getOpinions().forEach(opinion -> {
+             TargetSentiment targetSentiment = opinion.getTarget();
+             System.out.printf("\t\tTarget sentiment: %s, target text: %s%n", targetSentiment.getSentiment(),
+                     targetSentiment.getText());
+             for (AssessmentSentiment assessmentSentiment : opinion.getAssessments()) {
+                 System.out.printf("\t\t\t'%s' assessment sentiment because of \"%s\". Is the assessment negated: %s.%n",
+                         assessmentSentiment.getSentiment(), assessmentSentiment.getText(), assessmentSentiment.isNegated());
+             }
+         });
+     });
+ }
 ```
 
 ### Output
 
 ```console
-Text = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
-	Recognized document sentiment: negative, positive score: 0.010000, neutral score: 0.140000, negative score: 0.850000.
-		Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
-			Aspect sentiment: negative, aspect text: atmosphere
-				'negative' opinion sentiment because of "bad". Is the opinion negated: false.
-		Sentence sentiment: negative, positive score: 0.020000, neutral score: 0.440000, negative score: 0.540000.
-		Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
-			Aspect sentiment: negative, aspect text: Staff
-				'negative' opinion sentiment because of "friendly". Is the opinion negated: true.
-				'negative' opinion sentiment because of "helpful". Is the opinion negated: true.
-
-Process finished with exit code 0
+Document = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
+Recognized document sentiment: negative, positive score: 0.010000, neutral score: 0.140000, negative score: 0.850000.
+	Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
+		Target sentiment: negative, target text: atmosphere
+			'negative' assessment sentiment because of "bad". Is the assessment negated: false.
+	Sentence sentiment: negative, positive score: 0.020000, neutral score: 0.440000, negative score: 0.540000.
+	Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
+		Target sentiment: negative, target text: Staff
+			'negative' assessment sentiment because of "friendly". Is the assessment negated: true.
+			'negative' assessment sentiment because of "helpful". Is the assessment negated: true.
 ```
 
 # [Version 3.0](#tab/version-3)
@@ -304,10 +293,6 @@ Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
 
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
-
 ---
 
 ## Language detection
@@ -337,7 +322,7 @@ static void detectLanguageExample(TextAnalyticsClient client)
 Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 ```
 
-## Named Entity recognition (NER)
+## Named Entity Recognition (NER)
 
 # [Version 3.1 preview](#tab/version-3-1)
 
@@ -373,66 +358,6 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 Recognized entity: trip, entity category: Event, entity sub-category: null, score: 0.61, offset: 8, length: 4.
 Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.82, offset: 16, length: 7.
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8, offset: 24, length: 9.
-```
-
-### Entity linking
-
-Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its `recognizeLinkedEntities()` function. The returned `LinkedEntityCollection` object will contain a list of `LinkedEntity` if successful, or an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
-
-
-```java
-static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
-{
-    // The text that need be analyzed.
-    String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
-        "to develop and sell BASIC interpreters for the Altair 8800. " +
-        "During his career at Microsoft, Gates held the positions of chairman, " +
-        "chief executive officer, president and chief software architect, " +
-        "while also being the largest individual shareholder until May 2014.";
-
-    System.out.printf("Linked Entities:%n");
-    for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
-        System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
-            linkedEntity.getName(),
-            linkedEntity.getDataSourceEntityId(),
-            linkedEntity.getUrl(),
-            linkedEntity.getDataSource());
-        System.out.printf("Matches:%n");
-        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
-            System.out.printf("Text: %s, Score: %.2f, Offset: %s, Length: %s%n",
-            linkedEntityMatch.getText(),
-            linkedEntityMatch.getConfidenceScore(),
-            linkedEntityMatch.getOffset(),
-            linkedEntityMatch.getLength());
-        }
-    }
-}
-```
-
-### Output
-
-```console
-Linked Entities:
-Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
-Matches:
-Text: Microsoft, Score: 0.55, Offset: 9, Length: 0
-Text: Microsoft, Score: 0.55, Offset: 9, Length: 150
-Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
-Matches:
-Text: Bill Gates, Score: 0.63, Offset: 10, Length: 25
-Text: Gates, Score: 0.63, Offset: 5, Length: 161
-Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
-Matches:
-Text: Paul Allen, Score: 0.60, Offset: 10, Length: 40
-Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
-Matches:
-Text: April 4, Score: 0.32, Offset: 7, Length: 54
-Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
-Matches:
-Text: BASIC, Score: 0.33, Offset: 5, Length: 89
-Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
-Matches:
-Text: Altair 8800, Score: 0.88, Offset: 11, Length: 116
 ```
 
 
@@ -496,7 +421,71 @@ Recognized entity: Seattle, entity category: Location, entity sub-category: GPE,
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
 ```
 
-### Entity linking
+---
+
+## Entity linking
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its `recognizeLinkedEntities()` function. The returned `LinkedEntityCollection` object will contain a list of `LinkedEntity` if successful, or an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
+
+
+```java
+static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
+{
+    // The text that need be analyzed.
+    String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
+        "to develop and sell BASIC interpreters for the Altair 8800. " +
+        "During his career at Microsoft, Gates held the positions of chairman, " +
+        "chief executive officer, president and chief software architect, " +
+        "while also being the largest individual shareholder until May 2014.";
+
+    System.out.printf("Linked Entities:%n");
+    for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
+        System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
+            linkedEntity.getName(),
+            linkedEntity.getDataSourceEntityId(),
+            linkedEntity.getUrl(),
+            linkedEntity.getDataSource());
+        System.out.printf("Matches:%n");
+        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
+            System.out.printf("Text: %s, Score: %.2f, Offset: %s, Length: %s%n",
+            linkedEntityMatch.getText(),
+            linkedEntityMatch.getConfidenceScore(),
+            linkedEntityMatch.getOffset(),
+            linkedEntityMatch.getLength());
+        }
+    }
+}
+```
+
+### Output
+
+```console
+Linked Entities:
+Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
+Matches:
+Text: Microsoft, Score: 0.55, Offset: 9, Length: 0
+Text: Microsoft, Score: 0.55, Offset: 9, Length: 150
+Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
+Matches:
+Text: Bill Gates, Score: 0.63, Offset: 10, Length: 25
+Text: Gates, Score: 0.63, Offset: 5, Length: 161
+Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
+Matches:
+Text: Paul Allen, Score: 0.60, Offset: 10, Length: 40
+Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
+Matches:
+Text: April 4, Score: 0.32, Offset: 7, Length: 54
+Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
+Matches:
+Text: BASIC, Score: 0.33, Offset: 5, Length: 89
+Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
+Matches:
+Text: Altair 8800, Score: 0.88, Offset: 11, Length: 116
+```
+
+# [Version 3.0 preview](#tab/version-3)
 
 Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its `recognizeLinkedEntities()` function. The returned `LinkedEntityCollection` object will contain a list of `LinkedEntity` if successful, or an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
@@ -553,10 +542,6 @@ Matches:
 Text: BASIC, Score: 0.33
 ```
 
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
-
 ---
 
 ## Key phrase extraction
@@ -583,3 +568,104 @@ Recognized phrases:
 cat
 veterinarian
 ```
+---
+
+## Use the API asynchronously with the Analyze operation
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+You can use the Analyze operation to perform asynchronous batch requests for: NER, key phrase extraction, sentiment analysis, and PII detection. The below sample shows a basic example on one operation. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md)
+
+[!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
+
+Create a new function called `analyzeBatchActionsExample()`, which calls the `beginAnalyzeBatchActions()` function. The result will be a long running operation which will be polled for results.
+
+```java
+static void analyzeBatchActionsExample(TextAnalyticsClient client)
+{
+        List<TextDocumentInput> documents = Arrays.asList(
+                        new TextDocumentInput("0", "Microsoft was founded by Bill Gates and Paul Allen.")
+                        );
+
+        
+        SyncPoller<AnalyzeActionsOperationDetail, PagedIterable<AnalyzeActionsResult>> syncPoller =
+                client.beginAnalyzeActions(documents,
+                        new TextAnalyticsActions().setDisplayName("Analyze Batch Actions Quickstart")
+                                .setRecognizeEntitiesOptions(new RecognizeEntitiesOptions()),
+                        new AnalyzeActionsOptions().setIncludeStatistics(false),
+                        Context.NONE);
+
+        // Task operation statistics
+        while (syncPoller.poll().getStatus() == LongRunningOperationStatus.IN_PROGRESS) {
+            final AnalyzeActionsOperationDetail operationResult = syncPoller.poll().getValue();
+            System.out.printf("Action display name: %s, Successfully completed actions: %d, in-process actions: %d, failed actions: %d, total actions: %d%n",
+                    operationResult.getDisplayName(), operationResult.getActionsSucceeded(),
+                    operationResult.getActionsInProgress(), operationResult.getActionsFailed(),
+                    operationResult.getActionsInTotal());
+        }
+
+        syncPoller.waitForCompletion();
+
+        Iterable<PagedResponse<AnalyzeActionsResult>> pagedResults = syncPoller.getFinalResult().iterableByPage();
+        for (PagedResponse<AnalyzeActionsResult> page : pagedResults) {
+            System.out.printf("Response code: %d, Continuation Token: %s.%n", page.getStatusCode(), page.getContinuationToken());
+            page.getElements().forEach(analyzeActionsResult -> {
+                System.out.println("Entities recognition action results:");
+                IterableStream<RecognizeEntitiesActionResult> recognizeEntitiesActionResults =
+                        analyzeActionsResult.getRecognizeEntitiesActionResults();
+                if (recognizeEntitiesActionResults != null) {
+                    recognizeEntitiesActionResults.forEach(actionResult -> {
+                        if (!actionResult.isError()) {
+                            // Recognized entities for each of documents from a batch of documents
+                            AtomicInteger counter = new AtomicInteger();
+                            for (RecognizeEntitiesResult documentResult : actionResult.getResult()) {
+                                System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
+                                if (documentResult.isError()) {
+                                    // Erroneous document
+                                    System.out.printf("Cannot recognize entities. Error: %s%n",
+                                            documentResult.getError().getMessage());
+                                } else {
+                                    // Valid document
+                                    documentResult.getEntities().forEach(entity -> System.out.printf(
+                                            "Recognized entity: %s, entity category: %s, entity subcategory: %s, confidence score: %f.%n",
+                                            entity.getText(), entity.getCategory(), entity.getSubcategory(), entity.getConfidenceScore()));
+                                }
+                            }
+                        } else {
+                            TextAnalyticsError actionError = actionResult.getError();
+                            // Erroneous action
+                            System.out.printf("Cannot execute Entities Recognition action. Error: %s%n", actionError.getMessage());
+                        }
+                    });
+                }
+            });
+        }
+    }
+```
+
+After you add this example to your application, call it in your `main()` method.
+
+```java
+analyzeBatchActionsExample(client);
+```
+
+### Output
+
+```console
+Action display name: Analyze Batch Actions Quickstart, Successfully completed actions: 0, in-process actions: 1, failed actions: 0, total actions: 1
+Response code: 200, Continuation Token: null.
+Entities recognition action results:
+
+Text = Microsoft was founded by Bill Gates and Paul Allen., Id = 0, Language = null
+Recognized entity: Microsoft, entity category: Organization, entity subcategory: null, confidence score: 0.970000.
+Recognized entity: Bill Gates, entity category: Person, entity subcategory: null, confidence score: 1.000000.
+Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.990000.
+```
+
+You can also use the Analyze operation to perform NER, key phrase extraction, sentiment analysis and detect PII. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeActionsAsync.java) on GitHub.
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
+---

@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed, get a list of the properties that changed, and evaluate the diffs.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 # Get resource changes
@@ -27,7 +27,7 @@ Change detection and details are valuable for the following example scenarios:
 This article shows how to gather this information through Resource Graph's SDK. To see this
 information in the Azure portal, see Azure Policy's
 [Change history](../../policy/how-to/determine-non-compliance.md#change-history) or Azure Activity
-Log [Change history](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). For
+Log [Change history](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). For
 details about changes to your applications from the infrastructure layer all the way to application
 deployment, see
 [Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
@@ -53,7 +53,7 @@ The **resourceChanges** endpoint accepts the following parameters in the request
 - **resourceId** \[required\]: The Azure resource to look for changes on.
 - **interval** \[required\]: A property with _start_ and _end_ dates for when to check for a change
   event using the **Zulu Time Zone (Z)**.
-- **fetchPropertyChanges** (optional): A boolean property that sets if the response object includes
+- **fetchPropertyChanges** (optional): A Boolean property that sets if the response object includes
   property changes.
 
 Example request body:
@@ -163,6 +163,11 @@ Each detected change event for the **resourceId** has the following properties:
 - **changeType** - Describes the type of change detected for the entire change record between the
   **beforeSnapshot** and **afterSnapshot**. Values are: _Create_, _Update_, and _Delete_. The
   **propertyChanges** property array is only included when **changeType** is _Update_.
+
+  > [!IMPORTANT]
+  > _Create_ is only available on resources that previously existed and were deleted within the last
+  > 14 days.
+
 - **propertyChanges** - This array of properties details all of the resource properties that were
   updated between the **beforeSnapshot** and the **afterSnapshot**:
   - **propertyName** - The name of the resource property that was altered.

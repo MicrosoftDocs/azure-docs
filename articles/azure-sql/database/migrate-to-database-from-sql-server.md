@@ -8,15 +8,17 @@ ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. For information on migrating to Azure SQL Managed Instance, see [Migrate a SQL Server instance to Azure SQL Managed Instance](../managed-instance/migrate-to-instance-from-sql-server.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
+In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. For information on migrating to Azure SQL Managed Instance, see [Migrate a SQL Server instance to Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md). 
+For guidance on choosing migration options and tools to migrate to Azure SQL, see [Migrate to Azure SQL](../migration-guides/index.yml)
+
 
 ## Migrate to a single database or a pooled database
 

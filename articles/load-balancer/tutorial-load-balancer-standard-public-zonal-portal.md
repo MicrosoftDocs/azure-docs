@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
+# Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -32,7 +32,7 @@ This tutorial creates a public [Azure Standard Load Balancer instance](https://a
 
 For more information about using availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
-If you prefer, use [Azure CLI](load-balancer-standard-public-zonal-cli.md) to complete this tutorial.
+If you prefer, use [Azure CLI](./quickstart-load-balancer-standard-public-cli.md) to complete this tutorial.
 
 ## Prerequisites
 

@@ -1,14 +1,18 @@
 ---
 title: Driver and tools compatibility - Azure Database for MySQL
 description: This article describes the MySQL drivers and management tools that are compatible with Azure Database for MySQL. 
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---
 # MySQL drivers and management tools compatible with Azure Database for MySQL
-This article describes the drivers and management tools that are compatible with Azure Database for MySQL.
+
+This article describes the drivers and management tools that are compatible with Azure Database for MySQL Single Server.
+
+>[!NOTE]
+>This article is only applicable to Azure Database for MySQL Single Server to ensure drivers are compatible with [connectivity architecture](concepts-connectivity-architecture.md) of Single Server service. [Azure Database for MySQL Flexible Server](./flexible-server/overview.md) is compatible with all the drivers and tools supported and compatible with MySQL community edition. 
 
 ## MySQL Drivers
 Azure Database for MySQL uses the world's most popular community edition of MySQL database. Therefore, it is compatible with a wide variety of programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MySQL drivers continue. A list of drivers that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 is provided in the following table:
@@ -37,16 +41,16 @@ Azure Database for MySQL uses the world's most popular community edition of MySQ
 ## Management Tools
 The compatibility advantage extends to database management tools as well. Your existing tools should continue to work with Azure Database for MySQL, as long as the database manipulation operates within the confines of user permissions. Three common database management tools that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 are listed in the following table:
 
-|                                     | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up** |
-| :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| **Create, Update, Read, Write, Delete** | X | X | X |
-| **SSL Connection** | X | X | X |
-| **SQL Query Auto Completion** | X | X |  |
-| **Import and Export Data** | X | X | X |
-| **Export to Multiple Formats** | X | X | X |
-| **Backup and Restore** |  | X |  |
-| **Display Server Parameters** | X | X | X |
-| **Display Client Connections** | X | X | X |
+|                                     | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up** | **dbForge Studio for MySQL 9.0** |
+| :---------------------------------- | :----------------------------- | :------------- | :-------------------------| :------------------------------- |
+| **Create, Update, Read, Write, Delete** | X | X | X | X |
+| **SSL Connection** | X | X | X | X |
+| **SQL Query Auto Completion** | X | X |  | X |
+| **Import and Export Data** | X | X | X | X |
+| **Export to Multiple Formats** | X | X | X | X |
+| **Backup and Restore** |  | X |  | X |
+| **Display Server Parameters** | X | X | X | X |
+| **Display Client Connections** | X | X | X | X |
 
 ## Next steps
 

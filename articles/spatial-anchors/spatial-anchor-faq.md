@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions
 description: FAQs about the Azure Spatial Anchors service.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 05/18/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
 #Customer intent: Address frequently asked questions regarding Azure Spatial Anchors.
@@ -41,13 +41,13 @@ For more information, see [Azure Spatial Anchors overview](overview.md).
 
 ## Privacy FAQ
 
-**Q: When my application places a Spatial Anchor somewhere do all apps have access to it?**
-
-**A:** Anchors are isolated by Azure account. Only apps to which you grant access to your account will be able to access anchors within the account.
-
 **Q: How does Azure Spatial Anchors store data?**
 
 **A:** All data is stored encrypted with a Microsoft managed data encryption key and all data is stored regionally for each of the resources.
+
+**Q: Where does Azure Spatial Anchors store data?**
+
+**A:** Azure Spatial Anchors accounts allow you to specify the region where your data will be stored. Microsoft may replicate data to other regions for resiliency, but Microsoft does not replicate or move data outside the geography. This data is stored in the region where the Azure Spatial Anchors account is configured. For example, if the account is registered in the East US region, this data is stored in the East US region but may be replicated to another region in the North America geography to ensure resiliency.
 
 **Q: What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?**
 
@@ -64,6 +64,33 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [Logging and diagnostics in Azure Spatial Anchors](./concepts/logging-diagnostics.md).
 
+## Privacy FAQ (for developers)
+
+**Q: When my application places a Spatial Anchor somewhere do all apps have access to it?**
+
+**A:** Anchors are isolated by Azure account. Only apps to which you grant access to your account will be able to access anchors within the account.
+
+**Q: What terms and conditions apply when using ASA in my app or SDK?**
+
+**A:** The following [terms](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/2.9.0/License) apply as well as any terms embedded in that license.
+
+### I want to release an app or SDK that includes ASA
+**Q: Do I need to agree to any additional terms?**
+
+**A:** No. By using ASA you agree to the above linked ToU and the embedded terms. No additional terms are required.
+
+**Q: Does Microsoft require the disclosure of ASA in my application or SDK to my users?**
+
+**A:** Microsoft does not require disclosure unless it is required by your local law to meet privacy or other requirements.  You should work with your own legal advisers to determine whether disclosing the use of ASA or Microsoft’s privacy practices is required by your local law.
+
+**Q: Do my users need to agree to any specific terms?**
+
+**A:** No. The contractual relationship is between Microsoft and the developer of the app or the SDK.  You should work with your own legal advisers to determine whether consent to the use of ASA or Microsoft’s privacy practices is required by your local law.
+
+**Q: I want to notify my users that my app/sdk is using ASA, what is the recommended interface to notify my users?**
+
+**A:** “This app is using Microsoft’s Azure Spatial Anchors.  For more information on Azure Spatial Anchors go to [Azure Spatial Anchors | Microsoft Azure](https://azure.microsoft.com/en-us/services/spatial-anchors/)”
+
 ## Availability and Pricing FAQs
 
 **Q: Do you provide an SLA?**
@@ -76,11 +103,11 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **Q: Do you have any throttling limits in place?**
 
-**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrs@microsoft.com) to discuss. 
+**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrscontact@microsoft.com) to discuss.
 
 **Q: In what regions is Azure Spatial Anchors available?**
 
-**A:** Azure Spatial Anchors is currently available in West US 2, East US, East US 2, South Central US, West Europe, North Europe, UK South, and Australia East. Additional regions will be available in the future.
+**A:** Azure Spatial Anchors is currently available in West US 2, East US, East US 2, South Central US, West Europe, North Europe, UK South, Australia East, Southeast Asia, and Korea Central. Additional regions will be available in the future.
 
 What this means is that both compute and storage powering this service are in these regions. That said, there are no restrictions on where your clients are located. 
 
