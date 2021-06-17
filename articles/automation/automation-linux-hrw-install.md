@@ -43,7 +43,7 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * Oracle Linux 5, 6, and 7
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 LTS
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 18.04 LTS, and 20.04 LTS
 * SUSE Linux Enterprise Server 12 and 15 (SUSE did not release versions numbered 13 or 14)
 
 > [!IMPORTANT]
