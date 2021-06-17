@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 02/18/2021
 ms.author: yelevin
 ---
 
@@ -119,13 +119,7 @@ Every playbook must start with a trigger. The trigger defines the action that wi
 
    Choose the trigger that matches the type of playbook you are creating.
 
-    > [!NOTE]
-    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](tutorial-detect-threats-custom.md#) and can also be run manually.
-
     :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Choose a trigger for your playbook":::
-
-> [!NOTE]
-> When you choose a trigger, or any subsequent action, you will be asked to authenticate to whichever resource provider you are interacting with. In this case, the provider is Azure Sentinel. There are a few different approaches you can take to authentication. For details and instructions, see [**Authenticate playbooks to Azure Sentinel**](authenticate-playbooks-to-sentinel.md).
 
 ### Add actions
 
