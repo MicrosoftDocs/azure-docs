@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/03/2021
+ms.date: 06/17/2021
 ms.author: bagol
 
 ---
@@ -49,15 +49,15 @@ If this has happened to your organization, you are in a race against the attacke
 
 Responding to systemic identity compromises should include the steps shown in the following image and table:
 
-:::image type="content" source="media/recover-identity-compromise.png" alt-text="Steps to recover from identity compromise.":::
+:::image type="content" source="media/recover-from-identity-compromise/recover-identity-compromise.png" alt-text="Steps to recover from identity compromise.":::
 
 
 |Step  |Description  |
 |---------|---------|
 |**Establish secure communications**     |  An organization that has experienced a systemic identity compromise must assume that all communication is affected. Before taking any recovery action, you must ensure that the members of your team who are key to your investigation and response effort [can communicate securely](#establish-secure-communications). <br><br>*Securing communications must be your very first step so that you can proceed without the attacker's knowledge.*|
 |**Investigate your environment**   | After you have secured communications on your core investigation team, you can start looking for initial access points and persistence techniques. [Identify your indications of compromise](#identify-indications-of-compromise), and then look for initial access points and persistence. At the same time, start [establishing continuous monitoring operations](#establish-continuous-monitoring) during your recovery efforts.        |
-|**Regain / retain control**     |  You must regain administrative control of your environment from the attacker. After you have control again, make sure to [remediate or block](#remediate-and-retain-administrative-control) all possible persistence techniques and new initial access exploits.       |
 |**Improve security posture**     | [Enable security features and capabilities](#improve-security-posture) following best practice recommendations for improved system security moving forward.  <br><br>Make sure to continue your [continuous monitoring](#establish-continuous-monitoring) efforts as time goes on and the security landscape changes.    |
+|**Regain / retain control**     |  You must regain administrative control of your environment from the attacker. After you have control again and have refreshed your system's security posture, make sure to [remediate or block](#remediate-and-retain-administrative-control) all possible persistence techniques and new initial access exploits.       |
 |     |         |
 
 ## Establish secure communications
@@ -68,7 +68,7 @@ For example:
 
 1. For initial one-on-one and group communications, you may want to use PSTN calls, conference bridges that are not connected to the corporate infrastructure, and end-to-end encrypted messaging solutions.
 
-    Communications outside these frameworks should be treated as compromised and un-trusted, unless verified through a secure channel.
+    Communications outside these frameworks should be treated as compromised and untrusted, unless verified through a secure channel.
 
 2. After those initial conversations, you may want to create an entirely new Microsoft 365 tenant, isolated from the organization's production tenant. Create accounts only for key personnel who need to be part of the response.
 
@@ -107,7 +107,7 @@ For more information, see Microsoft's security documentation:
 
 Once your incident responders and key personnel have a secure place to collaborate, you can start investigating the compromised environment.
 
-You'll need to balance out getting to the bottom of every anomalous behavior and taking quick action to stop any further activity by the attacker. Any successful remediation requires an understanding of the initial method of entry and persistence methods that the attacker used, as complete as is possible at the time. Any persistence methods missed during the investigation can result in continued access by the attacker, and a potential recompromise.
+You'll need to balance getting to the bottom of every anomalous behavior and taking quick action to stop any further activity by the attacker. Any successful remediation requires an understanding of the initial method of entry and persistence methods that the attacker used, as complete as is possible at the time. Any persistence methods missed during the investigation can result in continued access by the attacker, and a potential recompromise.
 
 At this point, you may want to perform a risk analysis to prioritize your actions. For more information, see:
 
@@ -153,9 +153,9 @@ Review administrative rights in both your cloud and on-premises environments. Fo
 |---------|---------|
 |**All cloud environments**    |       - Review any privileged access rights in the cloud and remove any unnecessary permissions<br>    - Implement Privileged Identity Management (PIM)<br>    - Set up Conditional Access policies to limit administrative access during hardening      |
 |**All on-premises environments**     |       - Review privileged access on-premise and remove unnecessary permissions<br>   - Reduce membership of built-in groups<br>    - Verify Active Directory delegations<br>    - Harden your Tier 0 environment, and limit who has access to Tier 0 assets      |
-|**All Enterprise applications**     | Review for delegated permissions and consent grants that allow any of the following actions: <br><br>  Modifying privileged users and roles <br>- Reading or accessing all mailboxes <br>- Sending or forwarding email on behalf of other users <br>- Accessing all OneDrive or SharePoint site content <br>- Adding service principals that can read/write to the directory      |
+|**All Enterprise applications**     | Review for delegated permissions and consent grants that allow any of the following actions: <br><br>  - Modifying privileged users and roles <br>- Reading or accessing all mailboxes <br>- Sending or forwarding email on behalf of other users <br>- Accessing all OneDrive or SharePoint site content <br>- Adding service principals that can read/write to the directory      |
 |**Microsoft 365 environments**     |Review access and configuration settings for your Microsoft 365 environment, including: <br>- SharePoint Online Sharing <br>- Microsoft Teams <br>- PowerApps <br>- Microsoft OneDrive for Business          |
-| **Review user accounts in your environments**   |- Review and remove guest user accounts that are no longer needed. <br>- Review email configurations for delegates, mailbox folder permissions, ActiveSync mobile device registrations, Inbox rules, and Outlook on the Web options <br>- Validate that both MFA and self-service password reset (SSPR) contact information for all users is correct.         |
+| **Review user accounts in your environments**   |- Review and remove guest user accounts that are no longer needed. <br>- Review email configurations for delegates, mailbox folder permissions, ActiveSync mobile device registrations, Inbox rules, and Outlook on the Web options. Also review ApplicationImpersonation rights and reduce any use of legacy authentication as much as possible. <br>- Validate that MFA is enforced and that both MFA and self-service password reset (SSPR) contact information for all users is correct.         |
 |     |         |
 
 ## Establish continuous monitoring
@@ -166,7 +166,7 @@ For example, Microsoft security services may have specific resources and guidanc
 
 > [!IMPORTANT]
 > If your investigation finds evidence of administrative permissions acquired through the compromise on your system, which have provided access to your organization's global administrator account and/or trusted SAML token-signing certificate, we recommend taking action to [remediate and retain administrative control](#remediate-and-retain-administrative-control).
-> 
+>
 
 ### Monitoring with Azure Sentinel
 
@@ -181,9 +181,9 @@ For more information, see:
 
 We recommend that you check Microsoft 365 Defender for Endpoint and Microsoft Defender Antivirus for specific guidance relevant to your attack.
 
-Check for other examples of detections, hunting queries, and threat analytics reports in the Microsoft security center, such as in Microsoft 365 Defender, Microsoft 365 Defender for Identity, and Microsoft Cloud App Security.
+Check for other examples of detections, hunting queries, and threat analytics reports in the Microsoft security center, such as in Microsoft 365 Defender, Microsoft 365 Defender for Identity, and Microsoft Cloud App Security. To ensure coverage, make sure that you install the [Microsoft Defender for Identity agent](/defender-for-identity/install-step4) on ADFS servers, in addition to all domain controllers.
 
-For more information about threat analytics in Microsoft 365 Defender, see:
+For more information, see:
 
 - [Track and respond to emerging threats with threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics)
 - [Understand the analyst report in threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics-analyst-reports)
@@ -200,13 +200,73 @@ The following table describes more methods for using Azure Active directory logs
 
 |Method  |Description  |
 |---------|---------|
-|**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. |
+|**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. <br>- Make sure to use [ADFS Connect Health](/azure/active-directory/hybrid/how-to-connect-health-adfs) so that all authentication events are visible in Azure AD. |
 |**Detect domain authentication properties**     |  Any attempt by the attacker to manipulate domain authentication policies will be recorded in the Azure Active Directory Audit logs, and reflected in the Unified Audit log. <br><br> For example, review any events associated with **Set domain authentication** in the Unified Audit Log, Azure AD Audit logs, and / or your SIEM environment to verify that all activities listed were expected and planned.   |
 |**Detect credentials for OAuth applications**     |  Attackers who have gained control of a privileged account may search for an application with the ability to access any user's email in the organization, and then add attacker-controlled credentials to that application. <br><br>For example, you may want to search for any of the following activities, which would be consistent with attacker behavior: <br>- Adding or updating service principal credentials <br>- Updating application certificates and secrets <br>- Adding an app role assignment grant to a user <br>- Adding Oauth2PermissionGrant |
 |**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Microsoft 365 Advanced Auditing features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
 |**Detect non-interactive sign-ins to service principals**     | The Azure Active Directory sign-in reports provide details about any non-interactive sign-ins that used service principal credentials.  For example, you can use the sign-in reports to find valuable data for your investigation, such as an IP address used by the attacker to access email applications.        |
 |     |         |
 
+
+## Improve security posture
+
+If a security event has occurred in your systems, we recommend that you reflect on your current security strategy and priorities.
+
+Incident Responders are often asked to provide recommendations on what investments the organization should prioritize, now that it’s been faced with new threats.
+
+In addition to the recommendations documented in this article, we recommend that you consider prioritizing the areas of focus that are responsive to the post-exploitation techniques used by this attacker and the common security posture gaps that enable them.
+
+The following sections list recommendations to improve both general and identity security posture.
+
+### Improve general security posture
+
+We recommend the following actions to ensure your general security posture:
+
+- **Review [Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score)** for security fundamentals recommendations customized for the Microsoft products and services you consume.
+
+- **Ensure that your organization has EDR and SIEM solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender) and [Azure Sentinel](/azure/sentinel/overview).
+
+- **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
+
+### Improve identity security posture
+
+We recommend the following actions to ensure identity-related security posture:
+
+- **Review Microsoft's [Five steps to securing your identity infrastructure](steps-secure-identity.md)**, and prioritize the steps as appropriate for your identity architecture.
+
+- **[Consider migrating to Azure AD Security Defaults](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)** for your authentication policy.
+
+- **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Azure AD with Conditional Access](/azure/active-directory/conditional-access/block-legacy-authentication).
+
+    > [!NOTE]
+    > The Exchange Team is planning to [disable Basic Authentication for the EAS, EWS, POP, IMAP, and RPS protocols](https://developer.microsoft.com/en-us/office/blogs/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) in the second half of 2021.
+    >
+    > As a point of clarity, Security Defaults and Authentication Policies are separate but provide complementary features.
+    >
+    > We recommend that customers use Authentication Policies to turn off Basic Authentication for a subset of Exchange Online protocols or to gradually turn off Basic Authentication across a large organization.
+    >
+
+- **Treat your ADFS infrastructure and AD Connect infrastructure as a Tier 0 asset**.
+
+- **Restrict local administrative access to the system**, including the account that is used to run the ADFS service.
+
+    The least privilege necessary for the account running ADFS is the *Log on as a Service* User Right Assignment.
+
+- **Restrict administrative access to limited users and from limited IP address ranges** by using Windows Firewall policies for Remote Desktop.
+
+    We recommend that you set up a Tier 0 jump box or equivalent system.
+
+- **Block all inbound SMB access** to the systems from anywhere in the environment. For more information, see [Beyond the Edge: How to Secure SMB Traffic in Windows](https://techcommunity.microsoft.com/t5/itops-talk-blog/beyond-the-edge-how-to-secure-smb-traffic-in-windows/ba-p/1447159). We also recommend that you stream the Windows Firewall logs to a SIEM for historical and proactive monitoring.
+
+- If you are using a Service Account and your environment supports it, **migrate from a Service Account to a group-Managed Service Account (gMSA)**. If you cannot move to a gMSA, rotate the password on the Service Account to a complex password.
+
+- **Ensure Verbose logging is enabled on your ADFS systems**. For example, run the following commands:
+
+    ```powershell
+    Set-AdfsProperties -AuditLevel verbose
+    Restart-Service -Name adfssrv
+    Auditpol.exe /set /subcategory:”Application Generated” /failure:enable /success:enable
+    ```
 
 ## Remediate and retain administrative control
 
@@ -381,66 +441,7 @@ In addition to the recommended actions listed above, we recommend that you consi
     - [Revoke user access in an emergency in Azure Active Directory](/azure/active-directory/enterprise-users/users-revoke-access)
     - [Revoke-AzureADUserAllRefreshToken PowerShell documentation](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
 
-## Improve security posture
 
-After a security event is a good time for organizations to reflect on their security strategy and priorities.
-
-Incident Responders are often asked to provide recommendations after an event on what investments the organization should prioritize, now that it’s been faced with new threats.
-
-In addition to the recommendations documented in this article, we recommend that you consider prioritizing the areas of focus that are responsive to the post-exploitation techniques used by this attacker and the common security posture gaps that enable them.
-
-The following sections list recommendations to improve both general and identity security posture.
-
-### Improve general security posture
-
-We recommend the following actions to ensure your general security posture:
-
-- **Review [Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score)** for security fundamentals recommendations customized for the Microsoft products and services you consume.
-
-- **Ensure that your organization has EDR and SIEM solutions in place**, such as [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) and [Azure Sentinel](/azure/sentinel/overview).
-
-- **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
-
-### Improve identity security posture
-
-We recommend the following actions to ensure identity-related security posture:
-
-- **Review Microsoft's [Five steps to securing your identity infrastructure](steps-secure-identity.md)**, and prioritize the steps as appropriate for your identity architecture.
-
-- **[Consider migrating to Azure AD Security Defaults](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)** for your authentication policy.
-
-- **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Azure AD with Conditional Access](/azure/active-directory/conditional-access/block-legacy-authentication).
-
-    > [!NOTE]
-    > The Exchange Team is planning to [disable Basic Authentication for the EAS, EWS, POP, IMAP, and RPS protocols](https://developer.microsoft.com/en-us/office/blogs/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) in the second half of 2021.
-    >
-    > As a point of clarity, Security Defaults and Authentication Policies are separate but provide complementary features.
-    >
-    > We recommend that customers use Authentication Policies to turn off Basic Authentication for a subset of Exchange Online protocols or to gradually turn off Basic Authentication across a large organization.
-    >
-
-- **Treat your ADFS infrastructure and AD Connect infrastructure as a Tier 0 asset**.
-
-- **Restrict local administrative access to the system**, including the account that is used to run the ADFS service.
-
-    The least privilege necessary for the account running ADFS is the *Log on as a Service* User Right Assignment.
-
-- **Restrict administrative access to limited users and from limited IP address ranges** by using Windows Firewall policies for Remote Desktop.
-
-    We recommend that you set up a Tier 0 jump box or equivalent system.
-
-- **Block all inbound SMB access** to the systems from anywhere in the environment. For more information, see [Beyond the Edge: How to Secure SMB Traffic in Windows](https://techcommunity.microsoft.com/t5/itops-talk-blog/beyond-the-edge-how-to-secure-smb-traffic-in-windows/ba-p/1447159). We also recommend that you 
-stream the Windows Firewall logs to a SIEM for historical and proactive monitoring.
-
-- If you are using a Service Account and your environment supports it, **migrate from a Service Account to a group-Managed Service Account (gMSA)**. If you cannot move to a gMSA, rotate the password on the Service Account to a complex password.
-
-- **Ensure Verbose logging is enabled on your ADFS systems**. For example, run the following commands:
-
-    ```powershell
-    Set-AdfsProperties -AuditLevel verbose
-    Restart-Service -Name adfssrv
-    Auditpol.exe /set /subcategory:”Application Generated” /failure:enable /success:enable
-    ```
 
 ## Next steps
 
