@@ -449,7 +449,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
 WITH ( FORMAT_TYPE = PARQUET)
 ```
 
-### Operation [[operation name]] is not allowed for a replicated database.
+### Operation is not allowed for a replicated database.
    
 If you are trying to create some SQL objects, users, or change permissions in a database, you might get the errors like 'Operation CREATE USER is not allowed for a replicated database'. This error is returned when you try to create some objects in a database that is [shared with Spark pool](../metadata/database.md). The databases that are replicated from Apache Spark pools are read-only. You cannot create new objects into replicated database using T-SQL.
 
@@ -501,6 +501,10 @@ Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.jso
 
 Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format). If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders.
 
+Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
+
 ### Query failed because of a topology change or compute container failure
 
 Some Delta Lake queries on partitioned data sets might fail with this error message if your database collation is not `Latin1_General_100_BIN2_UTF8`. Create a database with `Latin1_General_100_BIN2_UTF8` collation and execute the queries on that database instead of master and other databases with the default collation.
@@ -512,7 +516,9 @@ CREATE DATABASE mydb
 
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
-You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake. Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns.
+You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake.
+
+Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns.
 
 ### Cannot find value of partitioning column in file 
 

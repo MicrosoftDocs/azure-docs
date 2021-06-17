@@ -119,7 +119,11 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. Add the following code to the `InitCallAgent` function. 
+Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. 
+
+In the following code, replace `<USER_ACCESS_TOKEN>` with a User Access Token. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
+
+Add the following code to the `InitCallAgent` function. 
 
 ```C#
 CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");

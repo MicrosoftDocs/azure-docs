@@ -204,14 +204,16 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
 
-The preceding example don't deploy the storage account, but the declaration provides access to properties on the existing resource. Using the 'stg' symbolic name, you can access properties on the storage account.
+The preceding example doesn't deploy the storage account, but the declaration provides access to properties on the existing resource. Using the 'stg' symbolic name, you can access properties on the storage account.
 
-The following examples shows how to specify the `scope` property:
+The following example shows how to specify the `scope` property:
 
+```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
   name: 'exampleStorage'
   scope: resourceGroup(mySub, myRg)
 }
+```
 
 ## Next steps
 
