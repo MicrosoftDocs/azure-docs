@@ -346,7 +346,7 @@ The following snippet shows this property in the message exported to Blob storag
 
 ## Property changes format
 
-Each message or record represents changes to device and cloud properties. For device properties, only changes in the reported value are exported. Information in the exported message includes:
+Each message or record represents changes to device and cloud properties. Information in the exported message includes:
 
 - `applicationId`: The ID of the IoT Central application.
 - `messageSource`: The source for the message - `properties`.
