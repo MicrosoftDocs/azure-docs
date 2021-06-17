@@ -146,97 +146,23 @@ Before you begin, make sure that:<!--Anam to provide updated Prerequisites in Su
     ![Screenshot showing a summary of orders for the resource group in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
 
-## Manage orders in Azure Edge Hardware Center
+## Create management resource for device
 
-TO BE DEVELOPED. Things they can do with a just-completed order while it's in the Azure Edge Hardware Center. The resource is still managed in Azure Stack Edge.
+To manage the devices that you order through the Azure Edge Hardware Center, you need to create a management resource for each order item.
 
-<!--STOPPED HERE: 06/16 PM
+When you activate the device, the new resource is associated with your order. You'll be able to open the order from the device and open the device from the order.
 
+To create a management resource, do these steps:
 
+*TO BE DEVELOPED.*
 
-## Create a new Classic order
+## Activate device
 
-*STEPS FROM deploy-prep > portal. Not yet updated beyond STOPPED HERE. Text AND PNGs are from deploy-prep.*
+*TO BE DEVELOPED.*
 
-When you're using the familiar method to create an individual resource in Azure Stack Edge, Azure Stack Hub, or such - now known as a Classic order - you can switch to the Azure Edge Hardware Center to complete your order.
-
-To switch to the Azure Edge Hardware Center while creating a Classic order, do these steps:
-
-1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
-
-1. Select **+ Create a resource**. Search for and select **Azure Stack Edge (preview). Select **Create**.
-
-      ![Screenshot of option for creating a resource from the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/azure-hardware-center-create-resource-01.png)
-
-   1. Select a product family from the selected subscriptions. For example, select **Azure Stack Edge**.
-
-     ![Screenshot of option for selecting a product family for an order in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new order/azure-hardware-center-create-resource-02.png)
-
-STOPPED HERE IN REVIEW OF Classic PROCEDURE. - 06/14/2021
-
-3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
-
-    ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
-
-4. Select device type. Under **Azure Stack Edge Pro**, choose **Azure Stack Edge Pro with GPU** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
-
-    ![Create a resource 3](media/azure-edge-hardware-center-new-order/create-resource-3.png)
-
-5. Based on your business need, you can select Azure Stack Edge Pro with 1 or 2 Graphical Processing Units (GPUs) from Nvidia. 
-
-    ![Create a resource 4](media/azure-edge-hardware-center-new-order/create-resource-4.png)
-
-6. On the **Basics** tab, enter or select the following **Project details**.
-    
-    |Setting  |Value  |
-    |---------|---------|
-    |Subscription    |The subscription is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
-    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
-
-7. Enter or select the following **Instance details**.
-
-    |Setting  |Value  |
-    |---------|---------|
-    |Name   | A friendly name to identify the resource.<br>The name has from 2 to 50 characters containing letters, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
-    |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
-
-    ![Create a resource 5](media/azure-edge-hardware-center-new-order/create-resource-5.png)
-
-8. Select **Next: Shipping address**.
-
-    - If you already have a device, select the combo box for **I already have a device**.
-
-        ![Create a resource 6](media/azure-edge-hardware-center-new-order/create-resource-6.png)
-
-    - If this is the new device that you're ordering, enter the contact name, company, address to ship the device, and contact information.
-
-        ![Create a resource 7](media/azure-edge-hardware-center-new-order/create-resource-7.png)
-
-9. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
-
-10. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
-
-    ![Create a resource 8](media/azure-edge-hardware-center-new-order/create-resource-8.png) 
-
-    You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
-
-11. Select **Create**.
-
-    The resource creation takes a few minutes. An MSI is also created that lets the Azure Stack Edge device communicate with the resource provider in Azure.
-
-    After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
-
-    ![Go to the Azure Stack Edge Pro resource](media/azure-edge-hardware-center-new-order/placeholder.png)
-
-After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
-
-[!NOTE]
-> If you want to create multiple orders at one time or clone an existing order, you can use the [scripts in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, see the README file.<!--When new preview features are released, update this note in deploy-prep. Azure Edge Hardware Center method will be easier. Scripts were a stop-gap measure.
-
-If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).<!--LATER: Closer to general release, will need to create separate troubleshooting for order through Azure Edge Hardware Center.-->
-
+*- For steps, link to existing "Reset or reorder device" procedure.* 
+*- Show how to open the order from the device and vice versa.*
 
 ## Next steps
 
-- TK: Manage addresses for your Azure Hardware Center orders
 - To learn how to deploy virtual machines on your Azure Stack Edge Pro device, see [Deploy virtual machines via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
