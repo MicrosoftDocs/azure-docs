@@ -3,7 +3,7 @@ title: Setting up and responding to alerts from Azure Defender for open-source r
 description: Learn how to configure Azure Defender for open-source relational databases to detect anomalous database activities indicating potential security threats to the database.
 author: memildin
 ms.author: memildin
-ms.date: 06/73/2021
+ms.date: 06/17/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
@@ -33,8 +33,6 @@ Learn more about this Azure Defender plan in [Introduction to Azure Defender for
     > [!TIP]
     > This page in the portal will be the same regardless of the database type (PostgreSQL, MySQL, or MariaDB).
 
-1. The alerts ..... [on this page]
-
 ## Respond to security alerts
 
 When Azure Defender is enabled on your database, it detects anomalous activities and generates alerts. These alerts are available from multiple locations, including:
@@ -56,15 +54,15 @@ Azure Defender sends email notifications when it detects anomalous database acti
 
 1. Select the **View the full alert** link in the email to launch the Azure portal and show the alerts page, which provides an overview of active threats detected on the database.
     
-    :::image type="content" source="media/defender-for-databases-usage/suspected-brute-force-attack-notification-email.png" alt-text="Anomalous activity report.":::
+    :::image type="content" source="media/defender-for-databases-usage/suspected-brute-force-attack-notification-email.png" alt-text="Azure Defender's email notification about a suspected brute force attack.":::
 
     View active threats at the subscription level from within the Security Center portal pages:
 
-    :::image type="content" source="media/defender-for-databases-usage/db-alerts-page.png" alt-text="Active threats." lightbox="media/defender-for-databases-usage/db-alerts-page.png":::
+    :::image type="content" source="media/defender-for-databases-usage/db-alerts-page.png" alt-text="Active threats on one or more subscriptions are shown in Azure Security Center." lightbox="media/defender-for-databases-usage/db-alerts-page.png":::
 
 1. For additional details and recommended actions for investigating the current threat and remediating future threats, select a specific alert.
     
-    :::image type="content" source="media/defender-for-databases-usage/specific-alert-details.png" alt-text="Specific alert." lightbox="media/defender-for-databases-usage/specific-alert-details.png":::
+    :::image type="content" source="media/defender-for-databases-usage/specific-alert-details.png" alt-text="Details of a specific alert." lightbox="media/defender-for-databases-usage/specific-alert-details.png":::
 
 
 > [!TIP]
