@@ -9,6 +9,7 @@ ms.date: 03/10/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
+ms.custom: subject-rbac-steps
 ---
 
 # Calculate blob count and total size per container using Azure Storage inventory
