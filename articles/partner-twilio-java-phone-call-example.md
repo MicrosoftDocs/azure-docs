@@ -23,7 +23,7 @@ The following example shows you how you can use Twilio to make a call from a web
 
 You'll need to do the following to use the code in this topic:
 
-1. Acquire a Twilio account and authentication token. To get started with Twilio, evaluate pricing at [https://www.twilio.com/pricing][twilio_pricing]. You can sign up at [https://www.twilio.com/try-twilio][try_twilio]. For information about the API provided by Twilio, see [https://www.twilio.com/docs/api][twilio_api].
+1. Acquire a Twilio account and authentication token. To get started with Twilio, evaluate pricing at [https://www.twilio.com/pricing][twilio_pricing]. You can sign up at [https://www.twilio.com/try-twilio][try_twilio]. For information about the API provided by Twilio, see [https://www.twilio.com/api][twilio_api].
 2. Obtain the Twilio JAR. At [https://github.com/twilio/twilio-java][twilio_java_github], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
    The code in this topic was written using the pre-built TwilioJava-3.3.8-with-dependencies JAR.
 3. Add the JAR to your Java build path.
