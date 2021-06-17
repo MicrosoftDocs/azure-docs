@@ -130,7 +130,7 @@ Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
 ### Set up a self-hosted IR on an Azure VM via an Azure Resource Manager template
 
-You can automate self-hosted IR setup on an Azure virtual machine by using the [Create self host IR template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). The template provides an easy way to have a fully functional self-hosted IR inside an Azure virtual network. The IR has high-availability and scalability features, as long as you set the node count to 2 or higher.
+You can automate self-hosted IR setup on an Azure virtual machine by using the [Create self host IR template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime). The template provides an easy way to have a fully functional self-hosted IR inside an Azure virtual network. The IR has high-availability and scalability features, as long as you set the node count to 2 or higher.
 
 ### Set up an existing self-hosted IR via local PowerShell
 

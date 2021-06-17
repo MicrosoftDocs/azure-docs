@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: iangithinji
-author: iantheninja
+ms.author: mtillman
+author: mtillman
 manager: CelesteDG
 ---
 
@@ -26,7 +26,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### New articles
 
-- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.yml)
+- [Active Directory (Azure AD) Application Proxy frequently asked questions](../app-proxy/application-proxy-faq.yml)
 
 ### Updated articles
 

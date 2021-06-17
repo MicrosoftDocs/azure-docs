@@ -39,7 +39,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
     Authorized IP ranges only works with Standard Load Balancer.
 
-- When **attaching** an AKS cluster, it must be in the same Azure subscription as your Azure Machine Learning workspace.
+- > To attach an AKS cluster from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the AKS cluster. Check your access in the [Azure portal](https://ms.portal.azure.com/).
 
 - If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
@@ -220,7 +220,7 @@ For more information on creating an AKS cluster using the Azure CLI or portal, s
 
 * [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az_aks_create)
 * [Create an AKS cluster (portal)](../aks/kubernetes-walkthrough-portal.md)
-* [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
+* [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 The following example demonstrates how to attach an existing AKS cluster to your workspace:
 

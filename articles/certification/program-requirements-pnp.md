@@ -1,6 +1,6 @@
 ---
 title: IoT Plug and Play Certification Requirements
-description: IoT Plug and Play Certification program requirements
+description: IoT Plug and Play Certification Requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 

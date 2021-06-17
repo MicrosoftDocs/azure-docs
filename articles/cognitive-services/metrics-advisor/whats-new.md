@@ -5,7 +5,7 @@ description: Learn about what is new with Metrics Advisor
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/14/2020
@@ -33,4 +33,4 @@ If you want to learn about the latest updates to Metrics Advisor client SDKs see
 
 ### Updated articles
 
-* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics](faq.md#how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics)
+* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics](/azure/cognitive-services/metrics-advisor/faq#how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics)

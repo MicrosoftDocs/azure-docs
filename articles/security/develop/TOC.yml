@@ -24,7 +24,7 @@
     - name: Configuration
       href: security-code-analysis-customize.md
     - name: FAQs
-      href: security-code-analysis-faq.md
+      href: security-code-analysis-faq.yml
     - name: YAML Configuration
       href: yaml-configuration.md
     - name: Releases and roadmap

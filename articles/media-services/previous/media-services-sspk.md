@@ -75,46 +75,29 @@ The SSPK Distribution portal is accessible to registered Interim licensees.
 Interim and Final SSPK licensees can submit technical questions to [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 
 ## Microsoft Smooth Streaming Client Interim Product Agreement Licensees
-
-* Adroit Business Solutions, Inc
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Alticast Corporation
-* Amazon Digital Services, Inc.
-* Arion Technology, Inc.
-* AVC Multimedia Software Co., Ltd.
-* Cavium, Inc.
-* EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Fluendo S.A.
+* Guangzhou Dimai Digital Limited Co.
 * Guangzhou Shikun Electronics., Ltd.
-* HANDAN BroadInfoCom Co., Ltd.
-* Infomir GMBH
-* Irdeto USA Inc.
-* Liberty Global Services BV
+* Hisilicon Technologies Co., Ltd.
+* LG Electronics, Inc.
 * MediaTek Inc.
-* MStar Co, Ltd
-* Nintendo Co., Ltd.
-* OpenTV, Inc.
-* Saffron Digital Limited
-* Sichuan Changhong Electric Co., Ltd
-* SoftAtHome
-* Sony Corporation
+* Montage LZ Technologies Hong Kong Limited
+* Panasonic Corporation
+* Synamedia Limited
 * Tatung Technology Inc.
 * Top Victory Investments, Ltd.
-* Vestel Elektronik Sanayi ve Ticaret A.S.
-* VisualOn, Inc.
 * ZTE Corporation
 
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
+* Advanced Digital Broadcast SA
 * AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
 * Arcelik A.S
 * Compal Electronics, Inc.
 * Enseo, LLC
 * EXPRESS LUCK TECHNOLOGY LIMITED
+* FAIRWIT HONGKONG CO., LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
 * Hisense Broadband Multimedia Technologies Co.,Ltd.
@@ -124,9 +107,10 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Hong Kong Konka Ltd
 * Innolux Corporation
 * Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
-* K-Tronics (Suzhou) Technology Co., Ltd. 
 * KAONMEDIA CO., Ltd.
 * KDDI Corporation
+* K-Tronics (Suzhou) Technology Co., Ltd.
+* LG Electronics, Inc.
 * Mega Fame Electronics Co. Limited
 * MINGCAI NEW CENTURY (HK) CO., LIMITED
 * MIRC Electronics Limited
@@ -143,15 +127,15 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Shenzhen MTC Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
-* Skardin Industrial Corp.
+* SKARDIN INDUSTRIAL CORP
 * Sky CP Ltd
 * SMARDTV GLOBAL SAS
 * SoftAtHome
-* Sony Corporation
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.
 * Vizio, Inc.
-* ZTE Corporation
+* Walton Hi-Tech Industries Ltd.
+* ZTE CORPORATION
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

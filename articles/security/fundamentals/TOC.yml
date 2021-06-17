@@ -49,6 +49,8 @@
     items:
     - name: Firmware security
       href: firmware.md
+    - name: Code integrity
+      href: code-integrity.md
     - name: Secure Boot
       href: secure-boot.md
     - name: Measured boot & host attestation

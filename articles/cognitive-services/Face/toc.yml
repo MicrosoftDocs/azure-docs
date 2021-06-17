@@ -45,7 +45,7 @@ items:
     - name: Configure containers
       href: face-resource-container-config.md
     - name: Use container instances
-      href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+      href: ../containers/azure-container-instance-recipe.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
     - name: All Cognitive Services containers documentation
       href: ../containers/index.yml
       maintainContext: true

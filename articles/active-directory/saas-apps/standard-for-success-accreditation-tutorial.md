@@ -20,7 +20,6 @@ In this tutorial, you'll learn how to integrate Standard for Success Accreditati
 
 * Control in Azure AD who has access to Standard for Success Accreditation.
 * Enable your users to be automatically signed-in to Standard for Success Accreditation with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
@@ -38,7 +37,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding Standard for Success Accreditation from the gallery
+## Add Standard for Success Accreditation from the gallery
 
 To configure the integration of Standard for Success Accreditation into Azure AD, you need to add Standard for Success Accreditation from the gallery to your list of managed SaaS apps.
 
@@ -47,7 +46,7 @@ To configure the integration of Standard for Success Accreditation into Azure AD
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Standard for Success Accreditation** in the search box.
-1. Select **Standard for Success Accreditation** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **Standard for Success Accreditation** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
 ## Configure and test Azure AD SSO for Standard for Success Accreditation
@@ -76,15 +75,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     In the **Reply URL** text box, type a URL using the following pattern:
-    `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTIONID>`
+    `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTION-ID>`
 
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://edu.sfsed.com/access/saml_int?did=<INSTITUTIONID>`
+    `https://edu.sfsed.com/access/saml_int?did=<INSTITUTION-ID>`
 
     b. In the **Relay State** text box, type a URL using the following pattern:
-    `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTIONID>`
+    `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTION-ID>`
 
     > [!NOTE]
     > These values are not real. Update these values with the actual Reply URL, Sign-on URL and Relay State. Contact [Standard for Success Accreditation Client support team](mailto:help_he@standardforsuccess.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -108,7 +107,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the username@institutiondomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
@@ -132,15 +131,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Scroll down to **Single Sign On Settings** and click the **Microsoft Azure Single Sign On** link and perform the following steps.
 
-    ![Microsoft Azure Single Sign On page.](./media/standard-for-success-accreditation-tutorial/configuration.png)
+    :::image type="content" source="./media/standard-for-success-accreditation-tutorial/configuration.png" alt-text="Screenshot that shows how to enable Azure single sign-on in Standard for Success Accreditation.":::
 
-    a. **Enable Azure Single Sign On** checkbox.
+    a. Select the **Enable Azure Single Sign On** checkbox.
 
-    b. Fill the **Azure Tenant ID** text box with Tenant ID value from the Azure portal.
+    b. Fill the URL and Identifier fields with the appropriate URLs copied from the Azure portal SAML setup.
 
-    c. Fill the application ID in the **Application ID** text box.
+    c. Fill the Application ID in the **Application ID** text box.
 
-    d. In the **Certificate Thumbprint** text box, paste the **Thumbprint Value** which you have copied from Azure portal.
+    d. In the **Certificate Thumbprint** text box, paste the **Thumbprint Value** that you copied from the Azure portal.
 
     e. Click **Save**. 
 
@@ -148,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1.	Sign in to Standard for Success Accreditation as an Administrator with superuser privileges.
 
-1. From the menu, click on **Admin Portal -> Create New Evaluatee** and perform the following steps.
+1. From the menu, click on **Admin Portal** > **Create New Evaluatee** and perform the following steps.
 
     ![creating test user.](./media/standard-for-success-accreditation-tutorial/new-user.png)
 
@@ -156,7 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In **Last Name** text box, enter Simon.
 
-    c. In **University Email** text box, enter your organization email address.
+    c. In **University Email** text box, enter the email address you added for B.Simon within Azure.
 
     d. Scroll to the bottom and Click **Create User**.
 
