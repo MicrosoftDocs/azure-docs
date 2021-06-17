@@ -530,6 +530,20 @@ Resolving Delta logs on path 'https://....core.windows.net/.../' failed with err
 
 Try to update your Delta Lake data set using Apache Spark pools and use some value (empty string or `"null"`) instead of `null` in the partitioning column.
 
+## Constraints
+
+There are some general system constraints that may affect your workload:
+
+| Property | Limitation |
+|---|---|
+| Max number of Synapse workspaces per subscription | 20 |
+| Max number of databases per serverless pool | 20 (no including databases synchronized from Apache Spark pool) |
+| Max number of databases synchronized from Apache Spark pool | Not limited |
+| Max number of databases objects per database | Not limited (same as the [limitations in SQL Server database engine]) |
+| Max query duration | 30 min |
+| Max size of the result set | 80 GB (shared between all currently executing concurrent queries) |
+| Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan larger amount of data. |
+
 ## Next steps
 
 Review the following articles to learn more about how to use serverless SQL pool:
