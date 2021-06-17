@@ -35,7 +35,7 @@ To display the Azure Resource Manager resource ID for a storage account in the A
 To return the Azure Resource Manager resource ID for a storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Next, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to return the storage account and get its resource ID:
 
 ```azurepowershell
-(Get-AzStorageAccount -ResourceGroupName $rgName -Name $storageAccount).Id
+(Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
