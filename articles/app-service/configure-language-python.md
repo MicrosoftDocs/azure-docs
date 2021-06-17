@@ -435,4 +435,4 @@ If you're encountering this error with the sample in [Tutorial: Deploy a Django 
 > [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
