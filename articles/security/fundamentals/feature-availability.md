@@ -57,6 +57,7 @@ The following tables display the current Azure Sentinel feature availability in 
 
 | Feature | Azure | Azure Government  |
 | ----- | ----- | ---- |
+|- [Automation rules](../../sentinel/automate-incident-handling-with-automation-rules.md) | Public Preview | Public Preview |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](../../sentinel/multiple-workspace-view.md) |Public Preview | Public Preview |
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
