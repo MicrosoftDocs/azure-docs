@@ -38,7 +38,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2020-04-01-preview)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), the
 control is **$top** and is part of **QueryRequestOptions**.
 
 The control that is _most restrictive_ will win. For example, if your query uses the **top** or
