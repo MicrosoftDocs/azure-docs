@@ -2044,7 +2044,7 @@ The RDB via Tables connector crawls content from any relational database that ca
 
 by [Accenture](https://www.accenture.com)
 
-The RDB via Snapshots connector will crawl content from any relational database that can be accessed using JDBC and will perform incremental crawls using snapshot files. It extracts data directly based on SQL statements.
+The RDB via Snapshots connector will crawl content from any relational database that can be accessed using JDBC and will perform incremental crawls using a snapshot database. It extracts data directly based on SQL statements.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/RDB+via+Snapshots+Connector)
 
