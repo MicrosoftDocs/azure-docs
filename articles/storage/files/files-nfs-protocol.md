@@ -27,7 +27,12 @@ NFS file shares are often used in the following scenarios:
 - Hard link support.
 - Symbolic link support.
 
-## Security
+- NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, lock upgrades and downgrades, Kerberos authentication, and encryption are not supported.
+- If the majority of your requests are metadata-centric, then the latency will be worse when compared to read/write/update operations.
+- Only the management plane REST APIs are supported. Data plane REST APIs are not available, which means that tools like Storage Explorer will not work with NFS shares nor will you be able to browse NFS share data in the Azure portal.
+- It is best to rely on the permissions assigned to primary group. Sometimes, permissions allocated to the non-primary group of the user may result in access denied due to a known bug.
+
+## Security and networking
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
 For encryption in transit, Azure provides a layer of encryption for all data in transit between Azure Datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure datacenters. Unlike Azure Files using the SMB protocol, file shares using the NFS protocol do not offer user-based authentication. Authentication for NFS shares is based on the configured network security rules. Due to this, to ensure only secure connections are established to your NFS share, you must use either service endpoints or private endpoints. If you want to access shares from on-premises then, in addition to a private endpoint, you must setup a VPN or ExpressRoute. Requests that do not originate from the following sources will be rejected:
@@ -40,17 +45,6 @@ For encryption in transit, Azure provides a layer of encryption for all data in 
 - [A restricted public endpoint](storage-files-networking-overview.md#storage-account-firewall-settings)
 
 For more details on the available networking options, see [Azure Files networking considerations](storage-files-networking-overview.md).
-
-
-- NFS 4.1 currently only supports most features from the [protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, lock upgrades and downgrades, Kerberos authentication, and encryption are not supported.
-- If the majority of your requests are metadata-centric, then the latency will be worse when compared to read/write/update operations.
-- NFS Shares can only be enabled/created on new storage account/s and not the existing ones
-- Only the management plane REST APIs are supported. Data plane REST APIs are not available, which means that tools like Storage Explorer will not work with NFS shares nor will you be able to browse NFS share data in the Azure portal.
-- AzCopy is not currently supported.
-- Only available for the premium tier.
-- NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, you should disable ID mapping.
-- Shares can only be mounted from one storage account on an individual VM, when using private links. Attempting to mount shares from other storage accounts will fail.
-- It is best to rely on the permissions assigned to primary group. Sometimes, permissions allocated to the non-primary group of the user may result in access denied due to a known bug.
 
 ## Limitations
 
