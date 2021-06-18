@@ -31,7 +31,7 @@ You'll also need the following to use Form Recognizer containers:
 | Required | Purpose |
 |----------|---------|
 | **Familiarity with Docker** | <ul><li>You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology).</li></ul> |
-| **Docker Engine installed** | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul>  | 
+| **Docker Engine installed** | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul>  |
 |**Form Recognizer resource** | <ul><li>An Azure **Form Recognizer** resource and the associated API key and endpoint URI. Both values are available on the Azure portal **Form Recognizer** Keys and Endpoint page and are required to start the container.</li></ul> |
 |||
 
@@ -69,7 +69,7 @@ The following table lists the required containers for each Form Recognizer featu
 | ID Document 2.1-preview  | **ID Document** and **Read** containers |
 | Invoice 2.1-preview  | **Invoice** and **Layout** containers |
 | Receipt 2.1-preview  | **Receipt** and **Read** containers |
-| Custom | **Custom FE**, **Custom BE**, and **Layout** containers |
+| Custom | **Custom FE**, **Custom BE**, **Label Tool**, and **Layout** containers |
 
 #### Recommended CPU cores and memory
 
@@ -83,9 +83,10 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 | ID Document 2.1-preview | 1 core, 2-GB memory |2 cores, 2-GB memory |
 | Invoice 2.1-preview | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
 | Receipt 2.1-preview |  4 cores, 8-GB memory | 8 cores, 8-GB memory  |
+| Label Tool 2.1 | 2 core, 4-GB memory | 4 core, 8-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
-* Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+* Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker compose` or `docker run`  command.
 
 > [!Note]
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
@@ -103,7 +104,6 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 ## Run the container with the **docker compose up** command
 
 * Replace the {ENDPOINT_URI} and {API_KEY} values with your Form Recognizer Endpoint URI and the API Key from the Azure resource page.
-
    :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page":::
 
 * Ensure that the EULA value is set to "accept".
@@ -144,7 +144,7 @@ docker-compose up
 
 ### [Business Card](#tab/business-card)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance.
+Below is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Business Card and Read containers.
 
 ```yml
 version: "3"
@@ -153,7 +153,7 @@ services:
     container_name: azure-cognitive-service-businesscard
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard
     environment:
-      - EULA=accept 
+      - EULA=accept
       - billing= # Billing endpoint
       - apikey= # Subscription key
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
@@ -165,7 +165,7 @@ services:
     container_name: azure-cognitive-service-read
     image: mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
     environment:
-      - EULA=accept 
+      - EULA=accept
       - billing= # Billing endpoint
       - apikey= # Subscription key
     networks:
@@ -184,7 +184,7 @@ docker-compose up
 
 ### [ID Document](#tab/id-document)
 
-Below is a self-contained `docker compose` example to run Form Recognizer ID Document and Read containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance.
+Below is a self-contained `docker compose` example to run Form Recognizer ID Document and Read containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the ID Document and Read containers.
 
 ```yml
 version: "3"
@@ -224,7 +224,7 @@ docker-compose up
 
 ### [Invoice](#tab/invoice)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Invoice and Layout containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance.
+Below is a self-contained `docker compose` example to run Form Recognizer Invoice and Layout containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Invoice and Layout containers.
 
 ```yml
 version: "3"
@@ -265,7 +265,7 @@ docker-compose up
 
 ### [Receipt](#tab/receipt)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Invoice and Read containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance.
+Below is a self-contained `docker compose` example to run Form Recognizer Receipt and Read containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Receipt and Read containers.
 
 ```yml
 version: "3"
@@ -274,7 +274,7 @@ services:
     container_name: azure-cognitive-service-receipt
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
     environment:
-      - EULA=accept 
+      - EULA=accept
       - billing= # Billing endpoint
       - apikey= # Subscription key
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
@@ -286,7 +286,7 @@ services:
     container_name: azure-cognitive-service-read
     image: mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
     environment:
-      - EULA=accept 
+      - EULA=accept
       - billing= # Billing endpoint
       - apikey= # Subscription key
     networks:
@@ -301,6 +301,73 @@ Now you can start the service with the [**docker compose**](https://docs.docker.
 
 ```yml
 docker-compose up
+```
+
+### [Custom](#tab/custom)
+
+### Additional requirements for Custom Form Recognizer containers
+
+#### Get the sample label tool
+
+* You can get the sample label tool container with the [**docker pull**](https://docs.docker.com/engine/reference/commandline/pull/) command:
+
+```console
+docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
+```
+
+* Next, start the container with the [**docker run**](https://docs.docker.com/engine/reference/commandline/run/) command:
+
+```console
+docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
+```
+
+* Now, the sample label tool is available to you through a web browser. Go to http://localhost:3000.
+
+Below is a self-contained `docker compose` example to run Form Recognizer Layout, Custom Backend, Custom Frontend and Label tool containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for all containers.
+
+```yml
+version: '3'
+services:
+ azure-cognitive-service-layout:
+    container_name: azure-cognitive-service-layout
+    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-layout:2.1
+    environment:
+      - EULA=accept
+      - billing={COGNITIVE_SERVICES_ENDPOINT_URI}
+      - apikey={COGNITIVE_SERVICE_API_KEY}
+   ports:
+         - "5000:5050"
+networks:
+      - ocrvnet
+
+ azure-cognitive-service-frontend:
+  image: TODO
+  environment:
+      - EULA=accept
+      - billing={ENDPOINT_URI}
+      - apikey={API_KEY}
+    networks:
+      - ocrvnet
+
+ azure-cognitive-service-backendphase1:
+    image: TODO
+    environment:
+      - EULA=accept
+      - billing={ENDPOINT_URI}
+      - apikey={API_KEY}
+    networks:
+        - ocrvnet
+ azure-cognitive-service-backendphase2:
+   image: TODO
+   environment:
+        - EULA=accept
+       - billing={ENDPOINT_URI}
+       - apikey={API_KEY}
+   networks:
+        - ocrvnet 
+networks:
+  ocrvnet:
+    driver: bridge
 ```
 
 ---
@@ -358,11 +425,10 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Form Recognizer provides one Linux container for Docker.
 * Container images are downloaded from the private container registry in Azure.
 * Container images run in Docker.
-* You can use either the REST API or the REST SDK to call operations in Form Recognizer container by specifying the host URI of the container.
 * You must specify the billing information when you instantiate a container.
 
 > [!IMPORTANT]
->  Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 
