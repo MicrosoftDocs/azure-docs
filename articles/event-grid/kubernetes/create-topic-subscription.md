@@ -23,7 +23,7 @@ In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a 
 ## Create a custom location
 As an Azure location extension, a custom location lets you use your Azure Arc-enabled Kubernetes cluster as a target location for deploying resources such as Event Grid topics. A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed. In this section, you'll create a custom location. 
 
-1. Declare the following variables to hold values of the Azure Arc cluster, resource group, and custom location names. Copy these statement to an editor, replace the values, and then copy/paste to the bash window.  
+1. Declare the following variables to hold values of the Azure Arc cluster, resource group, and custom location names. Copy these statements to an editor, replace the values, and then copy/paste to the bash window.  
 
     ```azurecli-interactive
     resourcegroupname="<AZURE RESOURCE GROUP NAME>"
