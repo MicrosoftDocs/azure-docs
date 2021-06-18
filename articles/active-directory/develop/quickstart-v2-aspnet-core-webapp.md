@@ -96,7 +96,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > 1. Open the *appsettings.json* file and modify the following code:
 >
 >
- :::code language="json" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/3-WebApp-multi-APIs/appsettings.json" range="4,6,5" highlight="6":::
+ :::code language="json" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/3-WebApp-multi-APIs/appsettings.json" range="4,6,5" highlight="6,5":::
 >    - Replace `Enter_the_Application_Id_here` with the application (client) ID of the application that you registered in the Azure portal. You can find the **Application (client) ID** value on the app's **Overview** page.
 >    - Replace `common` with one of the following:
 >       - If your application supports **Accounts in this organizational directory only**, replace this value with the directory (tenant) ID (a GUID) or the tenant name (for example, `contoso.onmicrosoft.com`). You can find the **Directory (tenant) ID** value on the app's **Overview** page.
@@ -130,23 +130,9 @@ This section gives an overview of the code required to sign in users. This overv
 
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's run when the hosting process starts:
 
-```csharp
-  public void ConfigureServices(IServiceCollection services)
-  {
-      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
 
-      services.AddControllersWithViews(options =>
-      {
-          var policy = new AuthorizationPolicyBuilder()
-              .RequireAuthenticatedUser()
-              .Build();
-          options.Filters.Add(new AuthorizeFilter(policy));
-      });
-      services.AddRazorPages()
-          .AddMicrosoftIdentityUI();
-  }
-```
+ :::code language="csharp" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/3-WebApp-multi-APIs/Startup.cs" range="31-32,42-43,50-59" highlight="6,5":::
+
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
 
