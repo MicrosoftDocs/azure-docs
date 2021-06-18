@@ -73,13 +73,8 @@ Two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnosti
 1. Enter the following query to return a tabular result set.
 
    ```kusto
-<<<<<<< HEAD
-      AzureMetrics
-    | project MetricName, Total, Count, Maximum, Minimum, Average
-=======
    AzureMetrics
    | project MetricName, Total, Count, Maximum, Minimum, Average
->>>>>>> d31fdc38f152729afd12eb77f6a27b60301a868a
    ```
 
 1. Repeat the previous steps, starting with **AzureDiagnostics** to return all columns for informational purposes, followed by a more selective query that extracts more interesting information.
