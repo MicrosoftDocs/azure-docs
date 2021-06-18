@@ -1,6 +1,6 @@
----
-title: Using Industrial IoT to pull data into Azure Data Explorer
-description: In this tutorial, you learn how to pull IIoT data into ADX.
+---Using Industrial IoT to pull data into Azure Data Explorer
+title: 
+description: In this tutorial, you learn how to pull IIoT data into ADX and create a dashboard to view it.
 author: v-condav
 ms.author: v-condav
 ms.service: industrial-iot
