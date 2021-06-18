@@ -1,11 +1,12 @@
 ---
 title:  Azure Arc enabled machine learning (preview)
-description: Configure Azure Arc enabled Kubernetes Cluster to train machine learning models in Azure Machine Learning
+description: Configure Azure Arc enabled Kubernetes cluster to train machine learning models in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
-ms.service: azure-arc 
-ms.date: 06/17/2021
+ms.service: machine-learning
+ms.subservice: core
+ms.date: 06/18/2021
 ms.topic: how-to 
 ---
 
