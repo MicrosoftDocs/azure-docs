@@ -211,7 +211,7 @@ az webapp restart -g $rgName -n $app\_name
 You've successfully completed an on-premises to Azure Database for MySQL migration\!  
 
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Post Migration Management](./10-post-migration-management.md)

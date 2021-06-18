@@ -317,7 +317,7 @@ With the basic migration components in place, it's now possible to proceed with 
   - Make sure all tasks are documented and checked off as the migration is executed.  
 
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Data Migration with MySQL Workbench](./09-data-migration-with-mySQL-workbench.md)

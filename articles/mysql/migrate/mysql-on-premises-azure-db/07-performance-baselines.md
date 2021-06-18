@@ -92,7 +92,7 @@ WWI reviewed their Conference database workload and determined it had a very sma
 
 In reviewing the MySQL database, the MySQL 5.5 server is running with the defaults server parameters that are set during the initial install.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Data Migration](./08-data-migration.md)

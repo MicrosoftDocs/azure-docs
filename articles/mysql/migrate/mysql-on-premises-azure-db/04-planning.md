@@ -91,7 +91,7 @@ WWI originally wanted to test an online migration, but the required network setu
 - Decide on the SSL certificate strategy.
 
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Migration Methods](./05-migration-methods.md)

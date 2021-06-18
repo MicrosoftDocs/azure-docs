@@ -278,7 +278,7 @@ For the first phase, WWI focused solely on the ConferenceDB database. The team n
 
   - Be prepared to make application changes.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Planning](./04-planning.md)

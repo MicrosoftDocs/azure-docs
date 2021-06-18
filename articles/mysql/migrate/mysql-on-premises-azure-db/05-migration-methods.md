@@ -116,7 +116,7 @@ WWI has selected its conference database as its first migration workload. The wo
   - Always verify if the data workload supports the method.  
 
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Test Plans](./06-test-plans.md)

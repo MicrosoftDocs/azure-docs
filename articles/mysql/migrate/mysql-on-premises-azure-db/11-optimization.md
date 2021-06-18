@@ -79,7 +79,7 @@ They elected to monitor any potential issues for now and implement Azure Automat
   - Consider moving regions of the users or application needs change.  
 
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Business Continuity and Disaster Recovery (BCDR)](./12-business-continuity-and-disaster-recovery.md)

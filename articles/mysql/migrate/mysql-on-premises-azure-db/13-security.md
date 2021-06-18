@@ -91,7 +91,7 @@ Review a set of potential [security baseline](/azure/mysql/security-baseline) ta
   - Utilize private endpoints for workloads that don't travel over the Internet.  
 
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Summary](./14-summary.md)

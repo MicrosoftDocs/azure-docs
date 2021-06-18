@@ -116,7 +116,7 @@ Failover Steps:
 - Implement a load-balancing strategy for applications for quick failover.  
 
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Security](./13-security.md)

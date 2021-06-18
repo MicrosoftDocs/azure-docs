@@ -110,7 +110,7 @@ The MySQL DBAs installed the Azure Database for [MySQL Azure PowerShell cmdlets]
   - Set up notifications for maintenance events such as upgrades and patches. Notify users as necessary.  
 
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Optimization](./11-optimization.md)

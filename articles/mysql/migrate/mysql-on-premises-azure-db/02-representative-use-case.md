@@ -58,7 +58,7 @@ They would also like to ensure that their data workloads are safe and available 
 
 WWI wants to start with a simple application for the first migration and then move to more business-critical applications in a later phase. This provides the team with the knowledge and experience they need to prepare and plan for those future migrations.  
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Assessment](./03-assessment.md)

@@ -182,7 +182,7 @@ The source database schema information was used to verify the target migration o
   - Have a well-defined timeline of events for the migration.  
 
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Performance Baselines](./07-performance-baselines.md)
