@@ -52,8 +52,8 @@ This connector has one available trigger, called either [**When a blob is Added 
 To add a Blob Storage action in a single-tenant logic app that uses a Standard plan:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open your workflow in the Logic Apps Designer.
-1. In the search box, enter "Azure blob" as your filter. From the triggers list, select the trigger **When a blob is Added or Modified in Azure Storage**.
+1. Open your workflow in the designer.
+1. In the search box, enter `Azure blob` as your filter. From the triggers list, select the trigger named **When a blob is Added or Modified in Azure Storage**.
     :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-add.png" alt-text="Screenshot of Standard logic app in designer, showing selection of trigger named When a blob is Added or Modified in Azure Storage.":::
 1. If you're prompted for connection details, [create your blob storage connection now](#connect-to-storage-account).
 1. Provide the necessary information for the trigger.
