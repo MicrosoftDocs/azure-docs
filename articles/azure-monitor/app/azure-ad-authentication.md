@@ -72,7 +72,7 @@ config. SetAzureTokenCredential (credential);
 
 ```
 
-Here is an example of configuring the TelemetryConfiguration using ASP.NET Core:
+Here is an example of configuring the `TelemetryConfiguration` using ASP.NET Core:
 ```csharp
 services.Configure<TelemetryConfiguration>(config =>
 {
