@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 06/08/2021
+ms.date: 06/18/2021
 ms.reviewer: laobri
 ---
 
@@ -101,7 +101,7 @@ Note that you are not charged for compute at this point as `cpu-cluster` and `gp
 
 Use `az ml compute create -h` for more details on compute create options.
 
-> [!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## Basic Python training job
 

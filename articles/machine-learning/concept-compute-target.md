@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 05/11/2021
+ms.date: 06/18/2021
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 

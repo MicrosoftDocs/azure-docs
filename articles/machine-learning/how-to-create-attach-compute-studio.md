@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 05/11/2021
+ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
 ---
@@ -155,12 +155,12 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
     > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md)
 
-1. Select __Attach__. 
+1. Select __Attach__.
 
-> [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 > [!IMPORTANT]
-> To attach an AKS or Arc Enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
+> To attach an Azure Kubernetes Services (AKS) or Arc enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
 
 To detach your compute use the following steps:
 
