@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links: 
           - text: What is Azure Virtual Desktop, and how can I use it to host and stream my apps?
-            url: ../overview.md
+            url: ../overview.md?toc=/azure/virtual-desktop/virtual-desktop-app-hosting/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 
   # Card
   - title: Get started with Azure Virtual Desktop
