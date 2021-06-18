@@ -6,7 +6,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: seo-lt-2019
-ms.date: 05/08/2020
+ms.date: 06/09/2021
 ---
 
 # Transform data using Spark activity in Azure Data Factory
@@ -93,6 +93,10 @@ SparkJob1
 		package1.jar
 		package2.jar
 	logs
+	
+	archives
+	
+	pyFiles
 
 SparkJob2
 	main.py
@@ -100,6 +104,13 @@ SparkJob2
 		scrip1.py
 		script2.py
 	logs
+	
+	archives
+	
+	jars
+	
+	files
+	
 ```
 ## Next steps
 See the following articles that explain how to transform data in other ways: 

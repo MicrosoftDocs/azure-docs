@@ -2,13 +2,14 @@
 title: Calculate blob count and size using Azure Storage inventory
 description: Learn how to calculate the count and total size of blobs per container.
 services: storage
-author: twooley
+author: normesta
 
-ms.author: twooley
-ms.date: 03/10/2021
+ms.author: normesta
+ms.date: 06/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
+ms.custom: subject-rbac-steps
 ---
 
 # Calculate blob count and total size per container using Azure Storage inventory
@@ -22,20 +23,9 @@ Blob metadata is not included in this method. The Azure Blob Storage inventory f
 
 ## Enable inventory reports
 
-The first step in this method is to [enable inventory reports](blob-inventory.md#enable-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
+The first step in this method is to [enable inventory reports](blob-inventory.md#enabling-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
 
-When you have an inventory report to analyze, grant yourself blob read access to the container where the report CSV file resides.
-
-1. Navigate to the container with the inventory CSV report file.
-1. Select **Access Control (IAM)**, then **Add role assignments**
-
-    :::image type="content" source="media/calculate-blob-count-size/access.png" alt-text="Select add role assignments":::
-
-1. Select **Storage Blob Data Reader** from the **Role** dropdown list.
-
-    :::image type="content" source="media/calculate-blob-count-size/add-role-assignment.png" alt-text="Add the Storage Blob Data Reader role from the dropdown":::
-
-1. Enter the email address of the account you're using to run the report in the **Select** field.
+When you have an inventory report to analyze, grant yourself read access to the container where the report CSV file resides by assigning yourself the **Storage Blob Data Reader** role. Be sure to use the email address of the account you're using to run the report. To learn how to assign an Azure role to a user with Azure role-based access control (Azure RBAC), follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Create an Azure Synapse workspace
 

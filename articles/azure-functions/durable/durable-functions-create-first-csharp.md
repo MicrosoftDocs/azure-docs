@@ -1,7 +1,7 @@
 ---
 title: Create your first durable function in Azure using C#
 description: Create and publish an Azure Durable Function using Visual Studio or Visual Studio Code.
-author: jeffhollan
+author: anthonychu
 
 ms.topic: quickstart
 ms.date: 03/18/2020

@@ -64,12 +64,6 @@ The following sections walk you through the key features of the application.
 
 After deploying the application template, your default dashboard is a connected logistics operator focused portal. Northwind Trader is a fictitious logistics provider managing a cargo fleet at sea and on land. In this dashboard, you see two different gateways providing telemetry from shipments, along with associated commands, jobs, and actions.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot showing how to create an app from the connected logistics application template](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot showing the billing options when you create the application](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
-
 This dashboard is pre-configured to show the critical logistics device operations activity.
 
 The dashboard enables two different gateway device management operations:

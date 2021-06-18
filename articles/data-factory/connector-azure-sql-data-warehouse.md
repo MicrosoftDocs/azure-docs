@@ -5,7 +5,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 05/10/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory
@@ -827,6 +827,24 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
 ![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
+
+### Error row handling
+
+When writing to Azure Synapse Analytics, certain rows of data may fail due to constraints set by the destination. Some common errors include:
+
+*    String or binary data would be truncated in table
+*    Cannot insert the value NULL into column
+*    Conversion failed when converting the value to data type
+
+By default, a data flow run will fail on the first error it gets. You can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Azure Data Factory provides different options for you to handle these error rows.
+
+**Transaction Commit:** Choose whether your data gets written in a single transaction or in batches. Single transaction will provide better performance and no data written will be visible to others until the transaction completes. Batch transactions have worse performance but can work for large datasets.
+
+**Output rejected data:** If enabled, you can output the error rows into a csv file in Azure Blob Storage or an Azure Data Lake Storage Gen2 account of your choosing. This will write the error rows with three additional columns: the SQL operation like INSERT or UPDATE, the data flow error code, and the error message on the row.
+
+**Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
+
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Screenshot that shows the error row handling" border="false":::
 
 ## Lookup activity properties
 

@@ -2,14 +2,14 @@
 title: Single sign-on options in Azure AD
 description: Learn about the options available for single sign-on (SSO) in Azure Active Directory.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arvindh, japere
 ---
 

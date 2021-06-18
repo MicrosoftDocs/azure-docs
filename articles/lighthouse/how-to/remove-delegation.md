@@ -1,13 +1,14 @@
 ---
 title: Remove access to a delegation
 description: Learn how to remove access to resources that had been delegated to a service provider for Azure Lighthouse.
-ms.date: 02/16/2021
-ms.topic: how-to
+ms.date: 05/11/2021
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Remove access to a delegation
 
-After a customer's subscription or resource group has been delegated to a service provider for [Azure Lighthouse](../overview.md), the delegation can be removed if needed. Once a delegation is removed, the [Azure delegated resource management](../concepts/azure-delegated-resource-management.md) access that was previously granted to users in the service provider tenant will no longer apply.
+After a customer's subscription or resource group has been delegated to a service provider for [Azure Lighthouse](../overview.md), the delegation can be removed if needed. Once a delegation is removed, the [Azure delegated resource management](../concepts/architecture.md) access that was previously granted to users in the service provider tenant will no longer apply.
 
 Removing a delegation can be done by a user in either the customer tenant or the service provider tenant, as long as the user has the appropriate permissions.
 
@@ -92,6 +93,6 @@ az managedservices assignment delete --assignment <id or full resourceId>
 
 ## Next steps
 
-- Learn about [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+- Learn about [Azure Lighthouse architecture](../concepts/architecture.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
 - Learn how to [update a previous delegation](update-delegation.md).

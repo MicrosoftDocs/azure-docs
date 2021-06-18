@@ -11,7 +11,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a virtual machine with a static public IP address using PowerShell

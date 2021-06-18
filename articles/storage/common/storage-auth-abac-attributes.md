@@ -86,6 +86,9 @@ The following table lists the descriptions for the supported attributes for cond
 > [!NOTE]
 > When specifying conditions for `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` attribute, the values shouldn't include the container name or a preceding '/' character. Use the path characters without any URL encoding.
 
+> [!NOTE]
+> Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which have a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS). You should not author role-assignment conditions using index tags on storage accounts that have HNS enabled.
+
 ## Attributes available for each action
 
 The following table lists which attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.

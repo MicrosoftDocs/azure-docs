@@ -8,6 +8,10 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: May 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/
+    - name: April 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/
     - name: March 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/
     - name: February 2021 new and updated features
@@ -43,12 +47,10 @@
   items:
     - name: 1. Create a new application
       href: core/quick-deploy-iot-central.md
-    - name: 2. Add a simulated device
-      href: core/quick-create-simulated-device.md
-    - name: 3. Configure rules and actions
+    - name: 2. Configure rules and actions
       href: core/quick-configure-rules.md
-    - name: 4. Monitor your devices
-      href: core/quick-monitor-devices.md
+    - name: 3. Export data
+      href: core/quick-export-data.md
 - name: Tutorials
   items:
     - name: Develop and connect devices
@@ -200,10 +202,12 @@
   items:
     - name: Develop and connect devices
       items:
+        - name: Create an application
+          href: core/howto-create-iot-central-application.md
         - name: Set up a device template
           href: core/howto-set-up-template.md
-        - name: Version device template
-          href: core/howto-version-device-template.md
+        - name: Edit a device template
+          href: core/howto-edit-device-template.md
         - name: How to use properties
           href: core/howto-use-properties.md
         - name: How to use commands

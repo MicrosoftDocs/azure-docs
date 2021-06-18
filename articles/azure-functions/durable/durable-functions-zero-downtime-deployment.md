@@ -3,7 +3,7 @@ title: Zero-downtime deployment for Durable Functions
 description: Learn how to enable your Durable Functions orchestration for zero-downtime deployments. 
 author: tsushi
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 #Customer intent: As a Durable Functions user, I want to deploy with zero downtime so that updates don't interrupt my Durable Functions orchestration execution.
@@ -25,6 +25,11 @@ The following chart compares the three main strategies to achieve a zero-downtim
 | [Status check with slot](#status-check-with-slot) | A system that doesn't have long-running orchestrations lasting more than 24 hours or frequently overlapping orchestrations. | Simple code base.<br/>Doesn't require additional function app management. | Requires additional storage account or task hub management.<br/>Requires periods of time when no orchestrations are running. |
 | [Application routing](#application-routing) | A system that doesn't have periods of time when orchestrations aren't running, such as those time periods with orchestrations that last more than 24 hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max out the number of function apps allowed by your subscription. The default is 100. |
 
+The remainder of this document describes these strategies in more detail.
+
+> [!NOTE]
+> The descriptions for these zero-downtime deployment strategies assume you are using the default Azure Storage provider for Durable Functions. The guidance may not be appropriate if you are using a storage provider other than the default Azure Storage provider. For more information on the various storage provider options and how they compare, see the [Durable Functions storage providers](durable-functions-storage-providers.md) documentation.
+
 ## Versioning
 
 Define new versions of your functions and leave the old versions in your function app. As you can see in the diagram, a function's version becomes part of its name. Because previous versions of functions are preserved, in-flight orchestration instances can continue to reference them. Meanwhile, requests for new orchestration instances call for the latest version, which your orchestration client function can reference from an app setting.
@@ -33,8 +38,8 @@ Define new versions of your functions and leave the old versions in your functio
 
 In this strategy, every function must be copied, and its references to other functions must be updated. You can make it easier by writing a script. Here's a [sample project](https://github.com/TsuyoshiUshio/DurableVersioning) with a migration script.
 
->[!NOTE]
->This strategy uses deployment slots to avoid downtime during deployment. For more detailed information about how to create and use new deployment slots, see [Azure Functions deployment slots](../functions-deployment-slots.md).
+> [!NOTE]
+> This strategy uses deployment slots to avoid downtime during deployment. For more detailed information about how to create and use new deployment slots, see [Azure Functions deployment slots](../functions-deployment-slots.md).
 
 ## Status check with slot
 
@@ -46,7 +51,7 @@ Use the following procedure to set up this scenario.
 
 1. [Add deployment slots](../functions-deployment-slots.md#add-a-slot) to your function app for staging and production.
 
-1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection string of a shared storage account. This storage account connection string is used by the Azure Functions runtime. This account is used by the Azure Functions runtime and manages the function's keys.
+1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection string of a shared storage account. This storage account connection string is used by the Azure Functions runtime to securely store the [functions' access keys](../security-concepts.md#function-access-keys).
 
 1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](./durable-functions-orchestrations.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting.
 

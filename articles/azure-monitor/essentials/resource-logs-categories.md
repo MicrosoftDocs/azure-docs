@@ -2,7 +2,7 @@
 title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.topic: reference
-ms.date: 03/30/2021
+ms.date: 05/26/2021
 ---
 
 # Supported categories for Azure Resource Logs
@@ -71,6 +71,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|Audit|Audit|Yes|
 |HttpRequest|HTTP Requests|Yes|
 
 
@@ -197,6 +198,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ChatOperational|Operational Chat Logs|No|
 |SMSOperational|Operational SMS Logs|No|
 |Usage|Usage Records|No|
+
+
+## Microsoft.ConnectedVehicle/platformAccounts
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Logs|MCVP Logs|Yes|
 
 
 ## Microsoft.ContainerRegistry/registries
@@ -446,6 +454,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |EventRoutesOperation|EventRoutesOperation|No|
 |ModelsOperation|ModelsOperation|No|
 |QueryOperation|QueryOperation|No|
+|ResourceProviderOperation|ResourceProviderOperation|Yes|
 
 
 ## Microsoft.DocumentDB/databaseAccounts
@@ -460,6 +469,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|No|
 |PartitionKeyStatistics|PartitionKeyStatistics|No|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|No|
+|TableApiRequests|TableApiRequests|Yes|
 
 
 ## Microsoft.EventGrid/domains
@@ -611,7 +621,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |KeyDeliveryRequests|Key Delivery Requests|No|
 
 
-## Microsoft.Network/applicationGateways
+## Microsoft.Network/applicationgateways
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -649,6 +659,14 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |FrontdoorAccessLog|Frontdoor Access Log|No|
 |FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|No|
+
+
+## Microsoft.Network/loadBalancers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|LoadBalancerAlertEvent|Load Balancer Alert Events|No|
+|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|No|
 
 
 ## Microsoft.Network/networksecuritygroups
@@ -951,7 +969,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|No|
 
 
-## microsoft.web/sites
+## Microsoft.Web/sites
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|

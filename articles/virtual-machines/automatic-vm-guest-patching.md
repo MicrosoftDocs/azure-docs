@@ -8,7 +8,8 @@ ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.author: manayar
+ms.author: manayar 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Preview: Automatic VM guest patching for Azure VMs
@@ -180,14 +181,14 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
 
 ```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
+az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview
 az feature register --namespace Microsoft.Compute --name InGuestPatchVMPreview
 ```
 
 Feature registration can take up to 15 minutes. To check the registration status:
 
 ```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
+az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview
 az feature show --namespace Microsoft.Compute --name InGuestPatchVMPreview
 ```
 
