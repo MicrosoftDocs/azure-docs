@@ -64,7 +64,7 @@ Notifications are system messages related to your current session. They provide 
 
 To enable or disable pop-up notifications, select or clear **Enable pop-up notifications**.
 
-![Screenshot showing Azure portal settings with pop-up notifications highlighted](./media/original-preferences/popup-notifications.png)
+![Screenshot showing Azure portal settings with pop-up notifications highlighted](./media/original-preferences/pop-up-notifications.png)
 
 To read all notifications received during your current session, select **Notifications** from the global header.
 
@@ -80,13 +80,13 @@ The inactivity timeout setting helps to protect resources from unauthorized acce
 
 Select the drop-down under **Sign me out when inactive**. Choose the duration after which your Azure portal session is  signed out if you're idle.
 
-![Screenshot showing portal settings with inactive timeout settings highlighted](./media/original-preferences/inactive-signout-user.png)
+![Screenshot showing portal settings with inactive timeout settings highlighted](./media/original-preferences/inactive-sign-out-user.png)
 
 The change is saved automatically. If you're idle, your Azure portal session will sign out after the duration you set.
 
 If your admin has enabled an inactivity timeout policy, you can still set your own, as long as it's less than the directory-level setting. Select **Override the directory inactivity timeout policy**, then set a time interval.
 
-![Screenshot showing portal settings with override the directory inactivity timeout policy setting highlighted](./media/original-preferences/inactive-signout-override.png)
+![Screenshot showing portal settings with override the directory inactivity timeout policy setting highlighted](./media/original-preferences/inactive-sign-out-override.png)
 
 ### Change the directory timeout setting (admin)
 

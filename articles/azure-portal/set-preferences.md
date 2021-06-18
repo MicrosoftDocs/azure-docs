@@ -151,7 +151,7 @@ You can also opt in or out from additional emails about Microsoft Azure and othe
 
 This pane lets you manage pop-up notifications and session timeouts.
 
-:::image type="content" source="./media/set-preferences/azure-portal-settings-signout-notifications.png" alt-text="Screenshot showing the Signing out + notifications pane.":::
+:::image type="content" source="./media/set-preferences/azure-portal-settings-sign-out-notifications.png" alt-text="Screenshot showing the Signing out + notifications pane.":::
 
 ### Signing out
 
@@ -161,13 +161,13 @@ The inactivity timeout setting helps to protect resources from unauthorized acce
 
 In the drop-down menu next to **Sign me out when inactive**, choose the duration after which your Azure portal session is signed out if you're idle.
 
-:::image type="content" source="./media/set-preferences/azure-portal-settings-signout-inactive.png" alt-text="Screenshot showing the user timeout settings option.":::
+:::image type="content" source="./media/set-preferences/azure-portal-settings-sign-out-inactive.png" alt-text="Screenshot showing the user timeout settings option.":::
 
 Select **Apply** to save your changes. After that, if you're inactive during the portal session, Azure portal will sign out after the duration you set.
 
 If your admin has enabled an inactivity timeout policy, you can still set your own, as long as it's shorter than the directory-level setting. To do so, select **Override the directory inactivity timeout policy**, then enter a time interval for the **Override value**.
 
-:::image type="content" source="./media/set-preferences/azure-portal-settings-signout-inactive-user.png" alt-text="Screenshot showing the directory inactivity timeout override setting.":::
+:::image type="content" source="./media/set-preferences/azure-portal-settings-sign-out-inactive-user.png" alt-text="Screenshot showing the directory inactivity timeout override setting.":::
 
 ### Change the directory timeout setting (admin)
 
@@ -175,7 +175,7 @@ Admins in the [Global Administrator role](../active-directory/roles/permissions-
 
 If you're a Global Administrator, and you want to enforce an idle timeout setting for all users of the Azure portal, select **Enable directory level idle timeout** to turn on the setting. Next, enter the **Hours** and **Minutes** for the maximum time that a user can be inactive before their session is automatically signed out. After you select **Apply**, this setting will apply to all users in the directory.
 
-:::image type="content" source="./media/set-preferences/azure-portal-settings-signout-inactive-admin.png" alt-text="Screenshot showing the directory level idle timeout options.":::
+:::image type="content" source="./media/set-preferences/azure-portal-settings-sign-out-inactive-admin.png" alt-text="Screenshot showing the directory level idle timeout options.":::
 
 To confirm that the inactivity timeout policy is set correctly, select **Notifications** from the global page header and verify that a success notification is listed.
 
