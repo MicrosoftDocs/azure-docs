@@ -40,7 +40,7 @@ Logging:Disk:Format=json
 
 This command:
 
-- Runs a Text Analytics for Health container from the container image
+- Runs the *Text Analytics for health* container from the container image
 - Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Accepts the end user license agreement (Eula) and responsible AI (RAI) terms
