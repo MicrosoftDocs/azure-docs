@@ -87,9 +87,8 @@ sections:
         answer: |
           The following [terms](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/2.9.0/License) apply as well as any terms embedded in that license.
           
-      - question: |
-          I want to release an app or SDK that includes ASA
-        answer: |
+  - name: I want to release an app or SDK that includes ASA
+    questions:
       - question: |
           Do I need to agree to any additional terms?
         answer: |
