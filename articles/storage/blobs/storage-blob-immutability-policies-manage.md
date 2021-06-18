@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/26/2019
+ms.date: 06/17/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -17,6 +17,43 @@ ms.custom: devx-track-azurepowershell
 Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v2 and Blob storage accounts in all Azure regions.
 
 This article shows how to set and manage immutability policies and legal holds for data in Blob storage using the Azure portal, PowerShell, or Azure CLI. For more information about immutable storage, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md).
+
+## Prerequisites
+
+The following prerequisites are required to use version-level WORM:
+
+- Blob versioning must be enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
+- The storage account must be either a general-purpose v2 storage account or a premium storage account for block blobs.
+
+All access tiers and redundancy configurations are supported. However, if the storage account is geo-replicated to a secondary region, then customer-initiated failover is not supported.
+
+Storage accounts with a hierarchical namespace are not supported.
+
+## Enable version-level immutability for a container
+
+To use a version-level immutability policy, you must explicitly enable support for version-level WORM on the container. You can enable support for version-level WORM either when you create the container, or when you add a version-level immutability policy to an existing container.
+
+To create a container that supports version-level immutability in the Azure portal, follow these steps:
+
+1. Navigate to the **Containers** page for your storage account in the Azure portal, and select **Add**.
+1. In the **New container** dialog, provide a name for your container, then expand the **Advanced** section.
+1. Select **Enable version-level immutability support** to enable ??? for the container.
+
+    :::image type="content" source="media/storage-blob-immutability-policies-manage/create-container-version-level-immutability.png" alt-text="Screenshot showing how to create a container with version-level immutability enabled":::
+
+## Apply a default immutability policy to a container
+
+To apply a default version-level immutability policy to a container in the Azure portal, follow these steps:
+
+1. In the Azure portal, navigate to the **Containers** page, and locate the container to which you want to apply the policy.
+1. Select the **More** button to the right of the container name, and choose **Access policy**.
+1. In the **Access policy** dialog, under the **Immutable blob storage** section, choose **Add policy**.
+1. Select the type of policy you wish to apply to the container, either a time-based retention policy or a legal hold.
+1. 
+
+## Migrate a container-based policy to a version-level policy
+
+To enable support for version-level immutability for an existing container that has one or more blobs???, you must migrate the container to 
 
 ## Set retention policies and legal holds
 

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/17/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -15,6 +15,11 @@ ms.subservice: blobs
 # Store business-critical blob data with immutable storage
 
 Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v1, general-purpose v2, premium block blob, and legacy blob accounts in all Azure regions.
+
+Immutable storage for blobs supports two types of immutability policies:
+
+- Time-based retention policies prevent overwrites and deletes to an object for a specified retention period.
+- Legal holds...
 
 For information about how to set and clear legal holds or create a time-based retention policy using the Azure portal, PowerShell, or Azure CLI, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
@@ -171,7 +176,7 @@ In the case of non-payment, normal data retention policies will apply as stipula
 
 Yes. When a time-based retention policy is first created, it is in an *unlocked* state. In this state, you can make any desired change to the retention interval, such as increase or decrease and even delete the policy. After the policy is locked, it stays locked until the retention interval expires. This locked policy prevents deletion and modification to the retention interval. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period. These practices help you comply with SEC 17a-4(f) and other regulations.
 
-**Can I use soft delete alongside Immutable blob policies?**
+**Can I use soft delete alongside immutable blob policies?**
 
 Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob storage](./soft-delete-blob-overview.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed.
 
