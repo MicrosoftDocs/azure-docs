@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Build a trusted user access service using Azure Functions
 
-[!IMPORTANT] The endpoint created at the end of this tutorial is not secure. Make sure to read more on [Azure Function Security](https://docs.microsoft.com/en-us/azure/azure-functions/security-concepts). You will want to add security to the endpoint to make sure no bad actor can just provision tokens.
+[!IMPORTANT] The endpoint created at the end of this tutorial is not secure. Make sure to read more on [Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts). You will want to add security to the endpoint to make sure no bad actor can just provision tokens.
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 
@@ -23,6 +23,9 @@ ms.service: azure-communication-services
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about [cleaning up Azure Communication Service resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [cleaning Azure Function Resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts)
 
 > [!div class="nextstepaction"]
 > [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
