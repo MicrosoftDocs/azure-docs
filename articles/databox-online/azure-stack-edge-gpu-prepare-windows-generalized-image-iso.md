@@ -152,11 +152,11 @@ Use the *sysprep* utility to generalize the VHD.
 
     1. In Hyper-V Manager, select the VM, and then select **Settings**.
  
-       ![Screenshot showing how to open Settings for a selected VM in Hyper-V Manager](./media/azure-stack-edge-generalize-vhd/vhd-from-iso-01.png)
+       ![Screenshot showing how to open Settings for a selected VM in Hyper-V Manager](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-01.png)
 
      1. Under **BIOS**, ensure that **IDE** is at the top of the **Startup order** list. Then select **OK** to save the setting.
 
-        ![Screenshot showing IDE at top of startup order in BIOS settings for a VM in Hyper-V Manager](./media/azure-stack-edge-generalize-vhd/vhd-from-iso-02.png)
+        ![Screenshot showing IDE at top of startup order in BIOS settings for a VM in Hyper-V Manager](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-02.png)
 
 [!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
 
