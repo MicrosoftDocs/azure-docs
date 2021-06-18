@@ -630,7 +630,7 @@
     {
       "path_to_root": "active-directory-aspnetcore-webapp-openidconnect-v2",
       "url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2",
-      "branch": "aspnetcore3-1",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
