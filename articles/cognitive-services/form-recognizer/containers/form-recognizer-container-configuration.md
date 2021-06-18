@@ -109,7 +109,7 @@ networks:
 ### Multiple containers
 
 **Receipt and OCR Read containers**
- 
+
 ```yml
 version: "3"
 services:
