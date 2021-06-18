@@ -134,7 +134,7 @@ These prerequisites apply if you're running your logic app in a Premium-level IS
 These are the prerequisites for the SAP client library that you're using with the connector.
 
 * Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.24.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Earlier versions of SAP NCo might experience the following issues:
-  * When more than one IDoc message is sent at the same time. This condition blocks all later messages sent to the SAP destination, which causes the messages to time out.
+  * When more than one IDoc message is sent at the same time, this condition blocks all later messages that are sent to the SAP destination, causing messages to time out.
   * Session activation may fail due to leaked session. This condition may block receiving calls from SAP to Logic App trigger.
   * The on-premises data gateway (June 2021 release) depends on the `SAP.Middleware.Connector.RfcConfigParameters.Dispose()` method in SAP NCo to free up resources.
 
