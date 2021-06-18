@@ -18,6 +18,10 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 
+## Securing Azure Function
+
+As part of setting up an trusted service to provision access tokens for users, we need to take into account the security of that endpoint to make sure no can randomly create tokens for your service. Azure Functions provide built-in security features you can use to secure the endpoint using different types of authentication policies. Read more about [Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts)
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about [cleaning up Azure Communication Service resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [cleaning Azure Function Resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
