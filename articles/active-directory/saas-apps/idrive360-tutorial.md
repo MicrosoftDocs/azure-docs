@@ -35,6 +35,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * IDrive360 supports **SP and IDP** initiated SSO.
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Add IDrive360 from the gallery
 
 To configure the integration of IDrive360 into Azure AD, you need to add IDrive360 from the gallery to your list of managed SaaS apps.
@@ -70,6 +73,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    In the **Sign-on URL** text box, type the URL:
+    `https://www.idrive360.com/enterprise/sso`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
