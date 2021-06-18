@@ -33,7 +33,7 @@ The [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Sa
 Both, the Microsoft Speech SDK and the REST API, can be used to obtain transcripts. The decision does impact overall costs as it is explained in the guide. 
 
 > [!TIP]
-> You can indeed use the tool and resulting solution in production to process high volume of audio.
+> You can use the tool and resulting solution in production to process a high volume of audio.
 
 ## Tool Customization
 
