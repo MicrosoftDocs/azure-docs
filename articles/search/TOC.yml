@@ -215,7 +215,8 @@
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
       - name: Filter on user identities
-        href: search-security-trimming-for-azure-search-with-aad.md- name: Development
+        href: search-security-trimming-for-azure-search-with-aad.md
+  - name: Development
     items:
     - name: API versions
       href: search-api-versions.md
