@@ -155,7 +155,7 @@
     - name: Networking and interconnectivity
       href: /azure/azure-vmware/faq#networking-and-interconnectivity
     - name: Storage
-      href: /azure/azure-vmware/faq##storage
+      href: /azure/azure-vmware/faq#storage
     - name: Hosts, clusters, and private clouds
       href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
     - name: Identity management
