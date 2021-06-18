@@ -46301,6 +46301,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-android.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-c.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-dotnet.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-ios.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-java.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-node.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-send-telemetry-python.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-iot-edge-overview.md",
       "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/iot-hub-iot-edge-overview.md",
       "redirect_document_id": false
