@@ -215,9 +215,9 @@ You can set the connection string in the `applicationinsights.json` configuratio
 }
 ```
 
-Or you can set it using the above environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+See [connection string configuration](azure/azure-monitor/app/java-standalone-config#connection-string) for more details.
 
-For older Java 2.x versions, you can set the connection string in the `ApplicationInsights.xml` configuration file:
+For Application Insights Java 2.x, you can set the connection string in the `ApplicationInsights.xml` configuration file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
