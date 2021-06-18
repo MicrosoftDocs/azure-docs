@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Deploy and score a machine learning model with a managed online endpoint (preview)
 
-Managed online endpoints (preview) provide you the ability to deploy your model without the need to create and manage the underlying infrastructure. In this article, you'll start by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. You'll also learn how to view the logs and monitor the Service Level Agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that can be used for online/real-time scoring.
+Managed online endpoints (preview) provide you the ability to deploy your model without the need to create and manage the underlying infrastructure. In this article, you'll start by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. You'll also learn how to view the logs and monitor the Service Level Agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that can be used for online/real-time scoring. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -72,9 +72,9 @@ The following snippet shows the `endpoints/online/managed/simple-flow/1-create-e
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml":::
 
 > [!Note]
-> A fully specified sample YAML for managed online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
+> The YAML is more completely described at [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md)
 
-The reference for the endpoint YAML format is below. To understand how to specify these attributes, refer to the YAML example from this article or to the fully specified YAML sample mentioned in the preceding note. For more on limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md).
+The reference for the endpoint YAML format is below. To understand how to specify these attributes, refer to the YAML example from this article or to the fully specified YAML sample mentioned in the preceding note. For more on limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
 
 | Key | Description |
 | --- | --- |
@@ -303,6 +303,10 @@ If you aren't going use the deployment, you should delete it with the below comm
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## Next steps
-
+- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
+- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
+- [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
+- [Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
 - [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
