@@ -28,11 +28,9 @@ When using Azure Firewall, use __destination network address translation (DNAT)_
 
 ### Inbound configuration
 
-If you use an Azure Machine Learning __compute instance__ or __compute cluster__, add a [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md) for the subnet that contains the Azure Machine Learning resources. This route forces traffic __from__ the IP addresses of the `BatchNodeManagement` and `AzureMachineLearning` resources to the public IP of your compute instance and compute cluster.
+When using Azure Machine Learning __compute instance__ or __compute cluster__, allow inbound traffic from the IP addresses for Azure Batch management and Azure Machine Learning services.
 
-These UDRs enable the Batch service to communicate with compute nodes for task scheduling. Also add the IP address for the Azure Machine Learning service, as this is required for access to Compute Instances. When adding the IP for the Azure Machine Learning service, you must add the IP for both the __primary and secondary__ Azure regions. The primary region being the one where your workspace is located.
-
-To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
+For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
 
 To get a list of IP addresses of the Batch service and Azure Machine Learning service, use one of the following methods:
 
@@ -54,14 +52,9 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
     > * [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
     > * [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
 
-When you add the UDRs, define the route for each related Batch IP address prefix and set __Next hop type__ to __Internet__. The following image shows an example of this UDR in the Azure portal:
-
-![Example of a UDR for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
 
 > [!IMPORTANT]
 > The IP addresses may change over time.
-
-For more information, see [Create an Azure Batch pool in a virtual network](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
 ### Outbound configuration
 
@@ -136,14 +129,17 @@ The hosts in this section are owned by Microsoft, and provide services required 
 
 **Azure Machine Learning hosts**
 
+> [!IMPORTANT]
+> In the following table, replace `<defaultstorage>` with the name of the default storage account for your Azure Machine Learning workspace.
+
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
 | API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
 | Integrated notebook | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn |
-| Integrated notebook | \*.file.core.windows.net | \*.file.core.usgovcloudapi.net | \*.file.core.chinacloudapi.cn |
-| Integrated notebook | \*.dfs.core.windows.net | \*.dfs.core.usgovcloudapi.net | \*.dfs.core.chinacloudapi.cn |
-| Integrated notebook | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | \*.blob.core.chinacloudapi.cn |
+| Integrated notebook | \<defaultstorage\>.file.core.windows.net | \<defaultstorage\>.file.core.usgovcloudapi.net | \<defaultstorage\>.file.core.chinacloudapi.cn |
+| Integrated notebook | \<defaultstorage\>.dfs.core.windows.net | \<defaultstorage\>.dfs.core.usgovcloudapi.net | \<defaultstorage\>.dfs.core.chinacloudapi.cn |
+| Integrated notebook | \<defaultstorage\>.blob.core.windows.net | \<defaultstorage\>.blob.core.usgovcloudapi.net | \<defaultstorage\>.blob.core.chinacloudapi.cn |
 | Integrated notebook | graph.microsoft.com | graph.microsoft.us | graph.chinacloudapi.cn |
 | Integrated notebook | \*.aznbcontent.net |  | |
 
@@ -178,6 +174,7 @@ For information on restricting access to models deployed to Azure Kubernetes Ser
 
 > [!TIP]
 > If you are working with Microsoft Support to gather diagnostics information, you must allow outbound traffic to the IP addresses used by Azure Monitor hosts. For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
+
 ### Python hosts
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 
