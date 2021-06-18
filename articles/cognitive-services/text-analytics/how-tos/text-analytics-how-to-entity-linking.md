@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/10/2021
+ms.date: 06/15/2021
 ms.author: aahi
 ---
 
@@ -93,9 +93,12 @@ Starting in `v3.1-preview.5`, The JSON response includes a `redactedText` proper
 
 [Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesRecognitionPii)
 
-The API will attempt to detect the [listed entity categories](../named-entity-types.md?tabs=personal) for a given document language. If you want to specify which entities will be detected and returned, use the optional pii-categories parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. For example, a French driver's license number that might occur in English text.
+The API will attempt to detect the [listed entity categories](../named-entity-types.md?tabs=personal) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following example would detect a French driver's license number that might occur in English text, along with the default English entities.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
+> [!TIP]
+> If you don't include `default` when specifying entity categories, The API will only return the entity cateogires you specify.
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
 
 **Asynchronous operation**
 
