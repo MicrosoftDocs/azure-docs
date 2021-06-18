@@ -18,10 +18,10 @@ You configure the Form Recognizer container run-time environment by using the `d
 
 ## Configuration settings
 
-[!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
+[!INCLUDE [Container shared configuration settings table](../../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](form-recognizer-container-howto.md#billing).
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](form-recognizer-container-install-run.md#billing).
 
 ## ApiKey configuration setting
 
@@ -31,7 +31,7 @@ You can find this setting in the Azure portal, in **Form Recognizer Resource Man
 
 ## ApplicationInsights setting
 
-[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## Billing configuration setting
 
@@ -41,23 +41,23 @@ You can find this setting in the Azure portal, in **Form Recognizer Overview**, 
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](form-recognizer-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](form-recognizer-container-install-run.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
-[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+[!INCLUDE [Container shared configuration eula settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## Fluentd settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## HTTP proxy credentials settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
 
-[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
+[!INCLUDE [Container shared configuration logging settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 ## Volume settings
 
@@ -65,7 +65,7 @@ Use [**volumes**](https://docs.docker.com/storage/volumes/) to read and write da
 
 The Form Recognizer container requires an input volume and an output volume. The input volume can be read-only (`ro`), and it's required for access to the data that's used for training and scoring. The output volume has to be writable, and you use it to store the models and temporary data.
 
-The exact syntax of the host volume location varies depending on the host operating system. Additionally, the volume location of the [host computer](form-recognizer-container-howto.md#the-host-computer) might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions.
+The exact syntax of the host volume location varies depending on the host operating system. Additionally, the volume location of the [host computer](form-recognizer-container-install-run.md#the-host-computer) might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions.
 
 ## Example docker-compose.yml file
 
@@ -142,4 +142,4 @@ networks:
 
 ## Next steps
 
-* Review [Install and run containers](form-recognizer-container-howto.md).
+* Review [Install and run containers](form-recognizer-container-install-run.md).

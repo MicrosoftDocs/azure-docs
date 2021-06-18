@@ -16,11 +16,11 @@ keywords: on-premises, Docker, container, identify
 
 > [!IMPORTANT]
 >
-> * Form Recognizer containers are in gated preview and to use them you must submit an online request, and have it approved. See [**Request approval to run container**](#request-approval-to-run-container) below for more information.
+> * Form Recognizer containers are in gated preview and to use them you must submit an online request, and have it approved. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
 
 Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Form Recognizer containers.
 
-Form Recognizer features are supported by seven Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom Front End (FE)**, and **Custom Back End (FE)**— and the **Read** OCR container. The **Read** container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md).
+Form Recognizer features are supported by seven Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom Front End (FE)**, and **Custom Back End (FE)**— and the **Read** OCR container. The **Read** container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](../../computer-vision/vision-api-how-to-topics/call-read-api.md).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ You'll also need the following to use Form Recognizer containers:
 | Required | Purpose |
 |----------|---------|
 | **Familiarity with Docker** | <ul><li>You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology).</li></ul> |
-| **Docker Engine installed** | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul>  |
+| **Docker Engine installed** | <ul><li>You need the Docker Engine installed on a host computer(#host-computer-requirements). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul>  |
 |**Form Recognizer resource** | <ul><li>An Azure **Form Recognizer** resource and the associated API key and endpoint URI. Both values are available on the Azure portal **Form Recognizer** Keys and Endpoint page and are required to start the container.</li></ul> |
 |||
 
@@ -462,4 +462,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](form-recognizer-container-configuration.md) for configuration settings.
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md).
+* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md).
