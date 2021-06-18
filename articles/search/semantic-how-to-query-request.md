@@ -186,7 +186,7 @@ Set any other parameters that you want in the request. Parameters such as [spell
 
 Highlight styling is applied to captions in the response. You can use the default style, or optionally customize the highlight style applied to captions. Captions apply highlight formatting over key passages in the document that summarize the response. The default is `<em>`. If you want to specify the type of formatting (for example, yellow background), you can set the highlightPreTag and highlightPostTag.
 
-## Query using the Azure SDKs
+## Query using Azure SDKs
 
 Beta versions of the Azure SDKs include support for semantic search. Because the SDKs are beta versions, there is no documentation or samples, but you can refer to the REST API section above for insights on how the APIs should work.
 

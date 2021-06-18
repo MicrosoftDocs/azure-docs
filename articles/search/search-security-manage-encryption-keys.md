@@ -27,9 +27,9 @@ This article walks you through the steps of setting up customer-managed key encr
 >[!Important]
 > If you implement customer-managed keys, be sure to follow strict procedures during routine rotation of key vault keys and Active Directory application secrets and registration. Always update all encrypted content to use new secrets and keys before deleting the old ones. If you miss this step, your content cannot be decrypted.
 
-## Support for double encryption
+## Double encryption
 
-Double encryption is an extension of customer-managed key (CMK) encryption. CMK encryption applies to long-term storage that is written to a data disk. "Double-encryption" refers to encryption of short-term storage (of content written to temporary disks). There is no configuration required. When you apply CMK to objects, double encryption is invoked automatically.
+Double encryption is an extension of customer-managed key (CMK) encryption. CMK encryption applies to long-term storage that is written to a data disk. The term *double encryption* refers to the additional encryption of short-term storage (of content written to temporary disks). There is no configuration required. When you apply CMK to objects, double encryption is invoked automatically.
 
 Although double encryption is available in all regions, support was rolled out in two phases. The first roll out was in August 2020 and included the five regions listed below. The second roll out in May 2021 extended double encryption to all remaining regions. If you are using CMK on an older service and want double encryption, you will need to create a new search service in your region of choice.
 
