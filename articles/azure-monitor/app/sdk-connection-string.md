@@ -207,19 +207,15 @@ NetCore config.json:
 
 # [Java](#tab/java)
 
+You can set the connection string in the `applicationinsights.json` configuration file:
 
-Java (v2.5.x) Explicitly Set:
-```java
-TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
+```json
+{
+  "connectionString": "InstrumentationKey=..."
+}
 ```
 
-ApplicationInsights.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000;</ConnectionString>
-</ApplicationInsights>
-```
+Or you can set it using the above environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`.
 
 # [JavaScript](#tab/js)
 
