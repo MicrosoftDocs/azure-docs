@@ -125,7 +125,11 @@ Example of JWT generated for an SGX enclave:
   "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
   "x-ms-sgx-product-id": 1, 
   "x-ms-sgx-svn": 1,
-  "x-ms-ver": "1.0"
+  "x-ms-ver": "1.0",
+  "x-ms-sgx-config-id": "000102030405060708090a0b0c0d8f99000102030405060708090a0b0c860e9a000102030405060708090a0b7d0d0e9b000102030405060708090a740c0d0e9c",
+  "x-ms-sgx-config-svn": 3451,
+  "x-ms-sgx-isv-extended-product-id": "8765432143211234abcdabcdef123456",
+  "x-ms-sgx-isv-family-id": "1234567812344321abcd1234567890ab"
 }.[Signature]
 ```
 Some of the claims used above are considered deprecated but are fully supported.  It is recommended that all future code and tooling use the non-deprecated claim names. See [claims issued by Azure Attestation](claim-sets.md) for more information.
