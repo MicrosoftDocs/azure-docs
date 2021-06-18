@@ -64,11 +64,11 @@ To enable auto provisioning of the Log Analytics agent:
 1. Select the relevant subscription.
 1. In the **Auto provisioning** page, set the Log Analytics agent's status to **On**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent.":::
 
 1. From the configuration options pane, define the workspace to use.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Configuration options for auto provisioning Log Analytics agents to VMs" lightbox="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png":::
+    :::image type="content" source="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Configuration options for auto provisioning Log Analytics agents to VMs." lightbox="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png":::
 
     - **Connect Azure VMs to the default workspace(s) created by Security Center** - Security Center creates a new resource group and default workspace in the same geolocation, and connects the agent to that workspace. If a subscription contains VMs from multiple geolocations, Security Center creates multiple workspaces to ensure compliance with data privacy requirements.
 
@@ -113,7 +113,7 @@ To enable auto provisioning of the Log Analytics agent:
     1. If you're enabling auto provisioning for the Microsoft Dependency agent, ensure the Log Analytics agent is set to auto deploy.
     1. Toggle the status to **On** for the relevant extension.
 
-        :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="Toggle to enable auto provisioning for K8s policy add-on":::
+        :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="Toggle to enable auto provisioning for K8s policy add-on.":::
 
     1. Select **Save**. The Azure policy is assigned and a remediation task is created.
 
@@ -128,7 +128,7 @@ To enable auto provisioning of the Log Analytics agent:
 
 1. You'll be asked if you want to reconfigure monitored VMs that were previously connected to a default workspace:
 
-    :::image type="content" source="./media/security-center-enable-data-collection/reconfigure-monitored-vm.png" alt-text="Review options to reconfigure monitored VMs":::
+    :::image type="content" source="./media/security-center-enable-data-collection/reconfigure-monitored-vm.png" alt-text="Review options to reconfigure monitored VMs.":::
 
     - **No** - your new workspace settings will only be applied to newly discovered VMs that don't have the Log Analytics agent installed.
     - **Yes** - your new workspace settings will apply to all VMs and every VM currently connected to a Security Center created workspace will be reconnected to the new target workspace.
@@ -189,7 +189,7 @@ You can define the level of security event data to store at the workspace level.
 1. From Security Center's menu in the Azure portal, select **Pricing & settings**.
 1. Select the relevant workspace. The only data collection events for a workspace are the Windows security events described on this page.
 
-    :::image type="content" source="media/security-center-enable-data-collection/event-collection-workspace.png" alt-text="Setting the security event data to store in a workspace":::
+    :::image type="content" source="media/security-center-enable-data-collection/event-collection-workspace.png" alt-text="Setting the security event data to store in a workspace.":::
 
 1. Select the amount of raw event data to store and select **Save**.
 
@@ -259,7 +259,7 @@ To turn off automatic provisioning of an agent:
 1. Select **Auto provisioning**.
 1. Toggle the status to **Off** for the relevant agent.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Toggles to disable auto provisioning per agent type":::
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Toggles to disable auto provisioning per agent type.":::
 
 1. Select **Save**. When auto provisioning is disabled, the default workspace configuration section is not displayed:
 

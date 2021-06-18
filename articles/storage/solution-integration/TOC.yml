@@ -31,6 +31,8 @@
     href: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
   - name: Komprise getting started guide
     href: ./validated-partners/data-management/komprise-quick-start-guide.md
+  - name: StorageX getting started guide
+    href: ./validated-partners/data-management/storagex-quick-start-guide.md
   expanded: false
 - name: Primary and secondary storage partners
   items:

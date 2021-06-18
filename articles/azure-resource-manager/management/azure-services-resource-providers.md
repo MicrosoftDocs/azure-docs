@@ -96,7 +96,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.HealthcareApis | [Azure API for FHIR](../../healthcare-apis/fhir/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
-| Microsoft.HybridNetwork  | [Private Edge Zones](../../networking/edge-zones-overview.md) |
+| Microsoft.HybridNetwork  | [Network Function Manager](../../network-function-manager/index.yml) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
 | Microsoft.Insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |

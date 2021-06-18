@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 author: likebupt
 ms.author: keli19
-ms.date: 01/02/2021
+ms.date: 06/15/2021
 ---
 # Execute Python Script module
 
@@ -157,8 +157,8 @@ The Execute Python Script module contains sample Python code that you can use as
     
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved.
  
-    > [!WARNING]
-    > **Don't** use **app** as the name of folder or your script, since **app** is a reserved word for built-in services. But you can use other namespaces like `app123`.
+    > [!IMPORTANT]
+    > Please use unique and meaningful name for files in the script bundle since some common words (like `test`, `app` and etc) are reserved for built-in services.
    
     Following is a script bundle example, which contains a python script file and a txt file:
       

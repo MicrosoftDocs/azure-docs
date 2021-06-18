@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 4/15/2021
+ms.date: 6/16/2021
 ms.author: cavoeg
 ---
 
@@ -65,7 +65,7 @@ All the operations that are supported that extend the RESTful API.
 | $convert-data          | Yes       | Yes       | Yes       |         |
 | $validate              | Yes       | Yes       | Yes       |         |
 | $member-match          | Yes       | Yes       | Yes       |         |
-| $patient-everything    | No        | No        | Yes       |         |
+| $patient-everything    | Yes       | No        | Yes       |         |
 
 ## Persistence
 
