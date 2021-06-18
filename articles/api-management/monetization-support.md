@@ -23,6 +23,7 @@ This document highlights the API management features that will enable key elemen
 ## Prerequisites
 
 * Deploy and initialize the sample project via instructions in the [README](../README.md) and the [deployment and initialization guide](Initialisation.md).
+* Review API Management monetization via the [overview](./monetization-overview.md) article.
 
 ## API Discovery
 
