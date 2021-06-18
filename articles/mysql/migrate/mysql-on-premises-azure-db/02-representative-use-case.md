@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 06/18/2021
 ---
 
-# Migrate MySQL on-premises to Azure Database for MySQL | Representative Use Case
+# Migrate MySQL on-premises to Azure Database for MySQL: Representative Use Case
 
 ## Prerequisites
 
@@ -46,11 +46,11 @@ WWI used the [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) 
 
 These stages include:
 
-| Stage | Name | Activities |
+| Stage: Name: Activities |
 |-------|------|------------|
-| 1 | Pre-migration  | Assessment, Planning, Migration Method Evaluation, Application Implications, Test Plans, Performance Baselines |
-| 2 | Migration      | Execute Migration, Execute Test Plans                                                                          |
-| 3 | Post-migration | Business Continuity, Disaster Recovery, Management, Security, Performance Optimization, Platform modernization |
+| 1: Pre-migration : Assessment, Planning, Migration Method Evaluation, Application Implications, Test Plans, Performance Baselines |
+| 2: Migration     : Execute Migration, Execute Test Plans                                                                          |
+| 3: Post-migration: Business Continuity, Disaster Recovery, Management, Security, Performance Optimization, Platform modernization |
 
 WWI has several instances of MySQL running with varying versions ranging from 5.5 to 5.7. They would like to move their instances to the latest version as soon as possible but would like to ensure their applications can still work if they move to the newer versions. They're comfortable moving to the same version in the cloud and upgrading afterward, but they would prefer that path if they can accomplish two tasks at once.
 

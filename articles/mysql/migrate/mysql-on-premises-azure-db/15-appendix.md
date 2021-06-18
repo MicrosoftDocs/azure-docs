@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 06/18/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL | Appendix
+# MySQL on-premises to Azure Database for MySQL: Appendix
 
 ## Overview
 

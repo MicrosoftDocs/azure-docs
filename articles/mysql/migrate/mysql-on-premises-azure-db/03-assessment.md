@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 06/18/2021
 ---
 
-# Migrate MySQL on-premises to Azure Database for MySQL | Assessment
+# Migrate MySQL on-premises to Azure Database for MySQL: Assessment
 
 ## Prerequisites
 
@@ -198,11 +198,11 @@ The tier decision can be influenced by the RTO and RPO requirements of the data 
 
 Typically, the decision-making focuses on the storage and IOPS, or Input/output Operations Per Second, needs. Thus, the target system always needs at least as much storage as in the source system. Additionally, since IOPS are allocated 3/GB, it's important to match up the IOPs needs to the final storage size.
 
-| Factors | Tier |
+| Factors: Tier |
 |---------|------|
-| **Basic** | Development machine, no need for high performance with less than 1 TB storage. |
-| **General Purpose** | Needs for IOPS more than what basic tier can provide, but for storage less than 16 TB, and less than 4 GB of memory. |
-| **Memory Optimized** | Data workloads that utilize high memory or high cache and buffer-related server configuration such as high concurrency innodb_buffer_pool_instances, large BLOB sizes, systems with many slaves for replication. |
+| **Basic**: Development machine, no need for high performance with less than 1 TB storage. |
+| **General Purpose**: Needs for IOPS more than what basic tier can provide, but for storage less than 16 TB, and less than 4 GB of memory. |
+| **Memory Optimized**: Data workloads that utilize high memory or high cache and buffer-related server configuration such as high concurrency innodb_buffer_pool_instances, large BLOB sizes, systems with many slaves for replication. |
 
 ### Costs
 
@@ -210,25 +210,25 @@ After evaluating the entire WWI MySQL data workloads, WWI determined they would 
 
 Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database:
 
-| Resource | Description | Quantity | Cost |
+| Resource: Description: Quantity: Cost |
 |----------|-------------|----------|------|
-| **Compute (General Purpose)** | 4 vCores, 20 GB                   | 1 @ $0.351/hr                                               | $3074.76 / yr |
-| **Storage**                   | 5 GB                              | 12 x 150 @ $0.115                                           | $207 / yr     |
-| **Backup**                    | Up to 100% of provisioned storage | No extra cost up to 100% of provisioned server storage      | $0.00 / yr    |
-| **Read Replica**              | 1-second region replica           | compute + storage                                           | $3281.76 / yr |
-| **Network**                   | < 5GB/month egress                | Free                                                        |               |
-| **Total**                     |                                   |                                                             | $6563.52 / yr |
+| **Compute (General Purpose)**: 4 vCores, 20 GB                  : 1 @ $0.351/hr                                              : $3074.76 / yr |
+| **Storage**                  : 5 GB                             : 12 x 150 @ $0.115                                          : $207 / yr     |
+| **Backup**                   : Up to 100% of provisioned storage: No extra cost up to 100% of provisioned server storage     : $0.00 / yr    |
+| **Read Replica**             : 1-second region replica          : compute + storage                                          : $3281.76 / yr |
+| **Network**                  : < 5GB/month egress               : Free                                                       :               |
+| **Total**                    :                                  :                                                            : $6563.52 / yr |
 
 After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a period much longer than 3 years. They decided to use 3-year [reserve instances](../../concept-reserved-pricing.md) to save an extra \~$4K/yr:
 
-| Resource | Description | Quantity | Cost |
+| Resource: Description: Quantity: Cost |
 |----------|-------------|----------|------|
-| **Compute (General Purpose)** | 4 vCores                          | 1 @ $0.1375/hr                                               | $1204.5 / yr |
-| **Storage**                   | 5 GB                              | 12 x 150 @ $0.115                                            | $207 / yr    |
-| **Backup**                    | Up to 100% of provisioned storage | No extra cost up to 100% of provisioned server storage       | $0.00 / yr   |
-| **Network**                   | < 5GB/month egress                | Free                                                         |              |
-| **Read Replica**              | 1-second region replica           | compute + storage                                            | $1411.5 / yr |
-| **Total**                     |                                   |                                                              | $2823 / yr   |
+| **Compute (General Purpose)**: 4 vCores                         : 1 @ $0.1375/hr                                              : $1204.5 / yr |
+| **Storage**                  : 5 GB                             : 12 x 150 @ $0.115                                           : $207 / yr    |
+| **Backup**                   : Up to 100% of provisioned storage: No extra cost up to 100% of provisioned server storage      : $0.00 / yr   |
+| **Network**                  : < 5GB/month egress               : Free                                                        :              |
+| **Read Replica**             : 1-second region replica          : compute + storage                                           : $1411.5 / yr |
+| **Total**                    :                                  :                                                             : $2823 / yr   |
 
 As the table above shows, backups, network egress, and any read replicas must be considered in the total cost of ownership (TCO). As more databases are added, the storage and network traffic generated would be the only extra cost-based factor to consider.
 
@@ -252,13 +252,13 @@ Lastly, modify the server name in the application connection strings or switch t
 
 WWI started the assessment by gathering information about their MySQL data estate. They were able to compile the following:
 
-| Name | Source | Db Engine | Size | IOPS | Version | Owner | Downtime |
+| Name: Source: Db Engine: Size: IOPS: Version: Owner: Downtime |
 |------|--------|-----------|------|------|---------|-------|----------|
-| **WwwDB**        | AWS (PaaS)  | InnoDB | 1 GB  | 150 | 5.7 | Marketing Dept | 1 hr  |
-| **BlogDB**       | AWS (PaaS)  | InnoDB | 1 GB  | 100 | 5.7 | Marketing Dept | 4 hrs |
-| **ConferenceDB** | On-premises | InnoDB | 5 GB  | 50  | 5.5 | Sales Dept     | 4 hrs |
-| **CustomerDB**   | On-premises | InnoDB | 10 GB | 75  | 5.5 | Sales Dept     | 2 hrs |
-| **SalesDB**      | On-premises | InnoDB | 20 GB | 75  | 5.5 | Sales Dept     | 1 hr  |
+| **WwwDB**       : AWS (PaaS) : InnoDB: 1 GB : 150: 5.7: Marketing Dept: 1 hr  |
+| **BlogDB**      : AWS (PaaS) : InnoDB: 1 GB : 100: 5.7: Marketing Dept: 4 hrs |
+| **ConferenceDB**: On-premises: InnoDB: 5 GB : 50 : 5.5: Sales Dept    : 4 hrs |
+| **CustomerDB**  : On-premises: InnoDB: 10 GB: 75 : 5.5: Sales Dept    : 2 hrs |
+| **SalesDB**     : On-premises: InnoDB: 20 GB: 75 : 5.5: Sales Dept    : 1 hr  |
 
 Each database owner was contacted to determine the acceptable downtime period. The planning and migration method selected were based on the acceptable database downtime.
 

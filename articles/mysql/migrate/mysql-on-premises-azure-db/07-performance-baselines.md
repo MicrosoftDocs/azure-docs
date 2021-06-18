@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 06/18/2021
 ---
 
-# Migrate MySQL on-premises to Azure Database for MySQL | Performance Baselines
+# Migrate MySQL on-premises to Azure Database for MySQL: Performance Baselines
 
 ## Prerequisites
 

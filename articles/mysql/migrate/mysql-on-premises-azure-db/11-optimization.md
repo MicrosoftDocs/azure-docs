@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 06/18/2021
 ---
 
-# Migrate MySQL on-premises to Azure Database for MySQL | Optimization
+# Migrate MySQL on-premises to Azure Database for MySQL: Optimization
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ AzureDiagnostics
 | where Category == 'MySqlSlowLogs'
 | project TimeGenerated, LogicalServerName\_s, 
 event\_class\_s, start\_time\_t , q uery\_time\_d, 
-sql\_text\_s | top 5 by query\_time\_d desc
+sql\_text\_s: top 5 by query\_time\_d desc
 ```
 
 ## Query Performance Insight

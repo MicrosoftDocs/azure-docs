@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 06/18/2021
 ---
 
-# Migrate MySQL on-premises to Azure Database for MySQL | Test Plans
+# Migrate MySQL on-premises to Azure Database for MySQL: Test Plans
 
 ## Prerequisites
 

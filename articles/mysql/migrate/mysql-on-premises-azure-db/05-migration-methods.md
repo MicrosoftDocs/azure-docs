@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 06/18/2021
 ---
 
-# Migrate MySQL on-premises to Azure Database for MySQL | Migration Methods
+# Migrate MySQL on-premises to Azure Database for MySQL: Migration Methods
 
 ## Prerequisites
 
@@ -95,13 +95,13 @@ The fastest and most complete path is to use `binlog` replication (either direct
 
 There are many paths WWI can take to migrate their MySQL workloads. We've provided a table of the potential paths and the advantages and disadvantages of each:
 
-| Objective | Description | Tool | Prerequisites | Advantages | Disadvantages |
+| Objective: Description: Tool: Prerequisites: Advantages: Disadvantages |
 |-----------|-------------|------|---------------|------------|---------------|
-| **Fastest migration possible** | Parallel approach | mydumper and myloader | Linux | Highly parallelized | Target throttling |
-| **Online migration** | Keep the source up for as long as possible | binlog | None | Seamless | Extra processing and storage  |
-| **Offline migration** | Keep the source up for as long as possible | Database Migration Service (DMS) | None | Repeatable process  | Limited to data only, supports all MySQL versions |
-| **Highly Customized Offline Migration** | Selectively export objects | mysqldump | None | Highly customizable | Manual |
-| **Offline Migration Semi-automated** | UI-based export and import | MySQL Workbench | Download and Install | Semi-automated | Only common sets of switches are supported |
+| **Fastest migration possible**: Parallel approach: mydumper and myloader: Linux: Highly parallelized: Target throttling |
+| **Online migration**: Keep the source up for as long as possible: binlog: None: Seamless: Extra processing and storage  |
+| **Offline migration**: Keep the source up for as long as possible: Database Migration Service (DMS): None: Repeatable process : Limited to data only, supports all MySQL versions |
+| **Highly Customized Offline Migration**: Selectively export objects: mysqldump: None: Highly customizable: Manual |
+| **Offline Migration Semi-automated**: UI-based export and import: MySQL Workbench: Download and Install: Semi-automated: Only common sets of switches are supported |
 
 ### WWI Scenario
 
