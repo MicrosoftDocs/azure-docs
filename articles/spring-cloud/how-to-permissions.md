@@ -112,7 +112,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
     "roleName": "Developer",
     "description": "",
     "assignableScopes": [
-      "/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216"
+      "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ],
     "permissions": [
       {
@@ -229,7 +229,7 @@ From **Microsoft.AppPlatform/skus**, select:
     "roleName": "DevOps engineer",
     "description": "",
     "assignableScopes": [
-      "/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216"
+      "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ],
     "permissions": [
       {
@@ -327,7 +327,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
     "roleName": "Ops - Site Reliability Engineering",
     "description": "",
     "assignableScopes": [
-      "/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216"
+      "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ],
     "permissions": [
       {
@@ -436,7 +436,7 @@ From **Microsoft.AppPlatform/skus**, select:
     "roleName": "Azure Pipelines/Provisioning",
     "description": "",
     "assignableScopes": [
-      "/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216"
+      "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ],
     "permissions": [
       {
