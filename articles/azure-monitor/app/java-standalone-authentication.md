@@ -18,27 +18,30 @@ Application insights Java agent support Azure active directory based authenticat
 
 ## Prerequisites
 
-We assume users to be familiar with the following articles before enabling authentication with AAD.
+We assume users to be familiar with the following concepts before enabling authentication with AAD.
 - [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) for Azure resources.
 - [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal?tabs=current) using the Azure portal.
 
 ## Steps to enable AAD authentication
 
-Following are the high level view of the steps involved in enabling AAD authentication on Java agent to securely send telemetry to Azure Application Insights resource:
+Following is a high level view of the steps involved in enabling AAD authentication on Java agent to securely send telemetry to Azure Application Insights resource:
 
 1. The first step depends on the type of authentication used by the user. 
-    -   If using System assigned managed identity or User assigned managed identity, follow these [steps](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to configure managed identities for Azure resources on a VM using Azure portal. 
+    -   If using System-assigned managed identity or User-assigned managed identity, follow these [steps](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to configure managed identities for Azure resources on a VM using Azure portal. 
     -   If using service principal, follow these [steps](/azure/active-directory/develop/howto-create-service-principal-portal) to create an Azure AD application and service principal that can access resources. We recommend to use this type of authentication only during development.
 2. Follow these [steps](/azure/role-based-access-control/role-assignments-portal?tabs=current) to add `"Monitoring Metrics Publisher"` role from the Application Insights resource to the Azure resource from which the telemetry is sent.
 3. Add the authentication related [configuration](#supported-types-of-authentication) to the ApplicationInsights.json configuration file.
 
 ## Supported types of authentication
 
-The following are types of authentication that are supported by Java agent. We recommend users to use managed identities, since the ultimate goal is to eliminate secrets and also to eliminate the need for developers to manage credentials.
+The following are types of authentication that are supported by Java agent. 
 
-### System assigned managed identity
+> [!NOTE]
+> We recommend using managed identities, since the ultimate goal is to eliminate secrets and also to eliminate the need for developers to manage credentials.
 
-Here is an example on how to configure Java agent to use system assigned managed identity for authentication with AAD.
+### System-assigned managed identity
+
+Here is an example on how to configure Java agent to use System-assigned managed identity for authentication with AAD.
 
 ```json
 "preview" : {
@@ -49,25 +52,25 @@ Here is an example on how to configure Java agent to use system assigned managed
 }
 ```
 
-### User assigned managed identity
+### User-assigned managed identity
 
-Here is an example on how to configure Java agent to use user assigned managed identity for authentication with AAD.
+Here is an example on how to configure Java agent to use User-assigned managed identity for authentication with AAD.
 
 ```json
 "preview" : {
     "authentication" : {
       "enabled": true,
       "type": "UAMI",
-      "clientId":"<USER ASSIGNED MANAGED IDENTITY CLIENT ID>"
+      "clientId":"<User-assigned MANAGED IDENTITY CLIENT ID>"
     }
 }
 ```
 
-:::image type="content" source="media/java-ipa/authentication/user-assigned-managed-identity.png" alt-text="Screenshot of user assigned managed identity." lightbox="media/java-ipa/authentication/user-assigned-managed-identity.png":::
+:::image type="content" source="media/java-ipa/authentication/user-assigned-managed-identity.png" alt-text="Screenshot of User-assigned managed identity." lightbox="media/java-ipa/authentication/user-assigned-managed-identity.png":::
 
 ### Client secret
 
-Here is an example on how to configure Java agent to use service principal for authentication with AAD. We recommend users to use this type of authentication only during development. The ultimate goal of adding authentication feature is to eliminate secrets.
+Here is an example on how to configure Java agent to use service principal for authentication with AAD.
 
 ```json
 "preview" : {
