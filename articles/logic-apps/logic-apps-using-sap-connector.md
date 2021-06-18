@@ -29,7 +29,11 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
 * An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Logic Apps. For information about what SAP servers you can use with the connector, see [SAP compatibility](#sap-compatibility).
 
-    * Configure your SAP server to allow the use of RFC. For more information, see the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089). 
+* An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Azure Logic Apps. For information about the SAP servers that support this connector, review [SAP compatibility](#sap-compatibility).
+
+  > [!IMPORTANT]
+  > Make sure that you set up your SAP server to allow using RFC. For more information, 
+  > review the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089). 
 
 * Message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](#actions) you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
 
