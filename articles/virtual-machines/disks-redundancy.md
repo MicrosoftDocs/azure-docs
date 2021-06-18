@@ -158,89 +158,6 @@ az vmss create -g $rgName \
 --data-disk-sizes-gb 128 \
 --storage-sku os=$osDiskSku 0=$dataDiskSku
 ```
-
-# [Resource Manager Template](#tab/azure-resource-manager)
-
-Use the `2020-12-01` API with your Azure Resource Manager template to create a ZRS disk.
-
-#### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
-    
-#### Create a VM with ZRS disks
-
-```
-$vmName = "yourVMName" 
-$adminUsername = "yourAdminUsername"
-$adminPassword = ConvertTo-SecureString "yourAdminPassword" -AsPlainText -Force
-$osDiskType = "StandardSSD_ZRS"
-$dataDiskType = "Premium_ZRS"
-$region = "eastus2euap"
-$resourceGroupName = "yourResourceGroupName"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $region
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
--TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/ZRSDisks/CreateVMWithZRSDataDisks.json" `
--resourceName $vmName `
--adminUsername $adminUsername `
--adminPassword $adminPassword `
--region $region `
--osDiskType $osDiskType `
--dataDiskType $dataDiskType
-```
-
-#### Create VMs with a shared ZRS disk attached to the VMs in different zones
-
-```
-$vmNamePrefix = "yourVMNamePrefix"
-$adminUsername = "yourAdminUserName"
-$adminPassword = ConvertTo-SecureString "yourAdminPassword" -AsPlainText -Force
-$osDiskType = "StandardSSD_LRS"
-$sharedDataDiskType = "Premium_ZRS"
-$region = "eastus2euap"
-$resourceGroupName = "zrstesting1"
-
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
--TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/ZRSDisks/CreateVMsWithASharedDisk.json" `
--vmNamePrefix $vmNamePrefix `
--adminUsername $adminUsername `
--adminPassword $adminPassword `
--region $region `
--osDiskType $osDiskType `
--dataDiskType $sharedDataDiskType
-```
-
-#### Create a virtual machine scale set with ZRS Disks
-
-```
-$vmssName="yourVMSSName"
-$adminUsername="yourAdminName"
-$adminPassword=ConvertTo-SecureString "yourAdminPassword" -AsPlainText -Force
-$region="eastus2euap"
-$osDiskType="StandardSSD_LRS"
-$dataDiskType="Premium_ZRS"
-
-New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
--TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/ZRSDisks/CreateVMSSWithZRSDisks.json" `
--vmssName "yourVMSSName" `
--adminUsername "yourAdminName" `
--adminPassword $password `
--region "eastus2euap" `
--osDiskType "StandardSSD_LRS" `
--dataDiskType "Premium_ZRS" `
-```
 # [Azure PowerShell](#tab/azure-powershell)
 
 
@@ -392,7 +309,6 @@ update-AzVm -VM $vm1 -ResourceGroupName $rgName
 ```
 
 #### Create a virtual machine scale set with ZRS Disks
-
 ```powershell
 $vmLocalAdminUser = "yourLocalAdminUser"
 $vmLocalAdminSecurePassword = ConvertTo-SecureString "yourVMPassword" -AsPlainText -Force
@@ -447,6 +363,89 @@ $vmss = Add-AzVmssDataDisk -VirtualMachineScaleSet $vmss `
 New-AzVmss -VirtualMachineScaleSet $vmss `
            -ResourceGroupName $rgName `
            -VMScaleSetName $vmScaleSetName
+```
+
+# [Resource Manager Template](#tab/azure-resource-manager)
+
+Use the `2020-12-01` API with your Azure Resource Manager template to create a ZRS disk.
+
+#### Prerequisites
+
+You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
+
+1.	Execute the following command to register the feature for your subscription
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
+    ```
+    
+#### Create a VM with ZRS disks
+
+```
+$vmName = "yourVMName" 
+$adminUsername = "yourAdminUsername"
+$adminPassword = ConvertTo-SecureString "yourAdminPassword" -AsPlainText -Force
+$osDiskType = "StandardSSD_ZRS"
+$dataDiskType = "Premium_ZRS"
+$region = "eastus2euap"
+$resourceGroupName = "yourResourceGroupName"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $region
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+-TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/ZRSDisks/CreateVMWithZRSDataDisks.json" `
+-resourceName $vmName `
+-adminUsername $adminUsername `
+-adminPassword $adminPassword `
+-region $region `
+-osDiskType $osDiskType `
+-dataDiskType $dataDiskType
+```
+
+#### Create VMs with a shared ZRS disk attached to the VMs in different zones
+
+```
+$vmNamePrefix = "yourVMNamePrefix"
+$adminUsername = "yourAdminUserName"
+$adminPassword = ConvertTo-SecureString "yourAdminPassword" -AsPlainText -Force
+$osDiskType = "StandardSSD_LRS"
+$sharedDataDiskType = "Premium_ZRS"
+$region = "eastus2euap"
+$resourceGroupName = "zrstesting1"
+
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+-TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/ZRSDisks/CreateVMsWithASharedDisk.json" `
+-vmNamePrefix $vmNamePrefix `
+-adminUsername $adminUsername `
+-adminPassword $adminPassword `
+-region $region `
+-osDiskType $osDiskType `
+-dataDiskType $sharedDataDiskType
+```
+
+#### Create a virtual machine scale set with ZRS Disks
+
+```
+$vmssName="yourVMSSName"
+$adminUsername="yourAdminName"
+$adminPassword=ConvertTo-SecureString "yourAdminPassword" -AsPlainText -Force
+$region="eastus2euap"
+$osDiskType="StandardSSD_LRS"
+$dataDiskType="Premium_ZRS"
+
+New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
+-TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/ZRSDisks/CreateVMSSWithZRSDisks.json" `
+-vmssName "yourVMSSName" `
+-adminUsername "yourAdminName" `
+-adminPassword $password `
+-region "eastus2euap" `
+-osDiskType "StandardSSD_LRS" `
+-dataDiskType "Premium_ZRS" `
 ```
 ---
 
