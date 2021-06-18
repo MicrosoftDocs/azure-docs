@@ -47,7 +47,10 @@ For inbound calls, use the following cipher suites:
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 > [!NOTE]
-> We also support some older cipher suites for backward compatibility. We recommend against using any such older cipher suite for any new application development. The following cipher suites may be discovered inspecting the TLS handshake messages with Logic App service or using a security tool on Logic App's URL. These older ciphers may no longer be supported in the future. *Do not use these cipher suites*:
+> For backward compatibility, Azure Logic Apps currently supports some older cipher suites. However, *don't use* older cipher suites when you develop new apps because such suites *might not* be supported in the future. 
+>
+> For example, you might find the following cipher suites if you inspect the TLS handshake messages while using the Azure Logic Apps service or by using a security tool on your logic app's URL. Again, *don't use* these older suites:
+>
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
 > * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
