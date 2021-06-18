@@ -48,7 +48,7 @@ You can get a list of the VM extensions on your Arc enabled server from the Azur
 
 3. Choose **Extensions**, and the list of installed extensions is returned.
 
-    ![List VM extension deployed to selected machine](./media/manage-vm-extensions/list-vm-extensions.png)
+    :::image type="content" source="media/manage-vm-extensions/list-vm-extensions.png" alt-text="List VM extension deployed to selected machine." border="false":::
 
 ## Update extensions
 
@@ -56,7 +56,7 @@ When a new version of a supported extension is released, you can update the exte
 
 Updating an extension to the newest version does not affect the configuration of that extension. You are not required to respecify configuration information for any extension you update.
 
-![List VM extension upgrade status](./media/manage-vm-extensions-portal/vm-extensions-update-status.png)
+:::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-status.png" alt-text="List VM extension update status." border="false":::
 
 You can update one or select multiple extensions eligible for an update from the Azure portal by performing the following steps.
 
@@ -73,12 +73,12 @@ You can update one extension by one of three ways:
 
 1. By selecting an extension from the list of installed extensions, and under the properties of the extension, select the **Update** option.
 
-    ![Upgrade extension from selected extension](./media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png)
+    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png" alt-text="Update extension from selected extension." border="false":::
 
 1. By selecting the extension from the list of installed extensions, and select the **Update** option from the top of the page.
 1. By selecting one or more extensions that are eligible for an upgrade from the list of installed extensions, and then select the **Update** option.
 
-    ![Upgrade selected extension](./media/manage-vm-extensions-portal/vm-extensions-update-selected.png)
+    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="Update selected extension." border="false":::
 
 ## Uninstall extensions
 
