@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/11/2021
+ms.date: 06/18/2021
 ---
 
 # Monitor Data Flows
@@ -23,7 +23,7 @@ You see statistics at this level as well including the run times and status. The
 
 ![Screenshot shows the eyeglasses icon to see details of data flow execution.](media/data-flow/monitoring-details.png "Data Flow Monitoring")
 
-When you're in the graphical node monitoring view, you can see a simplified view-only version of your data flow graph.
+When you're in the graphical node monitoring view, you can see a simplified view-only version of your data flow graph. To see the details view with larger graph nodes that include transformation stage labels, use the zoom slider on the right side of your canvas. You can also use the search button on the right side to find parts of your data flow logic in the graph.
 
 ![Screenshot shows the view-only version of the graph.](media/data-flow/mon003.png "Data Flow Monitoring")
 
