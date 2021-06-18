@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 06/18/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to quickly deploy new Windows virtual machines on my Azure Stack Edge Pro GPU device, and I want to use an ISO image for OS installation.
 ---
@@ -128,8 +128,6 @@ After creating the new virtual machine, follow these steps to mount your ISO ima
 
    ![In BIOS settings, the first item under Startup order should be CD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-14.png)
 
-   > [!NOTE]
-   > If you install the Windows Server 2019 Standard operating system on your virtual machine, you'll need to change the **BIOS** setting to **IDE** before you [generalize the VHD](#generalize-the-vhd). 
 
 3. Under **DVD Drive**, select **Image file**, and browse to your ISO image.  
 
@@ -143,9 +141,22 @@ To finish building your virtual machine, you need to start the virtual machine a
 
 [!INCLUDE [Connect to Hyper-V VM](../../includes/azure-stack-edge-connect-to-hyperv-vm.md)]
 
+> [!NOTE]
+> If you installed the Windows Server 2019 Standard operating system on your virtual machine, you'll need to change the **BIOS** setting to **IDE** before you [generalize the VHD](#generalize-the-vhd). 
+
 ## Generalize the VHD
 
 Use the *sysprep* utility to generalize the VHD.
+
+1. If you're generalizing a Windows Server 2019 Standard VM, before you generalize the VHD, make IDE the first **BIOS** setting for the virtual machine. This change is needed to enable the VM to be booted during the `sysprep` process.
+
+    1. In Hyper-V Manager, select the VM, and then select **Settings**.
+ 
+       ![Screenshot showing how to open Settings for a selected VM in Hyper-V Manager](./media/azure-stack-edge-generalize-vhd/vhd-from-iso-01.png)
+
+     1. Under **BIOS**, ensure that **IDE** is at the top of the **Startup order** list. Then select **OK** to save the setting.
+
+        ![Screenshot showing IDE at top of startup order in BIOS settings for a VM in Hyper-V Manager](./media/azure-stack-edge-generalize-vhd/vhd-from-iso-02.png)
 
 [!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
 
