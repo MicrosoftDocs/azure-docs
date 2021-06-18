@@ -31,3 +31,9 @@ document.addEventListener("visibilitychange", function() {
 	}
 });
 ```
+
+### Dispose Video Stream Renderer View
+Application should dispose VideoStreamRendererView, or it's parent VideoStreamRenderer instance, if it doesn't need it anymore to render video and it decides to detach if from the DOM
+
+### Hangup Call on onbeforeunload Event
+App should invoke call.hangup on onbeforeunload event
