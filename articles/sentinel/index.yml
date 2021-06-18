@@ -41,6 +41,8 @@ landingContent:
         links:
           - text: Onboard Azure Sentinel
             url: quickstart-onboard.md
+          - text: Get Started with Azure Sentinel
+            url: quickstart-get-visibility.md   
       - linkListType: how-to-guide
         links:
           - text: Connect data to Azure Sentinel
