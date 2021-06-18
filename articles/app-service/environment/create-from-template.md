@@ -162,7 +162,7 @@ To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE 
 [quickstartconfiguressl]: https://azure.microsoft.com/resources/templates/201-web-app-ase-ilb-configure-default-ssl
 [quickstartwebapponasev2create]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev2-create
 [examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
-[configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
+[configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/201-web-app-ase-ilb-configure-default-ssl/
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md
