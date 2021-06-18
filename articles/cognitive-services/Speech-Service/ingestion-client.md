@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Ingestion Client for the Speech service
 
-The Ingestion Client is a tool released on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch) that enables customers to transcribe audio files through Speech Services quickly without -or very little- development effort. It works by wiring up a dedicated [Azure storage](https://azure.microsoft.com/en-us/product-categories/storage/) account to custom [Azure Functions](https://azure.microsoft.com/en-gb/services/functions/) that use either the [REST API](rest-speech-to-text.md) or the [SDK](speech-sdk.md) in a serverless fashion to raise transcription requests to the service.  
+The Ingestion Client is a tool released on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch) that enables customers to transcribe audio files through Speech services quickly with little or no development effort. It works by wiring up a dedicated [Azure storage](https://azure.microsoft.com/en-us/product-categories/storage/) account to custom [Azure Functions](https://azure.microsoft.com/en-gb/services/functions/) that use either the [REST API](rest-speech-to-text.md) or the [SDK](speech-sdk.md) in a serverless fashion to pass transcription requests to the service.  
 
 ## Architecture
 
