@@ -119,8 +119,6 @@ landingContent:
           url: howto-migrate-online.md
         - text: Common errors during or post migration
           url: howto-troubleshoot-common-errors.md
-        - text: "SQL Server (upgrade)"
-          url: /sql/database-engine/install-windows/upgrade-sql-server
 
 # Card 5
   - title: Manage and migrate data
