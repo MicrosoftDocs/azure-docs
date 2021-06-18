@@ -20,7 +20,7 @@ ms.reviewer: Dale.Koetke
 
 The basic Azure Monitor billing model is a cloud-friendly, consumption-based pricing ("Pay-As-You-Go"). You only pay for what you use. Pricing details are available for [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) and [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-In addition to the Pay-As-You-Go model for log data, Azure Mmonitor Log Analytics has Commitment Tiers, which enable you to save as much as 30% compared to the Pay-As-You-Go price. The Commitment Tiers pricing enables you to set a lower price for all your data ingestion at just 100 GB/day. Any usage above the Commitment Tier will be billed at the same low price. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Commitment Tiers pricing.
+In addition to the Pay-As-You-Go model for log data, Azure Monitor Log Analytics has Commitment Tiers. These enable you to save as much as 30% compared to the Pay-As-You-Go pricing. Commitment Tiers start at just 100 GB/day. Any usage above the Commitment Tier will be billed at the same price-per-GB as the Commitment Tier. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Commitment Tiers pricing.
 
 Some customers will have access to [legacy Log Analytics pricing tiers](logs/manage-cost-storage.md#legacy-pricing-tiers) and the [legacy Enterprise Application Insights pricing tier](app/pricing.md#legacy-enterprise-per-node-pricing-tier). 
 
