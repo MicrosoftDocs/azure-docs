@@ -95,7 +95,7 @@ You can export the logged files on the deployment page in Speech Studio if you u
 
 **Q: Do models get deprecated?**
 
-**A**: If there is a new model for a locale older models for that locale will be deprecated three months (earliest) after the new model was made available. For a deprecated model you cannot start new model adaptations or create new endpoints. Existing endpoints will be live for up to 3 years, although users will be encouraged to replace the underlying model with the newer version.
+**A**: If there is a new model for a locale, older models for that locale will be deprecated three or more months after the new model appears. For a deprecated model you cannot start new model adaptations or create new endpoints. Existing endpoints can remain live for up to 3 years, but users will be encouraged to replace the underlying model with the newer version.
 
 ## Increasing concurrency
 See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
