@@ -30,7 +30,7 @@ Use this article to find the settings and requirements for connecting different 
 
 ## <span id ='jump1'>Create a credential entity to manage your credential in secure</span>
 
-You can create a **credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in 'Adding data feed' tab or 'Credential entity' tab. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new data feed, this will be helpful when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
+You can create a **credential entity** to store credential-related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in 'Adding data feed' tab or 'Credential entity' tab. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new data feed, this will be helpful when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
 
 1. Select '+' to create a new credential entity in 'Adding data feed' tab (you can also create one in 'Credential entity feed' tab).
 
@@ -96,7 +96,7 @@ The following sections specify the parameters required for all authentication ty
     ``` Kusto
     [TableName] | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
-    You can also refer to the [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    You can also refer to the [Tutorial: Write a valid query](tutorials/write-a-valid-query.md) for more specific examples.
   
 ## <span id="blob">Azure Blob Storage (JSON)</span>
 
@@ -163,7 +163,7 @@ The following sections specify the parameters required for all authentication ty
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd    
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
@@ -207,7 +207,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-        <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
+        <!-- For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples. -->
 
 * **Query**: See [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
 
@@ -217,7 +217,7 @@ The following sections specify the parameters required for all authentication ty
    [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
    ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
@@ -316,7 +316,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     
 * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-     **Step 1:** Create and register an Azure AD application and then authorize it to access an database, see first part in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app).
+     **Step 1:** Create and register an Azure AD application and then authorize it to access a database, see first part in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app).
 
     **Step 2:** Assign roles.
     1. In the Azure portal, go to the **Storage accounts** service.
@@ -341,7 +341,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     | summarize [count_per_dimension]=count() by [Dimension]
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
 
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
@@ -397,7 +397,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 
     * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-        **Step 1:** Create and register an Azure AD application and then authorize it to access an database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+        **Step 1:** Create and register an Azure AD application and then authorize it to access a database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
         **Step 2:** Follow the same steps with [managed identity in SQL Server](#jump), which is mentioned above. 
 
@@ -442,7 +442,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     PartitionKey ge '@IntervalStart' and PartitionKey lt '@IntervalEnd'
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
 
 ## <span id="es">Elasticsearch</span>
 
@@ -469,7 +469,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
     
-For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
 
 * **User name**: This is optional for authentication. 
 * **Password**: This is optional for authentication. 
@@ -498,7 +498,7 @@ For more information, refer to the [tutorial on writing a valid query](tutorial/
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
 
 ## <span id="pgsql">PostgreSQL</span>
 
@@ -510,7 +510,7 @@ For more information, refer to the [tutorial on writing a valid query](tutorial/
     ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
-    For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
     
 ## <span id="csv">Local files(CSV)</span>
 

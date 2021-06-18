@@ -25,11 +25,7 @@ If you are not sure about some of the terms, refer to [Glossary](../glossary.md)
 
 Partial data is caused by inconsistencies between the data stored in Metrics Advisor and the data source. This can happen when the data source is updated after Metrics Advisor has finished pulling data. Metrics Advisor only pulls data from a given data source once.
 
-<<<<<<< HEAD
-For example, if a metric has been onboarded to Metrics Advisor for monitoring. Metrics Advisor successfully grabs metric data at timestamp A and performs anomaly detection on it. However, if the metric data of that particular timestamp A has been refreshed after the data been ingested, new data value won't be retrieved.
-=======
 For example, if a metric has been onboarded to Metrics Advisor for monitoring. Metrics Advisor successfully grabs metric data at timestamp A and performs anomaly detection on it. However, if the metric data of that particular timestamp A has been refreshed after the data has been ingested. New data value won't be retrieved.
->>>>>>> 7174ceccda31fb2a69b055ecf4a209e0263ff85e
 
 You can try to [backfill](manage-data-feeds.md#backfill-your-data-feed) historical data (described later) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
 
@@ -60,7 +56,7 @@ Next you'll input a set of parameters to connect your time-series data source.
 Next, you'll need to specify the connection information for the data source. For details on the other fields and connecting different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
 #### 3. Specify query for a single timestamp
-<!-- Next, you'll need to specify a query to convert the data into the required schema, see [how to write a valid query](../tutorial/write-a-valid-query.md) for more information.  -->
+<!-- Next, you'll need to specify a query to convert the data into the required schema, see [how to write a valid query](../tutorials/write-a-valid-query.md) for more information.  -->
 
 For details of different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
@@ -68,10 +64,10 @@ For details of different types of data sources, see [How-to: Connect different d
 
 After the connection string and query string are inputted, select **Load data**. Within this operation, Metrics Advisor will check connection and permission to load data, check necessary parameters (@IntervalStart and @IntervalEnd) which need to be used in query, and check the column name from data source. 
 
-If there's an error at this step, check:
-1. Whether connection string is valid. 
-2. Whether there's sufficient permission and ingestion worker IP address is granted access.
-3. Whether required parameters (@IntervalStart and @IntervalEnd) are used in your query. 
+If there's an error at this step:
+1. First check if the connection string is valid. 
+2. Then check if there's sufficient permissions and that the ingestion worker IP address is granted access.
+3. Then check if required parameters (@IntervalStart and @IntervalEnd) are used in your query. 
 
 
 ### Schema configuration
@@ -88,11 +84,7 @@ If the timestamp of a data point is omitted, Metrics Advisor will use the timest
 |**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
 |**Ignore**     | Ignore the selected column.        | Optional. For data sources support using a query to get data, there is no 'Ignore' option.       |
 
-<<<<<<< HEAD
-You can ignore columns using **Ignore columns** and then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
-=======
 If you want to ignore columns, we recommend updating your query or data source to exclude those columns. You can also ignore columns using **Ignore columns** and then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
->>>>>>> 7174ceccda31fb2a69b055ecf4a209e0263ff85e
 
 | Row ID | Timestamp | Country | Language | Income |
 | --- | --- | --- | --- | --- |
@@ -214,10 +206,5 @@ You can also reload the progress of an ingestion by clicking **Refresh Progress*
 
 ## Next steps
 - [Manage your data feeds](manage-data-feeds.md)
-<<<<<<< HEAD
-- [Connect different data sources](../data-feeds-from-different-sources.md)
-- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
-=======
 - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Configure metrics and fine tune detection configuration](configure-metrics.md)
->>>>>>> 7174ceccda31fb2a69b055ecf4a209e0263ff85e

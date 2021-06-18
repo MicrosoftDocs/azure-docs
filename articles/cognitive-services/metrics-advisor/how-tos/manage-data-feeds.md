@@ -107,7 +107,7 @@ Once you've filled in the action link, click **Go to action link** on the incide
 | `%timestamp` | - | Timestamp of an anomaly or end time of a persistent incident |
 | `%tagset` | `%tagset`, <br> `[%tagset.get("Dim1")]`, <br> `[ %tagset.get("Dim1", "filterVal")]` | Dimension values of an anomaly or top anomaly of an incident.   <br> The `filterVal` is used to filter out matching values within the square brackets.   |
 
-Examples :
+Examples:
 
 * If the action link template is `https://action-link/metric/%metric?detectConfigId=%detect_config`:
   * The action link `https://action-link/metric/1234?detectConfigId=2345` would go to anomalies or incidents under metric `1234` and detect config `2345`.

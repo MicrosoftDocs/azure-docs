@@ -20,7 +20,7 @@ Use this article to start configuring your Metrics Advisor instance using the we
 
 Select one of the metric names to see its details. In this detailed view, you can switch to another metric in the same data feed using the drop down list in the top right corner of the screen.
 
-When you first view a metrics' details, you can load a time series by letting Metrics Advisor choose one for you, or by specifying values to be included for each dimension. 
+When you first view a metric's details, you can load a time series by letting Metrics Advisor choose one for you, or by specifying values to be included for each dimension. 
 
 You can also select time ranges, and change the layout of the page.
 
@@ -63,7 +63,7 @@ Metrics Advisor offers multiple anomaly detection methods: **Hard threshold, Sma
 Smart detection is powered by machine learning that learns patterns from historical data, and uses them for future detection. When using this method, the **Sensitivity** is the most important parameter for tuning the detection results. You can drag it to a smaller or larger value to affect the visualization on the right side of the page. Choose one that fits your data and save it. 
 
 
-In smart detection mode, the sensitivity and boundary version parameters are used to fine tune the anomaly detection result.
+In smart detection mode, the sensitivity and boundary version parameters are used to fine-tune the anomaly detection result.
 
 Sensitivity can affect the width of the expected value range of each point. When increased, the expected value range will be tighter, and more anomalies will be reported:
 
@@ -111,7 +111,7 @@ Sometimes, expected events and occurrences (such as holidays) can generate anoma
 > [!Note]
 > Preset event configuration will take holidays into consideration during anomaly detection, and may change your results. It will be applied to the data points ingested after you save the configuration. 
 
-Click the **Configure Preset Event** button next to the metrics drop down list on each metric details page.
+Click the **Configure Preset Event** button next to the metrics drop-down list on each metric details page.
  
 :::image type="content" source="../media/metrics/preset-event-button.png" alt-text="preset event button":::
 
@@ -137,7 +137,7 @@ The **Cycle event** section can be used in some scenarios to help reduce unneces
 - Metrics that have multiple patterns or cycles, such as both a weekly and monthly pattern. 
 - Metrics that do not have a clear pattern, but the data is comparable Year over Year (YoY), Month over Month (MoM), Week Over Week (WoW), or Day Over Day (DoD).
  
-Not all options are selectable for every granularity. The available options per granularity are below ( ✔ for available, X for unavailable):
+Not all options are selectable for every granularity. The available options per granularity are below (✔ for available, X for unavailable):
 
 | Granularity | YoY | MoM | WoW | DoD |
 |:-|:-|:-|:-|:-|

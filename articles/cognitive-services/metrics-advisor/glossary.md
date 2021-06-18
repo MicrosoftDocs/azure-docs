@@ -79,7 +79,7 @@ A measure is a fundamental or unit-specific term and a quantifiable value of the
 
 A time series is a series of data points indexed (or listed or graphed) in chronological order. Most commonly, a time series is a sequence taken at successive, equally spaced points in time. It is a sequence of discrete-time data.
 
-In Metrics Advisor, values of one metric on a specific dimension combination is called one series.
+In Metrics Advisor, values of one metric on a specific dimension combination are called one series.
 
 ## Granularity
 

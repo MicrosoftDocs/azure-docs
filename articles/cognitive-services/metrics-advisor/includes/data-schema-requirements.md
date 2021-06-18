@@ -15,7 +15,7 @@ Metrics Advisor is a service for time series anomaly detection, diagnostics and 
 
 * **Measure** (required): A measure is a fundamental or unit-specific term and a quantifiable value of the metric. It means one or more columns containing numeric values.
 * **Timestamp** (optional): zero or one column with type of `DateTime` or `String`. When this column is not set, the timestamp is set as the start time of each ingestion period. Format the timestamp into: `yyyy-MM-ddTHH:mm:ssZ`. 
-* **Dimension** (optional): A dimension is one or more categorical values. The combination of those values identify a particular univariate time series, for example: country, language, tenant, and so on. The dimension columns can be of any data type. Be cautious when working with large volumes of columns and values, to prevent excessive numbers of dimensions from being processed.
+* **Dimension** (optional): A dimension is one or more categorical values. The combination of those values identifies a particular univariate time series, for example: country, language, tenant, and so on. The dimension columns can be of any data type. Be cautious when working with large volumes of columns and values, to prevent excessive numbers of dimensions from being processed.
 
 Here's an example of expected metrics schema: 
 
