@@ -29,7 +29,6 @@ NFS file shares are often used in the following scenarios:
 
 - NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, lock upgrades and downgrades, Kerberos authentication, and encryption are not supported.
 - If the majority of your requests are metadata-centric, then the latency will be worse when compared to read/write/update operations.
-- Only the management plane REST APIs are supported. Data plane REST APIs are not available, which means that tools like Storage Explorer will not work with NFS shares nor will you be able to browse NFS share data in the Azure portal.
 - It is best to rely on the permissions assigned to primary group. Sometimes, permissions allocated to the non-primary group of the user may result in access denied due to a known bug.
 
 ## Security and networking
@@ -48,7 +47,7 @@ For more details on the available networking options, see [Azure Files networkin
 
 ## Support for Azure Storage features
 
-The following table shows the current level of support for Azure Storage features in accounts that have the NFS 3.0 feature enabled. 
+The following table shows the current level of support for Azure Files features in accounts that have the NFS 4.1 feature enabled. 
 
 The status of items that appear in this tables will change over time as support continues to expand.
 
@@ -61,14 +60,15 @@ The status of items that appear in this tables will change over time as support 
 | [Restricted public endpoints](storage-files-networking-overview.md#storage-account-firewall-settings)|  ✔️  |
 | [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
 | [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
-| [File sync introduction](../file-sync/file-sync-introduction.md)| ⛔ |
+| [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)| ⛔ |
 | File data plane REST API| ⛔ |
 | Encryption in transit| ⛔ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
-| AzCopy| ⛔ |
+| [AzCopy](../common/storage-use-azcopy-v10.md)| ⛔ |
 | Standard tier| ⛔ |
+| Azure Storage Explorer| ⛔ |
 
 ## Limitations
 
