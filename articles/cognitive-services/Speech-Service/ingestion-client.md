@@ -19,7 +19,7 @@ The Ingestion Client is a tool released on [GitHub](https://github.com/Azure-Sam
 
 ## Architecture
 
-The tool is targeting those customers that want to get an idea of the quality of the transcript without making any development investments up front. The tool creates a few resources and wires together to transcribe audio files landing in the dedicated [Azure Storage container](https://azure.microsoft.com/en-us/product-categories/storage/).
+The tool helps those customers that want to get an idea of the quality of the transcript without making development investments up front. The tool connects a few resources to transcribe audio files that land in the dedicated [Azure Storage container](https://azure.microsoft.com/en-us/product-categories/storage/).
 
 Under the hood, the tool is using our V3.0 Batch API or SDK (a choice made by the customer) and in addition, implements best practices relating to handling scale up, retries and failover. The following schematic describes the resources created and the basic wiring.
 
