@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 06/18/2021
 ---
 
-# Estimate and manage capacity of an Azure Cognitive Search service
+# Estimate and manage capacity of a search service
 
 Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
 
 In Azure Cognitive Search, capacity is based on *replicas* and *partitions*. Replicas are copies of the search engine.
-Partitions are units of storage. Each new search service starts with one each, but you can scale up each resource independently to accommodate fluctuations in indexing and query workloads. Adding either resource is an [added cost](search-sku-manage-costs.md).
+Partitions are units of storage. Each new search service starts with one each, but you can scale up each resource independently to accommodate fluctuating workloads. Adding either resource is [billable](search-sku-manage-costs.md#billable-events).
 
-The internal characteristics of replicas and partitions, meaning the underlying physical hardware, varies by [service tier](search-sku-tier.md). If you provisioned on Standard, replicas and partitions will be faster and greater than those of Basic.
+The physical characteristics of replicas and partitions, such as processing speed and disk IO, vary by [service tier](search-sku-tier.md). If you provisioned on Standard, replicas and partitions will be faster and larger than those of Basic.
 
 Changing capacity is not instantaneous. It can take up to an hour to commission or decommission partitions, especially on services with large amounts of data.
 
-When scaling your search service, you can choose from the following tools and approaches:
+When scaling a search service, you can choose from the following tools and approaches:
 
 + [Azure portal](#adjust-capacity)
 + [Azure PowerShell](search-manage-powershell.md)
