@@ -1,16 +1,16 @@
 ---
-title: How to create plans for your Managed Service offer on Azure Marketplace
-description: Learn how to create plans for your Managed Service offer on Azure Marketplace using Microsoft Partner Center.
+title: Create plans for a Managed Service offer on Azure Marketplace
+description: Create plans for a Managed Service offer on Azure Marketplace.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 06/18/2021
 ---
 
-# How to create plans for your Managed Service offer
+# Create plans for a Managed Service offer
 
 Managed Service offers sold through the Microsoft commercial marketplace must have at least one plan. You can create a variety of plans with different options within the same offer. These plans (sometimes referred to as SKUs) can differ in terms of version, monetization, or tiers of service. For detailed guidance on plans, see [Plans and pricing for commercial marketplace offers](./plans-pricing.md).
 
@@ -95,18 +95,19 @@ Authorizations define the entities in your managing tenant who can access resour
 You can create up to 20 authorizations for each plan.
 
 > [!TIP]
-> In most cases, you'll want to assign roles to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. When assigning roles to Azure AD groups, [the group type should be Security and not Office 365](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/concepts/tenants-users-roles.md).
+> In most cases, you'll want to assign roles to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. When assigning roles to Azure AD groups, the [group type](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) should be Security and not Office 365. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/concepts/tenants-users-roles.md).
 
 For each Authorization, you'll need to provide the following information. You can then select **+ Add authorization** as many times as needed to add more users and role definitions.
 
-* **AAD Object ID**: the Azure AD identifier of a user, user group, or application that will be granted certain permissions (as defined by the Role Definition) to your customers' resources.
-* **AAD Object Display Name**: a friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
-* **Role definition**: select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Principal ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](../role-based-access-control/built-in-roles.md) and [Role support for Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
+- **AAD Object ID**: the Azure AD identifier of a user, user group, or application that will be granted certain permissions (as defined by the Role Definition) to your customers' resources.
+- **AAD Object Display Name**: a friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
+- **Role definition**: select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Principal ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](../role-based-access-control/built-in-roles.md) and [Role support for Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
 
 > [!NOTE]
 > As applicable new built-in roles are added to Azure, they will become available here. There may be some delay before they appear.
 
-* **Assignable Roles**: this option will appear only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these roles to managed identities, which is required in order to [deploy policies that can be remediated](../lighthouse/how-to/deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
+- **Assignable Roles**: This option only appear if you selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these roles to managed identities, which is required in order to [deploy policies that can be remediated](../lighthouse/how-to/deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
+- **Approvers**: You may specify a list of users or user groups as approvers for an authorization. All approvers will be notified when the approval is requested and has been granted. If none are provided, the authorization will activate automatically.
 
 > [!TIP]
 > To ensure you can [remove access to a delegation](../lighthouse/how-to/remove-delegation.md) if needed, include an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
