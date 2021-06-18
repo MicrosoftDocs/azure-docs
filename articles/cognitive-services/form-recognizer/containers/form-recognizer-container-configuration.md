@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 By using Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality.
 
-You configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. This container has several required settings and a few optional settings. For a few examples, see the ["Example docker compose commands"](#example-docker-compose-commands) section. The container-specific settings are the billing settings.
+You configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. This container has several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-compose-yml-file) section. The container-specific settings are the billing settings.
 
 ## Configuration settings
 
@@ -41,7 +41,7 @@ You can find this setting in the Azure portal, in **Form Recognizer Overview**, 
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](form-recognizer-container-install-run.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining _see_ [Billing]](form-recognizer-container-install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -65,7 +65,7 @@ Use [**volumes**](https://docs.docker.com/storage/volumes/) to read and write da
 
 The Form Recognizer container requires an input volume and an output volume. The input volume can be read-only (`ro`), and it's required for access to the data that's used for training and scoring. The output volume has to be writable, and you use it to store the models and temporary data.
 
-The exact syntax of the host volume location varies depending on the host operating system. Additionally, the volume location of the [host computer](form-recognizer-container-install-run.md#the-host-computer) might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions.
+The exact syntax of the host volume location varies depending on the host operating system. Additionally, the volume location of the [host computer](form-recognizer-container-install-run.md#host-computer-requirements) might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions.
 
 ## Example docker-compose.yml file
 
