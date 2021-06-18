@@ -97,4 +97,3 @@ Create a directory on your Linux system, and then mount a container in the stora
 
 - [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md)
 - [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
-- [Supported Blob Storage features](network-file-system-protocol-supported-blob-storage-features.md)

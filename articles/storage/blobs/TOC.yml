@@ -274,8 +274,6 @@
         href: network-file-system-protocol-support.md
       - name: Performance considerations
         href: network-file-system-protocol-support-performance.md
-      - name: Supported Blob Storage features
-        href: network-file-system-protocol-supported-blob-storage-features.md
       - name: Known issues
         href: network-file-system-protocol-known-issues.md
     - name: Event handling

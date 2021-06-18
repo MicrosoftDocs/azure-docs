@@ -52,9 +52,6 @@ Your Linux clients can mount a container in Blob storage from an Azure Virtual M
 
 For step-by-step guidance, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](network-file-system-protocol-support-how-to.md).
 
-> [!IMPORTANT]
-> It's important to complete these tasks in order. You can't mount containers that you create before you enable the NFS 3.0 protocol on your account. Also, after you've enabled the NFS 3.0 protocol on your account, you can't disable it.
-
 ## Network security
 
 Your storage account must be contained within a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
@@ -90,13 +87,9 @@ A client can connect over a public or a [private endpoint](../common/storage-pri
 
 See the [Known issues](network-file-system-protocol-known-issues.md) article for a complete list of issues and limitations with the current release of NFS 3.0 support.
 
-See the [Supported Blob Storage features](network-file-system-protocol-supported-blob-storage-features.md) article for list of Blob Storage features that are supported in accounts that have the NFS 3.0 protocol enabled. 
-
 ## Pricing
 
-The data stored in your storage account is billed at the same capacity rate that blob storage charges per GB per month. 
-
-A transaction is not charged. Pricing for transactions is subject to change and will be determined when it is generally available.
+See the [Azure Blob Storage pricing](/pricing/details/storage/blobs/) page for data storage and transaction costs. 
 
 ## Next steps
 
