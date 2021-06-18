@@ -26,6 +26,13 @@ A data feed is what Metrics Advisor ingests from your data source, such as Cosmo
 * zero or more dimensions
 * one or more measures. 
 
+## Interval
+Metrics need to be monitored at a certain granularity according to business requirements. For example, business Key Performance Indicators (KPIs) are monitored at daily granularity. However, service performance metrics are often monitored at minute/hourly granularity. So the frequency to collect metric data from sources are different.
+
+Metrics Advisor continuously grabs metrics data at each time interval, **the interval is equal to the granularity of the metrics.** Every time, Metrics Advisor runs the query you have written ingests data at this specific interval. Based on this data ingestion mechanism, the query script **should not return all metric data that exists in the database, but needs to limit the result to a single interval.**
+
+<!-- ![What is interval](media/tutorial/what-is-interval.png) -->
+
 ## Metric
 
 A metric is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a *web health* metric might contain dimensions for *user count* and the *en-us market*.
@@ -78,9 +85,9 @@ In Metrics Advisor, values of one metric on a specific dimension combination is 
 
 Granularity indicates how frequent data points will be generated at the data source. For example, daily, hourly.
 
-## Start time
+## Ingest data since(UTC)
 
-Start time is the time that you want Metrics Advisor to begin ingesting data from your data source. Your data source must have data at the specified start time.
+Ingest data since(UTC) is the time that you want Metrics Advisor to begin ingesting data from your data source. Your data source must have data at the specified ingestion start time.
 
 ## Confidence boundaries
 
