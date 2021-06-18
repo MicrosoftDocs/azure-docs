@@ -116,12 +116,11 @@ To enable blob soft delete for your storage account by using the Azure portal, f
     install-Module PowerShellGet –Repository PSGallery –Force 
     ```
 
-2. Install **Az.Storage** module.
+2.	Install **Az.Storage** preview module.
 
    ```powershell
-   Install-Module Az.Storage -Repository PSGallery -Force  
+   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.7.1-preview -AllowClobber -AllowPrerelease -Force
    ```
-
    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 3. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
