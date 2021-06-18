@@ -1,16 +1,16 @@
 ---
-title: Back up Azure blobs using Azure CLI
-description: Learn how to back up Azure blobs using Azure CLI.
+title: Back up Azure Blobs using Azure CLI
+description: Learn how to back up Azure Blobs using Azure CLI.
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/18/2021
 ---
 
 # Back up Azure Blobs in a storage account using Azure CLI
 
-This article explains how to back up [Azure blobs](/azure/backup/blob-backup-overview) using Azure CLI.
+This article describes how to back up [Azure Blobs](/azure/backup/blob-backup-overview) using Azure CLI.
 
 > [!IMPORTANT]
-> Support for Azure blobs backup and restore via CLI is in preview and available as an extension from Az 2.15.0 version onwards. The extension will be automatically installed when you run az dataprotection commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
+> Support for Azure Blobs backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension isk automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
 
 In this article, you'll learn how to:
 
@@ -18,17 +18,17 @@ In this article, you'll learn how to:
 
 - Create a backup policy
 
-- Configure a backup of an Azure blob
+- Configure a backup of an Azure Blob
 
 - Run an on-demand backup job
 
-For information on the Azure blob region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
+For information on the Azure Blobs regions availability, supported scenarios, and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
 ## Create a Backup vault
 
-A Backup vault is a storage entity in Azure that holds backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, blobs in a storage account and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
+Backup Vault is a storage entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, and blobs in a storage account and Azure Disks. Backup Vaults make it easy to organize your backup data, while minimizing management overhead. Backup Vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before creating a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location. In this article, we will create a backup vault "TestBkpVault" in "westus" region under the resource group "testBkpVaultRG". Use the [az dataprotection vault create](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_create) command to create a backup vault.Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
+Before creating a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup Vault with that storage redundancy and the location. In this article, we will create a Backup Vault _TestBkpVault_, in the region _westus_, under the resource group _testBkpVaultRG_. Use the [az dataprotection vault create](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_create) command to create a Backup Vault. Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
 
 ```azurecli-interactive
 az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
@@ -60,16 +60,16 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
 ```
 
 > [!IMPORTANT]
-> Though you'll see the Backup storage redundancy of the vault, the redundancy doesn't apply to the operational backup of blobs as the backup is local in nature and no data is stored in the Backup vault. Here, the backup vault is the management entity to help you manage the protection of block blobs in your storage accounts.
+> Though you'll see the Backup storage redundancy of the vault, the redundancy doesn't apply to the operational backup of blobs. This is because the backup is local in nature and no data is stored in the Backup vault. Here, the backup vault is the management entity to help you manage the protection of block blobs in your storage accounts.
 
-After creation of vault, let's create a backup policy to protect Azure blobs in a storage account.
+After creating a vault, let's create a Backup Policy to protect Azure Blobs in a storage account.
 
-## Create a Backup policy
+## Create a Backup Policy
 
 > [!IMPORTANT]
-> Read [this section](blob-backup-configure-manage.md#before-you-start) before proceeding to create the policy and configuring backups for Azure blobs.
+> Read [this section](blob-backup-configure-manage.md#before-you-start) before creating the policy and configure backups for Azure Blobs.
 
-To understand the inner components of a backup policy for Azure blob backup, retrieve the policy template using the command [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_get_default_policy_template). This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
+To understand the inner components of a Backup Policy for Azure Blob backup, retrieve the policy template using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_get_default_policy_template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureBlob
@@ -128,9 +128,9 @@ The policy template consists of a lifecycle only (which decides when to delete/c
 ```
 
 > [!NOTE]
-> Restoring over long durations may lead to restore operations taking longer to complete. Also, the time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past.<br><br>We do not recommend a retention period and restoration more than 90 days in the past for an account with this rate of change.
+> Restoring over long durations may lead to restore operations taking longer to complete. Also, the time taken to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past.<br><br>We do not recommend a retention period and restoration more than 90 days in the past for an account with this rate of change.
 
-Once the policy JSON has all the desired values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_create) command
+Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_create) command.
 
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureDisk > policy.json
@@ -173,21 +173,21 @@ az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVau
 
 ## Configure backup
 
-Once the vault and policy are created, there are two critical points that the user needs to consider to protect all Azure blobs within a storage account.
+Once the vault and policy are created, there are two critical points that you need to consider to protect all Azure Blobs within a storage account.
 
 ### Key entities involved
 
-#### Storage account which contains the blobs to be protected
+#### Storage account that contains the blobs to be protected
 
-Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This will serve as the identifier of the storage account. We will use an example of a storage account named _CLITestSA_, under the resource group _blobrg_, in a different subscription present in south east asia region.
+Fetch the Azure Resource Manager ID of the storage account that contains the blobs to be protected. This will serve as the identifier of the storage account. We will use an example of a storage account named _CLITestSA_, under the resource group _blobrg_, in a different subscription present in south-east asia region.
 
 ```azurecli-interactive
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
 ```
 
-#### Backup vault
+#### Backup Vault
 
-The Backup vault requires permissions on the storage account to enable backups on blobs present within the storage account. The system-assigned managed identity of the vault is used for assigning such permissions.
+The Backup Vault requires permissions on the storage account to enable backups on blobs present within the storage account. The system-assigned managed identity of the vault is used for assigning such permissions.
 
 ### Assign permissions
 

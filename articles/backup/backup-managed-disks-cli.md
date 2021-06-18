@@ -1,22 +1,22 @@
 ---
-title: Back up Azure managed disks using Azure CLI
-description: Learn how to back up Azure managed disks using Azure CLI.
+title: Back up Azure Managed Disks using Azure CLI
+description: Learn how to back up Azure Managed Disks using Azure CLI.
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 06/18/2021
 ---
 
-# Back up Azure managed disks using Azure CLI
+# Back up Azure Managed Disks using Azure CLI
 
-This article explains how to back up [Azure Managed Disk](../virtual-machines/managed-disks-overview.md) using Azure CLI.
+This article describes how to back up [Azure Managed Disk](../virtual-machines/managed-disks-overview.md) using Azure CLI.
 
 > [!IMPORTANT]
-> Support for Azure managed disks backup and restore via CLI is in preview and available as an extension from Az 2.15.0 version onwards. The extension will be automatically installed when you run az dataprotection commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
+> Support for Azure Managed Disks backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
 
 In this article, you'll learn how to:
 
-- Create a Backup vault
+- Create a Backup Vault
 
-- Create a backup policy
+- Create a Backup Policy
 
 - Configure a backup of an Azure Disk
 
@@ -26,9 +26,9 @@ For information on the Azure Disk backup region availability, supported scenario
 
 ## Create a Backup vault
 
-A Backup vault is a storage entity in Azure that holds backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, blobs in a storage account and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
+Backup Vault is a storage entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, blobs in a storage account, and Azure Disks. Backup Vaults make it easy to organize your backup data, while minimizing management overhead. Backup Vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before creating a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location. In this article, we will create a backup vault "TestBkpVault" in "westus" region under the resource group "testBkpVaultRG". Use the [az dataprotection vault create](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_create) command to create a backup vault.Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
+Before you create a Backup Vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup Vault with that storage redundancy and the location. In this article, we will create a Backup Vault _TestBkpVault_, in the region _westus_, under the resource group _testBkpVaultRG_. Use the [az dataprotection vault create](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_create) command to create a Backup Vault. Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
 
 ```azurecli-interactive
 az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
@@ -61,9 +61,9 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
 
 After creation of vault, let's create a backup policy to protect Azure disks.
 
-## Create a Backup policy
+## Create a Backup Policy
 
-To understand the inner components of a backup policy for Azure disk backup, retrieve the policy template using the command [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_get_default_policy_template). This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
+To understand the inner components of a Backup Policy for Azure Disk Backup, retrieve the policy template using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_get_default_policy_template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureDisk
@@ -127,9 +127,9 @@ az dataprotection backup-policy get-default-policy-template --datasource-type Az
 
 ```
 
-The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure disk backup, the default values for trigger is a scheduled hourly trigger for every 4 hours (PT4H) and to retain each backup for 7 days.
+The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure Disk Backup, the default values for trigger is a scheduled trigger for every 4 hours (PT4H) and to retain each backup for seven days.
 
-Scheduled trigger:
+**Scheduled trigger:**
 
 ```json
 "trigger": {
@@ -142,7 +142,7 @@ Scheduled trigger:
 
 ```
 
-Default retention lifecyle:
+**Default retention lifecyle:**
 
 ```json
 "lifecycles": [
@@ -159,14 +159,21 @@ Default retention lifecyle:
       ]
 ```
 
-Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every 4, 6, 8 or 12 hours. The backups are scheduled based on the **Time** interval selected. For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once a day backup is sufficient, then choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken. It's important to note that the time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
+Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every 4, 6, 8 or 12 hours. The backups are scheduled based on the **Time** interval selected.
+
+For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once-a-day backup is sufficient, choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken.
+
+>[!IMPORTANT]
+>The time of the day indicates the backup start time and not the time when the backup completes.
+
+The time required for completing the backup operation depends on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk Backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
 
    >[!NOTE]
-   > Although the selected vault may have the global-redundancy setting, currently Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to backup vault storage.
+   >Although the selected vault may have the global-redundancy setting, currently, Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to the Backup Vault storage.
 
 To know more details about policy creation, refer to the [azure disk backup policy](backup-managed-disks.md#create-backup-policy) document.
 
-Once the template is downloaded as a JSON file, you can edit it for schedule and retention as per requirements and then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, [use the az dataprotection backup-policy trigger set](/cli/azure/dataprotection/backup-policy/trigger?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_trigger_set) and/or [az dataprotection backup-policy retention-rule set](/cli/azure/dataprotection/backup-policy/retention-rule?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_retention_rule_set) commands. Once the policy JSON has all the desired values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_create) command
+Once the template is downloaded as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the [az dataprotection backup-policy trigger set](/cli/azure/dataprotection/backup-policy/trigger?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_trigger_set) and/or [az dataprotection backup-policy retention-rule set](/cli/azure/dataprotection/backup-policy/retention-rule?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_retention_rule_set) commands. Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_create) command.
 
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureDisk > policy.json
@@ -241,13 +248,13 @@ az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVau
 
 ## Configure backup
 
-Once the vault and policy are created, there are 3 critical points that the user needs to consider to protect an Azure disk.
+Once the vault and policy are created, there are three critical points that you need to consider to protect an Azure Disk.
 
 ### Key entities involved
 
 #### Disk to be protected
 
-Fetch the ARM Id and the location of the disk to be protected. This will serve as the identifier of the disk. We will use an example of a disk named "CLITestDisk" under a resource group "diskrg" under a different subscription.
+Fetch the ARM ID and the location of the disk to be protected. This will serve as the identifier of the disk. We will use an example of a disk named _CLITestDisk_, under a resource group _diskrg_, under a different subscription.
 
 ```azurecli-interactive
 $DiskId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk"
@@ -255,7 +262,7 @@ $DiskId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/provider
 
 #### Snapshot resource group
 
-The disk snapshots are stored in a resource group within in your subscription. As a guideline, it's recommended to create a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM Id for the resource group where you wish to place the disk snapshots
+The disk snapshots are stored in a resource group within your subscription. As a guideline, we recommend to create a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM ID for the resource group where you wish to place the disk snapshots
 
 ```azurecli-interactive
 $snapshotrg = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/snapshotrg"
@@ -263,7 +270,7 @@ $snapshotrg = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/snapshotrg"
 
 #### Backup vault
 
-The Backup vaults requires permissions on disk and the snapshot resource group to be able to trigger snapshots and manage their lifecyle. The system-assigned managed identity of the vault is used for assigning such permissions. Use the [az dataprotection backup-vault update](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_update) command to enable system-assigned managed identity for the recovery services vault.
+The Backup Vaults requires permissions on the disk and the snapshot resource group to be able to trigger snapshots and manage their lifecyle. The system-assigned managed identity of the vault is used for assigning such permissions. Use the [az dataprotection backup-vault update](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_update) command to enable system-assigned managed identity for the Recovery Services Vault.
 
 ```azurecli-interactive
 az dataprotection backup-vault update -g testBkpVaultRG --vault-name TestBkpVault --type SystemAssigned
@@ -271,17 +278,17 @@ az dataprotection backup-vault update -g testBkpVaultRG --vault-name TestBkpVaul
 
 ### Assign permissions
 
-The user needs to assign few permissions via RBAC to vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Portal or CLI. All related permissions are detailed in points 1,2,3 in [this section](backup-managed-disks.md#configure-backup).
+You need to assign a few permissions via RBAC to the vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Azure portal or CLI. All related permissions are detailed in points - 1, 2, and 3 - in [Configure backup](backup-managed-disks.md#configure-backup).
 
 ### Prepare the request
 
-Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, disk and snapshot resource group using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_initialize) command. The initialize command will return a JSON and then user has to update the snapshot resource group value. Then, we submit the request to protect the disk using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_create) command.
+Once all the relevant permissions are set, the configuration of backup is performed in two steps. First, we prepare the relevant request by using the relevant vault, policy, disk and snapshot resource group using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_initialize) command. The initialize command will return a JSON file, and then you have to update the snapshot resource group value. Then, we submit the request to protect the disk using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_create) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance initialize --datasource-type AzureDisk  -l southeastasia --policy-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/mypolicy" --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk" > backup_instance.json
 ```
 
-Open the json file and edit the snapshot resource group id in the ``` resource_group_id ``` under the ```data_store_parameters_list``` section.
+Open the JSON file and edit the **snapshot resource group ID** in the ``` resource_group_id ``` under the ```data_store_parameters_list``` section.
 
 ```json
 {
@@ -315,7 +322,7 @@ Open the json file and edit the snapshot resource group id in the ``` resource_g
 ```
 
 > [!NOTE]
-> The backup instance name is generated by clients so that this will be a unique value. It is based on datasource name and a unique GUID. Once you list backup instances, you should be able to check the name of backup instance and the relevant datasource name.
+> The backup instance name is generated by clients so that this will be a unique value. It's based on datasource name and a unique GUID. Once you list the backup instances, you sholuld be able to check the name of backup instance and the relevant datasource name.
 
 Use the edited JSON file to create a backup instance of the Azure managed disk.
 
@@ -366,11 +373,11 @@ az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpV
 }
 ```
 
-Once the backup instance is created, you can proceed to trigger an on-demand backup if you don't want to wait for the policy's scheduled l
+Once the backup instance is created, you can proceed to trigger an on-demand backup if you don't want to wait for the policy's scheduled.
 
 ## Run an on-demand backup
 
-List all backup instances within a vault using [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true) command and then fetch the relevant instance using [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list_from_resourcegraph)
+List all backup instances within a vault using [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true) command, and then fetch the relevant instance using the [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list_from_resourcegraph) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDisk --datasource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk
@@ -439,7 +446,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
 
 ```
 
-You can specify a retention rule while triggering backup. To view the retention rules in policy, look through the policy JSON for retention rules. In the below example, the rule with name 'default' is displayed and we will use that rule for the on-demand backup.
+You can specify a retention rule while triggering backup. To view the retention rules in policy, look through the policy JSON for retention rules. In the below example, the rule with the name _default_ is displayed and we will use that rule for the on-demand backup.
 
 ```JSON
 {
@@ -469,9 +476,9 @@ az dataprotection backup-instance adhoc-backup --name "diskrg-CLITestDisk-3df6ac
 
 ## Tracking jobs
 
-Track all the jobs using the [az dataprotection job list](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list) command. You can list all jobs and fetch a particular job details.
+Track all the jobs using the [az dataprotection job list](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list) command. You can list all jobs and fetch a particular job detail.
 
-You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job which can be across any backup vault.
+You can also use Az.ResourceGraph to track all jobs across all Backup Vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job that can be across any Backup Vault.
 
 ```azurepowershell-interactive
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --status Completed
