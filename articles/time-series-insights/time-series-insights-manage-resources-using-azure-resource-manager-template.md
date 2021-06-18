@@ -52,7 +52,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
      To create a parameters file, copy the [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) file.
 
-      [!code-json[deployment-parameters](~/quickstart-templates/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)
+      [!code-json[deployment-parameters](~/quickstart-templates/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
 
     <div id="required-parameters"></div>
 
