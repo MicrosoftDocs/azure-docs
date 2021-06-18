@@ -4,7 +4,7 @@
   items:
   - name: What is Azure Virtual Desktop?
     href: ../overview.md?toc=/azure/virtual-desktop/virtual-desktop-app-hosting/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-- name: How to use Azure Virtual Desktop
+- name: How-to guides
   items:
   - name: Architecture
     href: 
