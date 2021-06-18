@@ -128,7 +128,7 @@ See the reference documentation for examples of the JSON response.
 ## [Key phrase extraction](#tab/key-phrase-extraction)
 
 > [!TIP]
-> If you need to migrate from the preview version of v3.1, see the [key phrase extraction](how-tos/text-analytics-how-to-key-phrase-extraction.md) how-to article for information on the current version of the API. 
+> If you need to migrate from the preview version of v3.1, see the [key phrase extraction](how-tos/text-analytics-how-to-keyword-extraction.md) how-to article for information on the current version of the API. 
 
 ### Feature changes 
 
