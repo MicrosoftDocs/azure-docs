@@ -1,4 +1,4 @@
-- name: Azure Database for MySQL Documentation
+- name: Azure Database for MySQL documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -144,10 +144,8 @@
         items:
         - name: Configuring SSL
           href: concepts-ssl-connection-security.md
-      - name: Advanced Threat Protection
-        items:
-          - name: Threat protection with Azure Defender
-            href: ../security-center/defender-for-databases-introduction.md    
+      - name: Threat protection with Azure Defender
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
       - name: Encryption at rest
         items:
         - name: Data Encryption
