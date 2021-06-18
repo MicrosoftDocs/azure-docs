@@ -27,7 +27,7 @@ This document highlights the API management features that will enable key elemen
 
 ## API Discovery
 
-Launch your API and onboard API consumers using the API Management developer portal. Enable API consumers to explore and use your APIs seamlessly by emphasizing quality developer portal content. Ideally, you and real API developers will test that the information provided is accessible, accurate, complete, and intuitive.
+Launch your API and onboard API consumers using the API Management developer portal. Enable API consumers to explore and use your APIs seamlessly by emphasizing quality developer portal content. Ideally, you and real API developers will test that the information provided is accessible, thorough, and intuitive.
 
 For details about how to add content and control the branding of the developer portal, see the [Overview of the developer portal](./azure/api-management/api-management-howto-developer-portal.md) article.
 
@@ -56,19 +56,19 @@ Apply API Management policies to control the quality of service for each product
 | Policy feature | Description |
 | ----- | ----- |
 | **Quota** | Defines the total number of calls the user can make to the API over a specified time period. For example, "100 calls per month". Once the user reaches the quota, the calls to the API will fail and the caller will receive a `403 Forbidden` response status code. |
-| **Rate limit** | Defines the number of calls over a sliding time window that can be made to the API. For example, "200 calls per minute". Designed to prevent spikes in API usage by the API consumer beyond the paid quality of service with the chosen product. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code. |
+| **Rate limit** | Defines the number of calls over a sliding time window that can be made to the API. For example, "200 calls per minute". Designed to prevent spikes in API usage beyond the paid quality of service with the chosen product. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code. |
 
-For more details about policies, refer to the [Policies in Azure API Management](./azure/api-management/api-management-howto-policies.md) documentation.
+For more details about policies, see the [Policies in Azure API Management](./azure/api-management/api-management-howto-policies.md) documentation.
 
 ## API Consumption
 
 Grant access for API consumers to your APIs via products using API subscriptions.
 
-1. API consumers establish API subscriptions when signing up for a API Management product. 
+1. API consumers establish API subscriptions when signing up for an API Management product. 
 1. Integrate the subscription process with the payment provider using API Management delegation. 
 1. Once successfully providing payment details, users gain access to the API with a generated, unique security key for the subscription.
 
-For more information about subscriptions, please refer to the [Subscriptions in Azure API Management](./azure/api-management/api-management-subscriptions.md) documentation.
+For more information about subscriptions, see the [Subscriptions in Azure API Management](./azure/api-management/api-management-subscriptions.md) documentation.
 
 ## API usage monitoring
 
@@ -84,20 +84,20 @@ Gain insights about your API usage and performance using API Management's built-
 
 Review the analytics reports regularly to understand how your monetization strategy is being adopted by API consumers.
 
-For more information see [Get API analytics in Azure API Management](./azure/api-management/howto-use-analytics.md).
+For more information, see [Get API analytics in Azure API Management](./azure/api-management/howto-use-analytics.md).
 
 ## Security
 
-Control the access level for each user to each product using API Management's products, API policies, and subscriptions. Protect against misuse and abuse by only granting subscription access to the API if the user has successfully authenticated with the payment provider, even if the specific API product is free.
+Control the access level for each user to each product using API Management's products, API policies, and subscriptions. Prevent misuse and abuse by granting subscription-level API access if the user has successfully authenticated with the payment provider, even if the specific API product is free.
 
 ## Integration
 
-Create a seamless monetization experience users through both front-end and back-end integration between API Management and your chosen payment provider.  Use API Management delegation for front-end integration and the REST API for back-end integration.
+Create a seamless monetization experience through both front-end and back-end integration between API Management and your chosen payment provider.  Use API Management delegation for front-end integration and the REST API for back-end integration.
 
 ### Delegation
 
 The example projects use [API Management delegation](./azure/api-management/api-management-howto-setup-delegation.md) to "hand off" authentication to the payment provider. API Management delegation:
-* Creates a seamless integrated experience for both the sign up and the subscription stages of the process.
+* Creates a seamless integrated experience for both the sign-up and the subscription stages of the process.
 * Enables the user to adopt a single identity across API Management and the chosen payment provider.
 
 ### REST API
@@ -120,7 +120,7 @@ Version control and automate deployment changes to API Management using Azure Re
 
 In example projects, the Azure Resource Manager scripts are augmented by a JSON file, which defines each API Management product's pricing model. With this augmentation, you can synchronize the configuration between API Management and the chosen payment provider. The entire solution is managed under a single source control repository, to:
 * Coordinate all changes associated with the ongoing monetization strategy evolution as a single release.
-* Carry out the changes in accordance with governance and auditing requirements.
+* Carry out the changes, following governance and auditing requirements.
 
 ## Next Steps
 
