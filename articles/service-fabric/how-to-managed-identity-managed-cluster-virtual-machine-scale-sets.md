@@ -159,7 +159,7 @@ Failure to properly add a role assignment will be met with the following error o
 
 In this case make sure the role assignment is created successfully with Role "Managed Identity Operator". The role assignment can be found on the Azure portal under access control of the managed identity resource as show below.
 
-:::image type="content" source="media/how-to-managed-identity-managed-cluster-vmss/role-assignment-portal.png" alt-text="Azure portal deployment error showing the client with SFRP's object/application ID not having permission to perform identity management activity":::
+:::image type="content" source="media/how-to-managed-identity-managed-cluster-vmss/role-assignment-portal.png" alt-text="Role assignment properties for Service Fabric Resource provider on the user-assigned managed identity shown in the Azure portal":::
 
 ## Next Steps
 
