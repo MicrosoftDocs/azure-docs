@@ -45,5 +45,5 @@ The tool is built to show customers results quickly. You can customize the tool 
 ## Next steps
 
 * [Get your Speech service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [Learn more about Speech SDK](~/articles/cognitive-services/Speech-Service/speech-sdk.md)
+* [Learn more about Speech SDK](./speech-sdk.md)
 * [Learn about our SPX tool](~/articles/cognitive-services/Speech-Service/spx-overview.md)
