@@ -97,8 +97,8 @@ If you want to ignore columns, we recommend updating your query or data source t
 If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions for a timestamp. Metrics Advisor will arbitrarily use one value from the two rows. Metrics Advisor will not aggregate the rows in this case.
 
 After configuring the schema, select **Verify schema**. Within this operation, Metrics Advisor will perform following checks:
-1. Whether timestamp of queried data falls into one single interval. 
-2. Whether there's duplicate values returned for the same dimension combination within one metric interval.  
+- Whether timestamp of queried data falls into one single interval. 
+- Whether there's duplicate values returned for the same dimension combination within one metric interval.  
 
 ### Automatic roll up settings
 
@@ -176,8 +176,8 @@ Consider the following scenarios:
     Consider the following before using the Auto roll up feature:
 
     * If you want to use *SUM* to aggregate your data, make sure your metrics are additive in each dimension. Here are some examples of *non-additive* metrics:
-      1. Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
-      2. Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
+      - Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
+      - Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
     * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is 1,000,000. If your data exceeds that limit, ingestion will fail for that timestamp.
 
 ## Advanced settings

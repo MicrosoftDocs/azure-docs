@@ -307,8 +307,8 @@ The timestamp field must match one of these two formats:
 There are three authentication types for Azure Log Analytics, they are **Basic**, **Service Principal** and **Service Principal From KeyVault**.
 * **Basic**: You need to fill in **Tenant ID**, **Client ID**, **Client Secret**, **Workspace ID**.
    To get **Tenant ID**, **Client ID**, **Client Secret**, see [Register app or web API](../../active-directory/develop/quickstart-register-app.md).
-   * **Tenant ID**: Specify the tenant id to access your Log Analytics.
-   * **Client ID**: Specify the client id to access your Log Analytics.
+   * **Tenant ID**: Specify the tenant ID to access your Log Analytics.
+   * **Client ID**: Specify the client ID to access your Log Analytics.
    * **Client Secret**: Specify the client secret to access your Log Analytics.
    * **Workspace ID**: Specify the workspace ID of Log Analytics. For **Workspace ID**, you can find it in Azure portal.
 
@@ -363,7 +363,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     
         ![set admin](media/datafeeds/set-admin.png)
 
-    1. In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the User name field, enter the name of the Azure AD account that you set as the server administrator in step 2, for example, louis@microsoft.com
+    1. In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the User name field, enter the name of the Azure AD account that you set as the server administrator in step 2, for example, test@contoso.com
     
         ![set connection detail](media/datafeeds/connection-details.png)
 
@@ -374,8 +374,8 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         CREATE USER [MI Name] FROM EXTERNAL PROVIDER
         ALTER ROLE db_datareader ADD MEMBER [MI Name]
         ```
-       
-         Note: The `MI Name` is the **Managed Identity Name** in Metrics Advisor (for service principal, it should be replaced with **Service Principal name**). Also, you can learn more detail in this document: [Authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+    > [!NOTE]
+    > The `MI Name` is the **Managed Identity Name** in Metrics Advisor (for service principal, it should be replaced with **Service Principal name**). Also, you can learn more detail in this document: [Authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
         
        Here's an example of connection string: 
    
@@ -518,9 +518,9 @@ For more information, refer to the [tutorial on writing a valid query](tutorials
 > This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV and performs anomaly detection on single time series data. However, for the full experience analyzing on multi-dimensional metrics including real-time data ingestion, anomaly notification, root cause analysis, cross-metric incident analysis, use other supported data sources.
 
 **Requirements on data in CSV:**
-1. Have at least one column, which represents measurements to be analyzed. For better and quicker user experience, we recommend you try a CSV file containing two columns: (1) Timestamp column (2) Metric Column. (Timestamp format: 2021-03-30T00:00:00Z, the 'seconds' part is best to be ':00Z'), and the time granularity between every record should be the same.
-2. Timestamp column is optional, if there's no timestamp, Metrics Advisor will use timestamp starting from today 00:00:00(UTC) and map each measure in the row at a one-hour interval. If there is timestamp column in CSV and you want to keep it, make sure the data time period follow this rule [historical data processing window].
-3. There is no re-ordering or gap-filling happening during data ingestion, make sure your data in CSV is ordered by timestamp  **ascending (ASC)**.
+- Have at least one column, which represents measurements to be analyzed. For better and quicker user experience, we recommend you try a CSV file containing two columns: (1) Timestamp column (2) Metric Column. (Timestamp format: 2021-03-30T00:00:00Z, the 'seconds' part is best to be ':00Z'), and the time granularity between every record should be the same.
+- Timestamp column is optional, if there's no timestamp, Metrics Advisor will use timestamp starting from today 00:00:00(UTC) and map each measure in the row at a one-hour interval. If there is timestamp column in CSV and you want to keep it, make sure the data time period follow this rule [historical data processing window].
+- There is no re-ordering or gap-filling happening during data ingestion, make sure your data in CSV is ordered by timestamp  **ascending (ASC)**.
  
 ## Next steps
 

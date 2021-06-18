@@ -95,8 +95,8 @@ Once the data is loaded by running the query and shown like below, select the ap
 :::image type="content" source="../media/schema-configuration.png" alt-text="Schema configuration" lightbox="../media/schema-configuration.png":::
 
 After configuring the schema, select **Verify schema**. Within this operation, Metrics Advisor will perform following checks:
-1. Whether timestamp of queried data falls into one single interval. 
-2. Whether there's duplicate values returned for the same dimention combination within one metric interval.  
+- Whether timestamp of queried data falls into one single interval. 
+- Whether there's duplicate values returned for the same dimension combination within one metric interval.  
 
 ### Automatic roll up settings
 
