@@ -80,7 +80,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all
   - name: Service Level Agreement (SLA)
     href: https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/
   - name: Service limits
