@@ -40,7 +40,7 @@ Both, the Microsoft [Speech SDK](speech-sdk.md) and the [Speech-to-text REST API
 The tool is built to show customers results quickly. You can customize the tool to your preferred SKUs and setup. The SKUs can be edited from the [Azure Portal](https://portal.azure.com) and [the code itself is available on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
 
 > [!NOTE]
-> We suggest creating the resources in the same dedicated resource group to better control costs.
+> We suggest creating the resources in the same dedicated resource group to understand and track costs more easily.
 
 ## Next steps
 
