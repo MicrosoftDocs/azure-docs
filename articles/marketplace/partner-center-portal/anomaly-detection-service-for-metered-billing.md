@@ -62,7 +62,7 @@ If one of the following cases applies, you can adjust the usage amount in Partne
 
 To submit a support ticket related to metered billing anomalies:
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account.
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) with your work account.
 1. In the menu on the upper-right of the page, select the **Support** icon. The **Help and support** pane appears on the right side of the page.
 1. For help with the commercial marketplace, select **Commercial Marketplace**.
    ![Illustrates the support pane.](../media/support/commercial-marketplace-support-pane.png)

@@ -39,8 +39,8 @@ You can replicate and recover VMs between any two regions within the same geogra
 
 **Geographic cluster** | **Azure regions**
 -- | --
-America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
-Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, France Central, Switzerland North, Germany West Central
+America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, West US 3, Central US, North Central US
+Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, France Central, Switzerland North, Germany West Central, UAE North, UAE Central (UAE is treated as part of the Europe geo cluster)
 Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
 JIO | JIO India West
 Australia    | Australia East, Australia Southeast, Australia Central, Australia Central 2
@@ -48,7 +48,7 @@ Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas
 Germany    | Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
 Brazil | Brazil South
-Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, UAE Central restricted for UAE North customers, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers.
+Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers.
 
 Replication and recovery of VMs between two regions in different continents is limited to the following region pairs:
 
