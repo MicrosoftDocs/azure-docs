@@ -96,7 +96,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > 1. Open the *appsettings.json* file and modify the following code:
 >
 >
- :::code language="json" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/3-WebApp-multi-APIs/appsettings.json" range="4,6,5" highlight="6-5":::
+ :::code language="json" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/3-WebApp-multi-APIs/appsettings.json" range="4,6,5":::
 >    - Replace `Enter_the_Application_Id_here` with the application (client) ID of the application that you registered in the Azure portal. You can find the **Application (client) ID** value on the app's **Overview** page.
 >    - Replace `common` with one of the following:
 >       - If your application supports **Accounts in this organizational directory only**, replace this value with the directory (tenant) ID (a GUID) or the tenant name (for example, `contoso.onmicrosoft.com`). You can find the **Directory (tenant) ID** value on the app's **Overview** page.
