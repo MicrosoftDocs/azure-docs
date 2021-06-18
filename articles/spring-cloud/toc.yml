@@ -15,7 +15,7 @@
       items:
       - name: Introduction to the sample app
         href: quickstart-sample-app-introduction.md
-      - name: Provision Azure Spring Cloud service
+      - name: Provision an Azure Spring Cloud service
         href: quickstart-provision-service-instance.md
       - name: Set up configuration server
         href: quickstart-setup-config-server.md
@@ -23,6 +23,12 @@
         href: quickstart-deploy-apps.md
       - name: Use logs, metrics and tracing
         href: quickstart-logs-metrics-tracing.md
+      - name: Integrate with Azure Database for MySQL
+        href: quickstart-integrate-azure-database-mysql.md
+      - name: Provisioning
+        items:
+        - name: Provision using an ARM template
+          href: quickstart-deploy-infrastructure-vnet.md
 - name: Tutorials
   items:
     - name: Alerts and action groups
@@ -39,6 +45,8 @@
   items:
     - name: App and deployment
       href: concept-understand-app-and-deployment.md
+    - name: Blue-green deployment strategies
+      href: concepts-blue-green-deployment-strategies.md
     - name: Quotas and limits
       href: quotas.md
     - name: Metrics
@@ -93,15 +101,15 @@
           href: how-to-setup-autoscale.md
     - name: Integrate
       items:
-        - name: Bind an app to Azure CosmosDB
+        - name: Azure CosmosDB
           href: how-to-bind-cosmos.md
-        - name: Bind an app to Azure Cache for Redis
+        - name: Azure Cache for Redis
           href: how-to-bind-redis.md
-        - name: Bind an app to Azure MySQL
+        - name: Azure Database for MySQL
           href: how-to-bind-mysql.md
-        - name: Managed identity to connect Azure SQL Database
+        - name: Azure SQL Database with Managed identity
           href: connect-managed-identity-to-azure-sql.md
-        - name: Integrate with Azure Load Balance Solutions
+        - name: Azure Load Balance Solutions
           href: how-to-integrate-azure-load-balancers.md
     - name: Monitor
       items:
@@ -117,6 +125,8 @@
           href: how-to-circuit-breaker-metrics.md
         - name: Structured application log
           href: structured-app-log.md
+        - name: New Relic Java in-process agent
+          href: how-to-new-relic-monitor.md          
     - name: Network
       items: 
         - name: Deploy Azure Spring Cloud in a virtual network
@@ -182,11 +192,11 @@
 - name: DevOps deployment
   items:
   - name: CI/CD with Azure DevOps
-    href: spring-cloud-howto-cicd.md
+    href: ./how-to-cicd.md
   - name: CI/CD with GitHub Actions
-    href: spring-cloud-howto-github-actions.md
+    href: ./how-to-github-actions.md
   - name: Auth with Key Vault in GitHub Actions
-    href: spring-cloud-github-actions-key-vault.md
+    href: ./github-actions-key-vault.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting guide
@@ -194,9 +204,11 @@
 - name: Reference
   items:
   - name: Azure CLI plugin
-    href: /cli/azure/ext/spring-cloud/spring-cloud
+    href: /cli/azure/spring-cloud
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud
+  - name: Azure Pipelines task
+    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud
   - name: Resources
     href: resources.md
   - name: Frequently asked questions

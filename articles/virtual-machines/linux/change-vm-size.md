@@ -1,17 +1,16 @@
 ---
-title: How to resize a Linux VM with the Azure CLI 
-description: How to scale up or scale down a Linux virtual machine, by changing the VM size.
-author: DavidCBerry13
+title: How to resize a VM with the Azure CLI 
+description: How to scale up or scale down a virtual machine, by changing the VM size.
+author: mimckitt
 ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/10/2017
-ms.author: daberry
-ms.collection: linux
+ms.author: mimckitt
 
 ---
-# Resize a Linux virtual machine using Azure CLI 
+# Resize a virtual machine using Azure CLI 
 
-After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. You need to deallocate the VM if the desired size is not available on the hardware cluster that is hosting the VM. This article details how to resize a Linux VM with the Azure CLI. 
+After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. You need to deallocate the VM if the desired size is not available on the hardware cluster that is hosting the VM. This article details how to resize a VM with the Azure CLI. 
 
 ## Resize a VM
 To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
@@ -42,7 +41,7 @@ To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) inst
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
 
 ## Next steps
-For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Linux machines in a Virtual Machine Scale Set][scale-set]. 
+For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale machines in a Virtual Machine Scale Set][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

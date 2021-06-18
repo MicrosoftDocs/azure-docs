@@ -79,7 +79,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
     - name: Caching architecture
       href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: How-to guides
@@ -102,7 +102,7 @@
       href: cache-private-link.md
     - name: Enable zone redundancy 
       href: cache-how-to-zone-redundancy.md
-    - name: Set up OSS geo-replication
+    - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
     - name: Set up Enterprise active geo-replication
       href: cache-how-to-active-geo-replication.md

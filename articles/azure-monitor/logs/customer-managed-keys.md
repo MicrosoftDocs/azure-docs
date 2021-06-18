@@ -4,7 +4,8 @@ description: Information and steps to configure Customer-managed key to encrypt 
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 01/10/2021
+ms.date: 04/21/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
@@ -55,7 +56,7 @@ The following rules apply:
 - The Log Analytics cluster storage accounts generate unique encryption key for every storage account, which is known as the AEK.
 - The AEK is used to derive DEKs, which are the keys that are used to encrypt each block of data written to disk.
 - When you configure your key in Key Vault and reference it in the cluster, Azure Storage sends requests to your Azure Key Vault to wrap and unwrap the AEK to perform data encryption and decryption operations.
-- Your KEK never leaves your Key Vault and in the case of an HSM key, it never leaves the hardware.
+- Your KEK never leaves your Key Vault.
 - Azure Storage uses the managed identity that's associated with the *Cluster* resource to authenticate and access to Azure Key Vault via Azure Active Directory.
 
 ### Customer-Managed key provisioning steps
@@ -101,7 +102,7 @@ Authorization: Bearer <token>
 
 ## Storing encryption key (KEK)
 
-Create or use an Azure Key Vault that you already have to generate, or import a key to be used for data encryption. The Azure Key Vault must be configured as recoverable to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
+Create or use existing Azure Key Vault in the region that the cluster is planed, then generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
 
 ![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png)
 
@@ -112,8 +113,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ## Create cluster
 
-Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): System-assigned and User-assigned, while a single identity can be defined in a cluster depending on your scenario. 
-- System-assigned managed identity is simpler and being generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
+Clusters support System-assigned managed identity and identity `type` property should be set to `SystemAssigned`. The identity is being generated automatically with the cluster creation and can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
   
   Identity settings in cluster for System-assigned managed identity
   ```json
@@ -123,22 +123,6 @@ Clusters support two [managed identity types](../../active-directory/managed-ide
       }
   }
   ```
-
-- If you want to configure Customer-managed key at cluster creation, you should have a key and User-assigned identity granted in your Key Vault beforehand, then create the cluster with these settings: identity `type` as "*UserAssigned*", `UserAssignedIdentities` with the *resource ID* of your identity.
-
-  Identity settings in cluster for User-assigned managed identity
-  ```json
-  {
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
-      }
-  }
-  ```
-
-> [!IMPORTANT]
-> You can't use User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
 Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -159,7 +143,9 @@ All operations on the cluster require the `Microsoft.OperationalInsights/cluster
 
 This step updates Azure Monitor Storage with the key and version to be used for data encryption. When updated, your new key is being used to wrap and unwrap the Storage key (AEK).
 
-Select the current version of your key in Azure Key Vault to get the key identifier details.
+>[!IMPORTANT]
+>- Key rotation can be automatic or require explicit key update, see [Key rotation](#key-rotation) to determine approach that is suitable for you before updating the key identifier details in cluster.
+>- Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
 ![Grant Key Vault permissions](media/customer-managed-keys/key-identifier-8bit.png)
 
@@ -255,7 +241,7 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 
 > [!IMPORTANT]
 > - The recommended way to revoke access to your data is by disabling your key, or deleting access policy in your Key Vault.
-> - Setting the cluster's `identity` `type` to "None" also revokes access to your data, but this approach isn't recommended since you can't revert the revocation when restating the `identity` in the cluster without opening support request.
+> - Setting the cluster's `identity` `type` to `None` also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support.
 
 The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. Any new data ingested to workspaces linked with your cluster gets dropped and won't be recoverable, data becomes inaccessible and queries on these workspaces fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible.
 
@@ -263,18 +249,20 @@ The cluster's storage periodically checks your Key Vault to attempt to unwrap th
 
 ## Key rotation
 
-Customer-managed key rotation requires an explicit update to the cluster with the new key version in Azure Key Vault. [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you don't update the new key version in the cluster, the Log Analytics cluster storage will keep using your previous key for encryption. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
+Key rotation has two modes: 
+- Auto-rotation - when you you update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```, storage will autoamatically use the latest versions.
+- Explicit key version update - when you update your cluster and provide key version in ```"keyVersion"``` property, any new key versions require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the Log Analytics cluster storage will keep using your previous key. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 
-## Customer-managed key for saved queries
+## Customer-managed key for saved queries and log alerts
 
-The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
+The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
 
 > [!NOTE]
 > Log Analytics queries can be saved in various stores depending on the scenario used. Queries remain encrypted with Microsoft key (MMK) in the following scenarios regardless Customer-managed key configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
 
-When you Bring Your Own Storage (BYOS) and link it to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
+When you Bring Your Own Storage (BYOS) and link it to your workspace, the service uploads *saved-searches* and *log alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
 
 **Considerations before setting Customer-managed key for queries**
 * You need to have 'write' permissions to both your workspace and Storage Account
@@ -282,8 +270,9 @@ When you Bring Your Own Storage (BYOS) and link it to your workspace, the servic
 * The *saves searches* in storage is considered as service artifacts and their format may change
 * Existing *saves searches* are removed from your workspace. Copy and any *saves searches* that you need before the configuration. You can view your *saved-searches* using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)
 * Query history isn't supported and you won't be able to see queries that you ran
-* You can link a single storage account to workspace for the purpose of saving queries, but is can be used fro both *saved-searches* and *log-alerts* queries
+* You can link a single storage account to workspace for the purpose of saving queries, but is can be used fro both *saved-searches* and *log alerts* queries
 * Pin to dashboard isn't supported
+* Fired log alerts will not contains search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
 
 **Configure BYOS for saved-searches queries**
 
@@ -329,9 +318,9 @@ Content-type: application/json
 
 After the configuration, any new *saved search* query will be saved in your storage.
 
-**Configure BYOS for log-alerts queries**
+**Configure BYOS for log alerts queries**
 
-Link a storage account for *Alerts* to your workspace -- *log-alerts* queries are saved in your storage account. 
+Link a storage account for *Alerts* to your workspace -- *log alerts* queries are saved in your storage account. 
 
 # [Azure portal](#tab/portal)
 
@@ -410,26 +399,26 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - Your Azure Key Vault, cluster and workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
 
+- Cluster update should not include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
+
 - Lockbox isn't available in China currently. 
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
   - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
 
-  - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` with `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn' applied to System-assigned managed identity.
+  - Setting the cluster's `identity` `type` to `None` acks also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support. The recommended way to revoke access to your data is [key revocation](#key-revocation).
 
-  - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is  in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
+  - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
 ## Troubleshooting
 
 - Behavior with Key Vault availability
   - In normal operation -- Storage caches AEK for short periods of time and goes back to Key Vault to unwrap periodically.
     
-  - Transient connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for a short while longer and this overcomes any small blips in availability. The query and ingestion capabilities continue without interruption.
+  - Key Vault connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for the duration of the availablility issue and this overcomes blips and availability issues. The query and ingestion capabilities continue without interruption.
     
-  - Live site -- unavailability of about 30 minutes will cause the Storage account to become unavailable. The query capability is unavailable and ingested data is cached for several hours using Microsoft key to avoid data loss. When access to Key Vault is restored, query becomes available and the temporary cached data is ingested to the data-store and encrypted with Customer-managed key.
-
-  - Key Vault access rate -- The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
+- Key Vault access rate -- The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
 
 - If you update your cluster while the cluster is at provisioning or updating state, the update will fail.
 

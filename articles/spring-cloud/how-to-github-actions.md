@@ -21,14 +21,14 @@ This example requires the [Azure CLI](/cli/azure/install-azure-cli).
 ## Set up GitHub repository and authenticate
 You need an Azure service principal credential to authorize Azure login action. To get an Azure credential, execute the following commands on your local machine:
 
-```
+```azurecli
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
 ```
 
 To access to a specific resource group, you can reduce the scope:
 
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
@@ -52,7 +52,7 @@ Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that
 
  ![Set secret data](./media/github-actions/actions2.png)
 
-You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./spring-cloud-github-actions-key-vault.md).
+You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
 ## Provision service instance
 To provision your Azure Spring Cloud service instance, run the following commands using the Azure CLI.
@@ -73,8 +73,8 @@ The command `az spring-cloud app create` is currently not idempotent. After you 
 
 Use the following Azure CLI commands for preparation:
 ```
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 az spring-cloud app create --name planet-weather-provider
 az spring-cloud app create --name solar-system-weather
 ```
@@ -143,12 +143,12 @@ jobs:
 ::: zone pivot="programming-language-java"
 ## Set up GitHub repository and authenticate
 You need an Azure service principal credential to authorize Azure login action. To get an Azure credential, execute the following commands on your local machine:
-```
+```azurecli
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
 ```
 To access to a specific resource group, you can reduce the scope:
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 The command should output a JSON object:
@@ -170,7 +170,7 @@ Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that
 
  ![Set secret data](./media/github-actions/actions2.png)
 
-You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./spring-cloud-github-actions-key-vault.md).
+You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
 ## Provision service instance
 To provision your Azure Spring Cloud service instance, run the following commands using the Azure CLI.
@@ -187,9 +187,9 @@ The workflow is defined using the following options.
 The command `az spring-cloud app create` is currently not idempotent.  We recommend this workflow on existing Azure Spring Cloud apps and instances.
 
 Use the following Azure CLI commands for preparation:
-```
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+```azurecli
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 az spring-cloud app create --name gateway
 az spring-cloud app create --name auth-service
 az spring-cloud app create --name account-service
@@ -198,7 +198,7 @@ az spring-cloud app create --name account-service
 ### Deploy with Azure CLI directly
 Create the `.github/workflow/main.yml` file in the repository:
 
-```
+```yaml
 name: AzureSpringCloud
 on: push
 
@@ -232,8 +232,8 @@ jobs:
    
     - name: Deploy with AZ CLI commands
       run: |
-        az configure --defaults group=$GROUP
-        az configure --defaults spring-cloud=$SERVICE_NAME
+        az config set defaults.group=$GROUP
+        az config set defaults.spring-cloud=$SERVICE_NAME
         az spring-cloud app deploy -n gateway --jar-path ${{ github.workspace }}/gateway/target/gateway.jar
         az spring-cloud app deploy -n account-service --jar-path ${{ github.workspace }}/account-service/target/account-service.jar
         az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
@@ -245,7 +245,7 @@ The az `run` command will use the latest version of Azure CLI. If there are brea
 > This command will run in a new container, so `env` will not work, and cross action file access may have extra restrictions.
 
 Create the .github/workflow/main.yml file in the repository:
-```
+```yaml
 name: AzureSpringCloud
 on: push
 
@@ -276,17 +276,17 @@ jobs:
         azcliversion: 2.0.75
         inlineScript: |
           az extension add --name spring-cloud
-          az configure --defaults group=<service group name>
-          az configure --defaults spring-cloud=<service instance name>
+          az config set defaults.group=<service group name>
+          az config set defaults.spring-cloud=<service instance name>
           az spring-cloud app deploy -n gateway --jar-path $GITHUB_WORKSPACE/gateway/target/gateway.jar
           az spring-cloud app deploy -n account-service --jar-path $GITHUB_WORKSPACE/account-service/target/account-service.jar
           az spring-cloud app deploy -n auth-service --jar-path $GITHUB_WORKSPACE/auth-service/target/auth-service.jar
 ```
 
 ## Deploy with Maven Plugin
-Another option is to use the [Maven Plugin](./spring-cloud-quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
+Another option is to use the [Maven Plugin](./quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
 
-```
+```yaml
 name: AzureSpringCloud
 on: push
 
@@ -334,6 +334,6 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 
 ## Next steps
 
-* [Key Vault for Spring Cloud GitHub actions](./spring-cloud-github-actions-key-vault.md)
-* [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+* [Key Vault for Spring Cloud GitHub actions](./github-actions-key-vault.md)
+* [Azure Active Directory service principals](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)

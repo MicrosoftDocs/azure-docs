@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/29/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -71,7 +71,7 @@ Organizations can require that an access attempt to the selected cloud apps need
 
 In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the appropriate app store to install the required broker app.
 
-This setting applies to the following iOS and Android apps:
+The following client apps have been confirmed to support this setting:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -83,6 +83,7 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Lists
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
@@ -127,6 +128,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft Lists (iOS)
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote

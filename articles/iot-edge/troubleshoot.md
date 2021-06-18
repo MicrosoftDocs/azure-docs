@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -60,6 +60,18 @@ The troubleshooting tool runs many checks that are sorted into these three categ
 
 The IoT Edge check tool uses a container to run its diagnostics. The container image, `mcr.microsoft.com/azureiotedge-diagnostics:latest`, is available through the [Microsoft Container Registry](https://github.com/microsoft/containerregistry). If you need to run a check on a device without direct access to the internet, your devices will need access to the container image.
 
+<!-- <1.2> -->
+:::moniker range=">=iotedge-2020-11"
+
+In a scenario using nested IoT Edge devices, you can get access to the diagnostics image on child devices by routing the image pull through the parent devices.
+
+```bash
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.2
+```
+
+<!-- </1.2> -->
+:::moniker-end
+
 For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
 ## Gather debug information with 'support-bundle' command
@@ -96,7 +108,15 @@ sudo iotedge support-bundle --since 6h
 :::moniker-end
 <!-- end 1.2 -->
 
-You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) call to your device to upload the output of the support-bundle command to Azure Blob Storage.
+By default, the `support-bundle` command creates a zip file called **support_bundle.zip** in the directory where the command is called. Use the flag `--output` to specify a different path or file name for the output.
+
+For more information about the command, view its help information.
+
+```bash/cmd
+iotedge support-bundle --help
+```
+
+You can also use the built-in direct method call [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) to upload the output of the support-bundle command to Azure Blob Storage.
 
 > [!WARNING]
 > Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
@@ -114,7 +134,7 @@ You can verify the installation of IoT Edge on your devices by [monitoring the e
 To get the latest edgeAgent module twin, run the following command from [Azure Cloud Shell](https://shell.azure.com/):
 
    ```azurecli-interactive
-   az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
+   az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name>
    ```
 
 This command will output all the edgeAgent [reported properties](./module-edgeagent-edgehub.md). Here are some helpful ones monitor the status of the device:
@@ -242,11 +262,32 @@ On Windows:
 
 Once the IoT Edge security daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing.
 
+You can retrieve the container logs from several places:
+
+* On the IoT Edge device, run the following command to view logs:
+
+  ```cmd
+  iotedge logs <container name>
+  ```
+
+* On the Azure portal, use the built-in troubleshoot tool. [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md)
+
+* Use the [UploadModuleLogs direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) to upload the logs of a module to Azure Blob Storage.
+
+## Clean up container logs
+
+By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. If large container logs are affecting your IoT Edge device performance, use the following command to force remove the container along with its related logs.
+
+If you're still troubleshooting, wait until after you've inspected the container logs to take this step.
+
+>[!WARNING]
+>If you force remove the edgeHub container while it has an undelivered message backlog and no [host storage](how-to-access-host-storage-from-module.md) set up, the undelivered messages will be lost.
+
 ```cmd
-iotedge logs <container name>
+docker rm --force <container name>
 ```
 
-You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) call to a module on your device to upload the logs of that module to Azure Blob Storage.
+For ongoing logs maintenance and production scenarios, [place limits on log size](production-checklist.md#place-limits-on-log-size).
 
 ## View the messages going through the IoT Edge hub
 
@@ -317,7 +358,9 @@ You can also check the messages being sent between IoT Hub and IoT devices. View
 
 ## Restart containers
 
-After investigating the logs and messages for information, you can try restarting containers:
+After investigating the logs and messages for information, you can try restarting containers.
+
+On the IoT Edge device, use the following commands to restart modules:
 
 ```cmd
 iotedge restart <container name>
@@ -328,6 +371,8 @@ Restart the IoT Edge runtime containers:
 ```cmd
 iotedge restart edgeAgent && iotedge restart edgeHub
 ```
+
+You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 ## Check your firewall and port configuration rules
 

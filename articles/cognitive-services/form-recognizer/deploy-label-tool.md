@@ -1,10 +1,10 @@
 ---
 title: How to deploy the Form Recognizer sample labeling tool
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn the different ways you can deploy the Form Recognizer sample labeling tool to help with supervised learning.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
@@ -23,7 +23,7 @@ The Form Recognizer sample labeling tool is an application that provides a simpl
 
 The fastest way to start labeling data is to run the sample labeling tool locally. The following quickstart uses the Form Recognizer REST API and the sample labeling tool to train a custom model with manually labeled data. 
 
-* [Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool](./quickstarts/label-tool.md).
+* [Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool](label-tool.md).
 
 ## Deploy with Azure Container Instances (ACI)
 
@@ -65,14 +65,14 @@ Follow these steps to create a new resource using the Azure portal:
 
 6. Now let's configure your Docker container. All fields are required unless otherwise noted:
 <!-- markdownlint-disable MD025 -->
-# [v2.1 preview](#tab/v2-1)
+# [v2.1](#tab/v2-1)
 
 * Options - Select **Single Container**
 * Image Source - Select **Private Registry** 
 * Server URL - Set this to `https://mcr.microsoft.com`
 * Username (Optional) - Create a username. 
 * Password (Optional) - Create a secure password that you'll remember.
-* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
+* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1`
 * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
 * Startup command - Set this to `./run.sh eula=accept`
 
@@ -114,7 +114,7 @@ There's a few things you need know about this command:
 From the Azure CLI, run this command to create a web app resource for the sample labeling tool:
 
 <!-- markdownlint-disable MD024 -->
-# [v2.1 preview](#tab/v2-1)
+# [v2.1](#tab/v2-1)
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -122,7 +122,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
@@ -141,7 +141,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
@@ -163,4 +163,4 @@ The OCR Form Labeling Tool is also available as an open-source project on GitHub
 
 ## Next steps
 
-Use the [Train with labels](./quickstarts/label-tool.md) quickstart to learn how to use the tool to manually label training data and perform supervised learning.
+Use the [Train with labels](label-tool.md) quickstart to learn how to use the tool to manually label training data and perform supervised learning.

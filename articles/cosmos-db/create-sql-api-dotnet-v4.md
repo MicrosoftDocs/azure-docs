@@ -8,8 +8,7 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/07/2021
-ms.custom: devx-track-dotnet
-
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ---
 # Quickstart: Build a console app using the .NET V4 SDK (Preview) to manage Azure Cosmos DB SQL API account resources.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -19,6 +18,7 @@ ms.custom: devx-track-dotnet
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Spark v3 connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -30,7 +30,7 @@ Get started with the Azure Cosmos DB SQL API client library for .NET. Follow the
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scale. You can use Azure Cosmos DB to quickly create and query key/value, document, and graph databases. Use the Azure Cosmos DB SQL API client library for .NET to:
+Azure Cosmos DB is Microsoft's fast NoSQL database with open APIs for any scale. You can use Azure Cosmos DB to quickly create and query key/value, document, and graph databases. Use the Azure Cosmos DB SQL API client library for .NET to:
 
 * Create an Azure Cosmos database and a container
 * Add sample data to the container
@@ -87,10 +87,10 @@ The creation of the Azure Cosmos account takes a while, once the operation is su
 
 ### <a id="create-dotnet-core-app"></a>Create a new .NET app
 
-Create a new .NET application in your preferred editor or IDE. Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal.  Run the following dotnet new command to create a new app with the name `todo`. The --langVersion parameter sets the LangVersion property in the created project file.
+Create a new .NET application in your preferred editor or IDE. Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal.  Run the following dotnet new command to create a new app with the name `todo`. The `--langVersion` parameter sets the LangVersion property in the created project file.
 
    ```bash
-   dotnet new console –langVersion:8 -n todo
+   dotnet new console --langVersion:8 -n todo
    ```
 
 Change your directory to the newly created app folder. You can build the application with:

@@ -26,11 +26,66 @@ Claims generated in the process of attesting enclaves using Microsoft Azure Atte
 
 Claims to be used by policy authors to define authorization rules in an SGX attestation policy:
 
-- **x-ms-sgx-is-debuggable**: A Boolean, which indicates whether or not the enclave has debugging enabled or not
-- **x-ms-sgx-product-id**: Product ID value of the SGX enclave 
-- **x-ms-sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
-- **x-ms-sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
-- **x-ms-sgx-svn**: security version number encoded in the quote 
+- **x-ms-sgx-is-debuggable**: A boolean value, which indicates whether enclave debugging is enabled or not.
+  
+  SGX enclaves can be loaded with debugging disabled, or enabled. When the flag is set to true in the enclave, it enables debugging features for the enclave code. This includes   the ability to access enclave’s memory. Hence it is recommended to set the flag to true only for development purposes. If enabled in production environment, SGX security        guarantees will not be retained.
+  
+  Azure Attestation users can use the attestation policy to verify if debugging is disabled for the SGX enclave. Once the policy rule is added, attestation will fail when a  malicious user turns on the debugging support to gain access to the enclave content.
+
+- **x-ms-sgx-product-id**: An integer value, which indicates product ID of the SGX enclave.
+
+  The enclave author assigns a Product ID to each enclave. The Product ID enables the enclave author to segment enclaves signed using the same MRSIGNER. By adding a validation  rule in the attestation policy, customers can check if they are using the intended enclaves. Attestation will fail if the enclave’s product ID does not match the value published by the enclave author.
+
+- **x-ms-sgx-mrsigner**: A string value, which identifies the author of SGX enclave.
+
+  MRSIGNER is the hash of the enclave author’s public key which is used to sign the enclave binary. By validating MRSIGNER via an attestation policy, customers can verify if trusted binaries are running inside an enclave. When the policy claim does not match the enclave author’s MRSIGNER, it implies that the enclave binary is not signed by a trusted source and the attestation fails.
+  
+  When an enclave author prefers to rotate MRSIGNER for security reasons, Azure Attestation policy must be updated to support the new and old MRSIGNER values before the binaries are updated. Otherwise authorization checks will fail resulting in attestation failures.
+  
+  Attestation policy must be updated using the below format. 
+ 
+  #### Before key rotation
+ 
+   ```
+    version= 1.0;
+    authorizationrules 
+    {
+    [ type=="x-ms-sgx-is-debuggable", value==false]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    };
+  ```
+
+   #### During key rotation
+
+    ```
+      version= 1.0;
+      authorizationrules 
+      {
+      [ type=="x-ms-sgx-is-debuggable", value==false]&&
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+      [ type=="x-ms-sgx-is-debuggable", value==false ]&& 
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+      };
+    ```
+
+   #### After key rotation
+
+    ```
+      version= 1.0;
+      authorizationrules 
+      { 
+      [ type=="x-ms-sgx-is-debuggable", value==false]&& 
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+      };
+    ```
+
+- **x-ms-sgx-mrenclave**: A string value, which identifies the code and data loaded in enclave memory. 
+
+  MRENCLAVE is one of the enclave measurements which can be used to verify the enclave binaries. It is the hash of the code running inside the enclave. The measurement changes with every change to the enclave binary code. By validating MRENCLAVE via an attestation policy, customers can verify if intended binaries are running inside an enclave. However, as MRENCLAVE is expected to change frequently with any trivial modification to the existing code, it is recommended to verify enclave binaries using MRSIGNER validation in an attestation policy.
+
+- **x-ms-sgx-svn**: An integer value, which indicates the security version number of the SGX enclave
+
+  The enclave author assigns a Security Version Number (SVN) to each version of the SGX enclave. When a security issue is discovered in the enclave code, enclave author increments the SVN value post vulnerability fix. To prevent interacting with insecure enclave code, customers can add a validation rule in the attestation policy. If the SVN of the enclave code does not match the version recommended by the  enclave author, attestation will fail.
 
 Below claims are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names.
 

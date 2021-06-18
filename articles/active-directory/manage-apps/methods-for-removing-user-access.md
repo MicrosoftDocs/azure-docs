@@ -2,14 +2,14 @@
 title: How to remove a user's access to an application in Azure Active Directory
 description: Understand how to remove a user's access to an application in Azure Active Directory
 services: active-directory
-author: kenwith
-manager: daveba
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
-ms.author: kenwith
+ms.author: mtillman
 ---
 
 # How to remove a user's access to an application

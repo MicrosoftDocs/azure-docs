@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.subservice: migration-guide
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2020
 ---
 

@@ -421,14 +421,14 @@ For best practices on identity and resource control, see [Best practices for aut
 [kubectl-run]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-ad-aks-cli]: azure-ad-integration-cli.md
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-ad-group-create]: /cli/azure/ad/group#az-ad-group-create
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
-[az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
-[az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-ad-group-create]: /cli/azure/ad/group#az_ad_group_create
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-ad-user-create]: /cli/azure/ad/user#az_ad_user_create
+[az-ad-group-member-add]: /cli/azure/ad/group/member#az_ad_group_member_add
+[az-ad-group-show]: /cli/azure/ad/group#az_ad_group_show
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

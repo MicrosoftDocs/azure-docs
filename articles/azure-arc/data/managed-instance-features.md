@@ -4,8 +4,8 @@ description: Features and Capabilities of Azure Arc enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu 
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
@@ -30,27 +30,29 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
   
 |Feature|Azure Arc enabled SQL Managed Instance|
 |-------------|----------------|
-|Log shipping|Yes| 
-|Backup compression|Yes|
-|Database snapshot|Yes|
 |Always On failover cluster instance<sup>1</sup>| Not Applicable. Similar capabilities available |
 |Always On availability groups<sup>2</sup>|HA capabilities are planned.|
 |Basic availability groups <sup>2</sup>|HA capabilities are planned.|
 |Minimum replica commit availability group <sup>2</sup>|HA capabilities are planned.|
 |Clusterless availability group|Yes|
+|Backup database | Yes - `COPY_ONLY` See [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|
+|Backup compression|Yes|
+|Backup mirror |Yes|
+|Backup encryption|Yes|
+|Backup to Azure to (backup to URL)|Yes|
+|Database snapshot|Yes|
+|Fast recovery|Yes|
+|Hot add memory and CPU|Yes|
+|Log shipping|Yes| 
 |Online page and file restore|Yes|
 |Online indexing|Yes|
-|Resumable online index rebuilds|Yes|
 |Online schema change|Yes|
-|Fast recovery|Yes|
-|Mirrored backups|Yes|
-|Hot add memory and CPU|Yes|
-|Encrypted backup|Yes|
-|Hybrid backup to Azure (backup to URL)|Yes|
+|Resumable online index rebuilds|Yes|
 
 <sup>1</sup> In the scenario where there is pod failure, a new SQL Managed Instance will start up and re-attach to the persistent volume containing your data. [Learn more about Kubernetes persistent volumes here](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
 
-<sup>2</sup> Future releases will provide AG capabilities 
+<sup>2</sup> Future releases will provide AG capabilities. 
+
 
 ###  <a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 

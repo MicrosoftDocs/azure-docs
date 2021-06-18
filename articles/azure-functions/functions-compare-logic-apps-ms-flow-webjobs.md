@@ -53,7 +53,7 @@ You can mix and match services when you build an orchestration, calling function
 | **Actions** | Each activity is an Azure function; write code for activity functions |[Large collection of ready-made actions](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | **Monitoring** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor logs](../logic-apps/monitor-logic-apps.md)|
 | **Management** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
-| **Execution context** | Can run [locally](functions-runtime-overview.md) or in the cloud | Runs only in the cloud|
+| **Execution context** | Can run [locally](./functions-kubernetes-keda.md) or in the cloud | Runs only in the cloud|
 
 <a name="function"></a>
 

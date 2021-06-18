@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ---
 
 # Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app
@@ -19,8 +19,8 @@ This article shows you how to create a managed identity for an Azure Spring Clou
 
 ## Prerequisites
 This example uses the following resources.
-* Follow the [Spring Data JPA tutorial](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server) to provision an Azure SQL Database and get it work with a Java app locally
-* Follow the [Azure Spring Cloud system-assigned managed identity tutorial](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity) to provision an Azure Spring Cloud app with MI enabled
+* Follow the [Spring Data JPA tutorial](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server) to provision an Azure SQL Database and get it work with a Java app locally
+* Follow the [Azure Spring Cloud system-assigned managed identity tutorial](./how-to-enable-system-assigned-managed-identity.md) to provision an Azure Spring Cloud app with MI enabled
 
 ## Grant permission to the Managed Identity
 Connect to your SQL server and run the following SQL query:
@@ -52,6 +52,6 @@ Rebuild the app and deploy it to the Azure Spring Cloud app provisioned in the s
 ## Next steps
 
 * [How to access Storage blob with managed identity in Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
-* [How to enable system-assigned managed identity for Azure Spring Cloud application](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
+* [How to enable system-assigned managed identity for Azure Spring Cloud application](./how-to-enable-system-assigned-managed-identity.md)
 * [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Authenticate Azure Spring Cloud with Key Vault in GitHub Actions](./spring-cloud-github-actions-key-vault.md)
+* [Authenticate Azure Spring Cloud with Key Vault in GitHub Actions](./github-actions-key-vault.md)

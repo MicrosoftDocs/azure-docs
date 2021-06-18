@@ -1,5 +1,5 @@
 ---
-title: Mount Azure Blob storage by using the NFS 3.0 protocol (preview) | Microsoft Docs
+title: Mount Azure Blob Storage by using the NFS 3.0 protocol (preview) | Microsoft Docs
 description: Learn how to mount a container in Blob storage from an Azure Virtual Machine (VM) or a client that runs on-premises by using the NFS 3.0 protocol.
 author: normesta
 ms.subservice: blobs
@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)
 
-You can mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
+You can mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage (preview)](network-file-system-protocol-support.md).
 
 ## Step 1: Register the NFS 3.0 protocol feature with your subscription
+
+# [PowerShell](#tab/azure-powershell)
 
 1. Open a PowerShell command window. 
 
@@ -45,14 +47,54 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
    ```
+   
+# [Azure CLI](#tab/azure-cli)
+
+1. Open a Terminal window.
+
+2. Sign in to your Azure subscription with the `az login` command and follow the on-screen directions.
+
+   ```azurecli-interactive
+   az login
+   ```
+   
+3. Register the `AllowNFSV3` feature by using the following command.
+
+   ```azurecli-interactive
+   az feature register --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+4. Register the resource provider by using the following command.
+    
+   ```azurecli-interactive
+   az provider register -n Microsoft.Storage --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+---
 
 ## Step 2: Verify that the feature is registered 
 
 Registration approval can take up to an hour. To verify that the registration is complete, use the following commands.
 
+# [PowerShell](#tab/azure-powershell)
+
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
+```
+
+Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+---
 
 ## Step 3: Create an Azure Virtual Network (VNet)
 
@@ -63,24 +105,24 @@ Your storage account must be contained within a VNet. A VNet enables clients to 
 
 ## Step 4: Configure network security
 
-The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
+The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
 
 To secure the data in your account, see these recommendations: [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
 ## Step 5: Create and configure a storage account
 
-To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature. 
+To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature.
 
-In the preview release of this feature, NFS 3.0 protocol is supported in [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) and [general-purpose V2](../common/storage-account-overview.md#general-purpose-v2-accounts) accounts.
+In the preview release of this feature, NFS 3.0 protocol is supported for standard general-purpose v2 storage accounts and for premium block blob storage accounts. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 As you configure the account, choose these values:
 
 |Setting | Premium performance | Standard performance  
 |----|---|---|
-|Location|All available regions |One of the following regions: Australia East, Korea Central, East US, and South Central US   
+|Location|All available regions |All available regions    
 |Performance|Premium| Standard
 |Account kind|BlockBlobStorage| General-purpose V2
-|Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS)
+|Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS), Zone-redundant storage (ZRS)
 |Connectivity method|Public endpoint (selected networks) or Private endpoint |Public endpoint (selected networks) or Private endpoint
 |Secure transfer required|Disabled|Disabled
 |Hierarchical namespace|Enabled|Enabled
@@ -131,4 +173,4 @@ Create a directory on your Linux system, and then mount a container in the stora
 
 ## See also
 
-[Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md)
+[Network File System (NFS) 3.0 protocol support in Azure Blob Storage (preview)](network-file-system-protocol-support.md)

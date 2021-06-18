@@ -8,8 +8,8 @@ ms.subservice: core
 author: lobrien
 ms.author: laobri
 ms.date: 04/24/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+
 ---
 # Export or delete your Machine Learning service workspace data
 

@@ -51,7 +51,7 @@ Tools are available to enable and disable sensor engines. Alerts are not trigger
 
 ## Alerts and sensor reporting
 
-Activity reflected in alerts can be calculated when you're generating Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
+Activity reflected in alerts is calculated when you're generating Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
 
 For example:
 
