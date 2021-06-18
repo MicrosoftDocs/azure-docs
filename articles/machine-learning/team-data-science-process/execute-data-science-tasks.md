@@ -19,7 +19,7 @@ Typical data science tasks include data exploration, modeling, and deployment. T
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server with ML services](/sql/advanced-analytics/r/r-services)
-- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
+- [Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-mllib-notebook)
 
 
 ## 1. <a name='DataQualityReportUtility-1'></a> Exploration 
