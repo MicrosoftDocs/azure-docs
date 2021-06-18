@@ -59,7 +59,7 @@
     href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/metrics-advisor/context/context
 - name: Tutorials
   items:
-  - name: Enable notifications through differnt channel
+  - name: Enable notifications through different channel
     href: tutorials/enable-anomaly-notification.md
   - name: Write a valid query
     href: tutorials/write-a-valid-query.md
