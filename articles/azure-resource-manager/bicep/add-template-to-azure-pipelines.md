@@ -1,6 +1,6 @@
 ---
 title: CI/CD with Azure Pipelines and Bicep files
-description: Describes how to configure continuous integration in Azure Pipelines by using Bicep files. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there. (Bicep)
+description: Describes how to configure continuous integration in Azure Pipelines by using Bicep files. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there.
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
@@ -8,15 +8,15 @@ ms.date: 06/01/2021
 ---
 # Integrate Bicep with Azure Pipelines
 
-You can integrate Bicep file with Azure Pipelines for continuous integration and continuous deployment (CI/CD). In this article, you learn how to build a Bicep file into a JSON template and then use two advanced ways to deploy templates with Azure Pipelines.
+You can integrate Bicep files with Azure Pipelines for continuous integration and continuous deployment (CI/CD). In this article, you learn how to build a Bicep file into an Azure Resource Manager template (ARM template) and then use two advanced ways to deploy templates with Azure Pipelines.
 
 ## Select your option
 
 Before proceeding with this article, let's consider the different options for deploying an ARM template from a pipeline.
 
-* **Use Azure CLI task**. Use this task to run `az bicep build` to build your Bicep files before deploying the JSON templates.
+* **Use Azure CLI task**. Use this task to run `az bicep build` to build your Bicep files before deploying the ARM templates.
 
-* **Use ARM template deployment task**. This option is the easiest option. This approach works when you want to deploy a template directly from a repository. This option isn't covered in this article but instead is covered in the tutorial [Continuous integration of ARM templates with Azure Pipelines](../templates/deployment-tutorial-pipeline.md). It shows how to use the [ARM template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) to deploy a template from your GitHub repo.
+* **Use ARM template deployment task**. This option is the easiest option. This approach works when you want to deploy an ARM template directly from a repository. This option isn't covered in this article but instead is covered in the tutorial [Continuous integration of ARM templates with Azure Pipelines](../templates/deployment-tutorial-pipeline.md). It shows how to use the [ARM template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) to deploy a template from your GitHub repository.
 
 * **Add task that runs an Azure PowerShell script**. This option has the advantage of providing consistency throughout the development life cycle because you can use the same script that you used when running local tests. Your script deploys the template but can also perform other operations such as getting values to use as parameters. This option is shown in this article. See [Azure PowerShell task](#azure-powershell-task).
 
@@ -56,9 +56,9 @@ You're ready to either add an Azure PowerShell task or the copy file and deploy 
 
 ## Azure CLI task
 
-This section shows how to build a Bicep file into a JSON template before the JSON template is deployed.
+This section shows how to build a Bicep file into an ARM template before the template is deployed.
 
-The following YML file builds a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli):
+The following YAML file builds a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli):
 
 ```yml
 trigger:
@@ -84,7 +84,7 @@ For `scriptType`, use **bash**.
 
 For `scriptLocation`, use **inlineScript**, or **scriptPath**. If you specify **scriptPath**, you will also need to specify a `scriptPath` parameter.
 
-In `inlineScript`, specify your script lines.  The script provided in the sample builds a bicep file called *azuredeploy.bicep* and exists in the root of the repo.
+In `inlineScript`, specify your script lines.  The script provided in the sample builds a bicep file called *azuredeploy.bicep* and exists in the root of the repository.
 
 ## Azure PowerShell task
 

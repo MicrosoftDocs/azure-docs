@@ -151,7 +151,7 @@ Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-&client_secret=qWgdYAmab0YSkuL1qKv5bPX
+&client_secret=sampleCredentia1s
 &grant_type=client_credentials
 ```
 

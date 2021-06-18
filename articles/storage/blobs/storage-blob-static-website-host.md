@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
+> Static websites are now available for general-purpose v2 Standard storage accounts as well as storage accounts with hierarchical namespace enabled.
 
 This tutorial uses [Visual Studio Code](https://code.visualstudio.com/download), a free tool for programmers, to build the static website and deploy it to an Azure Storage account.
 

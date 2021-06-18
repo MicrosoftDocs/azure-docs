@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides database protection with Active 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 06/17/2021
 ms.author: mjbrown 
 ms.custom: devx-track-azurepowershell
 ---
@@ -47,7 +47,7 @@ In addition to the built-in roles, users may also create [custom roles](../role-
 
 ## <a id="prevent-sdk-changes"></a>Preventing changes from the Azure Cosmos DB SDKs
 
-The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources from a client connecting using the account keys (that is applications connecting via the Azure Cosmos SDK). This also includes changes made from the Azure portal. This feature may be desirable for users who want higher degrees of control and governance for production environments. Preventing changes from the SDK also enables features such as resource locks and diagnostic logs for control plane operations. The clients connecting from Azure Cosmos DB SDK will be prevented from changing any property for the Azure Cosmos accounts, databases, containers, and throughput. The operations involving reading and writing data to Cosmos containers themselves are not impacted.
+The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources from a client connecting using the account keys (that is applications connecting via the Azure Cosmos SDK). This feature may be desirable for users who want higher degrees of control and governance for production environments. Preventing changes from the SDK also enables features such as resource locks and diagnostic logs for control plane operations. The clients connecting from Azure Cosmos DB SDK will be prevented from changing any property for the Azure Cosmos accounts, databases, containers, and throughput. The operations involving reading and writing data to Cosmos containers themselves are not impacted.
 
 When this feature is enabled, changes to any resource can only be made from a user with the right Azure role and Azure Active Directory credentials including Managed Service Identities.
 
@@ -68,7 +68,7 @@ This setting will prevent any changes to any Cosmos resource from any client con
 
 - Modifying stored procedures, triggers or user-defined functions.
 
-If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST, or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](/azure/index?product=developer-tools#languages-and-tools).
+If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST, or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](/azure/?product=featured#languages-and-tools).
 
 ### Set via ARM Template
 

@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop (classic) PowerShell - Azure
-description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop (classic) tenant environment.
+title: Azure Virtual Desktop (classic) PowerShell - Azure
+description: How to troubleshoot issues with PowerShell when you set up a Azure Virtual Desktop (classic) tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
@@ -8,20 +8,20 @@ ms.author: helohr
 manager: femila
 ---
 
-# Windows Virtual Desktop (classic) PowerShell
+# Azure Virtual Desktop (classic) PowerShell
 
 > [!IMPORTANT]
-> This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-powershell.md).
+> This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../troubleshoot-powershell.md).
 
-Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](/powershell/windows-virtual-desktop/overview).
+Use this article to resolve errors and issues when using PowerShell with Azure Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Azure Virtual Desktop Powershell](/powershell/windows-virtual-desktop/overview).
 
 ## Provide feedback
 
-Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Azure Virtual Desktop service with the product team and active community members.
 
-## PowerShell commands used during Windows Virtual Desktop setup
+## PowerShell commands used during Azure Virtual Desktop setup
 
-This section lists PowerShell commands that are typically used while setting up Windows Virtual Desktop and provides ways to resolve issues that may occur while using them.
+This section lists PowerShell commands that are typically used while setting up Azure Virtual Desktop and provides ways to resolve issues that may occur while using them.
 
 ### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp app group in the specified Host Pool
 
@@ -39,13 +39,13 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
 ```
 
-**Cause:** The user specified by the -UserPrincipalName cannot be found in the Azure Active Directory tied to the Windows Virtual Desktop tenant.
+**Cause:** The user specified by the -UserPrincipalName cannot be found in the Azure Active Directory tied to the Azure Virtual Desktop tenant.
 
 **Fix:** Confirm the items in the following list.
 
 - The user is synched to Azure Active Directory.
 - The user isn't tied to business to consumer (B2C) or business-to-business (B2B) commerce.
-- The Windows Virtual Desktop tenant is tied to correct Azure Active Directory.
+- The Azure Virtual Desktop tenant is tied to correct Azure Active Directory.
 
 ### Error: Get-RdsDiagnosticActivities -- User isn't authorized to query the management service
 
@@ -65,7 +65,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Cause:** Using -Deployment switch.
 
-**Fix:** -Deployment switch can be used only by deployment administrators. These administrators are usually members of the Remote Desktop Services/Windows Virtual Desktop team. Replace the -Deployment switch with -TenantName \<TenantName>.
+**Fix:** -Deployment switch can be used only by deployment administrators. These administrators are usually members of the Remote Desktop Services/Azure Virtual Desktop team. Replace the -Deployment switch with -TenantName \<TenantName>.
 
 ### Error: New-RdsRoleAssignment -- the user isn't authorized to query the management service
 
@@ -82,12 +82,12 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 ## Next steps
 
-- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
-- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
-- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
+- For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
+- To troubleshoot issues while creating a tenant and host pool in a Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
+- To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md)
-- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup-2019.md).
+- To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../../azure-resource-manager/templates/deployment-history.md).
