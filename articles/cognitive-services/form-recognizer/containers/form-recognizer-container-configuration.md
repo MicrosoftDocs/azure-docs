@@ -18,7 +18,17 @@ You configure the Form Recognizer container run-time environment by using the `d
 
 ## Configuration settings
 
-[!INCLUDE [Container shared configuration settings table](../../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
+The container has the following configuration settings:
+
+|Required|Setting|Purpose|
+|--|--|--|
+|Yes|[ApiKey](#apikey-configuration-setting)|Tracks billing information.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
+|Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.|
+|Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
+|No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
+|No|HTTP Proxy|Configures an HTTP proxy for making outbound requests.|
+|No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](form-recognizer-container-install-run.md#billing).
