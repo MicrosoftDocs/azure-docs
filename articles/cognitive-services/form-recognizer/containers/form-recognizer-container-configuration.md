@@ -2,21 +2,19 @@
 title: How to configure a container for Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Learn how to configure the Form Recognizer container to parse form and table data.
-author: aahill
+author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.author: aahi
+ms.date: 06/18/2021
+ms.author: lajanuar
 ---
 # Configure Form Recognizer containers
 
-[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
-
 By using Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality.
 
-You configure the Form Recognizer container run-time environment by using the `docker run` command arguments. This container has several required settings and a few optional settings. For a few examples, see the ["Example docker run commands"](#example-docker-run-commands) section. The container-specific settings are the billing settings.
+You configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. This container has several required settings and a few optional settings. For a few examples, see the ["Example docker compose commands"](#example-docker-compose-commands) section. The container-specific settings are the billing settings.
 
 ## Configuration settings
 
@@ -61,74 +59,85 @@ You can find this setting in the Azure portal, in **Form Recognizer Overview**, 
 
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
+## Volume settings
 
-## Mount settings
+Use [**volumes**](https://docs.docker.com/storage/volumes/) to read and write data to and from the container. Volumes are the preferred for persisting data generated and used by Docker containers. You can specify an input mount or an output mount by including the `volumes` option and specifying `type` (bind), `source` (path to the folder) and `target` (file path parameter).
 
-Use bind mounts to read and write data to and from the container. You can specify an input mount or an output mount by specifying the `--mount` option in the [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/).
+The Form Recognizer container requires an input volume and an output volume. The input volume can be read-only (`ro`), and it's required for access to the data that's used for training and scoring. The output volume has to be writable, and you use it to store the models and temporary data.
 
-The Form Recognizer container requires an input mount and an output mount. The input mount can be read-only, and it's required for access to the data that's used for training and scoring. The output mount has to be writable, and you use it to store the models and temporary data.
+The exact syntax of the host volume location varies depending on the host operating system. Additionally, the volume location of the [host computer](form-recognizer-container-howto.md#the-host-computer) might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the mount location of the [host computer](form-recognizer-container-howto.md#the-host-computer) might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions.
+## Example docker-compose.yml file
 
-|Optional| Name | Data type | Description |
-|-------|------|-----------|-------------|
-|Required| `Input` | String | The target of the input mount. The default value is `/input`.    <br><br>Example:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Required| `Output` | String | The target of the output mount. The default value is `/output`.  <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
+The `docker compose` method is comprised of three steps:
 
-## Example docker run commands
-
-The following examples use the configuration settings to illustrate how to write and use `docker run` commands. When it's running, the container continues to run until you [stop it](form-recognizer-container-howto.md#stop-the-container).
-
-* **Line-continuation character**: The Docker commands in the following sections use a back slash (\\) as a line continuation character. Replace or remove this character, depending on your host operating system's requirements.
-* **Argument order**: Don't change the order of the arguments unless you're familiar with Docker containers.
-
-Replace {_argument_name_} in the following table with your own values:
-
+ 1. Create a Dockerfile.
+ 1. Define the services in a **docker-compose.yml** so they can be run together in an isolated environment.
+ 1. Run `docker-compose up` to starts and runs your services.
+ 
 | Placeholder | Value |
 |-------------|-------|
-| **{FORM_RECOGNIZER_API_KEY}** | The key that's used to start the container. It's available on the Azure portal Form Recognizer Keys page. |
-| **{FORM_RECOGNIZER_ENDPOINT_URI}** | The billing endpoint URI value is available on the Azure portal Form Recognizer Overview page.|
-| **{COMPUTER_VISION_API_KEY}** | The key is available on the Azure portal Computer Vision API Keys page.|
-| **{COMPUTER_VISION_ENDPOINT_URI}** | The billing endpoint. If you're using a cloud-based Computer Vision resource, the URI value is available on the Azure portal Computer Vision API Overview page. If you're using a *cognitive-services-recognize-text* container, use the billing endpoint URL that's passed to the container in the `docker run` command. |
-
-See [gathering required parameters](form-recognizer-container-howto.md#gathering-required-parameters) for details on how to obtain these values.
-
-[!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
+| **{API_KEY}** | The key that's used to start the container. It's available on the Azure portal Form Recognizer Keys page. |
+| **{ENDPOINT_URI}** | The billing endpoint URI value is available on the Azure portal Form Recognizer Overview page.|
 
 > [!IMPORTANT]
 > To run the container, specify the `Eula`, `Billing`, and `ApiKey` options; otherwise, the container won't start. For more information, see [Billing](#billing-configuration-setting).
 
-## Form Recognizer container Docker examples
+### Single container
 
-The following Docker examples are for the Form Recognizer container.
+**Layout container**
 
-### Basic example for Form Recognizer
-
-```Docker
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
---mount type=bind,source=c:\input,target=/input  \
---mount type=bind,source=c:\output,target=/output \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
-Eula=accept \
-Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
-ApiKey={FORM_RECOGNIZER_API_KEY} \
-FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
-FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
+```yml
+version: "3.9"
+services:
+azure-cognitive-service-layout:
+    container_name: azure-cognitive-service-layout
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
+    environment:
+      - EULA=accept
+      - billing={ENDPOINT_URI}
+      - apikey={API_KEY}
+    ports:
+      - "5000"
+    networks:
+      - ocrvnet
+networks:
+  ocrvnet:
+    driver: bridge
 ```
 
-### Logging example for Form Recognizer
+### Multiple containers
 
-```Docker
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
---mount type=bind,source=c:\input,target=/input  \
---mount type=bind,source=c:\output,target=/output \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
-Eula=accept \
-Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
-ApiKey={FORM_RECOGNIZER_API_KEY} \
-FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
-FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
-Logging:Console:LogLevel:Default=Information
+**Receipt and OCR Read containers**
+ 
+```yml
+version: "3"
+services:
+  azure-cognitive-service-receipt:
+    container_name: azure-cognitive-service-receipt
+    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-receipt:2.1
+    environment:
+      - EULA=accept 
+      - billing= # Billing endpoint
+      - apikey= # Subscription key
+      - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
+    ports:
+      - "5000:5050"
+    networks:
+      - ocrvnet
+  azure-cognitive-service-read:
+    container_name: azure-cognitive-service-read
+    image: mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
+    environment:
+      - EULA=accept 
+      - billing= # Billing endpoint
+      - apikey= # Subscription key
+    networks:
+      - ocrvnet
+
+networks:
+  ocrvnet:
+    driver: bridge
 ```
 
 ## Next steps

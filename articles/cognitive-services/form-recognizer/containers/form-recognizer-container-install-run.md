@@ -115,10 +115,10 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 
 ### [Layout](#tab/layout)
 
-Below is a self-contained `docker compose`  example to run the Form Recognizer Layout container. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance.
+Below is a self-contained `docker compose`  example to run the Form Recognizer Layout container.  With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance.
 
 ```yml
-version: "3"
+version: "3.9"
 services:
 azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
@@ -144,10 +144,10 @@ docker-compose up
 
 ### [Business Card](#tab/business-card)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Business Card and Read containers.
+Below is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration.Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Business Card and Read containers.
 
 ```yml
-version: "3"
+version: "3.9"
 services:
   azure-cognitive-service-businesscard:
     container_name: azure-cognitive-service-businesscard
@@ -184,10 +184,10 @@ docker-compose up
 
 ### [ID Document](#tab/id-document)
 
-Below is a self-contained `docker compose` example to run Form Recognizer ID Document and Read containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the ID Document and Read containers.
+Below is a self-contained `docker compose` example to run Form Recognizer ID Document and Read containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the ID Document and Read containers.
 
 ```yml
-version: "3"
+version: "3.9"
 services:
   azure-cognitive-service-id:
     container_name: azure-cognitive-service-id
@@ -224,10 +224,10 @@ docker-compose up
 
 ### [Invoice](#tab/invoice)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Invoice and Layout containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Invoice and Layout containers.
+Below is a self-contained `docker compose` example to run Form Recognizer Invoice and Layout containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Invoice and Layout containers.
 
 ```yml
-version: "3"
+version: "3.9"
 services:
   azure-cognitive-service-invoice:
     container_name: azure-cognitive-service-invoice
@@ -265,18 +265,16 @@ docker-compose up
 
 ### [Receipt](#tab/receipt)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Receipt and Read containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Receipt and Read containers.
+Below is a self-contained `docker compose` example to run Form Recognizer Receipt and Read containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Receipt and Read containers.
 
 ```yml
-version: "3"
+version: "3.9"
 services:
-
-Azur
   azure-cognitive-service-receipt:
     container_name: azure-cognitive-service-receipt
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
+    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-receipt:2.1
     environment:
-      - EULA=accept
+      - EULA=accept 
       - billing= # Billing endpoint
       - apikey= # Subscription key
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
@@ -288,7 +286,7 @@ Azur
     container_name: azure-cognitive-service-read
     image: mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
     environment:
-      - EULA=accept
+      - EULA=accept 
       - billing= # Billing endpoint
       - apikey= # Subscription key
     networks:
@@ -320,7 +318,7 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you will nee
 
 #### Create your **docker compose** file
 
-Below is a self-contained `docker compose` example to run Form Recognizer Layout, Label Tool, Custom Backend, and Custom Frontend containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for all containers.
+Below is a self-contained `docker compose` example to run Form Recognizer Layout, Label Tool, Custom Backend, and Custom Frontend containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for all containers.
 
 ```yml
 version: '3'
