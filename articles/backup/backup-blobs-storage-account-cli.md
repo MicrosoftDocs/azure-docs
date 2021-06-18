@@ -69,7 +69,7 @@ After creating a vault, let's create a Backup Policy to protect Azure Blobs in a
 > [!IMPORTANT]
 > Read [this section](blob-backup-configure-manage.md#before-you-start) before creating the policy and configure backups for Azure Blobs.
 
-To understand the inner components of a Backup Policy for Azure Blob backup, retrieve the policy template using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_get_default_policy_template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
+To understand the inner components of a Backup Policy for Azure Blobs backup, retrieve the policy template using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_get_default_policy_template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureBlob
@@ -179,7 +179,7 @@ Once the vault and policy are created, there are two critical points that you ne
 
 #### Storage account that contains the blobs to be protected
 
-Fetch the Azure Resource Manager ID of the storage account that contains the blobs to be protected. This will serve as the identifier of the storage account. We will use an example of a storage account named _CLITestSA_, under the resource group _blobrg_, in a different subscription present in south-east asia region.
+Fetch the Azure Resource Manager ID of the storage account that contains the blobs to be protected. This will serve as the identifier of the storage account. We will use an example of a storage account named _CLITestSA_, under the resource group _blobrg_, in a different subscription present in the South-east Asia region.
 
 ```azurecli-interactive
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
@@ -195,7 +195,7 @@ You need to assign a few permissions via RBAC to vault (represented by vault MSI
 
 ### Prepare the request
 
-Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_initialize) command. Then, we submit the request to protect the disk using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_create) command.
+Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_initialize) command. Then, we submit the request to protect the disk using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_create) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance initialize --datasource-type AzureBlob  -l southeastasia --policy-id "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy" --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json
@@ -252,4 +252,4 @@ az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpV
 
 ## Next steps
 
-[Restore Azure blobs using Azure cli](restore-blobs-storage-account-cli.md)
+[Restore Azure Blobs using Azure CLI](restore-blobs-storage-account-cli.md)

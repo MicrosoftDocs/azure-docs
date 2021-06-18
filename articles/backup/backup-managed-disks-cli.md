@@ -127,7 +127,7 @@ az dataprotection backup-policy get-default-policy-template --datasource-type Az
 
 ```
 
-The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure Disk Backup, the default values for trigger is a scheduled trigger for every 4 hours (PT4H) and to retain each backup for seven days.
+The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure Disk Backup, the default values for trigger are a scheduled trigger for every 4 hours (PT4H) and to retain each backup for seven days.
 
 **Scheduled trigger:**
 
@@ -142,7 +142,7 @@ The policy template consists of a trigger (which decides what triggers the backu
 
 ```
 
-**Default retention lifecyle:**
+**Default retention lifecycle:**
 
 ```json
 "lifecycles": [
@@ -171,7 +171,7 @@ The time required for completing the backup operation depends on various factors
    >[!NOTE]
    >Although the selected vault may have the global-redundancy setting, currently, Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to the Backup Vault storage.
 
-To know more details about policy creation, refer to the [azure disk backup policy](backup-managed-disks.md#create-backup-policy) document.
+To know more details about policy creation, refer to the [Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy) document.
 
 Once the template is downloaded as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the [az dataprotection backup-policy trigger set](/cli/azure/dataprotection/backup-policy/trigger?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_trigger_set) and/or [az dataprotection backup-policy retention-rule set](/cli/azure/dataprotection/backup-policy/retention-rule?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_retention_rule_set) commands. Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_policy_create) command.
 
@@ -262,7 +262,7 @@ $DiskId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/provider
 
 #### Snapshot resource group
 
-The disk snapshots are stored in a resource group within your subscription. As a guideline, we recommend to create a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM ID for the resource group where you wish to place the disk snapshots
+The disk snapshots are stored in a resource group within your subscription. As a guideline, we recommend creating a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM ID for the resource group where you wish to place the disk snapshots
 
 ```azurecli-interactive
 $snapshotrg = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/snapshotrg"
@@ -270,7 +270,7 @@ $snapshotrg = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/snapshotrg"
 
 #### Backup vault
 
-The Backup Vaults requires permissions on the disk and the snapshot resource group to be able to trigger snapshots and manage their lifecyle. The system-assigned managed identity of the vault is used for assigning such permissions. Use the [az dataprotection backup-vault update](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_update) command to enable system-assigned managed identity for the Recovery Services Vault.
+The Backup Vaults requires permissions on the disk and the snapshot resource group to be able to trigger snapshots and manage their lifecycle. The system-assigned managed identity of the vault is used for assigning such permissions. Use the [az dataprotection backup-vault update](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_update) command to enable system-assigned managed identity for the Recovery Services Vault.
 
 ```azurecli-interactive
 az dataprotection backup-vault update -g testBkpVaultRG --vault-name TestBkpVault --type SystemAssigned
@@ -324,7 +324,7 @@ Open the JSON file and edit the **snapshot resource group ID** in the ``` resour
 > [!NOTE]
 > The backup instance name is generated by clients so that this will be a unique value. It's based on datasource name and a unique GUID. Once you list the backup instances, you sholuld be able to check the name of backup instance and the relevant datasource name.
 
-Use the edited JSON file to create a backup instance of the Azure managed disk.
+Use the edited JSON file to create a backup instance of the Azure Managed Disk.
 
 ```azurecli-interactive
 az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpVault --backup-instance backup_instance.json
