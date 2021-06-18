@@ -64673,6 +64673,11 @@
       "source_path_from_root": "/articles/storage/files/storage-troubleshoot-cannot-delete-files-azure-file-share.md",
       "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#unable-to-modify-moverename-or-delete-a-file-or-directory",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/diagnose-incident.md",
+      "redirect_url": "/azure/cognitive-services/metrics-advisor/how-tos/diagnose-an-incident",
+      "redirect_document_id": false
     }
   ]
 }
