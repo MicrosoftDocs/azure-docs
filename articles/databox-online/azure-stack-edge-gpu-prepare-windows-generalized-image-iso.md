@@ -158,7 +158,19 @@ Use the *sysprep* utility to generalize the VHD.
 
         ![Screenshot showing IDE at top of startup order in BIOS settings for a VM in Hyper-V Manager](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-02.png)
 
-[!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
+1. Inside the VM, open a command prompt.
+
+1. Run the following command to generalize the VHD. 
+
+    ```
+    c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm
+    ```
+    
+    For details, see [Sysprep (system preparation) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+
+1.  After the command is complete, the VM will shut down. **Do not restart the VM**.
+
+<!--[!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]-->
 
 Your VHD can now be used to create a generalized image to use on Azure Stack Edge Pro GPU.
 
