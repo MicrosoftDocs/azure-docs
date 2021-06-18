@@ -37,6 +37,12 @@ When your Data Flow is executed in Spark, Azure Data Factory determines optimal 
 
 * When you select individual transformations, you receive additional feedback on the right-hand panel that shows partition stats, column counts, skewness (how evenly is the data distributed across partitions), and kurtosis (how spiky is the data).
 
+* Sorting by *processing time* will help you to identify which stages in your data flow took the most time.
+
+* To find which transformations inside each stage took the most time, sort on *highest processing time*.
+
+* The *rows written* is also sortable as a way to identify which streams inside your data flow are writing the most data.
+
 * When you select the Sink in the node view, you can see column lineage. There are three different methods that columns are accumulated throughout your data flow to land in the Sink. They are:
 
   * Computed: You use the column for conditional processing or within an expression in your data flow, but don't land it in the Sink
