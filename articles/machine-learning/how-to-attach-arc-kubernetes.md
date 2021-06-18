@@ -48,7 +48,10 @@ Azure Arc-enabled Machine Learning is currently supported in these regions where
 * An Azure subscription. If you don't have an Azure subscription [create a free account](https://aka.ms/AMLFree) before you begin.
 * Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](/azure-arc/kubernetes/quickstart-connect-cluster.md).
 * Fulfill [Azure Arc enabled Kubernetes cluster extensions prerequisites](/azure-arc/kubernetes/extensions#prerequisites).
+  * Azure CLI version >= 2.24.0
+  * Azure CLI k8s-extension extension version >= 0.4.3
 * An Azure Machine Learning workspace. [Create a workspace](how-to-manage-workspace.md?tabs=python) before you begin if you don't have one already.
+  * Azure Machine Learning Python SDK version >= 1.30
 
 ## Deploy Azure Machine Learning extension to your Kubernetes cluster
 
@@ -77,8 +80,6 @@ Use the `k8s-extension` Azure CLI extension to deploy the Azure Machine Learning
     |Configuration Setting Key Name  |Description  |
     |--|--|
     | ```enableTraining``` | Default `False`. Set to `True` to create an extension instance for training machine learning models.  |
-    |```relayConnectionString```  | Connection string for Azure Relay resource. Azure Relay resource is required for Kubernetes communication with Azure Machine Learning services in the cloud. The Azure Machine Learning extension creates an Azure Relay resource by default under the same resource group as your Azure Arc connected cluster. The Azure Machine Learning extension uses the provided Azure Relay resource if this configuration setting is set. |
-    |```serviceBusConnectionString```  | Connection string for Azure Service Bus resource. Azure Service Bus resource is required for Kubernetes communication with Azure Machine Learning services in the cloud. The Azure Machine Learning extension creates an Azure Service Bus resource by default under the same resource group as your Azure Arc connected cluster. The Azure Machine Learning extension uses the provided Azure Service Bus resource if this configuration setting is set.   |
     |```logAnalyticsWS```  | Default `False`. The Azure Machine Learning extension integrates with Azure LogAnalytics Workspace. Set to `True` to provide log viewing and analysis capability through LogAnalytics Workspace. LogAnalytics Workspace cost may apply.   |
     |```installNvidiaDevicePlugin```  | Default `True`. Nvidia Device Plugin is required for training on Nvidia GPU hardware. The Azure Machine Learning extension installs the Nvidia Device Plugin by default during the Azure Machine Learning instance creation regardless of whether the Kubernetes cluster has GPU hardware or not. Set to `False` if you don't plan on using a GPU for training or Nvidia Device Plugin is already installed.  |
     |```installBlobfuseSysctl```  | Default `True` if "enableTraining=True". Blobfuse 1.3.7 is required for training. Azure Machine Learning installs Blobfuse by default when the extension instance is created. Set this configuration setting to `False` if Blobfuse 1.37 is already installed on your Kubernetes cluster.   |
