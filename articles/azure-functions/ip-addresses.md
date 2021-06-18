@@ -94,7 +94,7 @@ The relative stability of the outbound IP address depends on the hosting plan.
 
 Because of autoscaling behaviors, the outbound IP can change at any time when running on a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md). 
 
-If you need to control the outbound IP address of your function app, such as when you need to add it to an allow list, consider implementing a [virtual network NAT gateway](#virtual-network-nat-gateway-for-outbound-static-ip) in your premium plan.
+If you need to control the outbound IP address of your function app, such as when you need to add it to an allow list, consider implementing a [virtual network NAT gateway](#virtual-network-nat-gateway-for-outbound-static-ip) while running in a Premium hosting plan. You can also do this by running in a Dedicated (App Service) plan.
 
 ### Dedicated plans
 
@@ -123,7 +123,7 @@ There are several strategies to explore when your function app requires static, 
 
 ### Virtual network NAT gateway for outbound static IP
 
-You can control the IP address of outbound traffic from your functions by using a virtual network NAT gateway to direct traffic through a static public IP address. You can use this topology when running in a [Premium plan](functions-premium-plan.md). To learn more, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md).
+You can control the IP address of outbound traffic from your functions by using a virtual network NAT gateway to direct traffic through a static public IP address. You can use this topology when running in a [Premium plan](functions-premium-plan.md) or in a [Dedicated (App Service) plan](dedicated-plan.md). To learn more, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md).
 
 ### App Service Environments
 
