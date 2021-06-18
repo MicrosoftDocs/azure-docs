@@ -91,7 +91,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
     ```
 > [!NOTE]
-> Run PowerShell command in Azure government, please see [Connect to Azure Government with PowerShell](/azure/azure-government/documentation-government-get-started-connect-with-ps).
+> Run PowerShell command in Azure government, please see [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md).
 ### Create a self-hosted IR via Azure Data Factory UI
 
 Use the following steps to create a self-hosted IR using Azure Data Factory UI.
