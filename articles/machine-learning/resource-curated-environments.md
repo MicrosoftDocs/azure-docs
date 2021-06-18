@@ -23,7 +23,7 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 ## PyTorch
 - AzureML-pytorch-1.7-ubuntu18.04-py37-cuda11-gpu
      - An environment for deep learning with PyTorch containing the AzureML Python SDK and additional python packages.
- ```
+ ```Dockerfile
  FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210615.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/pytorch-1.7
