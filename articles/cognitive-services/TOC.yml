@@ -28,6 +28,8 @@
     href: plan-manage-costs.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
+  - name: Manage resources
+    href: manage-resources.md
   - name: Deploy
     items:
     - name: Containers

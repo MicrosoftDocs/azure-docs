@@ -5,7 +5,7 @@ description: In this quickstart, you build a web app from scratch and add the Im
 services: cognitive-services
 author: nitinme
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020

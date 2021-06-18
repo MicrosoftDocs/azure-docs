@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 06/03/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -121,17 +121,13 @@ For illustration purposes, we have only one dependent resource.
 
 To move resources, select the resource group that contains those resources.
 
-When you view the resource group, the move option is disabled.
+Select the resources you want to move. To move all of the resources, select the checkbox at the top of list. Or, select resources individually.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="move option disabled":::
-
-To enable the move option, select the resources you want to move. To select all of the resources, select the checkbox at the top of list. Or, select resources individually. After selecting resources, the move option is enabled.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="select resources":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources-to-move.png" alt-text="select resources":::
 
 Select the **Move** button.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="move options":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-move.png" alt-text="move options":::
 
 This button gives you three options:
 
@@ -141,15 +137,23 @@ This button gives you three options:
 
 Select whether you're moving the resources to a new resource group or a new subscription.
 
-Select the destination resource group. Acknowledge that you need to update scripts for these resources and select **OK**. If you selected to move to a new subscription, you must also select the destination subscription.
+The source resource group is automatically set. Specify the destination resource group. If you're moving to a new subscription, also specify the subscription. Select **Next**.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="select destination":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-destination-group.png" alt-text="select destination resource group":::
 
-After validating that the resources can be moved, you see a notification that the move operation is running.
+The portal validates that the resources can be moved. Wait for validation to complete.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notification":::
+:::image type="content" source="./media/move-resource-group-and-subscription/validation.png" alt-text="Move validation":::
 
-When it has completed, you're notified of the result.
+When validation completes successfully, select **Next**.
+
+Acknowledge that you need to update tools and scripts for these resources. To start moving the resources, select **Move**.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/acknowledge-change.png" alt-text="select destination":::
+
+When the move has completed, you're notified of the result.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="view move results":::
 
 ## Use Azure PowerShell
 

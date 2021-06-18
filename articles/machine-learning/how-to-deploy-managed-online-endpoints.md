@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Deploy and score a machine learning model with a managed online endpoint (preview)
 
-Managed online endpoints (preview) provide you the ability to deploy your model without the need to create and manage the underlying infrastructure. In this article, you'll start by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. You'll also learn how to view the logs and monitor the Service Level Agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that can be used for online/real-time scoring.
+Managed online endpoints (preview) provide you the ability to deploy your model without the need to create and manage the underlying infrastructure. In this article, you'll start by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. You'll also learn how to view the logs and monitor the Service Level Agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that can be used for online/real-time scoring. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -72,9 +72,9 @@ The following snippet shows the `endpoints/online/managed/simple-flow/1-create-e
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml":::
 
 > [!Note]
-> A fully specified sample YAML for managed online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
+> The YAML is more completely described at [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md)
 
-The reference for the endpoint YAML format is below. To understand how to specify these attributes, refer to the YAML example from this article or to the fully specified YAML sample mentioned in the preceding note. For more on limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md).
+The reference for the endpoint YAML format is below. To understand how to specify these attributes, refer to the YAML example from this article or to the fully specified YAML sample mentioned in the preceding note. For more on limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
 
 | Key | Description |
 | --- | --- |
@@ -186,7 +186,7 @@ az ml endpoint get-logs --local -n $ENDPOINT_NAME --deployment blue
 
 To deploy the YAML configuration to the cloud, run the following command:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="deploy" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="deploy" :::
 
 This deployment can take approximately up to 15 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
 
@@ -200,7 +200,7 @@ This deployment can take approximately up to 15 minutes depending on whether the
 
 The `show` command contains `provisioning_status` for both endpoint and deployment:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
 You may list all the endpoints in the workspace in a table format with the `list` command:
 
@@ -212,7 +212,7 @@ az ml endpoint list --output table
 
 Check if the model was deployed without error by checking the logs:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_logs" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 By default, logs are pulled from the inference-server. If you want to see the logs from the storage-initializer (which mounts the assets such as model and code to the container), add the flag `--container storage-initializer`.
 
@@ -220,13 +220,13 @@ By default, logs are pulled from the inference-server. If you want to see the lo
 
 You can use either the `invoke` command or a REST client of your choice to invoke the endpoint and score some data: 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
 
 You can again use the `get-logs` command shown previously to see the invocation logs.
 
 To use a REST client, you'll need the `scoring_uri` and the auth key/token. The `scoring_uri` is available in the output of the `show` command:
  
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_scoring_uri" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_scoring_uri" :::
 
 Note how we're using the `--query` to filter attributes to only what are needed. You can learn more about `--query` at [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
@@ -278,7 +278,7 @@ You can view metrics and set alerts based on your SLA by following instructions 
 
 ### [Optional] Integrate with Log Analytics
 
-The `get-logs` command will only provide the last few-hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to store and analyze logs durably. First, follow the steps in [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace#create-a-workspace) to create a Log Analytics workspace.
+The `get-logs` command will only provide the last few-hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to store and analyze logs durably. First, follow the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md#create-a-workspace) to create a Log Analytics workspace.
 
 Then, in the Azure portal:
 
@@ -300,9 +300,13 @@ Note that it might take up to an hour for the logs to be connected. Send some sc
 
 If you aren't going use the deployment, you should delete it with the below command (it deletes the endpoint and all the underlying deployments):
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## Next steps
-
+- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
+- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
+- [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
+- [Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
 - [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)

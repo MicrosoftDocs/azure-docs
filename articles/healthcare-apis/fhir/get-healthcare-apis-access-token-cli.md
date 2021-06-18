@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: matjazl
+ms.author: zxue
 ---
 
 # Get access token for Azure API for FHIR using Azure CLI
@@ -21,7 +21,7 @@ In this article, you'll learn how to obtain an access token for the Azure API fo
 The Azure API for FHIR uses a `resource`  or `Audience` with URI equal to the URI of the FHIR server `https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com`. You can obtain a token and store it in a variable (named `$token`) with the following command:
 
 ```azurecli-interactive
-token=$(az account get-access-token --resource=https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com --query accessToken --output tsv)
+$token=$(az account get-access-token --resource=https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com --query accessToken --output tsv)
 ```
 
 ## Use with Azure API for FHIR
