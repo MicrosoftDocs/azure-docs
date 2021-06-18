@@ -63,20 +63,10 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Outbound | * | MicrosoftContainerRegistry.region | Only needed if you use Docker images provided by Microsoft and enable user-managed dependencies. |
 
 > [!TIP]
-> The service tags listed in the table can be used with either network security groups or Azure Firewall. If you use a solution that requires IP addresses, use the following Azure CLI commands to return the IP addresses for the service tags. The IP addresses may change over time. Replace the region (`East US 2` and `eastus2`) with the region that contains your workspace:
-> 
-> ```azurecli-interactive
-> az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
-> # Get primary region IPs
-> az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
-> # Get secondary region IPs
-> az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
-> ```
->
-> If you are using the US-Virginia, US-Arizona, or China-East-2 regions, these commands return no IP addresses. Instead, use one of the following links to download a list of IP addresses:
->
-> * [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
-> * [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
+> If you need the IP addresses instead of service tags, use one of the following options:
+> * Download a list from [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519).
+> * Use the Azure CLI [az network list-service-tags](/cli/azure/network#az_network_list_service_tags) command.
+> * Use the Azure PowerShell [Get-AzNetworkServiceTag](s/powershell/module/az.network/get-aznetworkservicetag) command.
 
 You may also need to allow __outbound__ traffic to non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
 
@@ -89,7 +79,7 @@ You may also need to allow __outbound__ traffic to non-Microsoft sites for the i
 | **\*pytorch.org** | Used by some examples based on PyTorch. |
 | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
 
-
+For information specific to using a firewall solution, such as Azure Firewall, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 ## Secure the workspace with private endpoint
 
 Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. A private endpoint also helps reduce the risk of data exfiltration.

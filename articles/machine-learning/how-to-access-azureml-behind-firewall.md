@@ -66,11 +66,11 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
     * Storage.region
     * KeyVault.region
     * ContainerRegistry.region
+    * AzureFrontDoor.FirstParty
 
     If you plan on using the default Docker images provided by Microsoft, and enabling user-managed dependencies, you must also add the following service tags:
 
     * MicrosoftContainerRegistry.region
-    * AzureFrontDoor.FirstParty
 
     For entries that contain `region`, replace with the Azure region that you are using. For example, `keyvault.westus`.
 
@@ -130,16 +130,16 @@ The hosts in this section are owned by Microsoft, and provide services required 
 **Azure Machine Learning hosts**
 
 > [!IMPORTANT]
-> In the following table, replace `<defaultstorage>` with the name of the default storage account for your Azure Machine Learning workspace.
+> In the following table, replace `<storage>` with the name of the default storage account for your Azure Machine Learning workspace.
 
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
 | API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
 | Integrated notebook | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn |
-| Integrated notebook | \<defaultstorage\>.file.core.windows.net | \<defaultstorage\>.file.core.usgovcloudapi.net | \<defaultstorage\>.file.core.chinacloudapi.cn |
-| Integrated notebook | \<defaultstorage\>.dfs.core.windows.net | \<defaultstorage\>.dfs.core.usgovcloudapi.net | \<defaultstorage\>.dfs.core.chinacloudapi.cn |
-| Integrated notebook | \<defaultstorage\>.blob.core.windows.net | \<defaultstorage\>.blob.core.usgovcloudapi.net | \<defaultstorage\>.blob.core.chinacloudapi.cn |
+| Integrated notebook | \<storage\>.file.core.windows.net | \<storage\>.file.core.usgovcloudapi.net | \<storage\>.file.core.chinacloudapi.cn |
+| Integrated notebook | \<storage\>.dfs.core.windows.net | \<storage\>.dfs.core.usgovcloudapi.net | \<storage\>.dfs.core.chinacloudapi.cn |
+| Integrated notebook | \<storage\>.blob.core.windows.net | \<storage\>.blob.core.usgovcloudapi.net | \<storage\>.blob.core.chinacloudapi.cn |
 | Integrated notebook | graph.microsoft.com | graph.microsoft.us | graph.chinacloudapi.cn |
 | Integrated notebook | \*.aznbcontent.net |  | |
 
