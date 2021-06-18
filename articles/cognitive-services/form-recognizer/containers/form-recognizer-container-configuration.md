@@ -83,15 +83,12 @@ The `docker compose` method is comprised of three steps:
 
  1. Create a Dockerfile.
  1. Define the services in a **docker-compose.yml** so they can be run together in an isolated environment.
- 1. Run `docker-compose up` to starts and runs your services.
+ 1. Run `docker-compose up` to start and run your services.
  
 | Placeholder | Value |
 |-------------|-------|
 | **{API_KEY}** | The key that's used to start the container. It's available on the Azure portal Form Recognizer Keys page. |
 | **{ENDPOINT_URI}** | The billing endpoint URI value is available on the Azure portal Form Recognizer Overview page.|
-
-> [!IMPORTANT]
-> To run the container, specify the `Eula`, `Billing`, and `ApiKey` options; otherwise, the container won't start. For more information, see [Billing](#billing-configuration-setting).
 
 ### Single container
 

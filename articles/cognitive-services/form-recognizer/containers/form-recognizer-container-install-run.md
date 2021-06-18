@@ -16,11 +16,11 @@ keywords: on-premises, Docker, container, identify
 
 > [!IMPORTANT]
 >
-> * Form Recognizer containers are in gated preview and to use them you must submit an online request, and have it approved. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
 
 Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Form Recognizer containers.
 
-Form Recognizer features are supported by seven Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom Front End (FE)**, and **Custom Back End (FE)—and the **Read** OCR container. The **Read** container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](../../computer-vision/vision-api-how-to-topics/call-read-api.md).
+Form Recognizer features are supported by seven Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom Front End (FE)**, and **Custom Back End (FE)**—and the **Read** OCR container. The **Read** container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](../../computer-vision/vision-api-how-to-topics/call-read-api.md).
 
 ## Prerequisites
 
@@ -30,14 +30,14 @@ You'll also need the following to use Form Recognizer containers:
 
 | Required | Purpose |
 |----------|---------|
-| **Familiarity with Docker** | <ul><li>You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology).</li></ul> |
-| **Docker Engine installed** | <ul><li>You need the Docker Engine installed on a host computer(#host-computer-requirements). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul>  |
-|**Form Recognizer resource** | <ul><li>An Azure **Form Recognizer** resource and the associated API key and endpoint URI. Both values are available on the Azure portal **Form Recognizer** Keys and Endpoint page and are required to start the container.</li></ul> |
+| **Familiarity with Docker** | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology). |
+| **Docker Engine installed** | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer-requirements). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul>  |
+|**Form Recognizer resource** | An Azure **Form Recognizer** resource and the associated API key and endpoint URI. Both values are available on the Azure portal **Form Recognizer** Keys and Endpoint page and are required to start the container. |
 |||
 
 |Optional|Purpose|
 |---------|----------|
-|**Azure CLI (command-line interface)** |<ul><li> The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It is available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell.</li></ul> |
+|**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It is available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 |||
 
 ## Request approval to run the container
@@ -73,6 +73,9 @@ The following table lists the required containers for each Form Recognizer featu
 
 #### Recommended CPU cores and memory
 
+> [!Note]
+> The minimum and recommended values are based on Docker limits and *not* the host machine resources.
+
 The minimum and recommended CPU cores and memory to allocate for each Form Recognizer container are outlined in the following table:
 
 | Container | Minimum | Recommended |
@@ -84,12 +87,11 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 | Invoice 2.1-preview | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
 | Receipt 2.1-preview |  4 cores, 8-GB memory | 8 cores, 8-GB memory  |
 | Label Tool 2.1 | 2 core, 4-GB memory | 4 core, 8-GB memory |
+| Custom Frontend| TODO|
+|Custom Backend | TODO |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker compose` or `docker run`  command.
-
-> [!Note]
-> The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
 > [!TIP]
 > You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
@@ -101,7 +103,7 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 >  <image-id>       <repository-path/name>    <tag-name>
 >  ```
 
-## Run the container with the **docker compose up** command
+## Run the container with the **docker-compose up** command
 
 * Replace the {ENDPOINT_URI} and {API_KEY} values with your Form Recognizer Endpoint URI and the API Key from the Azure resource page.
    :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page":::
@@ -144,7 +146,7 @@ docker-compose up
 
 ### [Business Card](#tab/business-card)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. ill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Business Card and Read containers.
+Below is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for both the Business Card and Read containers.
 
 ```yml
 version: "3.9"
@@ -311,11 +313,6 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you will nee
 
 * Gather a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Download the training files to shared folder you created in the above step
 
-* Create a .env file in the same folder where you place your **docker-compose** file. The .env file should contain the following environment variables:
-
-  * SHARED_MOUNT_PATH={SHARED_MOUNT_PATH}
-  * OUTPUT_MOUNT_PATH={OUTPUT_MOUNT_PATH }
-
 #### Create your **docker compose** file
 
 Below is a self-contained `docker compose` example to run Form Recognizer Layout, Label Tool, Custom Backend, and Custom Frontend containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for all containers.
@@ -331,12 +328,12 @@ services:
       - billing={COGNITIVE_SERVICES_ENDPOINT_URI}
       - apikey={COGNITIVE_SERVICE_API_KEY}
     volumes:
-    - type: bind
-      source: ${SHARED_MOUNT_PATH}
-      target: /share
-    - type: bind
-      source: ${OUTPUT_MOUNT_PATH}
-      target: /logs
+    - type=bind
+      source={SHARED_MOUNT_PATH}
+      target=/share
+    - type=bind
+      source={OUTPUT_MOUNT_PATH}
+      target=/logs
    ports:
          - "7000:5000"
 networks:
@@ -437,7 +434,7 @@ The container needs the billing argument values to run. These values allow the c
 
 ### Billing arguments
 
-The [**docker compose up**](https://docs.docker.com/engine/reference/commandline/compose_up/) command will start the container when all three of the following options are provided with valid values:
+The [**docker-compose up**](https://docs.docker.com/engine/reference/commandline/compose_up/) command will start the container when all three of the following options are provided with valid values:
 
 | Option | Description |
 |--------|-------------|
@@ -449,7 +446,7 @@ For more information about these options, see [Configure containers](form-recogn
 
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running Form Recognizer containers. In summary:
+That's it! In this article, you learned concepts and workflow for downloading, installing, and running Form Recognizer containers. In summary:
 
 * Form Recognizer provides one Linux container for Docker.
 * Container images are downloaded from the private container registry in Azure.
