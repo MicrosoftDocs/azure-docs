@@ -136,7 +136,7 @@ To identify which of your project dependencies brings in an older version of som
 ```bash
 mvn dependency:tree
 ```
-For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins/maven-dependency-plugin/tree-mojo.html).
+For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins-archives/maven-dependency-plugin-2.10/examples/resolving-conflicts-using-the-dependency-tree.html).
 
 Once you know which dependency of your project depends on an older version, you can modify the dependency on that lib in your pom file and exclude the transitive dependency, following the example below (which assumes that *reactor-core* is the outdated dependency):
 
