@@ -120,7 +120,7 @@ The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It conver
 
 ## Create the Computer Vision resource
 
-You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. You will be able to create the resource once your request for access to the container has been approved and your Azure Subscription ID has been registered. Go to https://aka.ms/csgate to submit your use case and your Azure Subscription ID. You need to create the Azure resource using the same Azure subscription that has been provided on the Request for Access form.
+You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
 
 ### Gathering required parameters
 
@@ -487,9 +487,16 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 ```
 
 ### More operations:
+There are different operations that the `spatialAnalysis` module offers:
 
+- **personCount**
+- **personDistance**
+- **personCrossingLine**
+- **personZoneCrossing**
+- **customOperation**
+<br></br>
 <details>
-  <summary>Click to expand</summary>
+  <summary>Click to expand and see the different configuration options for each of the operations.</summary>
 
 ### Person Line Crossing
 

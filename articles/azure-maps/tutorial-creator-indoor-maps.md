@@ -535,7 +535,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 
 2. In the **Create New** window, select **Request**.
 
-3. Enter a **Request name** for the request, such as *POST Set Stateset*.
+3. Enter a **Request name** for the request, such as *PUT Set Stateset*.
 
 4. Select the collection you previously created, and then select **Save**.
 
