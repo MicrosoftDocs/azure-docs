@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Metrics Advisor glossary of common vocabulary and concepts
 
-This document explains the technical terms used in Metrics Advisor. Use this article to learn about common concepts and objects you might encounter when using the service .
+This document explains the technical terms used in Metrics Advisor. Use this article to learn about common concepts and objects you might encounter when using the service.
 
 ## Data feed
 
@@ -32,7 +32,7 @@ A metric is a quantifiable measure that is used to monitor and assess the status
 
 ## Dimension
 
-A dimension is one or more categorical values. The combination of those values identify a particular univariate time series, for example: country, language, tenant, and so on.
+A dimension is one or more categorical values. The combination of those values identifies a particular univariate time series, for example: country, language, tenant, and so on.
 
 ## Multi-dimensional metric
 
@@ -89,7 +89,7 @@ Start time is the time that you want Metrics Advisor to begin ingesting data fro
 
 In Metrics Advisor, confidence boundaries represent the sensitivity of the algorithm used, and are used to filter out overly sensitive anomalies. On the web portal, confidence bounds appear as a transparent blue band. All the points within the band are treated as normal points.
 
-Metrics Advisor provides tools to adjust the sensitivity of the algorithms used. See [How to: Configure metrics and fine tune detecting configuration](how-tos/configure-metrics.md) for more information.
+Metrics Advisor provides tools to adjust the sensitivity of the algorithms used. See [How to: Configure metrics and fine tune detection configuration](how-tos/configure-metrics.md) for more information.
 
 ![Confidence bounds](media/confidence-bounds.png)
 
@@ -100,16 +100,16 @@ Metrics Advisor lets you create and subscribe to real-time alerts. These alerts 
 
 ## Anomaly incident
 
-After a detection configuration is applied to metrics, incidents are generated whenever any series within it has an anomaly. In large data sets this can be overwhelming, so Metrics Advisor groups series of anomalies within a metric into an incident. The service will also evaluate the severity and provide tools for [diagnosing the incident](how-tos/diagnose-incident.md).
+After a detection configuration is applied to metrics, incidents are generated whenever any series within it has an anomaly. In large data sets this can be overwhelming, so Metrics Advisor groups series of anomalies within a metric into an incident. The service will also evaluate the severity and provide tools for [diagnosing an incident](how-tos/diagnose-an-incident.md).
 
-### Incident tree
+### Diagnostic tree
 
 In Metrics Advisor, you can apply anomaly detection on metrics, then Metrics Advisor automatically monitors all time series of all dimension combinations. Whenever there is any anomaly detected, Metrics Advisor aggregates anomalies into incidents.
-After an incident occurs, Metrics Advisor will provide an incident tree with a hierarchy of contributing anomalies, and identify ones with the biggest impact. Each incident has a root cause anomaly, which is the top node of the tree.
+After an incident occurs, Metrics Advisor will provide a diagnostic tree with a hierarchy of contributing anomalies, and identify ones with the biggest impact. Each incident has a root cause anomaly, which is the top node of the tree.
 
 ### Anomaly grouping
 
-Metrics Advisor provides the capability to find related time series with a similar patterns. It can also provide deeper insights into the impact on other dimensions, and correlate the anomalies.
+Metrics Advisor provides the capability to find related time series with similar patterns. It can also provide deeper insights into the impact on other dimensions, and correlate the anomalies.
 
 ### Time series comparison
 
