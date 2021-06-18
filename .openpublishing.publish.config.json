@@ -797,6 +797,7 @@
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.media-services.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
+    "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
     "articles/hdinsight/.openpublishing.redirection.hdinsight.json"
   ]
 }
