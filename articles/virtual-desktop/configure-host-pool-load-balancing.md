@@ -1,6 +1,6 @@
 ---
-title: Configure Windows Virtual Desktop load-balancing - Azure
-description: How to configure the load-balancing method for a Windows Virtual Desktop environment.
+title: Configure Azure Virtual Desktop load-balancing - Azure
+description: How to configure the load-balancing method for a Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/12/2020
@@ -8,16 +8,16 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
 ---
-# Configure the Windows Virtual Desktop load-balancing method
+# Configure the Azure Virtual Desktop load-balancing method
 
-Configuring the load-balancing method for a host pool allows you to adjust the Windows Virtual Desktop environment to better suit your needs.
+Configuring the load-balancing method for a host pool allows you to adjust the Azure Virtual Desktop environment to better suit your needs.
 
 >[!NOTE]
 > This does not apply to a persistent desktop host pool because users always have a 1:1 mapping to a session host within the host pool.
 
 ## Prerequisites
 
-This article assumes you've followed the instructions in [Set up the Windows Virtual Desktop PowerShell module](powershell-module.md) to download and install the PowerShell module and sign in to your Azure account.
+This article assumes you've followed the instructions in [Set up the Azure Virtual Desktop PowerShell module](powershell-module.md) to download and install the PowerShell module and sign in to your Azure account.
 
 ## Configure breadth-first load balancing
 
@@ -77,8 +77,8 @@ You can also configure load balancing with the Azure portal.
 To configure load balancing:
 
 1. Sign into the Azure portal at https://portal.azure.com.
-2. Search for and select **Windows Virtual Desktop** under Services.
-3. In the Windows Virtual Desktop page, select **Host pools**.
+2. Search for and select **Azure Virtual Desktop** under Services.
+3. In the Azure Virtual Desktop page, select **Host pools**.
 4. Select the name of the host pool you want to edit.
 5. Select **Properties**.
 6. Enter the **Max session limit** into the field and select the **load balancing algorithm** you want for this host pool in the drop-down menu.

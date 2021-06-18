@@ -12,7 +12,7 @@
   - name: What's new
     href: whats-new.md
   - name: LUIS FAQ
-    href: troubleshooting.md
+    href: troubleshooting.yml
     displayName: Troubleshooting, import
 - name: LUIS quickstarts
   items:
@@ -165,10 +165,6 @@
     items:
     - name: Review endpoint utterances
       href: luis-concept-review-endpoint-utterances.md
-  - name: Test
-    items:
-    - name: Interactive testing
-      href: luis-concept-test.md
   - name: Data management
     items:
     - name: Data collection

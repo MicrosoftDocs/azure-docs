@@ -87,7 +87,7 @@ In this article you can find a content reference to various guides, scripts, and
 ## Develop applications
 
 - [Connectivity](../database/connect-query-content-reference-guide.md#libraries)
-- [Use Spark Connector](../../cosmos-db/spark-connector.md)
+- [Use Spark Connector](../../cosmos-db/create-sql-api-spark.md)
 - [Authenticate an app](../database/application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](../performance-improve-use-batching.md)
 - [Connectivity guidance](../database/troubleshoot-common-connectivity-issues.md)

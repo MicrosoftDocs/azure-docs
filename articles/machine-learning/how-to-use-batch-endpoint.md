@@ -294,7 +294,7 @@ auth_token=$(az account get-access-token --query accessToken -o tsv)
 3. Use the `scoring_uri`, the access token, and JSON data to POST a request and start a batch scoring job:
 
 ```bash
-curl --location --request POST '$scoring_uri' --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
+curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
 "properties": {
   "dataset": {
     "dataInputType": "DataUrl",
@@ -320,3 +320,4 @@ You can also keep the resource group but delete a single workspace. Display the 
 In this article, you learned how to create and call batch endpoints, allowing you to score large amounts of data. See these other articles to learn more about Azure Machine Learning:
 
 * [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
+* [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
