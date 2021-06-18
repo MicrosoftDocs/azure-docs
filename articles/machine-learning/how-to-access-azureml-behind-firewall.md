@@ -66,6 +66,13 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
+For information on configuring DNAT, see [Filter inbound internet traffic with DNAT](../firewall/tutorial-firewall-dnat.md).
+
+For information on configuring UDR, see [Routue network traffic with a routing table](../virtual-network/tutorial-create-route-table-portal.md).
+
+> [!IMPORTANT]
+> When using UDR, define the route for each IP address prefix and set __Next hop type__ to __Internet__.
+
 ### Outbound configuration
 
 1. Add __Network rules__, allowing traffic __to__ and __from__ the following service tags:
