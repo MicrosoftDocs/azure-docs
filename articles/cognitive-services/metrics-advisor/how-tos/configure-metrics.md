@@ -12,7 +12,7 @@ ms.date: 09/10/2020
 ms.author: mbullwin
 ---
 
-# How to: Configure metrics and fine tune detecting configuration
+# How to: Configure metrics and fine tune detection configuration
 
 Use this article to start configuring your Metrics Advisor instance using the web portal. To browse the metrics for a specific data feed, go to the **Data feeds** page and select one of the feeds. This will display a list of metrics associated with it.
 
@@ -28,11 +28,11 @@ You can also select time ranges, and change the layout of the page.
 > - The start time is inclusive.
 > - The end time is exclusive. 
 
-You can click the **Incidents** tab to view anomalies, and find a link to the [Incident hub](diagnose-incident.md).
+You can click the **Incidents** tab to view anomalies, and find a link to the [Incident hub](diagnose-an-incident.md).
 
-## Tune the detecting configuration
+## Tune the detection configuration
 
-A metric can apply one or more detecting configurations. There is a default configuration for each metric, which you can edit or add to, according to your monitoring needs.
+A metric can apply one or more detection configurations. There is a default configuration for each metric, which you can edit or add to, according to your monitoring needs.
 
 ### Tune the configuration for all series in current metric
 
@@ -162,7 +162,7 @@ Cycle event is used to reduce anomalies if they follow a cyclic pattern, but it 
 
 Metrics Advisor detects anomalies on all your time series data as they're ingested. However, not all anomalies need to be escalated, because they might not have a big impact. Aggregation will be performed on anomalies to group related ones into incidents. You can view these incidents from the **Incident** tab in metrics details page. 
 
-Click on an incident to go to the **Incidents analysis** page where you can see more details about it. Click on **Manage incidents in new Incident hub**, to find the [Incident hub](diagnose-incident.md) page where you can find all incidents under the specific metric. 
+Click on an incident to go to the **Incidents analysis** page where you can see more details about it. Click on **Manage incidents in new Incident hub**, to find the [Incident hub](diagnose-an-incident.md) page where you can find all incidents under the specific metric. 
 
 ## Subscribe anomalies for notification
 
@@ -172,5 +172,5 @@ If you'd like to get notified whenever an anomaly is detected, you can subscribe
 ## Next steps 
 - [Configure alerts and get notifications using a hook](alerts.md)
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose an incident](diagnose-incident.md).
+- [Diagnose an incident](diagnose-an-incident.md).
 

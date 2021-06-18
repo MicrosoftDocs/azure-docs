@@ -194,4 +194,4 @@ You can also reload the progress of an ingestion by clicking **Refresh Progress*
 ## Next steps
 - [Manage your data feeds](manage-data-feeds.md)
 - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
+- [Configure metrics and fine tune detection configuration](configure-metrics.md)

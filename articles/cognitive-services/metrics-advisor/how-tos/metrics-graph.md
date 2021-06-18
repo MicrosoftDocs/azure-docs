@@ -50,5 +50,5 @@ Click into an incident within the graph and scroll down to **cross metrics analy
 ## Next steps
 
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose an incident](diagnose-incident.md).
-- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
+- [Diagnose an incident](diagnose-an-incident.md).
+- [Configure metrics and fine tune detection configuration](configure-metrics.md)
