@@ -86,7 +86,7 @@ For adding permissions to your server on a Managed HSM, add the 'Managed HSM Cry
 > The combined length for the key vault name and key name cannot exceed 94 characters.
 
 > [!TIP]
-> An example KeyId from Key Vault:<br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> An example KeyId from Key Vault:<br/>'https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h'
 >
 > An example KeyId from Managed HSM:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
@@ -154,7 +154,7 @@ az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group 
 ```
 
 > [!TIP]
-> Keep the key URI or keyID of the new key for the next step, for example: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Keep the key URI or keyID of the new key for the next step, for example: 'https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h'
 
 ## Add the Key Vault key to the server and set the TDE Protector
 
