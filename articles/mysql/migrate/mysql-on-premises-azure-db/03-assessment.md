@@ -35,7 +35,7 @@ The most important of which include|
 
   - Automatic significant database migration (5.6 to 5.7, 5.7 to 8.0)
 
-  - When using [MySQL Server User-Defined Functions (UDFs),](https|//dev.mysql.com/doc/refman/5.7/en/server-udfs.html) the only viable hosting option is Azure Hosted VMs, as there's no capability to upload the `so` or `dll` component to Azure Database for MySQL.
+  - When using [MySQL Server User-Defined Functions (UDFs),](https://dev.mysql.com/doc/refman/5.7/en/server-udfs.html) the only viable hosting option is Azure Hosted VMs, as there's no capability to upload the `so` or `dll` component to Azure Database for MySQL.
 
 Many of the other items are operational aspects that administrators should become familiar with as part of the operational data workload lifecycle management. This guide explores many of these operational aspects in the Post Migration Management section.
 
@@ -44,7 +44,7 @@ Many of the other items are operational aspects that administrators should becom
 MySQL has a rich history starting in 1995. Since then, it has evolved into a widely used database management system. Azure Database for MySQL started with the support of MySQL version 5.6 and has continued to 5.7 and recently 8.0. For the latest on Azure Database for MySQL version support, reference [Supported Azure Database for MySQL server versions.](../../concepts-supported-versions.md) In the Post Migration Management section, we review how upgrades (such as 5.7.20 to 5.7.21) are applied to the MySQL instances in Azure.
 
 > [!NOTE]
-> The jump from 5.x to 8.0 was largely due to the Oracle acquisition of MySQL. To read more about MySQL history, navigate to the [MySQL wiki page. ](https|//en.wikipedia.org/wiki/MySQL)
+> The jump from 5.x to 8.0 was largely due to the Oracle acquisition of MySQL. To read more about MySQL history, navigate to the [MySQL wiki page. ](https://en.wikipedia.org/wiki/MySQL)
 
 Knowing the source MySQL version is essential. The applications using the system may be using database objects and features that are specific to that version. Migrating a database to a lower version could cause compatibility issues and loss of functionality. It's also recommended the data and application instance are thoroughly tested before migrating to a newer version as the features introduced could break your application.
 
@@ -67,11 +67,11 @@ SHOW VARIABLES LIKE "%version%";
 
 ### Database storage engines
 
-Azure Database for MySQL only supports [InnoDB](https|//dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) and [Memory](https|//dev.mysql.com/doc/refman/8.0/en/memory-storage-engine.html) database storage engines. Other storage engines, like [MyISAM,](https|//dev.mysql.com/doc/refman/8.0/en/myisam-storage-engine.html) need to be migrated to a supported storage engine. The differences between MyISAM and InnoDB are the operational features and performance output. The higher-level tables and schema structure typically don't change between the engines, but the index and table column types may change for storage and performance reasons. Although InnoDB is known to have large data file sizes, these storage details are managed by the Azure Database for MySQL service.
+Azure Database for MySQL only supports [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) and [Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-storage-engine.html) database storage engines. Other storage engines, like [MyISAM,](https://dev.mysql.com/doc/refman/8.0/en/myisam-storage-engine.html) need to be migrated to a supported storage engine. The differences between MyISAM and InnoDB are the operational features and performance output. The higher-level tables and schema structure typically don't change between the engines, but the index and table column types may change for storage and performance reasons. Although InnoDB is known to have large data file sizes, these storage details are managed by the Azure Database for MySQL service.
 
 #### Migrating from MyISAM to InnoDB
 
-The MyISAM database and tables needs to be converted to InnoDB tables. After conversion, applications should be tested for compatibility and performance. In most cases, testing requires recreating the table and changing the target storage engine via DDL statements. It's unlikely this change needs to be performed during migration as it occurs during the schema creation in the Azure target. For more details, review the [converting tables developers documentation](https|//dev.mysql.com/doc/refman/5.6/en/converting-tables-to-innodb.html) on the MySQL website.
+The MyISAM database and tables needs to be converted to InnoDB tables. After conversion, applications should be tested for compatibility and performance. In most cases, testing requires recreating the table and changing the target storage engine via DDL statements. It's unlikely this change needs to be performed during migration as it occurs during the schema creation in the Azure target. For more details, review the [converting tables developers documentation](https://dev.mysql.com/doc/refman/5.6/en/converting-tables-to-innodb.html) on the MySQL website.
 
 To find useful table information, use this query|
 
@@ -208,7 +208,7 @@ Typically, the decision-making focuses on the storage and IOPS, or Input/output 
 
 After evaluating the entire WWI MySQL data workloads, WWI determined they would need at least 4 vCores and 20 GB of memory and at least 100 GB of storage space with an IOP capacity of 450 IOPS. Because of the 450 IOPS requirement, they need to allocate at least 150 GB of storage because of [Azure Database for MySQL IOPs allocation method.](../../concepts-pricing-tiers.md#storage) Additionally, they require at least up to 100% of your provisioned server storage as backup storage and one read replica. They don't anticipate an outbound egress of more than 5 GB.
 
-Using the [Azure Database for MySQL pricing calculator](https|//azure.microsoft.com/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database|
+Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database|
 
 | Resource | Description | Quantity | Cost |
 |----------|-------------|----------|------|
