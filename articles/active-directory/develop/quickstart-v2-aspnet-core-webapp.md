@@ -131,7 +131,7 @@ This section gives an overview of the code required to sign in users. This overv
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's run when the hosting process starts:
 
 
- :::code language="csharp" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/3-WebApp-multi-APIs/Startup.cs" range="31-32,42-43,50-59" highlight="6,5":::
+ :::code language="csharp" source="~/active-directory-aspnetcore-webapp-openidconnect-v2/3-WebApp-multi-APIs/Startup.cs" range="31-32,42-43,50-59" highlight="8,9,10,11,12,13,14,15":::
 
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
