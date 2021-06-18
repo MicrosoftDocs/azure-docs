@@ -13,7 +13,7 @@ This article guides you through the steps to install Event Grid on an [Azure Arc
 
 For brevity, this article refers to "Event Grid on Kubernetes extension" as "Event Grid on Kubernetes" or just "Event Grid".
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](.././includes/event-grid-preview-feature-note.md)]
 
 
 ## Supported Kubernetes distributions

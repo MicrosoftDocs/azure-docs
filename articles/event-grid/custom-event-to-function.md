@@ -9,7 +9,7 @@ ms.topic: quickstart
 
 Azure Event Grid is an eventing service for the cloud. Azure Functions is one of the supported event handlers. In this article, you use the Azure portal to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an Azure Function.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](./includes/quickstarts-free-trial-note.md)]
 
 ## Create Azure Function
 Before subscribing to the custom topic, create a function to handle the events. 
@@ -24,7 +24,7 @@ Before subscribing to the custom topic, create a function to handle the events.
     :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="New Function page":::
 4. Use the **Code + Test** page to see the existing code for the function and update it. 
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](./includes/event-grid-register-provider-portal.md)]
 
 ## Create a custom topic
 

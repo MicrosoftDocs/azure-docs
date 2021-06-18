@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](./includes/updated-for-az.md)]
 
 To complete this tutorial:
 
@@ -50,7 +50,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.EventGrid
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](./includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires the Azure CLI version 2.0.14 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 

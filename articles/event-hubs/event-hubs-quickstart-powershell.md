@@ -14,7 +14,7 @@ In this quickstart, you create an event hub using Azure PowerShell.
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](./includes/updated-for-az.md)]
 
 To complete this tutorial, make sure you have:
 
@@ -22,7 +22,7 @@ To complete this tutorial, make sure you have:
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [.NET Core SDK](https://dotnet.microsoft.com/download), version 2.0 or later.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](./includes/cloud-shell-try-it.md)]
 
 If you're using PowerShell locally, you must run the latest version of PowerShell to complete this quickstart. If you need to install or upgrade, see [Install and Configure Azure PowerShell](/powershell/azure/install-az-ps).
 

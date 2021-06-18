@@ -15,9 +15,9 @@ When you're finished, you see that the event data has been sent to the web app.
 
 ![View results in the Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](./includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](./includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -33,7 +33,7 @@ The following example creates a resource group named *gridResourceGroup* in the 
 az group create --name gridResourceGroup --location westus2
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [event-grid-register-provider-cli.md](./includes/event-grid-register-provider-cli.md)]
 
 ## Create a custom topic
 

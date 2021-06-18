@@ -65,11 +65,11 @@ All supported Service Bus client libraries available via the Azure SDK use AMQP 
 - [Azure Service Bus Modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
 - [Azure Service Bus libraries for Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
-[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+[!INCLUDE [service-bus-websockets-options](./includes/service-bus-websockets-options.md)]
 
 In addition, you can use Service Bus from any AMQP 1.0 compliant protocol stack:
 
-[!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
+[!INCLUDE [messaging-oss-amqp-stacks.md](./includes/messaging-oss-amqp-stacks.md)]
 
 ## Summary
 * AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications. AMQP 1.0 is an OASIS standard.

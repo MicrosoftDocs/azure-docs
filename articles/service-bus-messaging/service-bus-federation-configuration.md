@@ -7,7 +7,7 @@ ms.date: 12/12/2020
 
 # Configured replication tasks
 
-[!INCLUDE [messaging-configured-functions](../../includes/messaging-configured-functions.md)]
+[!INCLUDE [messaging-configured-functions](./includes/messaging-configured-functions.md)]
 
 ## Next Steps
 

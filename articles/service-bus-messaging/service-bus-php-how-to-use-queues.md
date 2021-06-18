@@ -8,7 +8,7 @@ ms.date: 06/23/2020
 ---
 
 # Quickstart: How to use Service Bus queues with PHP
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
 
 In this tutorial, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
 
@@ -32,7 +32,7 @@ The only requirement for creating a PHP application that accesses the Azure Blob
 In this guide, you will use service features, which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure client libraries
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+[!INCLUDE [get-client-libraries](./includes/get-client-libraries.md)]
 
 ## Configure your application to use Service Bus
 To use the Service Bus queue APIs, do the following:

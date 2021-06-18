@@ -43,7 +43,7 @@ This article walks you through various ways of obtaining the connection string.
 
 ## Getting the connection string with Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](./includes/updated-for-az.md)]
 
 You can use the [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) to get the connection string for the specific policy/rule name as shown below:
 

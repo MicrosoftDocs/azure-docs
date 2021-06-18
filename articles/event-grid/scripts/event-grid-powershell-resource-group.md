@@ -10,20 +10,20 @@ ms.date: 07/08/2020
 
 This script creates an Event Grid subscription to the events for a resource group.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](.././includes/quickstarts-free-trial-note.md)]
 
 The preview sample script requires the Event Grid module. To install, run
 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 ## Sample script - stable
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](.././includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group.ps1 "Subscribe to resource group")]
 
 ## Sample script - preview module
 
-[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](.././includes/requires-azurerm.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group-preview/subscribe-to-resource-group-preview.ps1 "Subscribe to resource group")]
 

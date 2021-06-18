@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 
 Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an event hub.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](./includes/quickstarts-free-trial-note.md)]
 
 ## Create a resource group
 
@@ -24,7 +24,7 @@ The following example creates a resource group named *gridResourceGroup* in the 
 az group create --name gridResourceGroup --location westus2
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [event-grid-register-provider-cli.md](./includes/event-grid-register-provider-cli.md)]
 
 ## Create a Custom Topic
 

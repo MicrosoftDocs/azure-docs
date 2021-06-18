@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 This article shows how to filter events when creating an Event Grid subscription. To learn about the options for event filtering, see [Understand event filtering for Event Grid subscriptions](event-filtering.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](./includes/updated-for-az.md)]
 
 ## Filter by event type
 
