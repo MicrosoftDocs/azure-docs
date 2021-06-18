@@ -49,7 +49,7 @@ For more information about the ways workflows can access and work with apps, dat
 
 The following terms are important concepts in the Logic Apps service.
 
-### Logic App
+### Logic app
 
 A *logic app* is the Azure resource you create when you want to develop a workflow. There are [multiple logic app resource types that run in different environments](#resource-environment-differences).
 
@@ -59,7 +59,7 @@ A *workflow* is a series of steps that defines a task or process. Each workflow 
 
 ### Trigger 
 
-A *trigger* is the first step, which specifies the condition for running any further steps in a workflow. For example, a trigger event might be getting an email in your inbox or detecting a new file in a storage account.
+A *trigger* is always the first step in any workflow and specifies the condition for running any further steps in that workflow. For example, a trigger event might be getting an email in your inbox or detecting a new file in a storage account.
 
 ### Action
 
@@ -67,17 +67,18 @@ An *action* is each step in a workflow after the trigger. Every action runs some
 
 ### Built-in operations
 
-A *built-in trigger* or a *built-in action* is a natively running Logic Apps operation. Built-in operations provide a way to control your workflow's schedule or structure, run your own code, manage or manipulate data, or complete other tasks in your workflow. Most [built-in operations for Logic Apps](../connectors/built-in.md) aren't associated with any service or system. Many also don't require that you first create a connection from your workflow and authenticate your identity. 
+A *built-in* trigger or action is an operation that runs natively in Azure Logic Apps. For example, built-in operations provide ways for you to control your workflow's schedule or structure, run your own code, manage and manipulate data, send or receive requests to an endpoint, and complete other tasks in your workflow.
+
+Most built-in operations aren't associated with any service or system, but some built-in operations are available for specific services, such as Azure Functions or Azure App Service. Many also don't require that you first create a connection from your workflow and authenticate your identity. For more information and examples, review [Built-in operations for Azure Logic Apps](../connectors/built-in.md).
 
 For example, you can start almost any workflow on a schedule when you use the Recurrence trigger. Or, you can have your workflow wait until called when you use the Request trigger. 
  
-There are also built-in triggers and actions for some frequently used services, systems, and protocols. You can find built-in operations for Azure Functions, Azure API Management, Azure App Service, and more.
 
 ### Managed connector
 
-A *managed connector* is a prebuilt proxy or wrapper around a REST API. You can use a managed connector's prebuilt triggers or actions in your workflow to access a specific app, data, service, or system. Before you can use most managed connectors, you must first create a connection from your workflow and authenticate your identity. [Managed connectors for Logic Apps](../connectors/managed.md) are hosted and maintained by Microsoft. 
+A *managed connector* is a prebuilt proxy or wrapper for a REST API that you can use to access a specific app, data, service, or system. Before you can use most managed connectors, you must first create a connection from your workflow and authenticate your identity. Managed connectors are published, hosted, and maintained by Microsoft. For more information, review [Managed connectors for Azure Logic Apps](../connectors/managed.md).
 
-For example, you can add a trigger or action that works with Azure Blob Storage, Office 365, Salesforce, or SFTP servers. 
+For example, you can start your workflow with a trigger or run an action that works with a service such as Office 365, Salesforce, or file servers.
 
 ### Integration account
 
@@ -93,14 +94,14 @@ In a logic app, each workflow always starts with a single [trigger](#trigger). A
 
 The following screenshot shows part of an example enterprise workflow. This workflow uses conditions and switches to determine the next action. Let's say you have an order system, and your workflow processes incoming orders. You want to review orders above a certain cost manually. Your workflow already has previous steps that determine how much an incoming order costs. So, you create an initial condition based on that cost value. For example:
 
-- If the order is above a certain amount, the condition is false. So, the order is processed. 
-- If the condition is true, an email is sent for manual review. A switch determines the next step. 
-  - If the reviewer approves, the order is processed. 
-  - If the reviewer escalates, an escalation email is sent to get additional information about the order. 
+- If the order is above a certain amount, the condition is false. So, the workflow processes the order.
+- If the condition is true, the workflow sends an email for manual review. A switch determines the next step. 
+  - If the reviewer approves, the workflow continues to process the order.
+  - If the reviewer escalates, the workflow sends an escalation email to get more information about the order. 
       - If the escalation requirements are met, the response condition is true. So, the order is processed. 
       - If the response condition is false, an email is sent regarding the problem.
 
-:::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot of Logic Apps designer, showing a sample enterprise workflow using switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
+:::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot that shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
 You can visually create workflows using the Logic Apps designer in the Azure portal, Visual Studio Code, or Visual Studio. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Logic Apps supports Azure Resource Manager templates.
 
@@ -183,14 +184,14 @@ Before you can start with Azure Logic Apps, you need an Azure subscription. If y
 
 When you're ready, try one or more of the following quickstart guides for Logic Apps. Learn how to create a basic workflow that monitors an RSS feed and sends an email for new content.
 
-* [Create a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Create a logic app in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
-* [Create a logic app in Visual Studio Code (VS Code)](quickstart-create-logic-apps-visual-studio-code.md)
+* [Create a multi-tenant based logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Create a multi-tenant based logic app in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
+* [Create a multi-tenant based logic app in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
 You might also want to explore other quickstart guides for Logic Apps:
 
-* [Create a logic app using an Azure Resource Manager (ARM) template](quickstart-create-deploy-azure-resource-manager-template.md)
-* [Create a multi-tenant logic app using the Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md)
+* [Create a multi-tenant based logic app using an ARM template](quickstart-create-deploy-azure-resource-manager-template.md)
+* [Create a multi-tenant based logic app using the Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md)
 
 
 ## Other resources
