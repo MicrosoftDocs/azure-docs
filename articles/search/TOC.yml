@@ -158,7 +158,7 @@
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
-  - name: Management
+  - name: Service management
     items:
     - name: Choose a tier
       href: search-sku-tier.md
@@ -184,7 +184,38 @@
       href: search-howto-move-across-regions.md
     - name: Troubleshoot issues with creating Shared Private Link Resources
       href: troubleshoot-shared-private-link-resources.md
-  - name: Development
+  - name: Security
+    items:
+    - name: Data encryption
+      items:
+      - name: Customer-managed keys
+        href: search-security-manage-encryption-keys.md
+      - name: Retrieve keys
+        href: search-security-get-encryption-keys.md
+    - name: Inbound security
+      items:
+      - name: Key-based authentication
+        href: search-security-api-keys.md
+      - name: Role-based authorization
+        href: search-security-rbac.md
+      - name: Configure an IP firewall
+        href: service-configure-firewall.md
+      - name: Create a private endpoint
+        href: service-create-private-endpoint.md
+    - name: Outbound security (indexers)  
+      items:
+      - name: Data access over an IP range
+        href: search-indexer-howto-access-ip-restricted.md
+      - name: Data access using a system identity
+        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Data access through private endpoints
+        href: search-indexer-howto-access-private.md
+    - name: Document-level security
+      items:
+      - name: Security filters
+        href: search-security-trimming-for-azure-search.md
+      - name: Filter on user identities
+        href: search-security-trimming-for-azure-search-with-aad.md- name: Development
     items:
     - name: API versions
       href: search-api-versions.md
@@ -441,39 +472,7 @@
     - name: Monitor indexer-based indexing
       href: search-howto-monitor-indexers.md
     - name: Monitor client-side interactions
-      href: search-traffic-analytics.md
-  - name: Security
-    items:
-    - name: Data encryption
-      items:
-      - name: Customer-managed keys
-        href: search-security-manage-encryption-keys.md
-      - name: Retrieve keys
-        href: search-security-get-encryption-keys.md
-    - name: Inbound security
-      items:
-      - name: Key-based authentication
-        href: search-security-api-keys.md
-      - name: Role-based authorization
-        href: search-security-rbac.md
-      - name: Configure an IP firewall
-        href: service-configure-firewall.md
-      - name: Create a private endpoint
-        href: service-create-private-endpoint.md
-    - name: Outbound security (indexers)  
-      items:
-      - name: Data access over an IP range
-        href: search-indexer-howto-access-ip-restricted.md
-      - name: Data access using a system identity
-        href: search-indexer-howto-access-trusted-service-exception.md
-      - name: Data access through private endpoints
-        href: search-indexer-howto-access-private.md
-    - name: Document-level security
-      items:
-      - name: Security filters
-        href: search-security-trimming-for-azure-search.md
-      - name: Filter on user identities
-        href: search-security-trimming-for-azure-search-with-aad.md
+      href: search-traffic-analytics.md  
 - name: Reference
   items:
   - name: Azure CLI
