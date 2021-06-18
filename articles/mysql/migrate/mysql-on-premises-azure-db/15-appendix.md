@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide appendix"
+title: "MySQL on-premises to Azure Database for MySQL sample applications"
 description: "Download extra documentation we created for this Migration Guide and learn how to configure."
 ms.service: mysql
 ms.subservice: migration-guide

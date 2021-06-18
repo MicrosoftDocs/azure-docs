@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Test Plans"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Test Plans"
 description: "WWI created a test plan that included a set of IT and the Business tasks. Successful migrations require all the tests to be executed."
 ms.service: mysql
 ms.subservice: migration-guide

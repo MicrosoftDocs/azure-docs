@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Representative Use Case"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Representative Use Case"
 description: "The following use case is based on a real-world customer scenario of an enterprise who migrated their MySQL workload to Azure Database for MySQL."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -28,7 +28,7 @@ WWI would like to continue to take advantage of the many advanced capabilities a
 
 ### Migration goals
 
-The primary goals for migrating their databases and associated SQL workloads to the cloud include:
+The primary goals for migrating their databases and associated SQL workloads to the cloud include|
 
   - Improve their overall security posture with data at rest and in transit.
 
@@ -44,13 +44,13 @@ The primary goals for migrating their databases and associated SQL workloads to 
 
 WWI used the [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) to educate their team on following best practices guidelines for cloud migration. Then, using CAF as a higher-level migration guide, WWI customized their migration into three main stages. Finally, they defined activities that needed to be addressed within each stage to ensure a successful lift and shift cloud migration.
 
-These stages include:
+These stages include|
 
-| Stage: Name: Activities |
+| Stage | Name | Activities |
 |-------|------|------------|
-| 1: Pre-migration : Assessment, Planning, Migration Method Evaluation, Application Implications, Test Plans, Performance Baselines |
-| 2: Migration     : Execute Migration, Execute Test Plans                                                                          |
-| 3: Post-migration: Business Continuity, Disaster Recovery, Management, Security, Performance Optimization, Platform modernization |
+| 1 | Pre-migration | Assessment, Planning, Migration Method Evaluation, Application Implications, Test Plans, Performance Baselines |
+| 2 | Migration     | Execute Migration, Execute Test Plans                                                                          |
+| 3 | Post-migration| Business Continuity, Disaster Recovery, Management, Security, Performance Optimization, Platform modernization |
 
 WWI has several instances of MySQL running with varying versions ranging from 5.5 to 5.7. They would like to move their instances to the latest version as soon as possible but would like to ensure their applications can still work if they move to the newer versions. They're comfortable moving to the same version in the cloud and upgrading afterward, but they would prefer that path if they can accomplish two tasks at once.
 
