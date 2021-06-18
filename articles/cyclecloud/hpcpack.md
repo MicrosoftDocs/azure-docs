@@ -7,7 +7,6 @@ ms.author: prkannap
 monikerRange : '>= cyclecloud-8'
 ---
 
-
 ## Microsoft HPC Pack
 
  This page articulates the capabilities and configuration details for HPC Pack integration with Cyclecloud.
