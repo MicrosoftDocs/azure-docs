@@ -106,25 +106,34 @@ Use the `k8s-extension` Azure CLI extension to deploy the Azure Machine Learning
 
 ## Attach Arc cluster (studio)
 
-1. Go to AML studio portal, Compute > Attached compute, click "+New" button, and select "Kubernetes (Preview)"
+Attaching a an Azure Arc enabled Kubernetes cluster makes it available to your workspace for training.
+
+1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
+1. Under **Manage**, select **Compute**.
+1. Select the **Attached compute** tab.
+1. Select **+ New > Kubernetes (preview)**
 
    ![Attach Kubernetes cluster](./media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png)
 
-1. Enter a compute name, and select your Azure Arc-enabled Kubernetes cluster from Azure Arc-enabled Kubernetes cluster dropdown list.
+1. Enter a compute name, and select your Azure Arc enabled Kubernetes cluster from the dropdown.
 
    ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster.png)
 
-1. (Optional) Browse and upload an attach config file. The step is optional and the simple attach scenario will skip this.
+1. (Optional) For more advanced scenarios, browse and upload an attach configuration file.
 
    ![Upload configuration file](./media/how-to-attach-arc-kubernetes/upload-configuration-file.png)
 
-1. Click 'Attach' button. You will see the 'provisioning state' as 'Creating'. If it succeeds, you will see a 'Succeeded' state or else 'Failed' state.
+1. Select **Attach**
 
-   ![Provision resources](./media/how-to-attach-arc-kubernetes/provision-resources.png)
+  In the Attached compute tab, the initial state of your cluster will be *Creating*. When the cluster is successfully attached, you will see a *Succeeded* state. Otherwise, the state will change to *Failed*.
+
+  ![Provision resources](./media/how-to-attach-arc-kubernetes/provision-resources.png)
 
 ### Advanced attach scenario
 
-AzureML Kubernetes compute target allows user to specify an attach configuration file for some advanced compute target capabilities. Following is a full example of attach configuration JSON file:
+Use a JSON configuration file to configure advanced compute target capabilities on Azure Arc enabled Kubernetes clusters.
+
+The following is an example configuration file:
 
 ```json
 {
@@ -169,51 +178,51 @@ AzureML Kubernetes compute target allows user to specify an attach configuration
 }
 ```
 
-The attach configuration JSON file allows user to specify 3 kind of custom properties for a compute target:
+The following custom compute target properties can be configured using a configuration file:
 
 * ```namespace``` - Default to ```default``` namespace if this is not specified. This is the namespace where all training job will use and pods will run under this namespace. Note the namespace specified in compute target must preexist and it is usually created with Cluster Admin privilege.
 
-* ```defaultInstanceType``` - You must specify a ```defaultInstanceType``` if you specify ```instanceTypes``` property, and the value of ```defaultInstanceType``` must be one of values from ```instanceTypes``` property.
+* ```defaultInstanceType``` - Required ```defaultInstanceType``` if you specify ```instanceTypes``` property, and the value of ```defaultInstanceType``` must be one of values from ```instanceTypes``` property.
 
-* ```instanceTypes``` - This is the list of instance_types to be used for running training job. Each instance_type is defined by ```nodeSelector``` and ```resources requests/limits``` properties:
+* ```instanceTypes``` - List of instance_types to be used for running training job. Each instance_type is defined by ```nodeSelector``` and ```resources requests/limits``` properties:
 
-  * ```nodeSelector``` - one or more node labels. Cluster Admin privilege is needed to create labels for cluster nodes. If this is specified, training job will be scheduled to run on nodes with the specified node labels. You can use ```nodeSelector``` to target a subset of nodes for training workload placement. This can be very handy if a cluster has different SKUs, or different type of nodes such as CPU or GPU nodes, and you want to target certain node pool for training workload. For examples, you could create node labels for all GPU nodes and define an instanceType for GPU node pool, in this way you will be able to submit training job to that GPU node pool.
+  * ```nodeSelector``` - one or more node labels. Cluster administrator privilege is needed to create labels for cluster nodes. If this is specified, training job will be scheduled to run on nodes with the specified node labels. You can use ```nodeSelector``` to target a subset of nodes for training workload placement. This can be very handy if a cluster has different SKUs, or different type of nodes such as CPU or GPU nodes, and you want to target certain node pool for training workload. For examples, you could create node labels for all GPU nodes and define an instanceType for GPU node pool, in this way you will be able to submit training job to that GPU node pool.
 
   * ```Resources requests/limits``` - ```Resources requests/limits``` specifies resources requests and limits a training job pod to run.
 
->[!Important]
-> Training public preview only supports job submission using compute target name only, thus it will always use ```defaultInstanceType``` to run training workload. Support for training job submission with compute target name and instance_type name will come after public preview release.
+>[!IMPORTANT]
+> Currently, only job submissions using computer target name are supported. Therefore, the configuration will always default to `defaultInstanceType`. 
 
->[!Important]
-> For simple compute attach without specifying resources requests/limits, AzureML will create below resources requests/limits for training job. If cluster resource has less than these defaults (1 CPU and 4GB memory), the job run will fail. To ensure successful job run completion, we recommend to always specify resources requests/limits according to training job needs.
-
-```json
-{
-   "namespace": "default",
-   "defaultInstanceType": "defaultInstanceType",
-   "instanceTypes": {
-      "defaultInstanceType": {
-         "nodeSelector": "null",
-         "resources": {
-            "requests": {
-               "cpu": "1",
-               "memory": "4Gi",
-               "nvidia.com/gpu": "0"
-            },
-            "limits": {
-               "cpu": "1",
-               "memory": "4Gi",
-               "nvidia.com/gpu": "0"
-            }
-         }
-      }
-   }
-}
-```
+>[!IMPORTANT]
+> If cluster resource has less than these defaults (1 CPU and 4GB memory), the job run will fail. To ensure successful job run completion, we recommend to always specify resources requests/limits according to training job needs. When no `resource requests/limits` are defined, the following defaults are used:
+>
+> ```json
+> {
+>    "namespace": "default",
+>    "defaultInstanceType": "defaultInstanceType",
+>    "instanceTypes": {
+>       "defaultInstanceType": {
+>          "nodeSelector": "null",
+>          "resources": {
+>             "requests": {
+>                "cpu": "1",
+>                "memory": "4Gi",
+>                "nvidia.com/gpu": "0"
+>             },
+>             "limits": {
+>                "cpu": "1",
+>                "memory": "4Gi",
+>                "nvidia.com/gpu": "0"
+>             }
+>          }
+>       }
+>    }
+> }
+> ```
 
 ## Attach Arc cluster (Python SDK)
 
-Following Python code snippets shows how you can easily attach an Arc cluster and create a compute target to be used for training job.
+The following Python code shows how to attach an Azure Arc enabled Kubernetes cluster and use it as a compute target for training:
 
 ```python
 from azureml.core.compute import KubernetesCompute
@@ -247,7 +256,7 @@ else:
 
 ### Advanced attach scenario
 
-You can also create a compute target with a list of instanceTypes, including custom properties like namespace, nodeSelector, or resources requests/limits. Following Python code snippet shows how to accomplish this.
+The following code shows how to configure advanced compute target properties like namespace, nodeSelector, or resources requests/limits:
 
 ```python
 from azureml.core.compute import KubernetesCompute
