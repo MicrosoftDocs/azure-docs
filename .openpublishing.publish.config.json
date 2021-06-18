@@ -796,7 +796,11 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.media-services.json",
+    "articles/azure-relay/.openpublishing.redirection.relay.json",    
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
-    "articles/hdinsight/.openpublishing.redirection.hdinsight.json"
+    "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
+    "articles/event-grid/.openpublishing.redirection.event-grid.json",    
+    "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+    "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json"    
   ]
 }
