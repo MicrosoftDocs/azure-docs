@@ -7,4 +7,4 @@ ms.author: luquinta
 ---
 
 > [!Note]
-> To create a compute target for training on Azure Arc-enabled Kubernetes cluster, please see [**Azure Arc-enabled Machine Learning**](./how-to-attach-arc-kubernetes.md)
+> To create and attach a compute target for training on Azure Arc enabled Kubernetes cluster, see [**Azure Arc-enabled Machine Learning**](../articles/machine-learning/how-to-attach-arc-kubernetes.md)
