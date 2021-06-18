@@ -125,7 +125,7 @@ By default, the token lifespan is 60 minutes for all SDKs; however, it can be ch
 | .NET | 60 minutes, configurable | 85% of lifespan, configurable | SDK disconnects and reconnects at token lifespan plus a 10-minute grace period. Informational events and errors generated in logs. |
 | Java | 60 minutes, configurable | 85% of lifespan, not configurable | SDK disconnects and reconnects at token lifespan plus a 10-minute grace period. Informational events and errors generated in logs. |
 | Node.js | 60 minutes, configurable | configurable | SDK disconnects and reconnects at token renewal. Only informational events are generated in logs. |
-| Python | 60 minutes, not configurable | -- | SDK disconnects and reconnects at token lifespan. |
+| Python | 60 minutes, configurable | 120 seconds prior to expiration | SDK disconnects and reconnects at token lifespan. |
 
 The following screenshots show the token renewal behavior in Azure Monitor Logs for different SDKs. The token lifespan and renewal threshold have been changed from their defaults as noted.
 
