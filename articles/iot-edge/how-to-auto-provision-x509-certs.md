@@ -445,7 +445,7 @@ You can verify that the individual enrollment that you created in Device Provisi
 
 Use the following commands on your device to verify that the IoT Edge installed and started successfully.
 
-# Linux(#tab/linux)
+# [Linux](#tab/linux)
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -493,7 +493,7 @@ sudo iotedge list
 
 :::moniker-end
 
-# Linux on Windows(#tab/eflow)
+# [Linux on Windows](#tab/eflow)
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -533,7 +533,7 @@ sudo iotedge list
 :::moniker-end
 <!-- end 1.2 -->
 
-# Windows(#tab/windows)
+# [Windows](#tab/windows)
 
 <!-- 1.1 -->
 :::moniker range="=iotedge-2018-06"

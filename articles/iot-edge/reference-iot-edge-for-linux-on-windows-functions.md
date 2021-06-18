@@ -131,7 +131,9 @@ For more information, use the command `Get-Help Get-EflowVmTelemetryOption -full
 
 ## Invoke-EflowVmCommand
 
-The **Invoke-EflowVMCommand** command executes a Linux command inside the virtual machine. The optional parameters can be used to specify the command in advance.
+The **Invoke-EflowVMCommand** command executes a Linux command inside the virtual machine and returns the output. This command only works for Linux commands that return a finite output. It cannot be used for Linux commands that require user interaction or that run indefinitely.
+
+The following optional parameters can be used to specify the command in advance.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
