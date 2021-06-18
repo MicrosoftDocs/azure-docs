@@ -30,6 +30,8 @@ Before you begin, verify that you have met the following criteria:
   * Reader role on the virtual machine.
   * Reader role on the NIC with private IP of the virtual machine.
   * Reader role on the Azure Bastion resource.
+  * Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
+
 * Ports: To connect to the Windows VM, you must have the following ports open on your Windows VM:
   * Inbound ports: RDP (3389)
 
