@@ -39,6 +39,8 @@
       href: work-remotely-support.md
     - name: NVA configurations and remote work
       href: nva-work-remotely-support.md
+  - name: VPN Gateway FAQ
+    href: vpn-gateway-vpn-faq.md
   - name: About VPN Gateway design
     href: design.md
   - name: About VPN Gateway settings
@@ -60,7 +62,7 @@
   - name: Security
     items:
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -172,7 +174,11 @@
       - name: Configure Multi-Factor Authentication (MFA)
         href: openvpn-azure-ad-mfa.md
       - name: Configure a VPN client
-        href: openvpn-azure-ad-client.md
+        items:
+        - name: Windows
+          href: openvpn-azure-ad-client.md
+        - name: macOS - Preview
+          href: openvpn-azure-ad-client-mac.md
       - name: Work with VPN client profile files
         href: about-vpn-profile-download.md 
       - name: Intune - Deploy VPN client profile
@@ -316,8 +322,6 @@
     href: /cli/azure/network/vnet-gateway
 - name: Resources
   items:
-  - name: VPN Gateway FAQ
-    href: vpn-gateway-vpn-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog

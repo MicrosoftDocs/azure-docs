@@ -11,7 +11,7 @@ ms.author: deanwe
 ms.custom: references_regions
 ---
 
-# Azure Automanage for virtual machines
+# Preview: Azure Automanage for virtual machines
 
 This article covers information about Azure Automanage for virtual machines, which have the following benefits:
 
@@ -20,7 +20,6 @@ This article covers information about Azure Automanage for virtual machines, whi
 - Monitors for drift and corrects for it when detected
 - Provides a simple experience (point, click, set, forget)
 
-
 ## Overview
 
 Azure Automanage for virtual machines is a service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. These services are considered to be Azure best practices services, and help enhance reliability, security, and management for virtual machines. Example services include [Azure Update Management](../automation/update-management/overview.md) and [Azure Backup](../backup/backup-overview.md).
@@ -28,6 +27,8 @@ Azure Automanage for virtual machines is a service that eliminates the need to d
 After onboarding your virtual machines to Azure Automanage, each best practice service is configured to its recommended settings. Best practices are different for each of the services. An example might be Azure Backup, where the best practice might be to back up the virtual machine once a day and have a retention period of six months.
 
 Azure Automanage also automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine is onboarded to Azure Automanage, we'll not only configure it per Azure best practices, but we'll monitor your machine to ensure that it continues to comply with those best practices across its entire lifecycle. If your virtual machine does drift or deviate from those practices (for example, if a service is offboarded), we will correct it and pull your machine back into the desired state.
+
+Automanage doesn't store/process customer data outside the geography your VMs are located. In the SoutheastAsia region, Automanage does not store/process data outside of SoutheastAsia.
 
 ## Prerequisites
 
@@ -183,7 +184,7 @@ First and foremost, we will not off-board the virtual machine from any of the se
 Automanage is compatible with VMs that have Azure Disk Encryption (ADE) enabled.
 
 If you are using the Production environment, you will also be onboarded to Azure Backup. There is one prerequisite to successfully using ADE and Azure Backup:
-* Before you onboard your ADE-enabled VM to Automanage's Production environment, ensure that you have followed the steps located in the **Before you start** section of [this document](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#before-you-start).
+* Before you onboard your ADE-enabled VM to Automanage's Production environment, ensure that you have followed the steps located in the **Before you start** section of [this document](../backup/backup-azure-vms-encryption.md#before-you-start).
 
 ## Next steps
 

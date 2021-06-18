@@ -115,4 +115,4 @@ For more information on all the fields in the access logs, see [here](applicatio
 
 ##  Next steps
 
-To learn more about how to set up rewrites for some common use cases, see [common rewrite scenarios](rewrite-http-headers.md).
+To learn more about how to set up rewrites for some common use cases, see [common rewrite scenarios](./rewrite-http-headers-url.md).

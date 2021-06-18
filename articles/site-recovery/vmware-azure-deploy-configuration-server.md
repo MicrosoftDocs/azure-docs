@@ -2,12 +2,12 @@
 title: Deploy the configuration server in Azure Site Recovery 
 description: This article describes how to deploy a configuration server for VMware disaster recovery with Azure Site Recovery
 services: site-recovery
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/15/2019
-ms.author: ramamill
+ms.topic: conceptual
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Deploy a configuration server
@@ -180,7 +180,7 @@ Refer to our [troubleshooting article](vmware-azure-troubleshoot-configuration-s
     No. Don't change the IP address of a configuration server. Ensure that all IPs assigned to the configuration server are static IPs and not DHCP IPs.
 * Can I set up a configuration server on Azure?
 
-    Set up a configuration server in an on-premises environment with a direct line-of-sight with v-Center and to minimize data transfer latencies. You can take scheduled backups of configuration server for [failback purposes](vmware-azure-manage-configuration-server.md#failback-requirements).
+    Set up a configuration server in an on-premises environment with a direct line-of-sight with vCenter and to minimize data transfer latencies. You can take scheduled backups of configuration server for [failback purposes](vmware-azure-manage-configuration-server.md#failback-requirements).
 
 * Can I change cache driver on a configuration server or scale-out process server?
 

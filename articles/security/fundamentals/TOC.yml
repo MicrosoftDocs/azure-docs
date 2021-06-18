@@ -46,6 +46,8 @@
     items:
     - name: Firmware security
       href: firmware.md
+    - name: Code integrity
+      href: code-integrity.md
     - name: Secure Boot
       href: secure-boot.md
     - name: Measured boot & host attestation
@@ -83,7 +85,7 @@
   - name: DDoS Protection best practices
     href: ../../ddos-protection/fundamental-best-practices.md
   - name: DDoS Protection security baseline
-    href: ddos-protection-security-baseline.md
+    href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=/azure/security/fundamentals/TOC.json
   - name: Dangling DNS and subdomain takeover
     href: subdomain-takeover.md
   - name: Secure hybrid network architecture
@@ -133,7 +135,7 @@
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox
-    href: customer-lockbox-security-baseline.md
+    href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
 
 - name: Application
   items:
@@ -172,6 +174,8 @@
   items:
   - name: Azure security services
     href: services-technologies.md
+  - name: Feature availability for US Government clouds
+    href: feature-availability.md
   - name: Security white papers
     href: https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource
   - name: Best practices

@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 
 # SMS concepts
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
-
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services enables you to send and receive SMS text messages using the Communication Services SMS SDKs. These SDKs can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response metrics.

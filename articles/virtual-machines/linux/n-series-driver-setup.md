@@ -135,7 +135,7 @@ For example, CentOS 8 and RHEL 8 will need the following steps.
    sudo yum install dkms
    
    CUDA_REPO_PKG=cuda-repo-rhel8-10.2.89-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
    sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
    rm -f /tmp/${CUDA_REPO_PKG}

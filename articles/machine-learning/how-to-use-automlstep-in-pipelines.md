@@ -244,7 +244,7 @@ Comparing the two techniques:
 |`OutputTabularDatasetConfig`| Higher performance | 
 || Natural route from `OutputFileDatasetConfig` | 
 || Data isn't persisted after pipeline run |
-|| [Notebook showing `OutputTabularDatasetConfig` technique](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
+||  |
 | Registered `Dataset` | Lower performance |
 | | Can be generated in many ways | 
 | | Data persists and is visible throughout workspace |
@@ -446,7 +446,7 @@ with open(model_filename, "rb" ) as f:
 # ... inferencing code not shown ...
 ```
 
-For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
+For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### Download the results of an automated ML run
 

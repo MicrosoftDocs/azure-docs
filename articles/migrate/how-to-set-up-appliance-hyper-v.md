@@ -57,7 +57,7 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-Verify the latest hash value by comparing the outcome of above command to the value documented [here](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security)
+Verify the latest hash value by comparing the outcome of above command to the value documented [here](./tutorial-discover-hyper-v.md#verify-security)
 
 ## Create the appliance
 

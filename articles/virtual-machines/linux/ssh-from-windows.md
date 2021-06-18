@@ -7,7 +7,8 @@ ms.collection: linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to use SSH keys with Windows on Azure
@@ -76,7 +77,7 @@ If you do a lot of deployments using the portal, you might want to upload your p
 With the public key deployed on your Azure VM, and the private key on your local system, SSH to your VM using the IP address or DNS name of your VM. Replace *azureuser* and *10.111.12.123* in the following command with the administrator user name, the IP address (or fully qualified domain name), and the path to your private key:
 
 ```bash
-ssh -i ~/.ssh/id_rsa.pub azureuser@10.111.12.123
+ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
 
 If you configured a passphrase when you created your key pair, enter the passphrase when prompted.

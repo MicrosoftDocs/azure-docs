@@ -23,7 +23,7 @@ Azure Communication Services integrates with [Azure Event Grid](https://azure.mi
 
 :::image type="content" source="./media/notifications/acs-events-int.png" alt-text="Diagram showing how Communication Services integrates with Event Grid.":::
 
-Learn more about [event handling in Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
+Learn more about [event handling in Azure Communication Services](../../event-grid/event-schema-communication-services.md).
 
 ## Deliver push notifications via Azure Notification Hubs
 

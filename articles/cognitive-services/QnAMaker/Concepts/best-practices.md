@@ -114,8 +114,8 @@ By default, QnA Maker searches through questions and answers. If you want to sea
 # [QnA Maker GA (stable release)](#tab/v1)
 While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms are added at the QnA Maker service-level and **shared by all knowledge bases in the service**.
 
-# [QnA Maker managed (preview release)](#tab/v2)
-While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms in QnA Maker managed (Preview) are **added per knowledge base**.
+# [Custom question answering (preview release)](#tab/v2)
+While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms in Custom question answering (preview) are **added per knowledge base**.
 
 |Original word|Synonyms|
 |--|--|

@@ -30,8 +30,8 @@ If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Mo
 
 The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) for the supported Linux operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
->[!NOTE]
->After installing the Log Analytics agent for Linux, you should not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account, which is the user context the Hybrid Runbook Worker runs under. The permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
+> [!NOTE]
+> After installing the Log Analytics agent for Linux, you should not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account, which is the user context the Hybrid Runbook Worker runs under. The permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
 >
 
 ### Supported Linux operating systems
@@ -47,7 +47,7 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * SUSE Linux Enterprise Server 12 and 15 (SUSE did not release versions numbered 13 or 14)
 
 > [!IMPORTANT]
-> Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/overview.md#supported-operating-systems).
+> Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
 
 ### Minimum requirements
 
@@ -71,8 +71,8 @@ The minimum requirements for a Linux system and user Hybrid Runbook Worker are:
 
 You can add the worker machine to a Hybrid Runbook Worker group in one of your Automation accounts. For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
 
->[!NOTE]
->Azure Automation [Update Management](./update-management/overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group. Follow step 4 under the section [Install a Linux Hybrid Runbook Worker](#install-a-linux-hybrid-runbook-worker) to add it to a group.
+> [!NOTE]
+> Azure Automation [Update Management](./update-management/overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group. Follow step 4 under the section [Install a Linux Hybrid Runbook Worker](#install-a-linux-hybrid-runbook-worker) to add it to a group.
 
 ## Supported Linux hardening
 
@@ -161,7 +161,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
     > To manage the configuration of machines that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the machines as DSC nodes.
 
     > [!NOTE]
-    > The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
+    > The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn't have the appropriate permissions, the installation fails.
 
 3. Verify agent is reporting to workspace.
 
@@ -204,9 +204,9 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
 By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you see a `Signature validation failed` error. To turn off signature validation, run the following command. Replace the second parameter with your Log Analytics workspace ID.
 
- ```bash
- sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <logAnalyticsworkspaceId>
- ```
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <logAnalyticsworkspaceId>
+```
 
 ## <a name="remove-linux-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker
 

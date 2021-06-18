@@ -88,7 +88,7 @@ To learn how to configure an OAuth 2.0 authorization server with Active Director
 API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### Can I use an Azure Resource Manager template to create an API Management service instance?
-Yes. See the [Azure API Management Service](https://aka.ms/apimtemplate) quickstart templates.
+Yes. See the [Azure API Management Service](https://azure.microsoft.com/resources/templates/azure-api-management-create/) quickstart templates.
 
 ### Can I use a self-signed TLS/SSL certificate for a back end?
 Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.

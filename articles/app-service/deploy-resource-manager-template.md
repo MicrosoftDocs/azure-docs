@@ -49,7 +49,7 @@ You deploy resources in the following order:
 
 Typically, your solution includes only some of these resources and tiers. For missing tiers, map lower resources to the next-higher tier.
 
-The following example shows part of a template. The value of the connection string configuration depends on the MSDeploy extension. The MSDeploy extension depends on the web app and database. 
+The following example shows part of a template. The value of the connection string configuration depends on the MSDeploy extension. The MSDeploy extension depends on the web app and database.
 
 ```json
 {
@@ -78,7 +78,7 @@ The following example shows part of a template. The value of the connection stri
 }
 ```
 
-For a ready-to-run sample that uses the code above, see [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+For a ready-to-run sample that uses the code above, see [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/umbraco/umbraco-webapp-simple).
 
 ## Find information about MSDeploy errors
 

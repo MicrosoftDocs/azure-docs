@@ -54,10 +54,6 @@ You can follow this tutorial on any computer running Windows, macOS, or Linux.
 
 + A [Docker ID](https://hub.docker.com/signup)
 
-[!INCLUDE [functions-cli-verify-prereqs](../../includes/functions-cli-verify-prereqs.md)]
-
-+ Run `docker login` to sign in to Docker. This command fails if Docker isn't running, in which case start docker and retry the command.
-
 [!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
 ## Create and test the local functions project
@@ -246,7 +242,7 @@ In *host.json*, modify the `customHandler` section to configure the custom handl
 To test the function locally, start the local Azure Functions runtime host in the root of the project folder: 
 ::: zone pivot="programming-language-csharp"  
 ```console
-func start --build  
+func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   

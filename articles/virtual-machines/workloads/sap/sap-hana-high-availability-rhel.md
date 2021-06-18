@@ -723,7 +723,7 @@ Before proceeding further, make sure you have fully configured Red Hat High Avai
 
 ### Additional setup in Azure load balancer for active/read-enabled setup
 
-To proceed with additional steps on provisioning second virtual IP, make sure you have configured Azure Load Balancer as described in [Manual Deployment](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#manual-deployment) section.
+To proceed with additional steps on provisioning second virtual IP, make sure you have configured Azure Load Balancer as described in [Manual Deployment](#manual-deployment) section.
 
 1. For **standard** load balancer, follow below additional steps on the same load balancer that you had created in earlier section.
 
@@ -753,7 +753,7 @@ To proceed with additional steps on provisioning second virtual IP, make sure yo
 
 ### Configure HANA active/read enabled system replication
 
-The steps to configure HANA system replication are described in [Configure SAP HANA 2.0 System Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) section. If you are deploying read-enabled secondary scenario, while configuring system replication on the second node, execute following command as **hanasid**adm:
+The steps to configure HANA system replication are described in [Configure SAP HANA 2.0 System Replication](#configure-sap-hana-20-system-replication) section. If you are deploying read-enabled secondary scenario, while configuring system replication on the second node, execute following command as **hanasid**adm:
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 

@@ -11,6 +11,8 @@ ms.reviewer: janders
 
 In this quickstart you'll use MetaMask to connect to an Azure Blockchain Service network and use Remix to deploy a smart contract. Metamask is a browser extension to manage an Ether wallet and perform smart contract actions.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -64,18 +66,18 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
     ```solidity
     pragma solidity ^0.5.0;
-             
+
     contract simple {
         uint balance;
-                 
+
         constructor() public{
             balance = 0;
         }
-                 
+
         function add(uint _num) public {
             balance += _num;
         }
-                 
+
         function get() public view returns (uint){
             return balance;
         }

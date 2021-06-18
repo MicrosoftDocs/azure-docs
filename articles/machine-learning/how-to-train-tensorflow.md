@@ -19,7 +19,7 @@ In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/o
 
 This example trains and registers a TensorFlow model to classify handwritten digits using a deep neural network (DNN).
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-and-where.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Run this code on either of these environments:
 
  - Azure Machine Learning compute instance - no downloads or installation necessary
 
-     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+     - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
  
  - Your own Jupyter Notebook server

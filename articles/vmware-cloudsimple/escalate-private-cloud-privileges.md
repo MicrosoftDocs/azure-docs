@@ -2,7 +2,7 @@
 title: Escalate private cloud privileges
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes how to escalate privileges on your private cloud for administrative functions in vCenter
-author: Ajayan1008
+author: shortpatti
 ms.author: v-hborys
 ms.date: 06/05/2019
 ms.topic: article

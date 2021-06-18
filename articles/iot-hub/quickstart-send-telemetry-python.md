@@ -17,7 +17,7 @@ ms.date: 06/16/2020
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-In this quickstart, you send telemetry from a simulated device application through Azure IoT Hub to a back-end application for processing. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. This quickstart uses two pre-written Python applications: one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
+In this quickstart, you send telemetry from a simulated device application through Azure IoT Hub to a back-end application for processing. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. This quickstart uses two pre-written Python applications: one to send the telemetry and one to read the telemetry from the hub. Note that there are synchronous and asynchronous versions of the application to send telemetry. Before you run any of these applications, you create an IoT hub and register a device with the hub.
 
 ## Prerequisites
 
@@ -83,24 +83,27 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
 
+> [!NOTE]
+> The following steps use the synchronous sample, **SimulatedDeviceSync.py**. You can perform the same steps with the asynchronous sample, **SimulatedDeviceAsync.py**.
+
 1. Download or clone the azure-iot-samples-python repository using the **Code** button on the [azure-iot-samples-python repository page](https://github.com/Azure-Samples/azure-iot-samples-python/).
 
-1. In a local terminal window, navigate to the root folder of the sample Python project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
+1. In a local terminal window, navigate to the root folder of the sample Python project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder. Both the synchronous and asynchronous samples are located in the same folder.
 
-1. Open the **SimulatedDevice.py** file in a text editor of your choice.
+1. Open the **SimulatedDeviceSync.py** file in a text editor of your choice.
 
-    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.py**.
+1. Create an environment variable that contains your connection string and restart the editor to pick up the new variable. The environment variable should be named *ConnectionString* to match the sample code.
 
-1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
+1. In the local terminal window, run the following command to install the required libraries for the simulated device application:
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-1. In the local terminal window, run the following commands to run the simulated device application:
+1. In the local terminal window, run the following command to run the simulated device application:
 
     ```cmd/sh
-    python SimulatedDevice.py
+    python SimulatedDeviceSync.py
     ```
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
@@ -124,13 +127,13 @@ The back-end application connects to the service-side **Events** endpoint on you
     | `EVENTHUB_COMPATIBLE_PATH`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
     | `IOTHUB_SAS_KEY`                | Replace the value of the variable with the service primary key you made a note of earlier. |
 
-3. In the local terminal window, run the following commands to install the required libraries for the back-end application:
+3. In the local terminal window, run the following command to install the required libraries for the back-end application:
 
     ```cmd/sh
     pip install azure-eventhub
     ```
 
-4. In the local terminal window, run the following commands to build and run the back-end application:
+4. In the local terminal window, run the following command to build and run the back-end application:
 
     ```cmd/sh
     python read_device_to_cloud_messages_sync.py
