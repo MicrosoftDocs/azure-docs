@@ -36,7 +36,7 @@ sections:
           | Node.js         | the PM2 configuration file or your script file                                |
           | .NET Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
           | PHP             | optional startup script
-          | Python          | optional [startup script](./configure-language-python#customize-startup-command) |
+          | Python          | optional [startup script](./configure-language-python.md#customize-startup-command) |
           | Ruby            | the Ruby script that you want to initialize your app with                        |
           
           These commands or scripts are executed after the built-in Docker container is started, but before your application code is started.
