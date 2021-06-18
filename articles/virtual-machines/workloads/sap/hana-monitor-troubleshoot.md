@@ -95,10 +95,10 @@ For detailed memory troubleshooting steps, see [SAP HANA Troubleshooting: Root C
 Refer to [SAP Note #2081065 – Troubleshooting SAP HANA Network](https://launchpad.support.sap.com/#/notes/2081065) and do the network troubleshooting steps in this SAP Note.
 
 1. Analyzing round-trip time between server and client.
-  A. Run the SQL script [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
+    - Run the SQL script [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Analyze internode communication.
-  A. Run SQL script [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
+    - Run SQL script [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
 3. Run Linux command **ifconfig** (the output shows whether any packet losses are occurring).
 4. Run Linux command **tcpdump**.
@@ -109,13 +109,13 @@ For detailed network troubleshooting steps, see [SAP HANA Troubleshooting: Netwo
 
 ## Storage
 
-Let's say there are issues with I/O performance. End users may then find applications, or the system as a whole, runs sluggishly, is unresponsive, or can even stop responding. In the **Volumes** tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service.
+Let's say there are issues with I/O performance. End users may then find applications, or the system as a whole, runs sluggishly, is unresponsive, or can even stop responding. In the **Volumes** tab in SAP HANA Studio, you can see the attached volumes and what volumes are used by each service.
 
 ![In the Volumes tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
-Attached volumes in the lower part of the screen you can see details of the volumes, such as files and I/O statistics.
+On the lower part of the screen (on the Volumes tab), you can see details of the volumes, such as files and I/O statistics.
 
-![Attached volumes in the lower part of the screen you can see details of the volumes, such as files and I/O statistics](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
+![On the lower part of the screen, you can see details of the volumes, such as files and I/O statistics](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
 For I/O troubleshooting steps, see [SAP HANA Troubleshooting: I/O Related Root Causes and Solutions](https://help.sap.com/viewer/4e9b18c116aa42fc84c7dbfd02111aba/2.0.05/en-US/dc6ff98fa36541e997e4c719a632cbd8.html?q=I%2FO%20Related%20Root%20Causes%20and%20Solutions). For disk-related troubleshooting steps, see [SAP HANA Troubleshooting: Disk Related Root Causes and Solutions](https://help.sap.com/viewer/bed8c14f9f024763b0777aa72b5436f6/2.0.05/en-US/474cb08a715c42fe9f7cc5efdc599959.html?q=Disk%20Related%20Root%20Causes%20and%20Solutions).
 
@@ -129,7 +129,7 @@ Do an SAP HANA Health Check through HANA\_Configuration\_Minichecks. This tool r
 
     ![In SAP HANA Studio, on the System Information tab, right-click in the Name column and select Import SQL Statements](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
-3. Select the SQL Statements.zip file stored locally, and a folder with the corresponding SQL statements will be imported. At this point, the many different diagnostic checks can be run with these SQL statements.
+3. Select the SQL Statements.zip file stored locally; a folder with the corresponding SQL statements will be imported. At this point, the many different diagnostic checks can be run with these SQL statements.
 
     For example, to test SAP HANA System Replication bandwidth requirements, right-click the **Bandwidth** statement under **Replication: Bandwidth** and select **Open** in SQL Console.
 
@@ -153,9 +153,9 @@ Do an SAP HANA Health Check through HANA\_Configuration\_Minichecks. This tool r
 
     ![HANA\_Configuration\_MiniChecks\_Rev102.01+1 for general SAP HANA checks](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
 
-    **HANA\_Services\_Overview** for an overview of what SAP HANA services are currently running.
+    **HANA\_Services\_Overview** for an overview of which SAP HANA services are currently running.
 
-    ![HANA\_Services\_Overview for an overview of what SAP HANA services are currently running](./media/troubleshooting-monitoring/image12-services-overview.png)
+    ![HANA\_Services\_Overview for an overview of which SAP HANA services are currently running](./media/troubleshooting-monitoring/image12-services-overview.png)
 
     **HANA\_Services\_Statistics** for SAP HANA service information (CPU, memory, and so on).
 
