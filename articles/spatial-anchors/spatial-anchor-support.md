@@ -15,7 +15,7 @@ ms.service: azure-spatial-anchors
 
 ## Open a tech support ticket
 
-To open a technical support ticket within the Azure Portal for Azure Spatial Anchors:
+To open a technical support ticket within the Azure portal for Azure Spatial Anchors:
 
 1. With the [Azure portal](https://azure.microsoft.com/account/) open, select the help icon from the top menu bar, then select the **Help + support** button.
 
