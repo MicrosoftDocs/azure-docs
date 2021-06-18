@@ -102,4 +102,4 @@ For more information about ACR Tasks features, see [Automate container image bui
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr/task
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build

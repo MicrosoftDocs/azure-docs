@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 04/27/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
@@ -136,6 +136,16 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
+You can alternatively run the container using environment variables:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
+```
+
 # [Version 2.0-preview](#tab/version-2)
 
 ```bash
@@ -153,6 +163,15 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
+You can alternatively run the container using environment variables:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
+```
 ---
 
 
@@ -447,6 +466,6 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
 * Review the [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
-* Refer to the [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) for details about the methods supported by the container.
+* Refer to the [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

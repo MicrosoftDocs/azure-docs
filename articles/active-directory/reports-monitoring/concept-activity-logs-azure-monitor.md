@@ -131,7 +131,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: Which logs are included?**
 
-**A**: The sign-in activity logs and audit logs are both available for routing through this feature, although B2C-related audit events are currently not included. To find out which types of logs and which feature-based logs are currently supported, see [Audit log schema](reference-azure-monitor-audit-log-schema.md) and [Sign-in log schema](reference-azure-monitor-sign-ins-log-schema.md). 
+**A**: The sign-in activity logs and audit logs are both available for routing through this feature, although B2C-related audit events are currently not included. To find out which types of logs and which feature-based logs are currently supported, see [Audit log schema](./overview-reports.md) and [Sign-in log schema](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 

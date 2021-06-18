@@ -30,7 +30,7 @@ To update an existing storage account with PowerShell, see [Require secure trans
 
 ### Azure CLI
 
-For the Azure CLI command [az storage account create](/cli/azure/storage/account#az-storage-account-create), ensure parameter `--https-only` is set to `true`.
+For the Azure CLI command [az storage account create](/cli/azure/storage/account#az_storage_account_create), ensure parameter `--https-only` is set to `true`.
 
 To update an existing storage account with Azure CLI, see [Require secure transfer with Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 

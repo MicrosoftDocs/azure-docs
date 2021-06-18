@@ -1,6 +1,9 @@
-## Setting Up
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/use-managed-Identity)
 
-## Create a new Python application
+## Setting up
+
+### Create a new Python application
 
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
@@ -37,7 +40,7 @@ We'll be using the [DefaultAzureCredential](/python/api/azure-identity/azure.ide
      credential = DefaultAzureCredential()
 ```
 
-## Create an identity and issue a token with managed identities.
+## Create an identity and issue a token with managed identities
 
 Now we'll add code which uses the created credential, to issue a VoIP Access Token. We'll call this code later on:
 
@@ -130,7 +133,7 @@ sms_result = send_sms(endpoint, "<FROM_NUMBER>", "<TO_NUMBER>", "Hello from Mana
 print(f'SMS ID: {sms_result[0].message_id}');
 print(f'Send Result Successful: {sms_result[0].successful}');
 ```
-## Run the Program
+## Run the program
 
 With everything complete, you can run the file by entering `python managed-identity.py` from your project's directory. If everything went well you should see something similar to the following.
 

@@ -6,7 +6,8 @@ ms.service: firewall-manager
 services: firewall-manager
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Migrate Azure Firewall configurations to Azure Firewall policy using Powershell

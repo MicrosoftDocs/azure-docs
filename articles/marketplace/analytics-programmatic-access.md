@@ -345,4 +345,4 @@ Key definitions of elements in the response.
 
 ## Next steps
 - You can try out the APIs through the [Swagger API URL](https://api.partnercenter.microsoft.com/insights/v1/cmp/swagger/index.html)
-- Get Started with programmatic access to analytics data
+- [Get Started with programmatic access to analytics data](analytics-get-started.md)

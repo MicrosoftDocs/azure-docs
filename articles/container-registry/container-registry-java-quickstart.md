@@ -2,10 +2,13 @@
 title: Quickstart - Build and push Java container images to Azure Container Registry using Maven and Jib
 description: Build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin.
 author: KarlErickson
-ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
-ms.topic: quickstart
 ms.date: 02/26/2020
+ms.topic: quickstart
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - mode-api
 ---
 
 # Quickstart: Build and push Java container images to Azure Container Registry
@@ -96,11 +99,11 @@ Finally, you'll update your project configuration and use the command prompt to 
 1. Log in to your Azure Container Registry from the Azure CLI using the following command. Be sure to replace the placeholder with your own registry name.
 
    ```azurecli
-   az configure --defaults acr=<your registry name>
+   az config set defaults.acr=<your registry name>
    az acr login
    ```
 
-   The `az configure` command sets the default registry name to use with `az acr` commands.
+   The `az config` command sets the default registry name to use with `az acr` commands.
 
 1. Navigate to the completed project directory for your Spring Boot application (for example, "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 

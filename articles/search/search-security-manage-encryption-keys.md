@@ -8,8 +8,8 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/02/2020
-ms.custom: references_regions 
+ms.date: 05/28/2021
+ms.custom: references_regions, devx-track-azurepowershell 
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
@@ -27,15 +27,18 @@ Keys don't all need to be in the same key vault. A single search service can hos
 
 ## Double encryption
 
-For services created after August 1, 2020 and in specific regions, the scope of customer-managed key encryption includes temporary disks, achieving [full double encryption](search-security-overview.md#double-encryption), currently available in these regions: 
+Double encryption is an extension of customer-managed keys (CMK). It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long-term storage that is written to a data disk, as well as short-term  storage written to temporary disks. There is no configuration required. When you apply CMK to objects, double encryption is invoked automatically.
 
-+ West US 2
-+ East US
-+ South Central US
-+ US Gov Virginia
-+ US Gov Arizona
+Although double encryption is available in all regions, support was rolled out in two phases. The first roll out was in August 2020 and included the five regions listed below. The second roll out in May 2021 extended double encryption to all remaining regions. If you are using CMK on an older service and want double encryption, you will need to create a new search service in your region of choice.
 
-If you are using a different region, or a service created prior to August 1, then managed key encryption is limited to just the data disk, excluding the temporary disks used by the service.
+| Region | Service creation date |
+|--------|-----------------------|
+| West US 2 | After August 1, 2020 |
+| East US | After August 1, 2020 |
+| South Central US  | After August 1, 2020 |
+| US Gov Virginia  | After August 1, 2020 |
+| US Gov Arizona  | After August 1, 2020 |
+| [All other supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=search#select-product) | After May 13, 2021 |
 
 ## Prerequisites
 
@@ -142,7 +145,7 @@ Skip this step if you already have a key in Azure Key Vault.
 
 In this step, you will create an access policy in Key Vault. This policy gives the application you registered with Active Directory permission to use your customer-managed key.
 
-Access permissions could be revoked at any given time. Once revoked, any search service index or synonym map that uses that key vault will become unusable. Restoring Key vault access permissions at a later time will restore index\synonym map access. For more information, see [Secure access to a key vault](../key-vault/general/secure-your-key-vault.md).
+Access permissions could be revoked at any given time. Once revoked, any search service index or synonym map that uses that key vault will become unusable. Restoring Key vault access permissions at a later time will restore index\synonym map access. For more information, see [Secure access to a key vault](../key-vault/general/security-features.md).
 
 1. Still in the Azure portal, open your key vault **Overview** page. 
 

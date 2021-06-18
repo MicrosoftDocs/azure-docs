@@ -54,7 +54,7 @@ Make sure your IoT Edge device meets the following requirements:
   * Windows Server 2019 build 17763 or later
 
 * Hardware requirements
-  * Minimum Free Memory: 2 GB
+  * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
 
 >[!NOTE]

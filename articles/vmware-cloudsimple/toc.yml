@@ -152,6 +152,8 @@
         href: configure-server-vrealize-automation-endpoint.md
       - name: Migrating workload VMs to a Private Cloud
         href: migrate-workloads.md
+      - name: Migration using Azure Data Box
+        href: migration-using-azure-data-box.md
       - name: Ensuring Application high availability in VMware on Azure
         href: ensuring-high-availability.md
       - name: Choose a load balancing solution

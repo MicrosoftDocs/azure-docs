@@ -3,7 +3,6 @@ title: Azure Key Vault logging | Microsoft Docs
 description: Learn how to monitor access to your key vaults by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -173,8 +172,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **CertificateEnroll** |Enroll a certificate |
 | **CertificateRenew** |Renew a certificate |
 | **CertificatePendingGet** |Retrieve pending certificate |
-| **CertificatePendingMerge** |Pending a certificate merge |
-| **CertificatePendingUpdate** |Pending a certificate update |
+| **CertificatePendingMerge** | The merger of the certificate is pending |
+| **CertificatePendingUpdate** | The update of the certificate is pending |
 | **CertificatePendingDelete** |Delete pending certificate |
 | **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
 | **CertificateExpiredEventGridNotification** |Certificate expired event published |

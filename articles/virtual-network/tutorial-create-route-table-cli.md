@@ -49,7 +49,7 @@ az group create \
   --location eastus
 ```
 
-Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *myRouteTablePublic*. 
+Create a route table with [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create). The following example creates a route table named *myRouteTablePublic*. 
 
 ```azurecli-interactive
 # Create a route table
@@ -60,7 +60,7 @@ az network route-table create \
 
 ## Create a route
 
-Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create). 
+Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
 
 ```azurecli-interactive
 az network route-table route create \

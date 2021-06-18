@@ -54,7 +54,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Private Link Service** (Your own service)   |  Microsoft.Network/privateLinkServices       | empty |
 |**Azure Automation** |  Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
+|**Azure Synapse Analytics** | Microsoft.Synapse/workspaces    |  Sql, SqlOnDemand, Dev        | 
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts    | Sql, MongoDB, Cassandra, Gremlin, Table|
@@ -74,6 +74,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | topic |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | domain |
 |**Azure App Service** | Microsoft.Web/sites    | sites |
+|**Azure App Service Slots** | Microsoft.Web/sites    | sites-`<slot name>` |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
@@ -106,7 +107,7 @@ The private link resource owner can perform the following actions over a private
 > Only a private endpoint in an approved state can send traffic to a given private link resource. 
 
 ### Connecting using Alias
-Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owner can share this Alias with their consumers offline. Consumers can request a connection to private link service using either the resource URI or the Alias. If you want to connect using Alias, you must create private endpoint using manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. Look at [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) for details. 
+Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owner can share this Alias with their consumers offline. Consumers can request a connection to private link service using either the resource URI or the Alias. If you want to connect using Alias, you must create private endpoint using manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. Look at [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) for details. 
 
 ## DNS configuration 
 When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
@@ -129,9 +130,9 @@ The following table includes a list of known limitations when using private endp
 
 
 ## Next steps
-- [Create a Private Endpoint for SQL Database using the portal](create-private-endpoint-portal.md)
-- [Create a Private Endpoint for SQL Database using PowerShell](create-private-endpoint-powershell.md)
-- [Create a Private Endpoint for SQL Database using CLI](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for Azure Web Apps using the portal](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for Azure Web Apps using PowerShell](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for Azure Web Apps using CLI](create-private-endpoint-cli.md)
 - [Create a Private Endpoint for Storage account using the portal](./tutorial-private-endpoint-storage-portal.md)
 - [Create a Private Endpoint for Azure Cosmos account using the portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)

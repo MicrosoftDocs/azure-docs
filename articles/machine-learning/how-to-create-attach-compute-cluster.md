@@ -5,8 +5,8 @@ description: Learn how to create compute clusters in your Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -29,7 +29,15 @@ In this article, learn how to:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+
+* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
+
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.from_config() 
+    ```
 
 ## What is a compute cluster?
 
@@ -48,7 +56,7 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 * Azure allows you to place _locks_ on resources, so that they cannot be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace will prevent scaling operations for Azure ML compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
-> Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication. 
+> Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication.
 
 
 ## Create
@@ -65,11 +73,11 @@ The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs ar
     
 # [Python](#tab/python)
 
-To create a persistent Azure Machine Learning Compute resource in Python, specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties. 
+
+To create a persistent Azure Machine Learning Compute resource in Python, specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties.
     
 * **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
 * **max_nodes**: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
-
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
@@ -83,7 +91,7 @@ You can also configure several advanced properties when you create Azure Machine
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-For more information, see [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+For more information, see [az ml computetarget create amlcompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute).
 
 # [Studio](#tab/azure-studio)
 
@@ -93,7 +101,7 @@ For information on creating a compute cluster in the studio, see [Create compute
 
  ## <a id="low-pri-vm"></a> Lower your compute cluster cost
 
-You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. You will have to restart a preempted job. 
+You may also choose to use [low-priority VMs](how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. You will have to restart a preempted job. 
 
 Use any of these ways to specify a low-priority VM:
     
@@ -127,16 +135,18 @@ In the studio, choose **Low Priority** when you create a VM.
 
 * Configure managed identity in your provisioning configuration:  
 
-    * System assigned managed identity:
+    * System assigned managed identity created in a workspace named `ws`
         ```python
         # configure cluster with a system-assigned managed identity
         compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
                                                                 max_nodes=5,
                                                                 identity_type="SystemAssigned",
                                                                 )
+        cpu_cluster_name = "cpu-cluster"
+        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
         ```
     
-    * User-assigned managed identity:
+    * User-assigned managed identity created in a workspace named `ws`
     
         ```python
         # configure cluster with a user-assigned managed identity
@@ -149,7 +159,7 @@ In the studio, choose **Low Priority** when you create a VM.
         cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
         ```
 
-* Add managed identity to an existing compute cluster 
+* Add managed identity to an existing compute cluster named `cpu_cluster`
     
     * System-assigned managed identity:
     

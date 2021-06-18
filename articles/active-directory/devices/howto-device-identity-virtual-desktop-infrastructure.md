@@ -34,10 +34,10 @@ Persistent versions use a unique desktop image for each user or a pool of users.
 
 Non-persistent versions use a collection of desktops that users can access on an as needed basis. These non-persistent desktops are reverted to their original state, in case of Windows current<sup>1</sup> this happens when a virtual machine goes through a shutdown/restart/OS reset process and in case of Windows down-level<sup>2</sup> this happens when a user signs out.
 
-There has been a rise in non-persistent VDI deployments as remote work continues to be the new norm. As customers deploy non-persistent VDI, it is important to ensure that you manage device churn that could be caused due to frequent device registration without having a proper strategy for device lifecycle management.
+There has been a rise in non-persistent VDI deployments as remote work continues to be the new norm. As customers deploy non-persistent VDI, it is important to ensure that you manage stale devices that are created as a result of frequent device registration without having a proper strategy for device lifecycle management.
 
 > [!IMPORTANT]
-> Failure to manage device churn, can lead to pressure increase on your tenant quota usage consumption and potential risk of service interruption, if you run out of tenant quota. You should follow the guidance documented below when deploying non persistent VDI environments to avoid this situation.
+> Failure to manage stale devices can lead to pressure increase on your tenant quota usage consumption and potential risk of service interruption, if you run out of tenant quota. You should follow the guidance documented below when deploying non persistent VDI environments to avoid this situation.
 
 This article will cover Microsoft's guidance to administrators on support for device identity and VDI. For more information about device identity, see the article [What is a device identity](overview.md).
 
@@ -88,7 +88,7 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
 - For Windows down-level:
    - Implement **autoworkplacejoin /leave** command as part of logoff script. This command should be triggered in the context of the user and should be execute before the user has logged off completely and while there is still network connectivity.
 - For Windows current in a Federated environment (e.g. AD FS):
-   - Implement **dsregcmd /join** as part of VM boot sequence.
+   - Implement **dsregcmd /join** as part of VM boot sequence/order and before user signs in.
    - **DO NOT** execute dsregcmd /leave as part of VM shutdown/restart process.
 - Define and implement process for [managing stale devices](manage-stale-devices.md).
    - Once you have a strategy to identify your non-persistent Hybrid Azure AD joined devices (e.g. using computer display name prefix), you should be more aggressive on the clean-up of these devices to ensure your directory does not get consumed with lots of stale devices.

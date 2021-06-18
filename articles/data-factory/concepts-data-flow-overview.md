@@ -3,11 +3,10 @@ title: Mapping data flows
 description: An overview of mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/11/2021
+ms.date: 05/20/2021
 ---
 
 # Mapping data flows in Azure Data Factory
@@ -78,6 +77,22 @@ The top bar contains actions that affect the whole data flow, like saving and va
 
 View the [mapping data flow transformation overview](data-flow-transformation-overview.md) to get a list of available transformations.
 
+## Data flow data types
+
+* array
+* binary
+* boolean
+* complex
+* decimal (includes precision)
+* date
+* float
+* integer
+* long
+* map
+* short
+* string
+* timestamp
+
 ## Data flow activity
 
 Mapping data flows are operationalized within ADF pipelines using the [data flow activity](control-flow-execute-data-flow-activity.md). All a user has to do is specify which integration runtime to use and pass in parameter values. For more information, learn about the [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime).
@@ -91,6 +106,67 @@ Debug mode allows you to interactively see the results of each transformation st
 Mapping data flow integrates with existing Azure Data Factory monitoring capabilities. To learn how to understand data flow monitoring output, see [monitoring mapping data flows](concepts-data-flow-monitoring.md).
 
 The Azure Data Factory team has created a [performance tuning guide](concepts-data-flow-performance.md) to help you optimize the execution time of your data flows after building your business logic.
+
+
+## Available regions
+
+Mapping data flows are available in the following regions in ADF:
+
+| Azure region | Data flows in ADF |
+| ------------ | ----------------- |
+| Australia Central | |
+| Australia Central 2 | |
+| Australia East | ✓ |
+| Australia Southeast	| ✓ |
+| Brazil South	| ✓ |
+| Canada Central | ✓ |
+| Central India	| ✓ |
+| Central US	| ✓ |
+| China East |		|
+| China East 2	|	|
+| China Non-Regional | |
+| China North | ✓ |
+| China North 2	| ✓ |
+| East Asia	| ✓ |
+| East US	| ✓ |
+| East US 2	| ✓ |
+| France Central | ✓ |
+| France South	| |
+| Germany Central (Sovereign) | |
+| Germany Non-Regional (Sovereign) | |
+| Germany North (Public) | |
+| Germany Northeast (Sovereign) | |
+| Germany West Central (Public) |  |
+| Japan East | ✓ |
+| Japan West |	|
+| Korea Central	| ✓ |
+| Korea South | |
+| North Central US	| ✓ |
+| North Europe	| ✓ |
+| Norway East | ✓ |
+| Norway West | |
+| South Africa North	| ✓ |
+| South Africa West	|  |
+| South Central US	| |
+| South India | |
+| Southeast Asia	| ✓ |
+| Switzerland North	| 	|
+| Switzerland West | |
+| UAE Central | |
+| UAE North	| ✓ |
+| UK South	| ✓ |
+| UK West |		|
+| US DoD Central | |
+| US DoD East | |
+| US Gov Arizona | ✓ |
+| US Gov Non-Regional | |
+| US Gov Texas | |
+| US Gov Virginia | ✓ |
+| West Central US |		|
+| West Europe	| ✓ |
+| West India | |
+| West US	| ✓ |
+| West US 2	| ✓ |
 
 ## Next steps
 

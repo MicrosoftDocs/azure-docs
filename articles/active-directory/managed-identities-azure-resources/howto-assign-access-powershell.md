@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Assign a managed identity access to a resource using PowerShell

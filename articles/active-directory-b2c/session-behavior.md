@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -120,7 +120,7 @@ You can enable the KMSI feature for users of your web and native applications wh
 
 KMSI is configurable at the individual user flow level. Before enabling KMSI for your user flows, consider the following:
 
-- KMSI is supported only for the **Recommended** versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have **Standard** or **Legacy preview - v2** versions of these user flows and want to enable KMSI, you'll need to create new, **Recommended** versions of these user flows.
+- KMSI is supported only for the **Recommended** versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have **Standard (Legacy)** or **Legacy preview - v2** versions of these user flows and want to enable KMSI, you'll need to create new, **Recommended** versions of these user flows.
 - KMSI is not supported with password reset or sign-up user flows.
 - If you want to enable KMSI for all applications in your tenant, we recommend that you enable KMSI for all user flows in your tenant. Because a user can be presented with multiple policies during a session, it's possible they could encounter one that doesn't have KMSI enabled, which would remove the KMSI cookie from the session.
 - KMSI should not be enabled on public computers.
@@ -240,16 +240,18 @@ When you want to sign the user out of the application, it isn't enough to clear 
 
 Upon a sign-out request, Azure AD B2C:
 
-1. Invalidates the Azure AD B2C cookie-based session.
 ::: zone pivot="b2c-user-flow"
-2. Attempts to sign out from federated identity providers
+1. Invalidates the Azure AD B2C cookie-based session.
+1. Attempts to sign out from federated identity providers
 ::: zone-end
+
 ::: zone pivot="b2c-custom-policy"
-3. Attempts to sign out from federated identity providers:
+1. Invalidates the Azure AD B2C cookie-based session.
+1. Attempts to sign out from federated identity providers:
    - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location. The sign-out request doesn't pass the `id_token_hint` parameter. If the federated identity provider requires this parameter, the sign-out request will fail.
    - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#metadata) contains the `end_session_endpoint` location.
    - SAML - If the [identity provider metadata](identity-provider-generic-saml.md) contains the `SingleLogoutService` location.
-4. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
+1. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
 
 > [!NOTE]
 > You can disable the sign out from federated identity providers, by setting the identity provider technical profile metadata `SingleLogoutEnabled` to `false`.

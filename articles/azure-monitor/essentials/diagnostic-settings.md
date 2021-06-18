@@ -5,7 +5,7 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 06/09/2021
 ---
 
 # Create diagnostic settings to send platform logs and metrics to different destinations
@@ -143,13 +143,36 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## Create using Azure CLI
 
-Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with [Azure CLI](/cli/azure/monitor). See the documentation for this command for descriptions of its parameters.
+Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with [Azure CLI](/cli/azure/monitor). See the documentation for this command for descriptions of its parameters.
 
 > [!IMPORTANT]
 > You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](./resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with CLI.
 
-Following is an example CLI command to create a diagnostic setting using all three destinations.
+Following is an example CLI command to create a diagnostic setting using all three destinations. The syntax is slightly difference depending on your client.
 
+# [CMD](#tab/CMD)
+```azurecli
+az monitor diagnostic-settings create  ^
+--name KeyVault-Diagnostics ^
+--resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault ^
+--logs    "[{""category"": ""AuditEvent"",""enabled"": true}]" ^
+--metrics "[{""category"": ""AllMetrics"",""enabled"": true}]" ^
+--storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount ^
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace ^
+--event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+```
+# [PowerShell](#tab/PowerShell)
+```azurecli
+az monitor diagnostic-settings create  `
+--name KeyVault-Diagnostics `
+--resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault `
+--logs    '[{""category"": ""AuditEvent"",""enabled"": true}]' `
+--metrics '[{""category"": ""AllMetrics"",""enabled"": true}]' `
+--storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount `
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace `
+--event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+```
+# [Bash](#tab/Bash)
 ```azurecli
 az monitor diagnostic-settings create  \
 --name KeyVault-Diagnostics \
@@ -157,9 +180,10 @@ az monitor diagnostic-settings create  \
 --logs    '[{"category": "AuditEvent","enabled": true}]' \
 --metrics '[{"category": "AllMetrics","enabled": true}]' \
 --storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount \
---workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace \
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
+---
 
 ## Create using Resource Manager template
 See [Resource Manager template samples for diagnostic settings in Azure Monitor](./resource-manager-diagnostic-settings.md) to create or update diagnostic settings with a Resource Manager template.
@@ -170,7 +194,7 @@ See [Diagnostic Settings](/rest/api/monitor/diagnosticsettings) to create or upd
 ## Create using Azure Policy
 Since a diagnostic setting needs to be created for each Azure resource, Azure Policy can be used to automatically create a diagnostic setting as each resource is created. See [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md) for details.
 
-## Metric category is not supported error
+## Error: Metric category is not supported
 When deploying a diagnostic setting, you receive the following error message:
 
    "Metric category '*xxxx*' is not supported"
@@ -187,7 +211,9 @@ The problem is caused by a recent change in the underlying API. Metric categorie
 
 If you receive this error, update your deployments to replace any metric category names with 'AllMetrics' to fix the issue. If the deployment was previously adding multiple categories, only one with the 'AllMetrics' reference should be kept. If you continue to have the problem, please contact Azure support through the Azure portal. 
 
+## Error: Setting disappears due to non-ASCII characters in resourceID
 
+Diagnostic settings do not support resourceIDs with non-ASCII characters (for example, Preproducción). Since you cannot rename resources in Azure, your only option is to create a new resource without the non-ASCII characters. If the characters are in a resource group, you can move the resources under it to a new one. Otherwise, you'll need to recreate the resource. 
 
 ## Next steps
 

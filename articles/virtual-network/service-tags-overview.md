@@ -10,7 +10,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2020
+ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
 ---
@@ -87,6 +87,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **DataFactory**  | Azure Data Factory | Both | No | No |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
+| **EOPExternalPublishedIPs** | This tag represents the IP addresses used for Security & Compliance Center Powershell. Refer to the [Connect to Security & Compliance Center PowerShell using the EXO V2 module for more details](/powershell/exchange/connect-to-scc-powershell). <br/><br/> *Note: This tag is not currently configurable via Azure Portal.* | Both | No | Yes |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
@@ -130,11 +131,13 @@ You can programmatically retrieve the current list of service tags together with
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
+- [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
 > [!NOTE]
-> While it's in public preview, the Discovery API might return information that's less current than information returned by the JSON downloads. (See the next section.)
+> It takes up to 4 weeks for new Service Tag data to propagate in the API results. The change number in the response metadata will be incremented when this happens. There may be temporary differences in results when different location values are specified. When using the results to create NSG rules, you should set the location paramater to match the NSG's region. 
 
+> [!NOTE]
+> The API data will represent those tags which can be used with NSG rules, a subset of the tags currently in the downloadable JSON file. While in public preview, we do not guarantee that the data will remain the same from one update to the next. 
 
 ### Discover service tags by using downloadable JSON files 
 You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:

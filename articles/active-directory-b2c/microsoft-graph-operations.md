@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -17,6 +17,9 @@ ms.subservice: B2C
 # Manage Azure AD B2C with Microsoft Graph
 
 Microsoft Graph allows you to manage resources in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
+
+> [!NOTE]
+> You can also programmatically create an Azure AD B2C directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [B2C Tenants - Create](/rest/api/activedirectory/b2ctenants/create).
 
 ## Prerequisites
 
@@ -32,7 +35,7 @@ To use MS Graph API, and interact with resources in your Azure AD B2C tenant, yo
 
 ## User phone number management (beta)
 
-A phone number that can be used by a user to sign-in using [SMS or voice calls](identity-provider-local.md#phone-sign-in-preview), or [multi-factor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
+A phone number that can be used by a user to sign-in using [SMS or voice calls](sign-in-options.md#phone-sign-in), or [multi-factor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add](/graph/api/authentication-post-phonemethods)
 - [List](/graph/api/authentication-list-phonemethods)
@@ -44,9 +47,12 @@ Note, the [list](/graph/api/authentication-list-phonemethods) operation returns 
 
 ![Enable phone sign-in](./media/microsoft-graph-operations/enable-phone-sign-in.png)
 
+> [!NOTE]
+> In the current beta version, this API works only if the phone number is stored with a space between the country code and the phone number. The Azure AD B2C service doesn't currently add this space by default.
+
 ## Self-service password reset email address (beta)
 
-An email address that can be used by a [username sign-in account](identity-provider-local.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
+An email address that can be used by a [username sign-in account](sign-in-options.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
 
 - [Add](/graph/api/emailauthenticationmethod-post)
 - [List](/graph/api/emailauthenticationmethod-list)
@@ -135,7 +141,7 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 
 ## Conditional Access
 
-- [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http)
+- [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies?tabs=http)
 - [Read properties and relationships of a Conditional Access policy](/graph/api/conditionalaccesspolicy-get)
 - [Create a new Conditional Access policy](/graph/api/resources/application)
 - [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)

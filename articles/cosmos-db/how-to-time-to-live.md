@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.custom: devx-track-js, devx-track-csharp
 ---
 
 # Configure time to live in Azure Cosmos DB

@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/11/2021
+ms.date: 05/20/2021
 ---
 
 # Data Flow activity in Azure Data Factory
@@ -65,6 +65,9 @@ traceLevel | Set logging level of your data flow activity execution | Fine, Coar
 
 The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties.
 
+> [!NOTE]
+> When choosing driver and worker node cores in Synapse Data Flows, a minimum of 3 nodes will always be utilized.
+
 ![Dynamic Data Flow](media/data-flow/dyna1.png "Dynamic data flow")
 
 [Here is a brief video tutorial explaining this technique](https://www.youtube.com/watch?v=jWSkJdtiJNM)
@@ -96,6 +99,10 @@ The grouping feature in data flows allow you to both set the order of execution 
 
 The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
 
+### First row only
+
+This option is only available for data flows that have cache sinks enabled for "Output to activity". The output from the data flow that is injected directly into your pipeline is limited to 2MB. Setting "first row only" helps you to limit the data output from data flow when injecting the data flow activity output directly to your pipeline.
+
 ![Sink properties](media/data-flow/sink-properties.png "Set sink properties")
 
 ## Parameterizing Data Flows
@@ -120,7 +127,7 @@ You can parameterize the core count or compute type if you use the auto-resolve 
 
 To execute a debug pipeline run with a Data Flow activity, you must switch on data flow debug mode via the **Data Flow Debug** slider on the top bar. Debug mode lets you run the data flow against an active Spark cluster. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-![Debug button](media/data-flow/debugbutton.png "Debug button")
+![Screenshot that shows where is the Debug button](media/data-flow/debug-button-3.png)
 
 The debug pipeline runs against the active debug cluster, not the integration runtime environment specified in the Data Flow activity settings. You can choose the debug compute environment when starting up debug mode.
 

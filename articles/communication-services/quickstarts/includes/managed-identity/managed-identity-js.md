@@ -1,6 +1,9 @@
-## Setting Up
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/use-managed-Identity)
 
-### Create a new Node.js Application
+## Setting up
+
+### Create a new Node.js application
 
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
@@ -55,7 +58,7 @@ async function createIdentityAndIssueToken(resourceEndpoint) {
 }
 ```
 
-## Send an SMS with Managed Identity
+## Send an SMS with managed identity
 
 Now, lets write a function which uses managed identities to send an SMS:
 
@@ -74,7 +77,7 @@ async function sendSms(resourceEndpoint, fromNumber, toNumber, message) {
 }
 ```
 
-## Write the main method
+## Write the main function
 
 With our functions created we can now write a main function to call them and demonstrate the use of Managed Identities:
 ```JavaScript
@@ -146,7 +149,7 @@ async function main() {
 main();
 ```
 
-## Run the Program
+## Run the program
 
 With everything complete, you can run the file by entering `node index.js` from your project's directory. If everything went well you should see something similar to the following.
 

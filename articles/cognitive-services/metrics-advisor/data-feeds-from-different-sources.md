@@ -5,7 +5,7 @@ description: add different data feeds to Metrics Advisor
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
@@ -209,12 +209,12 @@ The timestamp field must match one of these two formats:
 
 ## <span id="table">Azure Table Storage</span>
 
-* **Connection String**: Please create an SAS (shared access signature) URL and fill in here. The most straightforward way to generate a SAS URL is using the Azure Portal. By using the Azure portal, you can navigate graphically. To create an SAS URL via the Azure portal, first, navigate to the storage account you’d like to access under the Settings section then click Shared access signature. Check at least "Table" and "Object" checkboxes, then click the Generate SAS and connection string button. Table service SAS URL is what you need to copy and fill in the text box in the Metrics Advisor workspace.
+* **Connection String**: Please create an SAS (shared access signature) URL and fill in here. The most straightforward way to generate a SAS URL is using the Azure portal. By using the Azure portal, you can navigate graphically. To create an SAS URL via the Azure portal, first, navigate to the storage account you’d like to access under the Settings section then click Shared access signature. Check at least "Table" and "Object" checkboxes, then click the Generate SAS and connection string button. Table service SAS URL is what you need to copy and fill in the text box in the Metrics Advisor workspace.
 
 * **Table Name**: Specify a table to query against. This can be found in your Azure Storage Account instance. Click **Tables** in the **Table Service** section.
 
 * **Query**
-You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy-MM-ddTHH:mm:ss format string in script. Tip: Use Azure storage explorer to create a query with specific time range and make sure it runs okay, then do the replacement.
+You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy-MM-ddTHH:mm:ss format string in script. Tip: Use Azure Storage Explorer to create a query with specific time range and make sure it runs okay, then do the replacement.
 
     ``` mssql
     date ge datetime'@StartTime' and date lt datetime'@EndTime'
@@ -225,14 +225,14 @@ You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy
 * **Host**: Specify the master host of Elasticsearch Cluster.
 * **Port**: Specify the master port of Elasticsearch Cluster.
 * **Authorization Header**: Specify the authorization header value of Elasticsearch Cluster.
-* **Query**: Specify the query to get data. Placeholder @StartTime is supported.(e.g. when data of 2020-06-21T00:00:00Z is ingested, @StartTime = 2020-06-21T00:00:00)
+* **Query**: Specify the query to get data. Placeholder `@StartTime` is supported. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@StartTime = 2020-06-21T00:00:00`.
 
 ## <span id="http">HTTP request</span>
 
 * **Request URL**: An HTTP url that can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Request HTTP method**: Use GET or POST.
 * **Request header**: Could add basic authentication. 
-* **Request payload**: Only JSON payload is supported. Placeholder @StartTime is supported in the payload. The response should be in the following JSON format: [{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}].(e.g. when data of 2020-06-21T00:00:00Z is ingested, @StartTime = 2020-06-21T00:00:00.0000000+00:00)
+* **Request payload**: Only JSON payload is supported. Placeholder @StartTime is supported in the payload. The response should be in the following JSON format: `[{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}]`. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@StartTime = 2020-06-21T00:00:00.0000000+00:00)`.
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
@@ -261,4 +261,4 @@ You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy
 ## Next steps
 
 * While waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).
-* When your metric data is ingested, you can [Configure metrics and fine tune detecting configuration](how-tos/configure-metrics.md).
+* When your metric data is ingested, you can [Configure metrics and fine tune detection configuration](how-tos/configure-metrics.md).

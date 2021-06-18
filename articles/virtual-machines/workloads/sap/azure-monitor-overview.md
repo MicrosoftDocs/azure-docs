@@ -29,7 +29,7 @@ Supported databases:
 - SAP HANA Database
 - Microsoft SQL server
 
-Azure Monitor for SAP Solutions uses the power of existing [Azure Monitor](../../../azure-monitor/overview.md) capabilities such as Log Analytics and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md) to provide more monitoring capabilities. Customers can create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions, write [custom queries](../../../azure-monitor/logs/log-analytics-tutorial.md) and create [custom alerts](../../../azure-monitor/alerts/tutorial-response.md) by using Azure Log Analytics workspace, take advantage of [flexible retention period](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) and connect monitoring data with their ticketing system.
+Azure Monitor for SAP Solutions uses the power of existing [Azure Monitor](../../../azure-monitor/overview.md) capabilities such as Log Analytics and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md) to provide more monitoring capabilities. Customers can create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions, write [custom queries](../../../azure-monitor/logs/log-analytics-tutorial.md) and create [custom alerts](../../../azure-monitor/alerts/alerts-log.md) by using Azure Log Analytics workspace, take advantage of [flexible retention period](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) and connect monitoring data with their ticketing system.
 
 ## What data does Azure Monitor for SAP solutions collect?
 
@@ -83,7 +83,7 @@ It is highly recommended that customers enable data sharing, as it gives Microso
 
 At a high level, the following diagram explains how Azure Monitor for SAP Solutions collects telemetry from SAP HANA database. The architecture is agnostic to whether SAP HANA is deployed on Azure Virtual Machines or Azure Large Instances.
 
-![Azure Monitor for SAP solutions architecture](./media/azure-monitor-sap/azure-monitor-architecture.png)
+![Azure Monitor for SAP solutions architecture](https://user-images.githubusercontent.com/75772258/115046700-62ff3280-9ef5-11eb-8d0d-cfcda526aeeb.png)
 
 The key components of the architecture are:
 - Azure portal – the starting point for customers. Customers can navigate to marketplace within Azure portal and discover Azure Monitor for SAP Solutions

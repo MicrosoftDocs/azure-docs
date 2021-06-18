@@ -15,7 +15,7 @@ Container insights provides a rich monitoring experience for Azure Kubernetes Se
 
 You can enable Container insights for one or more existing deployments of Azure Red Hat OpenShift v4.x by using the supported methods described in this article.
 
-For an existing cluster, run this [Bash script in the Azure CLI](/cli/azure/openshift#az-openshift-create&preserve-view=true).
+For an existing cluster, run this [Bash script in the Azure CLI](/cli/azure/openshift#az_openshift_create&preserve-view=true).
 
 ## Supported and unsupported features
 

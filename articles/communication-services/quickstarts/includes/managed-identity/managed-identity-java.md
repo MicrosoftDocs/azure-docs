@@ -1,9 +1,12 @@
-## Additional Prerequisites for Java
+## Additional prerequisites for Java
 For Java, you'll also need:
-- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
+- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
-## Setting Up
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/use-managed-Identity)
+
+## Setting up
 
 ### Create a new Java application
 
@@ -92,7 +95,7 @@ As another example of using managed identities, we'll add this code which uses t
           return smsClient.send(from, to, message);
      }
 ```
-## Write the Main Method
+## Write the Main method
 
 Your `App.java` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of managed identities:
 ```java
@@ -200,4 +203,3 @@ Sending SMS using Managed Identities
 Sms id: Outgoing_202104...33f8ae1f_noam
 Send Result Successful: true
 ```
-

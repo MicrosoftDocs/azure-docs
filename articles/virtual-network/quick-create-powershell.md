@@ -124,6 +124,8 @@ You'll have to create another user and password. Azure takes a few minutes to cr
 > [!IMPORTANT]
 > Don't continue with the next step until Azure's finished.  You'll know it's done when it returns output to PowerShell.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Connect to a VM from the internet
 
 To get the public IP address of the VM, use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress).

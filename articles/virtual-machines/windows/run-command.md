@@ -7,8 +7,8 @@ ms.collection: windows
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: how-to 
-ms.custom: devx-track-azurecli
+ms.topic: how-to  
+ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 # Run PowerShell scripts in your Windows VM by using Run Command
@@ -60,7 +60,7 @@ The entity was not found in this Azure location
 
 ## Azure CLI
 
-The following example uses the [az vm run-command](/cli/azure/vm/run-command#az-vm-run-command-invoke) command to run a shell script on an Azure Windows VM.
+The following example uses the [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) command to run a shell script on an Azure Windows VM.
 
 ```azurecli-interactive
 # script.ps1

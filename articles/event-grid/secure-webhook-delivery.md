@@ -15,7 +15,7 @@ This article uses the Azure portal for demonstration, however the feature can al
 
 
 ## Create an Azure AD Application
-Register your Webhook with Azure AD by creating an Azure AD application for your protected endpoint. See [Scenario: Protected web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview). Configure your protected API to be called by a daemon app.
+Register your Webhook with Azure AD by creating an Azure AD application for your protected endpoint. See [Scenario: Protected web API](../active-directory/develop/scenario-protected-web-api-overview.md). Configure your protected API to be called by a daemon app.
     
 ## Enable Event Grid to use your Azure AD Application
 This section shows you how to enable Event Grid to use your Azure AD application. 
@@ -44,9 +44,7 @@ $eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridApp
 if ($eventGridSP -match "Microsoft.EventGrid")
 {
     Write-Host "The Service principal is already defined.`n"
-}
-else
-{
+} else {
     # Create a service principal for the "Azure Event Grid" AAD Application and add it to the role
     Write-Host "Creating the Azure Event Grid service principal"
     $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
@@ -89,9 +87,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
-}
-else
-{      
+} else {      
     # Add our new role to the Azure AD Application
     Write-Host "Creating the Azure Event Grid role in Azure Ad Application: " $myWebhookAadApplicationObjectId
     $newRole = CreateAppRole -Name $eventGridRoleName -Description "Azure Event Grid Role"
@@ -149,7 +145,7 @@ Run the New-AzureADServiceAppRoleAssignment command to assign Event Grid service
 
 ```powershell
 $eventGridAppRole = $myApp.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId -PrincipalId $eventGridSP.ObjectId
+New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
 ```
 
 Run the following commands to output information that you'll use later.

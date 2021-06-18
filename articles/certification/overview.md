@@ -11,7 +11,7 @@ ms.service: certification
 
 # What is the Azure Certified Device program?
 
-Thank you for your interest in the Azure Certified Device program! This program is your one-stop shop for easily differentiating, promoting, and finding IoT devices built to run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced IoT device certification program helps device builders increase their product visibility and saves customers time in building solutions.
+Thank you for your interest in the Azure Certified Device program! Azure Certified Device is a free program that enables you to differentiating, certify, and promote your IoT devices built to run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced IoT device certification program helps device builders increase their product visibility and saves customers time in building solutions.
 
 ## Our certification promise
 
@@ -53,7 +53,10 @@ Certifying a device involves several major steps on the [Azure Certified Device 
 1. Validate device functionality
 1. Submit and complete the review process
 
-Once you have certified your device, you then can optionally complete two of the following activities:
+> [!Note]
+> The review process can take up to a week to complete, though sometimes may take longer.
+
+Once you have certified your device, you then can optionally complete two of the following activities: 
 
 1. Publishing to the Azure Certified Device Catalog (optional)
 1. Updating your project after it has been approved/published (optional)
@@ -63,4 +66,4 @@ Once you have certified your device, you then can optionally complete two of the
 Ready to get started with your certification journey? View our resources below to start the device certification process!
 
 - [Starting the certification process](tutorial-00-selecting-your-certification.md)
-- If you have additional questions or feedback, contact [the Azure Certified Device team](mailto:iotcert@microsoft.com).
+- If you have other questions or feedback, contact [the Azure Certified Device team](mailto:iotcert@microsoft.com).

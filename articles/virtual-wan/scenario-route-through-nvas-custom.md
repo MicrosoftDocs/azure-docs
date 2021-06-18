@@ -1,19 +1,19 @@
 ---
 title: Route traffic through NVAs by using custom settings
 titleSuffix: Azure Virtual WAN
-description: This scenario helps you route traffic through NVAs by using a different NVA for internet-bound traffic.
+description: Learn about Virtual WAN routing scenarios to route traffic through Network Virtual Appliances (NVAs). In this scenario, you route traffic through NVAs by using a different NVA for internet-bound traffic and custom settings.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ---
 
 # Scenario: Route traffic through NVAs by using custom settings
 
-When you're working with Azure Virtual WAN virtual hub routing, you have a number of options available to you. The focus of this article is when you want to route traffic through a network virtual appliance (NVA) for communication between virtual networks and branches, and use a different NVA for internet-bound traffic. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
+When you're working with Azure Virtual WAN virtual hub routing, you have many options available to you. The focus of this article is when you want to route traffic through a network virtual appliance (NVA) for communication between virtual networks and branches, and use a different NVA for internet-bound traffic. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 ## Design
 

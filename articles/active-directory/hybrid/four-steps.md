@@ -60,7 +60,7 @@ To learn more, see the [Migrating Your Applications to Azure Active Directory](h
 
 ### Enable secure remote access to apps
 
-[Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md) provides a simple solution for organizations to publish on-premises apps to the cloud for remote users who need access to internal apps in a secure manner. After a single sign-on to Azure AD, users can access both cloud and on-premises applications through external URLs or an internal application portal.
+[Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) provides a simple solution for organizations to publish on-premises apps to the cloud for remote users who need access to internal apps in a secure manner. After a single sign-on to Azure AD, users can access both cloud and on-premises applications through external URLs or an internal application portal.
 
 Azure AD Application Proxy offers the following benefits:
 

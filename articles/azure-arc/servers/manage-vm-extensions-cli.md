@@ -25,7 +25,7 @@ az extension add --name connectedmachine
 
 ## Enable extension
 
-To enable a VM extension on your Arc enabled server, use [az connectedmachine extension create](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_create) with the `--machine-name`, `--extension-name`, `--location`, `--type`, `settings`, and `--publisher` parameters.
+To enable a VM extension on your Arc enabled server, use [az connectedmachine extension create](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_create) with the `--machine-name`, `--extension-name`, `--location`, `--type`, `settings`, and `--publisher` parameters.
 
 The following example enables the Log Analytics VM extension on an Arc enabled server:
 
@@ -47,7 +47,7 @@ az connectedmachine extension create --resource-group "resourceGroupName" --mach
 
 ## List extensions installed
 
-To get a list of the VM extensions on your Arc enabled server, use [az connectedmachine extension list](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_list) with the `--machine-name` and `--resource-group` parameters.
+To get a list of the VM extensions on your Arc enabled server, use [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list) with the `--machine-name` and `--resource-group` parameters.
 
 Example:
 
@@ -55,7 +55,7 @@ Example:
 az connectedmachine extension list --machine-name "myMachineName" --resource-group "myResourceGroup"
 ```
 
-By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](/cli/azure/reference-index). You can also add `--output` to any command for a one time change in output format.
+By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az config set core.output=table](/cli/azure/reference-index). You can also add `--output` to any command for a one time change in output format.
 
 The following example shows the partial JSON output from the `az connectedmachine extension -list` command:
 
@@ -72,7 +72,7 @@ The following example shows the partial JSON output from the `az connectedmachin
 
 ## Remove an installed extension
 
-To remove an installed VM extension on your Arc enabled server, use [az connectedmachine extension delete](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_delete) with the `--extension-name`, `--machine-name` and `--resource-group` parameters.
+To remove an installed VM extension on your Arc enabled server, use [az connectedmachine extension delete](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_delete) with the `--extension-name`, `--machine-name` and `--resource-group` parameters.
 
 For example, to remove the Log Analytics VM extension for Linux, run the following command:
 
@@ -86,4 +86,4 @@ az connectedmachine extension delete --machine-name "myMachineName" --name "OmsA
 
 - Troubleshooting information can be found in the [Troubleshoot VM extensions guide](troubleshoot-vm-extensions.md).
 
-- Review the Azure CLI VM extension [Overview](/cli/azure/ext/connectedmachine/connectedmachine/extension) article for more information about the commands.
+- Review the Azure CLI VM extension [Overview](/cli/azure/connectedmachine/extension) article for more information about the commands.

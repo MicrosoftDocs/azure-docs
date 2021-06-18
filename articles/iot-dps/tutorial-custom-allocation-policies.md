@@ -3,7 +3,7 @@ title: Tutorial for using custom allocation policies with Azure IoT Hub Device P
 description: Tutorial for using custom allocation policies with the Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/23/2020
+ms.date: 04/23/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
@@ -203,11 +203,30 @@ For the example in this article, use the following two device registration IDs w
 * **contoso-toaster-007**
 * **contoso-heatpump-088**
 
-Replace the value of **KEY** variable with the **Primary Key** you noted earlier after your enrollment group was created. The key value and output shown with the code below is only an example.
 
-#### [PowerShell](#tab/powershell)
+# [Azure CLI](#tab/azure-cli)
+
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
+
+Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
+
+```azurecli
+az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id contoso-toaster-007
+
+"JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs="
+```
+
+```azurecli
+az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id contoso-heatpump-088
+
+"6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg="
+```
+
+# [PowerShell](#tab/powershell)
 
 If you're using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
+
+Replace the value of **KEY** variable with the **Primary Key** you noted earlier after your enrollment group was created. The key value and output shown with the code below is only an example.
 
 ```powershell
 $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
@@ -230,9 +249,12 @@ contoso-toaster-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
 contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 ```
 
-#### [Bash](#tab/bash)
+# [Bash](#tab/bash)
 
 If you're using a Linux workstation, you can use openssl to generate your derived device keys as shown in the following Bash example.
+
+Replace the value of **KEY** variable with the **Primary Key** you noted earlier after your enrollment group was created. The key value and output shown with the code below is only an example.
+
 
 ```bash
 KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==

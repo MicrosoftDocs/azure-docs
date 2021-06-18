@@ -231,5 +231,5 @@ Learn how to [retrieve container logs and events](container-instances-get-logs.m
 [docker-hub-windows-nano]: https://hub.docker.com/_/microsoft-windows-nanoserver
 
 <!-- LINKS - Internal -->
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-show]: /cli/azure/container#az_container_show
 [list-cached-images]: /rest/api/container-instances/location/listcachedimages

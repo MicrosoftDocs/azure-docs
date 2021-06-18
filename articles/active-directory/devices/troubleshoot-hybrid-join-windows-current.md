@@ -420,6 +420,6 @@ If the values are **NO**, it could be due:
 
 ## Next steps
 
-Continue [troubleshooting devices using the dsregcmd command](troubleshoot-device-dsregcmd.md)
+- Continue [troubleshooting devices using the dsregcmd command](troubleshoot-device-dsregcmd.md)
 
-For questions, see the [device management FAQ](faq.yml)
+- [The Microsoft Error Lookup Tool](/windows/win32/debug/system-error-code-lookup-tool)

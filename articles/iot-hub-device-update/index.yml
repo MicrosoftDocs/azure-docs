@@ -29,7 +29,7 @@ landingContent:
             url: create-device-update-account.md
           - text: Provisioning Device Update Agent
             url: device-update-agent-provisioning.md
-          - text: Import an update
+          - text: Add an update
             url: import-update.md
           - text: Create an update group
             url: create-update-group.md
@@ -69,18 +69,20 @@ landingContent:
     - linkListType: reference
       links:
       - text: REST API
-        url: https://docs.microsoft.com/rest/api/deviceupdate/
+        url: /rest/api/deviceupdate/
     - linkListType: reference
       links:
       - text: Control Plane - .NET
-        url:  https://docs.microsoft.com/dotnet/api/overview/azure/iot/management?view=azure-dotnet
+        url:  /dotnet/api/overview/azure/iot/management
       - text: Control Plane - Python
-        url:  https://docs.microsoft.com/python/api/azure-mgmt-deviceupdate/?view=azure-python
+        url:  /python/api/azure-mgmt-deviceupdate/
     - linkListType: reference
       links:
+      - text: Data Plane - .NET
+        url: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
       - text: Data Plane - JavaScript
-        url: https://docs.microsoft.com/javascript/api/@azure/iot-device-update/?view=azure-node-preview
+        url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
       - text: Data Plane - Java
-        url: https://docs.microsoft.com/java/api/com.azure.iot.deviceupdate?view=azure-java-preview
+        url: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
       - text: Data Plane - Python
-        url: https://docs.microsoft.com/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview
+        url: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true

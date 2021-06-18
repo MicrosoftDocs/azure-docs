@@ -24,7 +24,9 @@
 - name: How-to guides
   items:
   - name: Manage Azure portal settings and preferences
-    href: set-preferences.md
+    href: set-preferences.md  
+  - name: Manage Azure portal settings (older version)
+    href: original-preferences.md
   - name: Add, remove, and sort favorites
     href: azure-portal-add-remove-sort-favorites.md
   - name: View and filter resource information
@@ -80,7 +82,7 @@
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
   - name: Azure CLI
-    href: /cli/azure/ext/portal/portal
+    href: /cli/azure/portal
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

@@ -38,7 +38,10 @@ Fill in the following fields:
 Fill in the following fields:
 
 1. **Workspace name** - Pick any globally unique name. In this tutorial, we'll use **myworkspace**.
-1. **Region** - Pick any region.
+1. **Region** - Pick the region where you have placed your client applications/services (for example, Azure VM, Power BI, Azure Analysis Service) and storages that contain data (for example Azure Data Lake storage, Azure Cosmos DB analytical storage).
+
+> [!NOTE]
+> A workspace that is not colocated with the client applications or storage can be the root cause of many performance issues. If you data or the clients are placed in multiple regions, you can create separate workspaces in different regions colocated with your data and clients.
 
 Under **Select Data Lake Storage Gen 2**:
 
@@ -61,14 +64,22 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
 ## Place sample data into the primary storage account
-We are going to use a small 100 K row sample dataset of NYX Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
+We are going to use a small 100K row sample dataset of NYX Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
 
 * Download this file to your computer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 * In Synapse Studio, navigate to the Data Hub. 
 * Select **Linked**.
-* Under the category **Azure Data Lake Storae Gen2** you'll see an item with a name like **myworkspace ( Primary - contosolake )**.
+* Under the category **Azure Data Lake Storage Gen2** you'll see an item with a name like **myworkspace ( Primary - contosolake )**.
 * Select the container named **users (Primary)**.
 * Select **Upload** and select the `NYCTripSmall.parquet` file you downloaded.
+
+One the parquet file is uploaded it is available through two equivalent URIs:
+* `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
+* `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
+
+In the examples that follow in this tutorial, make sure to replace **contosolake** in the UI with the name of the primary storage account that you selected for your workspace.
+
+
 
 ## Next steps
 

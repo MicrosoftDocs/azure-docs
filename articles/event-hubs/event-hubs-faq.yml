@@ -19,7 +19,7 @@ sections:
       - question: |
           When do I create a new namespace vs. use an existing namespace?
         answer: |
-          Capacity allocations ([throughput units (TUs)](/event-hubs-faq.yml#throughput-units)) are billed at the namespace level. A namespace is also associated with a region.
+          Capacity allocations ([throughput units (TUs)](/azure/event-hubs/event-hubs-faq.yml#throughput-units) or [processing units (PUs)](./event-hubs-scalability.md#processing-units)) are billed at the namespace level. A namespace is also associated with a region.
           
           You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
           
@@ -60,7 +60,7 @@ sections:
       - question: |
           How do I monitor my Event Hubs?
         answer: |
-          Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+          Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](monitor-event-hubs.md).
           
       - question: |
           Where does Azure Event Hubs store data?
@@ -110,7 +110,7 @@ sections:
   - name: Throughput units
     questions:
       - question: |
-          What are Event Hubs throughput units?
+          What are Event Hubs throughput units? (Applied to **standard** tier only)
         answer: |
           Throughput in Event Hubs defines the amount of data in mega bytes or the number (in thousands) of 1-KB events that ingress and egress through Event Hubs. This throughput is measured in throughput units (TUs). Purchase TUs before you can start using the Event Hubs service. You can explicitly select Event Hubs TUs either by using portal or Event Hubs Resource Manager templates. 
           

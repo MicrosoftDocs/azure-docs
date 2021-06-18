@@ -5,8 +5,8 @@ description: 'Learn how to deploy your Azure Machine Learning models as a web se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy
+ms.topic: how-to
+ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
@@ -38,7 +38,7 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -179,11 +179,11 @@ az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.jso
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference.
+For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) reference.
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-For information on using VS Code, see [deploy to AKS via the VS Code extension](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+For information on using VS Code, see [deploy to AKS via the VS Code extension](how-to-manage-resources-vscode.md).
 
 > [!IMPORTANT]
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
@@ -367,7 +367,7 @@ print(token)
 >
 > Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you will not be able to fetch a token for your web service even, if your cluster is in a different region than your workspace. This effectively results in Token-based Authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch a token.
 >
-> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token) command.
+> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](/cli/azure/ml/service#az_ml_service_get_access_token) command.
 
 
 ### Vulnerability scanning

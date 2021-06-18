@@ -3,11 +3,13 @@ title: Create Azure Service Bus namespace and queue using Azure template
 description: 'Quickstart: Create a Service Bus namespace and a queue using Azure Resource Manager template'
 documentationcenter: .net
 author: spelluru
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
 ms.author: spelluru
+ms.date: 06/08/2021
+ms.topic: quickstart
+ms.tgt_pltfrm: dotnet
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create a Service Bus namespace and a queue using an ARM template
@@ -18,7 +20,7 @@ This article shows how to use an Azure Resource Manager template (ARM template) 
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicebus%2Fservicebus-create-queue%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,9 +28,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/servicebus-create-queue/).
 
-:::code language="json" source="~/quickstart-templates/201-servicebus-create-queue/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json":::
 
 The resources defined in the template include:
 
@@ -53,7 +55,7 @@ With this template, you deploy a Service Bus namespace with a queue.
 
 To run the deployment automatically, click the following button: Create a new resource group for the deployment so that you can easily cleanup later.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicebus%2Fservicebus-create-queue%2Fazuredeploy.json)
 
 ## Validate the deployment
 
@@ -84,9 +86,9 @@ Learn how to manage these resources by viewing these articles:
 * [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
-[Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
-[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md
+[Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json/
+[Azure Quickstart Templates]: https://azure.microsoft.com/resources/templates/?term=service+bus
 [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md

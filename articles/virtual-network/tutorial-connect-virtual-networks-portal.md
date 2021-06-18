@@ -101,7 +101,7 @@ Create a VM in each virtual network so that you can communicate between them in 
     |Name|myVm1|
     |Location| Select **East US**.|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
    
 4. Select a VM size for the **Size** option.
 5. Select the following values for under **Networking**:
@@ -125,6 +125,8 @@ Complete steps 1-6 again, with the following changes:
 |Virtual network | myVirtualNetwork2|
 
 The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Communicate between VMs
 

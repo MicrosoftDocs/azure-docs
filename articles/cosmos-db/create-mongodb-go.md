@@ -17,14 +17,13 @@ ms.date: 04/24/2020
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. In this quickstart, you create and manage an Azure Cosmos DB account by using the Azure Cloud Shell, clone an existing sample application from GitHub and configure it to work with Azure Cosmos DB. 
 
-The sample application is a command-line based `todo` management tool written in Go. Azure Cosmos DB's API for MongoDB is [compatible with the MongoDB wire protocol](./mongodb-introduction.md#wire-protocol-compatibility), making it possible for any MongoDB client driver to connect to it. This application uses the [Go driver for MongoDB](https://github.com/mongodb/mongo-go-driver) in a way that is transparent to the application that the data is stored in an Azure Cosmos DB database.
+The sample application is a command-line based `todo` management tool written in Go. Azure Cosmos DB's API for MongoDB is [compatible with the MongoDB wire protocol](./mongodb-introduction.md), making it possible for any MongoDB client driver to connect to it. This application uses the [Go driver for MongoDB](https://github.com/mongodb/mongo-go-driver) in a way that is transparent to the application that the data is stored in an Azure Cosmos DB database.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with the connection string `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
@@ -234,7 +233,7 @@ To confirm that the application was built properly.
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]. 
 
-If you are using an installed Azure CLI, sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
+If you are using an installed Azure CLI, sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -248,7 +247,7 @@ If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI](/cli/az
 
 ### Create a resource group
 
-Create a [resource group](../azure-resource-manager/management/overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/management/overview.md) with the [az group create](/cli/azure/group#az_group_create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
@@ -260,7 +259,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ### Create an Azure Cosmos DB account
 
-Create a Cosmos account with the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command.
+Create a Cosmos account with the [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command.
 
 In the following command, please substitute your own unique Cosmos account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.com/`), so the name needs to be unique across all Cosmos accounts in Azure. 
 
@@ -309,7 +308,7 @@ DB/databaseAccounts/<cosmosdb-name>",
 
 ### Retrieve the database key
 
-In order to connect to a Cosmos database, you need the database key. Use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command to retrieve the primary key.
+In order to connect to a Cosmos database, you need the database key. Use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) command to retrieve the primary key.
 
 ```azurecli-interactive
 az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
@@ -444,7 +443,7 @@ The `todo` you just deleted should not be present
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

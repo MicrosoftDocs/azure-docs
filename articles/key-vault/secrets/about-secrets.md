@@ -3,7 +3,6 @@ title: About Azure Key Vault secrets - Azure Key Vault
 description: Overview of Azure Key Vault secrets.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -89,7 +88,7 @@ Key Vault can manage [Azure storage account](../../storage/common/storage-accoun
 
 For more information, see:
 - [Storage account access keys](../../storage/common/storage-account-keys-manage.md)
-- [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md))
+- [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md)
 
 
 ## Storage account access control
@@ -129,5 +128,5 @@ How-to guides to control access in Key Vault:
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
 - [About keys](../keys/about-keys.md)
 - [About certificates](../certificates/about-certificates.md)
-- [Secure access to a key vault](../general/secure-your-key-vault.md)
+- [Secure access to a key vault](../general/security-features.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)

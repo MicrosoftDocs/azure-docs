@@ -46,7 +46,7 @@ This feature doesn't work with AADJ VM extension-joined machines using Azure AD 
 
 ### <a name="browsers"></a>Which browsers are supported?
 
-Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
+The browser must support HTML 5. Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
 
 ### <a name="data"></a>Where does Azure Bastion store customer data?
 
@@ -77,6 +77,10 @@ Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Su
 No. UDR is not supported on an Azure Bastion subnet.
 
 For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+
+### <a name="subnet"></a> Can I deploy multiple Azure resources in my Azure Bastion subnet?
+
+No. The Azure Bastion subnet (*AzureBastionSubnet*) is reserved only for the deployment of your Azure Bastion resource.
 
 ### <a name="session"></a>Why do I get "Your session has expired" error message before the Bastion session starts?
 
