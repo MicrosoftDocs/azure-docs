@@ -1312,7 +1312,7 @@ When strong typing is used (**Safe Typing** isn't enabled), the schema maps the 
 <xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
 ```
 
-When you send messages using strong typing, the DATS and TIMS response complies to the matching XML type format:
+When you send messages using strong typing, the DATS and TIMS response complies with the matching XML type format:
 
 ```xml
 <DATE>9999-12-31</DATE>
@@ -1433,7 +1433,7 @@ Here are the currently known issues and limitations for the managed (non-ISE) SA
 
   * For send scenarios, data gateway clusters in failover mode are supported. 
 
-  * Data gateway clusters in load balancing mode aren't supported by stateful [SAP actions](#actions). These actions include **\[BAPI - RFC] Create stateful session**, **\[BAPI] commit transaction**, **\[BAPI] Rollback transaction**, **\[BAPI - RFC] Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
+  * Data gateway clusters in load-balancing mode aren't supported by stateful [SAP actions](#actions). These actions include **\[BAPI - RFC] Create stateful session**, **\[BAPI] commit transaction**, **\[BAPI] Rollback transaction**, **\[BAPI - RFC] Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
 
   * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
