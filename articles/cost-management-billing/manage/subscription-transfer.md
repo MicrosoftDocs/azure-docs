@@ -57,7 +57,7 @@ The following table describes subscription transfer support between the differen
 
 Currently transfer isn't supported for [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). To transfer other subscriptions, like support plans, [contact Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Dev/Test subcriptions aren't shown in the following table. Transfers for Dev/Test subscriptions are handled in the same way as other subcription types. For example, an EA Dev/Test subscription transfer is handled in the was an EA subscription transfer.
+Dev/Test subscriptions aren't shown in the following table. Transfers for Dev/Test subscriptions are handled in the same way as other subscription types. For example, an EA Dev/Test subscription transfer is handled in the way an EA subscription transfer.
 
 
 | **Source Subscription Type** | **Destination Subscription Type** | **Supported** | **transfer Type** | **Considerations** |
@@ -145,7 +145,7 @@ Even if the [Azure role assignments](../../role-based-access-control/role-assign
 * Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-account-create.md).
 * Remote Access credentials for services like Azure Virtual Machines.
 
-If the recipient needs to restrict access to resources, they should consider updating any secrets associated with the service. Most resources can be updated. Sign in to the [Azure portal](https://portal.azure.com) and then on the Hub menu, select **All resources**. Next, Select the resource. Then in the resource page, select **Settings**. There you can view and update existing secrets.
+When the recipient needs to restrict access to resources, they should consider updating any secrets associated with the service. Most resources can be updated. Sign in to the [Azure portal](https://portal.azure.com) and then on the Hub menu, select **All resources**. Next, Select the resource. Then in the resource page, select **Settings**. There you can view and update existing secrets.
 
 ### You pay for usage when you receive ownership
 
