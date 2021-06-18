@@ -4,7 +4,7 @@ description: This article  provides information on Web Application Firewall DRS 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 06/09/2021
+ms.date: 06/18/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -36,6 +36,10 @@ Sometimes you may need to omit certain request attributes from a WAF evaluation.
 The Default action is to BLOCK. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
 
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
+
+### Microsoft Threat Intelligence Collection rules
+
+The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 ### Anomaly Scoring mode
 
