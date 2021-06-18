@@ -48,23 +48,23 @@ landingContent:
         - text: General
           url: ./faq.yml
         - text: Customer communication
-          url: ./faq.yml#customer-communication
+          url: /azure/azure-vmware/faq#customer-communication
         - text: Configuration and setup 
-          url: ./faq.yml#configuration-and-setup
+          url: /azure/azure-vmware/faq#configuration-and-setup
         - text: VMware software 
-          url: ./faq.yml#vmware-software
+          url: /azure/azure-vmware/faq#vmware-software
         - text: Compute
-          url: ./faq.yml#compute
+          url: /azure/azure-vmware/faq#compute
         - text: Networking and interconnectivity
-          url: ./faq.yml#networking-and-interconnectivity
+          url: /azure/azure-vmware/faq#networking-and-interconnectivity
         - text: Storage
-          url: ./faq.yml#storage
+          url: /azure/azure-vmware/faq#storage
         - text: Hosts, clusters, and private clouds
-          url: ./faq.yml#hosts,-clusters,-and-private-clouds
+          url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
         - text: Identity management
-          url: ./faq.yml#identity-management
+          url: /azure/azure-vmware/faq#identity-management
         - text: Billing and support
-          url: ./faq.yml#billing-and-support
+          url: /azure/azure-vmware/faq#billing-and-support
 
 # card 3
   - title: Get started
