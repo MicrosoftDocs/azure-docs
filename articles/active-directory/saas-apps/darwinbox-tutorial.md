@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 06/18/2021
 ms.author: jeedes
 ---
 
@@ -147,7 +147,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 1. Enter your Azure AD password into the Darwinbox application and click **Sign in**.
 
-    ![Screenshot that shows the "Enter password" screen with the "Next" button highlighted.](media/darwinbox-tutorial/password.png)
+    ![Screenshot that shows the "Sign into options" screen with the "Next" button highlighted.](media/darwinbox-tutorial/account.png)
 
 1. Finally after successful sign in, the application homepage will be displayed.
 
