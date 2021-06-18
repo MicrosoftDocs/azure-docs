@@ -37,7 +37,7 @@ Both, the Microsoft Speech SDK and the REST API, can be used to obtain transcrip
 
 ## Tool Customization
 
-The tool is built to offer convenience to customers that want to get results quickly. You can however customize the tool to your prefered SKUs and set up. The SKUs can be edited from the [Azure Portal](https://portal.azure.com) and the code itself is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
+The tool is built to show customers results quickly. You can customize the tool to your preferred SKUs and setup. The SKUs can be edited from the [Azure Portal](https://portal.azure.com) and [the code itself is available on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
 
 > [!NOTE]
 > We suggest creating the resources in the same dedicated resource group to better control costs.
