@@ -135,7 +135,7 @@ At the top, there will be a summary including basic information, actions & traci
 
 Analyzed root cause is an automatic analyzed result. Metrics Advisor analyzes on all anomalies that captured on time series within one metric with different dimension values at the same timestamp. Then performs correlation, clustering to group related anomalies together and generates a root cause advice.
 
-:::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Incident diagnostics" lightbox="../media/diagnostics/incident-summary.png":::
+:::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Incident diagnostic summary" lightbox="../media/diagnostics/incident-summary.png":::
 
 Based on these, you can already get a straightforward view of current abnormal status and the impact of the incident and the most potential root cause. So that immediate action could be taken to resolve incident as soon as possible. 
 
@@ -145,7 +145,7 @@ After getting basic info and automatic analysis insight, you can get more detail
 
 For metrics with multiple dimensions, Metrics Advisor categorizes the time series into a hierarchy, which is named as "Diagnostic tree". For example, a "revenue" metric is monitored by two dimensions: "region" and "category". Despite concrete dimension values, there needs to have an **aggregated** dimension value, like **"SUM"**. Then time series of "region" = **"SUM"** and "category" = **"SUM"** will be categorized as the root node within the tree. Whenever there's an anomaly captured at **"SUM"** dimension, then it could be drilled down and analyzed to locate which specific dimension value has contributed the most to the parent node anomaly. Click on each node to expand detailed information.
 
-:::image type="content" source="../media/diagnostics/cross-dimension-diagnostic.png" alt-text="Incident diagnostics" lightbox="../media/diagnostics/cross-dimension-diagnostic.png":::
+:::image type="content" source="../media/diagnostics/cross-dimension-diagnostic.png" alt-text="Incident diagnostics cross dimension view" lightbox="../media/diagnostics/cross-dimension-diagnostic.png":::
 
 ### View cross-metrics diagnostic insights using "Metrics graph"
 
@@ -153,7 +153,7 @@ Sometimes, it's hard to analyze an issue by checking the abnormal status of a si
 By leveraging above cross-dimension diagnostic result, the root cause is limited into specific dimension value. Then use "Metrics graph" and filter by the analyzed root cause dimension to check anomaly status on other metrics.
 After clicking the link, you will be pivoted to the incident analysis page which analyzes on corresponding anomaly, with a bunch of diagnostics insights. There are three sections in the incident detail page which correspond to three major steps to diagnosing an incident. 
 
-:::image type="content" source="../media/diagnostics/cross-metrics-analysis.png" alt-text="Incident diagnostics" lightbox="../media/diagnostics/cross-metrics-analysis.png":::
+:::image type="content" source="../media/diagnostics/cross-metrics-analysis.png" alt-text="Incident diagnostics cross metric analysis" lightbox="../media/diagnostics/cross-metrics-analysis.png":::
 
 But you can also pivot across more diagnostics insights leveraging additional features to drill down anomalies by dimension, view similar anomalies and do comparison across metrics. Please find more at [How to: diagnose an incident](../how-tos/diagnose-an-incident.md). 
 
