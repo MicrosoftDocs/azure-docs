@@ -109,7 +109,7 @@ The sample projects use the API to programmatically:
 - Retrieve API Management products and policies to enable synchronized configuration of similar concepts in payment providers, such as Stripe.
 - Poll API Management regularly to retrieve API usage metrics for each subscription and drive the billing process.
 
-For more information, see [the REST API Azure API Management](./api/apimanagement.md) overview.
+For more information, see [the REST API Azure API Management](./apimanagement.md) overview.
 
 ## DevOps
 
