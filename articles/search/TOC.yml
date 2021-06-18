@@ -42,37 +42,37 @@
     href: search-get-started-arm.md
 - name: Tutorials
   items:
-  - name: Add Search to a website
+  - name: Add search to web apps
     items: 
     - name: C#
       items: 
-      - name: Website overview
+      - name: Overview
         href: tutorial-csharp-overview.md
       - name: Create a search index
         href: tutorial-csharp-create-load-index.md
       - name: Deploy static web app
         href: tutorial-csharp-deploy-static-web-app.md
-      - name: Integration cheat sheet
+      - name: Explore the code
         href: tutorial-csharp-search-query-integration.md          
     - name: JavaScript 
       items:         
-      - name: Website overview
+      - name: Overview
         href: tutorial-javascript-overview.md
       - name: Create a search index
         href: tutorial-javascript-create-load-index.md
       - name: Deploy static web app
         href: tutorial-javascript-deploy-static-web-app.md
-      - name: Integration cheat sheet
+      - name: Explore the code
         href: tutorial-javascript-search-query-integration.md
     - name: Python 
       items:         
-      - name: Website overview
+      - name: Overview
         href: tutorial-python-overview.md
       - name: Create a search index
         href: tutorial-python-create-load-index.md
       - name: Deploy static web app
         href: tutorial-python-deploy-static-web-app.md
-      - name: Integration cheat sheet
+      - name: Explore the code
         href: tutorial-python-search-query-integration.md                
   - name: Create a C# app
     items:
@@ -149,16 +149,16 @@
     items:
     - name: Security overview
       href: search-security-overview.md
+    - name: Secure access to external data
+      href: search-indexer-securing-resources.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-    - name: Accessing protected content
-      href: search-indexer-securing-resources.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
-  - name: Management
+  - name: Service management
     items:
     - name: Choose a tier
       href: search-sku-tier.md
@@ -184,6 +184,38 @@
       href: search-howto-move-across-regions.md
     - name: Troubleshoot issues with creating Shared Private Link Resources
       href: troubleshoot-shared-private-link-resources.md
+  - name: Security
+    items:
+    - name: Data encryption
+      items:
+      - name: Customer-managed keys
+        href: search-security-manage-encryption-keys.md
+      - name: Retrieve keys
+        href: search-security-get-encryption-keys.md
+    - name: Inbound security
+      items:
+      - name: Key-based authentication
+        href: search-security-api-keys.md
+      - name: Role-based authorization
+        href: search-security-rbac.md
+      - name: Configure an IP firewall
+        href: service-configure-firewall.md
+      - name: Create a private endpoint
+        href: service-create-private-endpoint.md
+    - name: Outbound security (indexers)  
+      items:
+      - name: Data access over an IP range
+        href: search-indexer-howto-access-ip-restricted.md
+      - name: Data access using a system identity
+        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Data access through private endpoints
+        href: search-indexer-howto-access-private.md
+    - name: Document-level security
+      items:
+      - name: Security filters
+        href: search-security-trimming-for-azure-search.md
+      - name: Filter on user identities
+        href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:
     - name: API versions
@@ -441,39 +473,7 @@
     - name: Monitor indexer-based indexing
       href: search-howto-monitor-indexers.md
     - name: Monitor client-side interactions
-      href: search-traffic-analytics.md
-  - name: Security
-    items:
-    - name: Assign roles
-      href: search-security-rbac.md
-    - name: Data encryption
-      items:
-      - name: Customer-managed keys
-        href: search-security-manage-encryption-keys.md
-      - name: Get key information
-        href: search-security-get-encryption-keys.md
-    - name: Inbound security
-      items:
-      - name: API key authentication
-        href: search-security-api-keys.md
-      - name: Configure an IP firewall
-        href: service-configure-firewall.md
-      - name: Create a private endpoint
-        href: service-create-private-endpoint.md
-    - name: Outbound security (indexers)  
-      items:
-      - name: Access over an IP range
-        href: search-indexer-howto-access-ip-restricted.md
-      - name: Access through trusted service exception
-        href: search-indexer-howto-access-trusted-service-exception.md
-      - name: Access through private endpoints
-        href: search-indexer-howto-access-private.md
-    - name: Document-level security
-      items:
-      - name: Security filters
-        href: search-security-trimming-for-azure-search.md
-      - name: Filter on user identities
-        href: search-security-trimming-for-azure-search-with-aad.md
+      href: search-traffic-analytics.md  
 - name: Reference
   items:
   - name: Azure CLI
@@ -554,8 +554,10 @@
         href: cognitive-search-skill-custom-entity-lookup.md 
       - name: Document Extraction
         href: cognitive-search-skill-document-extraction.md
-      - name: Entity Recognition
-        href: cognitive-search-skill-entity-recognition.md
+      - name: Entity Linking (V3)
+        href: cognitive-search-skill-entity-linking-v3.md
+      - name: Entity Recognition (V3)
+        href: cognitive-search-skill-entity-recognition-v3.md
       - name: Image Analysis
         href: cognitive-search-skill-image-analysis.md
       - name: Key Phrase Extraction 
@@ -566,8 +568,8 @@
         href: cognitive-search-skill-ocr.md
       - name: PII Detection
         href: cognitive-search-skill-pii-detection.md  
-      - name: Sentiment
-        href: cognitive-search-skill-sentiment.md
+      - name: Sentiment (V3)
+        href: cognitive-search-skill-sentiment-v3.md
       - name: Shaper
         href: cognitive-search-skill-shaper.md
       - name: Text Merger
@@ -587,6 +589,10 @@
       items:
       - name: Named Entity Recognition
         href: cognitive-search-skill-named-entity-recognition.md
+      - name: Entity Recognition
+        href: cognitive-search-skill-entity-recognition.md
+      - name: Sentiment
+        href: cognitive-search-skill-sentiment.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

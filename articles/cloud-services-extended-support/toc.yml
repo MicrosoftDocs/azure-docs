@@ -118,7 +118,7 @@
   - name: SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
   - name: CLI
-    href: https://docs.microsoft.com/cli/azure/cloud-service?view=azure-cli-latest
+    href: /cli/azure/cloud-service?view=azure-cli-latest
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -133,3 +133,5 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=
+- name: Support and troubleshooting
+  href: support-help.md

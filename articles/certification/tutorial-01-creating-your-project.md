@@ -23,11 +23,11 @@ In this tutorial, you will learn how to:
 ## Prerequisites
 
 
-- Valid work/school [Azure Active Directory account](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+- Valid work/school [Azure Active Directory account](../active-directory/fundamentals/active-directory-whatis.md).
 - Verified Microsoft Partner Network (MPN) account. If you don't have an MPN account, [join the partner network](https://partner.microsoft.com/) before you begin. 
 
 > [!NOTE] 
-> If you're having problems setting up or validating your MPN account, see the [Partner Center Support](https://docs.microsoft.com/partner-center) documentation.
+> If you're having problems setting up or validating your MPN account, see the [Partner Center Support](/partner-center) documentation.
 
 
 ## Signing into the Azure Certified Device portal

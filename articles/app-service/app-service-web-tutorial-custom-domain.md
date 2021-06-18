@@ -266,7 +266,7 @@ Browse to the DNS names that you configured earlier.
 
 If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, the two most common causes are:
 
-* The custom domain configured is missing an A record or a CNAME record. You may have deleted the DNS record after you've enabled the mapping in your app.
+* The custom domain configured is missing an A record or a CNAME record. You may have deleted the DNS record after you've enabled the mapping in your app. Check if the DNS records are properly configured using an <a href="https://www.nslookup.io/">online DNS lookup</a> tool.
 * The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
 
@@ -300,7 +300,7 @@ You can automate management of custom domains with scripts by using the [Azure C
 
 The following command adds a configured custom DNS name to an App Service app.
 
-```bash 
+```azurecli 
 az webapp config hostname add \
     --webapp-name <app-name> \
     --resource-group <resource_group_name> \
