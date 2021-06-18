@@ -1,5 +1,5 @@
 ---
-title: Further analysis an incident and evaluate impact
+title: Further analyze an incident and evaluate impact
 titleSuffix: Azure Cognitive Services
 description: Learn how to leverage analysis tools to further analyze an incident. 
 services: cognitive-services
@@ -29,8 +29,8 @@ The **Dimensions** setting is a list of dimensions for an incident, you can sele
 There are two types of drill down options: **Drill down** and **Horizontal comparison**.
 
 > [!Note]
-> 1. For drill down, you can explore the data from different dimension values, except the currenly selected dimensions. 
-> 2. For horizontal comparison, you can explore the data from different dimension values, except the all-up dimensions.
+> - For drill down, you can explore the data from different dimension values, except the currenly selected dimensions. 
+> - For horizontal comparison, you can explore the data from different dimension values, except the all-up dimensions.
 
 :::image type="content" source="../media/diagnostics/drill-down-dimension.png" lightbox="../media/diagnostics/drill-down-dimension.png" alt-text="Drill down dimension":::
 
@@ -70,8 +70,8 @@ After selecting a time-shifted comparison, you can select whether you want to co
 
 When viewing an incident, you can use the **Similar time-series-clustering** tab to see the various series associated with it. Series in one group are summarized together. From the above picture, we can know that there is at least two series groups. This feature is only available if the following requirements are met:
 
-1. Metrics must have one or more dimensions or dimension values.
-2. The series within one metric must have a similar trend.
+- Metrics must have one or more dimensions or dimension values.
+- The series within one metric must have a similar trend.
 
 Available dimensions are listed on the top the tab, and you can make a selection to specify the series.
 

@@ -157,7 +157,8 @@ Signals that are pushed through the webhook only contain limited information lik
 
 You need to parse the response of the API for easier formatting of email content. 
  
-Note: This tutorial only shares a quick example, the final email format needs to be further designed. 
+> [!NOTE] 
+> This tutorial only shares a quick example, the final email format needs to be further designed. 
 
 - Select 'Body' from 'Dynamic content' list in 'Content'
 - select **Use sample payload to generate schema**. Copy the following sample JSON into the textbox and select **Done**.
@@ -336,9 +337,9 @@ Select the '+' button and choose the hook that you created, fill in other fields
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to create.
 > [!div class="nextstepaction"]
-> [Next steps button](write-a-valid-query.md)
+> [Write a valid query](write-a-valid-query.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

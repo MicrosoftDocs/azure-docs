@@ -115,21 +115,21 @@ If customer would like to monitor **'Measure1'** at **hourly granularity** and c
 
 - SQL sample: 
 
-```sql
-    SELECT dateadd(hour, datediff(hour, 0, TS),0) as NewTS
-      ,Market
-      ,Category
-      ,sum(Measure1) as M1
-      FROM [dbo].[SampleTable] where TS >= @IntervalStart and TS < @IntervalEnd
-	group by Market, Category, dateadd(hour, datediff(hour, 0, TS),0)
-```
+    ```sql
+        SELECT dateadd(hour, datediff(hour, 0, TS),0) as NewTS
+        ,Market
+        ,Category
+        ,sum(Measure1) as M1
+        FROM [dbo].[SampleTable] where TS >= @IntervalStart and TS < @IntervalEnd
+        group by Market, Category, dateadd(hour, datediff(hour, 0, TS),0)
+    ```
 - Azure Data Explorer sample:
 
-```kusto
-    SampleTable
-    | where TS >= @IntervalStart and TS < @IntervalEnd
-    | summarize M1 = sum(Measure1) by Market, Category, NewTS = startofhour(TS)
-```    
+    ```kusto
+        SampleTable
+        | where TS >= @IntervalStart and TS < @IntervalEnd
+        | summarize M1 = sum(Measure1) by Market, Category, NewTS = startofhour(TS)
+    ```    
 
 > [!Note]
 > In the above case, the customer would like to monitor metrics at an hourly granularity, but the raw timestamp(TS) is not aligned. Within aggregation statement, **a process on the timestamp is required** to align at the hour and generate a new timestamp column named 'NewTS'. 
@@ -162,9 +162,9 @@ customer can do.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to create.
 > [!div class="nextstepaction"]
-> [Next steps button](enable-anomaly-notification.md)
+> [Enable anomaly notifications](enable-anomaly-notification.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

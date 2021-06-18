@@ -123,7 +123,7 @@ The following are filter settings for one detection configuration.
 * **Anomalies in favorite series**: Only the series marked as favorite will be included in the alert.        |
 * **Anomalies in top N of all series**: This filter is for the case that you only care about the series whose value is in the top N. Metrics Advisor will look back over previous timestamps, and check if values of the series at these timestamps are in top N. If the "in top n" count is larger than the specified number, the anomaly will be included in an alert.        |
 
-**Filter anomaly options are an extra filter with the following options:
+**Filter anomaly options are an extra filter with the following options**:
 
 - **Severity**: The anomaly will only be included when the anomaly severity is within the specified range.
 - **Snooze**: Stop alerts temporarily for anomalies in the next N points (period), when triggered in an alert.
