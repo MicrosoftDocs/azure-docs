@@ -1,8 +1,8 @@
 ---
-title: Deploy and configure VMware HCX
-description: Learn how to deploy and configure a VMware HCX solution for your Azure VMware Solution private cloud.
+title: Install VMware HCX in Azure VMware Solution
+description: Learn how to install or uninstall VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 06/28/2021
 ---
 
 # Deploy and configure VMware HCX
@@ -21,12 +21,13 @@ First, review [Before you begin](#before-you-begin), [Software version requireme
 Then, we'll walk through all the necessary procedures to:
 
 > [!div class="checklist"]
-> * Download the VMware HCX Connector OVA.
-> * Deploy the on-premises VMware HCX OVA (VMware HCX Connector).
-> * Activate the VMware HCX Connector.
-> * Pair your on-premises VMware HCX Connector with your Azure VMware Solution HCX Cloud Manager.
-> * Configure the interconnect (network profile, compute profile, and service mesh).
-> * Complete setup by checking the appliance status and validating that migration is possible.
+> * Install VMware HCX
+> * Download the VMware HCX Connector OVA
+> * Deploy the on-premises VMware HCX OVA (VMware HCX Connector)
+> * Activate the VMware HCX Connector
+> * Pair your on-premises VMware HCX Connector with your Azure VMware Solution HCX Cloud Manager
+> * Configure the interconnect (network profile, compute profile, and service mesh)
+> * Check the appliance status and validate that migration is possible
 
 After you're finished, follow the recommended next steps at the end of this article.
 
