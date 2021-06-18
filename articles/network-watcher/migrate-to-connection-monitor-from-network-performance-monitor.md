@@ -46,7 +46,7 @@ The migration helps produce the following results:
 
 To migrate the tests from Network Performance Monitor to Connection Monitor, do the following:
 
-1. In Network Watcher, select **Connection Monitor**, and then select the **Migrate tests from NPM** tab. 
+1. In Network Watcher, select **Connection Monitor**, and then select the **Import tests from NPM** tab. 
 
 	:::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="Migrate tests from Network Performance Monitor to Connection Monitor" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
 	
