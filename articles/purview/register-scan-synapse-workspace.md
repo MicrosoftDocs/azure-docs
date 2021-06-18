@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/11/2021
+ms.date: 06/18/2021
 ---
 
 # Register and scan Azure Synapse Analytics workspaces
@@ -169,7 +169,6 @@ You can set up authentication for an Azure Synapse source in either of two ways:
 1. Go to the **Data** section, and then look for one of your serverless SQL databases.
 1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
 1. Add the **Service Principal ID** on the serverless SQL databases. You do so by running the following command in your SQL script:
-2. 
     ```sql
     CREATE LOGIN [ServicePrincipalID] FROM EXTERNAL PROVIDER;
     ```
