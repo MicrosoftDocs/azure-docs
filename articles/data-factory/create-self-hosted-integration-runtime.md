@@ -91,7 +91,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
     ```
 > [!NOTE]
-> Run PowerShell command in Azure government, please see [Connect to Azure Government with PowerShell](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps).
+> Run PowerShell command in Azure government, please see [Connect to Azure Government with PowerShell](/azure/azure-government/documentation-government-get-started-connect-with-ps).
 ### Create a self-hosted IR via Azure Data Factory UI
 
 Use the following steps to create a self-hosted IR using Azure Data Factory UI.
@@ -401,7 +401,7 @@ One required domain and port that need to be put in the allowlist of your firewa
 4. You can add these FQDNs in the allowlist of firewall rules.
 
 > [!NOTE]
-> For the details related to Azure Relay connections protocol, see [Azure Relay Hybrid Connections protocol](https://docs.microsoft.com/azure/azure-relay/relay-hybrid-connections-protocol).
+> For the details related to Azure Relay connections protocol, see [Azure Relay Hybrid Connections protocol](../azure-relay/relay-hybrid-connections-protocol.md).
 
 ### Copy data from a source to a sink
 
