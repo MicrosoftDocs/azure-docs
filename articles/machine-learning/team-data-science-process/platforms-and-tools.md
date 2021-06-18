@@ -118,7 +118,7 @@ The TDSP team from Microsoft has published two end-to-end walkthroughs that show
 
 ### Install Git Credential Manager on Windows
 
-If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolaty**. To install Chocolaty and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
+If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolatey**. To install Chocolatey and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
