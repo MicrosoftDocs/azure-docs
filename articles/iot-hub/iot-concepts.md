@@ -12,8 +12,6 @@ ms.date: 06/16/2021
 
 # IoT Concepts
 
-*Tejas: I stole these 3 paragraphs from the beginning of the About IoT Hub article; I was kind of thinking we needed an introduction to Iot Hub. Feel free to remove it or change it.*
-
 IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communications in both directions between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT Hub. 
 
 Several messaging patterns are supported, including device-to-cloud telemetry, uploading files from devices, and request-reply methods to control your devices from the cloud. IoT Hub also supports monitoring to help you track creating devices, connecting devices, and device failures.
@@ -47,6 +45,10 @@ Every device that connects to an IoT Hub has a device ID that's used to track cl
 
 If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service:
 
+[use device provisioning service] link to that here --> 
+
+If you want to create your devices and validate them one by one, you can use one of the following methods:
+
 *  [Create and provision IoT Edge devices using X.509 certificates](../iot-edge/how-to-auto-provision-x509-certs.md)
 
 *  [Create and provision IoT Edge devices with a TPM](../iot-edge/how-to-auto-provision-simulated-device-linux.md)
@@ -75,13 +77,14 @@ What is telemetry? Telemetry is data that a device sends to an IoT Hub. IoT Devi
 
 ### Properties are state values or data that applications can access. 
 
-*Tejas add some stuff here*
-
 For example, the current firmware version of the device, or writable properties that can be updated, such a temperature, are properties.
 
 Properties can be read or set from the IoT Hub, and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. This can be a writable property that can be updated on the device or read from a temperature sensor attached to the device. 
 
-The way you can model properties in IoT Hub is through Device Twins or P&P.
+You can enable properties in IoT Hub using [Device Twins](iot-hub-devguide-device-twins.md) or [Plug and Play](../iot-pnp/overview-iot-plug-and-play).
+
+    
+ To learn more about the differences between device twins and Plug and Play, see [Plug and Play](../iot-pnp/concepts-digital-twin.md#device-twins-and-digital-twins).
 
 ### Commands can be used to execute methods directly on connected devices. An example of a command is rebooting the device.
 
