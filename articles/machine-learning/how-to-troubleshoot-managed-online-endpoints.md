@@ -193,8 +193,7 @@ When you access managed online endpoints with REST requests, the returned status
 
 ## Next steps
 
-Learn more about deployment:
-
-* [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
-* [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
+- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md)
 

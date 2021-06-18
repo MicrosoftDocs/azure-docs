@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 06/17/2021
 ms.author: cshoe
 ---
 
@@ -24,6 +24,8 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 
 > [!NOTE]
 > [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) that was previously used to configure routing is deprecated. Use _staticwebapp.config.json_ as described in this article to configure routing and other settings for your static web app.
+> 
+> This document is regarding Azure Static Web Apps, which is a stand alone product and seperate from $web container, which is a feature of Azure Storage.
 
 ## File location
 
@@ -252,7 +254,7 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
 }
 ```
 
-When one or more IP address blocks are specified, clients originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
+When one or more IP address blocks are specified, requests originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
 
 ## Example configuration file
 

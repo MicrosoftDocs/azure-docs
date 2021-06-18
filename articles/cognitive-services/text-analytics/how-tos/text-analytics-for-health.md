@@ -89,11 +89,9 @@ The latest prerelease of the Text Analytics client library enables you to call T
 
 ### Preparation
 
-Text Analytics for health produces a higher-quality result when you give it smaller amounts of text to work on. This is opposite to some of the other Text Analytics features such as key phrase extraction which performs better on larger blocks of text. To get the best results from these operations, consider restructuring the inputs accordingly.
-
 You must have JSON documents in this format: ID, text, and language. 
 
-Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the [data limits](../concepts/data-limits.md?tabs=version-3) article under Concepts. The collection is submitted in the body of the request.
+Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the [data limits](../concepts/data-limits.md?tabs=version-3) article under Concepts. The collection is submitted in the body of the request. If your text exceeds this limit, consider splitting the text into separate requests. For best results, split text between sentences.
 
 ### Structure the API request for the hosted asynchronous web API
 

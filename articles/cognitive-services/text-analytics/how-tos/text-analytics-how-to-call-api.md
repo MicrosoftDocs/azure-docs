@@ -355,7 +355,7 @@ If successful, the GET request to the `/analyze` endpoint will return an object 
 
 * [Text Analytics overview](../overview.md)
 * [Model versions](../concepts/model-versioning.md)
-* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
+* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.yml)</br>
 * [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)
