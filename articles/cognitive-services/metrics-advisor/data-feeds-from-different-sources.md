@@ -102,11 +102,11 @@ The following sections specify the parameters required for all authentication ty
 
 * **Connection String**: There are two authentication types for Azure Blob Storage(JSON), one is **Basic**, the other is **Managed Identity**.
 
-    * **Basic**: See [Configure Azure Storage connection strings](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) for information on retrieving this string. Also, you can visit the Azure portal for your Azure Blob Storage resource, and find connection string directly in the **Settings > Access keys** section.
+    * **Basic**: See [Configure Azure Storage connection strings](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) for information on retrieving this string. Also, you can visit the Azure portal for your Azure Blob Storage resource, and find connection string directly in the **Security + networking > Access keys** section.
     
     * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. 
     
-        You can create a managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader. For more details, refer to [Use managed identity to access Azure Storage](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access-1).
+        You can create a managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader. The `AccountKey` should be removed in connection string. For more details, refer to [Use managed identity to access Azure Storage](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access-1). 
     
         ![MI blob](media/managed-identity-blob.png)
     
@@ -233,7 +233,7 @@ The following sections specify the parameters required for all authentication ty
 
         The account name is the same as **Basic** authentication type.
     
-        **Step1:** Create and register an Azure AD application and then authorize it to access database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+        **Step1:** Create and register an Azure AD application, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
         **Step2:** Assign roles.
         1. In the Azure portal, go to the **Storage accounts** service.
@@ -316,7 +316,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     
 * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-     **Step 1:** Create and register an Azure AD application and then authorize it to access an database, see first part in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app).
+     **Step 1:** Create and register an Azure AD application, see first part in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app).
 
     **Step 2:** Assign roles.
     1. In the Azure portal, go to the **Storage accounts** service.
@@ -355,27 +355,32 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         ```
     
     * <span id='jump'>**Managed Identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), you can refer to following steps:
-    1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as `on` in **Settings > Identity > System assigned**.
+    1. **Enabling a system-assigned managed identity is a one-click experience.** In Azure portal for your Metrics Advisor workspace, set the status as `on` in **Settings > Identity > System assigned**.
     
         ![set status as on](media/datafeeds/set-identity-status.png)
 
-    1. Enable Azure AD authentication. In the Azure portal for your data source, click **Set admin** in **Settings > Active Directory admin**, select an **Azure AD user account** to be made an administrator of the server, and click **Select**.
+    1. **Enable Azure AD authentication.** In the Azure portal for your data source, click **Set admin** in **Settings > Active Directory admin**, select an **Azure AD user account** to be made an administrator of the server, and click **Select**.
     
         ![set admin](media/datafeeds/set-admin.png)
 
-    1. In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the User name field, enter the name of the Azure AD account that you set as the server administrator in step 2, for example, louis@microsoft.com
+    1. **Enable managed identity(MI) in Metrics Advisor.** There are 2 ways to choose: **edit query in a database management tool** or **edit query in Azure portal**. 
+    
+        **Management tool**: In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the User name field, enter the name of the Azure AD account that you set as the server administrator in step 2, for example, louis@microsoft.com
     
         ![set connection detail](media/datafeeds/connection-details.png)
+        
+        **Azure portal**: Select Query editor in your SQL database, sign in admin account.
+        ![edit query in Azure Portal](media/datafeeds/query-editor-MI.png)
 
-
-    1. The last step is to enable managed identity(MI) in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
+        Then in the query window, you should execute the following lines (same for management tool method):
     
         ```
         CREATE USER [MI Name] FROM EXTERNAL PROVIDER
         ALTER ROLE db_datareader ADD MEMBER [MI Name]
         ```
        
-         Note: The `MI Name` is the **Managed Identity Name** in Metrics Advisor (for service principal, it should be replaced with **Service Principal name**). Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+         Note: The `MI Name` is the **Managed Identity Name** in Metrics Advisor (for service principal, it should be replaced with **Service Principal name**). Also, you can learn more detail in [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+        
         
        Here's an example of connection string: 
    
@@ -397,7 +402,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 
     * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-        **Step 1:** Create and register an Azure AD application and then authorize it to access an database, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+        **Step 1:** Create and register an Azure AD application, see detail in [Create an AAD app registration](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
         **Step 2:** Follow the same steps with [managed identity in SQL Server](#jump), which is mentioned above. 
 
