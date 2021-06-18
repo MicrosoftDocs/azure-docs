@@ -60,7 +60,7 @@ Application Insights .NET SDK supports the credential classes provided by [Azure
 - DefaultAzureCredential is recommended for local development.
 - ClientSecretCredential is recommended for service principals. 
 
-Here is an example of manually creating and configuring a TelemetryConfiguration using .NET:
+Here is an example of manually creating and configuring a `TelemetryConfiguration` using .NET:
 
 ```csharp
 var config = new TelemetryConfiguration
