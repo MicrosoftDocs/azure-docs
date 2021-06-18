@@ -14,20 +14,22 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
 
-Azure Cognitive Search automatically encrypts indexed content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps of setting up customer-managed key encryption.
+Azure Cognitive Search automatically encrypts indexed content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. 
 
-Customer-managed key encryption is dependent on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage if you [enable logging](../key-vault/general/logging.md).  
+This article walks you through the steps of setting up customer-managed key encryption. Here are some points to keep in mind:
 
-Encryption with customer-managed keys is applied to individual indexes or synonym maps when those objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists.
++ Customer-managed key encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage if you [enable logging](../key-vault/general/logging.md).  
 
-Keys don't all need to be in the same key vault. A single search service can host multiple encrypted indexes or synonym maps, each encrypted with their own customer-managed encryption keys, stored in different key vaults. You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys.
++ Encryption with customer-managed keys is applied when objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists.
+
++ Keys can be in different key vaults. A single search service can host multiple encrypted indexes and other objects, each encrypted with their own customer-managed encryption keys, stored in different key vaults.
 
 >[!Important]
 > If you implement customer-managed keys, be sure to follow strict procedures during routine rotation of key vault keys and Active Directory application secrets and registration. Always update all encrypted content to use new secrets and keys before deleting the old ones. If you miss this step, your content cannot be decrypted.
 
-## Double encryption
+## Support for double encryption
 
-Double encryption is an extension of customer-managed keys (CMK). It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long-term storage that is written to a data disk, as well as short-term  storage written to temporary disks. There is no configuration required. When you apply CMK to objects, double encryption is invoked automatically.
+Double encryption is an extension of customer-managed key (CMK) encryption. CMK encryption applies to long-term storage that is written to a data disk. "Double-encryption" refers to encryption of short-term storage (of content written to temporary disks). There is no configuration required. When you apply CMK to objects, double encryption is invoked automatically.
 
 Although double encryption is available in all regions, support was rolled out in two phases. The first roll out was in August 2020 and included the five regions listed below. The second roll out in May 2021 extended double encryption to all remaining regions. If you are using CMK on an older service and want double encryption, you will need to create a new search service in your region of choice.
 
@@ -119,7 +121,7 @@ Skip this step if you already have a key in Azure Key Vault.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Create a new key vault key":::
 
-## 3 - Register an app in Active Directory
+## 3 - Register an app
 
 1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
 
@@ -141,7 +143,7 @@ Skip this step if you already have a key in Azure Key Vault.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Application secret":::
 
-## 4 - Grant key access permissions
+## 4 - Grant permissions
 
 In this step, you will create an access policy in Key Vault. This policy gives the application you registered with Active Directory permission to use your customer-managed key.
 
@@ -191,12 +193,6 @@ This example uses the REST API, with values for Azure Key Vault and Azure Active
 }
 ```
 
-> [!Note]
-> None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key Vault key page in Azure portal.
-
-## Example: Index encryption
-
-Create an encrypted index using the [Create Index Azure Cognitive Search REST API](/rest/api/searchservice/create-index). Use the `encryptionKey` property to specify which encryption key to use.
 > [!Note]
 > None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key Vault key page in Azure portal.
 
