@@ -35,7 +35,7 @@ ms.custom: devx-track-dotnet
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 | | Links |
-|---|---|
+|----|----|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
 |**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb)|
 |**Samples**|[.NET code samples](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
