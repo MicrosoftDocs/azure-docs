@@ -22,7 +22,7 @@ If none of the existing offers is a good starting point, you can manually reprod
 
 ### Azure Marketplace offers
 
-Red Hat in partnership with Microsoft has published the following offerings in Azure Marketplace. You can access these offers from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) or from the [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Check out the article on how to [Deploy Red Hat JBoss EAP on Azure VM and VM Scale Sets Using the Azure Marketplace Offer](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-azure-marketplace/) for more details.
+Red Hat in partnership with Microsoft has published the following offerings in Azure Marketplace. You can access these offers from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) or from the [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Check out the article on how to [Deploy Red Hat JBoss EAP on Azure VM and VM Scale Sets Using the Azure Marketplace Offer](/azure/virtual-machines/workloads/redhat/jboss-eap-marketplace-image) for more details.
 
 This Marketplace offer includes various combinations of JBoss EAP and RHEL versions with flexible support subscription models. JBoss EAP is available as Bring-Your-Own-Subscription (BYOS) but for RHEL you can choose between BYOS or Pay-As-You-Go (PAYG). 
 The Azure Marketplace offer includes plan options for JBoss EAP on RHEL as stand-alone VMs, clustered VMs, and clustered virtual machine scale sets. The 6 plans include:
