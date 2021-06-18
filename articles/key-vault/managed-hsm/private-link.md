@@ -1,6 +1,6 @@
 ---
-title: Configure Managed HSM with private endpoints
-description: Learn how to integrate Managed HSM with Azure Private Link Service
+title: Configure Azure Managed HSM with private endpoints
+description: Learn how to integrate Azure Managed HSM with Azure Private Link Service
 author: amitbapat
 ms.author: ambapat
 ms.date: 06/21/2021
