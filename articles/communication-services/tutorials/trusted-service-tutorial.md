@@ -1,9 +1,9 @@
 ---
-title: Build a trusted authentication service using Azure Functions in Azure Communication Services
+title: Build a trusted user access service using Azure Functions in Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to create a trusted authentication service for  Communication services with Azure Functions
-author: ddematheu
-manager: nimag
+description: Learn how to create a trusted user access service for  Communication services with Azure Functions
+author: ddematheu2
+manager: chpalm
 services: azure-communication-services
 
 ms.author: dademath
@@ -12,7 +12,9 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-# Build a trusted authentication service using Azure Functions
+# Build a trusted user access service using Azure Functions
+
+[!IMPORTANT] The endpoint created at the end of this tutorial is not secure. Make sure to read more on [Azure Function Security](https://docs.microsoft.com/en-us/azure/azure-functions/security-concepts). You will want to add security to the endpoint to make sure no bad actor can just provision tokens.
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 
