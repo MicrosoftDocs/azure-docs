@@ -247,7 +247,7 @@ client_secret = "<client-secret>"
 
 credential = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
 tracer = Tracer(
-    exporter=AzureExporter(credential=credential, connection_string="<your-connection-string>"),
+    exporter=AzureExporter(credential=credential, connection_string="InstrumentationKey=<your-instrumentation-key>;IngestionEndpoint=<your-ingestion-endpoint>"),
     sampler=ProbabilitySampler(1.0)
 )
 ...
