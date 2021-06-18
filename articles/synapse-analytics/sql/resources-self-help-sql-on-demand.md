@@ -475,6 +475,13 @@ Synapse SQL will return `NULL` instead of the values that you see in the transac
 
 The value specified in the `WITH` clause doesn't not match the underlying Cosmos DB types in analytical storage and cannot be implicitly converted. Use `VARCHAR` type in the schema.
 
+### Performance issues
+
+If you are experiencing some unexpected performance issues, make sure that you applied the best practices, such as:
+- Make sure that you have placed the client application, serverless pool, and Cosmos DB analytical storage in [the same region](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
+- Make sure that you are using [Latin1_General_100_BIN2_UTF8 collation](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) when you filter your data using string predicates.
+- If you have repeating queries that might be cached, try to use [CETAS to store query results in Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
+
 ## Delta Lake
 
 Delta Lake support is currently in public preview in serverless SQL pools. There are some known issues that you might see during the preview.
@@ -537,10 +544,10 @@ There are some general system constraints that may affect your workload:
 | Property | Limitation |
 |---|---|
 | Max number of Synapse workspaces per subscription | 20 |
-| Max number of databases per serverless pool | 20 (no including databases synchronized from Apache Spark pool) |
+| Max number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool) |
 | Max number of databases synchronized from Apache Spark pool | Not limited |
-| Max number of databases objects per database | The sum of the number of all objects in a database cannot exceed 2,147,483,647 (see [limitations in SQL Server database engine](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects)) |
-| Max identifier length (in characters) | 128 (see [limitations in SQL Server database engine](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects))|
+| Max number of databases objects per database | The sum of the number of all objects in a database cannot exceed 2,147,483,647 (see [limitations in SQL Server database engine](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) ) |
+| Max identifier length (in characters) | 128 (see [limitations in SQL Server database engine](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) )|
 | Max query duration | 30 min |
 | Max size of the result set | 80 GB (shared between all currently executing concurrent queries) |
 | Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. |
