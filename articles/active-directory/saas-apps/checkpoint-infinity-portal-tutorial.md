@@ -134,43 +134,49 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Check Point Infinity Portal SSO
 
-a. Log in to your Check Point Infinity Portal company site as an administrator.
+1. Log in to your Check Point Infinity Portal company site as an administrator.
 
-b. Navigate to **Global Settings** > **Account Settings** and click **Define** under SSO Authentication.
+1. Navigate to **Global Settings** > **Account Settings** and click **Define** under SSO Authentication.
    
    ![Account](./media/checkpoint-infinity-portal-tutorial/define.png "Account") 
 
-c. In the **SSO Authentication** page, perform the following steps:
+1. In the **SSO Authentication** page, perform the following steps:
 
-1. In the **SELECT IDENTITY PROVIDER** section, select **SAML 2.0** and click **NEXT**.
+   1. In the **SELECT IDENTITY PROVIDER** section, select **SAML 2.0** and click **NEXT**.
      
       ![Authentication](./media/checkpoint-infinity-portal-tutorial/identity-provider.png "Authentication")
 
-1. In the **VERIFY DOMAIN** section, perform the following steps:
+   1. In the **VERIFY DOMAIN** section, perform the following steps:
 
       ![Verify Domain](./media/checkpoint-infinity-portal-tutorial/domain.png "Verify Domain")
  
-     1. Copy the DNS record values and add them to the DNS values in your company DNS server. 
-     1. Enter your company’s domain name in the **Domain** field and click **Validate**. 
-     1. Wait for Check Point to approve the DNS record  update, it might take up to 30 minutes. 
-     1. Click **NEXT** once the domain name is validated. 
+      a. Copy the DNS record values and add them to the DNS values in your company DNS server. 
 
-1. In the **ALLOW CONNECTIVITY** section, perform the following steps:
+      b. Enter your company’s domain name in the **Domain** field and click **Validate**. 
+
+      c. Wait for Check Point to approve the DNS record  update, it might take up to 30 minutes. 
+
+      d. Click **NEXT** once the domain name is validated. 
+
+   1. In the **ALLOW CONNECTIVITY** section, perform the following steps:
     
       ![Allow Connectivity](./media/checkpoint-infinity-portal-tutorial/connectivity.png "Allow Connectivity") 
 
-      1. Copy **Entity ID** value, paste this value into the **Azure AD Identifier** text box in the Basic SAML Configuration section in the Azure portal.
-      1. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
-      1. Copy **Sign-on URL** value, paste this value into the **Sign on URL** text box in the Basic SAML Configuration section in the Azure portal.
-      1. Click **NEXT**.
+      a. Copy **Entity ID** value, paste this value into the **Azure AD Identifier** text box in the Basic SAML Configuration section in the Azure portal.
 
-1. In the **CONFIGURE** section, click **Select File** and upload the **Federation Metadata XML** file which you have downloaded from the Azure portal and click **NEXT**. 
+      b. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
 
-   ![Configure](./media/checkpoint-infinity-portal-tutorial/service.png "Configure") 
+      c. Copy **Sign-on URL** value, paste this value into the **Sign on URL** text box in the Basic SAML Configuration section in the Azure portal.
+      
+      d. Click **NEXT**.
 
-1. In the **CONFIRM IDENTITY PROVIDER** section, review the configurations and click **SUBMIT**.
+   1. In the **CONFIGURE** section, click **Select File** and upload the **Federation Metadata XML** file which you have downloaded from the Azure portal and click **NEXT**. 
+
+      ![Configure](./media/checkpoint-infinity-portal-tutorial/service.png "Configure") 
+
+   1. In the **CONFIRM IDENTITY PROVIDER** section, review the configurations and click **SUBMIT**.
      
-   ![Submit Configuration](./media/checkpoint-infinity-portal-tutorial/confirm.png "Submit Configuration") 
+      ![Submit Configuration](./media/checkpoint-infinity-portal-tutorial/confirm.png "Submit Configuration") 
 
 ### Create Check Point Infinity Portal test user
 
