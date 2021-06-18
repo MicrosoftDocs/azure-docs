@@ -168,13 +168,12 @@ You can set up authentication for an Azure Synapse source in either of two ways:
 1. Go to your Azure Synapse workspace.
 1. Go to the **Data** section, and then look for one of your serverless SQL databases.
 1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
-1. Add the **Service Principal ID** as **db_datareader** as **db_datareader** on the serverless SQL databases. You do so by running the following command in your SQL script:
-
+1. Add the **Service Principal ID** on the serverless SQL databases. You do so by running the following command in your SQL script:
+2. 
     ```sql
     CREATE LOGIN [ServicePrincipalID] FROM EXTERNAL PROVIDER;
-    CREATE USER [ServicePrincipalID] FOR LOGIN [ServicePrincipalID];
-    ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalID]; 
     ```
+    
 1. Add **Service Principal ID** as **db_datareader** on each of the serverless SQL databases you want to scan. You do so by running the following command in your SQL script:
    ```sql
     CREATE USER [ServicePrincipalID] FOR LOGIN [ServicePrincipalID];
