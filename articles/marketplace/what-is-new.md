@@ -25,7 +25,10 @@ Learn about important updates in Microsoft's commercial marketplace program. Thi
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
-| Payouts | Added commercial marketplace payout scenarios to [the tax page](/partner-center/tax-details-marketplace). &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| 2021-04-26 |
+| Taxation | For end-customer taxation, Australia is Microsoft-managed, except for purchases made through an enterprise agreement customer purchase scenario, which are publisher-managed. | 2021-07-01 |
+| Taxation | Added a number of missing countries to the [tax details page](/partner-center/tax-details-marketplace), mostly as publisher/developer-managed. | 2021-07-01 |
+| Taxation | Nigeria is now end-customer taxation, with differences in marketplaces. | 2021-07-01 |
+| Payouts | Added commercial marketplace payout scenarios to the [tax details page](/partner-center/tax-details-marketplace). | 2021-04-26 |
 |
 
 ## Documentation updates
