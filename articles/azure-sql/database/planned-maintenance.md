@@ -36,6 +36,10 @@ Ensuring that your client application is resilient to maintenance events prior t
 
 Any client production application that connects to a cloud database service should implement a robust connection [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors). This will help make reconfigurations transparent to the end users, or at least minimize negative effects.
 
+### Service Health Alert
+
+If you want to receive alerts for service issues or planned maintenance activities, you can use Service Health alerts in the Azure portal with appropriate event type and action groups. For more information, see this [Receive alerts on Azure service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
 ## Resource health
 
 If your database is experiencing log-on failures, check the [Resource Health](../../service-health/resource-health-overview.md#get-started) window in the [Azure portal](https://portal.azure.com) for the current status. The Health History section contains the downtime reason for each event (when available).

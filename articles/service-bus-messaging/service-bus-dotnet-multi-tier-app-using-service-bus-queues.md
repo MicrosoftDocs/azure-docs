@@ -474,12 +474,6 @@ To learn more about Service Bus, see the following resources:
 * [Get started using Service Bus queues][sbacomqhowto]
 * [Service Bus service page][sbacom]  
 
-To learn more about multi-tier scenarios, see:  
-
-* [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
-
-
 
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
-[mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

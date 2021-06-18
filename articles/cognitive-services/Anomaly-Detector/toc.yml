@@ -23,8 +23,10 @@
       href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook
     - name: Jupyter Notebook (multivariate)
       href: https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb
-    - name: Azure samples
-      href: /samples/browse/?products=azure&terms=anomaly-detector
+    - name: Azure samples (univariate)
+      href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/quickstarts
+    - name: Azure samples (multivariate)
+      href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/quickstarts-multivariate
 - name: How-to guides
   items:
     - name: Identify anomalies in your data
@@ -64,6 +66,18 @@
   items:
     - name: Visualize anomalies as a batch using Power BI
       href: tutorials/batch-anomaly-detection-powerbi.md
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Use cases for Anomaly Detector
+      href: /legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/cognitive-services/anomaly-detector/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/cognitive-services/anomaly-detector/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/anomaly-detector/context/context
+  - name: Data, privacy and security
+    href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Reference
   items:
     - name: Anomaly Detector REST API

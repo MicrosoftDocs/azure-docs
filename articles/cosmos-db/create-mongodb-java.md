@@ -32,13 +32,13 @@ In this quickstart, you create and manage an Azure Cosmos DB for MongoDB API acc
 
 ## Create a database account
 
-[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+[!INCLUDE [mongodb-create-dbaccount](includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## Add a collection
 
 Name your new database **db**, and your new collection **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
+[!INCLUDE [cosmos-db-create-collection](includes/cosmos-db-mongodb-create-collection.md)] 
 
 ## Clone the sample application
 
@@ -120,11 +120,11 @@ You can now use [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongoche
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

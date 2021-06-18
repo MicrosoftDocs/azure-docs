@@ -212,7 +212,7 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Modeling best practices
 
-While designing models to reflect the entities in your environment, it can be useful to look ahead and consider the [query](concepts-query-language.md) implications of your design. You may want to design properties in a way that will avoid large result sets from graph traversal. You may also want to model relationships that will to be answered in a single query as single-level relationships.
+While designing models to reflect the entities in your environment, it can be useful to look ahead and consider the [query](concepts-query-language.md) implications of your design. You may want to design properties in a way that will avoid large result sets from graph traversal. You may also want to model relationships that will need to be answered in a single query as single-level relationships.
 
 ### Validating models
 
