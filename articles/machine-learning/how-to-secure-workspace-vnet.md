@@ -51,11 +51,11 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 
 | Direction | Ports | Service tag | Purpose |
 | ----- | ----- | ----- | ----- |
-| Inbound | 29876-29877 | BatchNodeManagement | Scheduler/node communication for Azure Machine Learning compute instance and compute cluster. |
-| Inbound | 44224 | AzureMachineLearning | Communication with applications running on Azure Machine Learning compute instance. |
+| Inbound | 29876-29877 | BatchNodeManagement | Azure Machine Learning compute instance and compute cluster. |
+| Inbound | 44224 | AzureMachineLearning | Azure Machine Learning compute instance. |
 | Outbound | * | AzureActiveDirectory | Azure Active Directory authentication. |
 | Outbound | * | AzureMachineLearning | Azure Machine Learning. |
-| Outbound | * | AzureResourceManager | Azure Resource Manager. |
+| Outbound | * | Azure Resource Manager | Azure Resource Manager. |
 | Outbound | * | Storage.region | Azure Storage Account. |
 | Outbound | * | KeyVault.region | Azure Key Vault. |
 | Outbound | * | ContainerRegistry.region | Azure Container Registry. |
@@ -79,7 +79,7 @@ You may also need to allow __outbound__ traffic to non-Microsoft sites for the i
 | **\*pytorch.org** | Used by some examples based on PyTorch. |
 | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
 
-For information specific to using a firewall solution, such as Azure Firewall, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
+For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 ## Secure the workspace with private endpoint
 
 Azure Private Link lets you connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. A private endpoint also helps reduce the risk of data exfiltration.

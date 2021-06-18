@@ -20,11 +20,14 @@ In this article, learn how to configure Azure Firewall to control access to your
 ## Azure Firewall
 
 > [!IMPORTANT]
-> Azure Firewall is an Azure service that provides security _for Azure Virtual Network resources_. Some other Azure Services, such as Azure Storage Accounts, have their own firewall settings that _apply to the public endpoint for that specific service instance_. The information in this document is specific to Azure Firewall.
+> Azure Firewall provides security _for Azure Virtual Network resources_. Some Azure Services, such as Azure Storage Accounts, have their own firewall settings that _apply to the public endpoint for that specific service instance_. The information in this document is specific to Azure Firewall.
 > 
 > For information on service instance firewall settings, see [Use studio in a virtual network](how-to-enable-studio-virtual-network.md#firewall-settings).
 
-When using Azure Firewall, use __destination network address translation (DNAT)__ to create NAT rules for inbound traffic. For outbound traffic, create __network__ and/or __application__ rules. These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
+* For __inbound__ traffic, use __destination network address translation (DNAT)__ to create NAT rules.
+* For __outbound__ traffic, create __network__ and/or __application__ rules. 
+
+These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
 ### Inbound configuration
 
@@ -62,7 +65,7 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 
     * AzureActiveDirectory
     * AzureMachineLearning
-    * AzureResourceManager
+    * Azure Resource Manager
     * Storage.region
     * KeyVault.region
     * ContainerRegistry.region
@@ -111,9 +114,9 @@ If you need to gather diagnostics information when working with Microsoft suppor
     For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ## Other firewalls
 
-The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
+The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions about how to allow communication through your firewall, consult the documentation for the firewall you are using.
 
-If not configured correctly, the firewall can cause problems using your workspace. There are a variety of host names that are used both by the Azure Machine Learning workspace. The following sections list hosts that are required for Azure Machine Learning.
+If not configured correctly, the firewall can cause problems using your workspace. There are various host names that are used both by the Azure Machine Learning workspace. The following sections list hosts that are required for Azure Machine Learning.
 
 ### Microsoft hosts
 
