@@ -238,6 +238,12 @@
         href: backup-managed-disks-ps.md
       - name: Restore
         href: restore-managed-disks-ps.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-managed-disks-cli.md
+      - name: Restore
+        href: restore-managed-disks-cli.md
   - name: Azure Blobs backup
     items:
     - name: Overview
@@ -254,6 +260,12 @@
         href: backup-blobs-storage-account-ps.md
       - name: Restore
         href: restore-blobs-storage-account-ps.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-blobs-storage-account-cli.md
+      - name: Restore
+        href: restore-blobs-storage-account-cli.md
   - name: Azure File share backup
     items:
     - name: Overview
