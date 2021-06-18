@@ -85,6 +85,7 @@ Below is an example of this pattern:
 }
 ```
 
+Variables are currently scoped at the pipeline level. This means that they are not thread safe and can cause unexpected and undesired behavior if they are accessed from within a parallel iteration activity such as a foreach loop, especially when the value is also being modified within that foreach activity.
 
 ## Next steps
 Learn about a related control flow activity supported by Data Factory: 
