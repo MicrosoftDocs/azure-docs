@@ -72,8 +72,6 @@ ACR_NAME=<registry-name>
 
 With the container registry environment variable populated, you should now be able to copy and paste the remainder of the commands in the tutorial without editing any values. Execute the following commands to create a resource group and container registry.
 
-[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
-
 ```azurecli
 RES_GROUP=$ACR_NAME # Resource Group name
 
@@ -81,7 +79,9 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Now that you have a registry, use ACR Tasks to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *quick task*:
+Now that you have a registry, use ACR Tasks to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *quick task*.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
