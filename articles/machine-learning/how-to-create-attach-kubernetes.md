@@ -193,7 +193,7 @@ For more information on the classes, methods, and parameters used in this exampl
 az ml computetarget create aks -n myaks
 ```
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_v1__computetarget_create_aks) reference.
 
 # [Portal](#tab/azure-portal)
 
