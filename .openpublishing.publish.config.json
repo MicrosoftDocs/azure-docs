@@ -504,31 +504,31 @@
     {
       "path_to_root": "azure-sdk-for-java-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-java-cosmos-db",
       "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-net-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-sdk-for-python-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-python/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -606,7 +606,7 @@
     {
       "path_to_root": "cosmosdb-python-sdk",
       "url": "https://github.com/Azure/azure-sdk-for-python/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -738,7 +738,7 @@
     {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
