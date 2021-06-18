@@ -34,7 +34,6 @@ In this document, we briefly describe the resources and provide links to the tut
 
 The data science virtual machine offered on both Windows and Linux by Microsoft, contains popular tools for data science modeling and development activities. It includes tools such as:
 
-- Microsoft R Server Developer Edition 
 - Anaconda Python distribution
 - Jupyter notebooks for Python and R 
 - Visual Studio Community Edition with Python and R Tools on Windows / Eclipse on Linux

@@ -22,7 +22,6 @@ There are various approaches and platforms to put models into production. Here a
 
 - [Where to deploy models with Azure Machine Learning](../how-to-deploy-and-where.md)
 - [Deployment of a model in SQL-server](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 >[!NOTE]
 >Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
