@@ -21,7 +21,7 @@ Connections that don't reach Azure Virtual Desktop won't show up in diagnostics 
 The WVDErrors table tracks errors across all activity types. The column called "ServiceError" provides an additional flag marked either "True" or "False." This flag will tell you whether the error is related to the service.
 
 * If the value is "True," the service team may have already investigated this issue. If this impacts user experience and appears a high number of times, we recommend you submit a support ticket for Azure Virtual Desktop.
-* If the value is "False," this is may be a misconfiguration that you can fix yourself. The error message can give you a clue about where to start.
+* If the value is "False," this may be a misconfiguration that you can fix yourself. The error message can give you a clue about where to start.
 
 The following table lists common errors your admins might run into.
 
