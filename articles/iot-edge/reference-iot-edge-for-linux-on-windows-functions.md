@@ -4,7 +4,7 @@ description: Reference information for Azure IoT Edge for Linux on Windows Power
 author: v-tcassi
 manager: philmea
 ms.author: fcabrera
-ms.date: 06/16/2021
+ms.date: 06/18/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
@@ -57,7 +57,7 @@ For more information, use the command `Get-Help Connect-EflowVM -full`.
 
 The **Copy-EflowVmFile** command copies file to or from the virtual machine using SCP. Use the optional parameters to specify the source and destination file paths as well as the direction of the copy.
 
-To copy files onto the virtual machine, the user **iotedge** must have write permission to the destination folder.
+The user **iotedge-user** must have read permission to any origin directories or write permission to any destination directories on the virtual machine.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -70,9 +70,6 @@ For more information, use the command `Get-Help Copy-EflowVMFile -full`.
 ## Deploy-Eflow
 
 The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation.
-
->[!NOTE]
->For the provisioning type, **X509** currently exclusively refers to X509 provisioning using an [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md). The manual X509 provisioning method is not currently supported.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -95,12 +92,18 @@ For more information, use the command `Get-Help Get-EflowLogs -full`.
 
 ## Get-EflowVm
 
-The **Get-EflowVm** command returns the virtual machine's current configuration. This command takes no parameters. It returns an object that contains four objects:
+The **Get-EflowVm** command returns the virtual machine's current configuration. This command takes no parameters. It returns an object that contains four properties:
 
 * VmConfiguration
 * EdgeRuntimeVersion
 * EdgeRuntimeStatus
 * SystemStatistics
+
+To view a specific property in a readable list, run the `Get-EflowVM` command with the property expanded. For example:
+
+```powershell
+Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
+```
 
 For more information, use the command `Get-Help Get-EflowVm -full`.
 
@@ -120,11 +123,11 @@ The **Get-EflowVmName** command returns the virtual machine's current hostname. 
 
 For more information, use the command `Get-Help Get-EflowVmName -full`.
 
-## Get-EflowTelemetryOption
+## Get-EflowVmTelemetryOption
 
-The **Get-EflowOptionalTelemetry** command displays the status of the telemetry (either **Optional** or **Required**) inside the virtual machine.
+The **Get-EflowVmTelemetryOption** command displays the status of the telemetry (either **Optional** or **Required**) inside the virtual machine.
 
-For more information, use the command `Get-Help Get-EflowTelemetryOption -full`.
+For more information, use the command `Get-Help Get-EflowVmTelemetryOption -full`.
 
 ## Invoke-EflowVmCommand
 
@@ -139,7 +142,7 @@ For more information, use the command `Get-Help Invoke-EflowVmCommand -full`.
 
 ## Provision-EflowVm
 
-The **Provision-EflowVm** command adds the provisioning information for your IoT Edge device to the virtual machine's IoT Edge `config.yaml` file. Provisioning can also be done during the deployment phase by setting parameters in the [Deploy-Eflow](#deploy-eflow) command.
+The **Provision-EflowVm** command adds the provisioning information for your IoT Edge device to the virtual machine's IoT Edge `config.yaml` file.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -181,15 +184,15 @@ The **Set-EflowVmFeature** command enables or disables the status of IoT Edge fo
 
 For more information, use the command `Get-Help Set-EflowVmFeature -full`.
 
-## Set-EflowOptionalTelemetry
+## Set-EflowVmTelemetryOption
 
-The **Set-EflowOptionalTelemetry** command enables or disables the optional telemetry inside the virtual machine.
+The **Set-EflowVmTelemetryOption** command enables or disables the optional telemetry inside the virtual machine.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | optionalTelemetry | **True** or **False** | Whether optional telemetry is selected. |
 
-For more information, use the command `Get-Help Set-EflowOptionalTelemetry -full`.
+For more information, use the command `Get-Help Set-EflowVmTelemetryOption -full`.
 
 ## Start-EflowVm
 
@@ -205,12 +208,12 @@ For more information, use the command `Get-Help Stop-EflowVm -full`.
 
 ## Verify-EflowVm
 
-The **Verify-EflowVm** command is an exposed function that checks whether the IoT Edge for Linux on Windows virtual machine was created. It takes only common parameters, and it will return **true** if the virtual machine was created and **false** if not.
+The **Verify-EflowVm** command is an exposed function that checks whether the IoT Edge for Linux on Windows virtual machine was created. It takes only common parameters, and it will return **True** if the virtual machine was created and **False** if not.
 
 For more information, use the command `Get-Help Verify-EflowVm -full`.
 
 ## Next steps
 
-Learn how to use these commands in the following article:
+Learn how to use these commands to install and provision IoT Edge for Linux on Windows in the following article:
 
 * [Install Azure IoT Edge for Linux on Windows](./how-to-install-iot-edge-windows-on-windows.md)

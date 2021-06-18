@@ -5,7 +5,7 @@ author: kgremban
 manager: lizross
 ms.author: kgremban
 ms.reviewer: fcabrera
-ms.date: 06/16/2021
+ms.date: 06/18/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -27,12 +27,12 @@ This article shows you how to use auto-provisioning on a device running IoT Edge
 * Install IoT Edge for Linux on Windows and connect the device to IoT Hub.
 
 >[!TIP]
-This article uses programs that simulate a TPM on the device to test this scenario, but much of it applies when using physical TPM hardware as well.
+>This article uses programs that simulate a TPM on the device to test this scenario, but much of it applies when using physical TPM hardware as well.
 
 ## Prerequisites
 
 * A Windows device. For supported Windows versions, see [Operating systems](support.md#operating-systems).
-* An active IoT Hub.
+* An active IoT hub.
 * An instance of the IoT Hub Device Provisioning Service in Azure, linked to your IoT hub.
   * If you don't have a Device Provisioning Service instance, follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
   * After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
@@ -152,9 +152,12 @@ The installation steps in this section are abridged to highlight the steps speci
 
 1. On the **Connect** step, provision your device.
 
-      1. Select the **DpsTpm** provisioning method.
-      1. Provide the **Scope ID** that you retrieve from your instance of the Device Provisioning Service.
-      1. Select **Provisioning with the selected method**.
+   1. Select the **DpsTpm** provisioning method.
+   1. Provide the **Scope ID** that you retrieve from your instance of the Device Provisioning Service.
+
+   ![Provision your device with DPS and TPM attestation.](./media/how-to-auto-provision-tpm-linux-on-windows/tpm-provision.png)
+
+1. Select **Provisioning with the selected method**.
 
 1. Once IoT Edge has successfully been installed and provisioned on your device, select **Finish** to exit the deployment wizard.
 
@@ -162,7 +165,35 @@ The installation steps in this section are abridged to highlight the steps speci
 
 ## Verify successful configuration
 
-If your device was provisioned successfully through DPS, you can verify its status through either your instance of DPS or your IoT hub. Once you provision your device, the individual enrollment that you created for it should have a status of **Assigned** with information about the date and time when it was used. Also, your device should now be listed as an IoT Edge device registered to your IoT hub.
+If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device.
+
+You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
+
+Use the following commands on your device to verify that the IoT Edge installed and started successfully.
+
+Connect to the IoT Edge for Linux on Windows virtual machine.
+
+```powershell
+Connect-EflowVM
+```
+
+Check the status of the IoT Edge service.
+
+```cmd/sh
+sudo systemctl status iotedge
+```
+
+Examine service logs.
+
+```cmd/sh
+sudo journalctl -u iotedge --no-pager --no-full
+```
+
+List running modules.
+
+```cmd/sh
+sudo iotedge list
+```
 
 ## Next steps
 

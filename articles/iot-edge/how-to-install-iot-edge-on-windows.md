@@ -175,7 +175,7 @@ If you want to deploy to a remote target device instead of your local device and
    >
    >If you are using Windows Server, set up a default switch before deploying IoT Edge for Linux on Windows.
 
-   you can assign a GPU to your deployment. There are two options available: direct device assignment (DDA) and paravirtualization, depending on the GPU adaptor you assign to your deployment. Examples of each method are shown below.
+   You can assign a GPU to your deployment. There are two options available: direct device assignment (DDA) and paravirtualization, depending on the GPU adaptor you assign to your deployment. Examples of each method are shown below.
 
    For the direct device assignment method, select the number of GPU processors to allocate to your Linux virtual machine.
 
@@ -209,11 +209,10 @@ You can use the Windows Admin Center or an elevated PowerShell session to provis
   * [Manual provisioning using your IoT Edge device's connection string](#manual-provisioning-using-the-connection-string)
   * [Manual provisioning using X.509 certificates](#manual-provisioning-using-x509-certificates)
 
-
 * Automatic provisioning:
 
-  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-auto-provision-symmetric-keys.md#configure-the-device-with-provisioning-information?tabs=eflow)
-  * [Automatic provisioning using DPS and X.509 certificates](how-to-auto-provision-x509-certs.md#configure-the-device-with-provisioning-information?tabs=eflow)
+  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-auto-provision-symmetric-keys.md?tabs=eflow#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using DPS and X.509 certificates](how-to-auto-provision-x509-certs.md?tabs=eflow#configure-the-device-with-provisioning-information)
   * [Automatic provisioning using DPS and TPM attestation](how-to-auto-provision-tpm-linux-on-windows.md#configure-the-device-with-provisioning-information)
 
 ### Manual provisioning using the connection string
@@ -227,10 +226,10 @@ If you haven't already, follow the steps in [Register an IoT Edge device in IoT 
 Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
 
 ```powershell
-Provision-EflowVm -provisioningType manual -devConnString "<CONNECTION_STRING_HERE>"​
+Provision-EflowVm -provisioningType ManualConnectionString -devConnString "<CONNECTION_STRING_HERE>"​
 ```
 
-For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-fow-linux-on-windows-functions.md#provision-eflowvm).
+For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#provision-eflowvm).
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -266,7 +265,7 @@ Run the following command in an elevated PowerShell session on your target devic
 Provision-EflowVm -provisioningType ManualX509 -iotHubHostname "<HUB HOSTNAME>" -deviceId "<DEVICE ID>" -identityCertPath "<ABSOLUTE PATH TO IDENTITY CERT>" -identityPrivKeyPath "<ABSOLUTE PATH TO PRIVATE KEY>"
 ```
 
-For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-fow-linux-on-windows-functions.md#provision-eflowvm).
+For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#provision-eflowvm).
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -305,7 +304,7 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
 
 1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
@@ -313,7 +312,7 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
     1. If you need to troubleshoot the service, retrieve the service logs.
 
        ```bash
-       journalctl -u iotedge
+       sudo journalctl -u iotedge
        ```
 
     2. Use the `check` tool to verify configuration and connection status of the device.

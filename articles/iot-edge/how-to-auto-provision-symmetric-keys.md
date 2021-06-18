@@ -284,11 +284,15 @@ Have the following information ready:
 
 You can use either PowerShell or Windows Admin Center to provision your IoT Edge device.
 
+### PowerShell
+
 For PowerShell, run the following command with the placeholder values updated with your own values:
 
 ```powershell
-Provision-EflowVm -provisioningType symmetric -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
+Provision-EflowVm -provisioningType DpsSymmetricKey -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
 ```
+
+### Windows Admin Center
 
 For Windows Admin Center, use the following steps:
 
@@ -352,12 +356,15 @@ For Windows Admin Center, use the following steps:
 
 ---
 
-
 ## Verify successful installation
 
-If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device. Use the following commands on your device to verify that the runtime installed and started successfully.
+If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device.
 
-### Linux device
+You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
+
+Use the following commands on your device to verify that the IoT Edge installed and started successfully.
+
+# Linux(#tab/linux)
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -405,7 +412,50 @@ sudo iotedge list
 
 :::moniker-end
 
-### Windows device
+# Linux on Windows(#tab/eflow)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+Connect to the IoT Edge for Linux on Windows virtual machine.
+
+```powershell
+Connect-EflowVM
+```
+
+Check the status of the IoT Edge service.
+
+```cmd/sh
+sudo systemctl status iotedge
+```
+
+Examine service logs.
+
+```cmd/sh
+sudo journalctl -u iotedge --no-pager --no-full
+```
+
+List running modules.
+
+```cmd/sh
+sudo iotedge list
+```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on IoT Edge for Linux for Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+# Windows(#tab/windows)
+
+<!-- 1.1 -->
+:::moniker range="=iotedge-2018-06"
 
 Check the status of the IoT Edge service.
 
@@ -425,7 +475,18 @@ List running modules.
 iotedge list
 ```
 
-You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+---
 
 ## Next steps
 

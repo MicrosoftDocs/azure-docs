@@ -4,7 +4,7 @@ description: Use X.509 certificates to test automatic device provisioning for Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/16/2021
+ms.date: 06/18/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -360,11 +360,15 @@ Have the following information ready:
 
 You can use either PowerShell or Windows Admin Center to provision your IoT Edge device.
 
+### PowerShell
+
 For PowerShell, run the following command with the placeholder values updated with your own values:
 
 ```powershell
-Provision-EflowVm -provisioningType x509 -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocVm <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
+Provision-EflowVm -provisioningType DPSx509 -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocVm <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
 ```
+
+### Windows Admin Center
 
 For Windows Admin Center, use the following steps:
 
@@ -439,9 +443,9 @@ If the runtime started successfully, you can go into your IoT Hub and start depl
 
 You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
 
-Use the following commands on your device to verify that the runtime installed and started successfully.
+Use the following commands on your device to verify that the IoT Edge installed and started successfully.
 
-### Linux device
+# Linux(#tab/linux)
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -463,6 +467,7 @@ List running modules.
 ```cmd/sh
 iotedge list
 ```
+
 :::moniker-end
 
 <!-- 1.2 -->
@@ -485,9 +490,53 @@ List running modules.
 ```cmd/sh
 sudo iotedge list
 ```
+
 :::moniker-end
 
-### Windows device
+# Linux on Windows(#tab/eflow)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+Connect to the IoT Edge for Linux on Windows virtual machine.
+
+```powershell
+Connect-EflowVM
+```
+
+Check the status of the IoT Edge service.
+
+```cmd/sh
+sudo systemctl status iotedge
+```
+
+Examine service logs.
+
+```cmd/sh
+sudo journalctl -u iotedge --no-pager --no-full
+```
+
+List running modules.
+
+```cmd/sh
+sudo iotedge list
+```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on IoT Edge for Linux for Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+# Windows(#tab/windows)
+
+<!-- 1.1 -->
+:::moniker range="=iotedge-2018-06"
 
 Check the status of the IoT Edge service.
 
@@ -506,6 +555,19 @@ List running modules.
 ```powershell
 iotedge list
 ```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently, there is not support for IoT Edge version 1.2 running on Windows.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+---
 
 ## Next steps
 

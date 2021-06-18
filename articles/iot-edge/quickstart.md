@@ -5,7 +5,7 @@ author: kgremban
 manager: lizross
 ms.author: kgremban
 ms.reviewer: fcabrera
-ms.date: 06/17/2021
+ms.date: 06/18/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -56,7 +56,7 @@ Make sure your IoT Edge device meets the following requirements:
   * Minimum Free Disk Space: 10 GB
 
 >[!NOTE]
->This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md).
+>This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md?tabs=windowsadmincenter).
 
 ## Create an IoT hub
 
@@ -150,6 +150,10 @@ Run the following PowerShell commands on the target device where you want to dep
 
 1. Provision your device using the device connection string that you retrieved in the previous section. Replace the placeholder text with your own value.
 
+   ```powershell
+   Provision-EflowVm -provisioningType ManualConnectionString -devConnString "<CONNECTION_STRING_HERE>"​
+   ```
+
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.
 
 ## Deploy a module
@@ -228,7 +232,7 @@ The module that you pushed generates sample environment data that you can use fo
 1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
 
    ![Verify your temperature sensor, agent, and hub are running.](./media/quickstart/iotedge-list-screen.png)
@@ -236,7 +240,7 @@ The module that you pushed generates sample environment data that you can use fo
 1. View the messages being sent from the temperature sensor module to the cloud using the following Linux command:
 
    ```bash
-   iotedge logs SimulatedTemperatureSensor -f
+   sudo iotedge logs SimulatedTemperatureSensor -f
    ```
 
    >[!IMPORTANT]
@@ -276,7 +280,7 @@ Use the dashboard extension in Windows Admin Center to uninstall Azure IoT Edge 
 1. Select **Uninstall**. After Azure IoT Edge is removed, Windows Admin Center removes the Azure IoT Edge device connection entry from the **Start** page.
 
 >[!Note]
->Another way to remove Azure IoT Edge from your Windows system is to select **Start** > **Settings** > **Apps** > **Azure IoT Edge** > **Uninstall** on your IoT Edge device. This method removes Azure IoT Edge from your IoT Edge device, but leaves the connection behind in Windows Admin Center. To complete the removal, uninstall Windows Admin Center from the **Settings** menu as well.
+>Another way to remove Azure IoT Edge from your Windows system is to select **Start** > **Settings** > **Apps** > **Azure IoT Edge LTS** > **Uninstall** on your IoT Edge device. This method removes Azure IoT Edge from your IoT Edge device, but leaves the connection behind in Windows Admin Center. To complete the removal, uninstall Windows Admin Center from the **Settings** menu as well.
 
 ## Next steps
 
