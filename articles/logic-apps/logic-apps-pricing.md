@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 06/18/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
