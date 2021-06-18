@@ -1,10 +1,10 @@
 ---
-title: Azure FarmBeats as Event Grid source
+title: Azure FarmBeats as Event Grid source (Preview)
 description: Describes the properties and schema provided for Azure FarmBeats events with Azure Event Grid
 ms.topic: conceptual
 ms.date: 06/06/2021
 ---
-# Azure FarmBeats as Event Grid source
+# Azure FarmBeats as Event Grid source (Preview)
 This article provides the properties and schema for Azure FarmBeats events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
 
 ## Available event types

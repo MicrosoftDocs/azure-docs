@@ -105,7 +105,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-        - text: MySQL on-premises to Azure Database for MySQL
+        - text: Azure Database for MySQL migration guide
           url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
         - text: dbForge Studio for MySQL
           url: concepts-migrate-dbforge-studio-for-mysql.md
