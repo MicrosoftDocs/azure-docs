@@ -276,7 +276,7 @@ You can disable local authentication by using the Azure portal or programmatical
 
 ### Programmatic enablement 
 
-Property "DisableLocalAuth": "[parameters('disableLocalAuth')]" is used to disable any local authentication on your Application Insights resource. This property is the key to disabling any local authentication that you might have setup.
+Property `DisableLocalAuth` is used to disable any local authentication on your Application Insights resource. When set to `true`, this property enforces that Azure AD authentication must be used for all access.
 
 Below is an example Azure Resource Manager template that you can use to create a workspace-based Application Insights resource with local auth disabled.
 
