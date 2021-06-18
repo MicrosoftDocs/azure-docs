@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/16/2020
+ms.date: 05/16/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -32,10 +32,9 @@ This article describes how to change the approval and requestor information sett
 In the Approval section, you specify whether an approval is required when users request this access package. The approval settings work in the following way:
 
 - Only one of the selected approvers or fallback approvers needs to approve a request for single-stage approval. 
-- Only one of the selected approvers from each stage needs to approve a request for 2-stage approval.
-- The approver can be a Manager, Internal sponsor, or External sponsor depending on who the policy is governing access.
-- Approval from every selected approver isn't required for single or 2-stage approval.
-- The approval decision is based on whichever approver reviews the request first.
+- Only one of the selected approvers from each stage needs to approve a request for multi-stage approval for the request to progress to the next stage.
+- If one of the selected approved in a stage denies a request before another approver in that stage approves it, or if no one approves, the request terminates and the user does not receive access.
+- The approver can be a specified user or member of a group, the requestor's Manager, Internal sponsor, or External sponsor depending on who the policy is governing access.
 
 For a demonstration of how to add approvers to a request policy, watch the following video:
 
@@ -66,7 +65,7 @@ Follow these steps to specify the approval settings for requests for the access 
 
 1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
     
-1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
+1. Now determine if requests will require single or multi-stage approval. Set the **How many stages** to the number of stages of approval needed.
 
     ![Access package - Requests - Approval settings](./media/entitlement-management-access-package-approval-policy/approval.png)
 
@@ -99,9 +98,9 @@ Use the following steps to add approvers after selecting how many stages you req
 
     The justification is visible to other approvers and the requestor.
 
-### 2-stage approval
+### Multi-stage approval
 
-If you selected a 2-stage approval, you'll need to add a second approver.
+If you selected a multi-stage approval, you'll need to add an approver for each additional stage.
 
 1. Add the **Second Approver**: 
     
@@ -119,16 +118,16 @@ If you selected a 2-stage approval, you'll need to add a second approver.
 
 ### Alternate approvers
 
-You can specify alternate approvers, similar to specifying the first and second approvers who can approve requests. Having alternate approvers will help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers the first approver and second approver for 2-stage approval. 
+You can specify alternate approvers, similar to specifying the primary approvers who can approve requests on each stage. Having alternate approvers will help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers alongside the primary approver on each stage.
 
-By specifying alternate approvers, in the event that the first or second approvers were unable to approve or deny the request, the pending request gets forwarded to the alternate approvers, per the forwarding schedule you specified during policy setup. They receive an email to approve or deny the pending request.
+By specifying alternate approvers on a stage, in the event that the primary approvers were unable to approve or deny the request, the pending request gets forwarded to the alternate approvers, per the forwarding schedule you specified during policy setup. They receive an email to approve or deny the pending request.
 
-After the request is forwarded to the alternate approvers, the first or second approvers can still approve or deny the request. Alternate approvers use the same My Access site to approve or deny the pending request.
+After the request is forwarded to the alternate approvers, the primary approvers can still approve or deny the request. Alternate approvers use the same My Access site to approve or deny the pending request.
 
-We can list people or groups of people to be approvers and alternate approvers. Please ensure that you list different sets of people to be the first, second, and alternate approvers.
-For example, if you listed Alice and Bob as the First Approver(s), list Carol and Dave as the alternate approvers. Use the following steps to add alternate approvers to an access package:
+You can list people or groups of people to be approvers and alternate approvers. Please ensure that you list different sets of people to be the first, second, and alternate approvers.
+For example, if you listed Alice and Bob as the first stage approver(s), list Carol and Dave as the alternate approvers. Use the following steps to add alternate approvers to an access package:
 
-1. Under the First Approver, Second Approver, or both, click **Show advanced request settings**.
+1. Under the approver on a stage, click **Show advanced request settings**.
 
     :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="Access package - Policy - Show advanced request settings":::
 
