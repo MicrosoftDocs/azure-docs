@@ -173,7 +173,7 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](../key-vault/i
 1. Run the following command to get the [VM's principal ID](#deploy-a-linux-vm-for-your-sap-data-connector), entering the name of your Azure resource group:
 
     ```azurecli
-    az vm show -g [resource group] -n [Virtual Machine] --query identity.principal– --out tsv
+    VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
     ```
 
     Your principal ID is displayed for you to use in the following step.
@@ -181,7 +181,7 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](../key-vault/i
 1. Run the following command to assign the VM's access permissions to the Key Vault, entering the name of your resource group and the principal ID value returned from the previous step.
 
     ```azurecli
-    az keyvault set-policy  --name $kv  --resource-group [resource group]  --object-id [Principal ID]  --secret-permissions get set
+    az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
     ```
 
 ## Deploy your SAP data connector
