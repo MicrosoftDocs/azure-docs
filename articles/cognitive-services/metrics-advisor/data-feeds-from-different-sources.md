@@ -374,17 +374,16 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         CREATE USER [MI Name] FROM EXTERNAL PROVIDER
         ALTER ROLE db_datareader ADD MEMBER [MI Name]
         ```
-    > [!NOTE]
-    > The `MI Name` is the **Managed Identity Name** in Metrics Advisor (for service principal, it should be replaced with **Service Principal name**). Also, you can learn more detail in this document: [Authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
-        
-       Here's an example of connection string: 
-   
-         ```
-         Data Source=<Server>;Initial Catalog=<Database>
-         ```
-        
-
     
+        > [!NOTE]
+        > The `MI Name` is the **Managed Identity Name** in Metrics Advisor (for service principal, it should be replaced with **Service Principal name**). Also, you can learn more detail in this document: [Authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+            
+        Here's an example of connection string: 
+       
+        ```
+        Data Source=<Server>;Initial Catalog=<Database>
+        ```
+        
     * **Azure SQL Connection String**: 
       
 
