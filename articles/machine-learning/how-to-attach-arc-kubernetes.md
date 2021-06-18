@@ -54,7 +54,7 @@ Azure Arc-enabled Machine Learning is currently supported in these regions where
 * An Azure Machine Learning workspace. [Create a workspace](how-to-manage-workspace.md?tabs=python) before you begin if you don't have one already.
   * Azure Machine Learning Python SDK version >= 1.30
 
-## Deploy Azure Machine Learning extension to your Kubernetes cluster
+## Deploy Azure Machine Learning extension
 
 Azure Arc enabled Kubernetes has a cluster extension functionality that enables you to install various agents including Azure policy, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for training.
 
@@ -180,45 +180,45 @@ The following is an example configuration file:
 
 The following custom compute target properties can be configured using a configuration file:
 
-* ```namespace``` - Default to ```default``` namespace if this is not specified. This is the namespace where all training job will use and pods will run under this namespace. Note the namespace specified in compute target must preexist and it is usually created with Cluster Admin privilege.
+* `namespace` - Defaults to `default` namespace. This is the namespace where jobs and pods run under. Note that when setting a namespace other than the default, the namespace must already exist. Creating namespaces requires cluster administrator privileges.
 
-* ```defaultInstanceType``` - Required ```defaultInstanceType``` if you specify ```instanceTypes``` property, and the value of ```defaultInstanceType``` must be one of values from ```instanceTypes``` property.
+* `defaultInstanceType` - The type of instance where training jobs run on by default. Required `defaultInstanceType` if `instanceTypes` property is specified. The value of `defaultInstanceType` must be one of values defined in the `instanceTypes` property.
 
-* ```instanceTypes``` - List of instance_types to be used for running training job. Each instance_type is defined by ```nodeSelector``` and ```resources requests/limits``` properties:
+    > [!IMPORTANT]
+    > Currently, only job submissions using computer target name are supported. Therefore, the configuration will always default to defaultInstanceType.
 
-  * ```nodeSelector``` - one or more node labels. Cluster administrator privilege is needed to create labels for cluster nodes. If this is specified, training job will be scheduled to run on nodes with the specified node labels. You can use ```nodeSelector``` to target a subset of nodes for training workload placement. This can be very handy if a cluster has different SKUs, or different type of nodes such as CPU or GPU nodes, and you want to target certain node pool for training workload. For examples, you could create node labels for all GPU nodes and define an instanceType for GPU node pool, in this way you will be able to submit training job to that GPU node pool.
+* `instanceTypes` - List of instance types used for training jobs. Each instance type is defined by `nodeSelector` and `resources requests/limits` properties:
 
-  * ```resources requests/limits``` - ```Resources requests/limits``` specifies resources requests and limits a training job pod to run.
+  * `nodeSelector` - One or more node labels used to identify nodes in a cluster. Cluster administrator privileges are needed to create labels for cluster nodes. If this property is specified, training jobs are scheduled to run on nodes with the specified node labels. You can use `nodeSelector` to target a subset of nodes for training workload placement. This can be useful in scenarios where a cluster has different SKUs, or different types of nodes such as CPU or GPU nodes. For example, you could create node labels for all GPU nodes and define an `instanceType` for the GPU node pool. Doing so targets the GPU node pool exclusively when scheduling training jobs.
 
->[!IMPORTANT]
-> Currently, only job submissions using computer target name are supported. Therefore, the configuration will always default to `defaultInstanceType`. 
+  * `resources requests/limits` - Specifies resources requests and limits a training job pod to run. Defaults to 1 CPU and 4GB of of memory.
 
->[!IMPORTANT]
-> By default, a cluster resource is deployed with 1 CPU and 4 GB with memory. If a cluster is configured with lower resources, the job run will fail. To ensure successful job completion, we recommend to always specify resources requests/limits according to training job needs. The following is an example default configuration file:
->
-> ```json
-> {
->    "namespace": "default",
->    "defaultInstanceType": "defaultInstanceType",
->    "instanceTypes": {
->       "defaultInstanceType": {
->          "nodeSelector": "null",
->          "resources": {
->             "requests": {
->                "cpu": "1",
->                "memory": "4Gi",
->                "nvidia.com/gpu": "0"
->             },
->             "limits": {
->                "cpu": "1",
->                "memory": "4Gi",
->                "nvidia.com/gpu": "0"
->             }
->          }
->       }
->    }
-> }
-> ```
+    >[!IMPORTANT]
+    > By default, a cluster resource is deployed with 1 CPU and 4 GB of memory. If a cluster is configured with lower resources, the job run will fail. To ensure successful job completion, we recommend to always specify resources requests/limits according to training job needs. The following is an example default configuration file:
+    >
+    > ```json
+    > {
+    >    "namespace": "default",
+    >    "defaultInstanceType": "defaultInstanceType",
+    >    "instanceTypes": {
+    >       "defaultInstanceType": {
+    >          "nodeSelector": "null",
+    >          "resources": {
+    >             "requests": {
+    >                "cpu": "1",
+    >                "memory": "4Gi",
+    >                "nvidia.com/gpu": "0"
+    >             },
+    >             "limits": {
+    >                "cpu": "1",
+    >                "memory": "4Gi",
+    >                "nvidia.com/gpu": "0"
+    >             }
+    >          }
+    >       }
+    >    }
+    > }
+    > ```
 
 ## Attach Arc cluster (Python SDK)
 
@@ -314,77 +314,6 @@ else:
    # For a more detailed view of current KubernetesCompute status, use get_status()
    print(amlarc_compute.get_status().serialize())
 ```
-
-<!-- Learn how to configure an Azure Arc enabled Kubernetes cluster to train machine learning models with Azure Machine Learning
-
-> [!IMPORTANT]
-> Azure Arc enabled machine learning is only supported in the following regions: westcentralus, southcentralus, southeastasia, uksouth, westus2, australiaeast, eastus2, westeurope, northeurope, eastus, francecentral.
-
-## Prerequisites
-
-- Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](/azure-arc/kubernetes/quickstart-connect-cluster.md).
-- Azure Arc extensions CLI. For installation instructions, see [Kubernetes cluster extensions](/azure-arc/kubernetes/extensions.md).
-
-## How does Azure Arc enabled Machine Learning work?
-
-Azure Arc enabled machine learning lets you to configure and use an Azure Arc enabled Kubernetes clusters to train machine learning models in Azure Machine Learning.
-
-Once a Kubernetes cluster is registered in Azure Arc you can view and manage it in the Azure Kubernetes Service portal.
-
-Azure Arc enabled Kubernetes has a cluster extensions functionality that enables you to install various agents including Azure policy, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for training.
-
-## Install Microsoft.AzureML.Kubernetes extension
-
-Use the following method to install `Microsoft.AzureML.Kubernetes` extension on your Azure Arc enabled Kubernetes cluster:
-
-> [!NOTE]
-> Azure Arc enabled Kubernetes clusters and Azure Machine Learning workspaces must be in the same region.
-
-```azurecli
-az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <myRG> --name <compute-name> --extension-type Microsoft.AzureML.Kubernetes --scope cluster --configuration-settings enableTraining=True
-```
-
-Running this command will create a Azure Service Bus and Azure Relay resource under the same resource group as the Azure Arc enabled Kubernetes cluster.  These resources are used to communicate with the cluster and modifying them will break attached compute targets. 
-
-> [!IMPORTANT]
-> In order to use the cluster for training, `enableTraining` must be set to `True`.
-
-For additional configuration, you can specify the following configuration settings:
-
-|Configuration Setting Key Name  |Description  |
-|--|--|
-| ```enableTraining``` | Default `False`. Set to `True` to create an extension instance for training machine learning models.  |
-|```relayConnectionString```  | Connection string for Azure Relay resource. Azure Relay resource is required for Kubernetes communication with Azure Machine Learning services in the cloud. The Azure Machine Learning extension creates an Azure Relay resource by default under the same resource group as your Azure Arc connected cluster. The Azure Machine Learning extension uses the provided Azure Relay resource if this configuration setting is set. |
-|```serviceBusConnectionString```  | Connection string for Azure Service Bus resource. Azure Service Bus resource is required for Kubernetes communication with Azure Machine Learning services in the cloud. The Azure Machine Learning extension creates an Azure Service Bus resource by default under the same resource group as your Azure Arc connected cluster. The Azure Machine Learning extension uses the provided Azure Service Bus resource if this configuration setting is set.   |
-|```logAnalyticsWS```  | Default `False`. The Azure Machine Learning extension integrates with Azure LogAnalytics Workspace. Set to `True` to provide log viewing and analysis capability through LogAnalytics Workspace. LogAnalytics Workspace cost may apply.   |
-|```installNvidiaDevicePlugin```  | Default `True`. Nvidia Device Plugin is required for training on Nvidia GPU hardware. The Azure Machine Learning extension installs the Nvidia Device Plugin by default during the Azure Machine Learning instance creation regardless of whether the Kubernetes cluster has GPU hardware or not. Set to `False` if you don't plan on using a GPU for training or Nvidia Device Plugin is already installed.  |
-|```installBlobfuseSysctl```  | Default `True` if "enableTraining=True". Blobfuse 1.3.7 is required for training. Azure Machine Learning installs Blobfuse by default when the extension instance is created. Set this configuration setting to `False` if Blobfuse 1.37 is already installed on your Kubernetes cluster.   |
-|```installBlobfuseFlexvol```  | Default `True` if "enableTraining=True". Blobfuse Flexvolume is required for  training. Azure Machine Learning installs Blobfuse Flexvolume by default to your default path. Set this configuration setting to `False` if Blobfuse Flexvolume is already installed on your Kubernetes cluster.   |
-|```volumePluginDir```  | Host path for Blobfuse Flexvolume to be installed. Applicable only if "enableTraining=True". By default, Azure Machine Learning installs Blobfuse Flexvolume under default path */etc/kubernetes/volumeplugins*. Specify a custom installation location by specifying this configuration setting.```   |
-
-> [!WARNING]
-> If Nvidia Device Plugin, Blobfuse, and Blobfuse Flexvolume are already installed in your cluster, reinstalling them may result in an extension installation error. Set `installNvidiaDevicePlugin`, `installBlobfuseSysctl`, and `installBlobfuseFlexvol` to `False` to prevent installation errors.
-
-Once the extension is ready, you can inspect it using `kubectl get pods -n azureml`.
-
-## Show properties
-
-You can use the following command to show the properties of the extension including installation state:
-
-```azurecli
-az k8s-extension show --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --cluster-type connectedclusters -n azureml-kubernetes-connector
-```
-
-## Delete extension
-
-To delete the extension in the cluster, use the following command:
-
-```azurecli
-az k8s-extension delete --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --cluster-type connectedclusters -n azureml-kubernetes-connector
-```
-
-> [!IMPORTANT]
-> Deleting the extension won't delete your cluster or created resources like Azure Service Bus and Azure Relay. Delete any unused resources to prevent incurring unwanted costs. -->
 
 ## Next steps
 
