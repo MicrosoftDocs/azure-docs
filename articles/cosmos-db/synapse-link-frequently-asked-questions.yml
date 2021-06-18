@@ -186,7 +186,7 @@ sections:
       - question: | 
           Is it possible to use customer-managed keys with Azure Synapse Link?
         answer: |
-          Yes, Azure Synapse Link supports configuring customr-managed keys usings your Azure Cosmos DB account's managed identity. You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. To learn more, see  [configuring customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) artice.
+          Yes, Azure Synapse Link supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. To learn more, see  [configuring customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) artice.
       
       - question: |
            Does Azure Synapse link provide network isolation with Azure Synapse managed virtual networks?
