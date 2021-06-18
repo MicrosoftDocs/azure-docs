@@ -28,7 +28,7 @@ A few capabilities to look for in an inner dev loop framework is.
 
 Different dev teams, depending on the maturity and complexity of the service might choose a completely local, complete remote, or hybrid cluster setup to speed up the inner dev loop. 
 
-Luckily, there are many frameworks out there that support the listed capabilities. Microsoft offers Bridge to Kubernetes for local tunnel debugging, and there are similar market offerings like DevSpace, Scaffold, and Tilt, among others.  
+Luckily, there are many frameworks out there that support the listed capabilities. Microsoft offers Bridge to Kubernetes for local tunnel debugging and similar market offerings like DevSpace, Scaffold, and Tilt, among others.
 
 > [!NOTE]
 > Note: Don’t confuse the market offering DevSpace with Microsoft’s previously named DevSpace, which is now called Bridge to Kubernetes. 
@@ -56,7 +56,7 @@ Similar low-level manifests can be generated locally for the inner dev loop usin
 As an application developer, Alice:
 - Authors a devspace.yaml to configure the inner loop.
 - Write and test application code using the inner loop for efficiency.
-- Deploy to stagging or prod with outerloop.
+- Deploy to staging or prod with outer loop.
 
 
 Suppose Alice wants to make changes to the application code and run and debug the application either in local or remote cluster.
@@ -69,6 +69,6 @@ Suppose Alice wants to make changes to the application code and run and debug th
 1. Alice does not need to rebuild the container every time she makes code changes to code, because DevSpace will enable hot reloading using file sync to copy her latest changes inside the container.
 1. Running `devspace dev` will also deploy any dependencies configured in devspace.yaml, such as back-end dependencies to front-end. 
 1. Alice tests her changes by accessing the application through the forwarding configured through devspace.yaml.
-1. After Alice has finalized her changes, she can purge the deployment by running `devspace purge` and create a new pull request to merges her changes to the dev branch of the application repository.
+1. After Alice has finalized her changes, she can purge the deployment by running `devspace purge` and create a new pull request to merge her changes to the dev branch of the application repository.
 
-Sample code for above workflow can be found at this [Github repo](https://github.com/Azure/arc-cicd-demo-src)
+Sample code for above workflow can be found at this [GitHub repo](https://github.com/Azure/arc-cicd-demo-src)
