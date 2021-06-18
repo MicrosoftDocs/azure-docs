@@ -32,8 +32,6 @@ In this article, learn how to configure Azure Firewall to control access to your
     * [Destination network address translation (DNAT)](../firewall/tutorial-firewall-dnat.md) to create NAT rules that filter inbound traffic.
     * [User-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md), to skip the firewall.
 
-    The information in this document focuses on DNAT.
-
 * For __outbound__ traffic, create __network__ and/or __application__ rules. 
 
 These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
