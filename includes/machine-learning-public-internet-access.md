@@ -30,6 +30,8 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 > * Download a list from [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519).
 > * Use the Azure CLI [az network list-service-tags](/cli/azure/network#az_network_list_service_tags) command.
 > * Use the Azure PowerShell [Get-AzNetworkServiceTag](/powershell/module/az.network/get-aznetworkservicetag) command.
+> 
+> The IP addresses may change periodically.
 
 You may also need to allow __outbound__ traffic to non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
 

@@ -318,7 +318,7 @@ Allow Azure Machine Learning to communicate with the SSH port on the VM or clust
 
 Keep the default outbound rules for the network security group. For more information, see the default security rules in [Security groups](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
-If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [Limit outbound connectivity from the virtual network](#limiting-outbound-from-vnet) section.
+If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [required public internet access](#required-public-internet-access) section.
 
 ### Attach the VM or HDInsight cluster
 
