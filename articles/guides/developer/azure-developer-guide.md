@@ -81,7 +81,7 @@ Azure Service Fabric is a distributed systems platform. This platform makes it e
 * Provisioning
 * Deploying
 * Monitoring
-* Upgrading/patching
+* Upgrading/Patching
 * Deleting
 
 Apps, which run on a shared pool of machines, can start small and scale to hundreds or thousands of machines as needed.
@@ -98,7 +98,7 @@ Azure Spring Cloud is a serverless microservices platform that enables you to bu
 
 * Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
 * Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
-* Manage application lifecycle (e.g.: deploy, start, stop, scale) on top of Azure Kubernetes Service.
+* Manage application lifecycle (for example, deploy, start, stop, scale) on top of Azure Kubernetes Service.
 * Easily bind connections between your apps and Azure services such as Azure Database for MySQL and Azure Cache for Redis.
 * Monitor and troubleshoot microservices and applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
 
@@ -125,7 +125,7 @@ Most applications must store data, so however you decide to host your applicatio
 
   > **When to use**: When your app stores nonrelational data, such as key-value pairs (tables), blobs, files shares, or messages (queues).
   >
-  > **Get started**: Choose from one of these types storage: [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tables](../../cosmos-db/tutorial-develop-table-dotnet.md), [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Get started**: Choose from one of these types of storage: [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tables](../../cosmos-db/tutorial-develop-table-dotnet.md), [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 * **Azure SQL Database**: An Azure-based version of the Microsoft SQL Server engine for storing relational tabular data in the cloud. SQL Database provides predictable performance, scalability with no downtime, business continuity, and data protection.
 
@@ -241,7 +241,9 @@ The [Azure portal](https://portal.azure.com) is a web-based application. You can
 
 * A configurable dashboard
 * Azure resource management tools
-* Access to subscription settings and billing information. For more information, see the [Azure portal overview](https://azure.microsoft.com/features/azure-portal/).
+* Access to subscription settings and billing information
+
+For more information, see the [Azure portal overview](https://azure.microsoft.com/features/azure-portal/).
 
 ### REST APIs
 
@@ -336,4 +338,4 @@ Azure provides a set of Billing REST APIs that give access to resource consumpti
 
 Although it's challenging to estimate costs ahead of time, Azure has tools that can help. It has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate the cost of deployed resources. You can also use the Billing resources in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
 
->**Get started**: See [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md).
+>**Get started**: To learn more, see [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md).
