@@ -149,11 +149,11 @@
     items:
     - name: Security overview
       href: search-security-overview.md
+    - name: Secure access to external data
+      href: search-indexer-securing-resources.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-    - name: Accessing protected content
-      href: search-indexer-securing-resources.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
@@ -444,29 +444,29 @@
       href: search-traffic-analytics.md
   - name: Security
     items:
-    - name: Assign roles
-      href: search-security-rbac.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
         href: search-security-manage-encryption-keys.md
-      - name: Get key information
+      - name: Retrieve keys
         href: search-security-get-encryption-keys.md
     - name: Inbound security
       items:
-      - name: API key authentication
+      - name: Key-based authentication
         href: search-security-api-keys.md
+      - name: Role-based authorization
+        href: search-security-rbac.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
     - name: Outbound security (indexers)  
       items:
-      - name: Access over an IP range
+      - name: Data access over an IP range
         href: search-indexer-howto-access-ip-restricted.md
-      - name: Access through trusted service exception
+      - name: Data access using a system identity
         href: search-indexer-howto-access-trusted-service-exception.md
-      - name: Access through private endpoints
+      - name: Data access through private endpoints
         href: search-indexer-howto-access-private.md
     - name: Document-level security
       items:
