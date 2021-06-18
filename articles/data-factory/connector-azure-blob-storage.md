@@ -488,7 +488,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
                             "name": "lastModifiedKey",
                             "value": "$$LASTMODIFIED"
                         }
-                                ]
+                    ]
                 }
             }
         }

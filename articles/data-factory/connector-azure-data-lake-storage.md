@@ -397,7 +397,7 @@ The following properties are supported for Data Lake Storage Gen2 under `storeSe
                             "name": "lastModifiedKey",
                             "value": "$$LASTMODIFIED"
                         }
-                                ]
+                    ]
                 }
             }
         }
