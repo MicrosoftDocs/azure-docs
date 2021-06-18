@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Configure Azure Arc enabled machine learning (preview)
 
-Learn how to configure an Azure Arc enabled machine learning for training.
+Learn how to configure Azure Arc enabled machine learning for training.
 
 ## What is Azure Arc enabled machine learning?
 
@@ -21,15 +21,13 @@ Azure Arc enabled machine learning lets you to configure and use an Azure Arc en
 
 Azure Arc enabled machine learning supports the following training scenarios:
 
-* [Train models with 2.0 CLI](how-to-train-cli.md)
+* Train models with 2.0 CLI
+  * Distributed training
+  * Hyperparameter sweeping
 * Train models with Azure Machine Learning Python SDK
-  * [Configure and submit training run](how-to-set-up-training-targets.md)
-  * [Tune hyperparameters](how-to-tune-hyperparameters.md)
-  * [Scikit-learn](how-to-train-scikit-learn.md)
-  * [TensorFlow](how-to-train-tensorflow.md)
-  * [PyTorch](how-to-train-pytorch.md)
-* [Build and use ML pipelines including designer pipeline support](how-to-create-machine-learning-pipelines.md)
-* [Train model on-premise with outbound proxy server](/azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)
+  * Hyperparameter tuning
+* Build and use machine learning pipelines
+* Train model on-premise with outbound proxy server
 * Train model on-premise with NFS datastore
 
 Azure Arc-enabled Machine Learning is currently supported in these regions where Azure Arc is available:
@@ -50,7 +48,7 @@ Azure Arc-enabled Machine Learning is currently supported in these regions where
 * An Azure subscription. If you don't have an Azure subscription [create a free account](https://aka.ms/AMLFree) before you begin.
 * Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](/azure-arc/kubernetes/quickstart-connect-cluster.md).
 * Fulfill [Azure Arc enabled Kubernetes cluster extensions prerequisites](/azure-arc/kubernetes/extensions#prerequisites).
-* An Azure Machine Learning Workspace. [Create a workspace](how-to-manage-workspace.md?tabs=python) before you begin if you don't have one already.
+* An Azure Machine Learning workspace. [Create a workspace](how-to-manage-workspace.md?tabs=python) before you begin if you don't have one already.
 
 ## Deploy Azure Machine Learning extension to your Kubernetes cluster
 
@@ -72,9 +70,9 @@ Use the `k8s-extension` Azure CLI extension to deploy the Azure Machine Learning
     ```
 
     >[!IMPORTANT]
-    > To enabled Azure Arc-enabled cluster for training, configuration setting ```enableTraining``` must be set to **True**. Running this command will create an Azure Service Bus and Azure Relay resource under the same resource group as the Arc cluster. These resources are used to communicate with the cluster and modifying them will break attached compute targets.
+    > To enabled Azure Arc-enabled cluster for training, `enableTraining` must be set to **True**. Running this command creates an Azure Service Bus and Azure Relay resource under the same resource group as the Arc cluster. These resources are used to communicate with the cluster. Modifying them will break attached clusters used as training compute targets.
 
-    You can also configure the following settings when you deploy the Azure Machine Learning extension for model training. 
+    You can also configure the following settings when you deploy the Azure Machine Learning extension for model training:
 
     |Configuration Setting Key Name  |Description  |
     |--|--|
@@ -98,7 +96,7 @@ Use the `k8s-extension` Azure CLI extension to deploy the Azure Machine Learning
 
     In the response, look for `"extensionType": "amlarc-compute"` and `"installState": "Installed"`. Note it might show `"installState": "Pending"` for the first few minutes.
 
-    When the `installState` shows **Installed**, run the following command on your machine with the kubeconfig file pointed to your cluster to check that all pods under "azureml" namespace are in *Running* state:
+    When the `installState` shows **Installed**, run the following command on your machine with the kubeconfig file pointed to your cluster to check that all pods under *azureml* namespace are in *Running* state:
 
    ```bash
     kubectl get pods -n azureml
@@ -106,28 +104,28 @@ Use the `k8s-extension` Azure CLI extension to deploy the Azure Machine Learning
 
 ## Attach Arc cluster (studio)
 
-Attaching a an Azure Arc enabled Kubernetes cluster makes it available to your workspace for training.
+Attaching an Azure Arc enabled Kubernetes cluster makes it available to your workspace for training.
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
 1. Under **Manage**, select **Compute**.
-1. Select the **Attached compute** tab.
-1. Select **+ New > Kubernetes (preview)**
+1. Select the **Attached computes** tab.
+1. Select **+New > Kubernetes (preview)**
 
    ![Attach Kubernetes cluster](./media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png)
 
-1. Enter a compute name, and select your Azure Arc enabled Kubernetes cluster from the dropdown.
+1. Enter a compute name and select your Azure Arc enabled Kubernetes cluster from the dropdown.
 
    ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster.png)
 
-1. (Optional) For more advanced scenarios, browse and upload an attach configuration file.
+1. (Optional) For advanced scenarios, browse and upload a configuration file.
 
    ![Upload configuration file](./media/how-to-attach-arc-kubernetes/upload-configuration-file.png)
 
 1. Select **Attach**
 
-  In the Attached compute tab, the initial state of your cluster will be *Creating*. When the cluster is successfully attached, you will see a *Succeeded* state. Otherwise, the state will change to *Failed*.
+    In the Attached compute tab, the initial state of your cluster is *Creating*. When the cluster is successfully attached, the state changes to *Succeeded*. Otherwise, the state changes to *Failed*.
 
-  ![Provision resources](./media/how-to-attach-arc-kubernetes/provision-resources.png)
+    ![Provision resources](./media/how-to-attach-arc-kubernetes/provision-resources.png)
 
 ### Advanced attach scenario
 
@@ -188,13 +186,13 @@ The following custom compute target properties can be configured using a configu
 
   * ```nodeSelector``` - one or more node labels. Cluster administrator privilege is needed to create labels for cluster nodes. If this is specified, training job will be scheduled to run on nodes with the specified node labels. You can use ```nodeSelector``` to target a subset of nodes for training workload placement. This can be very handy if a cluster has different SKUs, or different type of nodes such as CPU or GPU nodes, and you want to target certain node pool for training workload. For examples, you could create node labels for all GPU nodes and define an instanceType for GPU node pool, in this way you will be able to submit training job to that GPU node pool.
 
-  * ```Resources requests/limits``` - ```Resources requests/limits``` specifies resources requests and limits a training job pod to run.
+  * ```resources requests/limits``` - ```Resources requests/limits``` specifies resources requests and limits a training job pod to run.
 
 >[!IMPORTANT]
 > Currently, only job submissions using computer target name are supported. Therefore, the configuration will always default to `defaultInstanceType`. 
 
 >[!IMPORTANT]
-> If cluster resource has less than these defaults (1 CPU and 4GB memory), the job run will fail. To ensure successful job run completion, we recommend to always specify resources requests/limits according to training job needs. When no `resource requests/limits` are defined, the following defaults are used:
+> By default, a cluster resource is deployed with 1 CPU and 4 GB with memory. If a cluster is configured with lower resources, the job run will fail. To ensure successful job completion, we recommend to always specify resources requests/limits according to training job needs. The following is an example default configuration file:
 >
 > ```json
 > {
@@ -388,6 +386,11 @@ az k8s-extension delete --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --clus
 
 ## Next steps
 
-- [Attach a Kubernetes cluster to Azure Machine Learning workspace (Python SDK)](how-to-attach-compute-targets.md#kubernetes)
-- [Attach a Kubernetes cluster to Azure Machine Learning workspace (studio)](how-to-create-attach-compute-studio.md#attached-compute)
+- [Train models with 2.0 CLI](how-to-train-cli.md)
 - [Configure and submit training runs](how-to-set-up-training-targets.md)
+- [Tune hyperparameters](how-to-tune-hyperparameters.md)
+- [Train a model using Scikit-learn](how-to-train-scikit-learn.md)
+- [Train a TensorFlow model](how-to-train-tensorflow.md)
+- [Train a PyTorch model](how-to-train-pytorch.md)
+- [Train using Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
+- [Train model on-premise with outbound proxy server](/azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)

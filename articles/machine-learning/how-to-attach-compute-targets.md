@@ -349,7 +349,7 @@ Azure Machine Learning provides you with the following options to attach your ow
 
 [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
-To detach a cluster from your workspace, use the following method:
+To detach a Kubernetes cluster from your workspace, use the following method:
 
 ```python
 compute_target.detach()
