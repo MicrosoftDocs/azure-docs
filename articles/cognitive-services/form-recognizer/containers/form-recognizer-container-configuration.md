@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 By using Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality.
 
-You configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. This container has several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-compose-yml-file) section. The container-specific settings are the billing settings.
+You configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. This container has several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section. The container-specific settings are the billing settings.
 
 ## Configuration settings
 
