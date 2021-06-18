@@ -91,6 +91,8 @@
     href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Recover a deleted storage account
     href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+  - name: Get account configuration properties
+    href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Use the storage emulator
     href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     maintainContext: true
