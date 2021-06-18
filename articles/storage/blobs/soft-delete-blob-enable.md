@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/24/2021
+ms.date: 06/18/2021
 ms.author: tamram
 ms.subservice: blobs  
 ms.custom: devx-track-azurepowershell
@@ -21,7 +21,7 @@ Blob soft delete protects an individual blob and its versions, snapshots, and me
 Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
 > [!NOTE]
-> Blob soft delete can also protect blobs and directories in accounts that have the hierarchical namespace feature enabled. Blob soft delete for accounts that have the hierarchical namespace feature enabled is currently in public preview, and is available only in the East US 2 and West Europe region. 
+> Blob soft delete can also protect blobs and directories in accounts that have the hierarchical namespace feature enabled. Blob soft delete for accounts that have the hierarchical namespace feature enabled is currently in public preview, and is available globally in all Azure regions. 
 
 Blob soft delete is disabled by default for a new storage account. You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
 
@@ -87,7 +87,7 @@ az storage account blob-service-properties show --account-name <storage-account>
 Blob soft delete can also protect blobs and directories in accounts that have the hierarchical namespace feature enabled on them. 
 
 > [!IMPORTANT]
-> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, and is available only in the East US 2 and West Europe region.
+> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, , and is available globally in all Azure regions.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 >
@@ -134,14 +134,9 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 
 4. To enable blob soft delete with PowerShell, use the [Enable-AzStorageDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstoragedeleteretentionpolicy) command, and specify the retention period in days.
 
-   The following example enables soft delete for a directory named `my-directory`, and sets the retention period to seven days. Remember to replace the placeholder values in brackets with your own values:
+   The following example enables soft delete for an account, and sets the retention period to 4 days. 
 
    ```powershell
-   $filesystemName = "my-file-system"
-   $dirName="my-directory"
-   New-AzDatalakeGen2FileSystem -Name $filesystemName -Context $ctx
-   New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Directory -Path $dirName
-   Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse
    Enable-AzStorageDeleteRetentionPolicy -RetentionDays 4  -Context $ctx
    ```
 
@@ -161,7 +156,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
  
 4. To enable soft delete with Azure CLI, call the `az storage fs service-properties update` command, specifying the retention period in days.
 
-   The following example enables blob and directory soft delete and sets the retention period to seven days. 
+   The following example enables blob and directory soft delete and sets the retention period to 5 days. 
 
    ```azurecli
    az storage fs service-properties update --delete-retention --delete-retention-period 5 --auth-mode login

@@ -25,7 +25,7 @@ This article assumes that you already understand the different device states ava
 The following Windows components play a key role in requesting and using a PRT:
 
 * **Cloud Authentication Provider** (CloudAP): CloudAP is the modern authentication provider for Windows sign in, that verifies users logging to a Windows 10 device. CloudAP provides a plugin framework that identity providers can build on to enable authentication to Windows using that identity provider’s credentials.
-* **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider.
+* **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider. (Not included in Windows Server 2016 LTSC builds)
 * **Azure AD CloudAP plugin**: An Azure AD specific plugin built on the CloudAP framework, that verifies user credentials with Azure AD during Windows sign in.
 * **Azure AD WAM plugin**: An Azure AD specific plugin built on the WAM framework, that enables SSO to applications that rely on Azure AD for authentication.
 * **Dsreg**: An Azure AD specific component on Windows 10, that handles the device registration process for all device states.
@@ -55,7 +55,7 @@ The PRT is issued during user authentication on a Windows 10 device in two scena
 
 * **Azure AD joined** or **Hybrid Azure AD joined**: A PRT is issued during Windows logon when a user signs in with their organization credentials. A PRT is issued with all Windows 10 supported credentials, for example, password and Windows Hello for Business. In this scenario, Azure AD CloudAP plugin is the primary authority for the PRT.
 * **Azure AD registered device**: A PRT is issued when a user adds a secondary work account to their Windows 10 device. Users can add an account to Windows 10 in two different ways -  
-   * Adding an account via the **Use this account everywhere on this device** prompt after signing in to an app (for example, Outlook)
+   * Adding an account via the **Allow my organization to manage my device** prompt after signing in to an app (for example, Outlook)
    * Adding an account from **Settings** > **Accounts** > **Access Work or School** > **Connect**
 
 In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this  Azure AD account.

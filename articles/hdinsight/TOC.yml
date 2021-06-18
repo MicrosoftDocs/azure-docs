@@ -891,7 +891,7 @@
     items:
     - name: Hive LLAP Workload Management commands
       href: ./interactive-query/workload-management-commands.md
-- name: ML Services
+- name: ML Services (Retired)
   items:
   - name: Overview
     items:

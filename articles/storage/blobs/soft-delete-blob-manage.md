@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 06/18/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: "devx-track-csharp"
@@ -128,10 +128,10 @@ Not applicable. Blob versioning is supported only in the Azure Storage client li
 
 ## Manage soft-deleted blobs and directories (hierarchical namespace)
 
-You can restore or disable soft deleted blobs and directories in accounts that have a hierarchical namespace. 
+You can restore soft deleted blobs and directories in accounts that have a hierarchical namespace. 
 
 > [!IMPORTANT]
-> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, and is available only in the East US 2 and West Europe region.
+> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, and is available globally in all Azure regions.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 >
@@ -139,23 +139,23 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
 ### Manage soft-deleted blobs with the Azure portal
 
-You can use the Azure portal to view and restore soft-deleted directories, blobs and snapshots.
+You can use the Azure portal to view and restore soft-deleted blobs and directories.
 
-#### View deleted blobs
+#### View deleted blobs and directories
 
-When blobs are soft-deleted, they are invisible in the Azure portal by default. To view soft-deleted blobs, navigate to the **Overview** page for the container and toggle the **Show deleted blobs** setting. Soft-deleted blobs are displayed with a status of **Deleted**. The following image shows a soft-deleted directory.
+When blobs or directories are soft-deleted, they are invisible in the Azure portal by default. To view soft-deleted blobs and directories, navigate to the **Overview** page for the container and toggle the **Show deleted blobs** setting. Soft-deleted blobs and directories are displayed with a status of **Deleted**. The following image shows a soft-deleted directory.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing how to list soft-deleted blobs in Azure portal (hierarchical namespace enabled accounts)](media/soft-delete-blob-manage/soft-deleted-blobs-list-portal-hns.png)
 
-Next, select the deleted directory or blob from the list of directories or blobs to display its properties. Under the **Overview** tab, notice that the status is set to **Deleted**. The portal also displays the number of days until the blob is permanently deleted.
+Next, select the deleted directory or blob from the list display its properties. Under the **Overview** tab, notice that the status is set to **Deleted**. The portal also displays the number of days until the blob is permanently deleted.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing properties of soft-deleted blob in Azure portal (hierarchical namespace enabled accounts)](media/soft-delete-blob-manage/soft-deleted-blob-properties-portal-hns.png)
 
-#### Restore soft-deleted objects
+#### Restore soft-delete blobs and directories
 
-To restore a soft-deleted blob in the Azure portal when blob versioning is not enabled, first display the blob's properties, then select the **Undelete** button on the **Overview** tab. Restoring a blob also restores any snapshots that were deleted during the soft-delete retention period.
+To restore a soft-deleted blob or directory in the Azure portal, first display the blob or directory's properties, then select the **Undelete** button on the **Overview** tab. The following image shows the Undelete button on a soft-deleted directory.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing how to restore a soft-deleted blob in Azure portal (hierarchical namespace enabled accounts)](media/soft-delete-blob-manage/undelete-soft-deleted-blob-portal-hns.png)
