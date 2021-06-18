@@ -35,7 +35,7 @@ NFS file shares are often used in the following scenarios:
 ## Security and networking
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
-For encryption in transit, Azure provides a layer of encryption for all data in transit between Azure Datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure datacenters. Unlike Azure Files using the SMB protocol, file shares using the NFS protocol do not offer user-based authentication. Authentication for NFS shares is based on the configured network security rules. Due to this, to ensure only secure connections are established to your NFS share, you must use either service endpoints or private endpoints. If you want to access shares from on-premises then, in addition to a private endpoint, you must setup a VPN or ExpressRoute. Requests that do not originate from the following sources will be rejected:
+For encryption in transit, Azure provides a layer of encryption for all data in transit between Azure datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure datacenters. Unlike Azure Files using the SMB protocol, file shares using the NFS protocol do not offer user-based authentication. Authentication for NFS shares is based on the configured network security rules. Due to this, to ensure only secure connections are established to your NFS share, you must use either service endpoints or private endpoints. If you want to access shares from on-premises then, in addition to a private endpoint, you must setup a VPN or ExpressRoute. Requests that do not originate from the following sources will be rejected:
 
 - [A private endpoint](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
@@ -45,6 +45,30 @@ For encryption in transit, Azure provides a layer of encryption for all data in 
 - [A restricted public endpoint](storage-files-networking-overview.md#storage-account-firewall-settings)
 
 For more details on the available networking options, see [Azure Files networking considerations](storage-files-networking-overview.md).
+
+## Support for Azure Storage features
+
+The following table shows the current level of support for Azure Storage features in accounts that have the NFS 3.0 feature enabled. 
+
+The status of items that appear in this tables will change over time as support continues to expand.
+
+| Storage feature | Supported for NFS shares |
+|-----------------|---------|
+| [File management plane REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ |
+| Encryption at rest|	✔️ |
+| [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ ||
+| [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
+| [Restricted public endpoints](storage-files-networking-overview.md#storage-account-firewall-settings)|  ✔️  |
+| [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
+| [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
+| [File sync introduction](../file-sync/file-sync-introduction.md)| ⛔ |
+| [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
+| [Azure file share snapshots](storage-snapshots-files.md)| ⛔ |
+| File data plane REST API| ⛔ |
+| Encryption in transit| ⛔ |
+| [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
+| AzCopy| ⛔ |
+| Standard tier| ⛔ |
 
 ## Limitations
 
