@@ -94,7 +94,7 @@ For example, try:
 
 ```azurecli-interactive
 az webapp create \
-    --plan myPlan
+    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
