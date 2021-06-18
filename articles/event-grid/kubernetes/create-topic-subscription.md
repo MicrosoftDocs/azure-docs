@@ -21,46 +21,53 @@ In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a 
 
 
 ## Create a custom location
-A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed.
+As an Azure location extension, a custom location lets you use your Azure Arc-enabled Kubernetes cluster as a target location for deploying resources such as Event Grid topics. A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed. In this section, you'll create a custom location. 
 
-1. Get the cluster resource ID.
+1. Declare the following variables to hold values of the Azure Arc cluster, resource group, and custom location names. Copy these statement to an editor, replace the values, and then copy/paste to the bash window.  
 
     ```azurecli-interactive
-    hostresourceid=$(az connectedk8s show -n spakscluster -g spaksrg --query id -o tsv)    
+    resourcegroupname="<AZURE RESOURCE GROUP NAME>"
+    arcclustername="<AZURE ARC CLUSTER NAME>"
+    customlocationname="<CUSTOM LOCATION NAME>"
     ```
-1. Get the Event Grid extension resource ID.
+1. Get the resource ID of the Azure Arc connected cluster. Update values for the Azure Arc cluster name and resource group parameters before running the command. 
 
     ```azurecli-interactive
-    clusterextensionid=$(az k8s-extension show --name eventgrid-ext --cluster-type connectedClusters -c spakscluster -g spaksrg  --query id -o tsv)    
+    hostresourceid=$(az connectedk8s show -n $arcclustername -g $resourcegroupname --query id -o tsv)    
     ```
-1. Create a custom location using the above two values.
+1. Get the Event Grid extension resource ID. This step assumes that the name you gave for the Event Grid extension is **eventgrid-ext**. Update Azure Arc cluster and resource group names before running the command. 
 
     ```azurecli-interactive
-    az customlocation create -n spcustomlocation -g spaksrg --namespace arc --host-resource-id $hostresourceid --cluster-extension-ids $clusterextensionid    
+    clusterextensionid=$(az k8s-extension show --name eventgrid-ext --cluster-type connectedClusters -c $arcclustername -g $resourcegroupname  --query id -o tsv)    
     ```
-1. Get the resource ID of the custom location.
+1. Create a custom location using the above two values. Update custom location and resource group names before running the command. 
 
     ```azurecli-interactive
-    mycustomlocation=$(az customlocation show -n spcustomlocation -g spaksrg --query id -o tsv)    
+    az customlocation create -n $customlocationname -g $resourcegroupname --namespace arc --host-resource-id $hostresourceid --cluster-extension-ids $clusterextensionid    
+    ```
+1. Get the resource ID of the custom location. Update the custom location name before running the command. 
+
+    ```azurecli-interactive
+    customlocationid=$(az customlocation show -n $customlocationname -g $resourcegroupname --query id -o tsv)    
     ```
 
     For more information on creating custom locations, see [Create and manage custom locations on Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/custom-locations.md). 
 
 ## Create a topic
+In this section, you'll create a topic in the custom location you created in the previous step. Update resource group and event grid topic names before running the command. Update the location if you are using a location other than East US. 
 
-### Azure CLI
-Run the following Azure CLI command to create a topic:
+1. Declare a variable to hold the topic name. 
 
-```azurecli-interactive
-az eventgrid topic create -g <RESOURCE GROUP NAME> --name <EVENT GRID TOPIC NAME> --kind azurearc --extended-location-name $mycustomlocation --extended-location-type customlocation --input-schema CloudEventSchemaV1_0 --location eastus
+    ```azurecli-interactive
+    topicname="<TOPIC NAME>"
+    ```
+4. Run the following command to create a topic. 
+
+    ```azurecli-interactive
+    az eventgrid topic create -g $resourcegroupname --name $topicname --kind azurearc --extended-location-name $customlocationid --extended-location-type customlocation --input-schema CloudEventSchemaV1_0 --location $region    
+    ```
 ```
-
-Specify values for the place holders before running the command:
-- Name of the Azure resource group in which you want the event grid topic to created. 
-- Name for the topic. 
-- Region for the topic.
-
-For more information about the CLI command, see [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
+    For more information about the CLI command, see [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
 
 ## Create a message endpoint
 Before you create a subscription for the custom topic, create an endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
@@ -79,20 +86,13 @@ Before you create a subscription for the custom topic, create an endpoint for th
 ## Create a subscription
 Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for a topic of interest. An event subscription defines the destination to which those events are sent. To learn about all the destinations or handlers supported, see [Event handlers](event-handlers.md).
 
-
-### Azure CLI
-To create an event subscription with a WebHook (HTTPS endpoint) destination, run the following Azure CLI command:
+To create an event subscription with a WebHook (HTTPS endpoint) destination, enter a name for the event subscription, update the name of the web site, and run the following command.
 
 ```azurecli-interactive
-topicid=$(az eventgrid topic show --name <EVENT GRID TOPIC NAME> --resource-group <RESOURCE GROUP NAME> --query id -o tsv)
+topicid=$(az eventgrid topic show --name $topicname --resource-group $resourcegroupname --query id -o tsv)
 az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> --source-resource-id $topicid --endpoint https://<SITE NAME>.azurewebsites.net/api/updates
 ```
 
-Specify values for the place holders before running the command:
-- Name of the event grid topic 
-- Name of the resource group  
-- Name of the event subscription to be created 
-- Name of the Event Grid Viewer web site
 
 For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
 
@@ -100,12 +100,12 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
 1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You'll publish sample events to this topic endpoint. 
 
     ```azurecli
-    az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv
+    az eventgrid topic show --name $topicname -g $resourcegroupname --query "endpoint" --output tsv
     ```
 2. Run the following command to get the **key** for the custom topic: After you copy and paste the command, update the **topic name** and **resource group** name before you run the command. It's the primary key of the topic. To get this key from the Azure portal, switch to the **Access keys** tab of the **Event Grid Topic** page. To be able post an event to a custom topic, you need the access key. 
 
     ```azurecli
-    az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv
+    az eventgrid topic key list --name $topicname -g $resourcegroupname --query "key1" --output tsv
     ```
 1. Run the following **Curl** command to post the event. Specify the endpoint URL and key from step 1 and 2 before running the command. 
 
@@ -135,19 +135,13 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
         apiVersion: v1
         kind: Pod
         metadata:
-          name: test-pod
+            name: test-pod2
         spec:
-          volumes:
-          - name: shared-data
-            emptyDir: {}
-          containers:
-          - name: nginx
-            image: nginx
-            volumeMounts:
-            - name: shared-data
-              mountPath: /usr/share/nginx/html
-          hostNetwork: true
-          dnsPolicy: ClusterFirstWithHostNet        
+            containers:
+              - name: nginx
+                image: nginx
+            hostNetwork: true
+            dnsPolicy: ClusterFirstWithHostNet       
         ```
     1. Create the pod.
         ```bash
