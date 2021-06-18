@@ -132,7 +132,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 
 3. Define the rules of your policy in a JSON document. The following shows the contents of an example JSON file named `policy.json`. 
 
-   ```json
+    ```json
     {
     "enabled": true,
     "type": "Inventory",
@@ -172,8 +172,8 @@ You can enable static website hosting by using the [Azure Command-Line Interface
           ]
         }
       }
-    ]
-  }
+     ]
+   }
    ``` 
 
 4. Create a blob inventory policy by using the [az storage account blob-inventory-policy](/cli/azure/storage/account/blob-inventory-policy#az_storage_account_blob_inventory_policy_create) create command. Provide the name of your JSON document by using the `--policy` parameter.

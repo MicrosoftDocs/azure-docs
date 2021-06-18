@@ -55,7 +55,7 @@ Enable blob inventory reports by adding a policy with one or more rules to your 
 
 ## Upgrading an inventory policy 
 
-If you are an existing Azure Storage blob inventory user who has configured inventory prior to June 2021, you can start using the new features by loading the policy, and then saving the policy back after making changes. When you reload the policy, the new fields in the policy will be populated with default values. You can change these values if you want. The following two features will be available.
+If you are an existing Azure Storage blob inventory user who has configured inventory prior to June 2021, you can start using the new features by loading the policy, and then saving the policy back after making changes. When you reload the policy, the new fields in the policy will be populated with default values. You can change these values if you want. Also, the following two features will be available.
 
 - A destination container is now supported for every rule instead of just being supported for the policy.
 
