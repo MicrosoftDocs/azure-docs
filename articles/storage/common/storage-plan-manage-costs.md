@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 06/18/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
@@ -43,12 +43,16 @@ Azure Blob Storage runs on Azure infrastructure that accrues costs when you depl
 
 When you create or use Blob Storage resources, you'll be charged for the following meters: 
 
-| Meter | Unit | Meter | Unit |
-|---|---|---|---|
-| Data storage | Per GB, per month| Blob index tags | Per tag<sup>2  |
-| Operations | Per transaction | Change feed | Per logged change<sup>2 |
-| Data transfer | Per GB | Encryption scopes | Per month<sup>2 |
-| Metadata | Per GB, per month<sup>1 | Query acceleration | Per GB scanned & Per GB returned |
+| Meter | Unit | 
+|---|---|
+| Data storage | Per GB / per month|
+| Operations | Per transaction |
+| Data transfer | Per GB |
+| Metadata | Per GB / per month<sup>1 |
+| Blob index tags | Per tag<sup>2  |
+| Change feed | Per logged change<sup>2 |
+| Encryption scopes | Per month<sup>2 |
+| Query acceleration | Per GB scanned & Per GB returned |
 
 <sup>1</sup> Applies only to accounts that have a hierarchical namespace.<br />
 <sup>2</sup> Applies only if you enable the feature.<br />
@@ -56,6 +60,8 @@ When you create or use Blob Storage resources, you'll be charged for the followi
 Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
+
+Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. You can use a similar approach to estimating the cost of encryption scopes that are in use for less than a month. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month. 
 
 ### Finding the unit price for each meter
 
