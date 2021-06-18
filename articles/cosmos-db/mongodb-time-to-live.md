@@ -35,7 +35,12 @@ The command in the above example will create an index with TTL functionality. On
 > [!NOTE]
 > **_ts** is a Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
 >
-	
+Example in Java
+```Java
+MongoCollection collection = mongoDB.getCollection("collectionName");
+String index = collection.createIndex(Indexes.ascending("_ts"),
+new IndexOptions().expireAfter(10L, TimeUnit.SECONDS));
+```
 Additionally, a C# example: 
 
 ```csharp
