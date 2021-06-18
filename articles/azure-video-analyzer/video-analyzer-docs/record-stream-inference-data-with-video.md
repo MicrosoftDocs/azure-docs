@@ -128,7 +128,7 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
 1. Next, under the **livePipelineSet** and **pipelineTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
 
     `"pipelineTopologyName" : "CVRHttpExtensionObjectTracking"`
-1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-cvr-with-inference-metadata`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.  
+1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-and-objectTracking/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-cvr-with-inference-metadata`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.  
 
 1. Examine the settings for the HTTP extension node.
 
