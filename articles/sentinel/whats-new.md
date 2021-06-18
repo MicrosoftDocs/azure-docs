@@ -32,7 +32,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Upgrades for normalization and the Azure Sentinel Information Model
 
-The Azure Sentinel Information Mode enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
+The Azure Sentinel Information Model enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
 
 
 In this month's update, we've enhanced our normalization documentation, providing new levels of detail and a full DNS normalization schema.
