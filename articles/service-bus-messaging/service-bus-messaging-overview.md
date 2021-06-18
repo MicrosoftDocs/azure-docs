@@ -89,7 +89,7 @@ Fully supported Service Bus client libraries are available via the Azure SDK.
 
 [Azure Service Bus' primary protocol is AMQP 1.0](service-bus-amqp-overview.md) and it can be used from any AMQP 1.0 compliant protocol client. Several open-source AMQP clients have samples that explicitly demonstrate Service Bus interoperability. Review the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md) to understand how to use Service Bus features with AMQP 1.0 clients directly.
 
-[!INCLUDE [messaging-oss-amqp-stacks.md](./includes/messaging-oss-amqp-stacks.md)]
+[!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
 
 ## Integration
 

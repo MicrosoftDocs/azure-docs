@@ -10,7 +10,7 @@ ms.date: 06/08/2021
 
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md). In this quickstart, you create an event hub by using an [Azure Resource Manager template (ARM template)](../azure-resource-manager/management/overview.md). You deploy an ARM template to create a namespace of type [Event Hubs](./event-hubs-about.md), with one event hub.
 
-[!INCLUDE [About Azure Resource Manager](./includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

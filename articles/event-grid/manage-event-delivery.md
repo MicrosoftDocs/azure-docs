@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 When creating an event subscription, you can customize the settings for event delivery. This article shows you how to set up a dead letter location and customize the retry settings. For information about these features, see [Event Grid message delivery and retry](delivery-and-retry.md).
 
-[!INCLUDE [updated-for-az](./includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > To learn about message delivery, retries, and dead-lettering, see the conceptual article: [Event Grid message delivery and retry](delivery-and-retry.md).

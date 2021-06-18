@@ -69,7 +69,7 @@ All supported Service Bus client libraries available via the Azure SDK use AMQP 
 
 In addition, you can use Service Bus from any AMQP 1.0 compliant protocol stack:
 
-[!INCLUDE [messaging-oss-amqp-stacks.md](./includes/messaging-oss-amqp-stacks.md)]
+[!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
 
 ## Summary
 * AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications. AMQP 1.0 is an OASIS standard.

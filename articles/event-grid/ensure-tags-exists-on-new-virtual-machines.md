@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[!INCLUDE [requires-azurerm](./includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 To complete this tutorial, an [Azure Automation account](../automation/index.yml) is required to hold the runbook that is triggered from the Azure Event Grid subscription.
 
