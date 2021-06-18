@@ -103,12 +103,12 @@ using Azure.Messaging.EventGrid;
 namespace EventGridFailoverPublisher
 {
     // This captures the "Data" portion of an EventGridEvent on a custom topic
-    public class FailoverEventData
+    class FailoverEventData
     {
         public string TestStatus { get; set; }
     }
 
-    public class Program
+    class Program
     {
         static async Task Main(string[] args)
         {
