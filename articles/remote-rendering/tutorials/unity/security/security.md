@@ -373,9 +373,12 @@ Since the User Credentials aren't stored on the device (or in this case even ent
 
 In the Unity Editor, when AAD Auth is active, you will need to authenticate every time you launch the application. On device, the authentication step will happen the first time and only be required again when the token expires or is invalidated.
 
-1. Add the **AADAuthentication** component to the **RemoteRenderingCoordinator** GameObject.
+1. Add the **AAD Authentication** component to the **RemoteRenderingCoordinator** GameObject.
 
     ![AAD auth component](./media/azure-active-directory-auth-component.png)
+
+> [!NOTE]
+> If you are using the completed project from the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), make sure to enable the **AAD Authentication** component by clicking the checkbox next to its title.
 
 1. Fill in your values for the Client ID and the Tenant ID. These values can be found in your App Registration's Overview Page:
 
@@ -388,7 +391,7 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
     ![Screenshot that highlights the Application (client) ID and Directory (tenant) ID.](./media/app-overview-data.png)
 
 1. Press Play in the Unity Editor and consent to running a session.
-    Since the **AADAuthentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
+    Since the **AAD Authentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
 1. Follow the instructions found in the panel to the right of the **AppMenu**.
     You should see something similar to this:
     ![Illustration that shows the instruction panel that appears to the right of the AppMenu.](./media/device-flow-instructions.png)
