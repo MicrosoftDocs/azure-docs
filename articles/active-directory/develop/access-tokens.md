@@ -239,7 +239,7 @@ Your application's business logic will dictate this step, some common authorizat
 
 * Use the `aud` claim to ensure that the user is 
 * Use the `scp` claim to validate that the user has granted the calling app permission to call your API. 
-* Use the `roles` and `wids` claims to validate that the user themselves has authorization to call your API.  For example, an admin may have permision to write to your aPI, but not a normal user. 
+* Use the `roles` and `wids` claims to validate that the user themselves has authorization to call your API.  For example, an admin may have permission to write to your API, but not a normal user.
 * Ensure the calling client is allowed to call your API using the `appid` claim.
 * Check that the `tid` matches a tenant that is allowed to call your API.
 * Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md).
