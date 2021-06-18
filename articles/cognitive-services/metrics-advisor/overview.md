@@ -40,7 +40,7 @@ Metrics Advisor can connect to, and [ingest multi-dimensional metric](how-tos/on
 
 ## Real-time notification through multiple channels
 
-Whenever anomalies are detected, Metrics Advisor is able to [send real time notification](how-tos/alerts.md) through multiple channels using hooks, such as: email hooks, web hooks, Teams hooks and Azure DevOps hooks. Flexible alert configuration let you customize when to send a notification and where.
+Whenever anomalies are detected, Metrics Advisor is able to [send real time notification](how-tos/alerts.md) through multiple channels using hooks, such as: email hooks, web hooks, Teams hooks and Azure DevOps hooks. Flexible alert configuration lets you customize when and where to send a notification.
 
 ## Smart diagnostic insights by analyzing anomalies
 
@@ -50,7 +50,7 @@ Metrics Advisor combines anomalies detected on the same multi-dimensional metric
 
 ### Cross-metrics analysis using Metrics graph
 
-If there's [Metrics graph](./how-tos/metrics-graph.md) been configured ahead, which indicates the relation between metrics. Cross-metrics analysis can be enabled to help you catch on abnormal status among all related metrics in a holistic view. And eventually locate the final root cause.
+A [Metrics graph](./how-tos/metrics-graph.md) indicates the relation between metrics. Cross-metrics analysis can be enabled to help you catch on abnormal status among all related metrics in a holistic view. And eventually locate the final root cause.
 
 Refer to [how to diagnose an incident](./how-tos/diagnose-an-incident.md) for more detail.
 

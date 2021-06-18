@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-metrics-monitor
 
 # Quickstart: Use the client libraries or REST APIs to customize your solution
 
-Get started with the the Metrics Advisor REST API or client libraries. Follow these steps to install the package and try out the example code for basic tasks.
+Get started with the Metrics Advisor REST API or client libraries. Follow these steps to install the package and try out the example code for basic tasks.
 
 Use Metrics Advisor to perform:
 

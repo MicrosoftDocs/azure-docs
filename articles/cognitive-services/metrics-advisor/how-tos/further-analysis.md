@@ -1,7 +1,7 @@
 ---
 title: Further analysis an incident and evaluate impact
 titleSuffix: Azure Cognitive Services
-description: Learn how to leverage analysis tools to further analysis an incident. 
+description: Learn how to leverage analysis tools to further analyze an incident. 
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 04/15/2021
 ms.author: mbullwin
 ---
 
-# Further analysis an incident and evaluate impact
+# Further analyze an incident and evaluate impact
 
 ## Metrics drill down by dimensions
 
@@ -43,7 +43,7 @@ The second section of the drill down tab is a table with comparisons for differe
 
 ### Value and expected value comparisons for different dimension value
 
-The third section of the drill down tab is an histogram with the values and expected values, for different dimension values. The histogram is sorted by the difference between value and expected value. You can find the unexpected value with the biggest impact easily. For example, in the above picture, we can find that, except the all up value, **US7** contributes the most for the anomaly.
+The third section of the drill down tab is a histogram with the values and expected values, for different dimension values. The histogram is sorted by the difference between value and expected value. You can find the unexpected value with the biggest impact easily. For example, in the above picture, we can find that, except the all up value, **US7** contributes the most for the anomaly.
 
 :::image type="content" source="../media/diagnostics/drill-down-table.png" alt-text="Drill down table" lightbox="../media/diagnostics/drill-down-table.png":::
 
@@ -73,6 +73,6 @@ When viewing an incident, you can use the **Similar time-series-clustering** tab
 1. Metrics must have one or more dimensions or dimension values.
 2. The series within one metric must have a similar trend.
 
-Available dimensions are listed on the top the the tab, and you can make a selection to specify the series.
+Available dimensions are listed on the top the tab, and you can make a selection to specify the series.
 
 :::image type="content" source="../media/diagnostics/series-group.png" lightbox="../media/diagnostics/series-group.png" alt-text="Series group":::

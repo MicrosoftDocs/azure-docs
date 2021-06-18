@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Metrics Advisor glossary of common vocabulary and concepts
 
-This document explains the technical terms used in Metrics Advisor. Use this article to learn about common concepts and objects you might encounter when using the service .
+This document explains the technical terms used in Metrics Advisor. Use this article to learn about common concepts and objects you might encounter when using the service.
 
 ## Data feed
 
@@ -32,7 +32,7 @@ A metric is a quantifiable measure that is used to monitor and assess the status
 
 ## Dimension
 
-A dimension is one or more categorical values. The combination of those values identify a particular univariate time series, for example: country, language, tenant, and so on.
+A dimension is one or more categorical values. The combination of those values identifies a particular univariate time series, for example: country, language, tenant, and so on.
 
 ## Multi-dimensional metric
 
@@ -109,7 +109,7 @@ After an incident occurs, Metrics Advisor will provide a diagnostic tree with a 
 
 ### Anomaly grouping
 
-Metrics Advisor provides the capability to find related time series with a similar patterns. It can also provide deeper insights into the impact on other dimensions, and correlate the anomalies.
+Metrics Advisor provides the capability to find related time series with similar patterns. It can also provide deeper insights into the impact on other dimensions, and correlate the anomalies.
 
 ### Time series comparison
 

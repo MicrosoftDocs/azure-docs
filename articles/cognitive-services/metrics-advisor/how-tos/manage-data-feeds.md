@@ -57,8 +57,8 @@ Workspace access is controlled by the Metrics Advisor resource, which uses Azure
 
 Metrics Advisor lets you grant permissions to different groups of people on different data feeds. There are two types of roles: 
 
-- Administrator: Who has full permissions to manage a data feed, including modify and delete.
-- Viewer: Who has access to a read-only view of the data feed.
+- Administrator: Has full permissions to manage a data feed, including modify and delete.
+- Viewer: Has access to a read-only view of the data feed.
  
 
 ## Advanced settings
@@ -134,7 +134,7 @@ To configure an alert, you need to [create a hook](alerts.md#create-a-hook) firs
 
 * **Grace period**: The Grace period setting is used to determine when to send an alert if no data points are ingested. The reference point is the time of first ingestion. If an ingestion fails, Metrics Advisor will keep trying at a regular interval specified by the granularity. If it continues to fail past the grace period, an alert will be sent.
 
-* **Auto snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the the setting specified.
+* **Auto snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the setting specified.
 
 ## Next steps
 - [Configure metrics and fine tune detection configuration](configure-metrics.md)

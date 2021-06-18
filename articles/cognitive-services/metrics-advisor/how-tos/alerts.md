@@ -41,7 +41,7 @@ After you select **OK**, an email hook will be created. You can use it in any al
 
 ### Teams hook
 
-A Teams hook is the channel for anomaly alerts to be sent to a channel in Microsoft Teams. A Teams hook is implemented through an "Incoming webhook" connector. You may need to create an "Incoming webhook" connector ahead in your target Teams channel and get an URL of it. Then pivot back to your Metrics Advisor workspace. 
+A Teams hook is the channel for anomaly alerts to be sent to a channel in Microsoft Teams. A Teams hook is implemented through an "Incoming webhook" connector. You may need to create an "Incoming webhook" connector ahead in your target Teams channel and get a URL of it. Then pivot back to your Metrics Advisor workspace. 
 
 Select "Hooks" tab in left navigation bar, and select "Create hook" button at top right of the page. Choose hook type of "Teams", following parameters are provided: 
 
