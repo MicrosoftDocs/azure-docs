@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension from Azure portal
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments from the Azure portal.
-ms.date: 05/19/2021
+ms.date: 06/18/2021
 ms.topic: conceptual
 ---
 
@@ -52,7 +52,11 @@ You can get a list of the VM extensions on your Arc enabled server from the Azur
 
 ## Update extensions
 
-When a new version of a supported extension is released, you can update the extension to that latest release. Arc enabled servers will present a banner in the Azure portal when you navigate to Arc enabled servers, informing you there are upgrades available for one or more extensions installed on a machine. When you view the list of installed extensions for a selected Arc enabled server, you'll notice a column labeled **Update available**. If a newer version of an extension is released, the **Update available** value for that extension shows a value of **Yes**. Updating an extension to the newest version does not affect the configuration of that extension.
+When a new version of a supported extension is released, you can update the extension to that latest release. Arc enabled servers will present a banner in the Azure portal when you navigate to Arc enabled servers, informing you there are upgrades available for one or more extensions installed on a machine. When you view the list of installed extensions for a selected Arc enabled server, you'll notice a column labeled **Update available**. If a newer version of an extension is released, the **Update available** value for that extension shows a value of **Yes**. 
+
+Updating an extension to the newest version does not affect the configuration of that extension. You are not required to respecify configuration information for any extension you update.
+
+![List VM extension upgrade status](./media/manage-vm-extensions-portal/vm-extensions-update-status.png)
 
 You can update one or select multiple extensions eligible for an update from the Azure portal by performing the following steps.
 
@@ -68,8 +72,13 @@ You can update one or select multiple extensions eligible for an update from the
 You can update one extension by one of three ways:
 
 1. By selecting an extension from the list of installed extensions, and under the properties of the extension, select the **Update** option.
-1. By selecting the extension from the list of installed extensions, and select the **Update** option from the top of the page or by selecting the ellipse on the far-right of the row, and then selecting **Update**.
+
+    ![Upgrade extension from selected extension](./media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png)
+
+1. By selecting the extension from the list of installed extensions, and select the **Update** option from the top of the page.
 1. By selecting one or more extensions that are eligible for an upgrade from the list of installed extensions, and then select the **Update** option.
+
+    ![Upgrade selected extension](./media/manage-vm-extensions-portal/vm-extensions-update-selected.png)
 
 ## Uninstall extensions
 
