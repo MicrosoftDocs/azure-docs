@@ -55,9 +55,11 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 | Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| South Africa North | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -100,20 +102,7 @@ This response has been truncated to illustrate the structure of a response.
 
 ```json
 [
-  {
-    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-    "DisplayName": "Hoda",
-    "LocalName": "هدى",
-    "ShortName": "ar-EG-Hoda",
-    "Gender": "Female",
-    "Locale": "ar-EG",
-    "SampleRateHertz": "16000",
-    "VoiceType": "Standard",
-    "Status": "GA"
-  },
 
-...
-      
     {
     "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
     "DisplayName": "Aria",
@@ -133,10 +122,39 @@ This response has been truncated to illustrate the structure of a response.
     "VoiceType": "Neural",
     "Status": "GA"
   },
-  
+
+    ...
+
+     {
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyMultilingualNeural)",
+    "ShortName": "en-US-JennyMultilingualNeural",
+    "DisplayName": "Jenny Multilingual",
+    "LocalName": "Jenny Multilingual",
+    "Gender": "Female",
+    "Locale": "en-US",
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "SecondaryLocaleList": [
+        "de-DE",
+        "en-AU",
+        "en-CA",
+        "en-GB",
+        "es-ES",
+        "es-MX",
+        "fr-CA",
+        "fr-FR",
+        "it-IT",
+        "ja-JP",
+        "ko-KR",
+        "pt-BR",
+        "zh-CN"
+      ],
+    "Status": "Preview"
+    },
+    
   ...
     
-     {
+    {
     "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
     "DisplayName": "Orla",
     "LocalName": "Orla",
@@ -147,9 +165,9 @@ This response has been truncated to illustrate the structure of a response.
     "VoiceType": "Neural",
     "Status": "Preview"
   },
-  
+
   ...
-    
+
    {
     "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
     "DisplayName": "Yunxi",
@@ -174,6 +192,21 @@ This response has been truncated to illustrate the structure of a response.
   },
 
     ...
+
+   {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+    "DisplayName": "Hoda",
+    "LocalName": "هدى",
+    "ShortName": "ar-EG-Hoda",
+    "Gender": "Female",
+    "Locale": "ar-EG",
+    "SampleRateHertz": "16000",
+    "VoiceType": "Standard",
+    "Status": "GA"
+  },
+
+...
+
 ]
 ```
 
@@ -216,17 +249,23 @@ This table lists required and optional headers for text-to-speech requests.
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech service supports 24 kHz, 16 kHz, and 8 kHz audio outputs.
 
 ```output
-raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
-riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
-riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
-audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-16khz-16bit-mono-pcm            riff-16khz-16bit-mono-pcm
 raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
-audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
-audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
+raw-8khz-8bit-mono-mulaw            riff-8khz-8bit-mono-mulaw
+raw-8khz-8bit-mono-alaw             riff-8khz-8bit-mono-alaw
+audio-16khz-32kbitrate-mono-mp3     audio-16khz-64kbitrate-mono-mp3
+audio-16khz-128kbitrate-mono-mp3    audio-24khz-48kbitrate-mono-mp3
+audio-24khz-96kbitrate-mono-mp3     audio-24khz-160kbitrate-mono-mp3
+audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
+raw-16khz-16bit-mono-truesilk       raw-24khz-16bit-mono-truesilk
+webm-16khz-16bit-mono-opus          webm-24khz-16bit-mono-opus
+ogg-16khz-16bit-mono-opus           ogg-24khz-16bit-mono-opus
+ogg-48khz-16bit-mono-opus
 ```
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. 
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary.
 > ogg-24khz-16bit-mono-opus can be decoded with [opus codec](https://opus-codec.org/downloads/)
 
 ### Request body
@@ -274,4 +313,4 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [Asynchronous synthesis for long-form audio](./long-audio-api.md)
-- [Get started with Custom Voice](how-to-custom-voice.md)
+- [Get started with Custom Neural Voice](how-to-custom-voice.md)

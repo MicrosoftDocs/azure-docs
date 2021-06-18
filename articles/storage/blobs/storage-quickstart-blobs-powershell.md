@@ -23,6 +23,8 @@ Use the Azure PowerShell module to create and manage Azure resources. Creating o
 
 To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+You will also need the Storage Blob Data Contributor role to read, write, and delete Azure Storage containers and blobs.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 This quickstart requires the Azure PowerShell module Az version 0.7 or later. Run `Get-InstalledModule -Name Az -AllVersions | select Name,Version` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
@@ -59,21 +61,21 @@ Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
 Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
-  -Context $ctx 
+  -Context $ctx `
   -StandardBlobTier Hot
 
 # upload another file to the Cool access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
-  -Context $ctx
+  -Context $ctx `
   -StandardBlobTier Cool
 
 # upload a file to a folder to the Archive access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
   -Container $containerName `
   -Blob "Foldername/Image003.jpg" `
-  -Context $ctx 
+  -Context $ctx `
   -StandardBlobTier Archive
 ```
 

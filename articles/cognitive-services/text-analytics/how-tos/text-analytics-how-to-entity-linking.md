@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 06/15/2021
 ms.author: aahi
 ---
 
@@ -31,7 +31,7 @@ The PII feature is part of NER and it can identify and redact sensitive entities
 
 ## Named Entity Recognition features and versions
 
-| Feature                                                         | NER v3.0 | NER v3.1-preview.3 |
+| Feature                                                         | NER v3.0 | NER v3.1-preview.5 |
 |-----------------------------------------------------------------|--------|----------|
 | Methods for single, and batch requests                          | X      | X        |
 | Expanded entity recognition across several categories           | X      | X        |
@@ -43,8 +43,8 @@ See [language support](../language-support.md) for information.
 
 Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
-Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v3.0, and: 
-* The ability to detect personal information (`PII`) using the `v3.1-preview.3/entities/recognition/pii` endpoint. 
+Named Entity Recognition v3.1-preview.5 includes the detection capabilities of v3.0, and: 
+* The ability to detect personal information (`PII`) using the `v3.1-preview.5/entities/recognition/pii` endpoint. 
 * An optional `domain=phi` parameter to detect confidential health information (`PHI`).
 * [Asynchronous operation](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
 
@@ -68,36 +68,43 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 ### Request endpoints
 
-#### [Version 3.1-preview.3](#tab/version-3-preview)
+#### [Version 3.1-preview](#tab/version-3-preview)
 
-Named Entity Recognition `v3.1-preview.3` uses separate endpoints for NER, PII, and entity linking requests. Use a URL format below based on your request.
+Named Entity Recognition `v3.1-preview.5` uses separate endpoints for NER, PII, and entity linking requests. Use a URL format below based on your request.
 
 **Entity linking**
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/linking`
 
-[Named Entity Recognition version 3.1-preview reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
+[Named Entity Recognition version 3.1-preview reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesLinking)
 
 **Named Entity Recognition**
-* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/general`
 
-[Named Entity Recognition version 3.1-preview reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
+[Named Entity Recognition version 3.1-preview reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesRecognitionGeneral)
 
 **Personally Identifiable Information (PII)**
-* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
+* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii`
 
 You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi`
 
-Starting in `v3.1-preview.3`, The JSON response includes a `redactedText` property, which contains the modified input text where the detected PII entities are replaced by an `*` for each character in the entities.
+Starting in `v3.1-preview.5`, The JSON response includes a `redactedText` property, which contains the modified input text where the detected PII entities are replaced by an `*` for each character in the entities.
 
-[Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
+[Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesRecognitionPii)
+
+The API will attempt to detect the [listed entity categories](../named-entity-types.md?tabs=personal) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following example would detect a French driver's license number that might occur in English text, along with the default English entities.
+
+> [!TIP]
+> If you don't include `default` when specifying entity categories, The API will only return the entity cateogires you specify.
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
 
 **Asynchronous operation**
 
-Starting in `v3.1-preview.3`, You can send NER requests asynchronously using the `/analyze` endpoint.
+Starting in `v3.1-preview.5`, You can send NER and entity linking requests asynchronously using the `/analyze` endpoint.
 
-* Asynchronous operation - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+* Asynchronous operation - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/analyze`
 
 See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for information on sending asynchronous requests.
 
@@ -198,7 +205,7 @@ Version 3.0 only includes synchronous operation. The following JSON is an exampl
 
 ## Post the request
 
-Analysis is performed upon receipt of the request. See the [data limits](../overview.md#data-limits) section in the overview for information on the size and number of requests you can send per minute and second.
+Analysis is performed upon receipt of the request. See the [data limits](../overview.md#data-limits) article for information on the size and number of requests you can send per minute and second.
 
 The Text Analytics API is stateless. No data is stored in your account, and results are returned immediately in the response.
 
@@ -481,4 +488,5 @@ In this article, you learned concepts and workflow for entity linking using Text
 
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
+* [Model versions](../concepts/model-versioning.md)
 * [What's new](../whats-new.md)

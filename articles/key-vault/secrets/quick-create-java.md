@@ -2,7 +2,7 @@
 title: Quickstart - Azure Key Vault Secret client library for Java
 description: Provides a quickstart for the Azure Key Vault Secret client library for Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
@@ -170,7 +170,7 @@ Now that your application is authenticated, you can put a secret into your key v
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
+You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -195,7 +195,7 @@ SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(
 deletionPoller.waitForCompletion();
 ```
 
-You can verify that the secret has been deleted with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
+You can verify that the secret has been deleted with the [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -276,4 +276,4 @@ In this quickstart you created a key vault, stored a secret, retrieved it, and t
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- How to [Secure access to a key vault](../general/secure-your-key-vault.md)
+- How to [Secure access to a key vault](../general/security-features.md)

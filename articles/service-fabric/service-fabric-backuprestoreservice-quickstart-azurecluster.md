@@ -7,14 +7,14 @@ ms.date: 5/24/2019
 ---
 # Periodic backup and restore in an Azure Service Fabric cluster
 > [!div class="op_single_selector"]
-> * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
+> * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 > * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
-> 
+>
 
 Service Fabric is a distributed systems platform that makes it easy to develop and manage reliable, distributed, microservices based cloud applications. It allows running of both stateless and stateful micro services. Stateful services can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a Stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to some recent backup of its state in order to continue providing service after it comes back up.
 
 Service Fabric replicates the state across multiple nodes to ensure that the service is highly available. Even if one node in the cluster fails, the service continues to be available. In certain cases, however, it is still desirable for the service data to be reliable against broader failures.
- 
+
 For example, service may want to back up its data in order to protect from the following scenarios:
 - In the event of the permanent loss of an entire Service Fabric cluster.
 - Permanent loss of a majority of the replicas of a service partition
@@ -24,7 +24,7 @@ For example, service may want to back up its data in order to protect from the f
 
 Service Fabric provides an inbuilt API to do point in time [backup and restore](service-fabric-reliable-services-backup-restore.md). Application developers may use these APIs to back up the state of the service periodically. Additionally, if service administrators want to trigger a backup from outside of the service at a specific time, like before upgrading the application, developers need to expose backup (and restore) as an API from the service. Maintaining the backups is an additional cost above this. For example, you may want to take five incremental backups every half hour, followed by a full backup. After the full backup, you can delete the prior incremental backups. This approach requires additional code leading to additional cost during application development.
 
-The Backup and Restore service in Service Fabric enables easy and automatic backup of information stored in stateful services. Backing up application data on a periodic basis is fundamental for guarding against data loss and service unavailability. Service Fabric provides an optional backup and restore service, which allows you to configure periodic backup of stateful Reliable Services (including Actor Services) without having to write any additional code. It also facilitates restoring previously taken backups. 
+The Backup and Restore service in Service Fabric enables easy and automatic backup of information stored in stateful services. Backing up application data on a periodic basis is fundamental for guarding against data loss and service unavailability. Service Fabric provides an optional backup and restore service, which allows you to configure periodic backup of stateful Reliable Services (including Actor Services) without having to write any additional code. It also facilitates restoring previously taken backups.
 
 
 Service Fabric provides a set of APIs to achieve the following functionality related to periodic backup and restore feature:
@@ -58,7 +58,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 
 ```powershell
 
-    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 
 ```
 
@@ -72,7 +72,7 @@ Enable `Include backup restore service` check box under `+ Show optional setting
 
 
 ### Using Azure Resource Manager Template
-First you need to enable the _backup and restore service_ in your cluster. Get the template for the cluster that you want to deploy. You can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) or create a Resource Manager template. Enable the _backup and restore service_ with the following steps:
+First you need to enable the _backup and restore service_ in your cluster. Get the template for the cluster that you want to deploy. You can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype) or create a Resource Manager template. Enable the _backup and restore service_ with the following steps:
 
 1. Check that the `apiversion` is set to **`2018-02-01`** for the `Microsoft.ServiceFabric/clusters` resource, and if not, update it as shown in the following snippet:
 
@@ -86,7 +86,7 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
     }
     ```
 
-2. Now enable the _backup and restore service_ by adding the following `addonFeatures` section under `properties` section as shown in the following snippet: 
+2. Now enable the _backup and restore service_ by adding the following `addonFeatures` section under `properties` section as shown in the following snippet:
 
     ```json
         "properties": {
@@ -97,7 +97,7 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
         }
 
     ```
-3. Configure X.509 certificate for encryption of credentials. This is important to ensure that the credentials provided to connect to storage are encrypted before persisting. Configure encryption certificate by adding the following `BackupRestoreService` section under `fabricSettings` section as shown in the following snippet: 
+3. Configure X.509 certificate for encryption of credentials. This is important to ensure that the credentials provided to connect to storage are encrypted before persisting. Configure encryption certificate by adding the following `BackupRestoreService` section under `fabricSettings` section as shown in the following snippet:
 
     ```json
     "properties": {
@@ -114,7 +114,7 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
     }
     ```
 
-4. Once you have updated your cluster template with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup and restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and the service can be located under system service section in the Service Fabric explorer. 
+4. Once you have updated your cluster template with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup and restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and the service can be located under system service section in the Service Fabric explorer.
 
 ## Enabling periodic backup for Reliable Stateful service and Reliable Actors
 Let's walk through steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume
@@ -124,7 +124,7 @@ Let's walk through steps to enable periodic backup for Reliable Stateful service
 
 ### Create backup policy
 
-First step is to create backup policy describing backup schedule, target storage for backup data, policy name, maximum incremental backups to be allowed before triggering full backup and retention policy for backup storage. 
+First step is to create backup policy describing backup schedule, target storage for backup data, policy name, maximum incremental backups to be allowed before triggering full backup and retention policy for backup storage.
 
 For backup storage, use the Azure Storage account created above. Container `backup-container` is configured to store backups. A container with this name is created, if it does not already exist, during backup upload. Populate `ConnectionString` with a valid connection string for the Azure Storage account, replacing `account-name` with your storage account name, and `account-key` with your storage account key.
 
@@ -154,7 +154,7 @@ $ScheduleInfo = @{
     ScheduleKind = 'FrequencyBased'
 }
 
-$RetentionPolicy = @{ 
+$RetentionPolicy = @{
     RetentionPolicyType = 'Basic'
     RetentionDuration =  'P10D'
 }
@@ -207,9 +207,10 @@ $body = (ConvertTo-Json $BackupPolicyReference)
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
-``` 
+```
 
 #### Using Service Fabric Explorer
+Make sure the [advanced mode](service-fabric-visualizing-your-cluster.md#backup-and-restore) for Service Fabric Explorer is enabled
 
 1. Select an application and go to action. Click Enable/Update Application Backup.
 
@@ -222,7 +223,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ### Verify that periodic backups are working
 
-After enabling backup at the application level, all partitions belonging to Reliable Stateful services and Reliable Actors under the application will start getting backed-up periodically as per the associated backup policy. 
+After enabling backup at the application level, all partitions belonging to Reliable Stateful services and Reliable Actors under the application will start getting backed-up periodically as per the associated backup policy.
 
 ![Partition BackedUp Health Event][0]
 
@@ -233,7 +234,7 @@ Backups associated with all partitions belonging to Reliable Stateful services a
 #### PowerShell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
-    
+
 Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
@@ -263,7 +264,7 @@ BackupType              : Full
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3334
 CreationTimeUtc         : 2018-04-06T20:55:16Z
-FailureError            : 
+FailureError            :
 
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
@@ -275,7 +276,7 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
-FailureError            : 
+FailureError            :
 
 BackupId                : 69436834-c810-4163-9386-a7a800f78359
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
@@ -287,7 +288,7 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3764
 CreationTimeUtc         : 2018-04-06T21:25:36Z
-FailureError            : 
+FailureError            :
 ```
 
 #### Using Service Fabric Explorer

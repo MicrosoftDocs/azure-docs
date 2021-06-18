@@ -62,6 +62,8 @@
       href: hana-concept-preparation.md
     - name: Disaster recovery failover procedure
       href: hana-failover-procedure.md
+    - name: Large instances HA for SAP on RHEL
+      href: large-instance-high-availability-rhel.md
   - name: Troubleshoot and monitor
     items:
     - name: Monitoring HLI
@@ -74,8 +76,12 @@
       href: hana-li-portal.md
     - name: HA Setup with STONITH
       href: ha-setup-with-stonith.md
-    - name: OS Backup for Type II SKUs
-      href: os-backup-type-ii-skus.md
+    - name: OS Backup
+      href: large-instance-os-backup.md
+    - name: OS Backup HLI TYPE - 2
+      href: os-backup-hli-type-ii-skus.md
+    - name: Azure Large Instances high availability for SAP on RHEL
+      href: large-instance-high-availability-rhel.md
     - name: Enable Kdump for HANA Large Instances
       href: hana-large-instance-enable-kdump.md
     - name: OS Upgrade for HANA Large Instances
@@ -112,6 +118,8 @@
       href: sap-hana-high-availability-rhel.md
     - name: Set up SAP HANA System Replication with ANF on RHEL
       href: sap-hana-high-availability-netapp-files-red-hat.md
+    - name: SAP HANA scale-out HSR with Pacemaker on SLES
+      href: sap-hana-high-availability-scale-out-hsr-suse.md
     - name: Troubleshoot SAP HANA scale-out and Pacemaker on SLES
       href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
     - name: SAP HANA scale-out HSR with Pacemaker on RHEL
@@ -120,11 +128,25 @@
       href: sap-hana-scale-out-standby-netapp-files-suse.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
       href: sap-hana-scale-out-standby-netapp-files-rhel.md
-  - name: SAP HANA backup overview
-    href: sap-hana-backup-guide.md
-  - name: SAP HANA file level backup
-    href: sap-hana-backup-file-level.md
-- name: SAP NetWeaver and Business One on Azure Virtual Machines
+  - name: SAP HANA database backup with Azure Backup
+    items:
+    - name: SAP HANA database backup in Azure VMs
+      href: ../../../backup/sap-hana-db-about.md
+    - name: Back up SAP HANA databases in Azure VMs
+      href: ../../../backup/backup-azure-sap-hana-database.md
+    - name: Restore SAP HANA databases on Azure VMs
+      href: ../../../backup/sap-hana-db-restore.md
+    - name: Manage and monitor
+      href: ../../../backup/sap-hana-db-manage.md
+    - name: Support matrix for backup of SAP HANA databases
+      href: ../../../backup/sap-hana-backup-support-matrix.md
+    - name: FAQ – Back up SAP HANA databases on Azure VMs
+      href: ../../../backup/sap-hana-faq-backup-azure-vm.yml
+    - name: Troubleshoot backup of SAP HANA databases on Azure
+      href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
+    - name: Tutorial - Back up SAP HANA databases in an Azure VM
+      href: ../../../backup/tutorial-backup-sap-hana-db.md
+- name: SAP NetWeaver, S/4HANA and Business One on Azure Virtual Machines
   items:
   - name: SAP workload planning and deployment checklist
     href: sap-deployment-checklist.md
@@ -249,7 +271,9 @@
   items:
   - name: SAP BusinessObjects BI platform planning and implementation guide on Azure 
     href: businessobjects-deployment-guide.md
-  - name: SAP BusinessObjects BI platform deployment guide for linux on Azure
+  - name: SAP BusinessObjects BI platform deployment guide for Windows on Azure
+    href: businessobjects-deployment-guide-windows.md
+  - name: SAP BusinessObjects BI platform deployment guide for Linux on Azure
     href: businessobjects-deployment-guide-linux.md
 - name: Integrate Azure AD with SAP applications
   items:
@@ -297,6 +321,16 @@
     href: /power-bi/desktop-sap-bw-connector
   - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
     href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
+- name: Azure Sentinel and continuous threat monitoring for SAP
+  items:
+    - name: Deploy the Azure Sentinel solution for SAP
+      href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
+    - name: Detailed requirements
+      href: ../../../sentinel/sap-solution-detailed-requirements.md
+    - name: Available SAP logs reference
+      href: ../../../sentinel/sap-solution-log-reference.md
+    - name: SAP security content reference
+      href: ../../../sentinel/sap-solution-security-content.md
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Azure Monitor for SAP Solutions Overview
@@ -312,7 +346,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/sap-hana/hanainstance
+    href: /cli/azure/hanainstance
   - name: Azure PowerShell
     href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Resources

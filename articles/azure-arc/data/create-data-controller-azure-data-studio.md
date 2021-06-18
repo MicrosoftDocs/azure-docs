@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 12/09/2020
+ms.date: 04/07/2021
 ms.topic: how-to
 ---
 
@@ -16,6 +16,8 @@ ms.topic: how-to
 You can create a data controller using Azure Data Studio through the deployment wizard and notebooks.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+At the current time, you can create a data controller using the method described in this article.
 
 ## Prerequisites
 
@@ -28,13 +30,13 @@ You can create a data controller using Azure Data Studio through the deployment 
 Follow these steps to create an Azure Arc data controller using the Deployment wizard.
 
 1. In Azure Data Studio, click on the Connections tab on the left navigation.
-2. Click on the **...** button at the top of the Connections panel and choose **New Deployment...**
-3. In the new Deployment wizard, choose **Azure Arc Data Controller**, and then click the **Select** button at the bottom.
-4. Ensure the prerequisite tools are available and meet the required versions. **Click Next**.
-5. Use the default kubeconfig file or select another one.  Click **Next**.
-6. Choose a Kubernetes cluster context. Click **Next**.
-7. Choose a deployment configuration profile depending on your target Kubernetes cluster. **Click Next**.
-8. If you are using Azure Red Hat OpenShift or Red Hat OpenShift container platform, apply security context constraints. Follow the instructions at [Apply a security context constraint for Azure Arc enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
+1. Click on the **...** button at the top of the Connections panel and choose **New Deployment...**
+1. In the new Deployment wizard, choose **Azure Arc Data Controller**, and then click the **Select** button at the bottom.
+1. Ensure the prerequisite tools are available and meet the required versions. **Click Next**.
+1. Use the default kubeconfig file or select another one.  Click **Next**.
+1. Choose a Kubernetes cluster context. Click **Next**.
+1. Choose a deployment configuration profile depending on your target Kubernetes cluster. **Click Next**.
+1. If you are using Azure Red Hat OpenShift or Red Hat OpenShift container platform, apply security context constraints. Follow the instructions at [Apply a security context constraint for Azure Arc enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
 
    >[!IMPORTANT]
    >On Azure Red Hat OpenShift or Red Hat OpenShift container platform, you must apply the security context constraint before you create the data controller.
@@ -42,24 +44,22 @@ Follow these steps to create an Azure Arc data controller using the Deployment w
 1. Choose the desired subscription and resource group.
 1. Select an Azure location.
    
-   The Azure location selected here is the location in Azure where the *metadata* about the data controller and the database instances that it manages will be stored. The data controller and database instances will be actually crewted in your Kubernetes cluster wherever that may be.
+   The Azure location selected here is the location in Azure where the *metadata* about the data controller and the database instances that it manages will be stored. The data controller and database instances will be actually created in your Kubernetes cluster wherever that may be.
+   
+   Once done, click **Next**.
 
-10. Select the appropriate Connectivity Mode. Learn more on [Connectivity modes](https://docs.microsoft.com/azure/azure-arc/data/connectivity). **Click Next**.
-
-    If you select direct connectivity mode Service Principal credentials are required as described in [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
-
-11. Enter a name for the data controller and for the namespace that the data controller will be created in.
+1. Enter a name for the data controller and for the namespace that the data controller will be created in.
 
     The data controller and namespace name will be used to create a custom resource in the Kubernetes cluster so they must conform to [Kubernetes naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
     
     If the namespace already exists it will be used if the namespace does not already contain other Kubernetes objects - pods, etc.  If the namespace does not exist, an attempt to create the namespace will be made.  Creating a namespace in a Kubernetes cluster requires Kubernetes cluster administrator privileges.  If you don't have Kubernetes cluster administrator privileges, ask your Kubernetes cluster administrator to perform the first few steps in the [Create a data controller using Kubernetes-native tools](./create-data-controller-using-kubernetes-native-tools.md) article which are required to be performed by a Kubernetes administrator before you complete this wizard.
 
 
-12. Select the storage class where the data controller will be deployed. 
-13.  Enter a username and password and confirm the password for the data controller administrator user account. Click **Next**.
+1. Select the storage class where the data controller will be deployed. 
+1.  Enter a username and password and confirm the password for the data controller administrator user account. Click **Next**.
 
-14. Review the deployment configuration.
-15. Click the **Deploy** to deploy the desired configuration or the **Script to Notebook** to review the deployment instructions or make any changes necessary such as storage class names or service types. Click **Run All** at the top of the notebook.
+1. Review the deployment configuration.
+1. Click the **Deploy** to deploy the desired configuration or the **Script to Notebook** to review the deployment instructions or make any changes necessary such as storage class names or service types. Click **Run All** at the top of the notebook.
 
 ## Monitoring the creation status
 

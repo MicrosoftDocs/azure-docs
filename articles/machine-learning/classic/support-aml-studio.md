@@ -3,7 +3,7 @@ title: 'ML Studio (classic) tutorial support & training - Azure'
 description: Get support and training and provide feedback for Azure Machine Learning Studio (classic)
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: troubleshooting
 
 author: peterclu

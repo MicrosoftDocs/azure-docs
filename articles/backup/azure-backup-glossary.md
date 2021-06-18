@@ -295,6 +295,18 @@ Backs up operating system files. This backup allows you to recover when a comput
 
 A tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, like signing up for Azure, Microsoft Intune, or Microsoft 365.
 
+## Tier
+
+Currently, Azure Backup supports the following backup storage tiers:
+
+### Snapshot tier
+
+(Workload specific term) In the first phase of VM backup, the snapshot taken is stored along with the disk. This form of storage is referred to as snapshot tier. Snapshot tier restores are faster (than restoring from a vault) because they eliminate the wait time for snapshots to get copied to from the vault before triggering the restore operation.
+
+### Vault-Standard tier
+
+Backup data for all workloads supported by Azure Backup is stored in vaults which hold backup storage, an auto-scaling set of storage accounts managed by Azure Backup. The Vault-Standard tier is an online storage tier that enables you to store an isolated copy of backup data in a Microsoft managed tenant, thus creating an additional layer of protection. For workloads where snapshot tier is supported, there is a copy of the backup data in both the snapshot tier and the vault-standard tier. Vault-standard tier ensures that backup data is available even if the datasource being backed up is deleted or compromised.
+
 ## Unmanaged disk
 
 Refer to the [Unmanaged disks documentation](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks).

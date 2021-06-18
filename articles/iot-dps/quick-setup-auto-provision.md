@@ -20,8 +20,9 @@ In this quickstart, you will learn how to set up the IoT Hub Device Provisioning
 * Use the Azure portal to create an IoT Hub Device Provisioning Service and get the ID scope
 * Link the IoT hub to the Device Provisioning Service
 
+## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You'll need an Azure subscription to begin with this article. You can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), if you haven't already.
 
 
 ## Create an IoT hub

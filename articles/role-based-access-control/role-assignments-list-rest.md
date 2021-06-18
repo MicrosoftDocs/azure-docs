@@ -5,17 +5,12 @@ services: active-directory
 documentationcenter: na
 author: rolyon
 manager: mtillman
-editor: ''
-
-ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 02/27/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 
 ---
 # List Azure role assignments using the REST API
@@ -23,7 +18,9 @@ ms.reviewer: bagovind
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] This article describes how to list role assignments using the REST API.
 
 > [!NOTE]
-> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
+> If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## List role assignments
 
@@ -88,5 +85,5 @@ The following shows an example of the output:
 
 ## Next steps
 
-- [Add or remove Azure role assignments using the REST API](role-assignments-rest.md)
+- [Assign Azure roles using the REST API](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)

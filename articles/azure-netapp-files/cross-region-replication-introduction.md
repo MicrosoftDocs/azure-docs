@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 04/22/2021
 ms.author: b-juche
 ms.custom: references_regions
 ---
@@ -22,11 +22,11 @@ ms.custom: references_regions
 The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to failover your critical application in case of a region-wide outage or disaster.
 
 > [!IMPORTANT]
-> The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
+> The cross-region replication feature is currently in preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
-Azure NetApp Files volume replication is supported between various [Azure regional pairs](/azure/best-practices-availability-paired-regions#azure-regional-pairs) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
+Azure NetApp Files volume replication is supported between various [Azure regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
 
 ### Azure regional pairs
 
@@ -40,15 +40,17 @@ Azure NetApp Files volume replication is supported between various [Azure region
 * North Europe and West Europe
 * UK South and UK West
 
-### Azure regional non-pairs
+### Azure regional non-standard pairs
 
 *	West US 2 and East US
 *	South Central US and Central US
 *	South Central US and East US
 *	South Central US and East US 2
 *	East US and East US 2
+*	East US 2 and West US 2
 *	Australia East and Southeast Asia 
 *	Germany West Central and UK South
+*	Germany West Central and West Europe
 
 ## Service-level objectives
 
@@ -117,8 +119,7 @@ Regular Azure NetApp Files storage capacity charge for Month 2 applies to the de
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
-
-

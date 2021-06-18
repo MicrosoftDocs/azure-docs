@@ -36,7 +36,7 @@ You'll need to do the following to use the code in this topic:
 
 You must also have your own SendGrid username and password, to be able to send the email. To get started with SendGrid, see [How to send email using SendGrid from Java](store-sendgrid-java-how-to-send-email.md).
 
-Additionally, familiarity with the information at [Creating a Hello World Application for Azure in Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable), or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.
+Additionally, familiarity with the information at [Creating a Hello World Application for Azure in Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app), or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.
 
 ## Create a web form for sending email
 The following code shows how to create a web form to retrieve user data for sending email. For purposes of this content, the JSP file is named **emailform.jsp**.

@@ -53,24 +53,24 @@
   - name: Integrating Key Vault with DigiCert CA
     href: how-to-integrate-certificate-authority.md
   - name: Troubleshooting - Import certificates
-    href: import-cert-faqs.md
+    href: import-cert-faqs.yml
   - name: Export certificate from key vault
     href: how-to-export-certificate.md
 
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+    href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/security.keyvault.certificates-readme?view=azure-dotnet
+    href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
   - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    href: /java/api/overview/azure/keyvault
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
+    href: /python/api/overview/azure/keyvault-certificates-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template

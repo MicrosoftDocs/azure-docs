@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18
 
 ---
 
@@ -40,7 +40,7 @@ You can now access the App Service through Application Gateway, but if you try t
 ![Screenshot shows the text of an Error 403 - Forbidden.](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
 
 ## Using Azure Resource Manager template
-The [Resource Manager deployment template][template-app-gateway-app-service-complete] will provision a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and access restriction to only receive traffic from Application Gateway. The template includes many Smart Defaults and unique postfixes added to the resource names for it to be simple. To override them, you'll have to clone the repo or download the template and edit it. 
+The [Resource Manager deployment template][template-app-gateway-app-service-complete] will provision a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and access restriction to only receive traffic from Application Gateway. The template includes many Smart Defaults and unique postfixes added to the resource names for it to be simple. To override them, you'll have to clone the repo or download the template and edit it.
 
 To apply the template you can use the Deploy to Azure button found in the description of the template, or you can use appropriate PowerShell/CLI.
 
@@ -54,7 +54,7 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 In the default configuration, the command will ensure both setup of the service endpoint configuration in the subnet and the access restriction in the App Service.
 
 ## Considerations for ILB ASE
-ILB ASE isn't exposed to the internet and traffic between the instance and an Application Gateway is therefore already isolated to the Virtual Network. The following [how-to guide](../environment/integrate-with-application-gateway.md) configures an ILB ASE and integrates it with an Application Gateway using Azure portal. 
+ILB ASE isn't exposed to the internet and traffic between the instance and an Application Gateway is therefore already isolated to the Virtual Network. The following [how-to guide](../environment/integrate-with-application-gateway.md) configures an ILB ASE and integrates it with an Application Gateway using Azure portal.
 
 If you want to ensure that only traffic from the Application Gateway subnet is reaching the ASE, you can configure a Network security group (NSG) which affect all web apps in the ASE. For the NSG, you are able to specify the subnet IP range and optionally the ports (80/443). Make sure you don't override the [required NSG rules](../environment/network-info.md#network-security-groups) for ASE to function correctly.
 
@@ -63,7 +63,7 @@ To isolate traffic to an individual web app you'll need to use ip-based access r
 ## Considerations for External ASE
 External ASE has a public facing load balancer like multi-tenant App Service. Service endpoints don't work for ASE, and that's why you'll have to use ip-based access restrictions using the public IP of the Application Gateway instance. To create an External ASE using the Azure portal, you can follow this [Quickstart](../environment/create-external-ase.md)
 
-[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2/ "Azure Resource Manager template for complete scenario"
+[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2/ "Azure Resource Manager template for complete scenario"
 
 ## Considerations for kudu/scm site
 The scm site, also known as kudu, is an admin site, which exists for every web app. It isn't possible to reverse proxy the scm site and you most likely also want to lock it down to individual IP addresses or a specific subnet.

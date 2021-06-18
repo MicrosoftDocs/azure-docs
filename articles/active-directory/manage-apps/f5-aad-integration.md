@@ -1,6 +1,6 @@
 ---
 title: Azure AD secure hybrid access with F5 | Microsoft Docs
-description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure hybrid access
+description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
 services: active-directory
 author: gargi-sinha
 manager: martinco

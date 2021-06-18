@@ -1,19 +1,24 @@
 ---
-title: Add Azure role assignments using Azure Resource Manager templates - Azure RBAC
+title: Assign Azure roles using Azure Resource Manager templates - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 ---
-# Add Azure role assignments using Azure Resource Manager templates
+# Assign Azure roles using Azure Resource Manager templates
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] In addition to using Azure PowerShell or the Azure CLI, you can assign roles using [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how to assign roles using templates.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] In addition to using Azure PowerShell or the Azure CLI, you can assign roles using [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how to assign roles using templates.
+
+## Prerequisites
+
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## Get object IDs
 
@@ -21,7 +26,7 @@ To assign a role, you need to specify the ID of the user, group, or application 
 
 ### User
 
-To get the ID of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
+To get the ID of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az_ad_user_show) commands.
 
 ```azurepowershell
 $objectid = (Get-AzADUser -DisplayName "{name}").id
@@ -33,7 +38,7 @@ objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 
 ### Group
 
-To get the ID of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az-ad-group-show) commands.
+To get the ID of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az_ad_group_show) commands.
 
 ```azurepowershell
 $objectid = (Get-AzADGroup -DisplayName "{name}").id
@@ -57,7 +62,7 @@ objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectI
 
 ### Application
 
-To get the ID of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
+To get the ID of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) commands. For a service principal, use the object ID and **not** the application ID.
 
 ```azurepowershell
 $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
@@ -67,13 +72,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## Add a role assignment
+## Assign an Azure role
 
-In Azure RBAC, to grant access, you add a role assignment.
+In Azure RBAC, to grant access, you assign a role.
 
 ### Resource group scope (without parameters)
 
-The following template shows a basic way to add a role assignment. Some values are specified within the template. The following template demonstrates:
+The following template shows a basic way to assign a role. Some values are specified within the template. The following template demonstrates:
 
 -  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or application at a resource group scope
 
@@ -200,7 +205,7 @@ az deployment sub create --location centralus --template-file rbac-test.json --p
 
 ### Resource scope
 
-If you need to add a role assignment at the level of a resource, set the `scope` property on the role assignment to the name of the resource.
+If you need to assign a role at the level of a resource, set the `scope` property on the role assignment to the name of the resource.
 
 The following template demonstrates:
 
@@ -364,18 +369,9 @@ The following shows an example of the Contributor role assignment to a new manag
 
 ![Role assignment for a new managed identity service principal](./media/role-assignments-template/role-assignment-template-msi.png)
 
-## Remove a role assignment
-
-In Azure RBAC, to remove access to an Azure resource, you remove the role assignment. There isn't a way to remove a role assignment using a template. To remove a role assignment, you must use other tools such as:
-
-- [Azure portal](role-assignments-portal.md#remove-a-role-assignment)
-- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
-- [REST API](role-assignments-rest.md#remove-a-role-assignment)
-
 ## Next steps
 
 - [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-- [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/template-syntax.md)
+- [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md)
 - [Create resource groups and resources at the subscription level](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=rbac)

@@ -1,26 +1,28 @@
 ---
-title: Windows Virtual Desktop Linux Support - Azure
-description: A brief overview Linux support for Windows Virtual Desktop.
+title: Azure Virtual Desktop Thin Client Support - Azure
+description: A brief overview of thin client support for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 04/01/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Linux support
+# Thin client support
 
-You can access Windows Virtual Desktop resources from your Linux devices with the [web client](connect-web.md) or the following supported clients, provided by our Linux thin client partners. We're working with a number of partners to enable supported Windows Virtual Desktop clients on more Linux-based operating systems and devices. If you need Windows Virtual Desktop support on a Linux platform that isn't listed here, let us know on our [UserVoice page](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+You can access Azure Virtual Desktop resources from your thin client devices with the [web client](connect-web.md) or the following supported clients, provided by our partners. We're working with a number of partners to enable supported Azure Virtual Desktop clients on other platforms.
 
-## Connect with your Linux device
+## Connect with your thin client device
 
-The following partners have approved Windows Virtual Desktop clients for Linux devices.
+The following partners have approved Azure Virtual Desktop clients.
 
 |Partner|Partner documentation|Partner support|
 |:------|:--------------------|:--------------|
-|![Dell logo](./media/partners/dell.png)|[Dell client documentation](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Dell support](https://www.dell.com/support)|
-|![IGEL logo](./media/partners/igel.png)|[IGEL client documentation](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL support](https://www.igel.com/support/)|
-|![NComputing logo](./media/partners/ncomputing.png)|[NComputing client documentation](https://www.ncomputing.com/microsoft)|[NComputing support](https://www.ncomputing.com/support/support-options)|
-|![Stratodesk logo](./media/partners/stratodesk.png)|[Stratodesk client documentation](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk support](https://www.stratodesk.com/support/)|
+|10ZiG |[10ZiG client documentation](https://www.10zig.com/about/microsoft-windows-virtual-desktop)|[10ZiG support](https://www.10zig.com/resources/support_faq)|
+|Dell |[Dell client documentation](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Dell support](https://www.dell.com/support)|
+|HP |[HP client documentation](https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07051097)|[HP support](https://support.hp.com/us-en/products/workstations-thin-clients)|
+|IGEL |[IGEL client documentation](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL support](https://www.igel.com/support/)|
+|NComputing |[NComputing client documentation](https://www.ncomputing.com/microsoft)|[NComputing support](https://www.ncomputing.com/support/support-options)|
+|Stratodesk |[Stratodesk client documentation](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk support](https://www.stratodesk.com/support/)|
 
 ## Next steps
 

@@ -50,7 +50,7 @@ In this section, you run the starter kit scripts to create a simulated data esta
 
 Follow these steps to set up the starter kit client software on your Windows machine:
 
-1. [Download the starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
+1. [Download the starter kit](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
 
 
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
@@ -86,7 +86,9 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
    1. Select the **Overview** section and save the GUID for the **Subscription ID**.
 
    > [!NOTE]
-   > Make sure you're using the same subscription as the one in which you created the Azure Purview Account. This is the same subscription that was placed in the allow list.
+   > - Make sure you're using the same subscription as the one in which you created the Azure Purview Account. This is the same subscription that was placed in the allow list.
+   > - Lineage could be missing sometimes in Azure Purview after running the starter kit. This is because the Data Factory created by starter kit has missing permissions in Purview. Select [**this document link**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections)  to make sure the Data Factory is configured correct and assigned appropriate role in Purview
+
 
 * CatalogName: The name of the Azure Purview account that you created in [Create an Azure Purview account](create-catalog-portal.md).
 
@@ -185,7 +187,7 @@ A Managed Identity with the same name as your Azure Purview account is automatic
 
 ### Scan your data sources
 
-1. Navigate to your Azure Purview resource in the [Azure portal](https://portal.azure.com) and select *Open Purview Studio*. You're automatically taken to your Purview Studio's home page.
+1. In the [Azure portal](https://portal.azure.com), search for and select the name of the Azure Purview instance that you created as a prerequisite, and then select *Open Purview Studio*. You're automatically taken to your Purview Studio's home page.
 
 1. Select **Sources** on your catalog's webpage, and select **Register**. Then, select **Azure Blob Storage** and **Continue**.
 

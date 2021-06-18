@@ -10,6 +10,9 @@
   - name: Secure virtual hub - ARM template
     displayName: Resource Manager
     href: quick-secure-virtual-hub.md
+  - name: Deploy firewall with policy - ARM template
+    displayName: Resource Manager
+    href: quick-firewall-policy.md
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal
@@ -43,11 +46,13 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/firewall-manager-security-baseline?toc=/azure/firewall-manager/toc.json
 - name: How-to guides
   items:
   - name: Deploy security partner providers
     href: deploy-trusted-security-partner.md
+  - name: Secure private endpoints
+    href: private-link-inspection-secure-virtual-hub.md
   - name: Migrate to Firewall policy - PowerShell
     href: migrate-to-policy.md
   - name: DNS settings
@@ -59,7 +64,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/azure-firewall/network/firewall/policy
+    href: /cli/azure/network/firewall/policy
   - name: Azure PowerShell
     href: /powershell/module/az.network/new-azfirewallpolicy
   - name: .NET
@@ -77,7 +82,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

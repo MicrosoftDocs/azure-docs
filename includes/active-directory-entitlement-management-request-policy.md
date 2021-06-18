@@ -22,7 +22,7 @@ Follow these steps if you want to allow users in your directory to be able to re
 
 1. Select one of the following options:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Specific users and groups** | Choose this option if you want only the users and groups in your directory that you specify to be able to request this access package. |
     | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
@@ -57,7 +57,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 1. Select one of the following options:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |

@@ -1,13 +1,13 @@
 ---
 title: 'Azure path selection across multiple ISP links'
 titleSuffix: Azure Virtual WAN
-description: Learn about Azure path selection and Virtual WAN
+description: Learn how Azure Virtual WAN can include link information to steer traffic across various links using Azure path selection.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 
 ---

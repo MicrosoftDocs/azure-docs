@@ -7,7 +7,8 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
-ms.reviewer: tyao
+ms.reviewer: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tuning Web Application Firewall (WAF) for Azure Front Door
@@ -33,9 +34,17 @@ UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 
 If you try the request, the WAF blocks traffic that contains your *1=1* string in any parameter or field. This is a string often associated with a SQL injection attack. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
  
-In the following example, we explore a `FrontdoorWebApplicationFirewallLog` log generated due to a rule match.
+In the following example, we explore a `FrontdoorWebApplicationFirewallLog` log generated due to a rule match. The following Log Analytics query can be used to find requests that have been blocked within the last 24 hours:
+
+```kusto
+AzureDiagnostics
+| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where TimeGenerated > ago(1d)
+| where action_s == 'Block'
+
+```
  
-In the "requestUri" field, you can see the request was made to `/api/Feedbacks/` specifically. Going further, we find the rule ID `942110` in the "ruleName" field. Knowing the rule ID, you could go to the [OWASP ModSecurity Core Rule Set Official Repository](https://github.com/coreruleset/coreruleset) and search by that [rule ID](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) to review its code and understand exactly what this rule matches on. 
+In the `requestUri` field, you can see the request was made to `/api/Feedbacks/` specifically. Going further, we find the rule ID `942110` in the `ruleName` field. Knowing the rule ID, you could go to the [OWASP ModSecurity Core Rule Set Official Repository](https://github.com/coreruleset/coreruleset) and search by that [rule ID](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) to review its code and understand exactly what this rule matches on. 
  
 Then, by checking the `action` field, we see that this rule is set to block requests upon matching, and we confirm that the request was in fact blocked by the WAF because the `policyMode` is set to `prevention`. 
  
@@ -131,7 +140,7 @@ One benefit of using an exclusion list is that only the match variable you selec
  
 It’s important to consider that exclusions are a global setting. This means that the configured exclusion will apply to all traffic passing through your WAF, not just a specific web app or URI. For example, this could be a concern if *1=1* is a valid request in the body for a certain web app, but not for others under the same WAF policy. If it makes sense to use different exclusion lists for different applications, consider using different WAF policies for each application and applying them to each application's frontend.
  
-When configuring exclusion lists for managed rules, you can choose to exclude all rules within a rule set, all rules within a rule group, or an individual rule. An exclusion list can be configured using [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), [Azure CLI](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal.
+When configuring exclusion lists for managed rules, you can choose to exclude all rules within a rule set, all rules within a rule group, or an individual rule. An exclusion list can be configured using [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az_network_front_door_waf_policy_managed_rules_exclusion_add), [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal.
 
 * Exclusions at a rule level
   * Applying exclusions at a rule level means that the specified exclusions will not be analyzed against that individual rule only, while it will still be analyzed by all other rules in the rule set. This is the most granular level for exclusions, and it can be used to fine-tune the managed rule set based on the information you find in the WAF logs when troubleshooting an event.
@@ -188,9 +197,12 @@ Disabling a rule is a benefit when you are sure that all requests meeting that s
  
 However, disabling a rule is a global setting that applies to all frontend hosts associated to the WAF policy. When you choose to disable a rule, you may be leaving vulnerabilities exposed without protection or detection for any other frontend hosts associated to the WAF policy.
  
-If you want to use Azure PowerShell to disable a managed rule, see the [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) object documentation. If you want to use Azure CLI, see the [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest) documentation.
+If you want to use Azure PowerShell to disable a managed rule, see the [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject) object documentation. If you want to use Azure CLI, see the [`az network front-door waf-policy managed-rules override`](/cli/azure/network/front-door/waf-policy/managed-rules/override) documentation.
 
 ![WAF rules](../media/waf-front-door-tuning/waf-rules.png)
+
+> [!TIP]
+> It's a good idea to document any changes you make to your WAF policy. Include example requests to illustrate the false positive detection, and clearly explain why you added a custom rule, disabled a rule or ruleset, or added an exception. This documentation can be helpful if you redesign your application in the future and need to verify that your changes are still valid. It can also help if you are ever audited or need to justify why you have reconfigured the WAF policy from its default settings.
 
 ## Finding request fields
 

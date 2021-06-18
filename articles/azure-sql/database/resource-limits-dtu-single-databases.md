@@ -3,25 +3,37 @@ title: DTU resource limits single databases
 description: This page describes some common DTU resource limits for single databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang:
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer:
-ms.date: 03/20/2019
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 04/16/2021
 ---
 # Resource limits for single databases using the DTU purchasing model - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the DTU purchasing model.
 
-For DTU purchasing model resource limits for elastic pools, see [DTU resource limits - elastic pools](resource-limits-dtu-elastic-pools.md). For vCore resource limits, see [vCore resource limits - single databases](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md). For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
+* For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
+* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits single databases](resource-limits-dtu-single-databases.md) and [DTU resource limits elastic pools](resource-limits-dtu-elastic-pools.md).
+* For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
+* For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
+
+Each read-only replica has its own resources such as DTUs, workers, and sessions. Each read-only replica is subject to the resource limits detailed later in this article. 
+
 
 ## Single database: Storage sizes and compute sizes
 
-The following tables show the resources available for a single database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), the [Azure CLI](single-database-manage.md#the-azure-cli), or the [REST API](single-database-manage.md#rest-api).
+The following tables show the resources available for a single database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a single database using:
+
+* [Transact-SQL](single-database-manage.md#transact-sql-t-sql) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](single-database-manage.md#powershell)
+* [Azure CLI](single-database-manage.md#the-azure-cli)
+* [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](single-database-scale.md)
@@ -96,8 +108,11 @@ The following tables show the resources available for a single database at each 
 
 > [!IMPORTANT]
 > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, and Germany Northeast. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
+
 > [!NOTE]
-> For `tempdb` limits, see [tempdb limits](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> For `tempdb` limits, see [tempdb limits](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+> 
+> For additional information on storage limits in the Premium service tier, see [Storage space governance](resource-limits-logical-server.md#storage-space-governance).
 
 ## Next steps
 

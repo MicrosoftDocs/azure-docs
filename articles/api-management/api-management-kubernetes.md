@@ -91,7 +91,7 @@ To get a subscription key for accessing APIs, a subscription is required. A subs
 
 ### Option 3: Deploy APIM inside the cluster VNet
 
-In some cases, customers with regulatory constraints or strict security requirements may find Option 1 and 2 not viable solutions due to publicly exposed endpoints. In others, the AKS cluster and the applications that consume the microservices might reside within the same VNet, hence there is no reason to expose the cluster publicly as all API traffic will remain within the VNet. For these scenarios, you can deploy API Management into the cluster VNet. [API Management Premium tier](https://aka.ms/apimpricing) supports VNet deployment. 
+In some cases, customers with regulatory constraints or strict security requirements may find Option 1 and 2 not viable solutions due to publicly exposed endpoints. In others, the AKS cluster and the applications that consume the microservices might reside within the same VNet, hence there is no reason to expose the cluster publicly as all API traffic will remain within the VNet. For these scenarios, you can deploy API Management into the cluster VNet. [API Management Developer and Premium tiers](https://aka.ms/apimpricing) support VNet deployment. 
 
 There are two modes of [deploying API Management into a VNet](./api-management-using-with-vnet.md) – External and Internal. 
 

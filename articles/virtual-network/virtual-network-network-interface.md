@@ -62,6 +62,8 @@ The portal doesn't provide the option to assign the network interface to applica
 >[!Note]
 > Azure assigns a MAC address to the network interface only after the network interface is attached to a virtual machine and the virtual machine is started the first time. You cannot specify the MAC address that Azure assigns to the network interface. The MAC address remains assigned to the network interface until the network interface is deleted or the private IP address assigned to the primary IP configuration of the primary network interface is changed. To learn more about IP addresses and IP configurations, see [Manage IP addresses](virtual-network-network-interface-addresses.md)
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 **Commands**
 
 |Tool|Command|
@@ -86,7 +88,7 @@ You can view and change most settings for a network interface after it's created
    - **Properties:** Displays key settings about the network interface, including its MAC address (blank if the network interface isn't attached to a virtual machine), and the subscription it exists in.
    - **Effective security rules:**  Security rules are listed if the network interface is attached to a running virtual machine, and an NSG is associated to the network interface, the subnet it's assigned to, or both. To learn more about what's displayed, see [View effective security rules](#view-effective-security-rules). To learn more about NSGs, see [Network security groups](./network-security-groups-overview.md).
    - **Effective routes:** Routes are listed if the network interface is attached to a running virtual machine. The routes are a combination of the Azure default routes, any user-defined routes, and any BGP routes that may exist for the subnet the network interface is assigned to. To learn more about what's displayed, see [View effective routes](#view-effective-routes). To learn more about Azure default routes and user-defined routes, see [Routing overview](virtual-networks-udr-overview.md).
-Common Azure Resource Manager settings: To learn more about common Azure Resource Manager settings, see [Activity log](../azure-monitor/platform/platform-logs-overview.md), [Access control (IAM)](../role-based-access-control/overview.md), [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Automation script](../azure-resource-manager/templates/export-template-portal.md).
+Common Azure Resource Manager settings: To learn more about common Azure Resource Manager settings, see [Activity log](../azure-monitor/essentials/platform-logs-overview.md), [Access control (IAM)](../role-based-access-control/overview.md), [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Automation script](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Commands**
 
@@ -184,7 +186,7 @@ You can only add a network interface to, or remove a network interface from an a
 
 **Commands**
 
-- Azure CLI: [az network nic update](/cli/azure/network/nic#az-network-nic-update)
+- Azure CLI: [az network nic update](/cli/azure/network/nic#az_network_nic_update)
 - PowerShell: [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)
 
 ## Delete a network interface
@@ -223,7 +225,7 @@ The IP flow verify feature of Azure Network Watcher can also help you determine 
 
 **Commands**
 
-- Azure CLI: [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
+- Azure CLI: [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg)
 - PowerShell: [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
 
 ### View effective routes
@@ -240,7 +242,7 @@ The next hop feature of Azure Network Watcher can also help you determine if rou
 
 **Commands**
 
-- Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
+- Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table)
 - PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## Permissions

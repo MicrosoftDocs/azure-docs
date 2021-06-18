@@ -50,7 +50,10 @@
     items:
     - name: With OVMS via HTTP extension
       displayName: intel, OpenVINO 
-      href: use-intel-openvino-tutorial.md  
+      href: use-intel-openvino-tutorial.md
+    - name: With OV DL Streamer via gRPC extension
+      displayName: intel, OpenVINO DL Streamer
+      href: use-intel-grpc-vas-tutorial.md  
     - name: Use Custom Vision
       href: custom-vision-tutorial.md  
     - name: Use Spatial Analysis
@@ -90,6 +93,8 @@
     href: create-custom-azure-resource-manager-role-how-to.md
   - name: Deploy to an IoT Edge device
     href: deploy-iot-edge-device.md
+  - name: Deploy to an IoT Edge for Linux on Windows
+    href: deploy-iot-edge-linux-on-windows.md
   - name: Monitoring and logging
     href: monitoring-logging.md
   - name: Playback a recording 
@@ -123,7 +128,7 @@
   - name: Quotas and limitations
     href: quotas-limitations.md
   - name: FAQs
-    href: faq.md
+    href: faq.yml
   - name: Production readiness and best practices
     href: production-readiness.md
   - name: Transparency and responsible AI principles

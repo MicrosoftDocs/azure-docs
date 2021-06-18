@@ -53,7 +53,7 @@ Follow these steps to perform major version upgrade for your Azure Database of M
  
    This upgrade requires version 2.16.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. Run az version to find the version and dependent libraries that are installed. To upgrade to the latest version, run az upgrade.
 
-2. After you sign in, run the [az mysql server upgrade](https://docs.microsoft.com/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_upgrade&preserve-view=true) command:
+2. After you sign in, run the [az mysql server upgrade](/cli/azure/mysql/server#az_mysql_server_upgrade) command:
 
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"
@@ -83,7 +83,7 @@ You can perform minimal downtime major version upgrade from MySQL 5.6 to MySQL 5
 
 1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL 5.6.
 
-2. Create a [read replica](https://docs.microsoft.com/azure/mysql/concepts-read-replicas#create-a-replica) from your primary server.
+2. Create a [read replica](./concepts-read-replicas.md#create-a-replica) from your primary server.
 
 3. [Upgrade your read replica](#perform-major-version-upgrade-from-mysql-56-to-mysql-57-on-read-replica-using-azure-portal) to version 5.7.
 
@@ -99,7 +99,7 @@ You can perform minimal downtime major version upgrade from MySQL 5.6 to MySQL 5
 
    If the state of `Slave_IO_Running` and `Slave_SQL_Running` are "yes" and the value of `Seconds_Behind_Master` is "0", replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't "0", it means that the replica is processing updates. Once you confirm `Seconds_Behind_Master` is "0" it's safe to stop replication.
 
-6. Promote your read replica to primary by [stopping replication](https://docs.microsoft.com/azure/mysql/howto-read-replicas-portal#stop-replication-to-a-replica-server).
+6. Promote your read replica to primary by [stopping replication](./howto-read-replicas-portal.md#stop-replication-to-a-replica-server).
 
 7. Point your application to the new primary (former replica) which is running server 5.7. Each server has a unique connection string. Update your application to point to the (former) replica instead of the source.
 
@@ -115,15 +115,7 @@ The GA of this feature is planned before MySQL v5.6 retirement. However, the fea
 
 ### Will this cause downtime of the server and if so, how long?
 
-Yes, the server will be unavailable during the upgrade process so we recommend you perform this operation during your planned maintenance window. The estimated downtime depends on the database size, storage size provisioned (IOPs provisioned), and the number of tables on the database. The upgrade time is directly proportional to the number of tables on the server.The upgrades of Basic SKU servers are expected to take longer time as it is on standard storage platform. To estimate the downtime for your server environment, we recommend to first perform upgrade on restored copy of the server.  
-
-### It is noted that it is not supported on replica server yet. What does that mean concrete?
-
-Currently, major version upgrade is not supported for replica server, which means you should not run it for servers involved in replication (either source or replica server). If you would like to test the upgrade of the servers involved in replication before we add the replica support for upgrade feature, we would recommend following steps:
-
-1. During your planned maintenance, [stop replication and delete replica server](howto-read-replicas-portal.md) after capturing its name and all the configuration information (Firewall settings, server parameter configuration if it is different from source server).
-2. Perform upgrade of the source server.
-3. Provision a new read replica server with the same name and configuration settings captured in step 1. The new replica server will be on v5.7 automatically after the source server is upgraded to v5.7.
+Yes, the server will be unavailable during the upgrade process so we recommend you perform this operation during your planned maintenance window. The estimated downtime depends on the database size, storage size provisioned (IOPs provisioned), and the number of tables on the database. The upgrade time is directly proportional to the number of tables on the server.The upgrades of Basic SKU servers are expected to take longer time as it is on standard storage platform. To estimate the downtime for your server environment, we recommend to first perform upgrade on restored copy of the server. Consider [performing minimal downtime major version upgrade from MySQL 5.6 to MySQL 5.7 using read replica.](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas)
 
 ### What will happen if we do not choose to upgrade our MySQL v5.6 server before February 5, 2021?
 

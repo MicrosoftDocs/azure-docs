@@ -1,24 +1,21 @@
 ---
 title: Create Azure AD users using service principals
-description: This tutorial walks you through creating an Azure AD user with an Azure AD applications (service principals) in Azure SQL Database and Azure Synapse Analytics
+description: This tutorial walks you through creating an Azure AD user with an Azure AD applications (service principals) in Azure SQL Database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2020
+ms.date: 05/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications
 
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-> [!NOTE]
-> This article is in **public preview**. For more information, see [Azure Active Directory service principal with Azure SQL](authentication-aad-service-principal.md). This article will use Azure SQL Database to demonstrate the necessary tutorial steps, but can be similarly applied to [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
-
-This article takes you through the process of creating Azure AD users in Azure SQL Database, using Azure service principals (Azure AD applications). This functionality already exists in Azure SQL Managed Instance, but is now being introduced in Azure SQL Database and Azure Synapse Analytics. To support this scenario, an Azure AD Identity must be generated and assigned to the Azure SQL logical server.
+This article takes you through the process of creating Azure AD users in Azure SQL Database, using Azure service principals (Azure AD applications). This functionality already exists in Azure SQL Managed Instance, but is now being introduced in Azure SQL Database. To support this scenario, an Azure AD Identity must be generated and assigned to the Azure SQL logical server.
 
 For more information on Azure AD authentication for Azure SQL, see the article [Use Azure Active Directory authentication](authentication-aad-overview.md).
 
@@ -33,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An existing [Azure SQL Database](single-database-create-quickstart.md) or [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) deployment. We assume you have a working SQL Database for this tutorial.
+- An existing [Azure SQL Database](single-database-create-quickstart.md) deployment. We assume you have a working SQL Database for this tutorial.
 - Access to an already existing Azure Active Directory.
 - [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) module or higher is needed when using PowerShell to set up an individual Azure AD application as Azure AD admin for Azure SQL. Ensure you are upgraded to the latest module.
 
@@ -154,13 +151,7 @@ For a similar approach on how to set the **Directory Readers** permission for SQ
 
 ## Create a service principal (an Azure AD application) in Azure AD
 
-1. Follow the guide here to [register your app and set permissions](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
-
-    Make sure to add the **Application permissions** as well as the **Delegated permissions**.
-
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Screenshot showing the App registrations page for Azure Active Directory. An app with the Display name AppSP is highlighted.":::
-
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
+1. Follow the guide here to [register your app](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
 
 2. You'll also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
@@ -171,17 +162,6 @@ For a similar approach on how to set the **Directory Readers** permission for SQ
 In this tutorial, we'll be using *AppSP* as our main service principal, and *myapp* as the second service principal user that will be created in Azure SQL by *AppSP*. You'll need to create two applications, *AppSP* and *myapp*.
 
 For more information on how to create an Azure AD application, see the article [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
-
-### Permissions required to set or unset the Azure AD admin
-
-In order for the service principal to set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
-
-:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
-
-The service principal will also need the [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role for SQL Database, or the [**SQL Managed Instance Contributor**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role for SQL Managed Instance.
-
-> [!NOTE]
-> Although Azure AD Graph API is being deprecated, the **Directory.Reader.All** permission still applies to this tutorial. The Microsoft Graph API does not apply to this tutorial.
 
 ## Create the service principal user in Azure SQL Database
 
@@ -228,35 +208,27 @@ Once a service principal is created in Azure AD, create the user in SQL Database
 
     ```powershell
     # PowerShell script for creating a new SQL user called myapp using application AppSP with secret
-
-    $tenantId = "<TenantId>"   #  tenantID (Azure Directory ID) were AppSP resides
-    $clientId = "<ClientId>"   #  AppID also ClientID for AppSP     
-    $clientSecret = "<ClientSecret>"   #  client secret for AppSP 
-    $Resource = "https://database.windows.net/"
+    # AppSP is part of an Azure AD admin for the Azure SQL server below
     
-    $adalPath  = "${env:ProgramFiles}\WindowsPowerShell\Modules\AzureRM.profile\5.8.3"
-    # To install the latest AzureRM.profile version execute  -Install-Module -Name AzureRM.profile
-    $adal      = "$adalPath\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "$adalPath\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
-    [System.Reflection.Assembly]::LoadFrom($adal) | Out-Null
-      $resourceAppIdURI = 'https://database.windows.net/'
-
-      # Set Authority to Azure AD Tenant
-      $authority = 'https://login.windows.net/' + $tenantId
-
-      $ClientCred = [Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential]::new($clientId, $clientSecret)
-      $authContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]::new($authority)
-      $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI,$ClientCred)
-      $Tok = $authResult.Result.CreateAuthorizationHeader()
-      $Tok=$Tok.Replace("Bearer ","")
-      Write-host "token"
-      $Tok
-      Write-host  " "
-
+    # Download latest  MSAL  - https://www.powershellgallery.com/packages/MSAL.PS
+    Import-Module MSAL.PS
+    
+    $tenantId = "<TenantId>"   # tenantID (Azure Directory ID) were AppSP resides
+    $clientId = "<ClientId>"   # AppID also ClientID for AppSP     
+    $clientSecret = "<ClientSecret>"   # Client secret for AppSP 
+    $scopes = "https://database.windows.net/.default" # The end-point
+    
+    $result = Get-MsalToken -RedirectUri $uri -ClientId $clientId -ClientSecret (ConvertTo-SecureString $clientSecret -AsPlainText -Force) -TenantId $tenantId -Scopes $scopes
+    
+    $Tok = $result.AccessToken
+    #Write-host "token"
+    $Tok
+      
     $SQLServerName = "<server name>"    # Azure SQL logical server name 
-    Write-Host "Create SQL connectionstring"
-    $conn = New-Object System.Data.SqlClient.SQLConnection 
     $DatabaseName = "<database name>"     # Azure SQL database name
+    
+    Write-Host "Create SQL connection string"
+    $conn = New-Object System.Data.SqlClient.SQLConnection 
     $conn.ConnectionString = "Data Source=$SQLServerName.database.windows.net;Initial Catalog=$DatabaseName;Connect Timeout=30"
     $conn.AccessToken = $Tok
     
@@ -270,20 +242,11 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     
     Write-host "results"
     $command.ExecuteNonQuery()
-    $conn.Close()  
+    $conn.Close()
     ``` 
 
-    Alternatively, you can use the code sample in the blog, [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modify the script to execute a DDL statement `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. The same script can be used to create a regular Azure AD user a group in SQL Database.
+    Alternatively, you can use the code sample in the blog, [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modify the script to execute a DDL statement `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. The same script can be used to create a regular Azure AD user or a group in SQL Database.
 
-    > [!NOTE]
-    > If you need to install the module AzureRM.profile, you will need to open PowerShell as an administrator. You can use the following commands to automatically install the latest AzureRM.profile version, and set `$adalpath` for the above script:
-    > 
-    > ```powershell
-    > Install-Module AzureRM.profile -force
-    > Import-Module AzureRM.profile
-    > $version = (Get-Module -Name AzureRM.profile).Version.toString()
-    > $adalPath = "${env:ProgramFiles}\WindowsPowerShell\Modules\AzureRM.profile\${version}"
-    > ```
     
 2. Check if the user *myapp* exists in the database by executing the following command:
 

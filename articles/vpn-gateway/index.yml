@@ -35,6 +35,10 @@ landingContent:
             url: about-zone-redundant-vnet-gateways.md
           - text: VPN Gateway FAQ
             url: vpn-gateway-vpn-faq.md
+      - linkListType: learn
+        links:
+          - text: Connect your on-premises network to Azure with VPN Gateway
+            url:  /learn/modules/connect-on-premises-network-with-vpn-gateway/
   # Card
   - title: Get started
     linkLists:

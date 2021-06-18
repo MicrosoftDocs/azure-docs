@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 9/30/2020
+ms.date: 03/18/2021
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
@@ -45,7 +45,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-The [claims expected by Azure AD](active-directory-certificate-credentials.md) are:
+You can also use the delegate form, which enables you to compute the assertion just in time:
+
+```csharp
+string signedClientAssertion = ComputeAssertion();
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithClientAssertion(() => { return GetSignedClientAssertion(); } )
+                                          .Build();
+```
+
+The [claims expected by Azure AD](active-directory-certificate-credentials.md) in the signed assertion are:
 
 Claim type | Value | Description
 ---------- | ---------- | ----------
@@ -118,11 +127,11 @@ string GetSignedClientAssertion()
     var header = new Dictionary<string, string>()
          {
               { "alg", "RS256"},
-              { "kid", Encode(Certificate.GetCertHash()) }
+              { "kid", Encode(certificate.GetCertHash()) }
          };
 
     //Please see the previous code snippet on how to craft claims for the GetClaims() method
-    string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims())));
+    string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims()).ToString()));
 
     string signature = Encode(rsa.SignData(Encoding.UTF8.GetBytes(token), new SHA256Cng()));
     string signedClientAssertion = string.Concat(token, ".", signature);

@@ -26,7 +26,7 @@ Developing functions on your local computer and publishing them to Azure using C
 
 ## Core Tools versions
 
-There are three versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
+There are three versions of Azure Functions Core Tools.<sup>*</sup> The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
 
 + [**Version 3.x/2.x**](#v2): Supports either [version 3.x or 2.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2) and use platform-specific package managers or npm for installation.
 
@@ -34,10 +34,12 @@ There are three versions of Azure Functions Core Tools. The version you use depe
 
 You can only install one version of Core Tools on a given computer. Unless otherwise noted, the examples in this article are for version 3.x.
 
+<sup>*</sup> An experimental version of Azure Functions is available that lets you run C# functions on the .NET 6.0 preview. To learn more, see the [Azure Functions v4 early preview](https://aka.ms/functions-dotnet6earlypreview-wiki) page.
+
 ## Prerequisites
 
-Azure Functions Core Tools currently depends on the Azure CLI for authenticating with your Azure account. 
-This means that you must [install the Azure CLI locally](/cli/azure/install-azure-cli) to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+Azure Functions Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. 
+This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
 ## Install the Azure Functions Core Tools
 
@@ -332,7 +334,7 @@ To run a Functions project, run the Functions host. The host enables triggers fo
 # [C\#](#tab/csharp)
 
 ```
-func start --build
+func start
 ```
 
 # [Java](#tab/java)
@@ -365,11 +367,7 @@ npm start
 ---
 
 >[!NOTE]  
-> Version 1.x of the Functions runtime requires the `host` command, as in the following example:
->
-> ```
-> func host start
-> ```
+> Version 1.x of the Functions runtime instead requires `func host start`. 
 
 `func start` supports the following options:
 
@@ -501,7 +499,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 The Azure Functions Core Tools supports two types of deployment: deploying function project files directly to your function app via [Zip Deploy](functions-deployment-technologies.md#zip-deploy) and [deploying a custom Docker container](functions-deployment-technologies.md#docker-container). You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you'll deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
 
 >[!IMPORTANT]
->You must have the [Azure CLI](/cli/azure/install-azure-cli) installed locally to be able to publish to Azure from Core Tools.  
+>You must have the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) installed locally to be able to publish to Azure from Core Tools.  
 
 A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder.     
 
@@ -516,7 +514,7 @@ func azure functionapp publish <FunctionAppName>
 >[!IMPORTANT]
 > Java uses Maven to publish your local project to Azure. Use the following command to publish to Azure: `mvn azure-functions:deploy`. Azure resources are created during initial deployment.
 
-This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command uses [remote build](functions-deployment-technologies.md#remote-build) and deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
+This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI or Azure PowerShell, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command uses [remote build](functions-deployment-technologies.md#remote-build) and deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
 
 >[!IMPORTANT]
 > When you create a function app in the Azure portal, it uses version 3.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).

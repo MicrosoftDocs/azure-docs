@@ -2,11 +2,10 @@
 title: Tutorial - Configure canary deployments for Azure Linux virtual machines
 description: In this tutorial, you learn how to set up a continuous deployment (CD) pipeline. This pipeline updates a group of Azure Linux virtual machines using the blue-green deployment strategy.
 author: moala
-manager: jpconnock
 tags: azure-devops-pipelines
-
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure

@@ -34,7 +34,7 @@ Learn more about [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
 **To deploy Azure Arc:**
 
-- For one machine, follow the instructions in [Quickstart: Connect hybrid machine with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- For one machine, follow the instructions in [Quickstart: Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - To connect multiple machines at scale to Arc enabled servers, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
@@ -49,14 +49,14 @@ Learn more about [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 1. From Security Center's menu, open the **Getting started** page.
 1. Select the **Get started** tab.
 
-    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page" lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
+    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page." lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
 
 1. Below **Add non-Azure servers**, select **Configure** .
 
     > [!TIP]
     > You can also open add machines from the **inventory** page's **Add non-Azure servers** button.
     > 
-    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Adding non-Azure machines from the asset inventory page":::
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Adding non-Azure machines from the asset inventory page.":::
 
     A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
@@ -69,24 +69,24 @@ Learn more about [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
     From here, choose the relevant procedure below depending on the type of machines you're onboarding:
 
-    - [Onboard your Azure Stack VMs](#onboard-your-azure-stack-vms)
+    - [Onboard your Azure Stack Hub VMs](#onboard-your-azure-stack-hub-vms)
     - [Onboard your Linux machines](#onboard-your-linux-machines)
     - [Onboard your Windows machines](#onboard-your-windows-machines)
 
-### Onboard your Azure Stack VMs
+### Onboard your Azure Stack Hub VMs
 
-To add Azure Stack VMs, you need the information on the **Agents management** page and to configure the **Azure Monitor, Update and Configuration Management** virtual machine extension on the virtual machines running on your Azure Stack.
+To add Azure Stack Hub VMs, you need the information on the **Agents management** page and to configure the **Azure Monitor, Update and Configuration Management** virtual machine extension on the virtual machines running on your Azure Stack Hub instance.
 
 1. From the **Agents management** page, copy the **Workspace ID** and **Primary Key** into Notepad.
-1. Log into your **Azure Stack** portal and open the **Virtual machines** page.
+1. Log into your **Azure Stack Hub** portal and open the **Virtual machines** page.
 1. Select the virtual machine that you want to protect with Security Center.
     >[!TIP]
-    > For information on how to create a virtual machine on Azure Stack, see [this quickstart for Windows virtual machines](/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](/azure-stack/user/azure-stack-quick-linux-portal).
+    > For information on how to create a virtual machine on Azure Stack Hub, see [this quickstart for Windows virtual machines](/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 1. Select the **Add** tab. The **New Resource** menu shows the list of available virtual machine extensions.
 1. Select the **Azure Monitor, Update and Configuration Management** extension and select **Create**. The **Install extension** configuration page opens.
     >[!NOTE]
-    > If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, please reach out to your Azure Stack operator to make it available.
+    > If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, please reach out to your Azure Stack Hub operator to make it available.
 1. On the **Install extension** configuration page, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous step.
 1. When you complete the configuration, select **OK**. The extension's status will show as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in Security Center.
 
@@ -116,7 +116,7 @@ To add Windows machines, you need the information on the **Agents management** p
 
 When complete, the **Microsoft Monitoring agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
 
-For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
+For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
 
 ::: zone-end
 
@@ -124,11 +124,11 @@ For further information on installing and configuring the agent, see [Connect Wi
 
 Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These icons distinguish the types:
 
-  ![ASC icon for non-Azure machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure machine
+  ![ASC icon for non-Azure machine.](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure machine
 
-  ![ASC icon for Azure machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
+  ![ASC icon for Azure machine.](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
-  ![ASC icon for Azure Arc server](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc enabled server
+  ![ASC icon for Azure Arc server.](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc enabled server
 
 ## Next steps
 

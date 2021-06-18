@@ -3,12 +3,12 @@ title: 'ML Studio (classic): retrain a web service - Azure'
 description: Learn how to update a web service to use a newly trained machine learning model in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: "seodec18, devx-track-csharp, devx-track-azurepowershell"
 ms.date: 02/14/2019
 ---
 # Retrain and deploy a machine learning model

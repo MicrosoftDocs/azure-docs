@@ -116,8 +116,8 @@ Create a test user named **Britta Simon** in Splan Visitor. Work with the [Spla
 Test your Azure AD single sign-on configuration with one of the following options:
 
 * **Azure portal**: Select **Test this application** to automatically sign in to the Splan Visitor for which you set up SSO.
-* **Microsoft My Apps portal**: Select the **Splan Visitor** tile to automatically sign in to the Splan Visitor for which you set up SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* **Microsoft My Apps portal**: Select the **Splan Visitor** tile to automatically sign in to the Splan Visitor for which you set up SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-After you configure Splan Visitor, you can [learn how to enforce session controls in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app). Session controls help protect exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access.
+After you configure Splan Visitor, you can [learn how to enforce session controls in Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app). Session controls help protect exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access.

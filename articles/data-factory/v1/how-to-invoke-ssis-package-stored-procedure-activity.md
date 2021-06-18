@@ -1,20 +1,12 @@
 ---
 title: Invoke SSIS package using Azure Data Factory - Stored Procedure Activity 
 description: This article describes how to invoke a SQL Server Integration Services (SSIS) package from an Azure Data Factory pipeline using the Stored Procedure Activity.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-
 ---
 # Invoke an SSIS package using stored procedure activity in Azure Data Factory
 This article describes how to invoke an SSIS package from an Azure Data Factory pipeline by using a stored procedure activity. 
@@ -82,8 +74,8 @@ Create a linked service to link your database in Azure SQL Database that hosts t
 
 1. Create a JSON file named **AzureSqlDatabaseLinkedService.json** in **C:\ADF\RunSSISPackage** folder with the following content: 
 
-	> [!IMPORTANT]
-	> Replace &lt;servername&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
+    > [!IMPORTANT]
+    > Replace &lt;servername&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
 
     ```json
     {
@@ -134,7 +126,7 @@ In this step, you create a pipeline with a stored procedure activity. The activi
 1. Create a JSON file named **MyPipeline.json** in the **C:\ADF\RunSSISPackage** folder with the following content:
 
     > [!IMPORTANT]
-	> Replace &lt;folder name&gt;, &lt;project name&gt;, &lt;package name&gt; with names of folder, project, and package in the SSIS catalog before saving the file.
+    > Replace &lt;folder name&gt;, &lt;project name&gt;, &lt;package name&gt; with names of folder, project, and package in the SSIS catalog before saving the file.
 
     ```json
     {
@@ -174,14 +166,14 @@ In this step, you create a pipeline with a stored procedure activity. The activi
 
 1. Run **Get-AzDataFactorySlice** to get details about all slices of the output dataset**, which is the output table of the pipeline.
 
-	```powershell
+    ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Notice that the StartDateTime you specify here is the same start time specified in the pipeline JSON. 
 1. Run **Get-AzDataFactoryRun** to get the details of activity runs for a specific slice.
 
-	```powershell
-	Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    ```powershell
+    Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
     You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. 

@@ -5,19 +5,30 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
+ms.custom: contperf-fy21q3
 ---
 # View the status of Azure Import/Export jobs
 
 This article provides information on how to view the drive and job status for Azure Import/Export jobs. Azure Import/Export service is used to securely transfer large amounts of data to Azure Blobs and Azure Files. The service is also used to export data from Azure Blob storage.  
 
 ## View job and drive status
-You can track the status of your import or export jobs from the Azure portal by selecting the **Import/Export** tab. A list of your jobs appears on the page.
+You can track the status of your import or export jobs on the **Import/Export** tab in the Azure portal.
+1. Log on to https://portal.azure.com/.
+2. Search for **import/export jobs**.
 
-![View Job State](./media/storage-import-export-service/jobstate.png)
+    ![Search on import/export jobs](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
 
+ 3. A list of your Import/Export jobs appears on the page.
+
+    ![View Job State](./media/storage-import-export-view-drive-status/job-state.png)
+
+4. Select and click a job to view job details.
+
+   ![View detailed job status](./media/storage-import-export-view-drive-status/job-detail.png)
+  
 ## View job status
 
 You see one of the following job statuses depending on where your drive is in the process.
@@ -50,13 +61,13 @@ The following table describes each state that each drive in a job may pass throu
 
 This image from the Azure portal displays the drive state of an example job:
 
-![View Drive State](./media/storage-import-export-service/drivestate.png)
+![View Drive State](./media/storage-import-export-view-drive-status/drive-state.png)
 
 The following table describes the drive failure states and the actions taken for each state.
 
 | Drive State | Event | Resolution / Next step |
 |:--- |:--- |:--- |
-| NeverReceived | A drive that's marked as **NeverReceived** (because it wasn't received as part of the job's shipment) arrives in another shipment. | The operations team moves the drive to **Received**. |
+| Never received | A drive that's marked as **NeverReceived** (because it wasn't received as part of the job's shipment) arrives in another shipment. | The operations team moves the drive to **Received**. |
 | N/A | A drive that isn't part of any job arrives at the datacenter as part of another job. | The drive is marked as an extra drive. It's returned to you when the job associated with the original package is completed. |
 
 ## Time to process job

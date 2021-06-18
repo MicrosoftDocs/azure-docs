@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 05/05/2021
 ms.author: duau
 
 ---
@@ -18,12 +18,19 @@ ExpressRoute Direct lets you connect directly into Microsoft’s global network 
 
 ## <a name="before"></a>Before you begin
 
-Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+1.  Sign in to Azure and select the subscription you wish to enroll.
 
-* Scenarios you're looking to accomplish with **ExpressRoute Direct**
-* Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
-* Timeline for implementation
-* Any other questions
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Register your subscription for Public Preview using the following command:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
 
 Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
 
@@ -71,7 +78,13 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 
 ## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
 
-Generating the letter of authorization is unavailable from the portal at this time. Use **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** to obtain the letter of authorization.
+1. Go to the overview page of the ExpressRoute Direct resource and select **Generate Letter of Authorization**.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/overview.png" alt-text="Screenshot of generate letter of authorization button on overview page.":::
+
+1. Enter your company name and select **Download** to generate the letter.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/letter-of-authorization-page.png" alt-text="Screenshot of letter of authorization page.":::
 
 ## <a name="state"></a>Change Admin State of links
 

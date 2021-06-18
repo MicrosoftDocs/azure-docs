@@ -34,6 +34,9 @@ The following diagram illustrates what you build in the tutorial.
 
 ![Availability group](./media/availability-group-manually-configure-prerequisites-tutorial-/00-EndstateSampleNoELB.png)
 
+>[!NOTE]
+> It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
+
 ## Review availability group documentation
 
 This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
@@ -67,11 +70,11 @@ You need an Azure account. You can [open a free Azure account](https://signup.az
 
 Azure creates the resource group and pins a shortcut to the resource group in the portal.
 
-## Create the network and subnets
+## Create the network and subnet
 
-The next step is to create the networks and subnets in the Azure resource group.
+The next step is to create the networks and subnet in the Azure resource group.
 
-The solution uses one virtual network with two subnets. The [Virtual network overview](../../../virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
+The solution uses one virtual network and one subnet. The [Virtual network overview](../../../virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
 
 To create the virtual network in the Azure portal:
 
@@ -98,7 +101,7 @@ To create the virtual network in the Azure portal:
 
    Your address space and subnet address range might be different from the table. Depending on your subscription, the portal suggests an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription.
 
-   The example uses the subnet name **Admin**. This subnet is for the domain controllers.
+   The example uses the subnet name **Admin**. This subnet is for the domain controllers and SQL Server VMs.
 
 5. Select **Create**.
 
@@ -106,44 +109,9 @@ To create the virtual network in the Azure portal:
 
 Azure returns you to the portal dashboard and notifies you when the new network is created.
 
-### Create a second subnet
-
-The new virtual network has one subnet, named **Admin**. The domain controllers use this subnet. The SQL Server VMs use a second subnet named **SQL**. To configure this subnet:
-
-1. On your dashboard, select the resource group that you created, **SQL-HA-RG**. Locate the network in the resource group under **Resources**.
-
-    If **SQL-HA-RG** isn't visible, find it by selecting **Resource Groups** and filtering by the resource group name.
-
-2. Select **autoHAVNET** on the list of resources. 
-3. On the **autoHAVNET** virtual network, under **Settings** select **Subnets**.
-
-    Note the subnet that you already created.
-
-   ![Note the subnet that you already created](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
-
-5. To create a second subnet, select **+ Subnet**.
-6. On **Add subnet**, configure the subnet by typing **sqlsubnet** under **Name**. Azure automatically specifies a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment, you might require more addresses.
-7. Select **OK**.
-
-    ![Configure subnet](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
-
-The following table summarizes the network configuration settings:
-
-| **Field** | Value |
-| --- | --- |
-| **Name** |**autoHAVNET** |
-| **Address space** |This value depends on the available address spaces in your subscription. A typical value is 10.0.0.0/16. |
-| **Subnet name** |**admin** |
-| **Subnet address range** |This value depends on the available address ranges in your subscription. A typical value is 10.0.0.0/24. |
-| **Subnet name** |**sqlsubnet** |
-| **Subnet address range** |This value depends on the available address ranges in your subscription. A typical value is 10.0.1.0/24. |
-| **Subscription** |Specify the subscription that you intend to use. |
-| **Resource Group** |**SQL-HA-RG** |
-| **Location** |Specify the same location that you chose for the resource group. |
-
 ## Create availability sets
 
-Before you create virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For more information, see [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Before you create virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For more information, see [Manage the availability of virtual machines](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 You need two availability sets. One is for the domain controllers. The second is for the SQL Server VMs.
 
@@ -162,7 +130,7 @@ After you create the availability sets, return to the resource group in the Azur
 
 ## Create domain controllers
 
-After you've created the network, subnets, and availability sets, you're ready to create the virtual machines for the domain controllers.
+After you've created the network, subnet, and availability sets, you're ready to create the virtual machines for the domain controllers.
 
 ### Create virtual machines for the domain controllers
 
@@ -203,7 +171,7 @@ The following table shows the settings for these two machines:
 | **Diagnostics storage account** |*Automatically created* |
 
    >[!IMPORTANT]
-   >You can only place a VM in an availability set when you create it. You can't change the availability set after a VM is created. See [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md).
+   >You can only place a VM in an availability set when you create it. You can't change the availability set after a VM is created. See [Manage the availability of virtual machines](../../../virtual-machines/availability.md).
 
 Azure creates the virtual machines.
 
@@ -381,7 +349,7 @@ Before you proceed consider the following design decisions.
 
 * **Storage - Azure Managed Disks**
 
-   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For more information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/availability.md).
 
 * **Network - Private IP addresses in production**
 
@@ -407,7 +375,7 @@ Next, create three VMs - two SQL Server VMs and one VM for an additional cluster
 <br/>
 
 > [!NOTE]
-> The machine sizes suggested here are meant for testing availability groups in Azure Virtual Machines. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](performance-guidelines-best-practices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> The machine sizes suggested here are meant for testing availability groups in Azure Virtual Machines. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 
 After the three VMs are fully provisioned, you need to join them to the **corp.contoso.com** domain and grant CORP\Install administrative rights to the machines.
@@ -537,7 +505,7 @@ Repeat the steps on the other SQL Server VM.
 
 ### Tuning Failover Cluster Network Thresholds
 
-When running Windows Failover Cluster nodes in Azure Vms with SQL Server availability groups, change the cluster setting to a more relaxed monitoring state.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL Server - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+When running Windows Failover Cluster nodes in Azure VMs with SQL Server availability groups, change the cluster setting to a more relaxed monitoring state.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL Server - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="endpoint-firewall"></a> Configure the firewall on each SQL Server VM
@@ -571,4 +539,11 @@ Repeat these steps on the second SQL Server VM.
 
 ## Next steps
 
-* [Create a SQL Server Always On availability group on Azure Virtual Machines](availability-group-manually-configure-tutorial.md)
+Now that you've configured the prerequisites, get started with [configuring your availability group](availability-group-manually-configure-tutorial.md)
+
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)

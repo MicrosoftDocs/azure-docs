@@ -21,6 +21,9 @@ iothubResult = IoTHubDeviceClient_LL_SetOption(
 > [!TIP]
 > For modules and IoT Edge, use `IoTHubModuleClient_LL` in place of `IoTHubDeviceClient_LL`.
 
+> [!TIP]
+> This is the only time a device can set model ID, it can't be updated after the device connects.
+
 ## DPS payload
 
 Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload.
@@ -33,7 +36,7 @@ Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-
 
 ## Implement telemetry, properties, and commands
 
-As described in [Understand components in IoT Plug and Play models](../articles/iot-pnp/concepts-components.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
+As described in [Understand components in IoT Plug and Play models](../articles/iot-pnp/concepts-modeling-guide.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
 
 ### Telemetry
 

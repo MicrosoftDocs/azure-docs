@@ -8,8 +8,8 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: SimranArora904
 ms.author: siarora
-ms.date: 12/1/2020
-ms.topic: conceptual
+ms.date: 05/25/2021
+ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
 
@@ -98,6 +98,25 @@ The following table shows additional limits in the platform. Please reach out to
 <sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
+### Azure Machine Learning managed online endpoints (preview)
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Azure Machine Learning managed online endpoints have the following limits.
+
+| **Resource** | **Limit** |
+| --- | --- |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> |
+| Number of endpoints per subscription | 50 |
+| Number of deployments per subscription | 200 |
+| Number of deployments per endpoint | 20 |
+| Number of instances per deployment | 20 |
+| Max payload size at endpoint level |1.5 MB |
+| Max request time out at endpoint level  | 60 seconds |
+| Total QPS at endpoint level for all deployments  | 100 |
+
+<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names
+
 #### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
 
@@ -184,7 +203,6 @@ Azure Machine Learning creates resources in your (customer) subscription, but so
  In the following scenarios, you might need to request a quota allowance in the Microsoft-owned subscription:
 
 * Azure Private Link enabled workspace with a customer-managed key (CMK)
-* Azure Container Registry for the workspace behind your virtual network
 * Attaching a Private Link enabled Azure Kubernetes Service cluster to your workspace
 
 To request an allowance for these scenarios, use the following steps:
@@ -208,3 +226,4 @@ To request an allowance for these scenarios, use the following steps:
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
 + [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)
++ [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)

@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Create an Azure Bastion host: Windows VM: portal'
-description: In this article, you learn how to create an Azure Bastion host and connect to a Windows VM.
+description: Learn how to create an Azure Bastion host and connect to a Windows VM.
 services: bastion
 author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 
 ---
@@ -18,8 +18,9 @@ This tutorial shows you how to connect to a virtual machine through your browser
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create a bastion host for your VNet
-> * Connect to a Windows virtual machine
+> * Create a bastion host for your VNet.
+> * Remove the public IP address from a virtual machine.
+> * Connect to a Windows virtual machine.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,6 +36,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * Ports: To connect to the Windows VM, you must have the following ports open on your Windows VM:
   * Inbound ports: RDP (3389)
 
+ >[!NOTE]
+ >The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+ >
+
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -48,7 +53,7 @@ This section helps you create the bastion object in your VNet. This is required 
 1. Select **Create**.
 1. On the **Create a Bastion** page, configure a new Bastion resource.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/bastion-basics.png" alt-text="Create a Bastion host" lightbox="./media/tutorial-create-host-portal/bastion-basics.png":::
+   :::image type="content" source="./media/tutorial-create-host-portal/create.png" alt-text="Screenshot of Create a Bastion portal page." lightbox="./media/tutorial-create-host-portal/create-expand.png":::
 
     * **Subscription**: The Azure subscription you want to use to create a new Bastion resource.
     * **Resource Group**: The Azure resource group in which the new Bastion resource will be created. If you don't have an existing resource group, you can create a new one.
@@ -61,14 +66,20 @@ This section helps you create the bastion object in your VNet. This is required 
          * The subnet must be at least /27 or larger.
 
       You don't need to fill out additional fields. Select **OK** and then, at the top of the page, select **Create a Bastion** to return to the Bastion configuration page.
-    * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP. The public IP address must be in the same region as the Bastion resource you are creating. This is IP address does not have anything to do with any of the VMs that you want to connect to. It's the public IP for the Bastion host resource.
+    * **Public IP address**: The public IP address of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP address. The public IP address must be in the same region as the Bastion resource you are creating. This IP address does not have anything to do with any of the VMs that you want to connect to. It's the public IP address for the Bastion host resource.
     * **Public IP address name**: The name of the public IP address resource. For this tutorial, you can leave the default.
-    * **Public IP address SKU**: This setting is prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard Public IP SKU.
+    * **Public IP address SKU**: This setting is prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard public IP SKU.
     * **Assignment**: This setting is prepopulated by default to **Static**.
 
 1. When you have finished specifying the settings, select **Review + Create**. This validates the values. Once validation passes, you can create the Bastion resource.
-1. Select **Create**.
+
+   :::image type="content" source="./media/tutorial-create-host-portal/validation.png" alt-text="Screenshot of validation page.":::
+1. Review your settings. Next, at the bottom of the page, select **Create**.
 1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 minutes for the Bastion resource to be created and deployed.
+
+## Remove a VM public IP address
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 
 ## Connect to a VM
 
@@ -85,7 +96,7 @@ your resources using the following steps:
 
 ## Next steps
 
-In this tutorial, you created a Bastion host and associated it to a virtual network, then connected to a Windows VM. You may choose to use Network Security Groups with your Azure Bastion subnet. To do so, see:
+In this tutorial, you created a Bastion host and associated it to a virtual network. You then removed the public IP address from a VM and connected to it. You may choose to use Network Security Groups with your Azure Bastion subnet. To do so, see:
 
 > [!div class="nextstepaction"]
 > [Work with NSGs](bastion-nsg.md)

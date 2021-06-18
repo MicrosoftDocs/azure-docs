@@ -69,7 +69,7 @@ __Q: How does MSAL work with AD FS?__
 A: MSAL.NET supports certain scenarios to authenticate against AD FS 2019. If your app needs to acquire tokens directly from earlier version of AD FS, you should remain on ADAL. [Learn more](msal-net-adfs-support.md).
 
 __Q: How do I get help migrating my application?__  
-A: See the [Migration guidance](#migration-guidance) section of this article. If, after reading the guide for your app's platform, you have additional questions, you can post on [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) with the tag `[azure-ad-adal-deprecation]` or open an issue in library's GitHub repository. See the [Languages and frameworks](msal-overview.md#languages-and-frameworks) section of the MSAL overview article for links to each library's repo.
+A: See the [Migration guidance](#migration-guidance) section of this article. If, after reading the guide for your app's platform, you have additional questions, you can post on [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) with the tag `[azure-ad-adal-deprecation]` or open an issue in library's GitHub repository. See the [Languages and frameworks](msal-overview.md#languages-and-frameworks) section of the MSAL overview article for links to each library's repo.
 
 ## Next steps
 

@@ -3,8 +3,9 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/25/2021
-ms.topic: conceptual
+ms.date: 04/28/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage modules in Azure Automation
@@ -35,7 +36,11 @@ These are known limitations with the sandbox. The recommended workaround is to d
 
 ## Default modules
 
-The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules. 
+The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules.
+
+The default modules are also known as global modules. In the Azure portal,  the **Global module** property will be **true** when viewing a module that was imported when the account was created.
+
+![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
 
 Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrate-to-az-modules).
 
@@ -75,10 +80,9 @@ For Az.Automation, the majority of the cmdlets have the same names as those used
 
 ## Internal cmdlets
 
-Azure Automation supports the internal `Orchestrator.AssetManagement.Cmdlets` module for the Log Analytics agent for Windows, installed by default. The following table defines the internal cmdlets. These cmdlets are designed to be used instead of Azure PowerShell cmdlets to interact with shared resources. They can retrieve secrets from encrypted variables, credentials, and encrypted connections.
+Azure Automation supports internal cmdlets that are only available when you execute runbooks in the Azure sandbox environment or on a Windows Hybrid Runbook Worker. The internal module `Orchestrator.AssetManagement.Cmdlets` is installed by default in your Automation account and when the Windows Hybrid Runbook Worker role is installed on the machine. 
 
->[!NOTE]
->The internal cmdlets are only available when you're executing runbooks in the Azure sandbox environment, or on a Windows Hybrid Runbook Worker. 
+The following table defines the internal cmdlets. These cmdlets are designed to be used instead of Azure PowerShell cmdlets to interact with your Automation account resources. They can retrieve secrets from encrypted variables, credentials, and encrypted connections.
 
 |Name|Description|
 |---|---|
@@ -90,7 +94,7 @@ Azure Automation supports the internal `Orchestrator.AssetManagement.Cmdlets` mo
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
 |Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
-Note that the internal cmdlets differ in naming from the Az and AzureRM cmdlets. Internal cmdlet names don't contain words like `Azure` or `Az` in the noun, but do use the word `Automation`. We recommend their use over the use of Az or AzureRM cmdlets during runbook execution in an Azure sandbox or on a Windows Hybrid Runbook Worker. They require fewer parameters and run in the context of your job that's already running.
+Note that the internal cmdlets differ in naming from the Az and AzureRM cmdlets. Internal cmdlet names don't contain words like `Azure` or `Az` in the noun, but do use the word `Automation`. We recommend their use over the use of Az or AzureRM cmdlets during runbook execution in an Azure sandbox or on a Windows Hybrid Runbook Worker because they require fewer parameters and run in the context of your job during execution.
 
 Use Az or AzureRM cmdlets for manipulating Automation resources outside the context of a runbook. 
 
@@ -133,14 +137,18 @@ Importing an Az module into your Automation account doesn't automatically import
 
 * When a runbook invokes a cmdlet from a module.
 * When a runbook imports the module explicitly with the [Import-Module](/powershell/module/microsoft.powershell.core/import-module) cmdlet.
+* When a runbook imports the module explicitly with the [using module](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) statement. The using statement is supported starting with Windows PowerShell 5.0 and supports classes and enum type import.
 * When a runbook imports another dependent module.
 
-You can import the Az modules in the Azure portal. Remember to import only the Az modules that you need, not the entire Az.Automation module. Because [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) is a dependency for the other Az modules, be sure to import this module before any others.
+You can import the Az modules into the Automation account from the Azure portal. Remember to import only the Az modules that you need, not every Az module that's available. Because [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) is a dependency for the other Az modules, be sure to import this module before any others.
 
+1. Sign in to the Azure [portal](https://portal.azure.com).
+1. Search for and select **Automation Accounts**.
+1. On the **Automation Accounts** page, select your Automation account from the list.
 1. From your Automation account, under **Shared Resources**, select **Modules**.
-2. Select **Browse Gallery**.  
-3. In the search bar, enter the module name (for example, `Az.Accounts`).
-4. On the PowerShell Module page, select **Import** to import the module into your Automation account.
+1. Select **Browse Gallery**.  
+1. In the search bar, enter the module name (for example, `Az.Accounts`).
+1. On the PowerShell Module page, select **Import** to import the module into your Automation account.
 
     ![Screenshot of importing modules into your Automation account](../media/modules/import-module.png)
 
@@ -214,7 +222,7 @@ Include a synopsis, description, and help URI for every cmdlet in your module. I
 
   switch ($PSCmdlet.ParameterSetName) {
      "UserAccount" {
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $UserName, $Password
+        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $UserName, $Password
         Connect-Contoso -Credential $cred
      }
      "ConnectionObject" {
@@ -239,7 +247,7 @@ The following runbook example uses a Contoso connection asset called `ContosoCon
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
 
-  $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $contosoConnection.UserName, $contosoConnection.Password
+  $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $contosoConnection.UserName, $contosoConnection.Password
   Connect-Contoso -Credential $cred
   }
   ```
@@ -318,11 +326,12 @@ This section defines several ways that you can import a module into your Automat
 
 To import a module in the Azure portal:
 
-1. Go to your Automation account.
-2. Under **Shared Resources**, select **Modules**.
-3. Select **Add a module**.
-4. Select the **.zip** file that contains your module.
-5. Select **OK** to start to import process.
+1. In the portal, search for and select **Automation Accounts**.
+1. On the **Automation Accounts** page, select your Automation account from the list.
+1. Under **Shared Resources**, select **Modules**.
+1. Select **Add a module**.
+1. Select the **.zip** file that contains your module.
+1. Select **OK** to start to import process.
 
 ### Import modules by using PowerShell
 
@@ -354,10 +363,12 @@ To import a module directly from the PowerShell Gallery:
 
 To import a PowerShell Gallery module directly from your Automation account:
 
+1. In the portal, search for and select **Automation Accounts**.
+1. On the **Automation Accounts** page, select your Automation account from the list.
 1. Under **Shared Resources**, select **Modules**. 
-2. Select **Browse gallery**, and then search the Gallery for a module. 
-3. Select the module to import, and select **Import**. 
-4. Select **OK** to start the import process.
+1. Select **Browse gallery**, and then search the Gallery for a module. 
+1. Select the module to import, and select **Import**. 
+1. Select **OK** to start the import process.
 
 ![Screenshot of importing a PowerShell Gallery module from the Azure portal](../media/modules/gallery-azure-portal.png)
 
@@ -369,9 +380,11 @@ If you have problems with a module, or you need to roll back to a previous versi
 
 To remove a module in the Azure portal:
 
-1. Go to your Automation account. Under **Shared Resources**, select **Modules**.
-2. Select the module you want to remove.
-3. On the Module page, select **Delete**. If this module is one of the [default modules](#default-modules), it rolls back to the version that existed when the Automation account was created.
+1. In the portal, search for and select **Automation Accounts**.
+1. On the **Automation Accounts** page, select your Automation account from the list.
+1. Under **Shared Resources**, select **Modules**.
+1. Select the module you want to remove.
+1. On the Module page, select **Delete**. If this module is one of the [default modules](#default-modules), it rolls back to the version that existed when the Automation account was created.
 
 ### Delete modules by using PowerShell
 

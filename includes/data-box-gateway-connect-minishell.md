@@ -53,17 +53,17 @@ Follow these steps to remotely connect from a Windows client.
 
 On the Linux client that you'll use to connect:
 
-- [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux?preserve-view=true&view=powershell-6) from GitHub to get the SSH remoting feature. 
+- [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux) from GitHub to get the SSH remoting feature. 
 - [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:
     - `sudo apt-get install gss-ntlmssp`
 
-For more information, go to [PowerShell remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?preserve-view=true&view=powershell-6).
+For more information, go to [PowerShell remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
 Follow these steps to remotely connect from an NFS client.
 
 1. To open PowerShell session, type:
 
-    `sudo pwsh`
+    `pwsh`
  
 2. For connecting using the remote client, type:
 

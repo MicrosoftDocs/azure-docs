@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 05/25/2021
 ms.author: tisande
 ---
 
@@ -92,7 +92,7 @@ When including and excluding paths, you may encounter the following attributes:
 
 - `dataType` can be either `String` or `Number`. This indicates the types of JSON properties which will be indexed.
 
-When not specified, these properties will have the following default values:
+It is no longer necessary to set these properties. When not specified, these properties will have the following default values:
 
 | **Property Name**     | **Default Value** |
 | ----------------------- | -------------------------------- |
@@ -285,7 +285,7 @@ WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true)
 ORDER BY c.firstName, c.lastName
 ```
 
-The following considerations are used when creating composite indexes to optimize a query with a filter and `ORDER BY` clause:
+The following considerations apply when creating composite indexes to optimize a query with a filter and `ORDER BY` clause:
 
 * If you do not define a composite index on a query with a filter on one property and a separate `ORDER BY` clause using a different property, the query will still succeed. However, the RU cost of the query can be reduced with a composite index, particularly if the property in the `ORDER BY` clause has a high cardinality.
 * If the query filters on properties, these should be included first in the `ORDER BY` clause.
@@ -304,8 +304,27 @@ The following considerations are used when creating composite indexes to optimiz
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
 
+### Queries with a filter and an aggregate 
 
-## Modifying the indexing policy
+If a query filters on one or more properties and has an aggregate system function, it may be helpful to create a composite index for the properties in the filter and aggregate system function. This optimization applies to the [SUM](sql-query-aggregate-sum.md) and [AVG](sql-query-aggregate-avg.md) system functions.
+
+The following considerations apply when creating composite indexes to optimize a query with a filter and aggregate system function.
+
+* Composite indexes are optional when running queries with aggregates. However, the RU cost of the query can often be significantly reduced with a composite index.
+* If the query filters on multiple properties, the equality filters must be the first properties in the composite index.
+* You can have a maximum of one range filter per composite index and it must be on the property in the aggregate system function.
+* The property in the aggregate system function should be defined last in the composite index.
+* The `order` (`ASC` or `DESC`) does not matter.
+
+| **Composite Index**                      | **Sample Query**                                  | **Supported by Composite Index?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `No` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name > "John"``` | `No` |
+| ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
+| ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
+
+## <index-transformation>Modifying the indexing policy
 
 A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old indexing policy is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
 
@@ -313,7 +332,7 @@ A container's indexing policy can be updated at any time [by using the Azure por
 > Index transformation is an operation that consumes [Request Units](request-units.md). Request Units consumed by an index transformation aren't currently billed if you are using [serverless](serverless.md) containers. These Request Units will get billed once serverless becomes generally available.
 
 > [!NOTE]
-> It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
+> You can track the progress of index transformation in the Azure portal or [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
 There is no impact to write availability during any index transformations. The index transformation uses your provisioned RUs but at a lower priority than your CRUD operations or queries.
 

@@ -6,14 +6,14 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
-
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/09/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -32,23 +32,15 @@ This tutorial shows you how to access the Azure Resource Manager API using a Win
 
 - A basic understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md).
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - You also need a Windows Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 ## Grant your VM access to a resource group in Resource Manager
 
-Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  The Azure Resource Manager supports Azure AD authentication.  First, we need to grant this VM’s system-assigned managed identity access to a resource in Resource Manager, in this case the Resource Group in which the VM is contained.  
-
-1.	Navigate to the tab for **Resource Groups**. 
-2.	Select the specific **Resource Group** you created for your **Windows VM**. 
-3.	Go to **Access control (IAM)** in the left panel. 
-4.	Then **Add role assignment** a new role assignment for your **Windows VM**.  Choose **Role** as **Reader**. 
-5.	In the next drop-down, **Assign access to** the resource **Virtual Machine**. 
-6.	Next, ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**. 
-7.	Finally, in **Select** choose your Windows VM in the dropdown and click **Save**.
-
-    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication and Azure Resource Manager supports Azure AD authentication.  We need to grant this VM’s system-assigned managed identity access to a resource in Resource Manager, in this case the Resource Group where you created the VM. Assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group we created for your **Windows VM**.
+ 
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Get an access token using the VM's system-assigned managed identity and use it to call Azure Resource Manager 
 

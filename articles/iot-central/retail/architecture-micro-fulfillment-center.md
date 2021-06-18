@@ -4,7 +4,7 @@ description: Learn to build a micro-fulfillment center application using our Mic
 author: avneet723
 ms.author: avneets
 ms.date: 10/13/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central

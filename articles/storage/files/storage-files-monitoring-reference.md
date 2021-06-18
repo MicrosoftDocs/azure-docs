@@ -15,6 +15,13 @@ ms.custom: monitoring
 
 See [Monitoring Azure Files](storage-files-monitoring.md) for details on collecting and analyzing monitoring data for Azure Files.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
 ## Metrics
 
 The following tables list the platform metrics collected for Azure Files. 
@@ -31,7 +38,7 @@ Azure Files provides the following capacity metrics in Azure Monitor.
 
 #### Azure Files
 
-This table shows [Azure Files metrics](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+This table shows [Azure Files metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -83,4 +90,4 @@ The following table lists the properties for Azure Storage resource logs when th
 ## See also
 
 - See [Monitoring Azure Files](storage-files-monitoring-reference.md) for a description of monitoring Azure Storage.
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

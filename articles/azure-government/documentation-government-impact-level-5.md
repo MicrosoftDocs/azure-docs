@@ -1,6 +1,6 @@
 ---
 title: Azure Government isolation guidelines for Impact Level 5 
-description: 'This article provides guidance for Azure Government Cloud configurations required to implement Impact Level 5 workloads for the DoD.'
+description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 1/25/2021
+ms.date: 04/14/2021
 ms.custom: references_regions
 #Customer intent: As a DoD mission owner, I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government.
 ---
@@ -20,25 +20,26 @@ Azure Government supports applications that use Impact Level 5 (IL5) data in all
 
 ## Background
 
-In January 2017, DISA awarded the IL5 Provisional Authorization (PA) to [Azure Government for DoD](https://azure.microsoft.com/global-infrastructure/government/dod/), making it the first IL5 PA awarded to a hyperscale cloud provider. The PA covered two Azure Government for DoD regions (US DoD Central and US DoD East) that are dedicated to the DoD. Based on DoD mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA boundary in December 2018 to cover [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/). Azure Government is available from three regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) to US federal, state, local, and tribal governments and their partners. The IL5 expansion to Azure Government honors the isolation requirements mandated by the DoD.
+In January 2017, DISA awarded the IL5 Provisional Authorization (PA) to [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/), making it the first IL5 PA awarded to a hyperscale cloud provider. The PA covered two Azure Government regions (US DoD Central and US DoD East) that are [dedicated to the DoD](https://azure.microsoft.com/global-infrastructure/government/dod/). Based on DoD mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA boundary in December 2018 to cover the remaining Azure Government regions: US Gov Arizona, US Gov Texas, and US Gov Virginia. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
 
-Azure Government continues to provide more PaaS services suitable for DoD IL5 workloads than any other cloud services environment.
+Azure Government is available to US federal, state, local, and tribal governments and their partners. The IL5 expansion to Azure Government honors the isolation requirements mandated by the DoD. Azure Government continues to provide more PaaS services suitable for DoD IL5 workloads than any other cloud services environment.
 
 ## Principles and approach
 
-You need to address two key areas for Azure services in IL5 scope: storage isolation and compute isolation. We'll focus on how these services can help isolate the compute and storage of IL5 data. The SRG allows for a shared management and network infrastructure. **This article is focused on Azure Government compute and storage isolation approaches.** If an Azure service is available in Azure Government for DoD and authorized at IL5, then it is by default suitable for IL5 workloads with no extra isolation configuration required. Azure Government for DoD is reserved for DoD agencies and their partners, enabling physical separation from non-DoD tenants by design.
+You need to address two key areas for Azure services in IL5 scope: storage isolation and compute isolation. We'll focus in this article on how Azure services can help isolate the compute and storage of IL5 data. The SRG allows for a shared management and network infrastructure. **This article is focused on Azure Government compute and storage isolation approaches for US Gov Arizona, US Gov Texas, and US Gov Virginia regions.** If an Azure service is available in Azure Government DoD regions and authorized at IL5, then it is by default suitable for IL5 workloads with no extra isolation configuration required. Azure Government DoD regions are reserved for DoD agencies and their partners, enabling physical separation from non-DoD tenants by design.
 
-For Azure service availability in Azure Government and Azure Government for DoD, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=all). For IL5 authorization status, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
+> [!IMPORTANT]
+> You are responsible for designing and deploying your applications to meet DoD IL5 compliance requirements. In doing so, you should not include sensitive or restricted information in Azure resource names, as explained in **[Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).**
 
 ### Compute isolation
 
-IL5 separation requirements are stated in the SRG [Section 5.2.2.3](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.2LegalConsiderations). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, all IL5 virtual machines should be isolated via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
+IL5 separation requirements are stated in the SRG [Section 5.2.2.3](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.2LegalConsiderations). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, all IL5 virtual machines should be isolated via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](../virtual-machines/isolation.md). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures the data is stored in protected mediums. It also ensures the data isn't present on these services for extended periods unless it's encrypted as needed.
 
 ### Storage isolation
 
-In the most recent PA for Azure Government, DISA approved logical separation of IL5 from other data via cryptographic means. In Azure, this approach involves data encryption via keys that are maintained in Azure Key Vault and stored in FIPS 140-2 validated Hardware Security Modules (HSM). The keys are owned and managed by the IL5 system owner.
+In a recent PA for Azure Government, DISA approved logical separation of IL5 from other data via cryptographic means. In Azure, this approach involves data encryption via keys that are maintained in Azure Key Vault and stored in FIPS 140-2 validated Hardware Security Modules (HSMs). The keys are owned and managed by the IL5 system owner (also known as customer-managed keys).
 
 Here's how this approach applies to services:
 
@@ -83,37 +84,37 @@ Computer Vision supports Impact Level 5 workloads in Azure Government with no ex
 
 The Azure Cognitive Services Content Moderator service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/content-moderator/content-moderator-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/content-moderator/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)
 
 Custom Vision supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../cognitive-services/custom-vision-service/custom-vision-encryption-of-data-at-rest.md#customer-managed-keys-with-azure-key-vault)
+- Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../cognitive-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault)
 
 ### [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/)
 
 The Cognitive Services Face service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../cognitive-services/face/face-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../cognitive-services/face/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
 
 The Cognitive Services Language Understanding service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../cognitive-services/luis/luis-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../cognitive-services/luis/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Personalizer](https://azure.microsoft.com/services/cognitive-services/personalizer/)
 
 Personalizer supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services Personalizer [using customer-managed keys in Azure Key Vault](../cognitive-services/personalizer/personalizer-encryption-of-data-at-rest.md)
+- Configure encryption at rest of content in Cognitive Services Personalizer [using customer-managed keys in Azure Key Vault](../cognitive-services/personalizer/encrypt-data-at-rest.md)
 
 ### [Cognitive Services: QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/)
 
 Cognitive Services QnA Maker supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services QnA Maker [using customer-managed keys in Azure Key Vault](../cognitive-services/qnamaker/qna-maker-encryption-of-data-at-rest.md)
+- Configure encryption at rest of content in Cognitive Services QnA Maker [using customer-managed keys in Azure Key Vault](../cognitive-services/qnamaker/encrypt-data-at-rest.md)
 
 ### [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 
@@ -123,7 +124,7 @@ The Cognitive Services Text Analytics service supports Impact Level 5 workloads 
 
 The Cognitive Services Translator service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/translator/translator-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/translator/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services/)
 
@@ -307,7 +308,7 @@ For Databases services availability in Azure Government, see [Products available
 
 Azure API for FHIR supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/bring-your-own-key.md)
+- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/fhir/customer-managed-key.md)
 
 ### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 
@@ -353,9 +354,9 @@ Azure DevTest Labs supports Impact Level 5 workloads in Azure Government with no
 
 ### [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/)
 
-You can protect data via storage accounts because your device is associated with a storage account that's used as a destination for your data in Azure. Access to the storage account is controlled by the subscription and FIPS-compliant storage access keys associated with the storage account. For more information, see [Protect your data](../databox-online/azure-stack-edge-security.md#protect-your-data).
+Azure Stack Edge supports Impact Level 5 workloads in Azure Government with this configuration:
 
-Azure Stack Edge supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+- You can protect data at rest via storage accounts because your device is associated with a storage account that's used as a destination for your data in Azure. You can configure your storage account to use data encryption with customer-managed keys stored in Azure Key Vault. For more information, see [Protect data in storage accounts](../databox-online/azure-stack-edge-pro-r-security.md#protect-data-in-storage-accounts).
 
 ## Identity
 
@@ -502,15 +503,15 @@ Azure Cloud Shell supports Impact Level 5 workloads in Azure Government with no 
 
 <a name="log-analytics"></a>
 
-### [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
+### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
 
-Log Analytics is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/platform/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+Log Analytics is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Azure Security Center or Azure Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/platform/customer-managed-keys.md).
+Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Azure Security Center or Azure Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
 
 ### [Microsoft Intune](/intune/what-is-intune)
 
-Intune supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+Intune supports Impact Level 5 workloads in Azure Government with no extra configuration required. Line-of-business apps should be evaluated for IL5 restrictions prior to [uploading to Intune storage](/mem/intune/apps/apps-add). While Intune does encrypt applications that are uploaded to the service for distribution, it does not support customer-managed keys.
 
 ## Media
 
@@ -672,11 +673,11 @@ Azure Archive Storage can be used in Azure Government to support Impact Level 5 
 
 The target storage account for Archive Storage can be located in any Azure Government or Azure Government for DoD region.
 
-### [Azure File Sync](../storage/files/storage-sync-files-planning.md)
+### [Azure File Sync](../storage/file-sync/file-sync-planning.md)
 
 Azure File Sync supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure File Sync by [using customer-managed keys in Azure Key Vault](../storage/files/storage-sync-files-planning.md#azure-file-share-encryption-at-rest).
+- Configure encryption at rest of content in Azure File Sync by [using customer-managed keys in Azure Key Vault](../storage/file-sync/file-sync-planning.md#azure-file-share-encryption-at-rest).
 
 ### [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/)
 

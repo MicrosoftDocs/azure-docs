@@ -39,7 +39,7 @@ The **Overview** page in the Azure portal for each Azure Cosmos DB account inclu
 
 Azure Cosmos DB creates monitoring data using [Azure Monitor](../azure-monitor/overview.md) which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
-If you're not already familiar with monitoring Azure services, start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) which describes the following concepts:
+If you're not already familiar with monitoring Azure services, start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) which describes the following concepts:
 
 * What is Azure Monitor?
 * Costs associated with monitoring
@@ -49,16 +49,16 @@ If you're not already familiar with monitoring Azure services, start with the ar
 
 The following sections build on this article by describing the specific data gathered from Azure Cosmos DB and providing examples for configuring data collection and analyzing this data with Azure tools.
 
-## Azure Monitor for Azure Cosmos DB
+## Cosmos DB insights
 
-Azure Monitor for Azure Cosmos DB is based on the [workbooks feature of Azure Monitor](../azure-monitor/platform/workbooks-overview.md) and uses the same monitoring data collected for Azure Cosmos DB described in the sections below. Use Azure Monitor for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience, and leverage the other features of Azure Monitor for detailed analysis and alerting. To learn more, see the [Explore Azure Monitor for Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) article.
+Cosmos DB insights is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) and uses the same monitoring data collected for Azure Cosmos DB described in the sections below. Use Azure Monitor for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience, and leverage the other features of Azure Monitor for detailed analysis and alerting. To learn more, see the [Explore Cosmos DB insights](../azure-monitor/insights/cosmosdb-insights-overview.md) article.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ## <a id="monitoring-from-azure-cosmos-db"></a> Monitoring data 
 
-Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
+Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
 
 The **Overview** page in the Azure portal for each Azure Cosmos database includes a brief view of the database usage including its request and hourly billing usage. This is useful information but only a small amount of the monitoring data available. Some of this data is collected automatically and available for analysis as soon as you create the database while you can enable additional data collection with some configuration.
 
@@ -76,7 +76,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## <a id="analyze-metric-data"></a> Analyzing metrics
 
-Azure Cosmos DB provides a custom experience for working with metrics. You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool. You can also checkout how to monitor [server-side latency](monitor-server-side-latency.md), [request unit usage](monitor-request-unit-usage.md), and [normalized request unit usage](monitor-normalized-request-units.md) for your Azure Cosmos DB resources.
+Azure Cosmos DB provides a custom experience for working with metrics. You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. You can also checkout how to monitor [server-side latency](monitor-server-side-latency.md), [request unit usage](monitor-request-unit-usage.md), and [normalized request unit usage](monitor-normalized-request-units.md) for your Azure Cosmos DB resources.
 
 For a list of the platform metrics collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference metrics](monitor-cosmos-db-reference.md#metrics) article.
 
@@ -88,7 +88,7 @@ All metrics for Azure Cosmos DB are in the namespace **Cosmos DB standard metric
 * Region
 * StatusCode
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### View operation level metrics for Azure Cosmos DB
 
@@ -120,11 +120,11 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 
 ## <a id="analyze-log-data"></a> Analyzing logs
 
-Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties.
+Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference](monitor-cosmos-db-reference.md#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference](monitor-cosmos-db-reference.md#resource-logs).
 
-The [Activity log](../azure-monitor/platform/activity-log.md) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 Azure Cosmos DB stores data in the following tables.
 
@@ -136,9 +136,9 @@ Azure Cosmos DB stores data in the following tables.
 ### Sample Kusto queries
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Cosmos DB menu, Log Analytics is opened with the query scope set to the current Azure Cosmos DB account. This means that log queries will only include data from that resource. If you want to run a query that includes data from other accounts or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/log-query/scope.md) for details.
+> When you select **Logs** from the Azure Cosmos DB menu, Log Analytics is opened with the query scope set to the current Azure Cosmos DB account. This means that log queries will only include data from that resource. If you want to run a query that includes data from other accounts or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
-Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos resources. These queries work with the [new language](../azure-monitor/log-query/log-query-overview.md).
+Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos resources. These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).
 
 * To query for all of the diagnostic logs from Azure Cosmos DB for a specified time period:
 
@@ -167,7 +167,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/platform/alerts-metric-overview.md), [logs](../azure-monitor/platform/alerts-unified-log.md), and the [activity log](../azure-monitor/platform/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
 
 For example, the following table lists few alert rules for your resources. You can find a detailed list of alert rules from the Azure portal. To learn more, see [how to configure alerts](create-alerts.md) article.  
 
@@ -197,9 +197,9 @@ To retrieve individual metrics use the following format:
 https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metrics?timespan={StartTime}/{EndTime}&interval={AggregationInterval}&metricnames={MetricName}&aggregation={AggregationType}&`$filter={Filter}&api-version=2018-01-01
 ```
 
-To learn more, see the [Azure monitoring REST API](../azure-monitor/platform/rest-api-walkthrough.md) article.
+To learn more, see the [Azure monitoring REST API](../azure-monitor/essentials/rest-api-walkthrough.md) article.
 
 ## Next steps
 
 * See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a reference of the logs and metrics created by Azure Cosmos DB.
-* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

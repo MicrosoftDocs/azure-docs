@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-csharp
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage consistency levels in Azure Cosmos DB
@@ -110,7 +110,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 # [Async](#tab/api-async)
 
-Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -126,7 +126,7 @@ AsyncDocumentClient client =
 
 # [Sync](#tab/api-sync)
 
-Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -211,7 +211,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 # [Async](#tab/api-async)
 
-Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -235,7 +235,7 @@ Observable<ResourceResponse<Document>> readObservable = client.readDocument(docu
 
 # [Sync](#tab/api-sync)
 
-Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response

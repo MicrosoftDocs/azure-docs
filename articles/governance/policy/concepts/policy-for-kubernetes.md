@@ -1,8 +1,9 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 12/01/2020
+ms.date: 05/13/2021
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ---
 # Understand Azure Policy for Kubernetes clusters
 
@@ -74,7 +75,7 @@ The following limitations apply only to the Azure Policy Add-on for AKS:
 
 - [AKS Pod security policy](../../../aks/use-pod-security-policies.md) and the Azure Policy Add-on
   for AKS can't both be enabled. For more information, see
-  [AKS pod security limitation](../../../aks/use-pod-security-on-azure-policy.md#limitations).
+  [AKS pod security limitation](../../../aks/use-azure-policy.md).
 - Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_,
   _gatekeeper-system_, and _aks-periscope_.
 
@@ -82,11 +83,11 @@ The following limitations apply only to the Azure Policy Add-on for AKS:
 
 The following are general recommendations for using the Azure Policy Add-on:
 
-- The Azure Policy Add-on requires 3 Gatekeeper components to run: 1 audit pod and 2 webhook pod
+- The Azure Policy Add-on requires three Gatekeeper components to run: 1 audit pod and 2 webhook pod
   replicas. These components consume more resources as the count of Kubernetes resources and policy
-  assignments increases in the cluster which requires audit and enforcement operations.
+  assignments increases in the cluster, which requires audit and enforcement operations.
 
-  - For less than 500 pods in a single cluster with a max of 20 constraints: 2 vCPUs and 350 MB
+  - For fewer than 500 pods in a single cluster with a max of 20 constraints: 2 vCPUs and 350 MB
     memory per component.
   - For more than 500 pods in a single cluster with a max of 40 constraints: 3 vCPUs and 600 MB
     memory per component.
@@ -118,7 +119,7 @@ The following recommendation applies only to AKS and the Azure Policy Add-on:
 ## Install Azure Policy Add-on for AKS
 
 Before installing the Azure Policy Add-on or enabling any of the service features, your subscription
-must enable the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** resource providers.
+must enable the **Microsoft.PolicyInsights** resource providers.
 
 1. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
    find the version. If you need to install or upgrade, see
@@ -128,17 +129,13 @@ must enable the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** 
 
    - Azure portal:
 
-     Register the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** resource
-     providers. For steps, see
+     Register the **Microsoft.PolicyInsights** resource providers. For steps, see
      [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - Azure CLI:
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Kubernetes Service provider
-     az provider register --namespace Microsoft.ContainerService
 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
@@ -174,19 +171,6 @@ you want to manage.
 
   1. In the main page, select the **Enable add-on** button.
 
-     <a name="migrate-from-v1"></a>
-     > [!NOTE]
-     > If the **Disable add-on** button is enabled and a migration warning v2 message is displayed,
-     > v1 add-on is installed and must be removed prior to assigning v2 policy definitions. The
-     > _deprecated_ v1 add-on will automatically be replaced with the v2 add-on starting August 24,
-     > 2020. New v2 versions of the policy definitions must then be assigned. To upgrade now, follow
-     > these steps:
-     >
-     > 1. Validate your AKS cluster has the v1 add-on installed by visiting the **Policies** page on your AKS cluster and has the "The current cluster uses Azure Policy add-on v1..." message.
-     > 1. [Remove the add-on](#remove-the-add-on-from-aks).
-     > 1. Select the **Enable add-on** button to install the v2 version of the add-on.
-     > 1. [Assign v2 versions of your v1 built-in policy definitions](#assign-a-built-in-policy-definition)
-
 - Azure CLI
 
   ```azurecli-interactive
@@ -208,18 +192,14 @@ kubectl get pods -n gatekeeper-system
 
 Lastly, verify that the latest add-on is installed by running this Azure CLI command, replacing
 `<rg>` with your resource group name and `<cluster-name>` with the name of your AKS cluster:
-`az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. The result should look similar to the following output and
-**config.version** should be `v2`:
+`az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. The result should look
+similar to the following output:
 
 ```output
-"addonProfiles": {
-    "azurepolicy": {
-        "config": {
-            "version": "v2"
-        },
+{
+        "config": null,
         "enabled": true,
         "identity": null
-    },
 }
 ```
 
@@ -260,7 +240,7 @@ cluster service principal.
 1. Install [Helm 3](https://v3.helm.sh/docs/intro/install/).
 
 1. Your Kubernetes cluster enabled for Azure Arc. For more information, see
-   [onboarding a Kubernetes cluster to Azure Arc](../../../azure-arc/kubernetes/connect-cluster.md).
+   [onboarding a Kubernetes cluster to Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 1. Have the fully qualified Azure Resource ID of the Azure Arc enabled Kubernetes cluster.
 
@@ -269,8 +249,8 @@ cluster service principal.
 
    |Domain |Port |
    |---|---|
-   |`gov-prod-policy-data.trafficmanager.net` |`443` |
-   |`raw.githubusercontent.com` |`443` |
+   |`data.policy.core.windows.net` |`443` |
+   |`store.policy.core.windows.net` |`443` |
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
@@ -444,7 +424,7 @@ existing cluster.
      on GitHub.
 
      > [!NOTE]
-     > Because of the relationship between Azure Policy Add-on and the resource group id, Azure
+     > Because of the relationship between Azure Policy Add-on and the resource group ID, Azure
      > Policy supports only one AKS Engine cluster for each resource group.
 
 To validate that the add-on installation was successful and that the _azure-policy_ and _gatekeeper_
@@ -479,9 +459,9 @@ compliance reporting experience. For more information, see
 
 ## Assign a built-in policy definition
 
-To assign a policy definition to your Kubernetes cluster, you must be assigned the appropriate
-Azure role-based access control (Azure RBAC) policy assignment operations. The Azure built-in roles **Resource
-Policy Contributor** and **Owner** have these operations. To learn more, see
+To assign a policy definition to your Kubernetes cluster, you must be assigned the appropriate Azure
+role-based access control (Azure RBAC) policy assignment operations. The Azure built-in roles
+**Resource Policy Contributor** and **Owner** have these operations. To learn more, see
 [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 Find the built-in policy definitions for managing your cluster using the Azure portal with the
@@ -492,7 +472,7 @@ following steps:
 
 1. In the left pane of the Azure Policy page, select **Definitions**.
 
-1. From the Category drop-down list box, use **Select all** to clear the filter and then select
+1. From the Category dropdown list box, use **Select all** to clear the filter and then select
    **Kubernetes**.
 
 1. Select the policy definition, then select the **Assign** button.
@@ -573,7 +553,7 @@ Some other considerations:
 - If the cluster subscription is registered with Azure Security Center, then Azure Security Center
   Kubernetes policies are applied on the cluster automatically.
 
-- When a deny policy is applied on cluster with existing Kubernetes resources, any preexisting
+- When a deny policy is applied on cluster with existing Kubernetes resources, any pre-existing
   resource that is not compliant with the new policy continues to run. When the non-compliant
   resource gets rescheduled on a different node the Gatekeeper blocks the resource creation.
 
@@ -585,10 +565,10 @@ Some other considerations:
 
 ## Logging
 
-As a Kubernetes controller/container, both the the _azure-policy_ and _gatekeeper_ pods keep logs in
-the Kubernetes cluster. The logs can be exposed in the **Insights** page of the Kubernetes cluster.
-For more information, see
-[Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/insights/container-insights-analyze.md).
+As a Kubernetes controller/container, both the _azure-policy_ and _gatekeeper_ pods keep logs in the
+Kubernetes cluster. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
+more information, see
+[Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/containers/container-insights-analyze.md).
 
 To view the add-on logs, use `kubectl`:
 
@@ -653,7 +633,6 @@ aligns with how the add-on was installed:
 
   Redeploy the cluster definition to AKS Engine after changing the **addons** property for
   _azure-policy_ to false:
-
 
   ```json
   "addons": [{

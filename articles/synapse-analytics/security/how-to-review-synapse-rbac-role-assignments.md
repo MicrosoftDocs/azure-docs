@@ -1,12 +1,12 @@
 ---
 title: How to review Synapse RBAC role assignments in Synapse Studio
 description: This article describes how to review Synapse RBAC role assignments using Synapse Studio
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
@@ -19,7 +19,7 @@ This article explains how to review the current role assignments for a workspace
 With any Synapse RBAC role, you can list Synapse RBAC role assignments for all scopes, including assignments for objects you don't have access to. Only a Synapse Administrator can grant Synapse RBAC access.  
 
 >[!Note]
->Guest users (users from a different AD tenant) cannot see or manage role assignments, even if assigned the Synapse Administrator role.    
+> A guest users (users from a different AD tenant) can also see and manage role assignment after being assigned the Synapse Administrator role.    
 
 ## Open Synapse Studio  
 

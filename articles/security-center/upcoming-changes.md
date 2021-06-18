@@ -1,16 +1,11 @@
 ---
 title: Important changes coming to Azure Security Center
 description: Upcoming changes to Azure Security Center that you might need to be aware of and for which you might need to plan 
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2021
+ms.date: 06/17/2021
 ms.author: memildin
 
 ---
@@ -27,64 +22,59 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-- [Kubernetes workload protection recommendations will soon be released for General Availability (GA)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
-- [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
-- [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
+| Planned change                                                                                                                                                                                          | Estimated date for change |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | June 2021                 |
+| [Deprecating recommendation 'Log Analytics agent health issues should be resolved on your machines'](#deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines) | July 2021                 |
+| [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                                                       | Q3 2021                   |
+| [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)                                                         | Q3 2021                   |
+|                                                                                                                                                                                                         |                           |
 
 
-### Kubernetes workload protection recommendations will soon be released for General Availability (GA)
+### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-**Estimated date for change:** February 2021
+**Estimated date for change:** June 2021
 
-The Kubernetes workload protection recommendations described in [Protect your Kubernetes workloads](kubernetes-workload-protections.md) are currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy, and isn't included in the calculations of your secure score.
+The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
-These recommendations will soon be released for General Availability (GA) and so *will* be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score.
+:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Security Center's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
-Remediate them wherever possible (learn how in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md)).
+### Deprecating recommendation 'Log Analytics agent health issues should be resolved on your machines'
 
-The Kubernetes workload protection recommendations are:
+**Estimated date for change:** July 2021
 
-- Azure Policy add-on for Kubernetes should be installed and enabled on your clusters
-- Container CPU and memory limits should be enforced
-- Privileged containers should be avoided
-- Immutable (read-only) root filesystem should be enforced for containers
-- Container with privilege escalation should be avoided
-- Running containers as root user should be avoided
-- Containers sharing sensitive host namespaces should be avoided
-- Least privileged Linux capabilities should be enforced for containers
-- Usage of pod HostPath volume mounts should be restricted to a known list
-- Containers should listen on allowed ports only
-- Services should listen on allowed ports only
-- Usage of host networking and ports should be restricted
-- Overriding or disabling of containers AppArmor profile should be restricted
-- Container images should be deployed only from trusted registries             
+We've found that recommendation **Log Analytics agent health issues should be resolved on your machines** impacts secure scores in ways that are inconsistent with Security Center's Cloud Security Posture Management (CSPM) focus. Typically, CSPM relates to identifying security misconfigurations. Agent health issues don't fit into this category of issues.
 
-Learn more about these recommendations in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
+Also, the recommendation is an anomaly when compared with the other agents related to Security Center: this is the only agent with a recommendation related to health issues.
 
-### Two recommendations from "Apply system updates" security control being deprecated 
+The recommendation will be deprecated.
 
-**Estimated date for change:** February 2021
+As a result of this deprecation, we'll also be making minor changes to the recommendations for installing the Log Analytics agent (**Log Analytics agent should be installed on...**).
 
-The following two recommendations are scheduled to be deprecated in February 2021:
+It's likely that this change will impact your secure scores. For most subscriptions, we expect the change to lead to an increased score, but it's possible the updates to the installation recommendation might result in decreased scores in some cases.
 
-- **Your machines should be restarted to apply system updates**. This might result in a slight impact on your secure score.
-- **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transferred to another recommendation, **Log Analytics agent health issues should be resolved on your machines**. This might result in a slight impact on your secure score.
-
-We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
-
-Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
-
+> [!TIP]
+> The [asset inventory](asset-inventory.md) page will also be affected by this change as it also displays information about whether or not a machine is monitored, not monitored, or partially monitored (a state which refers to an agent with health issues). 
 
 ### Enhancements to SQL data classification recommendation
 
-**Estimated date for change:** Q2 2021
+**Estimated date for change:** Q3 2021
 
-The current version of the recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result:
+The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
-- The recommendation will no longer affect your secure score
-- The security control ("Apply data classification") will no longer affect your secure score
-- The recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59)
+### Enable Azure Defender security control to be included in secure score
 
+**Estimated date for change:** Q3 2021
+
+Security Center's hardening recommendations are grouped into security controls. Each control is a logical group of related security recommendations, and reflects a vulnerable attack surface. The contribution of each security control towards the overall secure score is shown clearly on the recommendations page as well as in the list of controls in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+Since its introduction, the **Enable Azure Defender** control has had a maximum possible score of 0 points. **With this change, the control will contribute towards your secure score**.
+
+When you enable Azure Defender you'll extend the capabilities of Security Center's free mode to your workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. Some of the major features of Azure Defender are: integrated Microsoft Defender for Endpoint licenses for your servers, vulnerability scanning for virtual machines and container registries, security alerts based on advanced behavioral analytics and machine learning, and container security features. For a full list, see [Azure Security Center free vs Azure Defender enabled](security-center-pricing.md).
+
+With this change, there will be an impact on the secure score of any subscriptions that aren't protected by Azure Defender. We suggest you enable Azure Defender before this change occurs to ensure there is no impact on your scores. 
+
+Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
 
 ## Next steps

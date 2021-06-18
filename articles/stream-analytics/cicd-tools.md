@@ -119,6 +119,9 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 | `-project` | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
 | `-testConfigPath` | The path of the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**. A new file will be created if not existed. |
 
+> [!NOTE]
+> The `Script` value in the generated **testConfig.json** file is only for providing the context; It's not used in the testing logic. 
+
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 ```powershell
@@ -154,7 +157,7 @@ If you want the test validation to ignore a certain output, set the **Required**
       "ExpectedOutputs": [
         {
           "OutputAlias": [Output alias string],
-          "FilePath": "Required",
+          "FilePath": [Required],
           "Required": true
         }
       ]
@@ -162,6 +165,9 @@ If you want the test validation to ignore a certain output, set the **Required**
   ]
 }
 ```
+
+> [!NOTE]
+> Currently, the only allowed value for the `ScriptType` element is `InputMock`, which is also the default value. If you set it to any other value, it's ignored and the default value (`InputMock`) is used. 
 
 ### Run a unit test
 

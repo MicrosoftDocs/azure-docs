@@ -84,6 +84,7 @@ To create a replica in a remote data center, do the following steps:
    - Use a TCP port probe specific to the IP address.
    - Have a load balancing rule specific to the SQL Server in the same region.  
    - Be a Standard Load Balancer if the virtual machines in the backend pool are not part of either a single availability set or virtual machine scale set. For additional information review [Azure Load Balancer Standard overview](../../../load-balancer/load-balancer-overview.md).
+   - Be a Standard Load Balancer if the two virtual networks in two different regions are peered over global VNet peering. For more information, see [Azure Virtual Network frequently asked questions (FAQ)](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 1. [Add Failover Clustering feature to the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
@@ -198,7 +199,9 @@ For more information, see the following topics:
 
 ## Next steps
 
-* [Always On Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
-* [Azure Virtual Machines](../../../virtual-machines/windows/index.yml)
-* [Azure Load Balancers](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Azure Availability Sets](../../../virtual-machines/manage-availability.md)
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)

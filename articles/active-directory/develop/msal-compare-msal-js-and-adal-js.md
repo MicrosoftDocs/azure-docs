@@ -3,7 +3,7 @@ title: Differences between MSAL.js and ADAL.js | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about the differences between Microsoft Authentication Library for JavaScript (MSAL.js) and Azure AD Authentication Library for JavaScript (ADAL.js) and how to choose which to use.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/10/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the differences between the ADAL.js and MSAL.js libraries so I can migrate my applications to MSAL.js.
@@ -45,7 +45,7 @@ However, you still need to use ADAL.js if your application needs to sign in user
 
 In v1.0, using the `https://login.microsoftonline.com/common` authority will allow users to sign in with any Azure AD account (for any organization).
 
-In v2.0, using the `https://login.microsoftonline.com/common` authority, will allow users to sign in with any Azure AD organization account or a Microsoft personal account (MSA). To restrict the sign in to only Azure AD accounts (same behavior as with ADAL.js), you need to use `https://login.microsoftonline.com/organizations`. For details, see the `authority` config option in [Initialize using MSAL.js](msal-js-initializing-client-applications.md).
+In v2.0, using the `https://login.microsoftonline.com/common` authority, will allow users to sign in with any Azure AD organization account or a Microsoft personal account (MSA). To restrict the sign in to only Azure AD accounts (same behavior as with ADAL.js), use `https://login.microsoftonline.com/organizations`. For details, see the `authority` config option in [Initialize using MSAL.js](msal-js-initializing-client-applications.md).
 
 ### Scopes for acquiring tokens
 * Scope instead of resource parameter in authentication requests to acquire tokens

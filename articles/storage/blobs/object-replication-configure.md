@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 05/11/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -234,10 +234,10 @@ Keep in mind that you must be assigned the Azure Resource Manager **Contributor*
 
 The following table summarizes which values to use for the policy ID and rule IDs in the JSON file in each scenario.
 
-| When you are creating the JSON file for this account... | Set the policy ID and rule IDs to this value... |
-|-|-|
-| Destination account | The string value *default*. Azure Storage will create the policy ID and rule IDs for you. |
-| Source account | The values of the policy ID and rule IDs returned when you download the policy defined on the destination account as a JSON file. |
+| When you are creating the JSON file for this account... | Set the policy ID to this value | Set rule IDs to this value |
+|-|-|-|
+| Destination account | The string value *default*. Azure Storage will create the policy ID value for you. | An empty string. Azure Storage will create the rule ID values for you. |
+| Source account | The value of the policy ID returned when you download the policy defined on the destination account as a JSON file. | The values of the rule IDs returned when you download the policy defined on the destination account as a JSON file. |
 
 The following example defines a replication policy on the destination account with a single rule that matches the prefix *b* and sets the minimum creation time for blobs that are to be replicated. Remember to replace values in angle brackets with your own values:
 
@@ -249,7 +249,7 @@ The following example defines a replication policy on the destination account wi
     "destinationAccount": "<dest-account>",
     "rules": [
       {
-        "ruleId": "default",
+        "ruleId": "",
         "sourceContainer": "<source-container>",
         "destinationContainer": "<destination-container>",
         "filters": {
@@ -268,7 +268,7 @@ The following example defines a replication policy on the destination account wi
 
 To configure object replication on the destination account with a JSON file in the Azure portal, follow these steps:
 
-1. Create a local JSON file that defines the replication policy on the destination account. Set the **policyId** field to **default** so that Azure Storage will define the policy ID.
+1. Create a local JSON file that defines the replication policy on the destination account. Set the **policyId** field to *default* so that Azure Storage will define the policy ID.
 
     An easy way to create a JSON file that defines a replication policy is to first create a test replication policy between two storage accounts in the Azure portal. You can then download the replication rules and modify the JSON file as needed.
 

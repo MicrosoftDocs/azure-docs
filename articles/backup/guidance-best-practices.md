@@ -173,7 +173,7 @@ Azure Backup requires movement of data from your workload to the Recovery Servic
 
 * *SAP HANA databases on Azure VM, SQL Server databases on Azure VM* - requires connectivity to the Azure Backup service, Azure Storage, and Azure Active Directory. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data. For complete network guidance while using NSG tags, Azure firewall, and HTTP Proxy, refer to these [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) and [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) articles.
 
-* *Hybrid* - the MARS (Microsoft Azure Recovery Services) agent requires network access for all critical operations - install, configure, backup, and restore. The MARS agent can connect to the Azure Backup service over [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) by using public peering (available for old circuits) and Microsoft peering, using [private endpoints](install-mars-agent.md#private-endpoints) or via [proxy/firewall with appropriate access controls](install-mars-agent.md#verify-internet-access).
+* *Hybrid* - the MARS (Microsoft Azure Recovery Services) agent requires network access for all critical operations - install, configure, backup, and restore. The MARS agent can connect to the Azure Backup service over [Azure ExpressRoute](install-mars-agent.md#azure-expressroute-support) by using public peering (available for old circuits) and Microsoft peering, using [private endpoints](install-mars-agent.md#private-endpoint-support) or via [proxy/firewall with appropriate access controls](install-mars-agent.md#verify-internet-access).
 
 ### Private Endpoints for Azure Backup
 
@@ -233,9 +233,9 @@ As a backup user or administrator, you should be able to monitor all backup solu
   * Identifying key trends at different levels of granularity.
 
 * In addition,
-  * You can send data (for example, jobs, policies, and so on) to the **Log Analytics** workspace. This will enable the features of Azure Monitor Logs to enable correlation of data with other monitoring data collected by Azure Monitor, consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together, use log queries to perform complex analysis and gain deep insights on Log entries. [Learn more here](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
-  * You can send data to Event Hub to send entries outside of Azure, for example to a third-party SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
-  * You can send data to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you only need to retain your events for 90 days or less, you don't need to set up archives to a storage account, since Activity Log events are kept in the Azure platform for 90 days. [Learn more](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
+  * You can send data (for example, jobs, policies, and so on) to the **Log Analytics** workspace. This will enable the features of Azure Monitor Logs to enable correlation of data with other monitoring data collected by Azure Monitor, consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together, use log queries to perform complex analysis and gain deep insights on Log entries. [Learn more here](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
+  * You can send data to Event Hub to send entries outside of Azure, for example to a third-party SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
+  * You can send data to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you only need to retain your events for 90 days or less, you don't need to set up archives to a storage account, since Activity Log events are kept in the Azure platform for 90 days. [Learn more](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
 
 ### Alerting
 
@@ -256,4 +256,4 @@ As a backup user or administrator, you should be able to monitor all backup solu
 We recommend that you read the following articles as starting points for using Azure Backup:
 
 * [Azure Backup overview](backup-overview.md)
-* [Frequently Asked Questions](backup-azure-backup-faq.md)
+* [Frequently Asked Questions](backup-azure-backup-faq.yml)

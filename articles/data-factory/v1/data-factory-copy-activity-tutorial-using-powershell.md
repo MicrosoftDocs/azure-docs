@@ -1,19 +1,11 @@
 ﻿---
 title: 'Tutorial: Create a pipeline to move data by using Azure PowerShell '
 description: In this tutorial, you create an Azure Data Factory pipeline with Copy Activity by using Azure PowerShell.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
-
-ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Tutorial: Create a Data Factory pipeline that moves data by using Azure PowerShell
@@ -110,7 +102,7 @@ Note the following points:
 * The name of the Azure data factory must be globally unique. If you receive the following error, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) for Data Factory artifacts.
 
     ```
-    Data factory name “ADFTutorialDataFactoryPSH” is not available
+    Data factory name "ADFTutorialDataFactoryPSH" is not available
     ```
 * To create Data Factory instances, you must be a contributor or administrator of the Azure subscription.
 * The name of the data factory may be registered as a DNS name in the future, and hence become publicly visible.
@@ -448,7 +440,7 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 **Congratulations!** You have successfully created an Azure data factory with a pipeline to copy data from an Azure blob storage to Azure SQL Database. 
 
 ## Monitor the pipeline
-In this step, you use Azure PowerShell to monitor what’s going on in an Azure data factory.
+In this step, you use Azure PowerShell to monitor what's going on in an Azure data factory.
 
 1. Replace &lt;DataFactoryName&gt; with the name of your data factory and run **Get-AzDataFactory**, and assign the output to a variable $df.
 
@@ -562,7 +554,7 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 ## Next steps
 In this tutorial, you used Azure blob storage as a source data store and Azure SQL Database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 To learn about how to copy data to/from a data store, click the link for the data store in the table. 
 

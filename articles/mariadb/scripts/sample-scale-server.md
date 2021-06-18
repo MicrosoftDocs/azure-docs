@@ -32,11 +32,11 @@ This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | Creates a MariaDB server that hosts the databases. |
-| [az mariadb server update](/cli/azure/mariadb/server#az-mariadb-server-update) | Updates properties of the MariaDB server. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | List the metric value for the resources. |
-| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) | Creates a MariaDB server that hosts the databases. |
+| [az mariadb server update](/cli/azure/mariadb/server#az_mariadb_server_update) | Updates properties of the MariaDB server. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | List the metric value for the resources. |
+| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 - Learn more about [Azure Database for MariaDB compute and storage](../concepts-pricing-tiers.md)

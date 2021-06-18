@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -26,14 +26,20 @@ If you don’t have access to the **My Apps** portal, contact your organization'
 
 > [!IMPORTANT]
 > This content is intended for **My Apps** users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/index.yml).
+>
+> If you see an error signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## Supported browsers
 
-You can get to the **My Apps** portal from any of the following web browsers:
+You can get to the **My Apps** portal from any of the following web browser. Microsoft recommends that you use the most up-to-date browser that's compatible with your operating system.
 
-- Microsoft Edge (the mobile version of Edge is currently the only supported mobile browser)
-- Google Chrome
-- Mozilla Firefox, version 26.0 or later
+- Microsoft Edge (latest version, desktop and mobile)
+- Safari (latest version, Mac and iOS)
+- Chrome (latest version, desktop and mobile)
+- Firefox (latest version)
 
 You can access and use the My Apps portal on your computer, or from the mobile version of the Edge browser on an iOS or Android mobile device.
 
@@ -64,7 +70,7 @@ The **My Apps Secure Sign-in Extension** helps you:
 - Sign in directly to apps from the sign-in page.
 - Start any apps using the **Quick search** feature.
 - See the last apps you used in the **Recently Used** section.
-- Use internal company URLs when remote using [Application Proxy](../manage-apps/application-proxy.md).
+- Use internal company URLs when remote using [Application Proxy](../app-proxy/application-proxy.md).
 
 ### To download and install the extension
 

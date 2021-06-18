@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/28/2019
+ms.date: 06/02/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -22,7 +22,6 @@ ms.collection: M365-identity-device-management
 Ideally, to complete the lifecycle, registered devices should be unregistered when they are not needed anymore. However, due to, for example, lost, stolen, broken devices, or OS reinstallations you typically have stale devices in your environment. As an IT admin, you probably want a method to remove stale devices, so that you can focus your resources on managing devices that actually require management.
 
 In this article, you learn how to efficiently manage stale devices in your environment.
-  
 
 ## What is a stale device?
 
@@ -58,7 +57,7 @@ You have two options to retrieve the value of the activity timestamp:
 
 - The [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
 
-    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Screenshot showing command line output. One line is highlighted and lists a time stamp for the ApproximateLastLogonTimeStamp value." border="false":::
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Screenshot showing command-line output. One line is highlighted and lists a time stamp for the ApproximateLastLogonTimeStamp value." border="false":::
 
 ## Plan the cleanup of your stale devices
 
@@ -80,7 +79,7 @@ Define a timeframe that is your indicator for a stale device. When defining your
 
 ### Disable devices
 
-It is not advisable to immediately delete a device that appears to be stale because you can't undo a deletion in the case of false positives. As a best practice, disable a device for a grace period before deleting it. In your policy, define a timeframe to disable a device before deleting it.
+It is not advisable to immediately delete a device that appears to be stale because you can't undo a deletion if there is a false positive. As a best practice, disable a device for a grace period before deleting it. In your policy, define a timeframe to disable a device before deleting it.
 
 ### MDM-controlled devices
 
@@ -88,23 +87,22 @@ If your device is under control of Intune or any other MDM solution, retire the 
 
 ### System-managed devices
 
-Don't delete system-managed devices. These are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `Get-AzureADDevice` cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These devices are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `Get-AzureADDevice` cmdlet excludes system-managed devices by default. 
 
 ### Hybrid Azure AD joined devices
 
 Your hybrid Azure AD joined devices should follow your policies for on-premises stale device management. 
 
-To cleanup Azure AD:
+To clean up Azure AD:
 
 - **Windows 10 devices** - Disable or delete Windows 10 devices in your on-premises AD, and let Azure AD Connect synchronize the changed device status to Azure AD.
 - **Windows 7/8** - Disable or delete Windows 7/8 devices in your on-premises AD first. You can't use Azure AD Connect to disable or delete Windows 7/8 devices in Azure AD. Instead, when you make the change in your on-premises, you must disable/delete in Azure AD.
 
 > [!NOTE]
->* Deleting devices in your on-premises AD or Azure AD does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g. Conditional Access). Read additional information on how to [remove registration on the client](faq.md#hybrid-azure-ad-join-faq).
+>* Deleting devices in your on-premises AD or Azure AD does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g. Conditional Access). Read additional information on how to [remove registration on the client](faq.yml).
 >* Deleting a Windows 10 device only in Azure AD will re-synchronize the device from your on-premises using Azure AD connect but as a new object in "Pending" state. A re-registration is required on the device.
 >* Removing the device from sync scope for Windows 10/Server 2016 devices will delete the Azure AD device. Adding it back to sync scope will place a new object in "Pending" state. A re-registration of the device is required.
->* If you not using Azure AD Connect for Windows 10 devices to synchronize (e.g. ONLY using AD FS for registration), you must manage lifecycle similar to Windows 7/8 devices.
-
+>* If you are not using Azure AD Connect for Windows 10 devices to synchronize (e.g. ONLY using AD FS for registration), you must manage lifecycle similar to Windows 7/8 devices.
 
 ### Azure AD joined devices
 
@@ -112,7 +110,7 @@ Disable or delete Azure AD joined devices in the Azure AD.
 
 > [!NOTE]
 >* Deleting an Azure AD device does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g Conditional Access). 
->* Read more on [how to unjoin on Azure AD](faq.md#azure-ad-join-faq) 
+>* Read more on [how to unjoin on Azure AD](faq.yml) 
 
 ### Azure AD registered devices
 
@@ -120,11 +118,11 @@ Disable or delete Azure AD registered devices in the Azure AD.
 
 > [!NOTE]
 >* Deleting an Azure AD registered device in Azure AD does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g. Conditional Access).
->* Read more on [how to remove a registration on the client](faq.md#azure-ad-register-faq)
+>* Read more on [how to remove a registration on the client](faq.yml)
 
 ## Clean up stale devices in the Azure portal  
 
-While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V1 module to use the timestamp filter and to filter out system-managed devices such as Autopilot. At this point, using PowerShell V2 is not recommended.
+While you can clean up stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V2 module to use the timestamp filter and to filter out system-managed devices such as Autopilot.
 
 A typical routine consists of the following steps:
 
@@ -139,31 +137,40 @@ A typical routine consists of the following steps:
 To get all devices and store the returned data in a CSV file:
 
 ```PowerShell
-Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv -NoTypeInformation
 ```
 
-If you have a large number of devices in your directory, use the timestamp filter to narrow down the number of returned devices. To get all devices with a timestamp older than specific date and store the returned data in a CSV file: 
+If you have a large number of devices in your directory, use the timestamp filter to narrow down the number of returned devices. To get all devices that haven't logged on in 90 days and store the returned data in a CSV file: 
 
 ```PowerShell
-$dt = [datetime]’2017/01/01’
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+$dt = (Get-Date).AddDays(-90)
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-90days-summary.csv -NoTypeInformation
+```
+
+#### Set devices to disabled
+
+Using the same commands we can pipe the output to the set command to disable the devices over a certain age.
+
+```powershell
+$dt = (Get-Date).AddDays(-90)
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice -AccountEnabled $false
 ```
 
 ## What you should know
 
 ### Why is the timestamp not updated more frequently?
 
-The timestamp is updated to support device lifecycle scenarios. This is not an audit. Use the sign-in audit logs for more frequent updates on the device.
+The timestamp is updated to support device lifecycle scenarios. This attribute is not an audit. Use the sign-in audit logs for more frequent updates on the device.
 
 ### Why should I worry about my BitLocker keys?
 
-When configured, BitLocker keys for Windows 10 devices are stored on the device object in Azure AD. If you delete a stale device, you also delete the BitLocker keys that are stored on the device. You should determine whether your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device. 
+When configured, BitLocker keys for Windows 10 devices are stored on the device object in Azure AD. If you delete a stale device, you also delete the BitLocker keys that are stored on the device. Confirm that your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device. 
 
 ### Why should I worry about Windows Autopilot devices?
 
 When you delete an Azure AD device that was associated with a Windows Autopilot object the following three scenarios can occur if the device will be repurposed in future:
 - With Windows Autopilot user-driven deployments without using pre-provisioning, a new Azure AD device will be created, but it won’t be tagged with the ZTDID.
-- With Windows Autopilot self-deploying mode deployments, they will fail because an associate Azure AD device cannot be found.  (This is a security mechanism to make sure that no “imposter” devices try to join Azure AD with no credentials.) The failure will indicate a ZTDID mismatch.
+- With Windows Autopilot self-deploying mode deployments, they will fail because an associate Azure AD device cannot be found.  (This failure is a security mechanism to make sure that no “imposter” devices try to join Azure AD with no credentials.) The failure will indicate a ZTDID mismatch.
 - With Windows Autopilot pre-provisioning deployments, they will fail because an associated Azure AD device cannot be found. (Behind the scenes, pre-provisioning deployments use the same self-deploying mode process, so they enforce the same security mechanisms.)
 
 ### How do I know all the type of devices joined?

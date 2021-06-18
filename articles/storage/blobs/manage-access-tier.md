@@ -1,14 +1,15 @@
 ---
 title: Manage the access tier of a blob in an Azure Storage account
 description: Learn how to change the tier of a blob in a GPv2 or Blob Storage account
-author: mhopkins-msft
+author: tamram
 
-ms.author: mhopkins
+ms.author: tamram
 ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.reviewer: klaasl
+ms.reviewer: klaasl 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage the access tier of a blob in an Azure Storage account

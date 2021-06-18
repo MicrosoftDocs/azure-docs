@@ -1,11 +1,13 @@
 ---
-title: Get started with Live Video Analytics on IoT Edge - Azure
-description: This quickstart shows how to get started with Live Video Analytics on IoT Edge. Learn how to detect motion in a live video stream.
+title: Get started with Azure Live Video Analytics on IoT Edge
+description: This quickstart shows how to get started with Azure Live Video Analytics on IoT Edge. Learn how to detect motion in a live video stream.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: Get started - Live Video Analytics on IoT Edge
+# Quickstart: Get started with Live Video Analytics on IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device. It also uses a simulated live video stream. 
 
@@ -43,6 +45,8 @@ This tutorial requires the following Azure resources:
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
 1. Go to [Azure portal](https://portal.azure.com) and select the Cloud Shell icon.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
@@ -62,10 +66,10 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     1. **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
     1. **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
     1. **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
-    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](../../virtual-network/virtual-networks-overview.md).
     1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
     1. **Media service account** - This helps with managing and streaming media content in Azure.
-    1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](../latest/storage-account-concept.md).
     1. **Container registry** - This helps in storing and managing your private Docker container images and related artifacts.
 
 In the script output, a table of resources lists the IoT hub name. Look for the resource type **`Microsoft.Devices/IotHubs`**, and note down the name. You'll need this name in the next step.  
@@ -556,6 +560,12 @@ To observe the results, follow these steps.
 3. Right-click **lva-sample-device** and then select **Start Monitoring Built-in Event Monitoring**.
 
     ![Start monitoring Iot Hub events](./media/quickstarts/start-monitoring-iothub-events.png)
+
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 The **OUTPUT** window displays the following message:
 
@@ -588,13 +598,6 @@ The **OUTPUT** window displays the following message:
         }
         }
     ]
-    },
-    "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
-    "subject": "/graphInstances/Sample-Graph-1/processors/motionDetection",
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-05-19T07:45:34.404Z",
-    "dataVersion": "1.0"
     }
 }
 ```

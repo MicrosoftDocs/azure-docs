@@ -5,10 +5,10 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 05/25/2021
 ---
 
-# Azure Cosmos DB serverless (Preview)
+# Azure Cosmos DB serverless
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB serverless lets you use your Azure Cosmos account in a consumption-based fashion where you are only charged for the Request Units consumed by your database operations and the storage consumed by your data. Serverless containers can serve thousands of requests per second with no minimum charge and no capacity planning required.
@@ -36,15 +36,12 @@ See the [how to choose between provisioned throughput and serverless](throughput
 
 ## Using serverless resources
 
-Serverless is a new Azure Cosmos account type, which means that you have to choose between **provisioned throughput** and **serverless** when creating a new account. You must create a new serverless account to get started with serverless. During the preview release, the only supported way to create a new serverless account is by [using the Azure portal](create-cosmosdb-resources-portal.md). Migrating existing accounts to/from serverless mode is not currently supported.
+Serverless is a new Azure Cosmos account type, which means that you have to choose between **provisioned throughput** and **serverless** when creating a new account. You must create a new serverless account to get started with serverless. Migrating existing accounts to/from serverless mode is not currently supported.
 
 Any container that is created in a serverless account is a serverless container. Serverless containers expose the same capabilities as containers created in provisioned throughput mode, so you read, write and query your data the exact same way. However serverless accounts and containers also have specific characteristics:
 
-> [!IMPORTANT]
-> Some of these limitations may be eased or removed when serverless becomes generally available and **your feedback** will help us decide! Reach out and tell us more about your serverless experience: [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com).
-
 - A serverless account can only run in a single Azure region. It is not possible to add additional Azure regions to a serverless account after you create it.
-- It is not possible to enable the [Synapse Link preview feature](synapse-link.md) on a serverless account.
+- It is not possible to enable the [Synapse Link feature](synapse-link.md) on a serverless account.
 - Provisioning throughput is not required on serverless containers, so the following statements are applicable:
     - You can't pass any throughput when creating a serverless container and doing so returns an error.
     - You can't read or update the throughput on a serverless container and doing so returns an error.
@@ -59,11 +56,11 @@ When browsing the **Metrics** pane of your account, you will find a chart named 
 
 :::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Chart showing the consumed Request Units" border="false":::
 
-You can find the same chart when using Azure Monitor, as described [here](monitor-request-unit-usage.md). Note that Azure Monitor lets you setup [alerts](../azure-monitor/platform/alerts-metric-overview.md), which can be used to notify you when your Request Unit consumption has passed a certain threshold.
+You can find the same chart when using Azure Monitor, as described [here](monitor-request-unit-usage.md). Note that Azure Monitor lets you setup [alerts](../azure-monitor/alerts/alerts-metric-overview.md), which can be used to notify you when your Request Unit consumption has passed a certain threshold.
 
 ## <a id="performance"></a>Performance
 
-Serverless resources yield specific performance characteristics that are different from what provisioned throughput resources deliver. After the serverless offer becomes generally available, the latency of serverless containers will be covered by a Service Level Objective (SLO) of 10 milliseconds or less for point-reads and 30 milliseconds or less for writes. A point-read operation consists in fetching a single item by its ID and partition key value.
+Serverless resources yield specific performance characteristics that are different from what provisioned throughput resources deliver. The latency of serverless containers are covered by a Service Level Objective (SLO) of 10 milliseconds or less for point-reads and 30 milliseconds or less for writes. A point-read operation consists in fetching a single item by its ID and partition key value.
 
 ## Next steps
 

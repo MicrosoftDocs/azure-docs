@@ -1,12 +1,12 @@
 ---
-title: What is the Immersive Reader?
-titleSuffix: Azure Cognitive Services
+title: What is Azure Immersive Reader?
+titleSuffix: Azure Applied AI Services
 description: Immersive Reader is a tool that is designed to help people with learning differences or help new readers and language learners with reading comprehension.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
@@ -16,9 +16,14 @@ keywords: readers, language learners, display pictures, improve reading, read co
 #Customer intent: As a developer, I want to learn more about the Immersive Reader, which is a new offering in Cognitive Services, so that I can embed this package of content into a document to accommodate users with reading differences.
 ---
 
-# What is Immersive Reader?
+# What is Azure Immersive Reader?
 
-[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft One Note to improve your web applications. 
+[Immersive Reader](https://www.onenote.com/learningtools) is part of [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md), and is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft One Note to improve your web applications. 
+
+This documentation contains the following types of articles:  
+
+* **[Quickstarts](quickstarts/client-libraries.md)** are getting-started instructions to guide you through making requests to the service.
+* **[How-to guides](how-to-create-immersive-reader.md)** contain instructions for using the service in more specific or customized ways.
 
 ## Use Immersive Reader to improve reading accessibility 
 
@@ -69,10 +74,3 @@ Immersive Reader is a standalone web application. When invoked using the Immersi
 The Immersive Reader client library is available in C#, JavaScript, Java (Android),  Kotlin (Android), and Swift (iOS). Get started with:
 
 * [Quickstart: Use the Immersive Reader client library](quickstarts/client-libraries.md)
-
-## Next steps
-
-Get started with Immersive Reader:
-
-* Read the [Immersive Reader client library Reference](./reference.md)
-* Explore the [Immersive Reader client library on GitHub](https://github.com/microsoft/immersive-reader-sdk)

@@ -2,13 +2,13 @@
 title: Monitor workload - Azure portal 
 description: Monitor Synapse SQL using the Azure portal
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 02/04/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
@@ -31,7 +31,7 @@ Navigate to the browse blade for Log Analytics workspaces and create a workspace
 
 ![Screenshot shows the Log Analytics workspace where you can enter values.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-For more details on workspaces, visit the following [documentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
+For more details on workspaces, visit the following [documentation](../../azure-monitor/logs/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
 ## Turn on Resource logs
 

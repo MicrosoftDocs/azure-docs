@@ -3,12 +3,13 @@ title: Create a managed disk from an image version
 description: Create a managed disk from an image version in a shared image gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
-ms.reviewer: olayemio
+ms.reviewer: olayemio 
+ms.custom: devx-track-azurepowershell
 
 ---
 

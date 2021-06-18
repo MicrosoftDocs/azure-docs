@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
@@ -386,7 +386,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings.
 * See [LUIS container limitations](luis-container-limitations.md) for known capability restrictions.
-* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
 
 <!-- Links - external -->

@@ -11,7 +11,17 @@ ms.date: 01/08/2021
 ---
 # Quickstart: Use Azure Cache for Redis with Rust
 
-In this article, you will learn how to use the [Rust programming language](https://www.rust-lang.org/) for interacting with [Azure Cache for Redis](./cache-overview.md). It will demonstrate examples of commonly used Redis data structures such as [String](https://redis.io/topics/data-types-intro#redis-strings), [Hash](https://redis.io/topics/data-types-intro#redis-hashes), [List](https://redis.io/topics/data-types-intro#redis-lists) etc. using the [redis-rs](https://github.com/mitsuhiko/redis-rs) library for Redis. This client exposes both high and low-level APIs and you will see both these styles in action with the help of sample code presented in this article.
+In this article, you'll learn how to use the [Rust programming language](https://www.rust-lang.org/) to interact with [Azure Cache for Redis](./cache-overview.md). You'll also learn about commonly used Redis data structures: 
+
+* [String](https://redis.io/topics/data-types-intro#redis-strings) 
+* [Hash](https://redis.io/topics/data-types-intro#redis-hashes) 
+* [List](https://redis.io/topics/data-types-intro#redis-lists) 
+
+You'll use the [redis-rs](https://github.com/mitsuhiko/redis-rs) library for Redis in this sample. This client exposes both high-level and low-level APIs, and you'll see both these styles in action.
+
+## Skip to the code on GitHub
+
+If you want to skip straight to the code, see the [Rust quickstart](https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/) on GitHub.
 
 ## Prerequisites
 
@@ -30,7 +40,7 @@ If you're interested in learning how the code works, you can review the followin
 
 The `connect` function is used to establish a connection to Azure Cache for Redis. It expects host name and the password (Access Key) to be passed in via environment variables `REDIS_HOSTNAME` and `REDIS_PASSWORD` respectively. The format for the connection URL is `rediss://<username>:<password>@<hostname>` - Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
 
-The call to [redis::Client::open](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.open) performs basic validation while [get_connection()](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.get_connection) actually initiates the connection - the program stops if the connectivity fails due to any reason such as an incorrect password.
+The call to [redis::Client::open](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.open) does basic validation while [get_connection()](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.get_connection) actually starts the connection. The program stops if the connectivity fails for any reason. For example, one reason might be an incorrect password.
 
 ```rust
 fn connect() -> redis::Connection {
@@ -47,7 +57,11 @@ fn connect() -> redis::Connection {
 }
 ```
 
-The `basics` function covers [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get), and [INCR](https://redis.io/commands/incr) commands. The low-level API is used for `SET` and `GET`, which sets and retrieves the value for a key named `foo`. The `INCRBY` command is executed using a high-level API i.e. [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr) increments the value of a key (named `counter`) by `2` followed by a call to [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get) to retrieve it.
+The function `basics` covers the [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get), and [INCR](https://redis.io/commands/incr) commands. 
+
+The low-level API is used for `SET` and `GET`, which sets and retrieves the value for a key named `foo`. 
+
+The `INCRBY` command is executed using a high-level API that is, [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr) increments the value of a key (named `counter`) by `2` followed by a call to [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get) to retrieve it.
 
 ```rust
 fn basics() {
@@ -74,7 +88,7 @@ fn basics() {
 }
 ```
 
-The below code snippet demonstrates the functionality of a Redis `HASH` data structure. [HSET](https://redis.io/commands/hset) is invoked using the low-level API to store information (`name`, `version`, `repo`) about Redis drivers (clients). For example, details for the Rust driver (one being used in this sample code!) is captured in form of a [BTreeMap](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) and then passed on to the low-level API. It is then retrieved using [HGETALL](https://redis.io/commands/hgetall).
+The below code snippet demonstrates the functionality of a Redis `HASH` data structure. [HSET](https://redis.io/commands/hset) is invoked using the low-level API to store information (`name`, `version`, `repo`) about Redis drivers (clients). For example, details for the Rust driver (one being used in this sample code!) is captured in form of a [BTreeMap](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) and then passed on to the low-level API. It's then retrieved using [HGETALL](https://redis.io/commands/hgetall).
 
 `HSET` can also be executed using a high-level API using [hset_multiple](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.hset_multiple) that accepts an array of tuples. [hget](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.hget) is then executed to fetch the value for a single attribute (the `repo` in this case).
 
@@ -121,7 +135,7 @@ fn hash() {
 }
 ```
 
-In the function below, you can see how to use a `LIST` data structure. [LPUSH](https://redis.io/commands/lpush) is executed (with the low-level API) to add an entry to the list and the high-level [lpop](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.lpop) method is used to retrieve that from the list. Then, the [rpush](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.rpush) method is used to add a couple of entries to the list which are then fetched using the low-level [lrange](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.lrange) method.
+In the function below, you can see how to use a `LIST` data structure. [LPUSH](https://redis.io/commands/lpush) is executed (with the low-level API) to add an entry to the list and the high-level [lpop](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.lpop) method is used to retrieve that from the list. Then, the [rpush](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.rpush) method is used to add a couple of entries to the list, which are then fetched using the low-level [lrange](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.lrange) method.
 
 ```rust
 fn list() {
@@ -188,7 +202,7 @@ fn set() {
 }
 ```
 
-`sorted_set` function below demonstrates the Sorted Set data structure. [ZADD](https://redis.io/commands/zadd) is invoked (with the low-level API) to add a random integer score for a player (`player-1`). Next, the [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) method (high-level API) is used to add more players (`player-2` to `player-5`) and their respective (randomly generated) scores. The number of entries in the sorted set is figured out using [ZCARD](https://redis.io/commands/zcard) and that's used as the limit to the [ZRANGE](https://redis.io/commands/zrange) command (invoked with the low-level API) to list out the players with their scores in ascending order.
+`sorted_set` function below demonstrates the Sorted Set data structure. [ZADD](https://redis.io/commands/zadd) is invoked with the low-level API to add a random integer score for a player (`player-1`). Next, the [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) method (high-level API) is used to add more players (`player-2` to `player-5`) and their respective (randomly generated) scores. The number of entries in the sorted set is determined using [ZCARD](https://redis.io/commands/zcard). That's used as the limit to the [ZRANGE](https://redis.io/commands/zrange) command (invoked with the low-level API) to list out the players with their scores in ascending order.
 
 ```rust
 fn sorted_set() {
@@ -238,7 +252,7 @@ Start by cloning the application from GitHub.
     md "C:\git-samples"
     ```
 
-1. Open a git terminal window, such as git bash. Use the `cd` command to change into the new folder where you will be cloning the sample app.
+1. Open a git terminal window, such as git bash. Use the `cd` to change into the new folder where you'll be cloning the sample app.
 
     ```bash
     cd "C:\git-samples"
@@ -275,7 +289,7 @@ The application accepts connectivity and credentials in the form of environment 
     cargo run
     ```
     
-    You will see an output as such:
+    You'll see this output:
     
     ```bash
     ******* Running SET, GET, INCR commands *******
@@ -319,7 +333,7 @@ The application accepts connectivity and credentials in the form of environment 
 
 ## Clean up resources
 
-If you're finished with the Azure resource group and resources you created in this quickstart, you can delete them to avoid charges.
+You can delete the resource group and resources when you're finished with them. By deleting what you created in this quickstart, you avoid being charged for them.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible, and the resource group and all the resources in it are permanently deleted. If you created your Azure Cache for Redis instance in an existing resource group that you want to keep, you can delete just the cache by selecting **Delete** from the cache **Overview** page. 
@@ -327,7 +341,7 @@ If you're finished with the Azure resource group and resources you created in th
 To delete the resource group and its Redis Cache for Azure instance:
 
 1. From the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
-1. In the **Filter by name** text box, enter the name of the resource group that contains your cache instance, and then select it from the search results. 
+1. In the **Filter by name** text box, enter the name of the resource group that contains your cache instance. Then, select it from the search results. 
 1. On your resource group page, select **Delete resource group**.
 1. Type the resource group name, and then select **Delete**.
    

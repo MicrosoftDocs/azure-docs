@@ -2,8 +2,8 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 12/04/2020 
-ms.custom: devx-track-azurecli
+ms.date: 03/15/2021 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Azure resource providers and types
@@ -27,7 +27,9 @@ For a list that maps resource providers to Azure services, see [Resource provide
 
 ## Register resource provider
 
-Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. Some resource providers are registered by default. Other resource providers are registered automatically when you take certain actions. For example, when you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
+Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. Some resource providers are registered by default. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
+
+Other resource providers are registered automatically when you take certain actions. When you deploy an Azure Resource Manager template, all required resource providers are automatically registered. When you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. 
 
 This article shows you how to check the registration status of a resource provider, and register it as needed. You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
 
@@ -308,7 +310,7 @@ West US
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](../templates/template-syntax.md). 
+* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](../templates/syntax.md). 
 * To view the resource provider template schemas, see [Template reference](/azure/templates/).
 * For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

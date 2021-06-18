@@ -1,13 +1,14 @@
 ---
 title: PCI-DSS v3.2.1 blueprint sample controls
 description: Control mapping of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample to Azure Policy and Azure RBAC.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Control mapping of the PCI-DSS v3.2.1 blueprint sample
 
 The following article details how the Azure Blueprints PCI-DSS v3.2.1 blueprint sample maps to the
-PCI-DSS v3.2.1 controls. For more information about the controls, see [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
+PCI-DSS v3.2.1 controls. For more information about the controls, see
+[PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
 The following mappings are to the **PCI-DSS v3.2.1:2018** controls. Use the navigation on the right
 to jump directly to a specific control mapping. Many of the mapped controls are implemented with an
@@ -43,15 +44,15 @@ within the information system.
 
 ## 3.4.a, 4.1, 4.1.g, 4.1.h and 6.5.3 Cryptographic Protection
 
-This blueprint helps you enforce your policy with the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md)
-definitions which enforce specific cryptograph controls and audit use of weak cryptographic
-settings. Understanding where your Azure resources may have non-optimal cryptographic configurations
-can help you take corrective actions to ensure resources are configured in accordance with your
-information security policy. Specifically, the policies assigned by this blueprint require
-transparent data encryption on SQL databases; audit missing encryption on storage accounts, and
-automation account variables. There are also policies which address audit insecure connections to
-storage accounts, Function Apps, WebApp, API Apps, and Redis Cache, and audit unencrypted Service
-Fabric communication.
+This blueprint helps you enforce your policy with the use of cryptograph controls by assigning
+[Azure Policy](../../../policy/overview.md) definitions which enforce specific cryptograph controls
+and audit use of weak cryptographic settings. Understanding where your Azure resources may have
+non-optimal cryptographic configurations can help you take corrective actions to ensure resources
+are configured in accordance with your information security policy. Specifically, the policies
+assigned by this blueprint require transparent data encryption on SQL databases; audit missing
+encryption on storage accounts, and automation account variables. There are also policies which
+address audit insecure connections to storage accounts, Function Apps, WebApp, API Apps, and Redis
+Cache, and audit unencrypted Service Fabric communication.
 
 - Function App should only be accessible over HTTPS
 - Web Application should only be accessible over HTTPS
@@ -91,21 +92,21 @@ owners for Azure subscriptions. Managing subscription owner permissions can help
 appropriate separation of duties.
 
 - There should be more than one owner assigned to your subscription
-- A maximum of 3 owners should be designated for your subscription 
+- A maximum of 3 owners should be designated for your subscription
 
 ## 3.2, 7.2.1, 8.3.1.a and 8.3.1.b Management of Privileged Access Rights
 
 This blueprint helps you restrict and control privileged access rights by assigning [Azure
 Policy](../../../policy/overview.md) definitions to audit external accounts with owner, write and/or
 read permissions and employee accounts with owner and/or write permissions that don't have
-multi-factor authentication enabled. Azure role-based access control (Azure RBAC) helps to manage who
-has access to Azure resources. Understanding where custom Azure RBAC rules are implement can help you
-verify need and proper implementation, as custom Azure RBAC rules are error prone. This blueprint also
-assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure Active
-Directory authentication for SQL Servers. Using Azure Active Directory authentication simplifies
-permission management and centralizes identity management of database users and other Microsoft  
-services.
- 
+multi-factor authentication enabled. Azure role-based access control (Azure RBAC) helps to manage
+who has access to Azure resources. Understanding where custom Azure RBAC rules are implement can
+help you verify need and proper implementation, as custom Azure RBAC rules are error prone. This
+blueprint also assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure
+Active Directory authentication for SQL Servers. Using Azure Active Directory authentication
+simplifies permission management and centralizes identity management of database users and other
+Microsoft services.
+
 - External accounts with owner permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription
@@ -131,8 +132,8 @@ with elevated permissions.
 
 ## 8.1.3 Removal or Adjustment of Access Rights
 
-Azure role-based access control (Azure RBAC) helps you manage who has access to resources in
-Azure. Using Azure Active Directory and Azure RBAC, you can update user roles to reflect organizational
+Azure role-based access control (Azure RBAC) helps you manage who has access to resources in Azure.
+Using Azure Active Directory and Azure RBAC, you can update user roles to reflect organizational
 changes. When needed, accounts can be blocked from signing in (or removed), which immediately
 removes access rights to Azure resources. This blueprint assigns [Azure
 Policy](../../../policy/overview.md) definitions to audit depreciated account that should be
@@ -150,11 +151,14 @@ policy helps you take corrective actions to ensure passwords for all VM user acc
 with policy.
 
 - \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of
+  70 days
 - \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password
+  length to 14 characters
 - \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
-- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24
+  passwords
 
 ## 10.3 and 10.5.4 Audit Generation
 

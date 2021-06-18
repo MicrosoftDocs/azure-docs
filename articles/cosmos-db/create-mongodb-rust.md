@@ -17,13 +17,12 @@ ms.date: 01/12/2021
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 > * [Rust](create-mongodb-rust.md)
 >
 
-Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. The sample presented in this article is a simple command-line based application that uses the [Rust driver for MongoDB](https://github.com/mongodb/mongo-rust-driver). Since Azure Cosmos DB's API for MongoDB is [compatible with the MongoDB wire protocol](./mongodb-introduction.md#wire-protocol-compatibility), it is possible for any MongoDB client driver to connect to it.
+Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. The sample presented in this article is a simple command-line based application that uses the [Rust driver for MongoDB](https://github.com/mongodb/mongo-rust-driver). Since Azure Cosmos DB's API for MongoDB is [compatible with the MongoDB wire protocol](./mongodb-introduction.md), it is possible for any MongoDB client driver to connect to it.
 
 You will learn how to use the MongoDB Rust driver to interact with Azure Cosmos DB's API for MongoDB by exploring CRUD (create, read, update, delete) operations implemented in the sample code. Finally, you can run the application locally to see it in action.
 
@@ -274,7 +273,7 @@ fn list_todos(self, status_filter: &str) {
 }
 ```
 
-A `todo` status can be updated (from `pending` to `completed` or vice versa) using. The `todo` is converted to a 
+A `todo` status can be updated (from `pending` to `completed` or vice versa). The `todo` is converted to a 
 [bson::oid::ObjectId](https://docs.rs/bson/1.1.0/bson/oid/struct.ObjectId.html) which then used by the[Collection.update_one](https://docs.rs/mongodb/1.1.1/mongodb/struct.Collection.html#method.update_one) method to locate the document that needs to be 
 updated.
 
@@ -313,7 +312,7 @@ fn delete_todo(self, todo_id: &str) {
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

@@ -1,21 +1,11 @@
 ---
 title: Move data to/from Azure Table 
 description: Learn how to move data to/from Azure Table Storage using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data to and from Azure Table using Azure Data Factory
@@ -52,7 +42,7 @@ The following sections provide details about JSON properties that are used to de
 ## Linked service properties
 There are two types of linked services you can use to link an Azure blob storage to an Azure data factory. They are: **AzureStorage** linked service and **AzureStorageSas** linked service. The Azure Storage linked service provides the data factory with global access to the Azure Storage. Whereas, The Azure Storage SAS (Shared Access Signature) linked service provides the data factory with restricted/time-bound access to the Azure Storage. There are no other differences between these two linked services. Choose the linked service that suits your needs. The following sections provide more details on these two linked services.
 
-[!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
+[!INCLUDE [data-factory-azure-storage-linked-services](includes/data-factory-azure-storage-linked-services.md)]
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
@@ -105,7 +95,7 @@ If Azure Table column is of datetime type:
 | azureTableRowKeyName |Specify name of the column whose column values are used as row key. If not specified, use a GUID for each row. |A column name. |No |
 | azureTableInsertType |The mode to insert data into Azure table.<br/><br/>This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>To learn about how these settings (merge and replace) work, see [Insert or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity) and [Insert or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity) topics. <br/><br> This setting applies at the row level, not the table level, and neither option deletes rows in the output table that do not exist in the input. |merge (default)<br/>replace |No |
 | writeBatchSize |Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. |Integer (number of rows) |No (default: 10000) |
-| writeBatchTimeout |Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit |timespan<br/><br/>Example: “00:20:00” (20 minutes) |No (Default to storage client default timeout value 90 sec) |
+| writeBatchTimeout |Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit |timespan<br/><br/>Example: "00:20:00" (20 minutes) |No (Default to storage client default timeout value 90 sec) |
 
 ### azureTablePartitionKeyName
 Map a source column to a destination column using the translator JSON property before you can use the destination column as the azureTablePartitionKeyName.
@@ -158,9 +148,9 @@ Azure Data Factory supports two types of Azure Storage linked services: **AzureS
 
 **Azure Table input dataset:**
 
-The sample assumes you have created a table “MyTable” in Azure Table.
+The sample assumes you have created a table "MyTable" in Azure Table.
 
-Setting “external”: ”true” informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```JSON
 {
@@ -326,7 +316,7 @@ Azure Data Factory supports two types of Azure Storage linked services: **AzureS
 
 **Azure Blob input dataset:**
 
-Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. "external": "true" setting informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```JSON
 {
@@ -395,7 +385,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 
 **Azure Table output dataset:**
 
-The sample copies data to a table named “MyTable” in Azure Table. Create an Azure table with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
+The sample copies data to a table named "MyTable" in Azure Table. Create an Azure table with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
 ```JSON
 {
@@ -539,7 +529,7 @@ Given the type mapping from Azure Table OData type to .NET type, you would defin
 | name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
-Next, define the Azure Table dataset as follows. You do not need to specify “structure” section with the type information since the type information is already specified in the underlying data store.
+Next, define the Azure Table dataset as follows. You do not need to specify "structure" section with the type information since the type information is already specified in the underlying data store.
 
 ```JSON
 {

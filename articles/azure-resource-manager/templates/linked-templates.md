@@ -2,7 +2,8 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/25/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Using linked and nested templates when deploying Azure resources
 
@@ -31,7 +32,7 @@ To nest a template, add a [deployments resource](/azure/templates/microsoft.reso
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -60,7 +61,7 @@ The following example deploys a storage account through a nested template.
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -97,12 +98,12 @@ You set the scope through the `expressionEvaluationOptions` property. By default
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
+  "apiVersion": "2020-10-01",
   "name": "nestedTemplate1",
   "properties": {
-  "expressionEvaluationOptions": {
-    "scope": "inner"
-  },
+    "expressionEvaluationOptions": {
+      "scope": "inner"
+    },
   ...
 ```
 
@@ -124,7 +125,7 @@ The following template demonstrates how template expressions are resolved accord
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "expressionEvaluationOptions": {
@@ -208,7 +209,7 @@ The following example deploys a SQL server and retrieves a key vault secret to u
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -315,7 +316,7 @@ The following excerpt shows which values are secure and which aren't secure.
     {
       "name": "outer",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "outer"
@@ -345,7 +346,7 @@ The following excerpt shows which values are secure and which aren't secure.
     {
       "name": "inner",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "inner"
@@ -411,7 +412,7 @@ To link a template, add a [deployments resource](/azure/templates/microsoft.reso
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -439,6 +440,8 @@ If you're linking to a template in GitHub, use the raw URL. The link has the for
 
 :::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Select raw URL":::
 
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
+
 ### Parameters for linked template
 
 You can provide the parameters for your linked template either in an external file or inline. When providing an external parameter file, use the `parametersLink` property:
@@ -447,7 +450,7 @@ You can provide the parameters for your linked template either in an external fi
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
+    "apiVersion": "2020-10-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -470,7 +473,7 @@ To pass parameter values inline, use the `parameters` property.
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
+    "apiVersion": "2020-10-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -602,7 +605,7 @@ The following example shows how to use a base URL to create two URLs for linked 
 
 ```json
 "variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/postgre/postgresql-on-ubuntu/",
   "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
   "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
 }
@@ -635,7 +638,7 @@ The following example template shows how to use `copy` with a nested template.
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
+    "apiVersion": "2020-10-01",
     "name": "[concat('nestedTemplate', copyIndex())]",
     // yes, copy works here
     "copy": {
@@ -662,10 +665,10 @@ The following example template shows how to use `copy` with a nested template.
             "kind": "StorageV2"
             // Copy works here when scope is inner
             // But, when scope is default or outer, you get an error
-            //"copy":{
-            //  "name": "storagecopy",
-            //  "count": 2
-            //}
+            // "copy": {
+            //   "name": "storagecopy",
+            //   "count": 2
+            // }
           }
         ]
       }
@@ -752,7 +755,7 @@ The following template links to the preceding template. It creates three public 
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "[concat('linkedTemplate', copyIndex())]",
       "copy": {
         "count": 3,
@@ -822,7 +825,7 @@ The following example shows how to pass a SAS token when linking to a template:
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -885,6 +888,6 @@ The following examples show common uses of linked templates.
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: Deploy a linked template](./deployment-tutorial-linked-template.md).
-* To learn about the defining the deployment order for your resources, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
+* To learn about the defining the deployment order for your resources, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
 * To learn how to define one resource but create many instances of it, see [Resource iteration in ARM templates](copy-resources.md).
 * For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md) or [Deploy resources with ARM templates and Azure CLI](deploy-cli.md).

@@ -30,15 +30,15 @@ In this tutorial, you learn how to:
 
 1. From the Overview page, select **Manage**, to go the SendGrid webpage for your account.
 
-    ![SendGrid overview in azure portal](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="SendGrid overview in azure portal":::
 
 1. From the left menu, navigate to your account name and then **Account Details**.
 
-    ![SendGrid dashboard navigation](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-dashboard-navigation.png" alt-text="SendGrid dashboard navigation":::
 
 1. From the **Account Details** page, record the **Username**.
 
-    ![SendGrid account details](./media/apache-ambari-email/sendgrid-account-details.png)
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-account-details.png" alt-text="SendGrid account details":::
 
 ## Configure Ambari e-mail notification
 
@@ -48,7 +48,7 @@ In this tutorial, you learn how to:
 
 1. From the **Manage Alert Notifications** window, select the **+** icon.
 
-    ![Screenshot shows the Manage Alert Notifications dialog box.](./media/apache-ambari-email/azure-portal-create-notification.png)
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-create-notification.png" alt-text="Screenshot shows the Manage Alert Notifications dialog box.":::
 
 1. From the **Create Alert Notification** dialog, provide the following information:
 
@@ -69,7 +69,7 @@ In this tutorial, you learn how to:
     |Password Confirmation|Reenter password.|
     |Start TLS|Select this check box|
 
-    ![Screenshot shows the Create Alert Notification dialog box.](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    :::image type="content" source="./media/apache-ambari-email/ambari-create-alert-notification.png" alt-text="Screenshot shows the Create Alert Notification dialog box.":::
 
     Select **Save**. You'll return to the **Manage Alert Notifications** window.
 

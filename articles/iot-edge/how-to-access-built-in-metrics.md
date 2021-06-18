@@ -13,6 +13,8 @@ services: iot-edge
 
 # Access built-in metrics
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 The IoT Edge runtime components, IoT Edge Hub and IoT Edge Agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
 
 As of release 1.0.10, metrics are automatically exposed by default on **port 9600** of the **edgeHub** and **edgeAgent** modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metrics`). They aren't port mapped to the host by default.
@@ -39,7 +41,9 @@ Access metrics from the host by exposing and mapping the metrics port from the m
 Choose different and unique host port numbers if you are mapping both the edgeHub and edgeAgent's metrics endpoints.
 
 > [!NOTE]
-> If you wish to disable metrics, set the `MetricsEnabled` environment variable to `false` for **edgeAgent**.
+> The environment variable `httpSettings__enabled` should not be set to `false` for built-in metrics to be available for collection.
+>
+> Environment variables that can be used to disable metrics are listed in the [azure/iotedge repo doc](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
 
 ## Available metrics
 

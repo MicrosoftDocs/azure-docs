@@ -7,7 +7,7 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -36,7 +36,7 @@ Take a few minutes to look at the flowcharts below for a visual comparison of th
 
 Click on the image below to see a larger version.
 
-[ ![Encoding workflow for V2](./media/migration-guide/V2-pretty.svg) ](./media/migration-guide/V2-pretty.svg#lightbox)
+[![Encoding workflow for V2](./media/migration-guide/V2-pretty.svg) ](./media/migration-guide/V2-pretty.svg#lightbox)
 
 1. Setup
     1. Create an asset or use and existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset.
@@ -53,10 +53,10 @@ Click on the image below to see a larger version.
 
 ### V3 encoding workflow
 
-[ ![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
+[![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Set up
-    1. Create an asset or use and existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*
+    1. Create an asset or use an existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*
     1. Create an output asset.  The output asset is where the encoded files and input and output metadata will be stored.
     1. Get values for the transform:
         - Standard Encoder preset
@@ -71,7 +71,7 @@ Click on the image below to see a larger version.
         - Output asset(s)
         - A resource group
         - AMS account name  
-1. Use [Event Grid](monitor-events-portal-how-to.md) for monitoring your job.
+1. Use [Event Grid](monitoring/monitor-events-portal-how-to.md) for monitoring your job.
 1. Submit the job.
 
 ## Custom presets from V2 to V3 encoding
@@ -80,24 +80,13 @@ If your V2 code called the Standard Encoder with a custom preset, you first need
 
 Custom presets are now JSON and no longer XML based. Recreate your preset in JSON following the custom preset schema as defined in the [Transform Open API (Swagger)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/examples/transforms-create.json) documentation.
 
-
-<!-- removed because this is covered in the tutorials
-Common custom [encoding](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json) scenarios:
-        1. Create a custom Single Bitrate MP4 encode
-        1. Create a custom [Adaptive Bitrate Encoding Ladder](autogen-bitrate-ladder.md)
-        1. Creating Sprite Thumbnails
-        1. Creating Thumbnails (see below for your preferred method)
-        1. [Sub Clipping](subclip-video-rest-howto.md)
-        1. Cropping
--->
-
 ## Input and output metadata files from an encoding job
 
 In v2, XML input and output metadata files get generated as the result of an encoding job. In v3, the metadata format changed from XML to JSON. For more information about metadata, see [Input metadata](input-metadata-schema.md) and [Output metadata](output-metadata-schema.md).
 
 ## Premium Encoder to v3 Standard Encoder or partner-based solutions
 
-The v2 API no longer supports the Premium Encoder. If you previously used the workflow-based Premium Encoder for HEVC encoding should migrate to the new v3 [Standard Encoder](media-encoder-standard-formats.md) with HEVC encoding support.
+The v2 API no longer supports the Premium Encoder. If you previously used the workflow-based Premium Encoder for HEVC encoding should migrate to the new v3 [Standard Encoder](encode-media-encoder-standard-formats-reference.md) with HEVC encoding support.
 
 If you require the advanced workflow features of the Premium Encoder, you're encouraged to start using an Azure advanced encoding partner solution from [Imagine Communications](https://imaginecommunications.com), [Telestream](https://www.telestream.net)or [Bitmovin](https://bitmovin.com).
 
@@ -109,20 +98,20 @@ If you previously used workflows to copy files from Azure blob files into empty 
 
 ## Indexer v1 audio transcription to the new AudioAnalyzer “basic mode”
 
-For customers using the Indexer v1 processor in the v2 API, you need to create a transform that invokes the new `AudioAnalyzer` in [basic mode](how-to-create-basic-audio-transform.md) prior to submitting a Job.
+For customers using the Indexer v1 processor in the v2 API, you need to create a transform that invokes the new `AudioAnalyzer` in [basic mode](transform-create-basic-audio-how-to.md) prior to submitting a Job.
 
 ## Encoding, transforms and jobs concepts, tutorials and how to guides
 
 ### Concepts
 
-- [Encoding video and audio with Media Services](encoding-concept.md)
-- [Standard Encoder formats and codecs](media-encoder-standard-formats.md)
-- [Encode with an autogenerated bitrate ladder](autogen-bitrate-ladder.md)
-- [Use the content-aware encoding preset to find the optimal bitrate value for a given resolution](content-aware-encoding.md)
+- [Encoding video and audio with Media Services](encode-concept.md)
+- [Standard Encoder formats and codecs](encode-media-encoder-standard-formats-reference.md)
+- [Encode with an autogenerated bitrate ladder](encode-autogen-bitrate-ladder.md)
+- [Use the content-aware encoding preset to find the optimal bitrate value for a given resolution](encode-content-aware-concept.md)
 - [Media Reserved Units](concept-media-reserved-units.md)
 - [Input metadata](input-metadata-schema.md)
 - [Output metadata](output-metadata-schema.md)
-- [Dynamic packaging in Media Services v3: audio codecs](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging)
+- [Dynamic packaging in Media Services v3: audio codecs](encode-dynamic-packaging-concept.md#audio-codecs-supported-by-dynamic-packaging)
 
 ### Tutorials
 
@@ -133,23 +122,19 @@ For customers using the Indexer v1 processor in the v2 API, you need to create a
 
 - [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)
 - [Create a job input from a local file](job-input-from-local-file-how-to.md)
-- [Create a basic audio transform](how-to-create-basic-audio-transform.md)
+- [Create a basic audio transform](transform-create-basic-audio-how-to.md)
 - With .NET
-  - [How to encode with a custom transform - .NET](customize-encoder-presets-how-to.md)
-  - [How to create an overlay with Media Encoder Standard](how-to-create-overlay.md)
-  - [How to generate thumbnails using Encoder Standard with .NET](media-services-generate-thumbnails-dotnet.md)
+  - [How to encode with a custom transform - .NET](transform-custom-presets-how-to.md)
+  - [How to create an overlay with Media Encoder Standard](transform-create-overlay-how-to.md)
+  - [How to generate thumbnails using Encoder Standard with .NET](transform-generate-thumbnails-dotnet-how-to.md)
 - With Azure CLI
-  - [How to encode with a custom transform - Azure CLI](custom-preset-cli-howto.md)
+  - [How to encode with a custom transform - Azure CLI](transform-custom-preset-cli-how-to.md)
 - With REST
-  - [How to encode with a custom transform - REST](custom-preset-rest-howto.md)
-  - [How to generate thumbnails using Encoder Standard with REST](media-services-generate-thumbnails-rest.md)
-- [Subclip a video when encoding with Media Services - .NET](subclip-video-dotnet-howto.md)
-- [Subclip a video when encoding with Media Services - REST](subclip-video-rest-howto.md)
+  - [How to encode with a custom transform - REST](transform-custom-preset-rest-how-to.md)
+  - [How to generate thumbnails using Encoder Standard with REST](transform-generate-thumbnails-rest-how-to.md)
+- [Subclip a video when encoding with Media Services - .NET](transform-subclip-video-dotnet-how-to.md)
+- [Subclip a video when encoding with Media Services - REST](transform-subclip-video-rest-how-to.md)
 
 ## Samples
 
 You can also [compare the V2 and V3 code in the code samples](migrate-v-2-v-3-migration-samples.md).
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

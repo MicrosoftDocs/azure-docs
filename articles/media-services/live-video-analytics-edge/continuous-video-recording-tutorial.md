@@ -1,11 +1,13 @@
 ---
-title: Continuous video recording to the cloud and playback from the cloud tutorial - Azure
-description: In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to continuously record video to the cloud and stream any portion of that video by using Azure Media Services.
+title: Continuous video recording and playback to/from the cloud - Azure
+description: In this tutorial, you learn how to use Azure Live Video Analytics on Azure IoT Edge to continuously record video to the cloud and stream any portion of that video by using Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
 
 ---
-# Tutorial: Continuous video recording to the cloud and playback from the cloud
+# Tutorial: Use Live Video Analytics for continuous video recording and playback to/from the cloud
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to perform [continuous video recording](continuous-video-recording-concept.md) (CVR) to the cloud and stream any portion of that video by using Azure Media Services. This capability is useful for scenarios such as safety and compliance where there's a need to maintain an archive of the footage from a camera for days or weeks. 
 
@@ -103,8 +105,8 @@ You'll need the files for these steps:
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/output"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
@@ -135,6 +137,12 @@ The deployment manifest defines what modules are deployed to an edge device and 
 1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
 
     ![Set IoT Hub connection string](./media/quickstarts/set-iotconnection-string.png)
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
 1. Right-click the src/edge/deployment.template.json file, and select **Generate IoT Edge Deployment Manifest**. Visual Studio Code uses the values from the .env file to replace the variables found in the deployment template file. This action creates a manifest file in the src/edge/config folder named **deployment.amd64.json**.
 
    ![Generate IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
@@ -158,6 +166,12 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
     ![Start Monitoring Built-in Event Endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
 
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
 ## Run the program 
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
@@ -172,7 +186,7 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 1. Go to src/cloud-to-device-console-app/operations.json.
 1. Under the **GraphTopologySet** node, edit the following:
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/2.0/topology.json" `
 1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the previous graph topology:
 
     `"topologyName" : "CVRToAMSAsset"`  
@@ -372,7 +386,7 @@ You can examine the Media Services asset that was created by the media graph by 
 1. In the wizard that opens, accept the default options and select **Add**. For more information, see [Video playback](video-playback-concept.md).
 
     > [!TIP]
-    > Make sure your [streaming endpoint is running](../latest/streaming-endpoint-concept.md).
+    > Make sure your [streaming endpoint is running](../latest/stream-streaming-endpoint-concept.md).
 1. The player should load the video. Select **Play** to view it.
 
 > [!NOTE]

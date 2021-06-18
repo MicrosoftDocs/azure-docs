@@ -4,7 +4,7 @@ description: Shows how to create an Azure managed application that is intended f
 author: tfitzmac
 
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 04/14/2020
 ms.author: tomfitz
 ---
@@ -397,7 +397,7 @@ You can verify that the application definition files are saved in your provided 
 
 ## Make sure users can see your definition
 
-You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 

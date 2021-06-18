@@ -8,11 +8,11 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: monitoring
+ms.custom: monitoring, devx-track-azurepowershell
 ---
 # Enable and manage Azure Storage Analytics logs (classic)
 
-[Azure Storage Analytics](storage-analytics.md) provides logs for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure logs are recorded for your account. This article shows you how to enable and manage logs. To learn how to enable metrics, see [Enable and manage Azure Storage Analytics metrics (classic)](storage-monitor-storage-account.md).  There are costs associated with examining and storing monitoring data in the Azure portal. For more information, see [Storage Analytics](storage-analytics.md).
+[Azure Storage Analytics](storage-analytics.md) provides logs for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure logs are recorded for your account. This article shows you how to enable and manage logs. To learn how to enable metrics, see [Enable and manage Azure Storage Analytics metrics (classic)]().  There are costs associated with examining and storing monitoring data in the Azure portal. For more information, see [Storage Analytics](storage-analytics.md).
 
 > [!NOTE]
 > We recommend that you use Azure Storage logs in Azure Monitor instead of Storage Analytics logs. Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. To learn more, see any of the following articles:
@@ -107,11 +107,11 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
-### [.NET v12](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
-### [.NET v11](#tab/dotnet11)
+### [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -185,7 +185,7 @@ Log data can accumulate in your account over time which can increase the cost of
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account. 
 
-6. Use the [Get-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) to view the current log retention policy. The following example prints to the console the retention period for blob and queue storage services.
+6. Use the [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) to view the current log retention policy. The following example prints to the console the retention period for blob and queue storage services.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
@@ -196,7 +196,7 @@ Log data can accumulate in your account over time which can increase the cost of
    > [!div class="mx-imgBorder"]
    > ![Retention policy in PowerShell output](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Use the [Set-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) to change the retention period. The following example changes the retention period to 4 days.  
+7. Use the [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) to change the retention period. The following example changes the retention period to 4 days.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -204,7 +204,7 @@ Log data can accumulate in your account over time which can increase the cost of
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
-### [.NET v12](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 The following example prints to the console the retention period for blob and queue storage services.
 
@@ -214,7 +214,7 @@ The following example changes the retention period to 4 days.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
-### [.NET v11](#tab/dotnet11)
+### [.NET v11 SDK](#tab/dotnet11)
 
 The following example prints to the console the retention period for blob and queue storage services.
 
@@ -284,7 +284,6 @@ When you have downloaded your log data, you can view the log entries in the file
 ## Next steps
 
 * To learn more about Storage Analytics, see [Storage Analytics](storage-analytics.md) for Storage Analytics.
-* [Configure Storage Analytics metrics](storage-monitor-storage-account.md).
 * For more information about using a .NET language to configure Storage Logging, see [Storage Client Library Reference](/previous-versions/azure/dn261237(v=azure.100)). 
 * For general information about configuring Storage Logging using the REST API, see [Enabling and Configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
 * Learn more about the format of Storage Analytics logs. See [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format).

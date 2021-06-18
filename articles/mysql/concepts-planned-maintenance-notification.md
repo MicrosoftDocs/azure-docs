@@ -1,8 +1,8 @@
 ---
 title: Planned maintenance notification - Azure Database for MySQL - Single Server
 description: This article describes the Planned maintenance notification feature in Azure Database for MySQL - Single Server
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020

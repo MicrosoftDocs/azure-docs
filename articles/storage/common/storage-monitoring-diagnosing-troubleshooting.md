@@ -53,8 +53,8 @@ To manage such applications successfully you should monitor them proactively and
   * [Your issue arises from using the storage emulator for development or test]
   * [You are encountering problems installing the Azure SDK for .NET]
   * [You have a different issue with a storage service]
-  * [Troubleshooting VHDs on Windows virtual machines](../../virtual-machines/troubleshooting/index.yml)   
-  * [Troubleshooting VHDs on Linux virtual machines](../../virtual-machines/troubleshooting/index.yml)
+  * [Troubleshooting VHDs on Windows virtual machines](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)   
+  * [Troubleshooting VHDs on Linux virtual machines](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
   * [Troubleshooting Azure Files issues with Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Troubleshooting Azure Files issues with Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Appendices]
@@ -88,7 +88,7 @@ The "[Appendices]" include information about using other tools such as Wireshark
 ## <a name="monitoring-your-storage-service"></a>Monitoring your storage service
 If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics, you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service. For a full list of the available metrics, see [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see [Enabling storage metrics and viewing metrics data](../blobs/monitor-blob-storage.md).
 
-You can choose which hourly metrics you want to display in the [Azure portal](https://portal.azure.com) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold. For more information, see [Receive Alert Notifications](../../azure-monitor/platform/alerts-overview.md).
+You can choose which hourly metrics you want to display in the [Azure portal](https://portal.azure.com) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold. For more information, see [Receive Alert Notifications](../../azure-monitor/alerts/alerts-overview.md).
 
 We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights/storage-insights-overview.md) (preview). It is a feature of Azure Monitor that offers comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. It does not require you to enable or configure anything, and you can immediately view these metrics from the pre-defined interactive charts and other visualizations included.
 
@@ -246,13 +246,13 @@ The storage service automatically generates server request IDs.
 >
 >
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 The code sample below demonstrates how to use a custom client request ID. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 If the Storage Client Library throws a **StorageException** in the client, the **RequestInformation** property contains a **RequestResult** object that includes a **ServiceRequestID** property. You can also access a **RequestResult** object from an **OperationContext** instance.
 
@@ -358,11 +358,11 @@ Possible reasons for the client responding slowly include having a limited numbe
 
 For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information, see the post [Nagle's Algorithm is Not Friendly towards Small Requests](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -596,11 +596,11 @@ To work around the JavaScript issue, you can configure Cross Origin Resource Sha
 
 The following code sample shows how to configure your blob service to allow JavaScript running in the Contoso domain to access a blob in your blob storage service:
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
@@ -784,7 +784,7 @@ You can find more information at [What is Application Insights](../../azure-moni
 
 For more information about analytics in Azure Storage, see these resources:
 
-* [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md)
+* [Monitor a storage account in the Azure portal](./manage-storage-analytics-logs.md)
 * [Storage analytics](storage-analytics.md)
 * [Storage analytics metrics](storage-analytics-metrics.md)
 * [Storage analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)

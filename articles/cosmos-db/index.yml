@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Cosmos DB documentation # < 60 chars
-summary: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open source APIs for MongoDB and Cassandra.  # < 160 chars
+summary: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open-source APIs for MongoDB and Cassandra.  # < 160 chars
 
 metadata:
   title: Azure Cosmos DB # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open source APIs for MongoDB and Cassandra. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open-source APIs for MongoDB and Cassandra. # Required; article description that is displayed in search results. < 160 chars.
   services: service
   ms.service: cosmos-db #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
@@ -97,7 +97,7 @@ landingContent:
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with MongoDB
-            url: mongodb-feature-support-36.md    
+            url: mongodb-feature-support-40.md    
           - text: MongoDB extension commands
             url: mongodb-custom-commands.md
           - text: Change streams

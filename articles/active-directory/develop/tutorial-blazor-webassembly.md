@@ -37,7 +37,7 @@ We also have a [tutorial for Blazor Server](tutorial-blazor-server.md).
 Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. Follow the instructions in [Register an application](quickstart-register-app.md) with these specifications:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
-- Leave the **Redirect URI** drop down set to **Web** and enter `https://localhost:5001/authentication/login-callback`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
+- Set the **Redirect URI** drop down to **Single-page application (SPA)** and enter `https://localhost:5001/authentication/login-callback`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
 
 Once registered, under **Manage**, select **Authentication** > **Implicit grant and hybrid flows**. Select **Access tokens** and **ID tokens**, and then select **Save**.
 
@@ -46,7 +46,7 @@ Once registered, under **Manage**, select **Authentication** > **Implicit grant 
 To create the app you need the latest Blazor templates. You can install them for the .NET Core CLI with the following command:
 
 ```dotnetcli
-dotnet new --install Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.1
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
 ```
 
 Then run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
@@ -99,7 +99,7 @@ Next, add the following to your project's *.csproj* file in the netstandard2.1 *
 
 Then modify the code as specified in the next few steps. These changes will add [access tokens](access-tokens.md) to the outgoing requests sent to the Microsoft Graph API. This pattern is discussed in more detail in [ASP.NET Core Blazor WebAssembly additional security scenarios](/aspnet/core/blazor/security/webassembly/additional-scenarios).
 
-First, create a new file named *GraphAuthorizationMessageHandler.cs* with the following code. This handler will be user to add an access token for the `User.Read` and `Mail.Read` scopes to outgoing requests to the Microsoft Graph API.
+First, create a new file named *GraphAPIAuthorizationMessageHandler.cs* with the following code. This handler will be user to add an access token for the `User.Read` and `Mail.Read` scopes to outgoing requests to the Microsoft Graph API.
 
 ```csharp
 using Microsoft.AspNetCore.Components;

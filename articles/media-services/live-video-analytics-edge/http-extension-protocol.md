@@ -1,14 +1,16 @@
 ---
-title: HTTP extension protocol - Azure
-description: In this article, you will learn about using HTTP extension protocol to send messages between Live Video Analytics module and your AI or CV module.
+title: HTTP extension protocol in Live Video Analytics- Azure
+description: In this article, you will learn about using HTTP extension protocol to send messages between Azure Live Video Analytics module and your AI or CV module.
 ms.topic: overview
 ms.date: 09/14/2020
 
 ---
 
-# HTTP extension protocol
+# HTTP extension protocol in Live Video Analytics
 
-Live Video Analytics on IoT Edge allows you to extend the media graph processing capabilities through a [graph extension node](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). If you use the HTTP extension processor as the extension node, then the communication between Live Video Analytics module and your AI or CV module is over HTTP
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
+Live Video Analytics on IoT Edge allows you to extend the media graph processing capabilities through a [graph extension node](./media-graph-extension-concept.md). If you use the HTTP extension processor as the extension node, then the communication between Live Video Analytics module and your AI or CV module is over HTTP
 
 In this article, you will learn about using HTTP extension protocol to send messages between Live Video Analytics module and your AI or CV module. 
 
@@ -83,11 +85,11 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). This will better ensure interoperability with other components and possible future capabilities added to the Live Video Analytics module.
+It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](./inference-metadata-schema.md). This will better ensure interoperability with other components and possible future capabilities added to the Live Video Analytics module.
 
 If your module returns a response where the content type is not “application/json”, Live Video Analytics will encode the message as a base 64 content and serialize it as an opaque JSON payload.
 
-If your module returns a response with content type as “application/json” but the JSON schema doesn’t follow the inference metadata schema outlined below, the message payload will be forwarded through the pipeline, but interoperability will be reduced. Please refer [here](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update) for detailed and up to date infromation regarding the Inference metadata schema.
+If your module returns a response with content type as “application/json” but the JSON schema doesn’t follow the inference metadata schema outlined below, the message payload will be forwarded through the pipeline, but interoperability will be reduced. Please refer [here](./inference-metadata-schema.md) for detailed and up to date information regarding the Inference metadata schema.
 
 > [!NOTE]
 > If your module doesn’t produce any result, it should return HTTP 204 Status Code (No Content) with an empty response body. Live Video Analytics will understand this as an empty result and won’t forward the event throughout the pipeline.

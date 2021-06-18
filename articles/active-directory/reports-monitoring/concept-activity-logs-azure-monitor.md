@@ -123,7 +123,7 @@ The following table contains estimated costs per month for a basic event hub in 
 
 
 
-To review costs related to managing the Azure Monitor logs, see [Manage cost by controlling data volume and retention in Azure Monitor logs](../../azure-monitor/platform/manage-cost-storage.md).
+To review costs related to managing the Azure Monitor logs, see [Manage cost by controlling data volume and retention in Azure Monitor logs](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## Frequently asked questions
 
@@ -131,7 +131,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: Which logs are included?**
 
-**A**: The sign-in activity logs and audit logs are both available for routing through this feature, although B2C-related audit events are currently not included. To find out which types of logs and which feature-based logs are currently supported, see [Audit log schema](reference-azure-monitor-audit-log-schema.md) and [Sign-in log schema](reference-azure-monitor-sign-ins-log-schema.md). 
+**A**: The sign-in activity logs and audit logs are both available for routing through this feature, although B2C-related audit events are currently not included. To find out which types of logs and which feature-based logs are currently supported, see [Audit log schema](./overview-reports.md) and [Sign-in log schema](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 
@@ -177,7 +177,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: What SIEM tools are currently supported?** 
 
-**A**: **A**: Currently, Azure Monitor is supported by [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm, and Logz.io. For more information about how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**A**: **A**: Currently, Azure Monitor is supported by [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm, and Logz.io. For more information about how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 ---
 

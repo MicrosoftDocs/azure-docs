@@ -13,7 +13,7 @@ For a high-level look at Anomaly Detector concepts, see the [overview](../../ove
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-- Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button.
+- Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button.
     - You will need the key and endpoint address from the resource you create to use the REST API. 
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 

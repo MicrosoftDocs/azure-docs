@@ -1,20 +1,14 @@
 ---
 title: Exporting Azure Resource Groups that contain VM extensions 
 description: Export Resource Manager templates that include virtual machine extensions.
-services: virtual-machines-windows
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 12/05/2016
-ms.author: akjosh
+
 ---
 
 # Exporting Resource Groups that contain VM extensions
@@ -133,7 +127,7 @@ The final extension resource looks similar to the following JSON example:
 }
 ```
 
-If using template parameters to provide property values, these need to be created. When creating template parameters for protected setting values, make sure to use the `SecureString` parameter type so that sensitive values are secured. For more information on using parameters, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+If using template parameters to provide property values, these need to be created. When creating template parameters for protected setting values, make sure to use the `SecureString` parameter type so that sensitive values are secured. For more information on using parameters, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 In the example of the `IaasDiagnostic` extension, the following parameters would be created in the parameters section of the Resource Manager template.
 

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: memildin
 ---
 
@@ -31,7 +31,7 @@ In fact, many regulatory compliance standards such as PCI-DSS & ISO 17799 requir
 
 The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary may configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.  
 
-![Registry](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
+![Registry.](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
 > Recursive checks apply only to recommended security hives and not to custom registry paths.  
@@ -57,16 +57,15 @@ FIM baselines start by identifying characteristics of a known-good state for the
 > [!NOTE]
 > To learn more about registry settings supported by various operating system versions, refer to the [Group Policy Settings reference spreadsheet](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*To configure FIM to monitor registry baselines:*
+To configure FIM to monitor registry baselines:
 
-1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the registry key.
+1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the following registry key:
 
-    <code>
-
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-    </code>
+    ```
 
-      ![Enable FIM on a registry](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Enable FIM on a registry.":::
 
 ## Track changes to Windows files
 
@@ -75,7 +74,7 @@ In the example in the following figure,
 **Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.  
 1. Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.
 
-    ![Enable FIM on a file](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Enable FIM on a file.":::
 
 ## Retrieve change data
 
@@ -115,4 +114,4 @@ In the following example, we are retrieving all changes in the last fourteen day
 
 Reports can be exported to CSV for archival and/or channeled to a Power BI report.  
 
-![FIM data](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)
+![FIM data.](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)

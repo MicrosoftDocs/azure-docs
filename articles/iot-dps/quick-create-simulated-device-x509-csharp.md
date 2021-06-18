@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Provision simulated X.509 device to Azure IoT Hub using C#
-description: Quickstart - Create and provision a simulated X.509 device using C# device SDK for Azure IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
+description: Quickstart - Create and provision a X.509 device using C# device SDK for Azure IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/01/2021
@@ -11,13 +11,15 @@ ms.devlang: csharp
 ms.custom: mvc
 ---
 
-# Quickstart: Create and provision a simulated X.509 device using C# device SDK for IoT Hub Device Provisioning Service
+# Quickstart: Create and provision an X.509 device using C# device SDK for IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-These steps show you how to use the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to simulate an X.509 device on a development machine running the Windows OS. The sample also connects the simulated device to an IoT Hub using the Device Provisioning Service.
+These steps show you how to use device code from the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to provision an X.509 device. In this article, you will run device sample code on your development machine to connect to an IoT Hub using the Device Provisioning Service.
 
-If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+## Prerequisites
+
+If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 - [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
@@ -38,23 +40,21 @@ This article will demonstrate individual enrollments.
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-1. Make sure you have the [.NET Core 3.0.0 SDK or later](https://www.microsoft.com/net/download/windows) installed on your machine. You can use the following command to check your version.
+1. Make sure you have the [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download) installed on your machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
     ```
 
-
-
 ## Create a self-signed X.509 device certificate
 
-In this section you, will create a self-signed X.509 test certificate using `iothubx509device1` as the subject common name. It is important to keep in mind the following:
+In this section you, will create a self-signed X.509 test certificate using `iothubx509device1` as the subject common name. It is important to keep in mind the following points:
 
 * Self-signed certificates are for testing only, and should not be used in production.
 * The default expiration date for a self-signed certificate is one year.
 * The device ID of the IoT device will be the subject common name on the certificate. Make sure to use a subject name that complies with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
 
-You will use sample code from the [Provisioning Device Client Sample - X.509 Attestation](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) to create the certificate to be used with the individual enrollment entry for the simulated device.
+You will use sample code from the [X509Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) to create the certificate to be used with the individual enrollment entry for the device.
 
 
 1. In a PowerShell prompt, change directories to the project directory for the X.509 device provisioning sample.
@@ -101,7 +101,7 @@ You will use sample code from the [Provisioning Device Client Sample - X.509 Att
 3. In the **Add Enrollment** panel, enter the following information:
    - Select **X.509** as the identity attestation *Mechanism*.
    - Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file **certificate.cer** created in the previous steps.
-   - Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This will also be the name used for the registration ID for the individual enrollment entry. 
+   - Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This common name will also be the name used for the registration ID for the individual enrollment entry. 
    - Optionally, you may provide the following information:
        - Select an IoT hub linked with your provisioning service.
        - Update the **Initial device twin state** with the desired initial configuration for the device.
@@ -113,7 +113,7 @@ You will use sample code from the [Provisioning Device Client Sample - X.509 Att
 
 
 
-## Provision the simulated device
+## Provision the device
 
 1. From the **Overview** blade for your provisioning service, note the **_ID Scope_** value.
 
@@ -152,7 +152,7 @@ You will use sample code from the [Provisioning Device Client Sample - X.509 Att
     Finished.
     ```
 
-4. Verify that the device has been provisioned. On successful provisioning of the simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **IoT devices** blade. 
+4. Verify that the device has been provisioned. On successful provisioning of the device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **IoT devices** blade. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device-x509-csharp/registration.png) 
 
@@ -164,13 +164,12 @@ You will use sample code from the [Provisioning Device Client Sample - X.509 Att
 If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the device client sample output window on your machine.
-1. Close the TPM simulator window on your machine.
 1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. At the top of the **Overview** blade, press **Delete** at the top of the pane.  
 1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. At the top of the **Overview** blade, press **Delete** at the top of the pane.  
 
 ## Next steps
 
-In this quickstart, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your X.509 device programmatically, continue to the quickstart for programmatic enrollment of X.509 devices. 
+In this quickstart, you provisioned an X.509 device to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn how to enroll your X.509 device programmatically, continue to the quickstart for programmatic enrollment of X.509 devices. 
 
 > [!div class="nextstepaction"]
 > [Azure quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-csharp.md)

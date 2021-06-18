@@ -41,11 +41,11 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     
     ![Set IoT Hub Connection String](../../../media/quickstarts/set-iotconnection-string.png)
 
-> [!NOTE]
-> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 
 1. Right-click *src/edge/config/ deployment.yolov3.amd64.json* and select **Create Deployment for Single Device**. 
 
@@ -60,10 +60,10 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
         > The above steps are assuming you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
         
         ```
-        mkdir /home/lvaadmin/samples
-        mkdir /home/lvaadmin/samples/input    
-        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
-        chown -R lvaadmin /home/lvaadmin/samples/  
+        mkdir /home/lvaedgeuser/samples
+        mkdir /home/lvaedgeuser/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaedgeuser/samples/input/camera-300s.mkv  
+        chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
         ```
         * The `yolov3` module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
  
@@ -84,6 +84,11 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
    ![Start monitoring](../../../media/quickstarts/start-monitoring-iothub-events.png) 
 
+> [!NOTE]
+> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 ### Run the sample program
 
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.

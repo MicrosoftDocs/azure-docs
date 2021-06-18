@@ -93,13 +93,13 @@ After you create an Azure Cosmos container or a database, you can update the pro
 
 You can retrieve the provisioned throughput of a container or a database in the Azure portal or by using the SDKs:
 
-* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) on the .NET SDK.
-* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
+* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync) on the .NET SDK.
+* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) on the Java SDK.
 
 The response of those methods also contains the [minimum provisioned throughput](concepts-limits.md#storage-and-database-operations) for the container or database:
 
-* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) on the .NET SDK.
-* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
+* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) on the .NET SDK.
+* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) on the Java SDK.
 
 The actual minimum RU/s may vary depending on your account configuration. But generally it's the maximum of:
 
@@ -111,8 +111,8 @@ The actual minimum RU/s may vary depending on your account configuration. But ge
 
 You can scale the provisioned throughput of a container or a database through the Azure portal or by using the SDKs:
 
-* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) on the .NET SDK.
-* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
+* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) on the .NET SDK.
+* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) on the Java SDK.
 
 If you are **reducing the provisioned throughput**, you will be able to do it up to the [minimum](#current-provisioned-throughput).
 
@@ -123,8 +123,8 @@ If you are **increasing the provisioned throughput**, most of the time, the oper
 
 You can programmatically check the scaling progress by reading the [current provisioned throughput](#current-provisioned-throughput) and using:
 
-* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) on the .NET SDK.
-* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) on the Java SDK.
+* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending) on the .NET SDK.
+* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) on the Java SDK.
 
 You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 

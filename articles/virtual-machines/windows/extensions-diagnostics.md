@@ -3,12 +3,14 @@ title: Azure Diagnostics Extension for Windows
 description: Monitor Azure Windows VMs using the Azure Diagnostics Extension
 author: johnkemnetz
 manager: ashwink
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:  devx-track-azurepowershell
 
 ---
 # Azure Diagnostics Extension for Windows VMs
@@ -29,7 +31,7 @@ The Azure Diagnostics Extension requires that the target virtual machine is conn
 
 ## Extension schema
 
-[The Azure Diagnostics Extension schema and property values are described in this document.](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
+[The Azure Diagnostics Extension schema and property values are described in this document.](../../azure-monitor/agents/diagnostics-extension-schema-windows.md)
 
 ## Template deployment
 
@@ -76,12 +78,12 @@ Data about the state of extension deployments can be retrieved from the Azure po
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-[See this article](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md) for a more comprehensive troubleshooting guide for the Azure Diagnostics extension.
+[See this article](../../azure-monitor/agents/diagnostics-extension-troubleshooting.md) for a more comprehensive troubleshooting guide for the Azure Diagnostics extension.
 
 ### Support
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next Steps
-* [Learn more about the Azure Diagnostics Extension](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [Review the extension schema and versions](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
+* [Learn more about the Azure Diagnostics Extension](../../azure-monitor/agents/diagnostics-extension-overview.md)
+* [Review the extension schema and versions](../../azure-monitor/agents/diagnostics-extension-schema-windows.md)

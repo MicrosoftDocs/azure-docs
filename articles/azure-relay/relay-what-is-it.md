@@ -75,5 +75,5 @@ The following diagram shows you how incoming relay requests are handled by the A
 * [Get started with .NET HTTP Requests](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Get started with Node WebSockets](relay-hybrid-connections-node-get-started.md)
 * [Get started with Node HTTP Requests](relay-hybrid-connections-http-requests-node-get-started.md)
-* [Relay FAQ](relay-faq.md)
+* [Relay FAQ](relay-faq.yml)
 

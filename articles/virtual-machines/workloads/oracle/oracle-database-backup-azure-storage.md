@@ -2,8 +2,9 @@
 title: Back up an Oracle Database 19c database on an Azure Linux VM with RMAN and Azure Storage
 description: Learn how to back up an Oracle Database 19c database to Azure cloud storage.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
@@ -120,7 +121,7 @@ This article demonstrates the use of Azure Storage as a media to back up and res
 10. Set database environment variables for fast recovery area:
 
     ```bash
-    SQL>  system set db_recovery_file_dest_size=4096M scope=both;
+    SQL> alter system set db_recovery_file_dest_size=4096M scope=both;
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
     
@@ -168,7 +169,7 @@ To back up to Azure Files, complete these steps:
 
 ### Set up Azure File Storage
 
-In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure File storage. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure Files storage. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 When mounting the Azure Files, we will use the `cache=none` to disable caching of file share data. And to ensure files created in the share are owned by the oracle user set the `uid=oracle` and `gid=oinstall` options as well. 
 
@@ -180,25 +181,25 @@ First, set up your storage account.
 
     In the Azure portal, select ***+ Create a resource*** and search for and select ***Storage Account***
     
-    ![Storage Account add page](./media/oracle-backup-recovery/storage-1.png)
+    ![Screenshot that shows where to create a resource and select Storage Account.](./media/oracle-backup-recovery/storage-1.png)
     
 2. In the Create storage account page, choose your existing resource group ***rg-oracle***, name your storage account ***oracbkup1*** and choose ***Storage V2 (generalpurpose v2)*** for Account Kind. Change Replication to ***Locally-redundant storage (LRS)*** and set Performance to ***Standard***. Ensure that Location is set to the same region as all your other resources in the resource group. 
     
-    ![Storage Account add page](./media/oracle-backup-recovery/file-storage-1.png)
+    ![Screenshot that shows where to choose your existing resource group.](./media/oracle-backup-recovery/file-storage-1.png)
    
    
 3. Click on the ***Advanced*** tab and under Azure Files set ***Large file shares*** to ***Enabled***. Click on Review + Create and then click Create.
     
-    ![Storage Account add page](./media/oracle-backup-recovery/file-storage-2.png)
+    ![Screenshot that shows where to set Large file shares to Enabled.](./media/oracle-backup-recovery/file-storage-2.png)
     
     
 4. When the storage account has been created, go to the resource and choose ***File shares***
     
-    ![Storage Account add page](./media/oracle-backup-recovery/file-storage-3.png)
+    ![Screenshot that shows where to select File shares.](./media/oracle-backup-recovery/file-storage-3.png)
     
 5. Click on ***+ File share*** and in the ***New file share*** blade name your file share ***orabkup1***. Set ***Quota*** to ***10240*** GiB and check ***Transaction optimized*** as the tier. The quota reflects an upper boundary that the file share can grow to. As we are using Standard storage, resources are PAYG and not provisioned so setting it to 10 TiB will not incur costs beyond what you use. If your backup strategy requires more storage, you must set the quota to an appropriate level to hold all backups.   When you have completed the New file share blade, click ***Create***.
     
-    ![Storage Account add page](./media/oracle-backup-recovery/file-storage-4.png)
+    ![Screenshot that shows where to add a new file share.](./media/oracle-backup-recovery/file-storage-4.png)
     
     
 6. When created, click on ***orabkup1*** in the File share settings page. 
@@ -363,7 +364,7 @@ While using RMAN and Azure File storage for database backup has many advantages,
     ORACLE instance shut down.
     ```
 
-2.  Remove the datafiles and backups:
+2.  Remove the database datafiles:
 
     ```bash
     cd /u02/oradata/TEST
@@ -401,4 +402,4 @@ az group delete --name rg-oracle
 
 [Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
 
-[Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
+[Explore VM deployment Azure CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

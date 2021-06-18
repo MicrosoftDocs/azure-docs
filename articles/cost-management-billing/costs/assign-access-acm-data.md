@@ -34,9 +34,9 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 | Billing account<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Enterprise Admin | None | All subscriptions from the enterprise agreement |
 | Department | [https://ea.azure.com](https://ea.azure.com/) | Department Admin | **DA view charges** enabled | All subscriptions belonging to an enrollment account that is linked to the department |
 | Enrollment account<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Account Owner | **AO view charges** enabled | All subscriptions from the enrollment account |
-| Management group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Reader) | **AO view charges** enabled | All subscriptions below the management group |
-| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Reader) | **AO view charges** enabled | All resources/resource groups in the subscription |
-| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Reader) | **AO view charges** enabled | All resources in the resource group |
+| Management group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All subscriptions below the management group |
+| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources/resource groups in the subscription |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources in the resource group |
 
 <sup>1</sup> The billing account is also referred to as the Enterprise Agreement or Enrollment.
 
@@ -47,8 +47,8 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 
 To view cost data for other Azure subscriptions, a user must have at least read access to one or more of the following scopes:
 
-- Azure account
 - Management group
+- Subscription
 - Resource group
 
 Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).

@@ -4,7 +4,7 @@ description: Learn how you can use attestation to verify that your confidential 
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/22/2020

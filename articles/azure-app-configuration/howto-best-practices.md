@@ -86,10 +86,12 @@ App Configuration offers the option to bulk [import](./howto-import-export-data.
 
 App Configuration is regional service. For applications with different configurations per region, storing these configurations in one instance can create a single point of failure. Deploying one App Configuration instances per region across multiple regions may be a better option. It can help with regional disaster recovery, performance, and security siloing. Configuring by region also improves latency and uses separated throttling quotas, since throttling is per instance. To apply disaster recovery mitigation, you can use [multiple configuration stores](./concept-disaster-recovery.md). 
 
-## Client Applications in App Configuration 
+## Client applications in App Configuration 
 
-Excessive requests to App Configuration can result in throttling or overage charges. Applications take advantage of the caching and intelligent refreshing currently available to optimize the number of requests they send. This process can be mirrored in high volume client applications by avoiding direct connections to the configuration store. Instead, client applications connect to a custom service, and this service communicates with the configuration store. This proxy solution can ensure the client applications do not approach the throttling limit on the configuration store. For more information on throttling, see [the FAQ](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+When you use App Configuration in client applications, ensure that you consider two major factors. First, if you're using the connection string in a client application, you risk exposing the access key of your App Configuration store to the public. Second, the typical scale of a client application might cause excessive requests to your App Configuration store, which can result in overage charges or throttling. For more information about throttling, see the [FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).
+
+To address these concerns, we recommend that you use a proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without a security issue of leaking authentication information. You can build a proxy service by using one of the App Configuration provider libraries, so you can take advantage of built-in caching and refresh capabilities for optimizing the volume of requests sent to App Configuration. For more information about using App Configuration providers, see articles in Quickstarts and Tutorials. The proxy service serves the configuration from its cache to your client applications, and you avoid the two potential issues that are discussed in this section.
 
 ## Next steps
 
-* [Keys and values](./concept-key-value.md)
+* [Keys and values](./concept-key-value.md) 

@@ -13,12 +13,7 @@ ms.custom: mvc, devx-track-python
 
 # Tutorial: Join sensor data with weather forecast data by using Azure Notebooks (Python)
 
-> [!IMPORTANT]
-> Azure Maps Weather services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Wind power is one alternative energy source for fossil fuels to combat against climate change. Because wind isn't consistent by nature, wind power operators need to build machine learning (ML) models to predict the wind power capacity. This prediction is necessary to meet electricity demand and ensure the grid stability. In this tutorial, we walk through how Azure Maps weather forecast data is combined with demo data for weather readings. Weather forecast data is requested by calling Azure Maps Weather services (Preview).
+Wind power is one alternative energy source for fossil fuels to combat against climate change. Because wind isn't consistent by nature, wind power operators need to build machine learning (ML) models to predict the wind power capacity. This prediction is necessary to meet electricity demand and ensure the grid stability. In this tutorial, we walk through how Azure Maps weather forecast data is combined with demo data for weather readings. Weather forecast data is requested by calling Azure Maps Weather services.
 
 In this tutorial, you will:
 
@@ -27,7 +22,7 @@ In this tutorial, you will:
 > *	Load demo data from file.
 > *	Call Azure Maps REST APIs in Python.
 > * Render location data on the map.
-> *	Enrich the demo data with Azure Maps [Daily Forecast](/rest/api/maps/weather/getdailyforecastpreview) weather data.
+> *	Enrich the demo data with Azure Maps [Daily Forecast](/rest/api/maps/weather/getdailyforecast) weather data.
 > * Plot forecast data in graphs.
 
 
@@ -68,8 +63,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## Request daily forecast data
 
-In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview) of the Azure Maps Weather services (Preview). This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
-
+In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](/rest/api/maps/weather/getdailyforecast) of the Azure Maps Weather services. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
 
 ```python
 subscription_key = "Your Azure Maps key"
@@ -82,7 +76,7 @@ years,months,days = [],[],[]
 dates_check=set()
 wind_speeds, wind_direction = [], []
 
-# Call azure maps Weather services (Preview) to get daily forecast data for 15 days from current date
+# Call azure maps Weather services to get daily forecast data for 15 days from current date
 session = aiohttp.ClientSession()
 j=-1
 for i in range(0, len(coords), 2):
@@ -188,7 +182,7 @@ To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see
 
 To explore the Azure Maps APIs that are used in this tutorial, see:
 
-* [Daily Forecast](/rest/api/maps/weather/getdailyforecastpreview)
+* [Daily Forecast](/rest/api/maps/weather/getdailyforecast)
 * [Render - Get Map Image](/rest/api/maps/render/getmapimage)
 
 For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](./consumption-model.md).

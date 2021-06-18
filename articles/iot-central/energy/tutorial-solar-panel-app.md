@@ -100,5 +100,4 @@ If you decide not to continue using this application, delete your application wi
  
 > [!div class="nextstepaction"]
 > [Azure IoT Central - solar panel app architecture](./concept-iot-central-solar-panel-app.md)
-* [Create solar panel application templates for free](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* [Azure IoT Central overview](../index.yml)
+

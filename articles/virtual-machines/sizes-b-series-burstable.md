@@ -2,12 +2,12 @@
 title: B-series burstable - Azure Virtual Machines
 description: Describes the B-series of burstable Azure VM sizes.
 services: virtual-machines
-ms.subservice: sizes
-author: styli365
+ms.subservice: vm-sizes-general
+author: rishabv90
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: sttsinar
+ms.author: risverma
 ---
 
 # B-series burstable virtual machine sizes
@@ -23,7 +23,7 @@ The B-series comes in the following VM sizes:
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported**<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 
 *B-series VMs are burstable and thus ACU numbers will vary depending on workloads and core usage.<br>
 **Accelerated Networking is only supported for *Standard_B12ms*, *Standard_B16ms* and *Standard_B20ms*.
@@ -104,7 +104,7 @@ For a D16s_v3 which has 16 vCPUs and 64 GiB of memory the hourly rate is $0.936 
 
 **A**: The **Credit** metric allows you to view how many credits your VM have been banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
 
-For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../azure-monitor/platform/data-platform.md).
+For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
 
 ### Q: How are credits accumulated and consumed?
 

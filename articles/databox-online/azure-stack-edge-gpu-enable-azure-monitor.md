@@ -7,15 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 06/03/2021
 ms.author: alkohli
 ---
 
 # Enable Azure Monitor on your Azure Stack Edge Pro GPU device
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
 Monitoring containers on your Azure Stack Edge Pro GPU device is critical, specially when you are running multiple compute applications. Azure Monitor lets you collect container logs and memory and processor metrics from the Kubernetes cluster running on your device.
 
 This article describes the steps required to enable Azure Monitor on your device and gather container logs in Log Analytics workspace. The Azure Monitor metrics store is currently not supported with your Azure Stack Edge Pro GPU device. 
+
+> [!NOTE]
+> If Azure Arc is enabled on the Kubernetes cluster on your device, follow the steps in [Azure Monitor Container Insights for Azure Arc enabled Kubernetes clusters](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.json) to set up container monitoring.
 
 
 ## Prerequisites
@@ -26,7 +31,7 @@ Before you begin, you'll need:
 - You've completed **Configure compute** step as per the [Tutorial: Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md) on your device. Your device should have an associated IoT Hub resource, an IoT device, and an IoT Edge device.
 
 
-## Create Log Analytics workspace.
+## Create Log Analytics workspace
 
 Take the following steps to create a log analytics workspace. A log analytics workspace is a logical storage unit where the log data is collected and stored.
 
@@ -45,7 +50,7 @@ Take the following steps to create a log analytics workspace. A log analytics wo
 
         ![Review + Create for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 
 
@@ -53,7 +58,7 @@ For more information, see the detailed steps in [Create a Log Analytics workspac
 
 Take the following steps to enable Container Insights on your workspace. 
 
-1. Follow the detailed steps in the [How to add the Azure Monitor Containers solution](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
+1. Follow the detailed steps in the [How to add the Azure Monitor Containers solution](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
 
     ```yml
     {
@@ -114,8 +119,8 @@ Take the following steps to enable Container Insights on your workspace.
 
 1. Get the resource ID and location. Go to `Your Log Analytics workspace > General > Properties`. Copy the following information:
 
-    - **resource ID** which is the fully qualified Azure resource ID of the Azure Log Analytics workspace. 
-    - **location** which is the Azure region.
+    - **resource ID**, which is the fully qualified Azure resource ID of the Azure Log Analytics workspace. 
+    - **location**, which is the Azure region.
 
     ![Properties of Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
 
@@ -138,19 +143,19 @@ Take the following steps to enable Container Insights on your workspace.
     
     Here is a sample output of a Log Analytics workspace with Container Insights enabled:
     
-    ```powershell
+    ```output
     Requesting a Cloud Shell.Succeeded.
     Connecting terminal...
     MOTD: Switch to Bash from PowerShell: bash
     VERBOSE: Authenticating to Azure ...
     VERBOSE: Building your Azure drive ...
     
-    PS /home/alpa> az account set -s fa68082f-8ff7-4a25-95c7-ce9da541242f
-    PS /home/alpa> ls
+    PS /home/myaccount> az account set -s fa68082f-8ff7-4a25-95c7-ce9da541242f
+    PS /home/myaccount> ls
     clouddrive  containerSolution.json
-    PS /home/alpa> ls
+    PS /home/myaccount> ls
     clouddrive  containerSolution.json  containerSolutionParams.json
-    PS /home/alpa> az deployment group create --resource-group myaserg --name Testdeployment1 --template-file containerSolution.json --parameters containerSolutionParams.json
+    PS /home/myaccount> az deployment group create --resource-group myaserg --name Testdeployment1 --template-file containerSolution.json --parameters containerSolutionParams.json
     {- Finished ..
         "id": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/myaserg/providers/Microsoft.Resources/deployments/Testdeployment1",
         "location": null,
@@ -213,7 +218,7 @@ Take the following steps to enable Container Insights on your workspace.
         "tags": null,
         "type": "Microsoft.Resources/deployments"
     }
-    PS /home/alpa>
+    PS /home/myaccount>
     ```
 
 ## Configure Azure Monitor on your device
@@ -237,3 +242,4 @@ Take the following steps to enable Container Insights on your workspace.
 ## Next steps
 
 - Learn how to [Monitor Kubernetes workloads via the Kubernetes Dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+- Learn how to [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).

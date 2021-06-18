@@ -39,7 +39,7 @@ This diagram shows how the two app registrations relate to one another. In this 
 
 Once you've registered both your client app and web API and you've exposed the API by creating scopes, you can configure the client's permissions to the API by following these steps:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your client application (*not* your web API).
 1. Select **API permissions** > **Add a permission** > **My APIs**.
@@ -68,7 +68,7 @@ In addition to accessing your own web API on behalf of the signed-in user, your 
 
 Configure delegated permission to Microsoft Graph to enable your client application to perform operations on behalf of the logged-in user, for example reading their email or modifying their profile. By default, users of your client app are asked when they sign in to consent to the delegated permissions you've configured for it.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
 1. Select **API permissions** > **Add a permission** > **Microsoft Graph**
@@ -93,7 +93,7 @@ Configure application permissions for an application that needs to authenticate 
 
 In the following steps, you grant permission to Microsoft Graph's *Files.Read.All* permission as an example.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
 1. Select **API permissions** > **Add a permission** > **Microsoft Graph** > **Application permissions**.
@@ -107,7 +107,7 @@ Some permissions, like Microsoft Graph's *Files.Read.All* permission, require ad
 
 ### Configure client credentials
 
-Apps that use application permissions authenticate as themselves by using their own credentials, without requiring any user interaction. Before your application (or API) can access Microsoft Graph, your own web API, or any another API by using application permissions, you need to configure that client app's credentials.
+Apps that use application permissions authenticate as themselves by using their own credentials, without requiring any user interaction. Before your application (or API) can access Microsoft Graph, your own web API, or another API by using application permissions, you must configure that client app's credentials.
 
 For more information about configuring an app's credentials, see the [Add credentials](quickstart-register-app.md#add-credentials) section of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
 
@@ -125,7 +125,7 @@ You can add or remove the permissions that appear in this table by using the ste
 
 ### Other permissions granted
 
-You might also see a table entitled **Other permissions granted for {your tenant}** on the **API permissions** pane. The **Other permissions granted for {your tenant}** table shows permissions granted for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented to. This section appears only if there is at least one permission that applies.
+You might also see a table titled **Other permissions granted for {your tenant}** on the **API permissions** pane. The **Other permissions granted for {your tenant}** table shows permissions granted tenant-wide for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented to by an admin, on behalf of all users. This section appears only if there is at least one permission that applies.
 
 You can add the full set of an API's permissions or individual permissions appearing this table to the **Configured permissions** table. As an admin, you can revoke admin consent for APIs or individual permissions in this section.
 
@@ -146,4 +146,4 @@ The **Grant admin consent** button is *disabled* if you aren't an admin or if no
 Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Azure AD tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
 
 > [!div class="nextstepaction"]
-> [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
+> [Modify the accounts supported by an application](./howto-modify-supported-accounts.md)

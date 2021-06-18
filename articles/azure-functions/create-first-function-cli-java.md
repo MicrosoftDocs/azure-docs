@@ -3,7 +3,11 @@ title: Create a Java function from the command line - Azure Functions
 description: Learn how to create a Java function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-java, devx-track-azurecli]
+ms.custom: [devx-track-java, devx-track-azurecli, devx-track-azurepowershell]
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-cli-java-uiex
 ---
 
 # Quickstart: Create a Java function in Azure from the command line
@@ -141,11 +145,7 @@ The archetype also generates a unit test for your function. When you change your
     > [!NOTE]  
     > If HttpExample doesn't appear as shown above, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
 
-1. Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<YOUR_NAME>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
-
-    ![Result of the function run locally in the browser](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
-    
-    The terminal in which you started your project also shows log output as you make requests.
+1. Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<YOUR_NAME>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message that echoes back your query string value. The terminal in which you started your project also shows log output as you make requests.
 
 1. When you're done, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
@@ -163,7 +163,7 @@ A function app and related resources are created in Azure when you first deploy 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell

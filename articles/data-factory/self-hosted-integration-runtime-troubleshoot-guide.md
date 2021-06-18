@@ -1,11 +1,10 @@
 ---
 title: Troubleshoot self-hosted integration runtime in Azure Data Factory
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/25/2021
+ms.date: 05/31/2021
 ms.author: lle
 ---
 
@@ -78,8 +77,8 @@ Example scenario: The maximum concurrent jobs value is currently set to 24, and 
 The limit on the number of concurrent jobs depends on the computer's logic core and memory. Try to adjust the value downward to a value such as 24, and then view the result.
 
 > [!TIP] 
-> -	To learn more about logic core count and to determine your machine's logic core count, see [Four ways to find the number of cores in your CPU on Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> -	To learn how to calculate the math.log, go to the [Logarithm calculator](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> -    To learn more about logic core count and to determine your machine's logic core count, see [Four ways to find the number of cores in your CPU on Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    To learn how to calculate the math.log, go to the [Logarithm calculator](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
 ### Self-hosted IR high availability (HA) SSL certificate issue
@@ -239,7 +238,7 @@ Install drivers for both the source and destination datastores on the destinatio
  
 If the traffic can't pass through the network between two datastores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VENT: 
 * Copy one IR from datastore 1 to Azure Blob Storage
-* Copy another IR from Azure Blob Storage to ddatastore 2. 
+* Copy another IR from Azure Blob Storage to datastore 2. 
 
 This solution could simulate the requirement to use the IR to create a bridge that connects two disconnected datastores.
 
@@ -285,6 +284,61 @@ The only way to avoid this issue is to make sure that the two nodes are in crede
     ```
     certutil -importpfx FILENAME.pfx AT_KEYEXCHANGE
     ```
+
+### Self-hosted integration runtime nodes out of the sync issue
+
+#### Symptoms
+
+Self-hosted integration runtime nodes try to sync the credentials across nodes but get stuck in the process and encounter the error message below after a while:
+
+"The Integration Runtime (Self-hosted) node is trying to sync the credentials across nodes. It may take several minutes."
+
+>[!Note]
+>If this error appears for over 10 minutes, please check the connectivity with the dispatcher node.
+
+#### Cause
+
+The reason is that the worker nodes do not have access to the private keys. This can be confirmed from the self-hosted integration runtime logs below:
+
+`[14]0460.3404::05/07/21-00:23:32.2107988 [System] A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D. The internal error state is 10001.`
+
+You have no issue with the sync process when you use the service principal authentication in the ADF linked service. However, when you switch the authentication type to account key, the syncing issue started. This is because the self-hosted integration runtime service runs under a service account (NT SERVICE\DIAHostService) and it need to be added to the private key permissions.
+ 
+
+#### Resolution
+
+To solve this issue, you need to add the self-hosted integration runtime service account (NT SERVICE\DIAHostService) to the private key permissions. You can apply the following steps:
+
+1. Open your Microsoft Management Console (MMC) Run Command.
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/management-console-run-command.png" alt-text="Screenshot that shows the MMC Run Command":::
+
+1. In the MMC pane, apply the following steps:
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1.png" alt-text="Screenshot that shows the second step to add self-hosted IR service account to the private key permissions." lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1-expanded.png":::
+
+    1. Select **File**.
+    1. Choose **Add/Remove Snap-in** in th drop-down menu.
+    1. Select **Certificates** in the "Available snap-ins" pane.
+    1. Select **Add**.
+    1. In the pop-up "Certificates snap-in" pane, choose **Computer account**.
+    1. Select **Next**.
+    1. In the "Select Computer" pane, choose **Local computer: the computer this console is running on**.
+    1. Select **Finish**.
+    1. Select **OK** in the "Add or Remove Snap-ins" pane.
+
+1. In the pane of MMC, move on with the following steps:
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2.png" alt-text="Screenshot that shows the third step to add self-hosted IR service account to the private key permissions." lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2-expanded.png":::
+
+    1. From the left folder list, select **Console Root -> Certificates (Local Computer) -> Personal -> Certificates**.
+    1. Right-click the **Microsoft Intune Beta MDM**.
+    1. Select **All Tasks** in the drop-down list.
+    1. Select **Manage Private Keys**.
+    1. Select **Add** under "Group or user names".
+    1. Select **NT SERVICE\DIAHostService** to grant it full control access to this certificate, apply and safe. 
+    1. Select **Check Names** and then select **OK**.
+    1. In the "Permissions" pane, select **Apply** and then select **OK**.
 
 ## Self-hosted IR setup
 
@@ -469,9 +523,9 @@ For Azure Data Factory v2 customers:
 
 
 For Azure Data Factory v1 customers:
-- Self-hosted integration runtime 5.X doesn’t support Azure Data Factory v1.
+- Self-hosted integration runtime 5.X doesn't support Azure Data Factory v1.
 - The self-hosted integration runtime will be automatically upgraded to the latest version of 4.x. And the latest version of 4.x won't expire. 
-- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn’t support Azure Data Factory v1.
+- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn't support Azure Data Factory v1.
 
 
 ## Self-hosted IR connectivity issues
@@ -708,7 +762,7 @@ This notification applies to the following scenarios:
 
 How to determine whether you're affected:
 
-- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allow list for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allow list for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - You *are* affected if you're explicitly enabling the allow list for outbound IPs on your corporate firewall.
 
@@ -777,18 +831,6 @@ We've rolled out a new SSL certificate, which is signed from DigiCert. Check to 
 
 If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
-
-## Self-hosted IR sharing
-
-### Sharing a self-hosted IR from a different tenant is not supported 
-
-#### Symptoms
-
-You might notice other data factories (on different tenants) as you're attempting to share the self-hosted IR from the Azure Data Factory UI, but you can't share it across data factories that are on different tenants.
-
-#### Cause
-
-The self-hosted IR can't be shared across tenants.
 
 ## Next steps
 

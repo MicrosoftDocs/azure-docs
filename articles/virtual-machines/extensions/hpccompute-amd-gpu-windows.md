@@ -2,16 +2,17 @@
 title: AMD GPU driver extension - Azure Windows VMs 
 description: Microsoft Azure extension for installing AMD GPU Drivers on NVv4-series VMs running Windows.
 services: virtual-machines-windows
-documentationcenter: ''
 author: vikancha-MSFT
 manager: jkabat
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
-ms.author: vikancha
+ms.author: vikancha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # AMD GPU driver extension for Windows
@@ -28,8 +29,8 @@ This extension supports the following OSs:
 
 | Distribution | Version |
 |---|---|
-| Windows 10 EMS | Build 1903 |
-| Windows 10 | Build 1809 |
+| Windows 10 EMS | Build 1909 |
+| Windows 10 | Build 1909 |
 | Windows Server 2016 | Core |
 | Windows Server 2019 | Core |
 
@@ -146,7 +147,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 Extension execution output is logged to the following directory:
 
 ```cmd
-C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
+C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.AmdGpuDriverMicrosoft\
 ```
 
 ### Error codes

@@ -9,7 +9,7 @@ metadata:
   services: Azure portal
   ms.topic: landing-page
   ms.collection: collection
-  ms.date: 08/05/2020
+  ms.date: 03/15/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,21 +23,51 @@ landingContent:
         links:
           - text: What is the Azure portal?
             url: azure-portal-overview.md
+          - text: Onboard with Azure Quickstart Center
+            url: azure-portal-quickstart-center.md
           - text: Supported browsers and devices
             url: azure-portal-supported-browsers-devices.md
 
+  # Card 
+  - title: Get started
+    linkLists: 
+      - linkListType: quickstart
+        links:
+          - text: Create a VM in the portal
+            url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+          - text: Create a dashboard - Azure CLI
+            url: quickstart-portal-dashboard-azure-cli.md
+          - text: Create a dashboard - Azure PowerShell
+            url: quickstart-portal-dashboard-powershell.md
+          - text: Create a dashboard - ARM template
+            url: quick-create-template.md
+      - linkListType: how-to-guide
+        links:
+          - text: Azure portal how-to video series
+            url: azure-portal-video-series.md
+
   # Card
-  - title: Customize the Azure portal
+  - title: Create and manage support requests
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Set your portal preferences
-            url: set-preferences.md
-          - text: Create and share custom dashboards
-            url: azure-portal-dashboards.md
-          - text: Manage your favorites
-            url: azure-portal-add-remove-sort-favorites.md
+          - text: Create an Azure support request
+            url: supportability/how-to-create-azure-support-request.md
+          - text: Manage an Azure support request
+            url: supportability/how-to-manage-azure-support-request.md
 
+  # Card
+  - title: Use accessibility options
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Keyboard shortcuts
+            url: azure-portal-keyboard-shortcuts.md
+      - linkListType: how-to-guide
+        links:
+          - text: Turn on high contrast
+            url: set-preferences.md#choose-a-theme-or-enable-high-contrast
+            
   # Card
   - title: Manage access to the Azure portal
     linkLists:
@@ -51,47 +81,19 @@ landingContent:
         links:
           - text: Manage resources in Azure
             url: /learn/paths/manage-resources-in-azure/
-          - text: Secure your Azure resources with Azure role-based access control (Azure RBAC)   
-            url: /learn//modules/secure-azure-resources-with-rbac/ 
-  
-  # Card 
-  - title: Get started
-    linkLists: 
-      - linkListType: quickstart
-        links:
-          - text: Onboard with Azure Quickstart Center
-            url: azure-portal-quickstart-center.md
-      - linkListType: how-to-guide
-        links:
-          - text: Azure portal how-to video series
-            url: azure-portal-video-series.md
-      - linkListType: learn
-        links:
-          - text: Azure fundamentals
-            url: /learn/paths/azure-fundamentals/
-          - text: Cloud Concepts - Principles of cloud computing
-            url: /learn/modules/principles-cloud-computing/
-
-
+          - text: Secure your resources with Azure role-based access control (Azure RBAC)
+            url: /learn/modules/secure-azure-resources-with-rbac
+            
   # Card
-  - title: Use accessibility options
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Keyboard shortcuts
-            url: azure-portal-keyboard-shortcuts.md
-      - linkListType: how-to-guide
-        links:
-          - text: Turn on high contrast
-            url: set-preferences.md#choose-a-theme-or-enable-high-contrast
- 
-
-   # Card
-  - title: Create and manage support requests
+  - title: Customize the Azure portal
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create an Azure support request
-            url: ../azure-portal/supportability/how-to-create-azure-support-request.md
-          - text: Troubleshoot region or SKU subscription issues
-            url: ../azure-portal/supportability/sku-series-unavailable.md
+          - text: Manage Azure portal settings and preferences
+            url: set-preferences.md
+          - text: View and filter resource information
+            url: manage-filter-resource-views.md
+          - text: Create a dashboard - Azure portal UI
+            url: azure-portal-dashboards.md
+          - text: Add, remove, and sort favorites
+            url: azure-portal-add-remove-sort-favorites.md

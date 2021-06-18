@@ -53,6 +53,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A [SolarWinds Service Desk tenant](https://www.samanage.com/pricing/) with the Professional package.
 * A user account in SolarWinds Service Desk with admin permissions.
 
+> [!Note]
+> Roles should not be manually edited in Azure Active Directory when doing role imports.
+
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

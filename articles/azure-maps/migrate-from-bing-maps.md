@@ -42,13 +42,13 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Web SDK                               | ✓                  |
 | Android SDK                           | ✓                  |
 | iOS SDK                               | Planned            |
-| UWP SDK                               | Planned            |
-| WPF SDK                               | Planned            |
+| UWP SDK                               | N/A                 |
+| WPF SDK                               | N/A                 |
 | REST Service APIs                     | ✓                  |
 | Autosuggest                           | ✓                  |
 | Directions (including truck)          | ✓                  |
 | Distance Matrix                       | ✓                  |
-| Elevations                            | ✓ (Preview)        |
+| Elevations                            | ✓      |
 | Imagery – Static Map                  | ✓                  |
 | Imagery Metadata                      | ✓                  |
 | Isochrones                            | ✓                  |

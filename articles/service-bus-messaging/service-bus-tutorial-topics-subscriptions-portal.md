@@ -32,7 +32,7 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 To complete this tutorial, make sure you have installed:
 
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
-- [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+- [NET Core SDK](https://dotnet.microsoft.com/download), version 2.0 or later.
 
 ## Service Bus topics and subscriptions
 
@@ -93,7 +93,7 @@ To run the code, do the following:
 
 ## Clean up resources
 
-When no longer needed, delete the namespace and queue. To do so, select these resources on the portal and click **Delete**.
+When no longer needed, delete the namespace and topic. To do so, select these resources on the portal and click **Delete**.
 
 ## Understand the sample code
 

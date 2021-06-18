@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create access package - Azure AD entitlement management
-description: Step-by-step tutorial for how to create your first access package in Azure Active Directory entitlement management.
+title: Tutorial - Manage access to resources in Azure AD entitlement management
+description: Step-by-step tutorial for how to create your first access package using the Azure portal in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a IT admin, I want step-by-step instructions of the entire workflow for how to use entitlement management so that I can start to use in my organization.
 
 ---
-# Tutorial: Create your first access package in Azure AD entitlement management
+# Tutorial: Manage access to resources in Azure AD entitlement management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it is no longer needed.
 
@@ -39,8 +39,6 @@ In this tutorial, you learn how to:
 For a step-by-step demonstration of the process of deploying Azure Active Directory entitlement management, including creating your first access package, view the following video:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
-
-You can also create an access package programmatically using Microsoft Graph. For a tutorial that shows how to create an access package programmatically, see [entitlement management API](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## Prerequisites
 
@@ -78,7 +76,7 @@ A resource directory has one or more resources to share. In this step, you creat
 
 An *access package* is a bundle of resources that a team or project needs and is governed with policies. Access packages are defined in containers called *catalogs*. In this step, you create a **Marketing Campaign** access package in the **General** catalog.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 ![Create an access package](./media/entitlement-management-access-package-first/elm-access-package.png)
 

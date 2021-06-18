@@ -2,12 +2,14 @@
 title: Azure SignalR Service serverless quickstart - Python
 description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using Python.
 author: anthonychu
+ms.author: antchu
+ms.date: 12/14/2019
+ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
-ms.topic: quickstart
-ms.date: 12/14/2019
-ms.author: antchu
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - mode-api
 ---
 # Quickstart: Create a chat room with Azure Functions and SignalR Service using Python
 
@@ -21,7 +23,7 @@ Make sure you have a code editor such as [Visual Studio Code](https://code.visua
 
 Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Python Azure Function apps locally.
 
-Azure Functions requires [Python 3.6 or 3.7](https://www.python.org/downloads/).
+Azure Functions requires [Python 3.6+](https://www.python.org/downloads/). (See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -110,4 +112,3 @@ In this quickstart, you built and ran a real-time serverless application in VS C
 
 > [!div class="nextstepaction"]
 > [Deploy Azure Functions with VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
-
