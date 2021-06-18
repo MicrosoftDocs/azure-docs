@@ -191,6 +191,8 @@
       href: htcondor.md
     - name: IBM Spectrum LSF
       href: lsf.md
+    - name: Microsoft HPC Pack
+      href: hpcpack.md
   - name: Log Locations
     href: log_locations.md
   - name: Events
