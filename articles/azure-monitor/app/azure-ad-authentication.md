@@ -57,7 +57,7 @@ Support for Azure AD in the Application Insights .NET SDK is included starting w
 
 Application Insights .NET SDK supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity#credential-classes).
 
-- DefaultAzureCredential is recommended for local development.
+- `DefaultAzureCredential` is recommended for local development.
 - ClientSecretCredential is recommended for service principals. 
 
 Here is an example of manually creating and configuring a `TelemetryConfiguration` using .NET:
