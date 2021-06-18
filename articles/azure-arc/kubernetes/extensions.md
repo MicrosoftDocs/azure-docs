@@ -2,7 +2,7 @@
 title: "Azure Arc enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/25/2021
+ms.date: 06/18/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -59,6 +59,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc enabled Kubernetes clusters. |
 | [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md) | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc enabled Kubernetes clusters. |
 | [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc enabled Kubernetes clusters. |
+| [Azure Arc enabled Machine Learning](../../machine-learning/how-to-attach-arc-kubernetes.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
 
 ## Usage of cluster extensions
 
