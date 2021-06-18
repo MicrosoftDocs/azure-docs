@@ -291,10 +291,9 @@ A significant number of customers implementing Azure Monitor currently monitor t
 
 In many cases, you can configure data collection and alert rules in Azure Monitor that will replicate enough functionality that you can retire a particular management pack. Management packs can often include hundreds and even thousands of rules and monitors. Rather than attempting to replicate the entire functionality of a management pack, analyze the critical monitoring provided by the management pack and whether you can replicate those monitoring requirements using on the methods described in the previous sections.
 
-You must configure data collection and an alert rule for any alerting scenarios. In most scenarios SCOM combines data collection and alerting conditions in the same rule or monitor. 
+You must configure data collection and an alert rule for any alerting scenarios. In most scenarios Operations Manager combines data collection and alerting conditions in the same rule or monitor. 
 
-One strategy is to focus on those monitors and rules that have triggered alerts in your environment. Run the following query on the Operations Database to evaluate the most common alerts in your environment. Evaluate the output to identify specific alerts for migration. Ignore any alerts that have been tuned out or known to be problematic. Review your management packs to identify any additional critical alerts of interest that have never fired. Identify 25-50 alerts for a pilot migration.
-
+One strategy is to focus on those monitors and rules that have triggered alerts in your environment. Refer to [existing reports available in Operations Manager](/system-center/scom/manage-reports-installed-during-setup) such as **Alerts** and **Most Common Alerts** which can help you identify alerts over time. You can also run the following query on the Operations Database to evaluate the most common recent alerts. 
 
 
 ```sql
@@ -306,6 +305,7 @@ group by AlertName
 order by 'Total Alerts' DESC
 ```
 
+Evaluate the output to identify specific alerts for migration. Ignore any alerts that have been tuned out or known to be problematic. Review your management packs to identify any additional critical alerts of interest that have never fired. 
 
 
 
