@@ -57,7 +57,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 Access the mulitple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
 
 
-:::image type="content" source="media/monitor-virtual-machines/vm-menu.png" alt-text="Analyze multiple VMs in the Azure portal" lightbox="media/monitor-virtual-machines/vm-menu.png":::
+:::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Analyze multiple VMs in the Azure portal" lightbox="media/monitor-virtual-machines/monitor-menu.png":::
 
 - **Activity log.**  [Activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for all resources. Create a filter for a **Resource Type** of Virtual Machines or Virtual Machine Scale Sets to view events for all of your machines.
 
@@ -85,9 +85,11 @@ This can confusing if you're new to Azure Monitor, but the following details sho
 
 - Any non-numeric data such as events is stored in Logs. Metrics can only include numeric data that's sampled at regular intervals.
 - Numeric data can be stored in both Metrics and Logs so it can be analyzed in different ways and support different types of alerts.
-- Performance data from the guest operating system will be sent to Logs by VM insights using the Log Analytics agent and Dependency agent.
+- Performance data from the guest operating system will be sent to Logs by VM insights using the Log Analytics agent.
 - Performance data from the guest operating system will be sent to Metrics by Azure Monitor agent.
 
+> [!NOTE]
+> The Azure Monitor agent and send data to both Metrics and Logs. In this scenario, it's only used for Metrics since Log Analytics agent sends data to Logs and as currently required for VM insights. When VM insights uses the Azure Monitor agent, this scenario will be updated to remove the Log Analytics agent.
 
 ## Analyze data with VM insights
 VM insights includes multiple performance charts that help you quickly get a status of the operation of your monitored machines, their trending performance over time, and  dependencies between machines and processes. It also offers a consolidated view of different aspects of any monitored machine such as its properties and events collected in the Log Analytics workspace.
@@ -168,5 +170,5 @@ See [Create interactive reports VM insights with workbooks](vminsights-workbooks
 
 ## Next steps
 
-* [Learn how to analyze data in Azure Monitor logs using log queries.](../logs/get-started-queries.md)
-* [Learn about alerts using metrics and logs in Azure Monitor.](../alerts/alerts-overview.md)
+* [Create alerts from collected data.](monitor-virtual-machine-alerts.md)
+* [Monitor workloads running on virtual machines.](monitor-virtual-machine-workloads.md)

@@ -30,7 +30,7 @@ ms.date: 05/26/2021
 The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). 
 The type of alert rule that you create for a particular scenario will depend on where the data is located that you're alerting on. You may have cases though where data for a particular alerting scenario is available in both Metrics and Logs, and you need to determine which rule type to use. You may also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
 
-It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in metrics. VM insights currently sends all of its data to Logs, so you must install Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when its either not available in Metrics or you require additional logic beyond the relatively simple logic for a metric alert rule.
+It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in Metrics. VM insights currently sends all of its data to Logs, so you must install Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when its either not available in Metrics or you require additional logic beyond the relatively simple logic for a metric alert rule.
 
 ### Metric alert rules
 [Metric alert rules](../alerts/alerts-metric.md) are useful for alerting when a particular metric exceeds a threshold. For example, when the CPU of a machine is running high. The target of a metric alert rule can be a specific machine, a resource group, or a subscription. This allows you to create a single rule that applies to a group of machines.
@@ -60,7 +60,7 @@ Each alert in Azure Monitor has an **Affected resource** property which is defin
 
 The computer name is stored in the **Impacted resource** property which you can view in the details of the alert. It's also displayed as a dimension in emails that are sent from the alert.
 
-:::image type="content" source="media/monitor-virtual-machines/alert-metric-measurement.png" alt-text="Alrt with impacted resource":::
+:::image type="content" source="media/monitor-virtual-machines/alert-metric-measurement.png" alt-text="Alrt with impacted resource" lightbox="media/monitor-virtual-machines/alert-metric-measurement.png":::
 
 
 You may want to have a view that lists the alerts with the affected computer. You can do this with a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Following is a query that can be used to display alerts. Use the data source  **Azure Resource Graph** in the workbook.
@@ -286,7 +286,7 @@ InsightsMetrics
 
 
 
-## Comparison of log query alert types
+## Comparison of log query alert measures
 To compare the behavior of the two log alert measures, here's a walkthrough of each to create an alert when the CPU of a virtual machine exceeds 80%. The data we need is in the [InsightsMetrics table](/azure/azure-monitor/reference/tables/insightsmetrics). Following is a simple query that returns the records that need to be evaluated for the alert. Each type of alert rule will use a variant of this query.
 
 ```kusto
@@ -315,7 +315,7 @@ InsightsMetrics
 #### Create the alert rule
 Select **Logs** from the Azure Monitor menu to Open Log Analytics. Make sure that the correct workspace is selected for your scope. If not, click **Select scope** in the top left and select the correct workspace. Paste in the query that has the logic you want and click **Run** to verify that it returns the correct results.
 
-![Metric measurement alert query results in Log Analytics]()
+:::image type="content" source="media/monitor-virtual-machines/log-alert-metric-queryresults.png" alt-text="Metric measurement alert query results" lightbox="media/monitor-virtual-machines/log-alert-metric-queryresults.png":::
 
 Click **New alert rule** to create a rule with the current query. The rule will use your workspace for the **Resource**.
 
@@ -327,7 +327,7 @@ Scroll down to **Alert logic** and select **Metric measurement** for the **Based
 
 Scroll down to **Evaluated based on**. **Period** specifies the time span for the query. Specify a value of **15** minutes, which means that the query will only use data collected in the last 15 minutes. **Frequency** specifies how often the query is run. A lower value will make the alert rule more responsive but also have a higher cost. Specify **15** to run the query every minutes.
 
-![Final metric measurement alert rule]()
+:::image type="content" source="media/monitor-virtual-machines/log-alert-metric-rule.png" alt-text="Metric measurement alert query rule" lightbox="media/monitor-virtual-machines/log-alert-metric-rule.png":::
 
 ### Number of results rule
 The **number of results** rule will create a single alert when a query returns at least a specified number of records.  The log query in this type of alert rule will typically identify the alerting condition, while the threshold for the alert rule determines if a sufficient number of records are returned.
@@ -366,5 +366,5 @@ Scroll down to **Evaluated based on**. **Period** specifies the time span for th
 
 ## Next steps
 
-* [Learn how to analyze data in Azure Monitor logs using log queries.](../logs/get-started-queries.md)
-* [Learn about alerts using metrics and logs in Azure Monitor.](../alerts/alerts-overview.md)
+* [Monitor workloads running on virtual machines.](monitor-virtual-machine-workloads.md)
+* [Analyze monitoring data collected for virtual machines.](monitor-virtual-machine-analyze.md)
