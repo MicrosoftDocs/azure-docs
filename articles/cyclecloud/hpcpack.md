@@ -4,6 +4,7 @@ description: Microsoft HPC Pack configuration in Azure CycleCloud
 author: prkannap
 ms.date: 05/24/2021
 ms.author: prkannap
+monikerRange : '>= cyclecloud-8'
 ---
 
 
