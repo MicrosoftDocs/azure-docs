@@ -178,4 +178,4 @@ Remember that the monetization strategy is only one facet of a successful API im
 
 ## Next Steps
 > [!div class="nextstepaction"]
-> [Placeholder](./api-management-key-concepts.md)
+> [How API Management supports monetization](./monetization-support.md)
