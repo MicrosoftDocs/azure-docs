@@ -25,7 +25,7 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 > [!NOTE]
 > [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) that was previously used to configure routing is deprecated. Use _staticwebapp.config.json_ as described in this article to configure routing and other settings for your static web app.
 > 
-> This document is regarding Azure Static Web Apps, which is a stand alone product and seperate from $web container, which is a feature of Azure Storage.
+> This document is regarding Azure Static Web Apps, which is a standalone product and separate from $web container, which is a feature of Azure Storage.
 
 ## File location
 
@@ -74,9 +74,9 @@ Each property has a specific purpose in the request/response pipeline.
 
 ## Securing routes with roles
 
-Routes are secured by adding one or more role names into a rule's `allowedRoles` array, and users are associated to custom roles via [invitations](./authentication-authorization.md). See the [example configuration file](#example-configuration-file) for usage examples.
+Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example configuration file](#example-configuration-file) for usage examples.
 
-By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role.
+By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.md).
 
 For instance, to restrict a route to only authenticated users, add the built-in `authenticated` role to the `allowedRoles` array.
 
