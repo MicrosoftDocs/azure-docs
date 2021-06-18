@@ -28,7 +28,12 @@ In this article, learn how to configure Azure Firewall to control access to your
 > 
 > For information on service instance firewall settings, see [Use studio in a virtual network](how-to-enable-studio-virtual-network.md#firewall-settings).
 
-* For __inbound__ traffic, use __destination network address translation (DNAT)__ to create NAT rules.
+* For __inbound__ traffic, there are two options you might use:
+    * __Destination network address translation (DNAT)__ to create NAT rules for inbound traffic.
+    * __User-defined routes__, which allows traffic to skip the firewall.
+
+    The information in this document focuses on DNAT.
+
 * For __outbound__ traffic, create __network__ and/or __application__ rules. 
 
 These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
