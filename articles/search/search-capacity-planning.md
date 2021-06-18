@@ -186,9 +186,9 @@ Upon receipt of a scale request, the search service:
 1. Checks whether the service is already in a provisioning state (currently adding or eliminating either replicas or partitions).
 1. Starts provisioning.
 
-Scaling a service can take as little as 15 minutes or well over an hour, depending on the size of the service and the scope of the request. Back up can take several minutes, depending on the amount of data and number of partitions and replicas.
+Scaling a service can take as little as 15 minutes or well over an hour, depending on the size of the service and the scope of the request. Backup can take several minutes, depending on the amount of data and number of partitions and replicas.
 
-The above steps are not entirely consecutive. For example, the system starts provisioning when it can safely do so, which could be while back up is winding down.
+The above steps are not entirely consecutive. For example, the system starts provisioning when it can safely do so, which could be while backup is winding down.
 
 ## Errors during scaling
 
