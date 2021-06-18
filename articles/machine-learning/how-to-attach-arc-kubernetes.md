@@ -31,19 +31,6 @@ Azure Arc enabled machine learning supports the following training scenarios:
 * Train model on-premise with outbound proxy server
 * Train model on-premise with NFS datastore
 
-Azure Arc-enabled Machine Learning is currently supported in these regions where Azure Arc is available:
-
-* East US
-* West Europe
-* West Central US
-* South Central US
-* Southeast Asia
-* UK South
-* West US 2
-* Australia East
-* East US 2
-* North Europe
-
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription [create a free account](https://aka.ms/AMLFree) before you begin.

@@ -62,10 +62,10 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. Fill out the form for your compute type:
 
-  * [Compute instance](#compute-instance)
-  * [Compute clusters](#amlcompute)
-  * [Inference clusters](#inference-clusters)
-  * [Attached compute](#attached-compute)
+    * [Compute instance](#compute-instance)
+    * [Compute clusters](#amlcompute)
+    * [Inference clusters](#inference-clusters)
+    * [Attached compute](#attached-compute)
 
 1. Select __Create__.
 
