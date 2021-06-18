@@ -34,7 +34,7 @@ ASE's host applications from only one customer and do so in one of their VNets. 
 ASEv3 comes with its own pricing tier, Isolated V2.
 App Service Environments v3 provide a surrounding to safeguard your apps in a subnet of your network and provides your own private deployment of Azure App Service.
 Multiple ASEs can be used to scale horizontally. 
-Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Web application firewall (WAF)](https://docs.microsoft.com/en-us/azure/web-application-firewall/overview).
+Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Web application firewall (WAF)](https://docs.microsoft.com/azure/web-application-firewall/overview).
 
 ## Usage scenarios
 
