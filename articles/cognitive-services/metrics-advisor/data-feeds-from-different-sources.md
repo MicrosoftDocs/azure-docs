@@ -428,8 +428,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     
 ## <span id="table">Azure Table Storage</span>
 
-* **Connection String**: Create an SAS (shared access signature) URL and fill in here. The most straightforward way to generate a SAS URL is using the Azure portal. By using the Azure portal, you can navigate graphically. To create an SAS URL via the Azure portal, first, navigate to the storage account you’d like to access under the **Settings section** then click **Shared access signature**. 
-Check allowed services and allowed resource types checkboxes, then click the **Generate SAS and connection string** button at the bottom. Table service SAS URL is what you need to copy and fill in the text box in the Metrics Advisor.
+* **Connection String**: Create an SAS (shared access signature) URL and fill in here. The most straightforward way to generate a SAS URL is using the Azure portal. By using the Azure portal, you can navigate graphically. To create an SAS URL via the Azure portal, first, navigate to the storage account you’d like to access under the **Settings section** then click **Shared access signature**. Check at least "Table" and "Object" checkboxes, then click the Generate SAS and connection string button. Table service SAS URL is what you need to copy and fill in the text box in the Metrics Advisor workspace.
 
     ![azure table generate sas](media/azure-table-generate-sas.png)
 
@@ -444,21 +443,19 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     ```
 
     For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples.
-<!--
+
 ## <span id="es">Elasticsearch</span>
 
 * **Host**: Specify the master host of Elasticsearch Cluster.
 * **Port**: Specify the master port of Elasticsearch Cluster.
-* **Authorization Header**(optional): Specify the authorization header value of Elasticsearch Cluster. See more information in [Elastic Document](https://www.elastic.co/guide/en/elasticsearch/reference/current/http-clients.html).
-* **Query**: Specify the query to get data for a single interval. You can use `@IntervalStart` and `@IntervalEnd` in your query to help with getting expected metrics value in an interval. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
-
-    Sample query:
-    
-    ``` SQL
-    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
-    ``` -->
+* **Authorization Header**: Specify the authorization header value of Elasticsearch Cluster.
+* **Query**: Specify the query to get data. Placeholder `@StartTime` is supported. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@StartTime = 2020-06-21T00:00:00`.
 
 
+* **Request URL**: An HTTP url that can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **Request HTTP method**: Use GET or POST.
+* **Request header**: Could add basic authentication. 
+* **Request payload**: Only JSON payload is supported. Placeholder @StartTime is supported in the payload. The response should be in the following JSON format: `[{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}]`. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@StartTime = 2020-06-21T00:00:00.0000000+00:00)`.
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
@@ -528,4 +525,4 @@ For more information, refer to the [tutorial on writing a valid query](tutorial/
 ## Next steps
 
 * While waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).
-* When your metric data is ingested, you can [Configure metrics and fine tune detecting configuration](how-tos/configure-metrics.md).
+* When your metric data is ingested, you can [Configure metrics and fine tune detection configuration](how-tos/configure-metrics.md).

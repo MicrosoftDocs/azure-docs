@@ -51,8 +51,8 @@ Workspace access is controlled by the Metrics Advisor resource, which uses Azure
 
 Metrics Advisor lets you grant permissions to different groups of people on different data feeds. There are two types of roles: 
 
-- **Administrator**: Who has full permissions to manage a data feed, including modify and delete.
-- **Viewer**: Who can only view the data feed (read-only).
+- **Administrator**: Has full permissions to manage a data feed, including modify and delete.
+- **Viewer**: Has access to a read-only view of the data feed.
  
 
 ## Advanced settings
@@ -97,7 +97,7 @@ Action link templates are used to predefine actionable HTTP urls, which consist 
 
 :::image type="content" source="../media/action-link-template.png" alt-text="Action link template" lightbox="../media/action-link-template.png":::
 
-Once you've filled in the action link, click **Go to action link** on the incident list's action option, and incident tree's right-click menu. Replace the placeholders in the action link template with the corresponding values of the anomaly or incident.
+Once you've filled in the action link, click **Go to action link** on the incident list's action option, and diagnostic tree's right-click menu. Replace the placeholders in the action link template with the corresponding values of the anomaly or incident.
 
 | Placeholder | Examples | Comment |
 | ---------- | -------- | ------- |
@@ -128,9 +128,9 @@ To configure an alert, you need to [create a hook](alerts.md#create-a-hook) firs
 
 * **Grace period**: The Grace period setting is used to determine when to send an alert if no data points are ingested. The reference point is the time of first ingestion. If an ingestion fails, Metrics Advisor will keep trying at a regular interval specified by the granularity. If it continues to fail past the grace period, an alert will be sent.
 
-* **Auto snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the the setting specified.
+* **Auto snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the setting specified.
 
 ## Next steps
-- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
+- [Configure metrics and fine tune detection configuration](configure-metrics.md)
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose an incident](diagnose-incident.md)
+- [Diagnose an incident](diagnose-an-incident.md).

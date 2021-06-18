@@ -114,7 +114,7 @@ After the data feed is added, Metrics Advisor will attempt to ingest metric data
 
 When detection is applied, select one of the metrics listed in data feed to find the **Metric detail page** to: 
 - View visualizations of all time series slices under this metric
-- Update detecting configuration to meet expected results
+- Update detection configuration to meet expected results
 - Set up notification for detected anomalies
 
 :::image type="content" source="../media/metric-details.png" alt-text="Metric details" lightbox="../media/metric-details.png":::
@@ -127,6 +127,7 @@ To view the diagnostic insights, select the red dots on time series visualizatio
 
 :::image type="content" source="../media/incident-link.png" alt-text="Incident link" lightbox="../media/incident-link.png":::
 
+<<<<<<< HEAD
 After selecting the link, you will be pivoted to the incident analysis page, which analyzes on a group of related anomalies with a bunch of diagnostics insights. There're 3 major steps to diagnose an incident:
 
 ### Check summary of current incident
@@ -151,10 +152,24 @@ For metrics with multiple dimensions, Metrics Advisor categorizes the time serie
 
 Sometimes, it's hard to analyze an issue by checking abnormal status of one single metrics, but need to correlate multiple metrics together. Customers are able to configure a "Metrics graph" which indicates the relations between metrics. 
 By leveraging above cross-dimension diagnostic result, the root cause is limited into specific dimension value. Then use "Metrics graph" and filter by the analyzed root cause dimension to check anomaly status on other metrics.
+=======
+After clicking the link, you will be pivoted to the incident analysis page which analyzes on corresponding anomaly, with a bunch of diagnostics insights. There are three sections in the incident detail page which correspond to three major steps to diagnosing an incident. 
+
+- The first section lists a summary of the current incident, including basic information, actions & tracings, and an analyzed root cause. 
+    :::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Incident summary":::
+- After getting basic info and automatic analysis insights, you can get more detailed info on abnormal status on other dimensions within the same metric in a holistic way using the **"Diagnostic tree"**.
+    :::image type="content" source="../media/diagnostics/cross-dimension-diagnostic.png" alt-text="Cross dimension diagnostic using diagnostic tree":::	
+- And last to view cross-metrics diagnostic insights using "Metrics graph".
+    :::image type="content" source="../media/diagnostics/cross-metrics-analysis.png" alt-text="Cross metrics analysis":::
+>>>>>>> 7174ceccda31fb2a69b055ecf4a209e0263ff85e
 
 :::image type="content" source="../media/diagnostics/cross-metrics-analysis.png" alt-text="Incident diagnostics" lightbox="../media/diagnostics/cross-metrics-analysis.png":::
 
+<<<<<<< HEAD
 There're more features to drill down anomalies by dimension, view similar anomalies and do comparison across metrics. Find more at [How to: diagnose an incident](../how-tos/diagnose-an-incident.md). 
+=======
+But you can also pivot across more diagnostics insights leveraging additional features to drill down anomalies by dimension, view similar anomalies and do comparison across metrics. Please find more at [How to: diagnose an incident](../how-tos/diagnose-an-incident.md). 
+>>>>>>> 7174ceccda31fb2a69b055ecf4a209e0263ff85e
 
 ## Get notified when new anomalies are found
 
@@ -175,4 +190,4 @@ After creating a hook, an alert setting determines how and which alert notificat
     - [Manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Use the REST API or Client libraries](./rest-api-and-client-library.md)
-- [Configure metrics and fine tune detecting configuration](../how-tos/configure-metrics.md)
+- [Configure metrics and fine tune detection configuration](../how-tos/configure-metrics.md)
