@@ -50,7 +50,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
     1. In the recurrence part, if you choose "Day(s), Week(s) or Month(s)" from the drop-down, you can find "Advanced recurrence options".
-    :::image type="content" source="../../media/advanced.png" alt-text="":::
+    :::image type="content" source="../../media/advanced.png" alt-text="Advanced recurrence options of Day(s), Week(s) or Month(s)":::
     1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI.
 
         ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
