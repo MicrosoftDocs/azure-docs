@@ -18890,31 +18890,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/event-grid/event-sources.md",
-      "redirect_url": "/azure/event-grid/overview#event-sources",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/event-grid/move-partner-namespaces-across-regions.md",
-      "redirect_url": "/azure/event-grid/move-system-topics-across-regions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/event-grid/partner-topics-overview.md",
-      "redirect_url": "/azure/event-grid/partner-events-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/event-grid/policy-samples.md",
-      "redirect_url": "/azure/event-grid/policy-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/event-grid/event-subscription-template.md",
-      "redirect_url": "/azure/event-grid/template-samples",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/expressroute/expressroute-global-reach-app-scenario.md",
       "redirect_url": "/azure/expressroute/expressroute-global-reach",
       "redirect_document_id": false
@@ -45493,16 +45468,6 @@
     {
       "source_path_from_root": "/articles/billing-buy-sign-up-azure-subscription.md",
       "redirect_url": "https://azure.microsoft.com/pricing/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/event-grid/premium-basic-tiers.md",
-      "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/event-grid/update-tier.md",
-      "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
       "redirect_document_id": false
     },
     {
