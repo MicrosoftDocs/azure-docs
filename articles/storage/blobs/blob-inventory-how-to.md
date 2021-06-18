@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 06/02/2021
+ms.date: 06/18/2021
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
