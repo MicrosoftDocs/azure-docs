@@ -123,9 +123,9 @@
       items:
       - name: Install IoT Edge for Linux
         href: how-to-install-iot-edge.md
-      - name: Run IoT Edge for Linux on Windows
+      - name: Install IoT Edge for Linux on Windows
         href: how-to-install-iot-edge-on-windows.md
-    - name: Update runtime
+    - name: Update IoT Edge
       href: how-to-update-iot-edge.md
     - name: Manage device certificates
       href: how-to-manage-device-certificates.md

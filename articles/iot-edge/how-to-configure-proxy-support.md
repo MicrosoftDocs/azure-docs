@@ -209,8 +209,8 @@ systemctl show --property=Environment aziot-identityd
 
 Log in to your IoT Edge for Linux on Windows virtual machine:
 
-```azurepowershell-interactive
-Ssh-EflowVm
+```powershell
+Connect-EflowVm
 ```
 
 Follow the same steps as the Linux section above to configure the IoT Edge daemon.

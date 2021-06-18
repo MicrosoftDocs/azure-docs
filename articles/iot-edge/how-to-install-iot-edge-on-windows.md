@@ -18,12 +18,12 @@ monikerRange: "=iotedge-2018-06"
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices from PC class to industrial servers. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows devices by using Linux virtual machines. The Linux version of Azure IoT Edge and any Linux modules deployed with it run on the virtual machine. From there, Windows applications and code and the IoT Edge runtime and modules can freely interact with each other.
+Azure IoT Edge for Linux on Windows allows you to install IoT Edge on Linux virtual machines that run on Windows devices. The Linux version of Azure IoT Edge and any Linux modules deployed with it run on the virtual machine. From there, Windows applications and code and the IoT Edge runtime and modules can freely interact with each other.
 
 This article lists the steps to set up IoT Edge on a Windows device. These steps deploy a Linux virtual machine that contains the IoT Edge runtime to run on your Windows device, then provision the device with its IoT Hub device identity.
 
 >[!NOTE]
->IoT Edge for Linux on Windows is the recommended experience for using Azure IoT Edge in a Windows environment. However, Windows containers are still available. If you prefer to use Windows containers, see the how-to guide on [installing and managing Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
+>IoT Edge for Linux on Windows is the recommended experience for using Azure IoT Edge in a Windows environment. However, Windows containers are still available. If you prefer to use Windows containers, see [Install and manage Azure IoT Edge with Windows containers](how-to-install-iot-edge-windows-on-windows.md).
 
 ## Prerequisites
 
@@ -44,15 +44,13 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 
 * If you want to install and manage IoT Edge device using Windows Admin Center, make sure you have access to Windows Admin Center and have the Azure IoT Edge extension installed:
 
-   1. Download the [Windows Admin Center installer](https://aka.ms/wacdownload).
-
-   1. Run the downloaded installer and follow the install wizard prompts to install Windows Admin Center.
+   1. Download and run the [Windows Admin Center installer](https://aka.ms/wacdownload). Follow the install wizard prompts to install Windows Admin Center.
 
    1. Once installed, use a supported browser to open Windows Admin Center. Supported browsers include Microsoft Edge (Windows 10, version 1709 or later), Google Chrome, and Microsoft Edge Insider.
 
    1. On the first use of Windows Admin Center, you will be prompted to select a certificate to use. Select **Windows Admin Center Client** as your certificate.
 
-   1. It is time to install the Azure IoT Edge extension. Select the gear icon in the top right of the Windows Admin Center dashboard.
+   1. Install the Azure IoT Edge extension. Select the gear icon in the top right of the Windows Admin Center dashboard.
 
       ![Select the gear icon in the top right of the dashboard to access the settings.](./media/how-to-install-iot-edge-on-windows/select-gear-icon.png)
 
@@ -80,18 +78,18 @@ Azure IoT Edge for Linux on Windows supports the following provisioning methods:
 
 ## Create a new deployment
 
-Create your deployment of Azure IoT Edge for Linux on Windows on your target device.
+Deploy Azure IoT Edge for Linux on Windows on your target device.
 
 # [PowerShell](#tab/powershell)
 
 Install IoT Edge for Linux on Windows onto your target device if you have not already.
 
 > [!NOTE]
-> The following PowerShell process outlines how to create a local host deployment of Azure IoT Edge for Linux on Windows. To create a deployment to a remote target device using PowerShell, you can use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
+> The following PowerShell process outlines how to deploy IoT Edge for Linux on Windows onto the local device. To deploy to a remote target device using PowerShell, you can use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
 
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
-   ```azurepowershell-interactive
+   ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
    ​Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
@@ -99,39 +97,39 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
 
 1. Install IoT Edge for Linux on Windows on your device.
 
-   ```azurepowershell-interactive
+   ```powershell
    Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
    ```
 
-   > [!NOTE]
-   > You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding the INSTALLDIR="<FULLY_QUALIFIED_PATH>" and VHDXDIR="<FULLY_QUALIFIED_PATH>" parameters to the install command above.
+   You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command.
 
-1. For the deployment to run successfully, you need to set the execution policy on the target device to `AllSigned` if it is not already. You can check the current execution policy in an elevated PowerShell prompt using:
+1. Set the execution policy on the target device to `AllSigned` if it is not already. You can check the current execution policy in an elevated PowerShell prompt using:
 
-   ```azurepowershell-interactive
+   ```powershell
    Get-ExecutionPolicy -List
    ```
 
    If the execution policy of `local machine` is not `AllSigned`, you can set the execution policy using:
 
-   ```azurepowershell-interactive
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
 1. Create the IoT Edge for Linux on Windows deployment.
 
-   ```azurepowershell-interactive
+   ```powershell
    Deploy-Eflow
    ```
 
-   > [!NOTE]
-   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow) to see parameter meaning​s and default values.
+   The `Deploy-Eflow` command takes optional parameters that help you customize your deployment. For more information, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
 1. Enter 'Y' to accept the license terms.
 
-1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference. A successful deployment is pictured below.
+1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference.
 
-   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment.png)
+1. Once the deployment is complete, the PowerShell window reports **Deployment successful**.
+
+   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment-2.png)
 
 Once your deployment is complete, you are ready to provision your device.
 
@@ -208,31 +206,31 @@ You can use the Windows Admin Center or an elevated PowerShell session to provis
 
 * Manual provisioning:
 
-  * [Manual provisioning using your IoT Edge device's connection string](#option-1-manual-provisioning-using-the-connection-string)
-  * [Manual provisioning using X.509 certificates](#option-1-manual-provisioning-using-x509-certificates)
+  * [Manual provisioning using your IoT Edge device's connection string](#manual-provisioning-using-the-connection-string)
+  * [Manual provisioning using X.509 certificates](#manual-provisioning-using-x509-certificates)
 
 
 * Automatic provisioning:
 
-  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-auto-provision-symmetric-keys.md#configure-the-device-with-provisioning-information&tabs=eflow)
-  * [Automatic provisioning using DPS and X.509 certificates](how-to-auto-provision-x509-certs.md#configure-the-device-with-provisioning-information&tabs=eflow)
+  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-auto-provision-symmetric-keys.md#configure-the-device-with-provisioning-information?tabs=eflow)
+  * [Automatic provisioning using DPS and X.509 certificates](how-to-auto-provision-x509-certs.md#configure-the-device-with-provisioning-information?tabs=eflow)
   * [Automatic provisioning using DPS and TPM attestation](how-to-auto-provision-tpm-linux-on-windows.md#configure-the-device-with-provisioning-information)
 
-### Option 1: Manual provisioning using the connection string
+### Manual provisioning using the connection string
 
-This section covers provisioning your device manually using your Azure IoT Edge device's connection string.
+This section covers provisioning your device manually using your IoT Edge device's connection string.
+
+If you haven't already, follow the steps in [Register an IoT Edge device in IoT Hub](how-to-register-device.md) to register your device and retrieve its connection string.
 
 # [PowerShell](#tab/powershell)
 
-1. In the [Azure portal](https://ms.portal.azure.com/), navigate to the **IoT Edge** tab of your IoT Hub.
+Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
 
-1. Click on the device ID of your device. Copy the **Primary Connection String** field.
+```powershell
+Provision-EflowVm -provisioningType manual -devConnString "<CONNECTION_STRING_HERE>"​
+```
 
-1. Paste over the placeholder text in the following command and run it in an elevated PowerShell session on your target device.
-
-   ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType manual -devConnString "<CONNECTION_STRING_HERE>"​
-   ```
+For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-fow-linux-on-windows-functions.md#provision-eflowvm).
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -242,17 +240,52 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 1. Click on the device ID of your device. Copy the **Primary Connection String** field.
 
-1. Paste it into the device connection string field in the Windows Admin Center. Then, choose **Provisioning with the selected method**.
+1. Provide the **Device connection string** that you retrieved from IoT Hub after registering the device.
+
+1. Select **Provisioning with the selected method**.
 
    ![Choose provisioning with the selected method after pasting your device's connection string](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-connection-string.png)
 
-1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
+1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed with the type `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 
 ---
 
-### Option 2: Manual provisioning using X.509 certificates
+### Manual provisioning using X.509 certificates
 
+This section covers provisioning your device manually using X.509 certificates on your IoT Edge device.
 
+If you haven't already, follow the steps in [Register an IoT Edge device in IoT Hub](how-to-register-device.md) to prepare the necessary certificates and register your device. 
+
+# [PowerShell](#tab/powershell)
+
+Have the device identity certificate and its matching private key ready on your target device. Know the absolute path to both files.
+
+Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
+
+```powershell
+Provision-EflowVm -provisioningType ManualX509 -iotHubHostname "<HUB HOSTNAME>" -deviceId "<DEVICE ID>" -identityCertPath "<ABSOLUTE PATH TO IDENTITY CERT>" -identityPrivKeyPath "<ABSOLUTE PATH TO PRIVATE KEY>"
+```
+
+For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-fow-linux-on-windows-functions.md#provision-eflowvm).
+
+# [Windows Admin Center](#tab/windowsadmincenter)
+
+1. On the **Azure IoT Edge device provisioning** pane, select **ManualX509** from the provisioning method dropdown.
+
+   ![Choose manual provisioning with X.509 certificates](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-manual-x509.png)
+
+1. Provide the required parameters:
+
+   * **IoT Hub Hostname**: The name of the IoT hub that this device is registered to.
+   * **Device ID**: The name that this device is registered with.
+   * **Certificate file**: Upload the device identity certificate, which will be moved to the virtual machine and used to provision the device.
+   * **Private key file**: Upload the matching private key file, which will be moved to the virtual machine and used to provision the device.
+
+1. Select **Provisioning with the selected method**.
+
+1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed with the type `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
+
+---
 
 ## Verify successful configuration
 
@@ -262,8 +295,8 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 
 1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 
-   ```azurepowershell-interactive
-   Ssh-EflowVm
+   ```powershell
+   Connect-EflowVm
    ```
 
    >[!NOTE]
@@ -295,22 +328,9 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 
 1. The device overview page displays some information about the device:
 
-    1. The **IoT Edge Module List** section shows running modules on the device. When the IoT Edge service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
-    1. The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
+   * The **IoT Edge Module List** section shows running modules on the device. When the IoT Edge service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
 
-1. If you need to troubleshoot the IoT Edge service, use the **Command Shell** tool on the device page to ssh (secure shell) into the virtual machine and run the Linux commands.
-
-    1. If you need to troubleshoot the service, retrieve the service logs.
-
-       ```bash
-       journalctl -u iotedge
-       ```
-
-    2. Use the `check` tool to verify configuration and connection status of the device.
-
-       ```bash
-       sudo iotedge check
-       ```
+   * The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
 
 ---
 

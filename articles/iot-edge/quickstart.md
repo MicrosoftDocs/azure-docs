@@ -5,7 +5,7 @@ author: kgremban
 manager: lizross
 ms.author: kgremban
 ms.reviewer: fcabrera
-ms.date: 01/20/2021
+ms.date: 06/17/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -56,7 +56,7 @@ Make sure your IoT Edge device meets the following requirements:
   * Minimum Free Disk Space: 10 GB
 
 >[!NOTE]
->This quickstart uses Windows Admin Center to create a deployment of IoT Edge for Linux on Windows. You can also use PowerShell. If you wish to use PowerShell to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md).
+>This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md).
 
 ## Create an IoT hub
 
@@ -108,12 +108,11 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
 ![Diagram that shows the step to start the IoT Edge runtime.](./media/quickstart/start-runtime.png)
 
-[!NOTE]
-> The following PowerShell process outlines how to create a local host deployment of Azure IoT Edge for Linux on Windows. To create a deployment to a remote target device using PowerShell, you can use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
+Run the following PowerShell commands on the target device where you want to deploy Azure IoT Edge for Linux on Windows. To deploy to a remote target device using PowerShell, use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
 
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
-   ```azurepowershell-interactive
+   ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
    ​Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
@@ -121,50 +120,35 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
 1. Install IoT Edge for Linux on Windows on your device.
 
-   ```azurepowershell-interactive
+   ```powershell
    Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
    ```
 
-   > [!NOTE]
-   > You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding the INSTALLDIR="<FULLY_QUALIFIED_PATH>" and VHDXDIR="<FULLY_QUALIFIED_PATH>" parameters to the install command above.
+1. Set the execution policy on the target device to `AllSigned` if it is not already. You can check the current execution policy in an elevated PowerShell prompt using:
 
-1. For the deployment to run successfully, you need to set the execution policy on the target device to `AllSigned` if it is not already. You can check the current execution policy in an elevated PowerShell prompt using:
-
-   ```azurepowershell-interactive
+   ```powershell
    Get-ExecutionPolicy -List
    ```
 
    If the execution policy of `local machine` is not `AllSigned`, you can set the execution policy using:
 
-   ```azurepowershell-interactive
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
 1. Create the IoT Edge for Linux on Windows deployment.
 
-   ```azurepowershell-interactive
+   ```powershell
    Deploy-Eflow
    ```
-
-   > [!NOTE]
-   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow) to see parameter meaning​s and default values.
 
 1. Enter 'Y' to accept the license terms.
 
 1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference. A successful deployment is pictured below.
 
-   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment.png)
+   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment-2.png)
 
-Once your deployment is complete, you are ready to provision your device using the device connection string.
-
-1. In the [Azure portal](https://ms.portal.azure.com/), navigate to the **IoT Edge** tab of your IoT Hub.
-
-1. Click on the device ID of your device. Copy the **Primary Connection String** field.
-
-1. Paste over the placeholder text in the following command and run it in an elevated PowerShell session on your target device.
-
-   ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType manual -devConnString "<CONNECTION_STRING_HERE>"​
+1. Provision your device using the device connection string that you retrieved in the previous section. Replace the placeholder text with your own value.
 
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.
 
@@ -234,7 +218,7 @@ The module that you pushed generates sample environment data that you can use fo
 
 1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 
-   ```azurepowershell-interactive
+   ```powershell
    Connect-EflowVm
    ```
 
