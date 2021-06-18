@@ -30,7 +30,7 @@ A typical, high availability, multi-region deployment architecture may look as f
 
 ![multi region deployment](media/tutorial-deploy-hsm-cli/high-availability-architecture.png)
 
-This tutorial focuses on a pair of HSMs and required [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
+This tutorial focuses on a pair of HSMs and required [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ All instructions below assume that you have already navigated to the Azure porta
 
 ## Provisioning a Dedicated HSM
 
-Provisioning HSMs and integrating them into an existing virtual network via [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) will be validated using ssh. This validation helps ensure reachability and basic availability of the HSM device for any further configuration activities.
+Provisioning HSMs and integrating them into an existing virtual network via [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) will be validated using ssh. This validation helps ensure reachability and basic availability of the HSM device for any further configuration activities.
 
 ### Validating Feature Registration
 

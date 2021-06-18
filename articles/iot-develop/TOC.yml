@@ -19,6 +19,8 @@
       items:
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
+      - name: MXCHIP AZ3166 - IoT Hub
+        href: quickstart-devkit-mxchip-az3166-iot-hub.md
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro.md
       - name: NXP MIMXRT1050-EVKB
@@ -41,6 +43,12 @@
     href: concepts-overview-connection-options.md
   - name: Overview of device types
     href: concepts-iot-device-types.md
+- name: How to
+  items:
+  - name: Troubleshoot
+    items:
+      - name: Troubleshoot embedded quickstarts
+        href: troubleshoot-embedded-device-quickstarts.md
 - name: Reference
   items:
     - name: Azure CLI

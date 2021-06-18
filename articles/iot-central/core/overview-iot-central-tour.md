@@ -106,8 +106,6 @@ This page shows the devices in your IoT Central application grouped by _device t
 * A device template defines a type of device that can connect to your application.
 * A device represents either a real or simulated device in your application.
 
-To learn more, see the [Monitor your devices](./quick-monitor-devices.md) quickstart. 
-
 ### Device groups
 
 :::image type="content" source="Media/overview-iot-central-tour/device-groups.png" alt-text="Device Group page":::

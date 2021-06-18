@@ -141,7 +141,6 @@
       expanded: true
       items:
         - name: Create Cosmos DB resources
-          expanded: true
           items:
             - name: Azure portal
               href: create-cosmosdb-resources-portal.md

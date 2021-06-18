@@ -2,7 +2,7 @@
 title: Tutorial - Network planning checklist
 description: Learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 06/08/2021
 ---
 
 # Networking planning checklist for Azure VMware Solution 

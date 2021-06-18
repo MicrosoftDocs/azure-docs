@@ -151,7 +151,7 @@
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Azure Defender
-        href: ../security-center/defender-for-databases-introduction.md
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: concepts-aad-authentication.md
@@ -353,11 +353,6 @@
       - name: Troubleshoot data encryption
         href: howto-data-encryption-troubleshoot.md
         displayName: debug, security, encryption
-    - name: Advanced threat protection
-      items:
-      - name: Azure portal
-        href: howto-database-threat-protection-portal.md
-        displayName: advanced thread, security
     - name: Virtual network
       items:
       - name: Azure portal

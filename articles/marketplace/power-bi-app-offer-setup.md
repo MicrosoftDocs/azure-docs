@@ -13,7 +13,7 @@ ms.date: 05/26/2021
 
 This article describes how to create a Power BI app offer. All offers go through our certification process, which checks your solution for standard requirements, compatibility, and proper practices.
 
-Before you start, create a commercial marketplace account in [Partner Center](partner-center-portal/create-account.md) and ensure it is enrolled in the commercial marketplace program.
+Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 ## Before you begin
 

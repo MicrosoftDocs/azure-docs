@@ -1,4 +1,4 @@
-- name: Azure Database for MySQL Documentation
+- name: Azure Database for MySQL documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -144,10 +144,8 @@
         items:
         - name: Configuring SSL
           href: concepts-ssl-connection-security.md
-      - name: Advanced Threat Protection
-        items:
-          - name: Threat protection with Azure Defender
-            href: ../security-center/defender-for-databases-introduction.md    
+      - name: Threat protection with Azure Defender
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
       - name: Encryption at rest
         items:
         - name: Data Encryption
@@ -285,9 +283,6 @@
       - name: Deny Public Network Access
         href: howto-deny-public-network-access.md
         displayName: security, public access
-      - name: Configuring Azure Defender using Azure portal
-        href: howto-database-threat-protection-portal.md
-        displayName: atp, advanced thread, security
       - name: Configuring encryption with customer managed keys using Azure portal
         href: howto-data-encryption-portal.md
         displayName: encryption, security
@@ -401,6 +396,8 @@
       href: flexible-server/overview.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: What's new in Flexible Server?
+      href: flexible-server/whats-new.md
   - name: Quickstarts
     expanded: true
     items:
@@ -581,6 +578,8 @@
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
 - name: Migration
   items:
+  - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
+    href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
   - name: Migrate data with mysqldump or phpmyadmin
     href: concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
