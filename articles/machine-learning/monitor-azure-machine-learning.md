@@ -55,7 +55,7 @@ See [Azure Machine Learning monitoring data reference](monitor-resource-referenc
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. When you need to manage multiple Azure Machine Learning workspaces, you could route logs for all workspaces into the same logging destination and query all logs from a single place. 
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Machine Learning are listed in [Azure Machine Learning monitoring data reference](monitor-resource-reference.md#resource-logs).
 
@@ -152,6 +152,17 @@ Following are queries that you can use to help you monitor your Azure Machine Le
     AmlComputeClusterNodeEvent
     | where TimeGenerated > ago(8d) and NodeAllocationTime  > ago(8d)
     | distinct NodeId
+    ```
+
+When you connect multiple Azure Machine Learning workspaces to the same Log Analytics workspace, you can query across all resources. 
+
++ Get number of running nodes across workspaces and clusters in the last day:
+
+    ```Kusto
+    AmlComputeClusterEvent
+    | where TimeGenerated > ago(1d)
+    | summarize avgRunningNodes=avg(TargetNodeCount), maxRunningNodes=max(TargetNodeCount)
+             by Workspace=tostring(split(_ResourceId, "/")[8]), ClusterName, ClusterType, VmSize, VmPriority
     ```
 
 ## Alerts
