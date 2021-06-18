@@ -214,7 +214,6 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 | SUSE Linux 12 Enterprise Server | 15     | 4.12.14-150\*
 |                                 | 12 SP4 | 4.12.* (includes Azure-tuned kernel) |
 |                                 | 12 SP3 | 4.4.* |
-|                                 | 12 SP2 | 4.4.* |
 | Debian                          | 9      | 4.9  | 
 
 ## Next steps
