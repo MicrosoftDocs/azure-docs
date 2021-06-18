@@ -136,7 +136,7 @@ networks:
     driver: bridge
 ```
 
-Now you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
 
 ```yml
 docker-compose up
@@ -176,7 +176,7 @@ networks:
     driver: bridge
 ```
 
-Now you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
 
 ```yml
 docker-compose up
@@ -216,7 +216,7 @@ networks:
     driver: bridge
 ```
 
-Now you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
 
 ```yml
 docker-compose up
@@ -257,7 +257,7 @@ networks:
     driver: bridge
 ```
 
-Now you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
 
 ```yml
 docker-compose up
@@ -270,6 +270,8 @@ Below is a self-contained `docker compose` example to run Form Recognizer Receip
 ```yml
 version: "3"
 services:
+
+Azur
   azure-cognitive-service-receipt:
     container_name: azure-cognitive-service-receipt
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
@@ -297,7 +299,7 @@ networks:
     driver: bridge
 ```
 
-Now you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
 
 ```yml
 docker-compose up
@@ -305,25 +307,20 @@ docker-compose up
 
 ### [Custom](#tab/custom)
 
-### Additional requirements for Custom Form Recognizer containers
+In addition to the [prerequisites](#prerequisites) mentioned above, you will need to do the following to process a custom document:
 
-#### Get the sample label tool
+* Create a **shared folder** ({SHARED_MOUNT_PATH}) to store your input data and an **output folder**  ({OUTPUT_MOUNT_PATH}) to store the logs  written by the Form Recognizer service on your local machine.
 
-* You can get the sample label tool container with the [**docker pull**](https://docs.docker.com/engine/reference/commandline/pull/) command:
+* Gather a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Download the training files to shared folder your created in the above step
 
-```console
-docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
-```
+* Create a .env file in the same folder where you place your **docker-compose** file. The .env file should contain the following environment variables:
 
-* Next, start the container with the [**docker run**](https://docs.docker.com/engine/reference/commandline/run/) command:
+  * SHARED_MOUNT_PATH={SHARED_MOUNT_PATH}
+  * OUTPUT_MOUNT_PATH={OUTPUT_MOUNT_PATH }
 
-```console
-docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
-```
+#### Create your **docker compose** file
 
-* Now, the sample label tool is available to you through a web browser. Go to http://localhost:3000.
-
-Below is a self-contained `docker compose` example to run Form Recognizer Layout, Custom Backend, Custom Frontend and Label tool containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for all containers.
+Below is a self-contained `docker compose` example to run Form Recognizer Layout, Label Tool, Custom Backend, and Custom Frontend containers together. Please fill in {ENDPOINT_URI} and {API_KEY} with values for your Form Recognizer instance. The API_Key must be the same for all containers.
 
 ```yml
 version: '3'
@@ -335,11 +332,17 @@ services:
       - EULA=accept
       - billing={COGNITIVE_SERVICES_ENDPOINT_URI}
       - apikey={COGNITIVE_SERVICE_API_KEY}
+    volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /share
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /logs
    ports:
-         - "5000:5050"
+         - "7000:5000"
 networks:
       - ocrvnet
-
  azure-cognitive-service-frontend:
   image: TODO
   environment:
@@ -364,11 +367,35 @@ networks:
        - billing={ENDPOINT_URI}
        - apikey={API_KEY}
    networks:
-        - ocrvnet 
+        - ocrvnet
 networks:
   ocrvnet:
     driver: bridge
 ```
+
+### Start the Form Labeling tool with Docker
+
+Once the Layout and Custom containers are set up, you can begin training using the OCR Form Labeling tool.
+
+* Start the  Form Labeling Tool container with the [**docker run**](https://docs.docker.com/engine/reference/commandline/run/) command:
+
+    ```console
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
+    ```
+
+* The Form Labeling Tool will be available to you through a web browser by navigating to **http://<span></span>localhost:3000**.
+
+* For the Form Recognizer service URI use **http://<span></span>localhost:5000**
+
+### Create a new connection
+
+* On the left pane of the tool, select the connections tab.
+* Select to create a new project and give it a name and description.
+* For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
+* Navigate back to the home tab and select the “Use custom to train a model with labels and key value pairs option”.
+* Select the train button on the left pane to train the labelled model.
+* Save this connection and use it to label your requests.
+* You can choose to analyze the file of your choice against the trained model.
 
 ---
 
@@ -392,7 +419,11 @@ There are several ways to validate that the container is running:
 
 ## Stop the containers
 
-To stop the containers, select `Ctrl+C`  in the command-line environment where the container is running.
+To stop the containers, use the following command:
+
+```console
+docker-compose down
+```
 
 ## Billing
 
