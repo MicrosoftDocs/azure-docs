@@ -18,6 +18,9 @@ If you're using version 2.1 of the Text Analytics API, this article will help yo
 
 ## [Sentiment analysis](#tab/sentiment-analysis)
 
+> [!TIP]
+> If you need to migrate from the preview version of v3.1, see the [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) how-to article for information on the current version of the API. 
+
 ### Feature changes 
 
 Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. Version 3 instead returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores. 
@@ -38,6 +41,9 @@ See the reference documentation for examples of the JSON response.
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 ## [NER and entity linking](#tab/named-entity-recognition)
+
+> [!TIP]
+> If you need to migrate from the preview version of v3.1, see the [NER and entity linking](how-tos/text-analytics-how-to-entity-linking.md) how-to article for information on the current version of the API. 
 
 ### Feature changes
 
@@ -97,6 +103,9 @@ The following table lists the entity categories returned for NER v2.1.
 
 ## [Language detection](#tab/language-detection)
 
+> [!TIP]
+> If you need to migrate from the preview version of v3.1, see the [language detection](how-tos/text-analytics-how-to-language-detection.md) how-to article for information on the current version of the API. 
+
 ### Feature changes 
 
 The language detection feature output has changed in v3. The JSON response will contain `ConfidenceScore` instead of `score`. V3 also only returns one language in a  `detectedLanguage` attribute for each document.
@@ -117,6 +126,9 @@ See the reference documentation for examples of the JSON response.
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 ## [Key phrase extraction](#tab/key-phrase-extraction)
+
+> [!TIP]
+> If you need to migrate from the preview version of v3.1, see the [key phrase extraction](how-tos/text-analytics-how-to-key-phrase-extraction.md) how-to article for information on the current version of the API. 
 
 ### Feature changes 
 
