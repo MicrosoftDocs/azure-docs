@@ -28,7 +28,7 @@ Under the hood, the tool is using our V3.0 Batch API or SDK (a choice made by th
 The [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/batch/batch-ingestion-client/Setup/guide.md) describes how to setup and use the tool.
 
 > [!IMPORTANT]
-> Pricing varies depending on the mode of operation (batch vs real time) as well as the Azure Function SKU selected. By default the tool will create a Premium Azure Function SKU to handle large volume. Please visit the [Pricing](https://azure.microsoft.com/en-gb/pricing/details/functions/) page for additional information.
+> Pricing varies depending on the mode of operation (batch vs real time) as well as the Azure Function SKU selected. By default the tool will create a Premium Azure Function SKU to handle large volume. Visit the [Pricing](https://azure.microsoft.com/en-gb/pricing/details/functions/) page for more information.
 
 Both, the Microsoft Speech SDK and the REST API, can be used to obtain transcripts. The decision does impact overall costs as it is explained in the guide. 
 
