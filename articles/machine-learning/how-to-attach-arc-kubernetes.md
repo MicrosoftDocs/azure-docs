@@ -21,14 +21,14 @@ Azure Arc enabled machine learning lets you to configure and use an Azure Arc en
 
 Azure Arc enabled machine learning supports the following training scenarios:
 
-* [Train models with 2.0 CLI](how-to-train-cli.md?view=azure-devops)
+* [Train models with 2.0 CLI](how-to-train-cli.md)
 * Train models with Azure Machine Learning Python SDK
-  * [Configure and submit training run](how-to-set-up-training-targets.md?view=azure-devops)
-  * [Tune hyperparameters](how-to-tune-hyperparameters.md?view=azure-devops)
-  * [Scikit-learn](how-to-train-scikit-learn.md?view=azure-devops)
-  * [TensorFlow](how-to-train-tensorflow.md?view=azure-devops)
-  * [PyTorch](how-to-train-pytorch.md?view=azure-devops)
-* [Build and use ML pipelines including designer pipeline support](how-to-create-machine-learning-pipelines.md?view=azure-devops)
+  * [Configure and submit training run](how-to-set-up-training-targets.md)
+  * [Tune hyperparameters](how-to-tune-hyperparameters.md)
+  * [Scikit-learn](how-to-train-scikit-learn.md)
+  * [TensorFlow](how-to-train-tensorflow.md)
+  * [PyTorch](how-to-train-pytorch.md)
+* [Build and use ML pipelines including designer pipeline support](how-to-create-machine-learning-pipelines.md)
 * [Train model on-premise with outbound proxy server](/azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)
 * Train model on-premise with NFS datastore
 
@@ -108,19 +108,19 @@ Use the `k8s-extension` Azure CLI extension to deploy the Azure Machine Learning
 
 1. Go to AML studio portal, Compute > Attached compute, click "+New" button, and select "Kubernetes (Preview)"
 
-   ![Create a generic compute target](./media/how-to-attach-arc-kubernetes/attach-1.png)
+   ![Attach Kubernetes cluster](./media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png)
 
 1. Enter a compute name, and select your Azure Arc-enabled Kubernetes cluster from Azure Arc-enabled Kubernetes cluster dropdown list.
 
-   ![Create a generic compute target](./media/how-to-attach-arc-kubernetes/attach-2.png)
+   ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster.png)
 
 1. (Optional) Browse and upload an attach config file. The step is optional and the simple attach scenario will skip this.
 
-   ![Create a generic compute target](./media/how-to-attach-arc-kubernetes/attach-3.png)
+   ![Upload configuration file](./media/how-to-attach-arc-kubernetes/upload-configuration-file.png)
 
 1. Click 'Attach' button. You will see the 'provisioning state' as 'Creating'. If it succeeds, you will see a 'Succeeded' state or else 'Failed' state.
 
-   ![Create a generic compute target](./media/how-to-attach-arc-kubernetes/attach-4.png)
+   ![Provision resources](./media/how-to-attach-arc-kubernetes/provision-resources.png)
 
 ### Advanced attach scenario
 
