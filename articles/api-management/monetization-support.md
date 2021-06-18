@@ -12,7 +12,7 @@ ms.service: api-management
 
 ## Azure API Management Service
 
-With [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/) service platform, you can:
+With [Azure API Management](./azure/api-management.md) service platform, you can:
 * Publish APIs, to which your consumers subscribe.
 * De-risk implementation. 
 * Accelerate project timescales.
@@ -22,14 +22,14 @@ This document highlights the API management features that will enable key elemen
 
 ## Prerequisites
 
-* Deploy and initialize the sample project via instructions in the [README](../README.md) and the [deployment and initialization guide](Initialisation.md).
+* Deploy and initialize the sample project via instructions in ..
 * Review API Management monetization via the [overview](./monetization-overview.md) article.
 
 ## API Discovery
 
 Launch your API and onboard API consumers using the API Management developer portal. Enable API consumers to explore and use your APIs seamlessly by emphasizing quality developer portal content. Ideally, you and real API developers will test that the information provided is accessible, accurate, complete, and intuitive.
 
-For details about how to add content and control the branding of the developer portal, see the [Overview of the developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal) article.
+For details about how to add content and control the branding of the developer portal, see the [Overview of the developer portal](./azure/api-management/api-management-howto-developer-portal.md) article.
 
 ## API Packaging
 
@@ -37,9 +37,9 @@ API Management manages how your APIs are packaged and presented using the concep
 
 ### Products
 
-APIs are published [via products](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-add-products). With a product, you define:
+APIs are published [via products](./azure/api-management/api-management-howto-add-products.md). With a product, you define:
 * Which APIs a subscriber can access.
-* Specific throttling [policies](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-policies), like limiting a specific subscription to a quota of calls per month.
+* Specific throttling [policies](./azure/api-management/api-management-howto-policies.md), like limiting a specific subscription to a quota of calls per month.
 
 When an API consumer subscribes to a product, they receive an API key to make calls. Initially, the subscription is set to a `submitted` state. You can activate the subscription to allow subscribers to use the APIs.
 
@@ -58,7 +58,7 @@ Apply API Management policies to control the quality of service for each product
 | **Quota** | Defines the total number of calls the user can make to the API over a specified time period. For example, "100 calls per month". Once the user reaches the quota, the calls to the API will fail and the caller will receive a `403 Forbidden` response status code. |
 | **Rate limit** | Defines the number of calls over a sliding time window that can be made to the API. For example, "200 calls per minute". Designed to prevent spikes in API usage by the API consumer beyond the paid quality of service with the chosen product. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code. |
 
-For more details about policies, refer to the [Policies in Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-policies) documentation.
+For more details about policies, refer to the [Policies in Azure API Management](./azure/api-management/api-management-howto-policies.md) documentation.
 
 ## API Consumption
 
@@ -68,7 +68,7 @@ Grant access for API consumers to your APIs via products using API subscriptions
 1. Integrate the subscription process with the payment provider using API Management delegation. 
 1. Once successfully providing payment details, users gain access to the API with a generated, unique security key for the subscription.
 
-For more information about subscriptions, please refer to the [Subscriptions in Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-subscriptions) documentation.
+For more information about subscriptions, please refer to the [Subscriptions in Azure API Management](./azure/api-management/api-management-subscriptions.md) documentation.
 
 ## API usage monitoring
 
@@ -84,7 +84,7 @@ Gain insights about your API usage and performance using API Management's built-
 
 Review the analytics reports regularly to understand how your monetization strategy is being adopted by API consumers.
 
-For more information see [Get API analytics in Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/howto-use-analytics).
+For more information see [Get API analytics in Azure API Management](./azure/api-management/howto-use-analytics.md).
 
 ## Security
 
@@ -96,7 +96,7 @@ Create a seamless monetization experience users through both front-end and back-
 
 ### Delegation
 
-The example projects use [API Management delegation](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-setup-delegation) to "hand off" authentication to the payment provider. API Management delegation:
+The example projects use [API Management delegation](./azure/api-management/api-management-howto-setup-delegation.md) to "hand off" authentication to the payment provider. API Management delegation:
 * Creates a seamless integrated experience for both the sign up and the subscription stages of the process.
 * Enables the user to adopt a single identity across API Management and the chosen payment provider.
 
@@ -109,7 +109,7 @@ The sample projects use the API to programmatically:
 - Retrieve API Management products and policies to enable synchronized configuration of similar concepts in payment providers, such as Stripe.
 - Poll API Management regularly to retrieve API usage metrics for each subscription and drive the billing process.
 
-For more information, see [the REST API Azure API Management](https://docs.microsoft.com/en-us/rest/api/apimanagement/) overview.
+For more information, see [the REST API Azure API Management](./rest/api/apimanagement.md) overview.
 
 ## DevOps
 
