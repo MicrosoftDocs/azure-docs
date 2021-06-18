@@ -43,9 +43,7 @@ Every device that connects to an IoT Hub has a device ID that's used to track cl
 
 *note: find corresponding info for iot hub? or take this out and use the info below? It feels like it's duplicate info.*
 
-If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service:
-
-[use device provisioning service] link to that here --> 
+If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service](../iot-dps).
 
 If you want to create your devices and validate them one by one, you can use one of the following methods:
 
