@@ -27,9 +27,8 @@ NFS file shares are often used in the following scenarios:
 - Hard link support.
 - Symbolic link support.
 
-- NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, lock upgrades and downgrades, Kerberos authentication, and encryption are not supported.
-- If the majority of your requests are metadata-centric, then the latency will be worse when compared to read/write/update operations.
-- It is best to rely on the permissions assigned to primary group. Sometimes, permissions allocated to the non-primary group of the user may result in access denied due to a known bug.
+- NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, and encryption-in-transit are not supported.
+
 
 ## Security and networking
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
@@ -53,22 +52,28 @@ The status of items that appear in this tables will change over time as support 
 
 | Storage feature | Supported for NFS shares |
 |-----------------|---------|
-| [File management plane REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ |
+| [File management plane REST API](/rest/api/storagerp/file-shares)	| ✔️ |
 | Encryption at rest|	✔️ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ ||
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
-| [Restricted public endpoints](storage-files-networking-overview.md#storage-account-firewall-settings)|  ✔️  |
+| [Restricted public endpoints*](storage-files-networking-overview.md#storage-account-firewall-settings)|  ✔️  |
+| Premium tier | |
+| POSIX-permissions| |
+| Root squash| |
 | [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
 | [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
 | [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)| ⛔ |
-| File data plane REST API| ⛔ |
+| [File data plane REST API](storageservices/file-service-rest-api)| ⛔ |
 | Encryption in transit| ⛔ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md)| ⛔ |
 | Standard tier| ⛔ |
 | Azure Storage Explorer| ⛔ |
+| Grant access from an internet IP range| |
+
+
 
 ## Limitations
 

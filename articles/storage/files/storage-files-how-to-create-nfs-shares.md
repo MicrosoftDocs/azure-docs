@@ -23,10 +23,15 @@ Azure file shares are fully managed file shares that live in the cloud. This art
 ## Limitations
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
 
+
 ### Regional availability
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Prerequisites
+
+
+- NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, disable ID mapping.
+
 - NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
     - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
     - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md).
