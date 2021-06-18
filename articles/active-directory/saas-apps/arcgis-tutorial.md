@@ -125,7 +125,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. In the left menu, click **Security** and select **New SAML login** in the Logins tab.
 
-    ![Security](./media/arcgis-tutorial/security.png "Security")
+    ![screenshot for Security](./media/arcgis-tutorial/security.png)
 
 4. In the **Set SAML login** window, choose the configuration as **One identity provider** and click **Next**.
 
