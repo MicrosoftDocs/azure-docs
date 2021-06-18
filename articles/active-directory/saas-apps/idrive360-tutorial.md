@@ -107,17 +107,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Log in to your IDrive360 company site as an administrator.
 
-2. Go to **Settings** > **Single Sign-on(SSO)** and  perform the following steps.
+2. Go to **Settings** > **Single Sign-on(SSO)** and perform the following steps.
 
     ![Single Sign-on](./media/idrive360-tutorial/settings.png "Single Sign-on")
 
-    a. In the **SSO Name** textbox, type **azure**.
+    a. In the **SSO Name** textbox, type a valid name.
     
     b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
     c. In the **SSO Endpoint** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    d. Open the downloaded **Certificate (PEM)** from the Azure portal into Notepad and paste the content to **Upload Certificate** in the **X.509 Certificate**.
+    d. Click on **Upload Certificate** to upload the **Certificate (PEM)**, which you have downloaded from Azure portal.
 
     e. Click **Configure Single Sign-On**.
 
